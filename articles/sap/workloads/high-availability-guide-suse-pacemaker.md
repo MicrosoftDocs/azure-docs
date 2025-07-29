@@ -10,6 +10,7 @@ ms.topic: article
 ms.custom: devx-track-azurepowershell, linux-related-content
 ms.date: 05/21/2025
 ms.author: radeltch
+# Customer intent: "As a system administrator, I want to set up Pacemaker with fencing on SUSE Linux Enterprise Server in Azure, so that I can ensure high availability and reliability for my applications running in the cloud."
 ---
 
 # Set up Pacemaker on SUSE Linux Enterprise Server in Azure

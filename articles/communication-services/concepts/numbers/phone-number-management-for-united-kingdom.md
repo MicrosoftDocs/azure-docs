@@ -23,7 +23,7 @@ Use the below tables to find all the relevant information on number availability
 | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
 | Toll-Free   | -                    | -                    | General Availability | General Availability\* |
 | Local       | -                    | -                    | General Availability | General Availability\* |
-| Mobile                    | Public Preview       | Public Preview       | -                    | -                      |
+| Mobile                    | General Availability\**       | General Availability\**       | -                    | -                      |
 |Alphanumeric Sender ID\**|General Availability  |-|-|-|
 | Short code       |General Availability                    |General Availability                    | - | - |
 

@@ -5,8 +5,9 @@ ms.service: azure-backup
 ms.topic: how-to
 ms.custom: linux-related-content, engagement-fy24
 ms.date: 04/15/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a system administrator managing Azure Linux VMs, I want to configure application-consistent backups for Azure VM with Linux using custom scripts, so that I can ensure my applications remain functional and data integrity is maintained after restoration."
 ---
 
 # Configure application-consistent backup for Azure Linux VMs using Azure Backup

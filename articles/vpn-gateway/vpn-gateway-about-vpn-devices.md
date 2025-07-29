@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 03/31/2025
 ms.author: cherylmc
 
+# Customer intent: "As a network administrator, I want to configure validated VPN devices for Site-to-Site connections, so that I can establish secure connections between on-premises networks and Azure virtual networks."
 ---
 # About VPN devices and IPsec/IKE parameters for Site-to-Site VPN Gateway connections
 

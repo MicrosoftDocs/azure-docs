@@ -7,7 +7,7 @@ author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.service: azure-app-configuration
 ms.devlang: javascript
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 06/06/2025
 ---
 
@@ -51,6 +51,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
 
     let appConfig;
     let featureManager;
+    
     async function initializeConfig() {
         appConfig = await load(appConfigEndpoint, new DefaultAzureCredential(), {
             featureFlagOptions: {
@@ -61,8 +62,8 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
             }
         });
 
-        const featureFlagProvider = new ConfigurationMapFeatureFlagProvider(appConfig);
-        featureManager = new FeatureManager(featureFlagProvider);
+        featureManager = new FeatureManager(
+            new ConfigurationMapFeatureFlagProvider(appConfig));
     }
 
     function startServer() {

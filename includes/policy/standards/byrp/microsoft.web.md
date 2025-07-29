@@ -1,7 +1,7 @@
 ---
 ms.service: azure-policy
 ms.topic: include
-ms.date: 06/23/2025
+ms.date: 07/23/2025
 ms.author: jasongroce
 author: jasongroce
 ms.custom: generated
@@ -290,13 +290,13 @@ For more information about this compliance standard, see
 |System And Information Integrity |SI-2 |Flaw Remediation |[App Service apps should use latest 'HTTP Version'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8c122334-9d20-4eb8-89ea-ac9a705b74ae) |[4.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/WebApp_Audit_HTTP_Latest.json) |
 |System And Information Integrity |SI-2 |Flaw Remediation |[Function apps should use latest 'HTTP Version'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe2c1c086-2d84-4019-bff3-c44ccd95113c) |[4.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/FunctionApp_Audit_HTTP_Latest.json) |
 
-## HIPAA HITRUST 9.2
+## HIPAA HITRUST
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - HIPAA HITRUST 9.2](/azure/governance/policy/samples/hipaa-hitrust-9-2).
+[Azure Policy Regulatory Compliance - HIPAA HITRUST](/azure/governance/policy/samples/hipaa-hitrust).
 For more information about this compliance standard, see
-[HIPAA HITRUST 9.2](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html).
+[HIPAA HITRUST](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html).
 
 |Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
@@ -744,9 +744,9 @@ For more information about this compliance standard, see
 
 |Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
-|Protective Measures | mp.s.3 |Protection of services |[App Service app slots should be injected into a virtual network](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F24b7a1c6-44fe-40cc-a2e6-242d2ef70e98) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/App_Slot_VNetIntegrationEnabled_Audit.json) |
+|Protective Measures | mp.s.3 |Protection of services |[App Service app slots should be injected into a virtual network](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F24b7a1c6-44fe-40cc-a2e6-242d2ef70e98) |[1.2.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/App_Slot_VNetIntegrationEnabled_Audit.json) |
 |Protective Measures | mp.s.3 |Protection of services |[App Service app slots should use latest 'HTTP Version'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4dcfb8b5-05cd-4090-a931-2ec29057e1fc) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/WebApp_Slot_Audit_HTTP_Latest.json) |
-|Protective Measures | mp.s.3 |Protection of services |[App Service apps should be injected into a virtual network](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72d04c29-f87d-4575-9731-419ff16a2757) |[3.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/App_VNetIntegrationEnabled_Audit.json) |
+|Protective Measures | mp.s.3 |Protection of services |[App Service apps should be injected into a virtual network](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72d04c29-f87d-4575-9731-419ff16a2757) |[3.2.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/App_VNetIntegrationEnabled_Audit.json) |
 |Protective Measures | mp.s.3 |Protection of services |[App Service apps should have authentication enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F95bccee9-a7f8-4bec-9ee9-62c3473701fc) |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/Authentication_WebApp_Audit.json) |
 |Protective Measures | mp.s.3 |Protection of services |[App Service apps should use latest 'HTTP Version'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8c122334-9d20-4eb8-89ea-ac9a705b74ae) |[4.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/WebApp_Audit_HTTP_Latest.json) |
 |Protective Measures | mp.s.3 |Protection of services |[Function app slots should use latest 'HTTP Version'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffa98f1b1-1f56-4179-9faf-93ad82f3458f) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/FunctionApp_Slot_Audit_HTTP_Latest.json) |

@@ -65,6 +65,8 @@
       href: how-to-leverage-virtual-tpms-in-azure-confidential-vms.md
     - name: Create a custom image for a confidential VM
       href: how-to-create-custom-image-confidential-vm.md
+    - name: How to migrate nested confidential VMs from one region to another
+      href: migrate-nested-confidential-vms.md
     - name: Quickly create confidential VMs
       items:
       - name: Create VM through the Azure portal

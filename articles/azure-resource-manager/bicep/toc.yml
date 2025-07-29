@@ -248,8 +248,6 @@ items:
       href: ../../api-management/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Notification Hubs
       href: ../../notification-hubs/create-notification-hub-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
-    - name: Redis Web App
-      href: ../../redis/web-app-bicep-with-redis-cache-provision.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: SignalR Service
       href: ../../azure-signalr/signalr-quickstart-azure-signalr-service-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
 - name: Concepts
@@ -274,13 +272,13 @@ items:
   - name: Modules (module)
     displayName: scopes,consume,registry,module registry,private module registry,public module registry,avm,azure verified modules
     href: modules.md
-  - name: Using (using)
-    displayName: avm,azure verified modules
+  - name: Using (using/using none)
+    displayName: avm,azure verified modules,using none
     href: bicep-using.md
   - name: Import (import)
     href: bicep-import.md
   - name: User-defined data types (type)
-    displayName: custom
+    displayName: custom,resourceInput,resourceOutput,resource-derived types
     href: user-defined-data-types.md
   - name: User-defined functions (func)
     displayName: custom
@@ -696,6 +694,8 @@ items:
       href: diagnostics/bcp135.md
     - name: BCP139
       href: diagnostics/bcp139.md
+    - name: BCP144
+      href: diagnostics/bcp144.md
     - name: BCP147
       href: diagnostics/bcp147.md
     - name: BCP152

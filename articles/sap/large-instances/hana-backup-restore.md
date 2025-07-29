@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 7/02/2021
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
+# Customer intent: As a database administrator, I want to implement backup and restore procedures for SAP HANA on Azure (Large Instances) so that I can ensure data protection and recover against potential disruptions effectively.
 ---
 # Backup and restore of SAP HANA on HANA Large Instances
 

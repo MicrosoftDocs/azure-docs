@@ -19,7 +19,7 @@ the link in the **Version** column to view the source on the
 
 ## Azure Managed Applications
 
-[!INCLUDE [azure-policy-reference-cat-managedapps](../../../includes/policy/reference/bycat/policies-managed-application.md)]
+[!INCLUDE [azure-policy-reference-cat-managedapps](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policies-managed-application.md)]
 
 ## Next steps
 

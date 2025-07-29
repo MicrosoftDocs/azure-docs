@@ -7,6 +7,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.date: 07/29/2024
 ms.topic: overview
+# Customer intent: "As a systems administrator, I want to query update logs from Azure Update Manager, so that I can monitor the status and details of update installations across my managed machines."
 ---
 
 # Sample Azure Resource Graph queries to access Azure Update Manager operations data

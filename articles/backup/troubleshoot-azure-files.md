@@ -4,9 +4,10 @@ description: This article is troubleshooting information about issues occurring 
 ms.service: azure-backup
 ms.date: 04/30/2025
 ms.topic: troubleshooting
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: "As an IT administrator managing Azure Files, I want to troubleshoot backup and restore issues, so that I can ensure reliable data protection and recovery for our file shares."
 ---
 
 # Troubleshoot problems while backing up Azure Files

@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 12/06/2023
 ms.custom: engagement-fy23
+# Customer intent: "As a network administrator, I want to extend my on-premises networks to Azure VMware Solution, so that I can ensure seamless connectivity and integration between my existing infrastructure and the cloud environment."
 ---
 
 # Create an HCX network extension

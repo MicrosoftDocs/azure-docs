@@ -30,14 +30,14 @@ You can use these development environments to code functions locally in your pre
 |------------|-----------|
 | [Visual Studio](functions-develop-vs.md) | The Azure Functions tools are included in the **Azure development** workload of [Visual Studio](https://www.visualstudio.com/vs/). Lets you compile and deploy your C# function code to Azure as a .NET class library. Includes the Core Tools for local testing. To learn more, see [Create your first C# function in Azure using Visual Studio](functions-create-your-first-function-visual-studio.md)|
 |[Visual Studio Code](functions-develop-vs-code.md)| The [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adds Functions support to Visual Studio Code. Requires the Core Tools. Supports development on Linux, macOS, and Windows. To learn more, see [Create your first function using Visual Studio Code](./create-first-function-vs-code-csharp.md). |
-| [Command prompt or terminal](functions-run-local.md) | [Azure Functions Core Tools] provides the core runtime and templates for creating functions, which enable local development. Supports development on Linux, macOS, and Windows. To learn more, see [Create a C# function in Azure from the command line](create-first-function-cli-csharp.md).|
+| [Command prompt or terminal](functions-run-local.md) | [Azure Functions Core Tools] provides the core runtime and templates for creating functions, which enable local development. Supports development on Linux, macOS, and Windows. To learn more, see [Create a C# function in Azure from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-csharp).|
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
 |Environment |Description|
 |------------|-----------|
-| [Maven](./create-first-function-cli-java.md) | Maven archetype uses Core Tools to enable development of Java functions. Supports development on Linux, macOS, and Windows. To learn more, see [Create your first function with Java and Maven](./create-first-function-cli-java.md). |
+| [Maven](./how-to-create-function-azure-cli.md?pivots=programming-language-java) | Maven archetype uses Core Tools to enable development of Java functions. Supports development on Linux, macOS, and Windows. To learn more, see [Create your first function with Java and Maven](./how-to-create-function-azure-cli.md?pivots=programming-language-java). |
 |[Visual Studio Code](functions-develop-vs-code.md)| The [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adds Functions support to Visual Studio Code. Requires the Core Tools. Supports development on Linux, macOS, and Windows. To learn more, see [Create your first function using Visual Studio Code](./create-first-function-vs-code-java.md). |
 | [IntelliJ IDEA](functions-create-maven-intellij.md) | Maven archetype and Core Tools lets you develop your functions using IntelliJ. For more information, see [Create your first Java function in Azure using IntelliJ](functions-create-maven-intellij.md). |
 | [Eclipse](functions-create-maven-eclipse.md) | Maven archetype and Core Tools lets you develop your functions using Eclipse. To learn more, see [Create your first Java function in Azure using Ecplise](functions-create-maven-eclipse.md). |
@@ -48,7 +48,7 @@ You can use these development environments to code functions locally in your pre
 |Environment |Description|
 |------------|-----------|
 |[Visual Studio Code](functions-develop-vs-code.md)| The [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adds Functions support to Visual Studio Code. Requires the Core Tools. Supports development on Linux, macOS, and Windows. To learn more, see [Create your first function using Visual Studio Code](./create-first-function-vs-code-node.md). |
-| [Command prompt or terminal](functions-run-local.md) | [Azure Functions Core Tools] provides the core runtime and templates for creating functions, which enable local development. Supports development on Linux, macOS, and Windows. To learn more, see [Create a Node.js function in Azure from the command line](./create-first-function-cli-node.md).|
+| [Command prompt or terminal](functions-run-local.md) | [Azure Functions Core Tools] provides the core runtime and templates for creating functions, which enable local development. Supports development on Linux, macOS, and Windows. To learn more, see [Create a Node.js function in Azure from the command line](./how-to-create-function-azure-cli.md?pivots=programming-language-javascript).|
 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
@@ -56,7 +56,7 @@ You can use these development environments to code functions locally in your pre
 |Environment |Description|
 |------------|-----------|
 |[Visual Studio Code](functions-develop-vs-code.md)| The [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adds Functions support to Visual Studio Code. Requires the Core Tools. Supports development on Linux, macOS, and Windows. To learn more, see [Create your first function using Visual Studio Code](./create-first-function-vs-code-powershell.md). |
-| [Command prompt or terminal](functions-run-local.md) | [Azure Functions Core Tools] provides the core runtime and templates for creating functions, which enable local development. Supports development on Linux, macOS, and Windows. To learn more, see [Create a PowerShell function in Azure from the command line](./create-first-function-cli-powershell.md).|
+| [Command prompt or terminal](functions-run-local.md) | [Azure Functions Core Tools] provides the core runtime and templates for creating functions, which enable local development. Supports development on Linux, macOS, and Windows. To learn more, see [Create a PowerShell function in Azure from the command line](./how-to-create-function-azure-cli.md?pivots=programming-language-powershell).|
 
 ::: zone-end
 ::: zone pivot="programming-language-python"
@@ -64,7 +64,7 @@ You can use these development environments to code functions locally in your pre
 |Environment |Description|
 |------------|-----------|
 |[Visual Studio Code](functions-develop-vs-code.md)| The [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adds Functions support to Visual Studio Code. Requires the Core Tools. Supports development on Linux, macOS, and Windows. To learn more, see [Create your first function using Visual Studio Code](./create-first-function-vs-code-python.md). |
-| [Command prompt or terminal](functions-run-local.md) | [Azure Functions Core Tools] provides the core runtime and templates for creating functions, which enable local development. Supports development on Linux, macOS, and Windows. To learn more, see [Create a Python function in Azure from the command line](./create-first-function-cli-python.md).|
+| [Command prompt or terminal](functions-run-local.md) | [Azure Functions Core Tools] provides the core runtime and templates for creating functions, which enable local development. Supports development on Linux, macOS, and Windows. To learn more, see [Create a Python function in Azure from the command line](./how-to-create-function-azure-cli.md?pivots=programming-language-python).|
 
 ::: zone-end
 

@@ -61,8 +61,8 @@
 - name: Azure Cache for Redis 
   expanded: true
   items:
-  - name: What's new in Azure Cache for Redis?
-    href: cache-whats-new.md
+  - name: About Azure Cache for Redis
+    href: cache-overview.md
 
   - name: Deploy and configure
     items:
@@ -238,12 +238,6 @@
 
 - name: Samples
   items:
-  - name: Use Azure Functions triggers and bindings
-    items:
-    - name: Create a simple Function app for Redis triggers
-      href: /azure/redis/tutorial-functions-getting-started
-    - name: Using Azure Functions to create a write-behind cache
-      href: /azure/redis/tutorial-write-behind
   - name: Use Azure Kubernetes Service with a cache
     items:
     - name: Connect an AKS application to a cache
@@ -264,10 +258,7 @@
     items:
     - name: Use ASP.NET core output cache
       href: /azure/redis/aspnet-core-output-cache-provider
-    - name: Use session state provider
-      href: /azure/redis/aspnet-session-state-provider
-    - name: Use output cache provider
-      href: /azure/redis/aspnet-output-cache-provider
+
   - name: Java Spring
     items:
     - name: Use Spring Boot Initializer
@@ -280,14 +271,6 @@
       href: cache-event-grid-quickstart-cli.md
     - name: Route events with PowerShell 
       href: cache-event-grid-quickstart-powershell.md
-  - name: Create leaderboards
-    href: /azure/redis/web-app-cache-aside-leaderboard
-  - name: Create Web App with Redis cache - Bicep
-    displayName: ARM, Resource Manager, Template
-    href: /azure/redis/web-app-bicep-with-redis-cache-provision
-  - name: Create Web App with Redis cache - ARM template
-    displayName: Resource Manager
-    href: /azure/redis/web-app-arm-with-redis-cache-provision
 
 - name: Reference
   items:
@@ -319,7 +302,7 @@
   - name: Videos
     href: https://www.youtube.com/results?search_query=azure+cache+redis
   - name: Microsoft Q&A question page
-    href: https://learn.microsoft.com/answers/tags/170/azure-cache-redis
+    href: /answers/tags/170/azure-cache-redis
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cache/
 

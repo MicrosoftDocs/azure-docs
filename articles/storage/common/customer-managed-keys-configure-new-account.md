@@ -12,6 +12,7 @@ ms.author: normesta
 ms.reviewer: ozgun
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+# Customer intent: As a cloud administrator, I want to configure customer-managed keys for a new storage account, so that I can maintain control over data encryption and manage key versions using Azure Key Vault.
 ---
 
 # Configure customer-managed keys in the same tenant for a new storage account

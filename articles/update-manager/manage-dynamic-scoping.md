@@ -6,6 +6,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.date: 01/09/2025
 ms.topic: how-to
+# Customer intent: As a system administrator, I want to manage dynamic scopes in Azure Update Manager, so that I can efficiently control patch orchestration settings across various virtual machines and maintain compliance with update schedules.
 ---
 
 # Manage a Dynamic scope

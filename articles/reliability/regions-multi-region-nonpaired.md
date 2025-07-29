@@ -18,9 +18,7 @@ While some Azure services support geo-redundancy and geo-replication by using pa
 
 ## Azure API Management
 
-Azure API Management supports [multi-region deployments](/azure/api-management/api-management-howto-deploy-multi-region), which add more instances of the gateway component into one or more regions. There's no dependency on region pairings for this feature.
-
-You can also use the [backup and restore feature](/azure/api-management/api-management-howto-disaster-recovery-backup-restore) to export the configuration of an API Management service instance in one region and import it into another region. As long as the storage account used for the backup is accessible from the target region, there's no paired region dependency. An operational guidance is provided in [this article](/azure/api-management/api-management-howto-migrate).
+To learn about how to create multi-region solutions using Azure API Management, see [Reliability in Azure API Management](./reliability-api-management.md).
 
 ## Azure App Service
 
@@ -32,7 +30,7 @@ Azure Cache for Redis provide two distinct cross-region replication options that
 
 ## Azure Container Registry
 
-Geo-replication enables an Azure container registry to function as a single registry, serving multiple regions with multi-primary regional registries. There's no restrictions dictated by region pairs for this feature. For more information, see [Geo-replication in Azure Container Registry](/azure/container-registry/container-registry-geo-replication).
+To learn about how to create multi-region solutions using Azure Container Registry, see [Reliability in Azure Container Registry](./reliability-container-registry.md).
 
 ## Azure Cosmos DB
 
@@ -79,6 +77,10 @@ To learn about how to create multi-region solutions using Azure Kubernetes Servi
 Log Analytics workspaces in Azure Monitor Logs don't use paired regions. To ensure business continuity and protect against data loss, enable cross-region workspace replication.
 For more information, see [Enhance resilience by replicating your Log Analytics workspace across regions](/azure/azure-monitor/logs/workspace-replication).
 
+## Azure Queue Storage
+
+To learn about how to create multi-region solutions using Azure Queue Storage, see [Reliability in Azure Queue Storage](./reliability-storage-queue.md).
+
 ## Azure Service Bus 
 
 Azure Service Bus can provide regional resiliency, without a dependency on region pairs, by using either [Geo Replication](/azure/service-bus-messaging/service-bus-geo-replication) or [Geo-Disaster Recovery](/azure/service-bus-messaging/service-bus-geo-replication) features.
@@ -114,6 +116,8 @@ To achieve geo-replication in nonpaired regions:
 
 - **For Azure Files:** To learn about how to create multi-region solutions using Azure Files, see [Reliability in Azure Files](./reliability-storage-files.md).
 
+- **For Azure Queue Storage:** To learn about how to create multi-region solutions using Azure Queue Storage, see [Reliability in Azure Queue Storage](./reliability-storage-queue.md).
+
 ## Azure Virtual Desktop
 
 For geo-replication in nonpaired regions for Azure Virtual Desktop, you need to consider session host virtual machines and storage for user profiles, applications, and data. Microsoft manages the Azure Virtual Desktop control plane, which is globally distributed and highly available.
@@ -122,7 +126,7 @@ For geo-replication in nonpaired regions for Azure Virtual Desktop, you need to 
 
 - For storage, see [Azure Storage](#azure-storage).
 
-For more information, see [Multiregion Business Continuity and Disaster Recovery (BCDR) for Azure Virtual Desktop](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr#active-active-vs-active-passive) and [Azure Virtual Desktop service architecture and resilience](../virtual-desktop/service-architecture-resilience.md).
+For more information, see [Multiregion Business Continuity and Disaster Recovery (BCDR) for Azure Virtual Desktop](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr#active-active-vs-active-passive) and [Azure Virtual Desktop service architecture and resilience](/azure/virtual-desktop/service-architecture-resilience).
 
 ## Azure Virtual Machines
 

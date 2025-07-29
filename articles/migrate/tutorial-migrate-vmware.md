@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 05/12/2025
 ms.custom: vmware-scenario-422, mvc, engagement-fy23
+# Customer intent: As an IT administrator migrating on-premises VMware VMs, I want to perform an agentless migration to Azure, so that I can seamlessly transition my workloads without the overhead of installing migration agents.
 ---
 
 # Migrate VMware VMs to Azure (agentless)

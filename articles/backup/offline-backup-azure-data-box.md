@@ -3,10 +3,11 @@ title: Offline backup by using Azure Data Box
 description: Learn how you can use Azure Data Box to seed large initial backup data offline from the MARS Agent to a Recovery Services vault. 
 ms.topic: how-to
 ms.date: 04/18/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.service: azure-backup
 ms.custom: engagement-fy24
+# Customer intent: As a backup administrator, I want to use Azure Data Box for offline data seeding with the MARS Agent, so that I can efficiently transfer large initial backup data to the Recovery Services vault without consuming network bandwidth.
 ---
 
 # Azure Backup offline backup by using Azure Data Box

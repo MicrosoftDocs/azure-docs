@@ -1,7 +1,7 @@
 ---
 ms.service: azure-policy
 ms.topic: include
-ms.date: 06/23/2025
+ms.date: 07/23/2025
 ms.author: jasongroce
 author: jasongroce
 ms.custom: generated
@@ -133,13 +133,13 @@ For more information about this compliance standard, see
 |System And Communications Protection |SC-28 (1) |Cryptographic Protection |[Temp disks and cache for agent node pools in Azure Kubernetes Service clusters should be encrypted at host](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F41425d9f-d1a5-499a-9932-f8ed8453932c) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_EncryptionAtHost_Deny.json) |
 |System And Information Integrity |SI-2 |Flaw Remediation |[Kubernetes Services should be upgraded to a non-vulnerable Kubernetes version](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb893a29-21bb-418c-a157-e99480ec364c) |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UpgradeVersion_KubernetesService_Audit.json) |
 
-## HIPAA HITRUST 9.2
+## HIPAA HITRUST
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - HIPAA HITRUST 9.2](/azure/governance/policy/samples/hipaa-hitrust-9-2).
+[Azure Policy Regulatory Compliance - HIPAA HITRUST](/azure/governance/policy/samples/hipaa-hitrust).
 For more information about this compliance standard, see
-[HIPAA HITRUST 9.2](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html).
+[HIPAA HITRUST](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html).
 
 |Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|

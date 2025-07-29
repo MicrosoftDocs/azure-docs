@@ -4,8 +4,9 @@ description: In this article, you'll learn common tasks for managing and monitor
 ms.topic: how-to
 ms.date: 06/05/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a database administrator managing SAP HANA databases on Azure VMs, I want to monitor and manage backup operations, so that I can ensure data protection and compliance with backup policies."
 ---
 
 # Manage and monitor backed up SAP HANA databases using Azure portal

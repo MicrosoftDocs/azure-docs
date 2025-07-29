@@ -1,8 +1,8 @@
 ---
 title: Create a codeless connector for Microsoft Sentinel
 description: Learn how to create a codeless connector in Microsoft Sentinel using the Codeless Connector Framework (CCF).
-author: austinmccollum
-ms.author: austinmc
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: how-to
 ms.date: 09/26/2024
 

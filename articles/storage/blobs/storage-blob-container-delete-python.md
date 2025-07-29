@@ -11,6 +11,7 @@ ms.date: 08/05/2024
 ms.author: pauljewell
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
+# Customer intent: As a developer working with cloud storage, I want to delete and restore blob containers using Python, so that I can manage my data effectively while ensuring the ability to recover from accidental deletions.
 ---
 
 # Delete and restore a blob container with Python

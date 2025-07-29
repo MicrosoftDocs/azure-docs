@@ -10,8 +10,9 @@ ms.custom:
   - ignite-2024
   - build-2025
 ms.reviewer: rajats
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-mallicka
+author: AbhishekMallick-MS
+# Customer intent: As a Kubernetes administrator, I want to configure vaulted backups for my AKS cluster using the Azure CLI, so that I can ensure reliable data protection and recovery for my containerized applications.
 ---
 
 # Quickstart: Configure vaulted backup for an Azure Kubernetes Service (AKS) cluster using Azure CLI

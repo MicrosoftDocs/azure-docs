@@ -7,6 +7,7 @@ ms.date: 4/2/2025
 author: suzizuber
 ms.author: v-szuber
 ms.custom: engagement-fy23
+# Customer intent: As a cloud architect, I want to understand the limits of Azure VMware Solution resources, so that I can effectively plan and optimize the deployment of my virtualization infrastructure in the cloud.
 ---
 
 <!-- Used in /azure/azure-resource-manager/management/azure-subscription-service-limits.md and concepts-networking.md -->

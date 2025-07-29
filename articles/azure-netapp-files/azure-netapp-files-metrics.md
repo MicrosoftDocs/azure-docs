@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 05/27/2025
 ms.author: anfdocs
+# Customer intent: As a cloud storage administrator, I want to analyze performance and usage metrics for Azure NetApp Files, so that I can optimize storage provisioning and ensure efficient operation of my storage resources.
 ---
 # Metrics for Azure NetApp Files
 

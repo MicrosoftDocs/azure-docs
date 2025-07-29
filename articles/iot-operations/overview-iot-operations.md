@@ -121,6 +121,10 @@ To visualize and analyze sensor data and messages from your devices and assets, 
 
 To secure communication between devices and the cloud through isolated network environments based on the ISA-95/Purdue Network architecture, use the Azure IoT Layered Network Management (preview) component.
 
+## Supported versions
+
+[!INCLUDE [supported-versions](includes/supported-versions.md)]
+
 ## Supported environments
 
 [!INCLUDE [supported-environments-table](includes/supported-environments-table.md)]

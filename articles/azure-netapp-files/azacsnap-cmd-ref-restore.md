@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: reference
 ms.date: 05/04/2023
 ms.author: phjensen
+# Customer intent: "As a cloud administrator, I want to restore volumes using the Azure Application Consistent Snapshot tool, so that I can efficiently recover data during disaster recovery scenarios without disrupting ongoing storage replication."
 ---
 
 # Restore using Azure Application Consistent Snapshot tool

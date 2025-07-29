@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 08/05/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
+# Customer intent: As a .NET developer, I want to create and manage read-only snapshots of blobs in Azure Storage, so that I can effectively back up blob data at specific points in time and ensure data recovery options are available.
 ---
 
 # Create and manage a blob snapshot with .NET
