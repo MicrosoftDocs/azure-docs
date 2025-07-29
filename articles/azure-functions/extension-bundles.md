@@ -54,6 +54,7 @@ To upgrade your app to the most recent bundle, edit the host.json file in the ro
 
 Keep these considerations in mind when upgrading the extension bundle version used by your app:
 
++ Review the reference documentation for any extensions used by your app to look for any breaking changes between versions. For the list of extension versions included in the default bundle, see the `extension.json` project file linked [from this table](#supported-extension-bundles). 
 + Always verify your app locally after upgrading the bundle version to ensure compatibility with the updated extensions. You can use the [func start](functions-core-tools-reference.md#func-start) command in Azure Functions Core Tools or F5 in Visual Studio or Visual Studio Code to run your function app locally.
 + The way that you trigger extensions to be updated based on changes to the bundle version in the host.json file depends on your app environment:
   + Local project: extensions are updated locally when Core Tools starts, either from the `func start` command or when debugging in your development tools.
