@@ -43,7 +43,7 @@ An [App Service Environment][Intro] is a single-tenant deployment of Azure App S
     
    - *Zone redundant deployment:* Zone redundancy ensures that workloads remain available even if one zone experiences an outage. In regions that support availability zones, you can configure App Service Environments so that apps are distributed across multiple availability zones within the same region. You must include at least two instances in your App Service plan to ensure redundancy across zones. You can scale out by adding one or more instances at a time. For more information, see [Reliability in App Service Environments](../../reliability/reliability-app-service-environment.md).
    
-   - *Host group deployment:* Your apps are deployed onto a dedicated host group. The dedicated host group isn't zone redundant. You can install and use your App Service Environment on dedicated hardware. There's no minimum instance charge for using an App Service Environment on a dedicated host group. However, you must pay for the host group when you provision the App Service Environment. You also pay a discounted App Service plan rate when you create your plans and scale out.
+   - *Host group deployment:* Your apps are deployed onto a dedicated host group. The dedicated host group isn't zone redundant. You can install and use your App Service Environment on dedicated hardware. There's no minimum instance charge for using an App Service Environment on a dedicated host group. However, you must pay for the host group when you provision the App Service Environment. You must also pay a discounted App Service plan rate when you create your plans and scale out.
    
      A dedicated host group deployment allocates a finite number of cores, which both the App Service plans and the infrastructure roles use. This type of deployment can't reach the 200 total instance count normally available in App Service Environment. The number of total possible instances is related to the total number of App Service plan instances, plus the load-based number of infrastructure roles.
 
@@ -90,7 +90,7 @@ To create an App Service Environment in the Azure portal, do the following steps
     - Select or create your **Virtual Network**.
     - Select or create your **Subnet**.
     
-     If you create an App Service Environment with an internal VIP, you can:
+     If you create an App Service Environment that has an internal VIP, you can:
      
      - Configure Azure DNS private zones to point your domain suffix to your App Service Environment. For more information, see [DNS configuration](/azure/app-service/environment/using#dns-configuration).
 

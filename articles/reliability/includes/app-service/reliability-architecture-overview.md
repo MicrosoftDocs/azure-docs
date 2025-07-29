@@ -17,4 +17,4 @@ App Service provides the following redundancy features:
 
 - **Scale units:** App Service runs on a platform infrastructure called *scale units*, also known as *stamps*. A scale unit includes all components needed to host and run App Service, including compute, storage, networking, and load balancing. Azure manages scale units to ensure balanced workload distribution, perform routine maintenance, and maintain overall platform reliability.
 
-    Some capabilities might only be applied on specific scale units. For example, some App Service scale units might support zone redundancy, while other scale units in the same region don't.
+    Some capabilities might only be applied to specific scale units. For example, some App Service scale units might support zone redundancy, while other scale units in the same region don't.
