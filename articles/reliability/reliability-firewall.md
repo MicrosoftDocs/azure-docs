@@ -25,18 +25,9 @@ To learn about how to deploy Azure Firewall to support your solution's reliabili
 
 ## Reliability architecture overview
 
-By default, Azure Firewall achieves redundancy through its built-in high availability architecture. The service automatically distributes firewall instances across multiple fault domains within a region, providing protection against server rack and datacenter failures within a single availability zone.
+An *instance* is a virtual machine (VM)-level unit of the firewall. Each instance represents the infrastructure that handles traffic and performs firewall checks. You don't specify the number of instances. Azure Firewall automatically scales out when average throughput, CPU consumption, and connection usage reach predefined thresholds. For more information, see [Azure Firewall performance](/azure/firewall/firewall-performance). The platform automatically manages instance creation, health monitoring, and replacement of unhealthy instances.
 
-:::image type="content" source="./media/firewall/high-availability-multi-region.png" alt-text="Diagram showing a high-availability Azure Firewall deployment across multiple regions, with separate firewall instances in each region, centralized policy management, and traffic routing for failover and redundancy.":::
-
-Azure Firewall's reliability architecture includes:
-
-- **Built-in high availability**: No extra load balancers or configuration required
-- **Auto-scaling**: Automatically scales out when average throughput and CPU consumption reaches 60% or connection usage reaches 80%
-- **Instance distribution**: When deployed with availability zones, firewall instances are distributed across multiple zones as the service scales
-- **Fault tolerance**: Designed to handle localized failures with automatic failover capabilities
-
-The service is designed to handle localized failures and provides automatic failover capabilities without requiring manual intervention.
+Azure Firewall achieves redundancy through its built-in high availability architecture. The service automatically distributes firewall instances across multiple fault domains within a region, providing protection against server and server rack failures. You can enable zone redundancy to distribute instances across multiple availability zones and protect against datacenter failures.
 
 ## Transient faults
 
