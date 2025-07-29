@@ -1,6 +1,6 @@
 ---
- title: Description of Azure Storage geo-redundant storage secondary region access
- description: Description of Azure Storage geo-redundant storage secondary region access
+ title: Description of Azure Storage geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS) secondary region access
+ description: Description of Azure Storage geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS) secondary region access
  author: anaharris-ms
  ms.service: azure
  ms.topic: include
@@ -9,4 +9,4 @@
  ms.custom: include file
 ---
 
-- **Secondary region access**: With GRS and GZRS configurations, the secondary region is not accessible for reads until a failover occurs.
+- **Secondary region access**: With GRS and GZRS configurations, the secondary region isn't accessible for reads until a failover occurs.
