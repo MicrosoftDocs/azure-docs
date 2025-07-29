@@ -23,13 +23,13 @@ The following diagram shows how virtual network TAP works. You can add a TAP con
 
 ## Prerequisites
 
-Before you can create a virtual network TAP, ensure you've received the confirmation email that you're enrolled in the preview. You must have one or more virtual machines created with [Azure Resource Manager](../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), and a partner solution for aggregating the TAP traffic in the same Azure region. If you don't have a  partner solution in your virtual network, see [partner solutions](#virtual-network-tap-partner-solutions) to deploy one. 
+You must have one or more virtual machines created with [Azure Resource Manager](../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), and a partner solution for aggregating the TAP traffic in the same Azure region. If you don't have a  partner solution in your virtual network, see [partner solutions](#virtual-network-tap-partner-solutions) to deploy one.
 
 You can use the same virtual network TAP resource to aggregate traffic from multiple network interfaces in the same or different subscriptions. If the monitored network interfaces are in different subscriptions, the subscriptions must be associated to the same Microsoft Entra tenant. Additionally, the monitored network interfaces, and the destination endpoint for aggregating the TAP traffic can be in peered virtual networks in the same region. If you're using this deployment model, ensure that the [virtual network peering](virtual-network-peering-overview.md) is enabled before you configure virtual network TAP.
 
 ## Permissions
 
-The accounts you use to apply TAP configuration on network interfaces must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that is assigned the necessary actions from the following table:
+The accounts you use to apply TAP configuration on network interfaces must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that is assigned as the necessary actions from the following table:
 
 | Action | Name |
 |---|---|
@@ -38,16 +38,21 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 | Microsoft.Network/tapConfigurations/* | Required to create, update, read, and delete the TAP configuration on a network interface |
 
 ## Public preview limitations
-Following are limitations during our preview.
-- Virtual network TAP only supports virtual machine's (VM) network interface as a mirroring source. All VM SKU **except for v6** are supported.
+Please note, limitations tagged with **[Temporary]** will be resolved at GA. 
+### Adding a source:
+- Virtual network TAP only supports virtual machine's (VM) network interface as a mirroring source.
+- [Temporary] v6 VM SKU aren't supported as a source. 
+- [Temporary] Before adding a VM as a source, you must **first deploy a virtual network TAP resource** and **then STOP (deallocate) and START the source VM**. This is required only once for any VM that will be added as a source. **If not done, you will get an erorr stating the NIC is not on fastpath**.
+
+### Other Limitations
 - Virtual network TAP supports Load Balancer or VM's network interface as a destination resource for mirrored traffic.
-- Virtual network doesn't support Live Migration. VM set as source for virtual network TAP will have live migration disabled.
-- VMs behind a Standard Load Balancer with Floating IP enabled can't be set as a mirroring source.
-- VMs behind Basic Load Balancer can't be set as a mirroring source.
+- [Temporary] Virtual network doesn't support Live Migration. Live Migration will be disabled for VMs set as a source.
+- [Temporary] VMs behind a Standard Load Balancer with Floating IP enabled can't be set as a mirroring source. 
+- VMs behind Basic Load Balancer can't be set as a mirroring source. Basic Load Balancer is being deprecated.
 - Virtual network doesn't support mirroring of inbound Private Link Service traffic.
 - VMs in a virtual network with encryption enabled can't be set as mirroring source.
 - Virtual network TAP doesn't support IPv6.
-- When a VM is added or removed as a source, the VM might experience network downtime (up to 60 seconds).
+- [Temporary] When a VM is added or removed as a source, the VM might experience network downtime (up to 60 seconds).
 
 ## Supported Regions
 

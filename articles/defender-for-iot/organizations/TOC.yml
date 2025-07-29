@@ -251,7 +251,7 @@
       - name: Manage enterprise IoT security monitoring
         href: manage-subscriptions-enterprise.md
     - name: Manage sensors from the Azure portal
-      href: how-to-manage-sensors-on-the-cloud.md
+      href: how-to-manage-sensors-on-the-cloud.md?tabs=azure
     - name: Create and manage users
       items:
       - name: Azure portal
@@ -330,9 +330,7 @@
         - name: Dell PowerEdge R660
           href: appliance-catalog/dell-poweredge-r660.md
       - name: Large enterprises
-        items:
-        - name: HPE ProLiant DL20 Gen11 (4SFF)
-          href: appliance-catalog/hpe-proliant-dl20-gen-11.md
+        items:        
         - name: Dell Edge 5200 (Rugged MIL-STD-810G)
           href: appliance-catalog/dell-edge-5200.md
         - name: Dell PowerEdge R360
@@ -341,6 +339,8 @@
         items:
         - name: Heptagon Systems YB3x
           href: appliance-catalog/heptagon-yb3x.md
+        - name: HPE ProLiant DL20 Gen11 (4SFF)
+          href: appliance-catalog/hpe-proliant-dl20-gen-11.md
         - name: HPE ProLiant DL20 Gen11 Plus (NHP 2LFF)
           href: appliance-catalog/hpe-proliant-dl20-gen-11-nhp-2lff.md
         - name: DELL XE4 SFF

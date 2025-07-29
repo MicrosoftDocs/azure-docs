@@ -32,6 +32,9 @@ There are two types of alphanumeric sender IDs:
 
 For list of supported countries/regions, see [SMS overview page](../../concepts/sms/concepts.md).
 
+> [!TIP]
+> For global SMS delivery and partner-managed options, check out [Messaging Connect](../../concepts/sms/messaging-connect.md).
+
 ## Enable dynamic alphanumeric sender ID
 
 To enable dynamic alphanumeric sender ID, open your Communication Services resource on the [Azure portal](https://portal.azure.com).

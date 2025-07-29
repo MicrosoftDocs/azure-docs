@@ -117,7 +117,7 @@ The following table helps describe some of the features supported by tier:
 
 ### Other considerations when picking a tier
 
-- **Network performance**: If you have a workload that requires high throughput, network bandwidth might cause a bottleneck. You can increase bandwidth by moving up to a higher performance tier or by moving to a large instance size. Larger size instances have more bandwidth because of the underlying VM that hosts the cache. Higher bandwidth limits help you avoid network saturation that cause time-outs in your application. For more information on bandwidth performance, see [Performance testing](best-practices-performance.md)
+- **Network performance**: If you have a workload that requires high throughput, network bandwidth might cause a bottleneck. You can increase bandwidth by moving up to a higher performance tier or by moving to a large instance size. Larger size instances have more bandwidth because of the underlying VM that hosts the cache. Higher bandwidth limits help you avoid network saturation that causes timeouts in your application. For more information on bandwidth performance, see [Performance testing](best-practices-performance.md)
 - **Maximum number of client connections**: Each SKU has a maximum number of client connections. This limit increases with higher performance tiers and larger instances sizes. The following table shows the maximum client connections allowed per Azure Managed Redis SKU.
 
 
@@ -159,69 +159,7 @@ The following table helps describe some of the features supported by tier:
 
 ### Availability by region
 
-Azure Managed Redis is continually expanding into new regions.
-
-- Americas
-  - Brazil South
-  - Brazil Southeast
-  - Canada Central
-  - Canada East
-  - Central US
-  - East US
-  - East US 2
-  - Mexico Central
-  - North Central US
-  - South Central US
-  - West Central US
-  - West US
-  - West US 2
-  - West US 3
-  
-- Europe
-  - France South
-  - Germany North
-  - Germany West Central
-  - Italy North
-  - Norway East
-  - Norway West
-  - Spain Central
-  - Sweden Central
-  - Sweden South
-  - Switzerland North
-  - Switzerland West
-  - UK South
-  - UK West
-  - West Europe
-  
-- Middle East
-  - Israel Central
-  - UAE Central
-  - UAE North
-  
-- Africa
-  - South Africa North
-  - South Africa West
-  
-- Asia Pacific
-  - East Asia
-  - Australia Central
-  - Australia Central 2
-  - Australia East
-  - Australia Southeast
-  - Central India
-  - Indonesia Central
-  - Japan East
-  - Japan West
-  - Jio India Central
-  - Jio India West
-  - Korea Central
-  - Korea South
-  - South East Asia
-  - South India
-  - Taiwan North
-  - Taiwan Northwest
-  
-To check the availability by region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=redis-cache&regions=all).
+Azure Managed Redis is continually expanding into new regions. To check the availability by region, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table).
 
 ## Moving from Azure Cache for Redis
 

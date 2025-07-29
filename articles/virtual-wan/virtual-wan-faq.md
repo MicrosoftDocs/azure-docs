@@ -507,7 +507,7 @@ This limit is adjustable. For more information on the limit, the procedure to re
 
 ### Which services are included in the Maintenance Configuration scope of Network Gateways? 
 
-For Virtual WAN, you can configure maintenance windows for site-to-site VPN gateways and ExpressRoute gateways.
+For Virtual WAN, you can configure maintenance windows for site-to-site VPN gateways, point-to-site VPN gateways and ExpressRoute gateways.
 
 ### Which maintenance is supported or not supported by customer-controlled maintenance?
 
