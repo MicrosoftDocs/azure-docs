@@ -52,13 +52,24 @@ Create specific application settings in your function app based on the OpenTelem
 
 ### [Application Insights](#tab/app-insights)
 
-**`APPLICATIONINSIGHTS_CONNECTION_STRING`**: the connection string for an Application Insights workspace. When this setting exists, OpenTelemetry data is sent to that workspace. This setting is the same one used to connect to Application Insights without OpenTelemetry enabled. If your app doesn't already have this setting, you might need to [Enable Application Insights integration](configure-monitoring.md#enable-application-insights-integration). 
+**[APPLICATIONINSIGHTS_CONNECTION_STRING](./functions-app-settings.md#applicationinsights_connection_string)**: the connection string for an Application Insights workspace. When this setting exists, OpenTelemetry data is sent to that workspace. This setting is the same one used to connect to Application Insights without OpenTelemetry enabled. If your app doesn't already have this setting, you might need to [Enable Application Insights integration](configure-monitoring.md#enable-application-insights-integration). 
+
+::: zone pivot="programming-language-java"
+**[JAVA_APPLICATIONINSIGHTS_ENABLE_TELEMETRY](./functions-app-settings.md#java_applicationinsights_enable_telemetry)**: set to `true` so that the Functions host allows the Java worker process to stream OpenTelemetry logs directly, which prevents duplicate host-level entries.
+::: zone-end
+::: zone pivot="programming-language-python"
+**[PYTHON_APPLICATIONINSIGHTS_ENABLE_TELEMETRY](./functions-app-settings.md#python_applicationinsights_enable_telemetry)**: set to `true` so that the Functions host allows the Python worker process to stream OpenTelemetry logs directly, which prevents duplicate host-level entries.
+::: zone-end
 
 ### [OTLP Exporter](#tab/otlp-export) 
  
-**`OTEL_EXPORTER_OTLP_ENDPOINT`**: an OTLP exporter endpoint URL. 
+**[OTEL_EXPORTER_OTLP_ENDPOINT](functions-app-settings.md#otel_exporter_otlp_endpoint)**: an OTLP exporter endpoint URL. 
 
-**`OTEL_EXPORTER_OTLP_HEADERS`**: (Optional) list of headers to apply to all outgoing data. This setting is used by many endpoints to pass an API key.
+**[OTEL_EXPORTER_OTLP_HEADERS](functions-app-settings.md#otel_exporter_otlp_headers)**: (Optional) list of headers to apply to all outgoing data. This setting is used by many endpoints to pass an API key.
+
+::: zone pivot="programming-language-python"
+**[PYTHON_ENABLE_OPENTELEMETRY](./functions-app-settings.md#python_applicationinsights_enable_telemetry)**: set to `true` so that the Functions host allows the Java worker process to stream OpenTelemetry logs directly, which prevents duplicate host-level entries.
+::: zone-end
 
 If your endpoint requires you to set other environment variables, you need to also add them to your application settings. For more information, see the [OTLP Exporter Configuration documentation](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/). 
 
@@ -66,20 +77,13 @@ You should remove the `APPLICATIONINSIGHTS_CONNECTION_STRING` setting, unless yo
 
 ---  
 
-::: zone pivot="programming-language-java"
-You must also add `JAVA_APPLICATIONINSIGHTS_ENABLE_TELEMETRY=true` to your application settings. Setting this flag tells the Functions host to let the Java worker process stream OpenTelemetry logs directly, which prevents duplicate host-level entries.
-
-> [!NOTE]  
-> When both Application Insights and OTLP exporter settings are present, telemetry flows to both backends.
-::: zone-end
-
 ## Enable OpenTelemetry in your app
 
 With the Functions host configured to use OpenTelemetry, you should also update your application code to output OpenTelemetry data. Enabling OpenTelemetry in both the host and your application code enables better correlation between traces and logs emitted both by the Functions host process and from your language worker process. 
 
 The way that you instrument your application to use OpenTelemetry depends on your target OpenTelemetry endpoint:
 ::: zone pivot="programming-language-csharp"
-Examples in this article assume your app is using `IHostApplicationBuilder`, which is avaible in version 2.x and later version of [Microsoft.Azure.Functions.Worker](/dotnet/api/microsoft.extensions.hosting.ihostapplicationbuilder). For more information, see [Version 2.x](dotnet-isolated-process-guide.md#version-2x) in the C# isolated worker model guide.
+Examples in this article assume your app is using `IHostApplicationBuilder`, which is available in version 2.x and later version of [Microsoft.Azure.Functions.Worker](/dotnet/api/microsoft.extensions.hosting.ihostapplicationbuilder). For more information, see [Version 2.x](dotnet-isolated-process-guide.md#version-2x) in the C# isolated worker model guide.
 
 1. Run these commands to install the required assemblies in your app:
 
@@ -353,20 +357,6 @@ These instructions only apply for an OTLP exporter:
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-1. Add the following application settings with value of True.
-
-    ### [Application Insights](#tab/app-insights)
-
-    ```text
-    PYTHON_APPLICATIONINSIGHTS_ENABLE_TELEMETRY
-    ```
-    ### [OTLP Exporter](#tab/otlp-export) 
-
-    ```text
-    PYTHON_ENABLE_OPENTELEMETRY
-    ```
-    ---
-
 1. Make sure these libraries are in your `requirements.txt` file, whether from uncommenting or adding yourself:
 
     ### [Application Insights](#tab/app-insights)
@@ -388,9 +378,7 @@ These instructions only apply for an OTLP exporter:
 
     ### [Application Insights](#tab/app-insights)
 
-    If you followed the above steps by setting the `PYTHON_APPLICATIONINSIGHTS_ENABLE_TELEMETRY`, you don't need to add any other code and skip the below.
-
-    If you would like to enable Application Insights collection manually without automatic instrumentation, add the following code:
+    If you already added `PYTHON_APPLICATIONINSIGHTS_ENABLE_TELEMETRY=true` in your application settings, you can skip this step. To manually enable Application Insights collection without automatic instrumentation, add this code to your app:
    
     ```python
     from azure.monitor.opentelemetry import configure_azure_monitor 
@@ -398,7 +386,7 @@ These instructions only apply for an OTLP exporter:
     ```
     ### [OTLP Exporter](#tab/otlp-export) 
 
-    Traces, metrics, and logs being exported using OpenTelemetry must be configured manually. For more information, see [Instrumentation](https://opentelemetry.io/docs/languages/python/instrumentation/) for Python.
+    Exporting traces, metrics, and logs using OpenTelemetry must be configured manually. For more information, see [Instrumentation](https://opentelemetry.io/docs/languages/python/instrumentation/) for Python.
 
     This is a simple implementation for exporting logs:
 
@@ -429,7 +417,7 @@ These instructions only apply for an OTLP exporter:
 
     ---
 
-1. Refer to [Azure monitor Distro usage](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor/azure-monitor-opentelemetry#usage) documentation for how to configure the SDK.
+1. Review [Azure monitor Distro usage](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor/azure-monitor-opentelemetry#usage) documentation for options on how to further configure the SDK.
   
 ::: zone-end  
 ## Considerations for OpenTelemetry
