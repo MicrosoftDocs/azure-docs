@@ -41,9 +41,9 @@ These changes are applied only when the VM is configured for Azure-orchestrated 
 
 Group Policy can override or conflict with AUM settings. This is especially important for:
 
-**Automatic Updates**: If Group Policy enforces a different *AUOptions* value, it may prevent AUM from controlling update timing.
+**Automatic Updates**: If Group Policy enforces a different *AUOptions* value, AUM might not be able to control update timing.
 **Reboot Behavior**: Even if AUM is set to "Never Reboot" Group Policy or registry keys can still trigger reboots.
-**Microsoft Update Source**: Group Policy may restrict updates to WSUS or block Microsoft Update, which can cause AUM deployments to fail.
+**Microsoft Update Source**: Group Policy might restrict updates to WSUS or block Microsoft Update, which can cause AUM deployments to fail.
 
 ### Best Practice
 
@@ -91,7 +91,7 @@ Check these registry keys to confirm update source:
 ## Not Supported
 
 - Pre-download of updates is not supported by AUM.
-- Changing patch source (e.g., from WSUS to Microsoft Update) must be done via OS settings or Group Policy—not through AUM.
+- To change the patch source (for example, from WSUS to Microsoft Update), use Windows settings or Group Policy. Do not use AUM for this configuration.
 
 ## Next Steps
-Once your update settings are configured, proceed to [Deploy updates](deploy-updates.md) using Azure Update Manager.
+After configuring your update settings, proceed to [Deploy updates](deploy-updates.md) using Azure Update Manager.

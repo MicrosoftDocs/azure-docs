@@ -55,7 +55,7 @@ The following table describes the elements of the request body:
 | Property | Description |
 |----------|-------------|
 | `maximumDuration` | Maximum amount of time in minutes the OS update operation can take. It must be an ISO 8601-compliant duration string such as `PT100M`. |
-| `rebootSetting` | Flag to state if you should reboot the machine by AUM as part of the job. Acceptable values are: `IfRequired, NeverReboot, AlwaysReboot`. |
+| `rebootSetting` | Flag to state if you should reboot the machine, indicates whether Azure Update Manager (AUM) should reboot the machine as part of the update job. Acceptable values are: `IfRequired, NeverReboot, AlwaysReboot`. |
 | `windowsParameters` | Parameter options for Guest OS update on machine running a supported Microsoft Windows Server operating system. |
 | `windowsParameters - classificationsToInclude` | List of categories or classifications of OS updates to apply, as supported and provided by Windows Server OS. Acceptable values are: `Critical, Security, UpdateRollup, FeaturePack, ServicePack, Definition, Tools, Update` |
 | `windowsParameters - kbNumbersToInclude` | List of Windows Update KB IDs that are available to the machine and that you need install. If you've included any 'classificationsToInclude', the KBs available in the category are installed. 'kbNumbersToInclude' is an option to provide list of specific KB IDs over and above that you want to get installed. For example: `1234`  |
@@ -272,7 +272,7 @@ New-AzMaintenanceConfiguration
    -LinuxParameterClassificationToInclude $LinuxParameterClassificationToInclude `
    -LinuxParameterPackageNameMaskToExclude $LinuxParameterPackageNameMaskToExclude `
    -ExtensionProperty @{"InGuestPatchMode"="User"}
-```  
+```
 ---
 
 ## Associate a VM with a schedule

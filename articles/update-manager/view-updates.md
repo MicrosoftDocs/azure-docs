@@ -70,7 +70,7 @@ You can check the updates from the **Overview** or **Machines** pane.
 1. On the **Select resources and check for updates** pane, choose the machines that you want to check for updates and select **Check for updates**.
 
     An assessment is performed and a notification appears as a confirmation.
-    
+
     The **Update status of machines**, **Patch orchestration configuration** of Azure virtual machines, and **Total installation runs** tiles are refreshed and display the results.
 
 # [From the Machines pane](#tab/at-scale-machines)
@@ -79,7 +79,7 @@ You can check the updates from the **Overview** or **Machines** pane.
 
 1. On the **Azure Update Manager** | **Resources** |**Machines** page, select your subscription to view all your machines.
 
-1. Choose the machines that you want to check for updateso select all your machines, and then select **Check for updates**.
+1. Select the machines you want to check for updates or select all and then select **Check for updates**.
 
    An assessment is performed and a notification appears as a confirmation.
 
