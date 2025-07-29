@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 12/16/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
+# Customer intent: As a SAP system administrator, I want to configure a multi-SID high availability setup for SAP ASCS/SCS instances using Windows Failover Clustering and Azure file shares, so that I can ensure operational resilience and redundancy for my SAP deployment.
 ---
 
 
@@ -33,7 +34,7 @@ This article focuses on how to move from a single ASCS/SCS installation to an SA
 >
 >The maximum number of SAP ASCS/SCS instances in one WSFC cluster is equal to the maximum number of private front-end IPs for each Azure internal load balancer.
 >
-> The configuration introduced in this documentation is not yet supported to be used for [Azure Availability Zones](../../availability-zones/az-overview.md)
+> The configuration introduced in this documentation is not yet supported to be used for [Azure Availability Zones](../../reliability/availability-zones-overview.md)
 > 
 
 For more information about load-balancer limits, see the "Private front-end IP per load balancer" section in [Networking limits: Azure Resource Manager][networking-limits-azure-resource-manager]. Also consider using the [Azure Standard Load Balancer SKU](../../load-balancer/load-balancer-standard-availability-zones.md) instead of the basic SKU of the Azure load balancer.

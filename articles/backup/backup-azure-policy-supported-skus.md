@@ -5,7 +5,8 @@ ms.topic: reference
 ms.date: 10/16/2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As a cloud administrator, I want to review the supported VM SKUs for Azure Backup policies, so that I can ensure compliance and properly configure backup settings for our virtual machines."
 ---
 
 # Supported VM SKUs for Azure Policy

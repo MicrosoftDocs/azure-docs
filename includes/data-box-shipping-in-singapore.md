@@ -2,7 +2,7 @@
 author: stevenmatthew
 ms.service: azure-databox
 ms.topic: include
-ms.date: 11/16/2021
+ms.date: 04/29/2025
 ms.author: shaas
 ---
 
@@ -15,12 +15,12 @@ Take the following steps if you're returning the device in Singapore.
 5. Email SingPost Customer Service using the following email template with the tracking number.
 
     ```
-    To: g-corpsgcs@singpost.com
+    To: g-keyacct@singpost.com
     Subject: Microsoft Azure Pickup - OrderName 
     Body: 
-        1. Requestor name  
-        2. Requestor contact number
-        3. Requestor collection address
+        1. Requester name  
+        2. Requester contact number
+        3. Requester collection address
         4. Preferred collection date
     ```
 

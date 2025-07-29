@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/04/2024
+ms.date: 04/24/2025
 ---
 
 # Copy and transform data in Microsoft Fabric Warehouse using Azure Data Factory or Azure Synapse Analytics
@@ -35,33 +35,6 @@ This Microsoft Fabric Warehouse connector is supported for the following capabil
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-## Create a Microsoft Fabric Warehouse linked service using UI
-
-Use the following steps to create a Microsoft Fabric Warehouse linked service in the Azure portal UI.
-
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
-
-    # [Azure Data Factory](#tab/data-factory)
-
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
-
-    # [Azure Synapse](#tab/synapse-analytics)
-
-    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
-
-2. Search for Warehouse and select the connector.
-
-    :::image type="content" source="media/connector-microsoft-fabric-warehouse/microsoft-fabric-warehouse-connector.png" alt-text="Screenshot showing select Microsoft Fabric Warehouse connector.":::    
-
-1. Configure the service details, test the connection, and create the new linked service.
-
-    :::image type="content" source="media/connector-microsoft-fabric-warehouse/configure-microsoft-fabric-warehouse-linked-service.png" alt-text="Screenshot of configuration for Microsoft Fabric Warehouse linked service.":::
-
-
-## Connector configuration details
-
-The following sections provide details about properties that are used to define Data Factory entities specific to Microsoft Fabric Warehouse.
-
 ## Linked service properties
 
 The Microsoft Fabric Warehouse connector supports the following authentication types. See the corresponding sections for details:
@@ -78,17 +51,17 @@ To use service principal authentication, follow these steps.
     - Client secret value, which is the service principal key in the linked service.
     - Tenant ID
 
-2. Grant the service principal at least the **Contributor** role in Microsoft Fabric workspace. Follow these steps:
+1. Grant the service principal at least the **Contributor** role in Microsoft Fabric workspace. Follow these steps:
     1. Go to your Microsoft Fabric workspace, select **Manage access** on the top bar. Then select **Add people or groups**.
-    
+
         :::image type="content" source="media/connector-microsoft-fabric-warehouse/fabric-workspace-manage-access.png" alt-text="Screenshot shows selecting Fabric workspace Manage access."::: 
 
         :::image type="content" source="media/connector-microsoft-fabric-warehouse/manage-access-pane.png" alt-text=" Screenshot shows Fabric workspace Manage access pane."::: 
-    
+
     1. In **Add people** pane, enter your service principal name, and select your service principal from the drop-down list.
-    
+
     1. Specify the role as **Contributor** or higher (Admin, Member), then select **Add**.
-        
+
         :::image type="content" source="media/connector-microsoft-fabric-warehouse/select-workspace-role.png" alt-text="Screenshot shows adding Fabric workspace role."::: 
 
     1. Your service principal is displayed on **Manage access** pane.
@@ -135,6 +108,28 @@ You can also store service principal key in Azure Key Vault.
     }
 }
 ```
+
+## Create a Microsoft Fabric Warehouse linked service using UI
+
+Use the following steps to create a Microsoft Fabric Warehouse linked service in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+1. Search for Warehouse and select the connector.
+
+    :::image type="content" source="media/connector-microsoft-fabric-warehouse/microsoft-fabric-warehouse-connector.png" alt-text="Screenshot showing select Microsoft Fabric Warehouse connector.":::
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-microsoft-fabric-warehouse/configure-microsoft-fabric-warehouse-linked-service.png" alt-text="Screenshot of configuration for Microsoft Fabric Warehouse linked service.":::
 
 ## Dataset properties
 
@@ -194,7 +189,6 @@ To copy data from Microsoft Fabric Warehouse, set the **type** property in the C
 | partitionColumnName | Specify the name of the source column **in integer or date/datetime type** (`int`, `smallint`, `bigint`, `date`, `datetime2`) that will be used by range partitioning for parallel copy. If not specified, the index or the primary key of the table is detected automatically and used as the partition column.<br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook  `?DfDynamicRangePartitionCondition` in the WHERE clause. For an example, see the [Parallel copy from Microsoft Fabric Warehouse](#parallel-copy-from-microsoft-fabric-warehouse) section. | No |
 | partitionUpperBound | The maximum value of the partition column for partition range splitting. This value is used to decide the partition stride, not for filtering the rows in table. All rows in the table or query result will be partitioned and copied. If not specified, copy activity auto detect the value.  <br>Apply when the partition option is `DynamicRange`. For an example, see the [Parallel copy from Microsoft Fabric Warehouse](#parallel-copy-from-microsoft-fabric-warehouse) section. | No |
 | partitionLowerBound | The minimum value of the partition column for partition range splitting. This value is used to decide the partition stride, not for filtering the rows in table. All rows in the table or query result will be partitioned and copied. If not specified, copy activity auto detect the value.<br>Apply when the partition option is `DynamicRange`. For an example, see the [Parallel copy from Microsoft Fabric Warehouse](#parallel-copy-from-microsoft-fabric-warehouse) section. | No |
-
 
 >[!Note]
 >When using stored procedure in source to retrieve data, note if your stored procedure is designed as returning different schema when different parameter value is passed in, you may encounter failure or see unexpected result when importing schema from UI or when copying data to Microsoft Fabric Warehouse with auto table creation.
@@ -469,7 +463,7 @@ The following COPY statement settings are supported under `allowCopyCommand` in 
 
 When your source data is not natively compatible with COPY statement, enable data copying via an interim staging Azure Blob or Azure Data Lake Storage Gen2 (it can't be Azure Premium Storage). In this case, the service automatically converts the data to meet the data format requirements of COPY statement. Then it invokes COPY statement to load data into Microsoft Fabric Warehouse. Finally, it cleans up your temporary data from the storage. See [Staged copy](copy-activity-performance-features.md#staged-copy) for details about copying data via a staging.
 
-To use this feature, create an [Azure Blob Storage linked service](connector-azure-blob-storage.md#linked-service-properties) or [Azure Data Lake Storage Gen2 linked service](connector-azure-data-lake-storage.md#linked-service-properties) with **account key or system-managed identity authentication** that refers to the Azure storage account as the interim storage.
+To use this feature, create an [Azure Blob Storage linked service](connector-azure-blob-storage.md#linked-service-properties) or [Azure Data Lake Storage Gen2 linked service](connector-azure-data-lake-storage.md#linked-service-properties) with **Shared access signature, anonymous or account key authentication** that refers to the Azure storage account as the interim storage.
 
 >[!IMPORTANT]
 >- When you use managed identity authentication for your staging linked service, learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively.
@@ -532,6 +526,7 @@ Settings specific to Microsoft Fabric Warehouse are available in the Source Opti
 >Read via staging is not supported. CDC support for Microsoft Fabric Warehouse source is currently not available.
 
 ### Microsoft Fabric Warehouse as the sink
+
 Settings specific to Microsoft Fabric Warehouse are available in the Settings tab of the sink transformation.
 
 | Name                     | Description                                                  | Required | Allowed Values | Data flow script property |
@@ -543,7 +538,21 @@ Settings specific to Microsoft Fabric Warehouse are available in the Settings ta
 | Use sink schema             | By default, a temporary table will be created under the sink schema as staging. You can alternatively uncheck the **Use sink schema** option and instead, in **Select user DB schema**, specify a schema name under which Data Factory will create a staging table to load upstream data and automatically clean them up upon completion. Make sure you have create table permission in the database and alter permission on the schema. | No       | true or false | stagingSchemaName|
 | Pre and Post SQL scripts   | Enter multi-line SQL scripts that will execute before (pre-processing) and after (post-processing) data is written to your Sink database| No       | SQL scripts | preSQLs:['set IDENTITY_INSERT mytable ON'] postSQLs:['set IDENTITY_INSERT mytable OFF'],|
 
+### Using Fabric Warehouse as a Sink with Staging Enabled
+
+If the staging storage location has a firewall enabled, access issues may occur.
+
+#### Workarounds
+
+- **Different Regions**:  
+  If the Fabric capacity and staging storage are in different regions, ensure the required IP addresses are allowed in the storage location firewall to enable connectivity.
+
+- **Same Region**:  
+  If the Fabric capacity and staging storage are in the same region and access issues persist, choose an alternative staging storage location in a different region than the Fabric capacity.
+
+
 ### Error row handling
+
 By default, a data flow run will fail on the first error it gets. You can choose to Continue on error that allows your data flow to complete even if individual rows have errors. The service provides different options for you to handle these error rows.
  
 Transaction Commit: Choose whether your data gets written in a single transaction or in batches. Single transaction will provide better performance and no data written will be visible to others until the transaction completes. Batch transactions have worse performance but can work for large datasets.

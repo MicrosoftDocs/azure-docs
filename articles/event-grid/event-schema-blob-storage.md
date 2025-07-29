@@ -47,10 +47,11 @@ These events are triggered when a client creates, replaces, or deletes a blob by
     "api": "PutBlockList",
     "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "\"0x8D4BCC2E4835CD0\"",
+    "eTag": "0x8D4BCC2E4835CD0",
     "contentType": "text/plain",
     "contentLength": 524288,
     "blobType": "BlockBlob",
+    "accessTier": "Default",
     "url": "https://my-storage-account.blob.core.windows.net/testcontainer/new-file.txt",
     "sequencer": "00000000000004420000000000028963",
     "storageDiagnostics": {
@@ -75,6 +76,7 @@ These events are triggered when a client creates, replaces, or deletes a blob by
     "requestId": "4c2359fe-001e-00ba-0e04-585868000000",
     "contentType": "text/plain",
     "blobType": "BlockBlob",
+    "accessTier": "Default",
     "url": "https://my-storage-account.blob.core.windows.net/testcontainer/file-to-delete.txt",
     "sequencer": "0000000000000281000000000002F5CA",
     "storageDiagnostics": {
@@ -154,7 +156,7 @@ These events are triggered when a client creates, replaces, or deletes a blob by
     "api": "PutBlockList",
     "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "\"0x8D4BCC2E4835CD0\"",
+    "eTag": "0x8D4BCC2E4835CD0",
     "contentType": "text/plain",
     "contentLength": 524288,
     "blobType": "BlockBlob",
@@ -294,7 +296,7 @@ If the blob storage account has a hierarchical namespace, the data looks similar
     "api": "CreateFile",
     "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "\"0x8D4BCC2E4835CD0\"",
+    "eTag": "0x8D4BCC2E4835CD0",
     "contentType": "text/plain",
     "contentLength": 0,
     "contentOffset": 0,
@@ -465,7 +467,7 @@ If the blob storage account has a hierarchical namespace, the data looks similar
     "api": "CreateFile",
     "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "\"0x8D4BCC2E4835CD0\"",
+    "eTag": "0x8D4BCC2E4835CD0",
     "contentType": "text/plain",
     "contentLength": 0,
     "contentOffset": 0,
@@ -667,7 +669,7 @@ If the blob storage account uses SFTP to create or overwrite a blob, then the da
   "data": {
     "api": "SftpCommit",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "\"0x8D4BCC2E4835CD0\"",
+    "eTag": "0x8D4BCC2E4835CD0",
     "contentType": "application/octet-stream",
     "contentLength": 0,
     "contentOffset": 0,
@@ -884,7 +886,7 @@ If the blob storage account uses SFTP to create or overwrite a blob, then the da
   "data": {
     "api": "SftpCommit",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "\"0x8D4BCC2E4835CD0\"",
+    "eTag": "0x8D4BCC2E4835CD0",
     "contentType": "application/octet-stream",
     "contentLength": 0,
     "contentOffset": 0,
@@ -1254,7 +1256,7 @@ The data object has the following properties:
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | `api` | string | The operation that triggered the event. |
-| `clientRequestId` | string | a client-provided request ID for the storage API operation. This ID can be used to correlate to Azure Storage diagnostic logs using the "client-request-id" field in the logs, and can be provided in client requests using the "x-ms-client-request-id" header. See [Log Format](/rest/api/storageservices/storage-analytics-log-format). |
+| `clientRequestId` | string | a client-provided request ID for the storage API operation. This ID can be used to correlate to Azure Storage diagnostic logs using the "client-request-id" field in the logs and can be provided in client requests using the "x-ms-client-request-id" header. See [Log Format](/rest/api/storageservices/storage-analytics-log-format). |
 | `requestId` | string | Service-generated request ID for the storage API operation. Can be used to correlate to Azure Storage diagnostic logs using the "request-id-header" field in the logs and is returned from initiating API call in the 'x-ms-request-id' header. See [Log Format](/rest/api/storageservices/storage-analytics-log-format). |
 | `eTag` | string | The value that you can use to run operations conditionally. |
 | `contentType` | string | The content type specified for the blob. |

@@ -1,11 +1,13 @@
 ---
 title: Set up multiple workspaces and tenants in Microsoft Sentinel
 description: If you've defined that your environment needs multiple workspaces, you now set up your multiple workspace architecture in Microsoft Sentinel.
-author: cwatson-cat
+author: batamig
 ms.topic: how-to
-ms.date: 10/17/2024
-ms.author: cwatson
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+ms.date: 07/16/2025
+ms.author: bagol
+appliesto:
+    - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 
 #Customer intent: As a security architect, I want to use Microsoft Sentinel across multiple workspaces so that I can efficiently monitor and analyze security data across my entire organization.
 
@@ -19,17 +21,21 @@ In this article, you learn how to set up Microsoft Sentinel to extend across mul
 
 ## Options for using multiple workspaces
 
-After you set up your environment to extend across workspaces, you can: 
+[!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
 
-- **Manage and monitor your cross-workspace architecture**: Query and analyze your data across workspaces and tenants. 
+After you set up your environment to extend across workspaces, you can:
+
+- **Manage and monitor your cross-workspace architecture**: Query and analyze your data across workspaces and tenants.
+
+  - If you're onboarding to the Microsoft Defender portal, see [Multiple Microsoft Sentinel workspaces in the Defender portal](workspaces-defender-portal.md) and [Microsoft Defender multitenant management](/defender-xdr/mto-overview).
   - To work in the Azure portal, see [Extend Microsoft Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md).
-  - If your organization onboards Microsoft Sentinel to the Microsoft Defender portal, see [Microsoft Defender multitenant management](/defender-xdr/mto-overview).
 
-For Microsoft Sentinel in the Azure portal, you can:
+- **Manage multiple workspaces**:  Centrally manage multiple workspaces within one or more tenants.
 
-- **Manage multiple workspaces with workspace manager**: Centrally manage multiple workspaces within one or more Azure tenants. For more information, see [Centrally manage multiple Microsoft Sentinel workspaces with workspace manager](workspace-manager.md).
+  - For the Defender portal, see [Multiple Microsoft Sentinel workspaces in the Defender portal](workspaces-defender-portal.md) and [Microsoft Defender multitenant management](/defender-xdr/mto-overview).
+  - To work in the Azure portal, see [Centrally manage multiple Microsoft Sentinel workspaces with workspace manager](workspace-manager.md)  within one or more Azure tenants.
 
-Only one Microsoft Sentinel workspace per tenant is currently supported in the unified security operations platform. For more information, see [Microsoft Defender multitenant management](/defender-xdr/mto-overview).
+For each tenant, the Defender portal allows you to connect to one primary workspace and multiple secondary workspaces for Microsoft Sentinel (preview). For more information, see [Microsoft Defender multitenant management](/defender-xdr/mto-overview).
 
 ## Next steps
 

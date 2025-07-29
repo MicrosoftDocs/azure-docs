@@ -4,6 +4,9 @@ description: In this quickstart, you learn how to use Apache Zeppelin to run Apa
 ms.service: azure-hdinsight
 ms.topic: quickstart
 ms.custom: hdinsightactive, mode-other
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: nijelsf
 ms.date: 05/22/2024
 #Customer intent: As a Hive user, I want learn Zeppelin so that I can run queries.
 ---

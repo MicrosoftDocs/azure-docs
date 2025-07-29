@@ -1,10 +1,11 @@
 ---
 title: 'Quickstart: Use the Azure portal to create a Batch account and run a job'
 description: Follow this quickstart to use the Azure portal to create a Batch account, a pool of compute nodes, and a job that runs basic tasks on the pool.
-ms.date: 07/30/2024
+ms.date: 03/14/2025
 ms.service: azure-batch
 ms.topic: quickstart
 ms.custom: mvc, mode-ui
+# Customer intent: As a developer, I want to create a Batch account and configure compute nodes to run jobs, so that I can efficiently process large-scale workloads using parallel computing resources.
 ---
 
 # Quickstart: Use the Azure portal to create a Batch account and run a job

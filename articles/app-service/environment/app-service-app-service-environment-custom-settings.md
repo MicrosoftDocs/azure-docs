@@ -1,12 +1,12 @@
 ---
 title: Configure custom settings
 description: Configure settings that apply to the entire Azure App Service environment. Learn how to do it with Azure Resource Manager templates.
-author: madsd
+author: seligj95
 
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
 ms.date: 03/06/2024
-ms.author: madsd
+ms.author: jordanselig
 ms.custom: mvc, devx-track-arm-template
 ---
 
@@ -15,10 +15,6 @@ ms.custom: mvc, devx-track-arm-template
 ## Overview
 
 Because App Service Environments are isolated to a single customer, there are certain configuration settings that can be applied exclusively to App Service Environments. This article documents the various specific customizations that are available for App Service Environments.
-
-> [!NOTE]
-> This article covers the features, benefits, and use cases of App Service Environment v3, which is used with App Service Isolated v2 plans.
->
 
 If you do not have an App Service Environment, see [How to Create an App Service Environment v3](./creation.md).
 

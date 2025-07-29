@@ -1,14 +1,14 @@
 ---
-title: Create and use v2 custom rules
+title: Create and use WAF v2 custom rules on Application Gateway
 titleSuffix: Azure Web Application Firewall
 description: This article provides information on how to create Web Application Firewall (WAF) v2 custom rules in Azure Application Gateway.
-services: web-application-firewall
-ms.topic: how-to
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
-ms.date: 04/06/2023
-ms.author: victorh 
+ms.topic: how-to
+ms.date: 04/30/2025
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a security engineer, I want to create custom rules for the Web Application Firewall on my application gateway, so that I can effectively block or allow traffic based on specific criteria unique to my web applications.
 ---
 
 # Create and use Web Application Firewall v2 custom rules on Application Gateway
@@ -20,9 +20,7 @@ This article shows you some example custom rules that you can create and use wit
 The JSON snippets shown in this article are derived from a [ApplicationGatewayWebApplicationFirewallPolicies](/azure/templates/microsoft.network/applicationgatewaywebapplicationfirewallpolicies) resource.
 
 >[!NOTE]
-> If your application gateway is not using the WAF tier, the option to upgrade the application gateway to the WAF tier appears in the right pane.
-
-![Enable WAF][fig1]
+> If your application gateway isn't using the WAF tier, the option to upgrade the application gateway to the WAF tier appears in the right pane.
 
 ## Example 1
 
@@ -51,7 +49,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -State Enabled
 ```
 
-And here's the corresponding JSON:
+Corresponding JSON:
 
 ```json
 {
@@ -112,7 +110,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -State Enabled
 ```
 
-And the corresponding JSON:
+Corresponding JSON:
 
 ```json
 {
@@ -170,7 +168,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -State Enabled
 ```
 
-And the corresponding JSON:
+Corresponding JSON:
 
 ```json
 {
@@ -230,7 +228,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -State Enabled
 ```
 
-Here's the corresponding JSON:
+Corresponding JSON:
 
 ```json
 {
@@ -300,7 +298,7 @@ $condition2 = New-AzApplicationGatewayFirewallCondition `
    -State Enabled
 ```
 
-Here's the corresponding JSON:
+Corresponding JSON:
 
 ```json
 {
@@ -391,7 +389,7 @@ $rule2 = New-AzApplicationGatewayFirewallCustomRule `
    -State Enabled
 ```
 
-And the corresponding JSON:
+Corresponding JSON:
 
 ```json
 {
@@ -535,7 +533,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -State Enabled
 ```
 
-And here's the corresponding JSON:
+Corresponding JSON:
 
 ```json
 {
@@ -569,8 +567,6 @@ And here's the corresponding JSON:
 }
 ```
 
-## Next steps
+## Next step
 
 After you create your custom rules, you can learn how to view your WAF logs. For more information, see [Application Gateway diagnostics](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
-
-[fig1]: ../media/create-custom-waf-rules/1.png

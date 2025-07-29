@@ -5,10 +5,9 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 12/28/2023
+ms.date: 01/31/2025
 ms.author: duau 
 ms.custom: devx-track-azurepowershell
-
 ---
 
 # Configure MACsec on ExpressRoute Direct ports
@@ -70,13 +69,11 @@ Follow these steps to begin the configuration:
     $identity = Get-AzUserAssignedIdentity -ResourceGroupName "your_resource_group" -Name "identity_name"
     ```
 
-    Install the following module in Administrator mode if PowerShell doesn't recognize `New-AzUserAssignedIdentity` or `Get-AzUserAssignedIdentity` as valid cmdlets. Then, execute the above command again.
+    Install the following module in Administrator mode if PowerShell doesn't recognize `New-AzUserAssignedIdentity` or `Get-AzUserAssignedIdentity` as valid cmdlets. Then, run the command again.
 
     ```azurepowershell-interactive
     Install-Module -Name Az.ManagedServiceIdentity
     ```
-
-1. 
 
 1. Create a connectivity association key (CAK) and a connectivity association key name (CKN) and store them in the Key Vault.
 
@@ -92,7 +89,7 @@ Follow these steps to begin the configuration:
     > * CAK length depends on cipher suite specified:
     >    * For GcmAes128 and GcmAesXpn128, the CAK must be an even-length string with 32 hexadecimal digits (0-9, A-F).
     >    * For GcmAes256 and GcmAesXpn256, the CAK must be an even-length string with 64 hexadecimal digits (0-9, A-F).
-    > * For CAK, the full length of the key must be used. If the key is shorter than the required length then `0's` will be added to the end of the key to meet the length requirement. For example, CAK of 1234 will be 12340000... for both 128-bit and 256-bit based on the cipher.
+    > * For CAK, the full length of the key must be used. If the key is shorter than the required length, then `0's` will be added to the end of the key to meet the length requirement. For example, CAK of 1234 will be 12340000... for both 128-bit and 256-bit based on the cipher.
 
 1. Grant the user identity the authorization to perform the `GET` operation.
 
@@ -116,13 +113,17 @@ Every ExpressRoute Direct instance consists of two physical ports. You can activ
 
 
 > [!NOTE]
-> You can configure both XPN and Non-XPN ciphers:
+> You can configure Non-XPN ciphers for 10 gbps ExpressRoute Ports:
 > * GcmAes128
 > * GcmAes256
+>
+> You can configure either Non-XPN or XPN ciphers for 40 gbps and greater ExpressRoute Ports:
+> * GcmAes128
+> * GcmAes256 
 > * GcmAesXpn128
 > * GcmAesXpn256
 >
-> The suggested best practice is to set up encryption with xpn ciphers to prevent sporadic session failures that occur with non-xpn ciphers on high speed links.
+> The suggested best practice is to set up encryption with xpn ciphers to prevent sporadic session failures that occur with non-xpn ciphers on links with 40 gbps or greater bandwidth.
 
 1. Establish the MACsec secrets and cipher and link the user identity with the port to enable the ExpressRoute management code to retrieve the MACsec secrets when required.
 

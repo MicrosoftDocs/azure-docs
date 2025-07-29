@@ -13,6 +13,7 @@ metadata:
   ms.author: halkazwini
   manager: kumudD
   ms.date: 07/25/2024
+  ms.custom: portfolio-consolidation-2025
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
@@ -168,7 +169,7 @@ additionalContent:
         - title: Network foundation
           url: ../foundations/index.yml
         - title: Load balancing and content delivery
-          url: ../load-balancer-content-delivery/index.yml
+          url: ../load-balancer-content-delivery/index.yml?wt.mc_id=aznetportfolioconsolidation_lbcdscenariohub_content_cnl
         - title: Hybrid connectivity
           url: ../hybrid-connectivity/index.yml
         - title: Network security

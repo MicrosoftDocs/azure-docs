@@ -4,7 +4,7 @@ description: Learn about using ExpressRoute in Azure Virtual WAN to connect your
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: conceptual
-ms.date: 11/21/2023
+ms.date: 03/26/2025
 ms.author: cherylmc
 ---
 # About ExpressRoute connections in Azure Virtual WAN

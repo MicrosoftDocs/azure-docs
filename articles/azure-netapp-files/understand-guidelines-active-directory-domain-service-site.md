@@ -4,9 +4,10 @@ description: Proper Active Directory Domain Services (AD DS) design and planning
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/21/2024
 ms.author: anfdocs
+# Customer intent: As a solution architect, I want to design a robust Active Directory Domain Services topology for Azure NetApp Files, so that I can ensure high availability and performance for authentication and client access to storage resources.
 ---
 # Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files
 

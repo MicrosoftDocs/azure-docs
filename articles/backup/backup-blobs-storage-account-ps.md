@@ -3,14 +3,15 @@ title: Back up Azure blobs within a storage account using Azure PowerShell
 description: Learn how to back up all Azure blobs within a storage account using Azure PowerShell.
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.date: 07/24/2024
+ms.date: 05/17/2025
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As a cloud administrator, I want to back up Azure blobs within a storage account using PowerShell, so that I can ensure data protection and quick recovery in case of data loss."
 ---
 
 # Back up all Azure blobs in a storage account using Azure PowerShell
 
-This article describes how to back up all [Azure blobs](./blob-backup-overview.md) within a storage account using Azure PowerShell. You can now perform [operational](blob-backup-overview.md?tabs=operational-backup) and [vaulted](blob-backup-overview.md?tabs=vaulted-backup) backups to protect block blobs in your storage accounts using Azure Backup.
+This article describes how to back up all [Azure blobs](./blob-backup-overview.md) within a storage account using Azure PowerShell. You can now perform [operational](blob-backup-overview.md?tabs=operational-backup) and [vaulted](blob-backup-overview.md?tabs=vaulted-backup) backups to protect block blobs in your storage accounts using Azure Backup. You can also [configure backup using REST API](backup-azure-dataprotection-use-rest-api-backup-blobs.md)
 
 For information on the Azure blob region availability, supported scenarios and limitations, see the [support matrix](blob-backup-support-matrix.md).
 
@@ -144,6 +145,112 @@ blobrg-PSTestSA-3df6ac08-9496-4839-8fb5-8b78e594f166 Microsoft.DataProtection/ba
 
 ---
 
-## Next steps
+## Update a backup instance
 
-[Restore Azure blobs using Azure PowerShell](restore-blobs-storage-account-ps.md)
+After you have configured the backup, you can change the associated policy with a backup instance. For vaulted backups, you can also change the containers selected for backup. 
+
+To update the backup instance, run the following cmdlets:
+
+1. Validate if the backup instance is ready for configuring backup using the [Test-AzDataProtectionBackupInstanceReadiness](/powershell/module/az.dataprotection/test-azdataprotectionbackupinstancereadiness?view=azps-13.0.0&preserve-view=true) command. The command fails if the   backup instance is not ready.
+
+   You can also use this command to check if the backup vault has all the necessary permissions to configure backup.
+
+1. Change the policy used for backing up the Azure Blobs by using the [Update-AzDataProtectionBackupInstance](/powershell/module/az.dataprotection/update-azdataprotectionbackupinstance?view=azps-13.0.0&preserve-view=true). Specify the relevant backup item and the new backup policy.
+
+1. Update the policy or the new containers to existing backup items.
+
+   1. Create the storage account context by using the `New-AzStorageContext` cmdlet. Provide the `-UseConnectedAccount` parameter so that data operations are performed using your Microsoft Entra credentials. Learn more [about the storage account commands](/azure/storage/blobs/blob-containers-powershell#list-containers). 
+
+      ```azurepowershell
+      Create a context object using Azure AD credentials
+      $ctx = New-AzStorageContext -StorageAccountName xxx -UseConnectedAccount 
+
+      ```
+
+   1. Retrieve the storage containers using the `Get-AzStorageContainer` cmdlet. To retrieve a single container, provide the `-Name` parameter. To return a list of containers that begins with a given character string, specify a value for the `-Prefix` parameter.
+
+   The following example retrieves both an individual container and a list of container resources:
+
+      ```azurepowershell
+
+
+      # Create variables
+      $containerName  = "individual-container"
+      $prefixName     = "loop-"
+
+      # Approach 1: Retrieve an individual container
+      Get-AzStorageContainer -Name $containerName -Context $ctx
+      Write-Host
+
+      # Approach 2: Retrieve a list of containers
+      $targetContainers = Get-AzStorageContainer -Context $ctx | Where-Object { $_.Name -match "cont" } 
+      ```
+
+      The result provides the URI of the blob endpoint and lists the containers retrieved by name and prefix:
+
+      ```
+      Storage Account Name: demostorageaccount
+      
+      Name                 PublicAccess         LastModified                   IsDeleted  VersionId        
+      ----                 ------------         ------------                   ---------  ---------        
+      individual-container                      11/2/2021 5:52:08 PM +00:00                                
+      
+      loop-container1                           11/2/2021 12:22:00 AM +00:00                               
+      loop-container2                           11/2/2021 12:22:00 AM +00:00                               
+
+      loop-container1                           11/2/2021 12:22:00 AM +00:00                               
+      loop-container2                           11/2/2021 12:22:00 AM +00:00
+      loop-container3                           11/2/2021 12:22:00 AM +00:00   True       01D7E7129FDBD7D4
+      loop-container4                           11/2/2021 12:22:00 AM +00:00   True       01D7E8A5EF01C787 
+      ```
+
+   1. Fetch the backup instance that needs to be updated.
+
+         ```azurepowershell
+         C:\Users\testuser> $instance = Search-AzDataProtectionBackupInstanceInAzGraph -Subscription "Demosub" -ResourceGroup Demo-BCDR-RG -Vault BCDR-BV-EastUS -DatasourceType AzureBlob
+         PS C:\Users\testuser> $instance
+                        Output
+         Name                                                                     BackupInstanceName
+         ----                                                                     ------------------
+         blobsa-blobsa-c7325e08-980d-43b2-863f-68feee4fd03c               blobsa-blobsa-c7325e08-980d-43b2-863f-68feee4fd03c
+         blobsavaulted-blobsavaulted-40c36519-f422-45aa-bbeb-3f0eedb440c7 blobsavaulted-blobsavaulted-40c36519-f422-45aa-bbeb-3f0eedb440c7
+         testdpp-testdpp-ff4254dd-7a70-437b-9a10-8c0d2223d037                     testdpp-testdpp-ff4254dd-7a70-437b-9a10-8c0d2223d037
+
+         ```
+
+   1. Fetch the backup policy with the name of vaulted-policy that you want to update in Backup Instance. You can also fetch the new policy that needs to be updated in Backup Instance.
+
+         ```azurepowershell
+         $updatePolicy = Get-AzDataProtectionBackupPolicy -SubscriptionId "Demosub" -VaultName BCDR-BV-EastUS -ResourceGroupName Demo-BCDR-RG -name continer-1
+         ```
+
+   1. Update the backup instance with new list of container (the existing backed up containers & new containers).       
+
+         ```azurepowershell
+         PS C:\Users\testuser> $updateBI = Update-AzDataProtectionBackupInstance -ResourceGroupName Daya-BCDR-RG -VaultName DPBCDR-BV-EastUS -BackupInstanceName $instance[0].Name -SubscriptionId "ef4ab5a7-c2c0-4304-af80-af49f48af3d1"  -PolicyId $updatePolicy.id -VaultedBackupContainer $targetContainers.name
+         
+         
+         PS C:\Users\testuser> $updateBI.Property.PolicyInfo.PolicyId
+         /subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/Daya-BCDR-RG/providers/Microsoft.DataProtection/backupVaults/DPBCDR-BV-EastUS/backupPolicies/continerdeltest-1
+         PS C:\Users\testuser> $updateBI.Property.PolicyInfo.PolicyParameter.BackupDatasourceParametersList[0].ContainersList
+         cont-01
+         cont-02
+         cont-03
+         cont-04
+         cont-05
+         cont-06
+         cont-07
+         cont-08
+         cont-09
+         cont-10
+         cont-11
+         ```
+
+
+##  Next steps
+
+[Restore Azure blobs using Azure PowerShell](restore-blobs-storage-account-ps.md).
+
+## Related content
+
+Restore Azure Blobs by Azure Backup using [Azure portal](blob-restore.md), [Azure CLI](restore-blobs-storage-account-cli.md), [REST API](backup-azure-dataprotection-use-rest-api-restore-blobs.md).

@@ -2,12 +2,12 @@
 title: Tutorial - Use message enrichments
 titleSuffix: Azure IoT Hub
 description: Tutorial showing how to use message enrichments for Azure IoT Hub messages
-author: kgremban
+author: SoniaLopezBravo
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 05/11/2023
-ms.author: kgremban
+ms.author: sonialopez
 ms.custom: "mqtt, devx-track-azurecli, devx-track-csharp"
 # Customer intent: As a customer using Azure IoT Hub, I want to add information to the messages that come through my IoT hub and are sent to another endpoint. For example, I'd like to pass the IoT hub name to the application that reads the messages from the final endpoint, such as Azure Storage.
 ---
@@ -33,7 +33,7 @@ In this tutorial, you perform the following tasks:
 
 * You must have completed [Tutorial: Send device data to Azure Storage using IoT Hub message routing](tutorial-routing.md) and maintained the resources you created for it.
 
-* Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
+* Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connect-to-iot-hub).
 
 # [Azure portal](#tab/portal)
 

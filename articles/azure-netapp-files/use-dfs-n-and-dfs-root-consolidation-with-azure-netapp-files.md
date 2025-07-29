@@ -1,12 +1,13 @@
 ---
-title: Use DFS-N and DFS Root Consolidation with Azure NetApp Files | Microsoft Docs
+title: Use DFS-N and DFS Root Consolidation with Azure NetApp Files
 description: Learn how to configure DFS-N and DFS Root Consolidation with Azure NetApp Files
 services: azure-netapp-files
 author: seanluce
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 06/30/2022
+ms.date: 10/30/2024
 ms.author: anfdocs
+# Customer intent: As an IT administrator managing file shares, I want to implement DFS Namespaces with Azure NetApp Files, so that I can streamline data access and preserve user-friendly UNC paths during file share migrations and consolidations.
 ---
 
 # How to use DFS Namespaces with Azure NetApp Files

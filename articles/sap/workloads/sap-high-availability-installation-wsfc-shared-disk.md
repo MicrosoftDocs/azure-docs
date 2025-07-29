@@ -9,9 +9,10 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.date: 12/16/2022
+ms.date: 11/19/2024
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
+# Customer intent: "As an IT administrator, I want to install and configure SAP NetWeaver HA on a Windows failover cluster in Azure, so that I can ensure high availability for our SAP ASCS/SCS instances."
 ---
 
 # Install SAP NetWeaver HA on a Windows failover cluster and shared disk for an SAP ASCS/SCS instance in Azure
@@ -149,7 +150,7 @@ Before you begin the installation, review these documents:
 
 * [Prepare the Azure infrastructure for SAP HA by using a Windows failover cluster and shared disk for an SAP ASCS/SCS instance][sap-high-availability-infrastructure-wsfc-shared-disk]
 
-We don't describe the DBMS setup in this article because setups vary depending on the DBMS system you use. We assume that high-availability concerns with the DBMS are addressed with the functionalities that different DBMS vendors support for Azure. Examples are Always On or database mirroring for SQL Server and Oracle Data Guard for Oracle databases. The high availability scenarios for the DBMS are not covered in this article.
+We don't describe the DBMS setup in this article because setups vary depending on the DBMS system you use. We assume that high-availability concerns with the DBMS are addressed with the functionalities that different DBMS vendors support for Azure. Examples are Always On or database mirroring for SQL Server and Oracle Data Guard for Oracle databases. The high availability scenarios for the DBMS aren't covered in this article.
 
 There are no special considerations when different DBMS services interact with a clustered SAP ASCS or SCS configuration in Azure.
 
@@ -180,7 +181,7 @@ Installing SAP with a high-availability ASCS/SCS instance involves these tasks:
 
    _Define the DNS entry for the SAP ASCS/SCS cluster virtual name and TCP/IP address_
 
-2. If are using the new SAP Enqueue Replication Server 2, which is also clustered instance, then you need to reserve in DNS a virtual host name for ERS2 as well. 
+2. If using the new SAP Enqueue Replication Server 2, which is also clustered instance, then you need to reserve in DNS a virtual host name for ERS2 as well. 
 
    > [!IMPORTANT]
    > The IP address that you assign to the virtual host name of the ERS2 instance must be the second the IP address that you assigned to Azure Load Balancer.    
@@ -213,12 +214,12 @@ Installing SAP with a high-availability ASCS/SCS instance involves these tasks:
 
 ### <a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a> Modify the SAP profile of the ASCS/SCS instance
 
-If you have Enqueue Replication Server 1, add  SAP profile parameter `enque/encni/set_so_keepalive` as described below. The profile parameter prevents connections between SAP work processes and the enqueue server from closing when they are idle for too long. The SAP parameter  is not required for ERS2. 
+If you have Enqueue Replication Server 1, add  SAP profile parameter `enque/encni/set_so_keepalive` as described below. The profile parameter prevents connections between SAP work processes and the enqueue server from closing when they're idle for too long. The SAP parameter  isn't required for ERS2. 
 
 1. Add this profile parameter to the SAP ASCS/SCS instance profile, if using ERS1.
 
    ```
-   enque/encni/set_so_keepalive = true
+   enque/encni/set_so_keepalive = TRUE
    ```
 
    For both ERS1 and ERS2, make sure that the `keepalive` OS parameters are set as described in SAP note [1410736](https://launchpad.support.sap.com/#/notes/1410736).   
@@ -236,12 +237,12 @@ However, this won't work in some cluster configurations because only one instanc
 
 To add a probe port run this PowerShell Module on one of the cluster VMs:
 
-- In the case of SAP ASC/SCS Instance 
+- For the SAP ASC/SCS Instance 
    ```powershell
    Set-AzureLoadBalancerHealthCheckProbePortOnSAPClusterIPResource -SAPSID SID -ProbePort 62000
    ```
 
-- If using ERS2, which is clustered. There is no need to configure probe port for ERS1, as it is not clustered.  
+- If using ERS2, which is clustered. There's no need to configure probe port for ERS1, as it isn't clustered.  
    ```powershell
    Set-AzureLoadBalancerHealthCheckProbePortOnSAPClusterIPResource -SAPSID SID -ProbePort 62001 -IsSAPERSClusteredInstance $True
    ```
@@ -275,7 +276,7 @@ To add a probe port run this PowerShell Module on one of the cluster VMs:
 
     .PARAMETER IsSAPERSClusteredInstance 
     Optional parameter.Default value is '$False'.
-    If set to $True , then handle clsutered new SAP ERS2 instance.
+    If set to $True , then handle clustered new SAP ERS2 instance.
 
     .EXAMPLE 
     # Set probe port to 62000, on SAP cluster resource 'SAP AB1 IP', and restart the SAP cluster group 'SAP AB1', to activate the changes.
@@ -283,7 +284,7 @@ To add a probe port run this PowerShell Module on one of the cluster VMs:
 
     .EXAMPLE 
     # Set probe port to 62000, on SAP cluster resource 'SAP AB1 IP'. SAP cluster group 'SAP AB1' IS NOT restarted, therefore changes are NOT active.
-    # To activate the changes you need to manualy restart 'SAP AB1' cluster group.
+    # To activate the changes you need to manually restart 'SAP AB1' cluster group.
     Set-AzureLoadBalancerHealthCheckProbePortOnSAPClusterIPResource -SAPSID AB1 -ProbePort 62000 -RestartSAPClusterGroup $False
 
     .EXAMPLE 
@@ -384,7 +385,7 @@ To add a probe port run this PowerShell Module on one of the cluster VMs:
 ### <a name="4498c707-86c0-4cde-9c69-058a7ab8c3ac"></a> Open the Windows firewall probe port
 
 Open a Windows firewall probe port on both cluster nodes. Use the following script to open a Windows firewall probe port. Update the PowerShell variables for your environment.  
-If using ERS2, you will also need to open the firewall port for the ERS2 probe port.  
+If using ERS2, you'll also need to open the firewall port for the ERS2 probe port.  
 
   ```powershell
     $ProbePort = 62000   # ProbePort of the Azure internal load balancer
@@ -411,7 +412,7 @@ Install an SAP Additional Application Server (AAS) on all the virtual machines t
 
 For the outlined failover tests, we assume that SAP ASCS is active on node A.  
 
-1. Verify that the SAP system can successfully failover from node A to node B
+1. Verify that the SAP system can successfully fail over from node A to node B
    Choose one of these options to initiate a failover of the SAP \<SID\> cluster group from cluster node A to cluster node B:
     - Failover Cluster Manager  
     - Failover Cluster PowerShell

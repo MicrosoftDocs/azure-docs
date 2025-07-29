@@ -1,8 +1,8 @@
 ---
-title: Introduction to Azure Service Bus, an enterprise message broker
+title: Introduction to Azure Service Bus
 description: This article provides a high-level overview of Azure Service Bus, a fully managed enterprise integration serverless message broker. 
 ms.topic: overview
-ms.date: 02/23/2024
+ms.date: 03/13/2025
 ---
 
 # What is Azure Service Bus?
@@ -74,7 +74,7 @@ You can define rules on a subscription. A subscription rule has a **filter** to 
 ### Namespaces
 A namespace is a container for all messaging components (queues and topics). A namespace can have one or more queues and topics and it often serves as an application container.
 
-A namespace can be compared to a server in the terminology of other brokers, but the concepts aren't directly equivalent. A Service Bus namespace is your own capacity slice of a large cluster made up of dozens of all-active virtual machines. It optionally spans three [Azure availability zones](../availability-zones/az-overview.md). So, you get all the availability and robustness benefits of running the message broker at enormous scale. And, you don't need to worry about underlying complexities. Service Bus is serverless messaging.
+A namespace can be compared to a server in the terminology of other brokers, but the concepts aren't directly equivalent. A Service Bus namespace is your own capacity slice of a large cluster made up of dozens of all-active virtual machines. It optionally spans three [Azure availability zones](../reliability/availability-zones-overview.md). So, you get all the availability and robustness benefits of running the message broker at enormous scale. And, you don't need to worry about underlying complexities. Service Bus is serverless messaging.
 
 ## Advanced features
 
@@ -116,11 +116,11 @@ Subscribers can define which messages they want to receive from a topic. These m
 
 If an error occurs that causes the client to have any doubt about the outcome of a send operation, duplicate detection takes the doubt out of these situations by enabling the sender to resend the same message, and the queue or topic discards any duplicate copies. For more information, see [Duplicate detection](duplicate-detection.md).
 
-## Batch delete of Messages
-Azure Service Bus supports deletion of messages in batches. This is useful in scenarios when messages within queues or subscriptions have become expired , or no longer relevant, necessitating a cleanup. For more information, see [Batch delete](batch-delete.md).
+## Batch deletion of Messages
+Azure Service Bus supports deletion of messages in batches. This is useful in scenarios when messages within queues or subscriptions have become expired, or no longer relevant, necessitating a cleanup. For more information, see [Batch delete](batch-delete.md).
 
 ### Security
-Service Bus supports security protocols such as [Shared Access Signatures (SAS)](service-bus-sas.md), [Role Based Access Control (RBAC)](service-bus-role-based-access-control.md) (RBAC) and [Managed identities for Azure resources](service-bus-managed-service-identity.md).
+Service Bus supports security protocols such as [Shared Access Signatures (SAS)](service-bus-sas.md), [Role Based Access Control (RBAC)](service-bus-role-based-access-control.md) (RBAC), and [Managed identities for Azure resources](service-bus-managed-service-identity.md).
 
 Service Bus supports standard [Advanced Message Queuing Protocol (AMQP) 1.0](service-bus-amqp-overview.md) and [HTTP/REST](/rest/api/servicebus/) protocols.
 
@@ -159,7 +159,7 @@ Service Bus fully integrates with many Microsoft and Azure services, for instanc
 * [Event Grid](service-bus-to-event-grid-integration-example.md)
 * [Logic Apps](../connectors/connectors-create-api-servicebus.md)
 * [Azure Functions](../azure-functions/functions-bindings-service-bus.md)
-* [Power Platform](../connectors/connectors-create-api-servicebus.md)
+* [Power Platform](/connectors/servicebus)
 * [Dynamics 365](/dynamics365/fin-ops-core/dev-itpro/business-events/how-to/how-to-servicebus)
 * [Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md)
 

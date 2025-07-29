@@ -2,32 +2,30 @@
 title: Back up Azure VMs with Enhanced policy
 description: Learn how to configure Enhanced policy to back up VMs.
 ms.topic: how-to
-ms.date: 06/11/2024
+ms.date: 06/11/2025
 ms.reviewer: sharrai
 ms.service: azure-backup
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: As an Azure administrator, I want to configure an Enhanced backup policy for Azure VMs so that I can utilize advanced backup features like frequent snapshots and zonal resiliency to ensure better data protection and recovery options.
 ---
 # Back up an Azure VM using Enhanced policy
 
-This article explains how to use _Enhanced policy_ to configure _Multiple Backups Per Day_ and back up [Trusted Launch VMs](/azure/virtual-machines/trusted-launch) with Azure Backup service.
+Azure Backup now supports Enhanced policy for Azure VM backup that offers:
 
-Azure Backup now supports _Enhanced policy_ that's needed to support new Azure offerings. For example, [Trusted Launch VM](/azure/virtual-machines/trusted-launch) is supported with _Enhanced policy_ only.
+- Zonal resiliency using Zone-redundant storage (ZRS) for Instant Restore snapshots.
+- Multiple Backups per Days. You can schedule backups as frequently as every 4 hours for Azure VMs.
+- Support for new Azure offerings including Trusted Launch virtual machines, Premium SSD v2 and Ultra SSD disks, multi-disk crash consistent snapshot support.
+- Longer retention in snapshot (operational) tier up to 30 days.
 
->[!Important]
->- [Default policy](./backup-during-vm-creation.md#create-a-vm-with-backup-configured) will not support protecting newer Azure offerings, such as [Trusted Launch VM](backup-support-matrix-iaas.md#tvm-backup), [Ultra SSD](backup-support-matrix-iaas.md#vm-storage-support), [Premium SSD v2](backup-support-matrix-iaas.md#vm-storage-support), [Shared disk](backup-support-matrix-iaas.md#vm-storage-support), and Confidential Azure VMs.
->- Enhanced policy now supports protecting both Ultra SSD and Premium SSD v2.
->- Backups for VMs having [data access authentication enabled disks](/azure/virtual-machines/windows/download-vhd?tabs=azure-portal#secure-downloads-and-uploads-with-azure-ad) will fail.
->- If you're protecting a VM with an enhanced policy, it incurs additional snapshot costs. [Learn more](backup-instant-restore-capability.md#cost-impact).
->- Once you enable a VM backup with Enhanced policy, Azure Backup doesn't allow to change the policy type to *Standard*.
+>[!Note]
+>- Standard policy doesn't support protecting newer Azure offerings, such as Ultra SSD and Premium SSD v2. Only CLI (version 2.73.0 and later), PowerShell (version Az 14.0.0 and later), and REST API (version 2025-01-01 and later) support trusted launch VM backup with Standard policy.
+>- Backups for VMs with data access authentication enabled disks fails.
+>- Protection of a VM with an enhanced policy incurs additional snapshot costs. [Learn more](backup-instant-restore-capability.md#cost-impact).
+>- Once you enable a VM backup with Enhanced policy, Azure Backup doesn't allow to change the policy type to Standard.
 >- Azure Backup now supports the migration to enhanced policy for the Azure VM backups using standard policy. [Learn more](backup-azure-vm-migrate-enhanced-policy.md).
 >- You can exclude shared disk with Enhanced policy and backup the other supported disks in the VM.
-
-You must enable backup of Trusted Launch VM through enhanced policy only. Enhanced policy provides the following features:
-
-- Supports *Multiple Backups Per Day*.
-- Instant Restore tier is zonally redundant using Zone-redundant storage (ZRS) resiliency. See the [pricing details for Managed Disk Snapshots](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 :::image type="content" source="./media/backup-azure-vms-enhanced-policy/enhanced-backup-policy-settings.png" alt-text="Screenshot showing the enhanced backup policy options.":::
 
@@ -121,7 +119,7 @@ In this sample cmdlet:
 - The second and third command fetches the India timezone and updates the timezone in the $schedulePolicy.
 - The fourth and fifth command initializes the schedule window start time and updates the $schedulePolicy. 
 
-  >[Note]
+  >[!Note]
   >The start time must be in UTC even if the timezone is not UTC.
 
 - The sixth and seventh command updates the interval (in hours) after which the backup will be retriggered on the same day, duration (in hours) for which the schedule will run.
@@ -269,7 +267,7 @@ You can exclude noncritical disks from backup by using selective disk backup to 
 
 ## Next steps
 
-- [Run a backup immediately](./backup-azure-vms-first-look-arm.md#run-a-backup-immediately)
-- [Verify Backup job status](./backup-azure-arm-vms-prepare.md#verify-backup-job-status)
-- [Restore Azure virtual machines](./backup-azure-arm-restore-vms.md#restore-disks)
-- [Troubleshoot VM backup](backup-azure-vms-troubleshoot.md#usererrormigrationfromtrustedlaunchvm-tonontrustedvmnotallowed)
+- [Run a backup immediately](./backup-azure-vms-first-look-arm.md#run-an-on-demand-backup-of-azure-vm).
+- [Verify Backup job status](./backup-azure-arm-vms-prepare.md#verify-backup-job-status).
+- [Restore Azure virtual machines](./backup-azure-arm-restore-vms.md#restore-disks).
+- [Troubleshoot VM backup](backup-azure-vms-troubleshoot.md#usererrormigrationfromtrustedlaunchvm-tonontrustedvmnotallowed).

@@ -17,9 +17,10 @@ ms.author: janschietse
 This quickstart provides an overview on how to use the Radiology Insights.
 
 ## Prerequisites
-To use the Radiology Insights (Preview) model, you must have an Azure AI Health Insights service created. 
+To use the Radiology Insights model, you must have an Azure AI Health Insights service created. 
 
 If you have no Azure AI Health Insights service, see [Deploy Azure AI Health Insights using the Azure portal.](../deploy-portal.md)
+If you have an Azure AI Health Insights service, you must link it to an Azure AI Language resource to enable Text Analytics for Health by the Health Insight AI models.
 
 Once deployment is complete, you use the Azure portal to navigate to the newly created Azure AI Health Insights service to see the details, including your Service URL. 
 The Service URL to access your service is: https://```YOUR-NAME```.cognitiveservices.azure.com. 
@@ -29,7 +30,7 @@ The Service URL to access your service is: https://```YOUR-NAME```.cognitiveserv
 To send an API request, you need the endpoint and key of your Azure AI Health Insights service. 
 
 
-You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/radiology-insights/create-job).
+You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/radiology-insights/create-job?view=rest-cognitiveservices-healthinsights-2024-04-01).
 
 
 ![[Screenshot of the Keys and Endpoints for the Radiology Insights.](../media/keys-and-endpoints.png)](../media/keys-and-endpoints.png#lightbox)
@@ -133,7 +134,7 @@ Ocp-Apim-Subscription-Key: {cognitive-services-account-key}
                       "code": {
                         "coding": [
                           {
-                            "system": "Https://loinc.org",
+                            "system": "https://loinc.org",
                             "code": "26688-1",
                             "display": "US BREAST - LEFT LIMITED"
                           }
@@ -156,7 +157,7 @@ Ocp-Apim-Subscription-Key: {cognitive-services-account-key}
     }
 ```
 
-You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/radiology-insights/create-job).
+You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/radiology-insights/create-job?view=rest-cognitiveservices-healthinsights-2024-04-01).
 
 
 
@@ -206,7 +207,7 @@ Ocp-Apim-Subscription-Key: {cognitive-services-account-key}
 }
 ```
 
-You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/radiology-insights/get-job).
+You can also find a full view of the [request parameters here](/rest/api/cognitiveservices/healthinsights/radiology-insights/get-job?view=rest-cognitiveservices-healthinsights-2024-04-01).
 
 ## Data limits
 
@@ -270,7 +271,7 @@ Optional: sex and birthDate are optional fields.
         "orderedProcedures" : [ {
           "code" : {
             "coding" : [ {
-              "system" : "Https://loinc.org",
+              "system" : "https://loinc.org",
               "code" : "41806-1",
               "display" : "CT ABDOMEN"
             } ]

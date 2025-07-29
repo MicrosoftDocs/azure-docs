@@ -15,6 +15,8 @@ Building a real-time experience like the co-creation feature in [Microsoft Word]
 
 Through its easy-to-use APIs, [Socket.IO](https://socket.io/) has proven itself as a library for real-time communication between clients and a server. However, Socket.IO users often report difficulty around scaling Socket.IO's connections. With Web PubSub for Socket.IO, developers no longer need to worry about managing persistent connections.
 
+[!INCLUDE [Connection string security](includes/web-pubsub-connection-string-security.md)]
+
 ## Overview
 
 This article shows how to build an app that allows a coder to stream coding activities to an audience. You build this application by using:
@@ -136,6 +138,8 @@ Start writing your application's code by working on the server side.
 ### Create the Web PubSub for Socket.IO server
 
 1. Import the Web PubSub for Socket.IO SDK and define options:
+
+    [!INCLUDE [Connection string security comment](includes/web-pubsub-connection-string-security-comment.md)]
 
     ```javascript
     /*server.js*/

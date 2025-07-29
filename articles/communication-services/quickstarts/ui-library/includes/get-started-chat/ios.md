@@ -8,7 +8,7 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
 
-Get the sample iOS application for this [quickstart](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-chat) in the open-source Azure Communication Services [UI Library for iOS](https://github.com/Azure/communication-ui-library-ios).
+Get the sample iOS application at [Azure Samples iOS SDK for chat](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-chat) in the open-source Azure Communication Services [UI Library for iOS](https://github.com/Azure/communication-ui-library-ios).
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ In Xcode, create a new project.
 
 ### Install the package and dependencies
 
-1. (Optional) For MacBook with M1, install and enable [Rosetta](https://support.apple.com/en-us/HT211861) in Xcode.
+1. (Optional) For MacBook with M1, install, and enable [Rosetta](https://support.apple.com/en-us/HT211861) in Xcode.
 
 1. In your project root directory, run `pod init` to create a Podfile. If you encounter an error, update [CocoaPods](https://guides.cocoapods.org/using/getting-started.html) to the current version.
 
@@ -49,7 +49,7 @@ In Xcode, create a new project.
     
     target 'UILibraryQuickStart' do
         use_frameworks!
-        pod 'AzureCommunicationUIChat', '1.0.0-beta.4'
+        pod 'AzureCommunicationUIChat', '1.0.0-beta.5'
     end
     ```
 
@@ -57,11 +57,11 @@ In Xcode, create a new project.
 
 1. In Xcode, open the generated *xcworkspace* file.
 
-### Turn off Bitcode
+### Turn off User Script Sandboxing
 
-In the Xcode project, under **Build Settings**, set the **Enable Bitcode** option to **No**. To find the setting, change the filter from **Basic** to **All** or use the search bar.
+In the Xcode project, under **Build Settings**, set the **User Script Sandboxing** option to **No**. To find the setting, change the filter from **Basic** to **All** or use the search bar.
 
-:::image type="content" source="../../media/xcode-bitcode-option.png" alt-text="Screenshot that shows the Build Settings option to turn off Bitcode.":::
+:::image type="content" source="../../media/xcode-sandbox-option.png" alt-text="Screenshot that shows the Build Settings option to turn off User Script Sandboxing.":::
 
 ## Initialize the composite
 
@@ -83,9 +83,11 @@ To initialize the composite:
             super.viewDidLoad()
     
             let button = UIButton()
-            button.contentEdgeInsets = UIEdgeInsets(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0)
+            var configuration = UIButton.Configuration.filled()
+            configuration.contentInsets = NSDirectionalEdgeInsets(top: 10.0, leading: 20.0, bottom: 10.0, trailing: 20.0)
+            configuration.baseBackgroundColor = .systemBlue
+            button.configuration = configuration
             button.layer.cornerRadius = 10
-            button.backgroundColor = .systemBlue
             button.setTitle("Start Experience", for: .normal)
             button.addTarget(self, action: #selector(startChatComposite), for: .touchUpInside)
     

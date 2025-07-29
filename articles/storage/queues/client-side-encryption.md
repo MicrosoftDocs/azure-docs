@@ -11,6 +11,7 @@ ms.date: 09/10/2024
 ms.author: pauljewell
 ms.reviewer: ozgun
 ms.custom: devx-track-csharp
+# Customer intent: "As a developer using Azure Queue Storage, I want to implement client-side encryption in my applications, so that I can secure sensitive data before uploading it to the cloud while ensuring compliance with security standards."
 ---
 
 # Client-side encryption for queues

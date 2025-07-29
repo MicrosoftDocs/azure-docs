@@ -14,7 +14,8 @@ ms.author: greglin
 | Public DNS zones per subscription |250 <sup>1</sup> |
 | Record sets per public DNS zone |10,000 <sup>1</sup> |
 | Records per record set in public DNS zone |20 <sup>1</sup> |
-| Number of Alias records for a single Azure resource |20|
+| TXT Records per record set in public DNS zone |400 |
+| Number of Alias records for a single Azure resource |50|
 
 <sup>1</sup>If you need to increase these quota limits, contact Azure Support.
 
@@ -99,10 +100,12 @@ ms.author: greglin
 | Resource | Limit |
 | --- | --- |
 | DNS private resolvers per subscription |15|
+| DNS private resolvers per virtual network |1|
 | Inbound endpoints per DNS private resolver |5|
 | Outbound endpoints per DNS private resolver |5|
 | Forwarding rules per DNS forwarding ruleset |1000|
 | Virtual network links per DNS forwarding ruleset |500|
+| DNS forwarding ruleset linked to a virtual network |1|
 | Outbound endpoints per DNS forwarding ruleset |2|
 | DNS forwarding rulesets per outbound endpoint |2|
 | Target DNS servers per forwarding rule |6|

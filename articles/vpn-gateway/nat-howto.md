@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 10/16/2024
 ms.author: cherylmc 
 
+# Customer intent: As a network engineer, I want to configure NAT settings on a VPN gateway, so that I can manage IP address translations for seamless connectivity between overlapping networks.
 ---
 # How to configure NAT for Azure VPN Gateway
 
@@ -38,7 +39,7 @@ Verify that you have an Azure subscription. If you don't already have an Azure s
 
 In this section, you create a virtual network, a VPN gateway, and the local network gateway resources to correspond to the resources shown in [Diagram 1](#diagram). To create these resources, you can use the steps in the [Site-to-Site Tutorial](tutorial-site-to-site-portal.md) article. Complete the following sections of the article, but don't create any connections.
 
-* [VNet](tutorial-site-to-site-portal.md#CreatVNet)
+* [VNet](tutorial-site-to-site-portal.md#CreateVNet)
 * [VPN gateway](tutorial-site-to-site-portal.md#VNetGateway)
 * [Local network gateway](tutorial-site-to-site-portal.md#LocalNetworkGateway)
 * [Configure your VPN device](tutorial-site-to-site-portal.md#VPNDevice)

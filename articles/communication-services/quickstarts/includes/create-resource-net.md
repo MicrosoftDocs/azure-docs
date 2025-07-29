@@ -13,9 +13,9 @@ ms.author: rifox
 - Get the latest version of the [.NET Identity SDK](/dotnet/api/azure.identity).
 - Get the latest version of the [.NET Management SDK](../../concepts/sdk-options.md).
 
-If you're planning on using phone numbers, you can't use the free trial account. Check that your subscription meets all the [requirements](../../concepts/telephony/plan-solution.md) if you plan to purchase phone numbers before creating your resource. 
+If you plan to use phone numbers, you can't use the free trial account. Check that your subscription meets all the [requirements](../../concepts/telephony/plan-solution.md) if you plan to purchase phone numbers before creating your resource. 
 
-## Installing the SDK
+## Install the SDK
 
 First, include the Communication Services Management SDK in your C# project:
 
@@ -25,7 +25,7 @@ using Azure.ResourceManager.Communication;
 
 ## Subscription ID
 
-You need to know the ID of your Azure subscription. This can be acquired from the portal:
+You need to know the ID of your Azure subscription. Get your subscription ID from the portal:
 
 1.  Sign in into your account on the [Azure portal](https://portal.azure.com).
 2.  From the left sidebar, select **Subscriptions**.
@@ -33,21 +33,21 @@ You need to know the ID of your Azure subscription. This can be acquired from th
 4.  Click **Overview**.
 5.  Select your Subscription ID.
 
-For the examples in this quickstart to work, you need to store your subscription ID in an environment variable called `AZURE_SUBSCRIPTION_ID`.
+For the examples to work, you need to store your subscription ID in an environment variable called `AZURE_SUBSCRIPTION_ID`.
 
 ## Authentication
 
-To communicate with Azure Communication Services, you must first authenticate yourself to Azure. You'll usually do this using a service principal identity.
+To communicate with Azure Communication Services, you must first authenticate yourself to Azure. You can authenticate this using a service principal identity.
 
 ### Option 1: Managed Identity
 
 If your code is running as a service in Azure, the easiest way to authenticate is to acquire a managed identity from Azure. For more information, see:
 
-- [Managed identities overview](/entra/identity/managed-identities-azure-resources/overview)
+- [Managed identities overview](/entra/identity/managed-identities-azure-resources/overview).
 
-- [Azure services that support Managed Identities](/entra/identity/managed-identities-azure-resources/managed-identities-status)
+- [Azure services that support Managed Identities](/entra/identity/managed-identities-azure-resources/managed-identities-status).
 
-- [How to use managed identities for App Service and Azure Functions](../../../app-service/overview-managed-identity.md?tabs=dotnet)
+- [How to use managed identities for App Service and Azure Functions](../../../app-service/overview-managed-identity.md?tabs=dotnet).
 
 #### [System-assigned Managed Identity](../../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity)
 
@@ -78,7 +78,7 @@ var acsClient = new CommunicationManagementClient(subscriptionId, managedIdentit
 
 ### Option 2: Service Principal
 
-Instead of using a managed identity, you may want to authenticate to Azure using a service principal that you manage yourself. For more information, see [creating and managing a service principal in Microsoft Entra ID](/entra/identity-platform/howto-create-service-principal-portal).
+Instead of using a managed identity, you can authenticate to Azure using a service principal that you manage. For more information, see [creating and managing a service principal in Microsoft Entra ID](/entra/identity-platform/howto-create-service-principal-portal).
 
 After you create your service principal, you need to collect the following information about it from the Azure portal:
 
@@ -112,15 +112,15 @@ var subscriptionId = Environment.GetEnvironmentVariable("AZURE_SUBSCRIPTION_ID")
 var communicationServiceClient = new CommunicationManagementClient(subscriptionId, new InteractiveBrowserCredential());
 ```
 
-## Managing Communication Services Resources
+## Manage Communication Services resources
 
-### Interacting with Azure resources
+### Interact with Azure resources
 
-Now that you're authenticated, you can use your management client to make API calls.
+Once you authenticate, you can use your management client to make API calls.
 
 For each of the following examples, we assign our Communication Services resources to an existing resource group.
 
-If you need to create a resource group, you can do so by using the [Azure portal](../../../azure-resource-manager/management/manage-resource-groups-portal.md) or the [Azure Resource Manager SDK](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md).
+If you need to create a resource group, you can use the [Azure portal](../../../azure-resource-manager/management/manage-resource-groups-portal.md) or the [Azure Resource Manager SDK](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md).
 
 ### Create and manage a Communication Services resource
 

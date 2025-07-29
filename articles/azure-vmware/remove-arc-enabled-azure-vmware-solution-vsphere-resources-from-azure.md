@@ -5,12 +5,10 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 12/18/2023
 ms.custom: references_regions, engagement-fy23
+# Customer intent: As a system administrator, I want to remove Arc-enabled Azure VMware Solution vSphere resources from Azure, so that I can discontinue management and eliminate unnecessary costs associated with Azure services.
 ---
 
 # Remove Arc-enabled Azure VMware Solution vSphere resources from Azure
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 In this article, learn how to cleanly remove your VMware vCenter environment from Azure Arc-enabled VMware vSphere. For VMware vSphere environments that you no longer want to manage with Azure Arc-enabled VMware vSphere, use the information in this article to perform the following actions: 
 
@@ -72,7 +70,7 @@ To uninstall the Linux agent, the command to use depends on the Linux operating 
   sudo apt purge azcmagent
   ```
 
-- For RHEL, CentOS, Oracle Linux run the following command:
+- For RHEL and Oracle Linux run the following command:
 
     ```bash
     sudo yum remove azcmagent

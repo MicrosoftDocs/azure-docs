@@ -1,12 +1,15 @@
 ---
-title: Requirements and considerations for Azure NetApp Files backup | Microsoft Docs
+title: Requirements and considerations for Azure NetApp Files backup
 description: Describes the requirements and considerations you need to be aware of before using Azure NetApp Files backup.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
-ms.date: 08/13/2024
+ms.topic: concept-article
+ms.date: 07/28/2025
 ms.author: anfdocs
+ms.custom:
+  - build-2025
+# Customer intent: As a cloud administrator, I want to understand the requirements and considerations for using Azure NetApp Files backup, so that I can ensure proper backup configurations and compliance with best practices for data protection in my environment.
 ---
 # Requirements and considerations for Azure NetApp Files backup 
 
@@ -24,7 +27,7 @@ Azure NetApp Files backup in a region can only protect an Azure NetApp Files vol
 
 * There can be a delay of up to 5 minutes in displaying a backup after the backup is actually completed.
 
-* For volumes larger than 10 TB, it can take multiple hours to transfer all the data from the backup media.
+* For volumes larger than 10 TiB, it can take multiple hours to transfer all the data from the backup media.
 
 * The Azure NetApp Files backup feature supports backing up the daily, weekly, and monthly local snapshots to the Azure storage. Hourly backups aren't currently supported.
 
@@ -36,7 +39,9 @@ Azure NetApp Files backup in a region can only protect an Azure NetApp Files vol
 
 * Policy-based (scheduled) Azure NetApp Files backup is independent from [snapshot policy configuration](azure-netapp-files-manage-snapshots.md).
 
-* In a [cross-region replication](cross-region-replication-introduction.md) (CRR) or [cross-zone replication](cross-zone-replication-introduction.md) (CZR) setting, Azure NetApp Files backup can be configured on a source volume. 
+* You can't apply a backup policy to a volume while a manual backup is in progress. Wait for the manual backup to complete before applying the policy. 
+
+* With [cross-region replication](cross-region-replication-introduction.md) or [cross-zone replication](cross-zone-replication-introduction.md), Azure NetApp Files backup can be configured on a source volume. 
 
     Backups on a destination volume are only supported for manually created snapshots. To take backups of a destination volume, create a snapshot on the source volume then wait for the snapshot to be replicated to the destination volume. From the destination volume, you select the snapshot for backup. Scheduled backups on a destination volume aren't supported.
 
@@ -45,6 +50,8 @@ Azure NetApp Files backup in a region can only protect an Azure NetApp Files vol
 * If you delete a volume, the backups remain. If you no longer need the backups, you should [manually delete the backups](backup-delete.md).
 
 * If you need to delete a parent resource group or subscription that contains backups, you should delete any backups first. Deleting the resource group or subscription doesn't delete the backups.
+
+* If the volume reaches its maximum quota, backup creation can fail depending on the quantity of data changes to the volume. If the backup fails, increase the size of the volume then wait for the next scheduled backup. 
 
 ## Next steps
 

@@ -8,6 +8,7 @@ ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 10/30/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+# Customer intent: As a network administrator, I want to use NSG diagnostics to verify security rules on my virtual machine, so that I can troubleshoot traffic access issues effectively.
 ---
 
 # Diagnose network security rules
@@ -54,7 +55,7 @@ In this section, you create a virtual network with two subnets and an Azure Bast
 
 1. In the search box at the top of the portal, enter ***virtual networks***. Select **Virtual networks** from the search results.
 
-    :::image type="content" source="./media/diagnose-network-security-rules/virtual-networks-portal-search.png" alt-text="Screenshot shows how to search for virtual networks in the Azure portal." lightbox="./media/diagnose-network-security-rules/virtual-networks-portal-search.png":::
+    :::image type="content" source="./media/virtual-networks-portal-search.png" alt-text="Screenshot that shows how to search for virtual networks in the Azure portal." lightbox="./media/virtual-networks-portal-search.png":::
 
 1. Select **+ Create**. In **Create virtual network**, enter or select the following values in the **Basics** tab:
 

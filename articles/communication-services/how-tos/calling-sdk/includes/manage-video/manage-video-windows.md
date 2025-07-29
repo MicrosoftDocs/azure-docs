@@ -1,30 +1,29 @@
 ---
-author: probableprime
+author: sloanster
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 10/16/2022
-ms.author: rifox
+ms.date: 06/20/2025
+ms.author: micahvivion
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-windows.md)]
 
 ### Request access to the microphone
 
-The app requires access to the camera to run properly. In UWP apps, the camera capability should be declared in the app manifest file.
+The app requires access to the camera. In Universal Windows Platform (UWP) apps, you need to declare the camera capability in the app manifest file.
 
-The following steps exemplify how to achieve that.
-
-1. In the `Solution Explorer` panel, double click on the file with `.appxmanifest` extension.
-2. Click on the `Capabilities` tab.
-3. Select the `Camera` check box from the capabilities list.
+1. Open the project in Visual Studio.
+1. In the **Solution Explorer** panel, double click on the file with `.appxmanifest` extension.
+1. Click on the **Capabilities** tab.
+1. Select the `Camera` check box from the capabilities list.
 
 ### Create UI buttons to place and hang up the call
 
-This simple sample app contains two buttons. One for placing the call and another to hang up a placed call.
-The following steps exemplify how to add these buttons to the app.
+This sample app contains two buttons. One for placing the call and another to hang up a placed call.
 
-1. In the `Solution Explorer` panel, double click on the file named `MainPage.xaml` for UWP, or `MainWindows.xaml` for WinUI 3.
+1. In the **Solution Explorer** panel, double click on the file named `MainPage.xaml` for UWP, or `MainWindows.xaml` for WinUI 3.
 2. In the central panel, look for the XAML code under the UI preview.
-3. Modify the XAML code by the following excerpt:
+3. Modify the XAML code using the following excerpt:
+
 ```xml
 <TextBox x:Name="CalleeTextBox" PlaceholderText="Who would you like to call?" />
 <StackPanel>
@@ -36,9 +35,10 @@ The following steps exemplify how to add these buttons to the app.
 ### Setting up the app with Calling SDK APIs
 
 The Calling SDK APIs are in two different namespaces.
-The following steps inform the C# compiler about these namespaces allowing Visual Studio's Intellisense to assist with code development.
 
-1. In the `Solution Explorer` panel, click on the arrow on the left side of the file named `MainPage.xaml` for UWP, or `MainWindows.xaml` for WinUI 3.
+Complete the following steps to inform the C# compiler about these namespaces, enabling Visual Studio's Intellisense to assist with code development.
+
+1. In the **Solution Explorer** panel, click on the arrow on the left side of the file named `MainPage.xaml` for UWP, or `MainWindows.xaml` for WinUI 3.
 2. Double click on file named `MainPage.xaml.cs` or `MainWindows.xaml.cs`.
 3. Add the following commands at the bottom of the current `using` statements.
 
@@ -46,14 +46,15 @@ The following steps inform the C# compiler about these namespaces allowing Visua
 using Azure.Communication.Calling.WindowsClient;
 ```
 
-Keep `MainPage.xaml.cs` or `MainWindows.xaml.cs` open. The next steps will add more code to it.
+Keep `MainPage.xaml.cs` or `MainWindows.xaml.cs` open. The next step adds more code.
 
-## Allow app interactions
+## Enable app interactions
 
-The UI buttons previously added need to operate on top of a placed `CommunicationCall`. It means that a `CommunicationCall` data member should be added to the `MainPage` or `MainWindow` class.
-Additionally, to allow the asynchronous operation creating `CallAgent` to succeed, a `CallAgent` data member should also be added to the same class.
+The UI buttons we added need to operate on top of a placed `CommunicationCall`. It means that you must add a `CommunicationCall` data member to the `MainPage` or `MainWindow` class.
+You also need to enable the asynchronous operation creating `CallAgent` to succeed. Add a `CallAgent` data member to the same class.
 
 Add the following data members to the `MainPage` or `MainWindow` class:
+
 ```csharp
 CallAgent callAgent;
 CommunicationCall call;
@@ -61,8 +62,9 @@ CommunicationCall call;
 
 ## Create button handlers
 
-Previously, two UI buttons were added to the XAML code. The following code adds the handlers to be executed when a user selects the button.
-The following code should be added after the data members from the previous section.
+Previously, we added two UI buttons to the XAML code. The following code adds the handlers to run when a user selects the button.
+
+Add the following code after the data members from the previous section.
 
 ```csharp
 private async void CallButton_Click(object sender, RoutedEventArgs e)
@@ -80,8 +82,8 @@ private async void HangupButton_Click(object sender, RoutedEventArgs e)
 
 The following classes and interfaces handle some of the major features of the Azure Communication Services Calling client library for UWP.
 
-| Name                                  | Description                                                  |
-| ------------------------------------- | ------------------------------------------------------------ |
+| Name | Description |
+| --- | --- |
 | `CallClient` | The `CallClient` is the main entry point to the Calling client library. |
 | `CallAgent` | The `CallAgent` is used to start and join calls. |
 | `CommunicationCall` | The `CommunicationCall` is used to manage placed or joined calls. |
@@ -91,7 +93,8 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Register video schema handler
 
-A UI component, like XAML's MediaElement or MediaPlayerElement, you need the app registering a configuration for rendering local and remote video feeds.
+A UI component, like XAML's `MediaElement` or `MediaPlayerElement`, require the app to register  a configuration for rendering local and remote video feeds.
+
 Add the following content between the `Package` tags of the `Package.appxmanifest`:
 
 ```xml
@@ -111,7 +114,7 @@ To create a `CallAgent` instance from `CallClient`, you must use `CallClient.Cre
 
 To create `CallAgent`, you must pass a `CallTokenCredential` object and a `CallAgentOptions` object. Keep in mind that `CallTokenCredential` throws if a malformed token is passed.
 
-The following code should be added inside and helper function to be called in app initialization.
+Add the following code inside and helper function so that it runs during initialization.
 
 ```csharp
 var callClient = new CallClient();
@@ -128,11 +131,11 @@ this.callAgent.CallsUpdated += Agent_OnCallsUpdatedAsync;
 this.callAgent.IncomingCallReceived += Agent_OnIncomingCallAsync;
 ```
 
-Change the `<AUTHENTICATION_TOKEN>` with a valid credential token for your resource. Refer to the [user access token](../../../../quickstarts/identity/access-tokens.md) documentation if a credential token has to be sourced.
+Change the `<AUTHENTICATION_TOKEN>` with a valid credential token for your resource. For more information about sourcing a credential token, see [user access token](../../../../quickstarts/identity/access-tokens.md).
 
 ## Place a 1:1 call with video camera
 
-The objects needed for creating a `CallAgent` are now ready. It's time to asynchronously create `CallAgent` and place a video call.
+The objects needed for creating a `CallAgent` are now ready. Then asynchronously create `CallAgent` and place a video call.
 
 ```csharp
 private async void CallButton_Click(object sender, RoutedEventArgs e)
@@ -156,15 +159,15 @@ private async void CallButton_Click(object sender, RoutedEventArgs e)
 
 private async Task<CommunicationCall> StartAcsCallAsync(string acsCallee)
 {
-    var options = await GetStartCallOptionsAsynnc();
+    var options = await GetStartCallOptionsAsync();
     var call = await this.callAgent.StartCallAsync( new [] { new UserCallIdentifier(acsCallee) }, options);
     return call;
 }
 
 var micStream = new LocalOutgoingAudioStream(); // Create a default local audio stream
-var cameraStream = new LocalOutgoingVideoStreamde(this.viceManager.Cameras.FirstOrDefault() as VideoDeviceDetails); // Create a default video stream
+var cameraStream = new LocalOutgoingVideoStream(this.viceManager.Cameras.FirstOrDefault() as VideoDeviceDetails); // Create a default video stream
 
-private async Task<StartCallOptions> GetStartCallOptionsAsynnc()
+private async Task<StartCallOptions> GetStartCallOptionsAsync()
 {
     return new StartCallOptions() {
         OutgoingAudioOptions = new OutgoingAudioOptions() { IsMuted = true, Stream = micStream  },
@@ -175,7 +178,7 @@ private async Task<StartCallOptions> GetStartCallOptionsAsynnc()
 
 ## Local camera preview
 
-We can optionally set up local camera preview. The video can be rendered through `MediaPlayerElement`:
+We can optionally set up local camera preview. You can render the video through `MediaPlayerElement`:
 
 ```xml
 <Grid>
@@ -195,8 +198,8 @@ private async void CameraList_SelectionChanged(object sender, SelectionChangedEv
             await this.call?.StopVideoAsync(cameraStream);
         }
     }
-    var selectedCamerea = CameraList.SelectedItem as VideoDeviceDetails;
-    cameraStream = new LocalOutgoingVideoStream(selectedCamerea);
+    var selectedCamera = CameraList.SelectedItem as VideoDeviceDetails;
+    cameraStream = new LocalOutgoingVideoStream(selectedCamera);
 
     var localUri = await cameraStream.StartPreviewAsync();
     LocalVideo.Source = MediaSource.CreateFromUri(localUri);
@@ -210,6 +213,7 @@ private async void CameraList_SelectionChanged(object sender, SelectionChangedEv
 ## Render remote camera stream
 
 Set up even handler in response to `OnCallsUpdated` event:
+
 ```csharp
 private async void OnCallsUpdatedAsync(object sender, CallsUpdatedEventArgs args)
 {
@@ -271,9 +275,10 @@ private void OnVideoStreamStateChanged(object sender, VideoStreamStateChangedEve
             break;
     }
 }
-
 ```
+
 Start rendering remote video stream on `MediaPlayerElement`:
+
 ```csharp
 private async void OnIncomingVideoStreamStateChanged(IncomingVideoStream incomingVideoStream)
 {
@@ -326,11 +331,11 @@ private async void OnIncomingVideoStreamStateChanged(IncomingVideoStream incomin
 
 ## End a call
 
-Once a call is placed, the `HangupAsync` method of the `CommunicationCall` object should be used to hang up the call.
+Once a call is placed, use the `HangupAsync` method of the `CommunicationCall` object to hang up the call.
 
-An instance of `HangupOptions` should also be used to inform if the call must be terminated to all its participants.
+Use an instance of `HangupOptions` to inform participants if the call must be terminated.
 
-The following code should be added inside `HangupButton_Click`.
+Add the following code inside `HangupButton_Click`.
 
 ```csharp
 var call = this.callAgent?.Calls?.FirstOrDefault();
@@ -367,6 +372,8 @@ if (call != null)
 
 ## Run the code
 
-Make sure Visual Studio builds the app for `x64`, `x86` or `ARM64`, then hit `F5` to start running the app. After that, click on the `CommunicationCall` button to place a call to the callee defined.
+1. Make sure Visual Studio builds the app for `x64`, `x86`, or `ARM64`.
+1. Press **F5** to start running the app.
+1. Click the **CommunicationCall** button to place a call to the defined recipient.
 
-Keep in mind that the first time the app runs, the system prompts user for granting access to the microphone.
+The first time the app runs, the system prompts the user to grant access to the microphone.

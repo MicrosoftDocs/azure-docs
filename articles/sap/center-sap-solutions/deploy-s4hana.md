@@ -8,6 +8,7 @@ ms.date: 10/30/2023
 ms.author: sagarkeswani
 author: sagarkeswani
 #Customer intent: As a developer, I want to deploy S/4HANA infrastructure using Azure Center for SAP solutions so that I can manage SAP workloads in the Azure portal.
+# Customer intent: As an IT administrator, I want to deploy S/4HANA infrastructure options using Azure Center for SAP solutions through the Azure portal, so that I can efficiently manage my SAP workloads in a reliable and scalable environment.
 ---
 
 # Deploy S/4HANA infrastructure with Azure Center for SAP solutions
@@ -19,7 +20,7 @@ In this how-to guide, you'll learn how to deploy S/4HANA infrastructure in *Azur
 - An Azure [subscription](/azure/cost-management-billing/manage/create-subscription#create-a-subscription)
 - [Register](/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal) the **Microsoft.Workloads** Resource Provider on the subscription in which you are deploying the SAP system.
 - An Azure account with **Contributor** [role](/azure/role-based-access-control/role-assignments-portal-subscription-admin) access to the subscriptions and resource groups in which you'll create the Virtual Instance for SAP solutions (VIS) resource.
-- A **User-assigned managed** [identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) which has Contributor role access on the Subscription or atleast all resource groups (Compute, Network,Storage). If you wish to install SAP Software through the Azure Center for SAP solutions, also provide Storage Blob data Reader, Reader and Data Access roles to the identity on SAP bits storage account where you would store the SAP Media.
+- A **User-assigned managed** [identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) which has Contributor role access on the Subscription or at least all resource groups (Compute, Network,Storage). If you wish to install SAP Software through the Azure Center for SAP solutions, also provide Storage Blob data Reader, Reader and Data Access roles to the identity on SAP bits storage account where you would store the SAP Media.
 - A [network set up for your infrastructure deployment](prepare-network.md).
 - Availability of minimum 4 cores of either Standard_D4ds_v4 or Standard_E4s_v3 SKUS which will be used during Infrastructure deployment and Software Installation
 - [Review the quotas for your Azure subscription](/azure/quotas/view-quotas). If the quotas are low, you might need to create a support request before creating your infrastructure deployment. Otherwise, you might experience deployment failures or an **Insufficient quota** error. 

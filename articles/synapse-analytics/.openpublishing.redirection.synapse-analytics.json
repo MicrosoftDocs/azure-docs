@@ -26,6 +26,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/synapse-analytics/machine-learning/tutorial-automl.md",
+            "redirect_url": "/azure/synapse-analytics/machine-learning/what-is-machine-learning",
+            "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/synapse-analytics/spark/apache-spark-azure-machine-learning-tutorial.md",
+          "redirect_url": "/azure/synapse-analytics/machine-learning/what-is-machine-learning",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/synapse-analytics/spark/apache-spark-24-runtime.md ",
+          "redirect_url": "/azure/synapse-analytics/spark/apache-spark-version-support",
+          "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-data-management.md",
             "redirect_url": "/azure/synapse-analytics/partner/data-management",
             "redirect_document_id": false
@@ -733,6 +748,21 @@
            {
              "source_path_from_root": "/articles/synapse-analytics/monitoring/how-to-monitor-using-azure-monitor.md",
              "redirect_url": "/azure/synapse-analytics/monitor-synapse-analytics",
+             "redirect_document_id": false
+           },
+           {
+             "source_path_from_root": "/articles/synapse-analytics/sql-data-warehouse/workspace-connected-regions.md",
+             "redirect_url": "https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table",
+             "redirect_document_id": false
+           },
+           {
+             "source_path_from_root": "/articles/synapse-analytics/spark/apache-spark-3-runtime.md",
+             "redirect_url": "/azure/synapse-analytics/spark/apache-spark-35-runtime",
+             "redirect_document_id": false
+           },
+           {
+             "source_path_from_root": "/articles/synapse-analytics/spark/apache-spark-32-runtime.md",
+             "redirect_url": "/azure/synapse-analytics/spark/apache-spark-35-runtime",
              "redirect_document_id": false
            }
     ]

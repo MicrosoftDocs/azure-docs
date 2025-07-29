@@ -5,41 +5,39 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: tutorial
-ms.date: 06/26/2024
+ms.date: 07/11/2025
 ms.custom: FY23 content-maintenance, engagement-FY24
 ---
 
-# Tutorial: Create a secured hub and spoke network
+# Tutorial: Create a secured hub-and-spoke network
 
-In this tutorial, you create a hub and spoke network topology using Azure Virtual Network Manager. You then deploy a virtual network gateway in the hub virtual network to allow resources in the spoke virtual networks to communicate with remote networks using VPN. Also, you configure a security configuration to block outbound network traffic to the internet on ports 80 and 443. Last, you verify that configurations were applied correctly by looking at the virtual network and virtual machine settings.
+In this tutorial, you create a hub-and-spoke network topology using Azure Virtual Network Manager. You then deploy a virtual network gateway in the hub virtual network to allow resources in the spoke network groups' virtual networks to communicate with remote networks using VPN. You also configure a security admin configuration to block outbound network traffic to the internet on ports 80 and 443. Finally, you verify the configurations were applied correctly by observing the virtual network and virtual machine settings.
 
-In this tutorial, you learn how to:
+In this tutorial, you learn to:
 
 > [!div class="checklist"]
 > * Create multiple virtual networks.
 > * Deploy a virtual network gateway.
-> * Create a hub and spoke network topology.
-> * Create a security configuration blocking traffic on port 80 and 443.
+> * Create a hub-and-spoke network topology.
+> * Create a security admin configuration blocking traffic on ports 80 and 443.
 > * Verify configurations were applied.
 
-:::image type="content" source="media/tutorial-create-secured-hub-and-spoke/create-secure-hub-spoke-network.png" alt-text="Diagram of secure hub and spoke topology components." lightbox="media/tutorial-create-secured-hub-and-spoke/create-secure-hub-spoke-network.png":::
+:::image type="content" source="media/tutorial-create-secured-hub-and-spoke/create-secure-hub-spoke-network.png" alt-text="Diagram of secure hub-and-spoke topology components." lightbox="media/tutorial-create-secured-hub-and-spoke/create-secure-hub-spoke-network.png":::
 
 ## Prerequisite
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Before you can complete steps in this tutorial, you must first [create an Azure Virtual Network Manager](create-virtual-network-manager-portal.md) instance. The instance needs to included the **Connectivity** and **Security admin** features. This tutorial used a Virtual Network Manager instance named **vnm-learn-eastus-001**.
+* Before you can complete steps in this tutorial, you must first [create an Azure Virtual Network Manager](create-virtual-network-manager-portal.md) instance. The instance needs to include the **Connectivity** and **Security admin** features. This tutorial uses an Azure Virtual Network Manager instance named **vnm-learn-eastus-001**.
 
 ## Create virtual networks
 
-This procedure walks you through creating three virtual networks that will be connected using the hub and spoke network topology.
+This procedure walks you through creating three virtual networks to be connected using a hub-and-spoke connectivity configuration.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Select **+ Create a resource** and search for **Virtual network**. Then select **Create** to begin configuring the virtual network.
 
 1. On the *Basics* tab, enter or select the following information:
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/create-vnet-basic.png" alt-text="Screenshot of basics tab for hub and spoke virtual network.":::
 
     | Setting | Value |
     | ------- | ----- |
@@ -49,8 +47,6 @@ This procedure walks you through creating three virtual networks that will be co
     | Region | Select the **East US** region. |
 
  1. Select **Next: IP Addresses** and configure the following network address space:
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/create-vnet-ip.png" alt-text="Screenshot of IP addresses tab for hub and spoke virtual network.":::
 
     | Setting | Value |
     | -------- | ----- |
@@ -73,16 +69,33 @@ This procedure walks you through creating three virtual networks that will be co
     | vnet-learn-prod-eastus-002 IP addresses | IPv4 address space: 10.1.0.0/16 </br> Subnet name: default </br> Subnet address space: 10.1.0.0/24|
     | vnet-learn-hub-eastus-001 IP addresses | IPv4 address space: 10.2.0.0/16 </br> Subnet name: default </br> Subnet address space: 10.2.0.0/24|
 
+## Create a virtual network gateway subnet
+
+Create a virtual network gateway subnet in the hub virtual network. This subnet is used by the virtual network gateway to route traffic to and from the virtual network.
+
+1. Go to **vnet-learn-hub-eastus-001** virtual network and select **Subnets** under **Settings**.
+1. Select **+ Subnet** to create a new subnet.
+1. In the *Add subnet* page, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Subnet purpose | Select **Virtual network gateway** from the dropdown menu. |
+    | **IPv4** | |
+    | Size | Select **/27** from the dropdown menu. |
+
+1. Select **Add** and verify the new subnet is created.
+
+> [!NOTE]
+> The gateway subnet is a special subnet that is used by the virtual network gateway. The size of the gateway subnet must be at least **/27**. The address space of the gateway subnet must not overlap with any other subnets in the virtual network. The address space of the gateway subnet must be a subset of the address space of the virtual network.
+> This gateway subnet must be named **GatewaySubnet**. If you don't name the subnet **GatewaySubnet**, the virtual network gateway won't be able to use it.
+
 ## Deploy a virtual network gateway
 
-Deploy a virtual network gateway into the hub virtual network. This virtual network gateway is necessary for the spokes to *Use hub as a gateway* setting.
+Deploy a virtual network gateway into the hub virtual network. This virtual network gateway is necessary for the connectivity configuration's spoke network groups to enable the *Use hub as a gateway* setting.
 
 1. Select **+ Create a resource** and search for **Virtual network gateway**. Then select **Create** to begin configuring the virtual network gateway.
 
-
 1. On the *Basics* tab, enter or select the following settings:
-
-    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/gateway-basics.png" alt-text="Screenshot of create the virtual network gateway basics tab.":::
 
     | Setting | Value |
     | -------- | ----- |
@@ -95,22 +108,19 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
     | Public IP address name | Enter the name **gwpip-learn-hub-eastus-001** for the public IP. |
     | **SECOND PUBLIC IP ADDRESS** | |
     | Public IP address name | Enter the name **gwpip-learn-hub-eastus-002** for the public IP. |
-
     
 1. Select **Review + create** and then select **Create** after validation has passed. The deployment of a virtual network gateway can take about 30 minutes. You can move on to the next section while waiting for this deployment to complete. However, you may find **gw-learn-hub-eastus-001** doesn't display that it has a gateway due to timing and sync across the Azure portal.
 
 ## Create a network group
 
 > [!NOTE]
-> This how-to guide assumes you created a network manager instance using the [quickstart](create-virtual-network-manager-portal.md) guide. The network group in this tutorial is called **ng-learn-prod-eastus-001**.
+> This how-to guide assumes you created an Azure Virtual Network Manager instance using the [quickstart](create-virtual-network-manager-portal.md) guide. The network group in this tutorial is called **ng-learn-prod-eastus-001**.
 
 [!INCLUDE [virtual-network-manager-create-network-group](../../includes/virtual-network-manager-create-network-group.md)]
 
-## Define dynamic group membership with Azure policy
+## Define dynamic group membership with Azure Policy
 
-1. From the list of network groups, select **ng-learn-prod-eastus-001**. Under **Create policy to dynamically add members**, select **Create Azure policy**.
-
-    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/define-dynamic-membership.png" alt-text="Screenshot of the defined dynamic membership button.":::
+1. From the list of network groups, select **ng-learn-prod-eastus-001**. Under **Create policy to dynamically add members**, select **Create Azure Policy**.
 
 1. On the **Create Azure Policy** page, select or enter the following information:
 
@@ -125,16 +135,13 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
     | Operator | Select **Contains** from the drop-down.| 
     | Condition | Enter **-prod** for the condition in the text box. |
 
-1. Select **Preview resources** to view the **Effective virtual networks** page and select **Close**. This page shows the virtual networks that will be added to the network group based on the conditions defined in Azure Policy.
-
-    :::image type="content" source="media/create-virtual-network-manager-portal/effective-virtual-networks.png" alt-text="Screenshot of Effective virtual networks page with results of conditional statement.":::
-
+1. Select **Preview resources** to view the **Effective virtual networks** pane and select **Close**. This page shows the virtual networks that will be added to the network group based on the conditions defined in Azure Policy.
 1. Select **Save** to deploy the group membership. It can take up to one minute for the policy to take effect and be added to your network group.
 1. On the **Network Group** page under **Settings**, select **Group Members** to view the membership of the group based on the conditions defined in Azure Policy. The **Source** is listed as **azpol-learn-prod-eastus-001**.
 
     :::image type="content" source="media/create-virtual-network-manager-portal/group-members-list.png" alt-text="Screenshot of dynamic group membership under Group Membership.":::
 
-## Create a hub and spoke connectivity configuration
+## Create a hub-and-spoke connectivity configuration
 
 1. Select **Configurations** under **Settings**, then select **+ Create**.
 
@@ -142,37 +149,28 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
 
 1. On the **Basics** page, enter the following information, and select **Next: Topology >**.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/connectivity-configuration.png" alt-text="Screenshot of add a connectivity configuration page.":::
-
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter **cc-learn-prod-eastus-001**. |
     | Description | *(Optional)* Provide a description about this connectivity configuration. |
 
-
 1. On the **Topology** tab, select **Hub and Spoke**. This reveals other settings.
 
-    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/hub-configuration.png" alt-text="Screenshot of selecting a hub for the connectivity configuration.":::
-
-1.  Select **Select a hub** under **Hub** setting. Then, select **vnet-learn-hub-eastus-001** to serve as your network hub and select **Select**.
-
-    :::image type="content" source="media/tutorial-create-secured-hub-and-spoke/select-hub.png" alt-text="Screenshot of Select a hub configuration.":::
+1.  Select **Select a hub** under **Hub** setting. Then, select **vnet-learn-hub-eastus-001** to serve as your configuration's hub and select **Select**.
     
     > [!NOTE] 
-    > Depending on the timing of deployment, you may not see the target hub virtual networked as have a gateway under **Has gateway**. This is due to the deployment of the virtual network gateway. It can take up to 30 minutes to deploy, and may not display immediately in the various Azure portal views.
-    
-1.  Under **Spoke network groups**, select **+ add**. Then, select **ng-learn-prod-eastus-001** for the network group and select **Select**.
+    > Depending on the timing of deployment, you may not see the target hub virtual network as having a gateway under **Has gateway**. This is due to the deployment of the virtual network gateway. It can take up to 30 minutes to deploy, and may not display immediately in the various Azure portal views.
 
-    :::image type="content" source="media/create-virtual-network-manager-portal/add-network-group-configuration.png" alt-text="Screenshot of Add network groups page.":::
+1.  Under **Spoke network groups**, select **+ Add**. Then, select **ng-learn-prod-eastus-001** as a spoke network group and select **Select**.
 
-1. After you've added the network group, select the following options. Then select add to create the connectivity configuration.
+1. After you've added the network group, select the following options.
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/network-group-options.png" alt-text="Screenshot of settings for network group configuration.":::
 
     | Setting | Value |
     | ------- | ----- |
-    | Direct Connectivity | Select the checkbox for **Enable connectivity within network group**. This setting allows spoke virtual networks in the network group in the same region to communicate with each other directly. |
-    | Global Mesh | Leave **Enable mesh connectivity across regions** option **unchecked**. This setting isn't required as both spokes are in the same region  |
+    | Direct Connectivity | Select the checkbox for **Enable connectivity within network group**. This setting allows spoke network groups' virtual networks in the same region to communicate with each other directly. |
+    | Global Mesh | Leave the **Enable mesh connectivity across regions** option **unchecked**. This setting isn't required as both spoke virtual networks are in the same region.  |
     | Hub as gateway | Select the checkbox for **Hub as a gateway**. |    
 
 
@@ -180,15 +178,11 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
 
 ## Deploy the connectivity configuration
 
-Make sure the virtual network gateway has been successfully deployed before deploying the connectivity configuration. If you deploy a hub and spoke configuration with **Use the hub as a gateway** enabled and there's no gateway, the deployment fails. For more information, see [use hub as a gateway](concept-connectivity-configuration.md#use-hub-as-a-gateway).
+Make sure the virtual network gateway has been successfully deployed before deploying the connectivity configuration. If you deploy a hub-and-spoke configuration with **Use the hub as a gateway** enabled and there's no gateway, the deployment fails. For more information, see [use hub as a gateway](concept-connectivity-configuration.md#use-hub-as-a-gateway).
 
 1. Select **Deployments** under *Settings*, then select **Deploy configuration**.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/deployments.png" alt-text="Screenshot of deployments page in Network Manager.":::
-
 1. Select the following settings:
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/deploy-configuration.png" alt-text="Screenshot of deploy a configuration page.":::
 
     | Setting | Value |
     | ------- | ----- |
@@ -199,23 +193,17 @@ Make sure the virtual network gateway has been successfully deployed before depl
 
 1. Select **Next** and then select **Deploy** to complete the deployment.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/deployment-confirmation.png" alt-text="Screenshot of deployment confirmation message.":::
-
 1. The deployment displays in the list for the selected region. The deployment of the configuration can take a few minutes to complete.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/deployment-in-progress.png" alt-text="Screenshot of configuration deployment in progress status.":::
 
 ## Create a security admin configuration
 
-1. Select **Configuration** under *Settings* again, then select **+ Create**, and select **SecurityAdmin** from the menu to begin creating a SecurityAdmin configuration.
+1. Select **Configuration** under *Settings* again, then select **+ Create**, and select **Security admin configuration** from the menu to begin creating a security admin configuration.
 
 1. Enter the name **sac-learn-prod-eastus-001** for the configuration, then select **Next: Rule collections**.
 
-    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/security-admin-configuration.png" alt-text="Screenshot of Security Admin configuration page.":::
-
 1. Enter the name **rc-learn-prod-eastus-001** for the rule collection and select **ng-learn-prod-eastus-001** for the target network group. Then select **+ Add**.
-
-    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/add-rule-collection.png" alt-text="Screenshot of add a rule collection page.":::
 
 1. Enter and select the following settings, then select **Add**:
 
@@ -237,9 +225,7 @@ Make sure the virtual network gateway has been successfully deployed before depl
     | Destination IP addresses | Enter **\*** |
     | Destination port | Enter **80, 443** |
 
-1. Select **Add** to add the rule collection to the configuration.
-
-    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/save-rule-collection.png" alt-text="Screenshot of save button for a rule collection.":::
+1. Select **Add** to add the rule collection to the security admin configuration.
 
 1. Select **Review + create** and **Create** to create the security admin configuration.
 
@@ -249,15 +235,13 @@ Make sure the virtual network gateway has been successfully deployed before depl
 
 1. Under *Configurations*, Select **Include security admin in your goal state** and the **sac-learn-prod-eastus-001** configuration you created in the last section. Then select **East US** as the target region and select **Next**.
 
-    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/deploy-security.png" alt-text="Screenshot of deploying a security configuration.":::
-
 1. Select **Next** and then **Deploy**. You should now see the deployment show up in the list for the selected region. The deployment of the configuration can take a few minutes to complete.
 
 ## Verify deployment of configurations
 
 ### Verify from a virtual network
 
-1. Go to **vnet-learn-prod-eastus-001** virtual network and select **Network Manager** under **Settings**. The **Connectivity configurations** tab lists **cc-learn-prod-eastus-001** connectivity configuration applied in the virtual network
+1. Go to **vnet-learn-prod-eastus-001** virtual network and select **Network Manager** under **Settings**. The **Connectivity configurations** tab lists **cc-learn-prod-eastus-001** connectivity configuration applied in the virtual network.
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/vnet-connectivity-configuration.png" alt-text="Screenshot of connectivity configuration applied to the virtual network.":::
 
@@ -265,11 +249,11 @@ Make sure the virtual network gateway has been successfully deployed before depl
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/verify-security-admin-configuration.png" alt-text="Screenshot of security admin configuration applied to the virtual network."::: 
 
-1. Select **Peerings** under **Settings** to list the virtual network peerings created by Virtual Network Manager. Its name starts with **ANM_**. 
+1. Go to **vnet-learn-hub-eastus-001** and select **Peerings** under **Settings** to list the virtual network peerings created by Azure Virtual Network Manager. Its name starts with **ANM_**. 
 
-    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/vnet-peerings.png" alt-text="Screenshot of virtual network peerings created by Virtual Network Manager." lightbox="media/tutorial-create-secured-hub-and-spoke/vnet-peerings-large.png":::
+    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/vnet-peerings.png" alt-text="Screenshot of virtual network peerings created by Azure Virtual Network Manager." lightbox="media/tutorial-create-secured-hub-and-spoke/vnet-peerings-large.png":::
 
-### Verify from a VM
+### Verify from a virtual machine
 
 1. [Deploy a test virtual machine](/azure/virtual-machines/linux/quick-create-portal) into **vnet-learn-prod-eastus-001**.
 
@@ -277,9 +261,7 @@ Make sure the virtual network gateway has been successfully deployed before depl
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/vm-security-rules.png" alt-text="Screenshot of test VM's network security rules.":::
 
-1. Select the network interface name and select **Effective routes** under **Help** to verify the routes for the virtual network peerings.The `10.2.0.0/16` route with the **Next Hop Type** of `VNet peering` is the route to the hub virtual network.
-
-    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/effective-routes.png" alt-text="Screenshot of effective routes from test VM network interface." :::
+1. Select the network interface name and select **Effective routes** under **Help** to verify the routes for the virtual network peerings. The `10.2.0.0/16` route with the **Next Hop Type** of `VNet peering` is the route to the hub virtual network.
 
 ## Clean up resources
 
@@ -289,7 +271,7 @@ If you no longer need the Azure Virtual Network Manager, you need to make sure a
 * All configurations have been deleted.
 * All network groups have been deleted.
 
-Use the [remove components checklist](concept-remove-components-checklist.md) to make sure no child resources are still available before deleting the resource group.
+Use the [remove components checklist](concept-remove-components-checklist.md) to ensure no child resources are still available before deleting the resource group.
 
 ## Next steps
 

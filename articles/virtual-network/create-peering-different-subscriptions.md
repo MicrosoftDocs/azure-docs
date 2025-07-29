@@ -8,6 +8,7 @@ ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 07/01/2024
 ms.custom: template-how-to, FY23 content-maintenance, devx-track-azurepowershell, devx-track-azurecli
+# Customer intent: "As a network administrator managing multiple Azure subscriptions, I want to create virtual network peering between those subscriptions, so that I can enable seamless communication between resources in different networks while optimizing bandwidth and latency."
 ---
 
 # Create a virtual network peering - Resource Manager, different subscriptions and Microsoft Entra tenants
@@ -290,7 +291,7 @@ az ad user list --display-name user-2
     "businessPhones": [],
     "displayName": "user-2",
     "givenName": null,
-    "id": "16d51293-ec4b-43b1-b54b-3422c108321a",
+    "id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
     "jobTitle": null,
     "mail": "user-2@fabrikam.com",
     "mobilePhone": null,
@@ -302,7 +303,7 @@ az ad user list --display-name user-2
 ]
 ```
 
-Make note of the object ID of **user-2** in field **id**. In this example, its **16d51293-ec4b-43b1-b54b-3422c108321a**.
+Make note of the object ID of **user-2** in field **id**. In this example, its **aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb**.
 
 
 ```azurecli-interactive
@@ -313,7 +314,7 @@ vnetid=$(az network vnet show \
     --output tsv)
 
 az role assignment create \
-      --assignee 16d51293-ec4b-43b1-b54b-3422c108321a \
+      --assignee aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb \
       --role "Network Contributor" \
       --scope $vnetid
 ```
@@ -566,7 +567,7 @@ az ad user list --display-name user-1
     "businessPhones": [],
     "displayName": "user-1",
     "givenName": null,
-    "id": "ee0645cc-e439-4ffc-b956-79577e473969",
+    "id": "bbbbbbbb-1111-2222-3333-cccccccccccc",
     "jobTitle": null,
     "mail": "user-1@contoso.com",
     "mobilePhone": null,
@@ -578,7 +579,7 @@ az ad user list --display-name user-1
 ]
 ```
 
-Make note of the object ID of **user-1** in field **id**. In this example, it's **ee0645cc-e439-4ffc-b956-79577e473969**.
+Make note of the object ID of **user-1** in field **id**. In this example, it's **bbbbbbbb-1111-2222-3333-cccccccccccc**.
 
 ```azurecli-interactive
 vnetid=$(az network vnet show \
@@ -588,7 +589,7 @@ vnetid=$(az network vnet show \
     --output tsv)
 
 az role assignment create \
-      --assignee ee0645cc-e439-4ffc-b956-79577e473969 \
+      --assignee bbbbbbbb-1111-2222-3333-cccccccccccc \
       --role "Network Contributor" \
       --scope $vnetid
 ```

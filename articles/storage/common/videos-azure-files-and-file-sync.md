@@ -2,10 +2,11 @@
 title: Azure Files and File Sync videos
 description: View a comprehensive list of Azure Files and Azure File Sync video content released over time.
 author: sindamnataraj
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: nasindam
-ms.date: 07/26/2023
+ms.date: 07/08/2025
 ms.service: azure-file-storage
+# Customer intent: "As a cloud user interested in Azure Files and File Sync, I want to access video tutorials, so that I can enhance my knowledge and skills in using these services effectively."
 ---
 
 # Azure Files and Azure File Sync videos
@@ -60,9 +61,27 @@ If you're new to Azure Files and File Sync or looking to deepen your understandi
 
 :::row:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/uStaB09y6TE]
+        > [!VIDEO https://www.youtube.com/embed/dyqQkheaHYg?si=sCrJV7A2hAb0fw7c]
     :::column-end:::
     :::column:::
-        **Integrating HPC Pack with Azure Files**
+        **This video provides a comprehensive overview of the differences between various Azure Files billing models, including pay-as-you-go, provisioned v1, and provisioned v2**
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/fnxEFw4mMyQ?si=Q13e4IMeWsBd-x4m]
+    :::column-end:::
+    :::column:::
+        **This video dives deep into the Azure Files provisioned v2 HDD billing model, offering setup instructions and recommendations to reduce total cost of ownership**
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/fYs8Nh8KpeM?si=gVsHfBw1hmhGT31J]
+    :::column-end:::
+    :::column:::
+        **The video highlights several new performance features made specifically around SMB workloads**
    :::column-end:::
 :::row-end:::

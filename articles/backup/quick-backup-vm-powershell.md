@@ -3,10 +3,11 @@ title: Quickstart - Back up a VM with PowerShell
 description: In this Quickstart, learn how to back up your Azure virtual machines with the Azure PowerShell module.
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 04/16/2019
+ms.date: 01/30/2025
 ms.custom: mvc, devx-track-azurepowershell, mode-api
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: As an IT administrator, I want to back up my Azure virtual machines using PowerShell, so that I can ensure the protection and recoverability of critical data and applications.
 ---
 
 # Back up a virtual machine in Azure with PowerShell
@@ -173,3 +174,4 @@ In this quickstart, you created a Recovery Services vault, enabled protection on
 
 - [Learn how](tutorial-backup-vm-at-scale.md) to back up VMs in the Azure portal.
 - [Learn how](tutorial-restore-disk.md) to quickly restore a VM
+- Learn how to [restore an Azure VM using REST API](backup-azure-arm-userestapi-restoreazurevms.md)

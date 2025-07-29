@@ -6,8 +6,9 @@ manager: bburns
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 06/14/2023
+ms.date: 11/19/2024
 ms.author: juergent
+# Customer intent: "As an SAP solutions architect, I want to utilize a detailed checklist for deploying SAP workloads to Azure, so that I can ensure a smooth migration and optimize system performance throughout each project phase."
 ---
 
 # SAP workloads on Azure: planning and deployment checklist
@@ -44,7 +45,7 @@ This document should contain:
 - The current inventory of SAP components and applications, and a target application inventory for Azure.
 - A responsibility assignment matrix (RACI) that defines the responsibilities and assignments of the parties involved. Start at a high level, and work to more granular levels throughout planning and the first deployments.
 - A high-level solution architecture. Best practices and example architectures from [Azure Architecture Center](/azure/architecture/reference-architectures/sap/sap-overview) should be consulted.
-- A decision about which Azure regions to deploy to. See the [list of Azure regions](https://azure.microsoft.com/global-infrastructure/regions/), and list of [regions with availability zone support](../../reliability/availability-zones-service-support.md). To learn which services are available in each region, see [products available by region](https://azure.microsoft.com/global-infrastructure/services/).
+- A decision about which Azure regions to deploy to. See the [list of Azure regions](https://azure.microsoft.com/global-infrastructure/regions/), and list of [regions with availability zone support](../../reliability/availability-zones-region-support.md). To learn which services are available in each region, see [products available by region](https://azure.microsoft.com/global-infrastructure/services/).
 - A networking architecture to connect from on-premises to Azure. Start to familiarize yourself with the [Azure enterprise scale landing zone](/azure/cloud-adoption-framework/ready/enterprise-scale/) concept.
 - Security principles for running high-impact business data in Azure. To learn about data security, start with the Azure security documentation.
 - Storage strategy to cover block devices (Managed Disk) and shared filesystems (such as Azure Files or Azure NetApp Files) that should be further refined to file-system sizes and layouts in the technical design document.
@@ -170,7 +171,7 @@ We recommend that you set up and validate a full HADR solution and security desi
   - To avoid GUI timeouts between on-premises SAP GUI interfaces and SAP application layers deployed in Azure, check whether these parameters are set in the default.pfl or the instance profile:
     - rdisp/keepalive_timeout = 3600
     - rdisp/keepalive = 20
-  - To prevent disruption of established connections between the SAP enqueue process and the SAP work processes, you need to set the enque/encni/set_so_keepalive parameter to true. See also [SAP note 2743751](https://launchpad.support.sap.com/#/notes/2743751).
+  - To prevent disruption of established connections between the SAP enqueue process and the SAP work processes, you need to set the enque/encni/set_so_keepalive parameter to `TRUE`. See also [SAP note 2743751](https://launchpad.support.sap.com/#/notes/2743751).
   - If you use a Windows failover cluster configuration, make sure that the time to react on non-responsive nodes is set correctly for Azure. The article [Tuning Failover Cluster Network Thresholds](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834) lists parameters and how they affect failover sensitivities. Assuming the cluster nodes are in the same subnet, you should change these parameters:
     - SameSubNetDelay = 2000 (number of milliseconds between “heartbeats”)
     - SameSubNetThreshold = 15 (maximum number of consecutive missed heartbeats)

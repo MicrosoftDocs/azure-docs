@@ -2,7 +2,7 @@
 author: cnwankwo
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 06/20/2023
+ms.date: 06/15/2025
 ms.author: cnwankwo
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-windows.md)]
@@ -66,7 +66,7 @@ To get information about all participants with spotlight state changes on the cu
 // event : { added: SpotlightedParticipant[]; removed: SpotlightedParticipant[] }
 // SpotlightedParticipant = { identifier: CommunicationIdentifier }
 // where: 
-//  identifier: ID of participant whos spotlight state is changed
+//  identifier: ID of participant whose spotlight state is changed
 private void OnSpotlightChange(object sender, SpotlightChangedEventArgs args)
 {
     foreach (SpotlightedParticipant rh in args.added)

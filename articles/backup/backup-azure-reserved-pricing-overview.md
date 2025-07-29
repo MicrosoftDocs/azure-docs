@@ -5,7 +5,8 @@ ms.topic: overview
 ms.service: azure-backup
 ms.date: 09/11/2024
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: As a cloud administrator, I want to understand how reservation discounts for backup storage are applied, so that I can optimize my storage costs and ensure efficient use of my reserved capacity.
 ---
 
 # Understand how reservation discounts are applied to Azure Backup storage

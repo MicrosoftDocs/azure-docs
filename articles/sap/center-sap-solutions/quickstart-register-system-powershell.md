@@ -9,6 +9,7 @@ ms.date: 05/04/2023
 ms.author: kanamudu
 author: kalyaninamuduri
 #Customer intent: As a developer, I want to register my existing SAP system so that I can use the system with Azure Center for SAP solutions.
+# Customer intent: "As an SAP administrator, I want to register my existing SAP system with Azure Center for SAP solutions using PowerShell, so that I can utilize the platform's management and monitoring capabilities for my SAP infrastructure."
 ---
 # Quickstart: Register an existing SAP system with Azure Center for SAP solutions with PowerShell
 
@@ -61,6 +62,7 @@ To register an existing SAP system in Azure Center for SAP solutions:
        -Tag @{k1 = "v1"; k2 = "v2"} `
        -ManagedResourceGroupName "acss-L46-rg" `
        -ManagedRgStorageAccountName 'acssstoragel46' `
+       -ManagedResourcesNetworkAccessType 'private' `
        -IdentityType 'UserAssigned' `
        -UserAssignedIdentity @{'/subscriptions/sub1/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ACSS-MSI'= @{}} `
      ```
@@ -101,7 +103,8 @@ To register an existing SAP system in Azure Center for SAP solutions:
    - **Environment** is used to specify the type of SAP environment you're registering. Valid values are *NonProd* and *Prod*.
    - **SapProduct** is used to specify the type of SAP product you're registering. Valid values are *S4HANA*, *ECC*, *Other*.
    - **ManagedResourceGroupName** is used to specify the name of the managed resource group which is deployed by ACSS service in your Subscription. This RG is unique for each SAP system (SID) you register. If you don't specify the name, ACSS service sets a name with this naming convention 'mrg-{SID}-{random string}'.
-   - **ManagedRgStorageAccountName** is used to specify the name of the Storage Account which is deployed into the managed resource group. This storage account is unique for each SAP system (SID) you register. ACSS service sets a default name using '{SID}{random string}' naming convention. 
+   - **ManagedRgStorageAccountName** is used to specify the name of the Storage Account which is deployed into the managed resource group. This storage account is unique for each SAP system (SID) you register. ACSS service sets a default name using '{SID}{random string}' naming convention.
+   - **ManagedResourcesNetworkAccessType** specifies the network access configuration for the resources that will be deployed in the Managed Resource Group. The options to choose from are Public and Private. If 'Private' is chosen, the Storage Account service tag should be enabled on the subnets in which the SAP VMs exist. This is required for establishing connectivity between VM extensions and the managed resource group storage account. This setting is currently applicable only to Storage Account.
 
 3. Once you trigger the registration process, you can view its status by getting the status of the Virtual Instance for SAP solutions resource that gets deployed as part of the registration process.
 

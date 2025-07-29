@@ -4,6 +4,7 @@ description: Learn how to encrypt data in Azure VMware Solution with customer-ma
 ms.topic: how-to 
 ms.custom: devx-track-azurecli, engagement-fy23
 ms.date: 4/12/2024
+# Customer intent: As a cloud administrator, I want to configure customer-managed key encryption for my Azure VMware Solution, so that I can securely manage the encryption keys and control access to sensitive data at rest.
 ---
 
 # Configure customer-managed key encryption at rest in Azure VMware Solution
@@ -151,7 +152,7 @@ Go to your Key Vault instance and provide access to the SDDC on Key Vault by usi
 
 # [Azure CLI](#tab/azure-cli)
 
-To configure CMKs for an Azure VMware Solution private cloud with automatic updating of the key version, call [az vmware private-cloud add-cmk-encryption](/cli/azure/vmware/private-cloud?view=azure-cli-latest#az-vmware-private-cloud-add-cmk-encryption&preserve-view=true). Get the key vault URL and save it to a variable. You need this value in the next step to enable CMK.
+To configure CMKs for an Azure VMware Solution private cloud with automatic updating of the key version, call [az vmware private-cloud enable-cmk-encryption](/cli/azure/vmware/private-cloud?view=azure-cli-latest#az-vmware-private-cloud-enable-cmk-encryption&preserve-view=true). Get the key vault URL and save it to a variable. You need this value in the next step to enable CMK.
     
 ```azurecli-interactive
 keyVaultUrl =$(az keyvault show --name <keyvault_name> --resource-group <resource_group_name> --query properties.vaultUri --output tsv)
@@ -164,7 +165,7 @@ The following options 1 and 2 demonstrate the difference between not providing a
 This example shows the customer not providing a specific key version.
     
 ```azurecli-interactive
-az vmware private-cloud add-cmk-encryption --private-cloud <private_cloud_name> --resource-group <resource_group_name> --enc-kv-url $keyVaultUrl --enc-kv-key-name <keyvault_key_name>
+az vmware private-cloud enable-cmk-encryption --private-cloud <private_cloud_name> --resource-group <resource_group_name> --enc-kv-url $keyVaultUrl --enc-kv-key-name <keyvault_key_name>
 ```
 
 ### Option 2
@@ -172,7 +173,7 @@ az vmware private-cloud add-cmk-encryption --private-cloud <private_cloud_name> 
 Supply the key version as an argument to use CMKs with a specific key version, as previously mentioned in the Azure portal option 2. The following example shows the customer providing a specific key version.
     
 ```azurecli-interactive
-az vmware private-cloud add-cmk-encryption --private-cloud <private_cloud_name> --resource-group <resource_group_name> --enc-kv-url $keyVaultUrl --enc-kv-key-name --enc-kv-key-version <keyvault_key_keyVersion>
+az vmware private-cloud enable-cmk-encryption --private-cloud <private_cloud_name> --resource-group <resource_group_name> --enc-kv-url $keyVaultUrl --enc-kv-key-name --enc-kv-key-version <keyvault_key_keyVersion>
 ```
 ---
 

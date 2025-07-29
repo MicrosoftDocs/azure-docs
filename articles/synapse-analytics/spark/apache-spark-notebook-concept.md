@@ -6,7 +6,7 @@ ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: midesa
-ms.reviewer: whhender 
+ 
 ms.subservice: spark
 ---
 

@@ -4,8 +4,9 @@ description: Learn how to plan for ExpressRoute maintenance events.
 author: duongau
 ms.author: duau
 ms.service: azure-expressroute
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/10/2023
+# Customer intent: "As a network administrator, I want to understand the planned maintenance process for ExpressRoute circuits, so that I can ensure reliable connectivity and minimize service disruptions during maintenance events."
 ---
 
 # Planned maintenance guidance for ExpressRoute

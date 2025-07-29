@@ -4,6 +4,9 @@ description: Security options for Hive in Standard and ESP clusters.
 ms.service: azure-hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: nijelsf
 ms.date: 03/15/2024
 ---
 
@@ -28,7 +31,7 @@ For ESP clusters, authorization through Ranger is enabled by default.
 
 ## SSL Encryption for HiveServer2
 
-Enabling Hiveserver2 SSL isn't recommended for either standard or ESP clusters. SSL is enabled on the gateway instead. [Encryption in transit](../domain-joined/encryption-in-transit.md) can be enabled to encrypt communications among the cluster nodes using [Internet Protocol Security (IPSec)](https://en.wikipedia.org/wiki/IPsec).
+Enabling Hiveserver2 SSL isn't recommended for either standard or ESP clusters. SSL is enabled on the gateway instead. [Encryption in transit](../domain-joined/encryption-in-transit.md) can be enabled to encrypt communications among the cluster nodes using [Internet Protocol Security (IPsec)](https://en.wikipedia.org/wiki/IPsec).
 
 
 ## Next steps

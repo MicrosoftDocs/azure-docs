@@ -3,7 +3,10 @@ title: Azure Monitor Agent (AMA) migration guide for Azure HDInsight clusters
 description: Learn how to migrate to Azure Monitor Agent (AMA) in Azure HDInsight clusters.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 09/12/2024
+ms.date: 01/07/2024
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ---
 
 # Azure Monitor Agent (AMA) migration guide for Azure HDInsight clusters
@@ -39,7 +42,7 @@ Considering customer feedback, the Azure HDInsight team invested in integration 
 * Automated [DCR](/azure/azure-monitor/essentials/data-collection-rule-overview) resource creation for the existing tables. 
 
 > [!NOTE] 
->  Azure Monitor Agent (AMA) integration (including DCR and System Identity Authentication) is avaiable all regions where HDInsight is available. 
+>  Azure Monitor Agent (AMA) integration (including DCR and System Identity Authentication) is available in all regions, where HDInsight is available. 
 
 ## Benefits of Azure Monitor Agent (AMA) integration
 
@@ -73,6 +76,8 @@ The following sections describe how customers can use the new Azure Monitor Agen
 >
 > You are expected to use the same Azure region for log analytics workspace, and HDInsight cluster for smoother migration.  
 >
+> If your workspace is in a different subscription, you must need to use PowerShell to enable Azure monitoring.
+> 
 > For more information about how to create a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](/azure/azure-monitor/logs/quick-create-workspace).  
 
 ### Approach 1: Enable Azure monitor agent using Portal 
@@ -513,6 +518,8 @@ We also improved the out-of-box dashboards both at the cluster-level. There's a 
 
     * Microsoft will not patch the Azure Monitor integration (preview) clusters except for critical security issues. 
 
+* `HDInsightGatewayAuditLogs_CL` table will no longer be functional from September 14, 2026, as The [Azure Monitor HTTP Data Collector API](/previous-versions/azure/azure-monitor/logs/data-collector-api?tabs=powershell) is being deprecated.
+  
 ## Appendix: Table mapping
 
 For the log table mappings from the classic Azure Monitor integration to the new one, see [Log table mapping](./monitor-hdinsight-reference.md#log-table-mapping). 

@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: how-to
-ms.date: 09/11/2024
+ms.date: 02/24/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
@@ -19,6 +19,8 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Set up a resource owner password credentials flow in Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -316,7 +318,7 @@ POST /<tenant-name>.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
-username=contosouser.outlook.com.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
+username=contosouser.outlook.com.ws&password=Passxword1&grant_type=password&scope=openid+00001111-aaaa-2222-bbbb-3333cccc4444+offline_access&client_id=00001111-aaaa-2222-bbbb-3333cccc4444&response_type=token+id_token
 ```
 
 A successful response with offline-access looks like the following example:

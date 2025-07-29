@@ -4,9 +4,10 @@ description: With Azure Backup, you can send data off the network by using the A
 ms.topic: how-to
 ms.date: 10/25/2024
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
 ms.service: azure-backup
 ms.custom: engagement-fy23
+# Customer intent: "As a system administrator managing DPM and Azure Backup Server, I want to execute an offline backup process using the Azure Import/Export service, so that I can efficiently transfer large backup datasets over low-bandwidth connections without overwhelming the network."
 ---
 # Offline backup workflow for DPM and Azure Backup Server (previous versions)
 
@@ -196,7 +197,7 @@ The *AzureOfflineBackupDiskPrep* utility is used to prepare the SATA drives that
 
     When you run the command, the utility requests the selection of the Azure import job that corresponds to the drives that need to be prepared. If only a single import job is associated with the provided staging location, you see a page like this one.
 
-    ![Screenshot shows how to add xthe Azure disk preparation tool input.](./media/offline-backup-dpm-mabs-previous-versions/azure-disk-preparation-tool-drive-input.png) <br/>
+    ![Screenshot shows how to add the Azure disk preparation tool input.](./media/offline-backup-dpm-mabs-previous-versions/azure-disk-preparation-tool-drive-input.png) <br/>
 
 1. Enter the drive letter without the trailing colon for the mounted disk that you want to prepare for transfer to Azure. When prompted, provide confirmation for the formatting of the drive.
 

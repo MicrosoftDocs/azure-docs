@@ -19,7 +19,7 @@ Before you begin creating a virtual machine (VM) image, ensure you have the foll
 
    * Install the latest version of the [necessary Azure CLI extensions](./howto-install-cli-extensions.md).
 
-   * This article requires version 2.49.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+   * This article requires version 2.61.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
    * Azure Container Registry (ACR): Set up a working Azure Container Registry to store and manage your container images. ACR provides a secure and private registry for storing Docker images used in your VM image creation process. You can create an ACR by following the official documentation at [Azure Container Registry](/azure/container-registry/container-registry-intro) documentation.
 
@@ -34,7 +34,7 @@ Ensure you have an operational Azure Container Registry (ACR) and Docker install
 
    * Ensure your Virtual Network Function (VNF) image is in qcow2 format that can boot with cloud-init.
 
-   * You need to configure the bootloader, kernel, and init system in your image to enable a text-based serial console. This configuration is required to enable console support for your virtual machine (VM). Make sure the serial port settings on your system and terminal match to establish proper communication.
+   * You need to configure the bootloader, kernel, and init system in your image to enable both serial connectivity and text-based console. Use both GRUB_TERMINAL="console serial" and kernel cmdline settings. This configuration is required to enable serial access for troubleshooting deployment issues and console support for your virtual machine (VM) after deployment. Make sure the serial port settings on your system and terminal match to establish proper communication.
 
    * You need to ensure your VM image supports cloud-init version 2, enabling advanced configuration options during the VM initialization process.
 

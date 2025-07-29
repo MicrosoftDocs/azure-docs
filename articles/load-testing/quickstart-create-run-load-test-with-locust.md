@@ -31,10 +31,6 @@ Use cases for creating a load test with an existing Locust test script:
 
 In this quickstart, you create a load test for your application endpoint by using Azure Load Testing and the Locust testing framework. You create a load testing resource in the Azure portal, and then create a load test by uploading the Locust test script and configuring the load parameters.
 
-> [!IMPORTANT]
-> Support for Locust in Azure Load Testing is currently in limited preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> Sign up [here](https://aka.ms/alt-locust-signup) to onboard your Azure subscription for the preview. 
-
 ## Create an Azure Load Testing resource
 
 You first need to create the top-level resource for Azure Load Testing. Azure portal provides a centralized place to view and manage test plans, test results, and related artifacts.
@@ -77,32 +73,28 @@ To create a load test for a Locust-based test in the Azure portal:
 
 1. Upload any other files that you reference in the test script. For example, if your test script uses CSV data sets, you can upload the corresponding *.csv* file(s). To use a configuration file with your Locust script, upload the file and select **Locust configuration** as the **File relevance**
 
-1. To install any dependencies from a 'requirements.txt' file, upload the 'requirements.txt' file along with the other artifacts. Add this code in your Locust script to install the dependencies 
-    ```Python
-    import subprocess
-    subprocess.check_output("python3 -m pip install -r requirements.txt", shell=True)
-    ```
-1. To use supporting Python files along with your Locust, create a wheel (.whl) file of the supporting Python files and upload the wheel file along with the other artifacts.  Add this code in your Locust script to install the wheel file during Locust startup
-    ```Python
-    import subprocess
-    subprocess.check_output("python3 -m pip install your_wheel.whl", shell=True)
-    ```
-    > [!NOTE]
-    > Include the code snippets to install dependencies and supporting files in the import section of your Locust script. Do not include these in the load test section.
+1. To install any dependencies from a 'requirements.txt' file, upload the 'requirements.txt' file along with the other artifacts. 
+
+1. To use supporting Python files along with your Locust script, upload the supporting files along with the other artifacts. Specify the main test script from which the execution should begin in File relevance. 
 
 1. On the **Load** tab, enter the details for the amount of load to generate:
 
     |Field  |Description  |
     |-|-|
-    | **Test engine instances** | Select the number of parallel test engine instances. Each test engine simulates the traffic of **Number of users**. |
-    | **Number of users**       | Enter the number of virtual users to simulate per test engine instance. |
-    | **Duration (minutes)**    | The total duration of the load test in minutes. |
-    | **Spawn rate of users**   | (Optional) Rate to add users at (users per second). |
+    | **Total number of users** | (Optional) Enter the overall number of users to simulate for the load test, across all engine instances. |
+    | **Overall spawn rate** | (Optional) Rate to add users at (users per second), across all engine instances. |
+    | **Duration (minutes)** | (Optional) The total duration of the load test in minutes. |
     | **Host endpoint**   | (Optional) The HTTP endpoint URL. For example, https://www.contoso.com/products.|
+    | **Test engine instances** | Select the number of parallel test engine instances. |
+
+    The optional inputs can be provided in the load configuration, in the Locust test script, or in the Locust configuration file. For more information, see [Configure for high scale loads](./how-to-high-scale-load.md)
 
 1. Select **Review + create**. Review all settings, and then select **Create** to create the load test.
 
 You can update the test configuration at any time, for example to upload a different Locust test file, or to modify the load parameters. Choose your test in the list of tests, and then select **Edit**.
+
+> [!NOTE]
+> Azure Load Testing runs your Locust script in *LocalRunner* mode on all the engine instances. 
 
 ## Run the load test
 

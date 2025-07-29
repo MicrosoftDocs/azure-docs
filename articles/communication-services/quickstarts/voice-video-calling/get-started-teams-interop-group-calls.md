@@ -30,6 +30,7 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 - A working [Communication Services calling web app](./getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
 - An [access token](../identity/access-tokens.md).
+- Teams users must have a Teams Phone license and be [Enterprise Voice enabled](/microsoftteams/direct-routing-enable-users#use-powershell-1)
 
 ## Add the Call UI controls
 
@@ -174,12 +175,12 @@ startInteropCallButton.addEventListener("click", async () => {
 });
 
 // Subscribe to a call obj.
-// Listen for property changes and collection udpates.
+// Listen for property changes and collection updates.
 subscribeToCall = (call) => {
     try {
         // Inspect the initial call.id value.
         console.log(`Call Id: ${call.id}`);
-        //Subsribe to call's 'idChanged' event for value changes.
+        //Subscribe to call's 'idChanged' event for value changes.
         call.on('idChanged', () => {
             console.log(`Call ID changed: ${call.id}`); 
         });
@@ -246,7 +247,7 @@ subscribeToCall = (call) => {
 }
 
 // Subscribe to a remote participant obj.
-// Listen for property changes and collection udpates.
+// Listen for property changes and collection updates.
 subscribeToRemoteParticipant = (remoteParticipant) => {
     try {
         // Inspect the initial remoteParticipant.state value.
@@ -260,7 +261,7 @@ subscribeToRemoteParticipant = (remoteParticipant) => {
             subscribeToRemoteVideoStream(remoteVideoStream)
         });
         // Subscribe to the remoteParticipant's 'videoStreamsUpdated' event to be
-        // notified when the remoteParticiapant adds new videoStreams and removes video streams.
+        // notified when the remoteParticipant adds new videoStreams and removes video streams.
         remoteParticipant.on('videoStreamsUpdated', e => {
             // Subscribe to newly added remote participant's video streams.
             e.added.forEach(remoteVideoStream => {

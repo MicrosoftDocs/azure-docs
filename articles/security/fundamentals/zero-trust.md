@@ -7,7 +7,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: mbaldwin
 manager: rkarlin
-ms.date: 06/28/2024
+ms.date: 04/23/2025
 ---
 
 # Zero Trust security

@@ -1,13 +1,11 @@
 ---
 title: Prepare for multiple workspaces and tenants in Microsoft Sentinel
 description: To prepare for your deployment, learn how Microsoft Sentinel can extend across multiple workspaces and tenants.
-author: cwatson-cat
+author: batamig
 ms.topic: conceptual
-ms.date: 08/13/2024
-ms.author: cwatson
+ms.date: 07/16/2025
+ms.author: bagol
 ms.service: microsoft-sentinel
-#Customer intent: As a SOC architect, I want to learn about how Microsoft Sentinel can extend across workspaces so I can determine whether I need this capability and prepare accordingly.
-
 
 #Customer intent: As a security operations center (SOC) manager, I want to understand how to extend and manage Microsoft Sentinel across multiple workspaces and tenants so that I can ensure compliance, data ownership, and efficient monitoring for my organization.
 
@@ -15,9 +13,17 @@ ms.service: microsoft-sentinel
 
 # Prepare for multiple workspaces and tenants in Microsoft Sentinel
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
 To prepare for your deployment, you need to determine whether a multiple workspace architecture is relevant for your environment. In this article, you learn how Microsoft Sentinel can extend across multiple workspaces and tenants so you can determine whether this capability suits your organization's needs. This article is part of the [Deployment guide for Microsoft Sentinel](deploy-overview.md).
 
-If you've decided to set up your environment to extend across workspaces, see [Extend Microsoft Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md) and [Centrally manage multiple Log Analytics workspaces enabled for Microsoft Sentinel with workspace manager](workspace-manager.md). If your organization plans to onboard to the Microsoft unified security operations platform in the Defender portal, see [Microsoft Defender multitenant management](/defender-xdr/mto-overview).
+Use one of the following sets of setup instructions, depending on which portal you're using to extend Microsoft Sentinel across workspaces:
+
+|Portal  |References  |
+|---------|---------|
+|Microsoft Defender portal     | - [Multiple Microsoft Sentinel workspaces in the Defender portal](/azure/sentinel/workspaces-defender-portal)  <br>- [Microsoft Defender multitenant management](/defender-xdr/mto-overview)        |
+|Azure portal     | - [Extend Microsoft Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md)  <br>- [Centrally manage multiple Log Analytics workspaces enabled for Microsoft Sentinel with workspace manager](workspace-manager.md)         |
+
 
 ## The need to use multiple workspaces
 
@@ -41,7 +47,7 @@ When determining how many tenants and workspaces to use, consider that most Micr
 
 In case of an MSSP, many if not all of the above requirements apply, making multiple workspaces, across tenants, the best practice. Specifically, we recommend that you create at least one workspace for each Microsoft Entra tenant to support built-in, [service to service data connectors](connect-data-sources.md#service-to-service-integration-for-data-connectors) that work only within their own Microsoft Entra tenant.
 
-- Connectors that are based on diagnostics settings can't be connected to a workspace that isn't located in the same tenant where the resource resides. This applies to connectors such as [Azure Firewall](./data-connectors/azure-firewall.md), [Azure Storage](./data-connectors/azure-storage-account.md), [Azure Activity](./data-connectors/azure-activity.md) or [Microsoft Entra ID](connect-azure-active-directory.md).
+- Connectors that are based on diagnostics settings can't be connected to a workspace that isn't located in the same tenant where the resource resides. This applies to connectors such as [Azure Firewall](./data-connectors-reference.md#azure-firewall), [Azure Storage](./data-connectors-reference.md#azure-storage-account), [Azure Activity](./data-connectors-reference.md#azure-activity) or [Microsoft Entra ID](connect-azure-active-directory.md).
 
 - [Partner data connectors](data-connectors-reference.md) are often based on API or agent collections, and therefore are not attached to a specific Microsoft Entra tenant.
 
@@ -57,7 +63,7 @@ As implied by the requirements above, there are cases where a single SOC needs t
 
 To address these cases, Microsoft Sentinel offers multiple-workspace capabilities that enable central monitoring, configuration, and management, providing a single pane of glass across everything covered by the SOC. This diagram shows an example architecture for such use cases. 
 
-:::image type="content" source="media/extend-sentinel-across-workspaces-tenants/cross-workspace-architecture.png" alt-text="Diagram showing extend workspace across multiple tenants: architecture.":::
+:::image type="content" source="media/extend-sentinel-across-workspaces-tenants/cross-workspace-architecture.png" alt-text="Diagram showing extend workspace across multiple tenants: architecture." border="false":::
 
 This model offers significant advantages over a fully centralized model in which all data is copied to a single workspace:
 

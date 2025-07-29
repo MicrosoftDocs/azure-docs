@@ -9,6 +9,7 @@ ms.topic: article
 ms.date: 09/16/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
+# Customer intent: As an IT administrator managing SAP HANA systems on cloud infrastructure, I want to configure Azure resources and networking for optimal SAP HANA deployment, so that I can ensure reliable operations and scalability for both production and non-production environments.
 ---
 
 # SAP HANA infrastructure configurations and operations on Azure
@@ -52,8 +53,6 @@ Deploy the VMs in Azure by using:
 - The Azure portal.
 - Azure PowerShell cmdlets.
 - The Azure CLI.
-
-You also can deploy a complete installed SAP HANA platform on the Azure VM services through the [SAP Cloud platform](https://cal.sap.com). The installation process is described in [Deploy SAP S/4HANA or BW/4HANA on Azure](./cal-s4h.md).
 
 >[!IMPORTANT]
 > In order to use M208xx_v2 VMs, you need to be careful selecting your Linux image. For more information, see [Memory optimized virtual machine sizes](/azure/virtual-machines/mv2-series).
@@ -133,7 +132,7 @@ The basic configuration of a VM node for SAP HANA scale-out looks like:
 - All other disk volumes aren't shared among the different nodes and aren't based on NFS. Installation configurations and steps for scale-out HANA installations with non-shared **/hana/data** and **/hana/log** is provided further later in this document. For HANA certified storage that can be used, check the article [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md).
 
 
-Sizing the volumes or disks, you need to check the document [SAP HANA TDI Storage Requirements](https://www.sap.com/documents/2017/09/e6519450-d47c-0010-82c7-eda71af511fa.html), for the size required dependent on the number of worker nodes. The document releases a formula you need to apply to get the required capacity of the volume
+Sizing the volumes or disks, you need to check the document [SAP HANA TDI Storage Requirements](https://www.sap.com/documents/2024/03/146274d3-ae7e-0010-bca6-c68f7e60039b.html), for the size required dependent on the number of worker nodes. The document releases a formula you need to apply to get the required capacity of the volume
 
 The other design criteria that is displayed in the graphics of the single node configuration for a scale-out SAP HANA VM is the VNet, or better the subnet configuration. SAP highly recommends a separation of the client/application facing traffic from the communications between the HANA nodes. As shown in the graphics, this goal is achieved by having two different vNICs attached to the VM. Both vNICs are in different subnets, have two different IP addresses. You then control the flow of traffic with routing rules using NSGs or user-defined routes.
 

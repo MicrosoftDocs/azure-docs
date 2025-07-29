@@ -2,12 +2,14 @@
 title: Using Azure Content Delivery Network with SAS
 description: Azure Content Delivery Network supports the use of Shared Access Signature (SAS) to grant limited access to private storage containers.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: danielgi
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
+ROBOTS: NOINDEX
+# Customer intent: As a cloud storage administrator, I want to configure Shared Access Signatures for my Azure Content Delivery Network, so that I can securely grant time-limited access to specific resources without exposing my storage account key.
 ---
 
 # Using Azure Content Delivery Network with SAS
@@ -40,11 +42,10 @@ For example:
 
 For more information about setting parameters, see [SAS parameter considerations](#sas-parameter-considerations) and [Shared Access Signature parameters](../storage/common/storage-sas-overview.md#how-a-shared-access-signature-works).
 
-![Screenshot of the content delivery network SAS settings.](./media/cdn-sas-storage-support/cdn-sas-settings.png)
 
 <a name='option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn'></a>
 
-### Option 1: Using SAS with pass-through to blob storage from Azure Content Delivery Network
+###  Using SAS with pass-through to blob storage from Azure Content Delivery Network
 
 This option is the simplest and uses a single SAS token, which is passed from Azure Content Delivery Network to the origin server.
 
@@ -63,49 +64,15 @@ This option is the simplest and uses a single SAS token, which is passed from Az
 
 3. Fine-tune the cache duration either by using caching rules or by adding `Cache-Control` headers at the origin server. Because Azure Content Delivery Network treats the SAS token as a plain query string, as a best practice you should set up a caching duration that expires at or before the SAS expiration time. Otherwise, if a file is cached for a longer duration than the SAS is active, the file might be accessible from the Azure Content Delivery Network origin server after the SAS expiration time has elapsed. If this situation occurs, and you want to make your cached file inaccessible, you must perform a purge operation on the file to clear it from the cache. For information about setting the cache duration on Azure Content Delivery Network, see [Control Azure Content Delivery Network caching behavior with caching rules](cdn-caching-rules.md).
 
-<a name='option-2-using-cdn-security-token-authentication-with-a-rewrite-rule'></a>
-
-### Option 2: Using content delivery network security token authentication with a rewrite rule
-
-To use Azure Content Delivery Network security token authentication, you must have an **Azure CDN Premium from Edgio** profile. This option is the most secure and customizable. Client access is based on the security parameters that you set on the security token. Once you've created and set up the security token, it's required on all content delivery network endpoint URLs. However, because of the URL Rewrite rule, the SAS token isn't required on the content delivery network endpoint. If the SAS token later becomes invalid, Azure Content Delivery Network can't revalidate the content from the origin server.
-
-1. [Create an Azure Content Delivery Network security token](./cdn-token-auth.md#setting-up-token-authentication) and activate it by using the rules engine for the content delivery network endpoint and path where your users can access the file.
-
-   A security token endpoint URL has the following format:
-
-   `https://<endpoint hostname>.azureedge.net/<container>/<file>?<security_token>`
-
-   For example:
-
-   `https://sasstoragedemo.azureedge.net/container1/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D`
-
-   The parameter options for a security token authentication are different than the parameter options for a SAS token. If you choose to use an expiration time when you create a security token, you should set it to the same value as the expiration time for the SAS token. Doing so ensures that the expiration time is predictable.
-
-2. Use the [rules engine](./cdn-verizon-premium-rules-engine.md) to create a URL Rewrite rule to enable SAS token access to all blobs in the container. New rules take up to 4 hours to propagate.
-
-   The following sample URL Rewrite rule uses a regular expression pattern with a capturing group and an endpoint named *sasstoragedemo*:
-
-   Source:
-
-   `(container1/.*)`
-
-   Destination:
-
-   `$1&sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D`
-    :::image type="content" source="./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png" alt-text="Screenshot of content delivery network URL Rewrite rule - left.":::
-    :::image type="content" source="./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-3.png" alt-text="Screenshot of content delivery network URL Rewrite rule - right.":::
-
-3. If you renew the SAS, ensure that you update the URL Rewrite rule with the new SAS token.
-
 ## SAS parameter considerations
 
-Because SAS parameters aren't visible to Azure Content Delivery Network, Azure Content Delivery Network can't change its delivery behavior based on them. The defined parameter restrictions apply only on requests that Azure Content Delivery Network makes to the origin server, not for requests from the client to Azure Content Delivery Network. This distinction is important to consider when you set SAS parameters. If these advanced capabilities are required and you're using [Option 2](#option-2-using-cdn-security-token-authentication-with-a-rewrite-rule), set the appropriate restrictions on the Azure Content Delivery Network security token.
+Because SAS parameters aren't visible to Azure Content Delivery Network, Azure Content Delivery Network can't change its delivery behavior based on them. The defined parameter restrictions apply only on requests that Azure Content Delivery Network makes to the origin server, not for requests from the client to Azure Content Delivery Network. This distinction is important to consider when you set SAS parameters.
 
 | SAS parameter name | Description |
 | --- | --- |
 | Start | The time that Azure Content Delivery Network can begin to access the blob file. Due to clock skew (when a clock signal arrives at different times for different components), choose a time 15 minutes earlier if you want the asset to be available immediately. |
 | End | The time after which Azure Content Delivery Network can no longer access the blob file. Previously cached files on Azure Content Delivery Network are still accessible. To control the file expiry time, either set the appropriate expiry time on the Azure Content Delivery Network security token or purge the asset. |
-| Allowed IP addresses | Optional. If you're using **Azure CDN from Edgio**, you can set this parameter to the ranges defined in [Azure Content Delivery Network from Edgio Edge Server IP Ranges](./cdn-pop-list-api.md). |
+| Allowed IP addresses | Optional. |
 | Allowed protocols | The protocols allowed for a request made with the account SAS. The HTTPS setting is recommended.|
 
 ## Next steps

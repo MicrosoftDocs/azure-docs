@@ -112,7 +112,8 @@ GitHub Copilot generates a code snippet that matches your instructions, using [A
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Azure Maps Geocode and Pushpin Example</title>
-    <script type="text/javascript" src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=3"></script>
+    <link href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" rel="stylesheet" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
     <style>
         #map {
             width: 100%;
@@ -124,7 +125,7 @@ GitHub Copilot generates a code snippet that matches your instructions, using [A
     <div id="map"></div>
     <script>
         var subscriptionKey = 'YOUR_SUBSCRIPTION_KEY'; // Replace with your Azure Maps subscription key
-        var query = '1 Microsoft Way, Seattle';
+        var query = '1 Microsoft Way, Redmond';
  
         // Make Geocode API request
         fetch(`https://atlas.microsoft.com/geocode?api-version=2023-06-01&subscription-key=${subscriptionKey}&query=${query}`)
@@ -207,7 +208,7 @@ Step 6. Create and add a SymbolLayer to the map.
 
 Step 7. Create and add a LineLayer to the map.
 
-Step 8. Utilize the Route POST API: <https://atlas.microsoft.com/route/directions?api-version=2023-10-01-preview&subscription-key=${subscriptionKey}> to find the route between the start and end points. Add the GeoJSON response to the DataSource and adjust the map's camera based on the bounding box of the response.
+Step 8. Utilize the Route POST API: <https://atlas.microsoft.com/route/directions?api-version=2025-01-01&subscription-key=${subscriptionKey}> to find the route between the start and end points. Add the GeoJSON response to the DataSource and adjust the map's camera based on the bounding box of the response.
 
 Example request body:
 
@@ -334,7 +335,7 @@ GitHub Copilot can create the following code snippet to provide an interface for
  
       function getRoute(startCoordinates, endCoordinates) {
         fetch(
-          `https://atlas.microsoft.com/route/directions?api-version=2023-10-01-preview&subscription-key=${subscriptionKey}`,
+          `https://atlas.microsoft.com/route/directions?api-version=2025-01-01&subscription-key=${subscriptionKey}`,
           {
             method: "POST",
             headers: {

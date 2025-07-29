@@ -4,6 +4,9 @@ description: Learn how to add Apache Hive libraries (jar files) to an HDInsight 
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 06/15/2024
 ---
 

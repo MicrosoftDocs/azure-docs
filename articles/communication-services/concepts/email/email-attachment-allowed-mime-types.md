@@ -1,7 +1,7 @@
 ---
-title: Allowed attachment types for sending email in Azure Communication Services
-titleSuffix: An Azure Communication Services concept article
-description: Learn about how validation for attachment MIME types works in Azure Communication Services.
+title: Supported attachment types
+titleSuffix: An Azure Communication Services article
+description: This article describes validation for attachment MIME types in Azure Communication Services.
 author: natekimball-msft
 manager: koagbakp
 services: azure-communication-services
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# Allowed attachment types for sending email in Azure Communication Services
+# Supported attachment types
 
-The [SendMail operation](../../quickstarts/email/send-email.md) allows the option for the sender to add attachments to an outgoing email. Along with the content itself, the sender must include the file attachment type by using the Multipurpose Internet Mail Extensions (MIME) standard when making a request with an attachment. Many common file types are accepted, such as Word documents, Excel spreadsheets, image and video formats, contacts, and calendar invites.
+The [SendMail operation](../../quickstarts/email/send-email.md) enables the option for the sender to add attachments to an outgoing email. Along with the content itself, the sender must include the file attachment type by using the Multipurpose Internet Mail Extensions (MIME) standard when making a request with an attachment. Many common file types are accepted, such as Word documents, Excel spreadsheets, image and video formats, contacts, and calendar invites.
 
 ## What is a MIME type?
 
 MIME types are a way to identify the type of data that's being sent over the internet. When users send email requests by using Azure Communication Services, they can specify the MIME type of the email content so that the recipient's email client can properly display and interpret the message. If an email message includes an attachment, the MIME type is set to the appropriate file type (for example, `application/pdf` for a PDF document).
 
-Developers can ensure that the recipient's email client properly formats and interprets the email message by using MIME types, irrespective of the software or platform that the system is using. This information helps ensure that the email message is delivered correctly and that the recipient can access the content as intended. Using MIME types can also help to improve the security of email communications, because they can indicate whether an email message includes executable content or other potentially harmful elements.
+Regardless of the software or platform, developers can ensure that the recipient's email client properly formats and interprets the email message by using MIME types. This information helps ensure that the email message is delivered correctly and that the recipient can access the content as intended. Using MIME types can also help to improve the security of email communications. Because MIME types can indicate whether an email message includes executable content, or other potentially harmful elements.
 
 MIME types are a critical component of email communication. By using MIME types with Azure Communication Services, developers can help ensure that their email messages are delivered correctly and securely.
 
-## Allowed attachment types
+## Attachment types
 
 This table lists common supported file extensions and their corresponding MIME types for email attachments in Azure Communication Services:
 
@@ -93,11 +93,14 @@ There are many other file extensions and MIME types that you can use for email a
 
 Some email clients and servers might have limitations or restrictions on file size and types that could result in the failure of email delivery. Ensure that the recipient can accept the email attachment, or refer to the documentation for the recipient's email provider.
 
-## Additional information
+## Related information
 
 The Internet Assigned Numbers Authority (IANA) is a department of the Internet Corporation for Assigned Names and Numbers (ICANN). IANA is responsible for the global coordination of various internet protocols and resources, including the management and registration of MIME types.
 
 IANA maintains a registry of standardized MIME types. The registry includes a unique identifier for each MIME type, a short description of its purpose, and the associated file extensions. For the most up-to-date information about MIME types, including the definitive list of media types, go to the [IANA website](https://www.iana.org/assignments/media-types/media-types.xhtml).
+
+> [!NOTE]
+> The total email size includes email content, attachment, and the base64 encoding. You need to consider that that base64 encoding increases the size of the message. You need to increase the size value to account for the message size increase that occurs after the attachment is Base64 encoded. Base64 encoding increases the size of the message by about 33%, so the message size is about 33% larger than the message sizes before encoding. For example, if you have a maximum email size of ~10 MB (including attachments), realistically you're restricted to ~7.5 MB of email (including attachments) because of base64 encoding of the attachments.
 
 ## Next steps
 
@@ -106,7 +109,7 @@ IANA maintains a registry of standardized MIME types. The registry includes a un
 * [Send email by using Azure Communication Services](../../quickstarts/email/send-email.md)
 * [Connect a verified email domain in Azure Communication Services](../../quickstarts/email/connect-email-communication-resource.md)
 
-The following documents might be interesting to you:
+## Related articles
 
 * Familiarize yourself with the [email client library](../email/sdk-features.md).
 * Learn how to send emails with [custom verified domains](../../quickstarts/email/add-custom-verified-domains.md).

@@ -213,7 +213,7 @@ Web application samples are available for the following languages:
 
 - [C# sample](https://github.com/microsoftgraph/msgraph-sample-eventgrid-notifications-dotnet). It's an up-to-date sample that includes how to create and renew Graph API subscriptions and walks you through some of the steps to enable the flow of events.
 - [Java sample](https://github.com/microsoftgraph/java-spring-webhooks-sample)
-- [NodeJS sample](https://github.com/microsoftgraph/nodejs-webhooks-sample).
+- [Node.js sample](https://github.com/microsoftgraph/nodejs-webhooks-sample).
 
 > [!IMPORTANT]
 > You need to activate your partner topic that is created as part of your Graph API subscription creation. You also need to create an Event Grid event subscription to your web application to receive events. To that end, you use the URL configured in your web application to receive events as a webhook endpoint in your event subscription. [Next steps](#next-steps) for more information.

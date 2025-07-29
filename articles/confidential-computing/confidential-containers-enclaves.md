@@ -3,11 +3,12 @@ title: Confidential containers with Intel SGX enclaves on Azure
 description: Learn about unmodified container support with confidential containers on Intel SGX through OSS and partner solutions
 services: container-service
 author: angarg05
-ms.topic: article
+ms.topic: concept-article
 ms.date: 7/15/2022
 ms.author: ananyagarg
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
+# Customer intent: "As a developer looking to enhance the security of my container applications, I want to implement confidential containers using Intel SGX, so that I can ensure data confidentiality and integrity without modifying existing code."
 ---
 
 # Confidential containers on Azure Kubernetes Service(AKS) with Intel SGX enclaves
@@ -34,7 +35,7 @@ Developers can choose software providers based on their features, integration wi
 
 ### Fortanix
 
-[Fortanix](https://www.fortanix.com/) has portal and Command Line Interface (CLI) experiences to convert their containerized applications to SGX-capable confidential containers. You don't need to modify or recompile the application. Fortanix provides the flexibility to run and manage a broad set of applications. You can use existing applications, new enclave-native applications, and pre-packaged applications. Start with Fortanix's [Enclave Manager](https://em.fortanix.com/) UI or [REST APIs](https://www.fortanix.com/api/). Create confidential containers using the Fortanix's [quickstart guide for AKS](https://hubs.li/Q017JnNt0).
+[Fortanix](https://www.fortanix.com/) has portal and Command Line Interface (CLI) experiences to convert their containerized applications to SGX-capable confidential containers. You don't need to modify or recompile the application. Fortanix provides the flexibility to run and manage a broad set of applications. You can use existing applications, new enclave-native applications, and pre-packaged applications. Start with Fortanix's [Enclave Manager](https://em.fortanix.com/) UI or [REST APIs](https://www.fortanix.com/api/). Create confidential containers using the Fortanix's quickstart guide for AKS.
 
 ![Diagram of Fortanix deployment process, showing steps to move applications to confidential containers and deploy.](./media/confidential-containers/fortanix-confidential-containers-flow.png)
 

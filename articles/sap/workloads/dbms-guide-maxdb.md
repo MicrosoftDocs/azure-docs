@@ -9,6 +9,7 @@ ms.topic: article
 ms.date: 08/24/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
+# Customer intent: As a system administrator deploying SAP MaxDB, liveCache, and Content Server on Azure, I want to configure storage and backup strategies according to best practices, so that I can ensure performance, reliability, and efficient management of my SAP workloads in the cloud environment.
 ---
 
 # SAP MaxDB, liveCache, and Content Server deployment on Azure VMs
@@ -66,7 +67,7 @@ ms.custom: H1Hack27Feb2017
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-resource-manager/management/azure-subscription-service-limits]:../../azure-resource-manager/management/azure-subscription-service-limits.md
-[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-subscription-limits
 
 [dbms-guide]:dbms-guide-general.md 
 [dbms-guide-2.1]:dbms-guide-general.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 

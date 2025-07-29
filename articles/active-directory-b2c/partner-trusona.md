@@ -16,7 +16,9 @@ zone_pivot_groups: b2c-policy-type
 
 # Configure Trusona Authentication Cloud with Azure Active Directory B2C
 
-In this sample tutorial, you learn how to integrate Azure AD B2C authentication with [Trusona Authentication Cloud](https://www.trusona.com/customers/authentication-cloud). It's a cloud-based service enabling users to authenticate with a **tap-and-go** experience, without the need for any kind of mobile authenticator app.
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
+In this sample tutorial, you learn how to integrate Azure AD B2C authentication with [Trusona Authentication Cloud](https://www.trusona.com/white-paper/trusona-authentication-cloud-white-paper). It's a cloud-based service enabling users to authenticate with a **tap-and-go** experience, without the need for any kind of mobile authenticator app.
 
 Benefits of integrating Trusona Authentication Cloud with Azure AD B2C include:
 -	Deliver strong authentication with a better user experience
@@ -73,7 +75,7 @@ In this scenario, Trusona acts as an Identity Provider (IdP) for Azure AD B2C to
 
 ## Step 1: Onboard with Trusona Authentication Cloud
 
-1.	Sign in to the [Trusona Portal](https://portal.trusona.io).
+1.	Sign in to the [Trusona Portal](https://portal.trusona.com/).
 2.	From the left navigation panel, select **Settings**
 3.	In the Settings menu, select the slider to **Enable OIDC**.
 4.	Select the appropriate **Inputs** and provide the **Redirect URL** `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`.
@@ -495,7 +497,7 @@ For additional information, review the following articles:
 
 - [Azure AD B2C docs](solution-articles.md)
 
-- [Ask your question on Stackoverflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
+- [Ask your question on Stack Overflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 
 - [Azure AD B2C Samples](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 

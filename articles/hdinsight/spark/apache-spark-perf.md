@@ -3,7 +3,10 @@ title: Optimize Spark jobs for performance - Azure HDInsight
 description: Show common strategies for the best performance of Apache Spark clusters in Azure HDInsight.
 ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 09/06/2024
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
+ms.date: 02/28/2025
 ---
 # Optimize Apache Spark applications in HDInsight
 
@@ -93,7 +96,7 @@ In each of the following articles, you can find information on different aspects
 
 ### Optimize Spark SQL partitions
 
-- `spark.sql.shuffle.paritions` is 200 by default. We can adjust based on the business needs when shuffling data for joins or aggregations.
+- `spark.sql.shuffle.partitions` is 200 by default. We can adjust based on the business needs when shuffling data for joins or aggregations.
 - `spark.sql.files.maxPartitionBytes` is 1G by default in HDI. The maximum number of bytes to pack into a single partition when reading files. This configuration is effective only when using file-based sources such as Parquet, JSON and ORC.
 - AQE in Spark 3.0. See [Adaptive Query Execution](https://spark.apache.org/docs/latest/sql-performance-tuning.html#adaptive-query-execution)
 

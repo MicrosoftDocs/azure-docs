@@ -4,14 +4,15 @@ description: Learn how to build an application that securely gets the key from A
 author: angarg05
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 3/9/2023
 ms.author: ananyagarg
+# Customer intent: As a cloud developer, I want to implement Secure Key Release from Azure Key Vault to confidential containers on Azure Container Instances, so that I can securely manage keys for my applications running in a protected environment.
 ---
 
 # Secure Key Release with Confidential containers on Azure Container Instance (ACI)
 
-Secure Key Release (SKR) flow with Azure Key Vault (AKV) with confidential container offerings can implement in couple of ways. Confidential containers run a guest enlightened exposting AMD SEV-SNP device through a Linux Kernel that uses an in guest firmware with necessary Hyper-V related patches that we refer as Direct Linux Boot (DLB). This platform doesn't use vTPM and HCL based that Confidential VMs with AMD SEV-SNP support. This concept document assumes you plan to run the containers in [Azure Container Support choosing a confidential computing SKU](/azure/container-instances/container-instances-tutorial-deploy-confidential-containers-cce-arm)
+Secure Key Release (SKR) flow with Azure Key Vault (AKV) with confidential container offerings can implement in couple of ways. Confidential containers run a guest enlightened exposing AMD SEV-SNP device through a Linux Kernel that uses an in guest firmware with necessary Hyper-V related patches that we refer as Direct Linux Boot (DLB). This platform doesn't use vTPM and HCL based that Confidential VMs with AMD SEV-SNP support. This concept document assumes you plan to run the containers in [Azure Container Support choosing a confidential computing SKU](/azure/container-instances/container-instances-tutorial-deploy-confidential-containers-cce-arm)
 
 - Side-Car Helper Container provided by Azure
 - Custom implementation with your container application

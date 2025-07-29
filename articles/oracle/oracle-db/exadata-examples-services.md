@@ -6,6 +6,7 @@ ms.author: jacobjaygbay
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
+# Customer intent: "As a cloud architect, I want to use Terraform to provision and manage Oracle Exadata services in Azure, so that I can automate infrastructure deployments and streamline database management operations."
 ---
 
 # Terraform/OpenTofu examples for Exadata services
@@ -183,7 +184,7 @@ resource "azapi_resource" "cloudVmCluster" {
         "clusterName": "cluster1",
         "dataStoragePercentage": 100,
         "isLocalBackupEnabled": false,
-        "cloudExadataInfrastructureId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg000/providers/Oracle.Database/cloudExadataInfrastructures/infra1",
+        "cloudExadataInfrastructureId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg000/providers/Oracle.Database/cloudExadataInfrastructures/infra1",
         "isSparseDiskgroupEnabled": false,
         "sshPublicKeys": [
           "ssh-key 1"
@@ -203,9 +204,9 @@ resource "azapi_resource" "cloudVmCluster" {
         "licenseModel": "LicenseIncluded",
         "scanListenerPortTcp": 1050,
         "scanListenerPortTcpSsl": 1025,
-        "vnetId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg000/providers/Microsoft.Network/virtualNetworks/vnet1",
+        "vnetId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg000/providers/Microsoft.Network/virtualNetworks/vnet1",
         "giVersion": "19.0.0.0",
-        "subnetId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg000/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+        "subnetId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg000/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
         "backupSubnetCidr": "172.17.5.0/24",
         "dataCollectionOptions": {
           "isDiagnosticsEventsEnabled": false,

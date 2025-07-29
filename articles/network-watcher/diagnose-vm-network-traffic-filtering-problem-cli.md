@@ -10,13 +10,14 @@ ms.date: 09/30/2024
 ms.custom: devx-track-azurecli, mode-api
 
 #Customer intent: I want to diagnose a virtual machine (VM) network traffic filter using IP flow verify to know which security rule is denying the traffic and causing the communication problem to the VM.
+# Customer intent: As a system administrator, I want to diagnose network traffic filter issues on a virtual machine using an IP flow verification tool, so that I can identify and resolve security rules that are blocking communication.
 ---
 
 # Quickstart: Diagnose a virtual machine network traffic filter problem using the Azure CLI
 
 In this quickstart, you deploy a virtual machine and use Network Watcher [IP flow verify](network-watcher-ip-flow-verify-overview.md) to test the connectivity to and from different IP addresses. Using the IP flow verify results, you determine the security rule that's blocking the traffic and causing the communication failure and learn how you can resolve it. You also learn how to use the [effective security rules](effective-security-rules-overview.md) for a network interface to determine why a security rule is allowing or denying traffic.
 
-:::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem-cli/ip-flow-verify-quickstart-diagram.png" alt-text="Diagram shows the resources created in Network Watcher quickstart.":::
+:::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-quickstart-diagram.png" alt-text="Diagram shows the resources created in Network Watcher quickstart.":::
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

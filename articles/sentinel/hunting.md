@@ -2,12 +2,12 @@
 title: Hunting capabilities in Microsoft Sentinel| Microsoft Docs
 description: Use Microsoft Sentinel's built-in hunting queries to guide you into asking the right questions to find issues in your data.
 ms.topic: conceptual
-ms.date: 05/17/2024
-ms.author: austinmc
-author: austinmccollum
+ms.date: 12/31/2024
+ms.author: monaberdugo
+author: mberdugo
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -94,10 +94,11 @@ Many available hunting queries are developed by Microsoft security researchers o
 
 Create or edit a query and save it as your own query or share it with users who are in the same tenant. In Microsoft Sentinel, create a custom hunting query from the **Hunting** > **Queries** tab.
 
-# [Azure portal](#tab/azure-portal)
-:::image type="content" source="./media/hunting/save-query.png" alt-text="Save query" lightbox="./media/hunting/save-query.png":::
 # [Defender portal](#tab/defender-portal)
 :::image type="content" source="./media/hunting/save-query-defender.png" alt-text="Save query" lightbox="./media/hunting/save-query-defender.png":::
+
+# [Azure portal](#tab/azure-portal)
+:::image type="content" source="./media/hunting/save-query.png" alt-text="Save query" lightbox="./media/hunting/save-query.png":::
 
 ---
 
@@ -200,7 +201,7 @@ For more information, see:
 
 ## Useful operators and functions
 
-Hunting queries are built in [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), a powerful query language with IntelliSense language that gives you the power and flexibility you need to take hunting to the next level.
+Hunting queries are built in [Kusto Query Language (KQL)](/kusto/query/?view=microsoft-sentinel&preserve-view=true), a powerful query language with IntelliSense language that gives you the power and flexibility you need to take hunting to the next level.
 
 It's the same language used by the queries in your analytics rules and elsewhere in Microsoft Sentinel. For more information, see [Query Language Reference](/azure/azure-monitor/logs/get-started-queries).
 

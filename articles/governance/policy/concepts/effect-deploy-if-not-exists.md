@@ -1,7 +1,7 @@
 ---
 title: Azure Policy definitions deployIfNotExists effect
 description: Azure Policy definitions deployIfNotExists effect determines how compliance is managed and reported.
-ms.date: 04/08/2024
+ms.date: 03/04/2025
 ms.topic: conceptual
 ---
 
@@ -72,7 +72,7 @@ The `details` property of the DeployIfNotExists effect has all the subproperties
   - A _location_ property must be specified in the _Deployment_ when using subscription level deployments.
   - Default is _ResourceGroup_.
 - `deployment` (required)
-  - This property should include the full template deployment as it would be passed to the `Microsoft.Resources/deployments` PUT API. For more information, see the [Deployments REST API](/rest/api/resources/deployments).
+  - This property should include the full template deployment as it would be passed to the `Microsoft.Resources/deployments` PUT API. For more information, see the [Deployments REST API](/azure/azure-resource-manager/templates/deploy-rest).
   - Nested `Microsoft.Resources/deployments` within the template should use unique names to avoid contention between multiple policy evaluations. The parent deployment's name can be used as part of the nested deployment name via `[concat('NestedDeploymentName-', uniqueString(deployment().name))]`.
 
   > [!NOTE]

@@ -35,6 +35,8 @@
     href: file-sync-replace-server.md
   - name: Replace drive of an Azure File Sync server
     href: file-sync-replace-drive.md
+  - name: Install Azure File Sync agent extension on Arc-enabled Windows Servers
+    href: file-sync-extension.md    
 - name: Cloud tiering
   items:
   - name: Cloud tiering overview
@@ -189,6 +191,12 @@
     href: /troubleshoot/azure/azure-storage/file-sync-troubleshoot-cloud-tiering?toc=/azure/storage/file-sync/toc.json
   - name: Troubleshoot managed identities
     href: /troubleshoot/azure/azure-storage/files/file-sync/file-sync-troubleshoot-managed-identities?toc=/azure/storage/file-sync/toc.json
+- name: Training
+  items:
+  - name: Configure Azure Files and Azure File Sync
+    href: /training/modules/configure-azure-files-file-sync/
+  - name: Implement a hybrid file server infrastructure
+    href: /training/modules/implement-hybrid-file-server-infrastructure/    
 - name: Reference
   items:
   - name: Azure File Sync agent silent installation
@@ -199,13 +207,13 @@
     href: ../files/storage-files-faq.md?toc=/azure/storage/file-sync/toc.json
   - name: Compliance offerings
     href: ../common/storage-compliance-offerings.md?toc=/azure/storage/file-sync/toc.json
-  - name: Monitoring Azure Files reference
+  - name: Monitoring Azure Files data reference
     href: ../files/storage-files-monitoring-reference.md?toc=/azure/storage/file-sync/toc.json
+  - name: Monitoring Azure File Sync data reference
+    href: monitor-file-sync-reference.md
   - name: Resource Manager template
     displayName: arm
     href: /azure/templates/microsoft.storage/allversions
-  - name: Samples
-    href: https://azure.microsoft.com/documentation/samples/?service=storage&term=file
   - name: Azure Files and Azure NetApp Files comparison
     href: ../files/storage-files-netapp-comparison.md?toc=/azure/storage/file-sync/toc.json
   - name: Manage storage in Azure-independent clouds
@@ -257,7 +265,7 @@
       - name: Data Movement library
         href: https://github.com/Azure/azure-storage-net-data-movement
       - name: Storage Resource Provider library
-        href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.Management.Storage
+        href: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.ResourceManager.Storage
     - name: Java
       items:
       - name: Azure Storage client library version 12.x (preview)

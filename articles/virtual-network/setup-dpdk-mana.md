@@ -7,6 +7,7 @@ ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 07/10/2023
 ms.author: mamcgove
+# Customer intent: "As a Linux system administrator, I want to configure the Microsoft Azure Network Adapter for DPDK on Azure VMs, so that I can achieve higher network throughput and reliability for my applications."
 ---
 
 # Microsoft Azure Network Adapter (MANA) and DPDK on Linux
@@ -58,7 +59,7 @@ A nonexhaustive list of images with backported patches for DPDK with MANA:
 # check for pci devices with ID:
 #   vendor: Microsoft Corporation (1414)
 #   class:  Ethernet Controller (0200)
-#   device: Microsft Azure Network Adapter VF (00ba)
+#   device: Microsoft Azure Network Adapter VF (00ba)
 if [[ -n `lspci -d 1414:00ba:0200` ]]; then
     echo "MANA device is available."
 else

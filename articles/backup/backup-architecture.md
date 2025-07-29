@@ -2,11 +2,12 @@
 title: Architecture Overview 
 description: Provides an overview of the architecture, components, and processes used by the Azure Backup service.
 ms.topic: overview
-ms.date: 07/18/2024
+ms.date: 07/17/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: "As a system administrator, I want to understand the architecture and features of the cloud backup solution, so that I can effectively manage data protection and recovery for both on-premises and Azure virtual machines."
 ---
 
 # Azure Backup architecture and components
@@ -44,7 +45,7 @@ Vaults have the following features:
 - You specify how data in the vault is replicated for redundancy:
   - **Locally redundant storage (LRS)**: To protect your data against server rack and drive failures, you can use LRS. LRS replicates your data three times within a single data center in the primary region. LRS provides at least 99.999999999% (11 nines) durability of objects over a given year. [Learn more](../storage/common/storage-redundancy.md#locally-redundant-storage)
   - **Geo-redundant storage (GRS)**: To protect against region-wide outages, you can use GRS. GRS replicates your data to a secondary region. [Learn more](../storage/common/storage-redundancy.md#geo-redundant-storage).
-  - **Zone-redundant storage (ZRS)**: replicates your data in [availability zones](../availability-zones/az-overview.md#availability-zones), guaranteeing data residency and resiliency in the same region. [Learn more](../storage/common/storage-redundancy.md#zone-redundant-storage)
+  - **Zone-redundant storage (ZRS)**: replicates your data in [availability zones](../reliability/availability-zones-overview.md), guaranteeing data residency and resiliency in the same region. [Learn more](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - By default, Recovery Services vaults use GRS.
 
 Recovery Services vaults have the following additional features:
@@ -240,6 +241,9 @@ This robust approach ensures that even in a compromised environment, existing ba
   - [Back up Windows machines directly](tutorial-backup-windows-server-to-azure.md), without a backup server.
   - [Set up MABS](backup-azure-microsoft-azure-backup.md) for backup to Azure, and then back up workloads to MABS.
   - [Set up DPM](backup-azure-dpm-introduction.md) for backup to Azure, and then back up workloads to DPM.
+  - [Back up a SharePoint farm on Azure Stack](backup-mabs-sharepoint-azure-stack.md).
+  - [Back up SQL Server on Azure Stack](backup-mabs-sql-azure-stack.md).
+
 
 [green]: ./media/backup-architecture/green.png
 [yellow]: ./media/backup-architecture/yellow.png

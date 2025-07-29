@@ -4,7 +4,10 @@ description: Use the psql tool to load bulk load data into Apache Phoenix tables
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 06/13/2024
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: nijelsf
+ms.date:  06/13/2024
 ---
 
 # Bulk load data into Apache Phoenix using psql

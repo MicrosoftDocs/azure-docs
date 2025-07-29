@@ -6,6 +6,10 @@ ms.topic: include
 ms.date: 11/17/2022
 ---
 
+## Sample code
+
+You can find the sample code for many of the IoT Plug and Play constructs described in this article in the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/solutions/PnpDeviceSamples) GitHub repository.
+
 ## Model ID announcement
 
 To announce the model ID, the device must include it in the connection information:
@@ -271,7 +275,7 @@ A default component receives the command name as it was invoked by the service.
 A nested component receives the command name prefixed with the component name and the `*` separator.
 
 ```csharp
-await client.SetMethodHandlerAsync("themostat*reboot", (MethodRequest req, object ctx) =>
+await client.SetMethodHandlerAsync("thermostat*reboot", (MethodRequest req, object ctx) =>
 {
   Console.WriteLine("REBOOT");
   return Task.FromResult(new MethodResponse(200));
@@ -306,7 +310,7 @@ The following example shows how to implement a command with complex types define
     }
   },
   "response": {
-    "name": "startReponse",
+    "name": "startResponse",
     "schema": {
       "@type": "Object",
       "fields": [

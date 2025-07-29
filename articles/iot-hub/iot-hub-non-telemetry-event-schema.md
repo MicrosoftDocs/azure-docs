@@ -1,8 +1,8 @@
 ---
 title: Azure IoT Hub non-telemetry event schemas
 description: This article provides the properties and schema for Azure IoT Hub non-telemetry events. It lists the available event types, an example event, and event properties.
-author: kgremban
-ms.author: kgremban  
+author: SoniaLopezBravo
+ms.author: sonialopez  
 ms.topic: conceptual
 ms.date: 04/10/2024
 ms.service: azure-iot-hub
@@ -73,6 +73,8 @@ Connection state events are emitted whenever a device or module connects or disc
 | iothub-message-schema | deviceConnectionStateNotification |
 | opType | deviceConnected or deviceDisconnected |
 
+Both modules and devices use the `deviceConnected` and `deviceDisconnected` application properties to report connection state events. If the event came from a module, then the event also includes a `moduleId` property. If there is no `moduleId` property, then the event came from a device.
+
 **System properties**: The following table shows how system properties are set for connection state events:
 
 | Property | Value |
@@ -131,7 +133,9 @@ Device lifecycle events are emitted whenever a device or module is created or de
 | Property | Value |
 | ---- | ----------- |
 | iothub-message-schema | deviceLifecycleNotification |
-| opType | One of the following values: createDeviceIdentity, deleteDeviceIdentity, createModuleIdentity, or deleteModuleIdentity. |
+| opType | One of the following values: createDeviceIdentity, deleteDeviceIdentity. |
+
+Both modules and devices use the `createDeviceIdentity` and `deleteDeviceIdentity` application properties to report connection state events. If the event came from a module, then the event also includes a `moduleId` property. If there is no `moduleId` property, then the event came from a device.
 
 **System properties**: The following table shows how system properties are set for device lifecycle events:
 
@@ -164,8 +168,8 @@ The following JSON shows a device lifecycle event emitted when a module is creat
                 "deviceId": "contoso-device-2",
                 "operationTimestamp": "2022-05-27T18:49:38.4904785Z",
                 "moduleId": "module-1",
-                "opType": "createModuleIdentity",
-                "iothub-message-schema": "moduleLifecycleNotification"
+                "opType": "createDeviceIdentity",
+                "iothub-message-schema": "deviceLifecycleNotification"
             }
         },
         "annotations": {

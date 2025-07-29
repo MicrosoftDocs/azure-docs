@@ -7,7 +7,6 @@ ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020 
 ms.author: stefanazaric 
-ms.reviewer: whhender
 ---
 
 # Assign variables with Synapse SQL

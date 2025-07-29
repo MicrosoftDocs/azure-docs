@@ -5,7 +5,7 @@
  author: dominicbetts
  ms.service: azure-iot-central
  ms.topic: include
- ms.date: 05/22/2023
+ ms.date: 04/25/2025
  ms.author: dobett
  ms.custom: include file
 ---
@@ -23,7 +23,7 @@ For example, you can:
 > When you turn on data export, you get only the data from that moment onward. To retain more historical data, turn on data export early. To manually export data from times when data export was turned off, see [How to use the IoT Central REST API to query devices](../articles/iot-central/core/howto-query-with-rest-api.md).
 
 > [!NOTE]
-> In some circumstances it could take up to 60 seconds for the messages to be exported. This time is measured from when IoT Central receives the message from the underlying IoT hub to when the message is delivered to the destination endpoint.
+> In some circumstances, it could take up to 60 seconds for the messages to be exported. This time is measured from when IoT Central receives the message from the underlying IoT hub to when the message is delivered to the destination endpoint.
 
 ## Prerequisites
 

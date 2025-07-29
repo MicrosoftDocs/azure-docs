@@ -1,8 +1,8 @@
 ---
 title: "Microsoft Sentinel migration: Select a data ingestion tool | Microsoft Docs"
 description: Select a tool to transfer your historical data to the selected target platform.
-author: cwatson-cat
-ms.author: cwatson
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: how-to
 ms.date: 05/03/2022
 
@@ -58,11 +58,11 @@ If you choose LightIngest, review these tips and best practices.
 
 - To speed up your migration and reduce costs, increase the size of your ADX cluster to create more available nodes for ingestion. Decrease the size once the migration is over.
 - For more efficient queries after you ingest the data to ADX, ensure that the copied data uses the timestamp for the original events. The data shouldn't use the timestamp from when the data is copied to ADX. You provide the timestamp to LightIngest as the path of file name as part of the [CreationTime property](/azure/data-explorer/lightingest#how-to-ingest-data-using-creationtime). 
-- If your path or file names don't include a timestamp, you can still instruct ADX to organize the data using a [partitioning policy](/azure/data-explorer/kusto/management/partitioningpolicy).
+- If your path or file names don't include a timestamp, you can still instruct ADX to organize the data using a [partitioning policy](/kusto/management/partitioning-policy?view=azure-data-explorer&preserve-view=true).
 
 ### Logstash 
 
-[Logstash](https://www.elastic.co/products/logstash) is an open source, server-side data processing pipeline that ingests data from many sources simultaneously, transforms the data, and then sends the data to your favorite "stash". Learn how to [ingest data from Logstash to Azure Data Explorer](/azure/data-explorer/ingest-data-logstash). Logstash runs  on Windows, Linux and MacOS Machines.
+[Logstash](https://www.elastic.co/products/logstash) is an open source, server-side data processing pipeline that ingests data from many sources simultaneously, transforms the data, and then sends the data to your favorite "stash". Learn how to [ingest data from Logstash to Azure Data Explorer](/azure/data-explorer/ingest-data-logstash). Logstash runs  on Windows, Linux and macOS Machines.
 
 To optimize performance, [configure the Logstash tier size](https://www.elastic.co/guide/en/logstash/current/deploying-and-scaling.html) according to the events per second. We recommend that you use [LightIngest](#lightingest) wherever possible, because LightIngest relies on the ADX cluster computing to perform the copy. 
 

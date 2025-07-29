@@ -2,11 +2,12 @@
 title: Back up SQL Server to Azure as a DPM workload
 description: An introduction to backing up SQL Server databases by using the Azure Backup service
 ms.topic: how-to
-ms.date: 01/26/2024
+ms.date: 07/15/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: "As a database administrator, I want to back up SQL Server databases to Azure using a defined backup policy, so that I can ensure data protection and facilitate efficient recovery processes for my organization's SQL Server workloads."
 ---
 
 # Back up SQL Server to Azure as a DPM workload
@@ -14,6 +15,8 @@ ms.custom: engagement-fy24
 This article describes how to back up and restore the SQL Server databases using Azure Backup.
 
 Azure Backup helps you to back up SQL Server databases to Azure via an Azure account. If you don't have one, you can create a free account in just a few minutes. For more information, see [Create your Azure free account](https://azure.microsoft.com/pricing/free-trial/).
+
+[!INCLUDE [The functionality of Azure Backup trim process.](../../includes/backup-trim-process-notification.md)]
 
 ## Backup flow for SQL Server database
 
@@ -197,3 +200,7 @@ To recover a protected entity, such as a SQL Server database, from Azure:
 ## Next steps
 
 For more information, see [Azure Backup FAQ](backup-azure-backup-faq.yml).
+
+## Related content
+
+[Manage backup to Azure for DPM servers via PowerShell](backup-dpm-automation.md).

@@ -5,6 +5,9 @@ ms.date: 03/21/2024
 ms.custom: horz-monitor
 ms.topic: reference
 ms.service: azure-hdinsight
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ---
 
 # Azure HDInsight monitoring data reference

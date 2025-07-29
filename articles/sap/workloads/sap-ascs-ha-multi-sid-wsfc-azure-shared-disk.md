@@ -8,9 +8,10 @@ ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
 ms.topic: article
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
-ms.date: 06/19/2024
+ms.date: 11/19/2024
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
+# Customer intent: "As an SAP system administrator, I want to configure multi-SID high availability for SAP ASCS/SCS using Windows Failover Clustering and Azure shared disks, so that I can ensure continuous availability and fault tolerance for critical SAP workloads."
 ---
 # SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and Azure shared disk
 
@@ -230,7 +231,7 @@ Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
     $DiskLabel = "$SAPSID" + "SAP"
     
     Get-Disk -Number $DiskNumber | Where-Object PartitionStyle -Eq "RAW" | Initialize-Disk -PartitionStyle GPT -PassThru |  New-Partition -DriveLetter $DriveLetter -UseMaximumSize | Format-Volume  -FileSystem ReFS -NewFileSystemLabel $DiskLabel -Force -Verbose
-    # Example outout
+    # Example output
     # DriveLetter FileSystemLabel FileSystem DriveType HealthStatus OperationalStatus SizeRemaining      Size
     # ----------- --------------- ---------- --------- ------------ ----------------- -------------      ----
     # S           PR2SAP          ReFS       Fixed     Healthy      OK                    504.98 GB 511.81 GB
@@ -292,7 +293,7 @@ If you're running ERS1, add the SAP profile parameter `enque/encni/set_so_keepal
 1. Add this profile parameter to the SAP ASCS/SCS instance profile, if you're using ERS1:
 
    ```powershell
-   enque/encni/set_so_keepalive = true
+   enque/encni/set_so_keepalive = TRUE
    ```
 
    For both ERS1 and ERS2, make sure that the `keepalive` OS parameters are set as described in SAP note [1410736](https://launchpad.support.sap.com/#/notes/1410736).

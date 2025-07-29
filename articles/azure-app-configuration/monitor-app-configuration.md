@@ -97,9 +97,9 @@ When you create a diagnostic setting, you specify which categories of logs to co
 
 You can analyze metrics for App Configuration with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics) for details on using this tool. For App Configuration, the following metrics are collected: 
 
-* Http Incoming Request Count 
-* Http Incoming Request Duration 
-* Throttled Http Request Count (Http status code 429 Responses)
+* HTTP Incoming Request Count 
+* HTTP Incoming Request Duration 
+* Throttled HTTP Request Count (HTTP status code 429 Responses)
 * Daily Storage Usage
 * Request Quota Usage
 * Replication Latency
@@ -133,13 +133,13 @@ Following are sample queries that you can use to help you monitor your App Confi
 
 
 
-* List all Http Requests in the last three days 
+* List all HTTP Requests in the last three days 
     ```Kusto
        AACHttpRequest
         | where TimeGenerated > ago(3d)
     ```
 
-* List all throttled requests (returned Http status code 429 for too many requests) in the last three days 
+* List all throttled requests (returned HTTP status code 429 for too many requests) in the last three days 
     ```Kusto
        AACHttpRequest
         | where TimeGenerated > ago(3d)
@@ -179,7 +179,7 @@ The following table lists common and recommended alert rules for App C
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|
-|Request quota usage exceeded | RequestQuotaUsage >= 100 | The configuration store has exceeded the [request quota usage](./faq.yml#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration). Upgrade to a standard tier store or follow the [best practices](./howto-best-practices.md#reduce-requests-made-to-app-configuration) to optimize your usage. |
+|Request quota usage exceeded | RequestQuotaUsage >= 100 | The configuration store has exceeded the [request quota usage](./faq.yml#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration). Upgrade your store or follow the [best practices](./howto-best-practices.md#reduce-requests-made-to-app-configuration) to optimize your usage. |
 
 
 

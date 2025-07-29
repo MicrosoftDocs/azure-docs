@@ -41,7 +41,7 @@ To complete the procedure in this article, you need an X account that has a veri
     The secret will be stored as a slot-sticky [application setting](./configure-common.md#configure-app-settings) named `TWITTER_PROVIDER_AUTHENTICATION_SECRET`. You can update that setting later to use [Key Vault references](./app-service-key-vault-references.md) if you wish to manage the secret in Azure Key Vault.
 
 1. If this is the first identity provider configured for the application, you will also be prompted with an **App Service authentication settings** section. Otherwise, you may move on to the next step.
-    
+
     These options determine how your application responds to unauthenticated requests, and the default selections will redirect all requests to log in with this new provider. You can change customize this behavior now or adjust these settings later from the main **Authentication** screen by choosing **Edit** next to **Authentication settings**. To learn more about these options, see [Authentication flow](overview-authentication-authorization.md#authentication-flow).
 
 1. Click **Add**.
@@ -57,4 +57,3 @@ You're now ready to use X for authentication in your app. The provider will be l
 [X Developers]: https://go.microsoft.com/fwlink/p/?LinkId=268300
 [x.com]: https://go.microsoft.com/fwlink/p/?LinkID=268287
 [Azure portal]: https://portal.azure.com/
-[xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md

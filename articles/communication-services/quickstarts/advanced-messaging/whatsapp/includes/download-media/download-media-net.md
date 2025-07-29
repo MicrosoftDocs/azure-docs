@@ -5,7 +5,7 @@ services: azure-communication-services
 author: memontic
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
-ms.date: 07/24/2024
+ms.date: 05/01/2025
 ms.topic: include
 ms.custom: include file
 ms.author: memontic
@@ -13,156 +13,72 @@ ms.author: memontic
 
 ## Prerequisites
 
-- [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md)
-- .NET development environment (such as [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/Download), or [.NET CLI](https://dotnet.microsoft.com/download))
-- Event subscription and handling of [Advanced Message Received events](./../../handle-advanced-messaging-events.md#subscribe-to-advanced-messaging-events)
+- [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md).
+- .NET development environment, such as [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/Download), or [.NET CLI](https://dotnet.microsoft.com/download).
+- Event subscription and handling of [Advanced Message Received events](./../../handle-advanced-messaging-events.md#subscribe-to-advanced-messaging-events).
 
-## Setting up
+## Set up environment
 
-### Create the .NET project
-
-#### [Visual Studio](#tab/visual-studio)
-
-To create your project, follow the tutorial at [Create a .NET console application using Visual Studio](/dotnet/core/tutorials/with-visual-studio).
-
-To compile your code, press <kbd>Ctrl</kbd>+<kbd>F7</kbd>.
-
-#### [Visual Studio Code](#tab/vs-code)
-
-To create your project, follow the tutorial at [Create a .NET console application using Visual Studio Code](/dotnet/core/tutorials/with-visual-studio-code).
-
-Build and run your program by running the following commands in the Visual Studio Code Terminal (View > Terminal).
-```console
-dotnet build
-dotnet run
-```
-
-#### [.NET CLI](#tab/dotnet-cli)
-
-First, create your project.
-```console
-dotnet new console -o AdvancedMessagingDownloadMediaQuickstart
-```
-
-Next, navigate to your project directory and build your project.
-
-```console
-cd AdvancedMessagingDownloadMediaQuickstart
-dotnet build
-```
-
----
-
-### Install the package
-
-Install the Azure.Communication.Messages NuGet package to your C# project.
-
-#### [Visual Studio](#tab/visual-studio)
- 
-1. Open the NuGet Package Manager at `Project` > `Manage NuGet Packages...`.   
-2. Search for the package `Azure.Communication.Messages`.   
-3. Install the latest release.
-
-#### [Visual Studio Code](#tab/vs-code)
-
-1. Open the Visual Studio Code terminal ( `View` > `Terminal` ).
-2. Install the package by running the following command.
-```console
-dotnet add package Azure.Communication.Messages
-```
-
-#### [.NET CLI](#tab/dotnet-cli)
-
-Install the package by running the following command.
-```console
-dotnet add package Azure.Communication.Messages
-```
-
----
-
-### Set up the app framework
-
-Open the *Program.cs* file in a text editor.   
-
-Replace the contents of your *Program.cs* with the following code:
-
-```csharp
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
-using Azure;
-using Azure.Communication.Messages;
-
-namespace AdvancedMessagingDownloadMediaQuickstart
-{
-    class Program
-    {
-        public static async Task Main(string[] args)
-        {
-            Console.WriteLine("Azure Communication Services - Download WhatsApp message media");
-
-            // Quickstart code goes here
-        }
-    }
-}
-```
-
-To use the Advanced Messaging features, we add a `using` directive to include the `Azure.Communication.Messages` namespace.
-
-```csharp
-using Azure.Communication.Messages;
-```
+[!INCLUDE [Setting up for .NET Application](../dot-net-application-setup.md)]
 
 ## Object model
+
 The following classes and interfaces handle some of the major features of the Azure Communication Services Advance Messaging SDK for .NET.
 
-| Name                                                                                                             | Description                                                                                                 |
-|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| Name | Description |
+| --- | --- |
 | [NotificationMessagesClient](/dotnet/api/azure.communication.messages.notificationmessagesclient)                | This class connects to your Azure Communication Services resource. It sends the messages.                   |
 | [DownloadMediaAsync](/dotnet/api/azure.communication.messages.notificationmessagesclient.downloadmediaasync)     | Download the media payload from a User to Business message asynchronously, writing the content to a stream. |
 | [DownloadMediaToAsync](/dotnet/api/azure.communication.messages.notificationmessagesclient.downloadmediatoasync) | Download the media payload from a User to Business message asynchronously, writing the content to a file.   |
 | [Microsoft.Communication.AdvancedMessageReceived](/azure/event-grid/communication-services-advanced-messaging-events#microsoftcommunicationadvancedmessagereceived-event) | Event Grid event that is published when Advanced Messaging receives a message. |
 
+## Common configuration
+
+Follow these steps to add required code snippets to the messages-quickstart.py python program.
+
+- [Start sending messages between a business and a WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
+- [Authenticate the client](#authenticate-the-client)
+- [Set channel registration ID](#set-channel-registration-id)
+- [Set recipient list](#set-recipient-list)
+
+[!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting-net.md)]
+
 ## Code examples
 
-Follow these steps to add the necessary code snippets to the Main function of your *Program.cs* file.
-
-- [Authenticate the client](#authenticate-the-client)
+Follow these steps to add required code snippets to the Main function of your `Program.cs` file.
 - [Download the media payload to a stream](#download-the-media-payload-to-a-stream)
 - [Download the media payload to a file](#download-the-media-payload-to-a-file)
 
-### Authenticate the client   
-
-The `NotificationMessagesClient` is used to connect to your Azure Communication Services resource.    
-
-[!INCLUDE [Authenticate the NotificationMessagesClient](./../authenticate-notification-messages-client-net.md)]
-
 ### Download the media payload to a stream   
 
-The Messages SDK allows Contoso to download the media in received WhatsApp media messages from WhatsApp users. To download the media payload to a stream, you need:
-- [Authenticated NotificationMessagesClient](#authenticate-the-client)
-- The media ID GUID of the media (Received from an incoming message in an [AdvancedMessageReceived event](/azure/event-grid/communication-services-advanced-messaging-events#microsoftcommunicationadvancedmessagereceived-event))
+The Messages SDK enables Contoso to download the media in received WhatsApp media messages from WhatsApp users. To download the media payload to a stream, you need:
+- [Authenticated NotificationMessagesClient](#authenticate-the-client).
+- The media ID GUID of the media, received from an incoming message in an [AdvancedMessageReceived event](/azure/event-grid/communication-services-advanced-messaging-events#microsoftcommunicationadvancedmessagereceived-event).
 
 
 Define the media ID of the media you want to fetch.
+
 ```csharp
 // MediaId GUID of the media received in an incoming message.
 // Ex. "00000000-0000-0000-0000-000000000000"
 var mediaId = "<MediaId>";
 ```
 
-Download the media to the destination stream:
+Download the media to the destination stream.
+
 ```csharp
 // Download media to stream
 Response<Stream> fileResponse = await notificationMessagesClient.DownloadMediaAsync(mediaId);
 ```
 
-The media payload is now available in the response stream.    
-Continue on with this example to write the stream to a file.
+The media payload is now available in the response stream.
+
+Continue with this example to write the stream to a file.
 
 The media ID and MIME type of the payload are available in the [media content](/azure/event-grid/communication-services-advanced-messaging-events#mediacontent) of the [AdvancedMessageReceived event](/azure/event-grid/communication-services-advanced-messaging-events#microsoftcommunicationadvancedmessagereceived-event). However, when downloading media to a stream, the MIME type is again available to you in the response headers in the `Response<Stream>`.
+
 In either case, you need to convert the MIME type into a file type. Define this helper for the conversion.
+
 ```csharp
 private static string GetFileExtension(string contentType)
 {
@@ -179,7 +95,8 @@ private static readonly Dictionary<string, string> MimeTypes = new Dictionary<st
 };
 ```
 
-Define the file location of where you want to write the media. This example uses the MIME type returned in the response headers from `DownloadMediaAsync`.
+Define the file location where you want to write the media. This example uses the MIME type returned in the response headers from `DownloadMediaAsync`.
+
 ```csharp
 // File extension derived from the MIME type in the response headers.
 // Ex. A MIME type of "image/jpeg" would mean the fileExtension should be ".jpg"
@@ -192,6 +109,7 @@ string filePath = @"<FilePath>" + "<FileName>" + fileExtension;
 ```
 
 Write the stream to the file.
+
 ```csharp
  // Write the media stream to the file
 using (Stream outStream = File.OpenWrite(filePath))
@@ -202,14 +120,15 @@ using (Stream outStream = File.OpenWrite(filePath))
 
 ### Download the media payload to a file   
 
-The Messages SDK allows Contoso to download the media in WhatsApp media messages received from WhatsApp users. To download the media payload to a file, you need:
-- [Authenticated NotificationMessagesClient](#authenticate-the-client)
-- The media ID GUID of the media (Received from an incoming message in an [AdvancedMessageReceived event](/azure/event-grid/communication-services-advanced-messaging-events#microsoftcommunicationadvancedmessagereceived-event))
-- The media file extension (Derived from the MIME type received in an incoming message with [media content](/azure/event-grid/communication-services-advanced-messaging-events#mediacontent))
-- The destination file name (Generated name of your choosing)
-- The destination file path (File path of your choosing)
+The Messages SDK enables Contoso to download the media in WhatsApp media messages received from WhatsApp users. To download the media payload to a file, you need:
+- [Authenticated NotificationMessagesClient](#authenticate-the-client).
+- The media ID GUID of the media, received from an incoming message in an [AdvancedMessageReceived event](/azure/event-grid/communication-services-advanced-messaging-events#microsoftcommunicationadvancedmessagereceived-event).
+- The media file extension, derived from the MIME type received in an incoming message with [media content](/azure/event-grid/communication-services-advanced-messaging-events#mediacontent).
+- The destination file name of your choosing.
+- The destination file path of your choosing.
 
 Define the media ID of the media you want to fetch and the file location of where you want to write the media.
+
 ```csharp
 // MediaId GUID of the media received in an incoming message.
 // Ex. "00000000-0000-0000-0000-000000000000"
@@ -223,24 +142,26 @@ string fileExtension = "<FileExtension>";
 string filePath = @"<FilePath>" + "<FileName>" + fileExtension; 
 ```
 
-Download the media to the destination path:
+Download the media to the destination path.
+
 ```csharp
 // Download media to file
 Response response = await notificationMessagesClient.DownloadMediaToAsync(mediaId, filePath);
 ```
 
-## Run the code
+### Run the code
 
 Build and run your program.  
 
 #### [Visual Studio](#tab/visual-studio)
 
-1. To compile your code, press <kbd>Ctrl</kbd>+<kbd>F7</kbd>.
-1. To run the program without debugging, press <kbd>Ctrl</kbd>+<kbd>F5</kbd>.
+1. To compile your code, press **Ctrl**+**F7**.
+1. To run the program without debugging, press **Ctrl**+**F5**.
 
 #### [Visual Studio Code](#tab/vs-code)
 
-Build and run your program by running the following commands in the Visual Studio Code Terminal (View > Terminal).
+Build and run your program in the Visual Studio Code Terminal (**View** > **Terminal**).
+
 ```console
 dotnet build
 dotnet run
@@ -249,6 +170,7 @@ dotnet run
 #### [.NET CLI](#tab/dotnet-cli)
 
 Build and run your program.
+
 ```console
 dotnet build
 dotnet run

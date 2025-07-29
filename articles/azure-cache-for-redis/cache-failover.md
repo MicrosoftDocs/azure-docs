@@ -7,6 +7,9 @@ description: Learn about failover, patching, and the update process for Azure Ca
 
 ms.topic: conceptual
 ms.date: 04/30/2024
+appliesto:
+  - ✅ Azure Cache for Redis
+
 ms.custom: engagement-fy23
 
 ---

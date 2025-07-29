@@ -2,10 +2,12 @@
 title: PowerShell Script - Undelete a deleted File share
 description: Learn how to use an Azure PowerShell script to undelete an accidentally deleted File share.
 ms.topic: sample
-ms.date: 02/02/2020 
+ms.date: 10/20/2024
+ms.service: azure-backup
 ms.custom: devx-track-azurepowershell
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: As an Azure administrator, I want to use a PowerShell script to undelete an accidentally deleted file share, so that I can restore critical data within the retention period provided by the soft delete feature.
 ---
 
 # PowerShell script to undelete an accidentally deleted File share
@@ -172,7 +174,7 @@ There are no multiple deleted versions with the same name as the file share you'
 The following example undeletes the file share *share1* present in storage account *afsshare*.
 
 ```powershell
-   .\UnDelete.ps1 -ResourceGroupName afsshare -StorageAccountName afsshare -SubscriptionId f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4 -FileShareName share1
+   .\UnDelete.ps1 -ResourceGroupName afsshare -StorageAccountName afsshare -SubscriptionId aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e -FileShareName share1
 ```
 
 The output should show the message `Completed:Restore File Share`
@@ -188,7 +190,7 @@ The following example undeletes a version of the file share *share1*
 Execute the script as follows by providing the file share name.
 
 ```PowerShell
-   .\UnDelete.ps1 -ResourceGroupName afsshare -StorageAccountName afsshare -SubscriptionId f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4 -FileShareName share1
+   .\UnDelete.ps1 -ResourceGroupName afsshare -StorageAccountName afsshare -SubscriptionId aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e -FileShareName share1
 ```
 
 ```Output
@@ -205,5 +207,5 @@ Choose the version from the output of step 1 that you want to undelete and pass 
 The following example undeletes the *01D5D7F77ACC7864* version of the *share1* file share.
 
 ```powershell
-   .\UnDelete.ps1 -ResourceGroupName afsshare-StorageAccountName afsshare -SubscriptionId f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4 -FileShareName share1 -DeletedShareVersion 01D5D7F77ACC7864
+   .\UnDelete.ps1 -ResourceGroupName afsshare-StorageAccountName afsshare -SubscriptionId aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e -FileShareName share1 -DeletedShareVersion 01D5D7F77ACC7864
 ```

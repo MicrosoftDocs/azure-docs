@@ -4,11 +4,13 @@ description: Learn about the benefits that the Azure Dev Tools for Teaching prog
 author: denrea
 ms.author: rymend
 ms.topic: overview
-ms.date: 06/30/2020
+ms.date: 07/11/2025
 ms.service: azure-education
 ---
 
 # What is Azure Dev Tools for Teaching?
+
+**Azure Dev Tools for Teaching will be adjusting its access policy on August 15th, 2025. After that date, only existing administrators will retain continued access and no new administrator signups will be allowed. If you are currently eligible but are not signed up, please sign up before August 15th, 2025.**
 
 Azure Dev Tools for Teaching puts professional developer tools, software, and services from Microsoft in the hands of faculty and students. Plans in the program are part of various academic Volume Licensing agreements.
 
@@ -31,7 +33,7 @@ The [Azure Education Hub](https://azureforeducation.microsoft.com/devtools) hous
 
 Azure Dev Tools for Teaching is available in more than 140 countries/regions where Azure is commercially available. The Education Hub Store is available in the following languages: Arabic, Chinese Simplified, Chinese Traditional, Danish, Dutch, English, French, German, Hebrew, Italian, Japanese, Korean, Portuguese, Russian, Spanish, Swedish, and Turkish.
 
-## Eligibility to purchase Azure Dev Tools for Teaching
+## Eligibility for Azure Dev Tools for Teaching
 
 Azure Dev Tools for Teaching is available to redeem only if you have a Volume Licensing agreement with Microsoft. [Learn more about Volume Licensing for educational institutions](https://aka.ms/ees).
 

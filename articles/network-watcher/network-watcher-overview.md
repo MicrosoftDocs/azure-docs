@@ -5,9 +5,10 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: overview
-ms.date: 06/12/2024
+ms.date: 03/14/2025
 
 #CustomerIntent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
+# Customer intent: As a network administrator, I want to utilize Azure Network Watcher's monitoring and diagnostic tools, so that I can effectively troubleshoot and optimize the performance of my cloud-based network resources.
 ---
 
 # What is Azure Network Watcher?
@@ -70,11 +71,11 @@ Network Watcher offers seven network diagnostic tools that help troubleshoot and
 
 ### Connection troubleshoot
 
-**Connection troubleshoot** enables you to test a connection between a virtual machine, a virtual machine scale set, an application gateway, or a Bastion host and a virtual machine, an FQDN, a URI, or an IPv4 address. The test returns similar information returned when using the [connection monitor](#connection-monitor) capability, but tests the connection at a point in time instead of monitoring it over time, as connection monitor does. For more information, see [Connection troubleshoot overview](connection-troubleshoot-overview.md) and [Troubleshoot connections with Azure Network Watcher](connection-troubleshoot-portal.md). 
+**Connection troubleshoot** enables you to test a connection between a virtual machine, a virtual machine scale set, an application gateway, or a Bastion host and a virtual machine, an FQDN, a URI, or an IPv4 address. The test returns similar information returned when using the [connection monitor](#connection-monitor) capability, but tests the connection at a point in time instead of monitoring it over time, as connection monitor does. For more information, see [Connection troubleshoot overview](connection-troubleshoot-overview.md) and [Troubleshoot outbound connections with Azure Network Watcher](connection-troubleshoot-manage.md). 
 
 ### Packet capture
 
-**Packet capture** allows you to remotely create packet capture sessions to track traffic to and from a virtual machine (VM) or a virtual machine scale set. For more information, see [packet capture](packet-capture-overview.md) and [Manage packet captures for virtual machines](packet-capture-vm-portal.md).
+**Packet capture** allows you to remotely create packet capture sessions to track traffic to and from a virtual machine (VM) or a virtual machine scale set. For more information, see [Packet capture overview](packet-capture-overview.md) and [Manage packet captures](packet-capture-manage.md).
 
 ### VPN troubleshoot
 
@@ -90,8 +91,8 @@ Network Watcher offers two traffic tools that help you log and visualize network
 ### Flow logs
 
 **Flow logs** allows you to log information about your Azure IP traffic and stores the data in Azure storage. You can log IP traffic flowing through a network security group or Azure virtual network. For more information, see:
-- [Network security group flow logs](nsg-flow-logs-overview.md) and [Manage network security group flow logs](nsg-flow-logs-portal.md).
-- [Virtual network flow logs](vnet-flow-logs-overview.md) and [Manage virtual network flow logs](vnet-flow-logs-portal.md).
+- [Network security group flow logs](nsg-flow-logs-overview.md) and [Manage network security group flow logs](nsg-flow-logs-manage.md).
+- [Virtual network flow logs](vnet-flow-logs-overview.md) and [Manage virtual network flow logs](vnet-flow-logs-manage.md).
 
 [!INCLUDE [NSG flow logs retirement](../../includes/network-watcher-nsg-flow-logs-retirement.md)]
 
@@ -119,15 +120,15 @@ For pricing details, see [Network Watcher pricing](https://azure.microsoft.com/p
 
 ## Service Level Agreement (SLA)
 
-For service level agreement details, see [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+For SLA details, see [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 ## Frequently asked questions (FAQ)
 
-To get answers to most frequently asked questions about Network Watcher, see [Azure Network Watcher frequently asked questions (FAQ)](frequently-asked-questions.yml).
+For answers to frequently asked questions about Network Watcher, see [Network Watcher (FAQ)](frequently-asked-questions.yml).
 
 ## What's new? 
 
-To view the latest Network Watcher feature updates, see [Service updates](https://azure.microsoft.com/updates/?query=network%20watcher).
+To view the latest Network Watcher feature updates, see [Service updates](https://azure.microsoft.com/updates/?filters=%5B"Network+Watcher"%5D).
 
 ## Related content
 

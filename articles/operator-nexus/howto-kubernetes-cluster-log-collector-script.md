@@ -52,6 +52,10 @@ The log collector script is designed to comprehensively gather data across vario
 
 - Mount points and volume information: Detailed information on mount points, volumes, disk usage, and filesystem specifics.
 
+### Azure Arc azcmagent logs
+
+- Collects log files for the Azure connected machine agent and extensions into a ZIP archive.
+
 ### Configuration and management
 
 - System configuration: Sysctl parameters for a comprehensive view of kernel runtime configuration.

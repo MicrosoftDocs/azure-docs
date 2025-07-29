@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.custom: engagement-fy23
 ms.service: azure-vmware
 ms.date: 2/27/2024
+# Customer intent: "As a network administrator, I want to configure a site-to-site VPN connection between my on-premises environment and Azure VMware Solution, so that I can securely integrate my infrastructure with Azure resources for enhanced scalability and disaster recovery."
 ---
 
 # Configure a site-to-site VPN in vWAN for Azure VMware Solution
@@ -82,13 +83,11 @@ A virtual hub is a virtual network that is created and used by Azure Virtual WAN
 
 2. Select the VPN Site for which you want to set up a custom IPsec policy.
 
-   :::image type="content" source="../virtual-wan/media/virtual-wan-custom-ipsec-portal/locate.png" alt-text="Screenshot showing the existing VPN sites to set up customer IPsec policies." lightbox="../virtual-wan/media/virtual-wan-custom-ipsec-portal/locate.png":::
-
 3. Select your VPN site name, select **More** (...) at the far right, and then select **Edit VPN Connection**.
 
    :::image type="content" source="../virtual-wan/media/virtual-wan-custom-ipsec-portal/contextmenu.png" alt-text="Screenshot showing the context menu for an existing VPN site." lightbox="../virtual-wan/media/virtual-wan-custom-ipsec-portal/contextmenu.png":::
 
-   - Internet Protocol Security (IPSec), select **Custom**.
+   - Internet Protocol Security (IPsec), select **Custom**.
 
    - Use policy-based traffic selector, select **Enable**
 

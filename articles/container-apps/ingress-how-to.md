@@ -28,10 +28,16 @@ You can set the following ingress template properties:
 | `external` | Allow ingress to your app from outside its Container Apps environment. |`true` or `false`(default) | Yes |
 | `ipSecurityRestrictions` | IP ingress restrictions. See [Set up IP ingress restrictions](ip-restrictions.md) | An array of rules | No |
 | `stickySessions.affinity` | Enables [session affinity](sticky-sessions.md). | `none` (default), `sticky` | No |
-| `targetPort` | The port your container listens to for incoming requests. | Set this value to the port number that your container uses. For HTTP ingress, your application ingress endpoint is always exposed on port `443`. | Yes |
+| `targetPort` | The port your container app listens to for incoming requests. | Set this value to the port number that your container app uses. For HTTP ingress, your application ingress endpoint is always exposed on port `443`. | Yes |
 | `traffic` | [Traffic splitting](traffic-splitting.md) weights split between revisions. | An array of rules | No |
 | `transport` | The transport protocol type. | auto (default) detects HTTP/1 or HTTP/2, `http` for HTTP/1, `http2` for HTTP/2, `tcp` for TCP. | No |
 
+### Automatic port detection
+
+If your container app has HTTP ingress enabled and you have not set a target port, Azure Container Apps will automatically detect the target port by scanning all listening ports on your container. If there is only one port detected, that port will be set as the target port for your container app. If there is more than 1 port detected, the container app will not automatically set the target port, and you will need to set the target port manually. 
+ 
+- Automatic port detection only works for HTTP traffic, not TCP traffic.
+- If you have HTTP health probes listening on ports 80 or 443, this can interfere with automatic port detection. The default ingress configuration uses TCP health probes. For more information see [health probes](health-probes.md).
 
 ## Enable ingress
 
@@ -79,7 +85,7 @@ You can configure ingress when you create your container app by using the Azure 
 1. Set **Ingress** to **Enabled**.
 1. Configure the ingress settings for your container app.
 1. Select **Limited to Container Apps Environment** for internal ingress or **Accepting traffic from anywhere** for external ingress.
-1. Select the **Ingress Type**: **HTTP** or **TCP** (TCP ingress is only available in environments configured with a custom virtual network).
+1. Select the **Ingress Type**: **HTTP** or **TCP** (TCP ingress is only available in environments configured with a virtual network).
 1. If *HTTP* is selected for the **Ingress Type**, select the **Transport**: **Auto**, **HTTP/1** or **HTTP/2**. 
 1. Select **Insecure connections** if you want to allow HTTP connections to your app.
 1. Enter the **Target port** for your container app.
@@ -135,7 +141,7 @@ You can disable ingress for your container app using the portal.
 1. Deselect the **Ingress** **Enabled** setting.
 1. Select **Save**.
 
-:::image type="content" source="media/ingress/screenshot-disable-ingress.png" alt-text="Sceenshot of disabling container app ingress.":::
+:::image type="content" source="media/ingress/screenshot-disable-ingress.png" alt-text="Screenshot of disabling container app ingress.":::
 
 ::: zone-end
 

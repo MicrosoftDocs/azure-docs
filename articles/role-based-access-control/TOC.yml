@@ -9,6 +9,8 @@
     href: conditions-overview.md
   - name: Understand the different roles
     href: rbac-and-directory-admin-roles.md
+  - name: What's new in docs
+    href: whats-new.md
 - name: Quickstarts
   items:
   - name: Check access for a user
@@ -125,6 +127,10 @@
       href: conditions-role-assignments-template.md
     - name: Example conditions for Blob Storage
       href: ../storage/blobs/storage-auth-abac-examples.md?toc=/azure/role-based-access-control/toc.json
+    - name: ABAC for Log Analytics
+      href: https://go.microsoft.com/fwlink/?linkid=2324519
+    - name: ABAC for Container Registry
+      href: https://go.microsoft.com/fwlink/?linkid=2324520
     - name: Conditions and custom security attributes
       href: conditions-custom-security-attributes.md
   - name: Remove role assignments

@@ -2,12 +2,13 @@
 title: Configure Azure Firewall application rules with SQL FQDNs
 description: In this article, you learn how to configure SQL FQDNs in Azure Firewall application rules.
 services: firewall
-author: vhorne
+author: duau
 ms.service: azure-firewall
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 10/31/2022
-ms.author: victorh
+ms.author: duau
+# Customer intent: "As a network administrator, I want to configure SQL FQDN application rules in Azure Firewall, so that I can control access to specific SQL server instances from my virtual networks."
 ---
 
 # Configure Azure Firewall application rules with SQL FQDNs
@@ -91,7 +92,6 @@ If you use non-default ports for SQL IaaS traffic, you can configure those ports
    > SQL *proxy* mode can result in more latency compared to *redirect*. If you want to continue using redirect mode, which is the default for clients connecting within Azure, you can filter access using the SQL [service tag](service-tags.md) in firewall [network rules](tutorial-firewall-deploy-portal.md#configure-a-network-rule).
 
 1. Add the application rule with the appropriate protocol, port, and SQL FQDN and then select **Save**.
-   ![application rule with SQL FQDN](media/sql-fqdn-filtering/application-rule-sql.png)
 1. Access SQL from a virtual machine in a VNet that filters the traffic through the firewall. 
 1. Validate that [Azure Firewall logs](./firewall-workbook.md) show the traffic is allowed.
 

@@ -2,7 +2,8 @@
 title: Provision a pool in a virtual network
 description: Learn how to create a Batch pool in an Azure virtual network so that compute nodes can communicate securely with other VMs in the network, such as a file server.
 ms.topic: how-to
-ms.date: 06/27/2024
+ms.date: 11/19/2024
+# Customer intent: "As a cloud architect, I want to provision an Azure Batch pool in a virtual network, so that I can enable secure communication between compute nodes and other virtual machines within my network."
 ---
 
 # Create an Azure Batch pool in a virtual network
@@ -70,10 +71,12 @@ Batch creates a network security group (NSG) at the network interface level of e
 In order to provide the necessary communication between compute nodes and the Batch service, these NSGs are configured such that:
 
 * Inbound TCP traffic on ports 29876 and 29877 from Batch service IP addresses that correspond to the BatchNodeManagement.*region* service tag. This rule is only created in `classic` pool communication mode.
-* Inbound TCP traffic on port 22 (Linux nodes) or port 3389 (Windows nodes) to permit remote access for SSH or RDP on default ports, respectively. For certain types of multi-instance tasks on Linux, such as MPI, you may need to allow SSH traffic for IPs in the subnet containing Batch compute nodes. Certain MPI runtimes may require launching over SSH, which is typically routed on private IP address space. This traffic might be blocked per subnet-level NSG rules.
 * Outbound any traffic on port 443 to Batch service IP addresses that correspond to the BatchNodeManagement.*region* service tag.
 * Outbound traffic on any port to the virtual network. This rule might be amended per subnet-level NSG rules.
 * Outbound traffic on any port to the Internet. This rule might be amended per subnet-level NSG rules.
+
+> [!NOTE]
+> For pools created using an API version earlier than `2024-07-01`, inbound TCP traffic on port 22 (Linux nodes) or port 3389 (Windows nodes) is configured to allow remote access via SSH or RDP on the default ports.
 
 > [!IMPORTANT]
 > Use caution if you modify or add inbound or outbound rules in Batch-configured NSGs. If communication to the compute nodes in the specified subnet is denied by an NSG, the Batch service will set the state of the compute nodes to **unusable**. Additionally, no resource locks should be applied to any resource created by Batch, because this can prevent cleanup of resources as a result of user-initiated actions such as deleting a pool.

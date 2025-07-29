@@ -9,8 +9,9 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.date: 12/16/2022
+ms.date: 11/19/2024
 ms.author: radeltch
+# Customer intent: As an SAP administrator, I want to deploy a highly available SAP NetWeaver system on Azure using Azure NetApp Files for shared storage, so that I can ensure optimal performance and reliability for SAP applications.
 ---
 
 # High availability for SAP NetWeaver on Azure VMs on Windows with Azure NetApp Files(SMB) for SAP applications
@@ -149,7 +150,7 @@ Update parameters in the SAP ASCS/SCS instance profile \<SID>_ASCS/SCS\<Nr>_\<Ho
 | Parameter name | Parameter value |
 | --- | --- |
 | gw/netstat_once | **0** |
-| enque/encni/set_so_keepalive  | **true** |
+| enque/encni/set_so_keepalive  | **TRUE** |
 | service/ha_check_node | **1** |
 
 Parameter `enque/encni/set_so_keepalive` is only needed if using ENSA1.  

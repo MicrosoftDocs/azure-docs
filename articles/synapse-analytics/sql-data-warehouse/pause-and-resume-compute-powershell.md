@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: Pause and resume compute in dedicated SQL pool (formerly SQL DW) with Azure PowerShell"
 description: You can use Azure PowerShell to pause and resume dedicated SQL pool (formerly SQL DW) compute resources.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 01/05/2023
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw

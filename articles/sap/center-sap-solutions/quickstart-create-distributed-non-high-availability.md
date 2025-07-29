@@ -9,6 +9,7 @@ ms.date: 05/04/2023
 ms.author: sagarkeswani
 author: sagarkeswani
 #Customer intent: As a developer, I want to create a distributed non-HA SAP system so that I can use the system with Azure Center for SAP solutions.
+# Customer intent: As a developer, I want to deploy a distributed non-high-availability SAP system in Azure using PowerShell, so that I can leverage Azure's infrastructure for my SAP applications.
 ---
 # Quickstart: Create infrastructure for a distributed non-high-availability SAP system with *Azure Center for SAP solutions* 
 
@@ -36,7 +37,7 @@ After you deploy infrastructure and [install SAP software](install-software.md) 
     ```
 
 - An Azure account with **Azure Center for SAP solutions administrator** and **Managed Identity Operator** role access to the subscriptions and resource groups in which you'll create the Virtual Instance for SAP solutions (VIS) resource.
-- A **User-assigned managed identity** which has **Azure Center for SAP solutions service role** access on the Subscription or atleast all resource groups (Compute, Network,Storage). If you wish to install SAP Software through the Azure Center for SAP solutions, also provide **Reader and Data Access** role to the identity on SAP bits storage account where you would store the SAP Media.
+- A **User-assigned managed identity** which has **Azure Center for SAP solutions service role** access on the Subscription or at least all resource groups (Compute, Network,Storage). If you wish to install SAP Software through the Azure Center for SAP solutions, also provide **Reader and Data Access** role to the identity on SAP bits storage account where you would store the SAP Media.
 - A [network set up for your infrastructure deployment](prepare-network.md).
 - Availability of minimum 4 cores of either Standard_D4ds_v4 or Standard_E4s_v3 SKUS which will be used during Infrastructure deployment and Software Installation
 - [Review the quotas for your Azure subscription](/azure/quotas/view-quotas). If the quotas are low, you might need to create a support request before creating your infrastructure deployment. Otherwise, you might experience deployment failures or an **Insufficient quota** error. 
@@ -70,7 +71,7 @@ Prepare a *json* file with the payload that will be used for the deployment of S
 Use [New-AzWorkloadsSapVirtualInstance](/powershell/module/az.workloads/new-azworkloadssapvirtualinstance) to deploy infrastructure for your SAP system with Three tier non-HA architecture
 
 ```powershell
-New-AzWorkloadsSapVirtualInstance -ResourceGroupName 'PowerShell-CLI-TestRG' -Name L46 -Location eastus -Environment 'NonProd' -SapProduct 'S4HANA' -Configuration .\CreatePayload.json -Tag @{k1 = "v1"; k2 = "v2"} -IdentityType 'UserAssigned' -ManagedResourceGroupName "L46-rg" -UserAssignedIdentity @{'/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourcegroups/SAP-E2ETest-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/E2E-RBAC-MSI'= @{}}
+New-AzWorkloadsSapVirtualInstance -ResourceGroupName 'PowerShell-CLI-TestRG' -Name L46 -Location eastus -Environment 'NonProd' -SapProduct 'S4HANA' -Configuration .\CreatePayload.json -Tag @{k1 = "v1"; k2 = "v2"} -IdentityType 'UserAssigned' -ManagedResourceGroupName "L46-rg" -UserAssignedIdentity @{'/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/SAP-E2ETest-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/E2E-RBAC-MSI'= @{}}
 ```
 
 

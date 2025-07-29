@@ -9,6 +9,7 @@ ms.custom: devx-track-azurepowershell
 ms.topic: article
 ms.date: 04/24/2024
 ms.author: juergent
+# Customer intent: As an SAP system administrator, I want to configure deployment options like proximity placement groups and virtual machine scale sets, so that I can minimize network latency between SAP application and database tiers to ensure optimal performance for business processes.
 ---
 
 # Configuration options to minimize network latency with SAP applications
@@ -105,7 +106,7 @@ By using proximity placement groups, you can bypass this restriction. Here's the
 
 
 > [!IMPORTANT]
-> It is important to understand that disks of the application layer VMs are not guaranteed to be allocated in the same availability zone as the VMs are directed to using the proximity placement group. The result of the deployment shown in the next steps may be that the VMs are allocated in the same network spine and with that the same availability zone as the anchor VM. But the respctive disks (base VHD and mounted Azure block storage disks) may not be allocated under the same network spine or even the same availabity zone. Instead the disks of those VMs can be allocated in any of the datacenters of the specific region. Though the disks of the anchor VM that got deployed by defining a zone are going to be deployed in the same zone as the VM got deployed.
+> It is important to understand that disks of the application layer VMs are not guaranteed to be allocated in the same availability zone as the VMs are directed to using the proximity placement group. The result of the deployment shown in the next steps may be that the VMs are allocated in the same network spine and with that the same availability zone as the anchor VM. But the respective disks (base VHD and mounted Azure block storage disks) may not be allocated under the same network spine or even the same availability zone. Instead the disks of those VMs can be allocated in any of the datacenters of the specific region. Though the disks of the anchor VM that got deployed by defining a zone are going to be deployed in the same zone as the VM got deployed.
 
 
 Instead of deploying the first VM as demonstrated in the previous section, you reference an availability zone and the proximity placement group when you deploy the VM:

@@ -161,7 +161,7 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-Go to the Debug Console site `https://yoursite.scm.azurewebsites.net/DebugConsole`
+To go to the Debug Console site for your app, select **Development Tools** > **Advanced Tools**, then select **Go**. In Kudu, select **Debug console** for **CMD** or **PowerShell**.
 
 Go into your site/wwwroot directory. You see a command prompt as shown in the following example:
 
@@ -249,7 +249,7 @@ The `cnodeconstants` [source file](https://github.com/Azure/iisnode/blob/master/
 
 Enable FREB for your application to see the win32 error code (be sure you enable FREB only on non-production sites for performance reasons).
 
-| Http Status | Http Substatus | Possible Reason? |
+| HTTP Status | HTTP Substatus | Possible Reason? |
 | --- | --- | --- |
 | 500 |1000 |There was some issue dispatching the request to IISNODE – Check if node.exe was started. Node.exe could have crashed when starting. Check your web.config configuration for errors. |
 | 500 |1001 |- Win32Error 0x2 - App is not responding to the URL. Check the URL rewrite rules or check if your express app has the correct routes defined. - Win32Error 0x6d – named pipe is busy – Node.exe is not accepting requests because the pipe is busy. Check high cpu usage. - Other errors – check if node.exe crashed. |

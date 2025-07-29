@@ -8,7 +8,7 @@ ms.subservice: metadata
 ms.date: 10/13/2021
 author: juluczni
 ms.author: juluczni
-ms.reviewer: wiassaf
+
 ms.custom: devx-track-csharp
 ---
 
@@ -25,7 +25,7 @@ Since the tables are synchronized to serverless SQL pool asynchronously, there w
 
 ## Manage a Spark created table
 
-Use Spark to manage Spark created databases. For example, delete it through a serverless Apache Spark pool job, and create tables in it from Spark.
+Use Spark to manage Spark created databases. For example, create a database through a serverless Apache Spark pool job, and create tables in the database from Spark.
 
 Objects in synchronized databases can't be modified from serverless SQL pool.
 

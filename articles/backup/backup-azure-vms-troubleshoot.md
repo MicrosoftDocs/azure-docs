@@ -3,10 +3,11 @@ title: Troubleshoot backup errors with Azure VMs
 description: In this article, learn how to troubleshoot errors encountered with backup and restore of Azure virtual machines.
 ms.reviewer: srinathv
 ms.topic: troubleshooting
-ms.date: 10/21/2024
+ms.date: 07/24/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: As an IT admin managing Azure virtual machines, I want to troubleshoot backup errors during the backup and restore process, so that I can ensure data integrity and availability for my applications.
 ---
 
 # Troubleshooting backup failures on Azure virtual machines
@@ -354,7 +355,8 @@ Error code: ExtensionVCRedistInstallationFailure <br/> Error message: The snapsh
 
 Error code:  UserErrorRequestDisallowedByPolicy <BR> Error message: An invalid policy is configured on the VM which is preventing Snapshot operation.
 
-If you have an Azure Policy that [governs tags within your environment](../governance/policy/tutorials/govern-tags.md), either consider changing the policy from a [Deny effect](../governance/policy/concepts/effects.md#deny) to a [Modify effect](../governance/policy/concepts/effects.md#modify), or create the resource group manually according to the [naming schema required by Azure Backup](./backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
+If you have an Azure Policy that [governs tags within your environment](../governance/policy/tutorials/govern-tags.md), either consider changing the policy from a [Deny effect](/azure/governance/policy/concepts/effect-deny) to a [Modify effect](/azure/governance/policy/concepts/effect-modify), or create the resource group manually according to the [naming schema required by Azure Backup](./backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
+
 
 ### UserErrorUnableToOpenMount
 
@@ -383,7 +385,8 @@ If after restore, you notice the disks are offline then:
 * Ensure you are not restoring to the same source, [Learn more](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 ### Folder is missing when a Linux VM is recovered as a new VM
-This issue can occur if disks are mounted to a directory using the device name (e.g., /dev/sdc1) instead of UUID. When the VM reboots or when it is recovered as a new VM, the device names are assigned in a random order. To ensure that the right drive is mounted to your directory, always mount drives using UUID obtained from the `blkid` utility. [Learn more](/azure/virtual-machines/linux/attach-disk-portal).
+This issue can occur if disks are mounted to a directory using the device name (e.g., /dev/sdc1) instead of UUID. When the VM reboots or when it is recovered as a new VM, the device names are assigned in a random order. To ensure that the right drive is mounted to your directory, always mount drives using UUID obtained from the `blkid` utility. [Learn more](/azure/virtual-machines/linux/attach-disk-portal#mount-the-disk).
+
 
 ### UserErrorInstantRpNotFound - Restore failed because the Snapshot of the VM was not found
 
@@ -435,33 +438,33 @@ To resolve this issue:
 >- With a different name than the original one, **or**
 >- In a different resource group with the same name.
 
-#### UserErrorCrossSubscriptionRestoreNotSuppportedForOLR  
+#### UserErrorCrossSubscriptionRestoreNotSupportedForOLR  
 
-**Error code**: UserErrorCrossSubscriptionRestoreNotSuppportedForOLR 
+**Error code**: UserErrorCrossSubscriptionRestoreNotSupportedForOLR 
 
 **Error message**: Operation failed as Cross Subscription Restore is not supported for Original Location Recovery.
 
 **Resolution**: Ensure that you [select Create New/ Restore Disk](backup-azure-arm-restore-vms.md#restore-disks) for restore operation.
 
-#### UserErrorCrossSubscriptionRestoreNotSuppportedForUnManagedAzureVM   
+#### UserErrorCrossSubscriptionRestoreNotSupportedForUnManagedAzureVM   
 
-**Error code**: UserErrorCrossSubscriptionRestoreNotSuppportedForUnManagedAzureVM  
+**Error code**: UserErrorCrossSubscriptionRestoreNotSupportedForUnManagedAzureVM  
 
 **Error message**: Operation failed as Cross Subscription Restore is not supported for Azure VMs with Unmanaged Disks.
 
 **Resolution**: Perform standard restores within the same subscription instead.
 
-#### UserErrorCrossSubscriptionRestoreNotSuppportedForCRR
+#### UserErrorCrossSubscriptionRestoreNotSupportedForCRR
 
-**Error code**: UserErrorCrossSubscriptionRestoreNotSuppportedForCRR  
+**Error code**: UserErrorCrossSubscriptionRestoreNotSupportedForCRR  
 
 **Error message**: Operation failed as Cross Subscription Restore is not supported along-with Cross Region Restore.
 
 **Resolution**: Use either Cross Subscription Restore' or Cross Region Restore.  
   
-#### UserErrorCrossSubscriptionRestoreNotSuppportedFromSnapshot  
+#### UserErrorCrossSubscriptionRestoreNotSupportedFromSnapshot  
 
-**Error code**: UserErrorCrossSubscriptionRestoreNotSuppportedFromSnapshot 
+**Error code**: UserErrorCrossSubscriptionRestoreNotSupportedFromSnapshot 
 
 **Error message**: Operation failed as Cross Subscription Restore is not supported when restoring from a Snapshot recovery point.
 
@@ -483,17 +486,17 @@ To resolve this issue:
 
 **Resolution**:  Ensure the target subscription is registered to the Recovery Services Resource Provider before you attempt a cross subscription restore. Creating a vault in the target Subscription should register the Subscription to Recovery Services Resource Provider.
  
-#### UserErrorCrossSubscriptionRestoreNotSuppportedForEncryptedAzureVM 
+#### UserErrorCrossSubscriptionRestoreNotSupportedForEncryptedAzureVM 
 
-**Error code**: UserErrorCrossSubscriptionRestoreNotSuppportedForEncryptedAzureVM
+**Error code**: UserErrorCrossSubscriptionRestoreNotSupportedForEncryptedAzureVM
 
 **Error message**: Operation failed as Cross Subscription Restore is not supported for Encrypted Azure VMs.
 
 **Resolution**: Use the same subscription for Restore of Encrypted AzureVMs. 
  
-#### UserErrorCrossSubscriptionRestoreNotSuppportedForTrustedLaunchAzureVM 
+#### UserErrorCrossSubscriptionRestoreNotSupportedForTrustedLaunchAzureVM 
 
-**Error code**: UserErrorCrossSubscriptionRestoreNotSuppportedForTrustedLaunchAzureVM
+**Error code**: UserErrorCrossSubscriptionRestoreNotSupportedForTrustedLaunchAzureVM
 
 **Error message**: Operation failed as Cross Subscription Restore is not supported for Trusted Launch Azure VMs (TVMs).
 
@@ -554,15 +557,14 @@ Verify the VM Agent version on Windows VMs:
 
 VM backup relies on issuing snapshot commands to underlying storage. Not having access to storage or delays in a snapshot task run can cause the backup job to fail. The following conditions can cause snapshot task failure:
 
-* **VMs with SQL Server backup configured can cause snapshot task delay**. By default, VM backup creates a VSS full backup on Windows VMs. VMs that run SQL Server, with SQL Server backup configured, can experience snapshot delays. If snapshot delays cause backup failures, set following registry key:
+* **VMs with SQL Server backup configured can cause snapshot task delay**. To avoid that, currently VM backup creates a VSS full backup (Copy-Only) on Windows VMs. If you need a VSS Full backup (Non-copy Only) then add the following registry key on the Windows VM:
 
    ```console
-   REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v UseVssFullBackup /t REG_SZ /d True /f
-   
+   REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v UseVSSCopyBackup /t REG_SZ /d True /f   
    ```
 
   >[!Note]
-  >From December 12, 2022, Azure VM backup automatically sets the registry key in the existing protected Azure VMs that are registered as SQL VMs. Now, you don't need  to explicitly set this registry key. This ensures that snapshots aren't delayed and any log chains managed by other backup products are also not broken. Azure VM backup now also set the registry key in any new SQL VMs automatically during the configuration of backup.
+  >**Copy-Only** backups ensure that snapshots aren't delayed, and any log chains managed by other backup products are also not broken.
 
 * **VM status is reported incorrectly because the VM is shut down in RDP**. If you used the remote desktop to shut down the virtual machine, verify that the VM status in the portal is correct. If the status isn't correct, use the **Shutdown** option in the portal VM dashboard to shut down the VM.
 * **If more than four VMs share the same cloud service, spread the VMs across multiple backup policies**. Stagger the backup times, so no more than four VM backups start at the same time. Try to separate the start times in the policies by at least an hour.
@@ -575,3 +577,15 @@ Get more information on how to set up a static IP through PowerShell:
 
 * [How to add a static internal IP to an existing VM](/powershell/module/az.network/set-aznetworkinterfaceipconfig#description)
 * [Change the allocation method for a private IP address assigned to a network interface](../virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps.md)
+
+## Migration from Standard to Enhanced policy issue
+
+### BackUpOperationFailedV2
+
+**Error code**: `BackUpOperationFailedV2`
+
+**Error message**: The backups of VMs have failed after the policy migration from Standard to Enhanced policy.
+
+**Cause**: Snapshot retention of the Enhanced policy is applied on the older recovery points that were originally created under the Standard policy when you move a VM from a Standard to Enhanced policy.
+
+**Recommended action**: Contact Microsoft Support for resolution.

@@ -4,6 +4,9 @@ description: Learn how to create clusters for HDInsight by using Resource Manage
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli, linux-related-content
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 09/06/2024
 ---
 

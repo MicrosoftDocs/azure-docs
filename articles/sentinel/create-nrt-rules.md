@@ -6,8 +6,8 @@ ms.topic: how-to
 ms.date: 03/28/2024
 ms.author: yelevin
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -24,9 +24,9 @@ For the time being, these templates have limited application as outlined below, 
 
 ## View near-real-time (NRT) rules
 
-# [Azure portal](#tab/azure-portal)
+# [Defender portal](#tab/defender-portal)
 
-1. From the **Configuration** section of the Microsoft Sentinel navigation menu, select **Analytics**.
+1. From the Microsoft Defender navigation menu, expand **Microsoft Sentinel**, then **Configuration**. Select **Analytics**.
 
 1. On the **Analytics** screen, with the **Active rules** tab selected, filter the list for **NRT** templates:
 
@@ -34,9 +34,9 @@ For the time being, these templates have limited application as outlined below, 
 
     1. From the resulting list, select **NRT**. Then select **Apply**.
 
-# [Defender portal](#tab/defender-portal)
+# [Azure portal](#tab/azure-portal)
 
-1. From the Microsoft Defender navigation menu, expand **Microsoft Sentinel**, then **Configuration**. Select **Analytics**.
+1. From the **Configuration** section of the Microsoft Sentinel navigation menu, select **Analytics**.
 
 1. On the **Analytics** screen, with the **Active rules** tab selected, filter the list for **NRT** templates:
 
@@ -50,14 +50,6 @@ For the time being, these templates have limited application as outlined below, 
 
 You create NRT rules the same way you create regular [scheduled-query analytics rules](detect-threats-custom.md):
 
-# [Azure portal](#tab/azure-portal)
-
-1. From the **Configuration** section of the Microsoft Sentinel navigation menu, select **Analytics**.
-
-1. In the action bar at the top, select **+Create** and select **NRT query rule**. This opens the **Analytics rule wizard**.
-
-    :::image type="content" source="media/create-nrt-rules/create-nrt-rule.png" alt-text="Screenshot shows how to create a new NRT rule." lightbox="media/create-nrt-rules/create-nrt-rule.png":::
-
 # [Defender portal](#tab/defender-portal)
 
 1. From the Microsoft Defender navigation menu, expand **Microsoft Sentinel**, then **Configuration**. Select **Analytics**.
@@ -65,6 +57,14 @@ You create NRT rules the same way you create regular [scheduled-query analytics 
 1. In the action bar at the top of the grid, select **+Create** and select **NRT query rule**. This opens the **Analytics rule wizard**.
 
     :::image type="content" source="media/create-nrt-rules/defender-create-nrt-rule.png" alt-text="Screenshot shows how to create a new NRT rule." lightbox="media/create-nrt-rules/create-nrt-rule.png":::
+
+# [Azure portal](#tab/azure-portal)
+
+1. From the **Configuration** section of the Microsoft Sentinel navigation menu, select **Analytics**.
+
+1. In the action bar at the top, select **+Create** and select **NRT query rule**. This opens the **Analytics rule wizard**.
+
+    :::image type="content" source="media/create-nrt-rules/create-nrt-rule.png" alt-text="Screenshot shows how to create a new NRT rule." lightbox="media/create-nrt-rules/create-nrt-rule.png":::
 
 ---
 
@@ -80,17 +80,15 @@ You create NRT rules the same way you create regular [scheduled-query analytics 
 
     - You can automate responses to both alerts and incidents.
 
+    - You can run the rule query across multiple workspaces.
+
     Because of the [**nature and limitations of NRT rules**](near-real-time-rules.md#considerations), however, the following features of scheduled analytics rules will *not be available* in the wizard:
 
     - **Query scheduling** is not configurable, since queries are automatically scheduled to run once per minute with a one-minute lookback period. 
     - **Alert threshold** is irrelevant, since an alert is always generated.
     - **Event grouping** configuration is now available to a limited degree. You can choose to have an NRT rule generate an alert for each event for up to 30 events. If you choose this option and the rule results in more than 30 events, single-event alerts will be generated for the first 29 events, and a 30th alert will summarize all the events in the result set.
 
-    In addition, the query itself has the following requirements:
-
-    - You can't run the query across workspaces.
-
-    - Due to the size limits of the alerts, your query should make use of `project` statements to include only the necessary fields from your table. Otherwise, the information you want to surface could end up being truncated.
+    In addition, due to the size limits of the alerts, your query should make use of `project` statements to include only the necessary fields from your table. Otherwise, the information you want to surface could end up being truncated.
 
 ## Next steps
 

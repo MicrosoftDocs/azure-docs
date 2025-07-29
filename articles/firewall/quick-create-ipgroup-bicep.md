@@ -2,12 +2,13 @@
 title: 'Quickstart: Create an Azure Firewall and IP Groups - Bicep'
 description: In this quickstart, you learn how to use a Bicep file to create an Azure Firewall and IP Groups.
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 ms.topic: quickstart
 ms.custom: subject-bicepqs, mode-arm, devx-track-bicep
 ms.date: 08/25/2022
-ms.author: victorh
+ms.author: duau
+# Customer intent: As a cloud engineer, I want to deploy an Azure Firewall using a Bicep file, so that I can easily manage and group IP addresses within firewall rules in my network infrastructure.
 ---
 
 # Quickstart: Create an Azure Firewall and IP Groups - Bicep

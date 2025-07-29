@@ -7,6 +7,7 @@ ms.topic: quickstart
 ms.date: 07/24/2024
 ms.author: kendownie
 ms.custom: devx-track-azurecli, ignite-2023-container-storage, linux-related-content
+# Customer intent: As a cloud engineer, I want to install Azure Container Storage on my AKS cluster, so that I can manage container volumes efficiently and choose the appropriate storage options for my workloads.
 ---
 
 # Quickstart: Use Azure Container Storage with Azure Kubernetes Service
@@ -112,12 +113,12 @@ The resources consumed are per node, and will be consumed for each node in the n
 
 ## Ensure VM type for your cluster meets the following criteria
 
-To use Azure Container Storage, you'll need a node pool of at least three Linux VMs. If you're using local NVMe for your storage pool, the node pool should contain a minimum of four Linux VMs. Each VM should have a minimum of four virtual CPUs (vCPUs). Azure Container Storage will consume one core for I/O processing on every VM the extension is deployed to.
+To use Azure Container Storage, you'll need a node pool of at least three Linux VMs. Each VM should have a minimum of four virtual CPUs (vCPUs). Azure Container Storage will consume one core for I/O processing on every VM the extension is deployed to.
 
 Follow these guidelines when choosing a VM type for the cluster nodes. You must choose a VM type that supports [Azure premium storage](/azure/virtual-machines/premium-storage-performance).
 
 - If you intend to use Azure Elastic SAN or Azure Disks as backing storage, choose a [general purpose VM type](/azure/virtual-machines/sizes-general) such as **standard_d4s_v5**.
-- If you intend to use Ephemeral Disk with local NVMe, choose a [storage optimized VM type](/azure/virtual-machines/sizes-storage) such as **standard_l8s_v3**.
+- If you intend to use Ephemeral Disk with local NVMe, choose a VM SKU that supports local NVMe data disks, for example, [Storage optimized VM SKUs](/azure/virtual-machines/sizes/overview#storage-optimized) or [GPU accelerated VM SKUs](/azure/virtual-machines/sizes/overview#gpu-accelerated).
 - If you intend to use Ephemeral Disk with temp SSD, choose a VM that has a temp SSD disk such as [Ev3 and Esv3-series](/azure/virtual-machines/ev3-esv3-series).
 
 ## Install Azure Container Storage on your AKS cluster
@@ -154,11 +155,11 @@ az aks update -n <cluster-name> -g <resource-group> --enable-azure-container-sto
 The deployment will take 10-15 minutes. When it completes, you'll have an AKS cluster with Azure Container Storage installed, the components for your chosen storage pool type enabled, and a default storage pool. If you want to enable additional storage pool types to create additional storage pools, see [Enable additional storage pool types](#enable-additional-storage-pool-types).
 
 > [!IMPORTANT]
-> If you specified Azure Elastic SAN as backing storage for your storage pool and you don't have either [Azure Container Storage Owner](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-owner) role or [Azure Container Storage Contributor](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-contributor) role assigned to the Azure subscription, Azure Container Storage installation will fail and a storage pool won't be created. If you try to [enable Azure Elastic SAN as an additional storage pool type](#enable-additional-storage-pool-types) without either of these roles, your previous installation and storage pools will remain unaffected and an Elastic SAN storage pool wont be created.
+> If you specified Azure Elastic SAN as backing storage for your storage pool and you don't have either [Azure Container Storage Owner](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-owner) role or [Azure Container Storage Contributor](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-contributor) role assigned to the Azure subscription, Azure Container Storage installation will fail and a storage pool won't be created. If you try to [enable Azure Elastic SAN as an additional storage pool type](#enable-additional-storage-pool-types) without either of these roles, your previous installation and storage pools will remain unaffected and an Elastic SAN storage pool won't be created.
 
 ### Install Azure Container Storage on specific node pools
 
-If you want to install Azure Container Storage on specific node pools, follow these instructions. The node pools must contain at least three Linux VMs each. If you're using local NVMe for your storage pool, then the node pools must contain at least four Linux VMs each.
+If you want to install Azure Container Storage on specific node pools, follow these instructions. The node pools must contain at least three Linux VMs.
 
 1. Run the following command to view the list of available node pools. Replace `<resource-group>` and `<cluster-name>` with your own values.
    

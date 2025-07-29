@@ -5,7 +5,8 @@ ms.topic: overview
 ms.date: 09/11/2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: As a backup administrator, I want to implement multi-user authorization using Resource Guard, so that I can enhance the security of critical operations on my Recovery Services vaults and ensure only authorized users can perform those operations.
 ---
 # About Multi-user authorization using Resource Guard
 

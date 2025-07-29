@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.custom: linux-related-content
 ms.date: 08/02/2024
 ms.author: allensu
+# Customer intent: "As a network engineer, I want to measure network latency between Azure virtual machines using specialized tools, so that I can optimize performance and ensure my applications run efficiently over TCP and UDP protocols."
 ---
 
 # Test network latency between Azure VMs

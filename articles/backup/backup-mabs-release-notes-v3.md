@@ -2,10 +2,11 @@
 title: Release notes for Microsoft Azure Backup Server v3
 description: This article provides the information about the known issues and workarounds for Microsoft Azure Backup Server (MABS) v3.
 ms.topic: release-notes
-ms.date: 07/30/2024
+ms.date: 07/16/2025
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As a system administrator managing Azure Backup Server, I want to access the known issues and workarounds for MABS V3, so that I can resolve problems efficiently and ensure reliable backup operations for my organization."
 ---
 
 # Release notes for Microsoft Azure Backup Server
@@ -140,3 +141,8 @@ If you're protecting Windows Server 2012 and 2012 R2, you need to install Visual
 ## Next steps
 
 [What's new in MABS](backup-mabs-whats-new-mabs.md)
+
+## Related content
+
+- [About offline backup](offline-backup-overview.md).
+- [About backing up datasources with System Center DPM](backup-azure-dpm-introduction.md).

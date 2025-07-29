@@ -4,6 +4,9 @@ description: Learn how to use Bash scripts to customize HDInsight clusters. Scri
 ms.service: azure-hdinsight
 ms.custom: linux-related-content
 ms.topic: how-to
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 05/22/2024
 ---
 

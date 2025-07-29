@@ -4,9 +4,9 @@ description: Learn about connectors that run natively with the runtime in Azure 
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: engagement-fy23
-ms.date: 04/15/2024
+ms.date: 03/18/2025
 ---
 
 # Built-in connectors in Azure Logic Apps
@@ -25,11 +25,11 @@ This article provides a general overview about built-in connectors in Consumptio
 
 ## Built-in connectors in Consumption versus Standard
 
-The following table lists the current and expanding galleries of built-in connectors available for Consumption versus Standard workflows. For Standard workflows, an asterisk (**\***) marks [built-in connectors based on the *service provider* model](#service-provider-interface-implementation), which is described in more detail later.
+The following table lists the current and expanding galleries of built-in operations collections available for Consumption versus Standard workflows. For Standard workflows, an asterisk (**\***) marks [built-in connectors based on the *service provider* model](#service-provider-interface-implementation), which is described in more detail later.
 
 | Consumption | Standard |
 |-------------|----------|
-| Azure API Management<br>Azure App Service <br>Azure Functions <br>Azure Logic Apps <br>Batch <br>Control <br>Data Operations <br>Date Time <br>Flat File <br>HTTP <br>Inline Code <br>Integration Account <br>Liquid <br>Request <br>Schedule <br>Variables <br>XML | AS2 (v2) <br>Azure AI Search* <br>Azure Automation* <br>Azure Blob Storage* <br>Azure Cosmos DB* <br>Azure Event Grid Publisher* <br>Azure Event Hubs* <br>Azure File Storage* <br>Azure Functions <br>Azure Key Vault* <br>Azure OpenAI* <br>Azure Queue Storage* <br>Azure Service Bus* <br>Azure Table Storage* <br>Batch Operations <br>Control <br>Data Mapper Operations <br>Data Operations <br>Date Time <br>EDIFACT <br>File System* <br>Flat File <br>FTP* <br>HTTP <br>IBM 3270* <br>IBM CICS* <br>IBM DB2* <br>IBM Host File* <br>IBM IMS* <br>IBM MQ* <br>Inline Code <br>Integration Account <br>JDBC* <br>Liquid Operations <br>Request <br>RosettaNet <br>SAP* <br>Schedule <br>SFTP* <br>SMTP* <br>SQL Server* <br>SWIFT <br>Variables <br>Workflow Operations <br>X12 <br>XML Operations |
+| Azure API Management <br>Azure App Service <br>Azure Functions <br>Azure Logic Apps <br>Batch Operations <br>Control <br>Data Operations <br>Date Time <br>Flat File <br>HTTP <br>Inline Code <br>Integration Account <br>Liquid Operations <br>Request <br>Schedule <br>Variables <br>XML Operations | AI Operations <br>AS2 (v2) <br>Azure AI Document Intelligence* <br>Azure AI Search* <br>Azure API Management <br>Azure Automation* <br>Azure Blob Storage* <br>Azure Container App (ACA) session* <br>Azure Cosmos DB* <br>Azure Event Grid Publisher* <br>Azure Event Hubs* <br>Azure File Storage* <br>Azure Functions <br>Azure Key Vault* <br>Azure OpenAI* <br>Azure Queue Storage* <br>Azure Service Bus* <br>Azure Table Storage* <br>Batch Operations <br>Confluent* <br>Control <br>Data Mapper Operations <br>Data Operations <br>Date Time <br>EDIFACT <br>File System* <br>Flat File <br>FTP* <br>HTTP <br>IBM 3270* <br>IBM CICS* <br>IBM DB2* <br>IBM Host File* <br>IBM IMS* <br>IBM MQ* <br>Inline Code <br>Integration Account <br>JDBC* <br>Liquid Operations <br>RabbitMQ <br>Request <br>RosettaNet <br>SAP* <br>Schedule <br>SFTP* <br>SMTP* <br>SQL Server* <br>SWIFT <br>Variables <br>Workflow Operations <br>X12 <br>XML Operations |
 
 <a name="service-provider-interface-implementation"></a>
 
@@ -106,8 +106,8 @@ You can use the following built-in connectors to perform general tasks, for exam
     :::column:::
         [![Request trigger icon][http-request-icon]][http-request-doc]
         <br><br>[**Request**][http-request-doc]
-        <br><br>[**When a HTTP request is received**][http-request-doc]: Wait for a request from another workflow, app, or service. This trigger makes your workflow callable without having to be checked or polled on a schedule.
-        <br><br>[**Response**][http-request-doc]: Respond to a request received by the **When a HTTP request is received** trigger in the same workflow.
+        <br><br>[**When an HTTP request is received**][http-request-doc]: Wait for a request from another workflow, app, or service. This trigger makes your workflow callable without having to be checked or polled on a schedule.
+        <br><br>[**Response**][http-request-doc]: Respond to a request received by the **When an HTTP request is received** trigger in the same workflow.
     :::column-end:::
     :::column:::
         [![Batch icon][batch-icon]][batch-doc]
@@ -153,7 +153,7 @@ You can use the following built-in connectors to access specific services and sy
     :::column-end:::
     :::column:::
         [![Azure API Management icon][azure-api-management-icon]][azure-api-management-doc]
-        <br><br>[**Azure API Management**][azure-api-management-doc]<br>(*Consumption workflow only*)
+        <br><br>[**Azure API Management**][azure-api-management-doc]
         <br><br>Call your own triggers and actions in APIs that you define, manage, and publish using [Azure API Management](../api-management/api-management-key-concepts.md). <br><br>**Note**: Not supported when using [Consumption tier for API Management](../api-management/api-management-features.md).
     :::column-end:::
     :::column:::
@@ -197,7 +197,7 @@ You can use the following built-in connectors to access specific services and sy
     :::column:::
         [![Azure Functions icon][azure-functions-icon]][azure-functions-doc]
         <br><br>[**Azure Functions**][azure-functions-doc]
-        <br><br>Call [Azure-hosted functions](../azure-functions/functions-overview.md) to run your own *code snippets* (C# or Node.js) within your workflow.
+        <br><br>Call [Azure-hosted functions](../azure-functions/functions-overview.md) to run your own code (C# or Node.js) from your workflow.
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -209,7 +209,7 @@ You can use the following built-in connectors to access specific services and sy
     :::column:::
         [![Azure Logic Apps icon][azure-logic-apps-icon]][nested-logic-app-doc]
         <br><br>[**Azure Logic Apps**][nested-logic-app-doc]<br>(*Consumption workflow*) <br><br>-or-<br><br>**Workflow Operations**<br>(*Standard workflow*)
-        <br><br>Call other workflows that start with the Request trigger named **When a HTTP request is received**.
+        <br><br>Call other workflows that start with the Request trigger named **When an HTTP request is received**.
     :::column-end:::
     :::column:::
         [![Azure OpenAI icon][azure-openai-icon]][azure-openai-doc]
@@ -290,12 +290,14 @@ Azure Logic Apps provides the following built-in actions for running your own co
     :::column:::
         [![Azure Functions icon][azure-functions-icon]][azure-functions-doc]
         <br><br>[**Azure Functions**][azure-functions-doc]
-        <br><br>Call [Azure-hosted functions](../azure-functions/functions-overview.md) to run your own *code snippets* (C# or Node.js) within your workflow.
+        <br><br>Call [Azure-hosted functions](../azure-functions/functions-overview.md) to run your own code (C# or Node.js) from your workflow.
     :::column-end:::
     :::column:::
         [![Inline Code action icon][inline-code-icon]][inline-code-doc]
         <br><br>[**Inline Code**][inline-code-doc]
-        <br><br>[Add and run inline JavaScript code snippets](../logic-apps/logic-apps-add-run-inline-code.md) from your workflow.
+        <br><br>- [**Execute JavaScript code**](../logic-apps/logic-apps-add-run-inline-code.md) from your Consumption or Standard workflow.
+        <br><br>- [**Execute C# script code**](../logic-apps/add-run-csharp-scripts.md) from your Standard workflow.
+        <br><br>- [**Execute PowerShell script code**](../logic-apps/add-run-powershell-scripts.md) from your Standard workflow.
     :::column-end:::
     :::column:::
         [![Local Function Operations icon][local-function-icon]][local-function-doc]
@@ -358,16 +360,18 @@ Azure Logic Apps provides the following built-in actions for working with data o
         [![Data Operations icon][data-operations-icon]][data-operations-doc]
         <br><br>[**Data Operations**][data-operations-doc]
         <br><br>Perform operations with data.
+        <br><br>**Chunk text**: Split up content into pieces to use in AI solutions or with AI service operations such as [Azure OpenAI and Azure AI Search operations](../logic-apps/connectors/azure-ai.md). For more information, see [Parse or chunk content](../logic-apps/parse-document-chunk-text.md).
         <br><br>**Compose**: Create a single output from multiple inputs with various types.
         <br><br>**Create CSV table**: Create a comma-separated-value (CSV) table from an array with JSON objects.
         <br><br>**Create HTML table**: Create an HTML table from an array with JSON objects.
         <br><br>**Filter array**: Create an array from items in another array that meet your criteria.
         <br><br>**Join**: Create a string from all items in an array and separate those items with the specified delimiter.
+        <br><br>**Parse a document**: Create a tokenized string to use in AI solutions or with AI service operations such as [Azure OpenAI and Azure AI Search operations](../logic-apps/connectors/azure-ai.md). For more information, see [Parse or chunk content](../logic-apps/parse-document-chunk-text.md).
         <br><br>**Parse JSON**: Create user-friendly tokens from properties and their values in JSON content so that you can use those properties in your workflow.
         <br><br>**Select**: Create an array with JSON objects by transforming items or values in another array and mapping those items to specified properties.
     :::column-end:::
     :::column:::
-        ![Date Time action icon][date-time-icon]
+        ![Date Time icon][date-time-icon]
         <br><br>**Date Time**
         <br><br>Perform operations with timestamps.
         <br><br>**Add to time**: Add the specified number of units to a timestamp.
@@ -378,7 +382,7 @@ Azure Logic Apps provides the following built-in actions for working with data o
         <br><br>**Subtract from time**: Subtract a number of time units from a timestamp.
     :::column-end:::
     :::column:::
-        [![Variables action icon][variables-icon]][variables-doc]
+        [![Variables icon][variables-icon]][variables-doc]
         <br><br>[**Variables**][variables-doc]
         <br><br>Perform operations with variables.
         <br><br>**Append to array variable**: Insert a value as the last item in an array stored by a variable.
@@ -389,6 +393,13 @@ Azure Logic Apps provides the following built-in actions for working with data o
         <br><br>**Set variable**: Assign a different value to an existing variable.
     :::column-end:::
     :::column:::
+      [![XML Operations icon][xml-operations-icon]][xml-operations-doc]
+        <br><br>[**XML Operations**][xml-operations-doc]
+        <br><br>Perform operations with XML.
+        <br><br>**Compose XML with schema**: Create XML from JSON using a schema for a Standard workflow.
+        <br><br>**Parse XML with schema**: Parse XML using a schema for a Standard workflow.
+        <br><br>**Transform XML**: Convert XML using a map.
+        <br><br>**Validate XML**: Validate inbound or outbound XML using a schema.
     :::column-end:::
 :::row-end:::
 
@@ -455,12 +466,7 @@ For more information, review the following documentation:
     :::column:::
         [![SWIFT icon][swift-icon]][swift-doc]
         <br><br>[**SWIFT**][swift-doc]<br>(*Standard workflow only*)
-        <br><br>Encode and decode Society for Worldwide Interbank Financial Telecommuncation (SIWFT) transactions in flat-file XML message format.
-    :::column-end:::
-    :::column:::
-        [![Transform XML icon][xml-transform-icon]][xml-transform-doc]
-        <br><br>[**Transform XML**][xml-transform-doc]
-        <br><br>Convert the source XML format to another XML format.
+        <br><br>Encode and decode Society for Worldwide Interbank Financial Telecommunication (SWIFT) transactions in flat-file XML message format.
     :::column-end:::
     :::column:::
         [![X12 icon][x12-icon]][x12-doc]
@@ -468,9 +474,15 @@ For more information, review the following documentation:
         <br><br>Encode and decode messages that use the X12 protocol.
     :::column-end:::
     :::column:::
-        [![XML validation icon][xml-validate-icon]][xml-validate-doc]
-        <br><br>[**XML Validation**][xml-validate-doc]
-        <br><br>Validate XML documents against the specified schema.
+      [![XML Operations icon][xml-operations-icon]][xml-operations-doc]
+        <br><br>[**XML Operations**][xml-operations-doc]
+        <br><br>Perform operations with XML.
+        <br><br>**Compose XML with schema**: Create XML from JSON using a schema for a Standard workflow.
+        <br><br>**Parse XML with schema**: Parse XML using a schema for a Standard workflow.
+        <br><br>**Transform XML**: Convert XML using a map.
+        <br><br>**Validate XML**: Validate inbound or outbound XML using a schema.
+    :::column-end:::
+    :::column:::
     :::column-end:::
 :::row-end:::
 
@@ -537,6 +549,7 @@ For more information, review the following documentation:
 [liquid-icon]: ./media/apis-list/liquid-transform.png
 [rosettanet-icon]: ./media/apis-list/rosettanet.png
 [x12-icon]: ./media/apis-list/x12.png
+[xml-operations-icon]: ./media/apis-list/xml-operations.png
 [xml-transform-icon]: ./media/apis-list/xml-transform.png
 [xml-validate-icon]: ./media/apis-list/xml-validation.png
 
@@ -602,5 +615,6 @@ For more information, review the following documentation:
 [liquid-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Transform JSON or XML content with Liquid templates"
 [rosettanet-doc]: ../logic-apps/logic-apps-enterprise-integration-rosettanet.md "Exchange RosettaNet messages in your workflow"
 [x12-doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "Encode and decode messages that use the X12 protocol"
+[xml-operations-doc]: ../logic-apps/logic-apps-enterprise-integration-xml.md "XML Operations content"
 [xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Transform XML content"
 [xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Validate XML content"

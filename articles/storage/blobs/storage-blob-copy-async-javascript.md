@@ -10,6 +10,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
+# Customer intent: As a developer using the JavaScript client library, I want to copy blobs asynchronously, so that I can manage data transfers efficiently across storage accounts or accessible URLs without blocking other operations.
 ---
 
 # Copy a blob with asynchronous scheduling using JavaScript or TypeScript
@@ -18,7 +19,7 @@ ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
 
 This article shows how to copy a blob with asynchronous scheduling using the [Azure Storage client library for JavaScript](/javascript/api/overview/azure/storage-blob-readme). You can copy a blob from a source within the same storage account, from a source in a different storage account, or from any accessible object retrieved via HTTP GET request on a given URL. You can also abort a pending copy operation.
 
-The client library methods covered in this article use the [Copy Blob](/rest/api/storageservices/copy-blob) REST API operation, and can be used when you want to perform a copy with asynchronous scheduling. For most copy scenarios where you want to move data into a storage account and have a URL for the source object, see [Copy a blob from a source object URL with JavaScript](storage-blob-copy-url-javascript.md).
+The client library methods covered in this article use the [Copy Blob](/rest/api/storageservices/copy-blob) REST API operation and can be used when you want to perform a copy with asynchronous scheduling. For most copy scenarios where you want to move data into a storage account and have a URL for the source object, see [Copy a blob from a source object URL with JavaScript](storage-blob-copy-url-javascript.md).
 
 ## Prerequisites
 
@@ -41,7 +42,7 @@ The `beginCopyFromURL` method returns a long running operation poller that allow
 
 ## Copy a blob from a source within Azure
 
-If you're copying a blob within the same storage account, the operation can complete synchronously. Access to the source blob can be authorized via Microsoft Entra ID, a shared access signature (SAS), or an account key. For an alterative synchronous copy operation, see [Copy a blob from a source object URL with JavaScript](storage-blob-copy-url-javascript.md).
+If you're copying a blob within the same storage account, the operation can complete synchronously. Access to the source blob can be authorized via Microsoft Entra ID, a shared access signature (SAS), or an account key. For an alternative synchronous copy operation, see [Copy a blob from a source object URL with JavaScript](storage-blob-copy-url-javascript.md).
 
 If the copy source is a blob in a different storage account, the operation can complete asynchronously. The source blob must either be public or authorized via SAS token. The SAS token needs to include the **Read ('r')** permission. To learn more about SAS tokens, see [Delegate access with shared access signatures](../common/storage-sas-overview.md).
 

@@ -2,16 +2,17 @@
 title: Restore Azure Disks using Azure Data Protection REST API
 description: In this article, learn how to restore Azure Disks using Azure Data protection REST API.
 ms.topic: how-to
-ms.date: 05/27/2024
+ms.date: 06/11/2025
 ms.assetid: 30f4e7ff-2a55-4a85-be44-55feedc24607
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As a cloud administrator, I want to restore Azure Disks using a Data Protection API, so that I can efficiently recover managed disks without incurring infrastructure costs or affecting application performance."
 ---
 
 # Restore Azure Disks using Azure Data Protection REST API
 
-This article describes how to restore and create a new [Azure Disks](disk-backup-overview.md) using Azure Backup.
+This article describes how to restore and create a new [Azure Disks](disk-backup-overview.md) by Azure Backup using REST API. You can also restore Managed Disk using [Azure portal](restore-managed-disks.md), [Azure PowerShell](restore-managed-disks-ps.md), [Azure CLI](restore-managed-disks-cli.md).
 
 Azure Disk Backup offers a turnkey solution that provides snapshot lifecycle management for managed disks by automating periodic creation of snapshots and retaining it for configured duration using backup policy. You can manage the disk snapshots with zero infrastructure cost and without the need for custom scripting or any management overhead. This is a crash-consistent backup solution that takes point-in-time backup of a managed disk using incremental snapshots with support for multiple backups per day. It's also an agent-less solution and doesn't impact production application performance. It supports backup and restore of both OS and data disks (including shared disks), whether or not they're currently attached to a running Azure virtual machine.
 
@@ -384,7 +385,7 @@ Use the *GET* command to track the _JobId_ present in the [trigger restore respo
 {
   "properties": {
     "activityID": "2881cc22-f527-4af4-9b34-46c6c7b72076-Ibz",
-    "subscriptionId": "62b829ee-7936-40c9-a1c9-47a93f9f3965",
+    "subscriptionId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
     "backupInstanceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/msdiskbackup-2dc6eb5b-d008-4d68-9e49-7132d99da0ed",
     "policyId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupPolicies/DiskBackup-Policy",
     "dataSourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/RG-DiskBackup/providers/Microsoft.Compute/disks/msdiskbackup",
@@ -398,7 +399,7 @@ Use the *GET* command to track the _JobId_ present in the [trigger restore respo
     "destinationDataStoreName": null,
     "progressEnabled": false,
     "etag": "W/\"datetime'2021-08-26T07%3A18%3A16.157629Z'\"",
-    "sourceSubscriptionID": "62b829ee-7936-40c9-a1c9-47a93f9f3965",
+    "sourceSubscriptionID": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
     "dataSourceLocation": "westUS",
     "startTime": "2021-08-26T07:12:09.940517Z",
     "endTime": "2021-08-26T07:18:15.6815066Z",
@@ -417,7 +418,7 @@ Use the *GET* command to track the _JobId_ present in the [trigger restore respo
     "errorDetails": null,
     "extendedInfo": {
       "backupInstanceState": null,
-      "dataTransferedInBytes": null,
+      "dataTransferredInBytes": null,
       "targetRecoverPoint": null,
       "sourceRecoverPoint": {
         "recoveryPointID": "3a512290ec6b43d6b9a644869f4a3b38",
@@ -452,3 +453,4 @@ For more information on the Azure Backup REST APIs, see the following articles:
 
 - [Azure Data Protection provider REST API](/rest/api/dataprotection/)
 - [Get started with Azure REST API](/rest/api/azure/)
+- [Manage backup and restore jobs](backup-azure-arm-userestapi-managejobs.md)

@@ -5,7 +5,8 @@ ms.topic: how-to
 ms.date: 09/09/2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: As a cloud administrator, I want to configure a backup for Azure VMs using a Recovery Services vault, so that I can ensure data protection and recovery options are in place for my virtual machines.
 ---
 
 # Back up Azure VMs in a Recovery Services vault
@@ -45,7 +46,7 @@ By default, vaults use [geo-redundant storage (GRS)](../storage/common/storage-r
 
 * If the vault is your primary backup mechanism, we recommend you use GRS.
 * You can use [locally redundant storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) for a cheaper option.
-* [Zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replicates your data in [availability zones](../availability-zones/az-overview.md#availability-zones), guaranteeing data residency and resiliency in the same region.
+* [Zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replicates your data in [availability zones](../reliability/availability-zones-overview.md), guaranteeing data residency and resiliency in the same region.
 
 Modify the storage replication type as follows:
 

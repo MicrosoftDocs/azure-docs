@@ -1,9 +1,8 @@
 ---
 title: Symmetric key attestation with Azure DPS
 description: This article provides a conceptual overview of symmetric key attestation using IoT Device Provisioning Service (DPS).
-author: kgremban
-
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.date: 03/12/2024
 ms.topic: concept-article
 ms.service: azure-iot-hub

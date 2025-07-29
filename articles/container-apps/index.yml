@@ -11,7 +11,7 @@ metadata:
   ms.custom: build-2023
   author: craigshoemaker
   ms.author: cshoe
-  ms.date: 05/24/2023
+  ms.date: 04/09/2025
 landingContent:
   - title: About Azure Container Apps
     linkLists:
@@ -25,6 +25,8 @@ landingContent:
             url: dotnet-overview.md
           - text: Learn to develop with Java
             url: java-overview.md
+          - text: Learn to develop with JavaScript
+            url: javascript-overview.md
   - title: Get started
     linkLists:
       - linkListType: quickstart
@@ -49,6 +51,8 @@ landingContent:
             url: observability.md
           - text: Jobs
             url: jobs.md
+          - text: Azure Functions
+            url: functions-overview.md
   - title: Common tasks
     linkLists:
       - linkListType: how-to-guide
@@ -67,6 +71,8 @@ landingContent:
             url: vnet-custom.md
           - text: Quotas
             url: quotas.md
+          - text: Create a Functions app
+            url: functions-usage.md  
       - linkListType: concept
         links:
           - text: What's new in Dapr?

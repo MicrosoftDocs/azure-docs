@@ -3,9 +3,10 @@ title: Silent installation of Azure Backup Server V4
 description: Use a PowerShell script to silently install Azure Backup Server V4. This kind of installation is also called an unattended installation.
 ms.service: azure-backup
 ms.topic: how-to
-ms.date: 09/18/2024
+ms.date: 07/14/2025
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: As a system administrator, I want to execute a silent installation of Azure Backup Server V4 using PowerShell, so that I can streamline the setup process without manual intervention.
 ---
 # Run an unattended installation of Azure Backup Server
 
@@ -67,7 +68,8 @@ You can use these flags for the installation:</br>
 
 After you install Backup Server, learn how to prepare your server, or begin protecting a workload.
 
-- [Prepare Backup Server workloads](backup-azure-microsoft-azure-backup.md)
-- [Use Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md)
-- [Use Backup Server to back up SQL Server](backup-azure-sql-mabs.md)
-- [Add Modern Backup Storage to Backup Server](backup-mabs-add-storage.md)
+- [Prepare Backup Server workloads](backup-azure-microsoft-azure-backup.md).
+- [Use Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md).
+- [Use Backup Server to back up SQL Server](backup-azure-sql-mabs.md).
+- [Add Modern Backup Storage to Backup Server](backup-mabs-add-storage.md).
+- [Manage telemetry settings in MABS](manage-telemetry.md).

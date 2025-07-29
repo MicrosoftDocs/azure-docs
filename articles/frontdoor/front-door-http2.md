@@ -1,51 +1,43 @@
 ---
 title: HTTP/2 support in Azure Front Door
 description: This article helps you learn about HTTP/2 support in Azure Front Door
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
-ms.topic: conceptual
-ms.date: 09/28/2020
-ms.author: duau
+ms.topic: concept-article
+ms.date: 11/19/2024
 ---
 
 # HTTP/2 support in Azure Front Door
 
-Currently, HTTP/2 support is active for all Azure Front Door configurations. No further action is required from customers.
+Currently, HTTP/2 support is enabled for all Azure Front Door configurations, requiring no extra actions.
 
-HTTP/2 is a major revision to HTTP/1.1 that provides you with faster web performance by reducing response time. HTTP/2 maintains the familiar HTTP methods, status codes, and semantics of HTTP/1.1 to improve user experience. Although HTTP/2 is designed to work with HTTP and HTTPS, many client web browsers only support HTTP/2 over Transport Layer Security (TLS).
+HTTP/2 is a significant update to HTTP/1.1, offering faster web performance by reducing response times. It retains the familiar HTTP methods, status codes, and semantics of HTTP/1.1 to enhance user experience. Although HTTP/2 works with both HTTP and HTTPS, many web browsers only support HTTP/2 over Transport Layer Security (TLS).
 
 > [!NOTE]
-> HTTP/2 protocol support is available only for requests from clients to Front Door. The communication from Front Door to back ends in the back-end pool happens over HTTP/1.1. 
+> HTTP/2 protocol support is available only for requests from clients to Front Door. Communication from Front Door to back ends in the back-end pool uses HTTP/1.1.
 
-### HTTP/2 benefits
+### Benefits of HTTP/2
 
-The benefits of HTTP/2 include:
+HTTP/2 offers several benefits:
 
-*   **Multiplexing and concurrency**
+* **Multiplexing and concurrency**: Unlike HTTP/1.1, which requires multiple TCP connections for multiple resource requests, HTTP/2 allows multiple resources to be requested over a single TCP connection, reducing performance costs.
 
-    Using HTTP 1.1, making multiple resource requests requires multiple TCP connections, and each connection imposes its own performance cost. HTTP/2 allows multiple resources to be requested on a single TCP connection.
+* **Header compression**: Compressing HTTP headers for served resources reduces the amount of data sent over the network.
 
-*   **Header compression**
+* **Stream dependencies**: Clients can indicate resource priorities to the server, optimizing resource loading.
 
-    By compressing the HTTP headers for served resources, significantly less data is sent over the wire.
+## Browser Support for HTTP/2
 
-*   **Stream dependencies**
+All major browsers support HTTP/2 in their current versions. Browsers that don't support HTTP/2 automatically revert to HTTP/1.1.
 
-    Stream dependencies allow the client to indicate to the server which resources have priority.
-
-
-## HTTP/2 browser support
-
-All of the major browsers have implemented HTTP/2 support in their current versions. Non-supported browsers automatically fall back to HTTP/1.1.
-
-|Browser|Minimum Version|
-|-------------|------------|
-|Microsoft Edge| 12|
-|Google Chrome| 43|
-|Mozilla Firefox| 38|
-|Opera| 32|
-|Safari| 9|
+| Browser         | Minimum Version |
+|-----------------|-----------------|
+| Microsoft Edge  | 12              |
+| Google Chrome   | 43              |
+| Mozilla Firefox | 38              |
+| Opera           | 32              |
+| Safari          | 9               |
 
 ## Next Steps
 
@@ -53,5 +45,5 @@ To learn more about HTTP/2, visit the following resources:
 
 - [HTTP/2 specification homepage](https://http2.github.io/)
 - [Official HTTP/2 FAQ](https://http2.github.io/faq/)
-- Learn how to [create a Front Door](quickstart-create-front-door.md).
-- Learn [how Front Door works](front-door-routing-architecture.md).
+- Learn how to [create a Front Door](quickstart-create-front-door.md)
+- Learn [how Front Door works](front-door-routing-architecture.md)

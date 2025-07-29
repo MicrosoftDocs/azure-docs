@@ -9,6 +9,7 @@ ms.date: 05/04/2023
 ms.author: sagarkeswani
 author: sagarkeswani
 #Customer intent: As a developer, I want to Create a Distributed non-HA SAP system so that I can use the system with Azure Center for SAP solutions.
+# Customer intent: As a cloud administrator, I want to install SAP software for a distributed non-high-availability system using PowerShell, so that I can set up and manage the SAP environment within the Azure Center for SAP solutions.
 ---
 # Quickstart:  Install software for a distributed non-high-availability (HA) SAP system with Azure Center for SAP solutions using Azure PowerShell
 
@@ -29,7 +30,7 @@ After you [deploy infrastructure](deploy-s4hana.md) and install SAP software wit
 ## Prerequisites
 - An Azure subscription.
 - An Azure account with **Azure Center for SAP solutions administrator** and **Managed Identity Operator** role access to the subscriptions and resource groups in which you'll create the Virtual Instance for SAP solutions (VIS) resource.
-- A **User-assigned managed identity** which has **Azure Center for SAP solutions service role** access on the Subscription or atleast all resource groups (Compute, Network,Storage). 
+- A **User-assigned managed identity** which has **Azure Center for SAP solutions service role** access on the Subscription or at least all resource groups (Compute, Network,Storage). 
 - A storage account where you would store the SAP Media
 - **Reader and Data Access** role to the **User-assigned managed identity** on the storage account where you would store the SAP Media.
 - A [network set up for your infrastructure deployment](prepare-network.md).
@@ -51,7 +52,7 @@ After you [deploy infrastructure](deploy-s4hana.md) and install SAP software wit
 ## Install SAP software 
 Use [New-AzWorkloadsSapVirtualInstance](/powershell/module/az.workloads/new-azworkloadssapvirtualinstance) to install SAP software
 ```powershell
-New-AzWorkloadsSapVirtualInstance -ResourceGroupName 'PowerShell-CLI-TestRG' -Name L46 -Location eastus -Environment 'NonProd' -SapProduct 'S4HANA' -Configuration .\InstallPayload.json -Tag @{k1 = "v1"; k2 = "v2"} -IdentityType 'UserAssigned' -ManagedResourceGroupName "L46-rg" -UserAssignedIdentity @{'/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourcegroups/SAP-E2ETest-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/E2E-RBAC-MSI'= @{}}
+New-AzWorkloadsSapVirtualInstance -ResourceGroupName 'PowerShell-CLI-TestRG' -Name L46 -Location eastus -Environment 'NonProd' -SapProduct 'S4HANA' -Configuration .\InstallPayload.json -Tag @{k1 = "v1"; k2 = "v2"} -IdentityType 'UserAssigned' -ManagedResourceGroupName "L46-rg" -UserAssignedIdentity @{'/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/SAP-E2ETest-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/E2E-RBAC-MSI'= @{}}
 ```
 
 ## Next steps

@@ -3,7 +3,7 @@ title: 'Tutorial - Migrate from Google Maps to Azure Maps | Microsoft Azure Maps
 description:  Tutorial on how to migrate from Google Maps to Microsoft Azure Maps. Guidance walks you through how to switch to Azure Maps APIs and SDKs.
 author: jkebeck
 ms.author: jokebeck
-ms.date: 09/23/2020
+ms.date: 03/31/2025
 ms.topic: tutorial
 ms.service: azure-maps
 ms.subservice: general
@@ -31,7 +31,7 @@ If you don't have an Azure subscription, create a [free account] before you begi
 
 ## Azure Maps platform overview
 
-Azure Maps provides developers from all industries powerful geospatial capabilities. The capabilities are packed with regularly updated map data to provide geographic context for web, and mobile applications. Azure Maps has an Azure One API compliant set of REST APIs. The REST APIs offer Maps Rendering, Search, Routing, Traffic, Time Zones, Geolocation, Geofencing, Map Data, and Weather. Operations are accompanied by both Web and Android SDKs to make development easy, flexible, and portable across multiple platforms.
+Azure Maps provides developers across various industries with robust geospatial capabilities. These features include frequently updated map data, offering essential geographic context for web applications. Azure Maps suite of REST APIs provide services such as Map Rendering, Search, Routing, Traffic, Time Zones, Geolocation, Geofencing, Map Data, and Weather. The Web SDK supports these operations, ensuring development is straightforward, adaptable, and portable across multiple platforms.
 
 ## High-level platform comparison
 
@@ -40,8 +40,6 @@ The table provides a high-level list of Azure Maps features, which correspond to
 | Google Maps feature         | Azure Maps support                     |
 |-----------------------------|:--------------------------------------:|
 | Web SDK                     | ✓                                      |
-| Android SDK                 | ✓<sup>1</sup>                          |
-| iOS SDK                     | N/A<sup>2</sup>                        |
 | REST Service APIs           | ✓                                      |
 | Directions (Routing)        | ✓                                      |
 | Distance Matrix             | ✓                                      |
@@ -60,9 +58,6 @@ The table provides a high-level list of Azure Maps features, which correspond to
 | Maps Embedded API           | N/A                                    |
 | Map URLs                    | N/A                                    |
 
-<sup>1</sup> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
-<sup>2</sup> The Azure Maps Native SDK for iOS is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps iOS SDK migration guide](ios-sdk-migration-guide.md).
-
 Google Maps provides basic key-based authentication. Azure Maps provides both basic key-based authentication and Microsoft Entra authentication. Microsoft Entra authentication provides more security features, compared to the basic key-based authentication.
 
 ## Licensing considerations
@@ -70,7 +65,7 @@ Google Maps provides basic key-based authentication. Azure Maps provides both ba
 When migrating to Azure Maps from Google Maps, consider the following points about licensing.
 
 * Azure Maps charges for the usage of interactive maps, which is based on the number of loaded map tiles. On the other hand, Google Maps charges for loading the map control. In the interactive Azure Maps SDKs, map tiles are automatically cached to reduce the development cost. One Azure Maps transaction is generated for every 15 map tiles that are loaded. The interactive Azure Maps SDKs uses 512-pixel tiles, and on average, it generates one or less transactions per page view.
-* Often, it's more cost effective to replace static map images from Google Maps web services with the Azure Maps Web SDK. The Azure Maps Web SDK uses map tiles. Unless the user pans and zooms the map, the service often generates only a fraction of a transaction per map load. The Azure Maps web SDK has options for disabling panning and zooming, if desired. Additionally, the Azure Maps web SDK provides a lot more visualization options than the static map web service.
+* Often, it's more cost effective to replace static map images from Google Maps web services with the Azure Maps Web SDK. The Azure Maps Web SDK uses map tiles. Unless the user pans and zooms the map, the service often generates only a fraction of a transaction per map load. The Azure Maps Web SDK has options for disabling panning and zooming, if desired. Additionally, the Azure Maps Web SDK provides a lot more visualization options than the static map web service.
 * Azure Maps allows data from its platform to be stored in Azure. Also, data can be cached elsewhere for up to six months as per the [terms of use].
 
 Here are some related resources for Azure Maps:

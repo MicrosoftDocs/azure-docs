@@ -6,7 +6,8 @@ ms.date: 09/09/2024
 ms.service: azure-backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallickalicka
+# Customer intent: As a backup administrator, I want to automate backup configuration and monitoring tasks, so that I can efficiently manage and protect a large and diverse set of workloads while minimizing human error.
 ---
 
 # Automation in Azure Backup

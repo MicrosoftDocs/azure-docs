@@ -5,8 +5,9 @@ ms.topic: reference
 ms.date: 09/24/2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: As an IT administrator, I want to understand the supported scenarios and limitations of the Backup Center for various workloads so that I can effectively monitor, govern, and manage backup configurations in my cloud environment.
 ---
 
 # Support matrix for Backup center
@@ -29,7 +30,7 @@ The following table lists all supported scenarios:
 | Monitoring | View all replicated items | Azure to Azure disaster recovery <br><br> VMware and physical to Azure disaster recovery | Same as previous |
 | Monitoring | View all backup policies |  Azure Virtual Machine <br><br>  Azure Database for PostgreSQL server <br><br>  SQL in Azure VM <br><br>  SAP HANA in Azure VM <br><br>  Azure Files<br/><br/> Azure Blobs<br/><br/> Azure Managed Disks | Same as previous |
 | Monitoring | View all vaults |  Azure Virtual Machine <br><br>  Azure Database for PostgreSQL server <br><br>  SQL in Azure VM <br><br>  SAP HANA in Azure VM <br><br>  Azure Files<br/><br/> Azure Blobs<br/><br/> Azure Managed Disks | Same as previous |
-| Monitoring | View Azure Monitor alerts at scale |  Azure Virtual Machine <br><br>  Azure Database for PostgreSQL server <br><br>  SQL in Azure VM <br><br>  SAP HANA in Azure VM <br><br>  Azure Files<br/><br/> Azure Blobs<br/><br/> Azure Managed Disks | Refer [Alerts](./backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup) documentation |
+| Monitoring | View Azure Monitor alerts at scale |  Azure Virtual Machine <br><br>  Azure Database for PostgreSQL server <br><br>  SQL in Azure VM <br><br>  SAP HANA in Azure VM <br><br>  Azure Files<br/><br/> Azure Blobs<br/><br/> Azure Managed Disks | Refer [Alerts](./monitoring-and-alerts-overview.md#azure-monitor-alerts-for-azure-backup) documentation |
 | Monitoring     |   View Azure Backup metrics and write metric alert rules | Azure VM   <br><br>SQL in Azure VM <br><br>	SAP HANA in Azure VM<br><br>Azure Files <br><br>Azure Blobs |   You can view metrics for all Recovery Services vaults for a region and subscription simultaneously. Viewing metrics for a larger scope in the Azure portal isn’t currently supported. The same limits are also applicable to configure metric alert rules. For more information, see [View metrics in the Azure portal](metrics-overview.md#view-metrics-in-the-azure-portal).|
 | Actions | Configure backup | Azure Virtual Machine <br><br>  Azure Database for PostgreSQL server <br><br>  SQL in Azure VM <br><br>  SAP HANA in Azure VM <br><br>  Azure Files<br/><br/> Azure Blobs<br/><br/> Azure Managed Disks | See support matrices for [Azure VM backup](./backup-support-matrix-iaas.md) and [Azure Database for PostgreSQL Server backup](backup-azure-database-postgresql-support-matrix.md) |
 | Actions | Configure Replication | Azure to Azure disaster recovery <br><br> VMware and Physical to Azure disaster recovery | See the support matrices for [Azure to Azure disaster recovery](../site-recovery/azure-to-azure-support-matrix.md) and [VMware and Physical to Azure disaster recovery](../site-recovery/vmware-physical-azure-support-matrix.md). |

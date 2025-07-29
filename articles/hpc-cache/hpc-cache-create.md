@@ -8,6 +8,7 @@ ms.date: 2/15/2023
 ms.author: kianaharris
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
+# Customer intent: As a cloud architect, I want to create an Azure HPC Cache instance using the Azure portal or CLI, so that I can optimize file service performance for high-performance computing workloads.
 ---
 
 # Create an Azure HPC Cache
@@ -32,7 +33,7 @@ In **Service Details**, set the cache name and these other attributes:
 
 * Location - Select one of the [supported regions](hpc-cache-overview.md#region-availability).
 
-  If that region supports [availability zones](../availability-zones/az-overview.md), select the zone that will host your cache resources. Azure HPC Cache is a zonal service.
+  If that region supports [availability zones](../reliability/availability-zones-overview.md), select the zone that will host your cache resources. Azure HPC Cache is a zonal service.
 
 * Virtual network - You can select an existing one or create a new virtual network.
 * Subnet - Choose or create a subnet with at least 64 IP addresses (/24). This subnet must be used only for this Azure HPC Cache instance.

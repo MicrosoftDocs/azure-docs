@@ -5,7 +5,7 @@ author: varunbms
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: how-to
-ms.date: 1/18/2024
+ms.date: 07/23/2025
 ms.author: buchvarun
 ---
 
@@ -42,8 +42,6 @@ do
     }
 } while (read > 0);
 ```
-
-To view and access the **ChangeFeedRetrieveService.cs** code example, see [Consume Change Feed](https://github.com/microsoft/dicom-server/blob/main/converter/dicom-cast/src/Microsoft.Health.DicomCast.Core/Features/DicomWeb/Service/ChangeFeedRetrieveService.cs).
 
 ## Next steps
 

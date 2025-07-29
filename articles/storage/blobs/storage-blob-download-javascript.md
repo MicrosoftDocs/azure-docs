@@ -11,6 +11,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
+# Customer intent: As a developer using JavaScript or TypeScript, I want to download blobs from Azure Storage, so that I can handle and utilize storage data effectively in my applications.
 ---
 
 # Download a blob with JavaScript or TypeScript
@@ -85,9 +86,11 @@ To learn more about how to download blobs using the Azure Blob Storage client li
 
 View code samples from this article (GitHub):
 
-- Download to file for [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/download-blob-to-file.js) or [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/src/download-blob-to-file.ts)
-- Download to stream for [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/download-blob-to-stream.js) or [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/src/download-blob-to-stream.ts)
-- Download to string for [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/download-blob-to-string.js) or [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/src/download-blob-to-string.ts)
+- Download to file for [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/download-blob-to-file.js) or [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-download-to-file.ts)
+
+- Download to stream for [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/download-blob-to-stream.js) or [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-download-to-stream.ts)
+
+- Download to string for [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/download-blob-to-string.js) or [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-download-to-string.ts)
 
 ### REST API operations
 

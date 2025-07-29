@@ -1,13 +1,16 @@
 ---
-title: Resize the capacity pool or a volume for Azure NetApp Files | Microsoft Docs
+title: Resize the capacity pool or a volume for Azure NetApp Files 
 description: Learn how to change the size of a capacity pool or a volume. Resizing the capacity pool changes the purchased Azure NetApp Files capacity.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 ms.topic: how-to
 ms.date: 05/20/2024
 ms.author: anfdocs
+# Customer intent: "As a cloud administrator, I want to resize capacity pools and volumes in Azure storage, so that I can optimize resource allocation and prevent performance issues as storage demands change."
 ---
 # Resize a capacity pool or a volume
 

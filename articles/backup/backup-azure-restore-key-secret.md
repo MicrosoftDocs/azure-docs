@@ -5,7 +5,8 @@ ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ms.date: 09/04/2024
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: As a system administrator managing encrypted virtual machines, I want to restore keys and secrets to Azure Key Vault, so that I can successfully recover and create encrypted VMs from backup without losing data integrity and security.
 ---
 # Restore Key Vault key and secret for encrypted VMs using Azure Backup
 
@@ -127,7 +128,7 @@ Set-AzKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -Sec
 >
 > * Value for $secretname can be obtained by referring to the output of $rp1.KeyAndSecretDetails.SecretUrl and using text after secrets/ For example, the output secret URL is `https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163` and secret name is B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
 > * Value of the tag DiskEncryptionKeyFileName is same as secret name.
-> * Value for DiskEncryptionKeyEncryptionKeyURL can be obtained from key vault after restoring the keys back and using [Get-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/get-azurekeyvaultkey) cmdlet
+> * Value for DiskEncryptionKeyEncryptionKeyURL can be obtained from key vault after restoring the keys back and using [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) cmdlet
 >
 >
 

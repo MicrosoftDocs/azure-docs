@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 12/06/2023
 ms.custom: engagement-fy23
+# Customer intent: "As a cloud administrator, I want to configure GitHub Enterprise Server on Azure VMware Solution, so that I can support collaboration among developers and enhance our CI/CD capabilities with GitHub Actions."
 ---
 
 # Configure GitHub Enterprise Server on Azure VMware Solution
@@ -17,7 +18,7 @@ GitHub Enterprise Server requires a valid license key. You can sign up for a [tr
 
 ## Install GitHub Enterprise Server on VMware
 
-1. Download [the current release of GitHub Enterprise Server](https://enterprise.github.com/releases/2.19.0/download) for VMware ESXi/vSphere (OVA) and [deploy the OVA template](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-17BEDA21-43F6-41F4-8FB2-E01D275FE9B4.html) you downloaded.
+1. Download [the current release of GitHub Enterprise Server](https://enterprise.github.com/releases/2.19.0/download) for VMware ESXi/vSphere (OVA) and [deploy the OVA template](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-virtual-machine-administration-guide-8-0.html) you downloaded.
 
    :::image type="content" source="media/github-enterprise-server/github-options.png" alt-text="Screenshot showing the GitHub Enterprise Server on VMware installation options.":::	
 

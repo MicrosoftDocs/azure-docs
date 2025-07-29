@@ -3,10 +3,11 @@ title: Monitor Azure Load Balancer
 description: Start here to learn how to monitor Azure Load Balancer by using Azure Monitor and Azure Monitor Insights.
 ms.date: 08/21/2024
 ms.custom: horz-monitor, template-how-to, subject-monitoring, engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
-ms.topic: conceptual
+ms.topic: concept-article
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-load-balancer
+# Customer intent: As a cloud administrator, I want to monitor the performance and health of my Azure Load Balancer, so that I can ensure efficient traffic distribution and troubleshoot potential issues promptly.
 ---
 
 # Monitor Azure Load Balancer
@@ -233,6 +234,9 @@ az monitor diagnostic-settings create \
 ```
 
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
+
+> [!NOTE]
+>  Load balancer activity logs will not include updates to NIC-based backend pools. To monitor and alert on updates to the load balancer backend pool for NIC-based backend pools, we recommend collecting logs on the NIC resource-level or at a resource group level instead. 
 
 [!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 

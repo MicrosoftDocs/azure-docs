@@ -2,7 +2,7 @@
 title: Roll back on error to successful deployment
 description: Specify that a failed deployment should roll back to a successful deployment.
 ms.topic: how-to
-ms.date: 03/20/2024
+ms.date: 04/28/2025
 ms.custom: devx-track-azurecli
 ---
 

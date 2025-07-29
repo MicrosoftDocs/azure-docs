@@ -2,16 +2,16 @@
 title: Protect Azure Container Apps with Application Gateway and Web Application Firewall (WAF)
 description: Learn how to protect Azure Container Apps with Application Gateway Web Application Firewall (WAF)
 services: container-apps
-author: cachai2
+author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  how-to
-ms.date: 03/31/2023
-ms.author: cachai
+ms.date: 07/07/2025
+ms.author: cshoe
 ---
 
 # Protect Azure Container Apps with Web Application Firewall on Application Gateway
 
-When you host your apps or microservices in Azure Container Apps, you may not always want to publish them directly to the internet. Instead, you may want to expose them through a reverse proxy.
+When you host your apps or microservices in Azure Container Apps, you might not always want to publish them directly to the internet. Instead, you might want to expose them through a reverse proxy.
 
 A reverse proxy is a service that sits in front of one or more services, intercepting and directing incoming traffic to the appropriate destination.
 
@@ -30,7 +30,7 @@ For more information on networking concepts in Container Apps, see [Networking E
 
 ## Prerequisites
 
-- **Internal environment with custom VNet**: Have a container app that is on an internal environment and integrated with a custom virtual network. For more information on how to create a custom virtual network integrated app, see [provide a virtual network to an internal Azure Container Apps environment](./vnet-custom-internal.md).
+- **Internal environment with virtual network**: Have a container app that is on an internal environment and integrated with a virtual network. For more information on how to create a virtual network integrated app, see [provide a virtual network to an internal Azure Container Apps environment](./vnet-custom-internal.md).
 
 - **Security certificates**: If you must use TLS/SSL encryption to the application gateway, a valid public certificate that's used to bind to your application gateway is required.
 
@@ -48,9 +48,13 @@ Use the following steps to retrieve the values of the **default domain** and the
 
 ## Create and configure an Azure Private DNS zone
 
-1. On the Azure portal menu or the *Home* page, select **Create a resource**.
+To create and configure an Azure Private DNS zone, perform the following steps:
 
-1. Search for *Private DNS Zone*, and select **Private DNS Zone** from the search results.
+1. Go to the Azure portal.
+
+1. In the search bar, enter **Private DNS Zone**.
+
+1. Select **Private DNS Zone** from the search results.
 
 1. Select the **Create** button.
 
@@ -101,7 +105,7 @@ Use the following steps to retrieve the values of the **default domain** and the
 
     | Setting | Action |
     |---|---|
-    | Link name | Enter **my-custom-vnet-pdns-link**. |
+    | Link name | Enter **my-vnet-pdns-link**. |
     | I know the resource ID of virtual network | Leave it unchecked. |
     | Virtual network | Select the virtual network your container app is integrated with. |
     | Enable auto registration | Leave it unchecked. |
@@ -110,7 +114,19 @@ Use the following steps to retrieve the values of the **default domain** and the
 
 ## Create and configure Azure Application Gateway
 
+To create and configure an Azure Application Gateway, perform the following steps:
+
+1. Go to the Azure portal.
+
+1. In the search bar, enter **Application Gateway**.
+
+1. Select **Application Gateway** from the search results.
+
+Now, enter the required details under the *Basics* tab, *Frontends* tab, *Backends* tab, and *Configuration* tab.
+
 ### Basics tab
+
+Perform the following steps:
 
 1. Enter the following values in the *Project details* section.
 
@@ -128,7 +144,7 @@ Use the following steps to retrieve the values of the **default domain** and the
     | Virtual network | Select the virtual network that your container app is integrated with. |
     | Subnet | Select **Manage subnet configuration**. If you already have a subnet you wish to use, use that instead, and skip to [the Frontends section](#frontends-tab). |
 
-1. From within the *Subnets* window of *my-custom-vnet*, select **+Subnet** and enter the following values:
+1. From within the *Subnets* window of *my-vnet*, select **+Subnet** and enter the following values:
 
     | Setting | Action |
     |---|---|
@@ -151,6 +167,8 @@ Use the following steps to retrieve the values of the **default domain** and the
 
 ### Frontends tab
 
+Perform the following steps:
+
 1. On the *Frontends* tab, enter the following values:
 
     | Setting | Action |
@@ -159,7 +177,7 @@ Use the following steps to retrieve the values of the **default domain** and the
     | Public IP address | Select **Add new**. Enter **my-frontend** for the name of your frontend and select **OK** |
 
    > [!NOTE]
-   > For the Application Gateway v2 SKU, there must be a **Public** frontend IP. You can have both a public and a private frontend IP configuration, but a private-only frontend IP configuration with no public IP is currently not supported in the v2 SKU. To learn more, [read here](../virtual-network/ip-services/configure-public-ip-application-gateway.md).
+   > For the Application Gateway v2 SKU, there must be a public frontend IP. For more information, see [Public and private IP address support](/azure/application-gateway/configuration-frontend-ip#public-and-private-ip-address-support) and [Manage a public IP address with an Azure Application Gateway](../virtual-network/ip-services/configure-public-ip-application-gateway.md).
 
 1. Select **Next: Backends**.
 
@@ -172,9 +190,11 @@ The backend pool is used to route requests to the appropriate backend servers. B
 - Internal IP addresses
 - Virtual Machine Scale Sets
 - Fully qualified domain names (FQDN)
-- Multi-tenant back-ends like Azure App Service and Container Apps
+- Multitenant back-ends like Azure App Service and Container Apps
 
-In this example, you create a backend pool that targets your container app.
+In this example, you create a backend pool that targets your container app. 
+
+To create a backend pool, perform the following steps:
 
 1. Select **Add a backend pool**.
 
@@ -197,7 +217,9 @@ In this example, you create a backend pool that targets your container app.
 
 ### Configuration tab
 
-On the *Configuration* tab, you connect the frontend and backend pool you created using a routing rule.
+On the *Configuration* tab, you connect the frontend and backend pool you created using a routing rule. 
+
+To connect the frontend and backend pool, perform the following steps:
 
 1. Select **Add a routing rule**. Enter the following values:
 
@@ -256,6 +278,15 @@ On the *Configuration* tab, you connect the frontend and backend pool you create
     | Host name override | Select **Pick host name from backend target**. |
     | Create custom probes | Select **No**. |
 
+1. Under **Request Header Rewrite**, configure the following:
+
+    - Enable Request Header Rewrite: Select **Yes**.  
+    - Add a request header:
+      - Header name: `X-Forwarded-Host`
+      - Value: `{host}`
+
+    This action ensures that the original `Host` header from the client request is preserved and accessible by the backend application.  
+
 1. Select **Add**, to add the backend settings.
 
 1. In the *Add a routing rule* window, select **Add** again.
@@ -266,7 +297,7 @@ On the *Configuration* tab, you connect the frontend and backend pool you create
 
 ## Add private link to your Application Gateway
 
-You can establish a secured connection to internal-only container app environments by leveraging private link, as it allows your Application Gateway to communicate with your Container App on the backend through the virtual network.
+You can establish a secured connection to internal-only container app environments using private link. Private link allows your Application Gateway to communicate with your Container App on the backend through the virtual network.
 
 1. Once the Application Gateway is created, select **Go to resource**.
 
@@ -280,9 +311,28 @@ You can establish a secured connection to internal-only container app environmen
     | Private link subnet | Select the subnet you wish to create the private link with. |
     | Frontend IP Configuration | Select the frontend IP for your Application Gateway. |
 
-1. Under **Private IP address settings** select **Add**.
+1. Under **Private IP address settings**, select **Add**.
 
 1. Select **Add** at the bottom of the window.
+
+## Preserve original host header for redirects and SSO
+
+When Azure Application Gateway is configured as a reverse proxy and the *Override with new host name* setting is enabled, the `Host` header is modified. Modifying the header can interfere with applications that rely on the original host value to generate redirect URLs, absolute links, or support OpenID Connect (OIDC) authentication flows.
+
+To forward the original host header, you can inject it into the `X-Forwarded-Host` header using Application Gateway's request header rewrite feature.
+
+### Configure X-Forwarded-Host injection
+
+To enable `X-Forwarded-Host` injection:
+
+1. Under the **Configuration** tab, select **Backend settings** section of your Application Gateway routing rule:
+
+    - Enable **Request Header Rewrite**.
+    - Add a new request header with the following values:
+      - Header name: `X-Forwarded-Host`
+      - Value: `{host}`
+
+    Your backend app can now read the original request host using the `X-Forwarded-Host` header.
 
 ## Verify the container app
 

@@ -224,6 +224,26 @@
             "source_path_from_root": "/articles/batch/tutorial-rendering-cli.md",
             "redirect_url": "/azure/batch/batch-rendering-service",
             "redirect_document_id": false
-        }
+        },
+        {
+	    "source_path_from_root": "/articles/batch/batch-pool-cloud-service-to-virtual-machine-configuration.md",
+	    "redirect_url": "/azure/batch/nodes-and-pools",
+	    "redirect_document_id": false
+	},
+	{
+	    "source_path_from_root": "/articles/batch/batch-pools-without-public-ip-addresses-classic-retirement-migration-guide.md",
+	    "redirect_url": "/azure/batch/simplified-compute-node-communication",
+	    "redirect_document_id": false
+	},
+	{
+	    "source_path_from_root": "/articles/batch/batch-tls-101-migration-guide.md",
+	    "redirect_url": "/mem/configmgr/core/plan-design/security/enable-tls-1-2-client",
+	    "redirect_document_id": false
+	},
+	{
+	    "source_path_from_root": "/articles/batch/job-pool-lifetime-statistics-migration-guide.md",
+	    "redirect_url": "/azure/batch/monitoring-overview",
+	    "redirect_document_id": false
+        }          
     ]
 }

@@ -2,12 +2,11 @@
 title: Create virtual switch for Azure IoT Edge for Linux on Windows | Microsoft Docs
 description: Installations for creating a virtual switch for Azure IoT Edge for Linux on Windows
 author: PatAltimore
-ms.reviewer: fcabrera
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
-ms.topic: conceptual
-ms.date: 11/30/2021
+ms.topic: concept-article
+ms.date: 01/21/2025
 ms.author: patricka
 ---
 

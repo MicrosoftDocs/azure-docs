@@ -6,8 +6,8 @@ ms.author: bagol
 ms.topic: conceptual
 ms.date: 09/15/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 #Customer intent: As a security manager, I want to use Microsoft Sentinel for SAP applications across multiple workspaces so that I can ensure compliance with data residency requirements and facilitate collaboration between SOC and SAP teams.
@@ -15,6 +15,7 @@ ms.collection: usx-security
 ---
 
 # Integrate SAP across multiple workspaces
+
 
 When you set up your Log Analytics workspace enabled for Microsoft Sentinel, you have [multiple architecture options](/azure/azure-monitor/logs/workspace-design?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) and factors to consider. Taking into account geography, regulation, access control, and other factors, you might choose to have multiple workspaces in your organization.
 
@@ -29,6 +30,7 @@ This article discusses how to work with the Microsoft Sentinel solution for SAP 
 
 > [!IMPORTANT]
 > Working with multiple workspaces is currently in preview. This feature is provided without a service-level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 ## SAP and SOC data maintained in separate workspaces
 

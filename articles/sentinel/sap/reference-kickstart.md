@@ -6,8 +6,8 @@ ms.author: bagol
 ms.topic: reference
 ms.date: 09/15/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 #Customer intent: As an SAP BASIS team member, I want to understand the options in the kickstart script used to deploy and configure a container hosting the SAP data connector, so that I can streamline the setup process and manage secrets storage and network configurations efficiently.
 
@@ -17,7 +17,7 @@ ms.collection: usx-security
 
 This article provides a reference of the configurable parameters available in the kickstart script used to the deploy the Microsoft Sentinel for SAP applications data connector agent. 
 
-For more information, see [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md).
+For more information, see [Connect your SAP system to Microsoft Sentinel](deploy-data-connector-agent-container.md).
 
 Content in this article is intended for your **SAP BASIS** teams.
 
@@ -156,7 +156,7 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** No. The script attempts to locate the nwrfc*.zip file in the current folder. If it isn't found, the user is prompted to supply a valid NetWeaver SDK archive file.
 
-**Description:** NetWeaver SDK file path. A valid SDK is required for the data collector to operate. For more information, see [SAP prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-prerequisites).
+**Description:** NetWeaver SDK file path. A valid SDK is required for the data collector to operate. For more information, see [SAP prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
 
 ## Enterprise Application ID
 
@@ -352,5 +352,5 @@ If the certificate is issued by an enterprise CA, the issuing CA certificate and
 
 For more information, see:
 
-- [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
+- [Connect your SAP system to Microsoft Sentinel](deploy-data-connector-agent-container.md)
 - [Troubleshoot your Microsoft Sentinel solution for SAP applications solution deployment](sap-deploy-troubleshoot.md)

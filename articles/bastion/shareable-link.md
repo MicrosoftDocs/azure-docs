@@ -1,37 +1,38 @@
 ---
-title: 'Create a shareable link for Azure Bastion'
+title: Create a shareable link for Azure Bastion
 description: Learn how to create a shareable link to let a user connect to a target resource via Bastion without using the Azure portal.
-author: cherylmc
+author: abell
 ms.service: azure-bastion
 ms.topic: how-to
-ms.date: 05/10/2023
-ms.author: cherylmc
+ms.date: 12/09/2024
+ms.author: abell
+# Customer intent: As an IT administrator, I want to create shareable links for Azure Bastion so that users can connect to target resources without accessing the Azure portal, ensuring secure and convenient access management.
 ---
 
 # Create a shareable link for Bastion
 
 The Bastion **Shareable Link** feature lets users connect to a target resource (virtual machine or virtual machine scale set) using Azure Bastion without accessing the Azure portal. This article helps you use the Shareable Link feature to create a shareable link for an existing Azure Bastion deployment.
 
-When a user without Azure credentials clicks a shareable link, a webpage opens that prompts the user to sign in to the target resource via RDP or SSH. Users authenticate using username and password or private key, depending on what you have configured for the target resource. The shareable link does not contain any credentials - the admin must provide sign-in credentials to the user.
+When a user without Azure credentials clicks a shareable link, a webpage opens that prompts the user to sign in to the target resource via RDP or SSH. Users authenticate using username and password or private key, depending on what is configured for the target resource. The shareable link doesn't contain any credentials - the admin must provide sign-in credentials to the user.
 
-By default, users in your org will have only read access to shared links. If a user has read access, they'll only be able to use and view shared links, but can't create or delete a shareable link. For more information, see the [Permissions](#permissions) section of this article.
+By default, users in your org have only **Read** access to shared links. If a user has **Read** access, they'll only be able to use and view shared links, but can't create or delete a shareable link. For more information, see the [Permissions](#permissions) section of this article.
 
 ## Considerations
 
-* Shareable Links isn't currently supported for peered VNETs across tenants. 
+* Shareable Links isn't currently supported for peered virtual networks across tenants.
 * Shareable Links isn't currently supported over Virtual WAN.
-* Shareable Links does not support connection to on-premises or non-Azure VMs and VMSS. 
+* Shareable Links doesn't support connection to on-premises or non-Azure virtual machines and Virtual Machine Scale Sets.
 * The Standard SKU is required for this feature.
 * Bastion only supports 50 requests, including creates and deletes, for shareable links at a time.
-* Bastion only supports 500 shareable links per Bastion resource. 
+* Bastion only supports 500 shareable links per Bastion resource.
 
 ## Prerequisites
 
-* Azure Bastion is deployed to your VNet. See [Tutorial - Deploy Bastion using manual settings](tutorial-create-host-portal.md) for steps.
+* Azure Bastion is deployed to your virtual network. See [Tutorial - Deploy Bastion using manual settings](tutorial-create-host-portal.md) for steps.
 
 * Bastion must be configured to use the **Standard** SKU for this feature. You can update the SKU from Basic to Standard when you configure the shareable links feature.
 
-* The VNet in which the Bastion resource is deployed or a directly peered VNet contains the VM resource to which you want to create a shareable link.
+* The virtual network in which the Bastion resource is deployed or a directly peered virtual network contains the VM resource to which you want to create a shareable link.
 
 ## Enable Shareable Link feature
 
@@ -49,7 +50,7 @@ Before you can create a shareable link to a VM, you must first enable the featur
 
 1. Verify that you've selected the settings that you want, then click **Apply**.
 
-1. Bastion will immediately begin updating the settings for your bastion host. Updates will take about 10 minutes.
+1. Bastion will immediately begin updating the settings for your bastion host. Updates take about 10 minutes.
 
 ## Create shareable links
 
@@ -61,7 +62,7 @@ In this section, you specify each resource for which you want to create a sharea
 
    :::image type="content" source="./media/shareable-link/add.png" alt-text="Screenshot shareable links page with + add." lightbox="./media/shareable-link/add.png":::
 
-1. On the **Create shareable link** page, select the resources for which you want to create a shareable link. You can select specific resources, or you can select all. A separate shareable link will be created for each selected resource. Click **Apply** to create links.
+1. On the **Create shareable link** page, select the resources for which you want to create a shareable link. You can select specific resources, or you can select all. A separate shareable link is created for each selected resource. Click **Apply** to create links.
 
    :::image type="content" source="./media/shareable-link/select-vm.png" alt-text="Screenshot of shareable links page to create a shareable link." lightbox="./media/shareable-link/select-vm.png":::
 
@@ -71,7 +72,7 @@ In this section, you specify each resource for which you want to create a sharea
 
 ## Connect to a VM
 
-1. After receiving the link, the user opens the link in their browser.
+1. After the user receives the link, the user opens the link in their browser.
 
 1. In the left corner, the user can select whether to see text and images copied to the clipboard. The user inputs the required information, then clicks **Login** to connect. A shared link doesn't contain authentication credentials. The admin must provide sign-in credentials to the user. Custom port and protocols are supported.
 
@@ -91,7 +92,7 @@ In this section, you specify each resource for which you want to create a sharea
 
 ## Permissions
 
-Permissions to the Shareable Link feature are configured using Access control (IAM). By default, users in your org will have only read access to shared links. If a user has read access, they'll only be able to use and view shared links, but can't create or delete a shared link.
+Permissions to the Shareable Link feature are configured using Access control (IAM). By default, users in your org have only **Read** access to shared links. If a user has **Read** access, they'll only be able to use and view shared links, but can't create or delete a shared link.
 
 To give someone permissions to create or delete a shared link, use the following steps:
 

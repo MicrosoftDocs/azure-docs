@@ -2,17 +2,18 @@
 title: 'Tutorial: Improve web application access - Azure Application Gateway'
 description: In this tutorial, learn how to create an autoscaling, zone-redundant application gateway with a reserved IP address using Azure PowerShell.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: tutorial
 ms.date: 03/08/2021
-ms.author: greglin
+ms.author: mbender
 ms.custom: mvc, devx-track-azurepowershell
 #Customer intent: As an IT administrator new to Application Gateway, I want to configure the service in a way that automatically scales based on customer demand and is highly available across availability zones to ensure my customers can access their web applications when they need them.
+# Customer intent: As an IT administrator, I want to configure an application gateway with autoscaling and zone redundancy, so that I can ensure high availability and optimal access to web applications based on varying customer demand.
 ---
 # Tutorial: Create an application gateway that improves web application access
 
-If you're an IT admin concerned with improving web application access, you can optimize your application gateway to scale based on customer demand and span multiple availability zones. This tutorial helps you configure Azure Application Gateway features that do that: autoscaling, zone redundancy, and reserved VIPs (static IP). You'll use Azure PowerShell cmdlets and the Azure Resource Manager deployment model to solve the problem.
+If you're an IT admin concerned with improving web application access, you can optimize your application gateway to scale based on customer demand and span multiple availability zones. This tutorial helps you configure Azure Application Gateway v2 features that do that: autoscaling, zone redundancy, and static VIPs. You'll use Azure PowerShell cmdlets and the Azure Resource Manager deployment model to solve the problem.
 
 In this tutorial, you learn how to:
 
@@ -29,7 +30,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
+> [!NOTE]
+> We recommend that you use the Azure Az PowerShell module to interact with Azure. To get started, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell). To learn how to migrate to the Az PowerShell module, see [Migrate Azure PowerShell from AzureRM to Az](/powershell/azure/migrate-from-azurerm-to-az).
 
 This tutorial requires that you run an administrative Azure PowerShell session locally. You must have Azure PowerShell module version 1.0.0 or later installed. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). After you verify the PowerShell version, run `Connect-AzAccount` to create a connection with Azure.
 
@@ -117,7 +119,7 @@ $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "AppGwSubnet" -VirtualNetwork
 
 ## Create web apps
 
-Configure two web apps for the backend pool. Replace *\<site1-name>* and *\<site-2-name>* with unique names in the `azurewebsites.net` domain.
+Configure two web apps for the backend pool. Replace *\<site1-name>* and *\<site2-name>* with unique names in the `azurewebsites.net` domain.
 
 ```azurepowershell
 New-AzAppServicePlan -ResourceGroupName $rg -Name "ASP-01"  -Location $location -Tier Basic `
@@ -134,7 +136,7 @@ Replace your two web app FQDNs (for example: `mywebapp.azurewebsites.net`) in th
 
 ```azurepowershell
 $ipconfig = New-AzApplicationGatewayIPConfiguration -Name "IPConfig" -Subnet $gwSubnet
-$fip = New-AzApplicationGatewayFrontendIPConfig -Name "FrontendIPCOnfig" -PublicIPAddress $publicip
+$fip = New-AzApplicationGatewayFrontendIPConfig -Name "FrontendIPConfig" -PublicIPAddress $publicip
 $pool = New-AzApplicationGatewayBackendAddressPool -Name "Pool1" `
        -BackendIPAddresses <your first web app FQDN>, <your second web app FQDN>
 $fp01 = New-AzApplicationGatewayFrontendPort -Name "SSLPort" -Port 443
@@ -151,9 +153,9 @@ $listener02 = New-AzApplicationGatewayHttpListener -Name "HTTPListener" `
 $setting = New-AzApplicationGatewayBackendHttpSettings -Name "BackendHttpSetting1" `
           -Port 80 -Protocol Http -CookieBasedAffinity Disabled -PickHostNameFromBackendAddress
 $rule01 = New-AzApplicationGatewayRequestRoutingRule -Name "Rule1" -RuleType basic `
-         -BackendHttpSettings $setting -HttpListener $listener01 -BackendAddressPool $pool
+         -BackendHttpSettings $setting -HttpListener $listener01 -BackendAddressPool $pool -Priority 1
 $rule02 = New-AzApplicationGatewayRequestRoutingRule -Name "Rule2" -RuleType basic `
-         -BackendHttpSettings $setting -HttpListener $listener02 -BackendAddressPool $pool
+         -BackendHttpSettings $setting -HttpListener $listener02 -BackendAddressPool $pool -Priority 2
 ```
 
 ## Specify autoscale

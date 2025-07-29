@@ -5,8 +5,9 @@ services: ddos-protection
 author: AbdullahBell
 ms.service: azure-ddos-protection
 ms.topic: tutorial
-ms.date: 07/17/2024
+ms.date: 03/17/2025
 ms.author: abell
+# Customer intent: "As a network administrator, I want to configure DDoS protection diagnostic logging alerts so that I can receive timely notifications and take action during potential DDoS attacks to protect my resources."
 ---
 
 # Tutorial: Configure Azure DDoS Protection diagnostic logging alerts
@@ -88,11 +89,7 @@ You can keep your resources for the next guide. If no longer needed, delete the 
 
 1. In the search box at the top of the portal, enter **Alerts**. Select **Alerts** in the search results.
 
-    :::image type="content" source="./media/ddos-diagnostic-alert-templates/ddos-protection-alert-rule.png" alt-text="Screenshot of Alerts page." lightbox="./media/ddos-diagnostic-alert-templates/ddos-protection-alert-rule.png":::
-
 1. Select **Alert rules**, then in the Alert rules page, select your subscription.
-
-     :::image type="content" source="./media/ddos-diagnostic-alert-templates/ddos-protection-delete-alert-rules.png" alt-text="Screenshot of Alert rules page." lightbox="./media/ddos-diagnostic-alert-templates/ddos-protection-delete-alert-rules.png":::
 
 1. Select the alerts created in this guide, then select **Delete**. 
 

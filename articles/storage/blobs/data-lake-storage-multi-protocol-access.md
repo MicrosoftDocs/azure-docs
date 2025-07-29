@@ -5,10 +5,10 @@ description: Use Blob APIs and applications that use Blob APIs with Azure Data L
 author: normesta
 
 ms.service: azure-data-lake-storage
-ms.topic: conceptual
-ms.date: 03/09/2023
+ms.topic: concept-article
+ms.date: 11/18/2024
 ms.author: normesta
-ms.reviewer: stewu
+# Customer intent: As a data engineer, I want to utilize Blob APIs with Azure Data Lake Storage, so that I can streamline data management and leverage existing tools without the need for modifications.
 ---
 
 # Multi-protocol access on Azure Data Lake Storage

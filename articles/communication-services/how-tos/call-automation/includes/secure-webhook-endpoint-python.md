@@ -1,5 +1,5 @@
 ---
-title: include file
+title: Include file
 description: Python webhook callback security
 services: azure-communication-services
 author: Richard Cho
@@ -11,25 +11,25 @@ ms.topic: include file
 ms.author: richardcho
 ---
 
-## Improving Call Automation webhook callback security
+## Improve Call Automation webhook callback security
 
-Each mid-call webhook callback sent by Call Automation uses a signed JSON Web Token (JWT) in the Authentication header of the inbound HTTPS request. You can use standard Open ID Connect (OIDC) JWT validation techniques to ensure the integrity of the token as follows. The lifetime of the JWT is five (5) minutes and a new token is created for every event sent to the callback URI.
+Each mid-call webhook callback sent by Call Automation uses a signed JSON Web Token (JWT) in the Authentication header of the inbound HTTPS request. You can use standard OpenID Connect (OIDC) JWT validation techniques to ensure the integrity of the token. The lifetime of the JWT is five minutes, and a new token is created for every event sent to the callback URI.
 
-1. Obtain the Open ID configuration URL: <https://acscallautomation.communication.azure.com/calling/.well-known/acsopenidconfiguration>
-2. Install the following packages:
+1. Obtain the OpenID configuration URL: `<https://acscallautomation.communication.azure.com/calling/.well-known/acsopenidconfiguration>`
+1. Install the following packages:
     - [flask pypi](https://pypi.org/project/Flask/)
     - [PyJWT pypi](https://pypi.org/project/PyJWT/)
 
-```console
-pip install flask pyjwt
-```
+    ```console
+    pip install flask pyjwt
+    ```
 
-3. Configure your application to validate the JWT and the configuration of your Azure Communication Services resource. You need the `audience` values as it is present in the JWT payload.
-4. Validate the issuer, audience and the JWT token.
-   - The audience is your Azure Communication Services resource ID you used to set up your Call Automation client. Refer [here](../../../quickstarts/voice-video-calling/get-resource-id.md) about how to get it.
-   - The JSON Web Key Set (JWKS) endpoint in the OpenId configuration contains the keys used to validate the JWT token. When the signature is valid and the token hasn't expired (within 5 minutes of generation), the client can use the token for authorization.
+1. Configure your application to validate the JWT and the configuration of your Azure Communication Services resource. You need the `audience` value as it appears in the JWT payload.
+1. Validate the issuer, the audience, and the JWT:
+   - The audience is your Azure Communication Services resource ID that you used to set up your Call Automation client. For information about how to get it, see [Get your Azure resource ID](../../../quickstarts/voice-video-calling/get-resource-id.md).
+   - The JSON Web Key Set endpoint in the OpenId configuration contains the keys that are used to validate the JWT. When the signature is valid and the token hasn't expired (within five minutes of generation), the client can use the token for authorization.
 
-This sample code demonstrates how to configure OIDC client to validate webhook payload using JWT
+This sample code demonstrates how to configure the OIDC client to validate a webhook payload by using JWT:
 
 ```Python
 from flask import Flask, jsonify, abort, request

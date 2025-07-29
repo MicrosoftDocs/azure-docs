@@ -2,11 +2,11 @@
 title: Configure Private Link for Azure Health Data Services
 description: Learn how to set up Private Link for secure access to Azure Health Data Services.
 services: healthcare-apis
-author: msjasteppe
+author: EXPEkesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 05/06/2024
+ms.date: 06/02/2025
 ms.author: kesheth
 ---
 
@@ -52,7 +52,7 @@ For the resource type, search and select **Microsoft.HealthcareApis/workspaces**
 
 ### Manual approval
 
-For manual approval, select the second option under Resource, **Connect to an Azure resource by resource ID or alias**. For the resource ID, enter **subscriptions/{subcriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.HealthcareApis/workspaces/{workspacename}**. For the Target subresource, enter **healthcareworkspace** as in Auto Approval.
+For manual approval, select the second option under Resource, **Connect to an Azure resource by resource ID or alias**. For the resource ID, enter **subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.HealthcareApis/workspaces/{workspacename}**. For the Target subresource, enter **healthcareworkspace** as in Auto Approval.
 
 :::image type="content" source="media/private-link/private-link-resource-id.png" alt-text="Screen image of the Manual Approval Resources tab.":::
 
@@ -68,7 +68,8 @@ After the deployment is complete, browse to the new resource group that is creat
 
 :::image type="content" source="media/private-link/private-link-fhir-map.png" alt-text="Screenshot showing image of Private Link FHIR Mapping.":::
 
-Select **Virtual network links** from the **Settings**. Notice that the FHIR service is linked to the virtual network.
+Select **Virtual network links** from the **Settings**. Notice that the FHIR service is linked to the virtual network. 
+Make sure only a single VNET is associated with the DNS zone. If you need to support multiple VNETs, you must create separate DNS zones in different resource groups.During the setup confirm that the Private Endpoint and Private DNS Zone are not shared across multiple VNETs, as this is a common misconfiguration that can lead to IP resolution issues and access failures leading to HTTP 403 errors on the service.
 
 :::image type="content" source="media/private-link/private-link-vnet-link-fhir.png" alt-text="Screenshot showing image of Private Link virtual network Link FHIR.":::
 

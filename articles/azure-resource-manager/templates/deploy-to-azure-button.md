@@ -3,7 +3,7 @@ title: Deploy to Azure button
 description: Use button to deploy remote Azure Resource Manager templates.
 ms.topic: how-to
 ms.custom: devx-track-arm-template
-ms.date: 03/20/2024
+ms.date: 04/28/2025
 ---
 
 # Use a deployment button to deploy remote templates

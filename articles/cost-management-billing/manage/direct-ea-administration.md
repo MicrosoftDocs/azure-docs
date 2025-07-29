@@ -1,13 +1,13 @@
 ---
 title: EA Billing administration on the Azure portal
 description: This article explains the common tasks that an enterprise administrator accomplishes in the Azure portal.
-author: bandersmsft
-ms.author: banders
-ms.date: 09/04/2024
+author: prashantsaini4
+ms.author: prsaini
+ms.date: 04/01/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: sapnakeshari
+ms.reviewer: prsaini
 ---
 
 # EA Billing administration on the Azure portal
@@ -597,7 +597,7 @@ For either option, you must submit a [support request](https://support.microsoft
 An organizational unit used to administer subscriptions and for reporting.
 
 **Account owner**<br>
-The person who manages subscriptions and developoment projects.
+The person who manages subscriptions and development projects.
 
 **Amendment subscription**<br>
 A one-year, or coterminous subscription under the enrollment amendment.

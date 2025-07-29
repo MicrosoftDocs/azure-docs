@@ -6,9 +6,10 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 02/23/2024
+ms.date: 03/25/2025
 
 #CustomerIntent: As an Azure administrator, I want to learn about the available fields in connection monitor schemas so that I can understand the output of Log Analytics queries.
+# Customer intent: As an Azure administrator, I want to understand the fields in connection monitor test and path data schemas so that I can accurately interpret the logs and enhance network performance monitoring.
 ---
 
 # Connection monitor schemas
@@ -18,13 +19,13 @@ Connection monitor stores the data it collects in a Log Analytics workspace. The
 - The test data (`NWConnectionMonitorTestResult` query), which is updated based on the monitoring frequency of a particular test group.
 - The path data (`NWConnectionMonitorPathResult` query), which is updated when there's a significant change in loss percentage or round-trip time.
 
-For some time durations, test data might keep getting updated while path data isn't frequently updated because both are independent.
+For certain time durations, test data might continue to update while path data remains unchanged, as they operate independently.
 
-In this article, you learn about the available fields in the connection monitor tests data and path data schemas.
+In this article, you learn about the fields available in the connection monitor test data and path data schemas.
 
-## Connection monitor tests schema
+## Connection monitor test schema
 
-The following table lists the fields in the connection monitor tests data schema and what they signify:
+The following table lists the fields in the connection monitor test data schema and what they signify:
 
 | Field | Description |
 | ----- | ----------- |

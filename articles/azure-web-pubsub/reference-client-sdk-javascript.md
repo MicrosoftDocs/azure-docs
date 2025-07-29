@@ -23,6 +23,8 @@ As shown in the diagram, your clients establish WebSocket connections with your 
 
 :::image type="content" source="./media/reference-client-sdk-javascript/flow-overview.png" alt-text="Screenshot showing clients establishing WebSocket connection with a Web PubSub resource":::
 
+[!INCLUDE [Connection string security](includes/web-pubsub-connection-string-security.md)]
+
 ## Getting started
 
 ### Prerequisites
@@ -36,14 +38,14 @@ npm install @azure/web-pubsub-client
 ```
 
 ### 2. Connect with your Web PubSub resource
-A client uses `Client Access URL` to connect and authenticate with the service, which follows a pattern of `wss://<service_name>.webpubsub.azure.com/client/hubs/<hub_name>?access_token=<token>`. A client can have a few ways to obtain `Client Access URL`. For this quick guide, you can copy and paste one from Azure portal shown. (For production, your clients usually get `Client Access URL` generated on your application server. [See details](#use-an-application-server-to-generate-client-access-url-programatically) )
+A client uses `Client Access URL` to connect and authenticate with the service, which follows a pattern of `wss://<service_name>.webpubsub.azure.com/client/hubs/<hub_name>?access_token=<token>`. A client can have a few ways to obtain `Client Access URL`. For this quick guide, you can copy and paste one from Azure portal shown. (For production, your clients usually get `Client Access URL` generated on your application server. [See details](#use-an-application-server-to-generate-client-access-url-programmatically) )
 
 :::image type="content" source="./media/reference-client-sdk-javascript/get-client-access-url.png" alt-text="Screenshot showing how to get Client Access Url on Azure portal":::
 
 As shown in the diagram, the client has the permissions to send messages to and join a specific group named **`group1`**. 
 
 ```js
-// Imports the client libray
+// Imports the client library
 const { WebPubSubClient } = require("@azure/web-pubsub-client");
 
 // Instantiates the client object
@@ -111,11 +113,13 @@ client.on("stopped", () => {
 });
 ```
 
-### Use an application server to generate `Client Access URL` programatically
+### Use an application server to generate `Client Access URL` programmatically
 In production, clients usually fetch `Client Access URL` from an application server. The server holds the `connection string` to your Web PubSub resource and generates the `Client Access URL` with help from the server-side library `@azure/web-pubsub`.
 
 #### 1. Application server 
 The code snippet is an example of an application server exposes a `/negotiate` endpoint and returns `Client Access URL`.
+
+[!INCLUDE [Connection string security comment](includes/web-pubsub-connection-string-security-comment.md)]
 
 ```js
 // This code snippet uses the popular Express framework

@@ -7,8 +7,8 @@ ms.topic: how-to
 ms.custom: linux-related-content
 ms.date: 06/27/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -69,6 +69,9 @@ If you're collecting messages from a log forwarder, the following prerequisites 
 - For space requirements for your log forwarder, refer to the [Azure Monitor Agent Performance Benchmark](/azure/azure-monitor/agents/azure-monitor-agent-performance). You can also review [this blog post](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/designs-for-accomplishing-microsoft-sentinel-scalable-ingestion/ba-p/3741516), which includes designs for scalable ingestion.
 
 - Your log sources, security devices, and appliances, must be configured to send their log messages to the log forwarder's syslog daemon instead of to their local syslog daemon.
+
+> [!NOTE]
+> When deploying the AMA to a Virtual Machine Scale Set (VMSS), you're strongly encouraged to use a load balancer that supports the round-robin method to ensure load distribution across all deployed instances.
 
 ### Machine security prerequisites
 

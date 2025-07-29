@@ -2,9 +2,11 @@
 title: Use Microsoft Entra ID in Azure Automation to authenticate to Azure
 description: This article tells how to use Microsoft Entra ID within Azure Automation as the provider for authentication to Azure. 
 services: automation
-ms.date: 09/09/2024
+ms.date: 07/08/2025
 ms.topic: how-to
-ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
+ms.custom: devx-track-azurepowershell, no-azure-ad-ps-ref
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Use Microsoft Entra ID to authenticate to Azure
@@ -17,48 +19,9 @@ The [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whati
 
 You can enable Microsoft Entra ID through the following PowerShell modules:
 
-* Azure Active Directory PowerShell for Graph (AzureRM and Az modules). Azure Automation ships with the AzureRM module and its recent upgrade, the Az module. Functionality includes non-interactive authentication to Azure using Microsoft Entra user (OrgId) credential-based authentication. See [Microsoft Entra ID 2.0.2.76](https://www.powershellgallery.com/packages/AzureAD/2.0.2.76).
+* Azure Active Directory PowerShell for Graph. Azure Automation ships with the Az module. Functionality includes non-interactive authentication to Azure using Microsoft Entra user (OrgId) credential-based authentication. See [Azure AD 2.0.2.182](https://www.powershellgallery.com/packages/AzureAD/2.0.2.182).
 
-* Microsoft Entra ID for Windows PowerShell (MSOnline module). This module enables interactions with Microsoft Online, including Microsoft 365.
-
->[!NOTE]
->PowerShell Core does not support the MSOnline module. To use the module cmdlets, you must run them from Windows PowerShell. You're encouraged to use the newer Azure Active Directory PowerShell for Graph modules instead of the MSOnline module.
-
-[!INCLUDE [Azure AD PowerShell deprecation note](~/reusable-content/msgraph-powershell/includes/aad-powershell-deprecation-note.md)]
-
-### Preinstallation
-
-Before installing the Microsoft Entra modules on your computer:
-
-* Uninstall any previous versions of the AzureRM/Az module and the MSOnline module. 
-
-* Uninstall the Microsoft Online Services Sign-In Assistant to ensure correct operation of the new PowerShell modules.  
-
-### Install the AzureRM and Az modules
-
->[!NOTE]
->To work with these modules, you must use PowerShell version 5.1 or later with a 64-bit version of Windows. 
-
-1. Install Windows Management Framework (WMF) 5.1. See [Install and Configure WMF 5.1](/powershell/scripting/wmf/setup/install-configure).
-
-2. Install AzureRM and/or Az using instructions in [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/azurerm/install-azurerm-ps).
-
-### Install the MSOnline module
-
->[!NOTE]
->To install the MSOnline module, you must be a member of an admin role. See [About admin roles](/microsoft-365/admin/add-users/about-admin-roles).
-
-1. Ensure that the Microsoft .NET Framework 3.5.x feature is enabled on your computer. It's likely that your computer has a newer version installed, but backward compatibility with older versions of the .NET Framework can be enabled or disabled. 
-
-2. Install the 64-bit version of the [Microsoft Online Services Sign-in Assistant](/microsoft-365/enterprise/connect-to-microsoft-365-powershell?view=o365-worldwide&preserve-view=true#step-1-install-the-required-software-1).
-
-3. Run Windows PowerShell as an administrator to create an elevated Windows PowerShell command prompt.
-
-4. Deploy Microsoft Entra ID from [MSOnline 1.0](https://www.powershellgallery.com/packages/MSOnline/1.0).
-
-5. If you're prompted to install the NuGet provider, type Y and press ENTER.
-
-6. If you're prompted to install the module from [PSGallery](https://www.powershellgallery.com/), type Y and press ENTER.
+* Microsoft Entra ID for Windows PowerShell. This module enables interactions with Microsoft Online, including Microsoft 365.
 
 ### Install support for PSCredential
 
@@ -97,13 +60,12 @@ You can use the Azure portal to create the credential asset. Do this operation f
 To prepare a new credential asset in Windows PowerShell, your script first creates a `PSCredential` object using the assigned user name and password. The script then uses this object to create the asset through a call to the [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential) cmdlet. Alternatively, the script can call the [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) cmdlet to prompt the user to type in a name and password. See [Credential assets in Azure Automation](shared-resources/credentials.md). 
 
 
-
 ## Manage Azure resources from an Azure Automation runbook
 
 You can manage Azure resources from Azure Automation runbooks using the credential asset. Below is an example PowerShell runbook that collects the credential asset to use for stopping and starting virtual machines in an Azure subscription. This runbook first uses `Get-AutomationPSCredential` to retrieve the credential to use to authenticate to Azure. It then calls the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet to connect to Azure using the credential. 
 
 ```powershell
-Workflow Workflow
+Workflow Workflowname
 { 
     Param 
     (    
@@ -175,6 +137,10 @@ Workflow Workflow
     } 
 }
 ```  
+
+## Using Microsoft Graph with Powershell
+
+See [Get started with the Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/get-started)
 
 ## Next steps
 

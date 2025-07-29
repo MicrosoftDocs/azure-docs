@@ -13,6 +13,7 @@ ms.custom:
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
+# Customer intent: "As a network administrator, I want to create and associate service endpoint policies to a subnet, so that I can control access to specific Azure Storage accounts from within my virtual network."
 ---
 
 # Create and associate service endpoint policies
@@ -591,6 +592,9 @@ az storage share create \
 ```
 
 ---
+
+> [!IMPORTANT]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
 ### Deny all network access to storage accounts
 

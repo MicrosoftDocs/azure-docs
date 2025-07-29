@@ -1,15 +1,16 @@
 ---
-title: "Deployment step 5: end-user entry point - overview"
-description: Learn about production-level environment migration deployment step five.
+title: "End-user entry point migration overview"
+description: Get a high level idea of the steps involved when migrating end-user entry point components during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 08/30/2024
+ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+# Customer intent: "As an HPC architect, I want to migrate end-user entry points to the cloud, so that I can ensure a seamless user experience while minimizing latency disruptions during the transition from on-premises infrastructure."
 ---
 
-# Deployment step 5: end-user entry point - overview
+# End-user entry point migration overview
 
 Providing a consistent end-user entry point is crucial for ensuring a smooth transition from on-premises to the cloud in an HPC environment. Whether users access resources through an SSH sign-in node or a web portal, maintaining a familiar experience helps minimize disruptions.
 

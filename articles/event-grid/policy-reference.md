@@ -18,7 +18,7 @@ the link in the **Version** column to view the source on the
 
 ## Azure Event Grid
 
-[!INCLUDE [azure-policy-reference-rp-eventgrid](../../includes/policy/reference/byrp/microsoft.eventgrid.md)]
+[!INCLUDE [azure-policy-reference-rp-eventgrid](~/azure-policy-autogen-docs/includes/policy/reference/byrp/microsoft.eventgrid.md)]
 
 ## Next steps
 

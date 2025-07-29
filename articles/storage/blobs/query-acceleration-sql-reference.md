@@ -5,10 +5,11 @@ description: Learn how to use query acceleration sql syntax.
 author: normesta
 
 ms.service: azure-data-lake-storage
-ms.topic: conceptual
-ms.date: 09/09/2020
+ms.topic: concept-article
+ms.date: 11/26/2024
 ms.author: normesta
 ms.reviewer: ereilebr
+# Customer intent: As a data analyst, I want to utilize query acceleration SQL syntax to execute queries on blob data, so that I can efficiently analyze hierarchical semi-structured data formats like JSON and CSV.
 ---
 
 # Query acceleration SQL language reference
@@ -60,7 +61,7 @@ SELECT sys.split(split_size)FROM BlobStorage
 |TIMESTAMP|A point in time.                           |
 |BOOLEAN  |True or false.                             |
 
-When reading values from CSV-formatted data, all values are read as strings. String values may be converted to other types using CAST expressions. Values may be implicitly cast to other types depending on context. for more info, see [Data type precedence (Transact-SQL)](/sql/t-sql/data-types/data-type-precedence-transact-sql).
+When reading values from CSV-formatted data, all values are read as strings. String values may be converted to other types using CAST expressions. Values may be implicitly cast to other types depending on context. For more information, see [Data type precedence (Transact-SQL)](/sql/t-sql/data-types/data-type-precedence-transact-sql).
 
 ## Expressions
 
@@ -194,23 +195,23 @@ This table describes strings that you can use to specify the output format of th
 |yyyy             |Year in 4 digit format               |
 |M                |Month of year - 1                    |
 |MM               |Zero padded Month - 01               |
-|MMM              |Abbr. month of Year - JAN            |
+|MMM              |Abbreviated month of the Year - JAN            |
 |MMMM             |Full month - May                      |
-|d                |Day of month (1-31)                  |
-|dd               |Zero padded day of Month (01-31)     |
+|d                |Day of the month (1-31)                  |
+|dd               |Zero padded day of the month (01-31)     |
 |a                |AM or PM                             |
-|h                |Hour of day (1-12)                   |
-|hh               |Zero padded Hours od day (01-12)     |
-|H                |Hour of day (0-23)                   |
-|HH               |Zero Padded hour of Day (00-23)      |
-|m                |Minute of hour (0-59)                |
+|h                |Hour of the day (1-12)                   |
+|hh               |Zero padded Hours of the day (01-12)     |
+|H                |Hour of the day (0-23)                   |
+|HH               |Zero Padded hour of the day (00-23)      |
+|m                |Minute of the hour (0-59)                |
 |mm               |Zero padded minute (00-59)           |
-|s                |Second of Minutes (0-59)             |
-|ss               |Zero padded Seconds (00-59)          |
-|S                |Fraction of Seconds (0.1-0.9)        |
-|SS               |Fraction of Seconds (0.01-0.99)      |
-|SSS              |Fraction of Seconds (0.001-0.999)    |
-|X                |Offset in Hours                      |
+|s                |Second of of minutes (0-59)             |
+|ss               |Zero padded seconds (00-59)          |
+|S                |Fraction of seconds (0.1-0.9)        |
+|SS               |Fraction of seconds (0.01-0.99)      |
+|SSS              |Fraction of seconds (0.001-0.999)    |
+|X                |Offset in hours                      |
 |XX or XXXX       |Offset in hours and minutes (+0430)  |
 |XXX or XXXXX     |Offset in hours and minutes (-07:00) |
 |x                |Offset in hours (7)                  |
@@ -310,7 +311,7 @@ If you wanted to access only the `dimensions` JSON object value, you could use r
 SELECT length FROM BlobStorage[*].dimensions
 ```
 
-This also limits your access to members of the `dimensions` object. If you want to access other members of JSON fields and inner values of JSON objects, then you might use a queries such as shown in the following example:
+This also limits your access to members of the `dimensions` object. If you want to access other members of JSON fields and inner values of JSON objects, then you might use a query such as shown in the following example:
 
 ```sql
 SELECT weight,warehouses[0].longitude,id,tags[1] FROM BlobStorage[*]
@@ -331,7 +332,7 @@ SELECT sys.split(split_size) FROM BlobStorage
 
 Use this statement in cases where you want to download and then process CSV data records in batches. That way you can process records in parallel instead of having to download all records at one time. This statement doesn't return records from the CSV file. Instead, it returns a collection of batch sizes. You can then use each batch size to retrieve a batch of data records.
 
-Use the *split_size* parameter to specify the number of bytes that you want each batch to contain. For example, if you want to process only 10 MB of data at a time, you're statement would look like this: `SELECT sys.split(10485760)FROM BlobStorage` because 10 MB is equal to 10,485,760 bytes. Each batch will contain as many records as can fit into those 10 MB.
+Use the *split_size* parameter to specify the number of bytes that you want each batch to contain. For example, if you want to process only 10 MB of data at a time, your statement would look like this: `SELECT sys.split(10485760)FROM BlobStorage` because 10 MB is equal to 10,485,760 bytes. Each batch will contain as many records as can fit into those 10 MB.
 
 In most cases, the size of each batch will be slightly higher than the number that you specify. That's because a batch cannot contain a partial record. If the last record in a batch starts before the end of your threshold, the batch will be larger so that it can contain the complete record. The size of the last batch will likely be smaller than the size that you specify.
 

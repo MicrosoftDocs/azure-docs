@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 07/03/2024
 ms.author: kendownie
+# Customer intent: "As an IT administrator, I want to perform a silent installation of the Azure File Sync agent using default or custom settings, so that I can streamline deployment and minimize user interaction during the setup process."
 ---
 
 # How to perform a silent installation for a new Azure File Sync agent installation 
@@ -64,8 +65,12 @@ PROXY_PASSWORD=password
 |ACCEPTEULA|Azure File Sync license agreement|0 (Not accepted) or 1 (Accepted)|1|
 |ENABLE_AZUREFILESYNC_FEATURE|Azure File Sync feature installation option|0 (Do not install) or 1 (Install)|1|
 |AGENTINSTALLDIR|Agent installation directory|Local Path|%SYSTEMDRIVE%\Program Files\Azure\StorageSyncAgent|
+|AGENT_AUTO_UPDATE_SCHEDULED_DAY|Specifies day to apply the update. Used in conjunction with AGENT_AUTO_UPDATE_SCHEDULED_HOUR|Monday (or other days of the week) |Tuesday|
+|AGENT_AUTO_UPDATE_SCHEDULED_HOUR|Specifies hour to apply (24-hour format). Used in conjunction with AGENT_AUTO_UPDATE_SCHEDULED_DAY|20 (or other hours of the day - 00 to 23) |18|
+|AUTO_UPDATE_POLICY_MODE|To set auto update policy mode|InstallLatest or UpdateBeforeExpiration|UpdateBeforeExpiration|
 |ENABLE_MU_ENROLL|Enroll in Microsoft Update|0 (Do not enroll) or 1 (Enroll)|1|
 |ENABLE_DATA_COLLECTION|Collect data necessary to identify and fix problems|0 (No) or 1 (Yes)|1|
+|ENABLE_AGENT_AUTO_UPDATE|Turns automatic updates on or off|0 (off) or 1 (Auto install latest ) |0|
 |ENABLE_AGENT_UPDATE_POSTINSTALL|Check for updates after agent installation completes|0 (No) or 1 (Yes)|1|
 |USE_CUSTOM_PROXY_SETTINGS|Use default proxy settings (if configured) or custom proxy settings|0 (Default Proxy) or 1 (Custom Proxy)|0|
 |PROXY_ADDRESS|Proxy server IP address|IP Address||

@@ -4,7 +4,10 @@ description: Learn how to migrate Apache HBase clusters in Azure HDInsight to a 
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 10/17/2024
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: nijelsf
+ms.date:  02/18/2025
 ---
 
 # Migrate an Apache HBase cluster to a HDInsight 5.1
@@ -71,7 +74,7 @@ Use these detailed steps and commands to migrate your Apache HBase cluster.
 
 1. Stop ingestion to the source HBase cluster.
 
-1. Check Hbase hbck to verify cluster health
+1. Check HBase hbck to verify cluster health
    
    1. Verify HBCK Report page on HBase UI.  Healthy cluster doesn't show any inconsistencies
    :::image type="content" source="./media/apache-hbase-migrate-new-version/verify-hbck-report.png" alt-text="Screenshot showing how to verify HBCK report." lightbox="./media/apache-hbase-migrate-new-version/verify-hbck-report.png":::
@@ -80,7 +83,7 @@ Use these detailed steps and commands to migrate your Apache HBase cluster.
 1. Note down number of regions in online at source cluster, so that the number can be referred at destination cluster after the migration. 
    :::image type="content" source="./media/apache-hbase-migrate-new-version/total-number-of-regions.png" alt-text="Screenshot showing total number of regions." lightbox="./media/apache-hbase-migrate-new-version/total-number-of-regions.png":::
 
-1. If replication enabled on the cluster, stop and reenable the replication on destination cluster after migration. For more information, see [Hbase replication guide](/azure/hdinsight/hbase/apache-hbase-replication/)  
+1. If replication enabled on the cluster, stop and reenable the replication on destination cluster after migration. For more information, see [HBase replication guide](/azure/hdinsight/hbase/apache-hbase-replication/)  
 
 1. Flush the source HBase cluster you're upgrading.
    
@@ -111,7 +114,7 @@ Use these detailed steps and commands to migrate your Apache HBase cluster.
    1. Stop the HBase service, it stops remaining servers.
    
    > [!NOTE]
-   > HBase 2.4.11 doesn't t support some of the old Procedures. 
+   > HBase 2.4.11 doesn't support some of the old Procedures. 
    >
    >For more information on connecting to and using Ambari, see [Manage HDInsight clusters by using the Ambari Web UI](../hdinsight-hadoop-manage-ambari.md).
    >
@@ -143,10 +146,12 @@ Use these detailed steps and commands to migrate your Apache HBase cluster.
    
    ```bash
    hbase zkcli
-   rmr /hbase-unsecure
+   deleteall /hbase-unsecure
    quit
    ```
-   
+   > [!NOTE]
+   > In some versions of Apache ZooKeeper, `rmr` is used instead of `deleteall`.
+
 ### Clean and migrate WAL
 
 Run the following commands, depending on your source HDInsight version and whether the source and destination clusters have Accelerated Writes.
@@ -264,7 +269,7 @@ Mandatory argument for the above command:
 ## Troubleshooting
 
 ### Use case 1: 
-If Hbase masters and region servers up and regions stuck in transition or only one region, for example, `hbase:meta` region is assigned. Waiting for other regions to assign
+If HBase masters and region servers up and regions stuck in transition or only one region, for example, `hbase:meta` region is assigned. Waiting for other regions to assign
 
 **Solution:**
 

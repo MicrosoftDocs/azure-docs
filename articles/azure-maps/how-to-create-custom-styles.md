@@ -27,7 +27,7 @@ When you create an indoor map using Azure Maps Creator, default styles are appli
 
 ## Create custom styles using Creators visual editor
 
-While it's possible to modify your indoor maps styles using [Creators Rest API], Creator also offers a [visual style editor][style editor] to create custom styles that doesn't require coding. This article focuses exclusively on creating custom styles using this style editor.
+While it's possible to modify your indoor maps styles using [Creators REST API], Creator also offers a [visual style editor][style editor] to create custom styles that doesn't require coding. This article focuses exclusively on creating custom styles using this style editor.
 
 ### Open style
 
@@ -247,7 +247,7 @@ Now when you select that unit in the map, the pop-up menu has the new layer ID, 
 
 [categories]: https://atlas.microsoft.com/sdk/javascript/indoor/0.2/categories.json
 [Creator concepts]: creator-indoor-maps.md
-[Creators Rest API]: /rest/api/maps-creator/
+[Creators REST API]: /rest/api/maps-creator/
 [custom styling]: creator-indoor-maps.md#custom-styling-preview
 [Instantiate the Indoor Manager]: how-to-use-indoor-module.md#instantiate-the-indoor-manager
 [manifest]: drawing-requirements.md#manifest-file-requirements

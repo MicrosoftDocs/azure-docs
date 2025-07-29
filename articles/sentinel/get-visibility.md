@@ -3,11 +3,11 @@ title: View aggregated data from the Overview | Microsoft Sentinel
 description: Learn how to quickly view and monitor what's happening across your environment by using Microsoft Sentinel.
 author: batamig
 ms.topic: how-to
-ms.date: 05/21/2024
+ms.date: 10/16/2024
 ms.author: bagol
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -27,7 +27,7 @@ After connecting your data sources to Microsoft Sentinel, use the **Overview** p
 
 ## Access the Overview page
 
-If your workspace is onboarded to the unified security operations platform, select **General > Overview**. Otherwise, select **Overview** directly. For example:
+If your workspace is onboarded to the Microsoft Defender portal, select **General > Overview**. Otherwise, select **Overview** directly. For example:
 
 :::image type="content" source="media/get-visibility/dashboard.png" alt-text="Screenshot of the Microsoft Sentinel Overview dashboard.":::
 

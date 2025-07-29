@@ -4,11 +4,11 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to create a trigger in Azure Data Factory or Azure Synapse Analytics that runs a pipeline on a tumbling window.
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.subservice: orchestration
 ms.custom: synapse, devx-track-azurecli, devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 02/13/2025
 ---
 
 # Create a trigger that runs a pipeline on a tumbling window
@@ -365,6 +365,6 @@ To monitor trigger runs and pipeline runs in the Azure portal, see [Monitor pipe
 
 ## Related content
 
-* [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution-with-json)
+* [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-types)
 * [Create a tumbling window trigger dependency](tumbling-window-trigger-dependency.md)
 * [Reference trigger metadata in pipeline runs](how-to-use-trigger-parameterization.md)

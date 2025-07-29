@@ -5,6 +5,9 @@ ms.service: azure-hdinsight
 ms.custom: devx-track-arm-template
 ms.topic: troubleshooting-known-issue
 ms.date: 03/26/2024
+author: anuj1905
+ms.author: anujsharda
+ms.reviewer: nijelsf
 ---
 
 # Component version validation error in ARM templates
@@ -15,7 +18,7 @@ When you're submitting cluster creation requests by using Azure Resource Manager
 
 ## Troubleshooting steps
 
-When you're using [templates or automation tools](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters#cluster-setup-methods) to create HDInsight clusters, choose one of the bellow versions (Major.minor) as `componentVersion`: 
+When you're using [templates or automation tools](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters#cluster-setup-methods) to create HDInsight clusters, choose one of the below versions (Major.minor) as `componentVersion`: 
 
 
 | Cluster type| HDInsight 4.0 | HDInsight 5.0| HDInsight 5.1|
@@ -23,10 +26,10 @@ When you're using [templates or automation tools](/azure/hdinsight/hdinsight-had
 | Hadoop | 3.1 |- |3.3|
 | Spark |2.4 |3.1|3.3|
 | Kafka |2.1|2.4|3.2|
-| Hbase | 2.1| -|2.4|
+| HBase | 2.1| -|2.4|
 | InteractiveHive |3.1 |3.1|3.1|
 
-This value enables you to successfully create HDInsight clusters. The below snippet shows how to add the component version in the template:
+This value enables you to successfully create HDInsight clusters. The following snippet shows how to add the component version in the template:
 
  `"clusterDefinition": {
                     "kind": "[parameters('clusterKind')]",
@@ -36,7 +39,7 @@ This value enables you to successfully create HDInsight clusters. The below snip
 
 
 > [!NOTE]
-> Spark 2.4 has [reached EOL](https://azure.microsoft.com/updates/azure-hdinsight-spark-24-approaching-eol/) and is no longer under support by Microsoft. HDInsight versions 4.0 and 5.0 are under basic support. Migrate to [HDInsight 5.1](./hdinsight-5x-component-versioning.md) or [HDInsight on AKS](/azure/hdinsight-aks/) by 31 March 2025. 
+> Spark 2.4 has [reached EOL](https://azure.microsoft.com/updates/azure-hdinsight-spark-24-approaching-eol/) and is no longer under support by Microsoft. HDInsight versions 4.0 and 5.0 are under basic support. Migrate to [HDInsight 5.1](./hdinsight-5x-component-versioning.md) by 31 March 2025. 
 
 
 

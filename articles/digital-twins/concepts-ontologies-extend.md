@@ -1,23 +1,17 @@
 ---
-# Mandatory fields.
 title: Extending ontologies
 titleSuffix: Azure Digital Twins
 description: Learn about the reasons and strategies behind extending an ontology
 author: baanders
-ms.author: baanders # Microsoft employees only
-ms.date: 1/3/2024
-ms.topic: conceptual
+ms.author: baanders
+ms.date: 01/27/2025
+ms.topic: concept-article
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Extending ontologies 
 
-This article uses the [DTDL-based RealEstateCore ontology for smart buildings](https://github.com/Azure/opendigitaltwins-building) as the basis for examples of extending ontologies with new DTDL properties. The techniques described here are general, however, and can be applied to any part of a DTDL-based ontology with any Azure Digital Twins-compatible DTDL capability (Property, Relationship, Component). 
+This article uses the [DTDL-based RealEstateCore ontology for smart buildings](https://github.com/Azure/opendigitaltwins-building) as the basis for examples of extending ontologies with new DTDL properties. The techniques described here are general and can be applied to any part of a DTDL-based ontology with any Azure Digital Twins-compatible DTDL capability (Property, Relationship, Component).
 
 Microsoft's [industry-standard ontologies](concepts-ontologies-adopt.md), such as the DTDL-based [RealEstateCore](https://www.realestatecore.io/) ontology, are a great way to start building your IoT solution. Industry ontologies provide a rich set of base interfaces that are designed for your domain and engineered to work out of the box in Azure IoT services like Azure Digital Twins. 
 
@@ -96,7 +90,7 @@ When querying for digital twins using the model ID (the `IS_OF_MODEL` operator),
 
 ## Contributing back to the original ontology 
 
-In some cases, you'll extend the industry ontology in a way that is broadly useful to most users of the ontology. In this case, you should consider contributing your extensions back to the original ontology. Each ontology has a different process for contributing, so check the ontology's GitHub repository for contribution details. 
+In some cases, you'll extend the industry ontology in a way that is broadly useful to most users of the ontology. When that happens, consider contributing your extensions back to the original ontology. Each ontology has a different process for contributing, so check the ontology's GitHub repository for contribution details. 
 
 ## DTDL for new interfaces 
 

@@ -4,10 +4,10 @@ description: Learn how to automate incident response with Microsoft Sentinel pla
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.date: 04/17/2024
+ms.date: 10/16/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -17,7 +17,7 @@ ms.collection: usx-security
 
 # Automate and run Microsoft Sentinel playbooks
 
-Playbooks are collections of procedures that can be run from Microsoft Sentinel in response to an entire incident, to an individual alert, or to a specific entity. A playbook can help automate and orchestrate your response, and can be set to run automatically when specific alerts are generated or when incidents are created or updated, by being attached to an automation rule. It can also be run manually on-demand on specific incidents, alerts, or entities.
+Playbooks are collections of procedures that can be run from Microsoft Sentinel in response to an entire incident, to an individual alert, or to a specific entity. A playbook can help automate and orchestrate your response and can be set to run automatically when specific alerts are generated or when incidents are created or updated, by being attached to an automation rule. It can also be run manually on-demand on specific incidents, alerts, or entities.
 
 This article describes how to attach playbooks to analytics rules or automation rules, or run playbooks manually on specific incidents, alerts, or entities.
 
@@ -93,7 +93,7 @@ To respond automatically to entire incidents or individual alerts with a playboo
 
    :::image type="content" source="../media/run-playbooks/add-new-rule.png" alt-text="Screenshot showing how to add a new automation rule.":::
 
-1. The **Create new automation rule** panel opens. Enter a name for your rule. Your options differ depending on whether your workspace is onboarded to the unified security operations platform. For example:
+1. The **Create new automation rule** panel opens. Enter a name for your rule. Your options differ depending on whether your workspace is onboarded to the Microsoft Defender portal. For example:
 
     ### [Onboarded workspaces](#tab/after-onboarding)
 
@@ -109,14 +109,14 @@ To respond automatically to entire incidents or individual alerts with a playboo
 
 1. **Conditions:**
 
-    1. If your workspace isn't yet onboarded to the unified security operations platform, incidents can have two possible sources:
+    1. If your workspace isn't yet onboarded to the Defender portal, incidents can have two possible sources:
 
         - Incidents can be created inside Microsoft Sentinel
         - Incidents can be [imported from &mdash; and synchronized with &mdash; Microsoft Defender XDR](../microsoft-365-defender-sentinel-integration.md). 
 
         If you selected one of the incident triggers and you want the automation rule to take effect only on incidents sourced in Microsoft Sentinel, or alternatively in Microsoft Defender XDR, specify the source in the **If Incident provider equals** condition.
 
-        This condition is displayed only if an incident trigger is selected and your workspace isn't onboarded to the unified security operations platform.
+        This condition is displayed only if an incident trigger is selected and your workspace isn't onboarded to the Defender portal.
 
     1. For all trigger types, if you want the automation rule to take effect only on certain analytics rules, specify which ones by modifying the **If Analytics rule name contains** condition.
 
@@ -160,7 +160,7 @@ You can also manually run a playbook on demand, whether in response to alerts, i
 
 ### Run a playbook manually on an alert
 
-This procedure isn't supported in the unified security operations platform.
+This procedure isn't supported in the Defender portal.
 
 In the Azure portal, select one of the following tabs as needed for your environment:
 
@@ -192,7 +192,7 @@ You can see the run history for playbooks on an alert by selecting the **Runs** 
 
 ### Run a playbook manually on an incident
 
-This procedure differs, depending on if you're working in Microsoft Sentinel or in the unified security operations platform. Select the relevant tab for your environment:
+This procedure differs, depending on if you're working in the Azure portal or in the Defender portal. Select the relevant tab for your environment:
 
 
 #### [Azure portal](#tab/azure)
@@ -236,7 +236,7 @@ View the run history for playbooks on an incident by selecting the **Runs** tab 
 
 ### Run a playbook manually on an entity
 
-This procedure isn't supported in the unified security operations platform.
+This procedure isn't supported in the Defender portal.
 
 Select an entity in one of the following ways, depending on your originating context:
 

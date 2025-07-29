@@ -4,7 +4,8 @@ description: You can back up file data on server and client computers with MABS.
 ms.topic: how-to
 ms.date: 09/11/2024
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: As a system administrator, I want to implement file data backups using Azure Backup Server, so that I can ensure the safety and availability of critical data on both server and client machines.
 ---
 
 # Back up file data with MABS

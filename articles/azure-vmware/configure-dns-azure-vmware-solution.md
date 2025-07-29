@@ -6,6 +6,7 @@ ms.custom: engagement-fy23
 ms.service: azure-vmware
 ms.date: 2/27/2024
 #Customer intent: As an Azure service administrator, I want to <define conditional forwarding rules for a desired domain name to a desired set of private DNS servers via the NSX-T Data Center DNS Service.
+# Customer intent: "As an Azure service administrator, I want to configure DNS forwarding for private DNS resolution in Azure VMware Solution, so that management components can resolve name records from both private and public DNS servers effectively."
 ---
 
 # Configure a DNS forwarder in the Azure portal
@@ -69,7 +70,7 @@ The diagram shows that the NSX-T Data Center DNS Service can forward DNS queries
 
    It takes several minutes to complete, and once finished, you see the *Completed* message from **Notifications**. At this point, management components in your private cloud should be able to resolve DNS entries from the FQDN zone provided to the NSX-T Data Center DNS Service. 
 
-1. Repeat the above steps for other FQDN zones, including any applicable reverse lookup zones.
+1. Repeat the above steps for other FQDN zones.
 
 ## Change Default T1 DNS Forwarder Zone
    1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **DNS** > **DNS zones** > Check **TNT##-DNS-FORWARDER-ZONE**.  Then select **Edit**.
@@ -79,6 +80,9 @@ The diagram shows that the NSX-T Data Center DNS Service can forward DNS queries
    2. Change DNS server entries to valid reachable IP addresses.  Then select **OK**
    
    ![Edit_DNS_Zone](https://user-images.githubusercontent.com/7501186/226980023-8b92fce9-310e-4934-9045-238bcd5d921f.png)
+
+   >[!TIP]
+   >For vCenter, NSX-T, and HCX management components to successfully perform reverse DNS lookups, a DNS server that is capable of performing reverse DNS lookups must be defined in `DNS server IP` in the Default T1 DNS Forwarder Zone.
    
    >[!IMPORTANT]
    >A DNS endpoint that is unreachable by the NSX-T DNS server will result in an NSX-T alarm stating that the endpoint is unreachable.  In cases of the default configuration provided with Azure VMware Solution, this is due to internet that is disabled by default.  The alarm can be acknowledged and ignored, or the default configuration can be changed to a valid endpoint.

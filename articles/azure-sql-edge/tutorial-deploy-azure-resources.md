@@ -72,7 +72,7 @@ Deploy the Azure resources required by this Azure SQL Edge tutorial. These resou
    $imagePublisher = "microsoft_iot_edge"
    $imageSku = "ubuntu_1604_edgeruntimeonly"
    $AdminAcc = "iotadmin"
-   $AdminPassword = ConvertTo-SecureString "IoTAdmin@1234" -AsPlainText -Force
+   $AdminPassword = ConvertTo-SecureString "<password>" -AsPlainText -Force
    $VMSize = "Standard_DS3"
    $NetworkName = "MyNet"
    $NICName = "MyNIC"
@@ -104,7 +104,7 @@ Deploy the Azure resources required by this Azure SQL Edge tutorial. These resou
    $rg = Get-AzResourceGroup -Name $ResourceGroup
    if($rg -eq $null)
    {
-       Write-Output("Resource Group $ResourceGroup does not exist, creating Resource Gorup")
+       Write-Output("Resource Group $ResourceGroup does not exist, creating Resource Group")
        New-AzResourceGroup -Name $ResourceGroup -Location $location
    }
    else

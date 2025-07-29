@@ -2,13 +2,16 @@
 title: Troubleshoot Azure Database for PostgreSQL - Flexible server backup
 description: Troubleshooting information for backing up Azure Database for PostgreSQL - Flexible server.
 ms.topic: troubleshooting
-ms.date: 03/26/2024
+ms.date: 02/17/2025
 ms.service: azure-backup
+ms.custom:
+  - ignite-2024
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: As a database administrator, I want to troubleshoot backup issues in Azure Database for PostgreSQL - Flexible server, so that I can ensure successful backups and maintain data integrity within my organization.
 ---
 
-# Troubleshoot Azure Database for PostgreSQL - Flexible server backup (preview)
+# Troubleshoot Azure Database for PostgreSQL - Flexible server backup
 
 This article provides the recommended actions to troubleshoot the issues you might encounter during the backup or restore of Azure Database for PostgreSQL - Flexible server.
 
@@ -62,7 +65,8 @@ This article provides the recommended actions to troubleshoot the issues you mig
 
 **Cause**: Limit to the number of backups that can be performed on a backup instance has reached to maximum.
 
-**Recommended action**: Try to trigger a backup operation once the current backup job is complete. 
+**Recommended action**: The recommended backup frequency for backing up a server is **Weekly**. If you need frequent backups for achieving your RPO requirement, try to trigger a backup operation after the current backup job is complete.
+ 
 
 ### UserErrorMSIMissingPermissions 
 
@@ -76,7 +80,7 @@ This article provides the recommended actions to troubleshoot the issues you mig
 
 ## Next steps
 
-- [About Azure Database for PostgreSQL - Flexible server backup (preview)](backup-azure-database-postgresql-flex-overview.md). 
+- [About Azure Database for PostgreSQL - Flexible server backup](backup-azure-database-postgresql-flex-overview.md). 
 
  
 
@@ -85,7 +89,3 @@ This article provides the recommended actions to troubleshoot the issues you mig
  
 
   
-
-
-
-

@@ -4,11 +4,12 @@ titleSuffix: Azure Storage
 description: Query acceleration enables applications and analytics frameworks to dramatically optimize data processing by retrieving only the data that is required for a processing operation.
 author: normesta
 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.date: 03/09/2023
+ms.date: 11/18/2024
 ms.service: azure-data-lake-storage
+# Customer intent: "As a data analyst using distributed analytics frameworks, I want to optimize data retrieval using query acceleration, so that I can reduce network latency and compute costs while improving the performance of my data processing tasks."
 ---
 
 # Azure Data Lake Storage query acceleration
@@ -64,7 +65,7 @@ For an example of how an application can integrate query acceleration, see [Filt
 
 ## Pricing
 
-Due to the increased compute load within the Azure Data Lake Storage service, the pricing model for using query acceleration differs from the normal Azure Data Lake Storage transaction model. Query acceleration charges a cost for the amount of data scanned as well as a cost for the amount of data returned to the caller. For more information, see [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/).
+Due to the increased compute load within the Azure Data Lake Storage service, the pricing model for using query acceleration differs from the normal Azure Data Lake Storage transaction model. Query acceleration charges a cost for the amount of data scanned as well as a cost for the amount of data returned to the caller. For more information, see [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/).
 
 Despite the change to the billing model, Query acceleration's pricing model is designed to lower the total cost of ownership for a workload, given the reduction in the much more expensive VM costs.
 

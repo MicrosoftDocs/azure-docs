@@ -1,41 +1,68 @@
 ---
-title: Learn about Grafana settings
+title: How to Configure Grafana Settings
 titleSuffix: "Azure Managed Grafana"
-description: Learn about Grafana settings in Azure Managed Grafana, including Viewers can Edit and External Enabled.
+description: Learn how to configure Grafana settings in Azure Managed Grafana, including enabling Viewers can Edit and External Enabled.
 author: maud-lv
 ms.author: malev
 ms.service: azure-managed-grafana
-ms.topic: concept-article
-ms.date: 08/09/2024
-#customer intent: In this document, learn about the custom Grafana options available in the Grafana settings tab, in Azure Managed Grafana.
+ms.topic: how-to
+ms.date: 03/20/2025
+#customer intent: In this document, learn how to configure the custom Grafana options available in the Grafana settings tab, in Azure Managed Grafana.
 
 ---
 
-# Grafana settings
+# How to configure Grafana settings
 
-This article introduces the Grafana settings available in Azure Managed Grafana. These settings are designed to enable Azure Managed Grafana customers to customize their Grafana instances by enabling or disabling the Grafana options listed below.
+This article provides step-by-step instructions on how to configure Grafana settings in Azure Managed Grafana. These settings allow you to customize your Grafana instance by enabling or disabling specific options. These Grafana settings are also referenced in Grafana's documentation, under [Grafana configuration](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/).
 
-These settings are located in Azure Managed Grafana's **Settings** > **Configuration** menu, in the **Grafana Settings (Preview)** tab.
+## Prerequisites
+
+- An Azure account with an active subscription.
+- An Azure Managed Grafana instance.
+
+## Update Grafana settings
+
+1. Open the Azure portal and navigate to your Azure Managed Grafana instance.
+1. In the left menu, select **Settings** > **Configuration**.
+1. Open the **Grafana Settings** tab.
+1. Enable or disable settings.
 
 :::image type="content" source="media/grafana-settings/grafana-settings-tab.png" alt-text="Screenshot of the Azure platform showing the Grafana settings tab." lightbox="media/grafana-settings/grafana-settings-tab.png":::
 
-They are also referenced in Grafana's documentation, under [Grafana configuration](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/). 
+## Available Grafana settings
 
-## Viewers Can Edit
+### External Enabled
 
-The **Viewers Can Edit** setting allows users with the Grafana Viewer role to edit dashboards. This feature is designed to enable Grafana Viewers to run tests and interact with dashboards without making permanent changes. While they can edit dashboards, they can't save these edits.
+Description: The **External Enabled** setting controls the public sharing of snapshots. With this setting enabled, users can publish snapshots of dashboards to an external URL by opening a dashboard, selecting **Share** > **Snapshot** > **Publish to snapshots.raintanks.io**.
 
-This option also gives Grafana Viewers access to the **Explore** menu in the Grafana UI, where they can perform interactive queries and analyze data within Grafana. However, it's important to note that any changes made by Viewers won't be saved permanently unless they have the appropriate Editor permissions.
+Default: enabled. Toggle off to restrict public sharing of snapshots.
 
-To enable or disable this option, open an Azure Managed Grafana instance in the Azure portal and go to **Settings** > **Configuration** > **Grafana Settings (Preview)** > **Viewers can edit**. This option is disabled by default.
+### Viewers Can Edit
 
-## External Enabled
+Description: The **Viewers Can Edit** setting enables users with the Grafana Viewer role to edit dashboards without saving changes permanently. This feature is designed to enable Grafana Viewers to run tests and interact with dashboards without making permanent changes. With this setting enabled, Grafana Viewers can:
 
-The **External Enabled** setting controls the public sharing of snapshots. This option is enabled by default, allowing users to publish snapshots of their dashboards. 
+- Edit dashboards temporarily, without saving.
+- Access the **Explore** menu to perform interactive queries and analyze data.
 
-With this option enabled, users can publish a snapshot of a dashboard to an external URL by opening a dashboard, selecting **Share** > **Snapshot**, and then **Publish to snapshots.raintanks.io**.
+Default: disabled. Toggle on to enable this setting.
 
-You can disable the External Enabled option to restrict the public sharing of snapshots. To do this, open an Azure Managed Grafana instance in the Azure portal and go to **Settings** > **Configuration** > **Grafana Settings (Preview)** and toggle off the **External Enabled** setting.
+### Editors Can Admin (Preview)
+
+Description: The **Editors Can Admin (Preview)** setting enables users with the Grafana Editor role to administrate dashboards, folders and teams they create.
+
+Default: disabled. Toggle on the switch to enable this setting.
+
+### CSRF Always Check
+
+Description: The **CSRF Always Check** setting enhances security by rejecting requests that have an origin header that does not match the origin of the Grafana instance. This setting helps to prevent Cross-Site Request Forgery (CSRF) attacks. 
+
+Default: disabled. Toggle the switch to enable or disable this setting based on your security requirements.
+
+### Capture Enabled (Preview)
+
+Description: The **Capture Enabled (Preview)** setting enables Grafana to take screenshots of dashboards or panels and include them in alert notifications. This option requires a remote HTTP image rendering service. Refer to [rendering](https://github.com/grafana/grafana-image-renderer) for further configuration options.
+
+Default: disabled. Toggle on the switch to enable this setting.
 
 ## Related content
 

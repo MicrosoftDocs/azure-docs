@@ -7,7 +7,7 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 03/07/2024
+ms.date: 06/18/2025
 ms.custom: devx-track-java, devx-track-extended-java
 ms.author: mametcal
 #Customer intent: As a Java Spring developer, I want to dynamically update my app to use the latest configuration data in App Configuration.
@@ -23,13 +23,13 @@ Both libraries support manual triggering to check for refreshed configuration va
 
 Refresh allows you to update your configuration values without having to restart your application, though it causes all beans in the `@RefreshScope` to be recreated. It checks for any changes to configured triggers, including metadata. By default, the minimum amount of time between checks for changes, refresh interval, is set to 30 seconds.
 
-`spring-cloud-azure-appconfiguration-config-web`'s automated refresh is triggered based on activity, specifically Spring Web's `ServletRequestHandledEvent`. If a `ServletRequestHandledEvent` isn't triggered, `spring-cloud-azure-appconfiguration-config-web`'s automated refresh doesn't trigger a refresh even if the cache expiration time has expired.
+`spring-cloud-azure-appconfiguration-config-web`'s automated refresh is triggered based on activity, specifically Spring Web's `ServletRequestHandledEvent`. If a `ServletRequestHandledEvent` isn't triggered, `spring-cloud-azure-appconfiguration-config-web`'s automated refresh doesn't trigger a refresh even if the cache expiration time is expired.
 
 ## Use manual refresh
 
 To use manual refresh, start with a Spring Boot app that uses App Configuration, such as the app you create by following the [Spring Boot quickstart for App Configuration](quickstart-java-spring-app.md).
 
-App Configuration exposes `AppConfigurationRefresh`, which can be used to check if the cache is expired. If it's expired, a refresh is triggered.
+App Configuration exposes `AppConfigurationRefresh`, which checks if the refresh interval has passed. If the refresh interval has passed, it triggers a refresh.
 
 1. To use `AppConfigurationRefresh`, update HelloController.
 
@@ -57,9 +57,16 @@ App Configuration exposes `AppConfigurationRefresh`, which can be used to check 
     }
     ```
 
-    `AppConfigurationRefresh`'s `refreshConfigurations()` returns a `Mono` that is true if a refresh has been triggered, and false if not. False means either the cache expiration time hasn't expired, there was no change, or another thread is currently checking for a refresh.
+    `AppConfigurationRefresh`'s `refreshConfigurations()` returns a `Mono` that is true if a refresh is triggered, and false if not. False means either the cache expiration time isn't expired, there was no change, or another thread is currently checking for a refresh.
 
-1.  Update `bootstrap.properties` to enable refresh:
+    > [!NOTE]
+    > For libraries such as Spring WebFlux that require non-blocking calls, `refreshConfigurations()` needs to be wrapped in a thread as loading configurations requires a blocking call. 
+    >
+    >    ```java
+    >    new Thread(() -> refresh.refreshConfigurations()).start();
+    >    ```
+            
+1.  To enable refresh update `bootstrap.properties`:
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].monitoring.enabled=true
@@ -84,7 +91,7 @@ App Configuration exposes `AppConfigurationRefresh`, which can be used to check 
     mvn spring-boot:run
     ```
 
-1. Open a browser window, and go to the URL: `http://localhost:8080`.  You see the message associated with your key.
+1. Open a browser window, and go to the URL: `http://localhost:8080`. You see the message associated with your key.
 
     You can also use *curl* to test your application, for example:
 
@@ -98,7 +105,7 @@ App Configuration exposes `AppConfigurationRefresh`, which can be used to check 
     |---|---|
     | /application/config.message | Hello - Updated |
 
-1. Update the sentinel key you created earlier to a new value. This change triggers the application to refresh all configuration keys once the refresh interval has passed.
+1. Update the sentinel key you created earlier to a new value. This change triggers the application to refresh all configuration keys once the refresh interval is passed.
 
     | Key | Value |
     |---|---|
@@ -106,8 +113,8 @@ App Configuration exposes `AppConfigurationRefresh`, which can be used to check 
 
 1. Refresh the browser page twice to see the new message displayed. The first time triggers the refresh, the second loads the changes.
 
-> [!NOTE]
-> The library only checks for changes on the after the refresh interval has passed. If the period hasn't passed then no change is displayed. Wait for the period to pass, then trigger the refresh check.
+    > [!NOTE]
+    > The library checks for changes only after the refresh interval passes. If the refresh interval hasn't passed, it doesn't check for changes. Wait for the interval to pass, then trigger the refresh check.
 
 ## Use automated refresh
 
@@ -115,31 +122,15 @@ To use automated refresh, start with a Spring Boot app that uses App Configurati
 
 Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `spring-cloud-azure-appconfiguration-config-web` using the following code.
 
-**Spring Boot**
-
-### [Spring Boot 3](#tab/spring-boot-3)
-
 ```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>5.8.0</version>
+    <version>5.22.0</version>
 </dependency>
 ```
 
-### [Spring Boot 2](#tab/spring-boot-2)
-
-```xml
-<dependency>
-    <groupId>com.azure.spring</groupId>
-    <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>4.14.0</version>
-</dependency>
-```
-
----
-
-1. Update `bootstrap.properties` to enable refresh
+1. To enable refresh update `bootstrap.properties`:
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].monitoring.enabled=true
@@ -164,7 +155,7 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `spr
     mvn spring-boot:run
     ```
 
-1. Open a browser window, and go to the URL: `http://localhost:8080`.  You now see the message associated with your key.
+1. Open a browser window, and go to the URL: `http://localhost:8080`. You now see the message associated with your key.
 
     You can also use *curl* to test your application, for example:
 
@@ -178,7 +169,7 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `spr
     |---|---|
     | /application/config.message | Hello - Updated |
 
-1. Update the sentinel key you created earlier to a new value. This change triggers the application to refresh all configuration keys once the refresh interval has passed.
+1. Update the sentinel key you created earlier to a new value. This change triggers the application to refresh all configuration keys once the refresh interval is passed.
 
     | Key | Value |
     |---|---|
@@ -186,8 +177,8 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `spr
 
 1. Refresh the browser page twice to see the new message displayed. The first time triggers the refresh, the second loads the changes, as the first request returns using the original scope.
 
-> [!NOTE]
-> The library only checks for changes on after the refresh interval has passed. If the refresh interval hasn't passed, then it doesn't check for changes. Wait for the interval to pass, then trigger the refresh check.
+    > [!NOTE]
+    > The library checks for changes only after the refresh interval passes. If the refresh interval hasn't passed, it doesn't check for changes. Wait for the interval to pass, then trigger the refresh check.
 
 ## Next steps
 

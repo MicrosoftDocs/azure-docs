@@ -2,12 +2,14 @@
 title: How caching works in Azure Content Delivery Network
 description: Caching is the process of storing data locally so that future requests for that data can be accessed more quickly.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumud
 ms.service: azure-cdn
 ms.topic: concept-article
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
+ROBOTS: NOINDEX
+# Customer intent: "As a web developer, I want to understand caching mechanisms in content delivery networks, so that I can optimize my application's performance and reduce latency for end-users."
 ---
 
 # How caching works
@@ -57,18 +59,13 @@ Two headers can be used to define cache freshness: `Cache-Control` and `Expires`
 
 ## Cache-directive headers
 
-> [!IMPORTANT]
-> By default, an Azure Content Delivery Network endpoint that is optimized for DSA ignores cache-directive headers and bypasses caching. For **Azure CDN Standard from Edgio** profiles, you can adjust how an Azure Content Delivery Network endpoint treats these headers by using [content delivery network caching rules](cdn-caching-rules.md) to enable caching. For **Azure CDN Premium from Edgio** profiles only, you use the [rules engine](./cdn-verizon-premium-rules-engine.md) to enable caching.
-
 Azure Content Delivery Network supports the following HTTP cache-directive headers, which define cache duration and cache sharing.
 
 **Cache-Control:**
 - Introduced in HTTP 1.1 to give web publishers more control over their content and to address the limitations of the `Expires` header.
 - Overrides the `Expires` header, if both it and `Cache-Control` are defined.
 - When used in an HTTP request from the client to the content delivery network POP, `Cache-Control` gets ignored by all Azure Content Delivery Network profiles, by default.
-- When used in an HTTP response from the origin server to the content delivery network POP:
-     - **Azure CDN Standard/Premium from Edgio** and **Azure CDN Standard from Microsoft** support all `Cache-Control` directives.
-     - **Azure CDN Standard/Premium from Edgio** and **Azure CDN Standard from Microsoft** honors caching behaviors for Cache-Control directives in [RFC 7234 - Hypertext Transfer Protocol (HTTP/1.1): Caching (ietf.org)](https://tools.ietf.org/html/rfc7234#section-5.2.2.8).
+- When used in an HTTP response from the origin server to the content delivery network POP, `Cache-Control` is honored by all Azure Content Delivery Network profiles, by default. Azure CDN also honors caching behaviors for Cache-Control directives in [RFC 7234 - Hypertext Transfer Protocol (HTTP/1.1): Caching (ietf.org)](https://tools.ietf.org/html/rfc7234#section-5.2.2.8).
 
 **Expires:**
 - Legacy header introduced in HTTP 1.0; supported for backward compatibility.
@@ -84,51 +81,41 @@ Azure Content Delivery Network supports the following HTTP cache-directive heade
 
 ## Validators
 
-When the cache is stale, HTTP cache validators are used to compare the cached version of a file with the version on the origin server. **Azure CDN Standard/Premium from Edgio** supports both `ETag` and `Last-Modified` validators by default, while **Azure CDN Standard from Microsoft** supports only `Last-Modified`.
+When the cache is stale, HTTP cache validators are used to compare the cached version of a file with the version on the origin server. **Azure CDN Standard from Microsoft** supports only `Last-Modified`.
 
-**ETag:**
-- **Azure CDN Standard/Premium from Edgio** supports `ETag` by default, while **Azure CDN Standard from Microsoft** doesn't.
-- `ETag` defines a string that is unique for every file and version of a file. For example, `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`.
-- Introduced in HTTP 1.1 and is more current than `Last-Modified`. Useful when the last modified date is difficult to determine.
-- Supports both strong validation and weak validation; however, Azure Content Delivery Network supports only strong validation. For strong validation, the two resource representations must be byte-for-byte identical.
-- A cache validates a file that uses `ETag` by sending an `If-None-Match` header with one or more `ETag` validators in the request. For example, `If-None-Match: "17f0ddd99ed5bbe4edffdd6496d7131f"`. If the server's version matches an `ETag` validator on the list, it sends status code 304 (Not Modified) in its response. If the version is different, the server responds with status code 200 (OK) and the updated resource.
+> [!NOTE]
+> **Azure CDN from Microsoft (classic)** doesn't support `ETag`. 
 
 **Last-Modified:**
-- For **Azure CDN Standard/Premium from Edgio** only, `Last-Modified` is used if `ETag` isn't part of the HTTP response.
 - Specifies the date and time that the origin server has determined the resource was last modified. For example, `Last-Modified: Thu, 19 Oct 2017 09:28:00 GMT`.
 - For content larger than 8 MB, origin backend servers should maintain consistent `Last-Modified` timestamps per asset. Returning inconsistent `Last-Modified` times from backend servers will cause validator mismatch errors and result in HTTP 5XX failures. Azure Storage may not support consistent `Last-Modified` timestamps across replicas, which can cause similar validator mismatch errors.
 - A cache validates a file using `Last-Modified` by sending an `If-Modified-Since` header with a date and time in the request. The origin server compares that date with the `Last-Modified` header of the latest resource. If the resource hasn't been modified since the specified time, the server returns status code 304 (Not Modified) in its response. If the resource has been modified, the server returns status code 200 (OK) and the updated resource.
 
 ## Determining which files can be cached
 
-Not all resources can be cached. The following table shows what resources can be cached, based on the type of HTTP response. Resources delivered with HTTP responses that don't meet all of these conditions can't be cached. For **Azure CDN Premium from Edgio** only, you can use the rules engine to customize some of these conditions.
+Not all resources can be cached. The following table shows what resources can be cached, based on the type of HTTP response. Resources delivered with HTTP responses that don't meet all of these conditions can't be cached.
 
-|  | Azure Content Delivery Network from Microsoft | Azure Content Delivery Network from Edgio |
-|--|--|--|
-| **HTTP status codes** | 200, 203, 206, 300, 301, 410, 416 | 200 |
-| **HTTP methods** | GET, HEAD | GET |
-| **File size limits** | 300 GB | 300 GB |
+| Conditions | Value |
+|--|--|
+| **HTTP status codes** | 200, 203, 206, 300, 301, 410, 416 |
+| **HTTP methods** | GET, HEAD |
+| **File size limits** | 300 GB |
 
-For **Azure CDN Standard from Microsoft** caching to work on a resource, the origin server must support any HEAD and GET HTTP requests and the content-length values must be the same for any HEAD and GET HTTP responses for the asset. For a HEAD request, the origin server must support the HEAD request, and must respond with the same headers as if it received a GET request.
+For caching to work on a resource, the origin server must support any HEAD and GET HTTP requests and the content-length values must be the same for any HEAD and GET HTTP responses for the asset. For a HEAD request, the origin server must support the HEAD request, and must respond with the same headers as if it received a GET request.
 
 > [!NOTE]
 > Requests that include authorization header will not be cached.
 
 ## Default caching behavior
 
-The following table describes the default caching behavior for the Azure Content Delivery Network products and their optimizations.
+The default caching behavior for Azure CDN is to **Honor origin** and cache content for two days.
 
-|  | Microsoft: General web delivery | Edgio: General web delivery | Edgio: DSA |
-|--|--|--|--|
-| **Honor origin** | Yes | Yes | No |
-| **content delivery network cache duration** | Two days | Seven days | None |
+**Honor origin**: This setting specifies whether to respect the cache-directive headers (`Cache-Control` or `Expires`) if they are present in the HTTP response from the origin server.
 
-**Honor origin**: Specifies whether to honor the supported cache-directive headers if they exist in the HTTP response from the origin server.
-
-**CDN cache duration**: Specifies the amount of time for which a resource is cached on the Azure content delivery network. However, if **Honor origin** is Yes and the HTTP response from the origin server includes the cache-directive header `Expires` or `Cache-Control: max-age`, Azure Content Delivery Network uses the duration value specified by the header instead.
+**CDN cache duration**: This setting specifies the duration for which a resource is cached on the Azure CDN. If **Honor origin** is enabled and the HTTP response from the origin server includes the `Cache-Control: max-age` or `Expires` header, Azure CDN will use the duration specified by these headers instead of the default two-day period.
 
 > [!NOTE]
-> Azure Content Delivery Network makes no guarantees about minimum amount of time that the object will be stored in the cache. Cached contents might be evicted from the content delivery network cache before they are expired if the contents are not requested as frequently to make room for more frequently requested contents.
+> Azure CDN makes no guarantees about minimum amount of time that the object will be stored in the cache. Cached contents might be evicted from the content delivery network cache before they are expired if the contents are not requested as frequently to make room for more frequently requested contents.
 >
 
 ## Next steps

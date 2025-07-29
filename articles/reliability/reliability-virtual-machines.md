@@ -18,24 +18,24 @@ This article contains detailed information on VM regional resiliency with [avail
 
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
-Virtual machines support availability zones with three availability zones per supported Azure region and are also zone-redundant and zonal. For more information, see [availability zones support](availability-zones-service-support.md). The customer is responsible for configuring and migrating their virtual machines for availability. 
+Virtual machines support availability zones with three availability zones per supported Azure region and are also zone-redundant and zonal. For more information, see [Azure services with availability zones](availability-zones-service-support.md). The customer is responsible for configuring and migrating their virtual machines for availability. 
 
 To learn more about availability zone readiness options, see:
 
 - See [availability options for VMs](/azure/virtual-machines/availability)
-- Review [availability zone service and region support](availability-zones-service-support.md)
+- Review [availability zone service support](./availability-zones-service-support.md) and [region support](regions-list.md)
 - [Migrate existing VMs](migrate-vm.md) to availability zones
 
  
 ### Prerequisites
 
-- Your virtual machine SKUs must be available across the zones in for your region. To review which regions support availability zones, see the [list of supported regions](availability-zones-service-support.md#azure-regions-with-availability-zone-support). 
+- Your virtual machine SKUs must be available across the zones in for your region. To review which regions support availability zones, see the [list of supported regions](regions-list.md).
 
 - Your VM SKUs must be available across the zones in your region. To check for VM SKU availability, use one of the following methods:
 
     - Use PowerShell to [Check VM SKU availability](/azure/virtual-machines/windows/create-powershell-availability-zone#check-vm-sku-availability).
     - Use the Azure CLI to [Check VM SKU availability](/azure/virtual-machines/linux/create-cli-availability-zone#check-vm-sku-availability).
-    - Go to [Foundational Services](availability-zones-service-support.md#an-icon-that-signifies-this-service-is-foundational-foundational-services).
+    - Go to [Azure services with availability zone support](availability-zones-service-support.md).
     
 
 ### SLA improvements
@@ -105,7 +105,7 @@ Before you upgrade your next set of nodes in another zone, you should perform th
 To learn how to migrate a VM to availability zone support, see [Migrate Virtual Machines and Virtual Machine Scale Sets to availability zone support](./migrate-vm.md).
 
 - Move a VM to another subscription or resource group
-    - [CLI](/azure/azure-resource-manager/management/move-resource-group-and-subscription#use-azure-cli)
+    - [CLI](/azure/azure-resource-manager/management/move-resource-group-and-subscription#use-the-azure-cli)
     - [PowerShell](/azure/azure-resource-manager/management/move-resource-group-and-subscription#use-azure-powershell)
 - [Azure Resource Mover](/azure/resource-mover/tutorial-move-region-virtual-machines)
 - [Move Azure VMs to availability zones](../site-recovery/move-azure-vms-avset-azone.md)
@@ -151,7 +151,7 @@ For more information, see [Azure VMs architectural components](../site-recovery/
 
 ### Capacity and proactive disaster recovery resiliency
 
-Microsoft and its customers operate under the [Shared Responsibility Model](./availability-zones-overview.md#shared-responsibility-model). Shared responsibility means that for customer-enabled DR (customer-responsible services), you must address DR for any service they deploy and control. To ensure that recovery is proactive, you should always pre-deploy secondaries because there's no guarantee of capacity at time of impact for those who haven't preallocated.
+Microsoft and its customers operate under the [Shared Responsibility Model](./concept-shared-responsibility.md). Shared responsibility means that for customer-enabled DR (customer-responsible services), you must address DR for any service they deploy and control. To ensure that recovery is proactive, you should always pre-deploy secondaries because there's no guarantee of capacity at time of impact for those who haven't preallocated.
 
 For deploying virtual machines, you can use [flexible orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration) mode on Virtual Machine Scale Sets. All VM sizes can be used with flexible orchestration mode. Flexible orchestration mode also offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains either within a region or within an availability zone.
 

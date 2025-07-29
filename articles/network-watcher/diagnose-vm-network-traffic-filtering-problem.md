@@ -9,13 +9,14 @@ ms.topic: quickstart
 ms.date: 10/14/2024
 
 #Customer intent: I want to diagnose a virtual machine (VM) network traffic filter using IP flow verify to know which security rule is denying the traffic and causing the communication problem to the VM.
+# Customer intent: As a network administrator, I want to diagnose network traffic filter issues for a virtual machine using IP flow verification, so that I can identify security rules that are blocking traffic and resolve any communication problems effectively.
 ---
 
 # Quickstart: Diagnose a virtual machine network traffic filter problem using the Azure portal
 
 In this quickstart, you deploy a virtual machine and use Network Watcher [IP flow verify](network-watcher-ip-flow-verify-overview.md) to test the connectivity to and from different IP addresses. Using the IP flow verify results, you determine the security rule that's blocking the traffic and causing the communication failure and learn how you can resolve it. You also learn how to use the [effective security rules](effective-security-rules-overview.md) for a network interface to determine why a security rule is allowing or denying traffic.
 
-:::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem-cli/ip-flow-verify-quickstart-diagram.png" alt-text="Diagram shows the resources created in Network Watcher quickstart.":::
+:::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-quickstart-diagram.png" alt-text="Diagram shows the resources created in Network Watcher quickstart.":::
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -79,7 +80,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
     | Public inbound ports | Select **None**. |
 
     > [!NOTE]
-    > Azure will create a default network security group for **myVM** virtual machine (because you selected **Basic** NIC network security group). You will use this default network security group to test network communication to and from the virtual machine in the next section.
+    > Azure will create a default network security group for **myVM** virtual machine (because you selected **Basic** NIC network security group). You'll use this default network security group to test network communication to and from the virtual machine in the next section.
 
 1. Select **Review + create**.
 
@@ -93,7 +94,7 @@ In this section, you use the IP flow verify capability of Network Watcher to tes
 
 1. Under **Network diagnostic tools**, select **IP flow verify**.
 
-1. In the **IP flow verify** page, enter or select the following values:
+1. In the **IP flow verify** page, enter, or select the following values:
 
     | Setting | Value |
     |---------|-------|
@@ -108,7 +109,7 @@ In this section, you use the IP flow verify capability of Network Watcher to tes
     | Remote port | Enter *80* |
 
     > [!NOTE]
-    > If you don't see the virtual machine in the list of virtual machines available to select, make sure that it is running. Stopped virtual machines are not available to select for IP flow verify test.
+    > If you don't see the virtual machine in the list of virtual machines available to select, make sure that it's running. Stopped virtual machines aren't available to select for IP flow verify test.
 
     :::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify.png" alt-text="Screenshot shows the values to input in IP flow verify for first test." lightbox="./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify.png":::
 

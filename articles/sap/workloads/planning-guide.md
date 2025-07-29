@@ -9,6 +9,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 05/30/2023
 ms.author: robiro
+# Customer intent: "As an IT architect, I want to plan and implement an SAP deployment on Azure, so that I can leverage cloud resources for optimal performance and ensure compliance and security throughout the deployment process."
 ---
 # Plan and implement an SAP deployment on Azure
 
@@ -132,7 +133,7 @@ As you start to plan and think about which regions to choose as primary region a
 
 ### Azure paired regions
 
-In an Azure paired region, replication of certain data is enabled by default between the two regions. For more information, see [Cross-region replication in Azure: Business continuity and disaster recovery](../../availability-zones/cross-region-replication-azure.md).
+In an Azure paired region, replication of certain data is enabled by default between the two regions. For more information, see [Cross-region replication in Azure: Business continuity and disaster recovery](../../reliability/cross-region-replication-azure.md).
 
 Data replication in a region pair is tied to types of Azure storage that you can configure to replicate into a paired region. For details, see [Storage redundancy in a secondary region](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region).
 
@@ -538,6 +539,9 @@ Contact SAP or your DBMS vendor for support on how to enable, use, or troublesho
 > It can't be overstated how important it is to have a careful plan to store and protect your encryption keys. Without encryption keys, the database or SAP software might be inaccessible and you might lose data. Carefully consider how to protect the keys. Allow access to the keys only by privileged users or services.
 
 Transport or *communication encryption* can be applied to SQL Server connections between SAP engines and the DBMS. Similarly, you can encrypt connections from the SAP presentation layer (SAPGui secure network connection or *SNC)* or an HTTPS connection to a web front end. See the applications vendor's documentation to enable and manage encryption in transit.
+
+
+For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
 
 ### Threat monitoring and alerting
 

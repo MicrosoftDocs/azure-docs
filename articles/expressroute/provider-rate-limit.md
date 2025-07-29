@@ -5,9 +5,10 @@ description: This document discusses how rate limiting works for ExpressRoute ci
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/01/2024
 ms.author: duau
+# Customer intent: As a network administrator, I want to monitor the throughput and traffic drop for my ExpressRoute circuits, so that I can manage rate limiting effectively and ensure optimal performance of the network connection.
 ---
 
 # About rate limiting for ExpressRoute circuits over service provider ports

@@ -4,6 +4,9 @@ description: Learn how to use Azure Monitor logs to analyze logs from Apache Kaf
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 06/15/2024
 ---
 

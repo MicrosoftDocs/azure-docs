@@ -1,0 +1,16 @@
+items:
+- name: Azure Native Pure Storage Cloud (preview) Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Native Pure Storage Cloud (preview)?
+    href: overview.md 
+- name: Quickstart
+  expanded: true
+  items:
+  - name: Create a resource
+    href: create.md
+- name: How to
+  items:
+  - name: Manage your resource
+    href: manage.md

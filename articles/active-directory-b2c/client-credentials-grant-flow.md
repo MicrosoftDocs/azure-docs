@@ -17,6 +17,7 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Set up OAuth 2.0 client credentials flow in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -150,7 +151,7 @@ There are no specific actions to enable the client credentials for user flows or
 | grant_type | `client_credentials` |
 | client_id | The **Client ID** from the [Step 2 Register an application](#step-2-register-an-application). |
 | client_secret | The **Client secret** value from [Step 2.1 Create a client secret](#step-21-create-a-client-secret). |
-| scope | The **Application ID URI** from [Step 1.1 Define web API roles (scopes)](#step-11-define-web-api-roles-scopes) and `.default`. For example `https://contoso.onmicrosoft.com/api/.default`, or `https://contoso.onmicrosoft.com/12345678-0000-0000-0000-000000000000/.default`.|
+| scope | The **Application ID URI** from [Step 1.1 Define web API roles (scopes)](#step-11-define-web-api-roles-scopes) and `.default`. For example `https://contoso.onmicrosoft.com/api/.default`, or `https://contoso.onmicrosoft.com/00001111-aaaa-2222-bbbb-3333cccc4444/.default`.|
 
 The actual POST request looks like the following example:
 
@@ -161,7 +162,7 @@ Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=client_credentials
-&client_id=33333333-0000-0000-0000-000000000000
+&client_id=11112222-bbbb-3333-cccc-4444dddd5555
 &client_secret=FyX7Q~DuPJ...
 &scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2F.default
 ```
@@ -175,7 +176,7 @@ grant_type=client_credentials
     "not_before": 1645172292,
     "expires_in": 3600,
     "expires_on": 1645175892,
-    "resource": "33333333-0000-0000-0000-000000000000"
+    "resource": "11112222-bbbb-3333-cccc-4444dddd5555"
 }
 ```
 

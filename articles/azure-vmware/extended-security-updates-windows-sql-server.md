@@ -6,11 +6,12 @@ ms.author: michwe
 ms.service: azure-vmware
 ms.topic: how-to  
 ms.date: 04/04/2024
+# Customer intent: As an IT admin managing legacy applications in Azure VMware Solution, I want to configure my SQL Server and Windows Server VMs for no-cost Extended Security Updates, so that I can ensure they remain secure and compliant despite their end-of-support status.
 ---
 
 # ESUs for SQL Server and Windows Server in Azure VMware Solution VMs
 
-This article describes how to enable Extended Security Updates (ESUs) and continue to run software that has reached its end-of-support lifecycle in Azure VMware Solution. ESUs allow older versions of software to run in a supported manner by continuing to receive security updates and critical patches. In Azure, which includes Azure VMware Solution, ESUs are free of charge for extra years after their end of support. For more information on timelines, see [Extended Security Updates for SQL Server and Windows Server].
+This article describes how to enable Extended Security Updates (ESUs) and continue to run software that has reached its end-of-support lifecycle in Azure VMware Solution. ESUs allow older versions of software to run in a supported manner by continuing to receive security updates and critical patches. In Azure, which includes Azure VMware Solution, ESUs are free of charge for extra years after their end of support. For more information on timelines, see [Extended Security Updates for SQL Server and Windows Server](https://www.microsoft.com/windows-server/extended-security-updates).
 
 The following sections describe how to configure SQL Server and Windows Server virtual machines (VMs) for no-cost ESUs in Azure VMware Solution. The process is distinct to the Azure VMware Solution private cloud architecture.
 
@@ -37,7 +38,7 @@ To find the SQL Server configuration from the Azure portal:
 
 1. In the Azure VMware Solution portal, go to **vCenter Server Inventory** and **Virtual Machines** by clicking through one of the Azure Arc-enabled VMs. The **Machine-Azure Arc (AVS)** page appears.
 1. On the left pane, under **Operations**, select **SQL Server Configuration**.
-1. Follow the steps in the section [Configure SQL Server enabled by Azure Arc - Modify SQL Server configuration](/sql/sql-server/azure-arc/manage-configuration?view=sql-server-ver16&tabs=azure#modify-sql-server-configuration). This section also provides syntax to configure by using Azure PowerShell or the Azure CLI.
+1. Follow the steps in the section [Configure SQL Server enabled by Azure Arc - Modify SQL Server configuration](/sql/sql-server/azure-arc/manage-configuration?tabs=azure#modify-sql-server-configuration). This section also provides syntax to configure by using Azure PowerShell or the Azure CLI.
 
 #### View ESU subscription status
 
@@ -52,18 +53,31 @@ For machines that run SQL Server where guest management is enabled, the Azure Ex
 
 - Use Azure Resource Graph queries:
 
-  - You can use the query [List Arc-enabled SQL Server instances subscribed to ESU](/sql/sql-server/azure-arc/manage-configuration?view=sql-server-ver16&tabs=azure&branch=main#list-arc-enabled-sql-server-instances-subscribed-to-esu) as an example to show how you can view eligible SQL Server ESU instances and their ESU subscription status.
+  - You can use the query [List Arc-enabled SQL Server instances subscribed to ESU](/sql/sql-server/azure-arc/manage-configuration?tabs=azure&branch=main#list-arc-enabled-sql-server-instances-subscribed-to-esu) as an example to show how you can view eligible SQL Server ESU instances and their ESU subscription status.
     
 ### Windows Server
 
-To enable ESUs for Windows Server environments that run in VMs in Azure VMware Solution, contact [Microsoft Support] for configuration assistance.
+To enable ESUs for Windows Server environments that run in VMs in Azure VMware Solution, follow these steps
 
-When you contact Support, raise the ticket under the Azure VMware Solution category. Your ticket requires the following information:
+1. Contact [Microsoft Support](https://portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade) in the Azure portal for configuration assistance. 
 
-- Customer name and tenant ID
-- Number of VMs you want to register
-- OS versions
-- ESU year of coverage (for example, Year 1, Year 2, or Year 3). See [ESU Availability and End Dates](/lifecycle/faq/extended-security-updates?msclkid=65927660d02011ecb3792e8849989799#esu-availability-and-end-dates) for ESU End Date and Year. The support ticket provides you  with ESU keys for one year. You'll need to raise a new support request for other years. It's recommended to raise a new request as your current ESU End Date Year date is approaching.
+2. On the **Problem description** page, select the following categories:
+
+   - Select **Issue type** as **Technical**.
+   - Select your subscription name.
+   - Select **Service type** as **Azure VMware Solution** service.
+   - Provide a brief summary of the request, such as "ESU request"
+   - Select **Problem type** as **Security**.
+   - Select **Problem subtype** as **Extended Security Update for Windows**.
+   - Select **Next**.
+
+3. Skip the **Recommended solution** page after it loads by selecting **Return to support request**. Select **Next**.
+
+4. Add the following **Additional details** to the support request:
+   - Your name and tenant ID
+   - Number of VMs you want to register
+   - OS versions
+   - ESU year of coverage (for example, Year 1, Year 2, or Year 3). See [ESU Availability and End Dates](/lifecycle/faq/extended-security-updates?msclkid=65927660d02011ecb3792e8849989799#esu-availability-and-end-dates) for ESU End Date and Year. The support ticket provides you with ESU keys for one year. You'll need to create a new support request for other years. It's recommended to create a new request before your current ESU End Date Year date approaches.
 
 > [!WARNING]
 > If you create ESU licenses for Windows through Azure Arc, you're charged for the ESUs.
@@ -73,6 +87,3 @@ When you contact Support, raise the ticket under the Azure VMware Solution categ
 - [What are Extended Security Updates - SQL Server](/sql/sql-server/end-of-support/sql-server-extended-security-updates)
 - [Extend Security Updates for Windows Server overview](/windows-server/get-started/extended-security-updates-overview)
 - [Plan your Windows Server and SQL Server end of support](https://www.microsoft.com/windows-server/extended-security-updates)
-
-[Microsoft Support]: https://ms.portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade/assetId/%2Fsubscriptions%2F5a79c43b-b03d-4610-bc59-627d8a6744d1%2FresourceGroups%2FABM_CSS_Lab_Enviroment%2Fproviders%2FMicrosoft.AVS%2FprivateClouds%2FBareMetal_CSS_Lab/callerWorkflowId/a7ecc9f7-8578-4820-abdf-1db09a2bdb47/callerName/Microsoft_Azure_Support%2FAurora.ReactView/subscriptionId/5a79c43b-b03d-4610-bc59-627d8a6744d1/productId/e7b24d57-0431-7d60-a4bf-e28adc11d23e/summary/Issue/topicId/9e078285-e10f-0365-31e3-6b31e5871794/issueType/technical
-[Extended Security updates for SQL Server and Windows Server]: https://www.microsoft.com/windows-server/extended-security-updates

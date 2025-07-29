@@ -4,15 +4,16 @@ description: This article details how to manage hotpatching (preview) on Azure A
 ms.service: azure-update-manager
 ms.date: 11/01/2024
 ms.topic: how-to
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
+# Customer intent: As an IT administrator managing Arc-enabled machines, I want to implement hotpatching so that I can ensure timely, non-intrusive updates that maintain system reliability and minimize downtime across my environment.
 ---
 
 # Manage hotpatches (preview) on Arc-enabled machines
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-Azure Update Manager enables you to install hotpatches (preview) on Windows Server Azure Editions and Arc-enabled machines. For more information, see [Hotpatch for virtual machines](https://learn.microsoft.com/windows-server/get-started/hotpatch). 
+Azure Update Manager enables you to install hotpatches (preview) on Windows Server Azure Editions and Arc-enabled machines. For more information, see [Hotpatch for virtual machines](/windows-server/get-started/hotpatch).
 
 This article explains how to install hotpatches (preview) on compatible Arc-enabled machines. For hotpatches (preview) being non-intrusive on availability, you can create faster schedules and update your services immediately after release, with less planning to maintain reliability of your machines at-scale.  
 

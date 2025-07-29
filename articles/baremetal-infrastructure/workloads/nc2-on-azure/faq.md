@@ -6,22 +6,34 @@ description: Questions frequently asked about NC2 on Azure
 ms.topic: faq
 ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
-ms.date: 08/15/2024
+ms.date: 12/10/2024
 ms.service: azure-baremetal-infrastructure
+# Customer intent: As a cloud solutions architect, I want to understand the support structure and integration capabilities of NC2 on Azure, so that I can effectively design and implement solutions that leverage both Nutanix software and Azure infrastructure.
 ---
 
 # Frequently asked questions about NC2 on Azure
 
 This article addresses questions most frequently asked about NC2 on Azure.
 
+## How does the 30-day free trial work?
+
+To help you evaluate NC2 on Azure, Nutanix offers and manages a 30-day free trial. You can sign up for the trial with Nutanix. 
+
+The following details are important considerations for Nutanix on Azure BareMetal nodes:
+
+**Cost coverage**: The BareMetal cluster nodes have no cost through the trial. Other components like VMs for Flow Gateway networking and other Azure services are billed and not included in the trial.
+
+**Trial duration**: The trial begins with the initial hardware node deployment and lasts for 30 consecutive days. It can't be paused, and the start date is fixed regardless of cluster activity. Even if the cluster is dropped, the trial time continues.
+
+**One-time opportunity**: The trial is a one-time offer. If you deploy a cluster after the initial 30-day trial period, regardless of the timeframe, the trial doesn't reset, and you'll be billed. Creating a cluster in a different subscription does not reset your trial timing.
+
+**Track the trial period**: There's no visible trial information for the BareMetal. You should track your BareMetal deployment date manually.
+
+For more information, see _*[Starting a Free Trial for NC2 ](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Cloud-Clusters-Azure:nc2-clusters-starting-a-nc2-free-trial-t.html"https://portal.nutanix.com/page/documents/details?targetid=nutanix-cloud-clusters-azure:nc2-clusters-starting-a-nc2-free-trial-t.html")*_
+
 ## What is Hyperconverged Infrastructure (HCI)?
 
 Hyper-converged infrastructure (HCI) uses locally attached storage resources to combine common data center hardware with intelligent software to create flexible building blocks that replace legacy infrastructure consisting of separate servers, storage networks, and storage arrays. [Video explanation](https://www.youtube.com/watch?v=OPYA5-V0yRo)
-
-## How can I create a VM on a node?
-
-After a customer provisions a cluster of Nutanix Ready Nodes, they can spin up a VM through the Nutanix Prism Portal.
-This operation should be exactly the same as on-premises in the prism portal.
 
 ## Is NC2 on Azure a Microsoft or non-Microsoft offering?
 
@@ -30,16 +42,6 @@ Both. On Azure Marketplace, Nutanix on Azure as Baremetal is a Microsoft offerin
 ## How will I be billed?
 
 Customers are billed on a pay-as-you-go basis. Additionally, customers are able to use their existing Microsoft Azure Consumption Contract (MACC).
-
-## What software advantages does Nutanix have over competitors?
-
-Data locality
-Shadow Clones (which lead to faster boot time)
-Cluster level microservices that lead to world-class performance
-
-## Does this solution integrate with the rest of the Azure cloud?
-
-Yes. You can use the products and services in Azure that you already have and love.
 
 ## Who supports NC2 on Azure?
 
@@ -50,13 +52,22 @@ Nutanix delivers support for Nutanix software of NC2 on Azure.
 Nutanix offers a support tier called Production Support for NC2.
 For more information about Production Support tiers and SLAs, see Product Support Programs under Cloud Services Support.
 
-## Can I use my existing VPN or ER gateway for the DR scenario?
+## Does this solution integrate with the rest of the Azure cloud?
 
-Technically, yes. Raise a support ticket from Azure portal to get this functionality enabled.
+Yes. You can use the products and services in Azure that you already have.
 
-## Does Microsoft BareMetal service store customer data outside the Azure region that a customer has chosen?
+## Can I use my existing VPN or ExpressRoute gateway for a disaster recovery scenario?
+
+Yes.
+
+## Does NC2 on Azure store customer data outside the Azure region that a customer has chosen?
 
 No.
+
+## How can I create a virtual machine (VM) on a node?
+
+After a customer provisions a cluster, they can spin up a user VM through the Nutanix Prism Portal.
+This operation should be exactly the same as on-premises in the Prism Portal.
 
 ## Next steps
 

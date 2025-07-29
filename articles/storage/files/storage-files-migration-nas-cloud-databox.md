@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 05/16/2024
 ms.author: kendownie
 recommendations: false
+# Customer intent: "As an IT administrator managing on-premises NAS solutions, I want to migrate our file storage to Azure file shares using DataBox, so that I can ensure data integrity, maintain accessibility during the transition, and eliminate reliance on local storage infrastructure."
 ---
 
 # Use DataBox to migrate from Network Attached Storage (NAS) to Azure file shares
@@ -267,7 +268,7 @@ Speed and success rate of a given RoboCopy run will depend on several factors:
 In this category, you need to consider abilities of the **source storage**, the **target storage**, and the **network** connecting them. The maximum possible throughput is determined by the slowest of these three components. Make sure your network infrastructure is configured to support optimal transfer speeds to its best abilities.
 
 > [!CAUTION]
-> While copying as fast as possible is often most desireable, consider the utilization of your local network and NAS appliance for other, often business-critical tasks.
+> While copying as fast as possible is often most desirable, consider the utilization of your local network and NAS appliance for other, often business-critical tasks.
 
 Copying as fast as possible might not be desirable when there's a risk that the migration could monopolize available resources.
 

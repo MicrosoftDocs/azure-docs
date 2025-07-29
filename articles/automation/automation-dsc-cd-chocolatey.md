@@ -7,6 +7,8 @@ ms.date: 10/22/2024
 ms.topic: how-to
 ms.custom: references_regions, devx-track-azurepowershell
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Set up continuous deployment with Chocolatey
@@ -313,7 +315,7 @@ For each package that you put into the package repository, you need a Nuspec tha
 must be compiled and stored on your NuGet server. For more information, see
 [[Create a NuGet package using nuget.exe CLI]][15].
 
-You can use **MyGet.org** as a NuGet server. You can buy this service, but thee is a free starter
+You can use **MyGet.org** as a NuGet server. You can buy this service, but there is a free starter
 SKU. For instructions on installing your own NuGet server for your private packages, see the
 documentation on [Nuget.org][21].
 

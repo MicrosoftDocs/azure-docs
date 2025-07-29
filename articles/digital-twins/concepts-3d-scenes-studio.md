@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: 3D Scenes Studio (preview) for Azure Digital Twins
 titleSuffix: Azure Digital Twins
 description: Learn about 3D Scenes Studio (preview) for Azure Digital Twins.
 author: baanders
-ms.author: baanders # Microsoft employees only
-ms.date: 11/07/2022
-ms.topic: conceptual
+ms.author: baanders
+ms.date: 01/27/2025
+ms.topic: concept-article
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # 3D Scenes Studio (preview) for Azure Digital Twins
@@ -25,7 +19,7 @@ This article gives an overview of 3D Scenes Studio and its key features. For com
 
 ## Studio overview
 
-Work in 3D Scenes Studio is built around the concept of *scenes*. A scene is a view of a single business environment, and is comprised of 3D content, custom business logic, and references to an Azure Digital Twins instance. You can have multiple scenes for a single digital twin instance.
+Work in 3D Scenes Studio is built around the concept of *scenes*. A scene is a view of a single business environment, and is composed of 3D content, custom business logic, and references to an Azure Digital Twins instance. You can have multiple scenes for a single digital twin instance.
 
 Scenes are configured in the [builder](#builder) inside the 3D Scenes Studio. Then, you can view your finished scenes in the studio's [built-in view experience](#viewer), or [embedded in custom web applications](#embeddable-viewer-component). You can extend the built-in viewer or create your own viewers that access the 3D Scenes files and your Azure Digital Twins graph.
 
@@ -112,7 +106,7 @@ You can use the **Elements** list to explore all the elements and active conditi
 
 3D Scenes Studio is extensible to support additional viewing needs. The [viewer component](#viewer) can be embedded into custom applications, and can work in conjunction with 3rd party components.
 
-[!INCLUDE [digital-twins-3d-embed.md](../../includes/digital-twins-3d-embed.md)]
+[!INCLUDE [digital-twins-3d-embed.md](includes/digital-twins-3d-embed.md)]
 
 ## Limits and performance
 

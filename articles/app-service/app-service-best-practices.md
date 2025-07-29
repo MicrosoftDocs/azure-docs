@@ -1,13 +1,15 @@
 ---
-title: Best practices for Azure App Service
+title: Best Practices for Azure App Service
 description: Learn best practices and common troubleshooting scenarios for your app running in Azure App Service.
 
 ms.assetid: f3359464-fa44-4f4a-9ea6-7821060e8d0d
 ms.topic: article
-ms.date: 07/01/2016
+ms.date: 05/06/2025
 author: msangapu-msft
 ms.author: msangapu
-ms.custom: devx-track-js
+ms.custom:
+  - devx-track-js
+  - build-2025
 ---
 # Best practices for Azure App Service
 
@@ -18,9 +20,9 @@ This article summarizes best practices for using [Azure App Service](./overview.
 An Azure App Service solution consists of a web app and a database or storage account for holding content or data. When these resources are in different regions, the situation can have the following effects:
 
 * Increased latency in communication between resources
-* Monetary charges for outbound data transfer across regions, as noted on the [Azure pricing page](https://azure.microsoft.com/pricing/details/data-transfers)
+* Monetary charges for outbound data transfer across regions, as noted on the [Azure bandwidth pricing](https://azure.microsoft.com/pricing/details/data-transfers) page
 
-Colocation is best for Azure resources that compose a solution. When you create resources, make sure they're in the same Azure region unless you have specific business or design reasons for them not to be. You can move an App Service app to the same region as your database by using the [App Service cloning feature](app-service-web-app-cloning.md) available in Premium App Service plans.
+Colocation is best for Azure resources that comprise a solution. When you create resources, make sure they're in the same Azure region unless you have specific business or design reasons for them not to be. You can move an App Service app to the same region as your database by using the [App Service cloning feature](app-service-web-app-cloning.md) available in Premium App Service plans.
 
 ## <a name ="certificatepinning"></a>Certificate pinning
 
@@ -76,7 +78,7 @@ pm2 start /home/site/wwwroot/app.js --no-daemon -i 4
 
 Backups typically run on a schedule and require access to storage (for outputting the backed-up files) and databases (for copying and reading contents to be included in the backup). The result of failing to access either of these resources is consistent backup failure.
 
-The two most common reasons why app backup fails are invalid storage settings and invalid database configuration. These failures typically happen after changes to storage or database resources, or after changes to credentials for accessing those resources. For example, credentials might be updated for the database that you selected in the backup settings.
+There are two common reasons why app backup fails: invalid storage settings and invalid database configuration. These failures typically happen after changes to storage or database resources, or after changes to credentials for accessing those resources. For example, credentials might be updated for the database that you selected in the backup settings.
 
 When backup failures happen, review the most recent results to understand which type of failure is happening. For storage access failures, review and update the storage settings in your backup configuration. For database access failures, review and update your connection strings as part of app settings. Then proceed to update your backup configuration to properly include the required databases.
 
@@ -84,7 +86,7 @@ For more information on app backups, see [Back up and restore your app in Azure 
 
 ## <a name="nodejs"></a>Node.js apps
 
-The Azure App Service default configuration for Node.js apps is intended to best suit the needs of most common apps. If you want to personalize the default configuration for your Node.js app to improve performance or optimize resource usage for CPU, memory, or network resources, see [Best practices and troubleshooting guide for Node applications on Azure App Service](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md). That article describes the iisnode settings that you might need to configure for your Node.js app. It also explains how to address scenarios or problems with your app.
+The Azure App Service default configuration for Node.js apps is intended to best suit the needs of most common apps. If you want to personalize the default configuration for your Node.js app to improve performance or optimize resource usage for CPU, memory, or network resources, see [Best practices and troubleshooting guide for Node applications on Azure App Service](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md). That article describes the *iisnode* settings that you might need to configure for your Node.js app. It also explains how to address scenarios or problems with your app.
 
 ## <a name="iotdevices"></a>IoT devices
 
@@ -96,15 +98,14 @@ To increase resiliency in your environment, don't rely on a single endpoint for 
 
 In App Service, you can add identical custom domains to multiple web apps, as long as these web apps are hosted in different regions. This capability ensures that if you need to pin certificates, you can also pin on the custom TLS certificate that you provided.
 
-Another option is to use a load balancer in front of the web apps, such as Azure Front Door or Azure Traffic Manager, to ensure high availability for your web apps. For more information, see [Quickstart: Create a Front Door instance for a highly available global web application](../frontdoor/quickstart-create-front-door.md) or [Controlling Azure App Service traffic with Azure Traffic Manager](./web-sites-traffic-manager.md).
+Another option is to use a load balancer in front of the web apps, such as Azure Front Door or Azure Traffic Manager, to ensure high availability for your web apps. For more information, see [Quickstart: Create an Azure Front Door (classic) using the Azure portal](../frontdoor/quickstart-create-front-door.md) or [Controlling Azure App Service traffic with Azure Traffic Manager](./web-sites-traffic-manager.md).
 
-## Next steps
+## Related content
 
 To get actionable best practices that are specific to your resource, use [App Service diagnostics](./overview-diagnostics.md):
 
 1. Go to your web app in the [Azure portal](https://portal.azure.com).
-1. Open App Service diagnostics by selecting **Diagnose and solve problems** on the left pane.
-1. Select the **Best Practices** tile.
-1. Select **Best Practices for Availability & Performance** or **Best Practices for Optimal Configuration** to view the current state of your app in regard to these best practices.
+1. Open App Service diagnostics by selecting **Diagnose and solve problems** on the sidebar menu.
+1. In the search box, enter **Best Practices for Availability & Performance** or **Best Practices for Optimal Configuration** to view the current state of your app in regard to these best practices.
 
-You can also use this link to directly open App Service diagnostics for your resource: `https://portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`.
+    :::image type="content" source="media/app-service-best-practices/portal-best-practices.png" alt-text="Screenshot that shows the best practices options in the search box.":::

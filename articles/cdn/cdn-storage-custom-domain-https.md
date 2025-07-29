@@ -1,13 +1,15 @@
 ---
+ROBOTS: NOINDEX
 title: 'Tutorial: Access storage blobs using an Azure Content Delivery Network custom domain over HTTPS'
 description: Learn how to add an Azure Content Delivery Network custom domain and enable HTTPS on that domain for your custom blob storage endpoint.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 06/26/2024
-ms.author: duau
+ms.date: 03/31/2025
 ms.custom: mvc
+# Customer intent: "As a web developer, I want to configure a custom domain with HTTPS for my Azure Content Delivery Network endpoint, so that I can securely deliver my blob storage content to users."
 ---
 
 # Tutorial: Access storage blobs using an Azure Content Delivery Network custom domain over HTTPS
@@ -41,15 +43,11 @@ If you create multiple SAS URLs for the same blob endpoint, consider enabling qu
 
 ## HTTP-to-HTTPS redirection
 
-You can elect to redirect HTTP traffic to HTTPS by creating a URL redirect rule with the [Standard rules engine](cdn-standard-rules-engine.md) or the [Edgio Premium rules engine](cdn-verizon-premium-rules-engine.md). Standard Rules engine is available only for Azure Content Delivery Network from Microsoft profiles, while Edgio premium rules engine is available only from Azure Content Delivery Network Premium from Edgio profiles.
+You can redirect HTTP traffic to HTTPS by creating a URL redirect rule with the [Standard rules engine](cdn-standard-rules-engine.md).
 
 ![Microsoft redirect rule](./media/cdn-storage-custom-domain-https/cdn-standard-redirect-rule.png)
 
 In the above rule, leaving Hostname, Path, Query string, and Fragment results in the incoming values being used in the redirect.
-
-![Edgio redirect rule](./media/cdn-storage-custom-domain-https/cdn-url-redirect-rule.png)
-
-In the above rule, *Cdn-endpoint-name* refers to the name that you configured for your content delivery network endpoint. The value for *origin-path* refers to the path within your origin storage account where your static content resides. If you're hosting all static content in a single container, replace *origin-path* with the name of that container.
 
 ## Pricing and billing
 

@@ -2,10 +2,11 @@
 title: Archive for What's new in Azure Site Recovery
 description: An archive for features and updates in the Azure Site Recovery service.
 ms.topic: overview
-ms.author: ankitadutta
+ms.author: jsuri
 ms.service: azure-site-recovery
-author: ankitaduttaMSFT
+author: jyothisuri
 ms.date: 12/27/2023
+# Customer intent: "As a system administrator, I want to review the latest updates and feature enhancements for the disaster recovery service, so that I can optimize our organization's backup strategy and ensure compatibility with our systems."
 ---
 
 # Archive for What's new in Site Recovery
@@ -604,7 +605,7 @@ Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
-**Linux BRTFS file system** | Site Recovery now supports replication of VMware VMs with the BRTFS file system. Replication isn't supported if:<br/><br/>- The BTRFS file system subvolume is changed after enabling replication.<br/><br/>- The file system is spread over multiple disks.<br/><br/>- The BTRFS file system supports RAID.
+**Linux BTRFS file system** | Site Recovery now supports replication of VMware VMs with the BTRFS file system. Replication isn't supported if:<br/><br/>- The BTRFS file system subvolume is changed after enabling replication.<br/><br/>- The file system is spread over multiple disks.<br/><br/>- The BTRFS file system supports RAID.
 **Windows Server 2019** | Support added for machines running Windows Server 2019.
 
 
@@ -641,7 +642,7 @@ Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
-**Linux support** | Support was added for Redhat Enterprise Linux 7.6, RedHat Workstation 6/7, Oracle Linux 6.10 and Oracle Linux 7.6, and new kernel versions for Ubuntu, Debian, and SUSE.
+**Linux support** | Support was added for Red Hat Enterprise Linux 7.6, RedHat Workstation 6/7, Oracle Linux 6.10 and Oracle Linux 7.6, and new kernel versions for Ubuntu, Debian, and SUSE.
 
 
 ### Update rollup 31
@@ -673,7 +674,7 @@ Features added this month are summarized in the table.
 **Feature** | **Details**
 --- | ---
 **Linux support** | Support was added for Oracle Linux 6.8, Oracle Linux 6.9 and Oracle Linux 7.0 with the Red Hat Compatible Kernel, and for the Unbreakable Enterprise Kernel (UEK) Release 5.
-**Linux BRTFS file system** | Supported for Azure VMs.
+**Linux BTRFS file system** | Supported for Azure VMs.
 **Azure VMs in availability zones** | You can enable replication to another region for Azure VMs deployed in availability zones. You can now enable replication for an Azure VM, and set the target for failover to a single VM instance, a VM in an availability set, or a VM in an availability zone. The setting doesn't affect replication. [Read](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region/) the announcement.
 **Firewall-enabled storage (portal/PowerShell)** | Support added for [firewall-enabled storage accounts](../storage/common/storage-network-security.md).<br/><br/> You can replicate Azure VMs with unmanaged disks on firewall-enabled storage accounts to another Azure region for disaster recovery.<br/><br/> You can use firewall-enabled storage accounts as target storage accounts for unmanaged disks.<br/><br/> Supported in portal and using PowerShell.
 

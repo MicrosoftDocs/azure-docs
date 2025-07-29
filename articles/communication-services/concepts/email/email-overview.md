@@ -1,28 +1,29 @@
 ---
 title: Overview of Azure Communication Services email
 titleSuffix: An Azure Communication Services concept article
-description: Learn about the concepts of using Azure Communication Services to send email.
+description: This article describes how to use Azure Communication Services to set up email.
 author: bashan-git
 manager: sphenry
 services: azure-communication-services
 ms.author: bashan
-ms.date: 03/31/2023
+ms.date: 06/19/2025
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
+
 # Overview of Azure Communication Services email
 
 Email continues to be a key customer engagement channel globally for businesses. Businesses rely heavily on email communication for seamless business operations.
 
 Azure Communication Services offers an intelligent communication platform to enable businesses to build engaging business-to-consumer (B2C) experiences. Azure Communication Services facilitates high-volume transactional, bulk, and marketing emails. It supports application-to-person (A2P) use cases.
 
-Azure Communication Services can simplify the integration of the email capability in your applications by using production-ready email SDK options. It also supports SMTP commands.
+Azure Communication Services can simplify the integration of the email capability in your applications by using production-ready email SDK options. It also supports simple mail transfer protocol (SMTP) commands.
 
 Azure Communication Services email enables rich collaboration in communication modalities. It combines with SMS and other communication channels to build collaborative applications to help reach your customers in their preferred communication channel.
 
 With Azure Communication Services, you can speed up your market entry with scalable and reliable email features by using your own SMTP domains. As with other communication channels, when you use Azure Communication Services to send email, you pay for only what you use.
 
-<!-- [!INCLUDE [Survey Request](./includes/survey-request.md)] -->
+<!-- [!INCLUDE [Survey Request](../includes/survey-request.md)] -->
 
 ## Key principles
 
@@ -44,14 +45,17 @@ With Azure Communication Services, you can speed up your market entry with scala
 - **Email analytics**: The **Insights** dashboard provides email analytics. The service emits logs at the request level. Each log has a message ID and recipient information for diagnostic and auditing purposes.
 - **Engagement tracking**: The platform supports bounce, blocked, open, and click tracking.
 
+> [!NOTE]  
+> To use email, you must create a separate Email Communication resource in your Azure subscription. This is not created automatically when you create a Communication Services resource.
+
 ## Next steps
 
-- [Prepare an email communication resource for Azure Communication Services](./prepare-email-communication-resource.md)
-- [Email domains and sender authentication for Azure Communication Services](./email-domain-and-sender-authentication.md)
-- [Create and manage an email communication resource in Azure Communication Services](../../quickstarts/email/create-email-communication-resource.md)
-- [Connect a verified email domain in Azure Communication Services](../../quickstarts/email/connect-email-communication-resource.md)
+- [Prepare an email communication resource for Azure Communication Services](./prepare-email-communication-resource.md).
+- [Email domains and sender authentication for Azure Communication Services](./email-domain-and-sender-authentication.md).
+- [Create and manage an email communication resource in Azure Communication Services](../../quickstarts/email/create-email-communication-resource.md).
+- [Connect a verified email domain in Azure Communication Services](../../quickstarts/email/connect-email-communication-resource.md).
 
-The following topics might be interesting to you:
+## Related articles
 
 - Familiarize yourself with the [email client library](../email/sdk-features.md).
 - Learn how to send emails with [custom verified domains](../../quickstarts/email/add-custom-verified-domains.md).

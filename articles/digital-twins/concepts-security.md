@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: Security for Azure Digital Twins solutions
 titleSuffix: Azure Digital Twins
 description: Learn about Azure Digital Twins security best practices.
 author: baanders
-ms.author: baanders # Microsoft employees only
-ms.date: 03/31/2023
-ms.topic: conceptual
+ms.author: baanders
+ms.date: 01/27/2025
+ms.topic: concept-article
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Secure Azure Digital Twins
@@ -50,7 +44,7 @@ With managed identities, the Azure platform manages this runtime identity. You d
 
 #### Authorization: Azure roles for Azure Digital Twins
 
-Azure provides two Azure built-in roles for authorizing access to the Azure Digital Twins [data plane APIs](concepts-apis-sdks.md#data-plane-apis). You can refer to the roles either by name or by ID:
+Azure provides two Azure built-in roles for authorizing access to the Azure Digital Twins [data plane APIs](concepts-apis-sdks.md#data-plane-overview). You can refer to the roles either by name or by ID:
 
 | Built-in role | Description | ID | 
 | --- | --- | --- |
@@ -125,6 +119,8 @@ For instructions on how to set up Private Link for Azure Digital Twins, see [Ena
 
 >[!NOTE]
 > Private network access with Azure Private Link applies to accessing Azure Digital Twins through its rest APIs. This feature does not apply to egress scenarios using Azure Digital Twins's [event routing](concepts-route-events.md) feature.
+
+[!INCLUDE [digital-twins-explorer-private-note.md](includes/digital-twins-explorer-private-note.md)]
 
 ### Design considerations 
 

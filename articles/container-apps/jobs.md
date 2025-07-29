@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: build-2023, devx-track-azurecli
 ms.topic: conceptual
-ms.date: 10/20/2024
+ms.date: 12/19/2024
 ms.author: cshoe
 ---
 
@@ -36,7 +36,7 @@ The following table compares common scenarios for apps and jobs:
 | A job that processes a single message or a small batch of messages from an Azure queue and exits | Job | Use the *Event* job type and [configure a custom scale rule](tutorial-event-driven-jobs.md) to trigger job executions when there are messages in the queue. |
 | A background task that's triggered on-demand and exits when finished | Job | Use the *Manual* job type and [start executions](#start-a-job-execution-on-demand) manually or programmatically using an API. |
 | A self-hosted GitHub Actions runner or Azure Pipelines agent | Job | Use the *Event* job type and configure a [GitHub Actions](tutorial-ci-cd-runners-jobs.md?pivots=container-apps-jobs-self-hosted-ci-cd-github-actions) or [Azure Pipelines](tutorial-ci-cd-runners-jobs.md?pivots=container-apps-jobs-self-hosted-ci-cd-azure-pipelines) scale rule. |
-| An Azure Functions app | App | [Deploy Azure Functions to Container Apps](../azure-functions/functions-container-apps-hosting.md). |
+| An Azure Functions app | App | [Deploy Azure Functions to Container Apps](../container-apps/functions-overview.md). |
 | An event-driven app using the Azure WebJobs SDK | App | [Configure a scale rule](scale-app.md#custom) for each event source. |
 
 ## Concepts
@@ -240,7 +240,7 @@ The cron expression `*/1 * * * *` runs the job every minute.
 
 ### Event-driven jobs
 
-Event-driven jobs are triggered by events from supported [custom scalers](scale-app.md#custom). Examples of event-driven jobs include:
+ Events from supported [custom scalers](scale-app.md#custom) trigger event-driven jobs. Examples of event-driven jobs include:
 
 - A job that runs when a new message is added to a queue such as Azure Service Bus, Kafka, or RabbitMQ.
 - A self-hosted [GitHub Actions runner](tutorial-ci-cd-runners-jobs.md?pivots=container-apps-jobs-self-hosted-ci-cd-github-actions) or [Azure DevOps agent](tutorial-ci-cd-runners-jobs.md?pivots=container-apps-jobs-self-hosted-ci-cd-azure-pipelines) that runs when a new job is queued in a workflow or pipeline.
@@ -431,22 +431,20 @@ Content-Type: application/json
 Authorization: Bearer <TOKEN>
 
 {
-    "template": {
-        "containers": [
-            {
-                "image": "mcr.microsoft.com/k8se/quickstart-jobs:latest",
-                "name": "main",
-                "resources": {
-                    "cpu": 0.25,
-                    "memory": "0.5Gi"
-                },
-                "command": [
-                    "echo",
-                    "Hello, Azure Container Apps jobs!"
-                ]
-            }
-        ]
-    }
+    "containers": [
+        {
+            "image": "mcr.microsoft.com/k8se/quickstart-jobs:latest",
+            "name": "main",
+            "resources": {
+                "cpu": 0.25,
+                "memory": "0.5Gi"
+            },
+            "command": [
+                "echo",
+                "Hello, Azure Container Apps jobs!"
+            ]
+        }
+    ]
 }
 ```
 
@@ -596,7 +594,7 @@ The following example Azure Resource Manager template creates a job with advance
 
 # [Azure portal](#tab/azure-portal)
 
-To configure advanced settings using the Azure portal, search for *Container App Jobs* in the Azure portal and select *Create*. Select *Configuration* to configure the settings.
+To configure advanced settings using the Azure portal, search for *Container App Jobs* in the Azure portal and select *Create*. To configure the settings, select *Configuration*.
 
 ---
 

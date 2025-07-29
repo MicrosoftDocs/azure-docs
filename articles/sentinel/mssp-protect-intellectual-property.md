@@ -1,10 +1,10 @@
 ---
 title: Protecting managed security service provider (MSSPs) intellectual property in Microsoft Sentinel
 description: Learn about how  managed security service providers (MSSPs) can protect the intellectual property they've created in Microsoft Sentinel.
-author: cwatson-cat
+author: EdB-MSFT
 ms.topic: conceptual
 ms.date: 01/09/2023
-ms.author: cwatson
+ms.author: edbaynash
 
 
 #Customer intent: As an MSSP, I want to understand how to protect my intellectual property in Microsoft Sentinel so that I can maintain control over my proprietary analytics rules, hunting queries, playbooks, and workbooks while providing managed security services to my customers.
@@ -69,12 +69,14 @@ To do this, you need a workspace in your own tenant with Microsoft Sentinel enab
 
 To create an analytic rule or hunting query in the MSSP tenant that references data in the customer tenant, you must use the `workspace` statement as follows:
 
-```kql
-workspace('<customer-workspace>').SecurityEvent
+```kusto
+workspace('<customer-workspace-explicit-identifier>').SecurityEvent
 | where EventID == ‘4625’
 ```
 
 When adding a `workspace` statement to your analytics rules, consider the following:
+
+- **Use the customer's explicit workspace identifier** in the cross workspace query for best performance. For more information, see [Identifier formats for cross workspace queries](/azure/azure-monitor/logs/cross-workspace-query#arguments).
 
 - **No alerts in the customer workspace**. Rules created in this manner, don't create alerts or incidents in the customer workspace. Both alerts and incidents exist in your MSSP workspace only.
 

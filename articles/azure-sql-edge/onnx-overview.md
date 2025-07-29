@@ -1,9 +1,9 @@
 ---
 title: Machine learning and AI with ONNX in Azure SQL Edge
 description: Machine learning in Azure SQL Edge supports models in the Open Neural Network Exchange (ONNX) format. ONNX is an open format you can use to interchange models between various machine learning frameworks and tools.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.reviewer: hudequei, randolphwest
+author: rwestMSFT
+ms.author: randolphwest
+ms.reviewer: hudequei, vanto, kendalv
 ms.date: 09/21/2024
 ms.service: azure-sql-edge
 ms.subservice: machine-learning
@@ -33,7 +33,7 @@ To obtain a model in the ONNX format:
 
      **Supported frameworks**
    * [PyTorch](http://pytorch.org/docs/master/onnx.html)
-   * [Tensorflow](https://github.com/onnx/tensorflow-onnx)
+   * [TensorFlow](https://github.com/onnx/tensorflow-onnx)
    * [Keras](https://github.com/onnx/keras-onnx)
    * [Scikit-learn](https://github.com/onnx/sklearn-onnx)
    * [CoreML](https://github.com/onnx/onnxmltools)

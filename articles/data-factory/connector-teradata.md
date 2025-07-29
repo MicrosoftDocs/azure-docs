@@ -6,17 +6,18 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 06/06/2025
 ms.author: jianleishen
 ---
 
 # Copy data from Teradata Vantage using Azure Data Factory and Synapse Analytics
 
-> * [Current version](connector-teradata.md)
-
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the copy activity in Azure Data Factory and Synapse Analytics pipelines to copy data from Teradata Vantage. It builds on the [copy activity overview](copy-activity-overview.md).
+
+> [!IMPORTANT]
+> The Teradata connector version 2.0 provides improved native Teradata support. If you are using Teradata connector version 1.0 in your solution, please [upgrade the Teradata connector](#upgrade-the-teradata-connector) before **September 30, 2025**. Refer to this [section](#differences-between-teradata-connector-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
 
 ## Supported capabilities
 
@@ -40,6 +41,11 @@ Specifically, this Teradata connector supports:
 ## Prerequisites
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
+
+### For version 2.0
+
+ You need to [install .NET Data Provider](https://downloads.teradata.com/download/connectivity/net-data-provider-teradata) with version 20.00.03.00 or above on your self-hosted integration runtime if you use it.
+### For version 1.0
 
 If you use Self-hosted Integration Runtime, note it provides a built-in Teradata driver starting from version 3.18. You don't need to manually install any driver. The driver requires "Visual C++ Redistributable 2012 Update 4" on the self-hosted integration runtime machine. If you don't yet have it installed, download it from [here](https://www.microsoft.com/en-sg/download/details.aspx?id=30679).
 
@@ -75,7 +81,60 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The Teradata linked service supports the following properties:
+The Teradata connector now supports version 2.0. Refer to this [section](#upgrade-the-teradata-connector) to upgrade your Teradata connector version from version 1.0. For the property details, see the corresponding sections.
+
+- [Version 2.0](#version-20)
+- [Version 1.0](#version-10)
+
+### Version 2.0
+
+The Teradata linked service supports the following properties when apply version 2.0:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property must be set to **Teradata**. | Yes |
+| version | The version that you specify. The value is `2.0`.  | Yes |
+| server | The Teradata server name.  | Yes |
+| authenticationType | The authentication type to connect to Teradata. Valid values including **Basic**, **Windows**, and **LDAP**  | Yes |
+| username | Specify a user name to connect to Teradata. | Yes |
+| password | Specify a password for the user account you specified for the user name. You can also choose to [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
+
+More connection properties you can set in connection string per your case:
+
+| Property | Description | Default value |
+|:--- |:--- |:--- |
+| sslMode | The SSL mode for connections to the database. Valid values including `Disable`, `Allow`, `Prefer`, `Require`, `Verify-CA`, `Verify-Full`.  | `Verify-Full` |
+| portNumber  |The port numbers when connecting to server through non-HTTPS/TLS connections.  | 1025|
+| httpsPortNumber |The port numbers when connecting to server through HTTPS/TLS connections. |443 |
+| UseDataEncryption | Specifies whether to encrypt all communication with the Teradata database. Allowed values are 0 or 1.<br><br/>- **0 (disabled)**: Encrypts authentication information only.<br/>- **1 (enabled, default)**: Encrypts all data that is passed between the driver and the database. This setting is ignored for HTTPS/TLS connections.| `1` |
+| CharacterSet | The character set to use for the session. For example, `CharacterSet=UTF16`.<br><br/>This value can be a user-defined character set, or one of the following predefined character sets: <br/>- ASCII<br/>- ARABIC1256_6A0<br/>- CYRILLIC1251_2A0<br/>- HANGUL949_7R0<br/>- HEBREW1255_5A0<br/>- KANJI932_1S0<br/>- KANJISJIS_0S<br/>- LATIN1250_1A0<br/>- LATIN1252_3A0<br/>- LATIN1254_7A0<br/>- LATIN1258_8A0<br/>- SCHINESE936_6R0<br/>- TCHINESE950_8R0<br/>- THAI874_4A0<br/>- UTF8<br/>- UTF16  | `ASCII` |
+| MaxRespSize |The maximum size of the response buffer for SQL requests, in bytes. For example, `MaxRespSize=10485760`.<br/><br/>Range of permissible values are from `4096` to `16775168`. The default value is `524288`.  | `524288`  |
+
+**Example**
+
+```json
+{
+    "name": "TeradataLinkedService",
+    "properties": {
+        "type": "Teradata",
+        "version": "2.0",
+        "typeProperties": {
+            "server": "<server name>", 
+            "username": "<user name>", 
+            "password": "<password>", 
+            "authenticationType": "<authentication type>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+### Version 1.0 
+
+The Teradata linked service supports the following properties when apply version 1.0:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -299,7 +358,7 @@ You are suggested to enable parallel copy with data partitioning especially when
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Full load from large table.                                   | **Partition option**: Hash. <br><br/>During execution, the service automatically detects the primary index column, applies a hash against it, and copies data by partitions. |
 | Load large amount of data by using a custom query.                 | **Partition option**: Hash.<br>**Query**: `SELECT * FROM <TABLENAME> WHERE ?AdfHashPartitionCondition AND <your_additional_where_clause>`.<br>**Partition column**: Specify the column used for apply hash partition. If not specified, the service automatically detects the PK column of the table you specified in the Teradata dataset.<br><br>During execution, the service replaces `?AdfHashPartitionCondition` with the hash partition logic, and sends to Teradata. |
-| Load large amount of data by using a custom query, having an integer column with evenly distributed value for range partitioning. | **Partition options**: Dynamic range partition.<br>**Query**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Partition column**: Specify the column used to partition data. You can partition against the column with integer data type.<br>**Partition upper bound** and **partition lower bound**: Specify if you want to filter against the partition column to retrieve data only between the lower and upper range.<br><br>During execution, the service replaces `?AdfRangePartitionColumnName`, `?AdfRangePartitionUpbound`, and `?AdfRangePartitionLowbound` with the actual column name and value ranges for each partition, and sends to Teradata. <br>For example, if your partition column "ID" set with the lower bound as 1 and the upper bound as 80, with parallel copy set as 4, the service retrieves data by 4 partitions. Their IDs are between [1,20], [21, 40], [41, 60], and [61, 80], respectively. |
+| Load large amount of data by using a custom query, having an integer column with evenly distributed value for range partitioning. | **Partition options**: Dynamic range partition.<br>**Query**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Partition column**: Specify the column used to partition data. You can partition against the column with integer data type.<br>**Partition upper bound** and **partition lower bound**: Specify if you want to filter against the partition column to retrieve data only between the lower and upper range.<br><br>During execution, the service replaces `?AdfRangePartitionColumnName`, `?AdfRangePartitionUpbound`, and `?AdfRangePartitionLowbound` with the actual column name and value ranges for each partition, and sends to Teradata. <br>For example, if your partition column "ID" is set with the lower bound as 1 and the upper bound as 80, with parallel copy set as 4, the service retrieves data by 4 partitions. Their IDs are between [1,20], [21, 40], [41, 60], and [61, 80], respectively. |
 
 **Example: query with hash partition**
 
@@ -333,52 +392,71 @@ You are suggested to enable parallel copy with data partitioning especially when
 
 When you copy data from Teradata, the following mappings apply from Teradata's data types to the internal data types used by the service. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
-| Teradata data type | Interim service data type |
-|:--- |:--- |
-| BigInt |Int64 |
-| Blob |Byte[] |
-| Byte |Byte[] |
-| ByteInt |Int16 |
-| Char |String |
-| Clob |String |
-| Date |DateTime |
-| Decimal |Decimal |
-| Double |Double |
-| Graphic |Not supported. Apply explicit cast in source query. |
-| Integer |Int32 |
-| Interval Day |Not supported. Apply explicit cast in source query. |
-| Interval Day To Hour |Not supported. Apply explicit cast in source query. |
-| Interval Day To Minute |Not supported. Apply explicit cast in source query. |
-| Interval Day To Second |Not supported. Apply explicit cast in source query. |
-| Interval Hour |Not supported. Apply explicit cast in source query. |
-| Interval Hour To Minute |Not supported. Apply explicit cast in source query. |
-| Interval Hour To Second |Not supported. Apply explicit cast in source query. |
-| Interval Minute |Not supported. Apply explicit cast in source query. |
-| Interval Minute To Second |Not supported. Apply explicit cast in source query. |
-| Interval Month |Not supported. Apply explicit cast in source query. |
-| Interval Second |Not supported. Apply explicit cast in source query. |
-| Interval Year |Not supported. Apply explicit cast in source query. |
-| Interval Year To Month |Not supported. Apply explicit cast in source query. |
-| Number |Double |
-| Period (Date) |Not supported. Apply explicit cast in source query. |
-| Period (Time) |Not supported. Apply explicit cast in source query. |
-| Period (Time With Time Zone) |Not supported. Apply explicit cast in source query. |
-| Period (Timestamp) |Not supported. Apply explicit cast in source query. |
-| Period (Timestamp With Time Zone) |Not supported. Apply explicit cast in source query. |
-| SmallInt |Int16 |
-| Time |TimeSpan |
-| Time With Time Zone |TimeSpan |
-| Timestamp |DateTime |
-| Timestamp With Time Zone |DateTime |
-| VarByte |Byte[] |
-| VarChar |String |
-| VarGraphic |Not supported. Apply explicit cast in source query. |
-| Xml |Not supported. Apply explicit cast in source query. |
+| Teradata data type | Interim service data type (for version 2.0) | Interim service data type (for version 1.0) |
+|:--- |:--- |:--- |
+| BigInt | Int64 | Int64 | 
+| Blob | Byte[] | Byte[] | 
+| Byte | Byte[] | Byte[] | 
+| ByteInt | Int16 | Int16 | 
+| Char | String | String | 
+| Clob | String | String | 
+| Date | Date | DateTime | 
+| Decimal |  Decimal   | Decimal | 
+| Double | Double | Double | 
+| Graphic | String | Not supported. Apply explicit cast in source query. | 
+| Integer | Int32 | Int32 | 
+| Interval Day  | TimeSpan | Not supported. Apply explicit cast in source query. | 
+| Interval Day To Hour | TimeSpan | Not supported. Apply explicit cast in source query. | 
+| Interval Day To Minute | TimeSpan | Not supported. Apply explicit cast in source query. | 
+| Interval Day To Second | TimeSpan | Not supported. Apply explicit cast in source query. | 
+| Interval Hour | TimeSpan | Not supported. Apply explicit cast in source query. | 
+| Interval Hour To Minute | TimeSpan | Not supported. Apply explicit cast in source query. | 
+| Interval Hour To Second | TimeSpan | Not supported. Apply explicit cast in source query. | 
+| Interval Minute | TimeSpan | Not supported. Apply explicit cast in source query. | 
+| Interval Minute To Second | TimeSpan | Not supported. Apply explicit cast in source query. | 
+| Interval Month | String | Not supported. Apply explicit cast in source query. | 
+| Interval Second | TimeSpan | Not supported. Apply explicit cast in source query. | 
+| Interval Year | String | Not supported. Apply explicit cast in source query. | 
+| Interval Year To Month | String | Not supported. Apply explicit cast in source query. | 
+| Number | Double | Double | 
+| Period (Date) | String | Not supported. Apply explicit cast in source query. | 
+| Period (Time) | String | Not supported. Apply explicit cast in source query. | 
+| Period (Time With Time Zone) | String | Not supported. Apply explicit cast in source query. | 
+| Period (Timestamp) | String | Not supported. Apply explicit cast in source query. | 
+| Period (Timestamp With Time Zone) | String | Not supported. Apply explicit cast in source query. | 
+| SmallInt | Int16 | Int16 | 
+| Time | Time | TimeSpan | 
+| Time With Time Zone | String   | TimeSpan | 
+| Timestamp | DateTime | DateTime | 
+| Timestamp With Time Zone | DateTimeOffset | DateTime | 
+| VarByte | Byte[] | Byte[] | 
+| VarChar | String | String | 
+| VarGraphic | String | Not supported. Apply explicit cast in source query. | 
+| Xml | String | Not supported. Apply explicit cast in source query. | 
 
 
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+## Upgrade the Teradata connector
+
+Here are steps that help you upgrade the Teradata connector:
+
+1. In **Edit linked service** page, select 2.0 version and configure the linked service by referring to [linked service version 2.0 properties](#version-20).
+
+2. The data type mapping for the Teradata linked service version 2.0 is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Teradata](#data-type-mapping-for-teradata).
+
+
+## Differences between Teradata connector version 2.0 and version 1.0
+
+The Teradata connector version 2.0 offers new functionalities and is compatible with most features of version 1.0. The following table shows the feature differences between version 2.0 and version 1.0.
+
+| Version 2.0 | Version 1.0 | 
+| :----------- | :------- |
+| The default value of `sslMode` is `Verify-Full`. | The default value of `sslMode` is `Prefer`. |
+| The default value of `UseDataEncryption` is `1`. | The default value of `UseDataEncryption` is `0`. |
+| The following mappings are used from Teradata data types to interim service data type.<br><br>Date -> Date<br>Time With Time Zone -> String <br>Timestamp With Time Zone -> DateTimeOffset <br>Graphic -> String<br>Interval Day  -> TimeSpan<br>Interval Day To Hour -> TimeSpan<br>Interval Day To Minute -> TimeSpan<br>Interval Day To Second -> TimeSpan<br>Interval Hour -> TimeSpan<br>Interval Hour To Minute -> TimeSpan<br>Interval Hour To Second -> TimeSpan<br>Interval Minute -> TimeSpan<br>Interval Minute To Second -> TimeSpan<br>Interval Month -> String<br>Interval Second -> TimeSpan<br>Interval Year -> String<br>Interval Year To Month -> String<br>Number -> Double<br>Period (Date) -> String<br>Period (Time) -> String<br>Period (Time With Time Zone) -> String<br>Period (Timestamp) -> String<br>Period (Timestamp With Time Zone) -> String<br>VarGraphic -> String<br>Xml -> String | The following mappings are used from Teradata data types to interim service data type.<br><br>Date -> DateTime<br>Time With Time Zone ->  TimeSpan    <br>Timestamp With Time Zone -> DateTime <br>Other mappings supported by version 2.0 listed left are not supported by version 1.0. Please apply an explicit cast in the source query.   |  
 
 
 ## Related content

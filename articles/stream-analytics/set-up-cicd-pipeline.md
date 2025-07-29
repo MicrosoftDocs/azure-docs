@@ -5,7 +5,8 @@ author: alexlzx
 ms.author: zhenxilin
 ms.service: azure-stream-analytics
 ms.topic: how-to
-ms.date: 09/08/2023
+ms.date: 12/17/2024
+# Customer intent: I want to know how to set up a CI/CD pipeline for an Azure Stream Analytics job in Azure DevOps.
 ---
 
 # Use Azure DevOps to create a CI/CD pipeline for a Stream Analytics job
@@ -173,7 +174,7 @@ Open a web browser and navigate to your Azure Stream Analytics Visual Studio Cod
 ### Add deploy tasks
 
 > [!NOTE]
-> The `Override template parameters` is not applicable for ARM --v2 builds since parameters are passed as objects. To address this, it's recommended to include a PowerShell script in your pipeline to read the parameter file as JSON and make the necessary parameter modifications.
+> The `Override template parameters` is not applicable for ARM v2 builds since parameters are passed as objects. To address this, it's recommended to include a PowerShell script in your pipeline to read the parameter file as JSON and make the necessary parameter modifications.
 >
 > For more guidance on adding the PowerShell script, please refer to [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json) and [Update Object in JSON file](https://stackoverflow.com/questions/65753594/update-object-in-json-file-using-powershell).
 
@@ -189,9 +190,9 @@ Open a web browser and navigate to your Azure Stream Analytics Visual Studio Cod
    |Resource group| Choose a name for the test resource group that will contain your Stream Analytics job.|
    |Location|Choose the location of your test resource group.|
    |Template location| Linked artifact|
-   |Template| $(System.DefaultWorkingDirectory)/_azure-streamanalytics-cicd-demo-CI-Deploy/drop/myASAProject.JobTemplate.json |
-   |Template parameters|$(System.DefaultWorkingDirectory)/_azure-streamanalytics-cicd-demo-CI-Deploy/drop/myASAProject.JobTemplate.parameters.json |
-   |Override template parameters|-<arm_template_parameter> "your value". You can define the parameters using **Variables**.|
+   |Template| `$(System.DefaultWorkingDirectory)/_azure-streamanalytics-cicd-demo-CI-Deploy/drop/myASAProject.JobTemplate.json` |
+   |Template parameters|`$(System.DefaultWorkingDirectory)/_azure-streamanalytics-cicd-demo-CI-Deploy/drop/myASAProject.JobTemplate.parameters.json` |
+   |Override template parameters|`-<arm_template_parameter> "your value"`. You can define the parameters using **Variables**.|
    |Deployment mode|Incremental|
 
 3. From the tasks dropdown, select **Deploy job to production environment**.
@@ -206,9 +207,9 @@ Open a web browser and navigate to your Azure Stream Analytics Visual Studio Cod
    |Resource group| Choose a name for the production resource group that will contain your Stream Analytics job.|
    |Location|Choose the location of your production resource group.|
    |Template location| *Linked artifact*|
-   |Template| $(System.DefaultWorkingDirectory)/_azure-streamanalytics-cicd-demo-CI-Deploy/drop/myASAProject.JobTemplate.json |
-   |Template parameters|$(System.DefaultWorkingDirectory)/_azure-streamanalytics-cicd-demo-CI-Deploy/drop/myASAProject.JobTemplate.parameters.json |
-   |Override template parameters|-<arm_template_parameter> "your value"|
+   |Template| `$(System.DefaultWorkingDirectory)/_azure-streamanalytics-cicd-demo-CI-Deploy/drop/myASAProject.JobTemplate.json` |
+   |Template parameters|`$(System.DefaultWorkingDirectory)/_azure-streamanalytics-cicd-demo-CI-Deploy/drop/myASAProject.JobTemplate.parameters.json` |
+   |Override template parameters|`-<arm_template_parameter> "your value"`|
    |Deployment mode|Incremental|
 
 ### Create a release
@@ -217,7 +218,7 @@ To create a release, select **Create release** in the top-right corner.
 
 :::image type="content" source="media/set-up-cicd-pipeline/create-release.png" alt-text="Create a release using Azure Pipelines":::
 
-## Next steps
+## Related content
 
 * [Continuous integration and Continuous deployment for Azure Stream Analytics](cicd-overview.md)
 * [Automate build, test, and deployment of an Azure Stream Analytics job using CI/CD tools](cicd-tools.md)

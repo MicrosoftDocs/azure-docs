@@ -5,7 +5,7 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 04/13/2024
+ms.date: 06/18/2025
 ms.author: mametcal
 ms.custom: devx-track-java, mode-other
 #Customer intent: As an Spring Boot developer, I want to use feature flags to control feature availability quickly and confidently.
@@ -20,7 +20,7 @@ The Spring Boot Feature Management libraries extend the framework with comprehen
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - A supported [Java Development Kit SDK](/java/azure/jdk) with version 11.
 - [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
 
@@ -41,129 +41,136 @@ To create a new Spring Boot project:
 
    * Generate a **Maven** project with **Java**.
    * Specify a **Spring Boot** version that's equal to or greater than 2.0.
-   * Specify the **Group** and **Artifact** names for your application.  This article uses `com.example` and `demo`.
+   * Specify the **Group** and **Artifact** names for your application. This article uses `com.example` and `demo`.
    * Add the **Spring Web** dependency.
 
 1. After you specify the previous options, select **Generate Project**. When prompted, download the project to your local computer.
 
 ## Add feature management
 
-1. After you extract the files on your local system, your Spring Boot application is ready for editing. Locate  *pom.xml* in the root directory of your app.
+1. After you extract the files on your local system, your Spring Boot application is ready for editing. Locate *pom.xml* in the root directory of your app.
 
 1. Open the *pom.xml* file in a text editor and add the following to the list of `<dependencies>`:
 
-    ### [Spring Boot 3](#tab/spring-boot-3)
+```xml
+<dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+</dependency>
+<dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-thymeleaf</artifactId>
+</dependency>
 
-    ```xml
-    <dependency>
+<dependencyManagement>
+    <dependencies>
+        <dependency>
         <groupId>com.azure.spring</groupId>
-        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>com.azure.spring</groupId>
-        <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-thymeleaf</artifactId>
-    </dependency>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-            <groupId>com.azure.spring</groupId>
-            <artifactId>spring-cloud-azure-dependencies</artifactId>
-            <version>5.8.0</version>
-            <type>pom</type>
-            <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-    ```
-
-    ### [Spring Boot 2](#tab/spring-boot-2)
-
-    ```xml
-    <dependency>
-        <groupId>com.azure.spring</groupId>
-        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>com.azure.spring</groupId>
-        <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-thymeleaf</artifactId>
-    </dependency>
-    
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-            <groupId>com.azure.spring</groupId>
-            <artifactId>spring-cloud-azure-dependencies</artifactId>
-            <version>4.14.0</version>
-            <type>pom</type>
-            <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-    ```
-
-    ---
+        <artifactId>spring-cloud-azure-dependencies</artifactId>
+        <version>5.22.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+```
 
 > [!NOTE]
-> * There is a non-web Feature Management Library that doesn't have a dependency on spring-web. Refer to GitHub's [documentation](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-feature-management) for differences.
+> * There's a non-web Feature Management Library that doesn't have a dependency on spring-web. Refer to GitHub's [documentation](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-feature-management) for differences.
 
 ## Connect to an App Configuration store
 
-1. Navigate to the `resources` directory of your app and open `bootstrap.properties`.  If the file does not exist, create it. Add the following line to the file.
+1. Navigate to the `resources` directory of your app and open the `bootstrap.properties` or `bootstrap.yaml` file. If the file doesn't exist, create it.
 
+    You can connect to your App Configuration store using Microsoft Entra ID (recommended), or a connection string.
+    
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    1.  Update your configuration files.
+
+        If you're using a properties file, use the following code:
+        ```properties
+        spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
+        spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled=true
+        ```
+        
+        If you're using a yaml file, use the following code:
+        ```yaml
+        spring:
+            cloud:
+            azure:
+                appconfiguration:
+                stores:
+                    -
+                    feature-flags:
+                        enabled: true
+                    endpoint: ${APP_CONFIGURATION_ENDPOINT}
+        ```
+
+        You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
+
+    1. Add the following code to your project, unless you want to use Managed Identity. Create a new file named `AppConfigCredential.java`:
+    
+        ```java
+        import com.azure.data.appconfiguration.ConfigurationClientBuilder;
+        import com.azure.identity.DefaultAzureCredentialBuilder;
+        import com.azure.spring.cloud.appconfiguration.config.ConfigurationClientCustomizer;
+        
+        public class AppConfigCredential implements ConfigurationClientCustomizer {
+        
+            @Override
+            public void customize(ConfigurationClientBuilder builder, String endpoint) {
+                builder.credential(new DefaultAzureCredentialBuilder().build());
+            }
+        }
+        ```
+    
+    1. Create a new file named `MyConfiguration.java` and add the following lines:
+    
+        ```java
+        import org.springframework.context.annotation.Bean;
+        import org.springframework.context.annotation.Configuration;
+        
+        @Configuration
+        public class MyConfiguration {
+        
+        
+            @Bean
+            public AppConfigCredential clientSetup() {
+                return new AppConfigCredential();
+            }
+            
+        }
+        ```
+
+    1. Add configuration Bootstrap Configuration, by creating `spring.factories` file under `resources/META-INF` directory and add the following lines and updating `com.example.MyConfiguration` with your application package:
+
+        ```factories
+        org.springframework.cloud.bootstrap.BootstrapConfiguration=\
+        com.example.MyConfiguration
+        ```
+
+    ### [Connection string](#tab/connection-string)
+    If you are using a properties file, use the following code:
     ```properties
-    spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIGURATION_CONNECTION_STRING}
+    spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_CONNECTION_STRING}
     spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled=true
     ```
 
-1. Set an environment variable named **APP_CONFIGURATION_CONNECTION_STRING**, and set it to the connection string to your App Configuration store. At the command line, run the following command and restart the command prompt to allow the change to take effect:
-
-    ### [Windows command prompt](#tab/windowscommandprompt)
-
-    To build and run the app locally using the Windows command prompt, run the following command:
-
-    ```console
-    setx APP_CONFIGURATION_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
+    If you are using a yaml file, use the following code:
+    ```yaml
+    spring:
+      cloud:
+        azure:
+          appconfiguration:
+            stores[0]:
+              feature-flags:
+                enabled: 'true'
+              connection-string: ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
-
-    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it is set properly.
-
-    ### [PowerShell](#tab/powershell)
-
-    If you use Windows PowerShell, run the following command:
-
-    ```azurepowershell
-    $Env:APP_CONFIGURATION_CONNECTION_STRING = "connection-string-of-your-app-configuration-store"
-    ```
-
-    ### [macOS](#tab/unix)
-
-    If you use macOS, run the following command:
-
-    ```console
-    export APP_CONFIGURATION_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
-    ```
-
-    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it is set properly.
-
-    ### [Linux](#tab/linux)
-
-    If you use Linux, run the following command:
-
-    ```console
-    export APP_CONFIGURATION_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
-    ```
-
-    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it is set properly.
-
     ---
 
 1. Create a new Java file named *HelloController.java* in the package directory of your app.
@@ -171,27 +178,23 @@ To create a new Spring Boot project:
     ```java
     package com.example.demo;
 
-    import org.springframework.boot.context.properties.ConfigurationProperties;
+    import org.springframework.beans.factory.annotation.Autowired;
     import org.springframework.stereotype.Controller;
     import org.springframework.ui.Model;
+    import org.springframework.web.bind.annotation.GetMapping;
 
     import com.azure.spring.cloud.feature.management.FeatureManager;
-    import org.springframework.web.bind.annotation.GetMapping;
 
 
     @Controller
-    @ConfigurationProperties("controller")
     public class HelloController {
 
+        @Autowired
         private FeatureManager featureManager;
-
-        public HelloController(FeatureManager featureManager) {
-            this.featureManager = featureManager;
-        }
 
         @GetMapping("/welcome")
         public String mainWithParam(Model model) {
-            model.addAttribute("Beta", featureManager.isEnabledAsync("Beta").block());
+            model.addAttribute("Beta", featureManager.isEnabled("Beta"));
             return "welcome";
         }
     }
@@ -288,6 +291,56 @@ To create a new Spring Boot project:
     ```
 
 ## Build and run the app locally
+
+1. Set an environment variable.
+
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    Set the environment variable named **APP_CONFIGURATION_ENDPOINT** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
+
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+
+    ```cmd
+    setx APP_CONFIGURATION_ENDPOINT "endpoint-of-your-app-configuration-store"
+    ```
+
+    If you use PowerShell, run the following command:
+
+    ```powershell
+    $Env:APP_CONFIGURATION_ENDPOINT = "<endpoint-of-your-app-configuration-store>"
+    ```
+
+    If you use macOS or Linux, run the following command:
+
+    ```bash
+    export APP_CONFIGURATION_ENDPOINT='<endpoint-of-your-app-configuration-store>'
+    ```
+
+    ### [Connection string](#tab/connection-string)
+
+    Set the environment variable named **APP_CONFIGURATION_CONNECTION_STRING** to the read-only connection string of your App Configuration store found under *Access settings* of your store in the Azure portal.
+
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+
+    ```cmd
+    setx APP_CONFIGURATION_CONNECTION_STRING "<connection-string-of-your-app-configuration-store>"
+    ```
+
+   If you use PowerShell, run the following command:
+
+    ```powershell
+    $Env:APP_CONFIGURATION_CONNECTION_STRING = "<connection-string-of-your-app-configuration-store>"
+    ```
+
+    If you use macOS or Linux, run the following command:
+
+    ```bash
+    export APP_CONFIGURATION_CONNECTION_STRING='<connection-string-of-your-app-configuration-store>'
+    ```
+    ---
+
+    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it is set properly.
+
+    ---
 
 1. Build your Spring Boot application with Maven and run it.
 

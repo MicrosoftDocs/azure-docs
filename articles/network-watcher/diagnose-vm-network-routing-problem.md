@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.date: 10/29/2024
 
 #CustomerIntent: As an Azure administrator, I want to diagnose virtual machine (VM) network routing problem that prevents it from communicating with the internet.
+# Customer intent: As an Azure administrator, I want to troubleshoot network routing issues for virtual machines using diagnostic tools, so that I can ensure proper communication between resources and identify potential routing problems effectively.
 ---
 
 # Tutorial: Diagnose a virtual machine network routing problem using the Azure portal
@@ -43,7 +44,7 @@ In this section, you create a virtual network.
 
 1. In the search box at the top of the portal, enter ***virtual networks***. Select **Virtual networks** from the search results.
 
-    :::image type="content" source="./media/diagnose-vm-network-routing-problem/virtual-network-azure-portal.png" alt-text="Screenshot shows searching for virtual networks in the Azure portal.":::
+    :::image type="content" source="./media/virtual-networks-portal-search.png" alt-text="Screenshot that shows how to search for virtual networks in the Azure portal." lightbox="./media/virtual-networks-portal-search.png":::
 
 1. Select **+ Create**.
 

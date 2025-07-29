@@ -5,7 +5,7 @@
     - name: What is Event Hubs?
       href: event-hubs-about.md
     - name: Apache Kafka on Azure Event Hubs
-      href: azure-event-hubs-kafka-overview.md
+      href: azure-event-hubs-apache-kafka-overview.md
     - name: Schema Registry
       href: schema-registry-overview.md      
     - name: Terminology
@@ -156,6 +156,8 @@
           href: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub
     - name: Reliability
       items:
+        - name: Best practices for business continuity and disaster recovery
+          href: event-hubs-business-continuity-outages-disasters.md
         - name: Availability zones and disaster recovery
           href: ../reliability/reliability-event-hubs.md?toc=/azure/event-hubs/toc.json
         - name: Geo-replication
@@ -184,6 +186,8 @@
               href: authorize-access-azure-active-directory.md
         - name: Network security
           href: network-security.md
+        - name: Network security perimeter
+          href: network-security-perimeter.md        
         - name: Security controls by Azure Policy
           displayName: regulatory, compliance, standards, domains
           href: ./security-controls-policy.md
@@ -329,6 +333,8 @@
           href: /azure/azure-monitor/agents/diagnostics-extension-stream-event-hubs       
     - name: Secure
       items:
+        - name: Enable managed identity for a namespace
+          href: enable-managed-identity.md
         - name: Allow access from specific IP addresses
           href: event-hubs-ip-filtering.md
         - name: Allow access from specific virtual networks
@@ -364,9 +370,9 @@
     - name: Move
       items:
       - name: Move a namespace to another region
-        href: ../operational-excellence/relocation-event-hub.md?toc=/azure/event-hubs/TOC.json
+        href: ../azure-resource-manager/management/relocation/relocation-event-hub.md?toc=/azure/event-hubs/TOC.json
       - name: Move a dedicated cluster to another region
-        href: ../operational-excellence/relocation-event-hub-cluster.md?toc=/azure/event-hubs/TOC.json
+        href: ../azure-resource-manager/management/relocation/relocation-event-hub-cluster.md?toc=/azure/event-hubs/TOC.json
 - name: Reference
   items:
     - name: Monitor data reference
@@ -441,7 +447,7 @@
     - name: FAQ
       href: event-hubs-faq.yml
     - name: Azure Roadmap
-      href: https://azure.microsoft.com/roadmap/?category=iot
+      href: https://azure.microsoft.com/updates/?category=iot
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/event-hubs/
     - name: Pricing calculator
@@ -451,4 +457,4 @@
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-eventhub
     - name: Videos
-      href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs
+      href: /shows/data-exposed/?expanded=azure&terms=event-hubs

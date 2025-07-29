@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.author: cshoe
 ms.service: azure-container-apps
-ms.custom: subject-reliability, references_regions, devx-track-azurepowershell, devx-track-azurecli
+ms.custom: subject-reliability,  devx-track-azurepowershell, devx-track-azurecli
 ms.topic: reliability-article
 ms.date: 10/23/2023
 ---
@@ -29,7 +29,7 @@ By enabling Container Apps' zone redundancy feature, replicas are automatically 
 
 Azure Container Apps offers the same reliability support regardless of your plan type.
 
-Azure Container Apps uses [availability zones](availability-zones-overview.md#zonal-and-zone-redundant-services) in regions where they're available. For a list of regions that support availability zones, see [Availability zone service and regional support](availability-zones-service-support.md).
+Azure Container Apps uses [availability zones](availability-zones-overview.md#zonal-and-zone-redundant-services) in regions where they're available. For a list of regions that support availability zones, see [Azure regions with availability zones](regions-list.md).
 
 ### SLA improvements
 
@@ -69,7 +69,7 @@ Create a virtual network and infrastructure subnet to include with the Container
 When using these commands, replace the `<PLACEHOLDERS>` with your values.
 
 >[!NOTE]
-> The Consumption only environment requires a dedicated subnet with a CIDR range of `/23` or larger. The workload profiles environment requires a dedicated subnet with a CIDR range of `/27` or larger. To learn more about subnet sizing, see the [networking architecture overview](../container-apps/networking.md#subnet).
+> The Consumption only environment requires a dedicated subnet with a CIDR range of `/23` or larger. The workload profiles environment requires a dedicated subnet with a CIDR range of `/27` or larger. To learn more about subnet sizing, see the [networking architecture overview](../container-apps/custom-virtual-networks.md#subnet).
 
 # [Azure CLI](#tab/azure-cli)
 

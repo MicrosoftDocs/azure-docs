@@ -1,13 +1,13 @@
 ---
 title: Reservations software costs for Azure
 description: Learn which software meters aren't included in Azure Reserved virtual machine (VM) Instance costs.
-author: bandersmsft
+author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 05/14/2024
-ms.author: banders
+ms.date: 07/08/2025
+ms.author: primittal
 ---
 
 # Software costs not included with Azure Reserved VM Instances

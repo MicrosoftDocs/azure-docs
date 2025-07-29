@@ -7,9 +7,10 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.date: 12/16/2022
+ms.date: 11/19/2024
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
+# Customer intent: As an SAP system administrator, I want to install and configure a high-availability SAP NetWeaver system on an Azure Windows failover cluster, so that I can ensure continuous operation and reliability for SAP ASCS/SCS instances.
 ---
 
 # Install SAP NetWeaver high availability on a Windows failover cluster and file share for SAP ASCS/SCS instances on Azure
@@ -143,7 +144,7 @@ Update parameters in the SAP ASCS/SCS instance profile \<SID>_ASCS/SCS\<Nr>_\<Ho
 | Parameter name | Parameter value |
 | --- | --- |
 | gw/netstat_once | **0** |
-| enque/encni/set_so_keepalive  | **true** |
+| enque/encni/set_so_keepalive  | **TRUE** |
 | service/ha_check_node | **1** |
 
 Parameter `enque/encni/set_so_keepalive` is only needed if using ENSA1.  

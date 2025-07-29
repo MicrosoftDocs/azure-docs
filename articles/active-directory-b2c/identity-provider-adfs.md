@@ -6,7 +6,7 @@ author: garrodonnell
 manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 01/24/2024
+ms.date: 01/24/2025
 ms.author: godonnell
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
@@ -16,6 +16,8 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Add AD FS as an OpenID Connect identity provider using custom policies in Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -29,7 +31,7 @@ zone_pivot_groups: b2c-policy-type
 
 To enable sign-in for users with an AD FS account in Azure Active Directory B2C (Azure AD B2C), create an Application Group in your AD FS. For more information, see [Build a web application using OpenID Connect with AD FS 2016 and later](../active-directory/develop/msal-migration.md)
 
-To create an Application Group, follow theses steps:
+To create an Application Group, follow these steps:
 
 1. In **Server Manager**, select **Tools**, and then select **AD FS Management**.
 1. In AD FS Management, right-click on **Application Groups** and select **Add Application Group**.
@@ -73,7 +75,7 @@ In this step, configure the claims AD FS application returns to Azure AD B2C.
 
 ## Configure AD FS as an identity provider
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with an account that has at least [External Identity Provider Administrator](/entra/identity/role-based-access-control/permissions-reference#external-identity-provider-administrator) privileges.
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **Identity providers**, and then select **New OpenID Connect provider**.

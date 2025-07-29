@@ -1,8 +1,8 @@
 ---
 title: Using user-defined schemas
 description: Tips for using T-SQL user-defined schemas to develop solutions for dedicated SQL pools in Azure Synapse Analytics.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 04/17/2018
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
@@ -39,7 +39,7 @@ If user-defined schemas have not been used previously, then you have a clean sla
 If schemas have already been used, then you have a few options:
 
 - Remove the legacy schema names and start fresh.
-- Retain the legacy schema names by pre-pending the legacy schema name to the table name.
+- Retain the legacy schema names by prepending the legacy schema name to the table name.
 - Retain the legacy schema names by implementing views over the table in an extra schema to re-create the old schema structure.
 
 > [!NOTE]
@@ -66,7 +66,7 @@ CREATE TABLE [edw].[customer] -- create data warehouse tables in the edw schema
 );
 ```
 
-Keep legacy schema names by pre-pending them to the table name. Use schemas for the workload boundary:
+Keep legacy schema names by prepending them to the table name. Use schemas for the workload boundary:
 
 ```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary

@@ -5,8 +5,9 @@ services: ddos-protection
 author: AbdullahBell
 ms.service: azure-ddos-protection
 ms.topic: how-to
-ms.date: 07/17/2024
+ms.date: 03/17/2025
 ms.author: abell
+# Customer intent: "As a network administrator, I want to manage permissions for DDoS protection plans, so that I can ensure proper access control and compliance across multiple subscriptions and virtual networks."
 ---
 
 # Manage DDoS Protection Plans: permissions and restrictions

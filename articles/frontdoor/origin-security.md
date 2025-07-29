@@ -2,12 +2,11 @@
 title: Secure traffic to origins
 titleSuffix: Azure Front Door
 description: This article explains how to ensure that your origins receive traffic only from Azure Front Door.
-services: front-door
 author: johndowns
-ms.service: azure-frontdoor
-ms.topic: conceptual
-ms.date: 10/02/2023
 ms.author: jodowns
+ms.service: azure-frontdoor
+ms.topic: concept-article
+ms.date: 10/02/2023
 zone_pivot_groups: front-door-tiers
 ---
 
@@ -35,6 +34,10 @@ You should configure your origin to disallow traffic that doesn't come through P
 - Azure App Service and Azure Functions automatically disable access through public internet endpoints when you use Private Link. For more information, see [Using Private Endpoints for Azure Web App](../app-service/networking/private-endpoint.md).
 - Azure Storage provides a firewall, which you can use to deny traffic from the internet. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md).
 - Internal load balancers with Azure Private Link service aren't publicly routable. You can also configure network security groups to ensure that you disallow access to your virtual network from the internet.
+
+## Managed Identities
+
+Managed identities provided by Microsoft Entra ID enables your Front Door instance to securely access other Microsoft Entra protected resources, such as Azure Blob Storage, without the need to manage credentials. After you enable managed identity for Front Door and granting the managed identity necessary permissions to your origin, Front Door will use the managed identity to obtain an access token from Microsoft Entra ID for accessing the specified resource. After successfully obtaining the token, Front Door will set the value of the token in the Authorization header using the Bearer scheme and then forward the request to the origin. Front Door caches the token until it expires. For more information, see [use managed identities to authenticate to origins (preview)](origin-authentication-with-managed-identities.md).
 
 ::: zone-end
 
@@ -77,6 +80,30 @@ You can use [App Service access restrictions](../app-service/app-service-ip-rest
 Application Gateway is deployed into your virtual network. Configure a network security group rule to allow inbound access on ports 80 and 443 from the *AzureFrontDoor.Backend* service tag, and disallow inbound traffic on ports 80 and 443 from the *Internet* service tag.
 
 Use a custom WAF rule to check the `X-Azure-FDID` header value.  For more information, see [Create and use Web Application Firewall v2 custom rules on Application Gateway](../web-application-firewall/ag/create-custom-waf-rules.md#example-7).
+
+# [Application Gateway for Containers](#tab/agc)
+
+To configure traffic routing in Azure Kubernetes Service (AKS) with Application Gateway for Containers, set up an HTTPRoute rule to match incoming traffic from Azure Front Door using the X-Azure-FDID header.
+
+```yaml
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: http-route
+  namespace: {namespace}
+spec:
+  parentRefs:
+  - name: {gateway-name}
+  rules:
+  - matches:
+    - headers:
+      - type: Exact
+        name: X-Azure-FDID
+        value: "xxxxxxxx-xxxx-xxxx-xxxx-xxx"
+    backendRefs:
+    - name: {backend-name}
+      port: {port}
+```
 
 # [IIS](#tab/iis)
 

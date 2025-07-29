@@ -2,9 +2,10 @@
 title: Overview of security features
 description: Learn about security capabilities in Azure Backup that help you protect your backup data and meet the security needs of your business.
 ms.topic: overview
-ms.date: 07/30/2024
+ms.date: 02/24/2025
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: As a security manager, I want to understand the security features of Azure Backup, so that I can ensure our backup data is protected against unauthorized access and comply with industry regulations.
 ---
 
 # Overview of security features in Azure Backup
@@ -112,5 +113,6 @@ To help organizations comply with national/regional and industry-specific requir
 
 ## Next steps
 
-* [Security features to help protect cloud workloads that use Azure Backup](backup-azure-security-feature-cloud.md)
-* [Security features to help protect hybrid backups that use Azure Backup](backup-azure-security-feature.md)
+* [Security features to help protect cloud workloads that use Azure Backup](backup-azure-security-feature-cloud.md).
+* [Security features to help protect hybrid backups that use Azure Backup](backup-azure-security-feature.md).
+* [Azure Policy Regulatory Compliance controls for Azure Backup](security-controls-policy.md).

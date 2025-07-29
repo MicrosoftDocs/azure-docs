@@ -2,11 +2,12 @@
 title: Configure Windows Update settings in Azure Update Manager
 description: This article tells how to configure Windows update settings to work with Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 09/06/2024
+ms.date: 02/27/2025
 ms.topic: how-to
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.custom: engagement-fy24
+# Customer intent: As a system administrator, I want to configure Windows Update settings for Azure Update Manager, so that I can ensure all Windows servers are consistently updated with the latest patches and maintain compliance across the environment.
 ---
 
 # Configure Windows update settings for Azure Update Manager
@@ -18,21 +19,13 @@ Azure Update Manager relies on the [Windows Update client](/windows/deployment/u
 - PowerShell
 - Directly editing the Registry
 
-The Update Manager respects many of the settings specified to control the Windows Update client. If you use settings to enable non-Windows updates, the Update Manager will also manage those updates. If you want to enable downloading of updates before an update deployment occurs, update deployment can be faster, more efficient, and less likely to exceed the maintenance window.
+Azure Update Manager respects many of the settings specified to control the Windows Update client. If you use settings to enable non-Windows updates, Update Manager will also manage those updates.
 
 For additional recommendations on setting up WSUS in your Azure subscription and to secure your Windows virtual machines up to date, review [Plan your deployment for updating Windows virtual machines in Azure using WSUS](/azure/architecture/example-scenario/wsus).
 
 ## Pre-download updates
 
-To configure the automatic downloading of updates without automatically installing them, you can use Group Policy to [configure the Automatic Updates setting](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#configure-automatic-updates) to 3. This setting enables downloads of the required updates in the background, and notifies you that the updates are ready to install. In this way, Update Manager remains in control of schedules, but allows downloading of updates outside the maintenance window. This behavior prevents `Maintenance window exceeded` errors in Update Manager.
-
-You can enable this setting in PowerShell:
-
-```powershell
-$WUSettings = (New-Object -com "Microsoft.Update.AutoUpdate").Settings
-$WUSettings.NotificationLevel = 3
-$WUSettings.Save()
-```
+Pre-download of updates isn't supported in Azure Update Manager.
 
 ## Configure reboot settings
 
@@ -53,7 +46,7 @@ Use one of the following options to perform the settings change at scale:
     $ServiceManager.AddService2($ServiceId,7,"")
     ```
 
-- For servers running Server 2016 or later which are not using Update Manager scheduled patching (that has the VM PatchSettings set to AutomaticByOS = Azure-Orchestrated) you can use Group Policy to control this by downloading and using the latest Group Policy [Administrative template files](/troubleshoot/windows-client/group-policy/create-and-manage-central-store).
+- For servers running Server 2016 or later which aren't using Update Manager scheduled patching (that has the VM PatchSettings set to AutomaticByOS = Azure-Orchestrated) you can use Group Policy to control this by downloading and using the latest Group Policy [Administrative template files](/troubleshoot/windows-client/group-policy/create-and-manage-central-store).
 
 
 ## Configure a Windows server for Microsoft updates
@@ -65,10 +58,6 @@ The Windows update client on Windows servers can get their patches from either o
 > [!NOTE]
 > For the application of patches, you can choose the update client at the time of installation, or later using Group policy or by directly editing the registry.
 > To get the non-operating system Microsoft patches or to install only the OS patches, we recommend you to change the patch repository as this is an operating system setting and not an option that you can configure within Azure Update Manager.
-
-### Edit the registry
-
-If scheduled patching is configured on your machine using the Azure Update Manager, the Auto update on the client is disabled. To edit the registry and configure the setting, see [First party updates on Windows](support-matrix.md).
 
 ### Patching using group policy on Azure Update Manager
 
@@ -88,11 +77,20 @@ For Windows Server 2022:
 
    :::image type="content" source="./media/configure-wu-agent/configure-updates-group-policy-windows.png" alt-text="Screenshot of selection or deselection of install updates for other Microsoft products in Windows Server 2022.":::
 
-## Make WSUS configuration settings
+## WSUS configuration settings
 
 Update Manager supports WSUS settings. You can specify sources for scanning and downloading updates using instructions in [Specify intranet Microsoft Update service location](/windows/deployment/update/waas-wu-settings#specify-intranet-microsoft-update-service-location). By default, the Windows Update client is configured to download updates from Windows Update. When you specify a WSUS server as a source for your machines, the update deployment fails, if the updates aren't approved in WSUS. 
 
 To restrict machines to the internal update service, see [do not connect to any Windows Update Internet locations](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#do-not-connect-to-any-windows-update-internet-locations).
+
+## Registry settings
+
+It's possible to check the patch source under the following two registry keys.
+
+- HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\
+- HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Services
+
+See [Configuring Automatic Updates by editing the registry](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) for more details.
 
 ## Next steps
 

@@ -2,7 +2,7 @@
 title: Built-in policy definitions for Azure App Service
 description: Lists Azure Policy built-in policy definitions for Azure App Service. These built-in policy definitions provide common approaches to managing your Azure resources.
 ms.date: 02/06/2024
-ms.topic: reference
+ms.topic: generated-reference
 ms.custom: subject-policy-reference
 author: cephalin
 ms.author: cephalin
@@ -19,7 +19,7 @@ the link in the **Version** column to view the source on the
 
 ## Azure App Service
 
-[!INCLUDE [azure-policy-reference-rp-appservice](../../includes/policy/reference/byrp/microsoft.web.md)]
+[!INCLUDE [azure-policy-reference-rp-appservice](~/azure-policy-autogen-docs/includes/policy/reference/byrp/microsoft.web.md)]
 
 ## Release notes
 

@@ -3,6 +3,9 @@ title: Use SparkCruise on Azure HDInsight to speed up Apache Spark queries
 description: Learn how to use the SparkCruise optimization platform to improve efficiency of Apache Spark queries.
 ms.service: azure-hdinsight
 ms.topic: how-to
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
 ms.date: 05/09/2024
 
 # Customer intent: As an Apache Spark developer, I would like to learn about the tools and features to optimize my Spark workloads on Azure HDInsight.

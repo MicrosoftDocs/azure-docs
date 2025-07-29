@@ -4,10 +4,13 @@ description: Learn about the private DNS zone values for Azure services that sup
 author: AbdullahBell
 ms.author: abell
 ms.service: azure-private-link
+ms.custom:
+  - ignite-2024
 ms.topic: concept-article
-ms.date: 07/08/2024
+ms.date: 03/25/2025
 
 #CustomerIntent: As a network administrator, I want to configure the private DNS zone values for Azure services that support private endpoints.
+# Customer intent: As a network administrator, I want to configure private DNS zone values for Azure services with private endpoints, so that I can ensure proper DNS resolution for secure connections within my network.
 ---
 
 # Azure Private Endpoint private DNS zone values
@@ -22,14 +25,14 @@ You can use the following options to configure your DNS settings for private end
 
 - **Use the host file (only recommended for testing)**. You can use the host file on a virtual machine to override the DNS.
 
-- **Use a private DNS zone**. You can use [private DNS zones](../dns/private-dns-privatednszone.md) to override the DNS resolution for a private endpoint. A private DNS zone can be linked to your virtual network to resolve specific domains.
+- **Use a private DNS zone**. You can use [Private DNS Zones](../dns/private-dns-privatednszone.md) to override the DNS resolution for a private endpoint. A private DNS zone can be linked to your virtual network to resolve specific domains.
 
 - **Use Azure Private Resolver (optional)**. You can use Azure Private Resolver to override the DNS resolution for a private link resource. For more information about Azure Private Resolver, see [What is Azure Private Resolver?](../dns/dns-private-resolver-overview.md).
 
 > [!CAUTION]
 > - It's not recommended to override a zone that's actively in use to resolve public endpoints. Connections to resources won't be able to resolve correctly without DNS forwarding to the public DNS. To avoid issues, create a different domain name or follow the suggested name for each service listed later in this article.
 > 
-> - Existing Private DNS Zones linked to a single Azure service should not be associated with two different Azure service Private Endpoints. This will cause a deletion of the initial A-record and result in resolution issue when attempting to access that service from each respective Private Endpoint. Create a DNS zone for each Private Endpoint of like services. Don't place records for multiple services in the same DNS zone.
+> - Existing Private DNS Zones linked to a single Azure service should not be associated with two different Azure service Private Endpoints. This will cause a deletion of the initial A-record and result in resolution issues when attempting to access that service from each respective Private Endpoint. Create a DNS zone for each Private Endpoint of like services. Don't place records for multiple services in the same DNS zone.
 
 ## Azure services DNS zone configuration
 
@@ -41,7 +44,10 @@ Connection URLs for your existing applications don't change. Client DNS requests
 > Azure File Shares must be remounted if connected to the public endpoint.
 
 > [!CAUTION]
-> * Private networks already using the private DNS zone for a given type, can only connect to public resources if they don't have any private endpoint connections, otherwise a corresponding DNS configuration is required on the private DNS zone in order to complete the DNS resolution sequence. The corresponding DNS configuration is a manually entered A-record that points to the public IP address of the resource. This procedure isn't recommended as the IP address of the A record won't be automatically updated if the corresponding public IP address changes.
+> * Private networks using a Private DNS Zone for any given resource type (for example, privatelink.blob.core.windows.net/Storage Account) can only resolve DNS Queries to public resources/Public IPs if those public resources don't have any existing Private Endpoint Connections. If this applies, an additional DNS configuration is required on the Private DNS Zone to complete the DNS resolution sequence. Otherwise, the Private DNS Zone will respond to the DNS query with a NXDOMAIN as no matching DNS record would be found in the Private DNS Zone.
+>
+> > * [Fallback to Internet](../dns/private-dns-fallback.md) for Private DNS Zone Virtual Network Links can be implemented for proper DNS Resolution for the Public IP of the public resource. This allows DNS queries that reach Private DNS Zones to be forwarded to Azure DNS for public resolution.
+> > * Alternatively, a manually entered A-record in the Private DNS Zone that contains the Public IP of the public resource would allow for proper DNS resolution. This procedure isn't recommended as the Public IP of the A record in the Private DNS Zone won't be automatically updated if the corresponding public IP address changes for the public resource.
 >
 > * Private endpoint private DNS zone configurations will only automatically generate if you use the recommended naming scheme in the following tables.
 
@@ -55,7 +61,7 @@ For Azure services, use the recommended zone names as described in the following
 >| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 >|---|---|---|---|
 >| Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) | amlworkspace | privatelink.api.azureml.ms<br/>privatelink.notebooks.azure.net | api.azureml.ms<br/>notebooks.azure.net<br/>instances.azureml.ms<br/>aznbcontent.net<br/>inference.ml.azure.com |
->| Azure AI services (Microsoft.CognitiveServices/accounts) | account | privatelink.cognitiveservices.azure.com <br/> privatelink.openai.azure.com | cognitiveservices.azure.com <br/> openai.azure.com |
+>| Azure AI services (Microsoft.CognitiveServices/accounts) | account | privatelink.cognitiveservices.azure.com <br/> privatelink.openai.azure.com <br/> privatelink.services.ai.azure.com | cognitiveservices.azure.com <br/> openai.azure.com <br/> services.ai.azure.com |
 >| Azure Bot Service (Microsoft.BotService/botServices) | Bot | privatelink.directline.botframework.com | directline.botframework.com |
 >| Azure Bot Service (Microsoft.BotService/botServices) | Token | privatelink.token.botframework.com | token.botframework.com |
 
@@ -94,6 +100,7 @@ For Azure services, use the recommended zone names as described in the following
 >| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 >|---|---|---|---|
 >| Azure Kubernetes Service - Kubernetes API (Microsoft.ContainerService/managedClusters) | management | privatelink.{regionName}.azmk8s.io </br> {subzone}.privatelink.{regionName}.azmk8s.io | {regionName}.azmk8s.io |
+| Azure Container Apps (Microsoft.App/ManagedEnvironments) | managedEnvironments | privatelink.{regionName}.azurecontainerapps.io | azurecontainerapps.io |
 >| Azure Container Registry (Microsoft.ContainerRegistry/registries) | registry | privatelink.azurecr.io </br> {regionName}.data.privatelink.azurecr.io | azurecr.io </br> {regionName}.data.azurecr.io |
 
 ### Databases
@@ -116,7 +123,8 @@ For Azure services, use the recommended zone names as described in the following
 >| Azure Database for MySQL - Flexible Server (Microsoft.DBforMySQL/flexibleServers) | mysqlServer | privatelink.mysql.database.azure.com | mysql.database.azure.com |
 >| Azure Database for MariaDB (Microsoft.DBforMariaDB/servers) | mariadbServer | privatelink.mariadb.database.azure.com | mariadb.database.azure.com |
 >| Azure Cache for Redis (Microsoft.Cache/Redis) | redisCache | privatelink.redis.cache.windows.net | redis.cache.windows.net |
->| Azure Cache for Redis Enterprise (Microsoft.Cache/RedisEnterprise) | redisEnterprise | privatelink.redisenterprise.cache.azure.net | redisenterprise.cache.azure.net |
+>| Azure Cache for Redis Enterprise (Microsoft.Cache/RedisEnterprise) | redisEnterprise | privatelink.redisenterprise.cache.azure.net | {cachename}.{region}.redisenterprise.cache.azure.net |
+>| Azure Managed Redis (Microsoft.Cache/RedisEnterprise) | redisEnterprise | privatelink.redis.azure.net | {instanceName}.{region}.redis.azure.net |
 
 ### Hybrid + multicloud
 
@@ -134,10 +142,10 @@ For Azure services, use the recommended zone names as described in the following
 >| Azure Event Grid (Microsoft.EventGrid/topics) | topic | privatelink.eventgrid.azure.net | eventgrid.azure.net |
 >| Azure Event Grid (Microsoft.EventGrid/domains) | domain | privatelink.eventgrid.azure.net | eventgrid.azure.net |
 >| Azure Event Grid (Microsoft.EventGrid/namespaces) | topic | privatelink.eventgrid.azure.net | eventgrid.azure.net |
->| Azure Event Grid (Microsoft.EventGrid/namespaces/topicSpace) | topicSpace | privatelink.ts.eventgrid.azure.net | eventgrid.azure.net |
+>| Azure Event Grid (Microsoft.EventGrid/namespaces) | topicSpace | privatelink.ts.eventgrid.azure.net | eventgrid.azure.net |
 >| Azure Event Grid (Microsoft.EventGrid/partnerNamespaces) | partnernamespace | privatelink.eventgrid.azure.net | eventgrid.azure.net |
 >| Azure API Management (Microsoft.ApiManagement/service) | Gateway | privatelink.azure-api.net | azure-api.net |
->| Azure Health Data Services (Microsoft.HealthcareApis/workspaces) | healthcareworkspace | privatelink.workspace.azurehealthcareapis.com </br> privatelink.fhir.azurehealthcareapis.com </br> privatelink.dicom.azurehealthcareapis.com | workspace.azurehealthcareapis.com </br> fhir.azurehealthcareapis.com </br> dicom.azurehealthcareapis.com |
+>| Azure Health Data Services (Microsoft.HealthcareApis/workspaces) | healthcareworkspace | privatelink.azurehealthcareapis.com </br> privatelink.dicom.azurehealthcareapis.com | workspace.azurehealthcareapis.com </br> fhir.azurehealthcareapis.com </br> dicom.azurehealthcareapis.com |
 
 ### Internet of Things (IoT)
 
@@ -147,7 +155,7 @@ For Azure services, use the recommended zone names as described in the following
 >| Azure IoT Hub (Microsoft.Devices/IotHubs) | iotHub | privatelink.azure-devices.net<br/>privatelink.servicebus.windows.net<sup>1</sup> | azure-devices.net<br/>servicebus.windows.net |
 >| Azure IoT Hub Device Provisioning Service (Microsoft.Devices/ProvisioningServices) | iotDps | privatelink.azure-devices-provisioning.net | azure-devices-provisioning.net |
 >| Device Update for IoT Hubs (Microsoft.DeviceUpdate/accounts) | DeviceUpdate | privatelink.api.adu.microsoft.com | api.adu.microsoft.com |
->| Azure IoT Central (Microsoft.IoTCentral/IoTApps) | iotApp | privatelink.azureiotcentral.com | azureiotcentral.com |
+>| Azure IoT Central (Microsoft.IoTCentral/IoTApps) | iotApp | privatelink.azureiotcentral.com </br> privatelink.azure-devices.net </br> privatelink.servicebus.windows.net </br> privatelink.azure-devices-provisioning.net | azureiotcentral.com </br> privatelink.azure-devices.net </br> privatelink.servicebus.windows.net </br> privatelink.azure-devices-provisioning.net|
 >| Azure Digital Twins (Microsoft.DigitalTwins/digitalTwinsInstances) | API | privatelink.digitaltwins.azure.net | digitaltwins.azure.net |
 
 ### Media
@@ -163,11 +171,13 @@ For Azure services, use the recommended zone names as described in the following
 >| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 >|---|---|---|---|
 >| Azure Automation (Microsoft.Automation/automationAccounts) | Webhook <br> DSCAndHybridWorker | privatelink.azure-automation.net | {regionCode}.azure-automation.net |
->| Azure Backup (Microsoft.RecoveryServices/vaults) | AzureBackup | privatelink.{regionCode}.backup.windowsazure.com | {regionCode}.backup.windowsazure.com |
+>| Azure Backup (Microsoft.RecoveryServices/vaults) | AzureBackup | privatelink.{regionCode}.backup.windowsazure.com </br> privatelink.blob.core.windows.net </br> privatelink.queue.core.windows.net | {regionCode}.backup.windowsazure.com </br> blob.core.windows.net </br> queue.core.windows.net |
+>| Azure Backup (Microsoft.RecoveryServices/vaults) | AzureBackup_secondary | privatelink.{regionCode}.backup.windowsazure.com </br> privatelink.blob.core.windows.net </br> privatelink.queue.core.windows.net | {regionCode}.backup.windowsazure.com </br> blob.core.windows.net </br> queue.core.windows.net |
 >| Azure Site Recovery (Microsoft.RecoveryServices/vaults) | AzureSiteRecovery | privatelink.siterecovery.windowsazure.com | {regionCode}.siterecovery.windowsazure.com |
 >| Azure Monitor (Microsoft.Insights/privateLinkScopes) | azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.net <br/> privatelink.blob.core.windows.net | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.net <br/> blob.core.windows.net <br/> services.visualstudio.com <br/> applicationinsights.azure.com |
 >| Microsoft Purview (Microsoft.Purview/accounts) | account | privatelink.purview.azure.com | purview.azure.com |
 >| Microsoft Purview (Microsoft.Purview/accounts) | portal | privatelink.purviewstudio.azure.com | purviewstudio.azure.com |
+>| Microsoft Purview (Microsoft.Purview/accounts) | platform | privatelink.purview-service.microsoft.com | purview-service.microsoft.com |
 >| Azure Migrate (Microsoft.Migrate/migrateProjects) | Default | privatelink.prod.migration.windowsazure.com | prod.migration.windowsazure.com |
 >| Azure Migrate (Microsoft.Migrate/assessmentProjects) | Default | privatelink.prod.migration.windowsazure.com | prod.migration.windowsazure.com |
 >| Azure Resource Manager (Microsoft.Authorization/resourceManagementPrivateLinks) | ResourceManagement | privatelink.azure.com | azure.com |
@@ -196,6 +206,8 @@ For Azure services, use the recommended zone names as described in the following
 >| Azure Data Lake File System Gen2 (Microsoft.Storage/storageAccounts) | dfs </br> dfs_secondary | privatelink.dfs.core.windows.net | dfs.core.windows.net |
 >| Azure File Sync (Microsoft.StorageSync/storageSyncServices) | afs | privatelink.afs.azure.net | afs.azure.net |
 >| Azure Managed Disks (Microsoft.Compute/diskAccesses) | disks | privatelink.blob.core.windows.net | blob.core.windows.net |
+>| Azure Elastic SAN (Microsoft.ElasticSan/elasticSans) | volumegroup | privatelink.blob.core.windows.net | blob.storage.azure.net |
+
 
 ### Web
 
@@ -204,10 +216,10 @@ For Azure services, use the recommended zone names as described in the following
 >|---|---|---|---|
 >| Azure Search (Microsoft.Search/searchServices) | searchService | privatelink.search.windows.net | search.windows.net |
 >| Azure Relay (Microsoft.Relay/namespaces) | namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
->| Azure Web Apps - Azure Function Apps (Microsoft.Web/sites) | sites | privatelink.azurewebsites.net </br> scm.privatelink.azurewebsites.net<sup>2</sup | azurewebsites.net </br> scm.azurewebsites.net |
+>| Azure Web Apps - Azure Function Apps (Microsoft.Web/sites) | sites | privatelink.azurewebsites.net </br> scm.privatelink.azurewebsites.net<sup>2</sup> | azurewebsites.net </br> scm.azurewebsites.net |
 >| SignalR (Microsoft.SignalRService/SignalR) | signalr | privatelink.service.signalr.net | service.signalr.net |
 >| Azure Static Web Apps (Microsoft.Web/staticSites) | staticSites | privatelink.azurestaticapps.net </br> privatelink.{partitionId}.azurestaticapps.net | azurestaticapps.net </br> {partitionId}.azurestaticapps.net |
->| Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
+>| Azure Web PubSub service (Microsoft.SignalRService/WebPubSub) | webpubsub | privatelink.webpubsub.azure.com | webpubsub.azure.com |
 
 <sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hubs-compatible-endpoint)
 

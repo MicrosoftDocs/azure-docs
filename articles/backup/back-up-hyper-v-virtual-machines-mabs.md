@@ -2,16 +2,20 @@
 title: Back up Hyper-V virtual machines with MABS
 description: This article contains the procedures for backing up and recovery of virtual machines using Microsoft Azure Backup Server (MABS).
 ms.topic: how-to
-ms.date: 03/15/2024
+ms.date: 07/22/2025
 ms.service: azure-backup
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As a systems administrator managing Hyper-V environments, I want to efficiently back up and restore virtual machines using a backup server, so that I can ensure data integrity and availability for critical workloads."
 ---
 
 # Back up Hyper-V virtual machines with Azure Backup Server
 
 This article describes how to back up and restore Hyper-V virtual machines using Microsoft Azure Backup Server (MABS).
+
+[!INCLUDE [The functionality of Azure Backup trim process.](../../includes/backup-trim-process-notification.md)]
+
 
 ## Supported scenarios
 
@@ -145,7 +149,7 @@ To open the Recovery Wizard and recover a virtual machine, follow these steps:
     - **Recover as virtual machine to any host**: MABS supports alternate location recovery (ALR), which provides a seamless recovery of a protected Hyper-V virtual machine to a different Hyper-V host, independent of processor architecture. Hyper-V virtual machines that are recovered to a cluster node won't be highly available. If you choose this option, the Recovery Wizard presents you with an additional screen for identifying the destination and destination path.
     
         >[!NOTE]
-        >If you select the original host the behavior is the same as **Recover to original instance**. The original VHD and all associated checkpoints will be deleted.
+        >If you select the original standalone Hyper-V host or the original Hyper-V cluster and restore to any node of the cluster the behavior is the same as Recover to original instance. The original Virtual Machine and all associated checkpoints are deleted.
 
     - **Copy to a network folder**: MABS supports item-level recovery (ILR), which allows you to do item-level recovery of files, folders, volumes, and virtual hard disks (VHDs) from a host-level backup of Hyper-V virtual machines to a network share or a volume on a MABS protected server. The MABS protection agent doesn't have to be installed inside the guest to perform item-level recovery. If you choose this option, the Recovery Wizard presents you with an additional screen for identifying the destination and destination path.
 

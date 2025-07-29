@@ -1,11 +1,13 @@
 ---
-title: What's new in Azure Automation
+title: What's New in Azure Automation
 description: Significant updates to Azure Automation updated each month.
 services: automation
 ms.subservice:
 ms.topic: overview
-ms.date: 07/19/2024
+ms.date: 06/27/2025
 ms.custom: references_regions
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # What's new in Azure Automation?
@@ -21,6 +23,34 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Automation](whats-new-archive.md).
 
+## June 2025
+
+### General Availability: Azure Automation supports PowerShell 7.4 and Python 3.10 runbooks
+
+Azure Automation announces General Availability of PowerShell 7.4 and Python 3.10 runbooks in all Public regions except Brazil southeast and Gov clouds. PowerShell 7.1 and 7.2 versions and Python 2.7 and 3.8 versions are announced retired by parent products PowerShell and Python respectively, and hence not recommended. [Learn more](automation-runbook-types.md).
+
+### General Availability: Azure Automation Runtime environment
+
+Azure Automation announces General Availability of [Runtime Environment](runtime-environment-overview.md) in all Public regions except Brazil southeast and Gov clouds. You can seamlessly [update](quickstart-update-runbook-in-runtime-environment.md) your outdated PowerShell 7.1, PowerShell 7.2, Python 2.7 and Python 3.8 runbooks to latest runtime versions, thereby enhancing security. This feature provides complete control to configure the script execution environment, without worrying about conflicting module versions in a single Automation account. All existing runbooks are automatically available in the new Runtime environment experience with zero manual effort. [Learn more](manage-runtime-environment.md).
+
+### General Availability: Azure Automation supports Azure CLI commands in PowerShell 7.4 runbooks
+Azure Automation announces General Availability of [Azure CLI commands](quickstart-cli-support-powershell-runbook-runtime-environment.md) in PowerShell 7.4 runbooks in all Public regions except Brazil southeast and Gov clouds. Now, reap combined benefits of the rich command set of Azure CLI in Azure Automation PowerShell runbooks to streamline management of Azure resources.
+
+## December 2024
+
+###  Final retirement notice: AzureRM modules starting February 01, 2025
+
+Azure Automation will **discontinue** execution of all runbooks that use AzureRM modules. AzureRM PowerShell module has retired on **February 29, 2024**. Refer [migration resources](https://aka.ms/azpsmigrate) for guidance on transitioning from AzureRM to Az PowerShell module.
+
+### Final retirement notice: TLS 1.0/1.1 protocols for Azure Automation
+
+Starting **March 01, 2025** all agent-based and extension-based User Hybrid Runbook Workers, Webhooks and DSC nodes using Transport Layer Security (TLS) 1.0 and 1.1 protocols would no longer be able to connect to Azure Automation. All jobs running or scheduled on Hybrid Workers using TLS 1.0 and 1.1 protocols will fail. [Learn more](automation-managing-data.md#tls-for-azure-automation).
+
+### Final retirement notice: Agent-based User Hybrid Runbook Worker
+
+Starting **April 01, 2025** all jobs running on Agent-based User Hybrid Runbook Worker (Windows and Linux) will be stopped. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
+
+
 ## July 2024
 
 ### General Availability: Azure Automation supports PowerShell 7.2 runbooks in Government clouds
@@ -32,7 +62,7 @@ Azure Automation now supports PowerShell 7.2 runbooks in Government clouds.
  
 ### Changes in Process Automation subscription and service limits and quotas
  
-Find the changes in Azure Automation limits and quotas [here](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). These changes are aimed towards improving the reliability and performance of the service by ensuring fair access to cloud resources for all users. We recommend to use other regions or other subscriptions within the same Azure geography to create more Automation accounts.
+Find the changes in Azure Automation limits and quotas [here](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-automation-limits). These changes are aimed towards improving the reliability and performance of the service by ensuring fair access to cloud resources for all users. We recommend to use other regions or other subscriptions within the same Azure geography to create more Automation accounts.
 
 ## February 2024
 
@@ -68,7 +98,7 @@ On **31 August 2024**, Azure Automation will  retire [Automation Update manageme
 
 ### General Availability: Azure Automation supports PowerShell 7.2 runbooks
 
-Azure Automation announces General Availability of PowerShell 7.2 runbooks. This enables you to author runbooks in the long-term supported version of PowerShell using [Azure Automation extension for VS code](how-to/runbook-authoring-extension-for-vscode.md) and execute them on a secure and reliable platform. [Learn more](automation-runbook-types.md).
+Azure Automation announces General Availability of PowerShell 7.2 runbooks. This enables you to author runbooks in the long-term supported version of PowerShell using [Azure Automation extension for VS Code](how-to/runbook-authoring-extension-for-vscode.md) and execute them on a secure and reliable platform. [Learn more](automation-runbook-types.md).
 
 ## October 2023
 

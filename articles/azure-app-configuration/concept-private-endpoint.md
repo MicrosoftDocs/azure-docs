@@ -19,6 +19,14 @@ Using private endpoints for your App Configuration store enables you to:
 - Increase security for the virtual network (VNet) ensuring data doesn't escape from the VNet.
 - Securely connect to the App Configuration store from on-premises networks that connect to the VNet using [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoutes](../expressroute/expressroute-locations.md) with private-peering.
 
+Private endpoints availability varies by App Configuration tier:
+- **Free tier**: Not available
+- **Developer tier**: Up to 1 private endpoint
+- **Standard tier**: Up to 10 private endpoints
+- **Premium tier**: Up to 100 private endpoints
+
+For more information about pricing, see [Azure App Configuration pricing](https://azure.microsoft.com/pricing/details/app-configuration/).
+
 ## Conceptual overview
 
 A private endpoint is a special network interface for an Azure service in your [Virtual Network](../virtual-network/virtual-networks-overview.md) (VNet). When you create a private endpoint for your App Configuration store, it provides secure connectivity between clients on your VNet and your configuration store. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and the configuration store uses a secure private link.
@@ -34,6 +42,12 @@ Service account owners can manage consent requests and private endpoints through
 ### Private endpoints for App Configuration 
 
 When creating a private endpoint, you must specify the App Configuration store to which it connects. If you enable the geo-replication for an App Configuration store, you can connect to all replicas of the store using the same private endpoint. If you have multiple App Configuration stores, you need a separate private endpoint for each store.
+
+### Considerations for geo-replicated App Configuration stores
+
+When geo-replication is enabled for your App Configuration store, you can use a single private endpoint to connect to all replicas. However, since private endpoints are regional resources, this approach may not ensure connectivity in the event of a regional outage.
+
+For enhanced resilience, consider creating private endpoints for each replica of your geo-replicated store, in addition to a private endpoint for the origin store. This ensures that if one region becomes unavailable, clients can access the store through private endpoints provisioned in the same region as a replica. Ensure the relevant [DNS changes](#dns-changes-for-private-endpoints) are made so the endpoint for each replica resolves to the relevant IP address for the private endpoint in the respective replica's region.
 
 ### Connecting to private endpoints
 
@@ -59,7 +73,21 @@ If you are using a custom DNS server on your network, you need to configure it t
 
 ## Pricing
 
-Enabling private endpoints requires a [Standard or Premium tier](https://azure.microsoft.com/pricing/details/app-configuration/) App Configuration store. To learn about private link pricing details, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link).
+Enabling private endpoints requires a [Developer, Standard or Premium tier](https://azure.microsoft.com/pricing/details/app-configuration/) App Configuration store. To learn about private link pricing details, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link).
+
+## Troubleshooting private endpoint errors
+
+### Troubleshoot resource provider registration errors
+
+The following error indicates that the private endpoint being connected to an App Configuration store is in a subscription that has not registered the Azure App Configuration resource provider:
+
+> The private endpoint's subscription 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e' is not registered to use resource provider 'Microsoft.AppConfiguration'.
+
+This error is typically seen when the private endpoint's subscription is different from the App Configuration store's subscription. To resolve:
+1. Register the `Microsoft.AppConfiguration` resource provider in the private endpoint's subscription.
+1. Reconnect the private endpoint to the App Configuration store.
+
+For more details on registering a subscription to a resource provider, see [Register resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
 ## Next steps
 
@@ -72,4 +100,4 @@ Learn more about creating a private endpoint for your App Configuration store, r
 Learn to configure your DNS server with private endpoints:
 
 - [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
-- [DNS configuration for Private Endpoints](../private-link/private-endpoint-overview.md#dns-configuration)
+- [DNS configuration for private endpoints](../private-link/private-endpoint-overview.md#dns-configuration)

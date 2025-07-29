@@ -8,6 +8,7 @@ ms.date: 10/19/2022
 author: sagarkeswani
 ms.author: sagarkeswani
 #Customer intent: As a developer, I want to use the quality checks feature so that I can learn more insights about virtual machines within my Virtual Instance for SAP resource.
+# Customer intent: "As a SAP system administrator, I want to utilize the quality checks feature to gather insights on my Virtual Instance for SAP solutions, so that I can ensure optimal performance and adherence to best practices for my SAP environment on Azure."
 ---
 
 # Get quality checks and insights for a Virtual Instance for SAP solutions
@@ -52,7 +53,7 @@ Azure Center for SAP solutions runs more than 100 quality checks on all VIS reso
 - High availability (HA) Load Balancer checks
 - HANA DB file system checks.
 - OS parameter checks for ANF file system.
-- Pacemaker configuration checks for HANA DB and ASCS Instance for SUSE and Redhat 
+- Pacemaker configuration checks for HANA DB and ASCS Instance for SUSE and Red Hat 
 - OS Configuration checks for Application Instances
 
 The table in the **Advisor Recommendations** tab shows all the recommendations for ASCS, Application, and Database instances in the VIS.

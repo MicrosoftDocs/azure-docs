@@ -11,6 +11,9 @@ This article is a reference for a _mainTemplate.json_ artifact in Azure Managed 
 
 ## Deployment template
 
+> [!Note]
+> Azure Managed Applications only supports ARM templates using languageVersion 1.0 and **does not** support languageVersion 2.0. Refer to the [ARM Template documentation](/azure/azure-resource-manager/templates/syntax#languageversion-20) to see what features will automatically enable version 2.0.
+
 The following JSON shows an example of _mainTemplate.json_ file for Azure Managed Applications:
 
 ```json

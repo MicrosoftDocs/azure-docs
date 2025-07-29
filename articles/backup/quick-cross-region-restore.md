@@ -2,16 +2,17 @@
 title: Quickstart - Restore a PostgreSQL database across regions using Azure Backup 
 description: Learn how to restore a PostgreSQL database across regions by using Azure Backup.
 ms.topic: quickstart
-ms.date: 02/01/2024
+ms.date: 11/22/2024
 ms.service: azure-backup
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As a database administrator, I want to enable Cross Region Restore for my PostgreSQL database, so that I can ensure data availability and perform restoration drills in case of regional failures or compliance audits."
 ---
 
 # Quickstart: Restore a PostgreSQL database across regions by using Azure Backup
 
 This quickstart describes how to enable Cross Region Restore on your Backup vault to restore the data to an alternate region when the primary region is down. 
 
-The Cross Region Restore option allows you to restore data in a secondary [Azure paired region](/azure/availability-zones/cross-region-replication-azure) even when no outage occurs in the primary region; thus, enabling you to perform drills when there's an audit or compliance requirement.
+The Cross Region Restore option allows you to restore data in a secondary [Azure paired region](/azure/reliability/cross-region-replication-azure) even when no outage occurs in the primary region; thus, enabling you to perform drills when there's an audit or compliance requirement.
 
 > [!NOTE]
 >- Currently, Geo-redundant Storage (GRS) vaults with Cross Region Restore enabled can't be changed to Zone-redundant Storage (ZRS) or Locally redundant Storage (LRS) after the protection starts for the first time.

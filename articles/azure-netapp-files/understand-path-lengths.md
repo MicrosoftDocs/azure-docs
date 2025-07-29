@@ -4,9 +4,10 @@ description: Learn how file path limits and lengths are calculated in Azure NetA
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/08/2024
 ms.author: anfdocs
+# Customer intent: "As a systems administrator, I want to grasp the path length limitations in Azure NetApp Files, so that I can effectively manage file and directory structures across NFS and SMB protocols without running into compatibility issues."
 ---
 
 # Understand path lengths in Azure NetApp Files 

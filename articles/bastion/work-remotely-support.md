@@ -5,11 +5,10 @@ services: bastion
 author: isamorris
 
 ms.service: azure-bastion
-ms.topic: conceptual
-ms.date: 06/23/2023
+ms.topic: concept-article
+ms.date: 03/31/2025
 ms.author: isamorris
-
-
+# Customer intent: "As an IT administrator, I want to use Azure Bastion to securely access and manage virtual machines remotely, so that I can support remote work scenarios from any location around the globe."
 ---
 
 # Enable remote work by using Azure Bastion

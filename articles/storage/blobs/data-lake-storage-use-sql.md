@@ -5,9 +5,10 @@ description: This tutorial shows how to run SQL queries on an Azure Synapse serv
 author: jovanpop-msft
 ms.service: azure-data-lake-storage
 ms.topic: tutorial
-ms.date: 03/07/2022
+ms.date: 11/18/2024
 ms.author: normesta
 ms.custom: devx-track-sql
+# Customer intent: "As a data analyst, I want to query data stored in Azure Data Lake using SQL in Synapse Analytics, so that I can perform analytics on my data efficiently and derive insights from it."
 ---
 
 # Tutorial: Query Azure Data Lake Storage using SQL language in Synapse Analytics

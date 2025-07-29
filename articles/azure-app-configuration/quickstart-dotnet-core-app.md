@@ -18,7 +18,7 @@ In this quickstart, you incorporate Azure App Configuration into a .NET console 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download) - also available in the [Azure Cloud Shell](https://shell.azure.com).
 
 ## Add a key-value
@@ -119,19 +119,19 @@ You can connect to your App Configuration store using Microsoft Entra ID (recomm
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx Endpoint "endpoint-of-your-app-configuration-store"
+    setx Endpoint "<endpoint-of-your-app-configuration-store>"
     ```
 
     If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:Endpoint = "endpoint-of-your-app-configuration-store"
+    $Env:Endpoint = "<endpoint-of-your-app-configuration-store>"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export Endpoint='endpoint-of-your-app-configuration-store'
+    export Endpoint='<endpoint-of-your-app-configuration-store>'
     ```
 
     ### [Connection string](#tab/connection-string)
@@ -140,19 +140,19 @@ You can connect to your App Configuration store using Microsoft Entra ID (recomm
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx ConnectionString "connection-string-of-your-app-configuration-store"
+    setx ConnectionString "<connection-string-of-your-app-configuration-store>"
     ```
 
    If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    $Env:ConnectionString = "<connection-string-of-your-app-configuration-store>"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export ConnectionString='connection-string-of-your-app-configuration-store'
+    export ConnectionString='<connection-string-of-your-app-configuration-store>'
     ```
     ---
 

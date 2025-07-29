@@ -71,14 +71,15 @@ There are many different ways to program with Azure Web PubSub service, as some 
 - **Use provided SDKs to manage the WebSocket connections in self-host app servers** - Azure Web PubSub service provides SDKs in C#, JavaScript, Java and Python to manage the WebSocket connections easily, including broadcast messages to the connections, add connections to some groups, or close the connections, etc.
 - **Send messages from server to clients via REST API** - Azure Web PubSub service provides REST API to enable applications to post messages to clients connected, in any REST capable programming languages.
 
-## Quick start
-
-> [!div class="nextstepaction"]
-> [Play with chat demo](https://azure.github.io/azure-webpubsub/demos/chat)
-
-> [!div class="nextstepaction"]
-> [Build a chat app](tutorial-build-chat.md)
 
 ## Next steps
+### 1. Try a live demo
+The quickest way to experience the service is to explore one of our interactive demos. No setup required!  
+> [!div class="nextstepaction"]
+> [Play with a chat demo app](https://azure.github.io/azure-webpubsub/demos/chat)
 
-[!INCLUDE [next step](includes/include-next-step.md)]
+### 2. Explore service features in the Azure portal  
+Next, get hands-on with key features of the service using [LiveTry](./quickstarts-livetry.md). This lets you experiment directly in the Azure portal—no code or local setup needed.
+
+### 3. Build your own app locally
+Ready to see how the service fits into your project? Follow our [quickstart guide](./quickstarts-pubsub-among-clients.md) to spin up a local app and try out the core messaging patterns supported by Azure Web PubSub.

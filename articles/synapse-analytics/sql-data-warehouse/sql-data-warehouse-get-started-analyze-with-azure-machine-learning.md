@@ -1,8 +1,8 @@
 ---
 title: Analyze data with Azure Machine Learning
 description: Use Azure Machine Learning to build a predictive machine learning model based on data stored in Azure Synapse.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: midesa
+ms.author: midesa
 ms.date: 07/15/2020
 ms.service: azure-synapse-analytics
 ms.subservice: machine-learning

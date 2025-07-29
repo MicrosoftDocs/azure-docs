@@ -8,6 +8,8 @@ ms.date: 09/09/2024
 ms.topic: overview
 #Customer intent: As a developer, I want to understand Azure context so that I can avoid error when running multiple runbooks.
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Context switching in Azure Automation
@@ -57,7 +59,7 @@ While you may not come across an issue if you don't follow these recommendations
 `The subscription named <subscription name> cannot be found.`
 
 ```error
-Get-AzVM : The client '<clientid>' with object id '<objectid>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope '/subscriptions/<subcriptionIdOfSubscriptionWichDoesntContainTheVM>/resourceGroups/REsourceGroupName/providers/Microsoft.Compute/virtualMachines/VMName '.
+Get-AzVM : The client '<clientid>' with object id '<objectid>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope '/subscriptions/<subscriptionIdOfSubscriptionWhichDoesntContainTheVM>/resourceGroups/REsourceGroupName/providers/Microsoft.Compute/virtualMachines/VMName '.
    ErrorCode: AuthorizationFailed
    StatusCode: 403
    ReasonPhrase: Forbidden Operation

@@ -116,14 +116,22 @@ Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 - **Category**: Sets the category metadata field in the policy definition.
 - **LocalContentPath**: The path to the local copy of the `.zip` Machine Configuration package
   file. This parameter is required if you're using a User Assigned Managed Identity to provide
-  access to an Azure Storge blob.
+  access to an Azure Storage blob.
 - **ManagedIdentityResourceId**: The `resourceId` of the User Assigned Managed Identity that has
   read access to the Azure Storage blob containing the `.zip` Machine Configuration package file.
   This parameter is required if you're using a User Assigned Managed Identity to provide access to
-  an Azure Storge blob.
+  an Azure Storage blob.
 - **ExcludeArcMachines**: Specifies that the Policy definition should exclude Arc machines. This
   parameter is required if you are using a User Assigned Managed Identity to provide access to an
-  Azure Storge blob.
+  Azure Storage blob.
+- **UseSystemAssignedIdentity**: This is the option to use the system assigned identity for
+  downloading package from storage account container instead of using SaS URL.
+  
+  You can't use this option with the **ManagedIdentityResourceId**. The options are mutually
+  exclusive.
+  
+  You can use this parameter without **ExcludeArcMachines** option as the system assigned
+  identity is available for Arc machines.
 
 > [!IMPORTANT]
 > Unlike Azure VMs, Arc-connected machines currently do not support User Assigned Managed
@@ -131,6 +139,9 @@ Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 > those machines from the policy definition. For the Azure VM to download the assigned package and
 > apply the policy, the Guest Configuration Agent must be version `1.29.82.0` or higher for Windows
 > and version `1.26.76.0` or higher for Linux.
+>
+> For Arc-connected machines, you can also use System Assigned Managed Identities to download
+> packages.
 
 For more information about the **Mode** parameter, see the page
 [How to configure remediation options for machine configuration][02].
@@ -188,8 +199,32 @@ $PolicyConfig3      = @{
 New-GuestConfigurationPolicy @PolicyConfig3 -ExcludeArcMachines
 ```
 
+For this scenario, you need to disable the **Allow Blob anonymous access** setting and assign the
+role **Storage Blob Data Reader** on the storage account to the identity.
+
+Create a policy definition that _enforces_ a custom configuration package using a System-Assigned
+Managed Identity:
+
+```powershell
+$PolicyConfig4      = @{
+  PolicyId                  = '_My GUID_'
+  ContentUri                = $contentUri
+  DisplayName               = 'My deployment policy'
+  Description               = 'My deployment policy'
+  Path                      = './policies/deployIfNotExists.json'
+  Platform                  = 'Windows'
+  PolicyVersion             = 1.0.0
+  Mode                      = 'ApplyAndAutoCorrect'
+  LocalContentPath          = "C:\Local\Path\To\Package"      # Required parameter for managed identity
+}
+New-GuestConfigurationPolicy @PolicyConfig4 -UseSystemAssignedIdentity
+```
+
+For this scenario, you need to disable the **Allow Blob anonymous access** setting and assign the
+role **Storage Blob Data Reader** on the storage account to the system identity.
+
 > [!NOTE]
-> You can retrieve the resorceId of a managed identity using the `Get-AzUserAssignedIdentity`
+> You can retrieve the resourceId of a managed identity using the `Get-AzUserAssignedIdentity`
 > PowerShell cmdlet.
 
 The cmdlet output returns an object containing the definition display name and path of the policy

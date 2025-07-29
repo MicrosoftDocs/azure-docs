@@ -4,7 +4,7 @@ description: Learn how to create incidents from alerts in Microsoft Sentinel.
 author: yelevin
 ms.topic: how-to
 ms.custom: mvc
-ms.date: 05/29/2024
+ms.date: 10/16/2024
 ms.author: yelevin
 
 
@@ -21,11 +21,11 @@ You can easily configure Microsoft Sentinel to automatically create incidents ev
 > [!IMPORTANT]
 > **This article does not apply** if you have:
 > - Enabled [**Microsoft Defender XDR incident integration**](microsoft-365-defender-sentinel-integration.md), or 
-> - Onboarded Microsoft Sentinel to the [**unified security operations platform**](microsoft-sentinel-defender-portal.md).
+> - Onboarded Microsoft Sentinel to the [**Microsoft Defender portal**](microsoft-sentinel-defender-portal.md).
 >
 > In these scenarios, Microsoft Defender XDR [creates incidents from alerts](/defender-xdr/alerts-incidents-correlation) generated in Microsoft services.
 >
-> If you use incident creation rules for other Microsoft security solutions or products not integrated into Defender XDR, such as Microsoft Purview Insider Risk Management, and you plan to onboard to the unified security operations platform in the Defender portal, replace your incident creation rules with [scheduled analytics rules](scheduled-rules-overview.md).
+> If you use incident creation rules for other Microsoft security solutions or products not integrated into Defender XDR, such as Microsoft Purview Insider Risk Management, and you plan to onboard to the Defender portal, replace your incident creation rules with [scheduled analytics rules](scheduled-rules-overview.md).
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ The most direct way to automatically create incidents from alerts generated from
 
    > [!IMPORTANT]
    >
-   > If you don't see this section as shown, you most likely have enabled incident integration in your Microsoft Defender XDR connector, or you have onboarded Microsoft Sentinel to the unified security operations platform in the Microsoft Defender portal.
+   > If you don't see this section as shown, you most likely have enabled incident integration in your Microsoft Defender XDR connector, or you have onboarded Microsoft Sentinel to the Defender portal.
    >
    > In either case, this article does not apply to your environment, since your incidents are created by the Microsoft Defender correlation engine instead of by Microsoft Sentinel.
 

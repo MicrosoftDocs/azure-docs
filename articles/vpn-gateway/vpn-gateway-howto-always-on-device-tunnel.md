@@ -5,9 +5,10 @@ description: Learn how to use gateways with Windows 10 or later Always On to est
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 07/28/2023
+ms.date: 03/31/2025
 ms.author: cherylmc
 
+# Customer intent: As a network administrator, I want to configure an Always On VPN device tunnel to Azure, so that I can ensure a persistent and secure connection for my organization's remote devices.
 ---
 # Configure an Always On VPN device tunnel
 
@@ -27,7 +28,9 @@ Configure the VPN gateway to use IKEv2 and certificate-based authentication usin
 
 To remove the profile, run the following command:
 
-![Screenshot shows a PowerShell window that runs the command Remove-VpnConnection -Name MachineCertTest.](./media/vpn-gateway-howto-always-on-device-tunnel/cleanup.png)
+```azurepowershell-interactive
+Remove-VpnConnection -Name MachineCertTest
+```
 
 ## Next steps
 

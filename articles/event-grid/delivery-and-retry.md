@@ -1,8 +1,9 @@
 ---
 title: Azure Event Grid delivery and retry
-description: Describes how Azure Event Grid delivers events and how it handles undelivered messages.
-ms.topic: conceptual
-ms.date: 03/01/2023
+description: This article describes how Azure Event Grid delivers events and how it handles undelivered messages.
+ms.topic: concept-article
+ms.date: 11/18/2024
+# Customer intent: I want to know how Event Grid delivers messages to event handler and retries when a delivery attempt fails. 
 ---
 
 # Event Grid message delivery and retry
@@ -20,9 +21,9 @@ The following table describes the types of endpoints and errors for which retry 
 
 | Endpoint Type | Error codes |
 | --------------| -----------|
-| Azure Resources | 400 (Bad request), 413 (Request entity is too large) | 
-| Webhook | 400 (Bad request), 413 (Request entity is too large), 401 (Unauthorized) |
- 
+| Azure Resources | 400 (Bad request), 413 (Request entity is too large), 403 (Forbidden)|
+| Webhook | 400 (Bad request), 413 (Request entity is too large), 401 (Unauthorized), 403 (Forbidden)|
+
 > [!NOTE]
 > If dead-letter isn't configured for an endpoint, events will be dropped when the above errors happen. Consider configuring dead-letter if you don't want these kinds of events to be dropped. Dead lettered events will be dropped when the dead-letter destination isn't found.
 
@@ -63,10 +64,10 @@ Event Grid defaults to sending each event individually to subscribers. The subsc
 ### Batching policy
 Batched delivery has two settings:
 
-* **Max events per batch** - Maximum number of events Event Grid delivers per batch. This number will never be exceeded, however fewer events might be delivered if no other events are available at the time of publish. Event Grid doesn't delay events to create a batch if fewer events are available. Must be between 1 and 5,000.
+* **Max events per batch** - Maximum number of events Event Grid delivers per batch. This number will never be exceeded. However, fewer events might be delivered if no other events are available at the time of publish. Event Grid doesn't delay events to create a batch if fewer events are available. Must be between 1 and 5,000.
 * **Preferred batch size in kilobytes** - Target ceiling for batch size in kilobytes. Similar to max events, the batch size might be smaller if more events aren't available at the time of publish. It's possible that a batch is larger than the preferred batch size *if* a single event is larger than the preferred size. For example, if the preferred size is 4 KB and a 10-KB event is pushed to Event Grid, the 10-KB event will still be delivered in its own batch rather than being dropped.
 
-Batched delivery in configured on a per-event subscription basis via the portal, CLI, PowerShell, or SDKs.
+Batched delivery in configured on a per-event subscription basis via the portal, CLI, PowerShell, or Software Development Kits (SDKs).
 
 ### Batching behavior
 
@@ -362,7 +363,7 @@ Event subscriptions allow you to set up HTTP headers that are included in delive
 
 For more information, see [Custom delivery properties](delivery-properties.md). 
 
-## Next steps
+## Related content
 
 * To view the status of event deliveries, see [Monitor Event Grid message delivery](monitor-event-delivery.md).
 * To customize event delivery options, see [Dead letter and retry policies](manage-event-delivery.md).

@@ -5,9 +5,10 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/07/2024
 ms.author: anfdocs
+# Customer intent: "As a Linux system administrator, I want to configure optimal NFS mount options for Azure NetApp Files, so that I can enhance performance and reduce job run times in a multi-node environment."
 ---
 # Linux NFS mount options best practices for Azure NetApp Files
 
@@ -32,7 +33,7 @@ When you use `nconnect`, keep the following rules in mind:
 
     | Linux release | NFSv3 (minimum release) | NFSv4.1 (minimum release) |
     |-|-|-|
-    | Redhat Enterprise Linux | RHEL8.3 | RHEL8.3 |
+    | Red Hat Enterprise Linux | RHEL8.3 | RHEL8.3 |
     | SUSE | SLES12SP4 or SLES15SP1 | SLES15SP2 |
     | Ubuntu | Ubuntu18.04 |          |
 

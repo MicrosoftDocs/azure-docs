@@ -3,7 +3,9 @@ title: 'Quickstart: Run Playwright tests at scale'
 description: 'This quickstart shows how to run your Playwright tests with highly parallel cloud browsers using Microsoft Playwright Testing Preview. The cloud-hosted browsers support multiple operating systems and all modern browsers.'
 ms.topic: quickstart
 ms.date: 10/04/2023
-ms.custom: playwright-testing-preview, build-2024
+ms.custom: playwright-testing-preview, build-2024, ignite-2024
+zone_pivot_group_filename: playwright-testing/zone-pivots-groups.json
+zone_pivot_groups: microsoft-playwright-testing
 ---
 
 # Quickstart: Run end-to-end tests at scale with Microsoft Playwright Testing Preview
@@ -30,12 +32,15 @@ To get started with running your Playwright tests at scale on cloud browsers, yo
 
 When the workspace creation finishes, you're redirected to the setup guide.
 
+
 ## Install Microsoft Playwright Testing package 
+
+::: zone pivot="playwright-test-runner"
 
 To use the service, install Microsoft Playwright Testing package. 
 
 ```npm
-npm init @azure/microsoft-playwright-testing
+npm init @azure/microsoft-playwright-testing@latest
 ```
 
 This generates `playwright.service.config.ts` file which serves to:
@@ -45,6 +50,18 @@ This generates `playwright.service.config.ts` file which serves to:
 
 If you already have this file, the package asks you to override it. 
 
+::: zone-end
+
+::: zone pivot="nunit-test-runner"
+
+To use the service, install Microsoft Playwright Testing package. 
+
+```PowerShell
+dotnet add package Azure.Developer.MicrosoftPlaywrightTesting.NUnit --prerelease
+```
+
+::: zone-end
+
 ## Configure the service region endpoint
 
 In your setup, you have to provide the region-specific service endpoint. The endpoint depends on the Azure region you selected when creating the workspace.
@@ -53,9 +70,11 @@ To get the service endpoint URL, perform the following steps:
 
 1. In **Add region endpoint in your setup**, copy the region endpoint for your workspace.
 
-    The endpoint URL matches the Azure region that you selected when creating the workspace.
+    The endpoint URL matches the Azure region that you selected when creating the workspace. Make sure this URL is available in `PLAYWRIGHT_SERVICE_URL` environment variable.
 
     :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-region-endpoint.png" alt-text="Screenshot that shows how to copy the workspace region endpoint in the Playwright Testing portal." lightbox="./media/quickstart-run-end-to-end-tests/playwright-testing-region-endpoint.png":::
+
+::: zone pivot="playwright-test-runner"
 
 ## Set up your environment
 
@@ -77,7 +96,26 @@ We recommend that you use the `dotenv` module to manage your environment. With `
 
     Make sure to replace the `{MY-REGION-ENDPOINT}` text placeholder with the value you copied earlier.
 
+::: zone-end
 
+::: zone pivot="nunit-test-runner"
+## Set up service configuration 
+
+Create a file `PlaywrightServiceSetup.cs` in your project with the following content. 
+
+```csharp
+using Azure.Developer.MicrosoftPlaywrightTesting.NUnit;
+
+namespace PlaywrightTests; // Remember to change this as per your project namespace
+
+[SetUpFixture]
+public class PlaywrightServiceSetup : PlaywrightServiceNUnit {};
+```
+
+> [!NOTE]
+> Make sure your project uses `Microsoft.Playwright.NUnit` version 1.47 or above.
+
+::: zone-end
 ## Set up Authentication
 
 To run your Playwright tests in your Microsoft Playwright Testing workspace, you need to authenticate the Playwright client where you're running the tests with the service. This could be your local dev machine or CI machine. 
@@ -107,7 +145,10 @@ You can generate an access token from your Playwright Testing workspace and use 
 > [!CAUTION]
 > We strongly recommend using Microsoft Entra ID for authentication to the service. If you are using access tokens, see [How to Manage Access Tokens](./how-to-manage-access-tokens.md)
 
-## Enable artifacts in Playwright configuration 
+
+## Enable artifacts in your Playwright setup 
+::: zone pivot="playwright-test-runner"
+
 In the `playwright.config.ts` file of your project, make sure you are collecting all the required artifacts.
 ```typescript
   use: {
@@ -116,11 +157,26 @@ In the `playwright.config.ts` file of your project, make sure you are collecting
     screenshot:'on'
   }
 ```
-## Run your tests at scale with Microsoft Playwright Testing
+::: zone-end
+
+::: zone pivot="nunit-test-runner"
+
+Enable artifacts such as screenshot, videos and traces to be captured by Playwright. 
+- For screenshots, see [capture screenshots](https://playwright.dev/dotnet/docs/screenshots#introduction)
+- For videos, see [record videos for your tests](https://playwright.dev/dotnet/docs/videos#introduction)
+- For traces, see [recording a trace](https://playwright.dev/dotnet/docs/trace-viewer-intro#recording-a-trace)
+
+Once you collect these artifacts, attach them to the `TestContext` to ensure they are available in your test reports. For more information, see our [sample project for NUnit](https://aka.ms/mpt/nunit-sample)
+
+::: zone-end
+
+## Run your tests at scale and troubleshoot easily with Microsoft Playwright Testing
+
+::: zone pivot="playwright-test-runner"
 
 You've now prepared the configuration for running your Playwright tests in the cloud with Microsoft Playwright Testing. You can either use the Playwright CLI to run your tests, or use the [Playwright Test Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright).
 
-### Run a single test at scale
+### Run a single test with the service
 
 With Microsoft Playwright Testing, you get charged based on the number of total test minutes and number of test results published. If you're a first-time user or [getting started with a free trial](./how-to-try-playwright-testing-free.md), you might start with running a single test at scale instead of your full test suite to avoid exhausting your free trial limits.
 
@@ -196,7 +252,7 @@ You can now run multiple tests with the service, or run your entire test suite o
 > [!CAUTION]
 > Depending on the size of your test suite, you might incur additional charges for the test minutes and test results beyond your allotted free test minutes and free test results.
 
-### Run a full test suite at scale
+### Run a full test suite with the service
 
 Now that you've validated that you can run a single test with Microsoft Playwright Testing, you can run a full Playwright test suite at scale.
 
@@ -247,12 +303,51 @@ To run your Playwright test suite in Visual Studio Code with Microsoft Playwrigh
 1. You can view all test results in the **Test results** tab.
 
 ---
+::: zone-end
+
+::: zone pivot="nunit-test-runner"
+
+Run Playwright tests against browsers managed by the service and see the results in the unified portal using the configuration you created above. 
+
+```bash
+dotnet test --settings:.runsettings --logger "microsoft-playwright-testing" -- NUnit.NumberOfTestWorkers=20
+```
+
+The settings for your test run are defined in `.runsettings` file. See [how to use service package options](./how-to-use-service-config-file.md#config-options-in-runsettings-file)
+
+After the test run completes, you can view the test status in the terminal.
+
+
+```output
+Starting test execution, please wait...
+
+Initializing reporting for this test run. You can view the results at: https://playwright.microsoft.com/workspaces/<workspace-id>/runs/<run-id>
+
+A total of 100 test files matched the specified pattern.
+
+Test Report: https://playwright.microsoft.com/workspaces/<workspace-id>/runs/<run-id>
+
+Passed!  - Failed:     0, Passed:     100, Skipped:     0, Total:     100, Duration: 59 s - PlaywrightTestsNUnit.dll (net7.0)
+
+Workload updates are available. Run `dotnet workload list` for more information.
+```
+::: zone-end
 
 ## View test runs and results in the Playwright portal
 
 You can now troubleshoot the failed test cases in the Playwright portal.
 
+::: zone pivot="playwright-test-runner"
+
 [!INCLUDE [View test runs and results in the Playwright portal](./includes/include-playwright-portal-view-test-results.md)]
+
+::: zone-end
+
+::: zone pivot="nunit-test-runner"
+
+[!INCLUDE [View test runs and results in the Playwright portal](./includes/include-playwright-portal-view-test-results-nunit.md)]
+
+::: zone-end
 
 
 > [!TIP]
@@ -267,7 +362,13 @@ Once your tests are running smoothly with the service, experiment with varying t
 
 With Microsoft Playwright Testing, you can run with up to 50 parallel workers. Several factors influence the best configuration for your project, such as the CPU, memory, and network resources of your client machine, the target application's load-handling capacity, and the type of actions carried out in your tests.
 
+::: zone pivot="playwright-test-runner"
 You can specify the number of parallel workers on the Playwright CLI command-line, or configure the `workers` property in the Playwright service configuration file.
+::: zone-end
+
+::: zone pivot="nunit-test-runner"
+You can specify the number of parallel workers on the Playwright CLI command-line, or configure the `NumberOfTestWorkers` property in the `.runsettings` file.
+::: zone-end
 
 Learn more about how to [determine the optimal configuration for optimizing test suite completion](./concept-determine-optimal-configuration.md).
 

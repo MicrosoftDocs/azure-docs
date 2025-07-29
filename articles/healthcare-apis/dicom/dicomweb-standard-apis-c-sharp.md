@@ -5,13 +5,13 @@ author: varunbms
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: tutorial
-ms.date: 10/18/2023
+ms.date: 07/17/2025
 ms.author: buchvarun
 ---
 
 # Use C# and DICOMweb Standard APIs
 
-This article shows how to work with the DICOMweb service using C# and [sample .dcm DICOM&reg; files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms).
+This article shows how to work with the DICOMweb service using C# and sample .dcm DICOM&reg; files.
 
 Use these sample files:
 

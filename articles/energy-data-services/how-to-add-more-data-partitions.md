@@ -1,8 +1,8 @@
 ---
 title: How to manage partitions
 description: This is a how-to article on managing data partitions using the Microsoft Azure Data Manager for Energy instance UI.
-author: nitinnms
-ms.author: nitindwivedi
+author: bharathim
+ms.author: bselvaraj
 ms.service: azure-data-manager-energy
 ms.topic: how-to
 ms.date: 07/05/2022

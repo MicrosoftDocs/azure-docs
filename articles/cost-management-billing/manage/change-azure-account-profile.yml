@@ -3,10 +3,10 @@
 metadata:
   title: Change contact information for an Azure billing account
   description: Describes how to change the contact information of your Azure billing account
-  author: bandersmsft
-  ms.author: banders
-  ms.reviewer: judupont
-  ms.date: 09/17/2024
+  author: jkinma39
+  ms.author: jkinma
+  ms.reviewer: jkinma
+  ms.date: 01/22/2025
   ms.service: cost-management-billing
   ms.subservice: billing
   ms.topic: how-to

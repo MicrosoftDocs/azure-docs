@@ -5,10 +5,11 @@ description: Learn about limitations and known issues of SSH File Transfer Proto
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/03/2024
 ms.author: normesta
 
+# Customer intent: "As a cloud storage administrator, I want to understand the limitations and known issues of SFTP support in Blob Storage, so that I can effectively manage file transfers and ensure compatibility with my existing workflows and clients."
 ---
 
 # Limitations and known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage
@@ -79,7 +80,7 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
   
 - Maximum file upload size via the SFTP endpoint is 500 GB.
 
-- Customer-managed account failover is supported at the preview level in select regions. For more information, see [Azure storage disaster recovery planning and failover](../common/storage-disaster-recovery-guidance.md#hierarchical-namespace-hns).
+- Customer-managed planned failover is supported at the preview level in select regions. For more information, see [Azure storage disaster recovery planning and failover](../common/storage-disaster-recovery-guidance.md).
 
 - To change the storage account's redundancy/replication settings, SFTP must be disabled. SFTP may be re-enabled once the conversion has completed.
 

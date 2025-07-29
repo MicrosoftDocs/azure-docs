@@ -70,7 +70,7 @@
         },
         {
             "path_to_root": "azure_cli_scripts",
-            "url": "https://github.com/Azure-Samples/azure-cli-samples",
+            "url": "https://github.com/ggailey777/azure-cli-samples",
             "branch": "master",
             "branch_mapping": {}
         },
@@ -129,12 +129,6 @@
             "branch_mapping": {}
         },
         {
-            "path_to_root": "azure-docs-snippets-pr",
-            "url": "https://github.com/MicrosoftDocs/azure-docs-snippets-pr",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
             "path_to_root": "azure-functions-dapr-extension",
             "url": "https://github.com/Azure/azure-functions-dapr-extension",
             "branch": "master",
@@ -143,6 +137,30 @@
         {
             "path_to_root": "azure-functions-dotnet-worker",
             "url": "https://github.com/Azure/azure-functions-dotnet-worker",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "remote-mcp-functions-dotnet",
+            "url": "https://github.com/Azure-Samples/remote-mcp-functions-dotnet",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "remote-mcp-functions-typescript",
+            "url": "https://github.com/Azure-Samples/remote-mcp-functions-typescript",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "remote-mcp-functions-python",
+            "url": "https://github.com/Azure-Samples/remote-mcp-functions-python",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "remote-mcp-functions-java",
+            "url": "https://github.com/Azure-Samples/remote-mcp-functions-java",
             "branch": "main",
             "branch_mapping": {}
         },
@@ -162,6 +180,12 @@
             "path_to_root": "azure-functions-kafka-extension",
             "url": "https://github.com/Azure/azure-functions-kafka-extension",
             "branch": "dev",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "azure-functions-mongodb-extension",
+            "url": "https://github.com/Azure/Azure-functions-mongodb-extension",
+            "branch": "main",
             "branch_mapping": {}
         },
         {
@@ -245,12 +269,6 @@
         {
             "path_to_root": "azure-load-testing-samples",
             "url": "https://github.com/Azure-Samples/azure-load-testing-samples",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "azure-proactive-resiliency-library",
-            "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library",
             "branch": "main",
             "branch_mapping": {}
         },
@@ -597,6 +615,30 @@
             "branch_mapping": {}
         },
         {
+            "path_to_root": "laravel-tasks",
+            "url": "https://github.com/Azure-Samples/laravel-tasks",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "app-service-agentic-semantic-kernel-ai-foundry-agent",
+            "url": "https://github.com/Azure-Samples/app-service-agentic-semantic-kernel-ai-foundry-agent",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "app-service-agentic-langgraph-foundry-node",
+            "url": "https://github.com/Azure-Samples/app-service-agentic-langgraph-foundry-node",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "app-service-agentic-semantic-kernel-java",
+            "url": "https://github.com/Azure-Samples/app-service-agentic-semantic-kernel-java",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
             "path_to_root": "playwright-testing-service",
             "url": "https://github.com/microsoft/playwright-testing-service",
             "branch": "main",
@@ -726,6 +768,12 @@
             "path_to_root": "WebApp-OpenIdConnect-DotNet",
             "url": "https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet",
             "branch": "GuidedSetup",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "azure-policy-autogen-docs",
+            "url": "https://github.com/MicrosoftDocs/azure-policy-autogen-docs",
+            "branch": "main",
             "branch_mapping": {}
         }
     ],

@@ -9,6 +9,7 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
+# Customer intent: As a cloud architect, I want to implement high availability for SAP HANA on Azure VMs so that I can ensure the resilience and uptime of mission-critical databases in my organization.
 ---
 
 # SAP HANA high availability for Azure virtual machines
@@ -51,7 +52,7 @@ Azure has different availability SLAs for different components, like networking,
 
 - A single VM that uses [Azure premium SSDs](/azure/virtual-machines/managed-disks-overview) for the OS disk and all data disks. This option provides a monthly uptime of 99.9 percent.
 - Multiple (at least two) VMs that are organized in an [Azure availability set](/azure/virtual-machines/windows/tutorial-availability-sets). This option provides a monthly uptime of 99.95 percent.
-- Multiple (at least two) VMs that are organized in an [Availablity Zone](../../availability-zones/az-overview.md). This option provided a monthly uptime of 99.99 percent.
+- Multiple (at least two) VMs that are organized in an [Availability Zone](../../reliability/availability-zones-overview.md). This option provided a monthly uptime of 99.99 percent.
 
 Measure your availability requirement against the SLAs that Azure components can provide. Then, choose your  scenarios for SAP HANA to achieve your required level of availability.
 

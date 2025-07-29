@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 04/10/2024
 ms.author: kendownie
+# Customer intent: As an IT administrator, I want to manage cloud tiering settings and file exclusions in Azure File Sync, so that I can optimize storage usage and ensure important files remain accessible locally.
 ---
 
 # How to manage tiered files
@@ -149,7 +150,7 @@ When the cloud tiering feature is enabled, cloud tiering automatically tiers fil
 
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
+Invoke-StorageSyncCloudTiering -Path "file-or-directory-to-be-tiered"
 ```
 
 ## How to recall a tiered file to disk
@@ -160,14 +161,24 @@ The easiest way to recall a file to disk is to open the file. The Azure File Syn
 > If a shortcut file is brought down to the server as a tiered file, there might be an issue when accessing the file over SMB. To mitigate this, there is a task that runs every three days that will recall any shortcut files. However, if you want shortcut files that are tiered to be recalled more frequently, create a scheduled task that runs this at the desired frequency:
 > ```powershell
 > Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll" 
-> Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Pattern *.lnk
+> Invoke-StorageSyncFileRecall -Path "D:\path-to-your-server-endpoint" -Pattern *.lnk
 > ```
 
+Parameters:
+
+- `-Path` The -Path parameter in the `Invoke-StorageSyncFileRecall` command specifies where the recalled files should be restored on the local server. This path must be the server endpoint configured for Azure File Sync.
+	* If you're unsure of the server endpoint path, navigate to your Azure File Sync agent → Select your Storage Sync Service → Open your Sync Group.
+	* You can also run the following command via PowerShell:
+ ```powershell
+Get-StorageSyncServerEndpoint
+```
+- `-Pattern` The -Pattern parameter in `Invoke-StorageSyncFileRecall` is used to filter which files should be recalled from Azure File Sync. It allows you to specify file types or names using wildcards.
+  
 To ensure that a file is fully downloaded to local disk, you must use PowerShell to force a file to be fully recalled. This option might also be useful if you want to recall multiple files at once, such as all the files in a folder. Open a PowerShell session to the server node where Azure File Sync is installed, and then run the following PowerShell commands:
 
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
+Invoke-StorageSyncFileRecall -Path "D:\path-to-your-server-endpoint"
 ```
 
 Optional parameters:
@@ -183,7 +194,7 @@ Example:
 
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -ThreadCount 8 -Order CloudTieringPolicy -PerFileRetryCount 3 -PerFileRetryDelaySeconds 10
+Invoke-StorageSyncFileRecall -Path "D:\path-to-your-server-endpoint" -ThreadCount 8 -Order CloudTieringPolicy -PerFileRetryCount 3 -PerFileRetryDelaySeconds 10
 ```
 
 > [!NOTE]  

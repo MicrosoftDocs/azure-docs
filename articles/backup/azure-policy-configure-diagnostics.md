@@ -2,19 +2,20 @@
 title: Configure Vault Diagnostics settings at scale
 description: Configure Log Analytics Diagnostics settings for all vaults in a given scope using Azure Policy
 ms.topic: how-to
-ms.date: 07/18/2024
+ms.date: 07/14/2025
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: As a cloud administrator, I want to apply diagnostics settings to all Recovery Services vaults at once using policy enforcement, so that I can streamline monitoring and reporting without manually configuring each vault.
 ---
 # Configure Vault Diagnostics settings at scale
 
-The reporting solution provided by Azure Backup leverages Log Analytics (LA). For the data of any given vault to be sent to LA, a [diagnostics setting](./backup-azure-diagnostic-events.md) needs to be created for that vault.
+This article describes how Azure Backup integrates with Log Analytics for reporting. Each vault requires a [diagnostics setting](./backup-azure-diagnostic-events.md) to send data to Log Analytics. To avoid manual setup for every vault, Azure Backup offers a built-in [Azure Policy](../governance/policy/index.yml) that automatically applies Log Analytics diagnostics settings across subscriptions or resource groups.
 
-Often, adding a diagnostics setting manually per vault can be a cumbersome task. In addition, any new vault created also needs to have diagnostics settings enabled in order to be able to view reports for this vault.
+The following sections explain how to use this policy.
 
-To simplify the creation of diagnostics settings at scale (with LA as the destination), Azure Backup provides a built-in [Azure Policy](../governance/policy/index.yml). This policy adds an LA diagnostics setting to all vaults in a given subscription or resource group. The following sections provide instructions on how to use this policy.
+## Supported and unsupported Scenarios to configure diagnostics settings
 
-## Supported Scenarios
+Before you begin, ensure that you understand the following supported and unsupported scenarios for using the built-in policy to configure diagnostics settings for Recovery Services vaults:
 
 * The policy can be applied at one time to all Recovery Services vaults in a particular subscription (or to a resource group within the subscription). The user assigning the policy needs to have **Owner** access to the subscription to which the policy is assigned.
 
@@ -24,7 +25,7 @@ To simplify the creation of diagnostics settings at scale (with LA as the destin
 
 [!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
-## Assigning the built-in policy to a scope
+## Assign the built-in policy to a scope
 
 To assign the policy for vaults in the required scope, follow the steps below:
 
@@ -59,7 +60,7 @@ To assign the policy for vaults in the required scope, follow the steps below:
 
 9. Navigate to the **Review+Create** tab and select **Create**.
 
-## Under what conditions will the remediation task apply to a vault?
+## Conditions to apply the remediation task to a vault
 
 The remediation task is applied to vaults that are non-compliant according to the definition of the policy. A vault is non-compliant if it satisfies either of the following conditions:
 

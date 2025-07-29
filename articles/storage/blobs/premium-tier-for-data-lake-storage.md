@@ -5,9 +5,10 @@ description: Use the premium performance tier with Azure Data Lake Storage
 author: normesta
 
 ms.service: azure-data-lake-storage
-ms.topic: conceptual
-ms.date: 03/09/2023
+ms.topic: concept-article
+ms.date: 11/15/2024
 ms.author: normesta
+# Customer intent: As a data engineer, I want to utilize the premium tier of Azure Data Lake Storage, so that I can achieve low latency and support high transaction workloads for analytics applications.
 ---
 
 # Premium tier for Azure Data Lake Storage

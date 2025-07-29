@@ -1,11 +1,13 @@
 ---
 title: 'Using ExpressRoute for Microsoft PSTN Services'
 description:  ExpressRoute circuits can be used for Microsoft PSTN services, including Operator Connect, Azure Communications Gateway, and Azure Communication Services Direct Routing.
-author: nslack
+author: tracsman
 ms.service: azure-expressroute
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/06/2023
-ms.author: nickslack
+ms.author: jonor
+manager: tracsman
+# Customer intent: "As a network administrator, I want to configure ExpressRoute Microsoft Peering for PSTN services, so that I can ensure reliable and high-quality voice connectivity for my organization’s communication needs."
 ---
 
 # Using ExpressRoute for routing traffic to Microsoft PSTN services

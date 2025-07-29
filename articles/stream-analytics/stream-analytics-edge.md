@@ -89,10 +89,6 @@ Supported stream output types are:
 
 Reference input supports reference file type. Other outputs can be reached using a cloud job downstream. For example, a Stream Analytics job hosted in Edge sends output to Edge Hub, which can then send output to IoT Hub. You can use a second cloud-hosted Azure Stream Analytics job with input from IoT Hub and output to Power BI or another output type.
 
-## License and third-party notices
-* [Azure Stream Analytics on IoT Edge license](https://go.microsoft.com/fwlink/?linkid=862827). 
-* [Third-party notice for Azure Stream Analytics on IoT Edge](https://go.microsoft.com/fwlink/?linkid=862828).
-
 ## Azure Stream Analytics module image information 
 
 This version information was last updated on 2020-09-21:

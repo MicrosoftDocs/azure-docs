@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 06/06/2023
 ms.author: normesta
 ms.custom: engagement-fy23, devx-track-arm-template
+# Customer intent: As a storage administrator, I want to enable and manage blob versioning so that I can automatically maintain and restore previous versions of blobs to protect against data loss from accidental modifications or deletions.
 ---
 
 # Enable and manage blob versioning
@@ -136,7 +137,7 @@ foreach($blob in $blobs)
 
 # [Azure CLI](#tab/azure-cli)
 
-To list a blob's versions with Azure CLI, call the [az storage blob directory list](/cli/azure/storage/blob/directory#az-storage-blob-directory-list) command with the `--include v` parameter:
+To list a blob's versions with Azure CLI, call the [az storage blob list](/cli/azure/storage/blob#az-storage-blob-list) command with the `--include v` parameter:
 
 ```azurecli
 storageAccount="<storage-account>"

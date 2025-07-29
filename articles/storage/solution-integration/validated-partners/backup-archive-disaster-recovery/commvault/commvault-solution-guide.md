@@ -6,9 +6,10 @@ description: Provides an overview of factors to consider and steps to follow to 
 author: karauten
 ms.author: karauten
 ms.date: 03/15/2021
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
+# Customer intent: "As an IT administrator, I want to integrate Commvault with Azure Blob storage for backups, so that I can ensure reliable offsite data protection and facilitate quick recovery in case of a disaster."
 ---
 
 # Backup to Azure with Commvault
@@ -75,7 +76,7 @@ Use the following methods to identify the bandwidth headroom that your backups t
 - If you're an existing Azure ExpressRoute customer, view your [circuit usage](../../../../../expressroute/expressroute-monitoring-metrics-alerts.md#circuits-metrics) in the Azure portal.
 - Contact your ISP. They should be able to share reports that show your existing daily and monthly utilization.
 - There are several tools that can measure utilization by monitoring your network traffic at the router/switch level. These include:
-  - [Solarwinds Bandwidth Analyzer Pack](https://www.solarwinds.com/network-bandwidth-analyzer-pack?CMP=ORG-BLG-DNS)
+  - [SolarWinds Bandwidth Analyzer Pack](https://www.solarwinds.com/network-bandwidth-analyzer-pack?CMP=ORG-BLG-DNS)
   - [Paessler PRTG](https://www.paessler.com/bandwidth_monitoring)
   - [Cisco Network Assistant](https://www.cisco.com/c/en/us/products/cloud-systems-management/network-assistant/index.html)
   - [WhatsUp Gold](https://www.whatsupgold.com/network-traffic-monitoring)

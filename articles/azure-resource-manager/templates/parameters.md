@@ -3,7 +3,7 @@ title: Parameters in templates
 description: Describes how to define parameters in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 09/26/2024
+ms.date: 04/28/2025
 ---
 
 # Parameters in ARM templates
@@ -23,7 +23,7 @@ In addition to minValue, maxValue, minLength, maxLength, and allowedValues, [lan
 - [prefixItems](#prefixitems)
 - [properties](#properties)
 
-[!INCLUDE [VSCode ARM Tools extension doesn't support languageVersion 2.0](../../../includes/resource-manager-vscode-language-version-20.md)]
+[!INCLUDE [VS Code ARM Tools extension doesn't support languageVersion 2.0](../../../includes/resource-manager-vscode-language-version-20.md)]
 
 > [!TIP]
 > We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [parameters](../bicep/parameters.md).

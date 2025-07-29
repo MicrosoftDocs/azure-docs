@@ -7,8 +7,9 @@ author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
 ms.custom: template-how-to, devx-track-azurecli
-ms.date: 01/22/2024
+ms.date: 01/22/2025
 ms.author: mbender
+# Customer intent: As a network administrator, I want to configure the distribution mode of the Azure Load Balancer, so that I can optimize traffic distribution and ensure consistency for client sessions.
 ---
 
 # Configure the distribution mode for Azure Load Balancer
@@ -44,9 +45,6 @@ The following options are available:
 
 5. Choose the distribution mode and then select **Save**.
 
-:::image type="content" source="./media/load-balancer-distribution-mode/session-persistence.png" alt-text="Change session persistence on load balancer rule." border="true" lightbox="./media/load-balancer-distribution-mode/session-persistence.png":::
-
-
 # [**PowerShell**](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
@@ -71,7 +69,7 @@ Set the value of the `LoadDistribution` element for the type of load balancing r
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-Use Azure CLI to change the load-balancer distribution settings on an existing load-balancing rule.  The following command updates the distribution mode:
+Use Azure CLI to change the load-balancer distribution settings on an existing load-balancing rule. The following command updates the distribution mode:
 
 ```azurecli-interactive
 az network lb rule update \

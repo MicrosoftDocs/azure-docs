@@ -2,16 +2,17 @@
 title: Back up Exchange server with Azure Backup Server
 description: Learn how to back up an Exchange server to Azure Backup using Azure Backup Server
 ms.topic: how-to
-ms.date: 03/28/2024
+ms.date: 03/25/2025
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: "As an IT administrator, I want to configure Azure Backup Server to back up an Exchange server, so that I can ensure data protection and facilitate recovery in case of data loss."
 ---
 # Back up an Exchange server to Azure with Azure Backup Server
 
 This article describes how to configure Microsoft Azure Backup Server (MABS) to back up a Microsoft Exchange server to Azure.  
 
-## Prerequisites for backup of an Exchange server 
+## Prerequisites
 
 Before you continue, ensure that Azure Backup Server is [installed and prepared](backup-azure-microsoft-azure-backup.md).
 
@@ -108,3 +109,4 @@ For online recovery points, there are five recovery types:
 ## Next steps
 
 * [Azure Backup FAQ](backup-azure-backup-faq.yml)
+* [Recover data from Azure Backup Server](backup-azure-alternate-dpm-server.md)

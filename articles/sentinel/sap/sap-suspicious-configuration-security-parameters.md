@@ -6,8 +6,8 @@ ms.author: bagol
 ms.topic: reference
 ms.date: 09/15/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 #Customer intent: As a security administrator, I want to monitor SAP security parameters so that I can detect and respond to suspicious configuration changes effectively.
 
@@ -118,5 +118,5 @@ For the Microsoft Sentinel solution for SAP applications to successfully monitor
 
 For more information, see:
 
-- [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
+- [Connect your SAP system to Microsoft Sentinel](deploy-data-connector-agent-container.md)
 - [Troubleshoot your Microsoft Sentinel solution for SAP applications solution deployment](sap-deploy-troubleshoot.md)

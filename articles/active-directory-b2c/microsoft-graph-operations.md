@@ -6,7 +6,7 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 01/11/2024
+ms.date: 04/18/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 
@@ -15,6 +15,8 @@ ms.subservice: b2c
 
 ---
 # Manage Azure AD B2C with Microsoft Graph
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Microsoft Graph allows you to manage resources in your Azure AD B2C directory. The following Microsoft Graph API operations are supported for the management of Azure AD B2C resources, including users, identity providers, user flows, custom policies, and policy keys. Each link in the following sections targets the corresponding page within the Microsoft Graph API reference for that operation. 
 
@@ -27,7 +29,7 @@ Microsoft Graph allows you to manage resources in your Azure AD B2C directory. T
 
 ## User management
 > [!NOTE]
-> Azure AD B2C currently does not support advanced query capabilities on directory objects. This means that there is no support for `$count`, `$search` query parameters and Not (`not`), Not equals (`ne`), and Ends with (`endsWith`) operators in `$filter` query parameter. For more information, see [query parameters in Microsoft Graph](/graph/query-parameters) and [advanced query capabilities in Microsoft Graph](/graph/aad-advanced-queries).
+> Azure AD B2C currently doesn't support advanced query capabilities on directory objects. This means that there's no support for `$count`, `$search` query parameters and Not (`not`), Not equals (`ne`), and Ends with (`endsWith`) operators in `$filter` query parameter. For more information, see [query parameters in Microsoft Graph](/graph/query-parameters) and [advanced query capabilities in Microsoft Graph](/graph/aad-advanced-queries).
 
 
 - [List users](/graph/api/user-list)
@@ -90,7 +92,7 @@ Manage the [identity providers](add-identity-provider.md) available to your user
 
 ## User flow (beta)
 
-Configure pre-built policies for sign-up, sign-in, combined sign-up and sign-in, password reset, and profile update.
+Configure prebuilt policies for sign-up, sign-in, combined sign-up and sign-in, password reset, and profile update.
 
 - [List user flows](/graph/api/identitycontainer-list-b2cuserflows)
 - [Create a user flow](/graph/api/identitycontainer-post-b2cuserflows)
@@ -139,9 +141,9 @@ The top-level resource for policy keys in the Microsoft Graph API is the [Truste
 ## Applications
 
 - [List applications](/graph/api/application-list)
-- [Create an application](/graph/api/resources/application)
+- [Create an application](/graph/api/application-post-applications)
 - [Update application](/graph/api/application-update)
-- [Create servicePrincipal](/graph/api/resources/serviceprincipal)
+- [Create servicePrincipal](/graph/api/serviceprincipal-post-serviceprincipals)
 - [Create oauth2Permission Grant](/graph/api/resources/oauth2permissiongrant)
 - [Delete application](/graph/api/application-delete)
 
@@ -158,12 +160,12 @@ Application extension properties are also known as directory or Microsoft Entra 
 You can store up to 100 directory extension values per user. To manage the directory extension properties for a user, use the following [User APIs](/graph/api/resources/user) in Microsoft Graph.
 
 - [Update user](/graph/api/user-update): To write or remove the value of the directory extension property from the user object.
-- [Get a user](/graph/api/user-get): To retrieve the value of the directory extension for the user. The property will be returned by default through the `beta` endpoint, but only on `$select` through the `v1.0` endpoint.
+- [Get a user](/graph/api/user-get): To retrieve the value of the directory extension for the user. The property is returned by default through the `beta` endpoint, but only on `$select` through the `v1.0` endpoint.
 
 For user flows, these extension properties are [managed by using the Azure portal](user-flow-custom-attributes.md). For custom policies, Azure AD B2C creates the property for you, the first time the policy writes a value to the extension property.
 
 > [!NOTE]
-> In Microsoft Entra ID, directory extensions are managed through the [extensionProperty resource type](/graph/api/resources/extensionproperty) and its associated methods. However, because they are used in B2C through the `b2c-extensions-app` app which should not be updated, they are managed in Azure AD B2C using the [identityUserFlowAttribute resource type](/graph/api/resources/identityuserflowattribute) and its associated methods.
+> In Microsoft Entra ID, directory extensions are managed through the [extensionProperty resource type](/graph/api/resources/extensionproperty) and its associated methods. However, because they're used in B2C through the `b2c-extensions-app` app which shouldn't be updated, they're managed in Azure AD B2C using the [identityUserFlowAttribute resource type](/graph/api/resources/identityuserflowattribute) and its associated methods.
 
 ## Tenant usage 
 
@@ -195,7 +197,7 @@ For more information about accessing Azure AD B2C audit logs, see [Accessing Azu
 - [List the built-in templates for Conditional Access policy scenarios](/graph/api/conditionalaccessroot-list-templates)
 - [List all of the Conditional Access policies](/graph/api/conditionalaccessroot-list-policies)
 - [Read properties and relationships of a Conditional Access policy](/graph/api/conditionalaccesspolicy-get)
-- [Create a new Conditional Access policy](/graph/api/resources/application)
+- [Create a new Conditional Access policy](/graph/api/conditionalaccessroot-post-policies)
 - [Update a Conditional Access policy](/graph/api/conditionalaccesspolicy-update)
 - [Delete a Conditional Access policy](/graph/api/conditionalaccesspolicy-delete)
 
@@ -213,68 +215,13 @@ Deleted users and apps can only be restored if they were deleted within the last
 You can manage Microsoft Graph in two ways:
 
 * **Delegated permissions** either the user or an administrator consents to the permissions that the app requests. The app is delegated with the permission to act as a signed-in user when it makes calls to the target resource. 
-* **Application permissions** are used by apps that do not require a signed in user present. Because of this, only administrators can consent to application permissions. 
+* **Application permissions** are used by apps that don't require a signed in user present. Because of this, only administrators can consent to application permissions. 
 
 > [!NOTE]
-> Delegated permissions for users signing in through user flows or custom policies cannot be used against delegated permissions for Microsoft Graph API.
+> Delegated permissions for users signing in through user flows or custom policies can't be used against delegated permissions for Microsoft Graph API.
 
-## Code sample: How to programmatically manage user accounts
-
-This code sample is a .NET Core console application that uses the [Microsoft Graph SDK](/graph/sdks/sdks-overview) to interact with Microsoft Graph API. Its code demonstrates how to call the API to programmatically manage users in an Azure AD B2C tenant.
-You can [download the sample archive](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management/archive/master.zip) (*.zip), [browse the repository](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management) on GitHub, or clone the repository:
-
-```cmd
-git clone https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management.git
-```
-
-After you've obtained the code sample, configure it for your environment and then build the project:
-
-1. Open the project in [Visual Studio](https://visualstudio.microsoft.com) or [Visual Studio Code](https://code.visualstudio.com).
-1. Open `src/appsettings.json`.
-1. In the `appSettings` section, replace `your-b2c-tenant` with the name of your tenant, and `Application (client) ID` and `Client secret` with the values for your management application registration. For more information, see [Register a Microsoft Graph Application](microsoft-graph-get-started.md).
-1. Open a console window within your local clone of the repo, switch into the `src` directory, then build the project:
-
-    ```console
-    cd src
-    dotnet build
-    ```
-    
-1. Run the application with the `dotnet` command:
-
-    ```console
-    dotnet bin/Debug/netcoreapp3.1/b2c-ms-graph.dll
-    ```
-
-The application displays a list of commands you can execute. For example, get all users, get a single user, delete a user, update a user's password, and bulk import.
-
-> [!NOTE]
-> For the application to update user account passwords, you'll need to [grant the user administrator role](microsoft-graph-get-started.md#optional-grant-user-administrator-role) to the application.
- 
-### Code discussion
-
-The sample code uses the [Microsoft Graph SDK](/graph/sdks/sdks-overview), which is designed to simplify building high-quality, efficient, and resilient applications that access Microsoft Graph.
-
-Any request to the Microsoft Graph API requires an access token for authentication. The solution makes use of the [Microsoft.Graph.Auth](https://www.nuget.org/packages/Microsoft.Graph.Auth/) NuGet package that provides an authentication scenario-based wrapper of the Microsoft Authentication Library (MSAL) for use with the Microsoft Graph SDK.
-
-The `RunAsync` method in the _Program.cs_ file:
-
-1. Reads application settings from the _appsettings.json_ file
-1. Initializes the auth provider using [OAuth 2.0 client credentials grant](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) flow. With the client credentials grant flow, the app is able to get an access token to call the Microsoft Graph API.
-1. Sets up the Microsoft Graph service client with the auth provider:
-
-The previously published sample code is not available at this time.
-<!--:::code language="csharp" source="~/ms-identity-dotnetcore-b2c-account-management/src/Program.cs" id="ms_docref_set_auth_provider":::-->
-
-The initialized _GraphServiceClient_ is then used in _UserService.cs_ to perform the user management operations. For example, getting a list of the user accounts in the tenant:
-
-The previously published sample code is not available at this time.
-<!--:::code language="csharp" source="~/ms-identity-dotnetcore-b2c-account-management/src/Services/UserService.cs" id="ms_docref_get_list_of_user_accounts":::-->
-
-[Make API calls using the Microsoft Graph SDKs](/graph/sdks/create-requests) includes information on how to read and write information from Microsoft Graph, use `$select` to control the properties returned, provide custom query parameters, and use the `$filter` and `$orderBy` query parameters.
-
-## See also
-
-- For code samples in JavaScript and Node.js, please see: [Manage B2C user accounts with MSAL.js and Microsoft Graph SDK](https://github.com/Azure-Samples/ms-identity-b2c-javascript-nodejs-management) 
+## Related content
+- Explore [Microsoft Graph API](/graph/overview)
 - Explore [Graph Explorer](https://aka.ms/ge) that lets you try Microsoft Graph APIs and learn about them.
 
 <!-- LINK -->

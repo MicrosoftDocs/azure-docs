@@ -1,8 +1,8 @@
 ---
 title: Enable logging for Azure Data Manager for Agriculture
 description: Learn how enable logging and debugging in Azure Data Manager for Agriculture
-author: gourdsay
-ms.author: angour
+author: BlackRider97
+ms.author: ramithar
 ms.service: azure-data-manager-agriculture
 ms.topic: how-to
 ms.date: 04/10/2023
@@ -57,7 +57,7 @@ The `categories` field for Data Manager for Agriculture can have values that are
 |FarmOperationsLogs|Logs for CRUD operations for FarmOperations data ingestion job, ApplicationData, PlantingData, HarvestingData, TillageData
 |SatelliteLogs| Logs for create and get operations for Satellite data ingestion job
 |WeatherLogs|Logs for create, delete and get operations for weather data ingestion job
-|ProviderAuthLogs| Logs for create, update, delete, cascade delete, get and get all for Oauth providers. It also has logs for get, get all, cascade delete for oauth tokens.
+|ProviderAuthLogs| Logs for create, update, delete, cascade delete, get and get all for OAuth providers. It also has logs for get, get all, cascade delete for oauth tokens.
 |JobProcessedLogs| Logs for indicating success or failure and reason of failure for jobs. In addition to logs for resource cascade delete jobs, data-ingestion jobs, it also contains logs for farm operations and event handling jobs.
 |ModelInferenceLogs| Logs for create and get operations for biomass model job.
 |InsightLogs| Logs for get and get all operations for insights.

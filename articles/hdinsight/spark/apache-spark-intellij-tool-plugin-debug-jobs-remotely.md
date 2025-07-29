@@ -4,6 +4,9 @@ description: Learn how to use HDInsight Tools in Azure Toolkit for IntelliJ to r
 ms.service: azure-hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
 ms.date: 06/13/2024
 ---
 
@@ -21,7 +24,7 @@ This article provides step-by-step guidance on how to use the HDInsight Tools in
 
 ## Prerequisites
 
-* **An Azure subscription**. For more information, see [Get a free trial of Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **An Azure subscription**.
 * **An Apache Spark cluster in HDInsight**. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 * **Oracle Java development kit**. You can install it from the [Oracle website](/azure/developer/java/fundamentals/java-support-on-azure).
 * **IntelliJ IDEA**. This article uses version 2017.1. You can install it from the [JetBrains website](https://www.jetbrains.com/idea/download/).

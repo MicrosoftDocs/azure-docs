@@ -3,7 +3,7 @@ title: Azure IoT Edge and Azure IoT Central
 description: Understand how to use Azure IoT Edge with an IoT Central application including the different gateway patterns and IoT Edge management capabilities.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/04/2024
+ms.date: 05/23/2025
 ms.topic: conceptual
 ms.service: azure-iot-central
 services: iot-central
@@ -14,7 +14,7 @@ ms.custom: [device-developer, iot-edge]
 
 # Connect Azure IoT Edge devices to an Azure IoT Central application
 
-Azure IoT Edge moves cloud analytics and custom business logic from the cloud to your devices. This approach lets your cloud solution focus on business insights instead of data management. Scale out your IoT solution by packaging your business logic into standard containers, deploy those containers to your devices, and monitor them from the cloud.
+Azure IoT Edge moves cloud analytics and custom business logic from the cloud to your devices. This approach lets your cloud solution focus on business insights instead of data management. Scale out your IoT solution by packaging your business logic into standard containers, deploying those containers to your devices, and monitoring them from the cloud.
 
 This article describes:
 
@@ -34,10 +34,10 @@ IoT Edge is made up of three components:
 * The [IoT Edge runtime](../../iot-edge/iot-edge-runtime.md) runs on each IoT Edge device, and manages the modules deployed to each device. The runtime consists of two IoT Edge modules: [IoT Edge agent and IoT Edge hub](../../iot-edge/module-edgeagent-edgehub.md).
 * A *cloud-based interface* enables you to remotely monitor and manage IoT Edge devices. IoT Central is an example of a cloud interface.
 
-IoT Central enables the following capabilities to for IoT Edge devices:
+IoT Central lets you do the following with IoT Edge devices:
 
-* Deployment manifest management. An IoT Central application can manage a collection of deployment manifests and assign them to devices.
-* Device templates to describe the capabilities of an IoT Edge device, such as:
+* Manage deployment manifests. An IoT Central application can manage a collection of deployment manifests and assign them to devices.
+* Use device templates to describe the capabilities of an IoT Edge device, such as:
   * The telemetry each IoT Edge module sends.
   * The properties each IoT Edge module reports.
   * The commands each IoT Edge module responds to.
@@ -52,7 +52,7 @@ IoT Central enables the following capabilities to for IoT Edge devices:
 An IoT Edge device can be:
 
 * A standalone device composed of custom modules.
-* A *gateway device*, with downstream devices connecting to it. A gateway device can include custom modules.
+* A *gateway device* with downstream devices connecting to it. A gateway device can include custom modules.
 
 ## IoT Edge devices and IoT Central
 
@@ -63,7 +63,7 @@ IoT Central optionally uses [device templates](concepts-device-templates.md) to 
 * The types of telemetry and properties an IoT Edge device sends so that IoT Central can interpret them and create visualizations.
 * The commands an IoT Edge device responds to so that IoT Central can display a UI for an operator to use to call the commands.
 
-If there's no device template associated with a device, telemetry and property values display as *unmodeled* data. However, you can still use IoT Central data export capabilities to forward telemetry and property values to other backend services.
+If a device doesn't have an associated device template, telemetry and property values show as *unmodeled* data. You can still use IoT Central data export capabilities to forward telemetry and property values to other backend services.
 
 ## IoT Edge deployment manifests
 
@@ -142,11 +142,11 @@ The following code snippet shows an example IoT Edge deployment manifest:
 }
 ```
 
-In the previous snippet, you can see:
+In the previous snippet:
 
-* There are three modules. The *IoT Edge agent* and *IoT Edge hub* system modules that are present in every deployment manifest. The custom **SimulatedTemperatureSensor** module.
-* The public module images are pulled from an Azure Container Registry repository that doesn't require any credentials to connect. For private module images, set the container registry credentials to use in the `registryCredentials` setting for the *IoT Edge agent* module.
-* The custom **SimulatedTemperatureSensor** module has two writable properties `"SendData": true` and `"SendInterval": 10`.
+* There are three modules: the *IoT Edge agent* and *IoT Edge hub* system modules that are present in every deployment manifest and the custom **SimulatedTemperatureSensor** module.
+* The public module images are pulled from an Azure Container Registry repository that doesn't require credentials. For private module images, set the container registry credentials to use in the `registryCredentials` setting for the *IoT Edge agent* module.
+* The custom **SimulatedTemperatureSensor** module has two writable properties: `"SendData": true` and `"SendInterval": 10`.
 
 The following screenshot shows this deployment manifest imported into IoT Central:
 
@@ -158,7 +158,7 @@ To learn how to use the **Edge manifests** page and assign deployment manifests 
 
 ### Manage an unassigned device
 
-An IoT Edge device that doesn't have an associated device template is known as an *unassigned* device. You can't use IoT Central features such as dashboards, device groups, analytics, rules, and jobs with unassigned devices. However, you can use the following capabilities with unassigned devices:
+An IoT Edge device without an associated device template is an *unassigned* device. You can't use IoT Central features such as dashboards, device groups, analytics, rules, and jobs with unassigned devices. However, you can use the following capabilities with unassigned devices:
 
 * View raw data such as telemetry and properties.
 * Call device commands.
@@ -179,7 +179,7 @@ IoT Central device templates use models to describe the capabilities of IoT Edge
 IoT Central models an IoT Edge device as follows:
 
 * Every IoT Edge device template has a capability model.
-* For every custom module listed in the deployment manifest, add a module definition if you want to use IoT Central to interact with that module.
+* Every custom module listed in the deployment manifest that you want IoT Central to interact with must have a module definition.
 * A module capability model implements one or more module interfaces.
 * Each module interface contains telemetry, properties, and commands.
 
@@ -200,7 +200,10 @@ The IoT Edge device is provisioned in IoT Central along with the downstream devi
 The IoT Edge hub module behaves like IoT Central and handles connections from devices registered in IoT Central. Messages pass from downstream devices to IoT Central as if there's no gateway between them. In a transparent gateway, you can't use custom modules to manipulate the messages from the downstream devices.
 
 > [!NOTE]
-> IoT Central currently doesn't support connecting an IoT Edge device as a downstream device to an IoT Edge transparent gateway. This is because all devices that connect to IoT Central are provisioned using the Device Provisioning Service (DPS) and DPS doesn't currently support nested IoT Edge scenarios.
+> IoT Central currently doesn't support connecting an IoT Edge device as a downstream device to an IoT Edge transparent gateway. This limitation is because all devices that connect to IoT Central are provisioned using the Device Provisioning Service (DPS) and DPS doesn't support nested IoT Edge scenarios.
+
+> [!IMPORTANT]
+> IoT Central doesn't support X.509 certificate authentication for downstream devices connected to an IoT Edge transparent gateway.
 
 ### IoT Edge as a protocol translation gateway
 

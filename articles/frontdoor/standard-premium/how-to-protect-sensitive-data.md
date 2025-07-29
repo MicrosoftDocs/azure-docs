@@ -4,13 +4,15 @@ description: Learn how to protect sensitive data in Azure Front Door logs by usi
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
-ms.topic: how-to #Required; leave this attribute/value as-is.
+ms.topic: how-to
 ms.date: 04/30/2024
 
 #CustomerIntent: As an Azure administrator, I want to use the log scrubbing tool so that I can protect sensitive data in Azure Front Door logs.
 ---
 
 # Protect sensitive data in Azure Front Door logs
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 In this article, you learn how to use the log scrubbing tool to protect sensitive data in Azure Front Door logs. For more information about sensitive data protection in Azure Front Door, see [Azure Front Door sensitive data protection](sensitive-data-protection.md).
 
@@ -26,8 +28,6 @@ Before you can use the log scrubbing tool, you must have an Azure Front Door Sta
 1. Under **Settings**, select **Configuration**. 
 
 1. Under **Scrub sensitive data from access logs**, select **Manage log scrubbing**. 
-
-   :::image type="content" source="../media/how-to-protect-sensitive-data/log-scrubbing-disabled.png" alt-text="Screenshot that shows log scrubbing is disabled.":::
 
 1. In **Manage log scrubbing**, select **Enable access log scrubbing** to enable scrubbing. 
 

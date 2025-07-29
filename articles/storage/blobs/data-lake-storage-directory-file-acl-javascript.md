@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.reviewer: prishet
 ms.devlang: javascript
 ms.custom: devx-track-js
+# Customer intent: As a Node.js developer, I want to use the Azure Data Lake Storage client library so that I can efficiently manage files and directories in a hierarchical storage structure.
 ---
 
 # Use JavaScript SDK in Node.js to manage directories and files in Azure Data Lake Storage

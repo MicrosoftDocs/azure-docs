@@ -5,8 +5,9 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 06/04/2024
 author: KarlErickson
-ms.author: edburns
-ms.custom: passwordless-java, service-connector, devx-track-azurecli, devx-track-extended-java, AppServiceConnectivity
+ms.author: karler
+ms.reviewer: edburns
+ms.custom: passwordless-java, service-connector, devx-track-azurecli, devx-track-java, AppServiceConnectivity
 ---
 
 # Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity

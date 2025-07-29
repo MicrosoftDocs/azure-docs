@@ -162,7 +162,7 @@ var playSource = new SsmlSource()
 ### Custom voice models
 If you wish to enhance your prompts more and include custom voice models, the play action Text-To-Speech now supports these custom voices. These are a great option if you are trying to give customers a more local, personalized experience or have situations where the default models may not cover the words and accents you're trying to pronounce. To learn more about creating and deploying custom models you can read this [guide](/azure/ai-services/speech-service/how-to-custom-voice).
 
-**Custom voice names regular text exmaple**
+**Custom voice names regular text example**
 ``` java
 // Provide VoiceName and  to select a specific voice.
 var playSource = new TextSource() 

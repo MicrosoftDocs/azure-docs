@@ -5,8 +5,9 @@ services: bastion
 author: isamorris
 ms.service: azure-bastion
 ms.topic: troubleshooting
-ms.date: 01/11/2024
+ms.date: 03/31/2025
 ms.author: isamorris
+# Customer intent: "As a network administrator, I want to troubleshoot connectivity issues in Azure Bastion, so that I can ensure seamless access to my virtual machines and efficiently manage network security settings."
 ---
 
 # Troubleshoot Azure Bastion
@@ -68,7 +69,7 @@ The key's randomart image is:
 
 **Q:** I'm unable to connect to my virtual machine (and I'm not experiencing the problems above).
 
-**A:** You can troubleshoot your connectivity issues by navigating to the **Connection Troubleshoot** tab (in the **Monitoring** section) of your Azure Bastion resource in the Azure portal. Network Watcher Connection Troubleshoot provides the capability to check a direct TCP connection from a virtual machine (VM) to a VM, fully qualified domain name (FQDN), URI, or IPv4 address. To start, choose a source to start the connection from, and the destination you wish to connect to and select "Check". For more information, see [Connection Troubleshoot](../network-watcher/network-watcher-connectivity-overview.md).
+**A:** You can troubleshoot your connectivity issues by navigating to the **Connection Troubleshoot** tab (in the **Help** section) of your Azure Bastion resource in the Azure portal. Network Watcher Connection Troubleshoot provides the capability to check a direct TCP connection from a virtual machine (VM) to a VM, fully qualified domain name (FQDN), URI, or IPv4 address. To start, choose a source to start the connection from, and the destination you wish to connect to and select "Check". For more information, see [Connection Troubleshoot](../network-watcher/network-watcher-connectivity-overview.md).
 
 If just-in-time (JIT) is enabled, you might need to add additional role assignments to connect to Bastion. Add the following permissions to the user, and then try reconnecting to Bastion. For more information, see [Enable just-in-time access on VMs](/azure/defender-for-cloud/just-in-time-access-usage).
 
@@ -82,7 +83,7 @@ Microsoft.Security/locations/jitNetworkAccessPolicies/write | Creates a new just
 
 **Q:** Is file transfer supported with Azure Bastion?
 
-**A:** File transfer isn't supported at this time. We're working on adding support.
+**A:** Azure Bastion offers support for file transfer between your target VM and local computer using Bastion and a native RDP or SSH client. At this time, you can't upload or download files using PowerShell or via the Azure portal. For more information, see [Upload and download files using the native client](./vm-upload-download-native.md).
 
 ## <a name="blackscreen"></a>Black screen in the Azure portal
 

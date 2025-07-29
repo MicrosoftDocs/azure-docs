@@ -8,6 +8,7 @@ ms.service: azure-load-balancer
 ms.topic: tutorial
 ms.date: 02/14/2024
 ms.custom: template-tutorial, engagement-fy23
+# Customer intent: As a cloud architect, I want to create a public load balancer with an IP-based backend pool in a virtual network, so that I can efficiently manage traffic distribution across multiple virtual machines.
 ---
 
 # Tutorial: Create a public load balancer with an IP-based backend using the Azure portal
@@ -176,7 +177,7 @@ During the creation of the load balancer, you'll configure:
 1. Select **Zone-redundant** in **Availability zone**.
 
     > [!NOTE]
-    > In regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
+    > In regions with [Availability Zones](../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../reliability/availability-zones-overview.md).
 
 1. Leave the default of **Microsoft Network** for **Routing preference**.
 
@@ -252,7 +253,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Availability zone | Select **Zone 1** |
     | Image | Select **Windows Server 2022 Datacenter: Azure Edition - x64 Gen2** |
     | Azure Spot instance | Leave the default |
-    | Size | Select **Standar_DS1_v2** or another image size. |
+    | Size | Select **Standard_DS1_v2** or another image size. |
     | **Administrator account** |  |
     | Username | Enter a username |
     | Password | Enter a password |

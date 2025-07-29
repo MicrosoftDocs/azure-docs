@@ -50,7 +50,7 @@ More samples for the Dapr input state binding are available in the [GitHub repos
 
 ::: zone pivot="programming-language-java"
 
-The following example creates a `"RetreveOrder"` function using the `DaprStateInput` binding with the [`DaprServiceInvocationTrigger`](./functions-bindings-dapr-trigger-svc-invoke.md):
+The following example creates a `"RetrieveOrder"` function using the `DaprStateInput` binding with the [`DaprServiceInvocationTrigger`](./functions-bindings-dapr-trigger-svc-invoke.md):
 
 
 ```java
@@ -355,7 +355,7 @@ To use the Dapr state input binding, start by setting up a Dapr state store comp
 
 To use the `daprState` in Python v2, set up your project with the correct dependencies.
 
-1. [Create and activate a virtual environment](./create-first-function-cli-python.md?tabs=macos%2Cbash%2Cazure-cli&pivots=python-mode-decorators#create-venv)
+1. [Create and activate a virtual environment](how-to-create-function-azure-cli.md?pivots=programming-language-python#create-venv)
 
 1. In your `requirements.text` file, add the following line:
 

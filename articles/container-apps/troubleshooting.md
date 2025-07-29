@@ -2,11 +2,11 @@
 title: Troubleshooting in Azure Container Apps
 description: Learn to troubleshoot an Azure Container Apps application.
 services: container-apps
-author: v-jaswel
+author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 03/14/2024
-ms.author: v-wellsjason
+ms.date: 02/03/2025
+ms.author: cshoe
 ms.custom:
 ---
 
@@ -58,7 +58,7 @@ You can use the *diagnose and solve problems* tool to find issues with your cont
 If you receive an error message when you try to deploy a new revision, verify that Container Apps is able to pull your container image.
 
 - Ensure your container environment firewall isn't blocking access to the container registry. For more information, see [Control outbound traffic with user defined routes](./user-defined-routes.md).
-- If your existing VNet uses a custom DNS server instead of the default Azure-provided DNS server, verify your DNS server is configured correctly and that DNS lookup of the container registry doesn't fail. For more information, see [DNS](./networking.md#dns).
+- If your existing VNet uses a custom DNS server instead of the default Azure-provided DNS server, verify your DNS server is configured correctly and that DNS lookup of the container registry doesn't fail. For more information, see [DNS](./private-endpoints-with-dns.md).
 - If you used the Container Apps cloud build feature to generate a container image for you (see [Code-to-cloud path for Azure Container Apps](./code-to-cloud-options.md#new-to-containers), your image isn't publicly accessible, so this section doesn't apply.
 
 For a Docker container that can run as a console application, verify that your image is publicly accessible by running the following command in an elevated command prompt. Before you run this command, replace placeholders surrounded by `<>` with your values.
@@ -191,7 +191,7 @@ If you receive errors about missing parameters when you run `az containerapp` co
 az extension add --name containerapp --upgrade
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 Install-Module -Name Az.App

@@ -4,9 +4,8 @@ description: Learn how connectors in Azure Logic Apps help you access data, even
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 09/06/2024
-ms.custom: engagement-fy23
+ms.topic: concept-article
+ms.date: 03/27/2025
 # Customer intent: As a developer, I want to learn how connectors help me access data, events, and resources in other apps, services, systems, and platforms from my workflow in Azure Logic Apps.
 ---
 
@@ -33,11 +32,11 @@ In Azure Logic Apps, connectors are either *built in* or *managed*. Some connect
 
 * [Built-in connectors](built-in.md) are designed to run directly and natively inside Azure Logic Apps.
 
+  In the designer, all built-in connectors appear in the connector gallery within the **In app** group.
+
 * [Managed connectors](managed.md) are deployed, hosted, and managed in Azure by Microsoft. Managed connectors mostly provide a proxy or a wrapper around an API that the underlying service or system uses to communicate with Azure Logic Apps.
 
-  * In a Consumption workflow, managed connectors appear in the designer under the **Standard** or **Enterprise** labels, based on their pricing level.
-
-  * In a Standard workflow, all managed connectors appear in the designer under the **Azure** label.
+  In the designer, all managed connectors appear in the connector gallery within the **Shared** group. They are billed at either the **Standard** or **Enterprise** level.
 
 For more information, see the following documentation:
 
@@ -86,7 +85,7 @@ Although you create connections within a workflow, these connections are actuall
 
   * To view and manage these connections in the Azure portal, see [View connections for Consumption workflows in the Azure portal](../logic-apps/manage-logic-apps-with-azure-portal.md#view-connections).
 
-  * To view and manage these connections in Visual Studio, see [Manage Consumption workflows with Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), and download your logic app resource from Azure into Visual Studio.
+  * To view and manage these connections in Visual Studio Code, see [View your Consumption logic app in Visual Studio Code](/azure/logic-apps/quickstart-create-logic-apps-visual-studio-code#view-logic-app-in-designer).
 
   For more information about connection resource definitions for Consumption workflows, see [Connection resource definitions](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#connection-resource-definitions).
 
@@ -94,7 +93,7 @@ Although you create connections within a workflow, these connections are actuall
 
   * To view and manage these connections in the Azure portal, see [View connections for Standard workflows in the Azure portal](../logic-apps/create-single-tenant-workflows-azure-portal.md#view-connections).
 
-  * To view and manage these connections in Visual Studio Code, see [View your logic app workflow in Visual Studio Code](../logic-apps/create-single-tenant-workflows-visual-studio-code.md#manage-deployed-apps-vs-code). The **connections.json** file contains the required configuration for the connections created by connectors.
+  * To view and manage these connections in Visual Studio Code, see [View your Standard workflow in Visual Studio Code](../logic-apps/create-single-tenant-workflows-visual-studio-code.md#manage-deployed-apps-vs-code). The **connections.json** file contains the required configuration for the connections created by connectors.
 
 <a name="connection-security-encryption"></a>
 

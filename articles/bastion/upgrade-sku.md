@@ -1,13 +1,14 @@
 ---
-title: 'Upgrade or view a SKU: portal'
+title: Upgrade or view a SKU - portal
 titleSuffix: Azure Bastion
 description: Learn how to view a SKU and upgrade SKU tiers.
-author: cherylmc
+author: abell
 ms.service: azure-bastion
 ms.topic: how-to
-ms.date: 10/13/2023
-ms.author: cherylmc
+ms.date: 03/31/2025
+ms.author: abell
 
+# Customer intent: As an Azure administrator, I want to view and upgrade my Bastion SKU so that I can enhance the features and capabilities of my secure remote access setup.
 ---
 
 # View or upgrade a SKU
@@ -24,11 +25,9 @@ To view the SKU for your bastion host, use the following steps.
 1. In the Azure portal, go to your bastion host.
 1. In the left pane, select **Configuration** to open the Configuration page. Click through the different Tier options. Notice that the SKU affects the available features you can select for your bastion host.
 
-   :::image type="content" source="./media/upgrade-sku/configuration-sku.png" alt-text="Screenshot of the configuration page with the Basic SKU selected." lightbox="./media/upgrade-sku/configuration-sku.png":::
+## Upgrade from Bastion Developer
 
-## Upgrade from the Developer SKU
-
-When you upgrade from a Developer SKU to a dedicated deployment SKU, you need to create a public IP address and an Azure Bastion subnet.
+When you upgrade from Bastion Developer to a dedicated deployment SKU, you need to create a public IP address and an Azure Bastion subnet.
 
 Use the following steps to upgrade to a higher SKU.
 
@@ -38,7 +37,7 @@ Use the following steps to upgrade to a higher SKU.
 1. Create a new public IP address value unless you have already created one for your bastion host, in which case, select the value.
 1. Because you already created the AzureBastionSubnet, the **Subnet** field will automatically populate.
 1. You can add features at the same time you upgrade the SKU. You don't need to upgrade the SKU and then go back to add the features as a separate step.
-1. Select **Apply** to apply changes. The bastion host updates. This takes about 10 minutes to complete.
+1. Select **Apply** to apply changes. The bastion host updates. This procedure takes about 10 minutes to complete.
 
 ## Upgrade from the Basic or Standard SKU
 
@@ -50,7 +49,7 @@ Use the following steps to upgrade to a higher SKU.
 
 1. You can add features at the same time you upgrade the SKU. You don't need to upgrade the SKU and then go back to add the features as a separate step.
 
-1. Select **Apply** to apply changes. The bastion host updates. This takes about 10 minutes to complete.
+1. Select **Apply** to apply changes. The bastion host updates. This procedure takes about 10 minutes to complete.
 
 ## Next steps
 

@@ -12,6 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 06/22/2021
 ms.author: oldoll
+# Customer intent: "As an IT administrator managing SAP solutions, I want to configure the Azure VM extension for SAP using PowerShell or Azure CLI, so that I can effectively monitor and collect performance metrics for my SAP applications running on Azure VMs."
 ---
 
 # Standard Version of Azure VM extension for SAP solutions
@@ -423,7 +424,7 @@ If troubleshooting by using SAP Note [1999351] does not resolve the issue, rerun
 | <a name="wad_003"></a>wad/003 | Cannot read WAD table. There is no connection to WAD table. There can be several causes of this:<br /><br /> 1) outdated configuration <br />2) no network connection to Azure <br />3) issues with WAD setup | [run setup script][deployment-guide-run-the-script]<br />[fix internet connection][deployment-guide-fix-internet-connection]<br />[contact support][deployment-guide-contact-support] |
 | <a name="prf_011"></a>prf/011 | Perfmon NIC metrics failed. | [contact support][deployment-guide-contact-support] |
 | <a name="prf_012"></a>prf/012 | Perfmon disk metrics failed. | [contact support][deployment-guide-contact-support] |
-| <a name="prf_013"></a>prf/013 | Some prefmon metrics failed. | [contact support][deployment-guide-contact-support] |
+| <a name="prf_013"></a>prf/013 | Some perfmon metrics failed. | [contact support][deployment-guide-contact-support] |
 | <a name="prf_014"></a>prf/014 | Perfmon failed to create a counter. | [contact support][deployment-guide-contact-support] |
 | <a name="cfg_035"></a>cfg/035 | No metric providers configured. | [contact support][deployment-guide-contact-support] |
 | <a name="str_006"></a>str/006 | Bad Storage Analytics config. | [run setup script][deployment-guide-run-the-script] |

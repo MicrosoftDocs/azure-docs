@@ -2,24 +2,25 @@
 title: Back up Azure Disks using Azure Data Protection REST API.
 description: In this article, learn how to configure, initiate, and manage backup operations of Azure Disks using REST API.
 ms.topic: how-to
-ms.date: 05/27/2024
+ms.date: 06/11/2025
 ms.assetid: 6050a941-89d7-4b27-9976-69898cc34cde
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: "As a cloud administrator, I want to configure and manage backups for Azure Disks using a REST API, so that I can automate snapshot lifecycle management and ensure data protection without incurring infrastructure costs or performance impact."
 ---
 
 # Back up Azure Disks using Azure Data Protection via REST API
 
 This article describes how to manage backups for Azure Disks via REST API.
 
-Azure Disk Backup offers a turnkey solution that provides snapshot lifecycle management for managed disks by automating periodic creation of snapshots and retaining it for configured duration using backup policy. You can manage the disk snapshots with zero infrastructure cost and without the need for custom scripting or any management overhead. This is a crash-consistent backup solution that takes point-in-time backup of a managed disk using incremental snapshots with support for multiple backups per day. It's also an agent-less solution and doesn't impact production application performance. It supports backup and restore of both OS and data disks (including shared disks), whether or not they're currently attached to a running Azure virtual machine.
+Azure Disk Backup simplifies snapshot lifecycle management for managed disks by automating periodic snapshots and retention based on backup policies. It eliminates infrastructure costs, custom scripting, and management overhead, providing a crash-consistent, point-in-time backup via incremental snapshots—supporting multiple backups per day. This agentless solution ensures zero impact on production performance and enables backup and restore of both OS and data disks (including shared disks), irrespective of whether they're attached to an Azure VM.
 
 For information on the Azure Disk backup region availability, supported scenarios and limitations, see the [support matrix](disk-backup-support-matrix.md).
 
 ## Prerequisites
 
-Before you back up disks, ensure that you:
+Before you back up disks, review the following prerequisites:
 
 - [Create a Backup vault](backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md)
 
@@ -260,7 +261,7 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
           "innerError": {
             "code": "UserErrorMissingRequiredPermissions",
             "additionalInfo": {
-              "DetailedNonLocalisedMessage": "Validate for Protection failed. Exception Message: The client 'a8b24f84-f43c-45b3-aa54-e3f6d54d31a6' with object id 'a8b24f84-f43c-45b3-aa54-e3f6d54d31a6' does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/read' over scope '/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/RG-DiskBackup/providers/Microsoft.Compute/disks/msdiskbackup/providers/Microsoft.Authorization' or the scope is invalid. If access was recently granted, please refresh your credentials."
+              "DetailedNonLocalisedMessage": "Validate for Protection failed. Exception Message: The client '00001111-aaaa-2222-bbbb-3333cccc4444' with object id 'aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb' does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/read' over scope '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/RG-DiskBackup/providers/Microsoft.Compute/disks/msdiskbackup/providers/Microsoft.Authorization' or the scope is invalid. If access was recently granted, please refresh your credentials."
             }
           },
           "isRetryable": false,
@@ -509,9 +510,10 @@ GET "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
 
 ## Next steps
 
-[Restore data from an Azure Disk backup](backup-azure-arm-userestapi-restoreazurevms.md)
+Restore Managed Disk using [Azure portal](restore-managed-disks.md), [Azure PowerShell](restore-managed-disks-ps.md), [Azure CLI](restore-managed-disks-cli.md), [REST API](backup-azure-dataprotection-use-rest-api-restore-disks.md).
 
 For more information on the Azure Backup REST APIs, see the following articles:
 
 - [Azure Data Protection Provider REST API](/rest/api/dataprotection/)
 - [Get started with Azure REST API](/rest/api/azure/)
+- [Manage backup and restore jobs](backup-azure-arm-userestapi-managejobs.md)

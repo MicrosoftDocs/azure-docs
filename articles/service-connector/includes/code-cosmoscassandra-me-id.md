@@ -125,14 +125,14 @@ ms.author: wchi
     </dependency>
     ```
 
-1. Get an access token for the managed identity or service principal using `azure-identity`. Use the access token and `AZURE_COSMOS_LISTKEYURL` to get the password. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Cassandra. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Get an access token for the managed identity or service principal using `azure-identity`. Use the access token and `AZURE_COSMOS_LISTKEYURL` to get the password. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Cassandra. When using the code below, uncomment the part of the code snippet for the authentication type you want to use. Replace `<AZURE_COSMOS_DB_ACCOUNT_LOCATION>` with the location of your Azure Cosmos DB account.
 
     ```java
     import com.datastax.oss.driver.api.core.CqlSession;
     import javax.net.ssl.*;
     import java.net.InetSocketAddress;
     import com.azure.identity.*;
-    import com.azure.core.credentital.*;
+    import com.azure.core.credential.*;
     import java.net.http.*;
     import java.net.URI;
 
@@ -164,7 +164,9 @@ ms.author: wchi
     String token = accessToken.getToken();
 
     // Get the password.
-    HttpClient client = HttpClient.newBuilder().build();
+    HttpClient client = HttpClient.newBuilder()
+        .version(HttpClient.Version.HTTP_1_1)
+        .build();
     HttpRequest request = HttpRequest.newBuilder()
         .uri(new URI(listKeyUrl))
         .header("Authorization", "Bearer " + token)
@@ -177,9 +179,14 @@ ms.author: wchi
     
     // Connect to Azure Cosmos DB for Cassandra
     final SSLContext sc = SSLContext.getInstance("TLSv1.2");
-    CqlSession session = CqlSession.builder().withSslContext(sc)
+    sc.init(null, null, null);
+    CqlSession session = CqlSession.builder()
+        .withSslContext(sc)
         .addContactPoint(new InetSocketAddress(cassandraHost, cassandraPort)).withLocalDatacenter('datacenter1')
-        .withAuthCredentials(cassandraUsername, cassandraPassword).build();
+        .withLocalDatacenter("<AZURE_COSMOS_DB_ACCOUNT_LOCATION>") // Use the same location as your Azure Cosmos DB account
+        .withKeyspace(cassandraKeyspace)
+        .withAuthCredentials(cassandraUsername, cassandraPassword)
+        .build();
     ```
 
 ### [SpringBoot](#tab/springBoot)
@@ -233,7 +240,7 @@ Authentication type is not supported for Spring Boot.
     ssl_context = SSLContext(PROTOCOL_TLSv1_2)
     ssl_context.verify_mode = CERT_NONE
     auth_provider = PlainTextAuthProvider(username, password)
-    cluster = Cluster([contanctPoint], port = port, auth_provider=auth_provider,ssl_context=ssl_context)
+    cluster = Cluster([contactPoint], port = port, auth_provider=auth_provider,ssl_context=ssl_context)
     session = cluster.connect()
     ```
 
@@ -260,12 +267,12 @@ Authentication type is not supported for Spring Boot.
     )
     
     func GetSession() *gocql.Session {
-        cosmosCassandraContactPoint = os.Getenv("AAZURE_COSMOS_CONTACTPOINT")
+        cosmosCassandraContactPoint = os.Getenv("AZURE_COSMOS_CONTACTPOINT")
         cosmosCassandraPort = os.Getenv("AZURE_COSMOS_PORT")
         cosmosCassandraUser = os.Getenv("AZURE_COSMOS_USERNAME")
         cosmosCassandraKeyspace = os.Getenv("AZURE_COSMOS_KEYSPACE")
         listKeyUrl = os.Getenv("AZURE_COSMOS_LISTKEYURL")
-        scope = os.Getenv("AZUE_COSMOS_SCOPE")
+        scope = os.Getenv("AZURE_COSMOS_SCOPE")
 
         // Uncomment the following lines corresponding to the authentication type you want to use.
         // For system-assigned identity.

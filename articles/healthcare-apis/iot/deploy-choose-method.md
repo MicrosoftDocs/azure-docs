@@ -12,11 +12,14 @@ ms.author: chrupa
 
 # Quickstart: Choose a deployment method for the MedTech service
 
+> [!IMPORTANT]
+> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
+
 The MedTech service provides multiple methods for deployment into Azure. Each deployment method has different advantages that allow you to customize your deployment to suit your needs and use cases.
 
 In this quickstart, learn about these deployment methods:
 
-* Azure Resource Manager template (ARM template) including an Azure Iot Hub using the **Deploy to Azure** button. 
+* Azure Resource Manager template (ARM template) including an Azure IoT Hub using the **Deploy to Azure** button. 
 * ARM template using the **Deploy to Azure** button.
 * ARM template using Azure PowerShell or the Azure CLI.
 * Bicep file using Azure PowerShell or the Azure CLI.
@@ -28,7 +31,7 @@ The following diagram outlines the basic steps of the MedTech service deployment
 
 :::image type="content" source="media/get-started/get-started-with-medtech-service.png" alt-text="Diagram showing MedTech service deployment overview." lightbox="media/get-started/get-started-with-medtech-service.png":::
 
-## ARM template including an Azure Iot Hub using the Deploy to Azure button
+## ARM template including an Azure IoT Hub using the Deploy to Azure button
 
 Using an ARM template with the **Deploy to Azure** button is an easy and fast deployment method because it automates the deployment, most configuration steps, and uses the Azure portal. The deployed MedTech service and Azure IoT Hub are fully functional including conforming and valid device and FHIR&reg; destination mappings. Use the Azure IoT Hub to create devices and send device messages to the MedTech service.
 

@@ -1,12 +1,13 @@
 ---
 title: MABS (Azure Backup Server) V3 UR1 protection matrix
 description: This article provides a support matrix listing all workloads, data types, and installations that Azure Backup Server protects.
-ms.date: 09/11/2024
+ms.date: 07/17/2025
 ms.topic: reference
 ms.custom: engagement-fy24, linux-related-content
 ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: As a backup administrator, I want to review the protection matrix for Azure Backup Server, so that I can ensure all critical workloads and data types are supported for backup and recovery in my environment.
 ---
 
 # MABS (Azure Backup Server) V3 UR1 (and later) protection matrix
@@ -49,7 +50,7 @@ The following sections details the protection support matrix for MABS:
 | **Workload**                                                 | **Version**                                             | **Azure  Backup Server   installation**                      | **Supported  Azure Backup Server** | **Protection  and recovery**                                 |
 | ------------------------------------------------------------ | ------------------------------------------------------- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
 | Hyper-V  host - MABS protection agent on Hyper-V host server, cluster, or VM | Windows  Server 2022, 2019, 2016, 2012 R2, 2012               | Physical  server  <br><br>    Hyper-V virtual machine <br><br>    VMware  virtual machine | V3 UR1 and V3 UR2                                 | Protect:  Virtual machines, cluster shared volumes (CSVs)  <br><br>    Recover: Virtual machine, Item-level recovery of files and folders available  only for Windows, volumes, virtual hard drives |
-| Azure Stack HCI  |       V1, 20H2, and 21H2      |    Physical server        <br><br>     Hyper-V / Azure Stack HCI virtual machine     <br><br>    VMware virtual machine     |    V3 UR2 and later   | Protect: Virtual machines, cluster shared volumes (CSVs)      <br><br>     Recover: Virtual machine, Item-level recovery of files and folders available only for Windows, volumes, virtual hard drives |
+| Azure Local  |       V1, 20H2, and 21H2      |    Physical server        <br><br>     Hyper-V / Azure Local virtual machine     <br><br>    VMware virtual machine     |    V3 UR2 and later   | Protect: Virtual machines, cluster shared volumes (CSVs)      <br><br>     Recover: Virtual machine, Item-level recovery of files and folders available only for Windows, volumes, virtual hard drives |
 | VMware  VMs                                                  | VMware  server 5.5, 6.0, or 6.5, 6.7 (Licensed Version) | Hyper-V  virtual machine  <br><br>   VMware  virtual machine         | V3 UR1                             | Protect:  VMware VMs on cluster-shared volumes (CSVs), NFS, and SAN storage   <br><br>     Recover:  Virtual machine, Item-level recovery of files and folders available only for  Windows, volumes, virtual hard drives <br><br>    VMware  vApps aren't supported. |
 | VMware VMs      |   VMware server 7.0, 6.7, 6.5 or 6.0 (Licensed Version)     |    Hyper-V virtual machine     <br><br>    VMware virtual machine    |   V3 UR2 and later    |   Protect: VMware VMs on cluster-shared volumes (CSVs), NFS, and SAN storage     <br><br>    Recover: Virtual machine, Item-level recovery of files and folders available only for Windows, volumes, virtual hard drives     <br><br>    VMware vApps aren't supported.  |
 
@@ -64,31 +65,15 @@ The following sections details the protection support matrix for MABS:
 
 ## Azure ExpressRoute support
 
-You can back up your data over Azure ExpressRoute with public peering (available for old circuits) and Microsoft peering. Backup over private peering isn't supported.
+You can back up your data over Azure ExpressRoute with Microsoft peering. Backup over private peering isn't supported.
 
-With public peering: Ensure access to the following domains/addresses:
-
-* URLs
-  * `www.msftncsi.com`
-  * `*.Microsoft.com`
-  * `*.WindowsAzure.com`
-  * `*.microsoftonline.com`
-  * `*.windows.net`
-  * `www.msftconnecttest.com`
-* IP addresses
-  * 20.190.128.0/18
-  * 40.126.0.0/18
-
-With Microsoft peering, select the following services/regions and relevant community values:
+Select the following services/regions and relevant community values:
 
 * Microsoft Entra ID (12076:5060)
 * Microsoft Azure Region (according to the location of your Recovery Services vault)
 * Azure Storage (according to the location of your Recovery Services vault)
 
 For more information, see the [ExpressRoute routing requirements](../expressroute/expressroute-routing.md).
-
->[!NOTE]
->Public Peering is deprecated for new circuits.
 
 ## Operating systems and applications at end of support
 
@@ -182,4 +167,6 @@ MABS doesn't support protecting the following data types:
 
 ## Next steps
 
-* [Support matrix for backup with Microsoft Azure Backup Server or System Center DPM](backup-support-matrix-mabs-dpm.md)
+- [Support matrix for backup with Microsoft Azure Backup Server or System Center DPM](backup-support-matrix-mabs-dpm.md).
+- [Manage telemetry settings in MABS](manage-telemetry.md).
+- [Azure Backup Server V3 RTM protection matrix](microsoft-azure-backup-server-protection-v3.md).

@@ -5,7 +5,7 @@ author: varunbms
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: overview
-ms.date: 10/13/2023
+ms.date: 07/23/2025
 ms.author: buchvarun
 ---
 
@@ -57,7 +57,7 @@ The DICOM service enables organizations to manage medical imaging data with seve
 
 - **Change feed**. The DICOM service enables you to access ordered, guaranteed, immutable, read-only logs of all changes that occur in the DICOM service. Client applications can read these logs at any time independently, in parallel, and at their own pace.
 
-- **DICOMcast**. DICOMcast is an [open-source capability](https://github.com/microsoft/dicom-server/blob/main/docs/quickstarts/deploy-dicom-cast.md) that can be self-hosted in Azure. DICOMcast enables a single source of truth for clinical data and imaging metadata. With DICOMcast, the DICOM service can inject DICOM metadata into a FHIR service or FHIR server as an imaging study resource.
+- **DICOMcast**. DICOMcast is an open-source capability that can be self-hosted in Azure. DICOMcast enables a single source of truth for clinical data and imaging metadata. With DICOMcast, the DICOM service can inject DICOM metadata into a FHIR service or FHIR server as an imaging study resource.
 
 - **Export files**. The DICOM service allows you to [export DICOM data](export-dicom-files.md) in a file format, simplifying the process of using medical imaging in external workflows, such as AI and machine learning. 
 

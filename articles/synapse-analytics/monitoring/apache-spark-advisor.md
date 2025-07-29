@@ -1,10 +1,8 @@
 ---
 title: Apache Spark Advisor in Azure Synapse Analytics
 description: Spark Advisor is a system to automatically analyze commands/queries, and show the appropriate advice when a customer executes code or query.
- 
 author: jejiang
 ms.author: jejiang
-ms.reviewer: whhender 
 ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
@@ -69,7 +67,7 @@ This query is on a Delta table and contains a highly selective filter. To improv
 
 ## User Experience
 
-The Apache Spark advisor displays the advices, including info, warning and errors, at Notebook cell output real-time.
+The Apache Spark advisor displays the advice, including info, warning and errors, at Notebook cell output real-time.
 
 * Info
 

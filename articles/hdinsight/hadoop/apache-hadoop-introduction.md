@@ -4,7 +4,10 @@ description: An introduction to HDInsight, and the Apache Hadoop technology stac
 ms.service: azure-hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive, mvc
-ms.date: 07/23/2024
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
+ms.date: 02/28/2025
 #Customer intent: As a data analyst, I want understand what is Hadoop and how it is offered in Azure HDInsight so that I can decide on using HDInsight instead of on premises clusters.
 ---
 

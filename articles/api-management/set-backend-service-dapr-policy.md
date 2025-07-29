@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: reference
 ms.date: 03/18/2024
 ms.author: danlep
 ---
@@ -37,7 +37,7 @@ The policy assumes that Dapr runs in a sidecar container in the same pod as the 
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) self-hosted
 

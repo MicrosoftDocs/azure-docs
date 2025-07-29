@@ -1,12 +1,13 @@
 ---
 title: Monitoring data reference for Azure Blob Storage
 description: This article contains important reference material you need when you monitor Azure Blob Storage.
-ms.date: 11/05/2024
+ms.date: 02/27/2025
 ms.custom: horz-monitor
 ms.topic: reference
 author: normesta
 ms.author: normesta
 ms.service: azure-blob-storage
+# Customer intent: "As a cloud administrator, I want to understand the monitoring metrics and resource logs for Azure Blob Storage, so that I can effectively track performance and ensure data integrity in my storage environment."
 ---
 
 # Azure Blob Storage monitoring data reference
@@ -22,6 +23,13 @@ See [Monitor Azure Blob Storage](monitor-blob-storage.md) for details on the dat
 The following table lists the metrics available for the Microsoft.Storage/storageAccounts resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [Microsoft.Storage/storageAccounts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-storage-storageaccounts-metrics-include.md)]
+
+### Category: Object replication
+
+| **Metric** | **Name in REST API** | **Unit** | **Aggregation** | **Dimensions** | **Time Grains** | **DS Export** |
+|---|---|---|---|---|---|---|
+| **Pending Bytes for Replication (preview)**<br><br>The size in bytes of the blob object pending for replication. | PendingBytesForReplication | Bytes | Average<br>Minimum, Maximum | TimeBucket, AccountName, and PolicyId | PT2M | No |
+| **Pending Operations for Replication (preview)**<br><br>The count of pending operations for replication. | PendingOperationsForReplication | Count | Average<br>Minimum, Maximum | TimeBucket, AccountName, and PolicyId | PT2M | No |
 
 ### Supported metrics for Microsoft.Storage/storageAccounts/blobServices
 The following table lists the metrics available for the Microsoft.Storage/storageAccounts/blobServices resource type.

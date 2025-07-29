@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: azure-app-configuration
 ms.custom: devdivchpfy22
 ms.topic: conceptual
-ms.date: 02/20/2024
+ms.date: 03/24/2025
 ---
 
 # Feature management overview
@@ -92,6 +92,15 @@ To start using feature flags with Azure App Configuration, continue to the follo
 
 > [!div class="nextstepaction"]
 > [Python](./quickstart-feature-flag-python.md)
+
+> [!div class="nextstepaction"]
+> [JavaScript](./quickstart-feature-flag-javascript.md)
+
+> [!div class="nextstepaction"]
+> [Go](./quickstart-feature-flag-go-console.md)
+
+> [!div class="nextstepaction"]
+> [Go Gin](./quickstart-feature-flag-go-gin.md)
 
 > [!div class="nextstepaction"]
 > [Azure Kubernetes Service](./quickstart-feature-flag-azure-kubernetes-service.md)

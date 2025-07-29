@@ -2,15 +2,16 @@
 title: Manage backed up SAP HANA databases on Azure VMs
 description: In this article, you'll learn common tasks for managing and monitoring SAP HANA databases that are running on Azure virtual machines.
 ms.topic: how-to
-ms.date: 10/23/2024
+ms.date: 06/05/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As a database administrator managing SAP HANA databases on Azure VMs, I want to monitor and manage backup operations, so that I can ensure data protection and compliance with backup policies."
 ---
 
-# Manage and monitor backed up SAP HANA databases
+# Manage and monitor backed up SAP HANA databases using Azure portal
 
-This article describes common tasks for managing and monitoring SAP HANA databases that are running on an Azure virtual machine (VM) and backed up to an Azure Backup Recovery Services vault by the [Azure Backup](./backup-overview.md) service. 
+This article describes common tasks for managing and monitoring SAP HANA databases that are running on an Azure virtual machine (VM) and backed up to an Azure Backup Recovery Services vault by the [Azure Backup](./backup-overview.md) service.  You can also [manage SAP HANA databases that are backed up by Azure Backup using Azure CLI](tutorial-sap-hana-manage-cli.md).
 
 You'll learn how to monitor jobs and alerts, trigger an on-demand backup, edit policies, stop and resume database protection, and unregister a VM from backups.
 
@@ -270,7 +271,7 @@ Follow these steps:
 
 To switch HANA System Replication (HSR) to standalone databases and configure backup, follow these steps:
 
-1. [Stop protection and retain data for thes currently protected databases](#stop-protection-for-an-sap-hana-database-or-hana-instance).
+1. [Stop protection and retain data for the currently protected databases](#stop-protection-for-an-sap-hana-database-or-hana-instance).
 2. Run [pre-registration script](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) on both the nodes as Standalone.
 3. [Re-discover the databases](backup-azure-sap-hana-database.md#discover-the-databases) on both nodes.
 4. [Protect the databases as Standalone](backup-azure-sap-hana-database.md#configure-backup) on both the nodes.

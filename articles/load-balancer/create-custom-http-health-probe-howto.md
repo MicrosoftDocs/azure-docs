@@ -9,6 +9,7 @@ ms.custom: devx-track-python
 ms.topic: troubleshooting
 ms.date: 09/30/2024
 ms.author: mbender
+# Customer intent: "As a cloud engineer, I want to create a custom HTTP health probe for my Azure Load Balancer using Python and FLASK, so that I can monitor the health of backend instances based on specific criteria like CPU usage."
 ---
 
 # Create a custom HTTP/HTTPS health probe for Azure Load Balancer
@@ -134,7 +135,7 @@ In this section, you create the load balancer rule that uses the HTTP health pro
     | **Protocol** | Select **TCP** |
     | **Port** | Enter **5000** |
     | **Backend port** | Enter **5000** |
-    | **Health probe** | Select **HTTP_Health (HTTP:5000/health_checkk/)** |
+    | **Health probe** | Select **HTTP_Health (HTTP:5000/health_check/)** |
     | **Session persistence** | Select **None** |
     | **Idle timeout (minutes)** | Enter **5** |
 

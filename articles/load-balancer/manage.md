@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 01/19/2024
 ms.author: mbender
 ms.custom: template-how-to, engagement-fy23
+# Customer intent: As a cloud architect, I want to configure an Azure Load Balancer using the portal, so that I can effectively manage traffic distribution across my virtual machine instances for improved application performance and availability.
 ---
 
 # Azure Load Balancer portal settings
@@ -235,7 +236,7 @@ The following is displayed in the **Add outbound rule** creation page:
 | Port allocation | Your choices are: </br> **Manually choose number of outbound ports** </br> **Use the default number of outbound ports** </br> The recommended selection is the default of **Manually choose number of outbound ports** to prevent SNAT port exhaustion. If **Use the default number of outbound ports** is chosen, the **Outbound ports** selection is disabled. |
 | Outbound ports | Your choices are: </br> **Ports per instance** </br> **Maximum number of backend instances**. </br> The recommended selections are select **Ports per instance** and enter **10,000**. |
 
-:::image type="content" source="./media/manage/add-outbound-rule.png" alt-text="Screenshot of add outbound rule." border="true":::
+:::image type="content" source="./media/manage/add-outbound-rule.png" alt-text="Screenshot of add outbound rule. Allowing to set the outbound ports." border="true":::
 
 ## Portal settings
 
@@ -361,7 +362,7 @@ If you want to add an outbound rule to your load balancer, go to your load balan
 | Available Frontend ports | Displayed value of total available frontend ports based on selected port allocation. |
 | Maximum number of backend instances | Enter the maximum number of back end instances. This entry is only available when choosing **Maximum number of backend instances** for outbound ports above. </br> You can't scale your backend pool above this number of instances. Increasing the number of instances decreases the number of ports per instance unless you also add more frontend IP addresses. |
 
-:::image type="content" source="./media/manage/outbound-rule.png" alt-text="Screehshot of add outbound rule." border="true":::
+:::image type="content" source="./media/manage/outbound-rule.png" alt-text="Screenshot of add outbound rule.  Allowing to set the maximum number of backend instances." border="true":::
 
 ## Next Steps
 

@@ -10,11 +10,13 @@ ms.author: lianwei
 
 # Use Azure SignalR Management SDK
 
-Azure SignalR Management SDK helps you to manage SignalR clients through Azure SignalR Service directly such as broadcast messages. Therefore, this SDK could be but not limited to be used in [serverless](https://azure.microsoft.com/solutions/serverless/) environments. You could use this SDK to manage SignalR clients connected to your Azure SignalR Service in any environment, such as in a console app, in an Azure function or in a web server.
+Azure SignalR Management SDK helps you to manage SignalR clients through Azure SignalR Service directly such as broadcast messages. Therefore, this SDK can be used in [serverless](https://azure.microsoft.com/solutions/serverless/) environments, but it is not limited to them. You could use this SDK to manage SignalR clients connected to your Azure SignalR Service in any environment, such as in a console app, in an Azure function or in a web server.
 
 > [!NOTE]
 > 
 > To see guides for SDK version 1.9.x and before, go to [Azure SignalR Service Management SDK (Legacy)](https://github.com/Azure/azure-signalr/blob/dev/docs/management-sdk-guide-legacy.md). You might also want to read [Migration guidance](https://github.com/Azure/azure-signalr/blob/dev/docs/management-sdk-migration.md).
+
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
 
 ## Features
 
@@ -56,7 +58,9 @@ This section shows how to use the Management SDK.
 
 ### Create Service Manager
 
-Build your instance of `ServiceManager` from a `ServiceManagerBuilder`
+Build your instance of `ServiceManager` from a `ServiceManagerBuilder`.
+
+[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
 ``` C#
 
@@ -85,6 +89,10 @@ Create your instance of `ServiceHubContext` from a `ServiceManager`:
 ``` C#
 var serviceHubContext = await serviceManager.CreateHubContextAsync("<Your Hub Name>",cancellationToken);
 ```
+
+> [!NOTE]
+> 
+> Creating `ServiceHubContext` is a rather expensive operation. It's recommended to reuse the same `ServiceHubContext` instance for the same hub.
 
 ### Negotiation
 
@@ -173,7 +181,7 @@ Read more on strongly typed hubs in the ASP.NET Core docs [here](/aspnet/core/si
 
 This SDK can communicates to Azure SignalR Service with two transport types:
 
-* Transient: Create an Http request Azure SignalR Service for each message sent. The SDK simply wraps up [Azure SignalR Service REST API](./signalr-reference-data-plane-rest-api.md) in Transient mode. It's useful when you're unable to establish a WebSockets connection.
+* Transient: Create an HTTP request Azure SignalR Service for each message sent. The SDK simply wraps up [Azure SignalR Service REST API](./signalr-reference-data-plane-rest-api.md) in Transient mode. It's useful when you're unable to establish a WebSockets connection.
 * Persistent: Create a WebSockets connection first and then send all messages in this connection. It's useful when you send large number of messages.
 
 ### Summary of serialization behaviors of the arguments in messages

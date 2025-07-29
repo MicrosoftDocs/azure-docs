@@ -7,6 +7,7 @@ ms.service: azure-load-balancer
 ms.topic: troubleshooting
 ms.date: 09/30/2024
 ms.author: mbender
+# Customer intent: "As an IT administrator managing Azure Load Balancer, I want to troubleshoot outbound connectivity issues caused by SNAT exhaustion, so that I can ensure reliable network performance and prevent connection timeouts for our applications."
 ---
 
 # Troubleshoot Azure Load Balancer outbound connectivity issues
@@ -37,9 +38,9 @@ Azure NAT Gateway is a highly resilient and scalable Azure service that provides
 
 * **Port selection and reuse behavior.**
     
-    A NAT gateway selects ports at random from the available pool of ports. If there aren't available ports, SNAT ports are reused as long as there's no existing connection to the same destination public IP and port. This port selection and reuse behavior of a NAT gateway makes it less likely to experience connection timeouts. 
+    A NAT gateway selects ports at random from the available pool of ports. If there aren't available ports, SNAT ports are reused as long as there's no existing connection to the same destination public IP and port. In order for a SNAT port to be reused to connect to the same destination endpoint, NAT gateway places a [SNAT port reuse cool down timer](/azure/nat-gateway/nat-gateway-resource#port-reuse-timers) on the port after the preceding connection closes. The SNAT port reuse timer helps prevent ports from being selected too quickly for connecting to the same destination repeatedly. This reuse cool down timer is helpful in scenarios where destination endpoints have firewalls or other services configured that place a cool down timer on source ports. This port selection and reuse behavior of a NAT gateway makes it less likely to experience connection timeouts. 
 
-    To learn more about how SNAT and port usage works for NAT gateway, see [SNAT fundamentals](../virtual-network/nat-gateway/nat-gateway-resource.md#fundamentals). There are a few conditions where you can't use NAT gateway for outbound connections. For more information on NAT gateway limitations, see [NAT Gateway limitations](../virtual-network/nat-gateway/nat-gateway-resource.md#limitations).
+    To learn more about how SNAT port selection and reuse works for NAT gateway, see [SNAT with NAT Gateway](/azure/nat-gateway/nat-gateway-snat#nat-gateway-snat-port-selection-and-reuse). There are a few conditions where you can't use NAT gateway for outbound connections. For more information on NAT gateway limitations, see [NAT Gateway limitations](../virtual-network/nat-gateway/nat-gateway-resource.md#limitations).
 
     If you're unable to use a NAT gateway for outbound connectivity, refer to the other migration options described in this article.
 

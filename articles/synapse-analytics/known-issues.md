@@ -4,11 +4,13 @@ titleSuffix: Azure Synapse Analytics
 description: Learn about the currently known issues with Azure Synapse Analytics and their possible workarounds or resolutions.
 author: charithcaldera
 ms.author: ccaldera
-ms.reviewer: wiassaf, joanpo
-ms.date: 04/08/2024
+ms.reviewer:  joanpo
+ms.date: 01/30/2025
 ms.service: azure-synapse-analytics
 ms.subservice: overview
 ms.topic: troubleshooting-known-issue
+ms.custom:
+  - build-2025
 ---
 
 # Azure Synapse Analytics known issues
@@ -21,10 +23,13 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 
 |Azure Synapse Component|Status|Issue|
 |:---------|:---------|:---------|
+|Azure Synapse dedicated SQL pool|[Data Factory copy command fails with error "The request could not be performed because of an I/O device error"](#data-factory-copy-command-fails-with-error-the-request-could-not-be-performed-because-of-an-io-device-error)|Has workaround|
+|Azure Synapse dedicated SQL pool|[COPY INTO statement fails with error “An internal DMS error occurred that caused this operation to fail.”  when managed identity is used](#copy-into-statement-fails-with-error-an-internal-dms-error-occurred-that-caused-this-operation-to-fail--when-managed-identity-is-used)|Has workaround|
 |Azure Synapse dedicated SQL pool|[Customers are unable to monitor their usage of dedicated SQL pool by using metrics](#customers-are-unable-to-monitor-their-usage-of-dedicated-sql-pool-by-using-metrics)|Has workaround|
 |Azure Synapse dedicated SQL pool|[Query failure when ingesting a parquet file into a table with AUTO_CREATE_TABLE='ON'](#query-failure-when-ingesting-a-parquet-file-into-a-table-with-auto_create_tableon)|Has workaround|
 |Azure Synapse dedicated SQL pool|[Queries failing with Data Exfiltration Error](#queries-failing-with-data-exfiltration-error)|Has workaround|
 |Azure Synapse dedicated SQL pool|[UPDATE STATISTICS statement fails with error: "The provided statistics stream is corrupt."](#update-statistics-failure)|Has workaround|
+|Azure Synapse dedicated SQL pool|[Enable TDE gateway time-outs in ARM deployment](#enable-tde-gateway-time-outs-in-arm-deployment)|Has workaround|
 |Azure Synapse serverless SQL pool|[Query failures from serverless SQL pool to Azure Cosmos DB analytical store](#query-failures-from-serverless-sql-pool-to-azure-cosmos-db-analytical-store)|Has workaround|
 |Azure Synapse serverless SQL pool|[Azure Cosmos DB analytical store view propagates wrong attributes in the column](#azure-cosmos-db-analytical-store-view-propagates-wrong-attributes-in-the-column)|Has workaround|
 |Azure Synapse serverless SQL pool|[Query failures in serverless SQL pools](#query-failures-in-serverless-sql-pools)|Has workaround|
@@ -39,6 +44,18 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 
 
 ## Azure Synapse Analytics dedicated SQL pool active known issues summary
+
+### Data Factory copy command fails with error "The request could not be performed because of an I/O device error"
+
+Azure Data Factory pipelines use the `COPY INTO` Transact-SQL statement to ingest data at scale into dedicated SQL pool tables. In some rare cases, the `COPY INTO` statement can fail when loading CSV files into dedicated SQL pool table when file split is used in an Azure Data Factory pipeline. File splitting is a mechanism that improves load performance when a small number of larger (1 GB+) files are loaded in a single copy task. When file splitting is enabled, a single file can be loaded by multiple parallel threads, where every thread is assigned a part of the file.
+
+**Workaround**: Impacted customers should disable file split in Azure Data Factory.
+
+### COPY INTO statement fails with error “An internal DMS error occurred that caused this operation to fail.”  when managed identity is used
+
+When using `COPY INTO` command with a managed identity, the statement can fail after a long-running query with error message “An internal DMS error occurred that caused this operation to fail”.
+
+**Workaround**: Impacted customers may use an alternative authentication method for the storage account, such as a Shared Access Key. 
 
 ### Customers are unable to monitor their usage of dedicated SQL pool by using metrics
 
@@ -70,6 +87,13 @@ When a new constraint is added to a table, a related statistic is created in the
 
 **Workaround**: Identify if a constraint and clustered index exist on the table. If so, DROP both the constraint and clustered index. After that, recreate the clustered index and then the constraint *ensuring that both include the same columns in the same order.* If the table does not have a constraint and clustered index, or if the above step results in the same error, contact the Microsoft Support Team for assistance.
 
+### Enable TDE gateway time-outs in ARM deployment 
+
+Updating TDE (Transparent data encryption) is internally implemented as a synchronous operation, subject to a time-out which can be exceeded. Although the time-out was exceeded, behind the scenes the TDE operation in most cases succeeds, but causes successor operations in the ARM template to be rejected.
+
+**Workaround**: There are two ways to mitigate this issue. The preferred option is to split the ARM template into multiple templates, so that one of the templates contains TDE update. That action reduces the chance of a time-out. 
+Other option is to retry the deployment after several minutes. During the wait time, the TDE update operation most likely will succeed and re-deploying the template the second time could execute previously rejected operations.
+
 ### Tag updates appear to fail
 
 When making a change to the [tags](../azure-resource-manager/management/tag-resources-portal.md) of a dedicated SQL pool through Azure portal or other methods, an error message can appear even though the change is made successfully.
@@ -96,7 +120,7 @@ Deleting a Synapse workspace fails with the error message:
 
 ### REST API PUT operations or ARM/Bicep templates to update network settings fail
 
-When using an ARM template, Bicep template, or direct REST API PUT operation to change the public network access settings and/or firewall rules for a Synapse workspace, the operation can fail.
+When using an ARM template, Bicep file, or direct REST API PUT operation to change the public network access settings and/or firewall rules for a Synapse workspace, the operation can fail.
 
 **Workaround**: The problem can be mitigated by using a REST API PATCH operation or the Azure portal UI to reverse and retry the desired configuration changes. The engineering team is aware of this behavior and working on a fix.
 

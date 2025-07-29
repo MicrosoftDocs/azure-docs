@@ -11,6 +11,7 @@ ms.author: normesta
 ms.devlang: powershell
 # ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+# Customer intent: As a cloud storage administrator, I want to enable blob inventory reports for my storage account so that I can monitor data attributes for compliance and management purposes.
 ---
 
 # Enable Azure Storage blob inventory reports
@@ -206,6 +207,46 @@ While you can disable individual reports, you can also prevent blob inventory fr
 
    Clearing the **Enable blob inventory** checkbox suspends all blob inventory runs. You can select this checkbox later if you want to resume inventory runs.
 
+## Subscribe to blob inventory policy completed event
+
+You can subscribe to blob inventory completed event to receive information on the outcome of your inventory runs. This event gets triggered when the inventory run completes for a rule that is defined an inventory policy. This event also occurs if the inventory run fails with a user error before it starts to run. For example, an invalid policy, or an error that occurs when a destination container isn't present will trigger the event.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+2. Locate your storage account and display the account overview.
+
+3. In the left menu, select **Events**.
+   
+4. Select **+ Event Subscription**.
+
+   The **Create Event Subscription** page appears.
+
+5. In the **Create Event Subscription** page, name your event subscription and use default schema, Event Grid Schema.
+   
+6. Under **EVENT TYPES**, choose Blob Inventory Completed.
+
+7. Under **ENDPOINT DETAILS**, choose Storage Queue as the Endpoint Type and select **Configure an endpoint**.
+  
+8. In the **Queues** page, choose the subscription, the storage account and create a new queue. Name your queue then click **Create**.
+
+9. Optionally, select the **Filters** tab if you want to filter the subject of the event or its attributes.
+
+10. Optionally, select the **Additional Features** tab if you want to enable dead-lettering, retry policies and set event subscription expiration time.
+
+11. Optionally, select **Delivery Properties** tab to set the storage queue message time to live.
+
+12. Select **Create**
+
+**To view the delivered queue messages**
+
+1. Locate your storage account and display the account overview.
+
+2. Under **Data Storage**, select **Queues** and open the newly create queue used to configure the endpoint to access the messages.
+
+3. Select the message for the desired inventory run time to access the message properties the review the message body for the event status.
+
+For more methods on how to subscribe to blob storage events, see [Azure Blob Storage as Event Grid source - Azure Event Grid | Microsoft Learn](../../event-grid/event-schema-blob-storage.md)
+ 
 ## Optionally enable access time tracking
 
 You can choose to enable blob access time tracking. When access time tracking is enabled, inventory reports will include the **LastAccessTime** field based on the time that the blob was last accessed with a read or write operation. To minimize the effect on read access latency, only the first read of the last 24 hours updates the last access time. Subsequent reads in the same 24-hour period don't update the last access time. If a blob is modified between reads, the last access time is the more recent of the two values.

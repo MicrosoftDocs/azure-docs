@@ -6,8 +6,9 @@ author: abell
 ms.author: abell
 ms.service: azure-private-link
 ms.topic: how-to 
-ms.date: 06/14/2022
+ms.date: 03/25/2025
 ms.custom: template-how-to, devx-track-azurepowershell, devx-track-azurecli
+# Customer intent: As a cloud infrastructure engineer, I want to configure an application security group with a private endpoint, so that I can enhance network security for my Azure resources.
 ---
 
 # Configure an application security group with a private endpoint
@@ -48,7 +49,7 @@ You can associate an ASG with a private endpoint when it's created. The followin
 
 1. Select **+ Create** in **Private endpoints**.
 
-1. On the **Basics** tab of **Create a private endpoint**, enter or select the following information:
+1. On the **Basics** tab of **Create a private endpoint**, enter, or select the following information:
 
     | Value | Setting |
     | ----- | ------- |
@@ -83,8 +84,6 @@ You can associate an ASG with a private endpoint when it's created. The followin
     | Enable network policies for all private endpoints in this subnet. | Leave the default selected. |
     | **Application security group** |   |
     | Application security group | Select **myASG**. |
-
-    :::image type="content" source="./media/configure-asg-private-endpoint/asg-new-endpoint.png" alt-text="Screenshot that shows ASG selection when creating a new private endpoint.":::
 
 1. Select **Next: DNS** at the bottom of the page.
 
@@ -170,8 +169,6 @@ You can associate an ASG with an existing private endpoint. The following proced
 1. In **myPrivateEndpoint**, in **Settings**, select **Application security groups**.
 
 1. In **Application security groups**, select **myASG** in the dropdown box.
-
-    :::image type="content" source="./media/configure-asg-private-endpoint/asg-existing-endpoint.png" alt-text="Screenshot that shows ASG selection when associating with an existing private endpoint.":::
 
 1. Select **Save**.
 

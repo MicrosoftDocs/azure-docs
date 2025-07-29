@@ -7,6 +7,7 @@ ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 10/23/2024
+# Customer intent: As a network administrator, I want to visualize network security group flow logs in a business intelligence tool, so that I can gain insights into IP traffic patterns and enhance network security management.
 ---
 
 # Visualizing network security group flow logs with Power BI
@@ -49,11 +50,7 @@ You must also have the Power BI Desktop client installed on your machine, and en
    1. **StorageAccountName** – Specifies to the name of the storage account containing the NSG flow logs that you would like to load and visualize.
    1. **NumberOfLogFiles** – Specifies the number of log files that you would like to download and visualize in Power BI. For example, if 50 is specified, the 50 latest log files. If we have 2 NSGs enabled and configured to send NSG flow logs to this account, then the past 25 hours of logs can be viewed.
 
-      ![power BI main][2]
-
 1. Enter the access key for your storage account. You can find valid access keys by going to your storage account in the Azure portal and selecting **Access keys** under **Security + networking**. Select **Connect** then apply changes.
-
-    ![access key 2][4]
 
 4. Your logs are downloaded and parsed and you can now utilize the pre-created visuals.
 
@@ -87,8 +84,6 @@ The following informational charts display information about the NSGs present in
 
 ![infochart1][11]
 
-![infochart2][12]
-
 This template includes the following slicers to allow you to view only the data you're most interested in. You can filter on your resource groups, NSGs, and rules. You can also filter on 5-tuple information, decision, and the time the log was written.
 
 ![slicers][13]
@@ -114,8 +109,6 @@ Feel free to customize this template for your needs. There are many numerous way
 Learn how to visualize your NSG flow logs with the Elastic Stack by visiting [Visualize Azure Network Watcher NSG flow logs using open source tools](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 
 [1]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure1.png
-[2]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure2.png
-[4]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure4.png
 [5]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure5.png
 [6]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure6.png
 [7]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure7.png
@@ -123,5 +116,4 @@ Learn how to visualize your NSG flow logs with the Elastic Stack by visiting [Vi
 [9]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure9.png
 [10]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure10.png
 [11]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure11.png
-[12]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure12.png
 [13]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure13.png

@@ -1,14 +1,17 @@
 ---
-title: Virtual network flow logs
+title: Virtual Network Flow Logs
 titleSuffix: Azure Network Watcher
 description: Learn about Azure Network Watcher virtual network flow logs and how to use them to record your virtual network's traffic. 
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 11/04/2024
+ms.date: 05/19/2025
 
 #CustomerIntent: As an Azure administrator, I want to learn about virtual network flow logs so that I can log my network traffic to analyze and optimize network performance.
+ms.custom:
+  - build-2025
+# Customer intent: As an Azure administrator, I want to implement virtual network flow logs so that I can effectively monitor network traffic, optimize performance, and ensure compliance within my virtual network.
 ---
 
 # Virtual network flow logs
@@ -219,6 +222,26 @@ For continuation (`C`) and end (`E`) flow states, byte and packet counts are agg
 
 Traffic can't be recorded at the private endpoint itself. You can capture traffic to a private endpoint at the source VM. The traffic is recorded with source IP address of the VM and destination IP address of the private endpoint. You can use `PrivateEndpointResourceId` field to identify traffic flowing to a private endpoint. For more information, see [Traffic analytics schema](traffic-analytics-schema.md?tabs=vnet#traffic-analytics-schema).
 
+### Incompatible services
+
+Currently, these Azure services don't support virtual network flow logs:
+
+- [Azure Container Instances](/azure/container-instances/container-instances-overview?toc=/azure/network-watcher/toc.json)
+- [Azure Container Apps](/azure/container-apps/overview?toc=/azure/network-watcher/toc.json)
+- [Azure Logic Apps](../logic-apps/logic-apps-overview.md?toc=/azure/network-watcher/toc.json) 
+- [Azure Functions](../azure-functions/functions-overview.md?toc=/azure/network-watcher/toc.json)
+- [Azure DNS Private Resolver](../dns/dns-private-resolver-overview.md?toc=/azure/network-watcher/toc.json)
+- [App Service](../app-service/overview.md?toc=/azure/network-watcher/toc.json)
+- [Azure Database for MariaDB](/azure/mariadb/overview?toc=/azure/network-watcher/toc.json)
+- [Azure Database for MySQL](/azure/mysql/single-server/overview?toc=/azure/network-watcher/toc.json)
+- [Azure Database for PostgreSQL](/azure/postgresql/single-server/overview?toc=/azure/network-watcher/toc.json)
+- [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview?toc=/azure/network-watcher/toc.json)
+- [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction?toc=/azure/network-watcher/toc.json)
+- [Microsoft Power Platform](/power-platform?toc=/azure/network-watcher/toc.json)
+
+> [!NOTE]
+> App services deployed under an Azure App Service plan don't support virtual network flow logs. To learn more, see [How virtual network integration works](../app-service/overview-vnet-integration.md#how-regional-virtual-network-integration-works).
+
 ## Pricing
 
 - Virtual network flow logs are charged per gigabyte of ***Network flow logs collected*** and come with a free tier of 5 GB/month per subscription.
@@ -244,10 +267,12 @@ The following table outlines the support scope of flow logs.
 
 ## Availability
 
-Virtual network flow logs are generally available in all Azure public regions and are currently in preview in Azure Government.
+The following tables list the supported regions where you can enable virtual network flow logs.
+
+[!INCLUDE [Traffic analytics availability](../../includes/network-watcher-flow-logs-availability.md)]
 
 ## Related content
 
-- To learn how to create, change, enable, disable, or delete virtual network flow logs, see the [Azure portal](vnet-flow-logs-portal.md), [PowerShell](vnet-flow-logs-powershell.md), or [Azure CLI](vnet-flow-logs-cli.md) guides.
+- To learn how to create, change, enable, disable, or delete virtual network flow logs, see the [Manage virtual network flow logs](vnet-flow-logs-manage.md).
+- To learn how to use Azure built-in policies to audit or deploy virtual network flow logs, see [Manage virtual network flow logs using Azure Policy](traffic-analytics-policy-portal.md).
 - To learn about traffic analytics, see [Traffic analytics overview](traffic-analytics.md) and [Schema and data aggregation in Azure Network Watcher traffic analytics](traffic-analytics-schema.md).
-- To learn how to use Azure built-in policies to audit or enable traffic analytics, see [Manage traffic analytics using Azure Policy](traffic-analytics-policy-portal.md).

@@ -4,6 +4,9 @@ metadata:
   description: Get answers to common questions about Apache Kafka on Azure HDInsight, a managed Hadoop cloud service.
   ms.service: azure-hdinsight
   ms.topic: faq
+  author: yeturis
+  ms.author: sairamyeturi
+  ms.reviewer: nijelsf
   ms.date: 01/10/2024
 title: Frequently asked questions about Apache Kafka in Azure HDInsight
 summary: This article addresses some common questions about using Apache Kafka on Azure HDInsight.

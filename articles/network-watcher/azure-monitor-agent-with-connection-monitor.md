@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 03/12/2024
 
 #Customer intent: As an Azure administrator, I need use the Azure Monitor agent so I can monitor a connection with a non-Azure resource using the Connection monitor.
+# Customer intent: As an Azure administrator, I want to use the Azure Monitor agent to set up connection monitoring for both Azure and on-premises resources, so that I can ensure effective network connectivity and troubleshoot any issues efficiently.
 ---
 
 # Monitor network connectivity using Azure Monitor agent with connection monitor
@@ -39,7 +40,7 @@ Connection monitor relies on lightweight executable files to run connectivity ch
 
 ### Agents for Azure virtual machines and scale sets
 
-To install agents for Azure virtual machines and Virtual Machine Scale Sets, see the "Agents for Azure virtual machines and Virtual Machine Scale Sets" section of [Monitor network connectivity using Connection monitor](connection-monitor-overview.md#agents-for-azure-virtual-machines-and-virtual-machine-scale-sets).
+To install agents for Azure virtual machines and Virtual Machine Scale Sets, see [Monitoring connectivity from Azure virtual machines and virtual machine scale sets](connection-monitor-overview.md#monitoring-connectivity-from-azure-virtual-machines-and-virtual-machine-scale-sets).
 
 ### Agents for on-premises machines
 

@@ -2,18 +2,18 @@
 title: 'Using ExpressRoute for Microsoft 365 Services | Microsoft Docs'
 description: This document discusses objectively on using ExpressRoute circuit for Microsoft 365 SaaS services.
 services: expressroute
-author: rambk
-manager: tracsman
+ms.author: mbender
+author: mbender-ms
 ms.service: azure-expressroute
-ms.topic: article
+ms.topic: concept-article
 ms.date: 6/11/2024
-ms.author: rambala
+# Customer intent: As an IT network engineer, I want to understand the implications of using ExpressRoute for Microsoft 365 traffic, so that I can make informed decisions about network architecture and optimize connectivity while avoiding unnecessary latency issues.
 ---
 
 # Using ExpressRoute for routing Microsoft 365 traffic
 
 > [!NOTE]
-> We **don't recommend** ExpressRoute for Microsoft 365 because it doesn't provide the best connectivity model for the service in most circumstances. As such, Microsoft authorization is required to use this connectivity model. We review every customer request and authorize ExpressRoute for Microsoft 365 only in the rare scenarios where it is necessary. For more information, see the [ExpressRoute for Microsoft 365 guide](https://aka.ms/erguide) and review the document with your productivity, network, and security teams before working with your Microsoft account team to submit an exception as required. If you try to create a route filter for Microsoft 365 without an authorized subscription you will receive an [error message](https://support.microsoft.com/kb/3181709).
+> We **don't recommend** ExpressRoute for Microsoft 365 because it doesn't provide the best connectivity model for the service in most circumstances. As such, Microsoft authorization is required to use this connectivity model. We review every customer request and authorize ExpressRoute for Microsoft 365 only in the rare scenarios where it is necessary. For more information, see the [ExpressRoute for Microsoft 365 guide](https://aka.ms/erguide) and review the document with your productivity, network, and security teams before working with your Microsoft account team to submit an exception as required. If you try to create a route filter for Microsoft 365 without an authorized subscription you will receive an [error message](https://mskb.pkisolutions.com/kb/3181709).
 
 An ExpressRoute circuit provides private connectivity to the Microsoft backbone network.
 
@@ -56,7 +56,7 @@ Therefore, in scenarios where you have widely distributed SaaS clients or client
 
 ## When to use ExpressRoute for Microsoft 365?
 
-We no longer recommend the use of ExpressRoute for Microsoft 365 traffic. For more information, see [Azure ExpressRoute for Microsoft 365](/microsoft-365/enterprise/azure-expressroute?view=o365-worldwide).
+We no longer recommend the use of ExpressRoute for Microsoft 365 traffic. For more information, see [Azure ExpressRoute for Microsoft 365](/microsoft-365/enterprise/azure-expressroute?view=o365-worldwide&preserve-view=true).
 
 ## Next steps
 

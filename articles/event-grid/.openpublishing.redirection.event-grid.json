@@ -1,6 +1,16 @@
 {
   "redirections": [    
     {
+      "source_path": "subscribe-to-sap-events.md",
+      "redirect_url": "/azure/event-grid/partner-events-overview",
+      "redirect_document_id": false
+    },        
+    {
+      "source_path": "transport-layer-security.md",
+      "redirect_url": "/azure/event-grid/transport-layer-security-configure-minimum-version",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "webhook-event-delivery.md",
       "redirect_url": "/azure/event-grid/end-point-validation-cloud-events-schema",
       "redirect_document_id": false

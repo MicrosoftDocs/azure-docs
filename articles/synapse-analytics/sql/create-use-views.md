@@ -3,11 +3,11 @@ title: Create and use views in serverless SQL pool
 description: In this section, you'll learn how to create and use views to wrap serverless SQL pool queries. Views will allow you to reuse those queries. Views are also needed if you want to use tools, such as Power BI, in conjunction with serverless SQL pool.
 author: azaricstefan
 ms.service: azure-synapse-analytics
-ms.topic: overview
+ms.topic: how-to
 ms.subservice: sql
-ms.date: 05/20/2020
+ms.date: 12/06/2024
 ms.author: stefanazaric
-ms.reviewer: whhender, wiassaf
+
 ---
 
 # Create and use views using serverless SQL pool in Azure Synapse Analytics
@@ -53,7 +53,7 @@ The view uses an `EXTERNAL DATA SOURCE` with a root URL of your storage, as a `D
 
 ### Delta Lake views
 
-If you are creating the views on top of Delta Lake folder, you need to specify the location to the root folder after the `BULK` option instead of specifying the file path.
+If you're creating the views on top of Delta Lake folder, you need to specify the location to the root folder after the `BULK` option instead of specifying the file path.
 
 > [!div class="mx-imgBorder"]
 >![ECDC COVID-19 Delta Lake folder](./media/shared/covid-delta-lake-studio.png)
@@ -100,7 +100,7 @@ When using JOINs in SQL queries, declare the filter predicate as NVARCHAR to red
 
 ### Delta Lake partitioned views
 
-If you are creating the partitioned views on top of Delta Lake storage, you can specify just a root Delta Lake folder and don't need to explicitly expose the partitioning columns using the `FILEPATH` function:
+If you're creating the partitioned views on top of Delta Lake storage, you can specify just a root Delta Lake folder and don't need to explicitly expose the partitioning columns using the `FILEPATH` function:
 
 ```sql
 CREATE OR ALTER VIEW YellowTaxiView
@@ -124,7 +124,7 @@ For more information, review [Synapse serverless SQL pool self-help page](resour
 
 ## JSON views
 
-The views are the good choice if you need to do some additional processing on top of the result set that is fetched from the files. One example might be parsing JSON files where we need to apply the JSON functions to extract the values from the JSON documents:
+The views are the good choice if you need to do some extra processing on top of the result set that is fetched from the files. One example might be parsing JSON files where we need to apply the JSON functions to extract the values from the JSON documents:
 
 ```sql
 CREATE OR ALTER VIEW CovidCases
@@ -151,15 +151,22 @@ The `OPENJSON` function parses each line from the JSONL file containing one JSON
 
 The views can be created on top of the Azure Cosmos DB containers if the Azure Cosmos DB analytical storage is enabled on the container. The Azure Cosmos DB account name, database name, and container name should be added as a part of the view, and the read-only access key should be placed in the database scoped credential that the view references.
 
+This example script uses a database and container you can set up by [following these instructions](query-cosmos-db-analytical-store.md#sample-dataset).
+
+>[!IMPORTANT]
+>In the script, replace these values with your own values:
+>- **your-cosmosdb** - the name of your Cosmos DB account
+>- **access-key** - your Cosmos DB account key
+
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL MyCosmosDbAccountCredential
-WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'access-key';
 GO
 CREATE OR ALTER VIEW Ecdc
 AS SELECT *
 FROM OPENROWSET(
       PROVIDER = 'CosmosDB',
-      CONNECTION = 'Account=synapselink-cosmosdb-sqlsample;Database=covid',
+      CONNECTION = 'Account=your-cosmosdb;Database=covid',
       OBJECT = 'Ecdc',
       CREDENTIAL = 'MyCosmosDbAccountCredential'
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
@@ -191,12 +198,6 @@ ORDER BY
 
 When you query the view, you may encounter errors or unexpected results. This probably means that the view references columns or objects that were modified or no longer exist. You need to manually adjust the view definition to align with the underlying schema changes.
 
-## Next steps
+## Related content
 
 For information on how to query different file types, refer to the [Query single CSV file](query-single-csv-file.md), [Query Parquet files](query-parquet-files.md), and [Query JSON files](query-json-files.md) articles.
-
-- [What's new in Azure Synapse Analytics?](../whats-new.md). 
-- [Best practices for serverless SQL pool in Azure Synapse Analytics](best-practices-serverless-sql-pool.md)
-- [Troubleshoot serverless SQL pool in Azure Synapse Analytics](resources-self-help-sql-on-demand.md)
-- [Troubleshoot a slow query on a dedicated SQL Pool](/troubleshoot/azure/synapse-analytics/dedicated-sql/troubleshoot-dsql-perf-slow-query)
-- [Synapse Studio troubleshooting](../troubleshoot/troubleshoot-synapse-studio.md)

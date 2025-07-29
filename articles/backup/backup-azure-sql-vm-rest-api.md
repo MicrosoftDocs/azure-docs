@@ -2,10 +2,11 @@
 title: Back up SQL server databases in Azure VMs using Azure Backup via REST API
 description: Learn how to use REST API to back up SQL server databases in Azure VMs in the Recovery Services vault
 ms.topic: how-to
-ms.date: 07/30/2024
+ms.date: 06/03/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As a database administrator, I want to back up SQL Server databases in Azure VMs using a REST API, so that I can automate and manage the backup process efficiently through my infrastructure."
 ---
 
 # Back up SQL server databases in Azure VMs using Azure Backup via REST API
@@ -463,7 +464,7 @@ Triggering an on-demand backup is a *POST* operation.
 >The retention period of this backup is determined by the type of on-demand backup you have run.
 >
 >- *On-demand full* retains backups for a minimum of *45 days* and a maximum of *99 years*.
->- *On-demand copy only full* accepts any v0alue for retaintion.
+>- *On-demand copy only full* accepts any value for retention.
 >- *On-demand differential* retains backup as per the retention of scheduled differentials set in policy.
 >- *On-demand log* retains backups as per the retention of scheduled logs set in policy.
 
@@ -542,8 +543,9 @@ Once the operation is complete, it returns 200 (OK) with the ID of the resulting
 }
 ```
 
-As the backup job is a long running operation, it needs to be tracked as explained in the [monitor jobs using REST API document](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+As the backup job is a long running operation, it needs to be tracked as explained in the [monitor jobs using REST API document](backup-azure-arm-userestapi-managejobs.md#track-the-job).
 
 ## Next steps
 
-- Learn how to [restore SQL databases using REST API](restore-azure-sql-vm-rest-api.md).
+- [Restore SQL databases using REST API](restore-azure-sql-vm-rest-api.md).
+- Manage SQL server databases in Azure VMs with [Azure portal](manage-monitor-sql-database-backup.md), [Azure CLI](backup-azure-sql-manage-cli.md), [REST API](manage-azure-sql-vm-rest-api.md).

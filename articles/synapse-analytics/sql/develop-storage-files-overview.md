@@ -7,7 +7,7 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: stefanazaric
-ms.reviewer: whhender 
+ 
 ---
 # Access external storage using serverless SQL pool in Azure Synapse Analytics
 

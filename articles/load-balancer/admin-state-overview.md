@@ -5,10 +5,11 @@ description: Overview of Administrative State (Admin State) in Azure Load Balanc
 services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/17/2024
 ms.author: mbender
-ms.custom: template-concept, references_regions
+ms.custom: references_regions
+# Customer intent: As a cloud administrator, I want to configure the administrative state of backend instances in a load balancer, so that I can control traffic availability during maintenance, patching, or testing without impacting existing connections.
 ---
 
 # Administrative State (Admin State) in Azure Load Balancer

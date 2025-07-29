@@ -3,7 +3,10 @@ title: HDP upgrade & no data in Apache Phoenix views in Azure HDInsight
 description: HDP upgrade causes no data in Apache Phoenix views in Azure HDInsight
 ms.service: azure-hdinsight
 ms.topic: troubleshooting
-ms.date: 06/14/2024
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: nijelsf
+ms.date:  06/14/2024
 ---
 
 # Scenario: HDP upgrade causes no data in Apache Phoenix views in Azure HDInsight

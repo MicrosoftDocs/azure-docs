@@ -2,11 +2,12 @@
 title: Azure Firewall remote work support
 description: This article shows how Azure Firewall can support your remote work force requirements.
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/04/2020
-ms.author: victorh
+ms.author: duau
+# Customer intent: "As an IT manager, I want to implement Azure Firewall for our remote workforce, so that I can ensure secure access and protect our Virtual Desktop Infrastructure from potential threats."
 ---
 
 # Azure Firewall remote work support
@@ -23,4 +24,4 @@ Azure Virtual Desktop is a comprehensive desktop and app virtualization service 
 
 ## Next steps
 
-Learn more about [Azure Virtual Desktop](../virtual-desktop/overview.md).
+Learn more about [Azure Virtual Desktop](/azure/virtual-desktop/overview).

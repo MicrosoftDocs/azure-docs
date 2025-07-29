@@ -18,12 +18,18 @@ To collect client logs, you can use [@azure/logger](https://www.npmjs.com/packag
 
 ```typescript
 import { setLogLevel, createClientLogger, AzureLogger } from '@azure/logger';
-setLogLevel('info');
+setLogLevel('verbose');
 let logger = createClientLogger('ACS');
 const callClient = new CallClient({ logger });
-// app logging
-logger.info('....');
 
+// Redirect ACS Calling SDK's logs
+AzureLogger.log = (...args) => {
+    // To console, file, buffer, REST API, etc...
+    console.log(...args); 
+};
+
+// Application logging
+logger.info('....');
 ```
 
 [@azure/logger](https://www.npmjs.com/package/@azure/logger) supports four different log levels:

@@ -3,8 +3,9 @@ title: Deploy vSAN stretched clusters
 description: Learn how to deploy vSAN stretched clusters.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 3/22/2024
+ms.date: 12/4/2024
 ms.custom: references_regions, engagement-fy23 
+# Customer intent: As a cloud administrator, I want to deploy a vSAN stretched cluster on Azure VMware Solution, so that I can ensure high availability and disaster recovery across multiple availability zones.
 ---
 
 # Deploy vSAN stretched clusters
@@ -19,7 +20,7 @@ Follow the [Request Host Quota](/azure/azure-vmware/request-host-quota-azure-vmw
 - Point of contact: email
 - Subscription ID: a new, separate subscription is required
 - Type of private cloud: "Stretched Cluster"
-- Region requested: UK South, West Europe, Germany West Central, or Australia East
+- Region requested: East US, UK South, West Europe, Germany West Central, or Australia East
 - Number of nodes in first stretched cluster: minimum 6, maximum 16 - in multiples of two
 - Estimated expansion plan
 

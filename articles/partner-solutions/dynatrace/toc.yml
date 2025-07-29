@@ -4,28 +4,28 @@ items:
 - name: Overview
   items:
   - name: What is Azure Native Dynatrace Service?
-    href: dynatrace-overview.md
+    href: overview.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Start a free trial
-    href: dynatrace-free-trial.md
+    href: free-trial.md
   - name: Create Dynatrace resource
-    href: dynatrace-create.md
+    href: create.md
   - name: Link to existing Dynatrace resource
-    href: dynatrace-link-to-existing.md
+    href: link-to-existing-resources.md
 - name: How to
   items:
   - name: Configure prerequisites
-    href: dynatrace-how-to-configure-prereqs.md
+    href: configure-prerequisites.md
   - name: Manage Dynatrace
-    href: dynatrace-how-to-manage.md
+    href: manage.md
   - name: Troubleshoot
     items:
     - name: Get support
-      href: dynatrace-get-support.md
+      href: https://support.dynatrace.com/
     - name: Fix common errors
-      href: dynatrace-troubleshoot.md
+      href: troubleshoot.md
 - name: Reference
   items:
   - name: Azure CLI

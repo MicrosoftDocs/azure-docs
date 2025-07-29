@@ -5,8 +5,9 @@ author: yangyizhe90
 ms.author: yangtony
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 09/04/2023
+ms.date: 09/28/2023
 ms.custom: engagement-fy23
+# Customer intent: As an IT manager, I want to assess our Spring Boot applications for migration to Azure Spring Apps, so that I can evaluate cloud readiness, identify potential risks, and estimate costs before initiating the migration process.
 ---
 
 # Create an Azure Spring Apps assessment (preview)
@@ -36,7 +37,7 @@ An Azure Spring Apps assessment provides the following sizing criteria:
 
 Run an assessment using the following steps:
 
-1. On the **Overview** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
+1. In **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
     :::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/discover-assess-migrate.png" alt-text="Screenshot of Overview page for Azure Migrate." lightbox="./media/how-to-create-azure-spring-apps-assessment/discover-assess-migrate.png":::
 

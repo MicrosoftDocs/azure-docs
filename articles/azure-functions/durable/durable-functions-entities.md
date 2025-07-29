@@ -131,7 +131,7 @@ For more information on the class-based syntax and how to use it, see [Defining 
 
 ```csharp
 [Function(nameof(Counter))]
-public static Task DispatchAsync([EntityTrigger] TaskEntityDispatcher dispatcher)
+public static Task Counter([EntityTrigger] TaskEntityDispatcher dispatcher)
 {
     return dispatcher.DispatchAsync(operation =>
     {
@@ -451,10 +451,10 @@ public static async Task<HttpResponseData> Run(
 
     if (entity is null)
     {
-        return request.CreateResponse(HttpStatusCode.NotFound);
+        return req.CreateResponse(HttpStatusCode.NotFound);
     }
     
-    HttpResponseData response = request.CreateResponse(HttpStatusCode.OK);
+    HttpResponseData response = req.CreateResponse(HttpStatusCode.OK);
     await response.WriteAsJsonAsync(entity);
 
     return response;

@@ -2,12 +2,13 @@
 title: How to move Azure Backup Recovery Services vaults 
 description: Instructions on how to move a Recovery Services vault across Azure subscriptions and resource groups.
 ms.topic: how-to
-ms.date: 07/30/2024
+ms.date: 06/17/2025
 ms.custom: references_regions, engagement-fy24
 ms.reviewer: caishwarya
 ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As an IT administrator, I want to move Recovery Services vaults between subscriptions and resource groups, so that I can effectively manage my backup resources and maintain compliance with organizational policies."
 ---
 
 # Move a Recovery Services vault across Azure subscriptions and resource groups
@@ -40,7 +41,8 @@ All public regions and sovereign regions are supported, except France South, Fra
 - If you move a vault containing VM backup data, across subscriptions, you must move your VMs to the same subscription, and use the same target VM resource group name (as it was in old subscription) to continue backups.
 
 > [!NOTE]
-> Moving Recovery Services vaults for Azure Backup across Azure regions isn't supported.<br><br>
+>- Moving a CMK encrypted Recovery Services vault across resource groups and subscriptions isn't currently supported.
+>- Moving Recovery Services vaults for Azure Backup across Azure regions isn't supported.<br><br>
 > If you've configured any VMs (Azure IaaS, Hyper-V, VMware) or physical machines for disaster recovery using **Azure Site Recovery**, the move operation will be blocked. If you want to move vaults for Azure Site Recovery, review [this article](../site-recovery/move-vaults-across-regions.md) to learn about moving vaults manually.
 
 ## Use Azure portal to move Recovery Services vault to different resource group
@@ -248,8 +250,7 @@ To protect workloads in a new vault, the current protection and data will need t
 
 **Stop and delete current protection on the old vault:**
 
-1. Disable soft delete in the vault properties. Follow [these steps](backup-azure-security-feature-cloud.md?tabs=azure-portal#disable-soft-delete) to disable soft delete.
-
+1. If you want to retain backup data, you can keep soft delete on and continue to register the virtual machine for backup in a new vault, once the backup item is soft deleted. In case you don't want to retain backup data, [disable soft delete in the vault properties](backup-azure-security-feature-cloud.md?tabs=azure-portal#disable-soft-delete) (not recommended).
 2. Stop protection and delete backups from the current vault. In the Vault dashboard menu, select **Backup Items**. Items listed here that need to be moved to the new vault must be removed along with their backup data. See how to [delete protected items in the cloud](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) and [delete protected items on premises](backup-azure-delete-vault.md#delete-protected-items-on-premises).
 
 3. If you're planning to move AFS (Azure file shares), SQL servers or SAP HANA servers, then you'll need also to unregister them. In the vault dashboard menu, select **Backup Infrastructure**. See how to [unregister the SQL server](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance), [unregister a storage account associated with Azure file shares](manage-afs-backup.md#unregister-a-storage-account), and [unregister an SAP HANA instance](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
@@ -275,6 +276,9 @@ If you need to keep the current protected data in the old vault and continue the
   - You'll need to pay to keep the recovery points in the old vault (see [Azure Backup pricing](azure-backup-pricing.md) for details).
   - You'll be able to restore the VM, if needed, from the old vault.
   - The first backup on the new vault of the VM in the new resource will be an initial replica.
+
+>[!Note]
+>With the  Enhanced soft delete capabilities, you can move a VM backup to a new Recovery Services vault while retaining the existing data, without the need to move the VM to a new resource group.
 
 ## Next steps
 

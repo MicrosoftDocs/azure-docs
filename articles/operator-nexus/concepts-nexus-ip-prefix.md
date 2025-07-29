@@ -1,8 +1,8 @@
 ---
 title: "Azure Operator Nexus IP prefixes"
 description: Overview of the IP prefix resource in Azure Operator Nexus.
-author: joemarshallmsft
-ms.author: joemarshall
+author: scottsteinbrueck
+ms.author: ssteinbrueck
 ms.service: azure-operator-nexus
 ms.topic: conceptual
 ms.date: 02/28/2024

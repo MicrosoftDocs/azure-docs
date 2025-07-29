@@ -2,11 +2,12 @@
 title: Use Azure Backup Server to back up workloads
 description: In this article, learn how to prepare your environment to protect and back up workloads using Microsoft Azure Backup Server (MABS).
 ms.topic: how-to
-ms.date: 04/30/2024
+ms.date: 07/15/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: "As an IT administrator, I want to set up Azure Backup Server to back up application workloads, so that I can ensure data protection and recovery for my organization's critical systems."
 ---
 
 # Install and upgrade Azure Backup Server
@@ -20,7 +21,7 @@ ms.custom: engagement-fy24
 
 > Applies To: MABS v4.
 
-This article explains how to prepare your environment to back up workloads using Microsoft Azure Backup Server (MABS). With Azure Backup Server, you can protect application workloads, such as Hyper-V VMs, VMware VMs, Azure Stack HCI VMs, Microsoft SQL Server, SharePoint Server, Microsoft Exchange, and Windows clients from a single console.
+This article explains how to prepare your environment to back up workloads using Microsoft Azure Backup Server (MABS). With Azure Backup Server, you can protect application workloads, such as Hyper-V VMs, VMware VMs, Azure Local VMs, Microsoft SQL Server, SharePoint Server, Microsoft Exchange, and Windows clients from a single console.
 
 > [!NOTE]
 > To learn more about backing up VMware servers with Azure Backup Server, see the article, [Use Azure Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md). To learn about security capabilities, refer to [Azure Backup security features documentation](backup-azure-security-feature.md).
@@ -67,7 +68,7 @@ You can deduplicate the DPM storage using Windows Server Deduplication. Learn mo
 > * A computer on which the Application Server role is installed
 > * A computer that's a System Center Operations Manager management server
 > * A computer on which Exchange Server is running
-> * A computer that's a node of a cluster
+> * A computer that's a node of a system
 >
 > Installing Azure Backup Server isn't supported on Windows Server Core or Microsoft Hyper-V Server.
 
@@ -374,7 +375,7 @@ Use the following steps to upgrade MABS:
 
 ## Increase maximum parallel online backups
 
-You can increase the number of maximum parallel online backup jobs from the default 8 to a configurable number using the following registry keys (if your underlying hardware and network bandwidth can support it).
+You can increase the number of maximum parallel online backup jobs from the default 8 to a configurable limit of 20 using the following registry keys (if your underlying hardware and network bandwidth can support it).
 
 The example below increases the limit to 12 jobs.
 
@@ -401,3 +402,7 @@ You can use these articles to gain a deeper understanding of workload protection
 * [SQL Server backup](backup-azure-backup-sql.md)
 * [SharePoint Server backup](backup-azure-backup-sharepoint.md)
 * [Alternate server backup](backup-azure-alternate-dpm-server.md)
+
+## Related content
+
+[Run an unattended installation of MABS](backup-mabs-unattended-install.md).

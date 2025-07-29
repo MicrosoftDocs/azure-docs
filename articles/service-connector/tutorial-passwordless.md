@@ -17,7 +17,7 @@ zone_pivot_groups: passwordless
 
 Passwordless connections use managed identities to access Azure services. With this approach, you don't have to manually track and manage secrets for managed identities. These tasks are securely handled internally by Azure.
 
-Service Connector enables managed identities in app hosting services like Azure Spring Apps, Azure App Service, and Azure Container Apps. Service Connector also configures database services, such as Azure Database for PostgreSQL, Azure Database for MySQL, and Azure SQL Database, to accept managed identities.
+Service Connector enables managed identities in app hosting services like Azure Spring Apps, Azure App Service, and Azure Container Apps. Service Connector also configures database services, such as Azure Database for PostgreSQL, Azure Database for MySQL, Azure SQL Database, and SQL database in Microsoft Fabric, to accept managed identities.
 
 In this tutorial, you use the Azure CLI to complete the following tasks:
 
@@ -28,43 +28,30 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 
 ## Prerequisites
 
-* [Azure CLI](/cli/azure/install-azure-cli) version 2.61.0 or higher.
-* An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/free).
-* An app deployed to [Azure App Service](../app-service/overview.md) in a [region supported by Service Connector](./concept-region-support.md).
+- An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/free).
+- An app deployed to [Azure App Service](../app-service/overview.md) in a [region supported by Service Connector](./concept-region-support.md).
+- [Azure CLI](/cli/azure/install-azure-cli) version 2.61.0 or higher.
 
-### Set up your environment
+To begin using the Azure CLI:
 
-#### Account
-
-Sign in with the Azure CLI via `az login`. If you're using Azure Cloud Shell or are already logged in, confirm your authenticated account with `az account show`.
-
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [passwordless snippet](./includes/passwordless-tutorial-snippet.md)]
 
 ## Deploy the application to an Azure hosting service
 
-Finally, deploy your application to an Azure hosting service. That source service can use a managed identity to connect to the target database on Azure.
+1. Deploy your application to an Azure hosting service. Optionally refer to the guides below for more information about deploying these resources.
 
-### [App Service](#tab/appservice)
+   - Azure App Service: [Quickstart: Deploy an ASP.NET web app](../app-service/quickstart-dotnetcore.md).
+   - Azure Container Apps: [Quickstart: Deploy your first container app](../container-apps/get-started.md).
+   - Azure Spring Apps: [Build and deploy the app](/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app?#build-and-deploy-the-app).
+       [!INCLUDE [deprecation-note](../spring-apps/includes/deprecation-note.md)]
 
-For Azure App Service, you can check the document to choose a way to deploy, see [Quickstart: Deploy an ASP.NET web app](../app-service/quickstart-dotnetcore.md).
+1. Check the log or call the application to see if it can connect to the Azure database successfully.
 
-### [Spring Apps](#tab/springapp)
+## Troubleshooting
 
-For Azure Spring Apps, you can check the document for more details about building app and deployment, see [Build and deploy the app](/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app?#build-and-deploy-the-app).
-
-
-### [Container Apps](#tab/containerapp)
-
-For Azure Container Apps, you can check the document about how to deploy your app, see [Quickstart: Deploy your first container app](../container-apps/get-started.md).
-
----
-
-Then you can check the log or call the application to see if it can connect to the Azure database successfully.
-
-### Troubleshooting
-
-#### Permission
+### Permissions
 
 If you encounter any permission-related errors, confirm the Azure CLI signed-in user with the command `az account show`. Make sure you sign in with the correct account. Next, confirm that you have the following permissions that might be required to create a passwordless connection with Service Connector.
 
@@ -111,7 +98,7 @@ In some cases, the permissions aren't required. For example, if the Azure CLI-au
 
 <a name='azure-active-directory'></a>
 
-#### Microsoft Entra ID
+### Microsoft Entra ID
 
 If you get an error `ERROR: AADSTS530003: Your device is required to be managed to access this resource.`, ask your IT department for help with joining this device to Microsoft Entra ID. For more information, see [Microsoft Entra joined devices](../active-directory/devices/concept-azure-ad-join.md).
 
@@ -125,7 +112,7 @@ If you don't log in interactively, you might also get the error and `Interactive
 
 <a name='connect-to-database-with-azure-active-directory-authentication'></a>
 
-#### Network connectivity
+### Network connectivity
 
 ::: zone pivot="postgresql"
 
@@ -145,11 +132,9 @@ If your database server disallows public access, ensure your environment that ru
 
 ::: zone-end
 
-
-
 ## Next steps
 
-For more information about Service Connector and passwordless connections, see the following resources:
+For more information about Service Connector and passwordless connections, refer to the following resources:
 
 > [!div class="nextstepaction"]
 > [Service Connector documentation](/azure/service-connector/)

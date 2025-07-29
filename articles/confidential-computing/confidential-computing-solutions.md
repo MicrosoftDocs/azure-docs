@@ -4,9 +4,10 @@ description: Learn how to build solutions on Azure confidential computing
 author: ju-shim
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/01/2021
 ms.author: jushiman
+# Customer intent: "As a cloud architect, I want to design confidential computing solutions on Azure, so that I can ensure data protection and security for sensitive workloads while leveraging the capabilities of secure enclaves and confidential virtual machines."
 ---
 
 # Building confidential computing solutions

@@ -4,8 +4,8 @@ description: Learn about building mainframe and midrange system integration solu
 author: haroldcampos
 ms.author: hcampos
 ms.service: azure-logic-apps
-ms.topic: conceptual
-ms.date: 11/02/2023
+ms.topic: concept-article
+ms.date: 07/18/2025
 
 #CustomerIntent: As an integration developer, I need to learn about mainframe and midrange system integration with Standard workflows in Azure Logic Apps.
 ---
@@ -16,18 +16,17 @@ This guide describes how your organization can increase business value and agili
 
 For organizations with investments in mainframe and midrange systems, this means making the best use of platforms that helped send humans to the moon or helped build current financial markets and extend their value using the cloud and artificial intelligence (AI). This scenario is where Azure Logic Apps and its native capabilities for integrating with mainframe and midrange systems come into play, by opening the door to the AI world for legacy investments. Among other features, Azure Logic Apps incorporates the core capabilities of Host Integration Server (HIS), which has been used for mainframe and midrange integration at the core of Microsoft's most strategic customers over 20+ years. As a result, Azure Logic Apps has become an Integration Platform-as-a-Service (iPaaS) for mainframe and midrange systems.
 
-When enterprise developers build integration workflows with Azure Logic Apps, they can more quickly deliver new applications using little to no code or less custom code. Developers who use Visual Studio Code and Visual Studio can be more productive than those who use IBM mainframe development tools and technologies because they don't require knowledge about mainframe systems and infrastructure. Azure Logic Apps empowers business analysts and decision makers to more quickly analyze and report vital legacy information. They can directly access data in mainframe data sources, which removes the need to have mainframe developers create programs that extract and convert complex mainframe structures.
+When enterprise developers build integration workflows with Azure Logic Apps, they can more quickly deliver new applications using little to no code or less custom code. Developers who use Visual Studio can be more productive than those who use IBM mainframe development tools and technologies because they don't require knowledge about mainframe systems and infrastructure. Azure Logic Apps empowers business analysts and decision makers to more quickly analyze and report vital legacy information. They can directly access data in mainframe data sources, which removes the need to have mainframe developers create programs that extract and convert complex mainframe structures.
 
 ## Cloud native capabilities for mainframe and midrange system integration
 
 Since 1990, Microsoft has provided integration with mainframe and midrange systems through Microsoft Communications Server. Further evolution of Microsoft Communications Server created Host Integration Server (HIS) in 2000. While HIS started as a System Network Architecture (SNA) Gateway, HIS expanded to include IBM data stores (DB2, VSAM, and Informix), IBM transaction systems (CICS, IMS, and IBM i), and IBM messaging (MQ Series). Microsoft's strategic customers have used these technologies for more than 20 years.
 
-To empower customers that run applications and data on Azure to continue using these technologies, Azure Logic Apps and Visual Studio have gradually incorporated these capabilities. For example, the HIS Designer for Logic Apps that runs on Visual Studio, and the 3270 Design Tool, help you create metadata artifacts required by the built-in connectors that you use for mainframe and midrange integration in Azure Logic Apps. These built-in connectors run using the same compute resources as Standard logic app workflows. This design not only allows you to achieve low-latency scenarios, but also extends your reach to address more disaster recovery and high availability customer needs.
+To empower customers that run applications and data on Azure to continue using these technologies, Azure Logic Apps and Visual Studio has gradually incorporated these capabilities. For example, the HIS Designer for Logic Apps that runs on Visual Studio, and the 3270 Design Tool, help you create metadata artifacts required by the built-in connectors that you use for mainframe and midrange integration in Azure Logic Apps. These built-in connectors run using the same compute resources as Standard logic app workflows. This design not only allows you to achieve low-latency scenarios, but also extends your reach to address more disaster recovery and high availability customer needs.
 
 :::image type="content" source="media/mainframe-modernization-overview/mainframe-modernization.png" alt-text="Conceptual diagram showing Microsoft cloud native capabilities for mainframe integration." lightbox="media/mainframe-modernization-overview/mainframe-modernization.png":::
 
 For more information about the Microsoft's capabilities for mainframe and midrange integration, continue to the following sections.
-
 
 ### Microsoft HIS Designer for Logic Apps
 

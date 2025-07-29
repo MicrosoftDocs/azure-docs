@@ -7,6 +7,7 @@ ms.author: karler
 ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 11/02/2023
+ms.update-cycle: 180-days
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ms.collection: ce-skilling-ai-copilot
 ---
@@ -15,7 +16,7 @@ ms.collection: ce-skilling-ai-copilot
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This quickstart shows you how to integrate Azure OpenAI with applications deployed on the Azure Spring Apps Enterprise plan.
 

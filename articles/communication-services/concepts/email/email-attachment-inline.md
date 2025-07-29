@@ -1,6 +1,6 @@
 ---
-title: Enhance email communication with inline attachments
-titleSuffix: An Azure Communication Services concept article
+title: Inline attachments
+titleSuffix: An Azure Communication Services article
 description: Inline attachments enable you to embed images directly within the email body.
 author: mansha
 manager: koagbakp
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# Enhance email communication with inline attachments
+# Inline attachments
 
 Email communication is more than just text. It's about creating engaging and visually appealing messages that capture the recipient's attention.
 

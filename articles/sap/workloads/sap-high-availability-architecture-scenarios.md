@@ -9,6 +9,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.date: 06/02/2023
 ms.author: radeltch
+# Customer intent: "As a SAP application administrator, I want to implement a high-availability architecture for SAP NetWeaver on Azure, so that I can ensure continuous service and minimize downtime for critical SAP components."
 ---
 
 # High-availability architecture and scenarios for SAP NetWeaver
@@ -79,7 +80,7 @@ For more information, see [manage the availability of virtual machines in Azure 
 
 ### Azure Availability Zones
 
-Azure is in process of rolling out a concept of [Azure Availability Zones](../../availability-zones/az-overview.md) throughout different [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions/). In Azure regions where Availability Zones are offered, the Azure regions have multiple data centers, which are independent in supply of power source, cooling, and network. Reason for offering different zones within a single Azure region is to enable you to deploy applications across two or three Availability Zones offered. Assuming that issues in power sources and/or network would affect one Availability Zone infrastructure only, your application deployment within an Azure region is still fully functional. Eventually with some reduced capacity since some VMs in one zone might be lost. But VMs in the other two zones are still up and running. The Azure regions that offer zones are listed in [Azure Availability Zones](../../availability-zones/az-overview.md).
+Azure is in process of rolling out a concept of [Azure Availability Zones](../../reliability/availability-zones-overview.md) throughout different [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions/). In Azure regions where Availability Zones are offered, the Azure regions have multiple data centers, which are independent in supply of power source, cooling, and network. Reason for offering different zones within a single Azure region is to enable you to deploy applications across two or three Availability Zones offered. Assuming that issues in power sources and/or network would affect one Availability Zone infrastructure only, your application deployment within an Azure region is still fully functional. Eventually with some reduced capacity since some VMs in one zone might be lost. But VMs in the other two zones are still up and running. The Azure regions that offer zones are listed in [Azure Availability Zones](../../reliability/availability-zones-overview.md).
 
 On using Availability Zones, there are some things to consider. The considerations list like:
 
@@ -146,7 +147,7 @@ Here's a quick summary of the various deployment types that are available for SA
 
 When deploying a high availability SAP workload on Azure, it's important to take into account the various deployment types available, and how they can be applied across different Azure regions (such as across zones, in a single zone, or in a region with no zones). Following table illustrates several high availability options for SAP systems in Azure regions.
 
-| System type                  | Across different zones in a region                           | In a singe zone of a region                                  | In a region with no zones                                    |
+| System type                  | Across different zones in a region                           | In a single zone of a region                                  | In a region with no zones                                    |
 | ---------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | High Availability SAP system | [Flexible scale set with FD=1](./virtual-machine-scale-set-sap-deployment-guide.md) | [Availability Sets with Proximity Placement Groups](./proximity-placement-scenarios.md#proximity-placement-groups-with-availability-set-deployments) | [Availability Sets](./sap-high-availability-architecture-scenarios.md#multiple-instances-of-virtual-machines-in-the-same-availability-set) |
 |                              | [Availability Sets and Availability Zones with Proximity Placement Groups](./proximity-placement-scenarios.md#combine-availability-sets-and-availability-zones-with-proximity-placement-groups) | [Flexible scale set with FD=1](./virtual-machine-scale-set-sap-deployment-guide.md) (select only one zone) | [Flexible scale set with FD=1](./virtual-machine-scale-set-sap-deployment-guide.md) (no zones are defined) |

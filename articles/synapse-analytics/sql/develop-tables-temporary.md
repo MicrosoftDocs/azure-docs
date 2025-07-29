@@ -1,8 +1,8 @@
 ---
 title: Use temporary tables in Synapse SQL
 description: Essential guidance for using temporary tables in Synapse SQL.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: azaricstefan
+ms.author: stefanazaric
 ms.date: 11/02/2021
 ms.service: azure-synapse-analytics
 ms.subservice: sql

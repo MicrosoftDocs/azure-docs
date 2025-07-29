@@ -11,6 +11,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
+# Customer intent: As a developer using the Go client library, I want to manage properties and metadata for blobs, so that I can efficiently handle additional information and control access to my Azure Storage resources.
 ---
 
 # Manage blob properties and metadata with Go

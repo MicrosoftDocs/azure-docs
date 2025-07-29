@@ -22,7 +22,7 @@ This library does **not** have a dependency on any Azure libraries. They seamles
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - Python 3.8 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/), otherwise see [python downloads](https://www.python.org/downloads/).
 - [azure-appconfiguration-provider library](https://pypi.org/project/azure-appconfiguration-provider/) 1.2.0 or later.
 
@@ -79,7 +79,7 @@ When starting the application, a browser window will open to authenticate the us
     To build and run the app locally using the Windows command prompt, run the following command:
 
     ```console
-    setx APP_CONFIGURATION_ENDPOINT "endpoint-of-your-app-configuration-store"
+    setx APP_CONFIGURATION_ENDPOINT "<endpoint-of-your-app-configuration-store>"
     ```
 
     Restart the command prompt to allow the change to take effect. Validate that it's set properly by printing the value of the environment variable.
@@ -89,7 +89,7 @@ When starting the application, a browser window will open to authenticate the us
     If you use Windows PowerShell, run the following command:
 
     ```azurepowershell
-    $Env:APP_CONFIGURATION_ENDPOINT = "endpoint-of-your-app-configuration-store"
+    $Env:APP_CONFIGURATION_ENDPOINT = "<endpoint-of-your-app-configuration-store>"
     ```
 
     ### [macOS](#tab/unix)
@@ -97,7 +97,7 @@ When starting the application, a browser window will open to authenticate the us
     If you use macOS, run the following command:
 
     ```console
-    export APP_CONFIGURATION_ENDPOINT='endpoint-of-your-app-configuration-store'
+    export APP_CONFIGURATION_ENDPOINT='<endpoint-of-your-app-configuration-store>'
     ```
 
     Restart the command prompt to allow the change to take effect. Validate that it's set properly by printing the value of the environment variable.
@@ -107,7 +107,7 @@ When starting the application, a browser window will open to authenticate the us
     If you use Linux, run the following command:
 
     ```console
-    export APP_CONFIGURATION_ENDPOINT='endpoint-of-your-app-configuration-store'
+    export APP_CONFIGURATION_ENDPOINT='<endpoint-of-your-app-configuration-store>'
     ```
 
     Restart the command prompt to allow the change to take effect. Validate that it's set properly by printing the value of the environment variable.

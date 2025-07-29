@@ -1,8 +1,8 @@
 ---
 title: CEF via AMA connector - Configure appliances and devices
 description: Learn how to configure specific devices that use the Common Event Format (CEF) via AMA data connector for Microsoft Sentinel.
-author: cwatson-cat
-ms.author: cwatson
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: reference
 ms.custom: linux-related-content
 ms.date: 06/27/2024
@@ -129,7 +129,7 @@ Set your security solution to send syslog messages in CEF format to the proxy ma
 
 Set your security solution to send syslog messages in CEF format to the proxy machine. Make sure to send the logs to port 514 TCP on the machine IP address.
 
-1. Follow the directions to install the [ExtraHop Detection SIEM Connector bundle](https://learn.extrahop.com/extrahop-detection-siem-connector-bundle) on your Reveal(x) system. The **SIEM Connector** is required for this integration.
+1. Follow the directions to install the [ExtraHop Detection SIEM Connector bundle](https://learn.extrahop.com/) on your Reveal(x) system. The **SIEM Connector** is required for this integration.
 1. Enable the trigger for **ExtraHop Detection SIEM Connector - CEF**.
 1. Update the trigger with the ODS syslog targets you created. 
 
@@ -181,6 +181,22 @@ Set your security solution to send syslog messages in CEF format to the proxy ma
 ## ForgeRock Common Audit for CEF
 
 In ForgeRock, install and configure this Common Audit (CAUD) for Microsoft Sentinel per the documentation at https://github.com/javaservlets/SentinelAuditEventHandler. Next, in Azure, follow the steps to configure the CEF via AMA data connector.
+
+## Fortinet
+
+Set your Fortinet to send Syslog messages in CEF format to the proxy machine. Make sure you send the logs to port 514 TCP on the machine's IP address.<br/>
+
+Copy the CLI commands below and:
+
+-   Replace \"server &lt;ip address&gt;\" with the Syslog agent's IP address.<br/>
+-   Set the \"&lt;facility_name&gt;\" to use the facility you configured in the Syslog agent (by default, the agent sets this to local4).<br/>
+-   Set the Syslog port to 514, the port your agent uses.<br/>
+-   To enable CEF format in early FortiOS versions, you may need to run the command \"set csv disable\".<br/>For more information, go to the  [Fortinet Document Library](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary), choose your version, and use the \"Handbook\" and \"Log Message Reference\" PDFs.<br/>
+
+[Learn more >](https://aka.ms/CEF-Fortinet)
+
+Set up the connection using the CLI to run the following commands:
+`config log syslogd setting/n    set status enable/nset format cef/nset port 514/nset server <ip_address_of_Receiver>/nend`
 
 ## iboss
 
@@ -364,7 +380,7 @@ Configure Palo Alto Networks to forward syslog messages in CEF format to your Mi
 
 ## PingFederate
 
-[Follow these steps](https://docs.pingidentity.com/bundle/pingfederate-102/page/gsn1564002980953.html) to configure PingFederate sending audit log via syslog in CEF format.
+[Follow these steps](https://docs.pingidentity.com/) to configure PingFederate sending audit log via syslog in CEF format.
 
 ## RidgeSecurity
 

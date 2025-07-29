@@ -2,13 +2,12 @@
 title: How to connect a USB device to Azure IoT Edge for Linux on Windows
 description: How to connect a USB device using USB over IP to the Azure IoT Edge for Linux on Windows (EFLOW) virtual machine.
 author: PatAltimore
-
+ms.author: patricka
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
-ms.topic: conceptual
-ms.date: 05/31/2024
-ms.author: fcabrera
+ms.topic: concept-article
+ms.date: 01/21/2025
 ---
 
 # How to connect a USB device to Azure IoT Edge for Linux on Windows

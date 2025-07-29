@@ -5,7 +5,8 @@ author: yelevin
 ms.topic: conceptual
 ms.date: 10/17/2024
 ms.author: yelevin
-appliesto: Microsoft Sentinel in the Azure portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
 
 #Customer intent: As a security analyst, I want to manage and investigate incidents across multiple workspaces and tenants so that I can maintain comprehensive visibility and control over my organization's security posture.
 
@@ -17,7 +18,10 @@ appliesto: Microsoft Sentinel in the Azure portal
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-If you onboard Microsoft Sentinel to the Microsoft Defender portal, see [Microsoft Defender multitenant management](/defender-xdr/mto-overview).
+If you onboard Microsoft Sentinel to the Microsoft Defender portal, see:
+
+- [Multiple Microsoft Sentinel workspaces in the Defender portal](/azure/sentinel/workspaces-defender-portal) 
+- [Microsoft Defender multitenant management](/defender-xdr/mto-overview)
 
 ## Entering multiple workspace view
 

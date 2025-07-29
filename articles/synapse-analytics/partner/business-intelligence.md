@@ -3,7 +3,7 @@ title: Business Intelligence partners
 description: Lists of business intelligence partners with solutions that support Azure Synapse Analytics.
 author: gillharmeet
 ms.author: harmeetgill
-ms.reviewer: wiassaf
+
 ms.date: 02/15/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw

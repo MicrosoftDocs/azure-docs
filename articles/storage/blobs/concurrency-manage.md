@@ -6,16 +6,17 @@ services: storage
 author: pauljewellmsft
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
-ms.date: 09/04/2024
+ms.topic: concept-article
+ms.date: 03/25/2025
 ms.author: pauljewell
 ms.devlang: csharp
 ms.custom: devx-track-csharp
+# Customer intent: As a developer managing data updates in my application, I want to implement concurrency control strategies for blob storage, so that I can ensure data integrity and provide a predictable experience for users when multiple writers access the same data.
 ---
 
 # Manage concurrency in Blob Storage
 
-Modern applications often have multiple users viewing and updating data simultaneously. Application developers need to think carefully about how to provide a predictable experience to their end users, particularly for scenarios where multiple users can update the same data. There are three main data concurrency strategies that developers typically consider:
+Modern applications often have multiple users viewing and updating data simultaneously. Application developers need to think carefully about how to provide a predictable experience to their end users, particularly for scenarios where multiple users can update the same data. The Azure Storage client libraries don't support concurrent writes to the same blob, with the exception of append blobs if the write order doesn't matter. If your app requires multiple processes writing to the same blob, you should implement a strategy for concurrency control. There are three main data concurrency strategies that developers typically consider:
 
 - **Optimistic concurrency**: An application performing an update will, as part of its update, determine whether the data has changed since the application last read that data. For example, if two users viewing a wiki page make an update to that page, then the wiki platform must ensure that the second update doesn't overwrite the first update. It must also ensure that both users understand whether their update was successful. This strategy is most often used in web applications.
 

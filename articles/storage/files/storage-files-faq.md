@@ -4,9 +4,10 @@ description: Get answers to frequently asked questions (FAQ) about Azure Files a
 author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
-ms.date: 06/24/2024
+ms.date: 03/28/2025
 ms.author: kendownie
 ms.topic: faq
+# Customer intent: As a cloud storage administrator, I want to understand the configuration and synchronization capabilities of Azure Files and Azure File Sync, so that I can effectively manage file shares and ensure data consistency across multiple platforms.
 ---
 
 # Frequently asked questions (FAQ) about Azure Files and Azure File Sync
@@ -51,7 +52,7 @@ ms.topic: faq
   **Why are my tiered files not showing thumbnails or previews in Windows File Explorer?**  
     For tiered files, thumbnails and previews won't be visible at your server endpoint. This is expected behavior because the thumbnail cache feature in Windows intentionally skips reading files with the offline attribute. With Cloud Tiering enabled, reading through tiered files would cause them to be downloaded (recalled).
 
-    This behavior isn't specific to Azure File Sync. Windows File Explorer displays a "grey X" for any files that have the offline attribute set. You'll see the X icon when accessing files over SMB. For a detailed explanation of this behavior, refer to [Why don’t I get thumbnails for files that are marked offline?](https://devblogs.microsoft.com/oldnewthing/20170503-00/?p=96105)
+    This behavior isn't specific to Azure File Sync. Windows File Explorer displays a "grey X" for any files that have the offline attribute set. You'll see the X icon when accessing files over SMB. For a detailed explanation of this behavior, refer to [Why don't I get thumbnails for files that are marked offline?](https://devblogs.microsoft.com/oldnewthing/20170503-00/?p=96105)
 
     For questions on how to manage tiered files, see [How to manage tiered files](../file-sync/file-sync-how-to-manage-tiered-files.md).
 
@@ -92,6 +93,10 @@ ms.topic: faq
 * <a id="afs-lastwritetime"></a>
   **Does Azure File Sync sync the LastWriteTime for directories? Why isn't the *date modified* timestamp on a directory updated when files within it are changed?**  
     No, Azure File Sync doesn't sync the LastWriteTime for directories. Furthermore, Azure Files doesn't update the **date modified** timestamp (LastWriteTime) for directories when files within the directory are changed. This is expected behavior.
+
+* <a id="afs-dedup"></a>
+ **How does volume space work for Cloud Tiering as a part of interop with Dedup?**  
+    In some cases where Dedup is installed, the available volume space can increase more than expected after dedup garbage collection is triggered. For example, let's say that the free space policy for cloud tiering is set to 20%. Azure File Sync is notified when there is low free space (let's say when free space is 19%). Tiering determines that 1% more space needs to be freed, but as a buffer we'll have 5% extra, so we'll tier up to 25% (for example, 30 GiB). The files get tiered until it reaches 30 GiB. As part of interop with Dedup, Azure File Sync initiates Garbage collection at the end of the tiering session.
     
 * <a id="afs-avrecalls"></a>
   **Why is the anti virus software on the AFS server recalling tiered files?**  
@@ -120,7 +125,29 @@ ms.topic: faq
 **Does Azure Files support using Access-Based Enumeration (ABE) to control the visibility of the files and folders in SMB Azure file shares?**
 
   Using ABE with Azure Files isn't currently supported, but you can [use DFS-N with SMB Azure file shares](files-manage-namespaces.md#access-based-enumeration-abe).
-   
+
+* <a id="printer-or-scanner"></a>
+**Can I save to an Azure file share using a printer or scanner?**
+
+  Azure Files only supports Windows, Linux, and macOS. Accessing an Azure file share directly from a printer or scanner isn't supported. However, if you're already using Azure File Sync, you can print or scan to your Windows file server and then sync the file to an Azure file share.
+
+* <a id="alternate-data-streams"></a>
+**Does Azure Files support alternate data streams?**
+
+Azure Files doesn't support [alternate data streams](/openspecs/windows_protocols/ms-fscc/e2b19412-a925-4360-b009-86e3b8a020c8). Transferring data via SMB will throw a **file already exists** message if an alternate data stream is found. You can check alternate streams by using the following PowerShell command:
+
+```powershell
+get-item <file path+name> -Stream *
+```
+
+If more than one stream is shown, you can remove them using the following PowerShell command:
+
+```powershell
+remove-Item <file path+name> -Stream *
+```
+
+Alternate data streams are preserved on-premises when Azure File Sync is used.
+
 ### Identity-based authentication
 
 * <a id="ad-support-devices"></a>
@@ -225,11 +252,7 @@ ms.topic: faq
 
 * <a id="transactions-billing"></a>
 **What are transactions in Azure Files, and how are they billed?**
-    Protocol transactions occur any time a user, application, script, or service interacts with Azure file shares (writing, reading, listing, deleting files, etc.). It's important to remember that some actions that you might perceive as a single operation might actually involve multiple transactions. For standard Azure file shares billed on a pay-as-you-go model, different types of transactions have different prices based on their impact on the file share. Transactions don't affect billing for premium file shares, which are billed using a provisioned model. For more information, see [Understanding billing](understanding-billing.md).
-
-* <a id="share-snapshot-price"></a>
-**How much do share snapshots cost?**  
-    Share snapshots are incremental in nature. The base share snapshot is the share itself. All subsequent share snapshots are incremental and store only the difference from the preceding share snapshot. You're billed only for the changed content. If you have a share with 100 GiB of data but only 5 GiB has changed since your last share snapshot, the share snapshot consumes only 5 additional GiB, and you're billed for 105 GiB. For more information about transaction and standard egress charges, see the [Pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
+    Protocol transactions occur any time a user, application, script, or service interacts with Azure file shares (writing, reading, listing, deleting files, etc.). It's important to remember that some actions that you might perceive as a single operation might actually involve multiple transactions. For pay-as-you-go file shares, different types of transactions have different prices based on their impact on the file share. Transactions don't affect billing for provisioned file shares. For more information, see [Understanding billing](understanding-billing.md).
 
 ## Interoperability with other services
 

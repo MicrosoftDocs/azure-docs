@@ -8,6 +8,7 @@ ms.date: 07/21/2022
 ms.author: normesta
 ms.subservice: storage-common-concepts
 
+# Customer intent: As a cloud storage administrator, I want to use AzCopy to change blob properties and metadata, so that I can efficiently manage and optimize storage access and organization.
 ---
 
 # Replace blob properties and metadata by using AzCopy v10
@@ -25,7 +26,7 @@ See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download
 
 ## Change the access tier
 
-To change the access tier of a blob, use the [azcopy set-properties](storage-ref-azcopy-set-properties.md) command and set the `-block-blob-tier` parameter to the name of the access tier. 
+To change the access tier of a blob, use the [azcopy set-properties](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_set-properties) command and set the `-block-blob-tier` parameter to the name of the access tier. 
 
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
@@ -59,7 +60,7 @@ azcopy set-properties 'https://mystorageaccount.blob.core.windows.net/mycontaine
 
 ## Replace metadata
 
-To replace the metadata of a blob, use the [azcopy set-properties](storage-ref-azcopy-set-properties.md) command and set the `--metadata` parameter to one or more key-value pairs.
+To replace the metadata of a blob, use the [azcopy set-properties](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_set-properties) command and set the `--metadata` parameter to one or more key-value pairs.
 
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
@@ -92,7 +93,7 @@ azcopy set-properties 'https://mystorageaccount.blob.core.windows.net/mycontaine
 
 ## Replace index tags
 
-To replace the index tags of a blob, use the [azcopy set-properties](storage-ref-azcopy-set-properties.md) command and set the `--blob-tags` parameter to one or more key-value pairs. Setting blob index tags can be performed by the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) and by anyone with a Shared Access Signature that has permission to access the blob's tags (the `t` SAS permission). In addition, RBAC users with the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` permission can perform this operation.
+To replace the index tags of a blob, use the [azcopy set-properties](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_set-properties) command and set the `--blob-tags` parameter to one or more key-value pairs. Setting blob index tags can be performed by the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) and by anyone with a Shared Access Signature that has permission to access the blob's tags (the `t` SAS permission). In addition, RBAC users with the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` permission can perform this operation.
 
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').

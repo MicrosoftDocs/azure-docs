@@ -52,7 +52,7 @@ More samples for the Dapr output invoke binding are available in the [GitHub rep
 
 ::: zone pivot="programming-language-java"
 
-The following example creates a `"SendMessagetoKafka"` function using the `DaprBindingOutput` binding with the [`DaprServiceInvocationTrigger`](./functions-bindings-dapr-output.md):
+The following example creates a `"SendMessageToKafka"` function using the `DaprBindingOutput` binding with the [`DaprServiceInvocationTrigger`](./functions-bindings-dapr-output.md):
 
 
 ```java
@@ -88,7 +88,7 @@ app.generic('SendMessageToKafka', {
         type: 'daprServiceInvocationTrigger',
         name: "payload"
     }),
-    return: daprBindingOuput,
+    return: daprBindingOutput,
     handler: async (request, context) => {
         context.log("Node function processed a SendMessageToKafka request from the Dapr Runtime.");
         context.log(context.triggerMetadata.payload)
@@ -369,7 +369,7 @@ To use the Dapr output binding, start by setting up a Dapr output binding compon
 
 To use the `daprBinding` in Python v2, set up your project with the correct dependencies.
 
-1. [Create and activate a virtual environment](create-first-function-cli-python.md?tabs=macos%2Cbash%2Cazure-cli&pivots=python-mode-decorators#create-venv). 
+1. [Create and activate a virtual environment](how-to-create-function-azure-cli.md?pivots=programming-language-python#create-venv). 
 
 1. In your `requirements.text` file, add the following line:
 

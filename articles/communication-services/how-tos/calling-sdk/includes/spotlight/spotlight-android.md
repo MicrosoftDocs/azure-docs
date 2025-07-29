@@ -2,7 +2,7 @@
 author: cnwankwo
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 06/20/2023
+ms.date: 06/15/2025
 ms.author: cnwankwo
 ---
 
@@ -89,7 +89,7 @@ import com.azure.android.communication.calling.SpotlightedParticipant;
 // event : { added: SpotlightedParticipant[]; removed: SpotlightedParticipant[] }
 // SpotlightedParticipant = { identifier: CommunicationIdentifier }
 // where: 
-//  identifier: ID of participant whos spotlight state is changed
+//  identifier: ID of participant whose spotlight state is changed
 void onSpotlightChanged(SpotlightChangedEvent args) {
     Log.i(ACTIVITY_TAG, String.format("Spotlight Changed Event"));
     for(SpotlightedParticipant participant: args.getadded()) {

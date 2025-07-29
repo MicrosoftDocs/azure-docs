@@ -3,10 +3,11 @@ title: Monitor Azure Application Gateway
 description: Start here to learn how to monitor Azure Application Gateway. Learn how to monitor resources for availability, performance, and operation.
 ms.date: 06/17/2024
 ms.custom: horz-monitor
-ms.topic: conceptual
-author: greg-lindsay
-ms.author: greglin
+ms.topic: concept-article
+author: mbender-ms
+ms.author: mbender
 ms.service: azure-application-gateway
+# Customer intent: "As a cloud administrator, I want to set up monitoring for Azure Application Gateway, so that I can ensure optimal performance, maintain availability, and quickly identify operational issues."
 ---
 
 # Monitor Azure Application Gateway

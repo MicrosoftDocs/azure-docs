@@ -2,19 +2,17 @@
 title: What is Azure IoT Edge for Linux on Windows
 description: Overview of running Linux IoT Edge modules with Azure IoT Edge for Linux on Windows. Run containerized Linux workloads alongside Windows applications.
 author: PatAltimore
-
-ms.reviewer: fcabrera
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
-ms.topic: conceptual
-ms.date: 06/05/2024
+ms.topic: concept-article
+ms.date: 01/21/2025
 ms.author: patricka
 ---
 
 # What is Azure IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Azure IoT Edge for Linux on Windows (EFLOW) allows you to run containerized Linux workloads alongside Windows applications in Windows deployments. Businesses that rely on Windows to power their edge devices and solutions can now take advantage of the cloud-native analytics solutions being built in Linux.
 
@@ -26,9 +24,9 @@ Azure IoT Edge for Linux on Windows works by running a Linux virtual machine on 
 
 Azure IoT Edge for Linux on Windows uses the following components to enable Linux and Windows workloads to run alongside each other and communicate seamlessly:
 
-* **A Linux virtual machine running Azure IoT Edge**: A Linux virtual machine, based on Microsoft's first party [CBL-Mariner](https://github.com/microsoft/CBL-Mariner) operating system, is built with the Azure IoT Edge runtime and validated as a tier 1 supported environment for Azure IoT Edge workloads.
+* **A Linux virtual machine running Azure IoT Edge**: A Linux virtual machine, based on Microsoft's first party [Azure Linux](https://github.com/microsoft/CBL-Mariner) operating system, is built with the Azure IoT Edge runtime and validated as a tier 1 supported environment for Azure IoT Edge workloads.
 
-* **Microsoft Update**: Integration with Microsoft Update keeps the Windows runtime components, the CBL-Mariner Linux VM, and Azure IoT Edge up to date. For more information about IoT Edge for Linux on Windows updates, see [Update IoT Edge for Linux on Windows](./iot-edge-for-linux-on-windows-updates.md).
+* **Microsoft Update**: Integration with Microsoft Update keeps the Windows runtime components, the Azure Linux VM, and Azure IoT Edge up to date. For more information about IoT Edge for Linux on Windows updates, see [Update IoT Edge for Linux on Windows](./iot-edge-for-linux-on-windows-updates.md).
 
 [![Windows and the Linux VM run in parallel, while the Windows Admin Center controls both components](./media/iot-edge-for-linux-on-windows/architecture-eflow1-2.png)](./media/iot-edge-for-linux-on-windows/architecture-eflow1-2.png#lightbox)
 

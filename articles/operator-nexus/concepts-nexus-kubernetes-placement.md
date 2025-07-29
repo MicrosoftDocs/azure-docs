@@ -28,7 +28,7 @@ each NKS VM launches.
 Nexus first identifies the set of potential bare metal servers that meet all of
 the resource requirements of the NKS VM SKU. For example, if the user
 specified an `NC_G48_224_v1` VM SKU for their agent pool, Nexus collects the
-bare metal servers that have available capacity for 48 vCPU, 224Gi of RAM, etc.
+bare metal servers that have available capacity for 48 vCPU, 224 GiB of RAM, etc.
 
 Nexus then examines the `AvailabilityZones` field for the Agent Pool or Control
 Plane being scheduled. If this field isn't empty, Nexus filters the list of
@@ -50,8 +50,8 @@ following sorting rules:
    *spread the NKS VMs for an NKS Cluster across bare metal servers within an
    availability zone*.
 
-1. If the NKS VM SKU is either `NC_G48_224_v1` or `NC_P46_224_v1`, prefer
-   bare metal servers that already house `NC_G48_224_v1` or `NC_P46_224_v1`
+1. If the NKS VM SKU is either `NC_G48_224_v1`, `NC_P46_224_v1`, `NC_G56_224_v1` or `NC_P54_224_v1` prefer
+   bare metal servers that already house `NC_G48_224_v1`, `NC_P46_224_v1`, `NC_G56_224_v1` or `NC_P54_224_v1`
    NKS VMs from other NKS Clusters. In other words, *group the extra-large
    VMs from different NKS Clusters on the same bare metal servers*. This rule
    "bin packs" the extra-large VMs in order to reduce fragmentation of the
@@ -79,7 +79,7 @@ The example Operator Nexus environment has these specifications:
 
 * Eight racks of 16 bare metal servers
 * Each bare metal server contains two [Non-Uniform Memory Access][numa] (NUMA) cells
-* Each NUMA cell provides 48 CPU and 224Gi RAM
+* Each NUMA cell provides 48 CPU and 224 GiB RAM
 
 [numa]: https://en.wikipedia.org/wiki/Non-uniform_memory_access
 
@@ -312,9 +312,13 @@ deployment has more CPU cores than if you downsized the VM SKU.
 
 ## Memory-optimized VM SKUs
 
-NC_E94_448_v1 consumes the all the customer-available resources of the physical
-machine. NC_E70_336_v1 consumes 75% of customer-available resources, however,
-it is not guarenteed that this will be exactly one-full and one-half NUMA cells.
-This means that an NC_G24_112_v1 may or may not be able to schedule on a machine
-running an NC_E70_336_v1 depending on how the NC_E70_336_v1 VM is scheduled
+`NC_E110_448_v1` (running on top of Sapphire Rapids Hardware nodes) or `NC_E94_448_v1` consume all the customer-available resources of the physical
+machine. `NC_E70_336_v1` consume 75% of customer-available resources, however,
+it is not guaranteed that this will be exactly one-full and one-half NUMA cells.
+This means that an `NC_G24_112_v1` may or may not be able to schedule on a machine
+running an `NC_E70_336_v1` depending on how the `NC_E70_336_v1` VM is scheduled
 across the NUMA-cells.
+
+## Storage-optimized VM SKUs
+
+`NC_L46_224_v1` and `NC_L54_224_v1` are SKUs designed to enhance local storage utilization and scalability by allowing a Nexus Kubernetes node to allocate up to 1.6 TiB of disk space. This is to support workloads that require more than the typical 300 GiB allocated by other SKUs. 

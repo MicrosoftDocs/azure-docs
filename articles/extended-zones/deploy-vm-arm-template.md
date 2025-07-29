@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-extended-zones
 ms.topic: quickstart-arm
-ms.date: 08/02/2024
+ms.date: 11/19/2024
 ms.custom: subject-armqs, devx-track-azurecli
 
 # Customer intent: As a cloud administrator, I want a quick method to deploy a virtual machine in an Azure Extended Zone.
@@ -13,11 +13,7 @@ ms.custom: subject-armqs, devx-track-azurecli
   
 # Quickstart: Deploy a virtual machine in an Extended Zone using an Azure Resource Manager template (ARM template) 
  
-> [!IMPORTANT]
-> Azure Extended Zones service is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-In this quickstart, you learn how to deploy a virtual machine (VM) in Los Angeles Extended Zone using an Azure Resource Manager template (ARM template).
+In this quickstart, you learn how to deploy a virtual machine (VM) in an Extended Zone using an Azure Resource Manager template (ARM template).
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
@@ -29,7 +25,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - An Azure account with an active subscription.
 
-- Access to Los Angeles Extended Zone. For more information, see [Request access to an Azure Extended Zone](request-access.md).
+- Access to an Extended Zone. For more information, see [Request access to an Azure Extended Zone](request-access.md).
 
 - Azure Cloud Shell or Azure CLI.
 

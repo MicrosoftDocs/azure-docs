@@ -1,8 +1,8 @@
 ---
 title: Device Update for Azure IoT Hub log collection | Microsoft Docs
 description: Device Update for IoT Hub enables remote collection of diagnostic logs from connected IoT devices.
-author: vimeht
-ms.author: vimeht
+author: andrewbrownmsft
+ms.author: andbrown
 ms.date: 10/26/2022
 ms.topic: how-to
 ms.service: azure-iot-hub
@@ -99,7 +99,7 @@ Within the configuration file, each log file to be collected and uploaded is rep
 
 The Device Update agent will only collect log files under a certain file size. This max file size is defined in the diagnostics config file.
 
-The relevant parameter "maxKilobytesToUploadPerLogPath" will apply to each logComponent object, and can be modified as desired.
+The relevant parameter "maxKilobytesToUploadPerLogPath" will apply to each logComponent object and can be modified as desired.
 
 ## Create a log operation
 

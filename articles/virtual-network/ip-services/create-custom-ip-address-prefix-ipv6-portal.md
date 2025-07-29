@@ -8,6 +8,7 @@ ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 08/06/2024
+# Customer intent: "As a network administrator, I want to create and manage a custom IPv6 address prefix in the cloud, so that I can use my owned IP range while ensuring it is advertised correctly on the Internet."
 ---
 
 # Create a custom IPv6 address prefix in Azure
@@ -55,6 +56,9 @@ If you choose to install and use PowerShell locally, this article requires the A
 ## Pre-provisioning steps
 
 To utilize the Azure BYOIP feature, you must perform and number of steps prior to the provisioning of your IPv6 address range. Refer to the [IPv4 instructions](create-custom-ip-address-prefix-portal.md#pre-provisioning-steps) for details. All these steps should be completed for the IPv6 global (parent) range.
+
+> [!NOTE]
+> When hexadecimal IPv6 characters (a-f) are used in an IPv6 Prefix (CIDR), the case of the Custom IP Prefix IPv6 Prefix (CIDR) used in the Custom IP Prefix object must match the case of the IPv6 prefix as generated for your Custom IP Prefix Signed message.
 
 ## Provisioning for IPv6
 

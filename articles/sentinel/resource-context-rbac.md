@@ -1,10 +1,10 @@
 ---
 title: Manage access to Microsoft Sentinel data by resource
 description: This article explains you can manage access to Microsoft Sentinel data by the resources a user can access. Managing access by resource enables you to provide access to specific data only, without the entire Microsoft Sentinel experience. This method is also known as resource-context RBAC.
-author: cwatson-cat
+author: EdB-MSFT
 ms.topic: conceptual
 ms.date: 01/09/2023
-ms.author: cwatson
+ms.author: edbaynash
 
 
 #Customer intent: As a security administrator, I want to understand when to use Azure RBAC at the resource-context level so that I can grant specific data access to users without exposing the entire Microsoft Sentinel environment.
@@ -12,7 +12,7 @@ ms.author: cwatson
 
 # Manage access to Microsoft Sentinel data by resource
 
-Typically, users who have access to a Log Analytics workspace enabled for Microsoft Sentinel also have access to all the workspace data, including security content. Administrators can use [Azure roles](roles.md) to configure access to specific features in Microsoft Sentinel, depending on the access requirements in their team.
+Access to a workspace is managed by using Azure RBAC. Typically, users who have access to a Log Analytics workspace enabled for Microsoft Sentinel also have access to all the workspace data, including security content. Administrators can use [Azure roles](roles.md) to configure access to specific features in Microsoft Sentinel, depending on the access requirements in their team.
 
 However, you may have some users who need to access only specific data in your workspace, but shouldn't have access to the entire Microsoft Sentinel environment. For example, you may want to provide a non-security operations (non-SOC) team with access to the Windows event data for the servers they own.
 
@@ -99,7 +99,7 @@ For example, separating your VMs ensures that Syslog events that belong to Team 
 
 > [!TIP]
 > - When using an on-premises VM or another cloud VM, such as AWS, as your log forwarder, ensure that it has a resource ID by implementing [Azure Arc](/azure/azure-arc/servers/overview).
-> - To scale your log forwarding VM environment, consider creating a [VM scale set](https://techcommunity.microsoft.com/t5/azure-sentinel/scaling-up-syslog-cef-collection/ba-p/1185854) to collect your CEF and Sylog logs.
+> - To scale your log forwarding VM environment, consider creating a [VM scale set](https://techcommunity.microsoft.com/t5/azure-sentinel/scaling-up-syslog-cef-collection/ba-p/1185854) to collect your CEF and Syslog logs.
 
 
 ### Resource IDs with Logstash collection
@@ -123,7 +123,7 @@ For example, the following code shows a sample Logstash configuration file:
        workspace_id => "4g5tad2b-a4u4-147v-a4r7-23148a5f2c21" # <your workspace id>
        workspace_key => "u/saRtY0JGHJ4Ce93g5WQ3Lk50ZnZ8ugfd74nk78RPLPP/KgfnjU5478Ndh64sNfdrsMni975HJP6lp==" # <your workspace key>
        custom_log_table_name => "tableName"
-       azure_resource_id => "/subscriptions/wvvu95a2-99u4-uanb-hlbg-2vatvgqtyk7b/resourceGroups/contosotest" # <your resource ID>   
+       azure_resource_id => "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/contosotest" # <your resource ID>   
      }
  }
 ```
@@ -154,6 +154,10 @@ The following list describes scenarios where other solutions for data access may
 
 
 
-## Next steps
+## Related content
 
-For more information, see [Permissions in Microsoft Sentinel](roles.md).
+For more information, see:
+
+- [Permissions in Microsoft Sentinel](roles.md)
+- [Manage access to Log Analytics workspaces](/azure/azure-monitor/logs/manage-access)
+- [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)

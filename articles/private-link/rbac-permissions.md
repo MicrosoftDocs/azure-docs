@@ -4,9 +4,9 @@ description: Get started learning about the Azure RBAC permissions needed to dep
 author: abell
 ms.author: abell
 ms.service: azure-private-link
-ms.topic: conceptual
-ms.date: 5/25/2021
-ms.custom: template-concept
+ms.topic: concept-article
+ms.date: 03/25/2025
+# Customer intent: As a cloud administrator, I want to understand the RBAC permissions required for deploying private endpoints and private link services, so that I can effectively manage access and ensure secure connectivity to Azure resources.
 ---
 
 # Azure RBAC permissions for Azure Private Link
@@ -136,7 +136,7 @@ Typically, a network administrator creates a private endpoint. Depending on your
 
 |Approval method     |Minimum RBAC permissions  |
 |---------|---------|
-|Automatic     | `Microsoft.Network/virtualNetworks/**`<br/>`Microsoft.Network/virtualNetworks/subnets/**`<br/>`Microsoft.Network/privateEndpoints/**`<br/>`Microsoft.Network/networkinterfaces/**`<br/>`Microsoft.Network/locations/availablePrivateEndpointTypes/read`<br/>|
+|Automatic     | `Microsoft.Network/virtualNetworks/**`<br/>`Microsoft.Network/virtualNetworks/subnets/**`<br/>`Microsoft.Network/privateEndpoints/**`<br/>`Microsoft.Network/networkinterfaces/**`<br/>`Microsoft.Network/locations/availablePrivateEndpointTypes/read`<br/>`Microsoft.[ServiceProvider]/[resourceType]/privateEndpointConnectionsApproval/action`<br/>|
 |Manual     | `Microsoft.Network/virtualNetworks/**`<br/>`Microsoft.Network/virtualNetworks/subnets/**`<br/>`Microsoft.Network/privateEndpoints/**`<br/>`Microsoft.Network/networkinterfaces/**`<br/>`Microsoft.Network/locations/availablePrivateEndpointTypes/read`           |
 
 ## Next steps

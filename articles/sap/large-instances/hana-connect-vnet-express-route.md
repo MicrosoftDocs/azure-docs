@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 6/1/2021
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
+# Customer intent: "As a cloud architect, I want to connect a virtual network to SAP HANA Large Instances using ExpressRoute, so that I can ensure low-latency and secure data transfer between my Azure resources and on-premises systems."
 ---
 
 # Connect a virtual network to HANA Large Instances
@@ -70,7 +71,7 @@ Run the following commands for each ExpressRoute gateway by using a different Au
 
 ```powershell
 # Populate with information provided by Microsoft Onboarding team
-$PeerID = "/subscriptions/9cb43037-9195-4420-a798-f87681a0e380/resourceGroups/Customer-USE-Circuits/providers/Microsoft.Network/expressRouteCircuits/Customer-USE01"
+$PeerID = "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/Customer-USE-Circuits/providers/Microsoft.Network/expressRouteCircuits/Customer-USE01"
 $AuthGUID = "76d40466-c458-4d14-adcf-3d1b56d1cd61"
 
 # Your ExpressRoute Gateway information
@@ -101,7 +102,7 @@ The new ExpressRoute FastPath reduces network latency. We recommend you apply th
 
 ```powershell
 # Populate with information provided by Microsoft Onboarding team
-$PeerID = "/subscriptions/9cb43037-9195-4420-a798-f87681a0e380/resourceGroups/Customer-USE-Circuits/providers/Microsoft.Network/expressRouteCircuits/Customer-USE01"
+$PeerID = "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/Customer-USE-Circuits/providers/Microsoft.Network/expressRouteCircuits/Customer-USE01"
 $AuthGUID = "76d40466-c458-4d14-adcf-3d1b56d1cd61"
 
 # Your ExpressRoute Gateway information

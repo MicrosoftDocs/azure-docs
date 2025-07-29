@@ -34,11 +34,12 @@ ms.custom: references_regions
     az extension add --name containerapp --upgrade
     ```
 
-1. Register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces if you haven't already registered them in your Azure subscription.
+1. Register the `Microsoft.App`, `Microsoft.OperationalInsights`, and `Microsoft.Storage` namespaces if you haven't already registered them in your Azure subscription.
 
     ```azurecli
     az provider register --namespace Microsoft.App
     az provider register --namespace Microsoft.OperationalInsights
+    az provider register --namespace Microsoft.Storage
     ```
 
 1. Now that your Azure CLI setup is complete, you can define the environment variables that are used throughout this article.

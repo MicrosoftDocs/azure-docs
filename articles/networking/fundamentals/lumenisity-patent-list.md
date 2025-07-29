@@ -3,9 +3,10 @@ title: Lumenisity University of Southampton Patents
 description: List of Lumenisity UoS Patents as of April 19, 2023.
 ms.service: azure
 author: duongau
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/31/2023
 ms.author: duau
+# Customer intent: "As a researcher or engineer, I want to access the latest patents from Lumenisity at the University of Southampton, so that I can stay informed about innovations in hollow core fiber technology relevant to my work."
 ---
 
 # Lumenisity University of Southampton Patents
@@ -17,7 +18,7 @@ The following is a list of patents owned by Lumenisity UoS (University of Southa
 
 ## Patent List
 
-| Grant number                  | Publication number                  | Country                      |
+| Grant number                  | Publication number                  | Country/region                      |
 |-------------------------------|-------------------------------------|------------------------------|
 | ZL201580042024.6              |                                     | China                        |
 | ZL201880044747.3              |                                     | China                        |
@@ -58,14 +59,14 @@ The following is a list of patents owned by Lumenisity UoS (University of Southa
 | 602015057228.9                |                                     | Germany                      |
 | 602018042565.9                |                                     | Germany                      |
 | 602019019330.0                |                                     | Germany                      |
-| HK1233331                     |                                     | Hong Kong                    |
-| HK1245893                     |                                     | Hong Kong                    |
-| HK1245894                     |                                     | Hong Kong                    |
-| HK40002087                    |                                     | Hong Kong                    |
-| HK40019407                    |                                     | Hong Kong                    |
-|                               | HK40076072                          | Hong Kong                    |
-|                               | HK40004919                          | Hong Kong                    |
-|                               | HK40066163                          | Hong Kong                    |
+| HK1233331                     |                                     | Hong Kong SAR                    |
+| HK1245893                     |                                     | Hong Kong SAR                    |
+| HK1245894                     |                                     | Hong Kong SAR                    |
+| HK40002087                    |                                     | Hong Kong SAR                    |
+| HK40019407                    |                                     | Hong Kong SAR                    |
+|                               | HK40076072                          | Hong Kong SAR                    |
+|                               | HK40004919                          | Hong Kong SAR                    |
+|                               | HK40066163                          | Hong Kong SAR                    |
 | 3047318                       |                                     | Ireland                      |
 | 3047319                       |                                     | Ireland                      |
 | 3152607                       |                                     | Ireland                      |

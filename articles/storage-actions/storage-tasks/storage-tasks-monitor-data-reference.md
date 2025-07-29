@@ -1,13 +1,13 @@
 ---
 title: Storage Actions monitoring data reference
-titleSuffix: Azure Storage Actions Preview
+titleSuffix: Azure Storage Actions
 description: Important reference material needed when you monitor Azure Storage Actions.
 author: normesta
 
 ms.service: azure-storage-actions
 ms.custom: build-2023-metadata-update
 ms.topic: reference
-ms.date: 01/17/2024
+ms.date: 05/05/2025
 ms.author: normesta
 ---
 

@@ -4,7 +4,7 @@ description: Learn how to connect an Azure VPN gateway (virtual network gateway)
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 07/28/2023
+ms.date: 03/26/2025
 ms.author: cherylmc
 
 ---
@@ -29,26 +29,15 @@ Virtual Network (for virtual network gateway)
 
 * [Create a virtual network](../virtual-network/quick-create-portal.md) without any virtual network gateways. This virtual network will be configured with an active/active virtual network gateway in later steps. Verify that none of the subnets of your on-premises networks overlap with the virtual networks that you want to connect to.
 
+## <a name="vnetgw"></a>1. Configure the VPN Gateway virtual network gateway
 
-## <a name="vnetgw"></a>1. Configure VPN Gateway virtual network gateway
+In this section you create a VPN Gateway virtual network gateway in active-active mode for your virtual network. When you create the gateway, you can either use existing public IP addresses for the two instances of the gateway, or you can create new public IP addresses. You'll use these public IP addresses when setting up the Virtual WAN sites.
 
-In this section you create a VPN Gateway virtual network gateway in active-active mode for your virtual network. When you create the gateway, you can either use existing public IP addresses for the two instances of the gateway, or you can create new public IPs. You'll use these public IPs when setting up the Virtual WAN sites. 
+1. Create a **VPN Gateway** virtual network gateway in active-active mode for your virtual network. For more information about active-active VPN gateways and configuration steps, see [Configure active-active VPN gateways](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md#aagateway). When you create your virtual network gateway, keep the following settings in mind:
 
-1. Create a **VPN Gateway** virtual network gateway in active-active mode for your virtual network. For more information about active-active VPN gateways and configuration steps, see [Configure active-active VPN gateways](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md#aagateway).
-
-1. The following sections show example settings for your virtual network gateway.
-
-   * **Active-active mode setting** - On the virtual network gateway **Configuration** page, make sure **active-active** mode is enabled.
-
-     :::image type="content" source="./media/connect-virtual-network-gateway-vwan/active.png" alt-text="Screenshot showing a virtual network gateway with active-active mode enabled." lightbox="./media/connect-virtual-network-gateway-vwan/active.png":::
-
-   * **BGP setting** - On the virtual network gateway **Configuration** page, you can (optionally) select **Configure BGP ASN**. If you configure BGP, change the ASN from the default value shown in the portal. For this configuration, the BGP ASN can't be 65515. 65515 will be used by Azure Virtual WAN.
-
-     :::image type="content" source="./media/connect-virtual-network-gateway-vwan/bgp.png" alt-text="Screenshot shows a virtual network gateway Configuration page with Configure BGP ASN selected." lightbox="./media/connect-virtual-network-gateway-vwan/bgp.png":::
-
-   * **Public IP addresses** - Once the gateway is created, go to the **Properties** page. The properties and configuration settings will be similar to the following example. Notice the two public IP addresses that are used for the gateway.
-
-     :::image type="content" source="./media/connect-virtual-network-gateway-vwan/public-ip.png" alt-text="Screenshot shows a virtual network gateway Properties page with properties selected." lightbox="./media/connect-virtual-network-gateway-vwan/public-ip.png":::
+   * **Active-active mode** - Make sure to select **Active-active** mode. This setting is required for the VPN Gateway virtual network gateway to connect to the Virtual WAN.
+   * **BGP** - On the virtual network gateway **Configuration** page, you can (optionally) select **Configure BGP**. If you configure BGP, change the ASN from the default value shown in the portal. For this configuration, the BGP ASN can't be 65515. 65515 will be used by Azure Virtual WAN.
+   * **Public IP addresses** - Active-active mode VPN Gateway virtual network gateways are assigned two public IP addresses. After the gateway creates, to view both public IP addresses, go to the **Properties** page (not the Overview page).
 
 ## <a name="vwansite"></a>2. Create Virtual WAN VPN sites
 
@@ -85,7 +74,7 @@ Next, connect both sites to your virtual hub using the following steps. For more
 
 1. On the page for the hub that you created, in  the left pane, select **VPN (Site to site)**.
 
-1. On the **VPN (Site to site)** page, you should see your sites. If you don't, you may need to click the **Hub association:x** bubble to clear the filters and view your site.
+1. On the **VPN (Site to site)** page, you should see your sites. If you don't, you might need to click the **Hub association:x** bubble to clear the filters and view your site.
 
 1. Select the checkbox next to the name of both sites (don't click the site name directly), then click **Connect VPN sites**.
 
@@ -98,8 +87,6 @@ In this section, you download the VPN configuration file for the sites that you 
 
 1. On your Virtual WAN page, go to **VPN sites**.
 1. On the **VPN sites** page, at the top of the page, select **Download Site-to-Site VPN configuration** and download the file. Azure creates a configuration file with the necessary values that are used to configure your local network gateways in the next section.
-
-   :::image type="content" source="./media/connect-virtual-network-gateway-vwan/download.png" alt-text="Screenshot of VPN sites page with the Download Site-to-Site VPN configuration action selected." lightbox="./media/connect-virtual-network-gateway-vwan/download.png":::
 
 ## <a name="createlocalgateways"></a>5. Create the local network gateways
 
@@ -117,12 +104,9 @@ In this section, you create two Azure VPN Gateway local network gateways. The co
 1. Repeat these steps to create another local network gateway, but this time, use the 'Instance1' values instead of 'Instance0' values from the configuration file.
 
    :::image type="content" source="./media/connect-virtual-network-gateway-vwan/local-2.png" alt-text="Screenshot that shows the Configuration page with an IP address highlighted for local network gateway 2." lightbox="./media/connect-virtual-network-gateway-vwan/local-2.png":::
-   
-> [!IMPORTANT] 
-> 
-> Please be aware that when configuring a BGP Over IPsec connection to a Public IP that is NOT a vWAN Gateway Public IP address with the remote ASN '65515', the Local Network Gateway deployment will fail as the ASN '65515' is a documented reserved ASN as depicted in [What Autonomous Systems Can I use](../vpn-gateway/vpn-gateway-vpn-faq.md#bgp). However, when the Local Network Gateway reads the vWAN Public address with the remote ASN '65515', this restriction is lifted by the platform.
-> 
-   
+
+> [!IMPORTANT]
+> When configuring a BGP over IPsec connection to a public IP address that isn't a virtual WAN gateway public IP address with the remote ASN '65515', the local network gateway deployment will fail because the ASN '65515' is a documented [reserved ASN](../vpn-gateway/vpn-gateway-vpn-faq.md#bgp). However, when the local network gateway reads the virtual WAN public IP address with the remote ASN '65515', this restriction is lifted by the platform.
 
 ## <a name="createlocalgateways"></a>6. Create connections
 
@@ -132,9 +116,9 @@ In this section, you create a connection between the VPN Gateway local network g
 1. On the **Add connection** page, configure the following values for your connection:
 
    * **Name:** Name your connection.
-   * **Connection type:** Select **Site-to-site(IPSec)**
+   * **Connection type:** Select **Site-to-site(IPsec)**
    * **Virtual network gateway:** The value is fixed because you're connecting from this gateway.
-   * **Local network gateway:** This connection will connect the virtual network gateway to the local network gateway. Choose one of the local network gateways that you created earlier.
+   * **Local network gateway:** This connection connects the virtual network gateway to the local network gateway. Choose one of the local network gateways that you created earlier.
    * **Shared Key:** Enter the shared key from earlier.
    * **IKE Protocol:** Choose the IKE protocol.
 1. Select **OK** to create your connection.

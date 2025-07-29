@@ -9,6 +9,7 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 07/24/2024
 ms.custom: template-how-to
+# Customer intent: As a cloud engineer, I want to create a virtual machine with a dual-stack network in Azure using the portal, CLI, or PowerShell, so that I can ensure both IPv4 and IPv6 connectivity for my applications.
 ---
 
 # Create an Azure Virtual Machine with a dual-stack network

@@ -28,6 +28,10 @@ The following image shows the DELL XE4 SFF dust filter installation and maintena
 
 :::image type="content" source="../media/tutorial-install-components/dell-xe4-sff-dust-filter.png" alt-text="Picture of the dust filter of the DELL XE4 SFF." border="false":::
 
+> [!Note]
+>
+> For this appliance to operate properly, install a secondary NIC. For more information, see [optional port expansion](#optional-port-expansion).
+
 ## Specifications
 
 |Component|Technical specifications|
@@ -100,6 +104,8 @@ The following image shows the DELL XE4 SFF dust filter installation and maintena
 
 ## Optional port expansion
 
+For this appliance to operate properly, install one of these secondary NICs.
+
 Optional modules for port expansion include:
 
 |Description| PN|Quantity|
@@ -161,4 +167,3 @@ Continue understanding system requirements for physical or virtual appliances. F
 Then, use any of the following procedures to continue:
 
 - [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
-- [Download software files for an on-premises management console](../legacy-central-management/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

@@ -1,12 +1,12 @@
 ---
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: include
 ms.custom: [mvc, mqtt, devx-track-python, devx-track-azurecli]
-ms.date: 01/31/2023
+ms.date: 03/28/2025
 ---
 
 This quickstart uses two Python applications: 
@@ -20,9 +20,9 @@ This quickstart uses two Python applications:
 
 * [Python 3.7+](https://www.python.org/downloads/). For other versions of Python supported, see [Azure IoT Device Features](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device#azure-iot-device-features).
 
-* Clone or download the [Azure IoT Python samples](https://github.com/Azure-Samples/azure-iot-samples-python/) from github.
+* Clone or download the [Azure IoT Python samples](https://github.com/Azure-Samples/azure-iot-samples-python/) from GitHub.
 
-* Make sure port 8883 is open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../articles/iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
+* Make sure that port 8883 is open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port might be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see the [Connect to IoT Hub](../articles/iot/iot-mqtt-connect-to-iot-hub.md#connect-to-iot-hub) section of [Communicate with an IoT hub using the MQTT protocol](../articles/iot/iot-mqtt-connect-to-iot-hub.md).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -40,7 +40,7 @@ This quickstart uses two Python applications:
 
 You also need a _service connection string_ to enable the back-end application to connect to your IoT hub and retrieve the messages. The following command retrieves the service connection string for your IoT hub:
 
-**YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
+**YourIoTHubName**: Replace this placeholder in the following command with the name you choose for your IoT hub.
 
 ```azurecli-interactive
 az iot hub connection-string show \
@@ -79,7 +79,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
     The following screenshot shows the output as the simulated device application sends telemetry to your IoT hub:
 
-    ![Run the simulated device](./media/quickstart-control-device-python/simulated-device-1.png)
+    :::image type="content" source="./media/quickstart-control-device-python/simulated-device-1.png" alt-text="Screenshot of a terminal window that shows the output of the simulated device application.":::
 
 ## Call the direct method
 
@@ -105,8 +105,8 @@ The back-end application connects to a service-side endpoint on your IoT Hub. Th
 
     The following screenshot shows the output as the application makes a direct method call to the device and receives an acknowledgment:
 
-    ![Run the back-end application](./media/quickstart-control-device-python/backend-application.png)
+    :::image type="content" source="./media/quickstart-control-device-python/backend-application.png" alt-text="Screenshot of a terminal window that shows the result of the direct method call from the service application.":::
 
     After you run the back-end application, you see a message in the console window running the simulated device, and the rate at which it sends messages changes:
 
-    ![Change in simulated client](./media/quickstart-control-device-python/simulated-device-2.png)
+    :::image type="content" source="./media/quickstart-control-device-python/simulated-device-2.png" alt-text="Screenshot of a terminal window that shows the direct message result and updated output from the simulated device application.":::

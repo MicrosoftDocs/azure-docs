@@ -21,6 +21,7 @@ ms.subservice: b2c
 ---
 
 # Review tenant creation permission in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 It's a security risk if a non-admin user in a tenant is allowed to create a tenant. As a [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator) in an Azure AD B2C tenant, you can restrict non-admin users from creating tenants.
 

@@ -1,10 +1,9 @@
 ---
 title: "Tutorial: Use MQTT to create an IoT device client"
-description: Tutorial - Use the MQTT protocol directly to create an IoT device client without using the Azure IoT Device SDKs
-titleSuffix: Azure IoT
+description: Tutorial - Use the MQTT protocol directly to create an IoT device client without using the Azure IoT device SDKs
 author: ryanwinter
 ms.author: rywinter
-ms.date: 04/04/2024
+ms.date: 03/11/2025
 ms.topic: tutorial
 ms.service: azure-iot
 ms.custom: devx-track-azurecli
@@ -13,17 +12,16 @@ ms.custom: devx-track-azurecli
 
 # Tutorial - Use MQTT to develop an IoT device client without using a device SDK
 
-You should use one of the Azure IoT Device SDKs to build your IoT device clients if at all possible. However, in scenarios such as using a memory constrained device, you may need to use an MQTT library to communicate with your IoT hub.
+You should use one of the Azure IoT Device SDKs to build your IoT device clients if at all possible. However, in scenarios such as using a memory constrained device, you might need to use an MQTT library to communicate with your IoT hub.
 
 The samples in this tutorial use the [Eclipse Mosquitto](http://mosquitto.org/) MQTT library.
 
 In this tutorial, you learn how to:
 
-> [!div class="checklist"]
-> * Build the C language device client sample applications.
-> * Run a sample that uses the MQTT library to send telemetry.
-> * Run a sample that uses the MQTT library to process a cloud-to-device message sent from your IoT hub.
-> * Run a sample that uses the MQTT library to manage the device twin on the device.
+* Build the C language device client sample applications.
+* Run a sample that uses the MQTT library to send telemetry.
+* Run a sample that uses the MQTT library to process a cloud-to-device message sent from your IoT hub.
+* Run a sample that uses the MQTT library to manage the device twin on the device.
 
 You can use either a Windows or Linux development machine to complete the steps in this tutorial.
 
@@ -31,11 +29,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
-
 ### Development machine prerequisites
 
-If you're using Windows:
+# [Windows](#tab/windows)
 
 1. Install [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads). Be sure to enable the **Desktop development with C++** workload.
 
@@ -43,7 +39,7 @@ If you're using Windows:
 
 1. Install the **x64 version** of [Mosquitto](https://mosquitto.org/download/).
 
-If you're using Linux:
+# [Linux](#tab/linux)
 
 1. Run the following command to install the build tools:
 
@@ -56,6 +52,10 @@ If you're using Linux:
     ```bash
     sudo apt install libmosquitto-dev
     ```
+
+---
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 ## Set up your environment
 
@@ -84,6 +84,8 @@ Make a note of the SAS token the command outputs as you need it later. The SAS t
 
 > [!TIP]
 > By default, the SAS token is valid for 60 minutes. The `--du 7200` option in the previous command extends the token duration to two hours. If it expires before you're ready to use it, generate a new one. You can also create a token with a longer duration. To learn more, see [az iot hub generate-sas-token](/cli/azure/iot/hub#az-iot-hub-generate-sas-token).
+
+[!INCLUDE [iot-authentication-device-connection-string](../../includes/iot-authentication-device-connection-string.md)]
 
 ## Clone the sample repository
 
@@ -148,7 +150,7 @@ Run the _mosquitto_telemetry_ sample. For example, on Linux:
 
 The `az iot hub monitor-events` generates the following output that shows the payload sent by the device:
 
-```text
+```output
 Starting event monitor, use ctrl-c to stop...
 {
     "event": {
@@ -199,11 +201,11 @@ if (rc != MOSQ_ERR_SUCCESS)
 printf("Publish returned OK\r\n");
 ```
 
-To learn more, see [Sending device-to-cloud messages](./iot-mqtt-connect-to-iot-hub.md#sending-device-to-cloud-messages).
+To learn more, see [Sending device-to-cloud messages](./iot-mqtt-connect-to-iot-hub.md#send-device-to-cloud-messages).
 
 ## Receive a cloud-to-device message
 
-The *mosquitto_subscribe* sample shows how to subscribe to MQTT topics and receive a cloud-to-device message from your IoT hub by using the MQTT library.
+The _mosquitto_subscribe_ sample shows how to subscribe to MQTT topics and receive a cloud-to-device message from your IoT hub by using the MQTT library.
 
 Run the _mosquitto_subscribe_ sample. For example, on Linux:
 
@@ -219,7 +221,7 @@ az iot device c2d-message send --hub-name my-hub --device-id mqtt-dev-01 --data 
 
 The output from _mosquitto_subscribe_ looks like the following example:
 
-```text
+```output
 Waiting for C2D messages...
 C2D message 'hello world' for topic 'devices/mqtt-dev-01/messages/devicebound/%24.mid=d411e727-...f98f&%24.to=%2Fdevices%2Fmqtt-dev-01%2Fmessages%2Fdevicebound&%24.ce=utf-8&iothub-ack=none'
 Got message for devices/mqtt-dev-01/messages/# topic
@@ -252,11 +254,11 @@ void message_callback(struct mosquitto* mosq, void* obj, const struct mosquitto_
 }
 ```
 
-To learn more, see [Use MQTT to receive cloud-to-device messages](./iot-mqtt-connect-to-iot-hub.md#receiving-cloud-to-device-messages).
+To learn more, see [Use MQTT to receive cloud-to-device messages](./iot-mqtt-connect-to-iot-hub.md#receive-cloud-to-device-messages).
 
 ## Update a device twin
 
-The *mosquitto_device_twin* sample shows how to set a reported property in a device twin and then read the property back.
+The _mosquitto_device_twin_ sample shows how to set a reported property in a device twin and then read the property back.
 
 Run the _mosquitto_device_twin_ sample. For example, on Linux:
 
@@ -266,7 +268,7 @@ Run the _mosquitto_device_twin_ sample. For example, on Linux:
 
 The output from _mosquitto_device_twin_ looks like the following example:
 
-```text
+```output
 Setting device twin reported properties....
 Device twin message '' for topic '$iothub/twin/res/204/?$rid=0&$version=2'
 Setting device twin properties SUCCEEDED.
@@ -348,7 +350,7 @@ void message_callback(struct mosquitto* mosq, void* obj, const struct mosquitto_
 }
 ```
 
-To learn more, see [Use MQTT to update a device twin reported property](./iot-mqtt-connect-to-iot-hub.md#update-device-twins-reported-properties) and [Use MQTT to retrieve a device twin property](./iot-mqtt-connect-to-iot-hub.md#retrieving-a-device-twins-properties).
+To learn more, see [Use MQTT to update a device twin reported property](./iot-mqtt-connect-to-iot-hub.md#update-device-twins-reported-properties) and [Use MQTT to retrieve a device twin property](./iot-mqtt-connect-to-iot-hub.md#retrieve-device-twin-properties).
 
 ## Clean up resources
 
@@ -356,9 +358,4 @@ To learn more, see [Use MQTT to update a device twin reported property](./iot-mq
 
 ## Next steps
 
-Now that you've learned how to use the Mosquitto MQTT library to communicate with IoT Hub, a suggested next step is to review:
-
-> [!div class="nextstepaction"]
-> [Communicate with your IoT hub using the MQTT protocol](./iot-mqtt-connect-to-iot-hub.md)
-> [!div class="nextstepaction"]
-> [MQTT Application samples](https://github.com/Azure-Samples/MqttApplicationSamples)
+Now that you've learned how to use the Mosquitto MQTT library to communicate with IoT Hub, a suggested next step is to review the [MQTT Application samples](https://github.com/Azure-Samples/MqttApplicationSamples) on GitHub.

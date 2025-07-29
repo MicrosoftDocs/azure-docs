@@ -17,6 +17,8 @@ zone_pivot_groups: b2c-policy-type
 
 # Configure Asignio with Azure Active Directory B2C for multifactor authentication
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 Learn to integrate Microsoft Entra ID (Azure AD B2C) authentication with [Asignio](https://www.web.asignio.com/). With this integration, provide passwordless, soft biometric, and multifactor authentication experience to customers. Asignio uses patented Asignio Signature and live facial verification for user authentication. The changeable biometric signature helps to reduce passwords, fraud, phishing, and credential reuse through omni-channel authentication.
 
 ## Before you begin
@@ -435,7 +437,7 @@ If you have an Asignio Signature, you're prompted to authenticate with your Asig
 ## Next steps
 
 * [Solutions and Training for Azure Active Directory B2C](solution-articles.md)
-* Ask questions on [Stackoverflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
+* Ask questions on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 * [Azure AD B2C Samples](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 * YouTube: [Identity Azure AD B2C Series](https://www.youtube.com/playlist?list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0)
 * [Azure AD B2C custom policy overview](custom-policy-overview.md)
