@@ -15,7 +15,7 @@ ms.author: abell
 
 This article shows you how to connect to Azure Kubernetes Service (AKS) private clusters securely using Azure Bastion's native client tunneling feature. You learn to establish secure connections to AKS private clusters in Azure virtual networks without exposing endpoints to the public internet, eliminating the need for additional client software or agents.
 
-Azure Bastion provides secure connectivity to all resources in the virtual network in which it's provisioned. Using Azure Bastion protects your AKS clusters from exposing endpoints to the outside world, while still providing secure access. For more information, see [What is Azure Bastion?](bastion-overview.md) For more information about AKS private clusters, see [Create a private Azure Kubernetes Service cluster](../aks/private-clusters.md).
+Azure Bastion provides secure connectivity to all resources in the virtual network in which it's provisioned. Using Azure Bastion protects your AKS clusters from exposing endpoints to the outside world, while still providing secure access. For more information, see [What is Azure Bastion?](bastion-overview.md) For more information about AKS private clusters, see [Create a private Azure Kubernetes Service cluster](/azure/aks/private-clusters).
 
 ## Prerequisites
 
