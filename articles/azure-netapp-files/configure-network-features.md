@@ -111,13 +111,13 @@ You can edit the network features option of existing volumes from *Basic* to *St
 
 You should be running the latest version of the Azure CLI. Confirm the version with the `az version` command. If necessary, see [How to update the Azure CLI](/cli/azure/update-azure-cli).
 
-1. List volumes in the capacity pool:
+1. List volumes in the capacity pool. Capture the network sibling set ID of the volume whose network features you want to update. 
 
 ```azurecli
 az netappfiles volume list --account-name <account> --resource-group <resourceGroup> --pool-name <capacityPool> 
 ```
 
-1. Query the network sibling set:
+1. Query the network sibling set. Capture the network sibling set state ID for the network sibling set you want to update. 
 
 ```azurecli
 az netappfiles query-network-sibling-set --network-sibling-set-id <networkSiblingSetID> --subnet-id <subnetID> 
@@ -129,7 +129,25 @@ az netappfiles query-network-sibling-set --network-sibling-set-id <networkSiblin
 az netappfiles update-network-sibling-set --network-sibling-set-id <networkSiblingSetID> --network-sibling-set-state-id=<stateID> --subnet-id <subnetID> --location <location> --network-features Standard|Basic 
 ```
 
+1. Confirm the operation succeeded by checking the network features of the volume:
+
+```azurecli
+az netappfiles volume show -g <resourceGroup> --account-name <account> --pool-name <capacityPool> --name <volumeName>
+```
+
 # [PowerShell](#tab/powershell)
+
+1. List volumes in the capacity pool. Capture the network sibling set ID of the volume whose network features you want to update. 
+
+```azure-powershell
+Get-AzNetAppFilesVolume -ResourceGroupName "<resourceGroup> -AccountName "<accountName>" -PoolName "<capacityPool>" -Name "<volume>" 
+```
+
+1. Query the network sibling set. Capture the network sibling set state ID for the network sibling set you want to update. 
+
+```azure-powershell
+Get-AzNetAppFilesNetworkSiblingSet -Location "<location>" -SubnetId "<subnetID>" -NetworkSiblingSetId "<networkSiblingSetID>"
+```
 
 1. Update the network sibling set:
 
@@ -148,12 +166,11 @@ Get-AzNetAppFilesVolume -ResourceGroupName "<resourceGroup> -AccountName "<accou
 You should be using the latest version of the Azure NetApp Files REST API. 
 
 
-1. Query the network sibling set then capture the network sibling set ID and state ID. 
+1. Query the network sibling set then capture the network sibling set ID and network sibling set state ID. 
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.NetApp/locations/{location}/queryNetworkSiblingSet?api-version=2025-03-01
 ```
-
 
 1. Send a PATCH request to update the network features. Set the "networkFeatures" property to Basic or Standard. 
 
