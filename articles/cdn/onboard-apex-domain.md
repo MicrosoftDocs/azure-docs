@@ -15,6 +15,10 @@ ms.date: 03/31/2025
 
 [!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
+> [!IMPORTANT]
+> - Starting August 15, 2025, Azure CDN from Microsoft (classic) will no longer support new domain onboarding or profile creation. Migrate to [AFD Standard and Premium](/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) to create new domains or profiles and avoid service disruption. [Learn more](/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json)
+> - Switch from Azure-managed certificates on existing domains to Bring Your Own Certificate (BYOC) or migrate to [AFD Standard and Premium](/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) by August 15, 2025 to avoid service disruption. Existing managed certificates will be auto renewed before August 15, 2025, and remain valid until April 14, 2026. [Learn more](/azure/cdn/cdn-custom-ssl?toc=%2Fazure%2Ffrontdoor%2Ftoc.json&tabs=option-1-default-enable-https-with-a-cdn-managed-certificate)
+
 Azure CDN uses CNAME records to validate domain ownership for onboarding of custom domains. CDN doesn't expose the frontend IP address associated with your CDN profile. You can't map your apex domain to an IP address if your intent is to onboard it to Azure CDN.
 
 The DNS protocol prevents the assignment of CNAME records at the zone apex. For example, if your domain is `contoso.com`; you can create CNAME records for `somelabel.contoso.com`; but you can't create a CNAME for `contoso.com` itself. This restriction presents a problem for application owners who have load-balanced applications behind Azure CDN. Since using a CDN profile requires creation of a CNAME record, it isn't possible to point at the CDN profile from the zone apex.
