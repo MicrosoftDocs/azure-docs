@@ -38,6 +38,9 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 | Microsoft.Network/tapConfigurations/* | Required to create, update, read, and delete the TAP configuration on a network interface |
 
 ## Public preview limitations
+**Note: Before adding a VM as a source you must first deploy a virtual network TAP resource and then STOP (deallocate) and START the source VM. This is required only once for any VM that will be a source**
+This is only a requirement for our Public Preview and will not be at GA.
+
 Following are limitations during our preview.
 - Virtual network TAP only supports virtual machine's (VM) network interface as a mirroring source. All VM SKU **except for v6** are supported.
 - Virtual network TAP supports Load Balancer or VM's network interface as a destination resource for mirrored traffic.
