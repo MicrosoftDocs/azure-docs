@@ -112,6 +112,7 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure Storage - Blob Storage||[Choose the right redundancy option](/azure/storage/common/storage-disaster-recovery-guidance?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#choose-the-right-redundancy-option)</p>[Azure storage disaster recovery planning and failover](/azure/storage/common/storage-disaster-recovery-guidance?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Storage Mover| [Reliability in Azure Storage Mover](reliability-azure-storage-mover.md)||
 |Azure Stream Analytics|| [Achieve geo-redundancy for Azure Stream Analytics jobs](../stream-analytics/geo-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
+|Azure Table Storage| [Reliability in Azure Table Storage](reliability-storage-table.md)||
 |Azure Traffic Manager| [Reliability in Azure Traffic Manager](reliability-traffic-manager.md)||
 |Azure Virtual Machines| [Reliability in Azure Virtual Machines](reliability-virtual-machines.md)||
 |Azure Virtual Machine Image Builder| [Reliability in Azure Virtual Machine Image Builder](reliability-image-builder.md)||
