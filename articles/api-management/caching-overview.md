@@ -19,29 +19,28 @@ Configure caching in Azure API Management to store and retrieve responses to API
 This article explains the available caching options in API Management, and highlights key scenarios and configuration considerations.
 
 > [!IMPORTANT]
-> Caching requires both a caching service (either deployed as part of the API Management service, or deployed externally by the customer) and configuration of [caching policies](api-management-policies.md#caching) that specify how caching should be applied to APIs.
+> Caching requires both a caching service - either an internal cache deployed automatically as part of the API Management service, or an external cache deployed by the customer - and configuration of [caching policies](api-management-policies.md#caching) that specify how caching should be applied to APIs.
 > 
 
 
-## Caching options
+## Caching service options
 
 Azure API Management provides flexible caching options to meet different performance and architectural requirements.
 
 ### Internal (built-in) cache
 
-The internal (built-in) cache is automatically provisioned in all API Management service tiers (except the **Consumption** tier) and is based on a managed Redis service in Azure:
+The internal (built-in) cache is automatically provisioned in all API Management service tiers (except the **Consumption** tier). 
 
-* **Developer**, **Basic**, **Standard**, and **Premium** tiers - a built-in Azure Cache for Redis cache is provisioned.
-* **Basic v2**, **Standard v2**, and **Premium v2** tiers - a built-in Azure Managed Redis cache is provisioned.
+The internal cache implementation differs between the classic tiers (**Developer**, **Basic**, **Standard**, and **Premium**) and the v2 tiers (**Basic v2**, **Standard v2**, and **Premium v2**), with the v2 tiers providing enhanced performance and reliability.
 
 
 Considerations for the internal (built-in) cache:
 
 - **Automatic provisioning**: No other steps are required to deploy or manage the cache. Internal cache settings aren't configurable.
-- **Configure response caching for APIs using caching policies** - By default in caching policies, API Management uses an external cache if configured and a built-in cache otherwise.
+- **Configure response caching for APIs using caching policies** - By default in caching policies, API Management uses an external cache if configured and falls back to a built-in cache otherwise.
 - **Not available for Consumption tier or self-hosted gateway**
 - **Regional storage** - Cache data is stored in the same region as your API Management instance and shared among scale units. In a [multi-region](multi-region-api-management.md) deployment, each region has its own cache.
-- **Volatile storage** - Cache contents *do not* persist when service updates take place.
+- **Volatile storage** - In the classic tiers (**Developer**, **Basic**, **Standard**, and **Premium**), the cache contents *do not* persist when service updates take place. 
 - **Per-tier limits** - Cache size varies by service tier. See [service limits](/azure-resource-manager/management/azure-subscription-service-limits#azure-api-management-limits)
 - **Does not support semantic caching** - [Semantic caching](azure-openai-enable-semantic-caching.md) of responses from LLM model deployments requires an external cache.
 - **No pre-loading** - Preloading of data into the built-in cache isn't supported.
@@ -55,7 +54,7 @@ For enhanced performance and persistence, you can optionally configure an extern
 Considerations for external cache:
 
 - **Separate deployment required** - You're responsible for deploying, connecting, and maintaining the external cache. The cache can incur added costs.
-- **Configure response caching using policies** - By default in caching policies, API Management uses an external cache if configured and a built-in cache otherwise.
+- **Configure response caching using policies** - By default in caching policies, API Management uses an external cache if configured and falls back to a built-in cache otherwise.
 - **Only caching option for Consumption tier or self-hosted gateway**
 - **Persistent storage** - Cached data persists independently of API Management service updates
 - **Custom configuration**: Control cache size, location, performance, and scaling; access Redis-specific features like data persistence, clustering, and geo-replication
@@ -75,18 +74,20 @@ Use caching in Azure API Management mainly for the scenarios in the following ta
 | Scenario                        | Description                                                                                                                      | Cache type         | Behavior with loss of cache availability or connectivity                |
 |----------------------------------|----------------------------------------------------------------------------------------------------------------------------------|---------------------|-----------------------------------------------|
 | Optimize client experience       | Speed up repetitive request processing for clients.  | Internal or external   | Backend serves requests and must handle full load if cache is unavailable. |
-| Control costs and backend scaling| Reduce backend load and costs when backend isn't scaled for full traffic. |   External only | Depends on cache and service configuration. Recommendation: Select a service tier with highest reliability and monitor performance.   |
+| Control costs and backend scaling| Reduce backend load and costs when backend isn't scaled for full traffic. |   External only | Depends on cache and service configuration. Recommendation: Select a cache service tier with highest reliability and monitor performance.   |
 | Metadata store                  | Use [cache-store-value](cache-store-value-policy.md) to store arbitrary data in the cache.                                         | Internal or external   | Depends on cache and service configuration.         |
 
 
 **Considerations:**
 
-* In any caching scenario, the customer should consider the possibility of loss of cache availability or connectivity. Such losses result in cache misses and by default requests continue to the backend service.
+* In any caching scenario, the customer should consider the possibility of loss of cache availability or connectivity. API Management has a "best effort" approach to cache availability, so that if a configured cache isn't available, cache misses occur and by default requests continue to the backend service.
 
-* The internal cache is volatile and doesn't persist across service updates During a service update, the internal cache is cleared in a gradual process that involves up to 50% of the cache at a time.
+* In the API Management classic tiers, the internal cache  is volatile and doesn't persist across service updates During a service update, the internal cache is cleared in a gradual process that involves up to 50% of the cache at a time.
 
+* The internal cache in the API Management classictiers is volatile and doesn't persist across service updates During a service update, the internal cache is cleared in a gradual process that involves up to 50% of the cache at a time.
+i
     > [!NOTE]
-    > You can configure [service update settings](configure-service-update-settings.md) in select API Management service tiers, including a maintenance window for updates. Choose a window that minimizes potential customer impacts such as loss of the internal cache.
+    > You can configure [service update settings](configure-service-update-settings.md) , including a maintenance window for updates. Choose a window that minimizes potential customer impacts such as loss of the internal cache.
 
 * If configured, an external cache can be persistent, but the customer is responsible for ensuring availability and connectivity. 
 
