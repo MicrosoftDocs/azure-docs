@@ -1,6 +1,6 @@
 ---
-title: Configure OpenTelemetry dataflow endpoints in Azure IoT Operations (preview)
-description: Learn how to configure dataflow endpoints for OpenTelemetry destinations to send metrics and logs to observability platforms.
+title: Configure OpenTelemetry data flow endpoints in Azure IoT Operations (preview)
+description: Learn how to configure data flow endpoints for OpenTelemetry destinations to send metrics and logs to observability platforms.
 author: PatAltimore
 ms.author: patricka
 ms.service: azure-iot-operations
@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.date: 07/24/2025
 ai-usage: ai-assisted
 
-#CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for OpenTelemetry destinations in Azure IoT Operations so that I can send metrics and logs to observability platforms like Grafana and Azure Monitor.
+#CustomerIntent: As an operator, I want to understand how to configure data flow endpoints for OpenTelemetry destinations in Azure IoT Operations so that I can send metrics and logs to observability platforms like Grafana and Azure Monitor.
 ---
 
-# Configure OpenTelemetry dataflow endpoints (preview)
+# Configure OpenTelemetry data flow endpoints (preview)
 
 [!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
-OpenTelemetry dataflow endpoints are used to send metrics and logs to OpenTelemetry collectors, which can then forward the data to observability platforms like Grafana dashboards and Azure Monitor. You can configure the endpoint settings, authentication, Transport Layer Security (TLS), and batching options.
+OpenTelemetry data flow endpoints are used to send metrics and logs to OpenTelemetry collectors, which can then forward the data to observability platforms like Grafana dashboards and Azure Monitor. You can configure the endpoint settings, authentication, Transport Layer Security (TLS), and batching options.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ OpenTelemetry endpoints enable you to export telemetry data from Azure IoT Opera
 
 ### Common scenarios
 
-- Device diagnostics: Export temperature, pressure, and other sensor readings as metrics for monitoring device health
+- Device diagnostics: Export temperature, pressure, and other sensor readings as metrics to monitor device health
 - Factory monitoring: Send production line telemetry to Grafana dashboards for operational visibility
 - System observability: Forward application logs and metrics to Azure Monitor for centralized monitoring
 - Custom metrics: Add contextual attributes like factory ID or location to metrics for better filtering and analysis
@@ -38,7 +38,7 @@ OpenTelemetry endpoints enable you to export telemetry data from Azure IoT Opera
 
 OpenTelemetry endpoints require data to conform to a specific JSON schema with either a `metrics` array, a `logs` array, or both. Messages that don't conform to this schema are dropped and acknowledged to prevent message loss.
 
-The JSON payload must have this top-level structure:
+The JSON payload must use this top-level structure:
 
 ```json
 {
@@ -98,8 +98,8 @@ Each attribute in the `attributes` array must have:
 Each log object in the `logs` array must contain the following fields:
 
 Required fields:
-- `value` (string): The log message content
-- `level` (string): The log level (see [supported log levels](#supported-log-levels))
+- `value` (string): Log message content
+- `level` (string): Log level (see [supported log levels](#supported-log-levels))
 
 Optional fields:
 - `timestamp` (number): Unix epoch timestamp in nanoseconds when the log was recorded
@@ -136,7 +136,7 @@ Each attribute in the `attributes` array must have:
 The following OpenTelemetry metric types are supported:
 
 - Counters: `u64_counter`, `f64_counter` - Monotonically increasing values
-- Up/Down Counters: `i64_up_down_counter`, `f64_up_down_counter` - Values that can increase or decrease
+- Up/down counters: `i64_up_down_counter`, `f64_up_down_counter` - Values that can increase or decrease
 - Gauges: `u64_gauge`, `i64_gauge`, `f64_gauge` - Point-in-time values
 - Histograms: `f64_histogram`, `u64_histogram` - Distribution of values
 
@@ -144,7 +144,7 @@ The following OpenTelemetry metric types are supported:
 
 The following log levels are supported:
 - `trace`
-- `debug` 
+- `debug`
 - `info`
 - `warn`
 - `error`
@@ -156,7 +156,7 @@ You can create an OpenTelemetry dataflow endpoint using Bicep or Kubernetes.
 
 # [Bicep](#tab/bicep)
 
-Create a Bicep `.bicep` file with the following content. Update the settings as needed, and replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
+Create a Bicep `.bicep` file with the following content. Update the settings as needed, and replace the placeholder values like `<AIO_INSTANCE_NAME>` with your values.
 
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
@@ -202,7 +202,7 @@ resource openTelemetryEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoi
 }
 ```
 
-Then, deploy via Azure CLI:
+Deploy the file by running the following Azure CLI command:
 
 ```azurecli
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
@@ -234,7 +234,7 @@ spec:
       maxMessages: 100
 ```
 
-Then apply the manifest file to the Kubernetes cluster:
+Apply the manifest file to the Kubernetes cluster:
 
 ```bash
 kubectl apply -f <FILE>.yaml
@@ -244,11 +244,11 @@ kubectl apply -f <FILE>.yaml
 
 ## Configuration options
 
-This section describes the configuration options available for OpenTelemetry dataflow endpoints.
+This section describes configuration options for OpenTelemetry data flow endpoints.
 
 ### Host
 
-The `host` property specifies the OpenTelemetry collector endpoint URL. This should include the protocol (`http://` or `https://`) and port number.
+The `host` property specifies the OpenTelemetry collector endpoint URL. Include the protocol (`http://` or `https://`) and port number.
 
 Examples:
 - `https://otel-collector.monitoring.svc.cluster.local:4317`
@@ -257,13 +257,13 @@ Examples:
 
 ### Authentication
 
-OpenTelemetry endpoints support several authentication methods to securely connect to collectors.
+OpenTelemetry endpoints support several authentication methods to connect securely to collectors.
 
 #### Service Account Token (SAT)
 
-Service Account Token authentication uses Kubernetes service account tokens for authentication with the OpenTelemetry collector.
+Service account token (SAT) authentication uses Kubernetes service account tokens to authenticate with the OpenTelemetry collector.
 
-Configuration: Replace `<OTEL_AUDIENCE>` with the appropriate audience value for your OpenTelemetry collector configuration. This value must match the expected audience configured on the collector side.
+Replace `<OTEL_AUDIENCE>` with the audience value for your OpenTelemetry collector configuration. This value must match the expected audience on the collector.
 
 # [Bicep](#tab/bicep)
 
@@ -313,7 +313,7 @@ authentication:
 
 ---
 
-Before using X.509 certificate authentication, create a Kubernetes secret with your client certificate:
+Before you use X.509 certificate authentication, create a Kubernetes secret with your client certificate:
 
 ```bash
 kubectl create secret tls <X509_SECRET_NAME> \
@@ -414,8 +414,8 @@ batching:
 
 | Property | Description | Default |
 |----------|-------------|---------|
-| `latencySeconds` | Maximum time to wait before sending a batch | 60 seconds |
-| `maxMessages` | Maximum number of messages in a batch | 100000 messages |
+| `latencySeconds` | Maximum time to wait before sending a batch. | 60 seconds |
+| `maxMessages` | Maximum number of messages in a batch. | 100000 messages |
 
 ## Error handling and troubleshooting
 
@@ -431,10 +431,10 @@ Common validation errors:
 
 ### Delivery guarantees
 
-The OpenTelemetry endpoint provides delivery guarantees to the collector itself, but not to upstream services that the collector may forward data to. Once data reaches the collector, Azure IoT Operations has no visibility into whether it successfully reaches the final destination.
+The OpenTelemetry endpoint provides delivery guarantees to the collector itself, but not to upstream services that the collector can forward data to. Once data reaches the collector, Azure IoT Operations doesn't have visibility into whether it reaches the final destination.
 
 ## Related content
 
-- [Create a dataflow](howto-create-dataflow.md)
-- [Configure dataflow endpoints](howto-configure-dataflow-endpoint.md)
-- [Configure MQTT dataflow endpoints](howto-configure-mqtt-endpoint.md)
+- [Create a data flow](howto-create-dataflow.md)
+- [Configure data flow endpoints](howto-configure-dataflow-endpoint.md)
+- [Configure MQTT data flow endpoints](howto-configure-mqtt-endpoint.md)
