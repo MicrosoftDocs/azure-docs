@@ -146,16 +146,14 @@ You can test your cross-zone replication configuration safely by using snapshots
 
 ## Multi-region support
 
-By default, Azure NetApp Files is a single region service. To improve resiliency in the event of a regional outage, Azure NetApp Files supports cross-region replication. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region preselected by Microsoft. This capability enables you to fail over your critical application if a region-wide outage or disaster happens.
+By default, Azure NetApp Files is a single-region service. If the region becomes unavailable, volumes stored in that region are also unavailable. To improve resiliency in the event of a regional outage, Azure NetApp Files supports cross-region replication. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region preselected by Microsoft. This capability enables you to fail over your critical application if a region-wide outage or disaster happens.
 
 > [!NOTE]
 > You can also replicate a single volume to another availability zone *and* to another region. To learn more, see [Understand cross-zone-region replication in Azure NetApp Files](../azure-netapp-files/cross-zone-region-replication.md).
 
 ### Region support
 
-The secondary region that you can replicate your volumes to depends on the primary region.
-
-[!INCLUDE [Supported region pairs](../azure-netapp-files/includes/region-pairs.md)]
+The secondary region that you can replicate your volumes to depends on the primary region. For more information, see [supported region pairs](../azure-netapp-files/replication.md#supported-cross-region-replication-pairs). 
 
 ### Considerations
 
