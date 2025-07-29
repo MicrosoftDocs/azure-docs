@@ -100,7 +100,9 @@ When you create an ExpressRoute gateway, Microsoft automatically provisions and 
 **Availability:**  
 Auto-Assigned Public IP is not available for Virtual WAN (vWAN) or Extended Zone deployments.
  
-:::image type="content" source="media/expressroute-introduction/hobo-ip.png" alt-text="Screenshot of the create for vitrual gateway." lightbox="media/gateway-migration/gateway-prepare-stage.png":::
+#### Create a new ExpressRoute gateway with Auto-Assigned Public IP
+
+:::image type="content" source="media/expressroute-introduction/hobo-ip.png" alt-text="Screenshot of the create for virtual gateway." lightbox="media/gateway-migration/gateway-prepare-stage.png":::
 
 ## Connectivity from VNet to VNet and from VNet to virtual WAN
 
