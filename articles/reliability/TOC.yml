@@ -384,7 +384,7 @@
       - name: Azure Service Bus
         href: /azure/service-bus-messaging/service-bus-outages-disasters#availability-zones?toc=/azure/reliability
       - name: Azure SQL Database
-        href: migrate-sql-database.md
+        href: /azure/azure-sql/database/enable-zone-redundancy?view=azuresql-db&preserve-view=true&toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure SQL Managed Instance
         href: /azure/azure-sql/managed-instance/instance-zone-redundancy-configure
       - name: Azure Storage accounts
