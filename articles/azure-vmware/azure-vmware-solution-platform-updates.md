@@ -18,6 +18,10 @@ Microsoft regularly applies important updates to the Azure VMware Solution for n
 
 Public preview of Self-Service Capabilities for Planned Maintenance. [Learn more](https://techcommunity.microsoft.com/blog/azuremigrationblog/take-control-of-your-azure-vmware-solution-maintenance-schedule/4434496) 
 
+**VCF 5.2.1 and VMSA-2025-0013 remediation**
+
+To address the vulnerabilities (CVE-2025-41236, CVE-2025-41237, CVE-2025-41238, CVE-2025-41239) reported in Broadcom security advisory [VMSA-2025-0013](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/35877), ESXi hosts are being patched in all Azure VMware Solution private clouds to [ESXi 8.0_U3f](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/esxi-update-and-patch-release-notes/vsphere-esxi-80u3f-release-notes.html). All new Azure VMware Solution private clouds are deployed with the same version. [Learn more](https://techcommunity.microsoft.com/blog/azuremigrationblog/azure-vmware-solution-broadcom-vmsa-2025-0013-remediation/4433430) 
+
 ## May 2025
 
 **vSAN ESA (Express Storage Architecture) support**
