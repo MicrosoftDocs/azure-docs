@@ -18,9 +18,7 @@ While some Azure services support geo-redundancy and geo-replication by using pa
 
 ## Azure API Management
 
-Azure API Management supports [multi-region deployments](/azure/api-management/api-management-howto-deploy-multi-region), which add more instances of the gateway component into one or more regions. There's no dependency on region pairings for this feature.
-
-You can also use the [backup and restore feature](/azure/api-management/api-management-howto-disaster-recovery-backup-restore) to export the configuration of an API Management service instance in one region and import it into another region. As long as the storage account used for the backup is accessible from the target region, there's no paired region dependency. An operational guidance is provided in [this article](/azure/api-management/api-management-howto-migrate).
+To learn about how to create multi-region solutions using Azure API Management, see [Reliability in Azure API Management](./reliability-api-management.md).
 
 ## Azure App Service
 
@@ -32,7 +30,7 @@ Azure Cache for Redis provide two distinct cross-region replication options that
 
 ## Azure Container Registry
 
-Geo-replication enables an Azure container registry to function as a single registry, serving multiple regions with multi-primary regional registries. There's no restrictions dictated by region pairs for this feature. For more information, see [Geo-replication in Azure Container Registry](/azure/container-registry/container-registry-geo-replication).
+To learn about how to create multi-region solutions using Azure Container Registry, see [Reliability in Azure Container Registry](./reliability-container-registry.md).
 
 ## Azure Cosmos DB
 

@@ -1,5 +1,5 @@
 ---
-title: Summarize insights from raw data in an Auxiliary table to an Analytics table in Microsoft Sentinel (Preview)
+title: Summarize insights from raw data in an Auxiliary table to an Analytics table in Microsoft Sentinel
 description: This article walks you through a sample process of using summary rules to extract actionable analytics from verbose logs ingested into low-cost storage.
 author: guywi-ms
 ms.author: guywild
@@ -14,13 +14,11 @@ ms.collection: usx-security
 
 ---
 
-# Tutorial: Send logs to low-cost storage and extract actionable analytics using summary rules in Microsoft Sentinel (Preview)
+# Tutorial: Send logs to low-cost storage and extract actionable analytics using summary rules in Microsoft Sentinel
 
 This article provides an example of how to use summary rules to aggregate insights from an [auxiliary logs table](basic-logs-use-cases.md) to an Analytics table. In this example, you ingest Common Event Format (CEF) data from Logstash by deploying a custom connector using an ARM template.
 
 > [!IMPORTANT]
-> Summary rules are currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 > [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
 >
 

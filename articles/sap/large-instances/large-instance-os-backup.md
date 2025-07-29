@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 06/22/2021
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
+# Customer intent: As a cloud administrator, I want to perform operating system backup and restore for SAP HANA on Azure, so that I can ensure data integrity and minimize downtime in case of system failures.
 ---
 # OS backup and restore
 

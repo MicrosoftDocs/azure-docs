@@ -1874,8 +1874,8 @@ ___
 <a name="random" ></a>
 
 ### <code>random</code>
-<code><b>random(<i>&lt;value1&gt;</i> : integral) => long</b></code><br/><br/>
-Returns a random number given an optional seed within a partition. The seed should be a fixed value and is used with the partitionId to produce random values  
+<code><b>random(<i>&lt;value1&gt;</i> : integral) => double</b></code><br/><br/>
+Returns a random number given a seed within a partition. The seed should be a fixed value and is used with the partitionId to produce random values in range (0.0-1.0).
 * ``random(1) == 1 -> false``
 ___
 

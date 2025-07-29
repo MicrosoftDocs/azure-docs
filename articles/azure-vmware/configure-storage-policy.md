@@ -10,6 +10,7 @@ ms.custom:
 
 #customer intent: As an Azure service administrator, I want to set VMware vSAN storage policies to determine how storage is allocated to the VM.
 
+# Customer intent: As a cloud administrator, I want to configure VMware vSAN storage policies for my virtual machines, so that I can ensure they meet required service levels and optimize storage allocation.
 ---
 
 # Configure a VMware vSAN storage policy

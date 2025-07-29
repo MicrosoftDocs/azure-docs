@@ -19,7 +19,7 @@
     - name: Architecture best practices for Azure Virtual Network
       href: /azure/well-architected/service-guides/virtual-network
     - name: What is network foundations?
-      href: /azure/networking/network-foundations-overview
+      href: /azure/networking/foundations/network-foundations-overview
 - name: Get started
   items:
     - name: Add, change, or delete a subnet

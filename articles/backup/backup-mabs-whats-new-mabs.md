@@ -4,8 +4,8 @@ description: Microsoft Azure Backup Server gives you enhanced backup capabilitie
 ms.service: azure-backup
 ms.topic: release-notes
 ms.date: 06/27/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As an IT administrator, I want to understand the latest features and fixes in Microsoft Azure Backup Server, so that I can ensure robust backup solutions and improve data protection for VMs, files, and critical workloads."
 ---
 

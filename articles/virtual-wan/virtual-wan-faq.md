@@ -32,7 +32,7 @@ Virtual WAN provides many functionalities built into a single pane of glass. Thi
 * VPN ExpressRoute Interconnectivity
 * [VNet-to-VNet transitive connectivity](virtual-wan-about.md#transit-vnet)
 * [Centralized Routing](about-virtual-hub-routing.md)
-* [Azure Firewall and Firewall Manager security](https://learn.microsoft.com/azure/firewall-manager/secured-virtual-hub)
+* [Azure Firewall and Firewall Manager security](/azure/firewall-manager/secured-virtual-hub)
 * [Monitoring](monitor-virtual-wan.md) 
 * [ExpressRoute Encryption](vpn-over-expressroute.md) and
 * [Many other capabilities](virtual-wan-about.md)

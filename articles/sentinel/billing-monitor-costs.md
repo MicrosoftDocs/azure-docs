@@ -5,7 +5,7 @@ author: cwatson-cat
 ms.author: cwatson
 ms.custom: subject-cost-optimization
 ms.topic: conceptual
-ms.date: 03/07/2024
+ms.date: 07/09/2025
 ms.collection: usx-security
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -18,7 +18,7 @@ appliesto:
 
 # Manage and monitor costs for Microsoft Sentinel
 
-After you've started using Microsoft Sentinel resources, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. 
+After you've started using Microsoft Sentinel resources, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. With the data lake, currently in preview, you can also view your usage directly in the Microsoft Defender portal.
 
 Costs for Microsoft Sentinel are only a portion of the monthly costs in your Azure bill. Although this article explains how to manage and monitor costs for Microsoft Sentinel, you're billed for all Azure services and resources your Azure subscription uses, including Partner services.
 
@@ -32,9 +32,11 @@ While cost analysis in Cost Management supports most Azure account types, not al
 
 For information about assigning access to Microsoft Cost Management data, see [Assign access to data](../cost-management/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
+## Manage and monitor costs for the analytics tier
+As you use Azure resources with Microsoft Sentinel, you incur costs. Azure resource usage unit costs vary by time intervals such as seconds, minutes, hours, and days, or by unit usage, like bytes and megabytes.
 
-## View costs by using cost analysis
-As you use Azure resources with Microsoft Sentinel, you incur costs. Azure resource usage unit costs vary by time intervals such as seconds, minutes, hours, and days, or by unit usage, like bytes and megabytes. As soon as Microsoft Sentinel starts to analyze billable data, it incurs costs. View these costs by using cost analysis in the Azure portal. For more information, see [Start using cost analysis](../cost-management/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+### View costs by using cost analysis
+As soon as Microsoft Sentinel starts to ingest billable data, it incurs costs. View these costs by using cost analysis in the Azure portal. For more information, see [Start using cost analysis](../cost-management/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
 When you use cost analysis, you view Microsoft Sentinel costs in graphs and tables for different time intervals. Some examples are by day, current and prior month, and year. You also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends. And you see where overspending might have occurred. If you created budgets, you can also easily see where they're exceeded.
 
@@ -48,23 +50,19 @@ For example, to see charts of your daily costs for a certain time frame:
 1. Select the drop-down caret in the date field and select a date range.
 1. Select the drop-down caret next to **Granularity** and select **Daily**.
 
-   The costs shown in the following image are for example purposes only. They're not intended to reflect actual costs.
+   The costs shown in the following image are for illustrative purposes only. They're not intended to reflect actual costs.
 
    :::image type="content" source="media/billing-monitor-costs/cost-management.png" alt-text="Screenshot of a cost management + billing cost analysis screen." lightbox="media/billing-monitor-costs/cost-management.png":::
 
 You could also apply further controls. For example, to view only the costs associated with Microsoft Sentinel, select **Add filter**, select **Service name**, and then select the service names **Sentinel**, **Log Analytics**, and **Azure Monitor**.
 
-Microsoft Sentinel data ingestion volumes appear under **Security Insights** in some portal Usage Charts.
+Microsoft Sentinel analytics tier data ingestion volumes appear under **Security Insights** in some portal Usage Charts.
 
 The Microsoft Sentinel classic pricing tiers don't include Log Analytics charges, so you might see those charges billed separately. Microsoft Sentinel simplified pricing combines the two costs into one set of tiers. To learn more about Microsoft Sentinel's simplified pricing tiers, see [Simplified pricing tiers](billing.md#simplified-pricing-tiers).
 
 For more information on reducing costs, see [Create budgets](#create-budgets) and [Reduce costs in Microsoft Sentinel](billing-monitor-costs.md).
 
-## Using Azure Prepayment with Microsoft Sentinel
-
-You can pay for Microsoft Sentinel charges with your Azure Prepayment credit. However, you can't use Azure Prepayment credit to pay bills to non-Microsoft organizations for their products and services, or for products from the Azure Marketplace.
-
-## Run queries to understand your data ingestion
+### Run queries to understand your analytics tier data ingestion
 
 Microsoft Sentinel uses an extensive query language to analyze, interact with, and derive insights from huge volumes of operational data in seconds. Here are some Kusto queries you can use to understand your data ingestion volume.
 
@@ -117,7 +115,7 @@ See more information on the following items used in the preceding examples, in t
 
 [!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
 
-## Deploy a workbook to visualize data ingestion
+### Deploy a workbook to visualize data ingestion into the analytics tier
 
 The **Workspace Usage Report workbook** provides your workspace's data consumption, cost, and usage statistics. The workbook gives the workspace's data ingestion status and amount of free and billable data. You can use the workbook logic to monitor data ingestion and costs, and to build custom views and rule-based alerts.
 
@@ -134,29 +132,43 @@ To enable the Workspace Usage Report workbook:
 
 You can also [export your cost data](../cost-management-billing/costs/tutorial-improved-exports.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. Exporting cost data is helpful when you need or others to do more data analysis for costs. For example, a finance team can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
 
-## Create budgets
+### Create budgets
 
-You can create [budgets](../cost-management/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to manage costs and create [alerts](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) that automatically notify stakeholders of spending anomalies and overspending risks. Alerts are based on spending compared to budget and cost thresholds. Budgets and alerts are created for Azure subscriptions and resource groups, so they're useful as part of an overall cost monitoring strategy.
+You can create [budgets](../cost-management/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to track costs and create [alerts](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) that automatically notify stakeholders of spending anomalies and overspending risks. Alerts are based on spending compared to budget and cost thresholds. Budgets and alerts are created for Azure subscriptions and resource groups, so they're useful as part of an overall cost monitoring strategy.
 
-You can create budgets with filters for specific resources or services in Azure if you want more granularity in your monitoring. Filters help ensure that you don't accidentally create new resources that cost you more money. For more information about the filter options available when you create a budget, see [Group and filter options](../cost-management-billing/costs/group-filter.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+You can create budgets with filters for specific resources or services in Azure if you want finer granularity in your monitoring. Filters help ensure that you don't accidentally create new resources that cost you more money. For more information about the filter options available when you create a budget, see [Group and filter options](../cost-management-billing/costs/group-filter.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
-## Use a playbook for cost management alerts
+### Use a playbook for cost management alerts
 
-To help you control your Microsoft Sentinel budget, you can create a cost management playbook. The playbook sends you an alert if your Microsoft Sentinel workspace exceeds a budget, which you define, within a given timeframe.
+To help you control your Analytics tier budget, you can create a cost management playbook. The playbook sends you an alert if your Microsoft Sentinel workspace exceeds a budget, which you define, within a given timeframe.
 
 The Microsoft Sentinel GitHub community provides the [`Send-IngestionCostAlert`](https://github.com/iwafula025/Azure-Sentinel/tree/master/Playbooks/Send-IngestionCostAlert) cost management playbook on GitHub. This playbook is activated by a recurrence trigger, and gives you a high level of flexibility. You can control execution frequency, ingestion volume, and the message to trigger, based on your requirements.
 
-## Define a data volume cap in Log Analytics
+## Manage and monitor costs for the Data lake tier
 
-In Log Analytics, you can enable a daily volume cap that limits the daily ingestion for your workspace. The daily cap can help you manage unexpected increases in data volume, stay within your limit, and limit unplanned charges.
+Once onboarded, usage of data lake tier capabilities is billed using new Microsoft Sentinel data lake meters. For more information on the new meters, see [Data lake tier](billing.md#data-lake-tier).
 
-To define a daily volume cap, select **Usage and estimated costs** in the left navigation of your Log Analytics workspace, and then select **Daily cap**. Select **On**, enter a daily volume cap amount, and then select **OK**.
+### Microsoft Sentinel Cost Management in the Microsoft Defender portal
 
-![Screenshot showing the Usage and estimated costs screen and the Daily cap window.](media/billing-monitor-costs/daily-cap.png)
+The new Cost Management experience, currently in preview, under **Microsoft Sentinel > Cost Management** in the [Microsoft Defender portal](https://security.microsoft.com), helps you manage and monitor costs associated with your use of the data lake tier.
 
-The **Usage and estimated costs** screen also shows your ingested data volume trend in the past 31 days, and the total retained data volume.
+On the overview page, you can find entry points to relevant cost tracking capabilities, and a direct link to usage reports and settings, to help you navigate to the cost management action most relevant to you.
 
-For more information, see [Set daily cap on Log Analytics workspace](/azure/azure-monitor/logs/daily-cap).
++ Usage reports - visualize your usage by capability over time. Can be found under **Currently billed capabilities**.
++ Cost management - leads you to the **Cost Management + Billing** blade in the Azure portal to help track costs and create budgets. For more information on how to use Cost Management + Billing in the Azure portal, see [Start using cost analysis](../cost-management/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
++ Cost forecast - leads you to a forecast report in the **Cost Management + Billing** blade in the Azure portal. For more information on how to use the forecast functionality, see [View forecast costs](/azure/cost-management-billing/costs/cost-analysis-common-uses#view-forecast-costs).
++ Microsoft Sentinel settings - opens the Microsoft Sentinel settings to show your relevant billing information, such as subscription and resource group selected for the data lake.
+
+#### Usage reports
+
+When clicking on one of the capabilities under **Usage reports**, a usage report displays a trend line of your billable usage for that capability.
+Data is shown for the last 90 days. You can use a filter to adjust the default single month time window. A card shows your total usage for the filtered time period. If enough historic data is available, the trend change compared to the previous period is displayed.
+
+:::image type="content" source="media/billing-monitor-costs/usage-report.png" alt-text="Screenshot of a cost management in the Microsoft Defender portal showing a usage graph for data lake ingestion." lightbox="media/billing-monitor-costs/usage-report.png":::
+
+## Using Azure Prepayment with Microsoft Sentinel
+
+You can pay for Microsoft Sentinel charges with your Azure Prepayment credit. You can't use Azure Prepayment credit to pay non-Microsoft organizations for their products and services, or for products from Azure Marketplace.
 
 ## Next steps
 

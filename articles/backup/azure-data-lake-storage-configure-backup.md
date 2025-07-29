@@ -1,10 +1,10 @@
 ---
-title: Configure Vaulted Backup for Azure Data Lake Storage using Azure Portal (preview)
+title: Configure Vaulted Backup for Azure Data Lake Storage using Azure portal (preview)
 description: Learn how to configure vaulted backup for Azure Data Lake Storage (preview) using Azure portal.
 ms.topic: how-to
-ms.date: 04/16/2025
-author: jyothisuri
-ms.author: jsuri
+ms.date: 07/23/2025
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to configure vaulted backup for Azure Data Lake Storage, so that I can ensure data protection and recovery capabilities are in place for my storage accounts.
 ---
 
@@ -20,7 +20,9 @@ Before you configure backup for Azure Data Lake Storage, ensure the following pr
 - The target account mustn't have containers with the  names same as the containers in a recovery point; otherwise, the restore operation fails.
 
 >[!Note]
->Vaulted backup restores are only possible to a different storage account.
+>- This feature is currently in limited preview and is available in specific regions only. See the [supported regions](azure-data-lake-storage-backup-support-matrix.md#supported-regions).
+>- To enroll in this preview feature, fill [this form](https://forms.office.com/r/sixidTkYb4)  and write to [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+>- Vaulted backup restores are only possible to a different storage account.
 
 For more information about the supported scenarios, limitations, and availability, see the [support matrix](azure-data-lake-storage-backup-support-matrix.md).
 
@@ -107,12 +109,12 @@ To configure backup, follow these steps:
 
    | Error | Cause | Recommended action |
    | --- | --- | --- |
-   | **Role assignment not done** | The **Storage account backup contributor** role and the other required roles for the storage account to the vault are not assigned. | Select the roles, and then select **Assign missing roles** to automatically assign the required role to the Backup vault and trigger an auto revalidation. <br><br> If the role propagation takes more than **10 minutes**, then the validation might fail. In this scenario, you need to wait for a few minutes and select Revalidate to retry validation. <br><br> You need to assign the following types of permissions for various operations: <br><br> - **Resource-level** permissions: For backing up a single account within a resource group. <br> - **Resource group** or **Subscription-level** permissions: For backing up multiple accounts within a resource group. <br> - **Higher-level** permissions: For reducing the number of role assignments needed. <br><br> Note that the maximum count of role assignments supported at the subscription level is **4,000**. Learn more [about Azure Role-Based Access Control Limits](/azure/role-based-access-control/troubleshoot-limits). |
+   | **Role assignment not done** | The **Storage account backup contributor** role and the other required roles for the storage account to the vault aren't assigned. | Select the roles, and then select **Assign missing roles** to automatically assign the required role to the Backup vault and trigger an auto revalidation. <br><br> If the role propagation takes more than **10 minutes**, then the validation might fail. In this scenario, you need to wait for a few minutes and select Revalidate to retry validation. <br><br> You need to assign the following types of permissions for various operations: <br><br> - **Resource-level** permissions: For backing up a single account within a resource group. <br> - **Resource group** or **Subscription-level** permissions: For backing up multiple accounts within a resource group. <br> - **Higher-level** permissions: For reducing the number of role assignments needed. <br><br> The maximum count of role assignments supported at the subscription level is **4,000**. Learn more [about Azure Role-Based Access Control Limits](/azure/role-based-access-control/troubleshoot-limits). |
    | **Insufficient permissions for role assignment** | The vault doesn't have the required role to configure backups, and you don't have enough permissions to assign the required role. | Download the role assignment template, and then share with users with permissions to assign roles for storage accounts. |
  
 1. Review the configuration details, and then select **Configure Backup**.
 
-You can track the progress of the backup configuration under **Backup instances**. After the configuration of backup is complete, Azure Backup triggers the backup operation as per the backup policy schedule to create the recovery points.
+You can track the progress of the backup configuration under **Backup instances**. After the configuration of backup is complete, Azure Backup triggers the backup operation as per the backup policy schedule to create the recovery points. Backup might take a minimum of 30–40 minutes, as backups rely on snapshots, which are taken in every 15 minutes and require two snapshots to detect changes before triggering the backup.
 
 ## Next steps
 

@@ -265,7 +265,7 @@ The created app registration authenticates incoming requests for your Microsoft 
 
 Your application code is often the best place to handle custom authorization logic. However, for common scenarios, the Microsoft identity platform provides built-in checks that you can use to limit access.
 
-This section shows how to enable built-in checks by using the [App Service authentication V2 API](./configure-authentication-api-version.md). Currently, the only way to configure these built-in checks is by using [Azure Resource Manager templates](/azure/templates/microsoft.web/sites/config-authsettingsv2) or the [REST API](/rest/api/appservice/web-apps/update-auth-settings-v2).
+This section shows how to enable built-in checks by using the [App Service authentication V2 API](./configure-authentication-api-version.md). Currently, the only way to configure these built-in checks is by using [Azure Resource Manager templates](/azure/templates/microsoft.web/sites/config-authsettingsv2) or the [REST API](/rest/api/appservice/web-apps/update-auth-settings-v-2).
 
 Within the API object, the Microsoft Entra identity provider configuration has a `validation` section that can include a `defaultAuthorizationPolicy` object, as shown in the following structure:
 
@@ -301,7 +301,7 @@ Requests that fail these built-in checks get an HTTP `403 Forbidden` response.
 
 [fic-config]: #use-a-managed-identity-instead-of-a-secret-preview
 
-Instead of configuring a client secret for your app registration, you can [configure an application to trust a managed identity (preview)][entra-fic]. Using an identity instead of a secret means you don't have to manage a secret. You don't have secret expiration events to handle, and you don't have the same level of risk associated with possibly disclosing or leaking that secret.
+Instead of configuring a client secret for your app registration, you can [configure an application to trust a managed identity][entra-fic]. Using an identity instead of a secret means you don't have to manage a secret. You don't have secret expiration events to handle, and you don't have the same level of risk associated with possibly disclosing or leaking that secret.
 
 The identity allows you to create a *federated identity credential*, which can be used instead of a client secret as a *client assertion*. This approach is available only for workforce configurations. The built-in authentication feature currently supports federated identity credentials as a preview.
 
@@ -313,6 +313,7 @@ You can use the steps in this section to configure your App Service or Azure Fun
 
     > [!IMPORTANT]
     > The user-assigned managed identity that you create should only be assigned to the App Service or Azure Functions application through this registration. If you assign the identity to another resource, you're giving that resource unnecessary access to your app registration.
+
 1. Note down the **Object ID** and **Client ID** values of the managed identity. You'll need the object ID to create a federated identity credential in the next step. You'll use the managed identity's client ID in a later step.
 
 1. Follow the Microsoft Entra ID [instructions to configure a federated identity credential on an existing application](/entra/workload-id/workload-identity-federation-config-app-trust-managed-identity#configure-a-federated-identity-credential-on-an-existing-application). Those instructions also include sections for updating application code, which you can skip.

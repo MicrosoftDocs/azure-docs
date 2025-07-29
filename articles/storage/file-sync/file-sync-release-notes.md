@@ -24,7 +24,7 @@ The following Azure File Sync agent versions are supported:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
-| V21.2 Release - [KB5063825](https://support.microsoft.com/topic/6490aef8-ebae-465d-beba-718c05f8a71f)|21.2.0.0| July 08, 2025| Supported |
+| V21.2 Release - [KB5063825](https://support.microsoft.com/topic/6490aef8-ebae-465d-beba-718c05f8a71f)|21.2.0.0| July 08, 2025| Supported – Flighting |
 | V20 Release - [KB5041884](https://support.microsoft.com/topic/b92c9c6f-8232-42d3-a3e0-e6df1fce0f5e)| 20.0.0.0 | February 10, 2025 | Supported |
 | V19 Release - [KB5040924](https://support.microsoft.com/topic/e44fc142-8a24-4dea-9bf9-6e884b4b342e)| 19.1.0.0 | September 3, 2024 | Supported |
 | V18.2 Release - [KB5023059](https://support.microsoft.com/topic/613d00dc-998b-4885-86b9-73750195baf5)| 18.2.0.0 | July 9, 2024 | Supported |

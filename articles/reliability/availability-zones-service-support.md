@@ -30,11 +30,11 @@ Some Azure services are *nonregional*, which means that you don't deploy the ser
 | --- | --- |---|
 | [Azure AI Search](/azure/search/search-reliability#availability-zones) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure API Center](../api-center/overview.md)|:::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false":::  | |
-| [Azure API Management](migrate-api-mgt.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false":::  | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: |
+| [Azure API Management](./reliability-api-management.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false":::  | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: |
 | [Azure App Configuration](../azure-app-configuration/faq.yml#how-does-app-configuration-ensure-high-data-availability) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure App Service](./reliability-app-service.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure App Service: App Service Environment](./reliability-app-service.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: |
-| [Azure Application Gateway (V2)](migrate-app-gateway-v2.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: |
+| [Azure Application Gateway v2](./reliability-application-gateway-v2.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: |
 | [Azure Automation](../automation/automation-availability-zones.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure Backup](reliability-backup.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure Bastion](../bastion/bastion-overview.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: |
@@ -43,7 +43,7 @@ Some Azure services are *nonregional*, which means that you don't deploy the ser
 | [Azure Compute Gallery](/azure/virtual-machines/azure-compute-gallery#high-availability)| :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: ||
 | [Azure Container Apps](reliability-azure-container-apps.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure Container Instances](migrate-container-instances.md) | | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: |
-| [Azure Container Registry](/azure/container-registry/zone-redundancy) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
+| [Azure Container Registry](./reliability-container-registry.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure Cosmos DB for NoSQL](reliability-cosmos-db-nosql.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure Cosmos DB for PosgtreSQL](/azure/cosmos-db/postgresql/concepts-availability-zones) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |

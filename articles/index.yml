@@ -13,6 +13,7 @@ metadata:
   author: JnHs
   ms.author: jenhayes
   ms.date: 05/29/2025
+  adobe-target: true
   featureFlags:
   - clicktale
 highlightedContent:
