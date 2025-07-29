@@ -208,6 +208,8 @@
       href: howto-timewindow-filter-aspnet-core.md
     - name: JavaScript
       href: howto-timewindow-filter-javascript.md
+    - name: Go Gin
+      href: howto-timewindow-filter-go.md
     - name: Python
       href: howto-time-window-filter-python.md
   - name: Roll out features to targeted audience
