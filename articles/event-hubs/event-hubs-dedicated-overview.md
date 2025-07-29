@@ -14,9 +14,6 @@ ms.custom:
 # Azure Event Hubs Dedicated tier overview
 Azure Event Hubs Dedicated tier is a single-tenant solution designed to meet the needs of enterprise-scale, mission-critical event streaming workloads. This article provides an overview of the Dedicated tier, highlighting its key features, benefits, and use cases, showing how it supports high-performance, low-latency applications using Event Hubs SDK or Apache Kafka APIs.
 
-> [!NOTE]
-> The Dedicated tier isn't available in all regions. Try to create a dedicated cluster in the Azure portal. See the supported regions in the **Location** dropdown list on the **Create Event Hubs Cluster** page.
-
 ## Benefits of dedicated clusters
 
 The Dedicated tier of Event Hubs offers several benefits to customers who need to run mission-critical workloads at enterprise-level capacity.
