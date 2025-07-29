@@ -29,7 +29,7 @@ MCP is an open standard that lets AI agents work with external systems and tools
 
 For more information, see the following articles:
 
-- [What is an AI Agent?](/articles/ai-foundry/agents/overview#what-is-an-ai-agent)
+- [What is an AI Agent?](/ai-foundry/agents/overview#what-is-an-ai-agent)
 - [Introduction - Get started with the Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro)
 
 The following table describes the benefits that you get when you set up Standard logic app workflows as custom MCP servers:
