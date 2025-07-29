@@ -17,47 +17,47 @@ ms.author: junbchen
 
 # Quickstart: Use Azure App Configuration in Azure Kubernetes Service
 
-In Kubernetes, you set up pods to consume configuration from ConfigMaps. It lets you decouple configuration from your container images, making your applications easily portable. [Azure App Configuration Kubernetes Provider](https://mcr.microsoft.com/product/azure-app-configuration/kubernetes-provider/about) can construct ConfigMaps and Secrets from your key-values and Key Vault references in Azure App Configuration. It enables you to take advantage of Azure App Configuration for the centralized storage and management of your configuration without any changes to your application code.
+When you use the Kubernetes platform, you can set up pods to consume configuration data from ConfigMaps. This practice improves the portability of your applications, because you can decouple configuration data from your container images. [Azure App Configuration Kubernetes Provider](https://mcr.microsoft.com/product/azure-app-configuration/kubernetes-provider/about) offers a way to construct Kubernetes ConfigMaps and Secrets from key-value pairs and Azure Key Vault references in Azure App Configuration. When you use this provider, you can use App Configuration to centrally store and manage your configuration data without making changes to your application code.
 
-A ConfigMap can be consumed as environment variables or a mounted file. In this quickstart, you incorporate Azure App Configuration Kubernetes Provider in an Azure Kubernetes Service workload where you run a simple ASP.NET Core app consuming configuration from a JSON file.
+A ConfigMap can be consumed as environment variables or a mounted file. In this quickstart, you incorporate Azure App Configuration Kubernetes Provider in an Azure Kubernetes Service (AKS) workload. In that workload, you run a basic ASP.NET Core app that consumes configuration data from a JSON file.
 
 > [!TIP]
-> See [options](./howto-best-practices.md#azure-kubernetes-service-access-to-app-configuration) for workloads hosted in Kubernetes to access Azure App Configuration.
->
+> For other ways to access App Configuration from a workload that's hosted in Kubernetes, see [Azure Kubernetes Service access to App Configuration](./howto-best-practices.md#azure-kubernetes-service-access-to-app-configuration).
 
 > [!NOTE]
-> This quickstart will walk you through setting up the Azure App Configuration Kubernetes Provider. Optionally, you can use the following [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) commands with the `azure-appconfig-aks` template to provision Azure resources and deploy the sample application used by this quickstart. For more information about this template, visit the [azure-appconfig-aks](https://github.com/Azure-Samples/azure-appconfig-aks) repo on GitHub.
+> This quickstart walks you through setting up Azure App Configuration Kubernetes Provider. Optionally, you can use the following [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) commands to provision Azure resources and deploy the sample application that this quickstart uses. These commands use the `azure-appconfig-aks` template for this purpose. For more information about this template, go to the [azure-appconfig-aks](https://github.com/Azure-Samples/azure-appconfig-aks) GitHub repo.
 > 
->  ``` azd
+>  ```azd
 >  azd init -t azure-appconfig-aks
 >  azd up
 >  ```
->
 
 ## Prerequisites
 
 * An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
-* An Azure Container Registry. [Create a registry](/azure/aks/tutorial-kubernetes-prepare-acr#create-an-azure-container-registry).
-* An Azure Kubernetes Service (AKS) cluster that is granted permission to pull images from your Azure Container Registry. [Create an AKS cluster](/azure/aks/tutorial-kubernetes-deploy-cluster#create-a-kubernetes-cluster).
-* [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download)
-* [Azure CLI](/cli/azure/install-azure-cli)
+* An instance of Azure Container Registry. [Create a registry](/azure/aks/tutorial-kubernetes-prepare-acr#create-an-azure-container-registry).
+* An Azure Kubernetes Service (AKS) cluster that has permission to pull images from your container registry. [Create an AKS cluster](/azure/aks/tutorial-kubernetes-deploy-cluster#create-a-kubernetes-cluster).
+* [.NET SDK 8.0 or later](https://dotnet.microsoft.com/download)
+* [The Azure CLI](/cli/azure/install-azure-cli)
 * [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 * [helm](https://helm.sh/docs/intro/install/)
 * [kubectl](https://kubernetes.io/docs/tasks/tools/)
 
-## Create an application running in AKS
+## Create an application that runs in Azure Kubernetes Service (AKS)
 
-In this section, you will create a simple ASP.NET Core web application running in Azure Kubernetes Service (AKS). The application reads configuration from a local JSON file. In the next section, you will enable it to consume configuration from Azure App Configuration without changing the application code. If you already have an AKS application that reads configuration from a file, skip this section and go to [Use App Configuration Kubernetes Provider](#use-app-configuration-kubernetes-provider). You only need to ensure the configuration file generated by the provider matches the file path used by your application.
+In this section, you create a basic ASP.NET Core web application that runs in Azure Kubernetes Service (AKS). The application reads configuration data from a local JSON file. In the next section, you enable the application to consume configuration data from App Configuration without changing the application code.
+
+If you already have an Azure Kubernetes Service (AKS) application that reads configuration from a file, you can skip this section and go to [Use App Configuration Kubernetes Provider](#use-app-configuration-kubernetes-provider). But ensure the configuration file that the provider generates matches the file path that your application uses.
 
 ### Create an application
 
-1. Use the .NET command-line interface (CLI) and run the following command to create a new ASP.NET Core web app project in a new *MyWebApp* directory:
+1. Use the .NET command-line interface (CLI) to run the following command. It creates an ASP.NET Core web app project in a new *MyWebApp* directory.
    
     ```dotnetcli
-    dotnet new webapp --output MyWebApp --framework net6.0
+    dotnet new webapp --output MyWebApp --framework net8.0
     ```
 
-1. Open *Index.cshtml* in the Pages directory, and update the content with the following code.
+1. In the *MyWebApp* directory, go to the *Pages* directory, and then open *Index.cshtml*. Replace the content with the following code:
    
     ```html
     @page
@@ -79,7 +79,7 @@ In this section, you will create a simple ASP.NET Core web application running i
     </div>
     ```
 
-1. Create a *config* directory in the root of your project and add a *mysettings.json* file to it with the following content.
+1. Create a *config* directory in the root of your project. In the *config* directory, add a *mysettings.json* file that contains the following content:
 
     ```json
     {
@@ -90,7 +90,7 @@ In this section, you will create a simple ASP.NET Core web application running i
     }
     ```
 
-1. Open *program.cs* and add the JSON file to the configuration source by calling the `AddJsonFile` method. 
+1. In your project root directory, open *Program.cs*, and then add the JSON file to the configuration source by calling the `AddJsonFile` method. 
 
     ```csharp   
     // Existing code in Program.cs
@@ -101,7 +101,7 @@ In this section, you will create a simple ASP.NET Core web application running i
 
     var app = builder.Build();
 
-    // The rest of existing code in program.cs
+    // The rest of existing code in Program.cs
     // ... ...
     ```
 
@@ -113,32 +113,32 @@ In this section, you will create a simple ASP.NET Core web application running i
     dotnet publish -c Release -o published
     ```
 
-1. Create a file named *Dockerfile* at the root of your project directory, open it in a text editor, and enter the following content. A Dockerfile is a text file that doesn't have an extension and that is used to create a container image.
+1. Create a file named *Dockerfile* at the root of your project directory, open it in a text editor, and enter the following content. A Dockerfile is a text file that doesn't have an extension. You use it to create a container image.
 
     ```dockerfile
-    FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
+    FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
     WORKDIR /app
     COPY published/ ./
     ENTRYPOINT ["dotnet", "MyWebApp.dll"]
     ```
 
-1. Build a container image named *aspnetapp* by running the following command.
+1. Build a container image named *aspnetapp* by running the following command:
 
    ```docker
    docker build --tag aspnetapp .
    ```
 
-### Push the image to Azure Container Registry
+### Push the image to Container Registry
 
-1. Run the [az acr login](/cli/azure/acr#az-acr-login) command to log in your container registry. The following example logs into a registry named *myregistry*. Replace the registry name with yours.
+1. Run the [az acr login](/cli/azure/acr#az-acr-login) command to sign in to your container registry. The following code signs in to a registry named *myregistry*. Replace that registry name with the name of yours.
 
     ```azurecli
     az acr login --name myregistry
     ```
 
-    The command returns `Login Succeeded` once login is successful.
+    The command returns `Login Succeeded` if you successfully sign in.
 
-1. Use [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) to create a tag *myregistry.azurecr.io/aspnetapp:v1* for the image *aspnetapp*.
+1. Use [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) to create a tag called *myregistry.azurecr.io/aspnetapp:v1* for the *aspnetapp* image.
 
     ```docker
     docker tag aspnetapp myregistry.azurecr.io/aspnetapp:v1
@@ -155,7 +155,7 @@ In this section, you will create a simple ASP.NET Core web application running i
 
 ### Deploy the application
 
-1.  Create a *Deployment* directory in the root directory of your project.
+1. Create a *Deployment* directory in the root directory of your project.
 
 1. Add a *deployment.yaml* file to the *Deployment* directory with the following content to create a deployment. Replace the value of `template.spec.containers.image` with the image you created in the previous step.
 
@@ -205,32 +205,32 @@ In this section, you will create a simple ASP.NET Core web application running i
     kubectl apply -f ./Deployment -n appconfig-demo
     ```
 
-1. Run the following command and get the External IP address exposed by the LoadBalancer service.
+1. Run the following command to get the external IP address exposed by the LoadBalancer service.
    
     ```console
     kubectl get service aspnetapp-demo-service -n appconfig-demo
     ```
 
-1. Open a browser window, and navigate to the IP address obtained in the previous step. The web page looks like this:
+1. In a browser window, go to the IP address you obtained in the previous step. The webpage should look similar to the following screenshot:
 
     ![Screenshot showing Kubernetes Provider before using configMap.](./media/quickstarts/kubernetes-provider-app-launch-before.png)
 
 ## Use App Configuration Kubernetes Provider
 
-Now that you have an application running in AKS, you'll deploy the App Configuration Kubernetes Provider to your AKS cluster running as a Kubernetes controller. The provider retrieves data from your App Configuration store and creates a ConfigMap, which is consumable as a JSON file mounted in a data volume.
+Now that you have an application running in AKS, the next step is to deploy Azure App Configuration Kubernetes Provider to your AKS cluster running as a Kubernetes controller. The provider retrieves data from your App Configuration store and creates a ConfigMap, which is consumable as a JSON file mounted in a data volume.
 
 ### Set up the Azure App Configuration store
 
-Add following key-values to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
+Add the following key and values to the App Configuration store. For each one, use default values for **Label** and **Content Type**. For more information about how to add keys to a store by using the Azure portal or the Azure CLI, see [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
 |**Key**|**Value**|
 |---|---|
 |Settings:FontColor|*Green*|
 |Settings:Message|*Hello from Azure App Configuration*|
 
-### Set up the App Configuration Kubernetes Provider
+### Set up App Configuration Kubernetes Provider
 
-1. Install the Azure App Configuration Kubernetes Provider on your AKS cluster. You can do this either as an AKS extension or by using a Helm chart. The AKS extension allows for seamless installation and management via the Azure CLI, ARM templates, or Bicep files. Additionally, using the AKS extension facilitates automatic minor and patch version updates, ensuring your system remains up-to-date.
+1. Install Azure App Configuration Kubernetes Provider on your AKS cluster. You can install the provider either as an AKS extension or by using a Helm chart. The AKS extension provides seamless installation and management via the Azure CLI, ARM templates, or Bicep files. Also, using the AKS extension facilitates automatic minor and patch version updates, helping to ensure your system remains up to date.
    
     #### [AKS extension](#tab/extension)
 
@@ -256,7 +256,7 @@ Add following key-values to the App Configuration store and leave **Label** and 
         --extension-type Microsoft.AppConfiguration
     ```
     
-    For more information see [Install Azure App Configuration AKS extension](/azure/aks/azure-app-configuration).
+    For more information, see [Install Azure App Configuration AKS extension](/azure/aks/azure-app-configuration).
   
     #### [Helm chart](#tab/helm)
 
@@ -266,13 +266,16 @@ Add following key-values to the App Configuration store and leave **Label** and 
     az aks get-credentials --name <your-aks-instance-name> --resource-group <your-aks-resource-group>
     ```
     
-    Install the helm chart:
+    Install the Helm chart:
+
     ```console
     helm install azureappconfiguration.kubernetesprovider \
         oci://mcr.microsoft.com/azure-app-configuration/helmchart/kubernetes-provider \
         --namespace azappconfig-system \
         --create-namespace
     ```
+
+    ---
 
 1. Add an *appConfigurationProvider.yaml* file to the *Deployment* directory with the following content to create an `AzureAppConfigurationProvider` resource. `AzureAppConfigurationProvider` is a custom resource that defines what data to download from an Azure App Configuration store and creates a ConfigMap.
    
@@ -293,14 +296,15 @@ Add following key-values to the App Configuration store and leave **Label** and 
           serviceAccountName: <your-service-account-name>
     ```
 
-    Replace the value of the `endpoint` field with the endpoint of your Azure App Configuration store. Proceed to the next step to update the `auth` section with your authentication information.
+    - For the `endpoint` field, replace the value with the endpoint of your App Configuration store.
+    - For the `auth` section, wait until you get to the next step to enter your authentication information.
     
     > [!NOTE]
     > `AzureAppConfigurationProvider` is a declarative API object. It defines the desired state of the ConfigMap created from the data in your App Configuration store with the following behavior:
     >
-    > - The ConfigMap will fail to be created if a ConfigMap with the same name already exists in the same namespace.
-    > - The ConfigMap will be reset based on the present data in your App Configuration store if it's deleted or modified by any other means.
-    > - The ConfigMap will be deleted if the App Configuration Kubernetes Provider is uninstalled.
+    > - ConfigMap creation fails if a ConfigMap with the same name already exists in the same namespace.
+    > - The ConfigMap is reset based on the present data in your App Configuration store if it's deleted or modified by any other means.
+    > - The ConfigMap is deleted if App Configuration Kubernetes Provider is uninstalled.
 
 1. Follow the [instructions to use the workload identity](./reference-kubernetes-provider.md#use-workload-identity) to authenticate with your App Configuration store. Update the *appConfigurationProvider.yaml* file by replacing the `serviceAccountName` field with the name of the service account you created. For more information on other authentication methods, refer to the examples in the [Authentication](./reference-kubernetes-provider.md#authentication) section.
 
