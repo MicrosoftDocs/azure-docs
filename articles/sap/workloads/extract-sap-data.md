@@ -11,8 +11,6 @@ ms.author: ritikeshvali
 
 # Extract SAP data to Microsoft Fabric
 
-## Overview
-
 In this article, you gain a comprehensive understanding of the different data sources and tools available for SAP data extraction, and how to select the most appropriate option based on your analytical goals. The content covers the structure and purpose of each data layer within SAP systems. It also highlights the integration capabilities towards Microsoft Fabric, and the considerations for reliability, performance, and business alignment.
 
 [Microsoft Fabric](https://learn.microsoft.com/fabric/fundamentals/microsoft-fabric-overview) is a fully integrated, SaaS-based data platform that unifies data engineering, real-time analytics, data science, business intelligence, and governance into a single experience. Built on OneLake, Fabric centralizes data storage and enables seamless collaboration across roles—from data engineers to business users. At its core is OneLake, a unified data lake that centralizes storage and enables seamless data access across services. Fabric also integrates AI capabilities through Copilot and Azure AI Studio, empowering users to derive insights faster and more intuitively. Designed for simplicity, scalability, and collaboration, Microsoft Fabric helps organizations streamline their analytics workflows, reduce complexity, and accelerate their AI transformation journey
@@ -42,7 +40,7 @@ InfoObjects and InfoProviders are part of the SAP Business Warehouse (BW) semant
 
 Queries are the main interface for consuming data stored in SAP BW. They define business-ready metrics such as key revenue, cost, or quantity measures by applying calculations, filters, and aggregations on top of InfoProviders. Queries are also tightly integrated with SAP's authorization model and optimized for performance.
 
-## Choosing the right data source
+## Choose the right data source
 
 Selecting the right data source depends on the ultimate objective and how much of existing transformation you want to reuse. As explained in the previous section SAP systems offer several layers of data access, each suited to different stages in the data journey, from raw transactions to fully modeled business metrics. Transactional data is stored in a highly normalized form, meaning information is divided across many smaller, related tables to reduce redundancy and improve efficiency. These tables reflect the raw output of business processes, exactly as it's generated in the system. Such design promotes data integrity but makes reporting and analytics more complex.
 
@@ -191,17 +189,17 @@ Learn more about [partner solutions supporting Open Mirroring](https://learn.mic
 
 Partner solutions usually support two integration patterns:
 
-**Open Mirroring**
+#### Open Mirroring
 
 Partner solutions leverage a set of native Microsoft Fabric APIs to synchronize source datasets with mirrored databases in Fabric. This approach ensures that the target tables remain a consistent and up-to-date copy of the source, as the mirroring engine automatically process and merges changes. 
 
 [Learn more about Open Mirroring in Microsoft Fabric](https://learn.microsoft.com/fabric/database/mirrored-database/open-mirroring).
 
-**Lakehouse**
+#### Lakehouse
 
 Direct lakehouse integration allows partners to ingest data into Fabric in both full and incremental modes. While this method offers flexibility and control, it usually requires another processing to handle deduplication and consolidation of records before the data is ready for downstream analytics.
 
-## Other resources
+## Resources
 
 [**SAP Knowledge Center – data integration**](https://microsofteur-my.sharepoint.com/personal/bajarkow_microsoft_com/Documents/SAP%20knowledge%20center%20overview)
 
