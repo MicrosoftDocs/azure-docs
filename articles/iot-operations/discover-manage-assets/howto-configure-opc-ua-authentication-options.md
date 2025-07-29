@@ -6,7 +6,7 @@ ms.author: dobett
 ms.subservice: azure-opcua-connector
 ms.topic: how-to
 ms.custom: ignite-2023
-ms.date: 10/22/2024
+ms.date: 07/29/2025
 
 # CustomerIntent: As a user in IT, operations, or development, I want to configure my OPC UA industrial edge environment with custom OPC UA user authentication options to keep it secure and work with my solution.
 ms.service: azure-iot-operations
@@ -22,14 +22,7 @@ To learn more, see [OPC UA applications - user authentication](https://reference
 
 ## Prerequisites
 
-- An Azure IoT Operations instance deployed with secure settings. If you deployed Azure IoT Operations with test settings, you need to first [enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md).
-
-## Features supported
-
-| Feature  | Supported |
-| -------- |:---------:|
-| OPC UA user authentication with username and password.     |   ✅     |
-| OPC UA user authentication with an X.509 user certificate. |   ❌     |
+An Azure IoT Operations instance deployed with secure settings. If you deployed Azure IoT Operations with test settings, you need to first [enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md).
 
 ## Configure username and password authentication
 
@@ -37,9 +30,11 @@ To configure the secrets for the *username* and *password* values in the [operat
 
 1. Navigate to your list of devices:
 
-    :::image type="content" source="media/howto-configure-opc-ua-authentication-options/asset-endpoint-list.png" alt-text="Screenshot that shows the list of devices.":::
+    :::image type="content" source="media/howto-configure-opc-ua-authentication-options/device-list.png" alt-text="Screenshot that shows the list of devices.":::
 
-1. Select **Create device**.
+1. Select **Create new**.
+
+1. One the **Device details** page,add a new **Microsoft.OpcUa** inbound endpoint.
 
 1. Select **Username password** as the authentication mode:
 
