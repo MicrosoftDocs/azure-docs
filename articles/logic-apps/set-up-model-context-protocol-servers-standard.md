@@ -40,7 +40,7 @@ The following table describes the benefits that you get when you set up Standard
 | Flexibility | Azure Logic Apps provides 1,400+ connectors that provide access and ways to work with enterprise assets and resources whether they in the cloud or on premises. |
 | Access points | Azure Logic Apps supports various connectivity models for running your MCP server. For you can run your server in the cloud, exposed as a private endpoint, or connected to virtual networks and on-premises resources. |
 | Security | When you expose your logic app as an MCP server, make sure that you set up a strong security posture and meet your enterprise security requirements. You can use Microsoft Entra ID with EasyAuth for authentication and authorization and to secure your MCP server and Standard workflows. |
-| Monitoring, governance, and compliance | Azure Logic Apps provides workflow run history and integration with Application Insights or Log Analytics for your needs around monitoring, diagnostics and troubleshooting, reporting, traceability, and auditing. |
+| Monitoring, governance, and compliance | Azure Logic Apps provides workflow run history and integration with Application Insights or Log Analytics so that you get the data necessary to manage and monitor your MCP tools and support your needs around diagnostics and troubleshooting, reporting, traceability, and auditing. |
 
 ## Prerequisites
 
@@ -221,7 +221,7 @@ For this task, you need to edit the **host.json** file for your Standard logic a
                },
                "ProtectedResourceMetadata": {
                    "BearerMethodsSupported": ["header"],
-                   "ScopesSupported": ["api://<<application-ID-URI>>/mcp"],
+                   "ScopesSupported": ["api://<application-ID-URI>/mcp"],
                    "Resource": "https://<logic-app-name>.azurewebsites.net/",
                    "AuthorizationServers": ["https://login.microsoftonline.com/<tenant-ID>/v2.0"]
                }
