@@ -61,7 +61,7 @@ items:
         href: ../iot/iot-overview-security.md
         displayName: security, best practice, guidelines, defender
       - name: Enable secure settings
-        href: secure-iot-ops/howto-enable-secure-settings.md
+        href: deploy-iot-ops/howto-enable-secure-settings.md
         displayName: Kubernetes, cluster, secrets, management, user-assigned, managed identity
     - name: Discover and manage assets and devices
       items:
