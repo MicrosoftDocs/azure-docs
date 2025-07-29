@@ -35,7 +35,7 @@ To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMeth
 
 ```azurepowershell
 Invoke-AzRestMethod-Path
-  "/subscriptions/subscriptionId/resourceGroups/resourcegroupname/providers/Microsoft.HybridCompute/machines/machinename/assessPatches?api-version=2020-08-15-preview" 
+  "/subscriptions/subscriptionId/resourceGroups/resourcegroupname/providers/Microsoft.HybridCompute/machines/machinename/assessPatches?api-version=2020-08-15-preview"
   -Payload '{}' -Method POST
 ```
 ---
@@ -137,7 +137,7 @@ To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMeth
 ```azurepowershell
 Invoke-AzRestMethod
 -Path "/subscriptions/subscriptionId/resourceGroups/resourcegroupname/providers/Microsoft.HybridCompute/machines/machinename/installPatches?api-version=2020-08-15-preview"
--Payload '{      
+-Payload '{
         "maximumDuration": "PT120M",
         "rebootSetting": "IfRequired",
         "windowsParameters": {
@@ -156,7 +156,7 @@ Invoke-AzRestMethod
             "55555555555"
           ]
         }
-      }' 
+      }'
   -Method POST
 ```
 ---
@@ -342,16 +342,8 @@ az maintenance configuration delete \
    --maintenance-configuration-id "/subscriptions/{subscription ID}/resourcegroups/myMaintenanceRG/providers/Microsoft.Maintenance/maintenanceConfigurations/myConfig"
 ```
 
-# [Azure PowerShell](#tab/azurepowershell)
+# [Azure REST API](#tab/rest)
 
-```kusto
-maintenanceresources
-| where type =~ "microsoft.maintenance/configurationassignments"
-| where properties.maintenanceConfigurationId =~ "<maintenance configuration Resource ID>"
-| where properties.resourceId =~ "<Machine Resource Id>"
-| project name, id
-```
-After you obtain the name from above, delete the configuration assignment by following the DELETE request - 
 ```rest
 DELETE on `<ARC or Azure VM resourceId>/providers/Microsoft.Maintenance/configurationAssignments/<configurationAssignment name>?api-version=2021-09-01-preview`
 ```
