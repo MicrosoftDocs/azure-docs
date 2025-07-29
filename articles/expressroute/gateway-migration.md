@@ -97,8 +97,9 @@ You have up to 15 days to commit after migration preparation. Use this time to v
 
 ### How do I check if my gateway SKU is eligible for migration?
 
-Azure Advisor notifications will alert you if your gateway requires migration. Attempting to migrate an ineligible gateway will result in an error. For more details, see [Troubleshooting Gateway Migration](gateway-migration-error-messaging.md).
+Azure Advisor will notify you if your gateway is eligible or requires migration. You can also check your ExpressRoute Gateway resource in the Azure portal—if your gateway is eligible, a banner at the top of the page will display the message "Implement Zone Redundant ExpressRoute Gateways."
 
+:::image type="content" source="./media/gateway-migration/advisor.png" alt-text="Image showing Azure Advisor notification in overview of the gateway." lightbox="./media/expressroute-howto-linkvnet-portal-resource-manager/gateway-circuit.png":::
 ### Can I roll back this change?
 Yes, until it is committed. The migration is composed of four major steps:​
 
