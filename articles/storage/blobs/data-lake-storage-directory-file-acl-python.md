@@ -2,9 +2,9 @@
 title: Use Python to manage data in Azure Data Lake Storage
 titleSuffix: Azure Storage
 description: Use Python to manage directories and files in a storage account that has hierarchical namespace enabled.
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.service: azure-data-lake-storage
 ms.date: 07/18/2023
 ms.topic: how-to
@@ -188,3 +188,4 @@ The following code example shows how to delete a directory:
 - [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
 - [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 - [Give Feedback](https://github.com/Azure/azure-sdk-for-python/issues)
+
