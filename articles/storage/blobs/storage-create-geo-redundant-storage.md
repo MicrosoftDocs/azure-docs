@@ -14,6 +14,7 @@ ms.devlang: csharp
 # ms.devlang: csharp, javascript, python
 ms.custom: mvc, devx-track-csharp
 #Customer intent: As a developer, I want to have my data be highly available, so that in the event of a disaster I may retrieve it.
+# Customer intent: As a developer, I want to implement read-access geo-zone-redundant storage in my application, so that I can ensure high availability and disaster recovery for my data.
 ---
 
 # Tutorial: Build a highly available application with Blob storage

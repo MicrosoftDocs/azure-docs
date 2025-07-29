@@ -8,6 +8,9 @@ ms.service: azure-blob-storage
 ms.topic: article
 ms.date: 12/29/2021
 ms.author: normesta
+ms.custom:
+  - build-2025
+# Customer intent: As a cloud storage developer, I want to understand how blob snapshots work and their billing implications so that I can effectively manage costs and maintain data integrity in my applications.
 ---
 
 # Blob snapshots

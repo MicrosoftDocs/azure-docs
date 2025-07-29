@@ -10,6 +10,7 @@ ms.date: 05/09/2022
 ms.topic: concept-article
 ms.author: normesta
 ms.reviewer: ozgun
+# Customer intent: As a developer, I want to provide a custom encryption key with my Blob storage requests, so that I can maintain granular control over the encryption and security of my data during read and write operations.
 ---
 
 # Provide an encryption key on a request to Blob storage

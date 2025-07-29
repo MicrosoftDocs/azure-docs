@@ -7,6 +7,7 @@ ms.date: 12/10/2021
 ms.topic: quickstart
 ms.service: azure-automanage
 ms.custom: mode-ui
+# Customer intent: "As an Azure administrator, I want to enable Automanage for my virtual machines using the Azure portal, so that I can automate management tasks and ensure compliance with best practices efficiently."
 ---
 
 # Quickstart: Enable Azure Automanage for virtual machines in the Azure portal

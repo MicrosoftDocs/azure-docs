@@ -3,7 +3,7 @@ title: Cookbook Reference
 description: See reference information for Chef Cookbooks in Azure CycleCloud. Understand basic Chef concepts, attributes, and the thunderball resource.
 author: adriankjohnson
 ms.topic: reference
-ms.date: 03/09/2020
+ms.date: 06/10/2025
 ms.author: adjohnso
 ---
 
@@ -26,7 +26,7 @@ However, CycleCloud clusters are provisioned using a set of *Common Cookbooks* a
 
 Common Cookbook attributes are subject to change. Attribute settings are commonly superseded as the features they control become available as more general or powerful features of CycleCloud. If a customization is available in both the Cluster Template and via a Chef attribute, always prefer the Cluster Template method since it's the more general solution.
 
-For more information on the Opscode Chef framework, see the [Opscode website](https://docs.opscode.com/).
+For more information on the Opscode Chef framework, see the [Opscode website](https://www.chef.io/).
 
 ## Using Chef attributes
 

@@ -7,6 +7,7 @@ ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 01/29/2025
 ms.author: cherylmc
+# Customer intent: As a system administrator, I want to configure the OpenVPN client for point-to-site VPN connections using certificate authentication, so that I can securely connect users to the virtual network.
 ---
 
 # Configure OpenVPN 2.x client for P2S certificate authentication connections - Windows

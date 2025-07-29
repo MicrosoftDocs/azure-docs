@@ -12,6 +12,7 @@ ms.author: normesta
 ms.reviewer: ozgun
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
+# Customer intent: As a data security manager, I want to enable infrastructure encryption for my storage accounts, so that I can ensure double encryption of sensitive data for compliance and enhanced protection against potential breaches.
 ---
 
 # Enable infrastructure encryption for double encryption of data

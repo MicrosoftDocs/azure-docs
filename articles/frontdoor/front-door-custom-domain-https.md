@@ -8,6 +8,8 @@ ms.topic: how-to
 ms.date: 05/15/2025
 
 #Customer intent: As a website owner, I want to enable HTTPS on the custom domain in my Front Door (classic) so that my users can use my custom domain to access their content securely.
+ms.custom:
+  - build-2025
 ---
 
 # Configure HTTPS on an Azure Front Door (classic) custom domain
@@ -15,6 +17,10 @@ ms.date: 05/15/2025
 **Applies to:** :heavy_check_mark: Front Door (classic)
 
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+
+> [!IMPORTANT]
+> Starting August 15, 2025, Azure Front Door (classic) will no longer support new domain onboarding or profile creation. Migrate to **[AFD Standard and Premium](https://ms.portal.azure.com/#%22https://ms.portal.azure.com/#%22"https://ms.portal.azure.com/#%22https://ms.portal.azure.com/#%22")** to create new domains or profiles and avoid service disruption. **[Learn more](https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Flearn.microsoft.com%2Fazure%2Ffrontdoor%2Fmigrate-tier%3FWT.mc_id%3DPortal-Microsoft_Azure_Frontdoor&id=Microsoft_Azure_Frontdoor%22https://ms.portal.azure.com/verifylink?href=https%3a%2f%2flearn.microsoft.com%2fazure%2ffrontdoor%2fmigrate-tier%3fwt.mc_id%3dportal-microsoft_azure_frontdoor&id=microsoft_azure_frontdoor%22"https://ms.portal.azure.com/verifylink?href=https%3a%2f%2flearn.microsoft.com%2fazure%2ffrontdoor%2fmigrate-tier%3fwt.mc_id%3dportal-microsoft_azure_frontdoor&id=microsoft_azure_frontdoor%22https://ms.portal.azure.com/verifylink?href=https%3a%2f%2flearn.microsoft.com%2fazure%2ffrontdoor%2fmigrate-tier%3fwt.mc_id%3dportal-microsoft_azure_frontdoor&id=microsoft_azure_frontdoor%22")**
+> Switch from Azure-managed certificates on existing domains to Bring Your Own Certificate (BYOC) or migrate to **[AFD Standard and Premium](https://ms.portal.azure.com/#%22https://ms.portal.azure.com/#%22"https://ms.portal.azure.com/#%22https://ms.portal.azure.com/#%22")** by August 15, 2025 to avoid service disruption. Existing managed certificates will be auto renewed before August 15, 2025, and remain valid until April 14, 2026.  **[Learn more](/azure/frontdoor/front-door-custom-domain-https?tabs=powershell"https://learn.microsoft.com/en-us/azure/frontdoor/front-door-custom-domain-https?tabs=powershell")**
 
 This article explains how to enable HTTPS for a custom domain associated with your Front Door (classic). Using HTTPS on your custom domain (for example, `https://www.contoso.com`) ensures secure data transmission via TLS/SSL encryption. When a web browser connects to a website using HTTPS, it validates the website's security certificate and verifies its legitimacy, providing security and protecting your web applications from malicious attacks.
 
@@ -88,7 +94,7 @@ To enable HTTPS on a custom domain:
 
 ### Option 2: Use your own certificate
 
-You can use your own certificate through an integration with Azure Key Vault. Ensure your certificate is from a [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT) and has a complete certificate chain.
+You can use your own certificate through an integration with Azure Key Vault. Ensure your certificate is from a [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT) and has a complete certificate chain.
 
 #### Prepare your key vault and certificate
 
@@ -98,7 +104,7 @@ You can use your own certificate through an integration with Azure Key Vault. En
 - Upload your certificate as a **certificate** object, not a **secret**.
 
 > [!NOTE]
-> Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms. The certificate must have a complete certificate chain with leaf and intermediate certificates, and root CA must be part of the [Microsoft Trusted CA list](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
+> Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms. The certificate must have a complete certificate chain with leaf and intermediate certificates, and root CA must be part of the [Microsoft Trusted CA list](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT).
 
 #### Register Azure Front Door
 

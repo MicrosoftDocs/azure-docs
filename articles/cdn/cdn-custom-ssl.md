@@ -10,11 +10,16 @@ ms.date: 03/31/2025
 ms.custom: mvc
 #Customer intent: As a website owner, I want to enable HTTPS on the custom domain of my CDN endpoint so that my users can use my custom domain to access my content securely.
 ROBOTS: NOINDEX
+# Customer intent: As a website owner, I want to configure HTTPS for my custom domain on a CDN endpoint, so that I can ensure the secure delivery of sensitive data to my users.
 ---
 
 # Tutorial: Configure HTTPS on an Azure CDN custom domain
 
 [!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
+> [!IMPORTANT]
+> Starting August 15, 2025, Azure CDN from Microsoft (classic) will no longer support new domain onboarding or profile creation. Migrate to [AFD Standard and Premium](https://ms.portal.azure.com/#"https://ms.portal.azure.com/#") to create new domains or profiles and avoid service disruption. [Learn more](https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Faka.ms%2Fcdn%2Fmigration&id=Microsoft_Azure_Cdn"https://ms.portal.azure.com/verifylink?href=https%3a%2f%2faka.ms%2fcdn%2fmigration&id=microsoft_azure_cdn")
+> Switch from Azure-managed certificates on existing domains to Bring Your Own Certificate (BYOC) or migrate to [AFD Standard and Premium](https://ms.portal.azure.com/#%22https://ms.portal.azure.com/#%22) by August 15, 2025 to avoid service disruption. Existing managed certificates will be auto renewed before August 15, 2025, and remain valid until April 14, 2026. [Learn more](/azure/cdn/cdn-custom-ssl?toc=%2Fazure%2Ffrontdoor%2Ftoc.json&tabs=option-1-default-enable-https-with-a-cdn-managed-certificate)
 
 This tutorial shows how to enable the HTTPS protocol for a custom domain associated with an Azure CDN endpoint.
 
@@ -90,7 +95,7 @@ To enable HTTPS on a custom domain, follow these steps:
 
 # [Option 2: Enable HTTPS with your own certificate](#tab/option-2-enable-https-with-your-own-certificate)
 
-You can use your own certificate to enable the HTTPS feature. This process is done through an integration with Azure Key Vault, which allows you to store your certificates securely. Azure CDN uses this secure mechanism to get your certificate and it requires a few extra steps. When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If you use a nonallowed CA, your request is rejected. If a certificate without complete chain is presented, requests, which involve that certificate aren't guaranteed to work as expected.
+You can use your own certificate to enable the HTTPS feature. This process is done through an integration with Azure Key Vault, which allows you to store your certificates securely. Azure CDN uses this secure mechanism to get your certificate and it requires a few extra steps. When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT). If you use a nonallowed CA, your request is rejected. If a certificate without complete chain is presented, requests, which involve that certificate aren't guaranteed to work as expected.
 
 ### Prepare your Azure Key Vault account and certificate
 
@@ -100,7 +105,7 @@ You can use your own certificate to enable the HTTPS feature. This process is do
 
 > [!NOTE]
 > - Azure Content Delivery Network only supports PFX certificates.
-> - The certificate must have a complete certificate chain with leaf and intermediate certificates, and root CA must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
+> - The certificate must have a complete certificate chain with leaf and intermediate certificates, and root CA must be part of the [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT).
 
 ### Set up managed identity for Azure CDN
 

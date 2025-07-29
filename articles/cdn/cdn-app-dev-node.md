@@ -10,6 +10,7 @@ ms.date: 03/31/2025
 ms.author: erikre
 ms.custom: devx-track-js
 ROBOTS: NOINDEX
+# Customer intent: As a developer, I want to create and manage Azure CDN profiles and endpoints using Node.js, so that I can automate content delivery network operations in my applications.
 ---
 
 # Get started with Azure CDN development

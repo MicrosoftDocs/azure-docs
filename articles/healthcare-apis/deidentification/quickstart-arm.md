@@ -8,7 +8,7 @@ author: jovinson-ms
 ms.author: jovinson
 ms.topic: quickstart-arm
 ms.custom: subject-armqs
-ms.date: 11/11/2024
+ms.date: 06/19/2025
 
 # Customer intent: As a cloud administrator, I want a quick method to deploy an Azure resource for production environments or to evaluate the service's functionality.
 ---

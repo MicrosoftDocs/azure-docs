@@ -6,7 +6,9 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 04/28/2025
-ms.custom: ai-usage
+ms.custom:
+  - ai-usage
+  - build-2025
 zone_pivot_groups: front-door-dev-exp-portal-ps-cli
 ---
 

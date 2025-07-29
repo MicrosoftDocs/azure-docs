@@ -315,7 +315,7 @@ sections:
         answer: |
           Make sure that you're using your school credentials to sign in to Azure Dev Tools for Teaching. It might help to open a private browsing session.
           
-          If you still can't sign in, contact your subscription admin. To find your subscription admin, [contact us](https://aka.ms/adt4tsupport).
+          If you still can't sign in, contact your subscription admin. To find your subscription admin, [contact us](https://azureforeducation.microsoft.com/institutions/Contact).
           
       - question: |
           How do I find my subscriber ID?
@@ -346,7 +346,7 @@ sections:
       - question: |
           How and when do I renew an Azure Dev Tools for Teaching subscription?
         answer: |
-          Sixty days before your membership expires, you start receiving email reminders to renew your subscription. If you don't receive these reminder emails and are concerned that your subscription is about to expire, [contact us](https://aka.ms/adt4tsupport).
+          Sixty days before your membership expires, you start receiving email reminders to renew your subscription. If you don't receive these reminder emails and are concerned that your subscription is about to expire, [contact us](https://azureforeducation.microsoft.com/institutions/Contact).
 
           To check the expiration date of your subscription, go to the [Azure Dev Tools for Teaching management portal](https://azureforeducation.microsoft.com/account/Subscriptions) and look under **Subscriptions**.
           

@@ -193,9 +193,9 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
     To:  g-keyacct@singpost.com
     Subject: Microsoft Azure Pickup - XZ00001234567
     Body:
-     a.    Requestor name
-     b.    Requestor contact number
-     c.    Requestor collection address
+     a.    Requester name
+     b.    Requester contact number
+     c.    Requester collection address
      d.    Preferred collection date
     ```
 

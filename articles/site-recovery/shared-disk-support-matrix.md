@@ -4,9 +4,10 @@ description: Summarizes support for Azure VMs disaster recovery using shared dis
 ms.topic: article
 ms.date: 04/03/2024
 ms.service: azure-site-recovery
-author: ankitaduttaMSFT
-ms.author: ankitadutta
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy23, references_regions, linux-related-content
+# Customer intent: As a cloud architect, I want to understand the support matrix for shared disks in Azure Site Recovery, so that I can effectively plan and implement disaster recovery strategies for my virtual machine workloads.
 ---
 
 # Support matrix for Azure Site Recovery shared disks 

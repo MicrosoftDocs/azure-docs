@@ -89,6 +89,7 @@ This table describes each property.
 | `StreamDirection` | The direction of the media stream. It is either Inbound or Outbound. |
 | `CodecName` | The name of the codec used for processing media streams. It can be OPUS, G722, H264S, SATIN, and so on. |
 | `CallUpdatesVersion`| Represents the log version, with higher numbers indicating the most recently published version. |
+| `TPE`| This value indicates that the call is associated with a Teams Phone extensibility scenario.|
 
 ## Sample data for various call types
 

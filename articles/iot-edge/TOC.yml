@@ -185,12 +185,6 @@
         href: how-to-connect-downstream-iot-edge-device.md
       - name: Configure the API proxy module
         href: how-to-configure-api-proxy-module.md
-  - name: Azure Blob Storage on IoT Edge
-    items:
-    - name: Understand blob storage at the edge
-      href: how-to-store-data-blob.md
-    - name: Deploy blob storage modules
-      href: how-to-deploy-blob.md
   - name: Azure SQL Edge on IoT Edge
     items:
     - name: Understand Azure SQL at the edge
@@ -333,7 +327,7 @@
   - name: Azure IoT Developer Center
     href: https://azure.microsoft.com/develop/iot/
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=iot
+    href: https://azure.microsoft.com/updates/?category=iot
   - name: Azure IoT Edge for Visual Studio Code
     href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge
   - name: Azure IoT Hub extension for Visual Studio Code
@@ -351,4 +345,4 @@
   - name: Technical case studies
     href: https://microsoft.github.io/generative-ai-for-beginners/#/
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=iot-edge
+    href: /shows/Inside-Azure-for-IT/?products=azure-iot-edge

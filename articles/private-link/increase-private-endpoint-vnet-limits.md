@@ -9,6 +9,7 @@ ms.date: 04/01/2025
 ms.service: azure-private-link
 ms.topic: how-to
 #customer intent: As a network administrator, I want to increase private endpoint limits so that I can scale my virtual network infrastructure effectively.
+# Customer intent: As a network administrator, I want to upgrade to High Scale Private Endpoints so that I can increase the limit of private endpoints in my virtual network and effectively scale my infrastructure without risking connectivity issues.
 ---
 
 # How-to: Increase Private Endpoint virtual network limits

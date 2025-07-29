@@ -12,6 +12,7 @@ ms.custom:
   - ai-gen-title
   - ai-seo-date:05/16/2025
   - ai-gen-description
+  - build-2025
 ---
 
 # Tutorial: Deploy Azure Stream Analytics as an IoT Edge module

@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 12/27/2024
 ms.custom: engagement-fy23
 ms.author: AarthiV
+# Customer intent: "As a cloud administrator, I want to monitor the status of resource migrations across regions using a centralized dashboard, so that I can quickly identify issues and ensure a smooth transition of resources."
 ---
 # Move across region dashboard
 

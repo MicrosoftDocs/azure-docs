@@ -6,6 +6,8 @@ ms.author: rithorn
 ms.service: azure-policy 
 ms.topic: how-to
 ms.date: 05/19/2025
+ms.custom:
+  - build-2025
 ---
 
 # How to use Azure Service Groups to manage resources
@@ -208,7 +210,7 @@ Resources, resource groups, and subscriptions can all be made members of a servi
 - HTTP method: **PUT** 
 - Resource Provider: **Microsoft.Relationships**
 - API Version: **2023-09-01-preview**
-- URL: https://management.azure.com/[scope]/providers/Microsoft.relationships/serviceGroupMember/[RelationshipID]?api-version=2023-09-01-preview
+- URL: `https://management.azure.com/[scope]/providers/Microsoft.relationships/serviceGroupMember/[RelationshipID]?api-version=2023-09-01-preview`
 
 Request body
 ```json
@@ -228,7 +230,7 @@ Resources, resource groups, and subscriptions can all be made members of a servi
 - HTTP method: **GET** 
 - Resource Provider: **Microsoft.Relationships**
 - API Version: **2023-09-01-preview**
-- URL: https://management.azure.com/[scope]/providers/Microsoft.relationships/serviceGroupMember/[RelationshipID]?api-version=2023-09-01-preview
+- URL: `https://management.azure.com/[scope]/providers/Microsoft.relationships/serviceGroupMember/[RelationshipID]?api-version=2023-09-01-preview`
 - No Request Body
 
 API Response
@@ -275,7 +277,7 @@ Resources, resource groups, and subscriptions can all be made members of a servi
 - HTTP method: **DELETE** 
 - Resource Provider: **Microsoft.Relationships**
 - API Version: **2023-09-01-preview**
-- URL: https://management.azure.com/[scope]/providers/Microsoft.relationships/serviceGroupMember/[RelationshipID]?api-version=2023-09-01-preview
+- URL: `https://management.azure.com/[scope]/providers/Microsoft.relationships/serviceGroupMember/[RelationshipID]?api-version=2023-09-01-preview`
 - No Request body
 
 API Response

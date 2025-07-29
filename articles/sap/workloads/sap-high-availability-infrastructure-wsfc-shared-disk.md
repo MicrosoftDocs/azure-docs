@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 06/19/2024
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
+# Customer intent: As an IT administrator, I want to set up a high-availability SAP ASCS/SCS instance on Azure using a Windows failover cluster and shared disk so that I can ensure uninterrupted service and data access for critical SAP applications.
 ---
 
 # Prepare the Azure infrastructure for SAP HA by using a Windows failover cluster and shared disk for SAP ASCS/SCS

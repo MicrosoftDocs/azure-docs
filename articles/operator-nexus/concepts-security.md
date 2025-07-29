@@ -6,7 +6,9 @@ ms.author: ssteinbrueck
 ms.service: azure-operator-nexus
 ms.topic: conceptual
 ms.date: 08/14/2023
-ms.custom: template-concept
+ms.custom:
+  - template-concept
+  - build-2025
 ---
 
 # Azure Operator Nexus security

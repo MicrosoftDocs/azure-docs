@@ -9,6 +9,7 @@ manager: kumudd
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/31/2025
+# Customer intent: "As a content delivery manager, I want to optimize the delivery of large files using a content delivery network, so that I can improve download efficiency and user experience while minimizing load on the origin server."
 ---
 
 # Large file download optimization with Azure Content Delivery Network

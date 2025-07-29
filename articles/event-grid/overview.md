@@ -7,6 +7,7 @@ ms.author: robece
 ms.custom:
   - references_regions
   - build-2024
+  - build-2025
 ms.date: 04/30/2025
 # Customer intent: As an architect or a developer, I want to know what Azure Event Grid is and how it can help me with creating event-driven applications. 
 ---

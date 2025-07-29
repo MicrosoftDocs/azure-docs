@@ -1,11 +1,11 @@
 ---
 title: Name resolution in App Service
 description: Overview of how name resolution (DNS) works for your app in Azure App Service.
-author: madsd
+author: seligj95
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
 ms.date: 04/03/2023
-ms.author: madsd
+ms.author: jordanselig
 ---
 
 # Name resolution (DNS) in App Service
@@ -65,6 +65,10 @@ Validate the settings by using this CLI command:
 ```azurecli-interactive
 az resource show --resource-group <group-name> --name <app-name> --query properties.dnsConfiguration --resource-type "Microsoft.Web/sites"
 ```
+
+## Limitation
+
+App Service on Windows does not support DNS resolution over TCP.
 
 ## Next steps
 

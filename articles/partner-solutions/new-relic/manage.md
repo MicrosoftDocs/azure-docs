@@ -74,7 +74,7 @@ To monitor multiple subscriptions:
 
 1. Select **Add subscriptions**. 
 
-    A list of subscriptions displays in the working pane.
+    A list of subscriptions shows in the working pane.
 
     > [!TIP]
     > If the subscription you want to monitor has a resource already linked to the same New Relic organization, we recommend deleting one to avoid shipping duplicate data, which results in duplicate charges.
@@ -106,7 +106,7 @@ To monitor virtual machines using the New Relic agent:
 
 - Select **New Relic account config** > **Virtual Machines** from the *Service menu*. 
 
-    A list of all virtual machines in the subscription displays in the working pane.
+    A list of all virtual machines in the subscription shows in the working pane.
 
 For each virtual machine, the following info appears:
 
@@ -128,7 +128,7 @@ To monitor Virtual Machine Scale Sets using the New Relic Agent:
 
 - Select **New Relic account config** > **Virtual Machine Scale Sets** from the *Service menu*. 
 
-    A list of all Virtual Machine Scale Sets in the subscription displays in the working pane.
+    A list of all Virtual Machine Scale Sets in the subscription shows in the working pane.
 
 > [!NOTE]
 > 
@@ -179,9 +179,5 @@ Contact [New Relic](https://support.newrelic.com/) for customer support.
 
 You can also request support in the Azure portal from the [resource overview](#resource-overview).  
 
-Select **Support + Troubleshooting** from the Resource pane, then choose the link to [log a support request in the New Relic portal](https://support.newrelic.com/).
-
-## Next steps
-
-- [Troubleshoot Azure Native New Relic Service](troubleshoot.md)
+Select **Support + Troubleshooting** from the service menu, then choose the link to [log a support request in the New Relic portal](https://support.newrelic.com/).
 

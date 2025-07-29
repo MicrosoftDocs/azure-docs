@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.reviewer: prishet
 ms.devlang: javascript
 ms.custom: devx-track-js
+# Customer intent: As a developer working with Node.js, I want to manage access control lists (ACLs) in Azure Data Lake Storage, so that I can effectively control permissions for files and directories within my storage account.
 ---
 
 # Use JavaScript SDK in Node.js to manage ACLs in Azure Data Lake Storage

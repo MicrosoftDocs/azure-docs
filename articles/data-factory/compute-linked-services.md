@@ -5,7 +5,7 @@ description: Learn about compute environments that can be used with Azure Data F
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.date: 03/27/2025
+ms.date: 07/23/2025
 ms.subservice: orchestration
 ms.custom: synapse
 ---
@@ -311,6 +311,9 @@ You can create an Azure HDInsight linked service to register your own HDInsight 
 >
 > [!IMPORTANT]
 > Currently, HDInsight linked services does not support HBase, Interactive Query (Hive LLAP), Storm. 
+>
+> [!IMPORTANT]
+> In addition to the already supported authentication methods, the Azure Storage linked service for ADLS Gen2 now supports both system-assigned and user-assigned managed identities as authentication types. This support is available by default when using Azure Integration Runtime (Azure IR). For Self-hosted Integration Runtime (SHIR), it is supported starting from version 5.55.9306.2 and above. The Azure Storage linked service configured with Azure Blob Storage continues to support only account key authentication.
 >
 > 
 

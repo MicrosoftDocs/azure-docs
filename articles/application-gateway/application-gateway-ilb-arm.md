@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 09/13/2022
 ms.author: mbender 
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a cloud engineer, I want to create and configure an application gateway with an internal load balancer, so that I can efficiently manage traffic for internal applications without exposing them to the Internet.
 ---
 
 # Create an application gateway with an internal load balancer (ILB)

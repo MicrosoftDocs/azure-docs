@@ -8,6 +8,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: how-to
 ms.date: 03/11/2022
 ms.author: mapankra
+# Customer intent: "As an SAP system administrator, I want to configure outbound email communication from SAP NetWeaver to Exchange Online, so that I can efficiently manage notifications and workflows while ensuring compliance with modern authentication standards."
 ---
 # Exchange Online Integration for Email-Outbound from SAP NetWeaver
 

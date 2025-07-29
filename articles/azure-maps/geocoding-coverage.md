@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: See which regions Azure Maps Search covers. Geocoding categories include address points, house numbers, street level, city level, and points of interest.
 author: farazgis
 ms.author: fsiddiqui
-ms.date: 11/30/2021
+ms.date: 06/12/2025
 ms.topic: reference
 ms.service: azure-maps
 ms.subservice: search
@@ -146,7 +146,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Vietnam                                             |        ✓        |                |       ✓     |      ✓     |       ✓        |
 | Wallis & Futuna                                     |                 |                |              |      ✓     |       ✓        |
 
-<sup>1</sup> Coverage is dependent on enabling data processing in South Korea. For more information, see [Enable South Korea addresses in Azure Maps](how-to-manage-consent.md).
+<sup>1</sup> Coverage is dependent on enabling data processing in South Korea. For more information, see [Configure global data processing](how-to-manage-consent.md).
 
 ## Europe
 

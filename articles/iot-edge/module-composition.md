@@ -12,6 +12,7 @@ ms.custom:
   - ai-gen-title
   - ai-seo-date:05/15/2025
   - ai-gen-description
+  - build-2025
 ---
 
 # Learn how to deploy modules and establish routes in IoT Edge

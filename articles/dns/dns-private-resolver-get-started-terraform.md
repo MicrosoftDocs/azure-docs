@@ -10,6 +10,7 @@ ms.author: allensu
 #customer intent: As a Terraform user, I want to learn how to use Terraform to create and manage an Azure DNS Private Resolver.
 content_well_notification: 
   - AI-contribution
+# Customer intent: As a Terraform user, I want to create and manage an Azure DNS Private Resolver using Terraform, so that I can enable custom domain name resolution within my private Azure network efficiently.
 ---
 
 # Quickstart: Create an Azure DNS Private Resolver using Terraform

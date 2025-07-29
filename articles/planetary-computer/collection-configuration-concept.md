@@ -3,11 +3,13 @@ title: Collection configuration guide for Microsoft Planetary Computer Pro
 description: "This article describes collection configuration in Microsoft Planetary Computer Pro."
 author: beharris
 ms.author: brentharris
-ms.service: azure
+ms.service: planetary-computer-pro
 ms.topic: concept-article #Don't change.
 ms.date: 04/24/2025
 
 #customer intent: As a Microsoft Planetary Computer Pro user I want to understand collection configuration so I can vizualize data in the Explorer.
+ms.custom:
+  - build-2025
 ---
 
 # Collection configuration in Microsoft Planetary Computer Pro
@@ -32,7 +34,7 @@ For more information, see [Quickstart: Render configuration in Microsoft Planeta
 
 ### Tile Settings
 
-You also have the ability to define Tile Settings based on the unique features of your collection. For example, you can set the 'min-zoom' parameter that defines the minimum zoom level at which the assets within your collection appears on the Explorer basemap. High resolution imagery should have a high 'min-zoom' value to avoid experiencing latency when using the Explorer. Low resolution imagery can have lower 'min-zoom' levels without issue. 
+You also have the ability to define Tile Settings based on the unique features of your collection. For example, you can set the 'min-zoom' parameter that defines the minimum zoom level at which the assets within your collection appear on the Explorer basemap. High resolution imagery should have a high 'min-zoom' value to avoid experiencing latency when using the Explorer. Low resolution imagery can have lower 'min-zoom' levels without issue. 
 
 For more information, see [Quickstart: Tile settings in Microsoft Planetary Computer Pro](./tile-settings.md).
 
@@ -53,4 +55,5 @@ Here's a quickstart guide to configuring collections:
 ## Related content
 
 - [Quickstart: Create collections with the Microsoft Planetary Computer Pro web interface](./create-collection-web-interface.md)
+- [Data visualization sample guide](./data-visualization-samples.md)
 - [STAC in Microsoft Planetary Computer Pro](./stac-overview.md)

@@ -8,6 +8,7 @@ ms.service: azure-load-balancer
 ms.topic: troubleshooting
 ms.date: 06/26/2024
 ms.author: mbender
+# Customer intent: "As a cloud administrator, I want to understand common error codes from the Azure Instance Metadata Service when retrieving load balancer information, so that I can troubleshoot and resolve issues efficiently."
 ---
 
 # Common error codes when using IMDS to retrieve load balancer information

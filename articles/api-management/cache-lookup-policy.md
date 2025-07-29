@@ -8,6 +8,8 @@ ms.service: azure-api-management
 ms.topic: reference
 ms.date: 07/23/2024
 ms.author: danlep
+ms.custom:
+  - build-2025
 ---
 
 # Get from cache
@@ -64,7 +66,7 @@ Use the `cache-lookup` policy to perform cache lookup and return a valid cached 
 ## Usage
 
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 

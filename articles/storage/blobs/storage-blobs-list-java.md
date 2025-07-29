@@ -11,6 +11,7 @@ ms.date: 08/05/2024
 ms.author: pauljewell
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
+# Customer intent: As a Java developer, I want to implement blob listing functionality using the Azure Storage client library, so that I can efficiently manage and retrieve data stored in my Azure Storage account.
 ---
 
 # List blobs with Java

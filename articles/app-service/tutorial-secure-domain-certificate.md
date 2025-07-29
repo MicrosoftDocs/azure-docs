@@ -4,10 +4,12 @@ description: Learn how to secure your brand with App Service by using a custom d
 ms.topic: tutorial
 author: msangapu-msft
 ms.author: msangapu
-ms.date: 04/28/2025
+ms.date: 07/18/2025
 ---
 
 # Tutorial: Use a custom domain and a managed certificate to secure your app
+
+[!INCLUDE [app-service-managed-certificate](./includes/managed-certs/managed-certs-note.md)]
 
 The default domain name that comes with your app might not represent your brand the way you want. In this tutorial, you configure App Service with a `www` domain you own, such as `www.contoso.com`, and secure the custom domain with an App Service managed certificate.
 

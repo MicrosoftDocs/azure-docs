@@ -11,6 +11,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
+# Customer intent: As a Python developer, I want to manage system properties and user-defined metadata for blobs in Azure Storage, so that I can enhance data organization and retrieval based on my application's specific needs.
 ---
 
 # Manage blob properties and metadata with Python

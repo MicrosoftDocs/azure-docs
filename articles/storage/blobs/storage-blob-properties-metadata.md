@@ -10,6 +10,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
+# Customer intent: As a .NET developer, I want to manage blob properties and metadata in Azure Storage so that I can effectively store and retrieve additional information associated with my blob resources.
 ---
 
 # Manage blob properties and metadata with .NET

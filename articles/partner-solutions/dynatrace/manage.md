@@ -39,13 +39,13 @@ Below the essentials, you can navigate to other details about your resource by s
 
 ## Reconfigure rules for metrics and logs
 
-To change the configuration rules for logs, select **Metrics and logs** in the Resource menu on the left.
+To change the configuration rules for logs, select **Metrics and logs** in the service menu on the left.
 
 For more information, see [Configure metrics and logs](dynatrace-create.md#configure-metrics-and-logs).
 
 ## View monitored resources
 
-To view the list of resources emitting logs to Dynatrace, select **Dynatrace environment config > Monitored Resources** in the Resource menu.
+To view the list of resources emitting logs to Dynatrace, select **Dynatrace environment config > Monitored Resources** in the service menu.
 
 > [!TIP]
 > You can filter the list of resources by resource type, resource group name, region, and whether the resource is sending logs and/or metrics. 
@@ -97,10 +97,9 @@ Contact [Dynatrace](https://support.dynatrace.com/) for customer support.
 
 You can also request support in the Azure portal from the [resource overview](#resource-overview).  
 
-Select **Support + Troubleshooting** from the Resource pane, then choose the link to [log a support request in the Dynatrace portal](https://support.dynatrace.com/).
+Select **Support + Troubleshooting** from the service menu, then choose the link to [log a support request in the Dynatrace portal](https://support.dynatrace.com/).
 
 ## Related content
 
-- [Troubleshooting Dynatrace integration with Azure](dynatrace-troubleshoot.md).
 - [Get started with infrastructure monitoring](https://www.dynatrace.com/support/help/how-to-use-dynatrace/hosts/basic-concepts/get-started-with-infrastructure-monitoring)
 

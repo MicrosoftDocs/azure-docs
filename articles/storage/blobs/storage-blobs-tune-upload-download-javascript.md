@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 10/28/2024
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-js, devx-track-extended-js, devx-track-ts, devguide-ts
+# Customer intent: "As a developer using the Azure Storage client library for JavaScript, I want to optimize data transfer options for uploads and downloads, so that I can enhance performance, reduce memory usage, and improve reliability in my applications."
 ---
 
 # Performance tuning for uploads and downloads with JavaScript

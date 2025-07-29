@@ -3,11 +3,13 @@ title: Adding STAC Items to Collections in Microsoft Planetary Computer Pro
 description: Learn how to add and use STAC Items in Microsoft Planetary Computer Pro GeoCatalog and Python.
 author: aloverro
 ms.author: adamloverro
-ms.service: azure
+ms.service: planetary-computer-pro
 ms.topic: quickstart
 ms.date: 04/09/2025
 
 #customer intent: As a user of geospatial data, I want to ingest STAC items so that I can efficiently query and access my geospatial data.
+ms.custom:
+  - build-2025
 ---
   
 # Quickstart: Ingest a Single STAC Item into a Collection in a Microsoft Planetary Computer Pro GeoCatalog
@@ -113,9 +115,8 @@ while True:
     if status not in {"Pending", "Running"}:
         break
     time.sleep(5)
-```
 
-Once the items are ingested, use the `/stac/collections/{collection_id}/items` or `/stac/search` endpoints to get a paginated list of items, including your newly ingested items.
+Once the items are ingested, use the `/stac/collections/{collection_id}/items` or `/stac/search` endpoints to get a paginated list of items, including your newly ingested items. If the ingestion fails or you encounter errors, consult the [troubleshooting guide](./troubleshooting-ingestion.md) and the [list of error codes](./error-codes-ingestion.md).
 
 ```python
 items_response = requests.get(
@@ -172,3 +173,5 @@ Now that you added a few items, you should configure the data for visualization.
 - [Quickstart: Ingest data using the Microsoft Planetary Computer Pro web interface](./ingest-via-web-interface.md)
 - [Ingest data into Microsoft Planetary Computer Pro](./ingestion-overview.md)
 - [Ingestion source for Microsoft Planetary Computer Pro](./ingestion-source.md)
+- [Troubleshooting data ingestion](./troubleshooting-ingestion.md)
+- [Error codes: Microsoft Planetary Computer Pro ingestion](./error-codes-ingestion.md)

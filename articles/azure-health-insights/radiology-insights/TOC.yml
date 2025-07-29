@@ -80,8 +80,8 @@ items:
            href: /java/api/overview/azure/health-insights-radiologyinsights-readme
          - name: Python
            href: /python/api/overview/azure/healthinsights-radiologyinsights-readme
-#         still being finalized- name: JavaScript
-#           href: /javascript/api/overview/azure/health-insights-radiologyinsights-rest-readme
+         - name: JavaScript
+           href: /javascript/api/overview/azure/health-insights-radiologyinsights-rest-readme?view=azure-node-latest
 - name: Resources
   items:
      - name: FAQ

@@ -145,36 +145,6 @@ In the **Device inventory** page, select the device you want to delete, and then
 
 At the prompt, select **Yes** to confirm that you want to delete the device from Defender for IoT.
 
-## Merge duplicate devices
-
-You may need to merge duplicate devices if the sensor has discovered separate network entities that are associated with a single, unique device.
-
-Examples of this scenario might include a laptop with both WiFi and a physical network card, a switch with multiple interfaces, an HMI with four network cards, or a single workstation with multiple network cards.
-
-> [!NOTE]
-> Once the devices are merged, they cannot be unmerged. To unmerge devices, you'll need to delete the merged device and wait for it to be rediscovered by the sensors as it was originally.
-
-**To manually merge devices**:
-
-1. In the **Device inventory** page, select two or more devices you would like to merge, and then select **Merge** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/merge-devices-icon.png" border="false"::: in the toolbar at the top of the page.
-You can merge up to 10 devices at a time, if all selected devices are in the same zone or site.
-
-    OT devices can only be merged with other OT devices. Enterprise IoT devices and devices detected by Microsoft Defender for Endpoint agents can be merged with other Enterprise IoT or Defender for Endpoint devices.
-
-1. In the **Merge** pane, select one of the following:
-
-    - Select **Merge** to merge the selected devices and return to the device inventory page.
-
-    - Select **Merge & View** to merge the devices and open the merged device details.
-
-    For example:
-
-    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/merge-devices-pane.png" alt-text="Screenshot of merging devices screen in the device inventory." lightbox="media/how-to-manage-device-inventory-on-the-cloud/merge-devices-pane.png":::
-
-A success message appears at the top right confirming that the devices have been merged into a single, unique device.
-
-The merged device that is now listed in the grid retains the details of the device with the most recent activity or an update to its identifying details.
-
 ## Next steps
 
 For more information, see:

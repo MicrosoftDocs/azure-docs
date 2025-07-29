@@ -19,7 +19,7 @@ ms.custom:
 > * [Classic - PowerShell](expressroute-howto-add-gateway-classic.md)
 > 
 
-This article walks you through the steps to add and remove a virtual network gateway for a pre-existing virtual network (virtual network). The steps for this configuration apply to VNets that were created using the Resource Manager deployment model for an ExpressRoute configuration. For more information about virtual network gateways and gateway configuration settings for ExpressRoute, see [About virtual network gateways for ExpressRoute](expressroute-about-virtual-network-gateways.md).
+This article walks you through the steps to add and remove a virtual network gateway for a preexisting virtual network (virtual network). The steps for this configuration apply to VNets that were created using the Resource Manager deployment model for an ExpressRoute configuration. For more information about virtual network gateways and gateway configuration settings for ExpressRoute, see [About virtual network gateways for ExpressRoute](expressroute-about-virtual-network-gateways.md).
 
 :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway-circuit.png" alt-text="Diagram showing an ExpressRoute gateway connected to the ExpressRoute circuit." lightbox="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway-circuit.png":::
 
@@ -55,7 +55,7 @@ The steps for this tutorial use the values in the following configuration refere
 
 1. Select **+ Gateway subnet** to add a gateway subnet. 
 
-1. The **Name** for your subnet is automatically filled in with the value 'GatewaySubnet'. This value is required in order for Azure to recognize the subnet as the gateway subnet. Adjust the autofilled **Address range** values to match your configuration requirements. **You need to create the GatewaySubnet with a /27 or larger** (/26, /25, and so on.). /28 or smaller subnets are not supported for new deployments. If you plan on connecting 16 ExpressRoute circuits to your gateway, you **must** create a gateway subnet of /26 or larger.
+1. The **Name** for your subnet is automatically filled in with the value 'GatewaySubnet'. This value is required in order for Azure to recognize the subnet as the gateway subnet. Adjust the autofilled **Address range** values to match your configuration requirements. **You need to create the GatewaySubnet with a /27 or larger** (/26, /25, and so on.). /28 or smaller subnets aren't supported for new deployments. If you plan on connecting 16 ExpressRoute circuits to your gateway, you **must** create a gateway subnet of /26 or larger.
 
     If you're using a dual stack virtual network and plan to use IPv6-based private peering over ExpressRoute, select **Add IPv6 address space** and enter **IPv6 address range** values.
 
@@ -77,8 +77,8 @@ The steps for this tutorial use the values in the following configuration refere
     | Region | Change the **Region** field to point to the location where your virtual network is located. If the region isn't pointing to the location where your virtual network is, the virtual network doesn't appear in the **Virtual network** dropdown. <br>  If you want to create the gateway in an [Azure Extended Zone](../extended-zones/overview.md), select **Deploy to an Azure Extended Zone**.|
     | Gateway type | Select **ExpressRoute**.|
     | SKU | Select a gateway SKU from the dropdown. For more information, see [ExpressRoute gateway SKUs](expressroute-about-virtual-network-gateways.md#gwsku). |
-    | Minimum Scale Units | This option is only available when you select the **ErGwScale (Preview)** SKU. Enter the minimum number of scale units you want to use. For more information, see [ExpressRoute Gateway Scale Units](expressroute-about-virtual-network-gateways.md#expressroute-scalable-gateway-preview). |
-    | Maximum Scale Units | This option is only available when you select the **ErGwScale (Preview)** SKU. Enter the maximum number of scale units you want to use. For more information, see [ExpressRoute Gateway Scale Units](expressroute-about-virtual-network-gateways.md#expressroute-scalable-gateway-preview). |
+    | Minimum Scale Units | This option is only available when you select the **ErGwScale (Preview)** SKU. Enter the minimum number of scale units you want to use. For more information, see [ExpressRoute Gateway Scale Units](scalable-gateway.md). |
+    | Maximum Scale Units | This option is only available when you select the **ErGwScale (Preview)** SKU. Enter the maximum number of scale units you want to use. For more information, see [ExpressRoute Gateway Scale Units](scalable-gateway.md). |
     | Virtual network | Select *vnet-1*. |
     | **Public IP address** | |
     | Public IP address | Select **Create new**.|
@@ -114,6 +114,26 @@ You can enable or disable VNet to VNet or VNet to WAN connectivity through Expre
     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/allow-remote-virtual-network-wan.png" alt-text="Screenshot that shows how to enable VNet to VNet and VNet to WAN traffic.":::
 
 These steps will need to be completed on all virtual networks that need to communicate with each other through ExpressRoute.
+
+## Upgrade the gateway SKU
+
+1. In the Azure portal, navigate to the ExpressRoute virtual network gateway.
+
+1. In the **Settings** section, select **Configuration**.
+
+1. In the **Configuration** section, select the **SKU** dropdown and choose your desired SKU.
+
+    You can upgrade:
+    * From one Non-Az-enabled SKU to another Non-Az-enabled SKU
+
+        [![Screenshot that shows where to upgrade Gateway SKU for Non-Az Gateways.](./media/expressroute-howto-add-gateway-portal-resource-manager/non-az-upgrade.png)](./media/expressroute-howto-add-gateway-portal-resource-manager/non-az-upgrade.png)
+
+    * From one Az-enabled SKU to another Az-enabled SKU
+
+        [![Screenshot that shows where to upgrade Gateway SKU for Az Gateways.](./media/expressroute-howto-add-gateway-portal-resource-manager/az-enabled-upgrade.png)](./media/expressroute-howto-add-gateway-portal-resource-manager/az-enabled-upgrade.png)
+
+    
+For all other downgrade scenarios, you need to delete and re-create the gateway, which incurs downtime.
 
 ## Clean up resources
 

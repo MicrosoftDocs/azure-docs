@@ -5,8 +5,9 @@ description: Learn how to migrate from a Basic SKU public IP address to a Standa
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 04/28/2025
+ms.date: 06/06/2025
 ms.author: cherylmc
+# Customer intent: As a cloud network administrator, I want to migrate a Basic SKU public IP address to a Standard SKU for VPN Gateway, so that I can ensure optimal performance and compliance with service standards during our infrastructure upgrade.
 ---
 
 # How to migrate a Basic SKU public IP address to Standard SKU - Preview
@@ -14,7 +15,7 @@ ms.author: cherylmc
 This article helps you migrate a Basic SKU public IP address to a Standard SKU for VPN Gateway deployments that use gateway SKUs VpnGw 1-5 for active-passive gateways (not active-active). For more information about Basic SKU migration, see [About migrating a Basic SKU public IP address to Standard SKU for VPN Gateway](basic-public-ip-migrate-about.md).
 
 > [!IMPORTANT]
-> Basic SKU public IP address migration for VPN Gateway is currently in PREVIEW.
+> For latest timelines on Basic SKU public IP address migration for VPN Gateway, see the [VPN Gateway - What's New](whats-new.md#upcoming-projected-changes) article.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 During the public IP address SKU migration process, your Basic SKU public IP address resource is migrated to a Standard SKU public IP address resource. The IP address assigned to your gateway doesn't change.
@@ -22,7 +23,7 @@ During the public IP address SKU migration process, your Basic SKU public IP add
 Additionally, if your VPN Gateway gateway SKU is VpnGw 1-5, your gateway SKU is migrated to a VPN Gateway AZ SKU (VpnGw 1-5 AZ). For more information, see [About VPN Gateway SKU consolidation and migration](gateway-sku-consolidation.md).
 
 > [!NOTE]
-> Migration functionality is rolling out to regions. If you don't see the **Migrate** tab in the Azure portal, it means that the migration process isn't available yet in your region.
+> Migration functionality is rolling out to regions. If you don't see the **Migrate** tab in the Azure portal, it means that the migration process isn't available yet in your region. For more information, see the [VPN Gateway - What's New](whats-new.md#upcoming-projected-changes) article.
 
 ## Workflow
 

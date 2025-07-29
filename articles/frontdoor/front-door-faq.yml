@@ -155,7 +155,7 @@ sections:
           Azure Front Door and Azure CDN are two services that provide fast and reliable web delivery for your applications. However, they aren't compatible with each other, because they share the same network of Azure edge sites to deliver content to your users. This shared network causes conflicts between their routing and caching policies. Therefore, you have to choose either Azure Front Door or Azure CDN for your application, depending on your performance and security requirements.
 
       - question: |
-          Is it possible to configure a Azure Front Door profile/endpoint behind another Front Door profile/endpoint or the other way around?
+          Is it possible to configure an Azure Front Door profile/endpoint behind another Front Door profile/endpoint or the other way around?
         answer:  |
           The fact that both profiles/endpoints would use the same Azure edge POP to handle incoming requests causes a limitation that prevents you from nesting one Azure Front Door profile/endpoint behind another. This setup would cause routing conflicts and performance issues. Therefore, you should ensure that your Azure Front Door profiles/endpoints are  not chained together, if you need to use multiple profiles/endpoints for your applications.
 
@@ -274,7 +274,7 @@ sections:
       - question: |
           Do I get billed for the Azure Front Door resources that are disabled?
         answer: |
-          Azure Front Door is a service that provides fast and secure web delivery. It allows you to define how your web traffic is routed and optimized across multiple regions and endpoints. Azure Front Door resources, such as Front Door profiles and routing rules, are only charged when they're enabled. However, web application firewall (WAF) policies and rules are charged regardless of their status. Even if you disable a WAF policy or rule, it still incurs costs for you.
+          Azure Front Door resources cannot be disabled. They can only be deleted. Variable meters like Data Transfer Out, Data Transfer In and Requests are not charged when there is no traffic but base fee is charged even if there is no traffic. Base fee will be charged till the profile is deleted. For AFD Classic, WAF policies and rules are charged regardless of their status. Even if you disable a WAF policy or rule, it still incurs costs for you.
 
   - name: Caching
     questions:

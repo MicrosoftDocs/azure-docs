@@ -509,7 +509,7 @@ To update your project to Azure Functions 4.x:
 
     [!INCLUDE [functions-extension-bundles-json-v3](../../includes/functions-extension-bundles-json-v3.md)]
  
-    The `extensionBundle` element is required because after version 1.x, bindings are maintained as external packages. For more information, see [Extension bundles](functions-bindings-register.md#extension-bundles).
+    The `extensionBundle` element is required because after version 1.x, bindings are maintained as external packages. For more information, see [Extension bundles](extension-bundles.md).
 
 1. Update your local.settings.json file so that it has at least the following elements:
 

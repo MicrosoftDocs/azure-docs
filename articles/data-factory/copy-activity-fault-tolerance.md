@@ -35,7 +35,7 @@ To configure fault tolerance in a Copy activity in a pipeline with UI, complete 
    :::image type="content" source="media/copy-activity-fault-tolerance/configure-fault-tolerance.png" alt-text="Shows the UI for a Copy Data activity on the Settings tab with the Fault Tolerance configuration highlighted.":::
 
 ### Configuration 
-When you copy binary files between storage stores, you can enable fault tolerance as followings: 
+When you copy binary files between storage stores, you can enable fault tolerance as following: 
 
 ```json
 {
@@ -91,7 +91,7 @@ linkedServiceName | The linked service of [Azure Blob Storage](connector-azure-b
 path | The path of the log files. | Specify the path that you use to store the log files. If you do not provide a path, the service creates a container for you. | No
 
 > [!NOTE]
-> The followings are the prerequisites of enabling fault tolerance in copy activity when copying binary files.
+> The following are the prerequisites of enabling fault tolerance in copy activity when copying binary files.
 > For skipping particular files when they are being deleted from source store:
 > - The source dataset and sink dataset have to be binary format, and the compression type cannot be specified. 
 > - The supported data store types are Azure Blob storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure Files, File System, FTP, SFTP, Amazon S3, Google Cloud Storage and HDFS.

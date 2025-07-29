@@ -176,7 +176,7 @@ In _local.settings.json_, assign the connection string of the Docker-based SQL s
 
 ### Test locally
 
-Open a termimal window in your app's root folder and run `azurite start`. Azurite is the Azure Storage emulator, which is needed for running any Function app. 
+Open a terminal window in your app's root folder and run `azurite start`. Azurite is the Azure Storage emulator, which is needed for running any Function app. 
 
 Open another terminal window in your app's root folder and start the Function app by running `func host start`.
 

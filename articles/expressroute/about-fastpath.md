@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 03/20/2025
 ms.author: rmareddy
 ms.custom: template-concept, references_regions, engagement-fy23
+# Customer intent: As a network administrator, I want to configure ExpressRoute FastPath, so that I can enhance data path performance by bypassing the gateway and improve connectivity between my on-premises network and Azure virtual networks.
 ---
 
 # About ExpressRoute FastPath
@@ -128,6 +129,8 @@ While ExpressRoute FastPath supports many configurations, it might not be suitab
 * **Azure DNS Private Resolver**: ExpressRoute FastPath supports DNS Private Resolvers in the hub virtual network. However, it doesn't support DNS Private Resolvers in spoke virtual networks, so traffic flows through the virtual network gateway instead. For more information, see [DNS Private Resolver](../dns/dns-private-resolver-overview.md).
 
 * **Azure NetApp Files**: To use ExpressRoute FastPath, upgrade your Azure NetApp Files volumes from Basic to Standard. For more information, see [Supported Network Topologies](../azure-netapp-files/azure-netapp-files-network-topologies.md#supported-network-topologies).
+  
+* **IPv6**: IPv6 Support for ExpressRoute FastPath is only available on ExpressRoute Direct Circuits.
 
 ## Next steps
 

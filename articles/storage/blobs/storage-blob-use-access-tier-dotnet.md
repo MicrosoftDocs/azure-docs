@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 08/05/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
+# Customer intent: As a .NET developer, I want to set or change a block blob's access tier in Azure Storage, so that I can manage data storage costs and optimize access based on my application's requirements.
 ---
 
 # Set or change a block blob's access tier with .NET

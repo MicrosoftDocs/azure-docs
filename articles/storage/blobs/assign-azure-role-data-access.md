@@ -11,6 +11,7 @@ ms.reviewer: dineshm
 ms.devlang: powershell
 # ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+# Customer intent: As an IT administrator, I want to assign Azure roles for accessing blob data to security principals, so that I can ensure the right permissions are granted for secure and efficient data access management.
 ---
 
 # Assign an Azure role for access to blob data

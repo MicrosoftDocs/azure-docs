@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.author: duau
 ms.service: azure-expressroute
 ms.date: 11/18/2024
+# Customer intent: "As a network administrator, I want to retrieve the correlation ID from the Activity Log for an ExpressRoute operation, so that I can effectively troubleshoot issues across multiple services."
 ---
 
 # Get operation correlation ID from Activity Log

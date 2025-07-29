@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 4/15/2025
 ms.author: mbender
 #Customer intent: As an administrator, I want to evaluate Azure Private Application Gateway
+# Customer intent: "As a cloud administrator, I want to configure a Private Application Gateway with enhanced network controls, so that I can improve security and restrict data egress while managing inbound and outbound traffic effectively."
 ---
 
 # Private Application Gateway deployment (preview)

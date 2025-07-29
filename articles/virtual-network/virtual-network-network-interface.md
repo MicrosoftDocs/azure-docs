@@ -8,6 +8,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 10/09/2024
 ms.author: allensu
+# Customer intent: "As a cloud engineer, I want to create, change, or delete Azure network interfaces using the portal, CLI, or PowerShell so that I can effectively manage virtual machine networking in my cloud environment."
 ---
 
 # Create, change, or delete a network interface

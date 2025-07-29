@@ -2,7 +2,9 @@
 title: Troubleshooting dual-stack Nexus Kubernetes Cluster configuration issues
 description: Troubleshooting the configuration of a dual-stack IP.
 ms.service: azure-operator-nexus
-ms.custom: troubleshooting
+ms.custom:
+  - troubleshooting
+  - build-2025
 ms.topic: troubleshooting
 ms.date: 04/09/2025
 ms.author: v-yamohammed

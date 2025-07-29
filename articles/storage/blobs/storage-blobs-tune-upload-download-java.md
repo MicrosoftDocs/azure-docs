@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 08/05/2024
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-java, devx-track-extended-java
+# Customer intent: "As a Java developer, I want to tune data transfer options for uploads and downloads using the Azure Storage client library, so that I can optimize performance, speed, and reliability for data transfers in my application."
 ---
 
 # Performance tuning for uploads and downloads with Java
