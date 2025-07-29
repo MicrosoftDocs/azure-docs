@@ -105,7 +105,8 @@ By the end of this guide, you'll be able to securely browse and access Microsoft
 
     [ ![Screenshot showing how to add a client app.](media/add-a-client-app.png) ](media/add-a-client-app.png#lightbox)
 ### [US Gov](#tab/usgov)
-Open the Azure Portal and go to **Microsoft Entra ID**.
+
+1. Open the Azure Portal and go to **Microsoft Entra ID**.
 
     [ ![Screenshot showing a user selecting Microsoft Entra ID from Azure portal.](media/microsoft-entra-id.png) ](media/microsoft-entra-id.png#lightbox)
 
@@ -182,6 +183,7 @@ Open the Azure Portal and go to **Microsoft Entra ID**.
 1. Select **Add a client application** and note the App ID.
 
     [ ![Screenshot showing how to add a client app.](media/add-a-client-app.png) ](media/add-a-client-app.png#lightbox)
+
 ---
 
 ## Register desktop client application for ArcGIS Pro
@@ -298,7 +300,9 @@ access to the web API exposed by the first application.
     [ ![Screenshot showing app selection on request API permissions screen.](media/app-selection-on-request-api-permissions-screen.png) ](media/app-selection-on-request-api-permissions-screen.png#lightbox)
   
     [ ![Screenshot showing grant admin consents (4).](media/grant-admin-consents-4.png) ](media/grant-admin-consents-4.png#lightbox)
+
 ---
+
 ## Configure ArcGIS Pro (Desktop) for Microsoft Planetary Computer Pro GeoCatalog access
 
 This section outlines how to configure authentication and data access in the **ArcGIS Pro desktop application**, using OAuth 2.0 integration with **Microsoft Entra ID** and access to the **Microsoft Planetary Computer Pro GeoCatalog**. It includes steps to add an authentication connection and create storage and STAC data connections.
@@ -344,6 +348,7 @@ This section outlines how to configure authentication and data access in the **A
 
 > [!TIP] 
 > For more information, see the official ArcGIS Pro documentation [Connect to authentication providers from ArcGIS Pro](https://pro.arcgis.com/en/pro-app/latest/get-started/connect-to-authentication-providers-from-arcgis-pro.htm).
+
 ### [US Gov](#tab/usgov)
 
 1. Open the **ArcGIS Pro settings** page in one of the following ways:
@@ -386,6 +391,7 @@ This section outlines how to configure authentication and data access in the **A
 
 > [!TIP] 
 > For more information, see the official ArcGIS Pro documentation [Connect to authentication providers from ArcGIS Pro](https://pro.arcgis.com/en/pro-app/latest/get-started/connect-to-authentication-providers-from-arcgis-pro.htm).
+
 ---
 
 ## Prepare and record GeoCatalog information
