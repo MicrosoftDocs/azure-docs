@@ -218,7 +218,7 @@ In the Flex Consumption plan, function app instances are routed through shared g
 | 12                              | /23                             | 507                     |
 
 > [!IMPORTANT]
-> When integrating multiple apps in a single subnet, allocating fewer than 40 IP addresses per app is possible. However, doing so increases the risk that your apps may not be able to scale to their maximum instance count, especially if multiple apps are heavily utilized. Because gateway resources and their associated IP addresses are shared, heavy utilization by one app can impact the available network capacity for others on the same subnet.
+> When integrating multiple apps in a single subnet, allocating fewer than 40 IP addresses per app is possible. However, doing so increases the risk that your apps may not be able to scale to their maximum instance count, especially if multiple apps are heavily utilized. Because gateway resources and their associated IP addresses are shared, heavy utilization by one app can impact the available network capacity for others on the same subnet. If you plan to allocate fewer than 40 IP addresses per app, consider validating your configuration in a production-like environment to ensure it meets your scaling needs.
 
 ### Network security groups
 
