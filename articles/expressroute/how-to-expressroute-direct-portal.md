@@ -72,6 +72,8 @@ Before using ExpressRoute Direct, you must first enroll your subscription. Befor
 
 Once enrolled, verify that the **Microsoft.Network** resource provider is registered to your subscription. Registering a resource provider configures your subscription to work with the resource provider.
 
+---
+
 ## Create ExpressRoute Direct Resource
 
 # [**Portal**](#tab/portal)
@@ -438,6 +440,9 @@ Once enrolled, verify that the **Microsoft.Network** resource provider is regist
    "type": "Microsoft.Network/expressRoutePorts"
    }  
    ```
+
+---
+   
 ## Generate the letter of authorization (LOA)
 
 # [**Portal**](#tab/portal)
@@ -480,6 +485,8 @@ Input the recently created ExpressRoute Direct resource name, resource group nam
 ```azurecli
 az network express-route port generate-loa -n Contoso-Direct -g Contoso-Direct-rg --customer-name Contoso --destination C:\Users\SampleUser\Downloads\LOA.pdf
 ```
+
+---
 
 ## Change Admin State of links
 
@@ -636,6 +643,8 @@ Use this process to conduct a layer 1 test. Ensure that each cross-connection is
 
    Use the same procedure to down the ports by using `AdminState = "Disabled"`.
 
+---
+
 ## Create a circuit
 
 # [**Portal**](#tab/portal)
@@ -782,6 +791,8 @@ Create a circuit on the ExpressRoute Direct resource:
   }  
   ```
 
+---
+
 ### Enable ExpressRoute Direct and circuits in a different subscription
 
 # [**Portal**](#tab/portal)
@@ -859,7 +870,9 @@ You can create an authorization for your ExpressRoute Direct resource, and redee
     New-AzExpressRouteCircuit -Name $Name -ResourceGroupName $RGName -Location $Location -SkuTier $SkuTier -SkuFamily $SkuFamily -BandwidthInGbps $BandwidthInGbps -ExpressRoutePort $ERPort -AuthorizationKey $ERDirectAuthorization.AuthorizationKey
     ```
 
+---
+
 ## Next steps
 
-1. After you create the ExpressRoute circuit, you can [link virtual networks to your ExpressRoute circuit](expressroute-howto-add-gateway-portal-resource-manager.md).
-1. For more information about ExpressRoute Direct, see the [overview](expressroute-erdirect-about.md).
+- After you create the ExpressRoute circuit, you can [link virtual networks to your ExpressRoute circuit](expressroute-howto-add-gateway-portal-resource-manager.md).
+- Learn more about [ExpressRoute Direct](expressroute-erdirect-about.md).
