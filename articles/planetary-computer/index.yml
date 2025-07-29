@@ -110,6 +110,8 @@ landingContent:
         links:
           - text: Configure collections for visualization
             url: configure-collection-web-interface.md
+          - text: Data visualization sample gallery
+            url: data-visualization-samples.md
       - linkListType: concept
         links:
           - text: Mosaic configuration

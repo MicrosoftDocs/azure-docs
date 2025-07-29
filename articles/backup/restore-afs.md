@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 05/22/2025
 ms.service: azure-backup
 ms.custom: engagement-fy23
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a cloud administrator, I want to restore Azure Files from backup points using the portal, so that I can recover full shares or specific files as needed to ensure data availability and minimize downtime."
 ---
 

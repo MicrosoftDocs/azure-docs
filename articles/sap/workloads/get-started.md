@@ -8,6 +8,7 @@ manager: bburns
 ms.topic: article
 ms.date: 04/29/2025
 ms.author: juergent
+# Customer intent: "As an IT administrator, I want to deploy SAP workloads on Azure VMs, so that I can leverage Azure's scalability and automated management features for mission-critical applications."
 ---
 
 # Use Azure to host and run SAP workload scenarios
@@ -55,6 +56,7 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- July 16, 2025: Added fast_stop=no for RHEL pacemaker filesystem configuration in [High availability for SAP NetWeaver on VMs on RHEL with NFS on Azure Files](./high-availability-guide-rhel-nfs-azure-files.md), [Azure Virtual Machines HA for SAP NetWeaver on RHEL with Azure NetApp Files for SAP applications](./high-availability-guide-rhel-netapp-files.md), [High availability for SAP NetWeaver on Azure VMs on Red Hat Enterprise Linux for SAP applications multi-SID](./high-availability-guide-rhel-multi-sid.md), [High availability of SAP HANA scale-out system on Red Hat Enterprise Linux](./sap-hana-high-availability-scale-out-hsr-rhel.md), and [Deploy SAP dialog instances with SAP ASCS/SCS high-availability VMs on RHEL](./high-availability-guide-rhel-with-dialog-instance.md)
 - June 3, 2025: Added new HA agent SAPHanaSR-angi for [High availability for SAP HANA scale-out system with HSR on SUSE Linux Enterprise Server](./sap-hana-high-availability-scale-out-hsr-suse.md). SAPHanaSR-angi set as primary displayed tab in [High availability for SAP HANA on Azure VMs on SUSE Linux Enterprise Server](./sap-hana-high-availability.md).
 - May 21, 2025: Change in [Set up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) and [Set up Pacemaker on SLES in Azure](./high-availability-guide-suse-pacemaker.md) to expand the explanation how azure-events-az works.
 - April 29, 2025: Updated the ENSA2 order constraint in the RHEL pacemaker setup in [High availability for SAP NetWeaver on VMs on RHEL with NFS on Azure Files](./high-availability-guide-rhel-nfs-azure-files.md), [Azure Virtual Machines HA for SAP NetWeaver on RHEL with Azure NetApp Files for SAP applications](./high-availability-guide-rhel-netapp-files.md), [Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux](./high-availability-guide-rhel.md), and [High availability for SAP NetWeaver on Azure VMs on Red Hat Enterprise Linux for SAP applications multi-SID](./high-availability-guide-rhel-multi-sid.md).

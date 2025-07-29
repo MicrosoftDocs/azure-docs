@@ -2,12 +2,12 @@
 title: Link a partner ID to your Power Platform and Dynamics Customer Insights accounts with your Azure credentials 
 description: This article helps Microsoft partners use their Azure credentials to provide customers with services for Microsoft Power Apps, Power Automate, Power BI and Dynamics Customer Insights.
 author: kendayMS
-ms.reviewer: macyso
+ms.reviewer: presharm
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.date: 05/21/2025
-ms.author: macyso
+ms.author: presharm
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---

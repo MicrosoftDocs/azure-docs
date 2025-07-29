@@ -7,6 +7,7 @@ ms.collection: linux
 ms.topic: troubleshooting
 ms.date: 08/29/2024
 ms.author: jacobjaygbay
+# Customer intent: As an IT administrator, I want to identify and resolve known issues in Oracle Database provisioning on Azure, so that I can ensure efficient setup and management of database resources without encountering errors.
 ---
 
 # Known issues in Oracle Database@Azure

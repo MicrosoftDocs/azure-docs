@@ -8,8 +8,8 @@ ms.custom:
 ms.topic: quickstart
 ms.date: 05/22/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to configure vaulted backup for Azure Files using Bicep, so that I can efficiently protect my data against ransomware and ensure reliable recovery options for my organization.
 ---
 

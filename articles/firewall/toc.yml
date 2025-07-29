@@ -8,7 +8,7 @@ items:
   - name: Architecture best practices for Azure Firewall
     href: /azure/well-architected/service-guides/azure-firewall?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
   - name: What is Azure network security?
-    href: /azure/networking/security/network-security.md?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
+    href: /azure/networking/security/network-security?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
   - name: SKU comparison
     href: choose-firewall-sku.md
   - name: Preview features
@@ -255,7 +255,7 @@ items:
   - name: Author templates
     href: ../azure-resource-manager/templates/syntax.md
   - name: Community templates
-    href: https://azure.microsoft.com/documentation/templates
+    href: https://github.com/Azure/azure-quickstart-templates?tab=readme-ov-file#azure-resource-manager-quickstart-templates
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-firewall/
   - name: Regional availability

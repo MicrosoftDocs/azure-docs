@@ -7,8 +7,8 @@ ms.custom:
   - devx-track-azurepowershell
   - build-2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a database administrator, I want to back up PostgreSQL databases using PowerShell so that I can ensure data protection and manage backup policies efficiently."
 ---
 

@@ -17,7 +17,8 @@ This article describes the key concepts and components of Microsoft Dev Box to h
 
 Microsoft Dev Box gives developers self-service access to preconfigured and ready-to-code cloud-based workstations. You can configure the service to meet your development team and project structure, manage security, and network settings to access resources securely. Different components play a part in the configuration of Microsoft Dev Box.
 
-Microsoft Dev Box builds on the same foundations as [Azure Deployment Environments](/azure/deployment-environments/overview-what-is-azure-deployment-environments). Deployment Environments provides developers with preconfigured cloud-based environments for developing applications. The services are complementary and share certain architectural components, such as a [dev center](#dev-center) or [project](#project).
+Watch this video to learn more about Microsoft Dev Box:
+>[!VIDEO https://learn-video.azurefd.net/vod/player?id=c0df17f8-bafe-494d-9a64-6743de3e5555]
 
 This diagram shows the key components of Dev Box and how they relate to each other. You can learn more about each component in the following sections.
 
@@ -49,6 +50,10 @@ Each project can be associated with only one dev center. Dev managers can config
 To enable developers to create their own dev boxes, you must [provide access to projects for developers](how-to-dev-box-user.md) by assigning the Dev Box User role.
 
 You can configure projects for [Deployment Environments](../deployment-environments/concept-environments-key-concepts.md#projects) and projects for Dev Box resources in the same dev center.
+
+## Project Policies
+
+A project policy in Microsoft Dev Box defines which resources—such as images, networks, and SKUs—are available to a project, enforcing governance and compliance. It ensures that development teams can only use approved resources, helping organizations control and streamline resource usage.
 
 ## Dev box definition
 

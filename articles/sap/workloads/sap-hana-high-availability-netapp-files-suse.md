@@ -10,6 +10,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.date: 06/18/2024
 ms.author: ampatel
+# Customer intent: "As an IT administrator, I want to configure high availability for SAP HANA on SUSE Linux using NFS shares from Azure NetApp Files, so that I can ensure system resiliency and minimize downtime in our enterprise applications."
 ---
 
 # High availability of SAP HANA scale-up with Azure NetApp Files on SUSE Linux Enterprise Server
