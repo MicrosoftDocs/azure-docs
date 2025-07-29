@@ -25,12 +25,12 @@ ExpressRoute FastPath is available for ExpressRoute Direct and ExpressRoute prov
 
 The following table lists the availability of ExpressRoute FastPath for the different type of ExpressRoute circuit:
 
-| Feature | Availability |
-|--|--|
-| ExpressRoute FastPath to Hub virtual network on ExpressRoute circuits | Available on all ExpressRoute circuits |
-| Virtual network peering over ExpressRoute FastPath | Generally available in all public cloud regions and only for ExpressRoute Direct. |
-| User-Defined Routing (UDR) over ExpressRoute FastPath | Generally available in all public cloud regions and only for ExpressRoute Direct. |
-| Private endpoint and Private Link over ExpressRoute FastPath | Limited general availability and only for ExpressRoute Direct. |
+| Feature | IP address family | Availability |
+|--|--|--|
+| ExpressRoute FastPath to Hub virtual network on ExpressRoute circuits | IPv4 and IPv6*  | IPv4 is available on all ExpressRoute circuits. *IPv6 is supported on ER Direct only |
+| Virtual network peering over ExpressRoute FastPath | IPv4 and IPv6 | Generally available in all public cloud regions and only for ExpressRoute Direct. |
+| User-Defined Routing (UDR) over ExpressRoute FastPath | IPv4 and IPv6 | Generally available in all public cloud regions and only for ExpressRoute Direct. |
+| Private endpoint and Private Link over ExpressRoute FastPath | IPv4 only | Limited general availability and only for ExpressRoute Direct. |
 
 #### IP address limits
 
