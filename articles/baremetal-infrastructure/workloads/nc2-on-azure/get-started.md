@@ -17,13 +17,12 @@ Learn how to sign up for, set up, and use Nutanix Cloud Clusters (NC2) on Azure.
 
 ## Azure account requirements
 
-* An Azure account with a new subscription  
-* A Microsoft Entra directory
+* An Azure account with an active subscription.  
+* A Microsoft Entra ID account with permissions to create an app registration which can access and create roles in the subscription where the cluster will be deployed.
 
 ## My Nutanix account requirements
 
-For more information, see "NC2 on Azure Subscription and Billing" in [Nutanix Cloud Clusters on Azure Deployment and User Guide]
-(https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Cloud-Clusters-Azure:Nutanix-Cloud-Clusters-Azure).
+For more information, see "NC2 Licensing and Billing" in [Nutanix Cloud Clusters on Azure Deployment and User Guide](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Cloud-Clusters-Azure:Nutanix-Cloud-Clusters-Azure).
 
 ## Start with a free trial of NC2 on Azure
 
@@ -39,14 +38,14 @@ Consider these important items for Nutanix on Azure BareMetal nodes:
 
 **Track the trial period**: There's no visible trial information for the BareMetal. You should track your BareMetal deployment date manually.
 
-For more information, see _*[Starting a Free Trial for NC2 ](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Cloud-Clusters-Azure:nc2-clusters-starting-a-nc2-free-trial-t.html"https://portal.nutanix.com/page/documents/details?targetid=nutanix-cloud-clusters-azure:nc2-clusters-starting-a-nc2-free-trial-t.html")*
+For more information, see *[Starting a Free Trial for NC2 ](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Cloud-Clusters-Azure:nc2-clusters-starting-a-nc2-free-trial-t.html)*
 
 ## Networking requirements
 
 * Connectivity between your on-premises datacenter and Azure. Both ExpressRoute and VPN are supported. 
 * After a cluster is created, you'll need Virtual IP addresses for both the on-premises cluster and the cluster running in Azure.
 * Outbound internet access on your Azure portal.
-* Azure Directory Service resolves the FQDN:  
+* NC2 components must be able to resolve the FQDN:  
 gateway-external-api.cloud.nutanix.com.
 
 ## Other requirements
