@@ -143,37 +143,37 @@ Moving resources from one subscription to another is a three-step process. To il
 
 1. Select the resources that you want to move. To move all of the resources, select the checkbox at the top of list. Or, select resources individually.
 
-  :::image type="content" source="./media/move-resource-group-and-subscription/select-resources-to-move.png" alt-text="Screenshot of the Azure portal showing the selection of resources to move.":::
+    :::image type="content" source="./media/move-resource-group-and-subscription/select-resources-to-move.png" alt-text="Screenshot of the Azure portal showing the selection of resources to move.":::
 
 1. Select the **Move** button.
 
-  :::image type="content" source="./media/move-resource-group-and-subscription/select-move.png" alt-text="Screenshot of the Azure portal displaying the Move button with three options.":::
-
-  This button gives you three options:
-
-  - Move to a new resource group.
-  - Move to a new subscription.
-  - Move to a new region. To change regions, see [Move resources across regions (from resource group) with Azure Resource Mover](../../resource-mover/move-region-within-resource-group.md?toc=/azure/azure-resource-manager/management/toc.json).
+    :::image type="content" source="./media/move-resource-group-and-subscription/select-move.png" alt-text="Screenshot of the Azure portal displaying the Move button with three options.":::
+  
+    This button gives you three options:
+  
+    - Move to a new resource group.
+    - Move to a new subscription.
+    - Move to a new region. To change regions, see [Move resources across regions (from resource group) with Azure Resource Mover](../../resource-mover/move-region-within-resource-group.md?toc=/azure/azure-resource-manager/management/toc.json).
 
 1. Select if you're moving the resources to a new resource group or subscription.
 
 1. The source resource group sets automatically. Specify the destination resource group. If you're moving to a new subscription, specify this option. Select **Next**.
 
-  :::image type="content" source="./media/move-resource-group-and-subscription/select-destination-group.png" alt-text="Screenshot of the Azure portal where the user specifies the destination resource group for the move operation.":::
+    :::image type="content" source="./media/move-resource-group-and-subscription/select-destination-group.png" alt-text="Screenshot of the Azure portal where the user specifies the destination resource group for the move operation.":::
 
 1. The portal validates that the resources can be moved. Wait for validation to complete.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/validation.png" alt-text="Screenshot of the Azure portal showing the validation process for the move operation.":::
+  :::image type="content" source="./media/move-resource-group-and-subscription/validation.png" alt-text="Screenshot of the Azure portal showing the validation process for the move operation.":::
 
 1. When validation completes successfully, select **Next**.
 
 1. Acknowledge that you need to update tools and scripts for these resources. To start moving the resources, select **Move**.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/acknowledge-change.png" alt-text="Screenshot of the Azure portal where the user acknowledges the need to update tools and scripts before starting the move operation.":::
+  :::image type="content" source="./media/move-resource-group-and-subscription/acknowledge-change.png" alt-text="Screenshot of the Azure portal where the user acknowledges the need to update tools and scripts before starting the move operation.":::
 
 1. The Azure portal notifies you when the move completes.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/view-notification.png" alt-text="Screenshot of the Azure portal displaying a notification with the results of the move operation.":::
+  :::image type="content" source="./media/move-resource-group-and-subscription/view-notification.png" alt-text="Screenshot of the Azure portal displaying a notification with the results of the move operation.":::
 
 ### Use the Azure CLI
 
