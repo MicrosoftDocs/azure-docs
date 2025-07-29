@@ -46,9 +46,12 @@ The following table describes the benefits that you get when you set up Standard
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- The Standard logic app resource and workflows that you want to set up as an MCP server with the tools that an agent can use.
+- The Standard logic app resource and workflows that you want to set up as an MCP server with tools that agents can use. To use the workflows as MCP tools, the workflows must start with the **Request** trigger named **When a HTTP request is received** and include the **Response** action.
 
-  For more information, see the section named [Considerations for workflows as tools](#considerations-for-workflows-as-tools) and [Create an example Standard logic app workflow using the Azure portal](create-single-tenant-workflows-azure-portal.md).
+  For more information, see the following documentation:
+
+  - [Considerations for workflows as tools](#considerations-for-workflows-as-tools)
+  - [Create an example Standard logic app workflow using the Azure portal](create-single-tenant-workflows-azure-portal.md)
 
 - An [app registration](/entra/identity-platform/app-objects-and-service-principals?tabs=browser#application-registration) to use in the EasyAuth setup for your logic app.
 
@@ -91,7 +94,7 @@ The following table describes the benefits that you get when you set up Standard
 
    For more information, see [Register an application in Microsoft Entra ID](/entra/identity-platform/quickstart-register-app).
 
-   When you finish these steps, you have the following values for later use:
+   When you finish these steps, you have the following values to use later with your logic app:
 
    - Directory (tenant) ID
 
@@ -101,84 +104,82 @@ The following table describes the benefits that you get when you set up Standard
 
 When you build workflows to use as MCP tools, review the following considerations and best practices:
 
-- To use workflows as MCP tools, make sure that workflows start with the **Request** trigger named **When a HTTP request is received** and include the **Response** action.
+To help agents correctly find and run tools, add the following metadata to the **Request** trigger and request payloads. This metadata improves the agent's reliability and accuracy in using tools.
 
-- To help agents correctly find and run tools, add the following metadata to the **Request** trigger and request payloads. This metadata improves the agent's reliability and accuracy in using tools.
+> [!TIP]
+>
+> The following steps use the Azure portal, but you can alternatively use Visual Studio Code.
 
-  > [!TIP]
-  >
-  > The following steps use the Azure portal, but you can alternatively use Visual Studio Code.
+- Trigger description
 
-  - Trigger description
+  Your MCP server uses this metadata when showing tools to end users and when routing requests to the correct tool. To add this description, follow these steps:
 
-    Your MCP server uses this metadata when showing tools to end users and when routing requests to the correct tool. To add this description, follow these steps:
+  1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow.
 
-    1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow.
+  1. In the workflow sidebar, under **Tools**, select the designer to open the workflow.
 
-    1. In the workflow sidebar, under **Tools**, select the designer to open the workflow.
+  1. In the designer, select the **Request** trigger.
 
-    1. In the designer, select the **Request** trigger.
+  1. In the trigger information pane, under the trigger name, add a description about what the trigger and workflow does.
 
-    1. In the trigger information pane, under the trigger name, add a description about what the trigger and workflow does.
+- Input parameter descriptions
 
-  - Input parameter descriptions
+  This metadata improves the agent's accuracy in passing the correct inputs to tools at runtime. To add a description for each input parameter, follow these steps:
 
-    This metadata improves the agent's accuracy in passing the correct inputs to tools at runtime. To add a description for each input parameter, follow these steps:
+  1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow.
 
-    1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow.
+  1. In the workflow sidebar, under **Tools**, select the designer to open the workflow.
 
-    1. In the workflow sidebar, under **Tools**, select the designer to open the workflow.
+     > [!NOTE]
+     >
+     > You can also use code view to add this information. 
 
-       > [!NOTE]
-       >
-       > You can also use code view to add this information. 
+  1. In the designer, select the **Request** trigger.
 
-    1. In the designer, select the **Request** trigger.
+  1. In the trigger information pane, under **Request Body JSON Schema**, enter a schema for the expected request content payload.
 
-    1. In the trigger information pane, under **Request Body JSON Schema**, enter a schema for the expected request content payload.
+     - For each input parameter, add the `description` attribute and the corresponding description.
 
-       - For each input parameter, add the `description` attribute and the corresponding description.
+     - If your tool requires specific parameters to successfully run, you can include them as required parameters by adding the `required` object and an array with these parameters.
 
-       - If your tool requires specific parameters to successfully run, you can include them as required parameters by adding the `required` object and an array with these parameters.
+     The following example shows sample input parameters, descriptions, and required parameters:
 
-       The following example shows sample input parameters, descriptions, and required parameters:
+     ```json
+     {
+         "type": "object",
+         "properties": {
+             "TicketNumber": {
+                 "type": "string",
+                 "description": "The ticket number for the IT issue."
+             },
+             "OpenedBy_FirstName": {
+                  "type": "string",
+                  "description": "The first name for the person who reported the issue."
+             },
+             "OpenedBy_LastName": {
+                  "type": "string",
+                  "description": "The last name for the person who reported the issue."
+             },
+             "Notes": {
+                 "type": "string",
+                 "description": "Other information to include in the ticket about the issue."
+             }
+         },
+         "required": [
+             "TicketNumber",
+             "OpenedBy_FirstName",
+             "OpenedBy_LastName",
+             "Notes"
+         ]
+     }
+     ```
 
-       ```json
-       {
-           "type": "object",
-           "properties": {
-               "TicketNumber": {
-                   "type": "string",
-                   "description": "The ticket number for the IT issue."
-               },
-               "OpenedBy_FirstName": {
-                    "type": "string",
-                    "description": "The first name for the person who reported the issue."
-               },
-               "OpenedBy_LastName": {
-                    "type": "string",
-                    "description": "The last name for the person who reported the issue."
-               },
-               "Notes": {
-                   "type": "string",
-                   "description": "Other information to include in the ticket about the issue."
-               }
-           },
-           "required": [
-               "TicketNumber",
-               "OpenedBy_FirstName",
-               "OpenedBy_LastName",
-               "Notes"
-           ]
-       }
-       ```
-
-   > [!TIP]
-   >
-   > If you experience inconsistent results when an agent calls and runs your tool, check whether 
-   > you can make the trigger and parameter descriptions more unique. For example, you might try 
-   > describing the format for parameter inputs. So, if a parameter expects a base64 encoded string, 
-   > including this detail in the parameter description might help.
+> [!TIP]
+>
+> If you experience inconsistent results when an agent calls and runs your tool, check whether 
+> you can make the trigger and parameter descriptions more unique. For example, you might try 
+> describing the format for parameter inputs. So, if a parameter expects a base64 encoded string, 
+> including this detail in the parameter description might help.
 
 ## Set up logic app as MCP server
 
@@ -194,7 +195,7 @@ For this task, you need to edit the **host.json** file for your Standard logic a
 
 1. Next to the **host.json** file, select the edit icon (pencil).
 
-1. In the editor window, under the `extensionBundle` JSON object, add the `extensions` JSON object. Make sure that you replace the placeholder values with your own values:
+1. In the editor window, under the `extensionBundle` JSON object, add the `extensions` JSON object. Make sure that you replace the placeholder values with the following values that you saved earlier:
 
    - Directory (tenant) ID
    - Logic app name
