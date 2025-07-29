@@ -80,7 +80,7 @@ At the end of your billing cycle, the charges for each meter are summed. Your bi
 
 ## Supported Regions
 
-Azure Storage tasks are generally available in the following public regions:
+Azure Storage tasks are generally available in the following public cloud regions:
 
 •	Australia East
 •	Australia Southeast
