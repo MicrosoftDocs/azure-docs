@@ -6,7 +6,7 @@ author: anaharris-ms
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-queue-storage
-ms.date: 07/01/2025
+ms.date: 07/29/2025
 #Customer intent: As an engineer responsible for business continuity, I want to understand the details of how Azure Queue Storage works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow during different kinds of situations.
 ---
 
@@ -17,7 +17,6 @@ ms.date: 07/01/2025
 Azure Queue Storage provides several reliability features through the underlying Azure Storage platform. As part of Azure Storage, Queue Storage inherits the same redundancy options, availability zone support, and geo-replication capabilities that ensure high availability and durability for your message queues. 
 
 This article describes reliability and availability zones support in Azure Queue Storage. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/reliability/overview).
-
 
 > [!NOTE]
 > Azure Queue Storage is part of the Azure Storage platform. Some of the capabilities of Queue Storage are common across many Azure Storage services. In this document, we use "Azure Storage" to indicate these common capabilities.
@@ -101,6 +100,7 @@ This section describes what to expect when a queue storage account is configured
 When an availability zone becomes unavailable, Azure Queue Storage automatically handles the failover process with the following behavior:
 
 [!INCLUDE [Storage - Zone down experience](includes/storage/reliability-storage-availability-zone-down-experience-include.md)]
+
 - **Traffic rerouting.** Azure automatically reroutes traffic to the remaining healthy availability zones. The service maintains full functionality using the surviving zones with no customer intervention required.
 
 ### Failback

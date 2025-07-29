@@ -16,4 +16,3 @@
 - **Expected data loss:** No data loss occurs during zone failures because data is synchronously replicated across multiple zones before write operations complete.
 
 - **Expected downtime:** A small amount of downtime - typically, a few seconds - may occur during automatic failover as traffic is redirected to healthy zones.
-
