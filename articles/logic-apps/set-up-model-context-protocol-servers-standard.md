@@ -36,7 +36,7 @@ The following table describes the benefits that you get when you set up Standard
 
 | Benefit | Description |
 |---------|-------------|
-| Resusability | You can call existing workflows, connectors, and codeful functions from an AI agent, which gives you the opportunity for extra return on your investments. |
+| Reusability | You can call existing workflows, connectors, and codeful functions from an AI agent, which gives you the opportunity for extra return on your investments. |
 | Flexibility | Azure Logic Apps provides 1,400+ connectors that provide access and ways to work with enterprise assets and resources whether they in the cloud or on premises. |
 | Access points | Azure Logic Apps supports various connectivity models for running your MCP server. For you can run your server in the cloud, exposed as a private endpoint, or connected to virtual networks and on-premises resources. |
 | Security | When you expose your logic app as an MCP server, make sure that you set up a strong security posture and meet your enterprise security requirements. You can use Microsoft Entra ID with EasyAuth for authentication and authorization and to secure your MCP server and Standard workflows. |
@@ -52,7 +52,7 @@ The following table describes the benefits that you get when you set up Standard
 
 - An [app registration](/entra/identity-platform/app-objects-and-service-principals?tabs=browser#application-registration) to use in the EasyAuth setup for your logic app.
 
-  This app registration is an identity that your logic app uses to delegate identity and access management functions to MIcrosoft Entra ID.
+  This app registration is an identity that your logic app uses to delegate identity and access management functions to Microsoft Entra ID.
 
   To create an app registration, follow these steps:
 
