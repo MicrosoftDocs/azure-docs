@@ -197,28 +197,22 @@ For function apps on the Elastic Premium or Dedicated plans:
 
 #### Flex Consumption Plan
 
-In the Flex Consumption plan, function app instances are routed through shared gateways, which consume 1 IP address each. When a single app is integrated with a subnet, at most 40 gateways will be allocated (40 IP address consumed); this happens when the app is scaled out to the 1,000 maximum instance count. When multiple apps are integrated with the same subnet, the total number of function app instances determines how many gateways will be allocated and traffic from all instances will be routed through the shared gateways. If the subnet does not have enough available IP addresses to support the combined needs, network capacity issues may occur.
+In the Flex Consumption plan, outbound network traffic from function app instances are routed through shared gateways that are dedicated to the subnet. Each shared gateway consumes 1 IP address from the subnet. Regardless of how many apps are integrated with a single subnet, at most 27 shared gateways (27 IP addresses) will be used to support all instances. When selecting a subnet size, what matters is the total number of instances across all apps integrated with the subnet. When a subnet is used for too many instances or for apps performing I/O intensive workloads, network capacity issues may occur such as increased average latency and timeouts. The scale-out of apps will not be affected. 
+
+A /27 subnet size (27 usable IP addresses) is recommended to support a single function app, which can scale-out to a maximum of 1,000 instances. 
+
+If you expect your single function app to scale beyond 1,000 instances or expect the total instance count of multiple function apps to exceed 1,000 instances, then use a /26 subnet and contact the product group to request an increase to your maximum instance count.
+
+> [!IMPORTANT]
+> Integrating Flex Consumption function apps with a subnet size less than /27 or integrating multiple apps with a /27 size subnet reduces the available outbound network capacity for them. If you plan to do so, load test your apps with production-scale workloads to ensure network capacity constraints are not observed.
 
 **IP Consumption Scenarios**
 
-| Scenario | Maximum IP Address Consumption         |
-|----------|----------------------------------------|
-| 1 app    | Up to 40 IP addresses                  |
-| 2 apps   | Up to 80 IP addresses (shared pool)    |
-| 10 apps  | Up to 400 IP addresses (shared pool)   |
-
-**CIDR Range Recommendations**
-
-| Number of Flex Consumption Apps | Recommended Minimum Subnet Size | Max Available Addresses |
-|---------------------------------|---------------------------------|-------------------------|
-| 1                               | /26                             | 59                      |
-| 2                               | /25                             | 123                     |
-| 3                               | /25                             | 123                     |
-| 6                               | /24                             | 251                     |
-| 12                              | /23                             | 507                     |
-
-> [!IMPORTANT]
-> When integrating multiple apps in a single subnet, allocating fewer than 40 IP addresses per app is possible. However, doing so increases the risk that your apps may not be able to scale to their maximum instance count, especially if multiple apps are heavily utilized. Because gateway resources and their associated IP addresses are shared, heavy utilization by one app can impact the available network capacity for others on the same subnet. If you plan to allocate fewer than 40 IP addresses per app, consider validating your configuration in a production-like environment to ensure it meets your scaling needs.
+| Scenario | Maximum IP Address Consumption          |
+|----------|-----------------------------------------|
+| 1 app    | Up to 27 IP addresses (/27 subnet size) |
+| 2 apps   | Up to 27 IP addresses (/27 subnet size) |
+| 10 apps  | Up to 27 IP addresses (/27 subnet size) |
 
 ### Network security groups
 
