@@ -55,7 +55,7 @@ To create an App Service Environment in the Azure portal, do the following steps
 
 1. In the **Basics** tab, do the following steps:
 
-   -  Select the subscription.
+   - Select the subscription.
    - Select or create the resource group.
    - Enter the name of your App Service Environment.
 
@@ -111,7 +111,7 @@ To create an App Service Environment in the Azure portal, do the following steps
 
 After you successfully create your App Service Environment, you can select it as a location when you create your apps.
 
-For more information, see [Create an App Service Environment by using an ARM template](how-to-create-from-template.md).
+For more information, see [Create an App Service Environment by using an Azure Resource Manager template](how-to-create-from-template.md).
 
 <!--Links-->
 [Intro]: ./overview.md

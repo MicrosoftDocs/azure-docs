@@ -33,7 +33,7 @@ For more information about reliability support in App Service, see [Reliability 
 
 ## Reliability architecture overview
 
-When you implement an [App Service Environment](/azure/app-service/environment/overview), you deploy the environment as the container for your App Service plans and web apps. During setup, configure core networking settings and optional hardware isolation. Choose whether or not to support zone redundancy on the environment if the region supports availability zones.
+When you implement an [App Service Environment](/azure/app-service/environment/overview), you deploy the environment as the container for your App Service plans and web apps. During setup, configure core networking settings and optional hardware isolation. Choose whether to support zone redundancy on the environment if the region supports availability zones.
 
 After you create your environment, you can create one or more App Service plans.
 
@@ -73,7 +73,7 @@ To enable zone redundancy for your App Service Environment, you must meet the fo
 
 - Use a scale unit that supports availability zones. When you create an App Service Environment, the environment is assigned to a scale unit based on the resource group where the environment resides. If your scale unit doesn't support availability zones, you need to create a new environment in a new resource group.
 
-- Configure your App Service Environment *and* your plans to support zone redundancy. You can enable zone redundancy during the creation of the environment or by updating an existing environment.
+- Configure your App Service Environment and your plans to support zone redundancy. You can enable zone redundancy during the creation of the environment or by updating an existing environment.
 
 ### Instance distribution across zones
 
@@ -95,7 +95,7 @@ If you enable availability zones but specify a capacity of fewer than two instan
 
 ### Configure availability zone support
 
-To learn how to create, enable, or disable a new zone-redundant App Service Environment and new zone-redundant App Service plans, see  [Configure App Service Environments and Isolated v2 App Service plans for zone redundancy](../app-service/environment/configure-zone-redundancy-environment.md).
+To learn how to create, enable, or disable a new zone-redundant App Service Environment and new zone-redundant App Service plans, see [Configure App Service Environments and Isolated v2 App Service plans for zone redundancy](../app-service/environment/configure-zone-redundancy-environment.md).
 
 > [!NOTE]
 > A change in the zone redundancy status of an App Service Environment takes 12 to 24 hours to complete. During the upgrade process, no downtime or performance problems occur.

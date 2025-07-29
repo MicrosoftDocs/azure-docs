@@ -86,7 +86,7 @@ App Service Environment v3 differs from earlier versions in the following ways:
 
 - You can deploy an App Service Environment v3 with zone redundancy enabled. This option is available only in regions where all dependencies support zone redundancy. You can enable zone redundancy at creation or anytime after deployment.
 
-  Consider the following factors for an environment with zone redundancy:
+  Consider the following factors for an environment that has zone redundancy:
  
   - Each App Service plan must have at least two instances to distribute them across zones.
   - Each App Service plan's zone redundancy status is independent, so you can use a mix of zone-redundant and non-zone-redundant plans.
