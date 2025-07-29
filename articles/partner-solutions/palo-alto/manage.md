@@ -40,8 +40,12 @@ To change the Cloud NGFW's billing plan, go to **Overview** and select **Change 
 > [!NOTE]
 > The **Delete** button on the resource is activated only if all connected resources are already deleted. For more information, see [Azure Resource Manager resource group and resource deletion](/azure/azure-resource-manager/management/delete-resource-group).
 
-## Next step
+## Get support
 
-- For help with troubleshooting, see [Troubleshooting Palo Alto integration with Azure](troubleshoot.md).
+Contact Palo Alto Network for customer support.
+
+You can also request support in the Azure portal from the resource overview.
+
+Select **Support + Troubleshooting** > **New support request** from the service menu, then choose the link to Contact PAN customer support. 
 
 
