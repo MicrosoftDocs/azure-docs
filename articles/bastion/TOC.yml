@@ -1,7 +1,7 @@
 - name: Bastion documentation
   href: index.yml
 - name: Overview
-  items:
+  items: 
   - name: What is Azure Bastion?
     href: bastion-overview.md
   - name: What's new in Bastion?
@@ -149,8 +149,5 @@
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/bastion/toc.json
   - name: SLA
     href: https://azure.microsoft.com/support/legal/sla
-  - name: Preview SLA
-    href: https://azure.microsoft.com/support/legal/preview-supplemental-terms
-ttps://azure.microsoft.com/support/legal/sla
   - name: Preview SLA
     href: https://azure.microsoft.com/support/legal/preview-supplemental-terms
