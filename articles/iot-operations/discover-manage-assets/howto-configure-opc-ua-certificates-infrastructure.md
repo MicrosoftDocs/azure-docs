@@ -6,7 +6,7 @@ ms.author: dobett
 ms.subservice: azure-opcua-connector
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 05/12/2025
+ms.date: 07/28/2025
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to to understand how to manage the OPC UA Certificates in the context of the connector for OPC UA.
 ms.service: azure-iot-operations
@@ -25,7 +25,7 @@ The connector for OPC UA must trust the OPC UA servers it connects to. The conne
 
 ## Prerequisites
 
-- An Azure IoT Operations instance deployed with secure settings. If you deployed Azure IoT Operations with test settings, you need to first [enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md).
+An Azure IoT Operations instance deployed with secure settings. If you deployed Azure IoT Operations with test settings, you need to first [enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md).
 
 ## Configure a self-signed application instance certificate for the connector for OPC UA
 
