@@ -3,7 +3,7 @@ title: Manage settings for your Elastic resource in the Azure portal
 description: Manage settings, view resources, reconfigure metrics/logs, and more for your Elastic resource by using the Azure portal.
 ms.topic: how-to
 zone_pivot_groups: elastic-resource-type
-ms.date: 07/16/2025
+ms.date: 07/30/2025
 #customer intent: As an Azure developer, I want to use the Azure portal manage my Elastic resources that use search, log analytics, and security monitoring functions for Azure environments.
 
 ---
@@ -16,9 +16,9 @@ This article shows how to manage the settings for Elastic resources.
 
 [!INCLUDE [manage](../includes/manage.md)]
 
-:::image type="content" source="media/manage/resource-overview.png" alt-text="A screenshot of an Elastic resource in the Azure portal with the overview displayed in the working pane." lightbox="media/manage/resource-overview.png":::
-
 ::: zone pivot="elastic-search"
+
+:::image type="content" source="media/manage/elastic-search-resource.png" alt-text="A screenshot of an Elastic Search resource in the Azure portal with the overview displayed in the working pane." lightbox="media/manage/elastic-search-resource.png":::
 
 The details include:
 
@@ -100,7 +100,7 @@ To monitor resources for virtual machines, select **Elastic deployment configura
 
 ## Connect Azure OpenAI service with Elastic
 
-To configure Azure OpenAI, select **Elastic deployment configuration > Azure OpenAI configuration**. 
+To configure Azure OpenAI, select **Elastic deployment configuration** > **Azure OpenAI configuration**. 
 
 1. From the working pane's command bar, select **Add**. 
 
@@ -108,11 +108,15 @@ To configure Azure OpenAI, select **Elastic deployment configuration > Azure Ope
 
 1. Select the **Create** button.
 
-Once the Connector is created, navigate to Kibana.
+After the Connector is created, navigate to Kibana.
 
 > [!NOTE]
 > 
 > Kibana is a user interface that lets you visualize your Elasticsearch data and navigate the Elastic Stack. Your Connector can be used in Elastic's Observability AI Assistant. It can provide contextual responses to your natural language prompts on your observability data by invoking the Azure OpenAI deployment.
+
+The details of the deployment, such as the URL and API keys, are passed on to Elastic to prepare the connector to be used with Elastic's AI Assistant.
+
+Currently, Elastic resources support only deployments of text or chat completion models, like GPT-4. For more information, see [OpenAI connector and action](https://www.elastic.co/docs/reference/kibana/connectors-kibana/openai-action-type).
 
 ## Traffic filters
 
@@ -156,6 +160,8 @@ You can easily manage the corresponding Elastic deployments or Azure resources u
 
 ::: zone pivot="elastic-observability"
 
+:::image type="content" source="media/manage/elastic-observability-resource.png" alt-text="A screenshot of an Elastic Observability resource in the Azure portal with the overview displayed in the working pane." lightbox="media/manage/elastic-observability-resource.png":::
+
 The details include:
 
 - Resource group
@@ -236,7 +242,7 @@ To monitor resources for virtual machines, select **Elastic deployment configura
 
 ## Connect Azure OpenAI service with Elastic
 
-To configure Azure OpenAI, select **Elastic deployment configuration > Azure OpenAI configuration**. 
+To configure Azure OpenAI, select **Elastic deployment configuration** > **Azure OpenAI configuration**. 
 
 1. From the working pane's command bar, select **Add**. 
 
@@ -244,11 +250,15 @@ To configure Azure OpenAI, select **Elastic deployment configuration > Azure Ope
 
 1. Select the **Create** button.
 
-Once the Connector is created, navigate to Kibana.
+After the Connector is created, navigate to Kibana.
 
 > [!NOTE]
 > 
 > Kibana is a user interface that lets you visualize your Elasticsearch data and navigate the Elastic Stack. Your Connector can be used in Elastic's Observability AI Assistant. It can provide contextual responses to your natural language prompts on your observability data by invoking the Azure OpenAI deployment.
+
+The details of the deployment, such as the URL and API keys, are passed on to Elastic to prepare the connector to be used with Elastic's AI Assistant.
+
+Currently, Elastic resources support only deployments of text or chat completion models, like GPT-4. For more information, see [OpenAI connector and action](https://www.elastic.co/docs/reference/kibana/connectors-kibana/openai-action-type).
 
 ## Traffic filters
 
@@ -292,6 +302,8 @@ You can easily manage the corresponding Elastic deployments or Azure resources u
 
 ::: zone pivot="elastic-security"
 
+:::image type="content" source="media/manage/elastic-security-resource.png" alt-text="A screenshot of an Elastic Security resource in the Azure portal with the overview displayed in the working pane." lightbox="media/manage/elastic-security-resource.png":::
+
 The details include:
 
 - Resource group
@@ -372,7 +384,7 @@ To monitor resources for virtual machines, select **Elastic deployment configura
 
 ## Connect Azure OpenAI service with Elastic
 
-To configure Azure OpenAI, select **Elastic deployment configuration > Azure OpenAI configuration**. 
+To configure Azure OpenAI, select **Elastic deployment configuration** > **Azure OpenAI configuration**. 
 
 1. From the working pane's command bar, select **Add**. 
 
@@ -380,11 +392,15 @@ To configure Azure OpenAI, select **Elastic deployment configuration > Azure Ope
 
 1. Select the **Create** button.
 
-Once the Connector is created, navigate to Kibana.
+After the Connector is created, navigate to Kibana.
 
 > [!NOTE]
 > 
 > Kibana is a user interface that lets you visualize your Elasticsearch data and navigate the Elastic Stack. Your Connector can be used in Elastic's Observability AI Assistant. It can provide contextual responses to your natural language prompts on your observability data by invoking the Azure OpenAI deployment.
+
+The details of the deployment, such as the URL and API keys, are passed on to Elastic to prepare the connector to be used with Elastic's AI Assistant.
+
+Currently, Elastic resources support only deployments of text or chat completion models, like GPT-4. For more information, see [OpenAI connector and action](https://www.elastic.co/docs/reference/kibana/connectors-kibana/openai-action-type).
 
 ## Traffic filters
 
