@@ -135,7 +135,7 @@ The following section describes what to expect when Azure Firewall is configured
 
 - **Active connections:** When an availability zone is unavailable, any requests in progress that are connected to a firewall instance in the faulty availability zone might be terminated and need to be retried.
 
-- **Notification:** Zone-level outages are reflected in Azure Service Health.
+- **Notification:** Zone failure events can be monitored through Azure Service Health. Set up alerts on Azure Search Health to receive notifications of zone-level issues.
 
 - **Expected data loss**: No data loss is expected during zone failover as Azure Firewall doesn't store persistent customer data.
 
@@ -181,6 +181,12 @@ You can implement multi-region architecture by using separate firewalls. This ap
 - **Implement traffic routing** by using Azure Traffic Manager or Azure Front Door.
 
 For an example archirecture that illustrate multi-region network security architectures, see [Multi-region load balancing with Traffic Manager, Azure Firewall, and Application Gateway](/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway).
+
+## Reliability during service maintenance
+
+Azure Firewall performs regular service upgrades and other forms of maintenance.
+
+You can configure daily maintenance windows, allowing you to align upgrade schedules with your operational needs. For more information, see [Configure customer-controlled maintenance for Azure Firewall](/azure/firewall/customer-controlled-maintenance).
 
 ## Service-level agreement
 
