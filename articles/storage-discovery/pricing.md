@@ -14,7 +14,7 @@ ms.author: shaas
 Azure Storage Discovery offers free and paid pricing plans. This article describes the differences and explains what influences the bill when choosing a paid option. 
 
 > [!TIP]
-> Billing for Azure Storage Discovery starts October 1st, 2025. Until then, all pricing plans are free of charge.
+> Billing for Azure Storage Discovery starts October 1, 2025. Until then, all pricing plans are free of charge.
 
 ## Pricing plans
 
@@ -24,7 +24,7 @@ For each Discovery workspace, you can select from free or paid options. The numb
 <table>
     <thead>
         <tr>
-            <th rowspan="2" style="border-right: 1px solid #ddd;">PRICING PLAN</th>
+            <th rowspan="2">PRICING PLAN</th>
             <th colspan="4">AVAILABLE INSIGHTS</th>
         </tr>
         <tr>
@@ -36,7 +36,7 @@ For each Discovery workspace, you can select from free or paid options. The numb
     </thead>
     <tbody>
         <tr>
-            <td style="border-right: 1px solid">Free</td>
+            <td>Free</td>
             <td>
                 <ul>
                     <li>Trends</li>
@@ -54,7 +54,7 @@ For each Discovery workspace, you can select from free or paid options. The numb
             </td>            
         </tr>
         <tr>
-            <td style="border-right: 1px solid">Standard</td>
+            <td>Standard</td>
             <td>
                 <ul>
                     <li>Trends</li>
@@ -95,21 +95,21 @@ In the case of Azure Blob Storage, storage accounts contain objects. The cost of
 
 |                                | Free pricing plan | Standard pricing plan |
 |--------------------------------|-------------------|-----------------------|
-| **Storage accounts analyzed**  | Free              | There is a fee per storage resource (e.g.: storage account) that is in a scope of your workspace. The more storage resources you analyze, the more the average resource cost decreases.|
-| **Total objects analyzed***    | Free              | There is a fee per data object (e.g.: blob object) that is contained in a storage resource. The more storage objects you analyze, the more the average object cost decreases. |
+| **Storage accounts analyzed**  | Free              | A fee per storage resource (for example: storage account) that is in a scope of your workspace. The more storage resources you analyze, the more the average resource cost decreases.|
+| **Total objects analyzed***    | Free              | A fee per data object (for example: blob object) that is contained in a storage resource. The more storage objects you analyze, the more the average object cost decreases. |
 
 > [!NOTE]
-> The actual cost in your market and currency will be published on Azure.com before billing begins on October 1st, 2025.
+> The actual cost in your market and currency will be published on Azure.com before billing begins on October 1, 2025.
 
-## Additional considerations
+### Other cost considerations
 
-Storing, retrieving, or generating Discovery insights causes no additional charges. Your Azure Storage resources experience no additional transactions or performance impact when analyzing them with Azure Storage Discovery.
+Storing, retrieving, or generating Discovery insights causes no extra charges. Your Azure Storage resources experience no transactions or performance impact when analyzing them with Azure Storage Discovery.
 
 Every workspace is billed individually. Including a storage resource in a paid Discovery workspace increases the bill of that workspace, even if the same storage resource is already included in a different workspace. 
 
 ## Next steps
 
-After understanding the billing implications, it's a good idea to get more familiar with the Discovery service. Select an article to learn more.
+After understanding the billing implications, it's a good idea to get more familiar with the Discovery service.
 
 - [Get an overview of the Discovery service](overview.md)
 - [Plan your Storage Discovery deployment](deployment-planning.md)
