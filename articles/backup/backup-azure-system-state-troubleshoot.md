@@ -4,8 +4,9 @@ description: In this article, learn how to troubleshoot issues in System State B
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 04/30/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a system administrator, I want to troubleshoot System State Backup issues on on-premises Windows servers, so that I can ensure effective data protection and recovery capabilities for my infrastructure."
 ---
 
 # Troubleshoot System State Backup

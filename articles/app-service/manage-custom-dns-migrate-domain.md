@@ -11,6 +11,8 @@ ms.date: 02/14/2025
 ---
 # Migrate an existing domain to Azure App Service
 
+[!INCLUDE [app-service-managed-certificate](./includes/managed-certs/managed-certs-note.md)]
+
 This article shows you how to migrate an active DNS name to [Azure App Service](../app-service/overview.md) without any downtime.
 
 When you migrate a live site and its DNS domain name to App Service, that DNS name is already serving live traffic. You can avoid downtime in DNS resolution during the migration by preemptively binding the active DNS name to your App Service app.

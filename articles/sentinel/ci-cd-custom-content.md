@@ -2,8 +2,8 @@
 title: Manage custom content with repository connections
 titleSuffix: Microsoft Sentinel
 description: This article explains custom Sentinel content like GitHub or Azure DevOps repositories that can utilize source control features. 
-author: austinmccollum
-ms.author: austinmc
+author: mberdugo 
+ms.author: monaberdugo 
 ms.service: microsoft-sentinel
 ms.topic: conceptual
 ms.date: 12/31/2024

@@ -7,6 +7,7 @@ ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 04/29/2025
 
+# Customer intent: "As a web application developer, I want to implement CAPTCHA through the Web Application Firewall, so that I can protect my application from automated attacks while ensuring a seamless user experience for legitimate users."
 ---
 
 # Azure Front Door Web Application Firewall CAPTCHA (preview)

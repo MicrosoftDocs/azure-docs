@@ -7,6 +7,7 @@ ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 02/21/2025
+# Customer intent: As a cloud administrator, I want to re-establish replication relationships for deleted volumes in Azure NetApp Files, so that I can ensure data continuity and maintain operational efficiency without losing previous snapshot states.
 ---
 # Re-establish deleted volume replication relationships in Azure NetApp Files (preview)
 

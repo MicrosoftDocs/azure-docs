@@ -8,6 +8,7 @@ ms.custom: devx-track-js
 ms.date: 06/13/2025
 ms.topic: concept-article
 #customer intent: As a cloud network architect, I want to understand the Azure Web Application Firewall JavaScript challenge feature to determine if I want to deploy it.
+# Customer intent: As a cloud network architect, I want to evaluate the JavaScript challenge feature of Azure Web Application Firewall, so that I can assess its effectiveness in mitigating bot traffic for our web applications and decide on its deployment.
 ---
 
 # Azure Web Application Firewall JavaScript challenge (preview)
@@ -50,6 +51,8 @@ The WAF policy setting defines the JavaScript challenge cookie validity lifetime
 - **Browser compatibility**: JavaScript challenge isn't supported on Microsoft Internet Explorer. It's compatible with the latest versions of Microsoft Edge, Chrome, Firefox, and Safari web browsers.
 
 - **Rate limit isn't supported**: The JavaScript challenge action on Application Gateway isn't supported for *Rate Limit* type custom rules during the public preview.
+
+- **Application Gateway for Containers WAF**: During the public preview of Application Gateway for Containers WAF JavaScript challenge is not supported.
 
 ## Related content
 

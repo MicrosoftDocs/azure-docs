@@ -7,6 +7,7 @@ ms.author: cephalin
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 04/17/2025
+ms.update-cycle: 180-days
 ms.custom: mvc, devx-track-java, devx-track-azurecli, devx-track-extended-java, AppServiceConnectivity, linux-related-content
 zone_pivot_groups: app-service-portal-azd
 ms.collection: ce-skilling-ai-copilot

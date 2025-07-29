@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 01/09/2025
 ms.custom: engagement-fy23
+# Customer intent: "As a VMware infrastructure administrator, I want to configure Aria Operations for my Azure VMware Solution, so that I can effectively monitor and manage system resources in my private cloud environment."
 ---
 
 # Configure Aria Operations for Azure VMware Solution

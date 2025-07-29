@@ -17,7 +17,15 @@ items:
 - name: Key concepts
   expanded: true
   items:
-    - name: Autonomous vs review mode
-      href: permissions.md
+    - name: Security context
+      href: security-context.md
+    - name: Incident management
+      href: incident-management.md
+    - name: Troubleshooting
+      href: troubleshoot.md
     - name: Billing
       href: billing.md
+- name: Reference
+  items:
+    - name: Incident management tools
+      href: incident-management-tools.md

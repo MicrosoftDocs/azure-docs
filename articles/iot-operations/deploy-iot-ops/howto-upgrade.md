@@ -112,3 +112,7 @@ To ensure zero data loss and high availability during deployment upgrades, the M
 If a failure occurs during the upgrade process, the health manager pod automatically restarts the upgrade process while ensuring no loss of data or connectivity.
 
 Rolling updates can only occur if the MQTT broker is deployed with two or more backend replicas. MQTT broker upgrades aren't supported for single-replica deployments. When you deploy Azure IoT Operations, you specify the number of backend replicas to create in the [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command with the `--broker-backend-rf` parameter.
+
+## Supported versions
+
+[!INCLUDE [supported-versions](../includes/supported-versions.md)]

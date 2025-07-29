@@ -78,7 +78,6 @@ You'll use this information later in the tutorial.
 
 The Postman collection for Well Delivery DDMS contains requests that you can use to interact with data about wells, wellbores, well logs, and well trajectory in your Azure Data Manager for Energy instance.
 
-For an example of how to send a Postman request, see the [Wellbore DDMS tutorial](tutorial-wellbore-ddms.md#send-an-example-postman-request).
 
 ## Generate a token for APIs
 

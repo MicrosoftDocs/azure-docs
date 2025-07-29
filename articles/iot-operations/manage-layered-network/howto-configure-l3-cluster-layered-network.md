@@ -23,6 +23,8 @@ You'll complete the following tasks:
 - Use a customized DNS setting to direct the network traffic to the Layered Network Management service in parent level.
 - Arc-enable the cluster.
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
 ## Prerequisites
 
 Follow the guidance for **hardware requirements** and **prerequisites** sections in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).

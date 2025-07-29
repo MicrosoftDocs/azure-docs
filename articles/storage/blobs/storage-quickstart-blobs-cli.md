@@ -9,6 +9,7 @@ ms.topic: quickstart
 ms.date: 01/25/2023
 ms.author: shaas
 ms.custom: devx-track-azurecli, mode-api
+# Customer intent: As a developer, I want to use the Azure CLI to upload, download, and list blobs in Azure Blob storage, so that I can effectively manage my data transfers and storage operations in the cloud.
 ---
 
 # Quickstart: Create, download, and list blobs with Azure CLI

@@ -17,17 +17,19 @@ This article addresses questions most frequently asked about NC2 on Azure.
 
 ## How does the 30-day free trial work?
 
-To help you evaluate NC2 on Azure, Nutanix offers and manages a 30-day free trial. You can sign up for the trial with Nutanix. The following considerations are important:
+To help you evaluate NC2 on Azure, Nutanix offers and manages a 30-day free trial. You can sign up for the trial with Nutanix. 
 
-**Cost coverage**: The BareMetal cluster nodes have no cost through the trial. Additional components like VMs for Flow Gateway networking and other Azure services are billed and not included in the trial.
+The following details are important considerations for Nutanix on Azure BareMetal nodes:
 
-**Trial duration**: The trial begins with the initial hardware node deployment and lasts for 30 consecutive days. It cannot be paused, and the start date is fixed regardless of cluster activity.
+**Cost coverage**: The BareMetal cluster nodes have no cost through the trial. Other components like VMs for Flow Gateway networking and other Azure services are billed and not included in the trial.
 
-**One-time opportunity**: The trial is a one-time offer. If you deploy a cluster after the initial 30-day trial period, regardless of the timeframe, the trial does not reset, and you will be billed.
+**Trial duration**: The trial begins with the initial hardware node deployment and lasts for 30 consecutive days. It can't be paused, and the start date is fixed regardless of cluster activity. Even if the cluster is dropped, the trial time continues.
 
-**Track the trial period**: Nutanix software tracks trial periods for the NC2 software, but this may not align with the initial BareMetal deployment date. You should track your BareMetal deployment date manually as there is no visible trial date tracker in the software.
+**One-time opportunity**: The trial is a one-time offer. If you deploy a cluster after the initial 30-day trial period, regardless of the timeframe, the trial doesn't reset, and you'll be billed. Creating a cluster in a different subscription does not reset your trial timing.
 
-For more information, see [Start your free trial today with Nutanix on Azure](https://www.nutanix.com/products/nutanix-cloud-clusters/azure/free-trial)
+**Track the trial period**: There's no visible trial information for the BareMetal. You should track your BareMetal deployment date manually.
+
+For more information, see _*[Starting a Free Trial for NC2 ](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Cloud-Clusters-Azure:nc2-clusters-starting-a-nc2-free-trial-t.html"https://portal.nutanix.com/page/documents/details?targetid=nutanix-cloud-clusters-azure:nc2-clusters-starting-a-nc2-free-trial-t.html")*_
 
 ## What is Hyperconverged Infrastructure (HCI)?
 
@@ -52,9 +54,9 @@ For more information about Production Support tiers and SLAs, see Product Suppor
 
 ## Does this solution integrate with the rest of the Azure cloud?
 
-Yes. You can use the products and services in Azure that you already have and love.
+Yes. You can use the products and services in Azure that you already have.
 
-## Can I use my existing VPN or ExpressRoute gateway for the DR scenario?
+## Can I use my existing VPN or ExpressRoute gateway for a disaster recovery scenario?
 
 Yes.
 
@@ -62,10 +64,10 @@ Yes.
 
 No.
 
-## How can I create a VM on a node?
+## How can I create a virtual machine (VM) on a node?
 
-After a customer provisions a cluster, they can spin up a VM through the Nutanix Prism Portal.
-This operation should be exactly the same as on-premises in the prism portal.
+After a customer provisions a cluster, they can spin up a user VM through the Nutanix Prism Portal.
+This operation should be exactly the same as on-premises in the Prism Portal.
 
 ## Next steps
 

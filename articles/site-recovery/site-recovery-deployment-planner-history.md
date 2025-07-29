@@ -6,6 +6,7 @@ ms.topic: overview
 ms.service: azure-site-recovery
 ms.date: 10/28/2024
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to review the version history of the Azure Site Recovery Deployment Planner, so that I can understand the fixes, improvements, and limitations in each release for effective planning and deployment."
 ---
 # Azure Site Recovery Deployment Planner Version History
 

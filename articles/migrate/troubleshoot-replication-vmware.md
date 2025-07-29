@@ -8,6 +8,7 @@ ms.topic: troubleshooting
 ms.service: azure-migrate
 ms.date: 05/08/2025
 ms.custom: vmware-scenario-422, mvc, engagement-fy25
+# Customer intent: As a VMware administrator, I want to troubleshoot slow replication or stuck migration, so that I can ensure efficient and timely replication of virtual machines during the migration process.
 ---
 
 # Troubleshoot slow replication or stuck migration issues in agentless VMware migration 

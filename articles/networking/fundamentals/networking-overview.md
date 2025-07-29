@@ -14,10 +14,10 @@ ms.author: mbender
 
 The networking services in Azure provide various networking capabilities that can be used together or separately. Select each of the following networking scenarios to learn more about them:
 
-- [**Networking foundation**](#foundation): [Azure networking foundation services](../foundations/index.yml) provide core connectivity for your resources in Azure - Virtual Network (VNet), Private Link, Azure DNS, Azure Bastion, Route Server, NAT Gateway, and Traffic Manager.
-- [**Load balancing and content delivery**](#delivery): [Azure load balancing and content delivery services](../load-balancer-content-delivery/index.yml)allow for management, distribution, and optimization of your applications and workloads - Load balancer, Application Gateway, and Azure Front Door.
-- [**Hybrid connectivity**](#hybrid): [Azure hybrid connectivity services](../hybrid-connectivity/index.yml) secure communication to and from your resources in Azure - VPN Gateway, ExpressRoute, Virtual WAN, and Peering Service.
-- [**Network security**](#security): [Azure network security services](../security/index.yml) protect your web applications and IaaS services from DDoS attacks and malicious actors - Firewall Manager, Firewall, Web Application Firewall, and DDoS Protection.
+- [**Networking foundation**](#foundation): [Azure networking foundation services](../foundations/network-foundations-overview.md) provide core connectivity for your resources in Azure - Virtual Network (VNet), Private Link, Azure DNS, Azure Bastion, Route Server, NAT Gateway, and Traffic Manager.
+- [**Load balancing and content delivery**](#delivery): [Azure load balancing and content delivery services](../load-balancer-content-delivery/load-balancing-content-delivery-overview.md)allow for management, distribution, and optimization of your applications and workloads - Load balancer, Application Gateway, and Azure Front Door.
+- [**Hybrid connectivity**](#hybrid): [Azure hybrid connectivity services](../hybrid-connectivity/hybrid-connectivity.md) secure communication to and from your resources in Azure - VPN Gateway, ExpressRoute, Virtual WAN, and Peering Service.
+- [**Network security**](#security): [Azure network security services](../security/network-security.md) protect your web applications and IaaS services from DDoS attacks and malicious actors - Firewall Manager, Firewall, Web Application Firewall, and DDoS Protection.
 - [**Network Management and monitoring**](#management): [Azure network management and monitoring services](../monitoring-management/index.yml) provide tools to manage and monitor your network resources - Network Watcher, Azure Monitor, and Azure Virtual Network Manager.
 
 ## <a name="foundation"></a>Networking foundation

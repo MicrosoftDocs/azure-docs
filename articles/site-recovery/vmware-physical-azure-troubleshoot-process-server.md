@@ -7,6 +7,7 @@ ms.date: 09/09/2019
 ms.author: jsuri
 author: jyothisuri
 
+# Customer intent: As an IT administrator managing disaster recovery solutions, I want to troubleshoot issues with the process server in Azure Site Recovery, so that I can ensure the reliability and connectivity of my disaster recovery setup for on-premises VMware VMs and physical servers.
 ---
 # Troubleshoot the process server
 

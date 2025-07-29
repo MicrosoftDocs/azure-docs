@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.date: 12/14/2023
 ms.author: jsuri
 
+# Customer intent: "As an IT operations manager, I want to implement Azure Traffic Manager with Azure Site Recovery, so that I can ensure seamless traffic redirection and minimize downtime during disasters or migrations across on-premises and cloud environments."
 ---
 # Azure Traffic Manager with Azure Site Recovery
 

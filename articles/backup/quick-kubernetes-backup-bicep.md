@@ -10,8 +10,9 @@ ms.custom:
   - ignite-2024
   - build-2025
 ms.reviewer: rajats
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-mallicka
+author: AbhishekMallick-MS
+# Customer intent: As a cloud administrator, I want to configure backups for an Azure Kubernetes Service cluster using Bicep, so that I can ensure data protection and recovery in a streamlined manner.
 ---
 
 # Quickstart: Configure vaulted backup for an Azure Kubernetes Service (AKS) cluster using Azure Bicep

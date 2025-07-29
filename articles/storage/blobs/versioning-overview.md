@@ -10,6 +10,7 @@ ms.topic: concept-article
 ms.date: 02/14/2023
 ms.author: normesta
 ms.custom: engagement-fy23
+# Customer intent: "As a data engineer, I want to enable blob versioning for my storage account, so that I can automatically maintain and restore previous versions of my data to safeguard against accidental modifications or deletions."
 ---
 
 # Blob versioning

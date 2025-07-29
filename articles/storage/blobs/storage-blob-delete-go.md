@@ -11,6 +11,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
+# Customer intent: "As a developer using the Go client library, I want to delete and restore blobs in Azure Storage, so that I can manage my data effectively and recover from accidental deletions."
 ---
 
 # Delete and restore a blob with Go

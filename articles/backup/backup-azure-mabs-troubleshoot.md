@@ -5,8 +5,9 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 04/26/2022
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a system administrator, I want to troubleshoot installation and operational issues of Azure Backup Server, so that I can ensure backup and restore processes are running smoothly and efficiently.
 ---
 
 # Troubleshoot Azure Backup Server

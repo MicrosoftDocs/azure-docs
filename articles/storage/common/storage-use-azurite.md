@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, ai-video-demo
 ai-usage: ai-assisted
+# Customer intent: "As a developer, I want to use the Azurite emulator for local Azure Storage development, so that I can test my Blob, Queue, and Table Storage applications in a free and controlled environment before deployment."
 ---
 
 # Use the Azurite emulator for local Azure Storage development
