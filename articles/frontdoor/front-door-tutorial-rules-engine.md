@@ -16,6 +16,7 @@ ms.custom: devx-track-azurecli
 
 **Applies to:** :heavy_check_mark: Front Door (classic)
 
+
 This tutorial shows how to create a Rules engine configuration and your first rule in both Azure portal and CLI.
 
 In this tutorial, you learn how to:
