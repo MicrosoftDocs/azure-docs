@@ -78,7 +78,9 @@ Approximately one CU in a self-serve scalable cluster provides *ingress capacity
 With self-serve scalable clusters, you can purchase up to 10 CUs for a cluster in the Azure portal. In contrast to traditional clusters, these clusters can be scaled incrementally with CUs ranging from 1 to 10. If you need a cluster larger than 10 CUs, you can [submit a support request](event-hubs-dedicated-cluster-create-portal.md#submit-a-support-request) to scale up your cluster after its creation.
 
 > [!IMPORTANT]
-> To create or scale an AZ-enabled self-serve cluster, you must [submit a support request](event-hubs-dedicated-cluster-create-portal.md#submit-a-support-request) requesting three CUs or greater. A three CU (or greater) self-serve cluster created via Portal is NOT AZ-enabled.
+> To enable Availability zones on a Event Hubs dedicated cluster, it must be provisioned with three or more CUs.
+>
+
 ### Legacy clusters
 
 Event Hubs dedicated clusters created before the availability of self-serve scalable clusters are referred to as legacy clusters.
