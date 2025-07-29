@@ -1,7 +1,7 @@
 ---
 title: Roles and permissions for Azure Data Factory 
 description: Describes the roles and permissions required to create Data Factories and to work with child resources.
-ms.date: 02/13/2025
+ms.date: 07/29/2025
 ms.topic: concept-article
 ms.subservice: security
 author: nabhishek
@@ -14,7 +14,7 @@ ms.author: abnarain
 
 Most roles needed for Azure Data Factory are some of the standard [Microsoft Entra built-in roles](/entra/identity/role-based-access-control/permissions-reference): Owner, Contributor, Reader, etc.
 
-Though there is one special Azure Data Factory role: **Data Factory Contributor**
+Though there is one special Azure Data Factory role: [**Data Factory Contributor**](#scope-of-the-data-factory-contributor-role)
 
 This article explains what permissions are needed to perform actions in Azure Data Factory, what capabilities the **Data Factory Contributor** role has, and how to set up permissions.
 
@@ -30,8 +30,6 @@ To view the permissions that you have in the subscription, in the Azure portal, 
   
   > [!NOTE]
   > If you already assigned the **Contributor** role at the **Resource Group** level or above, you do not need the **Data Factory Contributor** role. The [Contributor role](../role-based-access-control/built-in-roles.md#contributor) is a superset role that includes all permissions of the [Data Factory Contributor role](../role-based-access-control/built-in-roles.md#data-factory-contributor).
-
-For sample instructions about how to add a user to a Microsoft Entra ID role, see the [Add roles](/entra/identity/role-based-access-control/manage-roles-portal?tabs=admin-center) article.
 
 ## Permissions to manage permissions within Data Factory
 
@@ -93,6 +91,9 @@ Here are a few examples that demonstrate what you can achieve with custom roles:
 
   Assign the built-in **contributor** role on the data factory resource for the user. This role lets the user see the resources in the Azure portal, but the user can't access the  **Publish** and **Publish All** buttons.
 
+## How to assign Microsoft Entra ID roles
+
+For sample instructions about how to add a user to a Microsoft Entra ID role, see the [Add roles](/entra/identity/role-based-access-control/manage-roles-portal?tabs=admin-center) article.
 
 ## Related content
 
