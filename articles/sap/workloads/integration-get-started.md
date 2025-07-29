@@ -194,7 +194,7 @@ Also see the following SAP resources:
 
 ### Azure Data Services
 
-Lear more about [how to extract your SAP data into Microsoft Fabric](../../workloads/extract-sap-data.md) including key steps and considerations for a successful integration. Evaluate the available connectors and choose the most appropriate data source to match your specific business and technical requirements.
+Learn more about [how to extract your SAP data into Microsoft Fabric](extract-sap-data.md) including key steps and considerations for a successful integration. Evaluate the available connectors and choose the most appropriate data source to match your specific business and technical requirements.
 
 Learn how to **choose** the [best SAP connector for data integration](/azure/cloud-adoption-framework/scenarios/sap/sap-lza-choose-azure-connectors) and how to [tune performance including troubleshooting tips](/azure/cloud-adoption-framework/scenarios/sap/sap-lza-data-extraction-performance-troubleshooting) on our cloud adoption framework for SAP. Get started by identifying your SAP data sources [here](/azure/cloud-adoption-framework/scenarios/sap/sap-lza-identify-sap-data-sources).
 
