@@ -100,7 +100,7 @@ Alternatively, you might want to assign the ability to read tables from within a
 
 |Tasks   |Permissions |
 |---------|---------|
-|**Read permissions on the default workspace**     | Use a [custom Microsoft Defender XDR unified RBAC role with *data (read)*](/defender-xdr/custom-permissions-details) permissions over the Microsoft Sentinel data collection.     |
+|**Read permissions on the default workspace**     | Use a [custom Microsoft Defender XDR unified RBAC role with ](/defender-xdr/custom-permissions-details)*[data (read)](/defender-xdr/custom-permissions-details)* permissions over the Microsoft Sentinel data collection.     |
 |**Read permissions on any other workspace enabled for Microsoft Sentinel in the data lake**     | Use one of the following built-in roles in Azure RBAC for permissions on that workspace: <br>- [Log Analytics Reader](/azure/role-based-access-control/built-in-roles/monitor#log-analytics-reader) <br>- [Log Analytics Contributor](/azure/role-based-access-control/built-in-roles/monitor#log-analytics-contributor) <br>- [Microsoft Sentinel Contributor](/azure/role-based-access-control/built-in-roles/security#microsoft-sentinel-contributor) <br>- [Microsoft Sentinel Reader](/azure/role-based-access-control/built-in-roles/security#microsoft-sentinel-reader) <br>- [Reader](/azure/role-based-access-control/built-in-roles/general#reader)<br>- [Contributor](/azure/role-based-access-control/built-in-roles/privileged#contributor)<br>- [Owner](/azure/role-based-access-control/built-in-roles/privileged#owner)|
 
 
@@ -113,7 +113,7 @@ Microsoft Entra ID roles provides broad access across all workspaces in the data
 |**Write to tables in the analytics tier using KQL jobs or notebooks**     |  Use one of the following Microsoft Entra ID roles: <br><br> - [Security operator](/entra/identity/role-based-access-control/permissions-reference#security-operator)<br>- [Security administrator](/entra/identity/role-based-access-control/permissions-reference#security-administrator) <br>- [Global administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator)      |
 |**Write to tables in the Microsoft Sentinel data lake**     |  Use one of the following Microsoft Entra ID roles: <br>- [Security operator](/entra/identity/role-based-access-control/permissions-reference#security-operator) <br>- [Security administrator](/entra/identity/role-based-access-control/permissions-reference#security-administrator) <br>- [Global administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator)        |
 
-Alternatively, you might want to assign the ability to write output to a specific workspace, including creating, updating, and deleted tables in that workspace. In such cases, use one of the following:
+Alternatively, you might want to assign the ability to write output to a specific workspace. This can include the ability to configure connectors to that workspace, modifying retention settings for tables in the workspace, or creating, updating, and deleting custom tables in that workspace. In such cases, use one of the following:
 
 |Tasks  |Permissions |
 |---------|---------|

@@ -17,6 +17,10 @@ ROBOTS: NOINDEX
 
 [!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
+> [!IMPORTANT]
+> - Starting August 15, 2025, Azure CDN from Microsoft (classic) will no longer support new domain onboarding or profile creation. Migrate to [AFD Standard and Premium](/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) to create new domains or profiles and avoid service disruption. [Learn more](/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json)
+> - Switch from Azure-managed certificates on existing domains to Bring Your Own Certificate (BYOC) or migrate to [AFD Standard and Premium](/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) by August 15, 2025 to avoid service disruption. Existing managed certificates will be auto renewed before August 15, 2025, and remain valid until April 14, 2026. [Learn more](/azure/cdn/cdn-custom-ssl?toc=%2Fazure%2Ffrontdoor%2Ftoc.json&tabs=option-1-default-enable-https-with-a-cdn-managed-certificate) 
+
 This article describes all the settings for creating an [Azure Content Delivery Network](cdn-overview.md) endpoint in an existing content delivery network profile. After you've created a profile and an endpoint, you can start delivering content to your customers. For a quickstart on creating a profile and endpoint, see [Quickstart: Create an Azure Content Delivery Network profile and endpoint](cdn-create-new-endpoint.md).
 
 ## Prerequisites
@@ -69,17 +73,18 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
     - **Azure CDN Standard from Microsoft** profiles:
        - [**General web delivery**](cdn-optimization-overview.md#general-web-delivery)
 
-10. Select **Add** to create the new endpoint.
+1. Select **Add** to create the new endpoint.
 
     After the endpoint is created, it appears in the list of endpoints for the profile.
 
-    ![Screenshot of Content Delivery Network endpoint.](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
-
-   It may take up to 10 minutes for the endpoint registration to propagate and become available for use.
-
-   If you attempt to use the content delivery network domain name before the endpoint configuration has propagated to the point of presence (POP) servers, you might receive an HTTP 404 response status. If it has been several hours since you created your endpoint and you're still receiving a 404 response status, see [Troubleshooting Azure Content Delivery Network endpoints that return a 404 status code](cdn-troubleshoot-endpoint.md).
-
-## Clean up resources
+   ![Screenshot of Content Delivery Network endpoint.](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
+   
+      ```
+     It may take up to 10 minutes for the endpoint registration to propagate and become available for use.
+   
+   
+     If you attempt to use the content delivery network domain name before the endpoint configuration has propagated to the point of presence (POP) servers, you might receive an HTTP 404 response status. If it has been several hours since you created your endpoint and you're still receiving a 404 response status, see [Troubleshooting Azure Content Delivery Network endpoints that return a 404 status code](cdn-troubleshoot-endpoint.md).
+   ```## Clean up resources
 
 To delete an endpoint when it's no longer needed, select it and then select **Delete**.
 
