@@ -236,7 +236,7 @@ Web application samples are available for the following languages:
 - [Node.js sample](https://github.com/microsoftgraph/nodejs-webhooks-sample).
 
 > [!IMPORTANT]
-> You need to activate your partner topic that is created as part of your Graph API subscription creation. You also need to create an Event Grid event subscription to your web application to receive events. To that end, you use the URL configured in your web application to receive events as a webhook endpoint in your event subscription. [Next steps](#next-steps) for more information.
+> You need to activate your partner topic that is created as part of your Graph API subscription creation. You also need to create an Event Grid event subscription to your web application to receive events. To that end, you use the URL configured in your web application to receive events as a webhook endpoint in your event subscription.
 
 > [!IMPORTANT]
 > Need sample code for another language or have questions? Email [ask-graph-and-grid@microsoft.com](mailto:ask-graph-and-grid@microsoft.com?subject=Need%20support%20for%20sample%20in%20other%20language).
