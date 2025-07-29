@@ -17,7 +17,7 @@ This article describes reliability support in Azure NetApp Files, covering intra
 
 Azure NetApp Files is a native, enterprise-grade file storage solution that's integrated seamlessly within Azure, enabling file sharing across clients via SMB and NFS protocols. Designed for high performance, Azure NetApp Files offers scalable and secure file storage that's managed as a service.
 
-To use Azure NetApp Files, you must configure a NetApp account which contain *capacity pools* that in turn host *volumes*. You can configure capacity and throughput independently, and manage data protection options tailored to various needs. You can enable replication between volumes, even if they're in different locations.
+To use Azure NetApp Files, you must configure a NetApp account which contains *capacity pools* that in turn host *volumes*. You can configure capacity and throughput independently, and manage data protection options tailored to various needs. You can enable replication between volumes, even if they're in different locations.
 
 ## Production deployment recommendations
 
@@ -35,7 +35,7 @@ To optimize reliability in Azure NetApp Files, you should:
 
 In addition to transient fault types that can affect any cloud-based solution, Azure NetApp Files can also be affected by occasional planned maintenance, such as platform updates, service updates, and software upgrades.
 
-From a file protocol (e.g. NFS and SMB) perspective, transient faults are not disruptive if the application can handle the I/O pauses that might briefly occur during these events. The I/O pauses are typically short, ranging from a few seconds up to 30 seconds.  Some applications might require tuning to handle the I/O pauses.
+From a file protocol (e.g. NFS and SMB) perspective, transient faults aren't disruptive if the application can handle the I/O pauses that might briefly occur during these events. The I/O pauses are typically short, ranging from a few seconds up to 30 seconds.  Some applications might require tuning to handle the I/O pauses.
 
 The NFS protocol is especially robust, and client-server file operations generally continue normally. Some applications might require tuning to handle I/O pauses for as long as 30-45 seconds. Ensure that you're aware of the application’s resiliency settings to cope with the storage service maintenance events.
 
@@ -132,9 +132,9 @@ This section describes what to expect when Azure NetApp Files volumes are config
 
 - **Expected downtime:** Failover to another zone requires that you break the peering relationship to activate the destination volume and provide read and write data access in the second site. After you trigger the peering to break, you can expect these to be completed within one minute.
 
-    However, the total amount of downtime (also called the recovery time objective, or RTO) you can expect during a zone failover depends on multiple factors, including how long it takes for your systems or processes to detect the loss of the zone and to initiate failover processes. It also is is important to decide whether to automate your response or if manual steps are required. For well-prepared configurations, the overall process typically requires between a few minutes and up to an hour.
+    However, the total amount of downtime (also called the recovery time objective, or RTO) you can expect during a zone failover depends on multiple factors, including how long it takes for your systems or processes to detect the loss of the zone and to initiate failover processes. It's also important to decide whether to automate your response or if manual steps are required. For well-prepared configurations, the overall process typically requires between a few minutes and up to an hour.
 
-- **Traffic rerouting:** You're responsible for redirecting your application traffic to connect to to the newly active destination volume. For more information, see [fail over to the destination volume](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume).
+- **Traffic rerouting:** You're responsible for redirecting your application traffic to connect to the newly active destination volume. For more information, see [fail over to the destination volume](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume).
 
 ### Failback
 
@@ -208,9 +208,9 @@ This section describes what to expect when Azure NetApp Files volumes are config
 
 - **Expected downtime:** Failover to another region requires that you break the peering relationship to activate the destination volume and provide read and write data access in the second site. After you trigger the peering to break, you can expect these to be completed within one minute.
 
-    However, the total amount of downtime (also called the recovery time objective, or RTO) you can expect during a zone failover depends on multiple factors, including how long it takes for your systems or processes to detect the loss of the zone and to initiate failover processes. It also is is important to decide whether to automate your response or if manual steps are required. For well-prepared configurations, the overall process typically requires between a few minutes and up to an hour.
+    However, the total amount of downtime (also called the recovery time objective, or RTO) you can expect during a zone failover depends on multiple factors, including how long it takes for your systems or processes to detect the loss of the zone and to initiate failover processes. It's also important to decide whether to automate your response or if manual steps are required. For well-prepared configurations, the overall process typically requires between a few minutes and up to an hour.
 
-- **Traffic rerouting:** You're responsible for redirecting your application traffic to connect to to the newly active destination volume. For more information, see [fail over to the destination volume](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume).
+- **Traffic rerouting:** You're responsible for redirecting your application traffic to connect to the newly active destination volume. For more information, see [fail over to the destination volume](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume).
 
 ### Failback
 
