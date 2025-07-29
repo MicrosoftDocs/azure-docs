@@ -1,6 +1,6 @@
 ---
- title: include file
- description: include file
+ title: Description of Azure Storage geo-redundant storage configuration steps for existing storage accounts
+ description: Description of Azure Storage geo-redundant storage configuration steps for existing storage accounts
  author: anaharris-ms
  ms.service: azure
  ms.topic: include

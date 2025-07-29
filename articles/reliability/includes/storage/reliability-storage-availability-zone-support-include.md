@@ -1,6 +1,6 @@
 ---
- title: include file
- description: include file
+ title: Diagram of Azure Storage zone redundant storage
+ description: Diagram of Azure Storage zone redundant storage
  author: anaharris-ms
  ms.service: azure
  ms.topic: include

@@ -1,6 +1,6 @@
 ---
- title: include file
- description: include file
+ title: Description of Azure Storage availability zone cost
+ description: Description of Azure Storage availability zone cost
  author: anaharris-ms
  ms.service: azure
  ms.topic: include

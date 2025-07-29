@@ -83,7 +83,7 @@ For detailed pricing information, see [Azure Queue Storage pricing](https://azur
 
 - **Create a storage account and queue with zone redundancy:**
 
-    1. [Create a storage account](/azure/storage/common/storage-account-create) and select ZRS, geo-zone-redundant storage(GZRS) or read-access geo-redundant storage (RA-GZRS) as the redundancy option during account creation.
+    1. [Create a storage account](/azure/storage/common/storage-account-create) and select ZRS, geo-zone-redundant storage (GZRS) or read-access geo-redundant storage (RA-GZRS) as the redundancy option during account creation.
 
     1. [Create a queue](/azure/storage/queues/storage-quickstart-queues-portal).
 

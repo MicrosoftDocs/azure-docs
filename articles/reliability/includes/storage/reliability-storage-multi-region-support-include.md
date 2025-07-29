@@ -1,6 +1,6 @@
 ---
- title: include file
- description: include file
+ title: Description of Azure Storage geo-redundant storage
+ description: Description of Azure Storage geo-redundant storage
  author: anaharris-ms
  ms.service: azure
  ms.topic: include
