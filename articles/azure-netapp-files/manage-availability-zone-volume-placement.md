@@ -150,5 +150,5 @@ If you're using a custom RBAC role or the [built-in Contributor role](../role-ba
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)   
 * [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md)      
 * [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md)    
-* [Understand cross-zone replication of Azure NetApp Files](cross-zone-replication-introduction.md)
+* [Understand cross-zone replication of Azure NetApp Files](replication.md)
 * [Create cross-zone replication](create-cross-zone-replication.md)

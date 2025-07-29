@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 04/25/2025
+ms.date: 07/28/2025
 ms.author: anfdocs
 # Customer intent: As a disaster recovery coordinator, I want to test the disaster recovery configuration using cross-region replication, so that I can ensure our systems meet the required recovery objectives and maintain operational readiness without impacting current operations.
 ---  
@@ -14,7 +14,7 @@ ms.author: anfdocs
 
 An effective disaster recovery plan includes testing your disaster recovery configuration. Testing your disaster recovery configuration demonstrates the efficacy of your disaster recovery configuration and that it can achieve the desired recovery point objective (RPO) and recovery time objective (RTO). Testing disaster recovery also ensures that operational runbooks are accurate and that operational staff are trained on the workflow.
 
-This disaster recovery workflow can be tested with either [Azure NetApp cross-region replication](replication.md) or [cross-zone replication](cross-zone-replication-introduction.md). You can test your disaster recovery understanding and preparedness without disrupting the existing replication schedule, posing no risk to RPO or RTO. This test plan also leverages Azure NetApp Files' ability to [create new volumes from the snapshots](snapshots-restore-new-volume.md) in cross-region replication.
+This disaster recovery workflow can be tested with either [cross-region or cross-zone replication](replication.md). You can test your disaster recovery understanding and preparedness without disrupting the existing replication schedule, posing no risk to RPO or RTO. This test plan also leverages Azure NetApp Files' ability to [create new volumes from the snapshots](snapshots-restore-new-volume.md) in cross-region replication.
 
 ## Prerequisites
 

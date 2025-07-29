@@ -33,13 +33,13 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Application volume group for Oracle](configure-application-volume-oracle-api.md#replication) now supports cross-zone and cross-region replication (preview)
 
-    [Application volume group for Oracle](application-volume-group-oracle-introduction.md) now supports [cross-region](replication.md) and [cross-zone replication](cross-zone-replication-introduction.md) to improve the resilience and data protection of your Oracle deployments. With cross-zone and cross-region replication, Azure NetApp Files only replicates changed blocks across regions or zones, enabling a lower restore point objective. To understand more of the benefits of each option, see [Understand data protection and disaster recovery options in Azure NetApp Files](data-protection-disaster-recovery-options.md).
+    [Application volume group for Oracle](application-volume-group-oracle-introduction.md) now supports [cross-region](replication.md) and [cross-zone replication](replication.md) to improve the resilience and data protection of your Oracle deployments. With cross-zone and cross-region replication, Azure NetApp Files only replicates changed blocks across regions or zones, enabling a lower restore point objective. To understand more of the benefits of each option, see [Understand data protection and disaster recovery options in Azure NetApp Files](data-protection-disaster-recovery-options.md).
 
     Cross-zone and cross-region replication for application volume group for Oracle is currently only supported in the REST API. This feature is in preview. 
 
 * [Cross-zone-region replication](cross-zone-region-replication-configure.md) (preview)
 
-    [Cross-zone-region replication](cross-zone-region-replication.md) is an extension to cross-region and cross-zone replication. With cross-zone-region replication, you can configure two protection volumes in any combination of cross-region and cross-zone replication for the same source volume. Replication is now also supported across subscriptions under the same tenant. This feature is in preview.
+    [Cross-zone-region replication](replication.md#cross-zone-region-replication) is an extension to cross-region and cross-zone replication. With cross-zone-region replication, you can configure two protection volumes in any combination of cross-region and cross-zone replication for the same source volume. Replication is now also supported across subscriptions under the same tenant. This feature is in preview.
 
 * [Support for one Active Directory connection per NetApp account](create-active-directory-connections.md#multi-ad) is now generally available (GA)
 
@@ -60,7 +60,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Cross-subscription replication](cross-region-replication-create-peering.md)
 
-    Azure NetApp Files cross-subscription replication enables replication across different subscriptions under the same tenant. This feature enhances disaster recovery and operational agility by leveraging NetApp SnapMirror technology, which ensures efficient data transfer by sending only changed blocks in a compressed format. The feature is supported with both [cross-zone replication](cross-zone-replication-introduction.md) in all Azure NetApp Files regions with [availability zones](../reliability/regions-list.md) and [cross-region replication](replication.md) in all supported regions.
+    Azure NetApp Files cross-subscription replication enables replication across different subscriptions under the same tenant. This feature enhances disaster recovery and operational agility by leveraging NetApp SnapMirror technology, which ensures efficient data transfer by sending only changed blocks in a compressed format. The feature is supported with both [cross-zone replication](replication.md) in all Azure NetApp Files regions with [availability zones](../reliability/regions-list.md) and [cross-region replication](replication.md) in all supported regions.
     
     You must [register the feature](cross-region-replication-create-peering.md#register-for-cross-subscription-replication) before using it for the first time. 
 
@@ -202,7 +202,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * Availability zone volume placement enhancement - [**Populate existing volumes**](manage-availability-zone-volume-placement.md#populate-an-existing-volume-with-availability-zone-information) is now generally available (GA).
 
-* [Cross-zone replication](cross-zone-replication-introduction.md) is now generally available (GA).
+* [Cross-zone replication](replication.md) is now generally available (GA).
 
     Cross-zone replication allows you to replicate your Azure NetApp Files volumes asynchronously from one Azure availability zone (AZ) to another within the same region. Using technology similar to the cross-region replication feature and Azure NetApp Files availability zone volume placement feature, cross-zone replication replicates data in-region across different zones; only changed blocks are sent over the network in a compressed, efficient format. It helps you protect your data from unforeseeable zone failures without the need for host-based data replication. This feature minimizes the amount of data required to replicate across the zones, limiting data transfers required and shortens the replication time so you can achieve a smaller Restore Point Objective (RPO). Cross-zone replication doesn’t involve any network transfer costs and is highly cost-effective. 
     
@@ -539,7 +539,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Cross-zone replication](create-cross-zone-replication.md) (Preview)
 
-    With Azure’s push towards the use of availability zones (AZs), the need for storage-based data replication is equally increasing. Azure NetApp Files now supports [cross-zone replication](cross-zone-replication-introduction.md). With this new in-region replication capability - by combining it with the new availability zone volume placement feature - you can replicate your Azure NetApp Files volumes asynchronously from one Azure availability zone to another in a fast and cost-effective way.
+    With Azure’s push towards the use of availability zones (AZs), the need for storage-based data replication is equally increasing. Azure NetApp Files now supports [cross-zone replication](replication.md). With this new in-region replication capability - by combining it with the new availability zone volume placement feature - you can replicate your Azure NetApp Files volumes asynchronously from one Azure availability zone to another in a fast and cost-effective way.
 
     Cross-zone replication helps you protect your data from unforeseeable zone failures without the need for host-based data replication. Cross-zone replication minimizes the amount of data required to replicate across the zones, therefore limiting data transfers required and also shortens the replication time, so you can achieve a smaller Restore Point Objective (RPO). Cross-zone replication doesn’t involve any network transfer costs, hence it's highly cost-effective.
 

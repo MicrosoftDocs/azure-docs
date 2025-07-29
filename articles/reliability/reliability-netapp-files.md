@@ -6,7 +6,7 @@ ms.author: anfdocs
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-netapp-files
-ms.date: 07/14/2025
+ms.date: 07/28/2025
 ---
 
 # Reliability in Azure NetApp Files
@@ -32,8 +32,6 @@ To optimize reliability in Azure NetApp Files, you should:
 ## Transient faults
 
 [!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
-
-<!-- I've rewritten this slightly to frame it as "transient faults can occur for several reasons, including planned maintenance. Here's how you should handle transient faults (whatever their reason)." Please confirm this is still accurate. -->
 
 In addition to transient fault types that can affect any cloud-based solution, Azure NetApp Files can also be affected by occasional planned maintenance, such as platform updates, service updates, and software upgrades.
 
@@ -67,7 +65,7 @@ Cross-zone replication is available in all [availability zone-enabled regions](a
 
 ### Considerations
 
-- Availability zone volume placement in Azure NetApp Files provides zonal volume placement. You'll see low latency when connecting to virtual machines within the same availability zone. However, it doesn't provide proximity placement with virtual machines or other resources, and the volume might be in a different physical part of the datacenter. <!-- Please confirm this is accurate. The previous wording was a little unclear. -->
+- Availability zone volume placement in Azure NetApp Files provides zonal volume placement. You'll see low latency when connecting to virtual machines within the same availability zone. However, it doesn't provide proximity placement with virtual machines or other resources, and the volume might be in a different physical part of the datacenter. 
 
 - Replication is permitted between different Azure subscriptions as long as they are within the same Microsoft Entra tenant.
 
@@ -103,8 +101,6 @@ You need to separately configure volume placement and cross-zone replication.
 
 ### Normal operations
 
-<!-- I've significantly rewritten this section and folded in information from other documents. Please verify that this is still accurate. -->
-
 This section describes what to expect when Azure NetApp Files volumes are configured to be deployed into multiple availability zones, cross-zone replication is enabled, and all availability zones are operational.
 
 - **Traffic routing between zones:** Incoming requests are routed to the specific volume, which is located in the availability zone you selected.
@@ -115,8 +111,6 @@ This section describes what to expect when Azure NetApp Files volumes are config
     > The 10-minute replication schedule isn't supported for [large volumes](../azure-netapp-files/azure-netapp-files-understand-storage-hierarchy.md#large-volumes) using cross-zone replication.
 
 ### Zone-down experience
-
-<!-- I've significantly rewritten this section and folded in information from other documents. Please verify that this is still accurate. -->
 
 This section describes what to expect when Azure NetApp Files volumes are configured to be deployed into multiple availability zones, cross-zone replication is enabled, and there's an availability zone outage.
 
@@ -134,9 +128,7 @@ This section describes what to expect when Azure NetApp Files volumes are config
     |---|---|
     | Every 10 minutes | 20 minutes|
     | Hourly | Two hours |
-    | Daily | < 48 hours |
-
-    <!-- These numbers feel a little too precise. Should they be made a little fuzzier to avoid implying this is exact? For example, maybe we could say "1-2 hours" for the hourly one? -->
+    | Daily | Less than 48 hours |
 
 - **Expected downtime:** Failover to another zone requires that you break the peering relationship to activate the destination volume and provide read and write data access in the second site. After you trigger the peering to break, you can expect these to be completed within one minute.
 
@@ -198,8 +190,6 @@ This section describes what to expect when Azure NetApp Files volumes are config
 
 This section describes what to expect when Azure NetApp Files volumes are configured to use cross-region replication is enabled, and there's an outage of the primary region.
 
-<!-- Note that the info here is mostly the same as in the AZ section. Should we collapse it somehow? -->
-
 - **Detection and response:** You're responsible for detecting the loss of a region and initiating a failover.
 
     To monitor the health of your Azure NetApp Files volume, you can use Azure Monitor metrics. Any anomalies indicating a region-down scenario are detected via real-time metrics such as IOPS, latency, and capacity usage. Alerts and notifications can be configured to be sent to administrators, which enables immediate response actions such as rebalancing file shares or initiating failover or other disaster recovery protocols.
@@ -212,11 +202,9 @@ This section describes what to expect when Azure NetApp Files volumes are config
 
     | Replication schedule | Typical RPO |
     |---|---|
-    | Every 10 minutes | < 20 minutes|
-    | Hourly | < Two hours |
-    | Daily | < 48 hours |
-
-    <!-- These numbers feel a little too precise. Should they be made a little fuzzier to avoid implying this is exact? For example, maybe we could say "1-2 hours" for the hourly one? -->
+    | Every 10 minutes | Less than 20 minutes|
+    | Hourly | Less than Two hours |
+    | Daily | Less than 48 hours |
 
 - **Expected downtime:** Failover to another region requires that you break the peering relationship to activate the destination volume and provide read and write data access in the second site. After you trigger the peering to break, you can expect these to be completed within one minute.
 

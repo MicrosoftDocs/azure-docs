@@ -11,7 +11,7 @@ ms.author: anfdocs
 ---
 # Create volume replication for Azure NetApp Files
 
-Azure NetApp Files enables you to replicate a volume for data protection and resiliency. You can replicate volumes across [regions](replication.md), [zones in the same region](cross-zone-replication-introduction.md), or a [combination](cross-zone-region-replication.md). 
+Azure NetApp Files enables you to replicate a volume for data protection and resiliency. You can replicate volumes across [regions](replication.md#cross-region-replication), [zones in the same region](replication.md#cross-zone-replication), or a [combination](replication.md#cross-zone-region-replication). 
 
 Setting up replication peering enables you to asynchronously replicate data from an Azure NetApp Files volume (source) to another Azure NetApp Files volume (destination). You can create volume replication between regions (the source and destination volumes reside in different regions, this is known as cross-region replication), or within a region where the replication is established to a different zone in the same region (this is known as cross-zone replication).  
 
@@ -20,7 +20,7 @@ Setting up replication peering enables you to asynchronously replicate data from
 
 Replication is permitted between different subscriptions under the same tenant ID. Replication across tenants isn't supported. Replication is supported with capacity pools of the same and different service levels. For example, the source volume can be in an Ultra service level capacity pool, and the destination volume can be in a Standard service level capacity pool. You can use this flexibility to reduce cost for the recovery volume if a lower service level is acceptable. If the recovery volume requires a higher service level, you can dynamically move the volume to a capacity pool with a higher service level without interruption to the service. 
 
-Before you begin, review the [requirements and considerations for cross-region replication](replication-requirements.md) and [cross-zone replication](replication-requirements.md).
+Before you begin, review the [requirements and considerations for cross-region and cross-zone replication](replication-requirements.md).
 
 ## Register for cross-subscription replication 
 
@@ -123,14 +123,8 @@ To authorize the replication, you need to obtain the resource ID of the replicat
     > Due to various factors, such as the state of the destination storage at a given time, there’s likely a difference between the used space of the source volume and the used space of the destination volume. <!-- ANF-14038 --> 
 
 ## Next steps  
-
-* [Cross-zone replication](cross-zone-replication-introduction.md)
-* [Requirements and considerations for cross-zone replication](replication-requirements.md)
-* [Cross-region replication](replication.md)
-* [Requirements and considerations for using cross-region replication](replication-requirements.md)
-* [Cross-zone-region replication](cross-zone-region-replication.md)
-* [Cross-zone replication](cross-zone-replication-introduction.md)
-* [Requirements and considerations for cross-zone replication](replication-requirements.md)
+* [Azure NetApp Files replication](replication.md)
+* [Requirements and considerations for Azure NetApp Files replication](replication-requirements.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
 * [Volume replication metrics](azure-netapp-files-metrics.md#replication)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)

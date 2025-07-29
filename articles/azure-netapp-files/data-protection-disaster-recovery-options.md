@@ -65,7 +65,7 @@ Cross-zone replication can be used in conjunction with cross-region replication.
 - Efficient storage-based data replication without load on compute infrastructure  
 - Lower TCO due to absence of data transfer fees
 
-To learn more, see [Understand cross-zone replication](cross-zone-replication-introduction.md). To get started with cross-zone replication, see [Create cross-zone replication relationships for Azure NetApp Files](create-cross-zone-replication.md). 
+To learn more, see [Understand cross-zone replication](replication.md#cross-zone-replication). To get started with cross-zone replication, see [Create cross-zone replication relationships for Azure NetApp Files](create-cross-zone-replication.md). 
 
 ## Choose a data protection solution
 
@@ -97,4 +97,3 @@ Fast data recovery (whole volume) | Revert volume from snapshot | Revert volume 
 * [Restore individual files using single-file snapshot restore](snapshots-restore-file-single.md)
 * [Restore a snapshot to a new volume](snapshots-restore-new-volume.md)
 * [Restore a volume using snapshot revert](snapshots-revert-volume.md)
-* [Understand cross-zone-region replication](cross-zone-region-replication.md)
