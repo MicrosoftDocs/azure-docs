@@ -126,6 +126,10 @@ The original invoice is canceled, and a new invoice is created. The money is ref
 
 Azure has the following policies for cancellations, exchanges, and refunds.
 
+**How is refund calculated**
+
+When a reservation is exchanged or canceled, the refund is calculated based on the number of remaining days in the reservation period. The calculation is done in UTC and uses a consistent formula to ensure fairness and transparency. Taking an example, if you bought an reservation on July 10, 2024, and exchanged it on July 9, 2025, only 1 day remains in the reservation. You’ll receive a small refund for that single day. 
+
 **Exchange policies**
 
 - You can return multiple existing reservations to purchase one new reservation of the same type. You can't exchange reservations of one type for another. For example, you can't return a VM reservation to purchase a SQL reservation. You can change a reservation property such as family, series, version, SKU, region, quantity, and term with an exchange.

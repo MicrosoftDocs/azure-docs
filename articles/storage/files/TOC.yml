@@ -261,6 +261,8 @@
   items:
   - name: Virtual desktops
     href: virtual-desktop-workloads.md
+  - name: Azure Kubernetes Service
+    href: azure-kubernetes-service-workloads.md    
   - name: SAP
     href: /azure/sap/workloads/planning-guide-storage-azure-files?toc=/azure/storage/files/toc.json
   - name: SQL Server

@@ -17,6 +17,10 @@ ROBOTS: NOINDEX
 
 [!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
+> [!IMPORTANT]
+> - Starting August 15, 2025, Azure CDN from Microsoft (classic) will no longer support new domain onboarding or profile creation. Migrate to [AFD Standard and Premium](/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) to create new domains or profiles and avoid service disruption. [Learn more](/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json)
+> - Switch from Azure-managed certificates on existing domains to Bring Your Own Certificate (BYOC) or migrate to [AFD Standard and Premium](/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) by August 15, 2025 to avoid service disruption. Existing managed certificates will be auto renewed before August 15, 2025, and remain valid until April 14, 2026. [Learn more](/azure/cdn/cdn-custom-ssl?toc=%2Fazure%2Ffrontdoor%2Ftoc.json&tabs=option-1-default-enable-https-with-a-cdn-managed-certificate)
+
 This tutorial shows how to enable the HTTPS protocol for a custom domain associated with an Azure CDN endpoint.
 
 The HTTPS protocol on your custom domain (for example, `https://www.contoso.com`), ensures your sensitive data is delivered securely via TLS/SSL. When your web browser is connected via HTTPS, the browser validates the web site's certificate. The browser verifies it's issued by a legitimate certificate authority. This process provides security and protects your web applications from attacks.

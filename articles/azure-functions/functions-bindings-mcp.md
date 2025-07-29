@@ -64,6 +64,9 @@ To use this preview bundle in your app, replace the existing `extensionBundle` o
 
 [!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
 
+> [!NOTE]
+> Until the extension is no longer in preview, the JSON schema for `host.json` isn't updated, and specific properties and behaviors might change. During the preview period, you might see warnings in your editor that say the `mcp` section isn't recognized. You can safely ignore these warnings.
+
 You can use `host.json` to define MCP server information.
 
 ```json

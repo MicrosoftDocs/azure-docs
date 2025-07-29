@@ -3,7 +3,7 @@ title: Run Azure Automation Runbooks on a Hybrid Runbook Worker
 description: This article describes how to run runbooks on machines in your local datacenter or other cloud provider with the Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/22/2025
+ms.date: 07/29/2025
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, linux-related-content
 ms.service: azure-automation
@@ -14,7 +14,7 @@ author: jasminemehndir
 # Run Automation runbooks on a Hybrid Runbook Worker
 
 
-> [!Important]
+> [!IMPORTANT]
 > - Starting 1st April 2025, all jobs running on agent-based Hybrid Worker will be stopped. 
 > - Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) has retired on **31 August 2024** and is no longer supported. Follow the guidelines on how to [migrate from an existing Agent-based User Hybrid Runbook Workers to Extension-based Hybrid Workers](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
 
@@ -41,8 +41,9 @@ Azure Automation handles jobs on Hybrid Runbook Workers differently from jobs ru
 Jobs for Hybrid Runbook Workers run under the local **System** account.
 
 > [!NOTE]
->- PowerShell 5.1, PowerShell 7.1(preview), Python 2.7, and Python 3.8 runbooks are supported on both extension-based and agent-based Windows Hybrid Runbook Workers. For agent based workers, ensure the Windows Hybrid worker version is 7.3.12960 or above.
->- PowerShell 7.2 and Python 3.10 (preview) runbooks are supported on extension-based Windows Hybrid Workers only. Ensure the Windows Hybrid worker extension version is 1.1.11 or above.
+>- PowerShell 7.4 and Python 3.10 runbooks are supported on extension-based Windows Hybrid Workers only. Ensure the Windows Hybrid worker extension version is 1.3.63 or above.
+>- PowerShell 5.1, PowerShell 7.1 (preview), Python 2.7, and Python 3.8 runbooks are supported on both extension-based and agent-based Windows Hybrid Runbook Workers. For agent based workers, ensure the Windows Hybrid worker version is 7.3.12960 or above.
+>- PowerShell 7.2 runbook is supported on extension-based Windows Hybrid Workers only. Ensure the Windows Hybrid worker extension version is 1.1.11 or above.
 
 #### Extension-based Hybrid Workers
 
@@ -94,8 +95,9 @@ If the *Python* executable file is at the default location *C:\Python27\python.e
 ### Linux Hybrid Worker
 
 > [!NOTE]
->- PowerShell 5.1, PowerShell 7.1(preview), Python 2.7, Python 3.8 runbooks are supported on both extension-based and agent-based Linux Hybrid Runbook Workers. For agent-based workers, ensure the Linux Hybrid Runbook worker version is 1.7.5.0 or above.
->- PowerShell 7.2 and Python 3.10 (preview) runbooks are supported on extension-based Linux Hybrid Workers only. Ensure the Linux Hybrid worker extension version is 1.1.11 or above.
+>- PowerShell 7.4 and Python 3.10 runbooks are supported on extension-based Linux Hybrid Workers only. Ensure the Linux Hybrid worker extension version is 1.1.23 or above.
+>- PowerShell 5.1, PowerShell 7.1 (preview), Python 2.7, Python 3.8 runbooks are supported on both extension-based and agent-based Linux Hybrid Runbook Workers. For agent-based workers, ensure the Linux Hybrid Runbook worker version is 1.7.5.0 or above.
+>- PowerShell 7.2 runbook is supported on extension-based Linux Hybrid Workers only. Ensure the Linux Hybrid worker extension version is 1.1.11 or above.
 
 #### Extension-based Hybrid Workers
 
@@ -286,7 +288,7 @@ By default, the Hybrid jobs run under the context of System account. However, to
 1. Select **Hybrid Worker Groups**, and then select the specific group.
 1. Select **Settings**.
 1. Change the value of **Hybrid Worker credentials** from **Default** to **Custom**.
-1. Select the credential and click **Save**.
+1. Select the credential and select **Save**.
 1. If the following permissions are not assigned for Custom users, jobs might get suspended.
 
   | **Resource type** | **Folder permissions** |

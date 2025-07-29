@@ -182,7 +182,7 @@ Pricing calculation:
 
 ### Example 6 - Web Application Firewall
 
-This example assumes Application Gateway for Containers has load raising the number of capacity units and has a Web Application Firewall (WAF) policy reference to an Application Gateway for Containers' security policy. The WAF policy is configured with both DRS 2.1 and bot manager rulesets.
+This example assumes Application Gateway for Containers has load raising the number of capacity units and has a Web Application Firewall (WAF) policy reference to an Application Gateway for Containers' security policy. The WAF policy is configured with both DRS 2.1 and bot manager rulesets. This WAF policy also has four custom rules enabled which do not incur any additional charges
 
 *	1 Application Gateway for Containers resource
 *	1 frontend resource
@@ -190,6 +190,7 @@ This example assumes Application Gateway for Containers has load raising the num
 *	1 security policy resources (non-billable)
 *	8 capacity units
 *	1 WAF policy running a default ruleset and a bot manager ruleset
+*	4 WAF custom rules
 *	10 million requests processed by WAF
 
 Pricing calculation:
@@ -204,14 +205,14 @@ Pricing calculation:
 
 ### Example 7 - Web Application Firewall - Multiple Policies
 
-This example assumes Application Gateway for Containers has load raising the number of capacity units and has three Web Application Firewall (WAF) policy reference to three corresponding Application Gateway for Containers' security policies. One policy is configured with both DRS 2.1 and bot manager rulesets, the other two policies only have DRS 2.1 ruleset.
+This example assumes Application Gateway for Containers has load raising the number of capacity units and has three Web Application Firewall (WAF) policy reference to three corresponding Application Gateway for Containers' security policies. One policy is configured with both DRS 2.1, bot manager rulesets and 3 custom rules, the other two policies only have DRS 2.1 ruleset and no custom rules.
 
 *	1 Application Gateway for Containers resource
 *	1 frontend resource
 *	1 association resource
 *	3 security policy resources (non-billable)
 *	8 Capacity Units
-*	1 WAF policy running a default ruleset and a bot manager ruleset
+*	1 WAF policy running a default ruleset, a bot manager ruleset and three custom rules
 *	10 million requests processed by WAF
 
 Pricing calculation:

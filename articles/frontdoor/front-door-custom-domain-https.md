@@ -17,6 +17,9 @@ ms.custom:
 **Applies to:** :heavy_check_mark: Front Door (classic)
 
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+> [!IMPORTANT]
+> - Starting August 15, 2025, Azure Front Door (classic) will no longer support new domain onboarding or profile creation. Migrate to [AFD Standard and Premium](/azure/frontdoor/tier-migration) to create new domains or profiles and avoid service disruption. [Learn more](/azure/frontdoor/tier-migration)
+> - Switch from Azure-managed certificates on existing domains to Bring Your Own Certificate (BYOC) or migrate to [AFD Standard and Premium](/azure/frontdoor/tier-migration) by August 15, 2025 to avoid service disruption. Existing managed certificates will be auto renewed before August 15, 2025, and remain valid until April 14, 2026.  **[Learn more](/azure/frontdoor/front-door-custom-domain-https?tabs=powershell%22https://learn.microsoft.com/en-us/azure/frontdoor/front-door-custom-domain-https?tabs=powershell%22)**
 
 This article explains how to enable HTTPS for a custom domain associated with your Front Door (classic). Using HTTPS on your custom domain (for example, `https://www.contoso.com`) ensures secure data transmission via TLS/SSL encryption. When a web browser connects to a website using HTTPS, it validates the website's security certificate and verifies its legitimacy, providing security and protecting your web applications from malicious attacks.
 

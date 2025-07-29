@@ -15,6 +15,13 @@ ms.custom: devx-track-azurecli
 **Applies to:** :heavy_check_mark: Front Door (classic)
 
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../../includes/front-door-classic-retirement.md)]
+
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../../includes/front-door-classic-retirement.md)]
+> [!IMPORTANT]
+> - Starting August 15, 2025, Azure Front Door (classic) will no longer support new domain onboarding or profile creation. Migrate to [AFD Standard and Premium](/azure/frontdoor/tier-migration) to create new domains or profiles and avoid service disruption. [Learn more](/azure/frontdoor/tier-migration)
+> - Switch from Azure-managed certificates on existing domains to Bring Your Own Certificate (BYOC) or migrate to [AFD Standard and Premium](/azure/frontdoor/tier-migration) by August 15, 2025 to avoid service disruption. Existing managed certificates will be auto renewed before August 15, 2025, and remain valid until April 14, 2026.  **[Learn more](/azure/frontdoor/front-door-custom-domain-https?tabs=powershell%22https://learn.microsoft.com/en-us/azure/frontdoor/front-door-custom-domain-https?tabs=powershell%22)**
+
 This Azure CLI script example demonstrates how to deploy a custom domain name and TLS certificate on an Azure Front Door front-end. The script automates the provisioning of Azure Front Door with a custom domain name (hosted by Azure DNS) and a TLS certificate.
 
 > [!IMPORTANT]
