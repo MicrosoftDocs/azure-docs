@@ -542,6 +542,9 @@ items:
     - name: Enable video background effects
       href: quickstarts/voice-video-calling/get-started-video-effects.md
       displayName: background blur, background replace, background replacement, frosted glass
+    - name: Enable volume indicator controls
+      href: quickstarts/voice-video-calling/get-started-volume-indicator.md
+      displayName: volume, audio level, microphone sensitivity, taling indicator, volume input, sound intensity, volume display  
     - name: Pass user-to-user information (UUI) data in a header
       href: how-tos/calling-sdk/call-context.md
     - name: Data channel
