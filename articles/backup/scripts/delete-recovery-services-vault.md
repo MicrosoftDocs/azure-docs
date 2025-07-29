@@ -5,8 +5,9 @@ ms.topic: sample
 ms.date: 12/03/2024
 ms.service: azure-backup
 ms.custom: devx-track-azurepowershell, engagement-fy24
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As an IT administrator, I want to execute a PowerShell script to delete a Recovery Services vault for Azure Backup, so that I can efficiently manage and clean up cloud resources that are no longer needed."
 ---
 
 # PowerShell script to delete a Recovery Services vault

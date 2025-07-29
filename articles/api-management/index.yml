@@ -93,8 +93,8 @@ landingContent:
             url: api-management-howto-policies.md
           - text: Networking options
             url: virtual-network-concepts.md
-          - text: High availability
-            url: high-availability.md
+          - text: Reliability
+            url: /azure/reliability/reliability-api-management
       - linkListType: reference
         links:
           - text: API Management policy reference

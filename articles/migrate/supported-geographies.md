@@ -4,6 +4,7 @@ description: Provides a list of regions where Azure Migrate is supported
 ms.topic: concept-article
 ms.date: 04/17/2025
 monikerRange: migrate
+# Customer intent: "As a cloud architect, I want to understand the supported geographies for Azure Migrate, so that I can plan and execute migration projects while ensuring compliance with data residency requirements."
 ---
 
 # Supported geographies 

@@ -18,7 +18,7 @@ the link in the **Version** column to view the source on the
 
 ## Azure Batch
 
-[!INCLUDE [azure-policy-reference-rp-batch](../../includes/policy/reference/byrp/microsoft.batch.md)]
+[!INCLUDE [azure-policy-reference-rp-batch](~/azure-policy-autogen-docs/includes/policy/reference/byrp/microsoft.batch.md)]
 
 ## Next steps
 

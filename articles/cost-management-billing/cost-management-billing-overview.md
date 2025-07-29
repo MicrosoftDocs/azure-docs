@@ -5,7 +5,7 @@ description: You use Billing features to manage billing accounts, invoices, and 
 author: shasulin
 ms.author: shasulin
 ms.reviewer: shasulin
-ms.date: 01/22/2025
+ms.date: 06/27/2025
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
@@ -22,7 +22,7 @@ A few examples of what you can do in Billing include:
 - Configure payment options and pay invoices.
 - Manage your billing information, such as legal entity, tax information, and agreements.
 - Report on and analyze costs in the Azure portal, Microsoft 365 admin center, or externally by exporting data.
-- Monitor costs proactively with budget and scheduled alerts.
+- Monitor costs proactively with budgets and scheduled alerts.
 
 ## How charges are processed
 
@@ -30,9 +30,9 @@ To understand how Billing works, you should first understand the Commerce system
 
 :::image type="content" source="./media/commerce-pipeline.svg" alt-text="Diagram showing the Commerce data pipeline." border="false" lightbox="./media/commerce-pipeline.svg":::
 
-In the left side of the diagram, your Azure, Microsoft 365, Dynamics 365, and Power Platform services are all pushing data into the Commerce data pipeline. Each service publishes data on a different cadence. In general, if data for one service is slower than another, it's due to how frequently those services are publishing their usage and charges.
+On the left side of the diagram, your Azure, Microsoft 365, Dynamics 365, and Power Platform services are all pushing data into the Commerce data pipeline. Each service publishes data on a different cadence. In general, if data for one service is slower than another, it's due to how frequently those services are publishing their usage and charges.
 
-As the data makes its way through the pipeline, the rating system applies discounts based on your specific price sheet and generates *rated usage*, which includes price and quantity for each cost record. It's the basis for what you see in Cost Management, but we'll cover that later. At the end of the month, credits are applied and the invoice is published. The process starts 72 hours after your billing period ends, which is usually the last day of the calendar month for most accounts. For example, if your billing period ends on March 31, charges will be finalized on April 4 at midnight.
+As the data makes its way through the pipeline, the rating system applies discounts based on your specific price sheet and generates *rated usage*, which includes price and quantity for each cost record. It's the basis for what you see in Microsoft Cost Management, but we'll cover that later. At the end of the month, credits are applied and the invoice is published. The process starts 72 hours after your billing period ends, which is usually the last day of the calendar month for most accounts. For example, if your billing period ends on March 31, charges will be finalized on April 4 at midnight.
 
 > [!IMPORTANT]
 > Credits are applied like a gift card or other payment instrument before the invoice is generated. While credit status is tracked as new charges flow into the data pipeline, credits aren't explicitly applied to these charges until the end of the month.
@@ -46,7 +46,7 @@ After discounts are applied, cost details then flow into Cost Management, where:
 - Azure Advisor cost recommendations are pulled in to enable cost savings insights for subscriptions and resource groups.
 - Cost alerts are sent out for [budgets](./costs/tutorial-acm-create-budgets.md), [anomalies](./understand/analyze-unexpected-charges.md#create-an-anomaly-alert), [scheduled alerts](./costs/save-share-views.md#subscribe-to-scheduled-alerts), and more based on the configured settings.
 
-Lastly, cost details are made available from [cost analysis](./costs/quick-acm-cost-analysis.md) in the Azure portal and published to your storage account via [scheduled exports](./costs/tutorial-improved-exports.md).
+Lastly, cost details are made available from [Cost Analysis](./costs/quick-acm-cost-analysis.md) in the Azure portal and published to your storage account via [scheduled exports](./costs/tutorial-improved-exports.md).
 
 ## How Cost Management and Billing relate
 
@@ -71,7 +71,7 @@ For more information about supported offers, what data is included, or how data 
 
 Microsoft has several types of billing accounts. Each type has a slightly different experience to support the unique aspects of the billing account. To learn more, see [Billing accounts and scopes](./manage/view-all-accounts.md).
 
-You use billing account management tasks to:
+Use billing account management tasks to:
 
 - View invoices and make payments.
 - Configure your billing address and PO numbers.
@@ -86,10 +86,10 @@ Management for classic Cloud Solution Provider (CSP) and classic sponsorship sub
 
 Cost Management and Billing include several tools to help you understand, report on, and analyze your invoiced Microsoft Cloud costs.
 
-- [**Cost analysis**](./costs/quick-acm-cost-analysis.md) is a tool for ad-hoc cost exploration. Get quick answers with lightweight insights and analytics.
+- [**Cost Analysis**](./costs/quick-acm-cost-analysis.md) is a tool for ad-hoc cost exploration. Get quick answers with lightweight insights and analytics.
 **Power BI** is an advanced solution to build more extensive dashboards and complex reports or combine costs with other data. Power BI is available for billing accounts and billing profiles.
 - [**Exports and the Cost Details API**](./automate/usage-details-best-practices.md) enable you to integrate cost details into external systems or business processes.
-- The **Credits** page shows your available credit or prepaid commitment balance. They aren't included in cost analysis.
+- The **Credits** page shows your available credits or prepaid commitment balance. They aren't included in Cost Analysis.
 - The **Invoices** page provides a list of all previously invoiced charges and their payment status for your billing account.
 
 For more information, see [Get started with Cost Management and Billing reporting](./costs/reporting-get-started.md).
@@ -98,8 +98,8 @@ For more information, see [Get started with Cost Management and Billing reportin
 
 Organizing and allocating costs are critical to ensuring invoices are routed to the correct business units and can be further split for internal billing, also known as *chargeback*. Cost Management and Billing offer the following options to organize resources and subscriptions:
 
-- MCA **billing profiles** and **invoice sections** are used to [group subscriptions into invoices](./manage/mca-section-invoice.md). Each billing profile represents a separate invoice that can be billed to a different business unit and each invoice section is segmented separately within those invoices. You can also view costs by billing profile or invoice section in costs analysis.
-- EA **departments** and **enrollment accounts** are conceptually similar to invoice sections, as groups of subscriptions, but they aren't represented within the invoice PDF. They're included within the cost details backing each invoice, however. You can also view costs by department or enrollment account in costs analysis.
+- MCA **billing profiles** and **invoice sections** are used to [group subscriptions into invoices](./manage/mca-section-invoice.md). Each billing profile represents a separate invoice that can be billed to a different business unit and each invoice section is segmented separately within those invoices. You can also view costs by billing profile or invoice section in Cost Analysis.
+- EA **departments** and **enrollment accounts** are conceptually similar to invoice sections, as groups of subscriptions, but they aren't represented within the invoice PDF. However, they are included within the cost details backing each invoice. You can also view costs by department or enrollment account in Cost Analysis.
 - **Management groups** also allow grouping subscriptions together, but offer a few key differences:
   - Management group access is inherited down to the subscriptions and resources.
   - Management groups can be layered into multiple levels and subscriptions can be placed at any level.
@@ -115,10 +115,10 @@ How you organize and allocate costs plays a huge role in how people within your 
 
 ## Monitor costs with alerts
 
-Cost Management and Billing offer many different types of emails and alerts to keep you informed and help you proactively manage your account and incurred costs.
+Cost Management and Billing offers many different types of emails and alerts to keep you informed and help you proactively manage your account and incurred costs.
 
-- [**Budget alerts**](./costs/tutorial-acm-create-budgets.md) notify recipients when cost exceeds a predefined cost or forecast amount. Budgets can be visualized in cost analysis and are available on every scope supported by Cost Management. Subscription and resource group budgets can also be configured to notify an action group to take automated actions to reduce or even stop further charges.
-- [**Scheduled alerts**](./costs/save-share-views.md#subscribe-to-scheduled-alerts) notify recipients about the latest costs on a daily, weekly, or monthly schedule based on a saved cost view. Alert emails include a visual chart representation of the view and can optionally include a CSV file. Views are configured in cost analysis, but recipients don't require access to cost in order to view the email, chart, or linked CSV.
+- [**Budget alerts**](./costs/tutorial-acm-create-budgets.md) notify recipients when cost exceeds a predefined cost or forecast amount. Budgets can be visualized in Cost Analysis and are available on every scope supported by Cost Management. Subscription and resource group budgets can also be configured to notify an action group to take automated actions to reduce or even stop further charges.
+- [**Scheduled alerts**](./costs/save-share-views.md#subscribe-to-scheduled-alerts) notify recipients about the latest costs on a daily, weekly, or monthly schedule based on a saved cost view. Alert emails include a visual chart representation of the view and can optionally include a CSV file. Views are configured in Cost Analysis, but recipients don't require access to cost in order to view the email, chart, or linked CSV.
 - **EA commitment balance alerts** are automatically sent to any notification contacts configured on the EA billing account when the balance is 90% or 100% used.
 - **Invoice alerts** can be configured for MCA billing profiles and Microsoft Online Services Program (MOSP) subscriptions. For details, see [View and download your Azure invoice](./understand/download-azure-invoice.md).
 

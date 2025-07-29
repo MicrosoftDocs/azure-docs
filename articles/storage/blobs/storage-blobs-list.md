@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 08/05/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
+# Customer intent: "As a .NET developer, I want to list blobs in my storage account, so that I can manage and explore my storage resources efficiently using both flat and hierarchical structures."
 ---
 
 # List blobs with .NET

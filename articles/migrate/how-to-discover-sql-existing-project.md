@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.service: azure-migrate
 ms.date: 03/21/2025
 ms.custom: engagement-fy23
+# Customer intent: As a database administrator, I want to discover SQL Server instances in my existing Azure Migrate project so that I can tailor an effective migration path to Azure.
 ---
 
 # Discover web apps and SQL Server instances in an existing project

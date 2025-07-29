@@ -73,7 +73,7 @@ You can use rewrite conditions to evaluate the content of HTTP(S) requests and r
 
 ## Pattern matching and capturing 
 
-Patten matching and capturing are supported under Condition and Action (under Action, it is supported only for a specific header).
+Pattern matching and capturing are supported under Condition and Action (under Action, it is supported only for a specific header).
 
 ### Pattern matching
 Application Gateway uses regular expressions for pattern matching. You should use Regular Expression 2 (RE2) compatible expressions when writing your pattern matching syntax.

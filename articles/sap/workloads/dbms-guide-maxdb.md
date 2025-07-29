@@ -9,6 +9,7 @@ ms.topic: article
 ms.date: 08/24/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
+# Customer intent: As a system administrator deploying SAP MaxDB, liveCache, and Content Server on Azure, I want to configure storage and backup strategies according to best practices, so that I can ensure performance, reliability, and efficient management of my SAP workloads in the cloud environment.
 ---
 
 # SAP MaxDB, liveCache, and Content Server deployment on Azure VMs

@@ -9,6 +9,8 @@
     href: whats-new.md
   - name: VPN Gateway FAQ
     href: vpn-gateway-vpn-faq.md
+  - name: What is hybrid connectivity?
+    href: ../networking/hybrid-connectivity/hybrid-connectivity.md?toc=/azure/vpn-gateway/toc.json
   - name: Quickstarts & Tutorials
     expanded: true
     items:
@@ -164,6 +166,10 @@
       href: vpn-gateway-modify-local-network-gateway.md
     - name: Azure CLI
       href: vpn-gateway-modify-local-network-gateway-cli.md
+  - name: Advanced Connectivity
+    items:
+    - name: High Bandwidth tunnels
+      href: site-to-site-high-bandwidth-tunnel.md
   - name: VPN devices
     items:
     - name: About VPN devices and parameters

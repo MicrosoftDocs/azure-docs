@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 09/05/2023
+# Customer intent: As a security administrator, I want to enable log scrubbing on the web application firewall, so that I can mask sensitive data in logs to protect user privacy and comply with data protection regulations.
 ---
 
 # How to mask sensitive data on Azure Web Application Firewall

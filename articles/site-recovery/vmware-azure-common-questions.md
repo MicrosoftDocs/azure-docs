@@ -7,6 +7,7 @@ ms.service: azure-site-recovery
 ms.author: jsuri
 author: jyothisuri
 ms.custom: engagement-fy23
+# Customer intent: "As an IT administrator managing on-premises VMware VMs, I want to understand how to set up disaster recovery to Azure, so that I can ensure the continuity of services in case of a failure."
 ---
 
 # Common questions about VMware to Azure replication

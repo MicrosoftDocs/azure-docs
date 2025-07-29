@@ -5,39 +5,12 @@
  author: mbender
  ms.service: virtual-network-manager
  ms.topic: include
- ms.date: 06/12/2024
+ ms.date: 07/16/2025
  ms.author: mbender-ms
 ms.custom: include-file, references_regions
 ---
 
 > [!IMPORTANT]
-> Currently, the IP address management (IPAM) feature in Azure Virtual Network Manager is generally available in the following regions:
-> 
-> - Asia East
-> - Australia Central
-> - Australia East
-> - Brazil South
-> - Canada Central
-> - Central US EUAP
-> - East US
-> - East US 2 EUAP
-> - Europe North
-> - France South
-> - Germany West Central
-> - India Central
-> - Japan East
-> - Korea Central
-> - Mexico Central
-> - North Central US
-> - Norway West
-> - South Africa North
-> - Sweden Central
-> - Switzerland West
-> - Taiwan North
-> - UAE Central
-> - UK South
-> - West Central US
-> - West US
-> - West US 2
-> 
-> All other regions are in preview. This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Currently, the IP address management (IPAM) feature in Azure Virtual Network Manager is generally available in all regions where Azure Virtual Network Manager is available except: Chile Central, Jio India West, Malaysia West, Qatar Central, South Africa West, West India, and West US 3.
+>
+> For the most up-to-date information on availability of Azure Virtual Network Manager, see [Azure Virtual Network Manager regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table).

@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.date: 07/08/2024
 ms.author: jsuri
 ms.custom: MVC
+# Customer intent: As a cloud architect, I want to migrate virtual machines to an availability zone in a different region using recovery solutions, so that I can enhance system resiliency and ensure high availability of applications and data.
 ---
 
 # Move Azure virtual machines into Availability Zones

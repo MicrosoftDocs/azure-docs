@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.author: jsuri
 author: jyothisuri
 ms.service: azure-site-recovery
+# Customer intent: "As an IT administrator, I want to monitor Azure Site Recovery performance and health metrics, so that I can ensure data protection and quick recovery in disaster scenarios."
 ---
 
 # Monitor Azure Site Recovery

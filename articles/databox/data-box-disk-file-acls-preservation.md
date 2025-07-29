@@ -9,6 +9,7 @@ ms.custom: linux-related-content
 ms.topic: concept-article
 ms.date: 12/22/2022
 ms.author: shaas
+# Customer intent: As a data engineer, I want to preserve file ACLs, timestamps, and attributes during the data transfer to Azure, so that I can ensure the integrity and security of the data throughout the migration process.
 ---
 
 # Preserving file ACLs, attributes, and timestamps with Azure Data Box disk

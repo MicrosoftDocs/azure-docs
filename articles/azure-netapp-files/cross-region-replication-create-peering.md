@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 05/12/2025
 ms.author: anfdocs
+# Customer intent: "As a cloud administrator, I want to set up volume replication for Azure NetApp Files, so that I can ensure data protection and resiliency across regions or zones in my cloud infrastructure."
 ---
 # Create volume replication for Azure NetApp Files
 

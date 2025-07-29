@@ -1,11 +1,12 @@
 ---
-title: NFS FAQs for Azure NetApp Files | Microsoft Docs
+title: NFS FAQs for Azure NetApp Files
 description: Answers frequently asked questions (FAQs) about the NFS protocol of Azure NetApp Files.
 ms.service: azure-netapp-files
 ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
 ms.date: 05/21/2024
+# Customer intent: As a cloud administrator, I want to configure NFS volume mounts for Azure Virtual Machines, so that I can ensure persistent access to data upon VM startup or reboot.
 ---
 # NFS FAQs for Azure NetApp Files
 

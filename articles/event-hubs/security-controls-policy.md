@@ -18,7 +18,7 @@ with the specific standard.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
 
-[!INCLUDE [azure-policy-compliancecontrols-eventhubs](../../includes/policy/standards/byrp/microsoft.eventhub.md)]
+[!INCLUDE [azure-policy-compliancecontrols-eventhubs](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.eventhub.md)]
 
 ## Next steps
 

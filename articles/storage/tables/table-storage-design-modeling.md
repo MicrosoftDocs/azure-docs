@@ -7,6 +7,7 @@ author: akashdubey-ms
 ms.author: akashdubey
 ms.topic: article
 ms.date: 04/23/2018
+# Customer intent: "As a software architect, I want to understand how to model relationships in Azure Table storage, so that I can design an efficient and scalable data structure for my application's entities."
 ---
 # Modeling relationships
 This article discusses the modeling process to help you design your Azure Table storage solutions.

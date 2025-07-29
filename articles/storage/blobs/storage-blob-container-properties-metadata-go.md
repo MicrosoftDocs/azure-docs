@@ -11,6 +11,7 @@ ms.date: 08/05/2024
 ms.author: pauljewell
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
+# Customer intent: As a Go developer, I want to manage blob container properties and metadata using the Azure Storage client library, so that I can efficiently store and retrieve custom data alongside my blobs.
 ---
 
 # Manage container properties and metadata with Go

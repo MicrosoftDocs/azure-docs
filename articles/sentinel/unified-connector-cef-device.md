@@ -1,8 +1,8 @@
 ---
 title: CEF via AMA connector - Configure appliances and devices
 description: Learn how to configure specific devices that use the Common Event Format (CEF) via AMA data connector for Microsoft Sentinel.
-author: cwatson-cat
-ms.author: cwatson
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: reference
 ms.custom: linux-related-content
 ms.date: 06/27/2024

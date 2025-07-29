@@ -1,6 +1,6 @@
 ---
- title: include file
- description: include file
+ title: Description of Azure Storage availability zone region support
+ description: Description of Azure Storage availability zone region support
  author: anaharris-ms
  ms.service: azure
  ms.topic: include

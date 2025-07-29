@@ -11,6 +11,7 @@ ms.topic: concept-article
 ms.author: normesta
 ms.reviewer: ozgun
 ms.custom: engagement-fy23
+# Customer intent: As a cloud architect, I want to implement encryption scopes for Blob storage, so that I can create secure boundaries for data belonging to different customers within the same storage account.
 ---
 
 # Encryption scopes for Blob storage

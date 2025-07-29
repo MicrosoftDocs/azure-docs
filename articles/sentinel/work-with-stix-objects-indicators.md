@@ -20,11 +20,15 @@ On April 3, 2025, we publicly previewed two new tables to support STIX (Structur
 
 For more information about threat intelligence in Microsoft Sentinel, see [Threat intelligence in Microsoft Sentinel](understand-threat-intelligence.md).
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > Microsoft Sentinel will ingest all threat intelligence into the new `ThreatIntelIndicators` and `ThreatIntelObjects` tables, while continuing to ingest the same data into the legacy `ThreatIntelligenceIndicator` table until July 31, 2025. 
->
-> **Be sure to update your custom queries, analytics and detection rules, workbooks, and automation to use the new tables by July 31, 2025.** After this date, Microsoft Sentinel will stop ingesting data to the legacy `ThreatIntelligenceIndicator` table. We're updating all out-of-the-box threat intelligence solutions in Content hub to leverage the new tables. For more information about the new table schemas, see [ThreatIntelIndicators](/azure/azure-monitor/reference/tables/threatintelligenceindicator) and [ThreatIntelObjects](/azure/azure-monitor/reference/tables/threatintelobjects).
-
+> **Be sure to update your custom queries, analytics and detection rules, workbooks, and automation to use the new tables by July 31, 2025.** After this date, Microsoft Sentinel will stop ingesting data to the legacy `ThreatIntelligenceIndicator` table. We're updating all out-of-the-box threat intelligence solutions in Content hub to leverage the new tables.
+> We introduced important updates to the data republishing processes.
+> 1. Previously, data was divided and republished to Log Analytics over a **12-day period**. Now, **all data** is republished every **7 days** at the beginning of each week. You can identify this data in the `ThreatIntelIndicators` and `ThreatIntelObjects` tables by checking if `LastUpdateMethod` equals `LogARepublisher`.  
+> 2. The new tables now support more columns, including the `Data` column, which contains the full data object used in advanced hunting scenarios. If these columns don't align with your scenario, learn more about filtering out [columns](#transform-away-columns-sent-to-log-analytics) and [rows](#transform-away-rows-sent-to-log-analytics) before ingestion to Log Analytics. 
+> 3. To optimize ingestion to Log Analytics, key-value pairs with no data are excluded. Additionally, some fields within the `Data` column—such as `description` and `pattern`—are truncated if they exceed 1,000 characters. 
+> For more information on the updated schema and how it might affect your usage, see [ThreatIntelIndicators](/azure/azure-monitor/reference/tables/threatintelindicators) and [ThreatIntelObjects](/azure/azure-monitor/reference/tables/threatintelobjects).
+> 
 ## Identify threat actors associated with specific threat indicators
 
 This query is an example of how to correlate threat indicators, such as IP addresses, with threat actors:
@@ -139,6 +143,27 @@ ThreatIntelIndicators
         Revoked = Data.revoked,
         SpecVersion = Data.spec_version
 | project-reorder TimeGenerated, WorkspaceId, AzureTenantId, ThreatType, ObservableKey, ObservableValue, Confidence, Name, Description, LastUpdateMethod, SourceSystem, Created, Modified, ValidFrom, ValidUntil, IsDeleted, Tags, AdditionalFields, CreatedByRef, Extensions, ExternalReferences, GranularMarkings, IndicatorId, KillChainPhases, Labels, Lang, ObjectMarkingRefs, Pattern, PatternType, PatternVersion, Revoked, SpecVersion, NetworkIP, NetworkDestinationIP, NetworkSourceIP, DomainName, EmailAddress, FileHashType, FileHashValue, Url, x509Certificate, x509Issuer, x509CertificateNumber, Data
+```
+
+## Transform away data sent to Log Analytics
+
+[Transformations in Azure Monitor](/azure/azure-monitor/data-collection/data-collection-transformations) allow you to filter or modify incoming data before it's stored in a Log Analytics workspace. They're implemented as a Kusto Query Language (KQL) statement in a [data collection rule (DCR)](/azure/azure-monitor/data-collection/data-collection-rule-overview). Learn more about how to [create workspace transformations](/azure/azure-monitor/data-collection/data-collection-transformations-create?tabs=portal#create-workspace-transformation-dcr) and the [cost for transformations](/azure/azure-monitor/data-collection/data-collection-transformations#cost-for-transformations).
+
+### Transform away columns sent to Log Analytics
+The `ThreatIntelIndicator` and `ThreatIntelObjects` tables include a `Data` column that contains the full original STIX object. If this column isn't relevant to your use case, you can filter it out before ingestion using the following KQL statement:
+
+```Kusto
+source
+| project-away Data
+```
+
+### Transform away rows sent to Log Analytics
+The `ThreatIntelIndicators` table always receives at least one row for each unexpired indicator. In some cases, the STIX pattern can't be parsed into key/value pairs. When this happens, the indicator is still sent to Log Analytics, but only the raw, unparsed pattern is included—allowing users to build custom analytics if needed. If these rows aren't useful for your scenario, you can filter them out before ingestion using the following KQL statement:
+
+```Kusto
+source
+| where (ObservableKey != "" and isnotempty(ObservableKey)) 
+    or (ObservableValue != "" and isnotempty(ObservableValue))
 ```
 
 ## Related content
