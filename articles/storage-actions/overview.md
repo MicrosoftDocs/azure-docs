@@ -122,7 +122,6 @@ Azure Storage tasks are generally available in the following public cloud region
 •	East US 2
 •	Australia Central
 
-
 ## Next steps
 
 - [Quickstart: Create, assign, and run a storage task by using the Azure portal](storage-tasks/storage-task-quickstart-portal.md)
