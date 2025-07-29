@@ -19,7 +19,7 @@ Configure caching in Azure API Management to store and retrieve responses to API
 This article explains the caching options in API Management, and highlights key scenarios and configuration considerations.
 
 > [!IMPORTANT]
-> Caching requires both a caching service - either an internal cache deployed automatically as part of the API Management service, or an external cache deployed by the customer - and configuration of [caching policies](api-management-policies.md#caching) that specify how caching should be applied to APIs.
+> Caching requires both a caching service - either an internal cache deployed automatically as part of the API Management service, or an external cache deployed by the customer - and configuration of [caching policies](api-management-policies.md#caching) to specify how caching should be applied to API requests.
 > 
 
 
@@ -39,8 +39,8 @@ Considerations for the internal (built-in) cache:
 - **Automatic provisioning**: No other steps are required to deploy or manage the cache. The internal cache settings aren't configurable.
 - **Not available for Consumption tier or self-hosted gateway**
 - **Regional storage** - Cache data is stored in the same region as your API Management instance and shared among scale units. In a [multi-region](api-management-howto-deploy-multi-region.md) deployment, each region has its own cache.
-- **Volatile storage** - In the classic tiers (**Developer**, **Basic**, **Standard**, and **Premium**), the cache contents *do not* persist when service updates take place. 
-- **Per-tier limits** - Cache size varies by service tier. See [service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-api-management-limits)
+- **Volatile storage** - In the classic tiers (**Developer**, **Basic**, **Standard**, and **Premium**), the cache contents *do not* persist when service updates take place. In the v2 tiers, the cache is resilient to service updates.
+- **Per-tier limits** - Cache size varies by service tier. See [service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-api-management-limits).
 - **Does not support semantic caching** - [Semantic caching](azure-openai-enable-semantic-caching.md) of responses from LLM model deployments requires an external cache.
 - **No pre-loading** - Preloading of data into the built-in cache isn't supported.
 
@@ -48,15 +48,15 @@ Considerations for the internal (built-in) cache:
 
 ### External cache
 
-For enhanced performance and persistence, you can optionally configure an external Redis-compatible cache, such as Azure Managed Redis, to use with any API Management service tier or gateway. 
+For enhanced performance and persistence, you can optionally configure an external Redis-compatible cache, such as [Azure Managed Redis](../redis/overview.md), to use with any API Management service tier or gateway. 
 
 Considerations for external cache:
 
 - **Separate deployment required** - You're responsible for deploying, connecting, and maintaining the external cache. The cache can incur added costs.
 - **Only caching option for Consumption tier or self-hosted gateway**
-- **Persistent storage** - Cached data persists independently of API Management service updates
-- **Custom configuration**: Control cache size, location, performance, and scaling; access Redis-specific features like data persistence, clustering, and geo-replication
-- **Shared access**: Multiple API Management instances can share the same external cache
+- **Persistent storage** - Cached data persists independently of API Management service updates.
+- **Custom configuration**: Control cache size, location, performance, and scaling; access Redis-specific features like data persistence, clustering, and geo-replication.
+- **Shared access**: Multiple API Management instances can share the same external cache.
 - **Semantic caching** - Only an external cache can be used for [semantic caching](azure-openai-enable-semantic-caching.md) of responses from LLM model deployments.
 - **Optional preloading or purging** - Because you manage the cache, you can preload responses into the cache or purge entries as needed.
 
@@ -65,7 +65,7 @@ Considerations for external cache:
 
 ## Caching scenarios
 
-Use caching in Azure API Management mainly for the scenarios in the following table.
+Use caching in Azure API Management for scenarios like those in the following table.
 
 
 
@@ -82,10 +82,8 @@ Use caching in Azure API Management mainly for the scenarios in the following ta
 
 * In the API Management classic tiers, the internal cache  is volatile and doesn't persist across service updates. During a service update, the internal cache is cleared in a gradual process that involves up to 50% of the cache at a time.
 
-* The internal cache in the API Management classic tiers is volatile and doesn't persist across service updates During a service update, the internal cache is cleared in a gradual process that involves up to 50% of the cache at a time.
-i
     > [!NOTE]
-    > You can configure [service update settings](configure-service-update-settings.md) , including a maintenance window for updates. Choose a window that minimizes potential customer impacts such as loss of the internal cache.
+    > You can configure [service update settings](configure-service-update-settings.md), including a maintenance window for updates that minimizes potential customer impacts such as loss of the internal cache.
 
 * If configured, an external cache can be persistent, but the customer is responsible for ensuring availability and connectivity. 
 
@@ -105,7 +103,7 @@ Configure caching policies to control how API responses are cached and retrieved
 | [cache-lookup](cache-lookup-policy.md) / [cache-store](cache-store-policy.md) | - Retrieve a response from the cache<br>- Store a response in the cache request | - Use for retrieving a complete API response from the cache for an identical `GET` request |
 | [cache-lookup-value](cache-lookup-value-policy.md) / [cache-store-value](cache-store-value-policy.md) | - Retrieve a specific value from the cache<br>- Store a specific value in the cache  | - Use for custom caching scenarios with specific cache keys |
 | [azure-openai-semantic-cache-lookup](azure-openai-semantic-cache-lookup-policy.md) / [azure-openai-semantic-cache-store](azure-openai-semantic-cache-store-policy.md) | - Check if a semantically similar response exists in the cache for an Azure OpenAI API request <br>- Store a response for an Azure OpenAI API request | - Use for retrieving similar responses to Azure OpenAI Chat Completion API requests |
-| [llm-semantic-cache-lookup](llm-semantic-cache-lookup-policy.md) | - Check if a semantically similar response exists in the cache for an LLM API request<br>- Store a response for an LLM API request | - Use for retrieving similar responses to LLM Chat Completion API requests |
+| [llm-semantic-cache-lookup](llm-semantic-cache-lookup-policy.md) / [llm-semantic-cache-store](llm-semantic-cache-store-policy.md) | - Check if a semantically similar response exists in the cache for an LLM API request<br>- Store a response for an LLM API request | - Use for retrieving similar responses to LLM Chat Completion API requests |
 
 
 > [!TIP]
@@ -116,33 +114,26 @@ Configure caching policies to control how API responses are cached and retrieved
 
 ### Response caching
 
-Cache complete API responses to serve identical requests without backend calls. Learn
+Cache complete API response in internal cache to serve identical requests without backend calls. In this example, the cache stores responses for 7 days.
 
 ```xml
 <policies>
     <inbound>
-        <cache-lookup-value key="@("product-" + context.Request.MatchedParameters["id"])" variable-name="product" />
-        <choose>
-            <when condition="@(!context.Variables.ContainsKey("product"))">
-                <!-- Cache miss - call backend -->
-            </when>
-            <otherwise>
-                <!-- Cache hit - return cached response -->
-                <return-response>
-                    <set-body>@((string)context.Variables["product"])</set-body>
-                </return-response>
-            </otherwise>
-        </choose>
+        <base />
+        <cache-lookup vary-by-developer="false" vary-by-developer-groups="false" downstream-caching-type="none" must-revalidate="true" caching-type="internal" >
+            <vary-by-query-parameter>version</vary-by-query-parameter>
+        </cache-lookup>
     </inbound>
     <outbound>
-        <cache-store-value key="@("product-" + context.Request.MatchedParameters["id"])" value="@(context.Response.Body.As<string>())" duration="3600" />
+        <cache-store duration="604800" />
+        <base />
     </outbound>
 </policies>
 ```
 
 ### Value caching
 
-Cache specific data values for reuse across multiple requests:
+Cache specific data values for reuse across multiple requests.
 
 ```xml
 <policies>
@@ -161,17 +152,10 @@ Cache specific data values for reuse across multiple requests:
 </policies>
 ```
 
-### Conditional caching
-
-Implement smart caching based on request parameters or response content:
-
-- **Parameter-based**: Cache responses based on query parameters, headers, or path segments
-- **Content-based**: Cache only successful responses or specific content types
-- **Time-based**: Use different cache durations for different types of data
 
 ### Rate limiting protection
 
-Combine caching with rate limiting to protect backend services:
+Combine cache lookup with rate limiting to protect backend services.
 
 ```xml
 <policies>
@@ -193,39 +177,6 @@ Combine caching with rate limiting to protect backend services:
 </policies>
 ```
 
-## Configuration
-
-### Cache policies
-
-API Management provides several caching policies:
-
-| Policy | Purpose | Usage |
-|--------|---------|-------|
-| [cache-lookup](cache-lookup-policy.md) | Look up cached response | Place in `inbound` section to check for cached responses |
-| [cache-store](cache-store-policy.md) | Store response in cache | Place in `outbound` section to cache successful responses |
-| [cache-lookup-value](cache-lookup-value-policy.md) | Retrieve cached value | Use for custom caching scenarios with specific cache keys |
-| [cache-store-value](cache-store-value-policy.md) | Store custom value | Cache specific data values for reuse |
-| [cache-remove-value](cache-remove-value-policy.md) | Remove cached value | Invalidate specific cache entries |
-
-### Cache configuration
-
-Configure caching behavior through policy attributes:
-
-- **Duration**: Specify cache expiration time in seconds
-- **Cache key**: Define unique identifiers for cache entries using policy expressions
-- **Caching type**: Choose between internal, external, or prefer-external cache
-- **Vary by**: Cache different versions based on request parameters
-
-### External cache setup
-
-To configure Azure Cache for Redis:
-
-1. **Create Redis instance**: Deploy Azure Cache for Redis in your preferred region and tier
-2. **Configure connection**: Add Redis connection string to API Management
-3. **Update policies**: Set `caching-type="external"` or `caching-type="prefer-external"` in cache policies
-4. **Test connectivity**: Verify API Management can connect to your Redis instance
-
-## 
 
 ## Security considerations
 
@@ -234,25 +185,6 @@ To configure Azure Cache for Redis:
 - **Access control**: External cache requires proper network security and access controls
 - **Encryption**: Use TLS/SSL for connections to external cache instances
 
-## Monitoring and troubleshooting
-
-### Cache metrics
-
-Monitor cache performance through:
-
-- **Cache hit ratio**: Percentage of requests served from cache vs. backend
-- **Cache size**: Current cache utilization and available space
-- **Response times**: Compare cached vs. noncached response latencies
-- **Backend calls**: Monitor reduction in backend service calls
-
-### Diagnostics
-
-Use API Management diagnostics to:
-
-- **Trace cache operations**: View cache lookup and store operations in request traces
-- **Monitor cache keys**: Examine cache key generation and conflicts
-- **Performance analysis**: Compare response times with and without caching
-- **Error handling**: Identify cache-related errors and misconfigurations
 
 ## Related content
 
