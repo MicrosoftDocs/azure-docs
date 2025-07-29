@@ -6,12 +6,12 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-device-registry
-ms.date: 07/16/2025
+ms.date: 07/30/2025
 ---
 
 # Reliability in Azure Device Registry
 
-Azure Device Registry stores information about IoT devices and other assets in the cloud. Azure Device Registry projects assets as Azure resources in the cloud within a single registry. The single registry is a source of truth for asset metadata and asset management capabilities. Device Registy is a component of [Azure IoT Operations](/azure/iot-operations/overview-iot-operations).
+Azure Device Registry stores information about assets and devices in the cloud. Azure Device Registry projects assets as Azure resources in the cloud within a single registry. The single registry is a source of truth for device and asset metadata, and asset management capabilities. Device Registy can be used in conjunction with [Azure IoT Operations](/azure/iot-operations/overview-iot-operations).
 
 This article describes reliability support in Azure Device Registry. It covers both intra-regional resiliency with [availability zones](#availability-zone-support) and information on [multi-region deployments](#multi-region-support).
 
@@ -38,13 +38,13 @@ Microsoft manages setup and configuration for zone redundancy in Azure Device Re
 
 The following list of regions support availability zones in Azure Device Registry:
 
-| Americas         | Europe               | Asia Pacific     |
-|------------------|----------------------|------------------|
-| East US          | Germany West Central | Southeast Asia   |
-| East US 2        | North Europe         |                  |
-| West US          | West Europe          |                  |
-| West US 2        |                      |                  |
-| West US 3        |                      |                  |
+| Americas         | Europe               |
+|------------------|----------------------|
+| East US          | North Europe         |
+| East US 2        | West Europe          |
+| West US          |                      |
+| West US 2        |                      |
+| West US 3        |                      |
 
 ### Cost
 
