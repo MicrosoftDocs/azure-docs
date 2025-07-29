@@ -1,10 +1,10 @@
 ---
 title: Set up customer-managed keys in Microsoft Sentinel| Microsoft Docs
 description: Learn how to set up customer-managed key (CMK) in Microsoft Sentinel.
-author: yelevin
+author: batamig
 ms.topic: how-to
-ms.date: 06/08/2023
-ms.author: yelevin
+ms.date: 07/29/2025
+ms.author: bagol
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -39,7 +39,7 @@ This article provides background information and steps to configure a [customer-
   - Setting a Sentinel-onboarded, CMK-enabled workspace as a non-CMK workspace by unlinking it from its CMK-enabled dedicated cluster.
   - Disabling CMK on a CMK-enabled Log Analytics dedicated cluster.
 
-- Microsoft Sentinel is available in the Defender portal, including for customers without Microsoft Defender XDR or an E5 license. After onboarding your workspace to Defender, ingested workspace data/logs remain encrypted with CMK. Other data isn't encrypted with CMK and uses a Microsoft-managed key.
+- [Microsoft Sentinel is available in the Defender portal](microsoft-sentinel-defender-portal.md), including for customers without Microsoft Defender XDR or an E5 license. If you onboard your Microsoft Sentinel-enabled workspace to the Defender portal, ingested workspace data/logs remain encrypted with CMK. Other data isn't encrypted with CMK and uses a Microsoft-managed key.
 
 - Microsoft Sentinel supports System Assigned Identities in CMK configuration. Therefore, the dedicated Log Analytics cluster's identity should be of **System Assigned** type. We recommend that you use the identity that's automatically assigned to the Log Analytics cluster when it's created.
 
