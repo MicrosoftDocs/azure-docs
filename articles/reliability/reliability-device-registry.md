@@ -11,7 +11,7 @@ ms.date: 07/30/2025
 
 # Reliability in Azure Device Registry
 
-Azure Device Registry stores information about assets and devices in the cloud. Azure Device Registry projects assets as Azure resources in the cloud within a single registry. The single registry is a source of truth for device and asset metadata, and asset management capabilities. Device Registy can be used in conjunction with [Azure IoT Operations](/azure/iot-operations/overview-iot-operations).
+Azure Device Registry stores information about assets and devices in the cloud. Azure Device Registry projects assets as Azure resources in the cloud within a single registry. The single registry is a source of truth for device and asset metadata, and asset management capabilities. Device Registry can be used in conjunction with [Azure IoT Operations](/azure/iot-operations/overview-iot-operations).
 
 This article describes reliability support in Azure Device Registry. It covers both intra-regional resiliency with [availability zones](#availability-zone-support) and information on [multi-region deployments](#multi-region-support).
 
@@ -104,7 +104,7 @@ By default, cross-region data replication is automatically configured when you c
 
 ### Normal operations
 
-This section describes what to expect when a device regsitry is configured for cross-region replication and failover, and the primary region is operational.
+This section describes what to expect when a device registry is configured for cross-region replication and failover, and the primary region is operational.
 
 - **Data replication between regions:** Data is replicated automatically to the paired region. Replication occurs asynchronously, which means that some data loss is expected if a failover occurs.
 
