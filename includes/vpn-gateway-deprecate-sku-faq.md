@@ -16,7 +16,7 @@ All existing gateways that use the Standard or High Performance SKU will be supp
 
 ### Will my IP address change when my Legacy VPN gateway SKU (Standard or HighPerformance) is migrated to a Non-AZ SKU (VpnGw1 or VpnGw2)?
 
-No, the IP address will not change when the Legacy SKU is migrated to a Non-AZ SKU. After SKU migration, you can choose to migrate the Basic SKU IP address to Standard SKU IP address through a customer controlled portal experience. For anticipated migration timelines, see the [About migrating a Basic SKU public IP address to Standard SKU](basic-public-ip-migrate-about.md) article.
+No, the IP address will not change when the Legacy SKU is migrated to a Non-AZ SKU. After SKU migration, you can choose to migrate the Basic SKU IP address to Standard SKU IP address through a customer controlled portal experience. For more information about Basic SKU IP migration, see [About migrating a Basic SKU public IP address to Standard SKU for VPN Gateway](basic-public-ip-migrate-about.md) article.
 
 ### Do I need to migrate my gateways from the Standard or High Performance SKU right now?
   
