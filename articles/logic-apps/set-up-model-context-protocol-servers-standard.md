@@ -1,5 +1,5 @@
 ---
-title: Call Standard Workflows as MCP Servers from AI Agents
+title: Set up Standard Workflows as MCP Servers
 description: Learn how to set up Standard logic apps as Model Context Protocol (MCP) servers that you can call from AI agents.
 services: logic-apps
 ms.suite: integration
