@@ -18,10 +18,9 @@ ms.custom: mvc, devx-track-azurepowershell
 # Tutorial: Add a custom domain to your endpoint
 
 [!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
-
 > [!IMPORTANT]
-> Starting August 15, 2025, Azure CDN from Microsoft (classic) will no longer support new domain onboarding or profile creation. Migrate to [AFD Standard and Premium](https://ms.portal.azure.com/#"https://ms.portal.azure.com/#") to create new domains or profiles and avoid service disruption. [Learn more](https://ms.portal.azure.com/verifyLink?href=https%3A%2F%2Faka.ms%2Fcdn%2Fmigration&id=Microsoft_Azure_Cdn"https://ms.portal.azure.com/verifylink?href=https%3a%2f%2faka.ms%2fcdn%2fmigration&id=microsoft_azure_cdn")
-> Switch from Azure-managed certificates on existing domains to Bring Your Own Certificate (BYOC) or migrate to [AFD Standard and Premium](https://ms.portal.azure.com/#%22https://ms.portal.azure.com/#%22) by August 15, 2025 to avoid service disruption. Existing managed certificates will be auto renewed before August 15, 2025, and remain valid until April 14, 2026. [Learn more](/azure/cdn/cdn-custom-ssl?toc=%2Fazure%2Ffrontdoor%2Ftoc.json&tabs=option-1-default-enable-https-with-a-cdn-managed-certificate)
+> - Starting August 15, 2025, Azure CDN from Microsoft (classic) will no longer support new domain onboarding or profile creation. Migrate to [AFD Standard and Premium](/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) to create new domains or profiles and avoid service disruption. [Learn more](/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json)
+> - Switch from Azure-managed certificates on existing domains to Bring Your Own Certificate (BYOC) or migrate to [AFD Standard and Premium](/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) by August 15, 2025 to avoid service disruption. Existing managed certificates will be auto renewed before August 15, 2025, and remain valid until April 14, 2026. [Learn more](/azure/cdn/cdn-custom-ssl?toc=%2Fazure%2Ffrontdoor%2Ftoc.json&tabs=option-1-default-enable-https-with-a-cdn-managed-certificate)
 
 This tutorial shows how to add a custom domain to an Azure Content Delivery Network endpoint.
 
