@@ -5,6 +5,8 @@ ms.subservice: durable-task-scheduler
 ms.topic: quickstart
 ms.date: 05/15/2025
 zone_pivot_groups: df-languages
+ms.custom:
+  - build-2025
 ---
 
 # Quickstart: Host a Durable Task SDK app on Azure Container Apps (preview)

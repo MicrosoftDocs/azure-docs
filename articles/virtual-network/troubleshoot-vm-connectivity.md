@@ -8,6 +8,7 @@ ms.topic: troubleshooting
 ms.service: azure-virtual-network
 ms.localizationpriority: medium
 ms.date: 04/17/2025
+# Customer intent: As an IT administrator, I want to diagnose and resolve connectivity issues for Azure virtual machines, so that I can ensure reliable communication between VMs and maintain optimal network performance.
 ---
 
 # Troubleshoot Azure VM connectivity problems

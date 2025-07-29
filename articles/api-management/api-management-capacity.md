@@ -6,9 +6,11 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 04/17/2025
+ms.date: 06/16/2025
 ms.author: danlep
-ms.custom: fasttrack-edit
+ms.custom:
+  - fasttrack-edit
+  - build-2025
 ---
 
 # Capacity of an Azure API Management instance
@@ -50,6 +52,8 @@ Available aggregations for these metrics are as follows.
 #### [Classic tiers](#tab/classic)
 
 In the Developer, Basic, Standard, and Premium tiers, the **Capacity** metric is available for making decisions about scaling or upgrading an API Management instance. Its construction is complex and imposes certain behavior.
+
+[!INCLUDE [capacity-change.md](../../includes/api-management-capacity-change.md)]
 
 Available aggregations for this metric are as follows.
 
@@ -166,6 +170,7 @@ Use capacity metrics for making decisions whether to scale an API Management ins
 + Ignore sudden spikes that are most likely not related to an increase in load (see [Capacity metric behavior](#capacity-metric-behavior) section for explanation).
 + As a general rule, upgrade or scale your instance when a capacity metric value exceeds **60% - 70%** for a long period of time (for example, 30 minutes). Different values may work better for your service or scenario.
 + If your instance or workspace gateway is configured with only 1 unit, upgrade or scale it when a capacity metric value exceeds **40%** for a long period. This recommendation is based on the need to reserve capacity for guest OS updates in the underlying service platform.
++ Use [available diagnostics](monitor-api-management.md) to monitor the response times of API calls. Consider adjusting scaling thresholds if you notice degraded response times with increasing value of capacity metric. 
 
 > [!TIP]  
 > If you are able to estimate your traffic beforehand, test your API Management instance or workspace gateway on workloads you expect. You can increase the request load gradually and monitor the value of the capacity metric that corresponds to your peak load. Follow the steps from the previous section to use Azure portal to understand how much capacity is used at any given time.

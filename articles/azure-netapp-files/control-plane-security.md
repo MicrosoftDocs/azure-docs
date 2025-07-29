@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 09/30/2024
 ms.author: anfdocs
+# Customer intent: "As a cloud administrator, I want to understand the control plane security features of Azure NetApp Files so that I can effectively manage resources, enforce access controls, and maintain compliance within my organization."
 ---
 # Understand Azure NetApp Files control plane security
 

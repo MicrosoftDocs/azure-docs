@@ -23,6 +23,10 @@ Azure Front Door and Azure CDN are both Azure services that offer global content
 
 [!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
+> [!IMPORTANT]
+> - Starting August 15, 2025, Azure Front Door (classic) and Azure CDN from Microsoft (classic) will no longer support new domain onboarding or profile creation. Migrate to [AFD Standard and Premium](/azure/frontdoor/tier-migration) to create new domains or profiles and avoid service disruption. [Learn more](/azure/frontdoor/tier-migration)
+> - Switch from Azure-managed certificates on existing domains in Azure Front Door (classic) and Azure CDN from Microsoft (classic) to Bring Your Own Certificate (BYOC) or migrate to [AFD Standard and Premium](/azure/frontdoor/tier-migration) by August 15, 2025 to avoid service disruption. Existing managed certificates will be auto renewed before August 15, 2025, and remain valid until April 14, 2026.  **[Learn more](/azure/frontdoor/front-door-custom-domain-https?tabs=powershell%22https://learn.microsoft.com/en-us/azure/frontdoor/front-door-custom-domain-https?tabs=powershell%22)**
+
 ## Service comparison
 
 The following table provides a comparison between Azure Front Door and Azure CDN services.
@@ -39,7 +43,7 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 | HTTPS support | &check; | &check; | &check; | &check; |
 | Custom domain HTTPS | &check; | &check; | &check; | &check; |
 | Bring your own certificate | &check; | &check; | &check; | &check; |
-| Supported TLS versions | TLS1.3, TLS1.2, TLS1.0 | TLS1.3 TLS1.2, TLS1.0 | TLS1.3, TLS1.2, TLS1.0 | TLS1.3, TLS 1.2, TLS 1.0/1.1 |
+| Supported TLS versions | TLS1.3, TLS1.2 | TLS1.3, TLS1.2 | TLS1.3, TLS1.2 | TLS1.3, TLS 1.2 |
 | **Caching** | | | | |
 | Query string caching | &check; | &check; | &check; | &check; |
 | Cache management (purge, rules, and compression) | &check; | &check; | &check; | &check; |

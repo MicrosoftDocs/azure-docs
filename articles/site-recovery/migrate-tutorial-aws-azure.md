@@ -6,8 +6,9 @@ ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 07/27/2019
 ms.custom: MVC
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
+# Customer intent: As a cloud architect, I want to migrate AWS instances to Azure using a streamlined process, so that I can ensure an efficient and effective transition of my infrastructure.
 ---
 # Migrate Amazon Web Services (AWS) VMs to Azure
 

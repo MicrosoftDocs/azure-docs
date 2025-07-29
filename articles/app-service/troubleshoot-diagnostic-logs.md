@@ -15,8 +15,6 @@ ai-usage: ai-assisted
 
 Azure provides built-in diagnostics to assist with debugging an [Azure App Service app](overview.md). In this article, you learn how to enable diagnostic logging and add instrumentation to your application. You also learn how to access the information that Azure logs.
 
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
-
 This article uses the [Azure portal](https://portal.azure.com) and the Azure CLI to work with diagnostic logs. For information on working with diagnostic logs by using Visual Studio, see [Troubleshoot an app in Azure App Service using Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
 In addition to the logging instructions in this article, you can use the Azure Monitor integrated logging capability. For more information, see [Send logs to Azure Monitor](#send-logs-to-azure-monitor).
@@ -171,10 +169,10 @@ To stream logs in the local console, [install the Azure CLI](/cli/azure/install-
 
 If you configure the Azure Storage blobs option for a log type, you need a client tool that works with Azure Storage. For more information, see [Microsoft client tools for working with Azure Storage](../storage/common/storage-explorers.md).
 
-For logs stored in the App Service file system, the easiest way to access the files is to download the ZIP file in the browser at:
+For logs stored in the App Service file system, access them by using the Kudu engine.
 
-- Linux or custom containers: `https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
-- Windows apps: `https://<app-name>.scm.azurewebsites.net/api/dump`
+1. Open your app in the Azure portal and select **Development Tools** > **Advanced Tools**, then select **Go**.
+1. In Kudu, select **Tools** > **Diagnostic dump**.
 
 For Linux or custom containers, the ZIP file contains console output logs for both the Docker host and the Docker container. For a scaled-out app, the ZIP file contains one set of logs for each instance. In the App Service file system, these log files are the contents of the `/home/LogFiles` directory. Deployment logs are stored in `/site/deployments/`.
 

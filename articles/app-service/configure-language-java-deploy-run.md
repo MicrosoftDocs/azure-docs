@@ -5,7 +5,12 @@ keywords: azure app service, web app, windows, oss, java, tomcat, jboss, spring 
 ms.devlang: java
 ms.topic: how-to
 ms.date: 03/27/2025
-ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java, linux-related-content
+ms.custom:
+  - devx-track-java
+  - devx-track-azurecli
+  - devx-track-extended-java
+  - linux-related-content
+  - build-2025
 zone_pivot_groups: app-service-java-hosting
 adobe-target: true
 author: cephalin
@@ -193,7 +198,7 @@ Azure provides seamless Java App Service development experience in popular Java 
 - **Eclipse IDE**: [Create a Hello World web app for Azure App Service by using Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app).
 
 ### Kudu and OneDeploy APIs
-Deployment clients such as the [Maven plugin](#maven), GitHub Actions using `azure/webapps-deploy@v3` and newer, or the [az webapp deploy](/cli/azure/webapp#az-webapp-deploy) command use OneDeploy, which is invoked by calling the `/api/publish` endpoint of the Kudu site under the hood. For more information on this API, see [this documentation](./deploy-zip.md#deploy-warjarear-packages)
+Deployment clients such as the [Maven plugin](#maven), GitHub Actions using `azure/webapps-deploy@v3` and newer, or the [az webapp deploy](/cli/azure/webapp#az-webapp-deploy) command use OneDeploy, which is invoked by calling the `/api/publish` endpoint of the Kudu site under the hood. For more information on this API, see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
 
 ::: zone pivot="java-javase"
 
@@ -214,7 +219,7 @@ You can deploy WAR files to your Tomcat application by following [this documenta
 
 To deploy WAR files to JBoss EAP, see [this documentation](./deploy-zip.md#deploy-warjarear-packages). When OneDeploy is used, this will automatically rename the WAR file to `app.war` and be placed under `/home/site/wwwroot`. 
 
-To deploy EAR files, [use FTP](deploy-ftp.md). Your EAR application is deployed to the context root defined in your application's configuration. For example, if the context root of your app is `<context-root>myapp</context-root>`, then you can browse the site at the `/myapp` path: `http://my-app-name.azurewebsites.net/myapp`. If you want your web app to be served in the root path, ensure that your app sets the context root to the root path: `<context-root>/</context-root>`. For more information, see [Setting the context root of a web application](https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html).
+To deploy EAR files, [use FTP](deploy-ftp.md). Your EAR application is deployed to the context root defined in your application's configuration. If you want your web app to be served in the root path, ensure that your app sets the context root to the root path: `<context-root>/</context-root>`. For more information, see [Setting the context root of a web application](https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html).
 
 ::: zone-end
 
@@ -309,7 +314,7 @@ jcmd <pid> JFR.dump name=continuous_recording filename="/home/recording1.jfr"
 
 #### Timed recording
 
-To take a timed recording, you need the process ID (PID) of the Java application. To find the PID, open a browser to your web app's SCM site at `https://<your-site-name>.scm.azurewebsites.net/ProcessExplorer/`. This page shows the running processes in your web app. Find the process named "java" in the table and copy the corresponding PID.
+To take a timed recording, you need the process ID (PID) of the Java application. To find the PID, open your service in the Azure portal. Select **Development Tools** > **Advanced Tools**, then select **Go**. In Kudu, select **Process explorer**. This page shows the running processes in your web app. Find the process named "java" in the table and copy the corresponding PID.
 
 Next, open the **Debug Console** in the top toolbar of the SCM site and run the following command. Replace `<pid>` with the PID you copied earlier. This command starts a 30-second profiler recording of your Java application and generates a file named `timed_recording_example.jfr` in the `C:\home` directory.
 

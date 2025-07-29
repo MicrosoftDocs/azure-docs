@@ -7,12 +7,11 @@ ms.topic: how-to
 ms.author: msangapu
 author: msangapu-msft
 ms.date: 08/26/2024
+ms.update-cycle: 1095-days
 ms.custom: "UpdateFrequency3"
 
 ---
 # Manage an App Service plan in Azure
-
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 An [Azure App Service plan](overview-hosting-plans.md) provides the resources that an App Service app needs to run. This guide shows how to manage an App Service plan.
 
@@ -38,7 +37,7 @@ You can create an empty App Service plan, or you can create a plan as part of ap
 6. Select **Review + create** to create the App Service plan.
 
 > [!IMPORTANT]
-> When you create an new App Service plan in an existing resource group, certain conditions with existing apps can trigger these errors:
+> When you create a new App Service plan in an existing resource group, certain conditions with existing apps can trigger these errors:
 > - `The pricing tier is not allowed in this resource group`
 > - `<SKU_NAME> workers are not available in resource group <RESOURCE_GROUP_NAME>`
 > 

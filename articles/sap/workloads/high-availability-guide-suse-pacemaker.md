@@ -10,6 +10,7 @@ ms.topic: article
 ms.custom: devx-track-azurepowershell, linux-related-content
 ms.date: 05/21/2025
 ms.author: radeltch
+# Customer intent: "As a system administrator, I want to set up Pacemaker with fencing on SUSE Linux Enterprise Server in Azure, so that I can ensure high availability and reliability for my applications running in the cloud."
 ---
 
 # Set up Pacemaker on SUSE Linux Enterprise Server in Azure
@@ -384,7 +385,7 @@ Run the following commands on the nodes of the new cluster that you want to crea
     ```
 
     > [!NOTE]
-    > If the SBD_DELAY_START property value is set to "no", change the value to "yes". You must also check the SBD service file to ensure that the value of TimeoutStartSec is greater than the value of SBD_DELAY_START. For more information, see [SBD file configuraton](https://documentation.suse.com/sle-ha/15-SP5/html/SLE-HA-all/cha-ha-storage-protect.html#pro-ha-storage-protect-sbd-config)
+    > If the SBD_DELAY_START property value is set to "no", change the value to "yes". You must also check the SBD service file to ensure that the value of TimeoutStartSec is greater than the value of SBD_DELAY_START. For more information, see [SBD file configuration](https://documentation.suse.com/sle-ha/15-SP5/html/SLE-HA-all/cha-ha-storage-protect.html#pro-ha-storage-protect-sbd-config)
 
 1. **[A]** Create the `softdog` configuration file.
 
@@ -538,7 +539,7 @@ If you want to deploy resources by using the Azure CLI or the Azure portal, you 
    ```
 
     > [!NOTE]
-    > If the SBD_DELAY_START property value is set to "no", change the value to "yes". You must also check the SBD service file to ensure that the value of TimeoutStartSec is greater than the value of SBD_DELAY_START. For more information, see [SBD file configuraton](https://documentation.suse.com/sle-ha/15-SP5/html/SLE-HA-all/cha-ha-storage-protect.html#pro-ha-storage-protect-sbd-config)
+    > If the SBD_DELAY_START property value is set to "no", change the value to "yes". You must also check the SBD service file to ensure that the value of TimeoutStartSec is greater than the value of SBD_DELAY_START. For more information, see [SBD file configuration](https://documentation.suse.com/sle-ha/15-SP5/html/SLE-HA-all/cha-ha-storage-protect.html#pro-ha-storage-protect-sbd-config)
 
 6. Create the `softdog` configuration file.
 

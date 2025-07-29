@@ -7,6 +7,7 @@ ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 07/10/2023
 ms.author: mattmcinnes
+# Customer intent: As a Linux VM administrator, I want to implement the Microsoft Azure Network Adapter, so that I can enhance the networking performance and availability of my virtual machines in Azure.
 ---
 
 # Linux VMs with the Microsoft Azure Network Adapter

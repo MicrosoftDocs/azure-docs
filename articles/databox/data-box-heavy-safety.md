@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.date: 07/08/2019
 ms.author: shaas
 
+# Customer intent: "As a data center operator, I want to understand the safety guidelines for handling and operating the Data Box Heavy, so that I can prevent injuries and ensure compliance with safety standards during installation and use."
 ---
 # Safely install and operate your Azure Data Box Heavy
 

@@ -10,6 +10,8 @@ ms.topic: how-to
 ms.date: 01/27/2025
 
 #CustomerIntent: As a developer, I want to perform more advanced tasks and operations on rulesets using the Microsoft Rules Composer.
+ms.custom:
+  - build-2025
 ---
 
 # Perform advanced tasks on rulesets with the Microsoft Rules Composer

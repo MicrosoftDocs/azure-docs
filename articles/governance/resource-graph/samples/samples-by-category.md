@@ -125,6 +125,10 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 
 [!INCLUDE [azure-resource-graph-samples-cat-resource-health](../includes/samples-by-category/resource-health.md)]
 
+## Service Groups 
+
+[!INCLUDE [azure-resource-graph-cat-service-groups](../includes/samples-by-category/service-groups.md)]
+
 ## Tags
 
 [!INCLUDE [azure-resource-graph-samples-cat-tags](../includes/samples-by-category/tags.md)]

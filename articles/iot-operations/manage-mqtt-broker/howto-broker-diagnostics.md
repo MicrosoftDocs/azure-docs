@@ -9,6 +9,8 @@ ms.subservice: azure-mqtt-broker
 ms.date: 05/15/2025
 
 #CustomerIntent: As an operator, I want to configure diagnostics so that I can monitor MQTT broker communications.
+ms.custom:
+  - build-2025
 ---
 
 # Configure MQTT broker diagnostics settings

@@ -9,6 +9,7 @@ ms.subservice: storage-common-concepts
 ms.topic: concept-article
 ms.date: 04/01/2019
 ms.author: shaas
+# Customer intent: As a data engineer with limited network bandwidth, I want to evaluate physical data transfer options, so that I can securely and efficiently transfer large datasets to Azure without incurring excessive costs or compromising data security.
 ---
 
 # Data transfer for large datasets with low or no network bandwidth

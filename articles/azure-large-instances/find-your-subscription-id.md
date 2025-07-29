@@ -8,6 +8,7 @@ author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: azure-large-instances
 ms.date: 06/01/2023
+# Customer intent: "As an Azure user, I want to locate my Large Instances subscription ID, so that I can efficiently communicate with support when needed."
 ---
 
 # Find your subscription ID

@@ -243,6 +243,7 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     GITHUB_PAT="<GITHUB_PAT>"
     REPO_OWNER="<REPO_OWNER>"
     REPO_NAME="<REPO_NAME>"
+    REGISTRATION_TOKEN_API_URL="<YOUR_REGISTRATION_TOKEN_API_URL>"
     ```
 
     # [PowerShell](#tab/powershell)
@@ -250,6 +251,7 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     $GITHUB_PAT="<GITHUB_PAT>"
     $REPO_OWNER="<REPO_OWNER>"
     $REPO_NAME="<REPO_NAME>"
+    $REGISTRATION_TOKEN_API_URL="<YOUR_REGISTRATION_TOKEN_API_URL>"
     ```
 
     ---
@@ -261,6 +263,7 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     | `<GITHUB_PAT>` | The GitHub PAT you generated. |
     | `<REPO_OWNER>` | The owner of the repository you created earlier. This value is usually your GitHub username. |
     | `<REPO_NAME>` | The name of the repository you created earlier. This value is the same name you entered in the *Repository name* field. |
+    | `<YOUR_REGISTRATION_TOKEN_API_URL>` | The registration token API URL in the *entrypoint.sh* file. For example, 'https://myapi.example.com/get-token' |
 
 ## Build the GitHub Actions runner container image
 
@@ -647,7 +650,6 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     AZP_TOKEN="<AZP_TOKEN>"
     ORGANIZATION_URL="<ORGANIZATION_URL>"
     AZP_POOL="container-apps"
-    REGISTRATION_TOKEN_API_URL="<YOUR_REGISTRATION_TOKEN_API_URL>"
     ```
 
     # [PowerShell](#tab/powershell)
@@ -655,7 +657,6 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     $AZP_TOKEN="<AZP_TOKEN>"
     $ORGANIZATION_URL="<ORGANIZATION_URL>"
     $AZP_POOL="container-apps"
-    $REGISTRATION_TOKEN_API_URL="<YOUR_REGISTRATION_TOKEN_API_URL>"
     ```
 
     ---
@@ -666,7 +667,6 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     |---|---|---|
     | `<AZP_TOKEN>` | The Azure DevOps PAT you generated. | |
     | `<ORGANIZATION_URL>` | The URL of your Azure DevOps organization. Make sure no trailing `/` is present at the end of the URL. | For example, `https://dev.azure.com/myorg` or `https://myorg.visualstudio.com`. |
-    | `<YOUR_REGISTRATION_TOKEN_API_URL>` | The registration token API URL in the *entrypoint.sh* file. | For example, 'https://myapi.example.com/get-token' |
 
 ## Build the Azure Pipelines agent container image
 

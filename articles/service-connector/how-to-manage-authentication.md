@@ -5,6 +5,7 @@ author: maud-lv
 ms.service: service-connector
 ms.custom:
   - build-2024
+  - build-2025
 ms.topic: how-to
 ms.date: 05/12/2025
 ms.author: malev

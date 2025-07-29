@@ -3,6 +3,7 @@ title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solutions.
 ms.date: 02/28/2025
 ms.topic: concept-article
+# Customer intent: As a cloud solution architect, I want to implement best practices for Azure Batch services, so that I can optimize performance, ensure reliability, and enhance security for my batch processing workloads.
 ---
 
 # Azure Batch best practices

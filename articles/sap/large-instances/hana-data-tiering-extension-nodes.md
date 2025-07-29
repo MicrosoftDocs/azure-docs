@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 05/17/2021
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
+# Customer intent: As an SAP administrator, I want to implement data tiering and extension nodes in SAP HANA on Azure, so that I can optimize memory usage and manage larger data volumes efficiently.
 ---
 # Use SAP HANA data tiering and extension nodes
 

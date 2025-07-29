@@ -3,7 +3,7 @@ title: Create and deploy Azure deployment stacks in Bicep
 description: Understand how to create deployment stacks in Bicep.
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
-ms.date: 03/25/2025
+ms.date: 06/09/2025
 ---
 
 # Create and deploy Azure deployment stacks in Bicep
@@ -31,6 +31,8 @@ Deployment stacks provide the following benefits:
 
 ### Known limitations
 
+- There is a limit of 800 deployment stacks that can be created within a single scope.
+- A maximum of 2,000 Deny Assignments can exist at any given scope.
 - The deployment stack doesn't manage implicitly created resources. Therefore, you can't use [deny-assignments](../../role-based-access-control/deny-assignments.md) or cleanup for these resources.
 - Deny-assignments don't support tags.
 - Deny-assignments aren't supported at the management group scope. However, they're supported in a management group stack if the deployment is pointed at the subscription scope.

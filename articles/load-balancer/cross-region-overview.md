@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.date: 02/20/2025
 ms.author: mbender
 ms.custom: references_regions
+# Customer intent: "As a cloud architect, I want to implement a global load balancer, so that I can ensure high availability and geo-redundancy for applications, optimizing traffic distribution while minimizing latency."
 ---
 
 # Global Load Balancer

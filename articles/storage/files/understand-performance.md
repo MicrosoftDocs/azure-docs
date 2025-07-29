@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 05/13/2024
 ms.author: kendownie
+# Customer intent: "As a cloud storage administrator, I want to understand the factors affecting Azure file share performance, so that I can optimize configurations for IOPS, throughput, and latency to meet application demands."
 ---
 
 # Understand and optimize Azure file share performance

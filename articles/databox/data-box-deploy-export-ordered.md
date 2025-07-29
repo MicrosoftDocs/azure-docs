@@ -10,6 +10,7 @@ ms.date: 04/17/2025
 ms.author: shaas
 zone_pivot_groups: data-box-sku
 #Customer intent: As an IT admin, I need to be able to export data from Azure to another location, such as, another cloud provider or my location.
+# Customer intent: As an IT administrator, I want to export data from Azure Data Box to another location, so that I can ensure data recovery and management in case of on-premises storage issues.
 ---
 # Tutorial: Create export order for Azure Data Box
 
@@ -180,7 +181,7 @@ Perform the following steps in the Azure portal to order a device.
 
     On the **Create new key** screen, choose settings for the new key version, and select **Create**.
 
-    ![Screen capture showing the options for generating a new version of an exsiting Azure Key Vault key to provide a customer-managed key in the Data Box export order's Security tab.](./media/data-box-deploy-export-ordered/customer-managed-key-08-b.png)
+    ![Screen capture showing the options for generating a new version of an existing Azure Key Vault key to provide a customer-managed key in the Data Box export order's Security tab.](./media/data-box-deploy-export-ordered/customer-managed-key-08-b.png)
 
     The **Encryption type** settings on the **Security** screen show your key vault and key.
 
@@ -227,7 +228,7 @@ Perform the following steps in the Azure portal to order a device.
 
     We recommend that you use a group email so that you continue to receive notifications if an admin in the group leaves.
 
-    ![Screen capture showing the resullts of adding a new shipping address on the Contact details tab of a Data Box export order.](media/data-box-deploy-export-ordered/azure-data-box-export-order-contact-details.png)
+    ![Screen capture showing the results of adding a new shipping address on the Contact details tab of a Data Box export order.](media/data-box-deploy-export-ordered/azure-data-box-export-order-contact-details.png)
 
 15. Select **Next: Review + Order>**. You must accept the terms and conditions to proceed with order creation.
 

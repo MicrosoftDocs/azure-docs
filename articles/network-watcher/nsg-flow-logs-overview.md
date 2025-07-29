@@ -9,6 +9,9 @@ ms.topic: concept-article
 ms.date: 05/19/2025
 
 #CustomerIntent: As an Azure administrator, I want to learn about NSG flow logs so that I can log my network traffic to analyze and optimize the network performance.
+ms.custom:
+  - build-2025
+# Customer intent: As an Azure network administrator, I want to understand how NSG flow logs work, so that I can monitor traffic patterns and enhance the security and performance of my network.
 ---
 
 # Flow logging for network security groups

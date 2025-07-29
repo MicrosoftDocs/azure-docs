@@ -8,9 +8,7 @@ ms.custom:
 
 ### Use Microsoft Entra ID authentication on your cache
 
-Azure Redis caches, except for Enterprise and Enterprise Flash tiers, have Microsoft Entra Authentication enabled by default. Access keys are disabled by default.
-
-   [!INCLUDE [redis-access-key-alert](redis-access-key-alert.md)]
+Azure Managed Redis caches have Microsoft Entra Authentication enabled by default.
 
 1. In the Azure portal, select the cache where you'd like to use Microsoft Entra token-based authentication.
 

@@ -32,8 +32,8 @@ In Azure Load Testing, access is granted by assigning the appropriate Azure role
 
 | Role | Description |
 | --- | --- |
-| **Load Test Reader** | Read-only actions in the Load Testing resource. Readers can list and view tests and test runs in the resource. Readers can't create, update, or run tests. |
-| **Load Test Contributor** | View, create, edit, or delete (where applicable) tests and test runs in a Load Testing resource. |
+| **Load Test Reader** | Read-only actions in the Load Testing resource. Readers can list and view tests, test runs, test profiles and test profile runs in the resource. Readers can't create, update, or run tests and test profiles. |
+| **Load Test Contributor** | View, create, edit, or delete (where applicable) tests, test runs, test profiles and test profile runs in a Load Testing resource. |
 | **Load Test Owner** | Full access to the Load Testing resource, including the ability to view, create, edit, or delete (where applicable) assets in a resource. For example, you can modify or delete the Load Testing resource. |
 
 If you have the **Owner**, **Contributor**, or **Load Test Owner** role at the subscription level, you automatically have the same permissions as the **Load Test Owner** at the resource level.
@@ -59,7 +59,7 @@ A Load Test Owner can manage everything, including access. The following table s
 
 | DataActions | Description |
 | ------- | ----------- |
-| Microsoft.LoadTestService/loadtests/* | Start, stop, and manage load tests. |
+| Microsoft.LoadTestService/loadtests/* | Start, stop, manage load tests and test profiles. |
 
 ### Load Test Contributor
 
@@ -76,6 +76,8 @@ A Load Test Contributor can manage everything except access. The following table
 | DataActions | Description |
 | ------- | ----------- |
 | Microsoft.LoadTestService/loadtests/* | Start, stop, and manage load tests. |
+| Microsoft.LoadTestService/testProfiles/* | Create and manage load test profiles. |
+| Microsoft.LoadTestService/testProfileRuns/* | Start, stop, and manage load test profile runs. |
 
 ### Load Test Reader
 
@@ -92,6 +94,8 @@ A Load Test Reader can view all the resources in a load testing resource but can
 | DataActions | Description |
 | ------- | ----------- |
 | Microsoft.LoadTestService/loadtests/readTest/action | Read load tests. |
+| Microsoft.LoadTestService/testProfiles/read | Read load test profiles. |
+| Microsoft.LoadTestService/testProfileRuns/read | Read load test profile runs. |
 
 ## Configure Azure RBAC for your load testing resource
 

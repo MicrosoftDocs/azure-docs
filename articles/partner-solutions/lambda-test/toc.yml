@@ -16,3 +16,5 @@ items:
   items:
   - name: Manage your resource
     href: manage.md
+  - name: Get support
+    href: https://www.lambdatest.com/contact-us

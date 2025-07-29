@@ -6,6 +6,8 @@ ms.author: rithorn
 ms.service: azure-policy
 ms.topic: quickstart  
 ms.date: 5/19/2025
+ms.custom:
+  - build-2025
 ---
 
 
@@ -14,7 +16,7 @@ ms.date: 5/19/2025
 Azure Service Groups offer a flexible way to organize and manage resources across subscriptions and resource groups, parallel to any existing Azure resource hierarchy. They're ideal for scenarios requiring cross-boundary grouping, minimal permissions, and aggregations of data across resources. These features empower teams to create tailored resource collections that align with operational, organizational, or persona-based needs. This article helps give you an overview of what service groups are, the scenarios to use them for, and provide guidance on how to get started. For more information on service groups, see [Getting started with Service Groups](overview.md).
 
 > [!IMPORTANT]
-> Azure Service Groups is currently in PREVIEW. 
+> Azure Service Groups is currently in PREVIEW. Your tenant will only be able to see Service Groups once onboarded with the provided link. 
 > For more information about participating in the preview, see [Azure Service Groups Preview](https://aka.ms/ServiceGroups/PreviewSignup).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
@@ -25,7 +27,7 @@ Azure Service Groups offer a flexible way to organize and manage resources acros
 
 ## Create in Azure portal
 
-1. Log into the [Azure portal](https://portal.azure.com).
+1. Log into the [Azure portal](https://aka.ms/portalfx/service-groups-internal).
 2. Select **All services** > **Management + governance**.
 3. Select **Service Groups**.
 4. Select **+ Add Service Group**.

@@ -6,8 +6,9 @@ ms.date: 04/15/2025
 ms.service: azure-backup
 ms.custom: engagement-fy24
 ms.reviewer: sooryar
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As an IT administrator managing virtual machines, I want to troubleshoot Azure Backup failures related to agent or extension issues, so that I can ensure successful backup operations and maintain data protection.
 ---
 
 # Troubleshoot Azure Backup failures caused by agent or extension issues

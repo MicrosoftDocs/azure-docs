@@ -6,6 +6,7 @@ ms.author: jacobjaygbay
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
+# Customer intent: "As a database administrator, I want to understand the compliance certifications and shared responsibilities for Oracle Database@Azure, so that I can ensure our database workloads meet industry standards and manage service expectations effectively."
 ---
 
 # Compliance information for Oracle Database@Azure

@@ -1,18 +1,19 @@
 ---
-author: probableprime
+author: sloanster
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 09/08/2021
-ms.author: rifox
+ms.date: 06/10/2025
+ms.author: micahvivion
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-android.md)]
 
 ## Device management
-To begin using video with Calling, you will need to know how to manage devices. Devices allow you to control what transmits Audio and Video to the call.
 
-`DeviceManager` lets you enumerate local devices that can be used in a call to transmit your audio/video streams. It also allows you to request permission from a user to access their microphone and camera using the native browser API.
+To use video with Calling, you need to manage devices. Using devices enables you to control what transmits Audio and Video to the call.
 
-You can access `deviceManager` by calling `callClient.getDeviceManager()` method.
+The `DeviceManager` object enables you to enumerate local devices to use in a call to transmit your audio/video streams. It also enables you to request permission from a user to access their microphone and camera using the native browser API.
+
+To access `deviceManager`, call the `callClient.getDeviceManager()` method.
 
 ```java
 Context appContext = this.getApplicationContext();
@@ -21,7 +22,7 @@ DeviceManager deviceManager = callClient.getDeviceManager(appContext).get();
 
 ### Enumerate local devices
 
-To access local devices, you can use enumeration methods on the Device Manager. Enumeration is a synchronous action.
+To access local devices, use enumeration methods on the Device Manager. Enumeration is a synchronous action.
 
 ```java
 //  Get a list of available video devices for use.
@@ -30,7 +31,7 @@ List<VideoDeviceInfo> localCameras = deviceManager.getCameras(); // [VideoDevice
 
 ### Local camera preview
 
-You can use `DeviceManager` and `Renderer` to begin rendering streams from your local camera. This stream won't be sent to other participants; it's a local preview feed. This is an asynchronous action.
+You can use `DeviceManager` and `Renderer` to begin rendering streams from your local camera. This stream isn't sent to other participants. It's a local preview feed. Rendering a stream is an asynchronous action.
 
 ```java
 VideoDeviceInfo videoDevice = <get-video-device>; // See the `Enumerate local devices` topic above
@@ -53,16 +54,14 @@ layout.addView(uiView);
 ```
 
 ## Place a 1:1 call with video camera
+
 > [!WARNING]
-> Currently only one outgoing local video stream is supported
-To place a call with video you have to enumerate local cameras using the `deviceManager` `getCameras` API.
-Once you select a desired camera, use it to construct a `LocalVideoStream` instance and pass it into `videoOptions`
-as an item in the `localVideoStream` array to a `call` method.
-Once the call connects it will automatically start sending a video stream from the selected camera to other participant(s).
+> Currently only one outgoing local video stream is supported. To place a call with video, you must enumerate local cameras using the `deviceManager` `getCameras` API.
+> Once you select a camera, use it to construct a `LocalVideoStream` instance and pass it into `videoOptions` as an item in the `localVideoStream` array to a `call` method. Once the call connects, it automatically starts sending a video stream from the selected camera to other participants.
 
 > [!NOTE]
-> Due to privacy concerns, video will not be shared to the call if it is not being previewed locally.
-See [Local camera preview](#local-camera-preview) for more details.
+> Due to privacy concerns, video isn't shared to the call if it isn't previewed locally.
+> For more information, see [Local camera preview](#local-camera-preview).
 
 ```java
 VideoDeviceInfo desiredCamera = <get-video-device>; // See the `Enumerate local devices` topic above
@@ -92,7 +91,7 @@ Call call = callAgent.startCall(context, participants, startCallOptions);
 
 ## Start and stop sending local video
 
-To start a video, you have to enumerate cameras using the `getCameraList` API on `deviceManager` object. Then create a new instance of `LocalVideoStream` passing the desired camera, and pass it in the `startVideo` API as an argument:
+To start a video, you must enumerate cameras using the `getCameraList` operation on `deviceManager` object. Then create a new instance of `LocalVideoStream` passing the desired camera, and pass it in the `startVideo` API as an argument:
 
 ```java
 VideoDeviceInfo desiredCamera = <get-video-device>; // See the `Enumerate local devices` topic above
@@ -106,7 +105,7 @@ Future startVideoFuture = call.startVideo(appContext, currentLocalVideoStream);
 startVideoFuture.get();
 ```
 
-Once you successfully start sending video, a `LocalVideoStream` instance will be added to the `localVideoStreams` collection on the call instance.
+Once you successfully start sending video, a `LocalVideoStream` instance is added to the `localVideoStreams` collection on the call instance.
 
 ```java
 List<LocalVideoStream> videoStreams = call.getLocalVideoStreams();
@@ -142,7 +141,7 @@ To render a `RemoteVideoStream` from a remote participant, you have to subscribe
 
 Within the event, the change of `isAvailable` property to true indicates that remote participant is currently sending a stream. Once that happens, create new instance of a `Renderer`, then create a new `RendererView` using asynchronous `createView` API and attach `view.target` anywhere in the UI of your application.
 
-Whenever availability of a remote stream changes you can choose to destroy the whole Renderer, a specific `RendererView` or keep them, but this will result in displaying blank video frame.
+Whenever availability of a remote stream changes you can choose to destroy the whole `Renderer`, a specific `RendererView` or keep them, but results in displaying blank video frame.
 
 ```java
 VideoStreamRenderer remoteVideoRenderer = new VideoStreamRenderer(remoteParticipantStream, appContext);
@@ -163,46 +162,56 @@ void onRemoteParticipantVideoStreamsUpdated(RemoteParticipant participant, Remot
 ```
 
 ### Remote video stream properties
-Remote video stream has couple of properties
 
-* `Id` - ID of a remote video stream
-```java
-int id = remoteVideoStream.getId();
-```
+Remote video stream has the following properties:
 
-* `MediaStreamType` - Can be 'Video' or 'ScreenSharing'
-```java
-MediaStreamType type = remoteVideoStream.getMediaStreamType();
-```
+- `Id` - ID of a remote video stream.
 
-* `isAvailable` - Indicates if remote participant endpoint is actively sending stream
-```java
-boolean availability = remoteVideoStream.isAvailable();
-```
+   ```java
+   int id = remoteVideoStream.getId();
+   ```
+
+- `MediaStreamType` - Can be `Video` or `ScreenSharing`.
+
+   ```java
+   MediaStreamType type = remoteVideoStream.getMediaStreamType();
+   ```
+
+- `isAvailable` - Indicates if remote participant endpoint is actively sending stream.
+
+   ```java
+   boolean availability = remoteVideoStream.isAvailable();
+   ```
 
 ### Renderer methods and properties
-Renderer object following APIs
 
-* Create a `VideoStreamRendererView` instance that can be later attached in the application UI to render remote video stream.
-```java
-// Create a view for a video stream
-VideoStreamRendererView.createView()
-```
-* Dispose renderer and all `VideoStreamRendererView` associated with this renderer. To be called when you have removed all associated views from the UI.
-```java
-VideoStreamRenderer.dispose()
-```
+The `Renderer` object uses the following methods.
 
-* `StreamSize` - size (width/height) of a remote video stream
-```java
-StreamSize renderStreamSize = VideoStreamRenderer.getSize();
-int width = renderStreamSize.getWidth();
-int height = renderStreamSize.getHeight();
-```
+- To render remote video stream, create a `VideoStreamRendererView` instance that can be later attached in the application UI.
+
+   ```java
+   // Create a view for a video stream
+   VideoStreamRendererView.createView()
+   ```
+- Dispose renderer and all `VideoStreamRendererView` associated with this renderer. Call it after you remove all associated views from the UI.
+
+   ```java
+   VideoStreamRenderer.dispose()
+   ```
+
+- To set the size (width/height) of a remote video stream, use `StreamSize`.
+
+   ```java
+   StreamSize renderStreamSize = VideoStreamRenderer.getSize();
+   int width = renderStreamSize.getWidth();
+   int height = renderStreamSize.getHeight();
+   ```
 
 ### RendererView methods and properties
-When creating a `VideoStreamRendererView` you can specify the `ScalingMode` and `mirrored` properties that will apply to this view:
-Scaling mode can be either of 'CROP' | 'FIT'
+
+When creating a `VideoStreamRendererView`, you can specify the `ScalingMode` and `mirrored` properties that apply to this view.
+
+Scaling mode can be either one of `CROP` or `FIT`.
 
 ```java
 VideoStreamRenderer remoteVideoRenderer = new VideoStreamRenderer(remoteVideoStream, appContext);
@@ -210,12 +219,14 @@ VideoStreamRendererView rendererView = remoteVideoRenderer.createView(new Create
 ```
 
 The created RendererView can then be attached to the application UI using the following snippet:
+
 ```java
 layout.addView(rendererView);
 ```
 
-You can later update the scaling mode by invoking `updateScalingMode` API on the RendererView object with one of ScalingMode.CROP | ScalingMode.FIT as an argument.
-```java
-// Update the scale mode for this view.
-rendererView.updateScalingMode(ScalingMode.CROP)
+You can later update the scaling mode using the `updateScalingMode` operation on the `RendererView` object with an argument of either `ScalingMode.CROP` or `ScalingMode.FIT`.
+
+   ```java
+   // Update the scale mode for this view.
+   rendererView.updateScalingMode(ScalingMode.CROP)
 ```

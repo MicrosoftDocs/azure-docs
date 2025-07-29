@@ -5,8 +5,9 @@ ms.topic: how-to
 ms.date: 05/22/2025
 ms.custom: devx-track-azurepowershell
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a cloud administrator, I want to back up Azure Files using PowerShell scripts, so that I can automate the backup process and ensure data protection through an Azure Backup Recovery Services vault.
 ---
 
 # Back up Azure Files using Azure PowerShell

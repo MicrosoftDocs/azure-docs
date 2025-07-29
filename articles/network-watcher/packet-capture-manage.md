@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 03/21/2025
 
 #CustomerIntent: As an administrator, I want to capture IP packets to and from a virtual machine (VM) so I can review and analyze the data to help diagnose and solve network problems.
+# Customer intent: As a network administrator, I want to manage packet captures on Azure virtual machines so that I can analyze network traffic and troubleshoot issues effectively.
 ---
 
 # Start, stop, download, and delete packet captures with Azure Network Watcher

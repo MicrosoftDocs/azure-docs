@@ -4,7 +4,10 @@ description: Learn to automatically create new revisions in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.custom: devx-track-azurecli, ignite-2023
+ms.custom:
+  - devx-track-azurecli
+  - ignite-2023
+  - build-2025
 ms.topic: how-to
 ms.date: 05/14/2025
 ms.author: cshoe

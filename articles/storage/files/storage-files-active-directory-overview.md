@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: overview
 ms.date: 01/24/2025
 ms.author: kendownie
+# Customer intent: "As a cloud architect, I want to implement identity-based authentication for Azure file shares over SMB, so that I can enhance security and streamline access for users migrating from on-premises environments."
 ---
 
 # Overview of Azure Files identity-based authentication for SMB access
@@ -104,7 +105,7 @@ Enabling and configuring Microsoft Entra ID for authenticating [hybrid user iden
 
 To enable Microsoft Entra Kerberos authentication for hybrid identities, see [Enable Microsoft Entra Kerberos authentication for hybrid identities on Azure Files](storage-files-identity-auth-hybrid-identities-enable.md).
 
-You can also use this feature to store FSLogix profiles on Azure file shares for Microsoft Entra joined VMs. For more information, see [Create a profile container with Azure Files and Microsoft Entra ID](../../virtual-desktop/create-profile-container-azure-ad.yml).
+You can also use this feature to store FSLogix profiles on Azure file shares for Microsoft Entra joined VMs. For more information, see [Create a profile container with Azure Files and Microsoft Entra ID](/azure/virtual-desktop/create-profile-container-azure-ad).
 
 <a name='azure-ad-ds'></a>
 

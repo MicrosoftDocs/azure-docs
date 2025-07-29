@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-backup
-ms.date: 06/13/2024
+ms.date: 06/10/2025
 ---
 
 <!--#Customer intent:  I want to understand reliability support in Azure Backup so that I can respond to and/or avoid failures in order to minimize downtime and data loss. -->
@@ -41,6 +41,10 @@ The following table lists the various datasources that each vault supports:
 |SQL in Azure VM| Azure Blobs|
 |Azure Files| Azure Database for PostgreSQL server|
 |SAP HANA in Azure VM| Kubernetes services |
+|SAP ASE (Sybase) in Azure VM | Azure Database for PostgreSQL - Flexible server |
+|          | Azure Database for MySQL - Flexible server (preview) |
+|        | Azure Data Lake Storage (preview) |
+|      | Azure Elastic SAN (preview)
 |Azure Backup server| |
 |Azure Backup agent| |
 |Data Protection Manager (DPM)| |

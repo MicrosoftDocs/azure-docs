@@ -6,6 +6,7 @@ ms.service: azure-private-link
 ms.topic: troubleshooting
 ms.date: 01/06/2025
 ms.author: abell
+# Customer intent: "As a network administrator, I want to diagnose Azure Private Link connectivity issues, so that I can ensure secure, private access to services and troubleshoot any problems effectively."
 ---
 
 # Troubleshoot Azure Private Link Service connectivity problems

@@ -9,6 +9,7 @@ ms.custom: ignite-2023, ai-usage
 ms.topic: how-to
 ms.date: 03/21/2024
 ms.author: duau
+# Customer intent: As a network engineer, I want to enable or disable rate limiting for my ExpressRoute Direct circuits, so that I can manage traffic loads and ensure optimal network performance and stability between my on-premises network and Azure.
 ---
 
 # Rate limiting for ExpressRoute Direct circuits

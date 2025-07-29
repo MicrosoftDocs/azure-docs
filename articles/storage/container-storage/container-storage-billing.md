@@ -6,6 +6,7 @@ ms.service: azure-container-storage
 ms.date: 07/09/2024
 ms.author: kendownie
 ms.topic: concept-article
+# Customer intent: "As a cloud solutions architect, I want to understand the pricing model for Azure Container Storage, so that I can accurately estimate costs based on backing storage options and service fees for different deployment scenarios."
 ---
 
 # Understand Azure Container Storage billing

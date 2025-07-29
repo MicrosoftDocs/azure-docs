@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 12/12/2023
 ms.custom: engagement-fy23
+# Customer intent: As an IT manager using Azure VMware Solution, I want to explore backup and restore options for my virtual machines, so that I can ensure data protection and recovery in my cloud environment.
 ---
 
 # Backup solutions for Azure VMware Solution virtual machines (VMs)

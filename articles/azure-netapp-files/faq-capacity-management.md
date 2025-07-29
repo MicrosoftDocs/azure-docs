@@ -6,6 +6,9 @@ ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
 ms.date: 03/01/2025
+ms.custom:
+  - build-2025
+# Customer intent: As a cloud administrator, I want to monitor and manage the capacity of Azure NetApp Files, so that I can ensure optimal storage utilization and prevent disruptions due to space constraints.
 ---
 # Capacity management FAQs for Azure NetApp Files
 

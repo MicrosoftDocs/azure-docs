@@ -7,6 +7,8 @@ ms.custom: devx-track-arm-template
 ms.date: 01/01/2025
 ms.topic: how-to
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Get started with Azure Automation State Configuration

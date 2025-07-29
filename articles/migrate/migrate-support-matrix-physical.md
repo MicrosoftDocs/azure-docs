@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 04/04/2025
 ms.custom: engagement-fy23, linux-related-content
+# Customer intent: As an IT administrator, I want to assess physical servers for migration to Azure using a discovery and assessment tool, so that I can plan and execute a successful migration of our on-premises infrastructure.
 ---
 
 # Support matrix for physical server discovery and assessment
@@ -36,80 +37,6 @@ Assessment | You can add up to 35,000 servers in a single group.<br/><br/> You c
 
 - **Operating system:** All Windows and Linux operating systems can be assessed for migration.
 
-## Permissions for Windows servers
-
-- For Windows servers, use a domain account for domain-joined servers and a local account for servers that aren't domain joined.
-- For physical discovery, specify the username in Down level format (domain\username) and UPN format (username@domain.com) is not supported.
-
-You can create the user account in one of the following two ways.
-
-### Option 1
-
-Create an account that has administrator privileges on the servers. Use this account to:
-
-- Pull configuration and performance data through a Common Information Model (CIM) connection.
-- Perform software inventory (discovery of installed applications).
-- Enable agentless dependency analysis by using PowerShell remoting.
-
-> [!Note]
-> If you want to perform software inventory (discovery of installed applications) and enable agentless dependency analysis on Windows servers, we recommend that you use Option 1.
-
-### Option 2
-
-- Add the user account to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users.
-- If the Remote Management Users group isn't present, add the following user account to the group **WinRMRemoteWMIUsers_**.
-- The account needs these permissions for the appliance to create a CIM connection with the server and pull the required configuration and performance metadata from the Windows Management Instrumentation (WMI) classes listed here.
-- In some cases, adding the account to these groups might not return the required data from WMI classes. The account might be filtered by [User Account Control (UAC)](/windows/win32/wmisdk/user-account-control-and-wmi). To overcome the UAC filtering, the user account needs to have the necessary permissions on CIMV2 Namespace and subnamespaces on the target server. To enable the required permissions, see [Troubleshoot the Azure Migrate appliance](troubleshoot-appliance.md).
-
-> [!Note]
-> For Windows Server 2008 and 2008 R2, ensure that Windows Management Framework 3.0 is installed on the servers.
-
-To discover SQL Server databases on Windows servers, both Windows and SQL Server authentication are supported. You can provide credentials of both authentication types in the appliance configuration manager. Azure Migrate requires a Windows user account that's a member of the sysadmin server role.
-
-## Permissions for Linux server
-
-For Linux servers, based on the features you want to perform, you can create a user account in one of the following two ways.
-
-### Option 1
-
-- You need a sudo user account on the servers that you want to discover. Use this account to:
-
-   - Pull configuration and performance metadata.
-   - Perform software inventory (discovery of installed applications).
-   - Enable agentless dependency analysis by using Secure Shell (SSH) connectivity.
-- You need to enable sudo access on /usr/bin/bash to execute the commands listed in [Linux server metadata](discovered-metadata.md#linux-server-metadata). In addition to these commands, the user account also needs to have permissions to execute ls and netstat commands to perform agentless dependency analysis.
-- Make sure that you enable **NOPASSWD** for the account to run the required commands without prompting for a password every time the sudo command is invoked.
-- Azure Migrate and Modernize supports the following Linux OS distributions for discovery by using an account with sudo access:
-
-    Operating system | Versions
-    --- | ---
-    Red Hat Enterprise Linux | 5.1, 5.3, 5.11, 6.x, 7.x, 8.x, 9.x, 9.5
-    Ubuntu | 24.04, 22.04, 12.04, 14.04, 16.04, 18.04, 20.04, 22.04
-    Oracle Linux | 6.1, 6.7, 6.8, 6.9, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.3, 8.5
-    SUSE Linux | 10, 11 SP4, 12 SP1, 12 SP2, 12 SP3, 12 SP4, 15 SP2, 15 SP3
-    Debian | 7, 8, 9, 10, 11
-    Amazon Linux | 2.0.2021
-    CoreOS Container | 2345.3.0
-    Alma Linux | 8.x, 9.x
-    Rocky Linux | 8.x, 9.x
-
-
-> [!Note]
-> If you want to perform software inventory (discovery of installed applications) and enable agentless dependency analysis on Linux servers, we recommend that you use Option 1.
-
-### Option 2
-
-- If you can't provide the root account or user account with sudo access, you can set the `isSudo` registry key to the value `0` in the HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance registry on the appliance server. Provide a nonroot account with the required capabilities by using the following commands:
-
-    Command | Purpose
-    --- | --- |
-    setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br></br> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk _(if /usr/sbin/fdisk is not present)_ | Collects disk configuration data.
-    setcap "cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_setuid,<br> cap_setpcap,cap_net_bind_service,cap_net_admin,cap_sys_chroot,cap_sys_admin,<br> cap_sys_resource,cap_audit_control,cap_setfcap=+eip" /sbin/lvm | Collects disk performance data.
-    setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode | Collects BIOS serial number.
-    chmod a+r /sys/class/dmi/id/product_uuid | Collects BIOS GUID.
-
-- To perform agentless dependency analysis on the server, ensure that you also set the required permissions on /bin/netstat and /bin/ls files by using the following commands:<br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls<br /> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat</code>
-
 ## Azure Migrate appliance requirements
 
 Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for discovery and assessment. The appliance for physical servers can run on a virtual machine (VM) or a physical server.
@@ -126,8 +53,7 @@ The following table summarizes port requirements for assessment.
 Device | Connection
 --- | ---
 Appliance | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368 to remotely access the appliance management app by using the URL ``` https://<appliance-ip-or-name>:44368 ```.<br/><br/> Outbound connections on ports 443 (HTTPS) to send discovery and performance metadata to Azure Migrate and Modernize.
-Physical servers | **Windows**: Inbound connections on the WinRM port 5986 (HTTPS) are used to pull configuration and performance metadata from Windows servers. <br/><br/> If the HTTPS prerequisites aren't configured on the target Hyper-V servers, the appliance communication will fall back to WinRM port 5985 (HTTP).<br/><br/> To enforce HTTPS communication without fallback, toggle the Appliance Config Manager. <br/><br/> After enabling, ensure that the prerequisites are configured on the target servers. <br/><br/> - If certificates aren't configured on the target servers, discovery will fail on both the currently discovered servers and the newly added servers. <br/><br/> - WinRM HTTPS requires a local computer Server Authentication certificate with a common name (CN) matching the hostname. The certificate must not be expired, revoked, or self-signed. Refer to the [article](/troubleshoot/windows-client/system-management-components/configure-winrm-for-https) for configuring WinRM for HTTPS. <br/><br/> 
-**Linux**: Inbound connections on port 22 (TCP) to pull configuration and performance metadata from Linux servers. |
+Physical servers | **Windows**: Inbound connections on the WinRM port 5986 (HTTPS) are used to pull configuration and performance metadata from Windows servers. <br/><br/> If the HTTPS prerequisites aren't configured on the target Hyper-V servers, the appliance communication will fall back to WinRM port 5985 (HTTP).<br/><br/> To enforce HTTPS communication without fallback, toggle the Appliance Config Manager. <br/><br/> After enabling, ensure that the prerequisites are configured on the target servers. <br/><br/> - If certificates aren't configured on the target servers, discovery will fail on both the currently discovered servers and the newly added servers. <br/><br/> - WinRM HTTPS requires a local computer Server Authentication certificate with a common name (CN) matching the hostname. The certificate must not be expired, revoked, or self-signed. Refer to the [article](/troubleshoot/windows-client/system-management-components/configure-winrm-for-https) for configuring WinRM for HTTPS.<br/><br/> - Linux: Inbound connections on port 22 (TCP) to pull configuration and performance metadata from Linux servers. |
 
 ## Software inventory requirements
 

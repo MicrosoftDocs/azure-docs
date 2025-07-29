@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 03/31/2025
 ms.author: cherylmc
 
+# Customer intent: "As a network administrator, I want to configure validated VPN devices for Site-to-Site connections, so that I can establish secure connections between on-premises networks and Azure virtual networks."
 ---
 # About VPN devices and IPsec/IKE parameters for Site-to-Site VPN Gateway connections
 
@@ -63,7 +64,7 @@ To help configure your VPN device, refer to the links that correspond to the app
 | SonicWall |TZ Series, NSA Series<br>SuperMassive Series<br>E-Class NSA Series |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |Not compatible |[Configuration guide](https://www.sonicwall.com/support/knowledge-base/170505320011694) |
 | Sophos | XG Next Gen Firewall | XG v17 | Not tested | [Configuration guide](https://community.sophos.com/sophos-xg-firewall/f/recommended-reads/118402/sophos-xg-firewall-v17-x-how-to-establish-a-site-to-site-ipsec-vpn-to-microsoft-azure)<br><br>[Configuration guide - Multiple SAs](https://community.sophos.com/sophos-xg-firewall/f/recommended-reads/118404/sophos-firewall-configure-a-site-to-site-ipsec-vpn-with-multiple-sas-to-a-route-based-azure-vpn-gateway) |
 | Synology | MR2200ac <br>RT2600ac <br>RT1900ac | SRM1.1.5/VpnPlusServer-1.2.0 | Not tested | [Configuration guide](https://www.synology.com/en-global/knowledgebase/SRM/tutorial/VPN/How_to_set_up_Site_to_Site_VPN_between_Synology_Router_and_MS_Azure) |
-| Ubiquiti | EdgeRouter | EdgeOS v1.10 | Not tested | [BGP over IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012374708)<br><br>[VTI over IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012305347) |
+| Ubiquiti | EdgeRouter | EdgeOS v1.10 | Not tested | [BGP over IKEv2/IPsec](https://help.uisp.com/hc/en-us/articles/22591174261271-EdgeRouter-Route-Based-Site-to-Site-VPN-to-Azure-BGP-over-IKEv2-IPsec)<br><br>[VTI over IKEv2/IPsec](https://help.uisp.com/hc/en-us/articles/22591212773143-EdgeRouter-Route-Based-Site-to-Site-VPN-to-Azure-VTI-over-IKEv2-IPsec) |
 | Ultra | 3E-636L3 | 5.2.0.T3 Build-13  | Not tested | Configuration guide |
 | WatchGuard |All |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Configuration guide](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Configuration guide](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 | Zyxel |ZyWALL USG series<br>ZyWALL ATP series<br>ZyWALL VPN series | ZLD v4.32+ | Not tested | [VTI over IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2648/)<br><br>[BGP over IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2650/)|
@@ -143,7 +144,7 @@ MSS clamping is done bidirectionally on the Azure VPN Gateway. The following tab
 
 | **Packet Flow**               |**IPv4**        | **IPv6**   |
 | ---                           | ---            | ---        |
-| Over Internet                 | 1340 bytes     | 1360 bytes |
+| Over Internet                 | 1360 bytes     | 1340 bytes |
 | Over Express Route Gateway    | 1250 bytes     | 1250 bytes |
 
 

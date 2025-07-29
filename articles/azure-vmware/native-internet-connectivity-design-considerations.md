@@ -1,13 +1,15 @@
 ---
-title: Internet Configuration for Azure VMware Solution Generation 2 Private Clouds
-description: Learn about Azure VMware Solution in an Azure Virtual Network Internet connectivity configuration.
+title: Internet connectivity options for Azure VMware Solution Generation 2 private clouds 
+description: Learn about Azure Internet connectivity options for Azure VMware Solution Generation 2 private clouds.
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 4/21/2025
 ms.custom: engagement-fy25
+# Customer intent: "As a network administrator, I want to configure internet connectivity for my Azure VMware Solution Generation 2 private cloud, so that I can ensure effective communication between my cloud, on-premises resources, and external networks."
 ---
 
-# Connect to Internet
+# Internet connectivity options for Azure VMware Solution Generation 2 private clouds 
+
 
 After you deploy an Azure VMware Solution Generation 2 (Gen 2) private cloud, you may require network connectivity between the private cloud and other networks you have in an Azure Virtual Network, on-premises, other Azure VMware Solution private clouds, or the internet. In this article, you learn to connect Azure VMware Solution on an Azure Virtual Network private cloud to the internet.
 
@@ -28,7 +30,7 @@ Internet connectivity using Azure Firewall is similar to the way Azure virtual n
 
 1. Have or create Azure Firewall or a third-party Network Virtual Appliance in the virtual network local to the private cloud or in the peered virtual network.
 2. Define an Azure route table with a 0.0.0.0/0 route pointing to the next-hop type Virtual Appliance with the next-hop IP address of the Azure Firewall private IP or IP of the Network Virtual Appliance.
-3. Associate the route table to the Azure VMware Solution specific virtual network subnets named “esx-lrnsxuplink” and “esx-lrnsxuplink-1”, which are part of the virtual network associated with private cloud.
+3. Associate the route table to the Azure VMware Solution specific virtual network subnets named “avs-nsx-gw-1” and “avs-nsx-gw-2”, which are part of the virtual network associated with private cloud.
     >[!Note] 
     >The Azure route tables (UDR), associated with private cloud uplink subnets, and private cloud VNet need to be in the same Azure resource group.
 4. Have necessary firewall rules to allow traffic to and from the internet.

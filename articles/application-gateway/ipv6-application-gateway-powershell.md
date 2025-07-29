@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 02/08/2024
 ms.author: mbender
 ms.custom: mvc, devx-track-azurepowershell
+# Customer intent: As a network engineer, I want to configure a public IPv6 address for an Application Gateway using Azure PowerShell, so that I can enable dual-stack connectivity for managing and securing web traffic to my backend servers.
 ---
 
 # Configure Application Gateway with a frontend public IPv6 address using Azure PowerShell 

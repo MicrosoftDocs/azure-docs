@@ -1,28 +1,31 @@
 ---
-title: Quickstart - Add raw media access to your app (Unity)
-titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you learn how to add raw media access calling capabilities to your Unity app by using Azure Communication Services.
+title: Add raw media access to your app (Unity)
+titleSuffix: An Azure Communication Services article
+description: This article describes how to add raw media access calling capabilities to your Unity app by using Azure Communication Services.
 author: jowang-msft
 ms.author: jowang
-ms.date: 02/02/2024
+ms.date: 06/24/2025
 ms.topic: include
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-In this quickstart, you learn how to implement raw media access by using the Azure Communication Services Calling SDK for Unity.
-The Azure Communication Services Calling SDK offers APIs that allow apps to generate their own video frames to send or render raw video frames from remote participants in a call.
-This quickstart builds on [Quickstart: Add 1:1 video calling to your app](../../get-started-with-video-calling.md?pivots=platform-unity) for Unity.
+This article describes how to implement raw media access by using the Azure Communication Services Calling SDK for Unity.
 
-## RawVideo access
+The Azure Communication Services Calling SDK enables apps to generate their own video frames to send to remote participants in a call.
 
-Because the app generates the video frames, the app must inform the Azure Communication Services Calling SDK about the video formats that the app can generate. This information allows the Azure Communication Services Calling SDK to pick the best video format configuration for the network conditions at that time.
+This article builds on [Add 1:1 video calling to your app](../../get-started-with-video-calling.md?pivots=platform-unity) for Unity.
 
-## Virtual Video
+## Raw video access
+
+Because the app generates the video frames, the app must inform the Azure Communication Services Calling SDK about the video formats that the app can generate. This information enables the Azure Communication Services Calling SDK to pick the best video format configuration for the network conditions at that time.
+
+## Virtual video
 
 ### Supported video resolutions
+
 | Aspect ratio | Resolution  | Maximum FPS  |
-| :--: | :-: | :-: |
+| --- | --- | --- |
 | 16x9 | 1080p | 30 |
 | 16x9 | 720p | 30 |
 | 16x9 | 540p | 30 |
@@ -37,9 +40,12 @@ Because the app generates the video frames, the app must inform the Azure Commun
 | 4x3 | 212x160 | 15 |
 
 1. Follow the steps here [Quickstart: Add 1:1 video calling to your app](../../get-started-with-video-calling.md?pivots=platform-unity) to create Unity game. The goal is to obtain a `CallAgent` object ready to begin the call.
-   Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/Unity/RawVideo).
+
+   Find the finalized code on GitHub at [Raw Video](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/Unity/RawVideo).
+
 2. Create an array of `VideoFormat` using the VideoStreamPixelFormat the SDK supports.
    When multiple formats are available, the order of the formats in the list doesn't influence or prioritize which one is used. The criteria for format selection are based on external factors like network bandwidth.
+
     ```csharp
     var videoStreamFormat = new VideoStreamFormat
     {
@@ -50,25 +56,33 @@ Because the app generates the video frames, the app must inform the Azure Commun
     };
     VideoStreamFormat[] videoStreamFormats = { videoStreamFormat };
     ```
+
 3. Create `RawOutgoingVideoStreamOptions`, and set `Formats` with the previously created object.
+
     ```csharp
     var rawOutgoingVideoStreamOptions = new RawOutgoingVideoStreamOptions
     {
         Formats = videoStreamFormats
     };
     ```
+
 3. Create an instance of `VirtualOutgoingVideoStream` by using the `RawOutgoingVideoStreamOptions` instance that you created previously.
+
     ```csharp
     var rawOutgoingVideoStream = new VirtualOutgoingVideoStream(rawOutgoingVideoStreamOptions);
     ```
-4. Subscribe to the `RawOutgoingVideoStream.FormatChanged` delegate. This event informs whenever the `VideoStreamFormat` has been changed from one of the video formats provided on the list.
+
+4. Subscribe to the `RawOutgoingVideoStream.FormatChanged` delegate. This event informs whenever the `VideoStreamFormat` changes from one of the video formats provided on the list.
+
     ```csharp
     rawOutgoingVideoStream.FormatChanged += (object sender, VideoStreamFormatChangedEventArgs args)
     {
         VideoStreamFormat videoStreamFormat = args.Format;
     }
     ```
-5. Subscribe to the `RawOutgoingVideoStream.StateChanged` delegate. This event informs whenever the `State` has changed.
+
+5. Subscribe to the `RawOutgoingVideoStream.StateChanged` delegate. This event informs whenever the `State` changes.
+
     ```csharp
     rawOutgoingVideoStream.StateChanged += (object sender, VideoStreamFormatChangedEventArgs args)
     {
@@ -85,7 +99,9 @@ Because the app generates the video frames, the app must inform the Azure Commun
         }
     }
     ```
-6. Handle raw outgoing video stream state transactions such as Start and Stop and begin to generate custom video frames or suspend the frame generating algorithm.
+
+6. Handle raw outgoing video stream state transactions such as Start and Stop and begin to generate custom video frames. You can also suspend the frame generating algorithm.
+
     ```csharp
     private async void OnRawOutgoingVideoStreamStateChanged(OutgoingVideoStream outgoingVideoStream)
     {
@@ -110,7 +126,9 @@ Because the app generates the video frames, the app must inform the Azure Commun
         }
     }
     ```
-    Here is a sample of outgoing video frame generator:
+
+    Here's a sample of outgoing video frame generator:
+
     ```csharp
     private unsafe RawVideoFrame GenerateRawVideoFrame(RawOutgoingVideoStream rawOutgoingVideoStream)
     {
@@ -188,9 +206,10 @@ Because the app generates the video frames, the app must inform the Azure Commun
     }
     ```
 
-8. It is highly recommended to manage both incoming and outgoing video frames through a buffering mechanism to avoid overload the `MonoBehaviour.Update()` call back method, which should be kept light and avoid CPU or network heavy duties and ensure a smoother video experience. This optional optimization is left to developers to decide what works the best in theirs scenarios.
+8. We recommended that you manage both incoming and outgoing video frames through a buffering mechanism to avoid overload the `MonoBehaviour.Update()` callback method. We recommend keeping the workload light for this method to avoid CPU or network heavy duties and ensure a smoother video experience. This optional optimization is left to developers to decide what works best.
 
-    Here is sample of how the incoming frames can be rendered to a Unity `VideoTexture` by calling `Graphics.Blit` out of an internal queue:
+    Here's sample of how the incoming frames can be rendered to a Unity `VideoTexture` by calling `Graphics.Blit` out of an internal queue:
+
     ```csharp
     private void Update()
     {

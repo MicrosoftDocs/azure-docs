@@ -2,8 +2,8 @@
 title: Monitor Zero Trust (TIC 3.0) security architectures with Microsoft Sentinel
 description: Install and learn how to use the Microsoft Sentinel Zero Trust (TIC3.0) solution for an automated visualization of Zero Trust principles, cross-walked to the Trusted Internet Connections framework.
 ms.date: 05/21/2024
-author: austinmccollum
-ms.author: austinmc
+author: batamig
+ms.author: bagol
 ms.topic: how-to
 ms.collection:
   -       zerotrust-services
@@ -59,9 +59,9 @@ Before installing the **Zero Trust (TIC 3.0)** solution, make sure you have the 
 The **Zero Trust (TIC 3.0)** solution is also enhanced by integrations with other Microsoft Services, such as:
 
 - [Microsoft Defender XDR](https://www.microsoft.com/microsoft-365/security/microsoft-365-defender)
-- [Microsoft Information Protection](https://azure.microsoft.com/services/information-protection/)
-- [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/)
-- [Microsoft Defender for Cloud](https://azure.microsoft.com/services/active-directory/)
+- [Microsoft Information Protection](https://www.microsoft.com/en-us/security/business/solutions/information-protection/)
+- [Microsoft Entra ID](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id)
+- [Microsoft Defender for Cloud](https://www.microsoft.com/en-us/security/business/cloud-security/microsoft-defender-cloud)
 - [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender)
 - [Microsoft Defender for Identity](https://www.microsoft.com/microsoft-365/security/identity-defender)
 - [Microsoft Defender for Cloud Apps](https://www.microsoft.com/security/business/siem-and-xdr/microsoft-defender-cloud-apps)

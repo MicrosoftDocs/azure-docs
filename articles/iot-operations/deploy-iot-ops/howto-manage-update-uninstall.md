@@ -5,7 +5,7 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 04/08/2025
+ms.date: 05/20/2025
 
 #CustomerIntent: As an OT professional, I want to manage Azure IoT Operations instances.
 ---
@@ -107,6 +107,50 @@ You can run `az iot ops check` on your cluster to assess health and configuratio
 
 ---
 
+### (Preview) Clone instance
+
+> [!NOTE]
+> The clone feature is in preview and under development.
+
+#### [Azure portal](#tab/portal)
+
+Currently, the Azure portal doesn't support cloning an Azure IoT Operations instance. You can use the Azure CLI to clone an instance.
+
+#### [Azure CLI](#tab/cli)
+
+Use the [`az iot ops clone`](/cli/azure/iot/ops#az-iot-ops-clone) command to create a new Azure IoT Operations instance based on an existing one. You can apply the output of clone to another connected cluster, which is referred to as replication. You can also save the clone to a local directory for later use and perform some configuration changes before applying it to a cluster. 
+
+For more information, see the [clone command wiki page](https://aka.ms/aio-clone).
+
+To clone an instance to another cluster, run:
+
+```azurecli
+az iot ops clone --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --to-cluster-id <CLUSTER_ID> 
+```
+
+To customize the replication to another cluster, use `--param` and specify the parameters you want to change in the format `key=value`. For example, to change the location of the cloned instance, run:
+
+```azurecli
+az iot ops clone --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --to-cluster-id <CLUSTER_ID> --param location=eastus
+```
+
+To clone an instance to a local directory, run:
+
+```azurecli
+az iot ops clone --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --to-dir <DIRECTORY>
+```
+
+> [!TIP]
+> To clone an instance to the current directory, run `--to-dir .`
+
+To clone an instance to a cluster, but splitting and serially applying asset related sub-deployments, run:
+
+```azurecli
+az iot ops clone --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --to-cluster-id <CLUSTER_ID> --mode linked
+```
+
+---
+
 ### Update instances and configuration
 
 #### [Azure portal](#tab/portal2)
@@ -119,7 +163,7 @@ You can run `az iot ops check` on your cluster to assess health and configuratio
 
 #### [Azure CLI](#tab/cli2)
 
-Use the `az iot ops update` command to edit the features of your Azure IoT Operations instance.
+Use the [az iot ops update](/cli/azure/iot/ops#az-iot-ops-update) command to edit the features of your Azure IoT Operations instance.
 
 To update tags and description parameters of an instance, run:
 
@@ -158,7 +202,7 @@ In general, Azure IoT Operations uses the Azure Arc platform to provide a hybrid
 However, you can also manage the components of Azure IoT Operations using YAML Kubernetes deployment manifests. This means you can use tools like `kubectl` to manage some components of Azure IoT Operations. This feature is in preview and has some limitations:
 
 - Only some components support using Kubernetes deployment manifests. These components are the [MQTT broker](../manage-mqtt-broker/overview-broker.md) and [data flows](../connect-to-cloud/overview-dataflow.md). Other components like the connector for OPC UA and Akri services don't support this feature.
-- Unless Azure IoT Operations is [deployed with resource sync enabled using `az iot ops create --enable-rsync`](/cli/azure/iot/ops#az-iot-ops-create), changes made to the resources using Kubernetes deployment manifests are not synced to Azure. To learn more about resource sync, see [Resource sync](/azure/azure-arc/data/resource-sync).
+- Unless you enable resource sync in Azure IoT Operations using [`az iot ops rsync enable`](/cli/azure/iot/ops/rsync#az-iot-ops-rsync-enable), changes made to the resources using Kubernetes deployment manifests are not synced to Azure. To learn more about resource sync, see [Resource sync](/azure/azure-arc/data/resource-sync).
 - Even if resource sync is enabled, brand new resources created using Kubernetes deployment manifests are not synced to Azure. Only changes to existing resources are synced.
 
 ## Uninstall

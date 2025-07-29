@@ -8,6 +8,8 @@ ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 05/21/2025
 ms.author: danlep
+ms.custom:
+  - build-2025
 ---
 
 # Feature-based comparison of the Azure API Management tiers
@@ -26,7 +28,7 @@ Each API Management [pricing tier](api-management-key-concepts.md#api-management
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | --------- | --------- | ----- | -------- | ------- | ------- | 
 | Microsoft Entra integration<sup>1</sup>                                                             | No          | Yes       | No    | Yes      | Yes      | Yes      | Yes     | Yes |
 | Virtual network injection support                                                               | No          | Yes       | No    | No       | No       | No       | Yes    | Yes |
-| Private endpoint support for inbound connections                                                               | No          | Yes       | Yes    | No       | Yes      | Yes (preview)       | Yes  | No   |
+| Private endpoint support for inbound connections                                                               | No          | Yes       | Yes    | No       | Yes      | Yes     | Yes  | No   |
 | Outbound virtual network integration support                                                             | No          | No       | No    | No       | No       | Yes       | No    | Yes |
 | Multi-region deployment                                                                      | No          | No        | No    | No       | No       | No       | Yes     | No |
 | Availability zones                                                                           | No          | No        | No    | No       | No       | No       | Yes     | No  |
@@ -37,7 +39,7 @@ Each API Management [pricing tier](api-management-key-concepts.md#api-management
 | Autoscaling                                                    | No         | No       | Yes   | No      | Yes      | No      |Yes     | No |
 | API analytics                                     | No          | Yes       | Yes   | Yes      | Yes      | Yes      | Yes     | Yes |
 | [Self-hosted gateway](self-hosted-gateway-overview.md)<sup>3</sup>                           | No          | Yes       | No    | No       | No       | No       | Yes     | No |
-| [Workspaces](workspaces-overview.md)                                                         | No          | No       | No    | No     | No     | No       | Yes     |  No |
+| [Workspaces](workspaces-overview.md)                                                         | No          | No       | No    | No     | No     | No       | Yes     |  Yes |
 | [TLS settings](api-management-howto-manage-protocols-ciphers.md)                             | Yes         | Yes       | Yes   | Yes      | Yes      | Yes      | Yes     | Yes |
 | [Client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) | Yes         | Yes       | Yes   | Yes      | Yes     | Yes      |Yes     | Yes |
 | [Policies](api-management-howto-policies.md)<sup>4</sup> | Yes         | Yes       | Yes   | Yes      | Yes      | Yes      | Yes     | Yes |

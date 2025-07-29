@@ -9,6 +9,8 @@ ms.topic: article
 ms.date: 04/30/2025
 ms.author: msangapu
 author: msangapu-msft
+ms.custom:
+  - build-2025
 ---
 # Troubleshoot slow app performance issues in Azure App Service
 
