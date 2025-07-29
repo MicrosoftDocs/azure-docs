@@ -607,7 +607,7 @@ A [continuous deployment](./functions-continuous-deployment.md) setting that tel
 
 ## PYTHON_APPLICATIONINSIGHTS_ENABLE_TELEMETRY
 
-Indicates whether the Python worker process should output telemetry in an Open Telemetry format to the Application Insights endpoint. Setting this flag to `True` tells the Functions host to let the Python worker process stream OpenTelemetry logs directly, which prevents duplicate host-level entries. For more information, see [Configure application settings](opentelemetry-howto.md?pivots=programming-language-python#configure-application-settings).
+Indicates whether the Python worker process should output telemetry in an Open Telemetry format to the Application Insights endpoint. Setting this flag to `True` tells the Functions host to let the Python worker process export OpenTelemetry data to [Application Insights endpoint](#applicationinsights_connection_string). For more information, see [Configure application settings](opentelemetry-howto.md?pivots=programming-language-python#configure-application-settings).
 
 ## PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES
 
@@ -626,7 +626,7 @@ When debugging Python functions, make sure to also set a debug or trace [logging
 
 ## PYTHON_ENABLE_OPENTELEMETRY
 
-Indicates whether the Python worker process should export telemetry to an Open Telemetry endpoint. Setting this flag to `True` tells the Functions host to let the Python worker process stream OpenTelemetry logs directly, which prevents duplicate host-level entries. For more information, see [Configure application settings](opentelemetry-howto.md?pivots=programming-language-python#configure-application-settings).
+Indicates whether the Python worker process should export telemetry to an Open Telemetry endpoint. Setting this flag to `True` tells the Functions host to let the Python worker process export OpenTelemetry data to the configured [OTEL_EXPORTER_OTLP_ENDPOINT](#otel_exporter_otlp_endpoint). For more information, see [Configure application settings](opentelemetry-howto.md?pivots=programming-language-python#configure-application-settings).
 
 ## PYTHON\_ENABLE\_WORKER\_EXTENSIONS
 
