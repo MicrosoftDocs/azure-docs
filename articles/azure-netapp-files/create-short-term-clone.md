@@ -10,13 +10,13 @@ ms.author: anfdocs
 ---
 # Create a short-term clone volume in Azure NetApp Files (preview)
 
-A short-term clone volume is a writable and space-efficient copy of a volume that is created for temporary use, such as development, testing, data analytics, or digital forensics of large data sets. A short-term clone mitigates the need to create a regular clone, which consumes more of the capacity pool's quota. 
+A short-term clone volume is a writable and space-efficient copy of a volume that is created for temporary use, such as development, testing, data analytics, or digital forensics of large data sets. A short-term clone can be an alternative to creating a full copy by [restoring a snapshot to a new volume](snapshots-restore-new-volume.md) which consumes more of the capacity pool's quota. 
 
-Short-term clone volumes are created from snapshots of existing Azure NetApp Files volumes and inherit the data in that base snapshot. Because the short-term clone is created from a snapshot, it consumes less quota. Only additional write operations count toward the clone's quota. 
+Short-term clone volumes are created from snapshots of existing Azure NetApp Files volumes and inherit the data in that base snapshot. Because the short-term clone references an existing snapshot, the short-term clone volume's quota is used to accommodate write operations to the data set. It can be as small as the minimum Azure NetApp Files volume size but should be sized based on the changes to the data.
 
 With a short-term clone volume, you can create a clone of your original volume on a different capacity pool to utilize a different QoS level without being restrained by space restrictions in the source capacity pool. Additionally, short-term clones enable you to test a snapshot restore on a different capacity pool before [reverting to the original volume](snapshots-revert-volume.md). 
 
-Short-term clones can be converted to regular volumes. By default, short-term clones convert to regular volumes after 32 days. 
+By default, short-term clones convert to regular volumes after 32 days. While not guaranteed, short-term clones may be converted to regular volumes in most cases.
 
 ## Considerations 
 
@@ -24,15 +24,14 @@ Short-term clones can be converted to regular volumes. By default, short-term cl
 * If the capacity pool hosting the short-term clone is set to auto QoS, throughput is calculated based on the quota value you assign when creating the short-term clone. 
 * When you convert a short-term clone to a regular volume, the size of the regular volume is calculated based on inherited size (the shared space between the short-term clone and its parent volume) plus short-term clone quota in bytes. This conversion has an impact on throughput. 
 * There is no change in behavior for short-term clones in capacity pools with manual QoS.  
-* Short term clones don't support the same operations as regular volumes. You can't create a snapshot, snapshot policy, backup, default user quota, or export policy with a short-term clone. 
-    * If the parent volume has a snapshot policy, the policy isn't applied to the short-term clone.
+* Short term clones don't support the all operations as regular volumes. Snapshot policies, backup, replication, short-term clones and default user quota are not avilable short-term clone. If the parent volume has a backup or snapshot policy, the policy isn't applied to the short-term clone.
 * Short-term clones aren't supported on large volumes or volumes enabled for cool access.
 * Short-term clones are supported for volumes in cross-zone and cross-region replication. To create a short-term clone of a DR volume, create a snapshot from the source then create the short-term clone from the destination volume. 
 * A short-term clone is automatically converted to a regular volume in its designated capacity pool 32 days after the clone operation completes. To prevent this conversion, manually delete the short-term clone before 32 days have elapsed. 
     * Details about automatic conversion, including necessary capacity pool resizing, are sent to the volume's **Activity Log**. The Activity Log notifies you twice of impending automatic clone operations. The first notification is seven days before the conversion; the second notification occurs one day before the conversion. 
 * You can't delete the parent volume of a short-term clone. You must first delete the clone or convert it to a regular volume, then you can delete the parent volume. 
 * During the clone operation, the parent volume is accessible and you can capture new snapshots of the parent volume. 
-* There's a limit of two clones per volume. You can increase this limit with a [support request](azure-netapp-files-resource-limits.md#request-limit-increase).
+* There's a limit of five short-term clone volumes per regular volume.
 <!-- AVG qualifications? -->
 
 ## Register the feature
@@ -70,7 +69,7 @@ Short-term clones are currently in preview. To take advantage of the feature, yo
 	Provide a **Quota** value.
     
     >[!NOTE]
-    >The quota value is the space for anticipated writes to the clone. For example, some database workloads may require a 10 percent change to the existing data files. The minimum quota value is 100 GiB.
+    >The quota value is the space for anticipated writes to the short-term clone volume. For example, some database workloads may require a 10 percent change to the existing data files. The minimum quota value is 50 GiB.
 
     Confirm if the short-term clone is a **Large volume** (greater than 100 TiB).
 
