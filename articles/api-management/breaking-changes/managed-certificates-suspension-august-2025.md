@@ -10,7 +10,7 @@ ms.date: 07/18/2025
 ms.author: danlep
 ---
 
-# Creation of managed certificates temporarily suspended for custom domains (August 2025)
+# Creation of managed certificates temporarily suspended for custom domains (August 2025 - March 2026)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
