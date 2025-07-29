@@ -1,6 +1,7 @@
 - name: Bastion documentation
   href: index.yml
-- name: Overvie    items: 
+- name: Overview
+  items:
   - name: What is Azure Bastion?
     href: bastion-overview.md
   - name: What's new in Bastion?
