@@ -624,6 +624,10 @@ Enables debug-level logging in a Python function app. A value of `1` enables deb
 
 When debugging Python functions, make sure to also set a debug or trace [logging level](functions-host-json.md#logging) in the host.json file, as needed. To learn more, see [How to configure monitoring for Azure Functions](configure-monitoring.md).
 
+## PYTHON_ENABLE_OPENTELEMETRY
+
+Indicates whether the Python worker process should export telemetry to an Open Telemetry endpoint. Setting this flag to `True` tells the Functions host to let the Python worker process stream OpenTelemetry logs directly, which prevents duplicate host-level entries. For more information, see [Configure application settings](opentelemetry-howto.md?pivots=programming-language-python#configure-application-settings).
+
 ## PYTHON\_ENABLE\_WORKER\_EXTENSIONS
 
 The configuration is specific to Python function apps. Setting this value to `1` allows the worker to load in [Python worker extensions](functions-reference-python.md#python-worker-extensions) defined in requirements.txt. It enables your function app to access new features provided by partner packages. It can also change the behavior of function load and invocation in your app. Ensure the extension you choose is trustworthy as you bear the risk of using it. Azure Functions gives no express warranties to any extensions. For how to use an extension, visit the extension's manual page or readme doc. By default, this value sets to `0`.
