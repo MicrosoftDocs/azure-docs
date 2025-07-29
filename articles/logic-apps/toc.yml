@@ -129,6 +129,8 @@ items:
       href: connectors/create-chat-completions-prompt-template.md
     - name: Create AI agent workflows
       href: create-agent-workflows.md
+    - name: Set up Model Context Protocol (MCP) servers
+      href: set-up-model-context-protocol-servers-standard.md
     - name: Edit app and host settings
       href: edit-app-settings-host-settings.md
     - name: Enable stateful mode for stateless built-in connectors

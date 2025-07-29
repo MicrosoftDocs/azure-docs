@@ -70,7 +70,7 @@ The following table describes the benefits that you get when you set up Standard
 
    1. On the app registration sidebar, under **Manage**, select **Expose an API**.
 
-   1. Next to **Application ID URI**, select **Add**. Keep the default value, and select **Save**.
+   1. Next to **Application ID URI**, select **Add**. Keep the default value, copy and save this value for later use, and select **Save**.
 
    1. Under **Scopes defined by this API**, select **Add a scope** to provide granular permissions to your app's users.
 
@@ -87,8 +87,100 @@ The following table describes the benefits that you get when you set up Standard
 
    For more information, see [Register an application in Microsoft Entra ID](/entra/identity-platform/quickstart-register-app).
 
+   When you finish these steps, you have the following values for later use:
+
+   - Directory (tenant) ID
+
+   - Application ID URI
+
 - The Standard logic app resource and workflows that you want to set up as an MCP server.
 
-## Set up your 
+  For more information, see [Create an example Standard logic app workflow using the Azure portal](create-single-tenant-workflows-azure-portal.md).
+
+## Considerations for workflows as tools
+
+When you build workflows to use as MCP tools, review the following considerations and best practices:
+
+- To use workflows as MCP tools, make sure that workflows start with the **Request** trigger named **When a HTTP request is received** and include the **Response** action.
+
+- To help agents correctly find and run tools, add the following metadata to the **Request** trigger and request payloads. This metadata improves the agent's reliability and accuracy in using tools.
+
+  - Trigger description
+
+    Your MCP server uses this metadata when showing tools to end users and when routing requests to the correct tool. To add this description, follow these steps:
+
+    1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow.
+
+    1. In the workflow sidebar, under **Tools**, select the designer to open the workflow.
+
+    1. In the designer, select the **Request** trigger.
+
+    1. In the trigger information pane, under the trigger name, add a description about what the trigger and workflow does.
+
+  - Input parameter descriptions
+
+    This metadata improves the agent's accuracy when passing the correct inputs to tools at runtime. to our tool, we can add descriptions to each of the input parameters. This will help ensure the right values are being passed into the tool at runtime. To add a description for each input parameter, follow these steps:
+
+    1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow.
+
+    1. In the workflow sidebar, under **Tools**, select the designer to open the workflow.
+
+    1. In the designer, select the **Request** trigger.
+
+    1. In the trigger information pane, under **Request Body JSON Schema**,  specifies using the `description`
+add a description to the **Request Body JSON Schema** using the `description`
+
+
+
+
+## Set up logic app as MCP server
+
+For this task, you need to edit the **host.json** file for your Standard logic app resource.
+
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
+
+1. On the resource sidebar, under **Development Tools**, select **Advanced Tools** **>** **Go**. If prompted, consent to leaving the Azure portal.
+
+1. On the **Kudu** toolbar, from the **Debug console** menu, select **CMD**.
+
+1. From the directory table, go to the following folder: **site/wwwroot**
+
+1. Next to the **host.json** file, select the edit icon (pencil).
+
+1. In the editor window, under the `extensionBundle` JSON object, add the `extensions` JSON object. Make sure that you replace the placeholder values with your own values:
+
+   - Directory (tenant) ID
+   - Logic app name
+   - Application ID URI
+
+   ```json
+   "extensionBundle": {
+       "id": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
+       "version": "[1.*, 2.0.0)"
+   },
+   "extensions": {
+       "http":{
+           "routePrefix": ""
+       },
+       "workflow": {
+           "Settings": {
+               "Runtime.Backend.EdgeWorkflowRuntimeTriggerListener.AllowCrossWorkerCommunication": true,
+               "Runtime.McpServerToMcpClientPingIntervalInSeconds": 30
+           },
+           "McpServerEndpoints": {
+               "enable": true,
+               "authentication": {
+                   "type": "oauth2"
+               },
+               "ProtectedResourceMetadata": {
+                   "BearerMethodsSupported": ["header"],
+                   "ScopesSupported": ["api://<<application-ID-URI>>/mcp"],
+                   "Resource": "https://<logic-app-name>.azurewebsites.net/",
+                   "AuthorizationServers": ["https://login.microsoftonline.com/<tenant-ID>/v2.0"]
+               }
+           }
+       }
+   }
+   ```
 
 ## Related content
