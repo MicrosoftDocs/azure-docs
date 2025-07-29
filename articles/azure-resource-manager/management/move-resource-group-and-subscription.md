@@ -37,23 +37,23 @@ Some important steps precede moving a resource. You can avoid errors if you veri
 1. The source and destination subscriptions must exist within the same [Microsoft Entra tenant](../../active-directory/develop/quickstart-create-new-tenant.md). Use the Azure CLI or PowerShell to check that both subscriptions have the same tenant ID.
 
     # [Azure CLI](#tab/azure-cli)
-    
+
     ```azurecli-interactive
     az account show --subscription <your-source-subscription> --query tenantId
     az account show --subscription <your-destination-subscription> --query tenantId
     ```
-    
+
     # [Azure PowerShell](#tab/azure-powershell)
-    
+
     ```azurepowershell-interactive
     (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
     (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
     ```
-    
+
     ---
-    
+
     If the tenant IDs for the source and destination subscriptions don't match, use the following methods to reconcile them:
-    
+
     - [Transfer billing ownership of an Azure subscription](../../cost-management-billing/manage/billing-subscription-transfer.md#transfer-billing-ownership-of-an-azure-subscription).
     - [Associate or add an Azure subscription to your Microsoft Entra tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -64,7 +64,7 @@ Some important steps precede moving a resource. You can avoid errors if you veri
 1. Some services have specific limitations or requirements when moving resources. Check the following move guidance before moving resources within these services:
 
     - If you're using Azure Stack Hub, you can't move resources between groups.
-    
+
       - [Azure App Services](./move-limitations/app-service-move-limitations.md)
       - [Azure DevOps Services](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
       - [Classic deployment model](./move-limitations/classic-model-move-limitations.md) for classic compute, storage, virtual networks, and cloud services
@@ -163,17 +163,17 @@ Moving resources from one subscription to another is a three-step process. To il
 
 1. The portal validates that the resources can be moved. Wait for validation to complete.
 
-  :::image type="content" source="./media/move-resource-group-and-subscription/validation.png" alt-text="Screenshot of the Azure portal showing the validation process for the move operation.":::
+    :::image type="content" source="./media/move-resource-group-and-subscription/validation.png" alt-text="Screenshot of the Azure portal showing the validation process for the move operation.":::
 
 1. When validation completes successfully, select **Next**.
 
 1. Acknowledge that you need to update tools and scripts for these resources. To start moving the resources, select **Move**.
 
-  :::image type="content" source="./media/move-resource-group-and-subscription/acknowledge-change.png" alt-text="Screenshot of the Azure portal where the user acknowledges the need to update tools and scripts before starting the move operation.":::
+    :::image type="content" source="./media/move-resource-group-and-subscription/acknowledge-change.png" alt-text="Screenshot of the Azure portal where the user acknowledges the need to update tools and scripts before starting the move operation.":::
 
 1. The Azure portal notifies you when the move completes.
 
-  :::image type="content" source="./media/move-resource-group-and-subscription/view-notification.png" alt-text="Screenshot of the Azure portal displaying a notification with the results of the move operation.":::
+    :::image type="content" source="./media/move-resource-group-and-subscription/view-notification.png" alt-text="Screenshot of the Azure portal displaying a notification with the results of the move operation.":::
 
 ### Use the Azure CLI
 
@@ -415,11 +415,11 @@ Specify the target resource group and resources to move in the body of the reque
 
 ## Frequently asked questions
 
-**My resource move operation that usually takes a few minutes is running for almost an hour. Is something wrong?**
+### My resource move operation that usually takes a few minutes is running for almost an hour. Is something wrong?
 
 Moving a resource is a complex operation with different phases. It can involve more than just the resource provider of the resource you're trying to move. Azure Resource Manager allows a move operation four hours to finish because of the dependencies between resource providers. This duration gives them time to recover from transient issues. If your move request is within the four-hour period, the operation keeps trying to complete and might succeed. The operation locks the source and destination resource groups during this time to avoid consistency issues.
 
-**Why is my resource group locked for four hours during resource move?**
+### Why is my resource group locked for four hours during resource move?
 
 - Move operations are allowed four hours to complete. The operation locks the source and destination resource groups during this time to prevent them from being modified.
 
@@ -427,7 +427,7 @@ Moving a resource is a complex operation with different phases. It can involve m
 
 - Resource Manager unlocks both resource groups if a resource doesn't move within four hours. Resources that move successfully are in the destination resource group. Resources that fail to move remain in the source resource group.
 
-**What are the implications of the source and destination resource groups being locked during the resource move?**
+### What are the implications of the source and destination resource groups being locked during the resource move?
 
 The lock prevents you from deleting either resource group. The lock also prevents you from creating a new resource, deleting a resource, or updating a resource's properties within each resource group (for example, changing a virtual machine's size).
 
@@ -441,9 +441,9 @@ In the preceding image, the virtual machine resource belongs to a resource group
 
 Additionally, the source and the destination resource groups can't participate in other move operations simultaneously during a resource move. For example, if you're moving resources from resource group A to resource group B, both resource group A and resource group B can't be involved in another move operation at the same time. You can't simultaneously move resources to or from resource group C. This restriction prevents multiple conflicting operations from locking resource groups during the move process.
 
-**What does the error code "MissingMoveDependentResources" mean?**
+### What does the error code "MissingMoveDependentResources" mean?
 
-When you move a resource, its dependent resources must exist in the destination resource group or subscription, or be included in the move request. You get the **MissingMoveDependentResources** error code when a dependent resource doesn't meet this requirement. The error message provides details about the dependent resource that you need to include in the move request.
+When you move a resource, its dependent resources must exist in the destination resource group or subscription, or be included in the move request. You get the ### MissingMoveDependentResources** error code when a dependent resource doesn't meet this requirement. The error message provides details about the dependent resource that you need to include in the move request.
 
 For example, moving a virtual machine could require moving seven resource types with three different resource providers. Those resource providers and types are:
 
@@ -462,21 +462,21 @@ For example, moving a virtual machine could require moving seven resource types 
 
 Another common example involves moving a virtual network where you might have to move several other resources associated with that virtual network. The move request could require moving public IP addresses, route tables, virtual network gateways, network security groups, and other resources. A virtual network gateway should be in the same resource group as its virtual network since they can't move separately.
 
-**What does the error code "RequestDisallowedByPolicy" mean?**
+### What does the error code "RequestDisallowedByPolicy" mean?
 
-Resource Manager validates your move request before attempting a move. This validation includes checking policies defined for the resources involved in the move. For example, the validation fails when you're attempting to move a key vault but your organization has a policy to deny creating a key vault in the target resource group. The returned error code is **RequestDisallowedByPolicy**.
+Resource Manager validates your move request before attempting a move. This validation includes checking policies defined for the resources involved in the move. For example, the validation fails when you're attempting to move a key vault but your organization has a policy to deny creating a key vault in the target resource group. The returned error code is ### RequestDisallowedByPolicy**.
 
 For more information about policies, see [What is Azure Policy?](../../governance/policy/overview.md).
 
-**Why can't I move some resources in Azure?**
+### Why can't I move some resources in Azure?
 
 Not all Azure resources allow move operations.
 
-**How many resources can I move in one operation?**
+### How many resources can I move in one operation?
 
 Separate large moves into different move operations when possible. Resource Manager immediately returns an error when there are more than 800 resources in a single operation. However, moving fewer than 800 resources can also fail by timing out.
 
-**What is the meaning of the error that a resource isn't in a "succeeded" state?**
+### What is the meaning of the error that a resource isn't in a "succeeded" state?
 
 When you get an error message indicating that you can't move a resource because it isn't in a **Succeeded** state, it might be because a dependent resource is blocking the move. Typically, the error code is **MoveCannotProceedWithResourcesNotInSucceededState**.
 
@@ -484,7 +484,7 @@ If the source or target resource group contains a virtual network, the states of
 
 To resolve this issue, move your resources to a resource group that doesn't have a virtual network or [contact support](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
-**Can I move a resource group to a different subscription?**
+### Can I move a resource group to a different subscription?
 
 No, you can't move a resource group to a new subscription. But, you can move all resources in a resource group to a resource group in another subscription. Settings such as tags, role assignments, and policies don't transfer automatically from the original resource group to the destination resource group. You need to apply these settings manually to the new resource group. 
 
