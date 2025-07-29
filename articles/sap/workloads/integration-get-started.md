@@ -8,6 +8,7 @@ ms.date: 06/22/2025
 author: MartinPankraz
 ms.author: mapankra
 
+# Customer intent: "As an SAP workload administrator, I want to integrate SAP with Azure services, so that I can enhance our business processes and improve operational efficiency through seamless workflows and data management."
 ---
 # Get started with SAP and Microsoft integration scenarios
 
@@ -43,7 +44,7 @@ Select an area for resources about how to integrate SAP and Azure in that space.
 | [Microsoft Office](#microsoft-office) | Learn about Office Add-ins in Excel, doing SAP Principal Propagation with Office 365, SAP Analytics Cloud, and Data Warehouse Cloud integration and more. |
 | [Azure Integration Services](#azure-integration-services) | Connect your SAP workloads with your end users, business partners, and their systems with world-class integration services. Learn about codevelopment efforts that enable SAP Event Mesh to exchange cloud events with Azure Event Grid, understand how you can achieve high-availability for services like SAP Cloud Integration, automate your SAP invoice processing with Logic Apps and Azure AI services and more. |
 | [App Development in any language including ABAP and DevOps](#app-development-in-any-language-including-abap-and-devops) | Apply best-in-class developer tooling to your SAP app developments and DevOps processes. |
-| [Azure Data Services](#azure-data-services) | Learn how to integrate your SAP data with Data Services like Azure Synapse Analytics, Azure Data Lake Storage, Azure Data Factory, Power BI, Data Warehouse Cloud, Analytics Cloud, which connector to choose, tune performance, efficiently troubleshoot, and more. |
+| [Azure Data Services](#azure-data-services) | Learn how to integrate your SAP data with Data Services like Microsoft Fabric, Power BI, Azure Data Factory, Azure Data Lake Storage, Data Warehouse Cloud, Analytics Cloud, including which connector to choose, how to tune performance, efficiently troubleshoot, and more. |
 | [SAP Business Technology Platform (BTP)](#sap-btp) | Discover integration scenarios like SAP Private Link to securely and efficiently connect your BTP apps to your Azure workloads. |
 
 ### Azure OpenAI Service
@@ -151,7 +152,7 @@ For how to configure single sign-on, see the following Microsoft Entra documenta
 - [SAP Ariba](/entra/identity/saas-apps/ariba-tutorial)
 - [SAP Concur Travel and Expense](/entra/identity/saas-apps/concur-travel-and-expense-tutorial)
 - [SAP Business Technology Platform](/entra/identity/saas-apps/sap-hana-cloud-platform-tutorial)
-- [SAP Business ByDesign](/entra/identity/saas-apps/sapbusinessbydesign-tutorial)
+- [SAP Business By Design](/entra/identity/saas-apps/sapbusinessbydesign-tutorial)
 - [SAP HANA](/entra/identity/saas-apps/saphana-tutorial)
 - [SAP Cloud for Customer](/entra/identity/saas-apps/sap-customer-cloud-tutorial)
 
@@ -192,6 +193,8 @@ Also see the following SAP resources:
 - [Apply cloud native deployment practice blue-green to SAP BTP apps with Azure DevOps](https://blogs.sap.com/2019/12/20/go-blue-green-for-your-cloud-foundry-app-from-webide-with-azure-devops/)
 
 ### Azure Data Services
+
+Lear more about [how to extract your SAP data into Microsoft Fabric](../../workloads/extract-sap-data.md) including key steps and considerations for a successful integration. Evaluate the available connectors and choose the most appropriate data source to match your specific business and technical requirements.
 
 Learn how to **choose** the [best SAP connector for data integration](/azure/cloud-adoption-framework/scenarios/sap/sap-lza-choose-azure-connectors) and how to [tune performance including troubleshooting tips](/azure/cloud-adoption-framework/scenarios/sap/sap-lza-data-extraction-performance-troubleshooting) on our cloud adoption framework for SAP. Get started by identifying your SAP data sources [here](/azure/cloud-adoption-framework/scenarios/sap/sap-lza-identify-sap-data-sources).
 
