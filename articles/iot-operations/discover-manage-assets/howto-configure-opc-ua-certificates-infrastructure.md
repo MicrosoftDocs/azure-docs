@@ -165,7 +165,7 @@ To use the operations experience web UI to manage the issuer certificates list, 
 
 1. Go to the **Devices page** in the [operations experience](https://iotoperations.azure.com) web UI.
 
-1. To view the issuer certificates list, select **Manage certificates and secrets** and then **Certificates**:
+1. To view the issuer certificates list, select **Manage certificates and secrets** and then **Certificates**. The filter box lets you view the different certificate lists:
 
     :::image type="content" source="media/howto-configure-opc-ua-certificates-infrastructure/upload-issuer-certificate.png" lightbox="media/howto-configure-opc-ua-certificates-infrastructure/upload-issuer-certificate.png" alt-text="Screenshot of operations experience showing certificate upload page for the issuer certificates list.":::
 
