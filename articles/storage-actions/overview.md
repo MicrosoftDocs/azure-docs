@@ -82,82 +82,46 @@ At the end of your billing cycle, the charges for each meter are summed. Your bi
 
 Azure Storage tasks are generally available in the following public regions:
 
-- West US 3
+•	Australia East
+•	Australia Southeast
+•	Brazil South
+•	Canada Central
+•	Central India
+•	Central US
+•	France Central
+•	Germany West Central
+•	North Central US
+•	North Europe
+•	South Central US
+•	Switzerland North
+•	West Europe
+•	West US
+•	West US 2
+•	East US
+•	West India
+•	Canada East
+•	Jio India West
+•	Mexico Central
+•	West US 3
+•	West Central US
+•	UK West
+•	UK South
+•	UAE North
+•	Sweden Central
+•	Spain Central
+•	South India
+•	South Africa North
+•	Norway East
+•	Korea South
+•	Korea Central
+•	Jio India Central
+•	Japan West
+•	Japan East
+•	Italy North
+•	Israel Central
+•	East US 2
+•	Australia Central
 
-- West Central US
-
-- UK West
-
-- UK South
-
-- UAE North
-
-- Sweden Central
-
-- Spain Central
-
-- South India
-
-- South Africa North
-
-- Norway East
-
-- Korea South
-
-- Korea Central
-
-- Jio India Central
-
-- Japan West
-
-- Japan East
-
-- Italy North
-
-- Israel Central
-
-- East US 2
-
-- Australia Central
-
-## Regions supported at the preview level
-
-Azure Storage Actions is currently in PREVIEW and is available in the following region.
-See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-This list is temporary and will change over time as GA support continues to expand.
-
-- Australia East
-
-- Australia Southeast
-
-- Brazil south
-
-- Canada Central
-
-- Central India
-
-- Central US
-
-- France Central
-
-- Germany West Central
-
-- North Central US
-
-- North Europe
-
-- South Central Us
-
-- Southeast Asia
-
-- Switzerland North
-
-- West Europe
-
-- West US
-
-- West US 2
 
 ## Next steps
 
