@@ -131,6 +131,11 @@ sections:
           Traffic analytics creates and manages data collection rule (DCR) and data collection endpoint (DCE) resources in the same resource group as the workspace, prefixed with `NWTA`. If you perform any operation on these resources, traffic analytics might not function as expected. For more information, see [Data aggregation in traffic analytics](./traffic-analytics-schema.md#data-aggregation). For more information, see [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview?toc=/azure/network-watcher/toc.json) and [Data collection endpoints in Azure Monitor](/azure/azure-monitor/essentials/data-collection-endpoint-overview?toc=/azure/network-watcher/toc.json).
 
       - question: |
+          Can I apply locks to the DCE and DCR resources created by traffic analytics? 
+        answer: |
+          It is not recommended to apply locks to DCR and DCE resources created by traffic analytics as these resources are managed by the service. Notably, locked resources would not be cleaned up upon deletion of the related flow logs. If you perform any operation on these resources, traffic analytics might not function as expected. For more information, see [Data aggregation in traffic analytics](./traffic-analytics-schema.md#data-aggregation).
+
+      - question: |
           How does traffic analytics decide that an IP is malicious? 
         answer: |
           Traffic analytics relies on Microsoft internal threat intelligence systems to deem an IP as malicious. These systems use diverse telemetry sources like Microsoft products and services, the Microsoft Digital Crimes Unit (DCU), the Microsoft Security Response Center (MSRC), and external feeds and build intelligence on top of it. 

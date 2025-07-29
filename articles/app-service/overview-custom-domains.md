@@ -9,6 +9,8 @@ ms.service: azure-app-service
 ---
 # Overview: Use custom domain names with Azure App Service
 
+[!INCLUDE [app-service-managed-certificate](./includes/managed-certs/managed-certs-note.md)]
+
 Azure App Service enables you to host web apps on a fully managed platform. By default, apps hosted on Azure App Service are assigned a domain name like `myapp-00000.westus.azurewebsites.net`. However, for most production applications, you’ll want to use your own **domain name** (e.g., `www.contoso.com`) to create a professional, branded web presence. This is referred to as adding a **custom domain** to your app.
 
 In this article, you'll get an overview of how to configure and manage custom domain names in Azure App Service—whether you're buying a new domain, migrating an existing one, managing DNS, or securing your domain with SSL/TLS certificates.

@@ -1,6 +1,6 @@
 ---
- title: include file
- description: include file
+ title: Description of Azure Storage alternative multi-region deployment approach
+ description: Description of Azure Storage alternative multi-region deployment approach
  author: anaharris-ms
  ms.service: azure
  ms.topic: include

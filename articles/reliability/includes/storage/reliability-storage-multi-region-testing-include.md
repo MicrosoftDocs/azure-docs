@@ -1,6 +1,6 @@
 ---
- title: include file
- description: include file
+ title: Description of Azure Storage geo-redundant storage testing
+ description: Description of Azure Storage geo-redundant storage testing
  author: anaharris-ms
  ms.service: azure
  ms.topic: include

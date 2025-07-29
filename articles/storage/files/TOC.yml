@@ -261,6 +261,8 @@
   items:
   - name: Virtual desktops
     href: virtual-desktop-workloads.md
+  - name: SAP
+    href: /azure/sap/workloads/planning-guide-storage-azure-files?toc=/azure/storage/files/toc.json
   - name: SQL Server
     href: /azure/azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure?toc=/azure/storage/files/toc.json
 - name: Application development
@@ -299,8 +301,6 @@
   items:
   - name: Introduction to Azure Files
     href: /training/modules/introduction-to-azure-files/
-  - name: Extend share capacity with Azure File Sync
-    href: /training/modules/extend-share-capacity-with-azure-file-sync/
   - name: Configure Azure Files and Azure File Sync
     href: /training/modules/configure-azure-files-file-sync/
   - name: Implement a hybrid file server infrastructure
