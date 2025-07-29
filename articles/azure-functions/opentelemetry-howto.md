@@ -79,6 +79,8 @@ With the Functions host configured to use OpenTelemetry, you should also update 
 
 The way that you instrument your application to use OpenTelemetry depends on your target OpenTelemetry endpoint:
 ::: zone pivot="programming-language-csharp"
+Examples in this article assume your app is using `IHostApplicationBuilder`, which is avaible in version 2.x and later version of [Microsoft.Azure.Functions.Worker](/dotnet/api/microsoft.extensions.hosting.ihostapplicationbuilder). For more information, see [Version 2.x](dotnet-isolated-process-guide.md#version-2x) in the C# isolated worker model guide.
+
 1. Run these commands to install the required assemblies in your app:
 
     ### [Application Insights](#tab/app-insights)
@@ -100,37 +102,106 @@ The way that you instrument your application to use OpenTelemetry depends on you
 
 1. In your Program.cs project file, add this `using` statement:
 
-    ### [Application Insights](#tab/app-insights)
+    ### [IHostApplicationBuilder](#tab/ihostapplicationbuilder/app-insights)
 
     ```csharp
     using Azure.Monitor.OpenTelemetry.Exporter; 
     ```
-    ### [OTLP Exporter](#tab/otlp-export) 
+
+    ### [IHostBuilder](#tab/ihostbuilder/app-insights)
+
+    ```csharp
+    using Azure.Monitor.OpenTelemetry.Exporter;
+    using OpenTelemetry.Trace;
+    using OpenTelemetry.Metrics;
+    using OpenTelemetry.Logs;
+    ```
+
+    ### [IHostApplicationBuilder](#tab/ihostapplicationbuilder/otlp-export) 
 
     ```csharp
     using OpenTelemetry; 
     ```
-    ---
 
-1. In the `ConfigureServices` delegate, add this service configuration:
-
-    ### [Application Insights](#tab/app-insights)
+    ### [IHostBuilder](#tab/ihostbuilder/otlp-export)
 
     ```csharp
-    services.AddOpenTelemetry()
-    .UseAzureMonitorExporter()
-    .UseFunctionsWorkerDefaults();
+    using OpenTelemetry.Trace;
+    using OpenTelemetry.Metrics;
+    using OpenTelemetry.Logs;
     ```
-    ### [OTLP Exporter](#tab/otlp-export) 
 
-    ```csharp
-    services.AddOpenTelemetry()
-    .UseOtlpExporter()
-    .UseFunctionsWorkerDefaults();
-    ```
     ---
 
-    To export to both OpenTelemetry endpoints, call both `UseAzureMonitor` and `UseOtlpExporter`. 
+1. The way that you configure OpenTelemetry depends if your project startup uses `IHostBuilder` or `IHostApplicationBuilder`, which was introduced in v2.x of the .NET isolated worker model extension.
+
+    ### [IHostApplicationBuilder](#tab/ihostapplicationbuilder/app-insights)
+    
+    In *program.cs*, add this line of code after `ConfigureFunctionsWebApplication`:
+
+    ```csharp
+    builder.Services.AddOpenTelemetry()
+        .UseAzureMonitorExporter();
+    ```
+
+    ### [IHostBuilder](#tab/ihostbuilder/app-insights)
+    
+    In *program.cs*, add this `ConfigureServices` call in your `HostBuilder` pipeline:
+
+    ```csharp
+    .ConfigureServices(s =>
+    {
+        s.AddOpenTelemetry()
+            .WithTracing(builder =>
+            {
+                builder.AddAzureMonitorTraceExporter();
+            })
+            .WithMetrics(builder =>
+            {
+                builder.AddAzureMonitorMetricExporter();
+            })
+            .WithLogging(builder =>
+            {
+                builder.AddAzureMonitorLogExporter();
+            });
+    })
+    ```
+
+    ### [IHostApplicationBuilder](#tab/ihostapplicationbuilder/otlp-export)
+
+    In *program.cs*, add this line of code after `ConfigureFunctionsWebApplication`:
+
+    ```csharp
+    builder.Services.AddOpenTelemetry()
+    .UseOtlpExporter();
+    ```
+
+    ### [IHostBuilder](#tab/ihostbuilder/otlp-export) 
+
+    In *program.cs*, add this `ConfigureServices` call in your `HostBuilder` pipeline:
+
+    ```csharp
+    .ConfigureServices(s =>
+    {
+        s.AddOpenTelemetry()
+            .WithTracing(builder =>
+            {
+                builder.AddOtlpExporter();
+            })
+            .WithMetrics(builder =>
+            {
+                builder.AddOtlpExporter();
+            })
+            .WithLogging(builder =>
+            {
+                builder.AddOtlpExporter();
+            });
+    })
+    ```
+
+    ---
+
+    You can export to both OpenTelemetry endpoints. 
 ::: zone-end
 ::: zone pivot="programming-language-java"
 1. Add the required libraries to your app. The way you add libraries depends on whether you deploy using Maven or Kotlin and if you want to also send data to Application Insights.

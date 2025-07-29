@@ -1381,15 +1381,6 @@ Keep these considerations in mind when using Functions with preview versions of 
 [Microsoft.Azure.Functions.Worker]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/
 [Microsoft.Azure.Functions.Worker.Sdk]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/
 
-[Aspire.Hosting.Azure.Functions]: https://www.nuget.org/packages/Aspire.Hosting.Azure.Functions
-
-[Storage Account Contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor
-[Storage Blob Data Contributor]: ../role-based-access-control/built-in-roles.md#storage-blob-data-contributor
-[Storage Queue Data Contributor]: ../role-based-access-control/built-in-roles.md#storage-queue-data-contributor
-[Storage Table Data Contributor]: ../role-based-access-control/built-in-roles.md#storage-table-data-contributor
-[Azure Event Hubs Data Owner]: ../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner
-[Azure Service Bus Data Owner]: ../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner
-
 [HostBuilder]: /dotnet/api/microsoft.extensions.hosting.hostbuilder
 [IHostApplicationBuilder]: /dotnet/api/microsoft.extensions.hosting.ihostapplicationbuilder
 [IHost]: /dotnet/api/microsoft.extensions.hosting.ihost
