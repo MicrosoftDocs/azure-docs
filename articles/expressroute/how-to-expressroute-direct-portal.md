@@ -720,14 +720,14 @@ Create a circuit on the ExpressRoute Direct resource.
   CircuitProvisioningState         : Enabled
   ServiceProviderProvisioningState : Provisioned
   ServiceProviderNotes             : 
-    ServiceProviderProperties        : null
+  ServiceProviderProperties        : null
   ExpressRoutePort                 : {
                                      "Id": "/subscriptions/<subscriptionID>n/resourceGroups/Contoso-Direct-rg/providers/Micros
                                    oft.Network/expressRoutePorts/Contoso-Direct"
                                    }
   BandwidthInGbps                  : 10
   Stag                             : 2
-  ServiceKey                       : <number>
+  ServiceKey                       : aaaaaaaa-0b0b-1c1c-2d2d-333333333333
   Peerings                         : []
   Authorizations                   : []
   AllowClassicOperations           : False
@@ -836,7 +836,7 @@ You can create an authorization for your ExpressRoute Direct resource, and redee
    Sample output:
     ```powershell
         Name                   : ERDirectAuthorization_1
-        Id                     : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/erdirect-   rg/providers/Microsoft.Network/expressRoutePorts/erdirect/authorizations/ERDirectAuthorization_1
+        Id                     : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/erdirect-rg/providers/Microsoft.Network/expressRoutePorts/erdirect/authorizations/ERDirectAuthorization_1
         Etag                   : W/"24cac874-dfb4-4931-9447-28e67edd5155"
         AuthorizationKey       : 6e1fc16a-0777-4cdc-a206-108f2f0f67e8
         AuthorizationUseStatus : Available
@@ -854,9 +854,9 @@ You can create an authorization for your ExpressRoute Direct resource, and redee
     Sample output:
       ```powershell
         Name                   : ERDirectAuthorization_1
-        Id                     : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/erdirect-                       rg/providers/Microsoft.Network/expressRoutePorts/erdirect/authorizations/ERDirectAuthorization_1
+        Id                     : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/erdirect-rg/providers/Microsoft.Network/expressRoutePorts/erdirect/authorizations/ERDirectAuthorization_1
         Etag                   : W/"24cac874-dfb4-4931-9447-28e67edd5155"
-        AuthorizationKey       : 6e1fc16a-0777-4cdc-a206-108f2f0f67e8
+        AuthorizationKey       : aaaaaaaa-0b0b-1c1c-2d2d-333333333333
         AuthorizationUseStatus : Available
         ProvisioningState      : Succeeded
         CircuitResourceUri     :on  
@@ -870,6 +870,64 @@ You can create an authorization for your ExpressRoute Direct resource, and redee
     New-AzExpressRouteCircuit -Name $Name -ResourceGroupName $RGName -Location $Location -SkuTier $SkuTier -SkuFamily $SkuFamily -BandwidthInGbps $BandwidthInGbps -ExpressRoutePort $ERPort -AuthorizationKey $ERDirectAuthorization.AuthorizationKey
     ```
 
+# [**Azure CLI**](#tab/cli)
+
+You can create an authorization for your ExpressRoute Direct resource, and redeem the authorization to create an ExpressRoute circuit in a different subscription or Microsoft Entra tenant.
+
+1. Sign in to Azure and select the subscription:
+
+   ```azurecli
+   az login
+
+   az account set --subscription "<SubscriptionID or SubscriptionName>"
+
+1. Get ExpressRoute Direct details:
+
+    ```azurecli-interactive
+    az network express-route port list
+    az network express-route port show --name <Name> --resource-group <ResourceGroupName>
+    ```
+
+1. Create an authorization for the ExpressRoute Direct resource:
+
+   ```azurecli-interactive
+   az network express-route port authorization create --express-route-port <Name> --resource-group <ResourceGroupName> --name <AuthName>
+   ```
+
+   Sample output:
+
+   ```
+    "name": "ERDirectAuthorization_1",
+    "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/erdirect-rg/providers/Microsoft.Network/expressRoutePorts/erdirect/authorizations/ERDirectAuthorization_1",
+    "authorizationKey": "aaaaaaaa-0b0b-1c1c-2d2d-333333333333",
+    "authorizationUseStatus": "Available",
+    "provisioningState": "Succeeded"
+    // ... other fields
+    ```
+
+1. Verify the authorization was created successfully:
+
+    ```azurecli-interactive
+    az network express-route port authorization show --express-route-port <Name> --resource-group <ResourceGroupName> --name <AuthName>
+    ```
+
+1. Redeem the authorization to create the ExpressRoute Direct circuit in a different subscription or Microsoft Entra tenant:
+
+    ```azurecli-interactive
+    az account set --subscription "<TargetSubscriptionID or SubscriptionName>"
+
+    az network express-route create \
+        --name <CircuitName> \
+        --resource-group <RGName> \
+        --location <Location> \
+        --bandwidth <BandwidthInGbps> \
+        --sku-tier <SkuTier> \
+        --sku-family <SkuFamily> \
+        --peering-location <PeeringLocation> \
+        --express-route-port <ExpressRoutePortResourceId> \
+        --authorization-key <AuthorizationKey>
+    ```
+    
 ---
 
 ## Next steps
