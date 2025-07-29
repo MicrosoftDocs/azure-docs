@@ -72,9 +72,9 @@ The following table describes Azure IoT Operations deployment and management tas
 
 | Task | Required permission | Comments |
 | ---- | ------------------- | -------- |
-| Deploy Azure IoT Operations | [Azure IoT Operations Onboarding role](../secure-iot-ops/overview-built-in-rbac.md#azure-iot-operations-onboarding-role) | This role has all required permissions to read and write Azure IoT operations and Azure Device Registry resources. This role has `Microsoft.Authorization/roleAssignments/write` permissions.|
-| Register resource providers | [Contributor role](azure/role-based-access-control/built-in-roles/privileged#contributor) at subscription level| Only required to do once per subscription. You need to register the following resource providers: `Microsoft.ExtendedLocation`, `Microsoft.SecretSyncController`, `Microsoft.Kubernetes`, `Microsoft.KubernetesConfiguration`, `Microsoft.IoTOperations`, and `Microsoft.DeviceRegistry`. |
-| Create secrets in Key Vault | [Key Vault Secrets Officer role](azure/role-based-access-control/built-in-roles/security#key-vault-secrets-officer) at the resource level | Only required for secure settings deployment. |
+| Deploy Azure IoT Operations | [Azure IoT Operations Onboarding role](../secure-iot-ops/built-in-rbac.md#azure-iot-operations-onboarding-role) | This role has all required permissions to read and write Azure IoT operations and Azure Device Registry resources. This role has `Microsoft.Authorization/roleAssignments/write` permissions.|
+| Register resource providers | [Contributor role](/azure/role-based-access-control/built-in-roles/privileged#contributor) at subscription level| Only required to do once per subscription. You need to register the following resource providers: `Microsoft.ExtendedLocation`, `Microsoft.SecretSyncController`, `Microsoft.Kubernetes`, `Microsoft.KubernetesConfiguration`, `Microsoft.IoTOperations`, and `Microsoft.DeviceRegistry`. |
+| Create secrets in Key Vault | [Key Vault Secrets Officer role](/azure/role-based-access-control/built-in-roles/security#key-vault-secrets-officer) at the resource level | Only required for secure settings deployment. |
 | Create and manage storage accounts | Storage Account Contributor role | Required for Azure IoT Operations deployment. |
 | Create a resource group | Resource Group Contributor role | Required to create a resource group for storing Azure IoT Operations resources. |
 | Onboard a cluster to Azure Arc | Kubernetes Cluster Azure Arc Onboarding role | Arc-enabled clusters are required to deploy Azure IoT Operations. |
