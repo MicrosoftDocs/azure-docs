@@ -53,7 +53,6 @@ func (app *WebApp) featureMiddleware() gin.HandlerFunc {
         betaEnabled, err := app.featureManager.IsEnabled("Beta")
         if err != nil {
             log.Printf("Error checking Beta feature: %v", err)
-            betaEnabled = false
         }
 
         // Store feature flag status for use in templates
