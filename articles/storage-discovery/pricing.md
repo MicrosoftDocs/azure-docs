@@ -91,7 +91,7 @@ For each Discovery workspace, you can select from free or paid options. The numb
 The total cost of a Storage Discovery workspace depends on the pricing plan you choose and how you configure your workspace.
 Cost increases with the number of storage resources and stored data objects you analyze.
 
-In the case of Azure Blob Storage, storage accounts contain objects. The cost of a Discovery workspace depends on the number of storage account resources and blobs within them that are in scope to be analyzed.
+For example: Azure Blob Storage consists of storage accounts and each storage account contains blob data objects. The cost of a Discovery workspace depends on the number of storage account resources and blobs within them that are in scope to be analyzed.
 
 |                                | Free pricing plan | Standard pricing plan |
 |--------------------------------|-------------------|-----------------------|
