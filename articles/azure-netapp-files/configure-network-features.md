@@ -63,10 +63,6 @@ This section shows you how to set the network features option when you create a 
 
 You can edit the network features option of existing volumes from *Basic* to *Standard* network features. The change you make applies to all volumes in the same *network sibling set* (or *siblings*). Siblings are determined by their network IP address relationship. They share the same network interface card (NIC) for mounting the volume to the client or connecting to the remote share of the volume. At the creation of a volume, its siblings are determined by a placement algorithm that aims for reusing the IP address where possible.
 
->[!IMPORTANT]
->It's not recommended that you use the edit network features option with Terraform-managed volumes due to risks. You must follow separate instructions if you use Terraform-managed volumes. For more information see, [Update Terraform-managed Azure NetApp Files volume from Basic to Standard](#update-terraform-managed-azure-netapp-files-volume-from-basic-to-standard).
-
-
 ### Considerations when editing networking features 
 
 * If you enabled both the `ANFStdToBasicNetworkFeaturesRevert` and `ANFBasicToStdNetworkFeaturesUpgrade` AFECs and are using 1 or 2-TiB capacity pools, see [Resize a capacity pool or a volume](azure-netapp-files-resize-capacity-pools-or-volumes.md) for information about sizing your capacity pools. 
@@ -100,77 +96,84 @@ You can edit the network features option of existing volumes from *Basic* to *St
 
 ### Edit network features 
 
+>[!IMPORTANT]
+>It's not recommended that you use the edit network features option with Terraform-managed volumes due to risks. You must follow separate instructions if you use Terraform-managed volumes. For more information see, [Update Terraform-managed Azure NetApp Files volume from Basic to Standard](#update-terraform-managed-azure-netapp-files-volume-from-basic-to-standard).
+
+
 # [Portal](#tab/portal)
 
 1. Navigate to the volume for which you want to change the network features option. 
 1. Select **Change network features**. 
-1. The **Edit network features** window displays the volumes that are in the same network sibling set. Confirm you want to modify the network features option. 
+1. The Edit network features window displays the volumes that are in the same network sibling set. Select **Save** to proceed with the operation. 
+1. Select **Yes** to confirm you want to modify the network features option.
 
 # [Azure CLI](#tab/cli)
 
-You must be running version 2.75.0 or later of the Azure CLI. Confirm the version with the `az version` command. If necessary, see [How to update the Azure CLI](/cli/azure/update-azure-cli).
+You should be running the latest version of the Azure CLI. Confirm the version with the `az version` command. If necessary, see [How to update the Azure CLI](/cli/azure/update-azure-cli).
+
+1. List volumes in the capacity pool:
+
+```azurecli
+az netappfiles volume list --account-name <account> --resource-group <resourceGroup> --pool-name <capacityPool> 
+```
+
+1. Query the network sibling set:
+
+```azurecli
+az netappfiles query-network-sibling-set --network-sibling-set-id <networkSiblingSetID> --subnet-id <subnetID> 
+```
 
 1. Run the following command to update the network features on a volume:
 
 ```azurecli
-  az netappfiles volume update --resource-group <resourceGroupName> --account-name <accountName>      --pool-name <capacityPoolName> --name <volumeName> --network-features Basic|Standard 
+az netappfiles update-network-sibling-set --network-sibling-set-id <networkSiblingSetID> --network-sibling-set-state-id=<stateID> --subnet-id <subnetID> --location <location> --network-features Standard|Basic 
 ```
 
 # [PowerShell](#tab/powershell)
 
-1. Copy the following script: 
+1. Update the network sibling set:
+
+```azure-powershell
+Update-AzNetAppFilesNetworkSiblingSet -Location "<location>" -SubnetId "<subscription>" -NetworkSiblingSetId "<networkSiblingSetID>" -NetworkSiblingSetStateId "<networkSiblingSetID>" -NetworkFeature "<Standard|Basic>" 
 ```
-# Import CSV 
 
-$volumes = Import-Csv -Path "anf_volumes.csv" 
-foreach ($vol in $volumes) { 
-    Write-Host "Processing volume: $($vol.VolumeName) in $($vol.ResourceGroup)..." 
-    # Get the volume 
+1. Confirm the volume has the correct network features setting: 
 
-    $volume = Get-AzNetAppFilesVolume -ResourceGroupName $vol.ResourceGroup ` 
-                                      -AccountName $vol.AccountName ` 
-                                      -PoolName $vol.PoolName ` 
-                                      -Name $vol.VolumeName 
-    if ($volume -ne $null) { 
-        # Update network feature to Standard 
-
-        Update-AzNetAppFilesNetworkSiblingSet -Location $vol.Location ` 
-                                              -NetworkSiblingSetId $volume.NetworkSiblingSetId ` 
-                                              -SubnetId $vol.SubnetId ` 
-                                              -NetworkSiblingSetStateId $volume.NetworkSiblingSetStateId ` 
-                                              -NetworkFeature "Standard" 
-        Write-Host "Updated volume $($vol.VolumeName) to Standard." 
-    } else { 
-        Write-Warning "Volume $($vol.VolumeName) not found." 
-    } 
-
-} 
+```azure-powershell
+Get-AzNetAppFilesVolume -ResourceGroupName "<resourceGroup> -AccountName "<accountName>" -PoolName "<capacityPool>" -Name "<volume>" 
 ```
 
 # [REST API](#tab/rest-api)
 
-You must be using API version 2025-01-01 or later. 
+You should be using the latest version of the Azure NetApp Files REST API. 
 
-1. Send a PATCH request to update the network features. Set the "networkFeatures" property to Basic or Standard. : 
+
+1. Query the network sibling set then capture the network sibling set ID and state ID. 
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.NetApp/locations/{location}/queryNetworkSiblingSet?api-version=2025-03-01
+```
+
+
+1. Send a PATCH request to update the network features. Set the "networkFeatures" property to Basic or Standard. 
+
+```http
+PATCH https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.NetApp/locations/{location}/updateNetworkSiblingSet
+```
 
 ```json
 {
-  "id": "/subscriptions/subscriptionId/resourceGroups/<resourceGroup>/providers/Microsoft.NetApp/netAppAccounts/<account>/capacityPools/<capacityPoolName>/volumes/<volumeName>",
-  "name": "<account>/<capacityPool>/<volume>",
-  "type": "Microsoft.NetApp/netAppAccounts/capacityPools/volumes",
-  "location": "<location>",
-  "properties": {
-    "networkFeatures": "Basic|Standard"
-    }
-  }
+    "networkSiblingSetId": "<networkSiblingSetID>",
+    "subnetId": "<subnetID>",
+    "networkSiblingSetStateId": "<siblingSetStateID>",
+    "networkFeatures": "<Basic|Standard>"
 }
 ```
 
-1. Confirm the operation has succeded with a GET request where the network features property displays your selection.  
+1. Confirm the operation has succeded with a GET request.
 
 ---
 
-<!-- in question -->
 ### Update Terraform-managed Azure NetApp Files volume from Basic to Standard 
 
 If your Azure NetApp Files volume is managed using Terraform, editing the network features requires additional steps. Terraform-managed Azure resources store their state in a local file, which is in your Terraform module or in Terraform Cloud. 
@@ -189,8 +192,6 @@ The name of the state file in your Terraform module is `terraform.tfstate`. It c
 
 Do ***not*** manually update the `terraform.tfstate` file. Likewise, the `network_features` argument in the `*.tf` and `*.tf.json` configuration files should also not be updated until you follow the steps outlined here as this would cause a mismatch in the arguments of the remote volume and the local configuration file representing that remote volume. When Terraform detects a mismatch between the arguments of remote resources and local configuration files representing those remote resources, Terraform can destroy the remote resources and reprovision them with the arguments in the local configuration files. This can cause data loss in a volume.
 
-By following the steps outlined here, the `network_features` argument in the `terraform.tfstate` file is automatically updated by Terraform to have the value of "Standard" without destroying the remote volume, thus indicating the network features has been successfully updated to Standard.
-
 >[!NOTE]
 > It's recommended to always use the latest Terraform version and the latest version of the `azurerm` Terraform module.
 
@@ -198,7 +199,7 @@ By following the steps outlined here, the `network_features` argument in the `te
 
 Changing the network features for an Azure NetApp Files volume can impact the network features of other Azure NetApp Files volumes. Volumes in the same network sibling set must have the same network features setting. Therefore, before you change the network features of one volume, you must determine all volumes affected by the change using the Azure portal.
 
-1. Sign in to the Azure portal. 
+1. Log in to the Azure portal. 
 1. Navigate to the volume for which you want to change the network features option.
 1. Select the **Change network features**. ***Do **not** select Save.***
 1. Record the paths of the affected volumes then select **Cancel**. 
@@ -218,8 +219,13 @@ You must modify the configuration files for each affected volume managed by Terr
 >Depending on your volume’s lifecycle configuration block settings in your Terraform configuration file, your volume can be destroyed, including possible data loss upon running `terraform apply`. Ensure you know which affected volumes are managed by Terraform and which are not.
 
 1. Locate the affected Terraform-managed volumes configuration files.
-1. Add the `ignore_changes = [network_features]` to the volume's `lifecycle` configuration block. If the `lifecycle` block doesn't exist in that volume’s configuration, add it.
-
+1. Add or modify the `lifecycle` block in the volume’s configuration to include the `ignore_changes = [network_features]`. The `lifecycle` configuration block must include the following settings: 
+    ```
+    lifecycle {
+        prevent_destroy = true
+        ignore_changes = [network_features]
+    }
+    ```
     :::image type="content" source="./media/configure-network-features/terraform-lifecycle.png" alt-text="Screenshot of the lifecycle configuration." lightbox="./media/configure-network-features/terraform-lifecycle.png":::
 
 1. Repeat for each affected Terraform-managed volume. 
@@ -247,21 +253,9 @@ The `ignore_changes` feature is intended to be used when a resource’s referenc
 
     Repeat for all modules containing affected volumes.
 
-    Observe the change in the value of the `network_features` argument in the `terraform.tfstate` files, which changed from "Basic" to "Standard":
+    The terraform.tfstate file doesn't reflect the change. Don't change the `network_features` paramater in the configuration file. 
 
     :::image type="content" source="./media/configure-network-features/updated-terraform-module.png" alt-text="Screenshot of updated Terraform module." lightbox="./media/configure-network-features/updated-terraform-module.png":::
-
-#### Update Terraform-managed Azure NetApp Files volumes’ configuration file for configuration parity
-
-Once you've update the volumes' network features, you must also modify the `network_features` arguments and `lifecycle blocks` in all configuration files of affected Terraform-managed volumes. This update ensures that if you have to recreate or update the volume, it maintains its Standard network features setting. 
-
-1. In the configuration file, set `network_features` to "Standard" and remove the `ignore_changes = [network_features]` line from the `lifecycle` block. 
-
-    :::image type="content" source="./media/configure-network-features/terraform-network-features-standard.png" alt-text="Screenshot of Terraform module with Standard network features." lightbox="./media/configure-network-features/terraform-network-features-standard.png":::
-
-1. Repeat for each affected Terraform-managed volume. 
-1. Verify that the updated configuration files accurately represent the configuration of the remote resources by running `terraform plan`. Confirm the output reads "No changes."
-1. To complete the update, run `terraform apply`. 
 
 ## Next steps  
 
