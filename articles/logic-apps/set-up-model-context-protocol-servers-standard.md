@@ -82,7 +82,7 @@ The following table describes the benefits that you get when you set up Standard
 
          | Property | Required | Description |
          |----------|----------|-------------|
-         | **Scope name** | Yes | A relevant name for the permissions scope that uses the following format:<br><br> `<*resource*>.<*operation*>.<*constraint*> <br><br>For more information, see [Scopes and permissions in the Microsoft identity platform](/entra/identity-platform/scopes-oidc). |
+         | **Scope name** | Yes | A relevant name for the permissions scope that uses the following format:<br><br> `<*resource*>.<*operation*>.<*constraint*>` <br><br>For more information, see [Scopes and permissions in the Microsoft identity platform](/entra/identity-platform/scopes-oidc). |
          | **Who can consent** | Yes | Select **Admins and users**. |
 
          For more information, see [Add a scope](/entra/identity-platform/quickstart-configure-app-expose-web-apis#add-a-scope).
