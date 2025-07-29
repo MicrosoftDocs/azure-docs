@@ -157,23 +157,68 @@ If you prefer to only have your private traffic ([RFC1918](https://datatracker.i
 
 ### Subnets
 
-Virtual network integration depends on a dedicated subnet. When you create a subnet, the Azure subnet loses five IPs from the start. For the Elastic Premium and App Service plans, one address is used from the integration subnet for each plan instance. When you scale your app to four instances, then four addresses are used. For Flex Consumption this doesn't apply and instances share IP addresses.
+Virtual network integration depends on a dedicated subnet. When you provision a subnet, Azure reserves the first five IP addresses for internal use. The way remaining IP addresses are consumed depends on your hosting plan. Since subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach.
 
-In the Elastic Premium and Dedicated (App Service) plans, the required address space is doubled for a short period of time when you scale up or down in instance size. This affects the real, available supported instances for a given subnet size. The following table shows both the maximum available addresses per CIDR block and the effect this has on horizontal scale:
+#### Elastic Premium and Dedicated Plans
 
-| CIDR block size | Max available addresses | Max horizontal scale (instances)<sup>*</sup> |
+In Elastic Premium and Dedicated (App Service) plans, each running instance of your function app consumes one IP address from the subnet. When you scale up or down, the required address space may temporarily double to accommodate the transition. If multiple apps share the same subnet, the total IP address usage is the sum of all instances across those apps, plus the temporary doubling during scaling events.
+
+**IP Consumption Scenarios**
+
+| Scenario | IP Address Consumption |
+|----------|-----------------------|
+| 1 app, 1 instance | 1 IP address |
+| 1 app, 5 instances | 5 IP addresses |
+| 1 app, scaling from 5 to 10 instances | Up to 20 IP addresses (temporary, during scale operation) |
+| 3 apps, 5 instances each | 15 IP addresses |
+
+**CIDR Range Recommendations**
+
+| CIDR block size | Max available addresses | Max horizontal scale (instances)<sup>1</sup> |
 |-----------------|-------------------------|---------------------------------|
 | /28             | 11                      | 5                               |
 | /27             | 27                      | 13                              |
 | /26             | 59                      | 29                              |
+| /25             | 123                     | 61<sup>2</sup>                  |
+| /24             | 251                     | 125<sup>3</sup>                 |
 
-<sup>*</sup>Assumes that you need to scale up or down in either size or SKU at some point. 
+<sup>1</sup>Assumes that you need to scale up or down in either size or SKU at some point.
 
-Since subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. To avoid any issues with subnet capacity for Functions Elastic Premium plans, you should use a /24 with 256 addresses for Windows and a /26 with 64 addresses for Linux. When you create subnets in Azure portal as part of integrating with the virtual network, a minimum size of /24 and /26 is required for Windows and Linux respectively.
+<sup>2</sup> Although the number of IP addresses supports 61 instances, individual apps on the Dedicated plan have a [30 instance maximum](./functions-scale.md#scale).
 
-The Flex Consumption plan allows for multiple apps running in the Flex Consumption plan to integrate with the same subnet. This isn't the case for the Elastic Premium and Dedicated (App Service) hosting plans. These plans only allow two virtual networks to be connected with each App Service plan. Multiple apps from a single App Service plan can join the same subnet, but apps from a different plan can't use that same subnet.
+<sup>2</sup> Although the number of IP addresses supports 125 instances, individual apps on the Elastic Premium plan have a [100 instance maximum](./functions-scale.md#scale).
 
-The feature is fully supported for both Windows and Linux apps, including [custom containers](../app-service/configure-custom-container.md). All of the behaviors act the same between Windows apps and Linux apps.
+**Additional Considerations**
+
+For function apps on the Elastic Premium or Dedicated plans:
+
+- To avoid any issues with subnet capacity for Functions Elastic Premium plans, you should use a /24 with 256 addresses for Windows and a /26 with 64 addresses for Linux. When creating subnets in Azure portal as part of integrating with the virtual network, a minimum size of /24 and /26 is required for Windows and Linux respectively.
+- Each App Service plan can support up to two subnets that can be used for VNet integration. Multiple apps from a single App Service plan can join the same subnet, but apps from a different plan can't use that same subnet.
+
+#### Flex Consumption Plan
+
+In the Flex Consumption plan, function app instances are routed through shared gateways, which consume 1 IP address each. When a single app is integrated with a subnet, at most 40 gateways will be allocated (40 IP address consumed); this happens when the app is scaled out to the 1,000 maximum instance count. When multiple apps are integrated with the same subnet, the total number of function app instances determines how many gateways will be allocated and traffic from all instances will be routed through the shared gateways. If the subnet does not have enough available IP addresses to support the combined needs, network capacity issues may occur.
+
+**IP Consumption Scenarios**
+
+| Scenario | Maximum IP Address Consumption         |
+|----------|----------------------------------------|
+| 1 app    | Up to 40 IP addresses                  |
+| 2 apps   | Up to 80 IP addresses (shared pool)    |
+| 10 apps  | Up to 400 IP addresses (shared pool)   |
+
+**CIDR Range Recommendations**
+
+| Number of Flex Consumption Apps | Recommended Minimum Subnet Size | Max Available Addresses |
+|---------------------------------|---------------------------------|-------------------------|
+| 1                               | /26                             | 59                      |
+| 2                               | /25                             | 123                     |
+| 3                               | /25                             | 123                     |
+| 6                               | /24                             | 251                     |
+| 12                              | /23                             | 507                     |
+
+> [!IMPORTANT]
+> When integrating multiple apps in a single subnet, allocating fewer than 40 IP addresses per app is possible. However, doing so increases the risk that your apps may not be able to scale to their maximum instance count, especially if multiple apps are heavily utilized. Because gateway resources and their associated IP addresses are shared, heavy utilization by one app can impact the available network capacity for others on the same subnet.
 
 ### Network security groups
 
