@@ -7,6 +7,7 @@ ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-queue-storage
 ms.date: 07/29/2025
+ai-usage: ai-assisted
 #Customer intent: As an engineer responsible for business continuity, I want to understand the details of how Azure Queue Storage works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow during different kinds of situations.
 ---
 

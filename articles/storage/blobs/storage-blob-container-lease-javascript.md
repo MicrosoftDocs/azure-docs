@@ -3,8 +3,8 @@ title: Create and manage container leases with JavaScript or TypeScript
 titleSuffix: Azure Storage 
 description: Learn how to manage a lock on a container in your Azure Storage account using the JavaScript client library.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 
 ms.service: azure-blob-storage
 ms.topic: how-to

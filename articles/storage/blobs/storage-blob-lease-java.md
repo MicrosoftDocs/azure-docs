@@ -3,8 +3,8 @@ title: Create and manage blob leases with Java
 titleSuffix: Azure Storage
 description: Learn how to manage a lock on a blob in your Azure Storage account using the Java client library.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 
 ms.service: azure-blob-storage
 ms.topic: how-to

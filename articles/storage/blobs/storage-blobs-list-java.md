@@ -3,12 +3,12 @@ title: List blobs with Java
 titleSuffix: Azure Storage
 description: Learn how to list blobs in your storage account using the Azure Storage client library for Java. Code examples show how to list blobs in a flat listing, or how to list blobs hierarchically, as though they were organized into directories or folders.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/05/2024
-ms.author: pauljewell
+ms.author: shaas
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 # Customer intent: As a Java developer, I want to implement blob listing functionality using the Azure Storage client library, so that I can efficiently manage and retrieve data stored in my Azure Storage account.

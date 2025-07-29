@@ -60,7 +60,7 @@ To manually install binding extensions:
 
 1. Validate your app functionality locally and then redeploy your project, including `extensions.csproj`, to your function app in Azure.  
 
-As soon as possible, you should [switch your app back to using the latest supported extension bundle](./extension-bundles.md#defining-an-extension-bundle-reference).
+As soon as possible, you should [switch your app back to using the latest supported extension bundle](./extension-bundles.md#define-an-extension-bundle-reference).
 ::: zone-end
 
 ## Related content

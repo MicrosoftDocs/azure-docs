@@ -3,9 +3,9 @@ title: Download a blob with Java
 titleSuffix: Azure Storage
 description: Learn how to download a blob in Azure Storage by using the Java client library.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.date: 08/05/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
@@ -110,3 +110,4 @@ The Azure SDK for Java contains libraries that build on top of the Azure REST AP
 [!INCLUDE [storage-dev-guide-resources-java](../../../includes/storage-dev-guides/storage-dev-guide-resources-java.md)]
 
 [!INCLUDE [storage-dev-guide-next-steps-java](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-java.md)]
+

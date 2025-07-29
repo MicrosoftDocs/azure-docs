@@ -4,7 +4,7 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 7/21/2025
+ms.date: 7/29/2025
 # Customer intent: "As an Azure VMware Solution user, I want to stay informed about platform updates and maintenance schedules, so that I can ensure my workloads remain optimized and secure during transitions."
 ---
 
@@ -17,6 +17,10 @@ Microsoft regularly applies important updates to the Azure VMware Solution for n
 **Self-Service Maintenance Orchestrator (preview)**
 
 Public preview of Self-Service Capabilities for Planned Maintenance. [Learn more](https://techcommunity.microsoft.com/blog/azuremigrationblog/take-control-of-your-azure-vmware-solution-maintenance-schedule/4434496) 
+
+**VCF 5.2.1 and VMSA-2025-0013 remediation**
+
+To address the vulnerabilities (CVE-2025-41236, CVE-2025-41237, CVE-2025-41238, CVE-2025-41239) reported in Broadcom security advisory [VMSA-2025-0013](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/35877), ESXi hosts are being patched in all Azure VMware Solution private clouds to [ESXi 8.0_U3f](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/esxi-update-and-patch-release-notes/vsphere-esxi-80u3f-release-notes.html). All new Azure VMware Solution private clouds are deployed with the same version. [Learn more](https://techcommunity.microsoft.com/blog/azuremigrationblog/azure-vmware-solution-broadcom-vmsa-2025-0013-remediation/4433430) 
 
 ## May 2025
 
