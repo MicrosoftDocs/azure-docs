@@ -16,7 +16,9 @@ ms.author: danlep
 
 Creation of Azure-managed certificates for custom domains in API Management will be temporarily turned off from August 15, 2025 to March 15, 2026. Existing managed certificates will be autorenewed and remain unaffected.
 
-In the classic service tiers, Azure API Management offers [free, managed TLS certificates for custom domains](../configure-custom-domain.md#domain-certificate-options) (preview), allowing customers to secure their endpoints without purchasing and managing their own certificates. Because of an industry-wide deprecation of CNAME-based Domain Control Validation (DCV), our Certificate Authority (CA), DigiCert, will migrate to a new validation platform to meet Multi-Perspective Issuance Corroboration (MPIC) requirements for issuing certificates. This migration requires us to temporarily suspend the creation of managed certificates for custom domains.
+In the classic service tiers, Azure API Management offers [free, managed TLS certificates for custom domains](../configure-custom-domain.md#domain-certificate-options) (preview), allowing customers to secure their endpoints without purchasing and managing their own certificates. Because of an industry-wide deprecation of CNAME-based Domain Control Validation (DCV), our Certificate Authority (CA), DigiCert, is moving to a new open-source software (OSS) domain control validation (DCV) platform that provides transparency and accountability increasing the trustworthiness of domain validation. As part of this transition, DigiCert will deprecate support for the legacy CNAME Delegation DCV workflow. This migration requires us to temporarily suspend the creation of managed certificates for custom domains.
+
+Note that this does not impact the standard CNAME DCV workflow (where DigiCert validates a random value in the CNAME record) which is still supported in the OSS validation system. This change affects several Azure services that currently rely on the soon-to-be deprecated CNAME for automated certificate issuance and renewal.
 
 ## Is my service affected by this?
 
