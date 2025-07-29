@@ -1,8 +1,8 @@
 ---
 title:  Syslog and CEF AMA connectors - Microsoft Sentinel
 description: Learn how Microsoft Sentinel collects Syslog and Common Event Format (CEF) messages with the Azure Monitor Agent.
-author: edbaynash
-ms.author: EdB-MSFT
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: concept-article
 ms.custom: linux-related-content
 ms.date: 07/29/2025
@@ -72,6 +72,7 @@ The data ingestion process using the Azure Monitor Agent uses the following comp
 
 - Your **Microsoft Sentinel (Log Analytics) workspace:** CEF logs sent here end up in the *CommonSecurityLog* table, and Syslog messages in the *Syslog* table. There you can query the logs and perform analytics on them to detect and respond to security threats.
 
+---
 
 > [!NOTE]
 > When ingesting syslog data using a log forwarder and Azure Monitor Agent (AMA), inconsistencies may arise between the `TimeGenerated` and `EventTime` fields. 
@@ -81,7 +82,6 @@ The data ingestion process using the Azure Monitor Agent uses the following comp
 >This can lead to differences between the two fields when the forwarder/collector and the device generating the log are in different time zones.
 
 
----
 
 ## Setup process to collect log messages
 
