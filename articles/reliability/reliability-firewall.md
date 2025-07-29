@@ -56,7 +56,7 @@ During scaling operations, which take 5-7 minutes to complete, existing connecti
 
 [!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
 
-Azure Firewall can be configured during deployment to span multiple Availability Zones for increased availability. When deployed across multiple availability zones, Azure Firewall provides enhanced reliability and uptime guarantees.
+Azure Firewall is automatically deployed across availability zones in supported regions when created through the Azure portal. For advanced zone configuration options, you must use Azure PowerShell, Azure CLI, or ARM templates.
 
 Azure Firewall supports both zone-redundant and zonal deployment models:
 
@@ -92,10 +92,11 @@ Azure Firewall Availability Zones are available in regions that support Availabi
 For zonal deployments:
 - Standard public IP addresses can be zone-specific or zone-redundant
 - All associated public IPs must have compatible zone configurations
-- Virtual network and subnet must support the target availability zone
 
 ### Considerations
 
+- **Automatic deployment**: When creating Azure Firewall through the Azure portal, it's automatically deployed across availability zones in supported regions
+- **Manual zone selection**: To specify particular availability zones, you must use Azure PowerShell, Azure CLI, or ARM templates with the `-Zone` parameter
 - **Deployment-time configuration**: Availability zone configuration can only be set during initial deployment. You can't modify zone settings for existing firewalls
 - **Public IP compatibility**: When using multiple public IP addresses, ensure they have compatible zone configurations (all zone-redundant or all in the same zone for zonal deployments)
 - **Regional capacity constraints**: Some regions have capacity constraints in specific zones (Physical zone 2 in North Europe and Physical zone 3 in South East Asia)
@@ -107,16 +108,15 @@ There's no extra cost for a firewall deployed in more than one Availability Zone
 
 ### Configure availability zone support
 
-**Zone-redundant deployment:**
-- [Deploy an Azure Firewall with Availability Zones using Azure PowerShell](../firewall/deploy-availability-zone-powershell.md)
-- [Deploy Azure Firewall using Azure portal](../firewall/tutorial-firewall-deploy-portal.md) and select multiple availability zones during deployment
+**Automatic zone-redundant deployment (Azure portal):**
+- [Deploy Azure Firewall using Azure portal](../firewall/tutorial-firewall-deploy-portal.md) - Azure Firewall is automatically deployed across availability zones in supported regions
 
-**Zonal deployment:**
-- Use the same deployment methods but select a single specific availability zone
-- Ensure associated public IP addresses are configured for the same zone or are zone-redundant
+**Manual zone configuration (API/PowerShell/CLI):**
+- [Deploy an Azure Firewall with Availability Zones using Azure PowerShell](../firewall/deploy-availability-zone-powershell.md) - Use the `-Zone` parameter to specify particular availability zones
+- For ARM templates, use the `zones` property to specify availability zones
 
 > [!IMPORTANT]
-> Zone redundancy can only be configured during initial deployment. Existing firewalls can't be converted to use availability zones.
+> Zone redundancy is automatically enabled when deploying through the Azure portal. To configure specific zones, you must use Azure PowerShell, Azure CLI, or ARM templates.
 
 ### Normal operations
 
@@ -205,7 +205,7 @@ For more information, see [Service Level Agreements (SLA) for Online Services](h
 
 - [Azure Firewall overview](../firewall/overview.md)
 - [Azure Firewall features](../firewall/choose-firewall-sku.md)
-- [Deploy Azure Firewall using Azure portal](..firewall/tutorial-firewall-deploy-portal.md)
+- [Deploy Azure Firewall using Azure portal](../firewall/tutorial-firewall-deploy-portal.md)
 - [Azure Firewall Manager](../firewall-manager/overview.md)
 - [Azure regions with availability zones](../reliability/availability-zones-region-support.md)
 - [Azure Well-Architected Framework - Reliability pillar](/azure/well-architected/reliability/)
