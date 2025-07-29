@@ -31,7 +31,7 @@ If you're using Apache Hadoop YARN, then YARN controls the memory used by all co
 
 To address 'out of memory' messages, try:
 
-* Review DAG Management Shuffles. Reduce by map-side reducting, pre-partition (or bucketize) source data, maximize single shuffles, and reduce the amount of data sent.
+* Review DAG Management Shuffles. Reduce by map-side reducing, pre-partition (or bucketize) source data, maximize single shuffles, and reduce the amount of data sent.
 * Prefer `ReduceByKey` with its fixed memory limit to `GroupByKey`, which provides aggregations, windowing, and other functions but it has ann unbounded memory limit.
 * Prefer `TreeReduce`, which does more work on the executors or partitions, to `Reduce`, which does all work on the driver.
 * Use DataFrames rather than the lower-level RDD objects.

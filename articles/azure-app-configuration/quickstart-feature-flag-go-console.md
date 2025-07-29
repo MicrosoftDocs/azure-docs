@@ -164,7 +164,8 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 1. Run the application:
 
     ```console
-    go run main.go
+    go mod tidy
+    go run .
     ```
     ---
 

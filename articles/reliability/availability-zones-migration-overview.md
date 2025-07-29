@@ -18,16 +18,17 @@ To improve the reliability of your solution, it's a good practice to enable avai
 ## Azure services migration guides
 
 
-- [Azure API Management](migrate-api-mgt.md)
+- [Azure API Management](./reliability-api-management.md#availability-zone-support)
 - [Azure App Configuration](migrate-app-configuration.md)
 - [Azure App Service](reliability-app-service.md#configure-availability-zone-support)
+- [Azure App Service Environment](reliability-app-service-environment.md#configure-availability-zone-support)
 - [Azure Application Gateway (V2)](migrate-app-gateway-v2.md)
 - [Azure Backup and Azure Site Recovery](migrate-recovery-services-vault.md)
 - [Azure Batch](reliability-batch.md#availability-zone-migration)
 - [Azure Cache for Redis](migrate-cache-redis.md)
 - [Azure Container Apps](reliability-azure-container-apps.md#availability-zone-migration)
 - [Azure Container Instances](./reliability-containers.md#availability-zone-redeployment-and-migration)
-- [Azure Container Registry](/azure/container-registry/zone-redundancy?toc=/azure/reliability)
+- [Azure Container Registry](./reliability-container-registry.md#configure-availability-zone-support)
 - [Azure Cosmos DB](./reliability-cosmos-db-nosql.md#migrate-to-availability-zone-support)
 - [Azure Database for MySQL - Flexible Server](migrate-database-mysql-flex.md)
 - [Azure Database for PostgreSQL](./reliability-postgresql-flexible-server.md#availability-zone-redeployment-and-migration)
@@ -41,7 +42,7 @@ To improve the reliability of your solution, it's a good practice to enable avai
 - [Azure Monitor: Log Analytics](migrate-monitor-log-analytics.md)
 - [Azure Service Bus](/azure/service-bus-messaging/service-bus-outages-disasters#availability-zones)
 - [Azure Service Fabric](migrate-service-fabric.md)
-- [Azure SQL Database](migrate-sql-database.md)
+- [Azure SQL Database](/azure/azure-sql/database/enable-zone-redundancy?view=azuresql-db&preserve-view=true&toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)
 - [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-zone-redundancy-configure)
 - [Azure Storage account: Blob Storage, Azure Data Lake Storage, Files Storage](migrate-storage.md)
 - [Azure Storage: Managed Disks](migrate-vm.md)

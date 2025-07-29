@@ -39,7 +39,7 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 
 ## Public preview limitations
 Following are limitations during our preview.
-- Virtual network TAP only supports virtual machine's (VM) network interface as a mirroring source.
+- Virtual network TAP only supports virtual machine's (VM) network interface as a mirroring source. All VM SKU **except for v6** are supported.
 - Virtual network TAP supports Load Balancer or VM's network interface as a destination resource for mirrored traffic.
 - Virtual network doesn't support Live Migration. VM set as source for virtual network TAP will have live migration disabled.
 - VMs behind a Standard Load Balancer with Floating IP enabled can't be set as a mirroring source.

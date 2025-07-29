@@ -3,7 +3,7 @@ title: Enroll in a simplified pricing tier for Microsoft Sentinel
 description: Learn how to enroll in simplified billing, the impact of the switch to commitment pricing tiers, and frequently asked questions about enrollment.
 author: EdB-MSFT
 ms.topic: how-to
-ms.date: 04/25/2024
+ms.date: 07/24/2025
 ms.author: edbaynash
 
 #Customer intent: As a billing administrator, I want to switch to simplified pricing tiers for Microsoft Sentinel so that I can streamline billing and potentially reduce costs.
@@ -22,7 +22,7 @@ For many Microsoft Sentinel workspaces created before July 2023, there's a separ
 ## Change pricing tier to simplified
 Classic pricing tiers are when Microsoft Sentinel and Log Analytics pricing tiers are configured separately and show up as different meters on your invoice. To move to the simplified pricing tier where Microsoft Sentinel and Log Analytics billing are combined for the same pricing meter, **Switch to new pricing**.
 
-# [Microsoft Sentinel](#tab/microsoft-sentinel)
+## [Microsoft Sentinel](#tab/microsoft-sentinel)
 Use the following steps to change the pricing tier of your workspace using the Microsoft Sentinel portal. Once you make the switch, reverting back to a classic pricing tier can't be performed using this interface.  
 
 1. From the **Settings** menu, select **Switch to new pricing**. 
@@ -33,11 +33,11 @@ Use the following steps to change the pricing tier of your workspace using the M
 1. Choose a selection from the **Unified pricing tiers** pull-down menu based on your typical ingestion.
 1. Select **Ok** to confirm.
     
-# [Azure Resource Manager](#tab/azure-resource-manager)
+## [Azure Resource Manager](#tab/azure-resource-manager)
 To set the pricing tier using an Azure Resource Manager template, set the following values:
 
-- `Microsoft.OperationsManagement/solutions` `sku` name to `Unified` 
--  `capacityReservationLevel` to the pricing tier
+- Set `Microsoft.OperationsManagement/solutions` `sku` name to `Unified`.
+- Set `capacityReservationLevel` to the pricing tier.
 
 For details on this template format, see [Microsoft.OperationalInsights workspaces](/azure/templates/microsoft.operationalinsights/workspaces).
 
@@ -143,16 +143,33 @@ Compare the following cluster scenarios to better understand simplified pricing 
 :::image type="content" source="media/enroll-simplified-pricing-tier/cluster.svg" alt-text="A block diagram showing a color coded cluster with three workspaces. One of the workspaces is labeled Microsoft Sentinel.":::
 
 **Example 1:** A dedicated cluster ingesting *more* data than the Commitment tier level, but under the next highest tier (ideal).
-:::image type="complex" source="media/enroll-simplified-pricing-tier/example-1.png" alt-text="Spreadsheet showing Commitment tier over usage billing example for a Microsoft Sentinel workspace in a dedicated cluster." lightbox="media/enroll-simplified-pricing-tier/example-1.png":::
-The table shows two scenarios where the three workspace dedicated cluster is ideally ingesting more data than the 5,000 GB per day commitment tier. The first scenario uses cluster billing mode, the second uses workspace billing mode. In both scenarios, the first two workspaces, labeled A and B, are not Microsoft Sentinel enabled. Workspace A ingested 1 TB of data, while workspace B ingested 2 TB of data. In cluster billing mode, the combined 3 TB of Log Analytics usage is billed to the cluster resource. The Commitment tier detail shows the price equals to 3 TB multiplied by the Log Analytics effective per GB (per day) price of the Commitment tier. The price is also expressed as 0.6 units of the commitment tier per day rate. Workspace C is a Microsoft Sentinel enabled workspace that ingested 3 TB of data. Its commitment tier detail shows the price equals 3 TB multiplied by the Micorosoft Sentinel effective per GB (per day) price of the Commitment tier. The price is also expressed as 0.6 units of the commitment tier per day rate. In workspace billing mode, the primary difference is each portion of the ingested data is billed to the individual workspaces, but the grand total is the same (1.2 times the per day rate).
-:::image-end:::
+:::image type="content" source="media/enroll-simplified-pricing-tier/example-1.png" alt-text="Spreadsheet showing Commitment tier over usage billing example for a Microsoft Sentinel workspace in a dedicated cluster." lightbox="media/enroll-simplified-pricing-tier/example-1.png":::  
+  
+The table shows two scenarios where the three-workspace dedicated cluster is ingesting more data than the 5,000 GB per day commitment tier. In both scenarios, the first two workspaces, labeled A and B, aren't Microsoft Sentinel enabled. Workspace A ingested 1 TB of data, while workspace B ingested 2 TB of data. Workspace C is a Microsoft Sentinel enabled workspace that ingested 3 TB of data.  
+
+The first scenario uses cluster billing mode, The second uses workspace billing mode.  
+
+In cluster billing mode, the combined 3 TB of Log Analytics usage is billed to the cluster resource. The Commitment tier detail shows the price equals to 3 TB multiplied by the Log Analytics effective per GB (per day) price of the Commitment tier. The price is also expressed as 0.6 units of the commitment tier per day rate. Workspace C is a Microsoft Sentinel enabled workspace that ingested 3 TB of data. Its commitment tier detail shows the price equals 3 TB multiplied by the Microsoft Sentinel effective per GB (per day) price of the Commitment tier. The price is also expressed as 0.6 units of the commitment tier per day rate.
+
+In workspace billing mode, each portion of the ingested data is billed to the individual workspaces. The total is the same as for cluster billing - 1.2 units of the commitment tier per day rate.
 
 **Example 2:** A dedicated cluster ingesting *less* data than the Commitment tier level. Consider adding more workspaces to the cluster.
-:::image type="complex" source="media/enroll-simplified-pricing-tier/example-2.png" alt-text="Spreadsheet showing Commitment tier under usage billing example for a Microsoft Sentinel workspace in a dedicated cluster." lightbox="media/enroll-simplified-pricing-tier/example-2.png":::
-The table shows two scenarios where the three workspace dedicated cluster is ingesting less data than the 5,000 GB per day commitment tier. The first scenario uses cluster billing mode, the second uses workspace billing mode. In both scenarios, the first two workspaces, labeled A and B, are not Microsoft Sentinel enabled. Workspace A and B ingested 1 TB of data separately, while the Microsoft Sentinel enable workspace C ingested 2 TB of data (a total of 4 TB). Since the commitment tier is 5TB, there is 1 TB of unused ingestion to account for. In cluster billing mode, the combined 2 TB of Log Analytics usage adds the extra 1 TB of unused usage and is billed to the cluster resource. The Commitment tier detail shows the price equals to 3 TB multiplied by the Log Analytics effective per GB (per day) price of the Commitment tier. The price is also expressed as 0.6 units of the commitment tier per day rate. Workspace C is the Microsoft Sentinel enabled workspace that ingested 2 TB of data. Its commitment tier detail shows the price equals 2 TB multiplied by the Micorosoft Sentinel effective per GB (per day) price of the Commitment tier. The price is also expressed as 0.4 units of the commitment tier per day rate. In workspace billing mode, the primary difference is each portion of the ingested data is billed to the individual workspaces, and the unused 1 TB portion is billed to the cluster resource, but the grand total is the same (1.0 times the per day rate).
-:::image-end:::
+:::image type="content" source="media/enroll-simplified-pricing-tier/example-2.png" alt-text="Spreadsheet showing Commitment tier under usage billing example for a Microsoft Sentinel workspace in a dedicated cluster." lightbox="media/enroll-simplified-pricing-tier/example-2.png":::  
+  
+The table shows two scenarios where the three-workspace dedicated cluster is ingesting less data than the 5,000 GB per day commitment tier. In both scenarios, the first two workspaces, labeled A and B, aren't Microsoft Sentinel enabled. Workspace A and B ingested 1 TB of data separately, while the Microsoft Sentinel enabled workspace C ingested 2 TB of data (a total of 4 TB). 
 
-Keep in mind, the simplified effective per GB price for a Microsoft Sentinel enabled workspace now includes the log analytics ingestion cost. For the latest **per day** and **Effective Per GB Price** for both types of workspaces, see: 
+Since the commitment tier is 5 TB, there's 1 TB of unused ingestion.
+
+> [!IMPORTANT]
+> Any unused commitment is billed to the Log Analytics commitment tiers regardless of whether the workspaces in the cluster have Microsoft Sentinel enabled.
+ 
+The first scenario uses cluster billing mode, the second uses workspace billing mode. 
+
+In cluster billing mode, the combined 2 TB of Log Analytics usage adds the extra 1 TB of unused usage and is billed to the cluster resource. The Commitment tier detail shows the price equals to 3 TB multiplied by the Log Analytics effective per GB (per day) price of the Commitment tier. The price is also expressed as 0.6 units of the commitment tier per day rate. Workspace C is the Microsoft Sentinel enabled workspace that ingested 2 TB of data. Its commitment tier detail shows the price equals 2 TB multiplied by the Microsoft Sentinel effective per GB (per day) price of the Commitment tier. The price is also expressed as 0.4 units of the commitment tier per day rate. 
+
+In workspace billing mode, each portion of the ingested data is billed to the individual workspaces, and the unused 1 TB portion is billed to the *cluster* resource. The total is the same as for cluster billing - 1.0 units of the commitment tier per day rate.
+
+Keep in mind, the simplified effective per-GB price for a Microsoft Sentinel enabled workspace now includes the log analytics ingestion cost. For more information on pricing, see the following articles: 
 - [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/)
 - [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
@@ -167,7 +184,7 @@ Though the goal of the experience is to merely simplify the pricing and cost man
 - If one of the separate pricing tiers for Log Analytics or Microsoft Sentinel was inappropriately mismatched, the simplified pricing tier could result in cost saving.
 
 ### Is there ever a reason NOT to switch?
-It's possible your Microsoft account team negotiated a discounted price for Log Analytics or Microsoft Sentinel charges on the classic tiers. You can't tell if this is so from the Microsoft Sentinel pricing interface alone. It might be possible to calculate the expected cost vs. actual charge in Microsoft Cost Management to see if there's a discount included. In such cases, we recommend contacting your Microsoft account team if you want to switch to the simplified pricing tiers or have any questions.
+It's possible your Microsoft account team negotiated a discounted price for Log Analytics or Microsoft Sentinel charges on the classic tiers. You can't tell if this is so from the Microsoft Sentinel pricing interface alone. It might be possible to calculate the expected cost vs actual charge in Microsoft Cost Management to see if there's a discount included. In such cases, we recommend contacting your Microsoft account team if you want to switch to the simplified pricing tiers or have any questions.
 
 ## Learn more
 

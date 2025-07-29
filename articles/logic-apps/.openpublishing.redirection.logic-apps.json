@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/logic-apps/logic-apps-scenario-social-serverless.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-serverless-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/export-from-ise-to-standard-logic-app.md",
+            "redirect_url": "/azure/logic-apps/create-standard-workflows-visual-studio-code",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/logic-apps/update-workflow-definition-language-schema.md",
             "redirect_url": "/azure/logic-apps/workflow-definition-language-schema",
             "redirect_document_id": false
