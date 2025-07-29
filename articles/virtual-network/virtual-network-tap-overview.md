@@ -29,7 +29,7 @@ You can use the same virtual network TAP resource to aggregate traffic from mult
 
 ## Permissions
 
-The accounts you use to apply TAP configuration on network interfaces must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that is assigned the necessary actions from the following table:
+The accounts you use to apply TAP configuration on network interfaces must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that is assigned as the necessary actions from the following table:
 
 | Action | Name |
 |---|---|
@@ -38,20 +38,21 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 | Microsoft.Network/tapConfigurations/* | Required to create, update, read, and delete the TAP configuration on a network interface |
 
 ## Public preview limitations
+Please note, limitations tagged with **[Temporary]** will be resolved at GA. 
 ### Adding a source:
 - Virtual network TAP only supports virtual machine's (VM) network interface as a mirroring source.
-- v6 VM SKU aren't supported as a source. v6 will be supported at GA.
-- Before adding a VM as a source, you must **first deploy a virtual network TAP resource** and **then STOP (deallocate) and START the source VM**. This is required only once for any VM that will be added as a source. **If not done, you will get an erorr stating the NIC is not on fastpath**. At GA, it will not be a requirement.
+- [Temporary] v6 VM SKU aren't supported as a source. 
+- [Temporary] Before adding a VM as a source, you must **first deploy a virtual network TAP resource** and **then STOP (deallocate) and START the source VM**. This is required only once for any VM that will be added as a source. **If not done, you will get an erorr stating the NIC is not on fastpath**.
 
 ### Other Limitations
 - Virtual network TAP supports Load Balancer or VM's network interface as a destination resource for mirrored traffic.
-- Virtual network doesn't support Live Migration. Live Migration will be disabled for VMs set as a source. Live migration will be supported at GA.
-- VMs behind a Standard Load Balancer with Floating IP enabled can't be set as a mirroring source. It will be supported at GA.
+- [Temporary] Virtual network doesn't support Live Migration. Live Migration will be disabled for VMs set as a source.
+- [Temporary] VMs behind a Standard Load Balancer with Floating IP enabled can't be set as a mirroring source. 
 - VMs behind Basic Load Balancer can't be set as a mirroring source. Basic Load Balancer is being deprecated.
 - Virtual network doesn't support mirroring of inbound Private Link Service traffic.
 - VMs in a virtual network with encryption enabled can't be set as mirroring source.
 - Virtual network TAP doesn't support IPv6.
-- When a VM is added or removed as a source, the VM might experience network downtime (up to 60 seconds). There will be no downtime at GA.
+- [Temporary] When a VM is added or removed as a source, the VM might experience network downtime (up to 60 seconds).
 
 ## Supported Regions
 
