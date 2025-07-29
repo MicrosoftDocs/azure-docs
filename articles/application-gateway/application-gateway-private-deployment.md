@@ -188,8 +188,8 @@ The resource tag is cosmetic, and serves to confirm that the gateway has been pr
 Application Gateway Subnet is the subnet within the Virtual Network where the Application Gateway Resources will be deployed. In the Frontend Private Ip configuration, is important that this subnet can reach privately the resources that want to connect to your exposed app or site.
 
 > [!NOTE]
-> As of May 5, 2025 new and existing deployments of Private Application Gateway require Subnet Delegation to `Microsoft.Network/applicationGateways`.
-> Please follow [these steps](https://learn.microsoft.com/en-us/azure/virtual-network/manage-subnet-delegation?tabs=manage-subnet-delegation-portal) for configuring Subnet Delegation.
+> As of May 5, 2025, new and existing deployments of Private Application Gateway require Subnet Delegation to `Microsoft.Network/applicationGateways`.
+> Please follow [these steps](/azure/virtual-network/manage-subnet-delegation?tabs=manage-subnet-delegation-portal) for configuring Subnet Delegation.
 
 ## Outbound Internet connectivity
 
