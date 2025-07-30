@@ -39,6 +39,7 @@ Event Hubs supports **availability zones** in select Azure regions. Data (metada
 
 > [!NOTE]
 > Availability zones are enabled by default in supported regions.
+> 
 
 ### Geo-Disaster Recovery (Geo-DR)
 
