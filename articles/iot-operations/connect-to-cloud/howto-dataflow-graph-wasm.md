@@ -24,8 +24,8 @@ Azure IoT Operations data flow graphs support WebAssembly (WASM) modules for cus
 
 - Deploy an Azure IoT Operations instance on an Arc-enabled Kubernetes cluster. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
 - Use Azure Container Registry (ACR) to store WASM modules and graphs.
-- Install the ORAS CLI to push WASM modules to the registry.
-- To develop custom WASM modules, see [Develop WebAssembly modules for data flow graphs](howto-develop-wasm-modules.md).
+- Install the OCI Registry As Storage (ORAS) CLI to push WASM modules to the registry.
+- Develop custom WASM modules by following guidance in [Develop WebAssembly modules for data flow graphs](howto-develop-wasm-modules.md).
 
 ## Overview
 
@@ -551,7 +551,7 @@ Branch operations enable parallel processing of different sensor inputs, allowin
 
 ### Configure the complex data flow graph
 
-This configuration implements the multi-sensor processing workflow using the `graph-complex:1.0.0` artifact. Notice how the data flow graph deployment is similar to Example 1 - both use the same three-node pattern (source, graph processor, destination) even though the processing logic is completely different.
+This configuration implements the multi-sensor processing workflow using the `graph-complex:1.0.0` artifact. Notice how the data flow graph deployment is similar to Example 1 - both use the same three-node pattern (source, graph processor, destination) even though the processing logic is different.
 
 This similarity occurs because the data flow graph resource acts as a host environment that loads and executes graph definitions. The actual processing logic resides in the graph definition artifact (`graph-simple:1.0.0` vs `graph-complex:1.0.0`), which contains the YAML specification of operations and connections between WASM modules. The data flow graph resource provides the runtime infrastructure to pull the artifact, instantiate the modules, and route data through the defined workflow.
 
@@ -855,7 +855,7 @@ spec:
 
 ### Disk persistence
 
-Disk persistence allows data flow graphs to maintain state across restarts. When enabled, the graph can recover processing state if pods are restarted. This is useful for stateful processing scenarios where losing intermediate data would be problematic.
+Disk persistence allows data flow graphs to maintain state across restarts. When enabled, the graph can recover processing state if pods are restarted. The storage capability is useful for stateful processing scenarios where losing intermediate data would be problematic.
 
 The setting accepts `Enabled` or `Disabled` (case-insensitive), with `Disabled` as the default.
 
@@ -1047,7 +1047,7 @@ For storage destinations like Azure Data Lake or Fabric OneLake, you can specify
 
 Node connections define the data flow path between nodes. Each connection specifies a source node and destination node, creating the processing pipeline. Connections can optionally include schema validation to ensure data integrity between processing stages.
 
-When you specify schema validation, the system validates data format and structure as it flows between nodes. This helps catch data inconsistencies early and ensures WASM modules receive data in the expected format.
+When you specify schema validation, the system validates data format and structure as it flows between nodes. The validation helps catch data inconsistencies early and ensures WASM modules receive data in the expected format.
 
 # [Bicep](#tab/bicep)
 
@@ -1131,7 +1131,7 @@ Storage endpoints typically require output schema settings to define data serial
 
 #### Registry endpoints
 
-Registry endpoints provide access to container registries for pulling WASM modules and graph definitions. They're not used directly in data flow but are referenced by graph processing nodes.
+Registry endpoints provide access to container registries for pulling WASM modules and graph definitions. They're not used directly in data flow but graph processing nodes reference them.
 
 For detailed configuration information, see [Configure registry endpoints](howto-configure-registry-endpoint.md).
 

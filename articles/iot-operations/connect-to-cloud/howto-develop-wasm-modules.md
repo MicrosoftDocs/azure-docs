@@ -18,11 +18,7 @@ ai-usage: ai-assisted
 >
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or not yet released into general availability.
 
-This article shows you how to develop custom WebAssembly (WASM) modules and graph definitions for Azure IoT Operations data flow graphs. You can create modules in Rust or Python to implement custom data processing logic, and define graph configurations that specify how your modules connect into complete processing workflows.
-
-## Prerequisites
-
-Complete the setup in [Use WebAssembly with data flow graphs](howto-dataflow-graph-wasm.md) to understand the basic concepts and deployment process. Choose your development language: [Rust](#tab/rust) or [Python](#tab/python). You also need access to a container registry for storing your compiled modules.
+This article shows you how to develop custom WebAssembly (WASM) modules and graph definitions for Azure IoT Operations data flow graphs. You can create modules in Rust or Python to implement custom processing logic. You can also define graph configurations that specify how your modules connect into complete processing workflows.
 
 ## Overview
 
@@ -40,19 +36,23 @@ Azure IoT Operations data flow graphs process streaming data through configurabl
 
 Data flow graphs build on the [Timely dataflow](https://docs.rs/timely/latest/timely/dataflow/operators/index.html) computational model, which originated from Microsoft Research's Naiad project. This approach ensures:
 
-- Deterministic processing: Same input always produces the same output
-- Progress tracking: The system knows when computations are complete
-- Distributed coordination: Multiple processing nodes stay synchronized
+- **Deterministic processing**: Same input always produces the same output
+- **Progress tracking**: The system knows when computations are complete
+- **Distributed coordination**: Multiple processing nodes stay synchronized
 
 ### Why timely dataflow?
 
-Traditional stream processing systems face challenges with out-of-order data where events arrive later than expected, partial results where you don't know when computations are complete, and coordination issues when synchronizing distributed processing.
+Traditional stream processing systems face challenges with several issues. Out-of-order data can cause events to arrive later than expected. Partial results make it difficult to know when computations are complete. Coordination issues arise when synchronizing distributed processing.
 
-Timely dataflow solves these problems through:
+Timely dataflow solves problems through:
 
 #### Timestamps and progress tracking
 
-Every data item carries a timestamp representing its logical time. The system tracks progress through these timestamps, enabling deterministic processing where same input always produces same output, exactly-once semantics where there's no duplicate or missed processing, and watermarks that let you know when no more data will arrive for a given time.
+Every data item carries a timestamp representing its logical time. The system tracks progress through timestamps, enabling several key capabilities:
+
+- **Deterministic processing**: Same input always produces same output
+- **Exactly once semantics**: No duplicate or missed processing  
+- **Watermarks**: Know when no more data will arrive for a given time
 
 #### Hybrid logical clock
 
@@ -64,7 +64,11 @@ pub struct HybridLogicalClock {
 }
 ```
 
-This ensures causal ordering where effects follow causes, progress guarantees where the system knows when processing is complete, and distributed coordination where multiple nodes stay synchronized.
+The hybrid logical clock approach ensures several capabilities:
+
+- **Causal ordering**: Effects follow causes
+- **Progress guarantees**: The system knows when processing is complete  
+- **Distributed coordination**: Multiple nodes stay synchronized
 
 ## Understanding operators and modules
 
@@ -92,7 +96,7 @@ Modules are the implementation of operator logic as WASM code. A single module c
 
 ### The relationship
 
-The relationship between graph definitions, modules, and operators follows this pattern:
+The relationship between graph definitions, modules, and operators follows a specific pattern:
 
 ```
 Graph Definition → References Module → Provides Operator → Processes Data
@@ -100,10 +104,10 @@ Graph Definition → References Module → Provides Operator → Processes Data
 "temperature:1.0.0" → temperature.wasm → map function → °F to °C
 ```
 
-This separation allows you to:
-- Reuse modules: Deploy the same WASM module in different graph configurations
-- Version independently: Update graph definitions without rebuilding modules
-- Configure dynamically: Pass different parameters to the same module for different behaviors
+The separation allows you to:
+- **Module reuse**: Deploy the same WASM module in different graph configurations
+- **Independent versioning**: Update graph definitions without rebuilding modules
+- **Dynamic configuration**: Pass different parameters to the same module for different behaviors
 
 ### WebAssembly Interface Types (WIT)
 
@@ -164,7 +168,7 @@ interface accumulate {
 }
 ```
 
-## Development prerequisites
+## Prerequisites
 
 Choose your development language and set up the required tools:
 
@@ -192,7 +196,7 @@ export CARGO_REGISTRIES_AZURE_VSCODE_TINYKUBE_INDEX="sparse+https://pkgs.dev.azu
 export CARGO_NET_GIT_FETCH_WITH_CLI=true
 ```
 
-Add these to your shell profile for persistent access:
+Add the following environment variables to your shell profile for persistent access:
 
 ```bash
 echo 'export CARGO_REGISTRIES_AZURE_VSCODE_TINYKUBE_INDEX="sparse+https://pkgs.dev.azure.com/azure-iot-sdks/iot-operations/_packaging/preview/Cargo/index/"' >> ~/.bashrc
@@ -202,7 +206,7 @@ source ~/.bashrc
 
 # [Python](#tab/python)
 
-Python development uses componentize-py with WebAssembly Interface Types (WIT) for code generation. No additional environment configuration is required beyond installing the prerequisites.
+Python development uses componentize-py with WebAssembly Interface Types (WIT) for code generation. No other environment configuration is required beyond installing the prerequisites.
 
 ---
 
@@ -242,7 +246,7 @@ Create a Python file for your operator. The filename should match your module na
 touch temperature_converter.py
 ```
 
-Python WASM modules don't require additional project configuration files. The module structure is defined through the Python class that implements the operator interface.
+Python WASM modules don't require other project configuration files. The Python class that implements the operator interface defines the module structure.
 
 ---
 
@@ -473,7 +477,7 @@ Use local builds for fastest iteration during development and when you need full
 
 ### Docker build
 
-Build using a containerized environment with all dependencies pre-installed:
+Build using a containerized environment with all dependencies preinstalled:
 
 ```bash
 # Build release version (default)
@@ -510,7 +514,7 @@ Use local builds for fastest iteration during development and when you need to d
 
 ### Docker build
 
-Build using a containerized environment with schema paths pre-configured:
+Build using a containerized environment with schema paths preconfigured:
 
 ```bash
 # Build release version (app-name should match your Python filename without .py extension)
@@ -537,7 +541,7 @@ For comprehensive examples of map, filter, branch, accumulate, and delay operato
 - **Delay operators**: Time-based processing control
 - **Complex workflows**: Multi-operator configurations with state management
 
-For a complete implementation example, see the [branch module](https://github.com/Azure-Samples/explore-iot-operations/tree/wasm/samples/wasm/rust/examples/branch) which demonstrates parameter usage for conditional routing logic.
+For a complete implementation example, see the [branch module](https://github.com/Azure-Samples/explore-iot-operations/tree/wasm/samples/wasm/rust/examples/branch), which demonstrates parameter usage for conditional routing logic.
 
 # [Python](#tab/python)
 
@@ -651,14 +655,14 @@ graph LR
 
 ### Registry deployment
 
-Both graph definitions and WASM modules must be uploaded to a container registry as OCI artifacts before they can be referenced by data flow graphs:
+Both graph definitions and WASM modules must upload to a container registry as Open Container Initiative (OCI) artifacts before data flow graphs can reference them:
 
 - **Graph definitions**: Packaged as OCI artifacts with media type `application/vnd.oci.image.config.v1+json`
 - **WASM modules**: Packaged as OCI artifacts containing the compiled WebAssembly binary
-- **Versioning**: Use semantic versioning (e.g., `my-graph:1.0.0`, `temperature-converter:2.1.0`) for proper dependency management
+- **Versioning**: Use semantic versioning (such as `my-graph:1.0.0`, `temperature-converter:2.1.0`) for proper dependency management
 - **Registry support**: Compatible with Azure Container Registry, Docker Hub, and other OCI-compliant registries
 
-This separation enables reusable logic where the same graph definition can be deployed with different endpoints, environment independence where development, staging, and production can use different data sources, and modular deployment where you can update endpoint configurations without changing processing logic.
+The separation enables reusable logic where the same graph definition deploys with different endpoints. It provides environment independence where development, staging, and production use different data sources. It also supports modular deployment where you update endpoint configurations without changing processing logic.
 
 For detailed instructions on uploading graph definitions and WASM modules to registries, see [Use WebAssembly with data flow graphs](howto-dataflow-graph-wasm.md).
 
@@ -722,11 +726,11 @@ def temperature_converter_init(configuration):
 
 ---
 
-For a complete implementation example, see the [branch module](https://github.com/Azure-Samples/explore-iot-operations/tree/wasm/samples/wasm/rust/examples/branch) which demonstrates parameter usage for conditional routing logic.
+For a complete implementation example, see the [branch module](https://github.com/Azure-Samples/explore-iot-operations/tree/wasm/samples/wasm/rust/examples/branch), which demonstrates parameter usage for conditional routing logic.
 
 ## Next steps
 
-- For complete examples and advanced patterns, see the [Azure IoT Operations WASM samples](https://github.com/Azure-Samples/explore-iot-operations/tree/wasm/samples/wasm) repository.
+- See complete examples and advanced patterns in the [Azure IoT Operations WASM samples](https://github.com/Azure-Samples/explore-iot-operations/tree/wasm/samples/wasm) repository.
 - Learn how to deploy your modules in [Use WebAssembly with data flow graphs](howto-dataflow-graph-wasm.md).
 - Configure your data flow endpoints in [Configure data flow endpoints](howto-configure-dataflow-endpoint.md).
 
