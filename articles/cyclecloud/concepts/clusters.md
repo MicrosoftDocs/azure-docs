@@ -3,6 +3,7 @@ title: Clusters and Node Concepts
 description: Learn about Azure CycleCloud clusters, nodes, node arrays, and cluster templates. Prepare, configure, and orchestrate nodes.
 author: adriankjohnson
 ms.date: 06/20/2023
+ms.update-cycle: 3650-days
 ms.author: adjohnso
 ms.topic: conceptual
 ms.service: azure-cyclecloud

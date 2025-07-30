@@ -3,6 +3,7 @@ title: Common Issues - Cluster Init
 description: Azure CycleCloud common issue - Cluster Init
 author: adriankjohnson
 ms.date: 06/20/2023
+ms.update-cycle: 3650-days
 ms.author: adjohnso
 ms.topic: conceptual
 ms.service: azure-cyclecloud
