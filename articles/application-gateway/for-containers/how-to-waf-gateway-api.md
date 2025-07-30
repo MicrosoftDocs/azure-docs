@@ -271,13 +271,13 @@ EOF
 
 ## Test access to the application
 
-Now you're ready to send some traffic to the sample application, via the fully qualified domain name (FQDN) assigned to the front end. Use the following command to get the FQDN:
+Now you're ready to send some traffic to the sample application, via the fully qualified domain name (FQDN) assigned to the frontend resource. Use the following command to get the FQDN:
 
 ```bash
 fqdn=$(kubectl get gateway gateway-01 -n test-infra -o jsonpath='{.status.addresses[0].value}')
 ```
 
-If you specify the server name indicator by using the `curl` command, with `contoso.com` for the front-end FQDN, the output should return a response from the `backend-v1` service:
+If you specify the server name indicator by using the `curl` command, with `contoso.com` for the frontend resource's FQDN, the output should return a response from the `backend-v1` service:
 
 ```bash
 fqdnIp=$(dig +short $fqdn)
