@@ -42,10 +42,10 @@ To change the Cloud NGFW's billing plan, go to **Overview** and select **Change 
 
 ## Get support
 
-Contact Palo Alto Network for customer support.
+Contact [Palo Alto Network](https://support.paloaltonetworks.com/Support/Index) for customer support.
 
 You can also request support in the Azure portal from the resource overview.
 
-Select **Support + Troubleshooting** > **New support request** from the service menu, then choose the link to Contact PAN customer support. 
+Select **Support + Troubleshooting** > **New support request** from the service menu, then choose the link to [Contact PAN customer support](https://support.paloaltonetworks.com/Support/Index). 
 
 
