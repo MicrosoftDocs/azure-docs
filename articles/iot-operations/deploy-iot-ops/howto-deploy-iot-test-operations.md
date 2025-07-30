@@ -134,7 +134,7 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
 
 
     > [!IMPORTANT]
-    > For preview releases, you need to append the `--allow-preview` flag to the `az extension add` command to install the [preview version](./howto-upgrade.md#upgrade-to-preview-version) of the Azure IoT Operations CLI extension.
+    > For [preview releases](./howto-upgrade.md#upgrade-to-preview-version), you need to append the `--allow-preview` flag to the `az extension add` command to install the preview version of the Azure IoT Operations CLI extension.
     >
     > ```azurecli
     > az extension add --upgrade --name azure-iot-ops --allow-preview
@@ -153,6 +153,9 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
       1. In the search box, type and select **Azure Device Registry**.
       1. In the left menu, select **Namespaces**. 
       1. Then select **+ Create** to create a new namespace. Make sure to use the same resource group as your Arc-enabled Kubernetes cluster.
+    
+        > [!NOTE]
+        > Namespace resources are available from [2507 preview release](https://github.com/Azure/azure-iot-operations/releases/tag/v1.2.35). If you're using an earlier release version, namespaces aren't available and you can skip this step. 
 
 1. Prepare the cluster for Azure IoT Operations deployment. Copy and run the provided [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command.
 
@@ -176,7 +179,7 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
         ```
     
         > [!NOTE]
-        > The `--feature` configuration parameter isn't available in 2507 preview release.
+        > The `--feature` configuration parameter is only available in the [latest GA version](https://github.com/Azure/azure-iot-operations/releases/tag/v1.1.59). If you're using the [2507 preview release](https://github.com/Azure/azure-iot-operations/releases/tag/v1.2.35), this parameter isn't available.
 
 1. Once all of the Azure CLI commands complete successfully, you can close the **Install Azure IoT Operations** wizard.
 
