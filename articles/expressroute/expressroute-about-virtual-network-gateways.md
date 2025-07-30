@@ -16,16 +16,6 @@ To connect your Azure virtual network (virtual network) and your on-premises net
 
 This article explains different gateway types, gateway SKUs, and estimated performance by SKU. This article also explains ExpressRoute [FastPath](#fastpath), a feature that enables the network traffic from your on-premises network to bypass the virtual network gateway to improve performance.
 
-## Gateway types
-
-When you create a virtual network gateway, you need to specify several settings. One of the required settings, `-GatewayType`, specifies whether the gateway is used for ExpressRoute or VPN traffic. The two gateway types are:
-
-* `Vpn`: To send encrypted traffic across the public internet, use `Vpn` for `-GatewayType` (also called a VPN gateway). Site-to-site, point-to-site, and VNet-to-VNet connections all use a VPN gateway.
-
-* `ExpressRoute`: To send network traffic on a private connection, use `ExpressRoute` for `-GatewayType` (also called an ExpressRoute gateway). This type of gateway is used when you're configuring ExpressRoute.
-
-Each virtual network can have only one virtual network gateway per gateway type. For example, you can have one virtual network gateway that uses `Vpn` for `-GatewayType`, and one that uses `ExpressRoute` for `-GatewayType`.
-
 ## <a name="gwsku"></a>Gateway SKUs
 
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
@@ -95,11 +85,16 @@ The Auto-Assigned Public IP feature simplifies ExpressRoute gateway deployment b
 - **Streamlined deployment:** The Azure PowerShell and CLI no longer prompt for a public IP during gateway creation.
 
 **How it works:**  
+
 When you create an ExpressRoute gateway, Microsoft automatically provisions and manages the public IP address in a secure, backend subscription. This IP is encapsulated within the gateway resource, enabling Microsoft to enforce policies such as data rate limits and enhance auditability.
 
 **Availability:**  
-Auto-Assigned Public IP is not available for Virtual WAN (vWAN) or Extended Zone deployments.
 
+Auto-Assigned Public IP is not available for Virtual WAN (vWAN) or Extended Zone deployments.
+ 
+#### Create a new ExpressRoute gateway with Auto-Assigned Public IP
+
+:::image type="content" source="media/expressroute-introduction/hobo-ip.png" alt-text="Screenshot of the create for virtual gateway." lightbox="media/gateway-migration/gateway-prepare-stage.png":::
 
 ## Connectivity from VNet to VNet and from VNet to virtual WAN
 

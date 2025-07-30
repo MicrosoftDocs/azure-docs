@@ -58,6 +58,7 @@ In this article, you learn how to add and configure a time window filter for you
 
     - [ASP.NET Core](./howto-timewindow-filter-aspnet-core.md)
     - [JavaScript](./howto-timewindow-filter-javascript.md)
+    - [Go Gin](./howto-timewindow-filter-go.md)
     - [Python](./howto-time-window-filter-python.md)
 
 ## Next steps
