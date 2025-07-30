@@ -48,6 +48,6 @@ The following instructions are a high-level overview of the steps required to up
 
 ## Next steps 
 
-* [Update Terraform-Managed Azure NetApp Files Volume Network Feature from Basic to Standard](configure-network-features.md#update-terraform-managed-azure-netapp-files-volume-from-basic-to-standard)
+* [Update Terraform-Managed Azure NetApp Files Volume Network Feature from Basic to Standard](configure-network-features.md#terraform)
 * [Populate Availability Zone for Terraform-Managed Azure NetApp Files Volume](manage-availability-zone-volume-placement.md#populate-availability-zone-for-terraform-managed-volumes)
 * [Managing Azure NetApp Files preview features with Terraform Cloud and AzAPI Provider](https://techcommunity.microsoft.com/t5/azure-architecture-blog/managing-azure-netapp-files-preview-features-with-terraform/ba-p/3657714)

@@ -68,7 +68,7 @@ You can edit the network features option of existing volumes from *Basic* to *St
 * <a name="no-downtime"></a> Azure NetApp Files supports a non-disruptive upgrade to Standard network features and a revert to Basic network features. This operation is expected to take at least 15 minutes. You can't create a regular or data protection volume or application volume group in the targeted network sibling set while the operation completes.    
 * If you revert from Standard to Basic network features, considerations apply and require careful planning. See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#constraints) for constraints and supported network topologies about Standard and Basic network features. 
 
-### Edit network features 
+### <a name="edit"></a> Edit network features 
 
 >[!IMPORTANT]
 >You must follow separate instructions if you use Terraform-managed volumes. For more information see, [Update network features for Terraform-managed Azure NetApp Files volumes](#terraform).
