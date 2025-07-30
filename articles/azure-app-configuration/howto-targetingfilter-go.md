@@ -449,7 +449,7 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
     //... ...
     ```
 
-1. Setup the routes with the following content:
+1. Set up the routes with the following content:
 
     ```golang
     // Existing code
