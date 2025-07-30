@@ -3,7 +3,7 @@ title: Azure SRE Agent overview (preview)
 description: Learn how AI-enabled agents help solve problems and support resilient and self-healing systems on your behalf.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 07/24/2025
+ms.date: 07/30/2025
 ms.author: cshoe
 ms.service: azure
 ---
@@ -135,6 +135,7 @@ Keep in mind the following considerations as you use Azure SRE Agent:
 
 * English is the only supported language in the chat interface
 * During preview, you can deploy the agent to the Sweden Central region, but the agent can monitor and remediate issues for services in any region.
+* For more information on how data is managed in Azure SRE Agent, see the [Microsoft privacy policy](https://www.microsoft.com/privacy/privacystatement).
 
 ## Preview access
 

@@ -40,7 +40,7 @@ Before you start, note:
  
 Review all planning guidance and finish all prerequisites before you onboard your workspace to the Defender portal. For more information, see the following articles:
 
-- [**Plan for unified security operations in the Defender portal**](/unified-secops-platform/overview-plan)
+- [**Plan for unified security operations in the Defender portal**](/unified-secops-platform/overview-plan). After onboarding to the Defender portal, the **[Microsoft Sentinel Contributor](/azure/role-based-access-control/built-in-roles/security#microsoft-sentinel-contributor)** role is assigned to the **Microsoft Threat Protection** and **WindowsDefenderATP** apps in your subscription.
 
 - [**Deploy for unified security operations in the Defender portal**](/unified-secops-platform/overview-deploy). While this article is for new customers who don't yet have a workspace for Microsoft Sentinel or other services onboarded to the Defender portal, use it as a reference if you're moving to the Defender portal.
 
@@ -87,6 +87,8 @@ For more information, see:
 ### Confirm and configure data collection
 
 When Microsoft Sentinel is integrated with Microsoft Defender, the fundamental architecture of data collection and telemetry flow remains intact. Existing connectors that were configured in Microsoft Sentinel, whether for Microsoft Defender products or other data sources, continue operating without interruption.
+
+Alerts related to Defender products are streamed directly from the Microsoft Defender XDR data connector to ensure consistency. Make sure that you have incidents and alerts from this connector turned on in your workspace. For more information, see [Connect data from Microsoft Defender XDR to Microsoft Sentinel](connect-microsoft-365-defender.md).
 
 From a Log Analytics perspective, Microsoft Sentinel’s integration into Microsoft Defender introduces no change to the underlying ingestion pipeline or data schema. Despite the front-end unification, the Microsoft Sentinel backend remains fully integrated with Log Analytics for data storage, search, and correlation.
 
@@ -214,7 +216,7 @@ For more information, see [Incidents and alerts in the Microsoft Defender portal
 
 ### Note changes for investigations with Advanced hunting
 
-After onboarding Microsoft Sentinel to the Defender portal, access and use all your existing Kusto Query Language (KQL) queries and functions in the **Advanced hunting** page.
+After onboarding Microsoft Sentinel to the Defender portal, access and use all your existing log tables, Kusto Query Language (KQL) queries, and functions in the **Advanced hunting** page. All Microsoft Sentinel alerts that are tied to incidents are ingested into the `AlertInfo` table, accessible from the **Advanced hunting** page.
 
 Some differences exist, such as:
 

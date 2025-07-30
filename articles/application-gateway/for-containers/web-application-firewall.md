@@ -59,7 +59,6 @@ spec:
 The following functionality is not supported on a WAF Policy associated with Application Gateway for Containers:
 
 * WAF Security Copilot
-* WAF Security Copilot – Embedded
 * JavaScript (JS) Challenge Actions
 * CRS 3.2 and lower ruleset
 
