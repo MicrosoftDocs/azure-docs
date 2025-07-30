@@ -137,23 +137,23 @@ To create an ONVIF asset for event management and control:
 
 1. On the **Asset details** page, enter a name and description for the asset. The device inbound endpoint is already selected for you.
 
-  :::image type="content" source="media/howto-use-onvif-connector/discovered-onvif-asset-detail.png" alt-text="Screenshot that shows the detailed ONVIF asset discovered from the ONVIF device." lightbox="media/howto-use-onvif-connector/discovered-onvif-asset-detail.png":::
+    :::image type="content" source="media/howto-use-onvif-connector/discovered-onvif-asset-detail.png" alt-text="Screenshot that shows the detailed ONVIF asset discovered from the ONVIF device." lightbox="media/howto-use-onvif-connector/discovered-onvif-asset-detail.png":::
 
 1. On the **Events** page, select **Manage event groups** to choose the types of event to capture from the camera. You can choose from event groups such as motion detection and camera tampering:
 
-  :::image type="content" source="media/howto-use-onvif-connector/manage-event-groups.png" alt-text="Screenshot that shows the manage event groups page for the ONVIF asset." lightbox="media/howto-use-onvif-connector/manage-event-groups.png":::
+    :::image type="content" source="media/howto-use-onvif-connector/manage-event-groups.png" alt-text="Screenshot that shows the manage event groups page for the ONVIF asset." lightbox="media/howto-use-onvif-connector/manage-event-groups.png":::
 
 1. For each event group you keep, configure the MQTT topic it publishes to:
 
-  :::image type="content" source="media/howto-use-onvif-connector/event-group-detail.png" alt-text="Screenshot that shows how to configure an event group." lightbox="media/howto-use-onvif-connector/event-group-detail.png":::
+    :::image type="content" source="media/howto-use-onvif-connector/event-group-detail.png" alt-text="Screenshot that shows how to configure an event group." lightbox="media/howto-use-onvif-connector/event-group-detail.png":::
 
 1. On the **Actions** page, select **Manage management groups** to choose the actions, such as pan, tilt, and zoom, that you want to use to control the ONVIF camera.
 
-  :::image type="content" source="media/howto-use-onvif-connector/manage-management-groups.png" alt-text="Screenshot that shows the manage management groups page for the ONVIF asset." lightbox="media/howto-use-onvif-connector/manage-management-groups.png":::
+    :::image type="content" source="media/howto-use-onvif-connector/manage-management-groups.png" alt-text="Screenshot that shows the manage management groups page for the ONVIF asset." lightbox="media/howto-use-onvif-connector/manage-management-groups.png":::
 
 1. For each management group you keep, configure the MQTT topic it subscribes to:
 
-   :::image type="content" source="media/howto-use-onvif-connector/management-group-detail.png" alt-text="Screenshot that shows how to configure a management group." lightbox="media/howto-use-onvif-connector/management-group-detail.png":::
+     :::image type="content" source="media/howto-use-onvif-connector/management-group-detail.png" alt-text="Screenshot that shows how to configure a management group." lightbox="media/howto-use-onvif-connector/management-group-detail.png":::
 
 1. Review the summary of the ONVIF asset configuration and then select **Create** to create the asset. After a few minutes, the **Assets** page shows the new asset.
 
