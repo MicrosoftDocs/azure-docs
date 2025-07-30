@@ -82,47 +82,50 @@ At the end of your billing cycle, the charges for each meter are summed. Your bi
 
 Azure Storage tasks are generally available in the following public cloud regions:
 
-•	Australia Central
-•	Australia East
-•	Australia Southeast
-•	Brazil south
-•	Brazil Southeast
-•	Canada Central
-•	Central India
-•	Central US
-•	East US 2
-•	France Central
-•	Germany North
-•	Germany West Central
-•	Israel Central
-•	Italy North
-•	Japan East
-•	Japan West
-•	Jio India Central
-•	Korea Central
-•	Korea South
-•	North Central US
-•	North Europe
-•	Norway East
-•	Norway West
-•	South Africa North
-•	South Africa West
-•	South Central Us
-•	South India
-•	Spain Central
-•	Sweden Central
-•	Sweden South
-•	Switzerland North
-•	Switzerland West
-•	UAE Central
-•	UAE North
-•	UK South
-•	UK West
-•	West Central US
-•	West Europe
-•	West US
-•	West US 2
-•	West US 3
+- Australia Central
+
+- Australia East
+
+- Australia Southeast
+
+- Brazil south
+- Brazil Southeast
+- Canada Central
+- Central India
+- Central US
+- East US 2
+- France Central
+- Germany North
+- Germany West Central
+- Israel Central
+- Italy North
+- Japan East
+- Japan West
+- Jio India Central
+- Korea Central
+- Korea South
+- North Central US
+- North Europe
+- Norway East
+- Norway West
+- South Africa North
+- South Africa West
+- South Central Us
+- South India
+- Spain Central
+- Sweden Central
+- Sweden South
+- Switzerland North
+- Switzerland West
+- UAE Central
+- UAE North
+- UK South
+- UK West
+- West Central US
+- West Europe
+- West US
+- West US 2
+- West US 3
 
 ## Next steps
 
