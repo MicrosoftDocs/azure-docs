@@ -65,6 +65,8 @@ You can use the following lightweight OpenAPI 3.0 API definition for your MCP se
 
 Set up the [API Center portal](set-up-api-center-portal.md) so that developers and other stakeholders in your organization can discover MCP servers in your API inventory. Users can browse and filter MCP servers in the inventory and view details such as the URL endpoint of the MCP server, if available in the MCP server's API definition. 
 
+For a live example of how Azure API Center can power your private, enterprise-ready MCP registry, visit [https://mcp.azure.com](https://mcp.azure.com).
+
 :::image type="content" source="media/register-discover-mcp-server/mcp-server-portal-small.png" lightbox="media/register-discover-mcp-server/mcp-server-portal.png" alt-text="Screenshot of MCP server in API Center portal.":::
 
 > [!NOTE]
