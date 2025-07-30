@@ -225,7 +225,7 @@ except Exception as e:
     if "999" in str(e):
         print("💡 Error 999 typically indicates a network connectivity issue or firewall restriction")
         print("   - Verify the Redis hostname is correct")
-        print("   - Check if your IP is whitelisted in Redis firewall settings")
+        print("   - Verify that you have logged in with Az CLI")
         print("   - Ensure the Redis cache is running and accessible")
     print()  # Add a new line
 finally:
@@ -246,4 +246,4 @@ finally:
 ## Related content
 
 - [Redis Extension for connecting using Microsoft Entra ID](https://github.com/redis/redis-py-entraid)
-- [redis-py guide](https://redis.io/docs/latest/develop/clients/python/)
+- [redis-py guide](https://redis.io/docs/latest/develop/clients/redis-py/)
