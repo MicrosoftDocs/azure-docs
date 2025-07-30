@@ -6,7 +6,7 @@ ms.date: 07/24/2025
 ms.devlang: python
 ms.custom: devx-track-python, py-fresh-zinc
 ---
-# Python 3.13+ in Azure Functions
+# Changes and Guidance for Python 3.13+ in Azure Functions
 This guide outlines important updates introduced with Python 3.13+ in Azure Functions, including runtime version management, performance enhancements, and removed features.
 
 ## Python Runtime Version Control (Python 3.13+)
