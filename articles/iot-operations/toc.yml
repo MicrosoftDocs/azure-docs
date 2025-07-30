@@ -74,6 +74,9 @@ items:
       - name: Use the operations experience UI
         href: discover-manage-assets/howto-manage-assets-devices.md
         displayName: operations, experience, site, instance, device, data points, events, CLI, kubectl, southbound
+      - name: Use asset endpoints to manage assets
+        href: https://go.microsoft.com/fwlink/?linkid=2328508&clcid=0x409
+        displayName: connector, tags, southbound, asset endpoint profile
       - name: Connect to OPC UA servers
         items:
         - name: Understand the connector for OPC UA

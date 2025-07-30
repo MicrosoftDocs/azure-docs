@@ -12,8 +12,10 @@ ms.date: 06/24/2025
 
 # Define assets and devices
 
-[!INCLUDE [assets-devices-logical-entities](../includes/assets-devices-logical-entities.md)]
+> [!IMPORTANT]
+> Devices (preview) are new in version 1.2.x of Azure IoT Operations. To view the asset endpoint documentation, see [Asset management overview](https://go.microsoft.com/fwlink/?linkid=2328508&clcid=0x409) on the previous versions site.
 
+[!INCLUDE [assets-devices-logical-entities](../includes/assets-devices-logical-entities.md)]
 
 :::image type="content" source="media/concept-assets-devices/assets-devices.svg" alt-text="Diagram that shows the relationships between the asset and device configuration resources." border="false":::
 
