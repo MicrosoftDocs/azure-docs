@@ -20,7 +20,7 @@ Elastic resources are available as *Serverless* and *Cloud Hosted*. For more inf
 
 This screenshot shows a Cloud Hosted resource:
 
-:::image type="content" source="media/manage/resource-overview.png" alt-text="A screenshot of an Elastic Search resource in the Azure portal with the overview displayed in the working pane." lightbox="media/manage/resource-overview.png":::
+:::image type="content" source="media/manage/resource-overview.png" alt-text="A screenshot of a Cloud Hosted Elastic resource in the Azure portal with the overview displayed in the working pane." lightbox="media/manage/resource-overview.png":::
 
 The details include:
 
