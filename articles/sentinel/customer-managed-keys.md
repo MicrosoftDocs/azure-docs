@@ -39,7 +39,7 @@ This article provides background information and steps to configure a [customer-
   - Setting a Sentinel-onboarded, CMK-enabled workspace as a non-CMK workspace by unlinking it from its CMK-enabled dedicated cluster.
   - Disabling CMK on a CMK-enabled Log Analytics dedicated cluster.
 
-- [Microsoft Sentinel is available in the Defender portal](microsoft-sentinel-defender-portal.md), including for customers without Microsoft Defender XDR or an E5 license. If you onboard your Microsoft Sentinel-enabled workspace to the Defender portal, ingested workspace data/logs remain encrypted with CMK. Other data isn't encrypted with CMK and uses a Microsoft-managed key.
+- If you [onboard your Microsoft Sentinel-enabled workspace to the Defender portal](microsoft-sentinel-defender-portal.md), ingested workspace data/logs remain encrypted with CMK. Other data isn't encrypted with CMK and uses a Microsoft-managed key.
 
 - Microsoft Sentinel supports System Assigned Identities in CMK configuration. Therefore, the dedicated Log Analytics cluster's identity should be of **System Assigned** type. We recommend that you use the identity that's automatically assigned to the Log Analytics cluster when it's created.
 
