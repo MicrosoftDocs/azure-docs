@@ -14,3 +14,11 @@ items:
   items:
   - name: Manage your resource
     href: manage.md
+  - name: GO SDK
+    href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/purestorageblock/armpurestorageblock
+  - name: Java SDK
+    href: /developer/java/sdk/purestorageblock/
+  - name: Python SDK  
+    href: /python/api/overview/azure/purestorageblock-readme
+  - name: .NET SDK  
+    href: /dotnet/api/overview/azure/purestorageblock-readme
