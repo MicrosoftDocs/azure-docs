@@ -7,7 +7,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 07/29/2024
+ms.date: 07/30/2025
 ms.reviewer: nachakra
 ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23
