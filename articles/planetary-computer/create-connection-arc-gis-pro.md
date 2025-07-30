@@ -381,7 +381,7 @@ This section outlines how to configure authentication and data access in the **A
 
       - `https://geocatalog.spatio.azure.us/.default`
 
-    [ ![Screenshot showing how to add a connection.](media/add-authentication-usgov.png) ](media/add-authentication-usgov.png#lightbox)
+    [ ![Screenshot showing how to add a connection.](media/add-authentication-us-gov.png) ](media/add-authentication-us-gov.png#lightbox)
 
     - Select **OK**.
     
