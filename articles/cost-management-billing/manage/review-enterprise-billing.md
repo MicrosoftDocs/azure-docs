@@ -20,19 +20,22 @@ This asynchronous API allows you to generate and download cost reports for your 
 
 In this article, you learn to retrieve the billing information associated with EA billing accounts, departments, or enrollment accounts using the Cost Details API.
 
+> [!TIP]
+> This REST API is ideal for automation scenarios where you need to programmatically retrieve cost data on a regular basis. You can integrate it into scripts, applications, or automated workflows to pull cost reports for analysis, budgeting, or compliance reporting.
+
 > [!IMPORTANT]
-> The Cost Details API is asynchronous and report-based. You submit a request to generate a report, poll for its completion, and then download the resulting file from a secure URL.
+> The Cost Details API is asynchronous and report-based. You submit a request to generate a downloadable file (report), poll for its completion, and then download the resulting file from a secure URL.
 
 ## How the Cost Details API works
 
 The Cost Details API uses an asynchronous workflow:
 
-1. **Create a report**: Submit a POST request to generate a cost details report for your EA scope
+1. **Create a report**: Submit a POST request to generate a Cost Details report for your EA scope
 2. **Poll for status**: Check the operation status until the report is complete
 3. **Download the report**: Use the provided download URL to get the CSV file with your cost data
 
 > [!NOTE]
-> The API supports both **ActualCost** and **AmortizedCost** metrics. ActualCost shows charges as they were billed, while AmortizedCost spreads reservation and savings plans purchases across their term and reallocates costs to the resources that used the reservation or savings plan. For example, a $365 reservation purchase appears as $1.00 daily charges in amortized cost view.
+> The API supports both **ActualCost** and **AmortizedCost** metrics. ActualCost shows charges as they were billed, while AmortizedCost spreads reservation and savings plans purchases across their term and reallocates costs to the resources that used the reservation or savings plan. For example, a 1-year reservation costing $365 will appear in ActualCost as a single charge on the purchase date. In AmortizedCost, that same $365 is spread out as a daily $1.00 charge across the usage that benefits from the reservation.
 
 ## Working with different EA scopes
 
@@ -40,11 +43,11 @@ The Cost Details API supports three EA scopes, each providing different levels o
 
 - **Billing account scope**: Cost details for the entire EA billing account
 - **Department scope**: Cost details aggregated for all accounts in a specific department
-- **Enrollment account scope**: Cost details for a specific enrollment account
+- **Enrollment account scope**: Cost details for a specific account within an enrollment
 
 ## Step 1: Create a cost details report
 
-Submit a POST request to generate a cost details report:
+Submit a POST request to generate a Cost Details report:
 
 ```http
 POST https://management.azure.com/providers/Microsoft.Billing/{scope}/providers/Microsoft.CostManagement/generateCostDetailsReport?api-version=2025-03-01
@@ -91,8 +94,8 @@ The request body supports the following parameters:
 
 - **metric** - The type of report requested. Can be either `ActualCost` or `AmortizedCost`. If not specified, defaults to `ActualCost`.
 - **timePeriod** - The requested date range for your data. Specify `start` and `end` dates in YYYY-MM-DD format. Can't be used alongside invoiceId or billingPeriod parameters.
-- **invoiceId** - The requested invoice for your data. This parameter is only used by Microsoft Customer Agreement customers and can only be used at the Billing Profile or Customer scope. Can't be used alongside billingPeriod or timePeriod parameters.
-- **billingPeriod** - The requested billing period for your data. This parameter is only used by Enterprise Agreement customers. Use the YearMonth format (for example, 202408). Can't be used alongside invoiceId or timePeriod parameters.
+- **invoiceId** - The requested invoice for your data. This parameter is supported for Microsoft Customer Agreement customers at the Billing Profile or Customer scope. Can't be used alongside billingPeriod or timePeriod parameters.
+- **billingPeriod** - The requested billing period for your data. This parameter is supported for Enterprise Agreement customers. Use the YearMonth format (for example, 202408). Can't be used alongside invoiceId or timePeriod parameters.
 
 > [!NOTE]
 > If none of the timePeriod, invoiceId, or billingPeriod parameters are provided in the request body, the API returns the current month's cost.
@@ -119,7 +122,18 @@ The initial POST request returns status code 202 (Accepted) with response header
 
 When the report is complete, the polling endpoint returns status code 200 (OK) with the report details, including a `blobLink` for downloading the CSV file.
 
-## Cost details file fields
+### Key response fields
+
+|Response property|Description|
+|----------------|----------|
+|**status** | Status of the report generation (InProgress, Completed, Failed) |
+|**dataFormat** | Format of the generated report (CSV) |
+|**blobCount** | Number of blob files in the report dataset |
+|**byteCount** | Total size of the report dataset in bytes |
+|**blobLink** | Download URL for the Cost Details CSV file |
+|**validTill** | Expiration date/time for the download URL |
+
+## Cost Details file fields
 
 The downloaded CSV file contains detailed cost and usage data with key fields including:
 
@@ -146,4 +160,4 @@ For a complete list of all fields and their descriptions, see [Understand cost d
 - [Get started with Azure REST API](/rest/api/azure/)
 - [Learn more about the Cost Details API](/rest/api/cost-management/generate-cost-details-report)
 - [Get small cost datasets on demand](../automate/get-small-usage-datasets-on-demand.md)
-- [Understand cost details fields](../automate/understand-usage-details-fields.md)
+- [Understand Cost Details fields](../automate/understand-usage-details-fields.md)

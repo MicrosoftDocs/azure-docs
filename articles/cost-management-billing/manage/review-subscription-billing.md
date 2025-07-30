@@ -19,21 +19,24 @@ The Cost Details API, in particular, helps you review and manage your Azure cost
 
 This asynchronous API allows you to generate and download cost reports for your subscription.
 
-Here, you learn to use the Cost Details API to return subscription billing details for a given date range.
+In this article, you learn to use the Cost Details API to return subscription billing details for a given date range.
+
+> [!TIP]
+> This REST API is ideal for automation scenarios where you need to programmatically retrieve cost data on a regular basis. You can integrate it into scripts, applications, or automated workflows to pull cost reports for analysis, budgeting, or compliance reporting.
 
 > [!IMPORTANT]
-> The Cost Details API is asynchronous and report-based. You submit a request to generate a report, poll for its completion, and then download the resulting file from a secure URL.
+> The Cost Details API is asynchronous and report-based. You submit a request to generate a downloadable file (report), poll for its completion, and then download the resulting file from a secure URL.
 
 ## How the Cost Details API works
 
 The Cost Details API uses an asynchronous workflow:
 
-1. **Create a report**: Submit a POST request to generate a cost details report for your subscription
+1. **Create a report**: Submit a POST request to generate a Cost Details report for your subscription
 2. **Poll for status**: Check the operation status until the report is complete
 3. **Download the report**: Use the provided download URL to get the CSV file with your cost data
 
 > [!NOTE]
-> The API supports both **ActualCost** and **AmortizedCost** metrics. ActualCost shows charges as they were billed, while AmortizedCost spreads reservation and savings plans purchases across their term and reallocates costs to the resources that used the reservation or savings plan. For example, a $365 reservation purchase appears as $1.00 daily charges in amortized cost view.
+> The API supports both **ActualCost** and **AmortizedCost** metrics. ActualCost shows charges as they were billed, while AmortizedCost spreads reservation and savings plans purchases across their term and reallocates costs to the resources that used the reservation or savings plan. For example, a 1-year reservation costing $365 will appear in ActualCost as a single charge on the purchase date. In AmortizedCost, that same $365 is spread out as a daily $1.00 charge across the usage that benefits from the reservation.
 
 ## Step 1: Create a report
 
@@ -74,8 +77,8 @@ The request body supports the following parameters:
 
 - **metric** - The type of report requested. Can be either `ActualCost` or `AmortizedCost`. If not specified, defaults to `ActualCost`.
 - **timePeriod** - The requested date range for your data. Specify `start` and `end` dates in YYYY-MM-DD format. Can't be used alongside invoiceId or billingPeriod parameters.
-- **invoiceId** - The requested invoice for your data. This parameter is only used by Microsoft Customer Agreement customers and can only be used at the Billing Profile or Customer scope. Can't be used alongside billingPeriod or timePeriod parameters.
-- **billingPeriod** - The requested billing period for your data. This parameter is only used by Enterprise Agreement customers. Use the YearMonth format (for example, 202408). Can't be used alongside invoiceId or timePeriod parameters.
+- **invoiceId** - The requested invoice for your data. This parameter is supported for Microsoft Customer Agreement customers at the Billing Profile or Customer scope. Can't be used alongside billingPeriod or timePeriod parameters.
+- **billingPeriod** - The requested billing period for your data. This parameter is supported for Enterprise Agreement customers. Use the YearMonth format (for example, 202408). Can't be used alongside invoiceId or timePeriod parameters.
 
 > [!NOTE]
 > If none of the timePeriod, invoiceId, or billingPeriod parameters are provided in the request body, the API returns the current month's cost.
@@ -142,10 +145,10 @@ When the report is complete, the polling endpoint returns status code 200 (OK) w
 |**dataFormat** | Format of the generated report (CSV) |
 |**blobCount** | Number of blob files in the report dataset |
 |**byteCount** | Total size of the report dataset in bytes |
-|**blobLink** | Download URL for the cost details CSV file |
+|**blobLink** | Download URL for the Cost Details CSV file |
 |**validTill** | Expiration date/time for the download URL |
 
-## Cost details file fields
+## Cost Details file fields
 
 The downloaded CSV file contains detailed cost and usage data with the following key fields:
 
@@ -194,4 +197,4 @@ Other status codes indicate error conditions. The response object explains why t
 - [Get started with Azure REST API](/rest/api/azure/)
 - [Learn more about the Cost Details API](/rest/api/cost-management/generate-cost-details-report)
 - [Get small cost datasets on demand](../automate/get-small-usage-datasets-on-demand.md)
-- [Understand cost details fields](../automate/understand-usage-details-fields.md)
+- [Understand Cost Details fields](../automate/understand-usage-details-fields.md)
