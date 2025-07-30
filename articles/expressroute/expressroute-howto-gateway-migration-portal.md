@@ -13,7 +13,7 @@ ms.author: duau
 
 # Migrate to an availability zone-enabled ExpressRoute virtual network gateway in Azure portal
 
-When creating an ExpressRoute virtual network gateway, you must select a [gateway SKU](expressroute-about-virtual-network-gateways.md#gateway-types). Higher-level SKUs allocate more CPUs and network bandwidth, enabling the gateway to support higher throughput and more reliable connections to the virtual network.
+When creating an ExpressRoute virtual network gateway, you must select a [gateway SKU](expressroute-about-virtual-network-gateways.md). Higher-level SKUs allocate more CPUs and network bandwidth, enabling the gateway to support higher throughput and more reliable connections to the virtual network.
 
 ## Prerequisites
 
@@ -36,6 +36,7 @@ Follow these steps to migrate to a new gateway using the Azure portal:
     :::image type="content" source="media/gateway-migration/validate-step.png" alt-text="Screenshot of the validate step for migrating a virtual network gateway." lightbox="media/gateway-migration/validate-step.png":::
 
 1. After successful validation, move to the **Prepare** stage. At this point, a new virtual network gateway will be created, and its Public IP address will be provisioned and managed by Microsoft. In the **Virtual Network Gateway Details** section, enter the following information:
+1. 
     :::image type="content" source="media/gateway-migration/gateway-prepare-update.png" alt-text="Screenshot of the Prepare stage for migrating a virtual network gateway." lightbox="media/gateway-migration/gateway-prepare-stage.png":::
 
     | Setting | value |

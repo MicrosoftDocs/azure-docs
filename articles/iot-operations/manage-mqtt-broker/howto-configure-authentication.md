@@ -772,7 +772,7 @@ With Azure Device Registry integration enabled:
 - Device status is checked upon client authentication and every 10 minutes thereafter.
 - Disabled or removed devices are automatically denied access.
 
-Before enabling this feature, you must create corresponding devices in the Azure Device Registry for each client certificate. The device name must match the certificate's Common Name (CN). To create and manage devices in the Azure Device Registry, see:
+Before you enable this feature, create a corresponding device in the Azure Device Registry for each client certificate. The device name must match the certificate's Common Name (CN). To create and manage devices in the Azure Device Registry, see:
 - [Use the operations experience to manage resources such as assets, devices, and data flows](../discover-manage-assets/howto-manage-assets-devices.md)
 - [Understand assets and devices](../discover-manage-assets/concept-assets-devices.md)
 
@@ -842,7 +842,7 @@ spec:
 
 ---
 
-After enabling Azure Device Registry integration, you must create corresponding devices in the Azure Device Registry for each client certificate. The device name must match the certificate's Common Name (CN). If a client attempts to authenticate with a certificate that doesn't have a matching enabled device in the registry, authentication fails.
+After you enable Azure Device Registry integration, create a corresponding device in the Azure Device Registry for each client certificate. The device name must match the certificate's Common Name (CN). If a client tries to authenticate with a certificate that doesn't have a matching enabled device in the registry, authentication fails.
 
 ### Enable X.509 authentication for a listener port
 

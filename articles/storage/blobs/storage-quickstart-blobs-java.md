@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: Azure Blob Storage library - Java"
 description: In this quickstart, you learn how to use the Azure Blob Storage client library for Java to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.custom: devx-track-java, mode-api, passwordless-java, devx-track-extended-java, devx-track-extended-azdevcli
 ms.date: 09/13/2024
 ms.service: azure-blob-storage
@@ -616,3 +616,4 @@ You'll be prompted to confirm the deletion of the resources. Enter `y` to confir
 > [Azure Storage samples and developer guides for Java](../common/storage-samples-java.md?toc=/azure/storage/blobs/toc.json)
 > [Quickstart: Quarkus extension for Azure Blob Storage](storage-quickstart-blobs-java-quarkus.md)
 > [Use Spring Boot to upload a file to Azure Blob Storage](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage?toc=/azure/storage/blobs/toc.json)
+
