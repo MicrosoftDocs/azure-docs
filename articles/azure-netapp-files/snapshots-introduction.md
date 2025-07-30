@@ -5,8 +5,13 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
+<<<<<<< HEAD
 ms.date: 06/11/2025
+=======
+ms.date: 07/17/2025
+>>>>>>> 0f1c6faff00e5f159dc0c9e7152a5b93b362922f
 ms.author: anfdocs
+# Customer intent: As a data administrator, I want to create and manage snapshots in Azure NetApp Files, so that I can ensure efficient data protection, quick recovery options, and scalable storage management for my organization's critical data.
 ---
 # How Azure NetApp Files snapshots work
 
@@ -103,7 +108,7 @@ The following diagram shows how snapshot data is transferred from the Azure NetA
 
 The Azure NetApp Files backup functionality is designed to keep a longer history of backups as indicated in this simplified example. Notice how the backup repository on the right contains more and older snapshots than the protected volume and snapshots on the left. 
 
-Most use cases require that you keep online snapshots on the Azure NetApp Files volume for a relatively short amount of time (usually several months) to serve the most common recoveries of lost data due to application or user error. The Azure NetApp Files backup functionality is used to extend the data-protection period to a year or longer by sending the snapshots over to cost-efficient Azure storage. As indicated by the blue color in the diagram, the very first transfer is the baseline, which copies all consumed data blocks in the source Azure NetApp Files volume and snapshots. Consecutive backups use the snapshot mechanism to update the backup repository with only block-incremental updates.
+Most use cases require that you keep online snapshots on the Azure NetApp Files volume for a relatively short amount of time (usually several days, maybe weeks) to serve the most common recoveries of lost data due to application or user error. The Azure NetApp Files backup functionality is used to extend the data-protection period to a year or longer by sending the snapshots over to cost-efficient Azure storage. As indicated by the blue color in the diagram, the very first transfer is the baseline, which copies all consumed data blocks in the source Azure NetApp Files volume and snapshots. Consecutive backups use the snapshot mechanism to update the backup repository with only block-incremental updates.
 
 ## Ways to restore data from snapshots  
 

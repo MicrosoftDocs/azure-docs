@@ -105,7 +105,7 @@ Use the `--storage-account-configuration` parameter to define the storage locati
 
 ## Step 5: Attaching your own storage account Fabric instance
 
-### Attaching storage account during the creation of Fabric instance
+### 5.1 Attaching storage account during the creation of Fabric instance
 
 Use the following command to create a new Fabric instance with BYO storage:
 
@@ -117,7 +117,7 @@ az networkfabric fabric create --resource-name <fabricname> \
     --mi-user-assigned "/subscriptions/<uamisubscriptionid>/resourceGroups/<uamiresourcegroupname>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<uaminame>"
 ```
 
-### Updating storage account to an existing Fabric instance
+### 5.2 Updating storage account to an existing Fabric instance
 
 For existing deployments, update the Fabric with the required parameters:
 
@@ -136,4 +136,31 @@ Once updated, commit the changes:
 az networkfabric fabric commit-configuration --resource-group <rgname> --resource-name <nfname>
 ```
 
+### 5.3 Updating UAMI assignments on an existing Fabric instance
 
+To update the list of User-Assigned Managed Identities (UAMIs) on a Network Fabric resource, use the --mi-user-assigned flag with a dictionary syntax. This allows you to add or remove identities.
+
+> [!NOTE]
+> To remove a UAMI, it must be explicitly set to null. Omitting it from the dictionary will not remove it.
+
+Example: Add one UAMI and remove another
+
+```azurecli
+az networkfabric fabric update \
+  --resource-name "<nfname>" \
+  --resource-group "<rg>" \
+  --mi-user-assigned "{
+    /subscriptions/<sub-id>/resourceGroups/<rg>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<new-uami>: {},
+    /subscriptions/<sub-id>/resourceGroups/<rg>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<old-uami>: null
+  }"
+```
+
+### Commit configuration changes
+
+After making changes, ensure you run the following to apply configuration:
+
+```azurecli
+az networkfabric fabric commit-configuration \
+  --resource-group <rgname> \
+  --resource-name <nfname>
+```

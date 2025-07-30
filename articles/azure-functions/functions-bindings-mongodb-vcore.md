@@ -24,7 +24,7 @@ Using the Azure Cosmos DB for MongoDB (vCore) extension, you can build functions
 | Query the database | [Azure Cosmos DB for MongoDB (vCore) input binding](functions-bindings-mongodb-vcore-input.md) |
 
 Considerations for the Azure Cosmos DB for MongoDB (vCore) extension:
-+ Only [C# apps that run in-proces with the host](./functions-dotnet-class-library.md) are currently supported in preview.
++ Only [C# apps that run in-process with the host](./functions-dotnet-class-library.md) are currently supported in preview.
 + The Azure Cosmos DB for MongoDB (vCore) binding extension doesn't currently support Microsoft Entra authentication and managed identities. 
 + Your app must be using version 4.x of the Azure Functions runtime.
 

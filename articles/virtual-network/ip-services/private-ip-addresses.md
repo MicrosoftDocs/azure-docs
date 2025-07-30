@@ -8,6 +8,7 @@ ms.date: 11/05/2024
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: concept-article
+# Customer intent: As a cloud network administrator, I want to understand how to allocate and manage private IP addresses in Azure so that I can ensure proper communication between resources without relying on public IPs.
 ---
 
 # Private IP addresses

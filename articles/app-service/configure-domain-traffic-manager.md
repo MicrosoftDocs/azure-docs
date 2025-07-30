@@ -12,9 +12,7 @@ ms.author: msangapu
 
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
-> [!NOTE]
-> For Cloud Services, see 
-[Configuring a custom domain name for an Azure cloud service](../cloud-services/cloud-services-custom-domain-name-portal.md).
+[!INCLUDE [app-service-managed-certificate](./includes/managed-certs/managed-certs-note.md)]
 
 When you use [Azure Traffic Manager](../traffic-manager/index.yml) to load balance traffic to [Azure App Service](overview.md), the App Service app can be accessed using **\<traffic-manager-endpoint>.trafficmanager.net**. You can assign a custom domain name, such as www\.contoso.com, with your App Service app in order to provide a more recognizable domain name for your users.
 

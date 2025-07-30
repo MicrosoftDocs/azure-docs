@@ -50,7 +50,7 @@ If you set the `Content-Type` header to `application/octet-stream`, you also mig
 
 ## Base64 encode content
 
-Before you [base64 encode](workflow-definition-language-functions-reference.md#base64) content to a string, make sure that you [convert the text to UTF-8](#convert-payload-encoding). Otherwise, characters might return corrupted.
+Before you [base64 encode](expression-functions-reference.md#base64) content to a string, make sure that you [convert the text to UTF-8](#convert-payload-encoding). Otherwise, characters might return corrupted.
 
 Next, convert any .NET-supported encoding to another .NET-supported encoding. Review the [Azure Functions code example](#azure-functions-version) or the [.NET code example](#net-version):
 
@@ -211,7 +211,7 @@ Example output:
 
 If you need to send a non-Unicode payload from your workflow, do the steps for [converting the payload to UTF-8](#convert-payload-encoding) in reverse. Keep the text in UTF-8 as long as possible within your system. Next, use the same function to convert the base64-encoded UTF-8 characters to the required encoding. Then, apply base64 decoding to the text, and send your payload.
 
-When you consume the return value from Azure Functions, make sure to use the [**base64ToBinary** function](workflow-definition-language-functions-reference.md#base64tobinary), not the **base64ToString** function.
+When you consume the return value from Azure Functions, make sure to use the [**base64ToBinary** function](expression-functions-reference.md#base64tobinary), not the **base64ToString** function.
 
 ## Convert payloads for AS2
 

@@ -7,6 +7,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 10/16/2023
+# Customer intent: As a web application administrator, I want to implement a web application firewall on my content delivery network, so that I can protect my web applications from malicious attacks and ensure compliance while maintaining high availability.
 ---
 
 # Azure Web Application Firewall on Azure Content Delivery Network from Microsoft

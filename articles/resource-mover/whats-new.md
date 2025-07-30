@@ -6,7 +6,9 @@ ms.author: jsuri
 ms.service: azure-resource-mover
 ms.topic: whats-new 
 ms.custom: UpdateFrequency.5
+ms.update-cycle: 180-days
 ms.date: 12/27/2024
+# Customer intent: "As a cloud administrator, I want to utilize the features of Azure Resource Mover for managing resource migrations across subscriptions and regions, so that I can streamline the organization and billing of our cloud resources."
 ---
 
 # What's new in Resource Mover

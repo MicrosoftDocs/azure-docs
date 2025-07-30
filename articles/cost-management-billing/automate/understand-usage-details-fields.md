@@ -2,9 +2,9 @@
 title: Understand usage details fields
 titleSuffix: Microsoft Cost Management
 description: This article describes the fields in the usage data files.
-author: jojopm
+author: jojohpm
 ms.author: jojoh
-ms.date: 01/31/2025
+ms.date: 06/26/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -38,6 +38,7 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | AccountName | EA, pay-as-you-go | Display name of the EA enrollment account or pay-as-you-go billing account. |
 | AccountOwnerId¹ | EA, pay-as-you-go | The email ID of the EA enrollment account owner. |
 | AdditionalInfo¹  | All | Service-specific metadata. For example, an image type for a virtual machine. |
+| AvailabilityZone | EA |This field is included only for AWS-connected accounts via the cross-cloud cost management connector and is not applicable to native Azure resources. It represents the specific AWS Availability Zone where the resource usage occurred. Note: This field is no longer supported, as the cross-cloud connector has been deprecated. |
 | BenefitId¹ | EA, MCA | Unique identifier for the purchased savings plan instance. |
 | BenefitName | EA, MCA | Unique identifier for the purchased savings plan instance. |
 | BillingAccountId¹ | All | Unique identifier for the root billing account. |

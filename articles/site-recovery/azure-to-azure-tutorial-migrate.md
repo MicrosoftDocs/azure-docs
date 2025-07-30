@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.date: 08/01/2023
 ms.author: jsuri
 ms.custom: MVC 
+# Customer intent: "As a cloud administrator, I want to migrate Azure VMs to a different region using a streamlined process, so that I can enhance their reliability, availability, and compliance with governance requirements."
 ---
 
 # Move VMs to another Azure region

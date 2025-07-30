@@ -4,8 +4,8 @@ description: Reference guide about the limits and configuration settings for log
 services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, laveeshb, rarayudu, azla
-ms.topic: conceptual
-ms.date: 03/27/2025
+ms.topic: reference
+ms.date: 07/18/2025
 ---
 
 # Limits and configuration reference for Azure Logic Apps
@@ -28,13 +28,13 @@ The following table briefly summarizes differences between a Consumption logic a
 
 <a name="definition-limits"></a>
 
-## Workflow definition limits
+## Workflow limits
 
-The following tables list the values for a single workflow definition:
+The following table lists the values that apply to a single workflow definition unless noted otherwise:
 
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
-| Workflows per region per Azure subscription | - Consumption: 1,000 workflows where each logic app always has only 1 workflow <br><br>- Standard: Unlimited, based on the selected hosting plan, app activity, size of machine instances, and resource usage, where each logic app can have multiple workflows | For optimal performance guidelines around Standard logic app workflows, see [Best practices and recommendations](create-single-tenant-workflows-azure-portal.md#best-practices-and-recommendations). |
+| Workflows per region per Azure subscription | - Consumption: 1,000 workflows <br><br>**Note**: Each Consumption logic app resource always contains only one workflow. <br><br>- Standard: Unlimited, based on the selected hosting plan, app activity, size of machine instances, and resource usage. <br><br>Each Standard logic app resource can contain multiple workflows | For optimal performance guidelines around Standard logic app workflows, see [Best practices and recommendations](create-single-tenant-workflows-azure-portal.md#best-practices-and-recommendations). |
 | Workflow - Maximum name length | - Consumption: 80 characters <br><br>- Standard: 32 characters ||
 | Triggers per workflow | - Consumption (designer): 1 trigger <br>- Consumption (JSON): 10 triggers <br><br>- Standard: 1 trigger | - Consumption:  Multiple triggers are possible only when you work on the JSON workflow definition, whether in code view or an Azure Resource Manager (ARM) template, not the designer. <br><br>- Standard: Only one trigger is possible, whether in the designer, code view, or an Azure Resource Manager (ARM) template. |
 | Actions per workflow | 500 actions | To extend this limit, you can use nested workflows as necessary. |
@@ -46,7 +46,7 @@ The following tables list the values for a single workflow definition:
 | `description` - Maximum length | 256 characters ||
 | `parameters` - Maximum number of parameters per workflow | - Consumption: 50 parameters <br><br>- Standard: 500 parameters ||
 | `outputs` - Maximum number of outputs | 10 outputs ||
-| `trackedProperties` - Maximum number of characters | 8,000 characters ||
+| `trackedProperties` - Maximum number of characters | 8,000 characters | Each action supports a JSON object named `trackedProperties` that you can use to specify certain action inputs or outputs to emit from your workflow and include in diagnostic telemetry. For more information, see [Monitor and collect diagnostic data for workflows](monitor-workflows-collect-diagnostic-data.md#tracked-properties). |
 
 <a name="run-duration-retention-limits"></a>
 
@@ -670,6 +670,7 @@ This section lists the inbound IP addresses that Azure Logic Apps requires for t
 | Jio India West | 20.193.206.48, 20.193.206.49, 20.193.206.50, 20.193.206.51, 20.193.173.174, 20.193.168.121, 20.207.247.103, 20.244.240.200, 20.244.244.210, 20.244.241.129, 20.244.240.7, 20.244.242.21, 20.244.247.29, 20.244.244.219 |
 | Korea Central | 52.231.14.182, 52.231.103.142, 52.231.39.29, 52.231.14.42, 20.200.207.29, 20.200.231.229, 20.249.169.92, 20.249.169.87, 20.249.169.155, 20.249.171.205, 4.230.149.190, 20.249.170.248, 20.249.171.120, 20.249.171.7 |
 | Korea South | 52.231.166.168, 52.231.163.55, 52.231.163.150, 52.231.192.64, 20.200.177.151, 20.200.177.147, 52.231.228.78, 52.231.181.100, 52.231.223.213, 52.231.140.232, 52.231.228.60, 52.231.143.60, 52.231.138.189, 52.231.137.253 |
+| Malaysia West | 20.17.142.181,20.17.142.180,20.17.142.182,20.17.142.179,20.17.142.176,20.17.142.183,20.17.142.178,20.17.142.177 |
 | Mexico Central | 158.23.36.62,158.23.36.24,158.23.254.137,158.23.254.158,158.23.254.105,158.23.254.193,158.23.254.101,158.23.254.220,158.23.254.57,158.23.254.156 |
 | New Zealand North | 172.204.59.81,172.204.60.91,172.204.60.122,172.204.59.84,172.204.59.8,172.204.59.218,172.204.132.91,172.204.59.14 |
 | North Central US | 168.62.249.81, 157.56.12.202, 65.52.211.164, 65.52.9.64, 52.162.177.104, 23.101.174.98, 20.98.61.245, 172.183.50.180, 172.183.52.146, 172.183.51.138, 172.183.48.31, 172.183.48.9, 172.183.48.234, 40.116.65.34 |
@@ -764,6 +765,7 @@ This section lists the outbound IP addresses that Azure Logic Apps requires for 
 | Jio India West | 20.193.206.128, 20.193.206.129, 20.193.206.130, 20.193.206.131, 20.193.206.132, 20.193.206.133, 20.193.206.134, 20.193.206.135, 20.193.173.7, 20.193.172.11, 20.193.170.88, 20.193.171.252, 20.207.246.213, 20.207.247.91, 20.207.241.77, 20.207.246.218, 20.244.243.50, 20.244.243.105, 20.244.242.55, 20.244.241.138 |
 | Korea Central | 52.231.14.11, 52.231.14.219, 52.231.15.6, 52.231.10.111, 52.231.14.223, 52.231.77.107, 52.231.8.175, 52.231.9.39, 20.200.206.170, 20.200.202.75, 20.200.231.222, 20.200.231.139, 20.249.169.25, 20.249.169.18, 20.249.169.147, 20.249.171.130, 4.230.149.189, 20.249.169.207, 20.249.171.17, 20.249.169.238 |
 | Korea South | 52.231.204.74, 52.231.188.115, 52.231.189.221, 52.231.203.118, 52.231.166.28, 52.231.153.89, 52.231.155.206, 52.231.164.23, 20.200.177.148, 20.200.177.135, 20.200.177.146, 20.200.180.213, 52.231.139.2, 52.231.220.66, 52.231.137.133, 52.231.228.71, 52.231.230.253, 52.231.176.192, 52.231.182.160, 52.231.218.243 |
+| Malaysia West | 20.17.92.195,20.17.92.193,20.17.92.178,20.17.92.177,20.17.92.194,20.17.92.176,20.17.92.192,20.17.92.179 |
 | Mexico Central | 158.23.36.78,158.23.36.73,158.23.36.21,158.23.36.20,158.23.254.50,158.23.253.167,158.23.254.157,158.23.254.103,158.23.254.104,158.23.254.159,158.23.254.149,158.23.254.99,158.23.254.100,158.23.254.148,158.23.254.192,158.23.254.136,158.23.254.23,158.23.252.96,158.23.254.102,158.23.254.221 |
 | New Zealand North | 172.204.59.65,172.204.59.54,172.204.60.89,172.204.59.203,172.204.59.196,172.204.60.115,172.204.59.68,172.204.59.63,172.204.56.121,172.204.58.18,172.204.59.207,172.204.56.218,172.204.131.225,172.204.131.252,172.204.58.185,172.204.58.53 |
 | North Central US | 168.62.248.37, 157.55.210.61, 157.55.212.238, 52.162.208.216, 52.162.213.231, 65.52.10.183, 65.52.9.96, 65.52.8.225, 52.162.177.90, 52.162.177.30, 23.101.160.111, 23.101.167.207, 20.80.33.190, 20.88.47.77, 172.183.51.180, 40.116.65.125, 20.88.51.31, 40.116.66.226, 40.116.64.218, 20.88.55.77, 172.183.49.208, 20.102.251.70, 20.102.255.252, 20.88.49.23, 172.183.50.30, 20.88.49.21, 20.102.255.209, 172.183.48.255 |

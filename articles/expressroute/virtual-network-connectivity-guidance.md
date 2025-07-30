@@ -7,6 +7,7 @@ ms.service: azure-expressroute
 ms.topic: concept-article
 ms.date: 01/31/2025
 ms.author: duau
+# Customer intent: As a network engineer, I want to implement virtual network peering with ExpressRoute, so that I can ensure optimal performance and lower latency for connectivity between multiple virtual networks.
 ---
 
 # Connectivity between virtual networks over Azure ExpressRoute

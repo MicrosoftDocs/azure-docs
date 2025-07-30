@@ -18,7 +18,6 @@ ms.custom: devx-track-azurepowershell, devx-track-arm-template
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
 > * [Azure Resource Manager template](expressroute-howto-circuit-resource-manager-template.md)
-> * [Video - Azure portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (classic)](expressroute-howto-circuit-classic.md)
 >
 
@@ -28,7 +27,6 @@ Learn how to create an ExpressRoute circuit by deploying an Azure Resource Manag
 
 * Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
 * Ensure that you have permissions to create new networking resources. Contact your account administrator if you do not have the right permissions.
-* You can [view a video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit) before beginning in order to better understand the steps.
 
 ## <a name="create"></a>Create and provision an ExpressRoute circuit
 

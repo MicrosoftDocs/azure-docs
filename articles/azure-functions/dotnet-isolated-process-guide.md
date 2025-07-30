@@ -22,7 +22,7 @@ Use the following links to get started right away building .NET isolated worker 
 
 | Getting started | Concepts| Samples |
 |--|--|--| 
-| <ul><li>[Using Visual Studio Code](create-first-function-vs-code-csharp.md?tabs=isolated-process)</li><li>[Using command line tools](create-first-function-cli-csharp.md?tabs=isolated-process)</li><li>[Using Visual Studio](functions-create-your-first-function-visual-studio.md?tabs=isolated-process)</li></ul> | <ul><li>[Hosting options](functions-scale.md)</li><li>[Monitoring](functions-monitoring.md)</li> | <ul><li>[Reference samples](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples)</li></ul> |
+| <ul><li>[Using Visual Studio Code](create-first-function-vs-code-csharp.md?tabs=isolated-process)</li><li>[Using command line tools](how-to-create-function-azure-cli.md?pivots=programming-language-csharp)</li><li>[Using Visual Studio](functions-create-your-first-function-visual-studio.md?tabs=isolated-process)</li></ul> | <ul><li>[Hosting options](functions-scale.md)</li><li>[Monitoring](functions-monitoring.md)</li> | <ul><li>[Reference samples](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples)</li></ul> |
 
 To learn just about deploying an isolated worker model project to Azure, see [Deploy to Azure Functions](#deploy-to-azure-functions). 
 
@@ -1164,7 +1164,7 @@ You can create your function app and other required resources in Azure using one
 
 + [Visual Studio](functions-develop-vs.md#publish-to-azure): Visual Studio can create resources for you during the code publishing process.
 + [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure): Visual Studio Code can connect to your subscription, create the resources needed by your app, and then publish your code.
-+ [Azure CLI](create-first-function-cli-csharp.md#create-supporting-azure-resources-for-your-function): You can use the Azure CLI to create the required resources in Azure. 
++ [Azure CLI](how-to-create-function-azure-cli.md?pivots=programming-language-csharp#create-supporting-azure-resources-for-your-function): You can use the Azure CLI to create the required resources in Azure. 
 + [Azure PowerShell](./create-resources-azure-powershell.md#create-a-serverless-function-app-for-c): You can use Azure PowerShell to create the required resources in Azure. 
 + [Deployment templates](./functions-infrastructure-as-code.md): You can use ARM templates and Bicep files to automate the deployment of the required resources to Azure. Make sure your template includes any [required settings](#deployment-requirements).
 + [Azure portal](./functions-create-function-app-portal.md): You can create the required resources in the [Azure portal](https://portal.azure.com).

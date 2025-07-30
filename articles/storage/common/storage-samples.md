@@ -8,6 +8,7 @@ ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: sample 
 ms.custom: devx-track-azurecli, devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
+# Customer intent: As a developer, I want to access and run sample code for Azure Storage across multiple programming languages, so that I can quickly learn and implement storage solutions in my applications.
 ---
 
 # Azure Storage samples
@@ -16,7 +17,7 @@ Use the links below to view and download Azure Storage sample code and applicati
 
 ## Azure Code Samples library
 
-The [Azure Code Samples](https://azure.microsoft.com/documentation/samples/?service=storage) library includes samples for Azure Storage that you can download and run locally. The Code Sample Library provides sample code in .zip format. Alternatively, you can browse and clone the GitHub repository for each sample.
+The [Azure Code Samples](/samples/browse/?products=azure-storage) library includes samples for Azure Storage that you can download and run locally. The Code Sample Library provides sample code in .zip format. Alternatively, you can browse and clone the GitHub repository for each sample.
 
 ## .NET samples
 

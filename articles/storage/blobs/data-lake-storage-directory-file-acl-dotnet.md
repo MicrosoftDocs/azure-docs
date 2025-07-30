@@ -2,15 +2,16 @@
 title: Use .NET to manage data in Azure Data Lake Storage
 titleSuffix: Azure Storage
 description: Use the Azure Storage client library for .NET to manage directories and files in storage accounts that have a hierarchical namespace enabled.
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.service: azure-data-lake-storage
 ms.date: 11/20/2023
 ms.topic: how-to
 ms.reviewer: prishet
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
+# Customer intent: As a .NET developer, I want to manage directories and files in Azure Data Lake Storage using the client library, so that I can efficiently organize and access large amounts of data in my applications.
 ---
 
 # Use .NET to manage directories and files in Azure Data Lake Storage
@@ -224,3 +225,4 @@ To learn more about creating a service SAS, see [Create a service SAS with .NET]
 - [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md)
 - [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 - [Give Feedback](https://github.com/Azure/azure-sdk-for-net/issues)
+

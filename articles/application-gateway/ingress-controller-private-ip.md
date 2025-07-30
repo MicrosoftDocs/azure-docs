@@ -7,6 +7,7 @@ ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 07/23/2023
 ms.author: mbender
+# Customer intent: As a network administrator, I want to configure an ingress endpoint to use a private IP address for internal routing, so that I can securely expose services within the virtual network.
 ---
 
 # Use a private IP for internal routing for an ingress endpoint

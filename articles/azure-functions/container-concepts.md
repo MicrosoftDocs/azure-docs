@@ -35,23 +35,23 @@ The degree to which various features and behaviors of Azure Functions are suppor
 | Feature/behavior | [Container Apps (integrated)][Azure Container Apps] | [Container Apps (direct)](../container-apps/overview.md) | [Premium plan](./functions-premium-plan.md) | [Dedicated plan](./dedicated-plan.md) | [Kubernetes] |
 | ------ | ------ | ------ |------|-------| ------|
 | Product support | Yes | No | Yes |Yes | No  |
-| Functions portal integration | Yes | No | Yes | Yes | No |
+| Functions portal integration | No | No | Yes | Yes | No |
 | [Event-driven scaling](./event-driven-scaling.md) | Yes<sup>5</sup> | Yes ([scale rules](../container-apps/scale-app.md#scale-rules)) | Yes | No | No |
 | Maximum scale (instances) | 1000<sup>1</sup> | 1000<sup>1</sup> | 100<sup>2</sup> | 10-30<sup>3</sup> | Varies by cluster |
 | [Scale-to-zero instances](./event-driven-scaling.md#scale-in-behaviors) | Yes | Yes | No | No | KEDA |
 | Execution time limit | Unbounded<sup>6</sup>| Unbounded<sup>6</sup> | Unbounded<sup>7</sup> | Unbounded<sup>8</sup> | None |
-| [Core Tools deployment](./functions-run-local.md#deploy-containers) | [`func azurecontainerapps`](./functions-core-tools-reference.md#func-azurecontainerapps-deploy) | No | No | No | [`func kubernetes`](./functions-core-tools-reference.md#func-kubernetes-deploy) |
-| [Revisions](../container-apps/revisions.md) | No | Yes |No |No |No |
+| [Core Tools deployment](./functions-run-local.md#deploy-containers) | No | No | No | No | [`func kubernetes`](./functions-core-tools-reference.md#func-kubernetes-deploy) |
+| [Revisions](../container-apps/revisions.md) | [Yes](../container-apps/revisions.md) | Yes |No |No |No |
 | [Deployment slots](./functions-deployment-slots.md) |No |No |Yes |Yes |No |
-| [Streaming logs](./streaming-logs.md) | Yes | [Yes](../container-apps/log-streaming.md) | Yes | Yes | No |
-| [Console access](../container-apps/container-console.md) | Not currently available<sup>4</sup> | Yes | Yes (using [Kudu](./functions-how-to-custom-container.md#enable-ssh-connections)) | Yes (using [Kudu](./functions-how-to-custom-container.md#enable-ssh-connections)) | Yes (in pods [using `kubectl`](https://kubernetes.io/docs/reference/kubectl/)) |
+| [Streaming logs](./streaming-logs.md) | [Yes](../container-apps/log-streaming.md) | [Yes](../container-apps/log-streaming.md) | Yes | Yes | No |
+| [Console access](../container-apps/container-console.md) | [Yes](../container-apps/container-console.md) | Yes | Yes (using [Kudu](./functions-how-to-custom-container.md#enable-ssh-connections)) | Yes (using [Kudu](./functions-how-to-custom-container.md#enable-ssh-connections)) | Yes (in pods [using `kubectl`](https://kubernetes.io/docs/reference/kubectl/)) |
 | Cold start mitigation | Minimum replicas | [Scale rules](../container-apps/scale-app.md#scale-rules) | [Always-ready/pre-warmed instances](functions-premium-plan.md#eliminate-cold-starts) | n/a | n/a |
-| [App Service authentication](../app-service/overview-authentication-authorization.md) | Not currently available<sup>4</sup> | Yes | Yes | Yes | No |
-| [Custom domain names](../app-service/app-service-web-tutorial-custom-domain.md) | Not currently available<sup>4</sup> | Yes | Yes | Yes | No |
-| [Private key certificates](../app-service/overview-tls.md) | Not currently available<sup>4</sup> | Yes | Yes | Yes | No |
-| Virtual networks | Yes | Yes | Yes | Yes | Yes |
-| Availability zones | Yes | Yes | Yes | Yes | Yes |
-| Diagnostics | Not currently available<sup>4</sup> | [Yes](../container-apps/troubleshooting.md#use-the-diagnose-and-solve-problems-tool) | [Yes](./functions-diagnostics.md) | [Yes](./functions-diagnostics.md) | No |
+| [App Service authentication](../app-service/overview-authentication-authorization.md) | [Yes](../container-apps/authentication.md) | Yes | Yes | Yes | No |
+| [Custom domain names](../app-service/app-service-web-tutorial-custom-domain.md) | [Yes](../container-apps/custom-domains-certificates.md) | Yes | Yes | Yes | No |
+| [Private key certificates](../app-service/overview-tls.md) | [Yes](../container-apps/custom-domains-certificates.md) | Yes | Yes | Yes | No |
+| Virtual networks | [Yes](../container-apps/networking.md) | Yes | Yes | Yes | Yes |
+| Availability zones | [Yes](../reliability/reliability-azure-container-apps.md) | Yes | Yes | Yes | Yes |
+| Diagnostics | [Yes](../container-apps/troubleshooting.md#use-the-diagnose-and-solve-problems-tool) | [Yes](../container-apps/troubleshooting.md#use-the-diagnose-and-solve-problems-tool) | [Yes](./functions-diagnostics.md) | [Yes](./functions-diagnostics.md) | No |
 | Dedicated hardware | Yes ([workload profiles](../container-apps/workload-profiles-overview.md)) | Yes ([workload profiles](../container-apps/workload-profiles-overview.md)) | No | Yes | Yes | 
 | Dedicated GPUs | Yes ([workload profiles](../container-apps/workload-profiles-overview.md)) | Yes ([workload profiles](../container-apps/workload-profiles-overview.md)) | No | No | Yes | 
 | [Configurable memory/CPU count](../container-apps/workload-profiles-overview.md) | Yes | Yes | No | No | Yes |
@@ -62,7 +62,6 @@ The degree to which various features and behaviors of Azure Functions are suppor
 1. On Container Apps, the default is 10 instances, but you can set the [maximum number of replicas](../container-apps/scale-app.md#scale-definition), which has an overall maximum of 1000. This setting is honored as long as there's enough cores quota available. When you create your function app from the Azure portal, you're limited to 300 instances.
 2. In some regions, Linux apps on a Premium plan can scale to 100 instances. For more information, see the [Premium plan article](functions-premium-plan.md#region-max-scale-out). <br/>
 3. For specific limits for the various App Service plan options, see the [App Service plan limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-app-service-limits).
-4. Feature parity is a goal of integrated hosting on Azure Container Apps.
 5. Requires [KEDA](./functions-kubernetes-keda.md); supported by most triggers. To learn which triggers support event-driven scaling, see [Considerations for Container Apps hosting](functions-container-apps-hosting.md#considerations-for-container-apps-hosting).  
 6. When the [minimum number of replicas](../container-apps/scale-app.md#scale-definition) is set to zero, the default timeout depends on the specific triggers used in the app.
 7. There's no maximum execution timeout duration enforced. However, the grace period given to a function execution is 60 minutes [during scale in](event-driven-scaling.md#scale-in-behaviors), and a grace period of 10 minutes is given during platform updates.
@@ -74,9 +73,24 @@ When creating your own containers, you're required to keep the base image of you
 
 The Functions team is committed to publishing monthly updates for these base images. Regular updates include the latest minor version updates and security fixes for both the Functions runtime and languages. You should regularly update your container from the latest base image and redeploy the updated version of your container. 
 
-When the base image is managed by Functions, such as in a standard deployment on Linux, your app is kept up to date automatically by the regular base image updates released by the Functions team. For such noncustomized containers, your app gets updated to run on the base image that has the new minor version or patched version of the host runtime. 
+Choose your base image based on the language stack you're using in your function app. The following table provides examples for each stack. In general, the tag should start with `4-` to indicate the V4 Functions runtime. When new minor versions are released, this tag will be updated to point to the new version. As you periodically rebuild your custom image, you will pull the new versions through that same tag, allowing your app to have the same updates. You shouldn't use tags that specify minor runtime versions, as these will not receive updates, and your app will potentially remain on an unpatched version, no matter how often you rebuild your custom image.
 
-When you create or deploy your own containerized app using a custom image, you're responsible for making sure that your custom image staying up-to-date with our released base images. In addition to new features and improvements, these base image updates can also include security updates that are critical for your app. To ensure your app is protected, you make sure you're staying up to date.
+| Language Stack | Example recommended base image tags |
+|----------------|----------------|
+| .NET (isolated worker model) | `mcr.microsoft.com/azure-functions/dotnet-isolated:4-dotnet-isolated8.0` or<br/>`mcr.microsoft.com/azure-functions/dotnet-isolated:4-dotnet-isolated8.0-appservice`<br/><br/>(These examples target .NET 8. Select the appropriate image for the .NET version you need.) |
+| .NET (legacy in-process model) | `mcr.microsoft.com/azure-functions/dotnet:4-dotnet8.0` or<br/>`mcr.microsoft.com/azure-functions/dotnet:4-dotnet8.0-appservice`<br/><br/>(Support will end for the in-process model on November 10, 2026. You should [migrate to the isolated worker model](https://aka.ms/af-dotnet-isolated-migration) as soon as possible.) |
+| Java | `mcr.microsoft.com/azure-functions/java:4-java21` or<br/>`mcr.microsoft.com/azure-functions/java:4-java21-appservice`<br/><br/>(These examples target Java 21. Select the appropriate image for the Java version you need.) |
+| Node.js (JavaScript or TypeScript) | `mcr.microsoft.com/azure-functions/node:4-node22` or<br/>`mcr.microsoft.com/azure-functions/node:4-node22-appservice`<br/><br/>(These examples target Node.js 22. Select the appropriate image for the Node.js version you need.) |
+| PowerShell | `mcr.microsoft.com/azure-functions/powershell:4-powershell7.4` or<br/>`mcr.microsoft.com/azure-functions/powershell:4-powershell7.4-appservice`<br/><br/>(These examples target PowerShell 7.4. Select the appropriate image for the PowerShell version you need.) |
+| Python | `mcr.microsoft.com/azure-functions/python:4-python3.12` or<br/>`mcr.microsoft.com/azure-functions/python:4-python3.12-appservice`<br/><br/>(These examples target Python 3.12. Select the appropriate image for the Python version you need.) |
+| Custom handlers / other | `mcr.microsoft.com/azure-functions/base:4` or<br/>`mcr.microsoft.com/azure-functions/base:4-appservice` |
+
+Base images ending in `-appservice` enable SSH and remote debugging from the platform. Unless you need these capabilities, you can use the base images without the `-appservice` suffix.
+
+> [!IMPORTANT]
+> It isn't sufficient to just have one of the above tags in your Dockerfile. You need to regularly pull the latest image from that tag so that your custom image can be rebuilt to include the latest updates. If you don't pull the latest image and rebuild, your app will continue to run on the old base image.
+
+When you create or deploy your own containerized app using a custom image, you're responsible for making sure that your custom image staying up-to-date with our released base images. In addition to new features and improvements, these base image updates can also include security updates that are critical for your app. To ensure your app is protected, make sure you're staying up to date. You should regularly pull the latest version of the base image, rebuild your custom container image, and redeploy your app to use it.
 
 In some cases, we're required to make platform-level changes that could mean that an app in a custom container using an old base image might stop working properly. For such major changes, we roll out updated images well in advance so that apps that take regular updates aren't negatively impacted. To avoid potential problems with your apps running in custom containers, make sure you don't fall too far behind the latest minor version released. During a support case, should we determine that your app is experiencing problems because it's on an older or unsupported version, we do request that you update your container to the latest base image version before continuing with support.
 
@@ -87,7 +101,7 @@ In some cases, we're required to make platform-level changes that could mean tha
 | I want to... |  See article: |
 | --- | --- |
 | Create my first containerized functions | [Create a function app in a local Linux container](functions-create-container-registry.md)  |  
-| Create and deploy functions to Azure Container Apps | [Create your first containerized functions on Azure Container Apps](functions-deploy-container-apps.md) |
+| Create and deploy functions to Azure Container Apps | [Create your first containerized functions on Azure Container Apps](../container-apps/functions-usage.md) |
 | Create and deploy containerized functions to Azure Functions | [Create your first containerized Azure Functions](functions-deploy-container.md)|
 
 ## Related articles
@@ -95,6 +109,6 @@ In some cases, we're required to make platform-level changes that could mean tha
 + [Working with containers and Azure Functions](functions-how-to-custom-container.md)
 
 
-[Azure Container Apps]: functions-container-apps-hosting.md
+[Azure Container Apps]: ../container-apps/functions-overview.md
 [Kubernetes]: functions-kubernetes-keda.md
 [Azure Functions]: functions-how-to-custom-container.md?pivots=azure-functions#azure-portal-create-using-containers

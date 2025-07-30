@@ -7,6 +7,7 @@ ms.topic: tutorial
 ms.date: 07/03/2024
 ms.author: kendownie
 ms.custom: devx-track-azurecli
+# Customer intent: "As a cloud administrator, I want to install Azure Container Storage on an AKS cluster so that I can efficiently manage storage for containerized applications."
 ---
 
 # Tutorial: Install Azure Container Storage for use with Azure Kubernetes Service

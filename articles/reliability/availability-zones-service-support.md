@@ -30,10 +30,10 @@ Some Azure services are *nonregional*, which means that you don't deploy the ser
 | --- | --- |---|
 | [Azure AI Search](/azure/search/search-reliability#availability-zones) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure API Center](../api-center/overview.md)|:::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false":::  | |
-| [Azure API Management](migrate-api-mgt.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false":::  | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: |
+| [Azure API Management](./reliability-api-management.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false":::  | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: |
 | [Azure App Configuration](../azure-app-configuration/faq.yml#how-does-app-configuration-ensure-high-data-availability) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure App Service](./reliability-app-service.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
-| [Azure App Service: App Service Environment](./reliability-app-service.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: |
+| [Azure App Service: App Service Environment](./reliability-app-service-environment.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure Application Gateway (V2)](migrate-app-gateway-v2.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: |
 | [Azure Automation](../automation/automation-availability-zones.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure Backup](reliability-backup.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
@@ -43,7 +43,7 @@ Some Azure services are *nonregional*, which means that you don't deploy the ser
 | [Azure Compute Gallery](/azure/virtual-machines/azure-compute-gallery#high-availability)| :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: ||
 | [Azure Container Apps](reliability-azure-container-apps.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure Container Instances](migrate-container-instances.md) | | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: |
-| [Azure Container Registry](/azure/container-registry/zone-redundancy) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
+| [Azure Container Registry](./reliability-container-registry.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure Cosmos DB for NoSQL](reliability-cosmos-db-nosql.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure Cosmos DB for PosgtreSQL](/azure/cosmos-db/postgresql/concepts-availability-zones) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
@@ -63,9 +63,9 @@ Some Azure services are *nonregional*, which means that you don't deploy the ser
 | [Azure Functions](./reliability-functions.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure HDInsight](./reliability-hdinsight.md#availability-zone-support) |  | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false":::|
 | [Azure HPC Cache](../hpc-cache/hpc-cache-overview.md) | | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: |
-| [Azure IoT Hub](../iot-hub/iot-hub-ha-dr.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
+| [Azure IoT Hub](reliability-iot-hub.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
-| [Azure Key Vault](/azure/key-vault/general/disaster-recovery-guidance) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
+| [Azure Key Vault](./reliability-key-vault.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure Kubernetes Service (AKS)](reliability-aks.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: |
 | [Azure Load Balancer](reliability-load-balancer.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: |
 | [Azure Logic Apps](./reliability-logic-apps.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
@@ -80,13 +80,14 @@ Some Azure services are *nonregional*, which means that you don't deploy the ser
 | [Azure Notification Hubs](reliability-notification-hubs.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure Private Link](../private-link/private-link-overview.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false":::||
 | [Azure Public IP](../virtual-network/ip-services/public-ip-addresses.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: 
+| [Azure Queue Storage](./reliability-storage-queue.md)| :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure Red Hat OpenShift](/azure/openshift/openshift-faq#can-a-cluster-be-deployed-across-multiple-availability-zones) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: |
 | [Azure Route Server](../route-server/route-server-faq.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure Service Bus](../service-bus-messaging/service-bus-outages-disasters.md#availability-zones) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure Service Fabric](/azure/service-fabric/service-fabric-cross-availability-zones) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: |
 | [Azure SignalR Service](../azure-signalr/availability-zones.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure Site Recovery](migrate-recovery-services-vault.md) |  | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false":::|
-| [Azure SQL Database](migrate-sql-database.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
+| [Azure SQL Database](/azure/azure-sql/database/enable-zone-redundancy?view=azuresql-db&preserve-view=true&toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure SQL Managed Instance](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview?view=azuresql&preserve-view=true) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure Spring Apps](reliability-spring-apps.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure Storage account](migrate-storage.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |

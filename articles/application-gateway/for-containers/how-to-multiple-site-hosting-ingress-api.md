@@ -7,6 +7,7 @@ ms.service: azure-appgw-for-containers
 ms.topic: how-to
 ms.date: 11/5/2024
 ms.author: mbender
+# Customer intent: As a DevOps engineer, I want to configure multi-site hosting with Application Gateway for Containers using the Ingress API, so that I can manage and route traffic to multiple applications efficiently on a single port within my Kubernetes cluster.
 ---
 
 # Multi-site hosting with Application Gateway for Containers - Ingress API

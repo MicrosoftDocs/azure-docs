@@ -8,6 +8,7 @@ ms.service: azure-traffic-manager
 ms.date: 06/03/2024
 ms.author: allensu
 ms.custom: template-how-to, devx-track-azurecli
+# Customer intent: As a network administrator, I want to configure subnet overrides in Traffic Manager profiles using Azure CLI, so that I can control traffic routing based on the end user's IP address for improved performance and reliability.
 ---
 
 # Traffic Manager subnet override using Azure CLI
@@ -66,6 +67,28 @@ az network traffic-manager endpoint update \
     --resource-group MyResourceGroup \
     --remove subnets \
     --type AzureEndpoints
+```
+### IPv6 Subnet Mapping Examples ###
+You can also configure subnet mapping using IPv6 address ranges. Use the --type parameter with IPv6 and specify IPv6 addresses in CIDR or range format.
+
+```azurecli-interactive
+### Add an IPv6 Subnet in CIDR Notation ###
+az network traffic-manager endpoint update \
+  --resource-group MyResourceGroup \
+  --profile-name MyTmProfile \
+  --endpoint-name MyEndpoint \
+  --type IPv6 \
+  --subnets 2001:0db8:1234:5678::/64 \
+  --endpoint-type ExternalEndpoints
+
+### Add a range of IPs ###
+az network traffic-manager endpoint update \
+  --resource-group MyResourceGroup \
+  --profile-name MyTmProfile \
+  --endpoint-name MyEndpoint \
+  --type IPv6 \
+  --subnets 2001:0db8:abcd:1234::1-2001:0db8:abcd:1234::ffff \
+  --endpoint-type ExternalEndpoints
 ```
 
 ## Next Steps

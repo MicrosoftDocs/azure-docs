@@ -1,10 +1,10 @@
 ---
-title: Quickstart - Add closed captions to your app 
-titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to add closed captions to your existing calling app using Azure Communication Services.
+title: Enable closed captions 
+titleSuffix: An Azure Communication Services article
+description: This article describes how to add closed captions to your existing calling app using Azure Communication Services.
 author: Kunaal
 ms.author: kpunjabi
-ms.date: 04/15/2024
+ms.date: 06/28/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -12,7 +12,7 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 ms.custom: mode-api, devx-track-js
 ---
 
-# QuickStart: Add closed captions to your calling app
+# Enable closed captions
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Closed Captions for Web](./includes/closed-captions/closed-captions-javascript.md)]
@@ -30,14 +30,13 @@ ms.custom: mode-api, devx-track-js
 [!INCLUDE [Closed Captions for iOS](./includes/closed-captions/closed-captions-ios.md)]
 ::: zone-end
 
-
 ## Clean up resources
+
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md?pivots=platform-azp&tabs=windows#clean-up-resources).
 
 ## Next steps
-For more information, see the following articles:
 
 - Learn more about using closed captions in [Teams interop](../../concepts/interop/enable-closed-captions.md) scenarios. 
-- Check out our [web calling sample](../../samples/web-calling-sample.md)
-- Learn about [Calling SDK capabilities](./getting-started-with-calling.md?pivots=platform-web)
-- Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)
+- Check out our [web calling sample](../../samples/web-calling-sample.md).
+- Learn about [Calling SDK capabilities](./getting-started-with-calling.md?pivots=platform-web).
+- Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md).

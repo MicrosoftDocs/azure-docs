@@ -6,6 +6,7 @@ ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 07/03/2019
 ms.author: jsuri
+# Customer intent: "As an IT administrator, I want to set up a configuration server for disaster recovery to Azure, so that I can ensure the protection and recovery of our on-premises physical servers in the event of a failure."
 ---
 
 # Set up the configuration server for disaster recovery of physical servers to Azure
