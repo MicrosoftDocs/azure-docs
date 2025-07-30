@@ -19,6 +19,6 @@ items:
   - name: Java SDK
     href: /developer/java/sdk/purestorageblock/
   - name: Python SDK  
-    href: /python/api/overview/azure/purestorageblock-readme
+    href: /python/api/overview/azure/purestorageblock
   - name: .NET SDK  
-    href: /dotnet/api/overview/azure/purestorageblock-readme
+    href: /dotnet/api/overview/azure/purestorageblock
