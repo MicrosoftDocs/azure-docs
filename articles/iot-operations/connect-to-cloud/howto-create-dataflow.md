@@ -654,6 +654,79 @@ sourceSettings:
 
 To learn more, see [Understand message schemas](concept-schema-registry.md).
 
+## Request disk persistence (preview)
+
+Request disk persistence allows data flows to maintain state across restarts. When you enable this feature, the graph can recover processing state if connected broker restarts. This feature is useful for stateful processing scenarios where losing intermediate data would be problematic. When you enable request disk persistence, the broker persists the MQTT data, like messages in the subscriber queue, to disk. This approach ensures that your data flow's data source doesn't experience data loss during power outages or broker restarts. The broker maintains optimal performance because persistence is configured per data flow, so only the data flows that need persistence use this feature.
+
+The data flow graph makes this persistence request during subscription using an MQTTv5 user property. This feature only works when:
+
+1. The data flow uses the MQTT broker or asset as source
+1. The MQTT broker has persistence enabled with dynamic persistence mode set to `Enabled` for the data type, like subscriber queues
+
+This configuration allows MQTT clients like data flows to request disk persistence for their subscriptions using MQTTv5 user properties. For detailed MQTT broker persistence configuration, see [Configure MQTT broker persistence](../manage-mqtt-broker/howto-broker-persistence.md).
+
+The setting accepts `Enabled` or `Disabled`, with `Disabled` as the default.
+
+# [Operations experience](#tab/portal)
+
+When creating or editing a data flow, select **Edit**, then check **Yes** next to **Request data persistence**.
+
+# [Azure CLI](#tab/cli)
+
+Add the `requestDiskPersistence` property to your data flow configuration file:
+
+```json
+{
+    "mode": "Enabled",
+    "requestDiskPersistence": "Enabled",
+    "operations": [
+        // ... your data flow operations
+    ]
+}
+```
+
+# [Bicep](#tab/bicep)
+
+Add the `requestDiskPersistence` property to your data flow resource. The API version is `2025-07-01-preview` or later:
+
+```bicep
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2025-07-01-preview' = {
+  parent: defaultDataflowProfile
+  name: dataflowName
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    mode: 'Enabled'
+    requestDiskPersistence: 'Enabled'
+    operations: [
+      // ... your data flow operations
+    ]
+  }
+}
+```
+
+# [Kubernetes (preview)](#tab/kubernetes)
+
+Add the `requestDiskPersistence` property to your data flow spec. The API version is `connectivity.iotoperations.azure.com/v1beta1` or later:
+
+```yaml
+apiVersion: connectivity.iotoperations.azure.com/v1beta1
+kind: Dataflow
+metadata:
+  name: <DATAFLOW_NAME>
+  namespace: azure-iot-operations
+spec:
+  profileRef: default 
+  mode: Enabled
+  requestDiskPersistence: Enabled
+  operations:
+    # ... your data flow operations
+```
+
+---
+
 ## Transformation
 
 The transformation operation is where you can transform the data from the source before you send it to the destination. Transformations are optional. If you don't need to make changes to the data, don't include the transformation operation in the data flow configuration. Multiple transformations are chained together in stages regardless of the order in which they're specified in the configuration. The order of the stages is always:
