@@ -1,5 +1,5 @@
 ---
-title: Python 3.13+ in Azure Functions
+title: Updates for Python 3.13+
 description: Understand key changes, new features, and compatibility considerations for running Azure Functions with Python 3.13 and above.
 ms.topic: article
 ms.date: 07/24/2025
