@@ -118,14 +118,14 @@ The SAS expiration period appears in the console output.
 
 To configure a SAS expiration policy, use the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command, and then set the `--key-exp-days` parameter to the number of days, hours, minutes, and seconds that a SAS token can be active from the time that a SAS is signed. The string that you provide the `--key-exp-days` parameter uses the following format: `<days>.<hours>:<minutes>:<seconds>`. For example, if you wanted the SAS to expire 1 day, 12 hours, 5 minutes, and 6 seconds after it's signed, then you would use the string `1.12:05:06`.
 
-[Optional] Set the `--expirationAction` parameter to the desired action for out-of-policy SAS. Acceptable values include **Log** or **Block**.
+[Optional] Set the `--sas-expiration-action` parameter to the desired action for out-of-policy SAS. Acceptable values include **Log** or **Block**.
 
 ```azurecli-interactive
 az storage account update \
   --name <storage-account> \
   --resource-group <resource-group> \
   --sas-exp <days>.<hours>:<minutes>:<seconds>
-  --expirationAction <action>
+  --sas-expiration-action <action>
 ```
 
 > [!TIP]
