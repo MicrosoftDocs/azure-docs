@@ -269,7 +269,7 @@ Before moving forward, gather the following information for the required configu
    1. Go to **Key Vaults** and click your key vault. In the left pane, expand **Objects** and select **Certificates**.
    1. Locate and click your certificate to open the certificate page.
    1. Click the line for your certificate version.
-   1. Copy the path next to **Key Identifier**. The path is specific to the certificate.
+   1. Copy the path next to **Certificate Identifier**. The path is specific to the certificate.
 
   Example: `https://s2s-vault1.vault.azure.net/certificates/site-to-site/<certificate-value>`
 

@@ -10,6 +10,8 @@ ms.date: 07/15/2025
 > [!NOTE] 
 > During preview Microsoft Sentinel data lake uses a single region. Your primary and other workspaces must be in the same region as your tenant’s home region. Only workspaces in the same region as your tenant’s home region can be attached to the data lake.
 
+[!INCLUDE [Customer-managed keys limitation](../includes/customer-managed-keys-limitation.md)]
+  
 The following table lists the service parameters and limits for the Microsoft Sentinel data lake (preview) service related to table management, data ingestion, and retention. These limits include, but aren't limited to, Azure Resource Graph data, Microsoft 365 data, and data mirroring.
 
 | Category                                         | Parameter/limit                              |

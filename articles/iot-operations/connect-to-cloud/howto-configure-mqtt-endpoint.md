@@ -1301,6 +1301,9 @@ mqttSettings:
 
 By default, WebSockets isn't enabled. To use MQTT over WebSockets, set the `protocol` field to `WebSockets`.
 
+> [!IMPORTANT]
+> When using MQTT over WebSockets, Event Grid requires `/mqtt` appended to the end of the host name value. For example, `my-event-grid.eventgrid.azure.net:443/mqtt` or `my-event-grid/mqtt`.
+
 # [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Advanced** tab then use the **Protocol** field to specify the protocol.
