@@ -22,13 +22,23 @@ To get started with Microsoft Sentinel, see the [deployment guide](deploy-overvi
 
 Microsoft Sentinel is integrated with a modern data lake that offers affordable, long-term storage enabling teams to simplify data management, optimize costs, and accelerate the adoption of AI. The Microsoft Sentinel data lake (preview) enables a single-platform architecture for security data and empowers analysts with a unified query experience while leveraging Microsoft Sentinel’s rich connector ecosystem. For more information, see [Microsoft Sentinel data lake (preview)](datalake/sentinel-lake-overview.md).
 
-## Integrate Microsoft security services
+## Onboard Microsoft Sentinel to the Microsoft Defender portal and integrate with Microsoft Defender XDR
 
-Microsoft Sentinel is empowered by the components that send data to your workspace, and is made stronger through integrations with other Microsoft services. Any logs ingested into products, such as Microsoft Defender for Cloud Apps, Microsoft Defender for Endpoint, and Microsoft Defender for Identity, allow these services to create detections, and in turn provide those detections to Microsoft Sentinel. Logs can also be ingested directly into Microsoft Sentinel to provide a fuller picture for events and incidents.
+Consider onboarding Microsoft Sentinel to the Microsoft Defender portal to unify capabilities with Microsoft Defender XDR like incident management and advanced hunting. 
 
 The following illustration shows how Microsoft's XDR solution seamlessly integrates with Microsoft Sentinel.
 
-:::image type="content" source="media/best-practices/azure-sentinel-and-other-services.png"  lightbox="media/best-practices/azure-sentinel-and-other-services.png" alt-text="A diagram showing the Microsoft Sentinel integrating with other Microsoft and partner services.":::
+:::image type="content" source="./media/microsoft-365-defender-sentinel-integration/sentinel-xdr-usx.svg" alt-text="Diagram of a Microsoft Sentinel and Microsoft Defender XDR architecture in the Microsoft Defender portal." lightbox="./media/microsoft-365-defender-sentinel-integration/sentinel-xdr-usx.svg" border="false":::
+
+For more information, see the following articles:
+
+- [Microsoft Defender XDR integration with Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md)
+- [Connect Microsoft Sentinel to Microsoft Defender XDR](/defender-xdr/microsoft-sentinel-onboard)
+- [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md)
+
+## Integrate Microsoft security services
+
+Microsoft Sentinel is empowered by the components that send data to your workspace, and is made stronger through integrations with other Microsoft services. Any logs ingested into products, such as Microsoft Defender for Cloud Apps, Microsoft Defender for Endpoint, and Microsoft Defender for Identity, allow these services to create detections, and in turn provide those detections to Microsoft Sentinel. Logs can also be ingested directly into Microsoft Sentinel to provide a fuller picture for events and incidents.
 
 More than ingesting alerts and logs from other sources, Microsoft Sentinel also:
 
@@ -41,13 +51,6 @@ More than ingesting alerts and logs from other sources, Microsoft Sentinel also:
 - **[Collect data](overview.md#collect-data-at-scale)** across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds.
 - Provides **[threat response capabilities](overview.md#respond-to-incidents-rapidly)**, such as playbooks that integrate with Azure services and your existing tools.
 - **Integrates with partner platforms** using [Microsoft Sentinel data connectors](connect-data-sources.md), providing essential services for SOC teams.
-
-## Microsoft Sentinel in the Microsoft Defender portal
-
-Consider onboarding Microsoft Sentinel to the Microsoft Defender portal to unify capabilities with Microsoft Defender XDR like incident management and advanced hunting. For more information, see the following articles:
-
-- [Connect Microsoft Sentinel to Microsoft Defender XDR](/defender-xdr/microsoft-sentinel-onboard)
-- [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md)
 
 ## Incident management and response
 
