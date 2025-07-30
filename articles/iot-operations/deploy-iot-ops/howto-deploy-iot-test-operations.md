@@ -132,6 +132,14 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
     az extension add --upgrade --name azure-iot-ops
     ```
 
+
+    > [!IMPORTANT]
+    > For preview releases, you need to append the `--allow-preview` flag to the `az extension add` command to install the [preview version](./howto-upgrade.md#upgrade-to-preview-version) of the Azure IoT Operations CLI extension.
+    >
+    > ```azurecli
+    > az extension add --upgrade --name azure-iot-ops --allow-preview
+    > ```
+
 1. Copy and run the provided [az iot ops schema registry create](/cli/azure/iot/ops/schema/registry#az-iot-ops-schema-registry-create) command to create a schema registry which is used by Azure IoT Operations components. If you chose to use an existing schema registry, this command isn't displayed on the **Automation** tab.
 
 1. Azure IoT Operations uses *namespaces* to organize assets and devices. Each Azure IoT Operations instance uses a single namespace for its assets and devices. You can use an existing namespace or run the `az iot ops ns create` command to create an Azure Device Registry namespace. Replace `<my namespace name>` with a unique name for your namespace.
@@ -166,6 +174,9 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
     ```azurecli
     --feature connectors.settings.preview=Enabled
     ```
+
+    > [!NOTE]
+    > The `--feature` configuration parameter isn't available in 2507 preview release.
 
 1. Once all of the Azure CLI commands complete successfully, you can close the **Install Azure IoT Operations** wizard.
 

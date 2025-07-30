@@ -146,6 +146,13 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
    az extension add --upgrade --name azure-iot-ops
    ```
 
+    > [!IMPORTANT]
+    > For preview releases, you need to append the `--allow-preview` flag to the `az extension add` command to install the [preview version](./howto-upgrade.md#upgrade-to-preview-version) of the Azure IoT Operations CLI extension.
+    >
+    > ```azurecli
+    > az extension add --upgrade --name azure-iot-ops --allow-preview
+    > ```
+
 1. Copy and run the provided [az iot ops schema registry create](/cli/azure/iot/ops/schema/registry#az-iot-ops-schema-registry-create) command to create a schema registry which is used by Azure IoT Operations components. If you chose to use an existing schema registry, this command isn't displayed on the **Automation** tab.
 
    > [!NOTE]
@@ -183,6 +190,9 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
       ```bash
       --feature connectors.settings.preview=Enabled
       ```
+
+    > [!NOTE]
+    > The `--feature` configuration parameter isn't available in 2507 preview release.
 
     * If you followed the optional prerequisites to set up your own certificate authority issuer, add the `--trust-settings` parameters to the `create` command:
 

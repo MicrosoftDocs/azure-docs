@@ -1,5 +1,5 @@
 ---
-title: Custom RBAC for Your Resources
+title: Custom RBAC Roles
 description: Use the Azure portal to secure access to Azure IoT Operations resources such as data flows and assets by using Azure role-based access control.
 author: dominicbetts
 ms.author: dobett
@@ -9,9 +9,9 @@ ms.date: 04/16/2025
 #CustomerIntent: As an IT administrator, I want configure Azure RBAC custom roles on resources in my Azure IoT Operations instance to control access to them.
 ---
 
-# Custom RBAC for your Azure IoT Operations resources
+# Custom RBAC roles for your Azure IoT Operations resources
 
-To define custom roles that grant specific permissions to users, you can use Azure RBAC. This article includes a list of example that you can download and use in your environment. These custom roles are JSON files that list the specific permissions and scope for the role.
+To define custom roles that grant specific permissions to users, you can use Azure RBAC. This article includes a list of example that you can download and use as reference to build your custom roles. 
 
 To learn more about custom roles in Azure RBAC, see [Azure custom roles](/azure/role-based-access-control/custom-roles).
 
@@ -19,11 +19,10 @@ Azure IoT operations also offers built-in roles designed to simplify and secure 
 
 ## Examples of custom roles
 
-The following sections list the example Azure IoT Operations custom roles you can download and use.
+The following sections list the example Azure IoT Operations custom roles you can download and use as reference. These custom roles are JSON files that list the specific permissions and scope for the role, which you should use as a starting point to create your own custom roles.
 
 > [!NOTE]
 > The following custom roles are examples only. You need to review and modify the permissions in the JSON files to suit your specific requirements.
-
 
 ### Onboarding roles
 
