@@ -52,6 +52,10 @@ More than ingesting alerts and logs from other sources, Microsoft Sentinel also:
 - Provides **[threat response capabilities](overview.md#respond-to-incidents-rapidly)**, such as playbooks that integrate with Azure services and your existing tools.
 - **Integrates with partner platforms** using [Microsoft Sentinel data connectors](connect-data-sources.md), providing essential services for SOC teams.
 
+## Create custom integration solutions (partners) 
+
+For partners who want to create custom solutions that integrate with Microsoft Sentinel, see [Best practices for partners integrating with Microsoft Sentinel](partner-integrations.md).
+
 ## Plan incident management and response process
 
 The following image shows recommended steps in an incident management and response process.
@@ -70,6 +74,14 @@ The following table provides high-level incident management and response tasks a
 |Use livestream |During an investigation, or after having taken steps to remediate and eradicate the threat, use [livestream](livestream.md). Livestream allows you to monitor, in real time, whether there are any lingering malicious events, or if malicious events are still continuing.       |
 |Entity behavior     | Entity behavior in Microsoft Sentinel allows users to review and investigate actions and alerts for specific entities, such as investigating accounts and host names. For more information, see:<br><br>- [Enable User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel](enable-entity-behavior-analytics.md)<br>- [Investigate incidents with UEBA data](investigate-with-ueba.md)<br>- [Microsoft Sentinel UEBA enrichments reference](ueba-reference.md)        |
 |Watchlists    |   Use a watchlist that combines data from ingested data and external sources, such as enrichment data. For example, create lists of IP address ranges used by your organization or recently terminated employees. Use watchlists with playbooks to gather enrichment data, such as adding malicious IP addresses to watchlists to use during detection, threat hunting, and investigations. <br><br>During an incident, use watchlists to contain investigation data, and then delete them when your investigation is done to ensure that sensitive data doesn't remain in view.   <br><br> For more information, see [Watchlists in Microsoft Sentinel](watchlists.md).   |
+
+## Optimize data collection and ingestion
+
+Review the Microsoft Sentinel [data collection best practices](data-collection-best-practices.md), which include prioritizing data connectors, filtering logs, and optimizing data ingestion.
+
+## Make your Kusto Query Language queries faster
+
+Review the [Kusto Query Language best practices](/kusto/query/best-practices) to make queries faster.
 
 ## Related content
 
