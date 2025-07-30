@@ -40,11 +40,11 @@ Customers in Canada, Puerto Rico, and the United States can set the ship-to addr
 1. Sign in to the Azure portal using the email address with an owner or a contributor role for the billing account or a billing profile for an MCA.
 1. Search for **Cost Management + Billing**.
 1. In the left menu under **Billing**, select **Billing profiles**.
-1. Select a billing profile to update the ship-to address.  
-    :::image type="content" source="./media/manage-tax-information/select-billing-profile.png" alt-text="Screenshot showing the Billing profiles page where you select a billing profile." lightbox="./media/manage-tax-information/select-billing-profile.png" :::
+1. Select a billing profile to update the ship-to address.
+
 1. In the left menu under **Settings**, select **Properties**.
-1. Select **Update ship-to/service usage address**.  
-    :::image type="content" source="./media/manage-tax-information/update-ship-to-01.png" alt-text="Screenshot showing where to update ship-to/service usage address." lightbox="./media/manage-tax-information/update-ship-to-01.png" :::
+1. Select **Update ship-to/service usage address**.
+
 1. Enter the new address and then select **Save**.
 
 ## Update ship-to address for a MOSP billing account
@@ -68,42 +68,44 @@ Customers in the following countries or regions can add their Tax IDs.
 
 |Country/region|Country/region|
 |---------|---------|
-|  Armenia   | Australia        |
-|  Armenia   | Australia        |
-|  Austria   |     Bahamas        |
-|  Bahrain  |   Bangladesh       |
-|  Belarus   |  Belgium       |
-|  Brazil   | Bulgaria        |
-|Cambodia     |  	Cameroon       |
-|Chile     |  Colombia       |
-|Croatia     |  Cyprus       |
-|Czech Republic     |  Denmark       |
-| Estonia    |   Fiji      |
-| Finland    |   France      |
-|Georgia     | Germany        |
-|Ghana     | Greece        |
-|Guatemala     |   Hungary      |
-|Iceland     |  Italy ¹       |
-|India ²    | Indonesia        |
-|Ireland     |  Isle of Man        |
-|Kenya     |   Korea      |
-|  Latvia   |  Liechtenstein      |
-|Lithuania   |   Luxembourg    |
-|Malaysia  |   Malta  |
-|	Mexico    |  Moldova     |
-| Monaco   |  Netherlands     |
-|  New Zealand    |  Nigeria    |
-| Oman   |  Philippines   |
-| Poland   |   Portugal    |
-|  Romania   |  Saudi Arabia   |
-| Serbia   |    Slovakia   |
-|   Slovenia  |   South Africa    |
-|Spain    |   Sweden   |
-|Switzerland    |   Taiwan  |
-|Tajikistan   |   Thailand  |
-|Türkiye    |   Ukraine   |
-|United Arab Emirates    |   United Kingdom     |
-|Uzbekistan    |  Vietnam    |
+|Armenia   |Australia        |
+|Austria   |Bahamas        |
+|Bahrain  |Bangladesh       |
+|Belarus   |Belgium       |
+|Brazil   |Bulgaria        |
+|Cambodia     |Cameroon       |
+|Chile     |Colombia       |
+|Cote d'Ivoire |Croatia     | 
+|Cyprus       |Czech Republic     |
+|Denmark       |Egypt |
+|Estonia    |Fiji      |
+|Finland    |France      |
+|Georgia     |Germany        |
+|Ghana     |Greece        |
+|Guatemala     |Hungary      |
+|Iceland     |Italy ¹       |
+|India ²    |Indonesia        |
+|Ireland     |Isle of Man        |
+|Kenya     |Korea      |
+|Laos|Latvia   |
+|Liechtenstein      |Lithuania   |
+|Luxembourg    |Malaysia  | 
+|Malta  |Mexico    | 
+|Moldova     |Monaco   |
+|Netherlands     |New Zealand    |
+|Nigeria    |Norway |
+|Oman   |Philippines   |
+|Poland   |Portugal    |
+|Romania   |Saudi Arabia   |
+|Senegal |Serbia   |
+|Slovakia   |Slovenia  |   
+|South Africa    |Spain    |   
+|Sweden   |Switzerland    |   
+|Taiwan  |Tajikistan   |   
+|Thailand  |Türkiye    |   
+|Ukraine   |United Arab Emirates  |  
+|United Kingdom     |Uzbekistan    |  
+|Vietnam    |Zambia |
 |Zimbabwe    |   |
 
 ¹ For Italy, you must enter your organization's Codice Fiscale using the following steps with the **Manage Tax IDs** option.
@@ -114,13 +116,13 @@ Customers in the following countries or regions can add their Tax IDs.
 1. Search for **Cost Management + Billing**.  
     :::image type="content" border="true" source="./media/manage-tax-information/search-cmb.png" alt-text="Screenshot that shows where to search for Cost Management + Billing.":::
 1. In the left menu under **Settings**, select **Properties**.
-1. Select **Manage Tax IDs**.  
-    :::image type="content" source="./media/manage-tax-information/update-tax-id.png" alt-text="Screenshot showing where to update the Tax I D." lightbox="./media/manage-tax-information/update-tax-id.png" :::
+1. Select **Manage Tax IDs**.
+
 1. Enter new tax IDs and then select **Save**.  
     > [!NOTE]
     > If you don't see the Tax IDs section, Tax IDs aren't yet collected for your region. Or, updating Tax IDs in the Azure portal isn't supported for your account.
 
-## Add your GSTIN for billing accounts in India 
+## Add your GSTIN for MOSP billing accounts in India
 
 1. Sign in to the Azure portal using the email address that has account administrator permission on the account.
 1. Search for **Subscriptions**.

@@ -41,7 +41,7 @@ During scaling operations, which take 5-7 minutes to complete, existing connecti
 
 [!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
 
-Azure Firewall can be configured during deployment to span multiple Availability Zones for increased availability. When deployed across multiple availability zones, Azure Firewall provides enhanced reliability and uptime guarantees.
+Azure Firewall is automatically deployed across availability zones in supported regions when created through the Azure portal. For advanced zone configuration options, you must use Azure PowerShell, Azure CLI, or ARM templates.
 
 Azure Firewall supports both zone-redundant and zonal deployment models:
 
@@ -79,15 +79,18 @@ There's no extra cost for a firewall deployed in more than one availability zone
 
 This section explains how to configure availability zone support for your firewalls.
 
-- **Create a new firewall with availability zone support:** The approach you use to configure availability zones depends on whether you want to create a zone-redundant or zonal firewall.
+- **Create a new firewall with availability zone support:** The approach you use to configure availability zones depends on whether you want to create a zone-redundant or zonal firewall, and the tooling you use.
 
-  - *Zone-redundant:* When you deploy a new firewall, specify two or more availability zones. We recommend that you select all zones so that your firewall can use all of the availability zones, unless you have a specific reason not to use a particular zone.
+  > [!IMPORTANT]
+  > Zone redundancy is automatically enabled when deploying through the Azure portal. To configure specific zones, you must use another tool, like the Azure CLI, Azure PowerShell, Bicep, or ARM templates.
 
-    For guidance on deploying a new firewall, see these resources:
-    - [Deploy an Azure Firewall with Availability Zones using Azure PowerShell](../firewall/deploy-availability-zone-powershell.md)
-    - [Deploy Azure Firewall using Azure portal](../firewall/tutorial-firewall-deploy-portal.md) and select multiple availability zones during deployment
+  - *Zone-redundant:* When you deploy a new firewall by using the Azure portal, your firewall is automatically zone redundant by default. For detailed guidance, see [Deploy Azure Firewall using Azure portal](../firewall/tutorial-firewall-deploy-portal.md).
 
-  - *Zonal:* You can deploy a zonal firewall by following the same deployment methods as for a zone-redundant deployment, but select a single specific availability zone.
+    When you use the Azure CLI, Azure PowerShell, Bicep, ARM templates, or Terraform, you can optionally specify the availability zones to deploy your firewall into. You can deploy a zone-redundant firewall by specifying two or more zones. We recommend that you select all zones so that your firewall can use all of the availability zones, unless you have a specific reason not to use a particular zone.
+    
+    For detailed guidance for Azure PowerShell, see [Deploy an Azure Firewall with availability zones using Azure PowerShell](../firewall/deploy-availability-zone-powershell.md).
+
+  - *Zonal:* You can deploy a zonal firewall by using the the Azure CLI, Azure PowerShell, Bicep, ARM templates, or Terraform. Select a single specific availability zone.
 
     > [!NOTE]
     > [!INCLUDE [Availability zone numbering](./includes/reliability-availability-zone-numbering-include.md)]

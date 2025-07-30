@@ -70,11 +70,13 @@ Europe | North Europe or West Europe
 France | France Central
 Germany | Germany West Central
 India | Central India or South India
+Indonesia| Indonesia Central
 Israel| Israel Central
 Italy | North Italy
 Japan |  Japan East or Japan West
 Jio India | Jio India West 
 Korea | Korea Central
+Malaysia | Malaysia West
 Mexico | Mexico Central
 New Zealand | New Zealand North
 Norway | Norway East

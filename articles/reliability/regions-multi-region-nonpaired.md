@@ -30,7 +30,7 @@ Azure Cache for Redis provide two distinct cross-region replication options that
 
 ## Azure Container Registry
 
-Geo-replication enables an Azure container registry to function as a single registry, serving multiple regions with multi-primary regional registries. There's no restrictions dictated by region pairs for this feature. For more information, see [Geo-replication in Azure Container Registry](/azure/container-registry/container-registry-geo-replication).
+To learn about how to create multi-region solutions using Azure Container Registry, see [Reliability in Azure Container Registry](./reliability-container-registry.md).
 
 ## Azure Cosmos DB
 
@@ -72,6 +72,10 @@ To learn about how to create multi-region solutions using Azure Kubernetes Servi
 
 Log Analytics workspaces in Azure Monitor Logs don't use paired regions. To ensure business continuity and protect against data loss, enable cross-region workspace replication.
 For more information, see [Enhance resilience by replicating your Log Analytics workspace across regions](/azure/azure-monitor/logs/workspace-replication).
+
+## Azure Queue Storage
+
+To learn about how to create multi-region solutions using Azure Queue Storage, see [Reliability in Azure Queue Storage](./reliability-storage-queue.md).
 
 ## Azure Service Bus 
 
@@ -120,6 +124,8 @@ To achieve geo-replication in nonpaired regions:
 
    > [!IMPORTANT]
    > You must disable cloud tiering to ensure that all data is present locally, and provision enough storage on the Azure Virtual Machine to hold the entire dataset. To ensure changes replicate quickly to the secondary region, files should only be accessed and modified on the server endpoint rather than in Azure.
+
+- **For Azure Queue Storage:** To learn about how to create multi-region solutions using Azure Queue Storage, see [Reliability in Azure Queue Storage](./reliability-storage-queue.md).
 
 ## Azure Virtual Desktop
 
