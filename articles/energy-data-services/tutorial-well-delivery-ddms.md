@@ -115,7 +115,7 @@ curl --request PUT \
     },
     "legal": {
         "legaltags": [
-            "<data_partition_id>-entity-1753861267437"
+            "LegalTagName"
         ],
         "otherRelevantDataCountries": [
             "US"
@@ -161,7 +161,7 @@ curl --request PUT \
     },
     "legal": {
         "legaltags": [
-            "<data_partition_id>-entity-1753861298505"
+            "LegalTagName"
         ],
         "otherRelevantDataCountries": [
             "US"
@@ -210,7 +210,7 @@ curl --request PUT \
     },
     "legal": {
         "legaltags": [
-            "<data_partition_id>-entity-1753861290577"
+            "LegalTagName"
         ],
         "otherRelevantDataCountries": [
             "US"
