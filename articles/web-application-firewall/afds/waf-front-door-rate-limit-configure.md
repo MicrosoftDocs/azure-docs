@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 05/19/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 zone_pivot_groups: web-application-firewall-configuration
+# Customer intent: "As a web application administrator, I want to configure a rate-limit rule for my Azure Front Door endpoint, so that I can manage incoming traffic and protect my back-end services from performance issues during high-traffic promotions."
 ---
 
 # Configure a Web Application Firewall rate-limit rule

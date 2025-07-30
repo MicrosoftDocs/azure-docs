@@ -7,19 +7,12 @@ ms.topic: concept-article
 ms.date: 11/15/2023
 ms.author: yenchiho
 ms.custom: overview
+# Customer intent: As a cloud architect, I want to assess our Java and .NET applications for migration readiness, so that I can create detailed replatforming recommendations and ensure a smooth transition to Azure.
 ---
 
 # Azure Migrate application and code assessment
 
 This article covers information about Azure Migrate application and code assessment for Java and .NET.
-
-You can download Azure Migrate application and code assessment right now from the following links:
-
-> [!div class="nextstepaction"]
-> [Azure Migrate application and code assessment for Java](https://aka.ms/appcat/azure-appcat-cli-latest.zip)
-
-> [!div class="nextstepaction"]
-> [Azure Migrate application and code assessment for .NET](https://aka.ms/appcat/download/dotnet)
 
 > [!NOTE]
 > You can start from either Azure Migrate or Azure Migrate application and code assessment. We offer you the tools for best coverage of different scenarios and use cases that you aim to achieve.

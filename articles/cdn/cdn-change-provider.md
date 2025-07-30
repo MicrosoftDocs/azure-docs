@@ -10,6 +10,7 @@ ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/31/2025
 ROBOTS: NOINDEX
+# Customer intent: As a web administrator, I want to follow best practices for migrating between content delivery network providers, so that I can ensure a smooth transition while optimizing costs and performance for my web delivery requirements.
 ---
 
 # Best practices while migrating between content delivery network providers

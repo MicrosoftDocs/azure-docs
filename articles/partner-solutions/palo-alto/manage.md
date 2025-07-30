@@ -1,68 +1,33 @@
 ---
-title: Manage Cloud Next Generation Firewall (NGFW) by Palo Alto Networks resource through the Azure portal
-description: Manage your Cloud NGFW by Palo Alto Networks in Azure portal, including networking, NAT, rulestack settings, logging, Domain Name System (DNS) proxy configuration, and billing plan changes.
+title: Manage a Cloud Next-Generation Firewall (NGFW) by Palo Alto Networks Resource by Using the Azure Portal
+description: Manage your Cloud NGFW resource in the Azure portal, including networking, NAT, rulestack settings, logging, Domain Name System (DNS) proxy configuration, and billing plan changes.
 ms.topic: how-to
-ms.date: 12/09/2024
+ms.date: 06/26/2025
 ms.custom:
   - ai-gen-docs-bap
   - ai-gen-desc
   - ai-seo-date:12/09/2024
 ---
 
-# Manage your Cloud NGFW by Palo Alto Networks through the portal
+# Manage your Cloud NGFW by Palo Alto Networks resource by using the Azure portal
 
-Once your Cloud NGFW by Palo Alto Networks resource is created in the Azure portal, you might need to get information about it or change it. Here's list of ways to manage your Palo Alto resource.
+After you create your Cloud NGFW by Palo Alto Networks resource, you might need to get information about it or change its settings. 
 
-- [Networking and NAT](#networking-and-nat)
-- [Rulestack](#rulestack)
-- [Log settings](#log-settings)
-- [DNS Proxy](#dns-proxy)
-- [Rules](#rules)
-- [Delete a resource](#delete-a-resource)
+## Resource overview 
 
-From the service menu, select your Cloud NGFW by Palo Alto Networks deployment. Use the service menu to move through the settings for your Cloud NGFW by Palo Alto Networks.
+[!INCLUDE [manage](../includes/manage.md)]
 
-## Networking and NAT
+   :::image type="content" source="media/palo-alto-manage/palo-alto-overview.png" alt-text="Screenshot of the Cloud NGFW overview page." lightbox="media/palo-alto-manage/palo-alto-overview.png":::
 
-1. Select **Networking & NAT** in the service menu.
+You can view and change settings by selecting one of the following settings categories under **Settings** in the left pane:
 
-1. Select the **Type** by checking the **Virtual Network** or **Virtual WAN** options.
-
-1. You can see the  **Virtual Network**, **Private Subnet**, and **Public Subnet** details.
-
-1. From **Source Network Address Translation (SNAT)**, you can select the **Enable Source NAT**.
-
-1. From **Destination Network Address Translation (DNAT)**, you can search in the table for the settings that you want.
-
-## Rulestack
-
-1. Select **Rulestack** in the service menu.
-
-1. For the **Managed by**, select either **Azure Portal** or **"Palo Alto Networks Panorama** to determine the mechanism for managing Rulestack. You must have Palo Alto Networks Panorama set up in order to select it.
-
-1. For the **Local Rulestack**, select an existing Rulestack from the dropdown.
-
-## Log settings
-
-1. Select **Log Settings** in the service menu.
-
-1. Select **edit** to enable **Log Settings**.
-
-1. Select the **Enable Log Settings** checkbox.
-
-1. Select **Log Setting** from the dropdown list.
-
-## DNS Proxy
-
-1. Select **DNS Proxy** in the service menu.
-
-1. Select either **Enable** or **Disable**.
-
-1. Select **Save** to enable DNS Proxy.
-
-## Rules
-
-Search for  the Local rules under the **Search** option.
+- Networking & NAT
+- Security Policies
+- Log Settings
+- DNS Proxy
+- Rules
+- Properties 
+- Locks
 
 ## Change plan
 
@@ -70,22 +35,12 @@ To change the Cloud NGFW's billing plan, go to **Overview** and select **Change 
 
 ## Delete a resource
 
-To delete a Cloud NGFW by Palo Alto Networks resource
-
-1. Select **Overview** in the service menu.
-
-1. Select **Delete**.
-
-1. Confirm that you want to delete the Cloud NGFW by Palo Alto Networks resource.
-
-1. Select **Delete**.
-
-After the account is deleted, logs are no longer sent to Cloud NGFW by Palo Alto Networks. Also, all billing stops for Cloud NGFW by Palo Alto Networks through Azure Marketplace.
+[!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
 > [!NOTE]
-> The delete button on the main account is only activated if all the sub-accounts mapped to the main account are already deleted. Refer to section for deleting sub-accounts here.
+> The **Delete** button on the resource is activated only if all connected resources are already deleted. For more information, see [Azure Resource Manager resource group and resource deletion](/azure/azure-resource-manager/management/delete-resource-group).
 
-## Next steps
+## Next step
 
 - For help with troubleshooting, see [Troubleshooting Palo Alto integration with Azure](troubleshoot.md).
 

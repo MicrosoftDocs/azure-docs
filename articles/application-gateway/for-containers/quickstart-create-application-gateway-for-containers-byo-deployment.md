@@ -8,6 +8,7 @@ ms.custom: devx-track-azurecli
 ms.topic: quickstart
 ms.date: 08/12/2024
 ms.author: mbender
+# Customer intent: As a cloud architect, I want to provision and manage Application Gateway for Containers resources independently of Kubernetes, so that I can streamline my deployment processes and maintain resource lifecycles directly within Azure.
 ---
 
 # Quickstart: Create Application Gateway for Containers - bring your own deployment

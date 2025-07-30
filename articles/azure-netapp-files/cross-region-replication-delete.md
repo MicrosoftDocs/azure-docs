@@ -9,6 +9,7 @@ ms.date: 03/22/2025
 ms.author: anfdocs
 ms.custom:
   - build-2025
+# Customer intent: "As a cloud administrator, I want to delete unnecessary volume replications and volumes in a cross-region setup, so that I can free up resources and maintain optimized storage management."
 ---
 # Delete volume replications or volumes
 

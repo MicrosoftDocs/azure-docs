@@ -9,6 +9,7 @@ ms.date: 09/15/2023
 ms.author: duau
 ms.custom: devx-track-azurecli, template-tutorial
 
+# Customer intent: As a network administrator, I want to configure route filters for Microsoft peering using a command-line interface, so that I can manage and limit the prefixes advertised through my ExpressRoute circuit, optimizing my network's routing table.
 ---
 # Configure route filters for Microsoft peering: Azure CLI
 

@@ -11,6 +11,7 @@ ms.date: 12/04/2019
 ms.author: akashdubey
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurepowershell
+# Customer intent: As an IT administrator managing Azure environments, I want to use PowerShell to connect and manage storage in independent clouds, so that I can ensure proper data governance and compliance with local regulations.
 ---
 
 # Managing Storage in the Azure independent clouds using PowerShell

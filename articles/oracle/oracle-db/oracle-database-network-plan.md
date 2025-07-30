@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.custom: engagement-fy23
 ms.date: 12/12/2023
+# Customer intent: "As a cloud architect, I want to configure network topologies for Oracle Database@Azure, so that I can ensure optimal connectivity, security, and performance for the deployment in my virtual network environment."
 ---
 # Network planning for Oracle Database@Azure
 In this article, learn about network topologies and constraints in Oracle Database@Azure.
@@ -22,10 +23,12 @@ Default network features enable basic network connectivity for both new and exis
 Advanced network features enhance the virtual networking experience, offering improved security, performance, and control—similar to standard Azure VMs. These features are generally available for new deployments in the following regions:
 
 * Australia East
-* Australia Southeast 
+* Australia Southeast
+* Canada Central
 * Central US 
 * East US 
-* East US2 
+* East US2
+* South Central US
 * US West  
 * UK South 
 * UK West
@@ -35,7 +38,7 @@ Advanced network features enhance the virtual networking experience, offering im
 > Advanced network features are currently supported only for new Oracle Database@Azure deployments. 
 > Existing virtual networks with previously created Oracle Database@Azure delegated subnets will not support these features at this time. Support for existing deployments is planned for later this year. 
 > ### Registration required for delegated subnets
->To use advanced network features, use the following commands (via AZCLI) to register before creating your virtual network for the Oracle Database@Azure deployment.
+>To use advanced network features, use the following commands (via AZCLI) to register before creating a new delegated subnet  for the Oracle Database@Azure deployment.
 >
 > ```Register-AzProviderFeature  -FeatureName "EnableRotterdamSdnApplianceForOracle" -ProviderNamespace "Microsoft.Baremetal" ```
 >
@@ -92,6 +95,7 @@ The following table describes required configurations of supported network featu
 When routing traffic to Oracle Database@Azure through a Network Virtual Appliance (NVA)/firewall, the User-Defined Route (UDR) prefix **must be at least as specific as the subnet delegated to the Oracle Database@Azure instance**. Broader prefixes may cause traffic to be dropped.
  
  If the delegated subnet for your instance is x.x.x.x/27, configure the UDR on the Gateway Subnet as:  
+
  | Route Prefix | Routing Outcome |
  |--------------|-----------------|
  |x.x.x.x/27 | (same as the subnet) ✅ | 
@@ -124,7 +128,7 @@ Advanced network features enhance your virtual networking experience by providin
 ### Will advanced network features work for existing deployments? 
 Not at the moment. Support for existing deployments is on our roadmap, and we’re actively working to enable it. Stay tuned for updates in the near future. 
 ### Do I need to self-register to enable advanced network features for new deployments? 
-Yes. To take advantage of advanced network features for new deployments, you must complete a registration process. Please run the registration commands before creating a new VNet and delegated subnet for your Oracle Database@Azure deployments. 
+Yes. To take advantage of advanced network features for new deployments, you must complete a registration process. Run the registration commands before creating a new delegated subnet in your existing or new VNet for your Oracle Database@Azure deployments.
 ### How can I check if my deployment supports advanced network features? 
 Currently, there’s no direct way to verify whether a VNet supports advanced network features. We recommend tracking your feature registration timeline and associating it with the VNets created afterward. You can also use the Activity Log blade under the VNet to review creation details—but note, logs are only available for the past 90 days by default. 
 

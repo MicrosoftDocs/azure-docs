@@ -125,7 +125,7 @@ The following example output shows state store RESP3 payloads:
 
 ### Response format
 
-When the state store detects an invalid RESP3 payload, it still returns a response to the requestor's `Response Topic`. Examples of invalid payloads include an invalid command, an illegal RESP3, or integer overflow. An invalid payload starts with the string `-ERR` and contains more details.
+When the state store detects an invalid RESP3 payload, it still returns a response to the requester's `Response Topic`. Examples of invalid payloads include an invalid command, an illegal RESP3, or integer overflow. An invalid payload starts with the string `-ERR` and contains more details.
 
 > [!NOTE]
 > A `GET`, `DEL`, or `VDEL` request on a nonexistent key is not considered an error.

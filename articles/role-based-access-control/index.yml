@@ -8,9 +8,9 @@ metadata:
   description: Learn about Azure role-based access control (Azure RBAC) to manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
   ms.service: role-based-access-control
   ms.topic: landing-page
-  author: rolyon
-  manager: femila
-  ms.author: rolyon
+  author: jenniferf-skc
+  manager: pmwongera
+  ms.author: jfields
   ms.date: 02/18/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new

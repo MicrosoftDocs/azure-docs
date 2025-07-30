@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.date: 11/01/2021
 ms.author: jushiman
 ms.custom: mode-other, linux-related-content
+# Customer intent: "As a cloud engineer, I want to deploy an Intel SGX VM from the Azure Marketplace, so that I can utilize secure computing capabilities for my applications."
 ---
 
 # Quickstart: Create Intel SGX VM in the Azure Marketplace

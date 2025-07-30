@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: concept-article
 ms.date: 10/23/2024
+# Customer intent: As an Internet Service Provider, I want to understand the technical requirements and types of connections for becoming an Azure Peering Service partner, so that I can offer reliable and redundant peering solutions to my customers.
 ---
 
 # Azure Peering Service partner overview

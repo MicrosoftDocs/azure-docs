@@ -20,7 +20,7 @@ the link in the **Version** column to view the source on the
 
 ## Azure Stack Edge
 
-[!INCLUDE [azure-policy-reference-cat-stackedge](../../includes/policy/reference/bycat/policies-azure-stack-edge.md)]
+[!INCLUDE [azure-policy-reference-cat-stackedge](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policies-azure-stack-edge.md)]
 
 ## Next steps
 

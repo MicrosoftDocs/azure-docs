@@ -7,6 +7,7 @@ ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 5/23/2025
 ms.author: mbender
+# Customer intent: As a Kubernetes administrator, I want to configure annotations for the Application Gateway Ingress Controller, so that I can customize features like backend protocols and health probes to optimize traffic management and ensure high availability of my containerized applications.
 ---
 
 # Annotations for Application Gateway Ingress Controller
@@ -27,7 +28,7 @@ For AGIC to observe an ingress resource, the resource *must be annotated* with `
 | [appgw.ingress.kubernetes.io/health-probe-hostname](#custom-health-probe) | `string` | `127.0.0.1` ||
 | [appgw.ingress.kubernetes.io/health-probe-port](#custom-health-probe) | `int32` | `80` ||
 | [appgw.ingress.kubernetes.io/health-probe-path](#custom-health-probe) | `string` | `/` ||
-| [appgw.ingress.kubernetes.io/health-probe-status-code](#custom-health-probe) | `string` | `200-399` ||
+| [appgw.ingress.kubernetes.io/health-probe-status-codes](#custom-health-probe) | `string` | `200-399` ||
 | [appgw.ingress.kubernetes.io/health-probe-interval](#custom-health-probe) | `int32` | `30` (seconds) ||
 | [appgw.ingress.kubernetes.io/health-probe-timeout](#custom-health-probe) | `int32` | `30` (seconds) ||
 | [appgw.ingress.kubernetes.io/health-probe-unhealthy-threshold](#custom-health-probe) | `int32` | `3` ||
@@ -37,7 +38,8 @@ For AGIC to observe an ingress resource, the resource *must be annotated* with `
 | [appgw.ingress.kubernetes.io/use-private-ip](#use-private-ip) | `bool` | `false` ||
 | [appgw.ingress.kubernetes.io/override-frontend-port](#override-frontend-port) | `bool` | `false` ||
 | [appgw.ingress.kubernetes.io/cookie-based-affinity](#cookie-based-affinity) | `bool` | `false` ||
-| [appgw.ingress.kubernetes.io/request-timeout](#request-timeout) | `int32` (seconds) | `30` ||
+| [appgw.ingress.kubernetes.io/request-timeout]
+(#request-timeout) | `int32` (seconds) | `30` ||
 | [appgw.ingress.kubernetes.io/use-private-ip](#use-private-ip) | `bool` | `false` ||
 | [appgw.ingress.kubernetes.io/backend-protocol](#backend-protocol) | `string` | `http` | `http`, `https` |
 | [appgw.ingress.kubernetes.io/hostname-extension](#hostname-extension) | `string` | `nil` ||
@@ -121,12 +123,12 @@ spec:
 
 ## Custom Health Probe
 
-You can [configure Application Gateway](./application-gateway-probe-overview.md) to send custom health probes to the backend address pool. When the following annotations are present, the Kubernetes ingress controller [creates a custom probe](./application-gateway-create-probe-portal.md) to monitor the backend application. The controller then applies the changes to Application Gateway.
+You can [configure Application Gateway](./application-gateway-probe-overview.md) to send custom health probe to the backend address pool. When the following annotations are present, the Kubernetes ingress controller [creates a custom probe](./application-gateway-create-probe-portal.md) to monitor the backend application. The controller then applies the changes to Application Gateway.
 
 - `health-probe-hostname`: This annotation allows a custom hostname on the health probe.
 - `health-probe-port`: This annotation configures a custom port for the health probe.
 - `health-probe-path`: This annotation defines a path for the health probe.
-- `health-probe-status-code`: This annotation allows the health probe to accept different HTTP status codes.
+- `health-probe-status-codes`: This annotation allows the health probe to accept different HTTP status codes.
 - `health-probe-interval`: This annotation defines the interval at which the health probe runs.
 - `health-probe-timeout`: This annotation defines how long the health probe waits for a response before failing the probe.
 - `health-probe-unhealthy-threshold`: This annotation defines how many health probes must fail for the backend to be marked as unhealthy.
@@ -137,7 +139,7 @@ You can [configure Application Gateway](./application-gateway-probe-overview.md)
 appgw.ingress.kubernetes.io/health-probe-hostname: "contoso.com"
 appgw.ingress.kubernetes.io/health-probe-port: 80
 appgw.ingress.kubernetes.io/health-probe-path: "/"
-appgw.ingress.kubernetes.io/health-probe-status-code: "100-599"
+appgw.ingress.kubernetes.io/health-probe-status-codes: "100-599"
 appgw.ingress.kubernetes.io/health-probe-interval: 30
 appgw.ingress.kubernetes.io/health-probe-timeout: 30
 appgw.ingress.kubernetes.io/health-probe-unhealthy-threshold: 2
@@ -155,7 +157,7 @@ metadata:
     appgw.ingress.kubernetes.io/health-probe-hostname: "contoso.com"
     appgw.ingress.kubernetes.io/health-probe-port: 81
     appgw.ingress.kubernetes.io/health-probe-path: "/probepath"
-    appgw.ingress.kubernetes.io/health-probe-status-code: "100-599"
+    appgw.ingress.kubernetes.io/health-probe-status-codes: "100-599"
     appgw.ingress.kubernetes.io/health-probe-interval: 31
     appgw.ingress.kubernetes.io/health-probe-timeout: 31
     appgw.ingress.kubernetes.io/health-probe-unhealthy-threshold: 2

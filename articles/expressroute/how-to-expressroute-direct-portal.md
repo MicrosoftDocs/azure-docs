@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 01/31/2025
 ms.author: duau
 
+# Customer intent: As a network engineer, I want to configure Azure ExpressRoute Direct using the Azure portal, so that I can establish a direct connection to Microsoft's global network for improved performance and reliability in data transfer.
 ---
 
 # Create Azure ExpressRoute Direct using the Azure portal

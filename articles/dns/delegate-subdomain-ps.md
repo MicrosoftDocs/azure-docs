@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 11/30/2023
 ms.author: allensu 
 ms.custom: devx-track-azurepowershell
+# Customer intent: "As a system administrator, I want to delegate an Azure DNS subdomain using PowerShell, so that I can manage the subdomain independently from my primary domain and ensure proper domain name resolution."
 ---
 
 # Delegate an Azure DNS subdomain using Azure PowerShell

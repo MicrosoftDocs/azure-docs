@@ -30,7 +30,7 @@ sections:
         answer: |
           No. [AKS-Engine based confidential computing nodes](https://github.com/Azure/aks-engine/blob/master/docs/topics/sgx.md) support confidential computing nodes that allow custom installations and have full control over your Kubernetes control plane.
 
-      - question: Can I run ACC Nodes with other standard AKS SKUs (build a heterogenous node pool cluster)? 
+      - question: Can I run ACC Nodes with other standard AKS SKUs (build a heterogeneous node pool cluster)? 
         answer: |
           Yes, you can run different node pools within the same AKS cluster including ACC nodes. To target your enclave applications on a specific node pool, consider adding node selectors or applying EPC limits. Refer to more details on the quick start on confidential nodes [here](confidential-enclave-nodes-aks-get-started.md).
 

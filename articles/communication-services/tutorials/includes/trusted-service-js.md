@@ -30,7 +30,7 @@ For this tutorial, you create a function app that serves as a trusted token prov
 
 This service is responsible for authenticating users to Communication Services. Users of your Communication Services applications require an access token to participate in chat threads and VoIP calls. The function works as a trusted middleman between the user and Communication Services. You can provision access tokens without exposing your resource connection string to your users.
 
-For more information, see the [client-server architecture](../../concepts/identity-model.md#client-server-architecture) and [authentication and authorization](../../concepts/authentication.md) conceptual documentation.
+For more information, see the [client-server architecture](../../concepts/identity-model.md#client-server-architecture-for-the-bring-your-own-identity-byoi-model) and [authentication and authorization](../../concepts/authentication.md) conceptual documentation.
 
 ## Set up a function
 

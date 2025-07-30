@@ -6,6 +6,7 @@ ms.date: 04/06/2025
 ms.custom: mvc, devx-track-azurecli, mode-api, linux-related-content, innovation-engine
 author: padmalathas
 ms.author: padmalathas
+# Customer intent: As a cloud user, I want to create and manage a Batch account using command-line tools, so that I can efficiently run jobs and tasks on virtual machines for large-scale processing workflows.
 ---
 
 # Quickstart: Use the Azure CLI to create a Batch account and run a job

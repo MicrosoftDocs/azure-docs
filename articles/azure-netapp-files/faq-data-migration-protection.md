@@ -1,11 +1,12 @@
 ---
-title: Data migration and protection FAQs for Azure NetApp Files | Microsoft Docs
+title: Data migration and protection FAQs for Azure NetApp Files 
 description: Answers frequently asked questions (FAQs) about Azure NetApp Files data migration and protection.
 ms.service: azure-netapp-files
 ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
 ms.date: 03/27/2025
+# Customer intent: "As a data engineer, I want to migrate data to Azure NetApp Files using file-based copy tools, so that I can efficiently manage and protect my organization's critical data in the cloud."
 ---
 # Data migration and protection FAQs for Azure NetApp Files
 

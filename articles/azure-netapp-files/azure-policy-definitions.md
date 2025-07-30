@@ -6,6 +6,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 09/02/2024
 ms.author: anfdocs
+# Customer intent: As an Azure administrator, I want to implement Azure Policy definitions for Azure NetApp Files, so that I can enforce compliance and enhance security for my organization's data storage solutions.
 ---
 # Azure Policy definitions for Azure NetApp Files  
 

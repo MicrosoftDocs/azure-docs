@@ -87,11 +87,11 @@ For this quickstart, we're modifying files inside of the `src` folder.
 
 ### Install the package
 
-Use the `npm install` command to install the beta Azure Communication Services UI Library for JavaScript.
+Use the `npm install` command to install the latest beta Azure Communication Services UI Library for JavaScript.
 
 ```bash
 
-npm install @azure/communication-react@1.16.0-beta.1
+npm install @azure/communication-react@1.28.0-beta.2
 
 ```
 
@@ -100,8 +100,8 @@ you can most consistently use the API from the core libraries in your applicatio
 
 ```bash
 
-npm install @azure/communication-calling@1.24.1-beta.2
-npm install @azure/communication-chat@1.6.0-beta.1
+npm install @azure/communication-calling@1.36.1-beta.1
+npm install @azure/communication-chat@1.6.0-beta.7
 
 ```
 
@@ -133,9 +133,9 @@ import {
 } from '@azure/communication-react';
 import React, { useMemo } from 'react';
 
-initializeFileTypeIcons();
-
 function App(): JSX.Element {
+  initializeFileTypeIcons();
+
   // Common variables
   const endpointUrl = 'INSERT_ENDPOINT_URL';
   const userId = ' INSERT_USER_ID';
@@ -167,7 +167,7 @@ function App(): JSX.Element {
   );
   const chatAdapter = useAzureCommunicationChatAdapter(chatAdapterArgs);
 
-  if (!!chatAdapter) {
+  if (chatAdapter) {
     return (
       <>
         <div style={containerStyle}>
@@ -219,6 +219,7 @@ const uploadFileToAzureBlob = async (uploadTask: AttachmentUploadTask) => {
   return {
     url: 'https://sample.com/sample.jpg', // Download URL of the file.
   };
+}
 
 ```
 
@@ -290,6 +291,7 @@ const attachmentSelectionHandler: AttachmentSelectionHandler = async (uploadTask
       // Allows you to provide a custom error message.
       task.notifyUploadFailed('File too big. Select a file under 99 MB.');
     }
+    ...
   }
 }
 
@@ -318,7 +320,8 @@ const handler = async (attachment: AttachmentMetadata, message?: ChatMessage) =>
 };
 
 const customHandler = = async (attachment: AttachmentMetadata, message?: ChatMessage) => {
-   if (attachment.extension === "pdf") {
+  const extension = attachment.name.split(".").pop() || "";
+   if (extension === "pdf") {
     return [
       {
         title: "Custom button",
@@ -378,7 +381,7 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 - [Add chat to your app](../quickstarts/chat/get-started.md)
 - [Creating user access tokens](../quickstarts/identity/access-tokens.md)
-- [Learn about client and server architecture](../concepts/identity-model.md#client-server-architecture)
+- [Learn about client and server architecture](../concepts/identity-model.md#client-server-architecture-for-the-bring-your-own-identity-byoi-model)
 - [Learn about authentication](../concepts/authentication.md)
 - [Add file sharing with UI Library in Teams Interoperability Chat](./file-sharing-tutorial-interop-chat.md)
 - [Add file sharing with UI Library in Azure Communication Services Chat](./file-sharing-tutorial-acs-chat.md)

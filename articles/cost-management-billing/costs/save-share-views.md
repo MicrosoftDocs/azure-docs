@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: Learn how to save and share customized views in Cost Management. This guide explains how to preserve cost analysis views and share them with others.
 author: shasulin
 ms.author: shasulin
-ms.date: 01/07/2025
+ms.date: 06/27/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -14,11 +14,11 @@ ms.reviewer: shasulin
 
 # Save and share customized views
 
-Cost analysis is used to explore costs and get quick answers for things like finding the top cost contributors. Or, understanding how you're charged for the services you use. As you analyze cost, you might find specific views you want to save or share with others.
+Cost Analysis is used to explore costs and get quick answers for things like finding the top cost contributors. Or, understanding how you're charged for the services you use. As you analyze cost, you might find specific views you want to save or share with others.
 
 ## Save and share cost views
 
-A *view* is a saved query in Cost Management. When you save a view, all settings in cost analysis are saved, including filters, grouping, granularity, the main chart type, and donut charts. A view is saved only within the scope in which it was created. Underlying data isn't saved. Only you can see the private views you saved per scope, while shared views, saved within a scope, can be seen by anyone with Cost Management Reader access or greater to the scope.
+A *view* is a saved query in Cost Management. When you save a view, all settings in Cost Analysis are saved, including filters, grouping, granularity, the main chart type, and donut charts. A view is saved only within the scope in which it was created. Underlying data isn't saved. Only you can see the private views you saved per scope, while shared views, saved within a scope, can be seen by anyone with Cost Management Reader access or greater to the scope.
 
 Check out the [Sharing and saving views](https://www.youtube.com/watch?v=kQkXXj-SmvQ) video.
 
@@ -28,7 +28,7 @@ You can also pin the current view to an Azure portal dashboard. Pinning only inc
 
 ### To save a view
 
-1. In cost analysis, make sure that the settings that you want saved are chosen.
+1. In Cost Analysis, make sure that the settings that you want saved are chosen.
 1. Select the **Save** command at the top of the page to update your current view or **Save as** to save a new view.  
     :::image type="content" source="./media/save-share-views/save-options.png" alt-text="Screen shot showing the view save options." lightbox="./media/save-share-views/save-options.png" :::
 1. Enter a name for the view and then select **Save**.  
@@ -40,7 +40,7 @@ You can save up to 100 private views, across all scopes you have access to, for 
 
 ### To share a view
 
-1. In cost analysis, ensure that the currently selected view is the one that you want to share.
+1. In Cost Analysis, ensure that the currently selected view is the one that you want to share.
 1. Select the **Share** command at the top of the page.
 1. In the **Share** box, copy the URL and then select **OK**.  
     :::image type="content" source="./media/save-share-views/share.png" alt-text="Screen shot showing the Share box." lightbox="./media/save-share-views/share.png" :::
@@ -59,8 +59,8 @@ Use the following table for each property in the URL.
 | **portal-domain** | Primary domain for the Azure portal. For example, `portal.azure.com` or `portal.azure.us`). |
 | **directory-domain** | Domain used by your Microsoft Entra ID. You can also use the tenant ID. If omitted, the portal tries to use the default directory for the user that selected the link - it might  differ from the scope. |
 | **scope-id** | Full Resource Manager ID for the resource group, subscription, management group, or billing account you want to view cost for. If not specified, Cost Management uses the last view the user used in the Azure portal. The value must be URL encoded. |
-| **view-config** | Encoded view configuration. See the following details. If not specified, cost analysis uses the `view-id` parameter. If neither are specified, cost analysis uses the built-in Accumulated cost view. |
-| **view-id** | Full Resource Manager ID for the private or shared view to load. This value must be URL encoded. If not specified, cost analysis uses the `view` parameter. If neither are specified, cost analysis uses the built-in Accumulated cost view. |
+| **view-config** | Encoded view configuration. See the following details. If not specified, Cost Analysis uses the `view-id` parameter. If neither are specified, Cost Analysis uses the built-in Accumulated cost view. |
+| **view-id** | Full Resource Manager ID for the private or shared view to load. This value must be URL encoded. If not specified, Cost Analysis uses the `view` parameter. If neither are specified, Cost Analysis uses the built-in Accumulated cost view. |
 
 The `view-config` parameter is an encoded version of the JSON view configuration. For more information about the view body, see the [Views API reference](/rest/api/cost-management/views). To learn how to build specific customizations, pin the desired view to an empty Azure portal dashboard, then download the dashboard JSON to review the JSON view configuration.
 
@@ -73,11 +73,11 @@ After you have the desired view configuration:
 
 ## Pin a view to the Azure portal dashboard
 
-As mentioned previously, pinning a view to an Azure portal dashboard only saves the main chart or table. It's essentially a thumbnail you can select to get back to the view configuration in cost analysis. Keep in mind the dashboard tile is a copy of your view configuration – if you save a view that was previously pinned, the pinned tile doesn't update. To update the tile, pin the saved view again.
+As mentioned previously, pinning a view to an Azure portal dashboard only saves the main chart or table. It's essentially a thumbnail you can select to get back to the view configuration in Cost Analysis. Keep in mind the dashboard tile is a copy of your view configuration – if you save a view that was previously pinned, the pinned tile doesn't update. To update the tile, pin the saved view again.
 
-### To pin cost analysis to a dashboard
+### To pin Cost Analysis to a dashboard
 
-1. In cost analysis, ensure that the currently selected view is the one that you want to pin.
+1. In Cost Analysis, ensure that the currently selected view is the one that you want to pin.
 1. To the right of your billing scope or subscription name, select the **Pin** symbol.
 1. In the Pin to dashboard window, choose **Existing** to pin the current view to the existing dashboard or choose **Create new** to pin the current view to a new dashboard.  
     :::image type="content" source="./media/save-share-views/pin-dashboard.png" alt-text="Screen shot showing the Pin to dashboard page." lightbox="./media/save-share-views/pin-dashboard.png" :::
@@ -89,7 +89,7 @@ To view the dashboard after you pin it, from the Azure portal menu, select **Das
 
 ### To rename a tile
 
-1. From the dashboard where your tile is pinned, select the title of the tile you want to rename. This action opens cost analysis with that view. 
+1. From the dashboard where your tile is pinned, select the title of the tile you want to rename. This action opens Cost Analysis with that view. 
 1. Select the **Save** command at the top of the page.
 1. Enter the name of the tile you want to use.
 1. Select **Save**.
@@ -104,7 +104,7 @@ When you want to share information with others that don't have access to the sco
 
 :::image type="content" source="./media/save-share-views/download.png" alt-text="Screen shot showing the Download page." lightbox="./media/save-share-views/download.png" :::
 
-When you download data, cost analysis includes summarized data as shown in the table. The cost by resource view includes all resource meters in addition to the resource details. If you want a download of only resources and not the nested meters, use the Resources smart view. You can access the Resources view from the **Cost by resource** menu at the top of the page, where you can select the Resources, Resource groups, Subscriptions, Services, or Reservations view.
+When you download data, Cost Analysis includes summarized data as shown in the table. The cost by resource view includes all resource meters in addition to the resource details. If you want a download of only resources and not the nested meters, use the Resources smart view. You can access the Resources view from the **Cost by resource** menu at the top of the page, where you can select the Resources, Resource groups, Subscriptions, Services, or Reservations view.
 
 If you need more advanced summaries or you're interested in raw data that wasn't summarized, schedule an export to publish raw data to a storage account on a recurring basis.
 
@@ -114,14 +114,14 @@ In addition to saving and opening views repeatedly or sharing them with others m
 
 ### To subscribe to scheduled alerts
 
-1. In Cost analysis, select any chart view you want to subscribe to or create and save a new chart view.
+1. In Cost Analysis, select any chart view you want to subscribe to or create and save a new chart view.
     - Built-in views (for example, Accumulated costs, Daily costs, or Cost by service) can't be changed.
-    - The currency is displayed as USD on subscribed e-mail if creating email setting by using Built-in views.
+    - The currency is displayed as USD on subscribed email if creating email setting by using Built-in views.
     - If you need to change the date range, currency, amortization, or any other setting, you need to save that as a private or shared view.
 1. Select **Subscribe** at the top of the page.
 1. Select **+ Add** at the top of the list of alerts.
 1. Specify the desired email settings and select **Save**.
-    - The **Name** helps you distinguish the different emails setup for the current view. Use it to indicate audience or purpose of this specific email.
+    - The **Name** helps you distinguish the different emails setup for the current view. Use it to indicate the audience or the purpose of this specific email.
     - The **Subject** is what people see when they receive the email.
     - You can include up to 20 recipients. Consider using a distribution list if you have a large audience. To see how the email looks, start by sending it only to yourself. You can update it later.
     - The **Message** is shown in the email to give people more context about why they're receiving the email. You might want to include what it covers, who requested it, or who to contact to make changes.
@@ -131,14 +131,14 @@ In addition to saving and opening views repeatedly or sharing them with others m
     - The **End date** is when you receive the last email. It can be up to one year from the current day, which is the default. You can update it later.
     - The **Frequency** indicates how often you want the email to be sent. The frequency is based on the start date, so if you want a weekly email on a different day of the week, change the start date first. To get an email after the month is closed, select **After invoice finalized**. Ensure your view is looking at last month. If you use the current month, it only sends you the first few days of the month. By default, all emails are sent at 8:00 AM local time. To customize any of the options, select **Custom**.
     > [!NOTE]
-    > Scheduled alerts are set to your local time. However emails are sent at a fixed time in the UTC time zone. Daylight savings time isn't accounted for, which might result in a one-hour variation in your actual delivery time.
+    > Scheduled alerts are set to your local time. However, emails are sent at a fixed time in the UTC time zone. Daylight savings time isn't accounted for, which might result in a one-hour variation in your actual delivery time.
 1. After you save the alert, a list of configured alerts for the current view is shown. If you want to see a preview of the email, select the row and select **Send now** at the top to send the email to all recipients.
 
 Keep in mind that if you choose to include a link to data, anyone who receives the email has access to the data included in that email. Data expires after seven days.
 
 ## Frequently asked questions
 
-The following sections cover the most commonly asked questions and answers about saving and sharing customized views in Cost Management.
+The following sections cover the most frequently asked questions and answers about saving and sharing customized views in Cost Management.
 
 ### Why am I not receiving emails from scheduled alerts?
 
@@ -153,9 +153,9 @@ There could be a few reasons why you're not receiving alert emails. Try the foll
 >[!NOTE]
 > Azure checks the permissions of the alert rule creator before sending the alert email. If your organization has a policy that prohibits permanently assigning higher privileges to users, you can use a service principal and create the alert directly using the [Scheduled Actions API](/rest/api/cost-management/scheduled-actions/create-or-update-by-scope).
 
-### Why can't I use the Subscribe command in cost analysis?
+### Why can't I use the Subscribe command in Cost Analysis?
 
-The **Subscribe** command is currently unavailable for two scenarios in cost analysis:
+The **Subscribe** command is currently unavailable for two scenarios in Cost Analysis:
 
 - When using a management group scope
 - When working with table views
@@ -180,11 +180,11 @@ If you selected **Add a CSV download link** when creating the alert rule, you re
 
 ### Why does the downloaded file only contain data for a few days, and how can I access the complete data set?
 
-The downloaded file might only contain data for a few days due to a design that allows a maximum of 15,000 records for CSV files in the download experience. If there's a large volume of data being requested, you might see incomplete data in the downloaded file. For example, such as at the billing account scope at the resource level for an entire month. In such cases, we recommend creating an export for the same scope. This process allows you to retrieve all the data without encountering the record limit. For more information about how to create an export, see [Create export](tutorial-improved-exports.md#create-exports).
+The downloaded file might only contain data for a few days due to a design that allows a maximum of 15,000 records for CSV files in the download experience. If there's a large volume of data being requested, you might see incomplete data in the downloaded file. For example, when trying to download data for the billing account scope at the resource level for an entire month. In such cases, we recommend creating an export for the same scope. This process allows you to retrieve all the data without encountering the record limit. For more information about how to create an export, see [Create export](tutorial-improved-exports.md#create-exports).
 
-### Why does the image in the email not match Cost Analysis and stop midway through the month?
+### Why does the image in the email not match Cost Analysis and data capture stops midway through the month?
 
-To ensure optimal performance, Azure processes up to 200,000 rows when generating the image. It can cause the image to not match the Azure portal if there are more than 200,000 rows. In such cases, if the image in the email appears to stop midway through the month, we recommend visiting the Cost Analysis to view the complete data.
+To ensure optimal performance, Azure processes up to 200,000 rows when generating the image. It can cause the image to not match the Azure portal if there are more than 200,000 rows. In such cases, if the image in the email appears to stop midway through the month, we recommend visiting Cost Analysis to view the complete data.
 
 ## Next steps
 

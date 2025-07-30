@@ -6,6 +6,7 @@ ms.service: azure-hpc-cache
 ms.topic: how-to
 ms.date: 01/19/2022
 ms.author: rohogue
+# Customer intent: "As an IT administrator, I want to update Azure HPC Cache storage targets through the portal or CLI, so that I can modify access policies and namespace paths to optimize storage performance and ensure proper data management."
 ---
 
 # Edit storage targets

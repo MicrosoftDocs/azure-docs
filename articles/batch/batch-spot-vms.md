@@ -4,6 +4,7 @@ description: Learn how to provision Spot VMs to reduce the cost of Azure Batch w
 ms.topic: how-to
 ms.date: 04/02/2025
 ms.custom:
+# Customer intent: "As a cloud solutions architect, I want to deploy Batch workloads using Spot VMs, so that I can reduce costs while managing jobs with flexible completion times and efficient resource allocation."
 ---
 
 # Use Spot VMs with Batch workloads

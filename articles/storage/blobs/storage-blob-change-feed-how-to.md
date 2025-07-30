@@ -11,6 +11,7 @@ ms.service: azure-blob-storage
 ms.reviewer: sadodd
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
+# Customer intent: As a .NET developer, I want to process change feed records from Azure Blob Storage, so that I can efficiently track and respond to blob changes in my application.
 ---
 
 # Process change feed in Azure Blob Storage

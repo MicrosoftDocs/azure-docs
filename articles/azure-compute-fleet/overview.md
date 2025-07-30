@@ -9,6 +9,7 @@ ms.custom:
   - ignite-2024
 ms.date: 04/21/2025
 ms.reviewer: jushiman
+# Customer intent: As a cloud administrator, I want to deploy and manage multiple virtual machines efficiently using an automated compute resource management tool, so that I can optimize resource allocation based on cost and capacity while ensuring high availability for my workloads.
 ---
 
 # What is Azure Compute Fleet? 

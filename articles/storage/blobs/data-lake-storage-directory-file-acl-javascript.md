@@ -2,15 +2,16 @@
 title: Use JavaScript (Node.js) to manage data in Azure Data Lake Storage
 titleSuffix: Azure Storage
 description: Use Azure Storage Data Lake client library for JavaScript to manage directories and files in storage accounts that have a hierarchical namespace enabled.
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.service: azure-data-lake-storage
 ms.date: 02/07/2023
 ms.topic: how-to
 ms.reviewer: prishet
 ms.devlang: javascript
 ms.custom: devx-track-js
+# Customer intent: As a Node.js developer, I want to use the Azure Data Lake Storage client library so that I can efficiently manage files and directories in a hierarchical storage structure.
 ---
 
 # Use JavaScript SDK in Node.js to manage directories and files in Azure Data Lake Storage
@@ -262,3 +263,4 @@ async function ListFilesInDirectory(fileSystemClient) {
 - [Package (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-file-datalake)
 - [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples)
 - [Give Feedback](https://github.com/Azure/azure-sdk-for-java/issues)
+

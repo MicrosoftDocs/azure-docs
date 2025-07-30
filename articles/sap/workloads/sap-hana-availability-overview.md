@@ -9,6 +9,7 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
+# Customer intent: As a cloud architect, I want to implement high availability for SAP HANA on Azure VMs so that I can ensure the resilience and uptime of mission-critical databases in my organization.
 ---
 
 # SAP HANA high availability for Azure virtual machines

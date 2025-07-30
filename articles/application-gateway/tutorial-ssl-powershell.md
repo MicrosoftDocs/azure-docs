@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: mbender
 ms.custom: mvc, devx-track-azurepowershell
+# Customer intent: As a cloud engineer, I want to create an application gateway with TLS termination using PowerShell, so that I can securely manage traffic to my backend servers with SSL.
 ---
 
 # Create an application gateway with TLS termination using Azure PowerShell

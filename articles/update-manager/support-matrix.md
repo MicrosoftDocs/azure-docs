@@ -6,6 +6,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.date: 02/26/2025
 ms.topic: overview
+# Customer intent: As an IT administrator managing updates for Azure VMs and servers, I want to understand supported update sources and types, so that I can ensure my systems receive the necessary Microsoft and third-party application updates efficiently.
 ---
 
 # Supported update sources, types, Microsoft application updates and Third party updates
@@ -23,8 +24,7 @@ The following types of updates are supported.
 **Operating system updates** - Azure Update Manager supports operating system updates for both Windows and Linux.
 
 >[!NOTE]
-> Update Manager doesn't support driver updates.
-
+> Update Manager allows you to view driver updates during assessment, but does not currently support installing driver updates on your machines.
 
 ## Microsoft application updates on Windows
 

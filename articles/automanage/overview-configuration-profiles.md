@@ -7,6 +7,7 @@ ms.topic: overview
 ms.date: 9/07/2022
 ms.author: memccror
 ms.custom: references_regions
+# Customer intent: As an IT administrator managing virtual machines, I want to configure Automanage profiles for my machines, so that I can ensure compliance with best practices while customizing settings based on our specific IT requirements.
 ---
 
 # Configuration profiles

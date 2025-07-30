@@ -95,7 +95,7 @@ echo $clientsecret
 
 ## Change the flag for public client applications
 
-For public client applications that use the OAuth authorization protocol or features as described in [Public client and confidential client applications](https://learn.microsoft.com/entra/identity-platform/msal-client-applications#when-should-you-enable-a-public-client-flow-in-your-app-registration), change the **Allow public client flows** flag to **Yes**. For confidential client applications, skip this step.
+For public client applications that use the OAuth authorization protocol or features as described in [Public client and confidential client applications](/entra/identity-platform/msal-client-applications#when-should-you-enable-a-public-client-flow-in-your-app-registration), change the **Allow public client flows** flag to **Yes**. For confidential client applications, skip this step.
 
 [![Allow public client flows](media/app-registration-public-client.png)](media/app-registration-public-client.png#lightbox)
 

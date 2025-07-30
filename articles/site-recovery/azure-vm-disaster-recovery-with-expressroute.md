@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.date: 12/14/2023
 ms.author: jsuri
 
+# Customer intent: "As a cloud administrator, I want to set up disaster recovery for Azure virtual machines using ExpressRoute and Site Recovery, so that I can ensure minimal downtime and efficient recovery processes during regional outages."
 ---
 # Integrate ExpressRoute with disaster recovery for Azure virtual machines
 

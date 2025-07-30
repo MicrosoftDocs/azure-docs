@@ -3,14 +3,15 @@ title: Delete and restore a blob with Java
 titleSuffix: Azure Storage
 description: Learn how to delete and restore a blob in your Azure Storage account using the Java client library
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.date: 08/12/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
+# Customer intent: As a Java developer, I want to delete and restore blobs in Azure Storage, so that I can manage data effectively while minimizing accidental data loss.
 ---
 
 # Delete and restore a blob with Java
@@ -161,3 +162,4 @@ The Azure SDK for Java contains libraries that build on top of the Azure REST AP
 - [Blob versioning](versioning-overview.md)
 
 [!INCLUDE [storage-dev-guide-next-steps-java](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-java.md)]
+

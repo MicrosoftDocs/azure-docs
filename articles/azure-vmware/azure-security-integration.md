@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 2/28/2024
 ms.custom: engagement-fy23
+# Customer intent: "As an IT security administrator, I want to integrate security monitoring for Azure VMware Solution with advanced threat detection tools, so that I can proactively assess vulnerabilities and respond to security incidents effectively."
 ---
 
 # Integrate Microsoft Defender for Cloud with Azure VMware Solution 

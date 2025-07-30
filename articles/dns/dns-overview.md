@@ -4,9 +4,10 @@ description: An overview of services provided by Azure DNS.
 author: asudbring
 ms.service: azure-dns
 ms.topic: overview
-ms.date: 08/12/2024
+ms.date: 05/28/2025
 ms.author: allensu
 #Customer intent: As an administrator, I want to evaluate Azure DNS so I can determine if I want to use it instead of my current DNS service.
+# Customer intent: As an IT administrator, I want to assess Azure DNS services, so that I can decide if it meets my organization's DNS hosting and management needs better than our current solution.
 ---
 
 # Azure DNS overview
@@ -37,6 +38,9 @@ Azure DNS enables multiple scenarios, including:
 * [Load-balance your applications](/azure/traffic-manager/traffic-manager-how-it-works)
 * Increase application [availability](/azure/traffic-manager/traffic-manager-monitoring) and [performance](/azure/traffic-manager/traffic-manager-configure-performance-routing-method)
 * [Monitor your application traffic patterns](/azure/traffic-manager/traffic-manager-traffic-view-overview)
+
+> [!NOTE]
+> Azure DNS is one of the services that make up the Network Foundations category in Azure. Other services in this category include [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md) and [Azure Private Link](../private-link/private-link-overview.md). Each service has its own unique features and use cases. For more information on this service category, see [Network Foundations](../networking/foundations/network-foundations-overview.md).
 
 ## Next steps
 

@@ -7,6 +7,7 @@ ms.topic: concept-article
 author: abell
 ms.author: abell
 ms.service: azure-bastion
+# Customer intent: As a cloud administrator, I want to monitor Azure Bastion using Azure Monitor so that I can collect and analyze performance data and logs to ensure system reliability and optimize resource management.
 ---
 
 # Monitor  Azure Bastion

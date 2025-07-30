@@ -7,6 +7,7 @@ ms.service: azure-appgw-for-containers
 ms.topic: how-to
 ms.date: 11/5/2024
 ms.author: mbender
+# Customer intent: As a cloud engineer, I want to implement end-to-end TLS for my applications using Application Gateway for Containers, so that I can ensure secure communication between clients and backend services.
 ---
 
 # End-to-end TLS with Application Gateway for Containers - Ingress API

@@ -8,6 +8,7 @@ ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 11/18/2024
 ms.author: cherylmc
+# Customer intent: "As a network engineer, I want to create a VPN gateway using CLI, so that I can establish secure connections to on-premises networks and between virtual networks efficiently."
 ---
 
 # Create a VPN gateway using CLI
