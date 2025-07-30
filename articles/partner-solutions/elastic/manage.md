@@ -16,9 +16,11 @@ This article shows how to manage the settings for Elastic resources.
 
 [!INCLUDE [manage](../includes/manage.md)]
 
-::: zone pivot="elastic-search"
+Elastic resources are available as *Serverless* and *Cloud Hosted*. For more information, see [Compare Elastic Cloud Hosted and Serverless](https://www.elastic.co/docs/deploy-manage/deploy/elastic-cloud/differences-from-other-elasticsearch-offerings).
 
-:::image type="content" source="media/manage/elastic-search-resource.png" alt-text="A screenshot of an Elastic Search resource in the Azure portal with the overview displayed in the working pane." lightbox="media/manage/elastic-search-resource.png":::
+This screenshot shows a Cloud Hosted resource:
+
+:::image type="content" source="media/manage/resource-overview.png" alt-text="A screenshot of an Elastic Search resource in the Azure portal with the overview displayed in the working pane." lightbox="media/manage/resource-overview.png":::
 
 The details include:
 
@@ -32,6 +34,23 @@ The details include:
 - Advanced Settings
 - Elasticsearch endpoint
 - Deployment URL
+- Billing term
+
+::: zone pivot="elastic-search"
+
+A Serverless resource has slightly different overview details:
+
+:::image type="content" source="media/manage/elastic-search-resource.png" alt-text="A screenshot of an Elastic Search resource in the Azure portal with the overview displayed in the working pane." lightbox="media/manage/elastic-search-resource.png":::
+
+The details include:
+
+- Resource group
+- Type
+- Region
+- Subscription
+- Advanced Settings
+- Elasticsearch endpoint
+- Kibana endpoint
 - Billing term
 
 To manage your resource, select the links next to corresponding details.
@@ -160,20 +179,19 @@ You can easily manage the corresponding Elastic deployments or Azure resources u
 
 ::: zone pivot="elastic-observability"
 
+A Serverless resource has slightly different overview details:
+
 :::image type="content" source="media/manage/elastic-observability-resource.png" alt-text="A screenshot of an Elastic Observability resource in the Azure portal with the overview displayed in the working pane." lightbox="media/manage/elastic-observability-resource.png":::
 
 The details include:
 
 - Resource group
-- Status
+- Type
 - Region
-- Version
-- Size
-- Tags
 - Subscription
 - Advanced Settings
 - Elasticsearch endpoint
-- Deployment URL
+- Kibana endpoint
 - Billing term
 
 To manage your resource, select the links next to corresponding details.
@@ -302,20 +320,19 @@ You can easily manage the corresponding Elastic deployments or Azure resources u
 
 ::: zone pivot="elastic-security"
 
+A Serverless resource has slightly different overview details:
+
 :::image type="content" source="media/manage/elastic-security-resource.png" alt-text="A screenshot of an Elastic Security resource in the Azure portal with the overview displayed in the working pane." lightbox="media/manage/elastic-security-resource.png":::
 
 The details include:
 
 - Resource group
-- Status
+- Type
 - Region
-- Version
-- Size
-- Tags
 - Subscription
 - Advanced Settings
 - Elasticsearch endpoint
-- Deployment URL
+- Kibana endpoint
 - Billing term
 
 To manage your resource, select the links next to corresponding details.
