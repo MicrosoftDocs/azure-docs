@@ -25,15 +25,15 @@ Set up a dedicated resource group for your Azure Migrate project. This practice 
 
 To avoid conflicts with other components, deploy the Azure Migrate appliance on a dedicated server. No other applications should be installed on the Azure Migrate appliance server.
 
-## Stack selection
+## Appliance type
 
-To choose the right stack of the Azure Migrate appliance, follow these best practices:
+To choose the right type of the Azure Migrate appliance, follow these best practices:
 
 - To discover the VMware estate, use the VMware appliance that supports agentless dependency analysis. You can use the same appliance for agentless migration.
 
 - To discover the Hyper-V estate, use the Hyper-V appliance that supports agentless dependency analysis. You can use the same appliance for migration, but it requires agent installation at Hyper-V hosts.  
 
-- To discover physical, AWS, and GCP servers, use a physical stack of the appliance that also supports agentless dependency analysis. For migration, a secondary replication appliance is required, and agents should be installed on the target machines.
+- To discover physical, AWS, and GCP servers, use a physical type of the appliance that also supports agentless dependency analysis. For migration, a secondary replication appliance is required, and agents should be installed on the target machines.
 
 ## Network
 

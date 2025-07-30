@@ -110,17 +110,6 @@ Microsoft Azure operated by 21Vianet | China North 2
 
 [Review](migrate-support-matrix-hyper-v.md) the support matrix for using the Azure Migrate Discovery and Assessment tool and the Azure Migrate and Modernize tool to assess Hyper-V VMs.
 
-::: moniker range="migrate-classic"
-
-## Azure Migrate versions
-
-There are two versions of the Azure Migrate service:
-
-- **Current version**: You can use the current version to create new projects, discover on-premises servers, and orchestrate assessments and migrations. [Learn more](whats-new.md).
-- **Previous version**: The previous version supported only the assessment of on-premises VMware VMs. You should now use the current version. In the previous version, you can't create new projects or perform new discoveries.
-
-::: moniker-end
-
 ## Related content
 
 - [Assess VMware VMs for migration to Azure](./tutorial-assess-vmware-azure-vm.md)
