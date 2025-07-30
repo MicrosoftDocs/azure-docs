@@ -124,7 +124,7 @@ Refer to the following items if you have issues enabling your dashboard:
   - **Verify Dashboard Access:**
     - Test by attempting to access the Aspire dashboard. If you continue to get the error, please reach out to our team.
 
-- Custom domains aren't supported for accessing the Aspire Dashboard. You must use the default domain name provided by Azure Container Apps, such as: `https://<dotnet-component-name>.ext.<cluster-name>.<region>.azurecontainerapps.io`
+- Custom domains aren't supported for accessing the Aspire Dashboard. You must use the default domain name provided by Azure Container Apps, such as: `https://<DOTNET_COMPONENT_NAMNE>.ext.<CLUSTER_NAME>.<REGION>.azurecontainerapps.io`
 
 ## Related content
 
