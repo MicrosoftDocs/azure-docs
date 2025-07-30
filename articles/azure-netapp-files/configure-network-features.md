@@ -19,7 +19,7 @@ The **Network Features** functionality enables you to indicate whether you want 
 Two settings are available for network features: 
 
 * ***Standard***  
-    This setting enables VNet features for the volume. Standard network features is the default and preferred setting. 
+    This setting enables VNet features for the volume. The default and preferred setting is Standard network features. 
 
     If you need higher IP limits or VNet features such as [network security groups (NSGs)](../virtual-network/network-security-groups-overview.md), [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined), or additional connectivity patterns, set **Network Features** to *Standard*.
 
@@ -159,7 +159,7 @@ You should be using the [latest version of the Azure NetApp Files REST API](/res
     }
     ```
 
-1. Confirm the operation has succeded with a GET request.
+1. Confirm the network features changed with a GET request. 
 
 ---
 
@@ -188,7 +188,7 @@ Do ***not*** manually update the `terraform.tfstate` file. Likewise, the `networ
 
 Changing the network features for an Azure NetApp Files volume can impact the network features of other Azure NetApp Files volumes. Volumes in the same network sibling set must have the same network features setting. Therefore, before you change the network features of one volume, you must determine all volumes affected by the change using the Azure portal.
 
-1. Log in to the Azure portal. 
+1. Sign in to the Azure portal. 
 1. Navigate to the volume for which you want to change the network features option.
 1. Select the **Change network features**. ***Do **not** select Save.***
 1. Record the paths of the affected volumes then select **Cancel**. 
@@ -205,7 +205,7 @@ All Terraform configuration files that define these volumes need to be updated, 
 You must modify the configuration files for each affected volume managed by Terraform that you discovered. Failing to update the configuration file can destroy the volume or result in data loss. 
 
 >[!IMPORTANT]
->Depending on your volume’s lifecycle configuration block settings in your Terraform configuration file, your volume can be destroyed, including possible data loss upon running `terraform apply`. Ensure you know which affected volumes are managed by Terraform and which are not.
+>Depending on your volume’s lifecycle configuration block settings in your Terraform configuration file, your volume can be destroyed, including possible data loss upon running `terraform apply`. Ensure you know which affected volumes are managed by Terraform.
 
 1. Locate the affected Terraform-managed volumes configuration files.
 1. Add or modify the `lifecycle` block in the volume’s configuration to include the `ignore_changes = [network_features]`. The `lifecycle` configuration block must include the following settings: 
@@ -242,7 +242,7 @@ The `ignore_changes` feature is intended to be used when a resource’s referenc
 
     Repeat for all modules containing affected volumes.
 
-    The terraform.tfstate file doesn't reflect the change. Don't change the `network_features` paramater in the configuration file. 
+    The terraform.tfstate file doesn't reflect the change. Don't change the `network_features` parameter in the configuration file. 
 
     :::image type="content" source="./media/configure-network-features/updated-terraform-module.png" alt-text="Screenshot of updated Terraform module." lightbox="./media/configure-network-features/updated-terraform-module.png":::
 
