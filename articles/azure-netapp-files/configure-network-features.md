@@ -59,46 +59,19 @@ This section shows you how to set the network features option when you create a 
 
     [ ![Screenshot that shows the Volumes page displaying the network features setting.](./media/configure-network-features/network-features-volume-list.png)](./media/configure-network-features/network-features-volume-list.png#lightbox)
 
-## Edit network features option for existing volumes
+## Edit network features for existing volumes
 
 You can edit the network features option of existing volumes from *Basic* to *Standard* network features. The change you make applies to all volumes in the same *network sibling set* (or *siblings*). Siblings are determined by their network IP address relationship. They share the same network interface card (NIC) for mounting the volume to the client or connecting to the remote share of the volume. At the creation of a volume, its siblings are determined by a placement algorithm that aims for reusing the IP address where possible.
 
 ### Considerations when editing networking features 
 
-* If you enabled both the `ANFStdToBasicNetworkFeaturesRevert` and `ANFBasicToStdNetworkFeaturesUpgrade` AFECs and are using 1 or 2-TiB capacity pools, see [Resize a capacity pool or a volume](azure-netapp-files-resize-capacity-pools-or-volumes.md) for information about sizing your capacity pools. 
 * <a name="no-downtime"></a> Azure NetApp Files supports a non-disruptive upgrade to Standard network features and a revert to Basic network features. This operation is expected to take at least 15 minutes. You can't create a regular or data protection volume or application volume group in the targeted network sibling set while the operation completes.    
-
-> [!NOTE]
-> You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files standard networking features (edit volumes) Request Form](https://aka.ms/anfeditnetworkfeaturespreview)**. The feature can take approximately one week to be enabled after you submit the waitlist request. You can check the status of feature registration by using the following command: 
->
-> ```azurepowershell-interactive
-> Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBasicToStdNetworkFeaturesUpgrade                                                      
-> 
-> FeatureName                         ProviderName     RegistrationState   
-> -----------                         ------------     -----------------   
-> ANFBasicToStdNetworkFeaturesUpgrade Microsoft.NetApp Registered
-> ```
-
-> [!NOTE]
-> You can also revert the option from *Standard* back to *Basic* network features. Before performing the revert operation, you must submit a waitlist request through the **[Azure NetApp Files standard networking features (edit volumes) Request Form](https://aka.ms/anfeditnetworkfeatures)**. The revert capability can take approximately one week to be enabled after you submit the waitlist request. You can check the status of the registration by using the following command: 
-
-
->
-> ```azurepowershell-interactive
-> Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFStdToBasicNetworkFeaturesRevert                                                      
-> 
-> FeatureName                         ProviderName     RegistrationState   
-> -----------                         ------------     -----------------   
-> ANFStdToBasicNetworkFeaturesRevert Microsoft.NetApp Registered
-> ```
->
-> If you revert, considerations apply and require careful planning. See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#constraints) for constraints and supported network topologies about Standard and Basic network features. 
+* If you revert from Standard to Basic network features, considerations apply and require careful planning. See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#constraints) for constraints and supported network topologies about Standard and Basic network features. 
 
 ### Edit network features 
 
 >[!IMPORTANT]
->It's not recommended that you use the edit network features option with Terraform-managed volumes due to risks. You must follow separate instructions if you use Terraform-managed volumes. For more information see, [Update Terraform-managed Azure NetApp Files volume from Basic to Standard](#update-terraform-managed-azure-netapp-files-volume-from-basic-to-standard).
-
+>You must follow separate instructions if you use Terraform-managed volumes. For more information see, [Update network features for Terraform-managed Azure NetApp Files volumes](#terraform).
 
 # [Portal](#tab/portal)
 
@@ -113,85 +86,84 @@ You should be running the latest version of the Azure CLI. Confirm the version w
 
 1. List volumes in the capacity pool. Capture the network sibling set ID of the volume whose network features you want to update. 
 
-```azurecli
-az netappfiles volume list --account-name <account> --resource-group <resourceGroup> --pool-name <capacityPool> 
-```
+    ```azurecli-interactive
+    az netappfiles volume list --account-name <account> --resource-group <resourceGroup> --pool-name <capacityPool> 
+    ```
 
 1. Query the network sibling set. Capture the network sibling set state ID for the network sibling set you want to update. 
 
-```azurecli
-az netappfiles query-network-sibling-set --network-sibling-set-id <networkSiblingSetID> --subnet-id <subnetID> 
-```
+    ```azurecli-interactive
+    az netappfiles query-network-sibling-set --network-sibling-set-id <networkSiblingSetID> --subnet-id <subnetID> 
+    ```
 
 1. Run the following command to update the network features on a volume:
 
-```azurecli
-az netappfiles update-network-sibling-set --network-sibling-set-id <networkSiblingSetID> --network-sibling-set-state-id=<stateID> --subnet-id <subnetID> --location <location> --network-features Standard|Basic 
-```
+    ```azurecli-interactive
+    az netappfiles update-network-sibling-set --network-sibling-set-id <networkSiblingSetID> --network-sibling-set-state-id=<stateID> --subnet-id <subnetID> --location <location> --network-features Standard|Basic 
+    ```
 
 1. Confirm the operation succeeded by checking the network features of the volume:
 
-```azurecli
-az netappfiles volume show -g <resourceGroup> --account-name <account> --pool-name <capacityPool> --name <volumeName>
-```
+    ```azurecli
+    az netappfiles volume show -g <resourceGroup> --account-name <account> --pool-name <capacityPool> --name <volumeName>
+    ```
 
 # [PowerShell](#tab/powershell)
 
-1. List volumes in the capacity pool. Capture the network sibling set ID of the volume whose network features you want to update. 
+1. List the volumes in the capacity pool. Capture the network sibling set ID of the volume whose network features you want to update. 
 
-```azure-powershell
-Get-AzNetAppFilesVolume -ResourceGroupName "<resourceGroup> -AccountName "<accountName>" -PoolName "<capacityPool>" -Name "<volume>" 
-```
+    ```azurepowershell-interactive
+    Get-AzNetAppFilesVolume -ResourceGroupName "<resourceGroup> -AccountName "<accountName>" -PoolName "<capacityPool>" -Name "<volume>" 
+    ```
 
 1. Query the network sibling set. Capture the network sibling set state ID for the network sibling set you want to update. 
 
-```azure-powershell
-Get-AzNetAppFilesNetworkSiblingSet -Location "<location>" -SubnetId "<subnetID>" -NetworkSiblingSetId "<networkSiblingSetID>"
-```
+    ```azurepowershell-interactive
+    Get-AzNetAppFilesNetworkSiblingSet -Location "<location>" -SubnetId "<subnetID>" -NetworkSiblingSetId "<networkSiblingSetID>"
+    ```
 
-1. Update the network sibling set:
+1. Update the network sibling set.
 
-```azure-powershell
-Update-AzNetAppFilesNetworkSiblingSet -Location "<location>" -SubnetId "<subscription>" -NetworkSiblingSetId "<networkSiblingSetID>" -NetworkSiblingSetStateId "<networkSiblingSetID>" -NetworkFeature "<Standard|Basic>" 
-```
+    ```azurepowershell-interactive
+    Update-AzNetAppFilesNetworkSiblingSet -Location "<location>" -SubnetId "<subscription>" -NetworkSiblingSetId "<networkSiblingSetID>" -NetworkSiblingSetStateId "<networkSiblingSetID>" -NetworkFeature "<Standard|Basic>" 
+    ```
 
-1. Confirm the volume has the correct network features setting: 
+1. Confirm the volume has the correct network features setting.
 
-```azure-powershell
-Get-AzNetAppFilesVolume -ResourceGroupName "<resourceGroup> -AccountName "<accountName>" -PoolName "<capacityPool>" -Name "<volume>" 
-```
+    ```azurepowershell-interactive
+    Get-AzNetAppFilesVolume -ResourceGroupName "<resourceGroup> -AccountName "<accountName>" -PoolName "<capacityPool>" -Name "<volume>" 
+    ```
 
 # [REST API](#tab/rest-api)
 
-You should be using the latest version of the Azure NetApp Files REST API. 
+You should be using the [latest version of the Azure NetApp Files REST API](/rest/api/netapp/operation-groups). 
 
+1. Query the network sibling set. Take note of the network sibling set ID and network sibling set state ID. 
 
-1. Query the network sibling set then capture the network sibling set ID and network sibling set state ID. 
-
-```http
-GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.NetApp/locations/{location}/queryNetworkSiblingSet?api-version=2025-03-01
-```
+    ```http
+    GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.NetApp/locations/{location}/queryNetworkSiblingSet?api-version=2025-03-01
+    ```
 
 1. Send a PATCH request to update the network features. Set the "networkFeatures" property to Basic or Standard. 
 
-```http
-PATCH https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.NetApp/locations/{location}/updateNetworkSiblingSet
-```
+    ```http
+    PATCH https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.NetApp/locations/{location}/updateNetworkSiblingSet
+    ```
 
-```json
-{
-    "networkSiblingSetId": "<networkSiblingSetID>",
-    "subnetId": "<subnetID>",
-    "networkSiblingSetStateId": "<siblingSetStateID>",
-    "networkFeatures": "<Basic|Standard>"
-}
-```
+    ```json
+    {
+        "networkSiblingSetId": "<networkSiblingSetID>",
+        "subnetId": "<subnetID>",
+        "networkSiblingSetStateId": "<siblingSetStateID>",
+        "networkFeatures": "<Basic|Standard>"
+    }
+    ```
 
 1. Confirm the operation has succeded with a GET request.
 
 ---
 
-### Update Terraform-managed Azure NetApp Files volume from Basic to Standard 
+### <a name="terraform"></a> Update Terraform-managed Azure NetApp Files volume from Basic to Standard 
 
 If your Azure NetApp Files volume is managed using Terraform, editing the network features requires additional steps. Terraform-managed Azure resources store their state in a local file, which is in your Terraform module or in Terraform Cloud. 
 
