@@ -1,12 +1,12 @@
 ---
 title: Azure Synapse Link for SQL Server 2022
 description: Learn about Azure Synapse Link for SQL Server 2022, the link connection, landing zone, Self-hosted integration runtime, and monitoring the Azure Synapse Link for SQL.
-author: Rodrigossz
+author: im-microsoft
 ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: synapse-link
 ms.date: 11/16/2022
-ms.author: rosouz
+ms.author: imotiwala
 ---
 
 # Azure Synapse Link for SQL Server 2022
