@@ -19,7 +19,7 @@ Azure Web Application Firewall provides centralized protection of your web appli
 
 ### Security policy
 
-Application Gateway for Containers introduces a new child resource called `SecurityPolicy` in Azure Resource Manager. The `SecurityPolicy` resource is what brings scope to which Azure Web Application Firewall policies the ALB Controller can reference.
+Application Gateway for Containers introduces a new child resource called `SecurityPolicy` in Azure Resource Manager. The `SecurityPolicy` resource brings scope to which Azure Web Application Firewall policies the ALB Controller can reference.
 
 ### Kubernetes custom resource
 
@@ -61,7 +61,7 @@ The following functionality is not supported on an Azure Web Application Firewal
 * Azure Web Application Firewall integration in Microsoft Security Copilot
 * Azure Web Application Firewall integration in Microsoft Security Copilot (embedded)
 * JavaScript challenge actions
-* Core Rule Set (CRS) 3.2 and earlier rulesets
+* Core Rule Set (CRS) 3.2 and earlier rule sets
 
 ## Pricing
 
@@ -75,4 +75,4 @@ An `AGC WAF Hour` rate is incurred for the duration that a security policy refer
 As Azure Web Application Firewall rules or bot protection processes each request, a consumption rate is billed per 1 million requests.
 
 > [!NOTE]
-> The integration of Application Gateway for Containers with Azure Web Application Firewall is in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> The association of Application Gateway for Containers with Azure Web Application Firewall is in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
