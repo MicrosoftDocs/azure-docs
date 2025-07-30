@@ -74,7 +74,7 @@ To configure a SAS expiration policy in the Azure portal, follow these steps:
 1. Locate the setting for **Shared access signature (SAS) expiration policy**, and set it to **Enabled**.
 
    > [!NOTE]
-   > If the setting is grayed out and you see the message shown in the image below, then [you will need to rotate both account access keys](#do-i-need-to-rotate-the-account-access-keys-first) before you can set an expiration policy.
+   > If the setting is grayed out, [you may need to rotate both account access keys](#do-i-need-to-rotate-the-account-access-keys-first) before you can set an expiration policy.
    > 
    
 1. Specify a time value under **Upper limit for SAS expiry interval** for the desired maximum interval for new shared access signatures that are created on resources in this storage account.
