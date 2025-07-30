@@ -418,7 +418,6 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
                 betaEnabled, err = app.featureManager.IsEnabledWithAppContext("Beta", targetingContext)
                 if err != nil {
                     log.Printf("Error checking Beta feature with targeting: %v", err)
-                    betaEnabled = false
                 }
             }
 
@@ -609,7 +608,6 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
                 betaEnabled, err = app.featureManager.IsEnabledWithAppContext("Beta", targetingContext)
                 if err != nil {
                     log.Printf("Error checking Beta feature with targeting: %v", err)
-                    betaEnabled = false
                 }
             }
 
