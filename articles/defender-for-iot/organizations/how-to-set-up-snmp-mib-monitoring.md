@@ -40,6 +40,8 @@ To download a predefined SNMP MIB file from the Azure portal, you need access to
 
 1. In the **SNMP MIB monitoring configuration** pane, select **+ Add host** and enter the following details:
 
+    :::image type="content" source="media/how-to-set-up-snmp-mib-monitoring/snmp-mib-monitoring-configuration.png" alt-text="Screenshot of the SNMP MIB monitoring configuration page.":::
+
     - **Host 1**: Enter the IP address of your SNMP monitoring server. Select **+ Add host** again if you have multiple servers, as many times as needed.
 
     - **SNMP V2**: Select if you're using SNMP version 2, and then enter your SNMP V2 community string. A community string can have up to 32 alphanumeric characters, and no spaces.
@@ -66,13 +68,9 @@ Defender for IoT in the Azure portal provides a downloadable MIB file for you to
 **Validate and query the SNMP MIB Monitoring configuration in the OT sensor:**
 
 1. In the OT sensor, go to **System settings > Sensor management**
+1. [Access the CLI](references-work-with-defender-for-iot-cli-commands.md#defender-for-iot-cli-access).
+1.  Run the following query depending on what SNMP version was configured and update the variables accordingly:
 
-    :::image type="content" source="media/how-to-set-up-snmp-mib-monitoring/snmp-mib-monitoring-configuration.png" alt-text="Screenshot of the SNMP MIB monitoring configuration page.":::
-
-1. Enter the allowed hosts.
-1. [Sign in to your OT or Enterprise IoT sensor using a terminal emulator and SSH](references-work-with-defender-for-iot-cli-commands.md#defender-for-iot-cli-access).
-1. Run the following query by version commands:
-   
     - For version 2 type: `snmpwalk -v 2c -c<community-string> <sensor-ip> isa`
 
     - For version 3 type: `snmpwalk -v 3 -aMD5|SHA -xDES|AES -A<password> -X<secret-key> -u<username> -|autoPriv <sensor-ip> isa`
