@@ -35,7 +35,7 @@ When selecting a region for your workspace:
 
 ## Regions for Storage Insights Aggregation
 
-While the workspace defines where your the Discovery resource resides, the actual data being analyzed comes from storage accounts across multiple regions.
+While the workspace defines where your Discovery resource resides, the actual data being analyzed comes from storage accounts across multiple regions.
 [!INCLUDE [data-plane-regions](includes/data-plane-regions.md)]
 
 ### What This Means for You
