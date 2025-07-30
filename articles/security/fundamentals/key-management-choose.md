@@ -33,7 +33,7 @@ It also refers to these various key management use cases:
 - _Lift and shift_ refer to scenarios where a PKCS11 application on-premises is migrated to Azure Virtual Machines and running software such as Oracle TDE in Azure Virtual Machines. Lift and shift requiring payment PIN processing is supported by Azure Payment HSM. All other scenarios are supported by Azure Cloud HSM. Legacy APIs and libraries such as PKCS11, JCA/JCE, and CNG/KSP are only supported by Azure Cloud HSM.
 - _Payment PIN processing_ includes allowing card and mobile payment authorization and 3D-Secure authentication; PIN generation, management, and validation; payment credential issuing for cards, wearables, and connected devices; securing keys and authentication data; and sensitive data protection for point-to-point encryption, security tokenization, and EMV payment tokenization. This also includes certifications such as PCI DSS, PCI 3DS, and PCI PIN. These are only supported by Azure Payment HSM.
 
-:::image type="content" source="./media/choosing-key-management-choose.png" alt-text="Flow chart diagram that shows how to choose the right key management product based on requirements and scenarios." lightbox="./media/choosing-key-management-solutions/key-management-product-flow-chart.png":::
+:::image type="content" source="./media/choosing-key-management-choose.png" alt-text="Flow chart diagram that shows how to choose the right key management product based on requirements and scenarios." lightbox="../media/choosing-key-management-choose.png":::
 
 The flowchart result is a starting point to identify the solution that best matches your needs.
 
