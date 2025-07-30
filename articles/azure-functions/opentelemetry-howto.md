@@ -106,33 +106,16 @@ Examples in this article assume your app is using `IHostApplicationBuilder`, whi
 
 1. In your Program.cs project file, add this `using` statement:
 
-    ### [IHostApplicationBuilder](#tab/ihostapplicationbuilder/app-insights)
+    ### [Application Insights](#tab/app-insights)
 
     ```csharp
     using Azure.Monitor.OpenTelemetry.Exporter; 
     ```
 
-    ### [IHostBuilder](#tab/ihostbuilder/app-insights)
-
-    ```csharp
-    using Azure.Monitor.OpenTelemetry.Exporter;
-    using OpenTelemetry.Trace;
-    using OpenTelemetry.Metrics;
-    using OpenTelemetry.Logs;
-    ```
-
-    ### [IHostApplicationBuilder](#tab/ihostapplicationbuilder/otlp-export) 
+    ### [OTLP Exporter](#tab/otlp-export) 
 
     ```csharp
     using OpenTelemetry; 
-    ```
-
-    ### [IHostBuilder](#tab/ihostbuilder/otlp-export)
-
-    ```csharp
-    using OpenTelemetry.Trace;
-    using OpenTelemetry.Metrics;
-    using OpenTelemetry.Logs;
     ```
 
     ---
@@ -145,6 +128,7 @@ Examples in this article assume your app is using `IHostApplicationBuilder`, whi
 
     ```csharp
     builder.Services.AddOpenTelemetry()
+        .UseFunctionsWorkerDefaults()
         .UseAzureMonitorExporter();
     ```
 
@@ -156,18 +140,8 @@ Examples in this article assume your app is using `IHostApplicationBuilder`, whi
     .ConfigureServices(s =>
     {
         s.AddOpenTelemetry()
-            .WithTracing(builder =>
-            {
-                builder.AddAzureMonitorTraceExporter();
-            })
-            .WithMetrics(builder =>
-            {
-                builder.AddAzureMonitorMetricExporter();
-            })
-            .WithLogging(builder =>
-            {
-                builder.AddAzureMonitorLogExporter();
-            });
+        .UseFunctionsWorkerDefaults()
+        .UseAzureMonitorExporter();
     })
     ```
 
@@ -177,7 +151,8 @@ Examples in this article assume your app is using `IHostApplicationBuilder`, whi
 
     ```csharp
     builder.Services.AddOpenTelemetry()
-    .UseOtlpExporter();
+        .UseFunctionsWorkerDefaults()
+        .UseOtlpExporter();
     ```
 
     ### [IHostBuilder](#tab/ihostbuilder/otlp-export) 
@@ -188,24 +163,14 @@ Examples in this article assume your app is using `IHostApplicationBuilder`, whi
     .ConfigureServices(s =>
     {
         s.AddOpenTelemetry()
-            .WithTracing(builder =>
-            {
-                builder.AddOtlpExporter();
-            })
-            .WithMetrics(builder =>
-            {
-                builder.AddOtlpExporter();
-            })
-            .WithLogging(builder =>
-            {
-                builder.AddOtlpExporter();
-            });
+        .UseFunctionsWorkerDefaults()
+        .UseOtlpExporter();
     })
     ```
 
     ---
 
-    You can export to both OpenTelemetry endpoints. 
+    You can export to both OpenTelemetry endpoints from the same app.
 ::: zone-end
 ::: zone pivot="programming-language-java"
 1. Add the required libraries to your app. The way you add libraries depends on whether you deploy using Maven or Kotlin and if you want to also send data to Application Insights.
