@@ -85,45 +85,7 @@ Configure policies such as the following::
 
 ## Secure access to the MCP server
 
-You can secure either or both inbound access to the MCP server (from an MCP client to API Management) and outbound access (from API Management to the MCP server backend).
-
-### Secure inbound access
-
-One option to secure inbound access is to configure a policy to validate a JSON web token (JWT) generated using an identity provider in the incoming requests. This ensures that only authorized clients can access the MCP server. Use the generic [validate-jwt](validate-jwt-policy.md) policy, or the [validate-azure-ad-token](validate-azure-ad-token-policy.md) policy when using Microsoft Entra ID, to validate the JWT token in the incoming requests. 
-
-The following is a basic example of validating a Microsoft Entra ID token presented in an `Authorization` header in the incoming request:
-
-```xml
-<validate-azure-ad-token header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">     
-    <client-application-ids>
-        <application-id>your-client-id</application-id>
-    </client-application-ids> 
-</validate-azure-ad-token>
-```
-
-For more inbound authorization options and samples, including using OAuth authorization, see:
-
-* [MCP server authorization with Protected Resource Metadata (PRM) sample](https://github.com/blackchoey/remote-mcp-apim-oauth-prm)
-
-* [Secure Remote MCP Servers using Azure API Management (Experimental)](https://github.com/Azure-Samples/remote-mcp-apim-functions-python)
-
-* [MCP client authorization lab](https://github.com/Azure-Samples/AI-Gateway/tree/main/labs/mcp-client-authorization)
-
-> [!CAUTION]
-> When you use an MCP server in API Management, incoming headers like **Authorization** aren't automatically passed to your backend API. If your backend needs a token, you can add it as an input parameter in your API definition. Alternatively, use policies like `get-authorization-context` and `set-header` to generate and attach the token, as noted in the following section.
-
-
-### Secure outbound access
-
-You can use API Management's [credential manager](credentials-overview.md) to securely inject secrets or tokens for calls to a backend API. At a high level, the process is as follows:
-
-1. Register an application in a supported identity provider.
-1. Create a credential provider resource in API Management to manage the credentials from the identity provider.
-1. Configure a connection to the provider in API Management.
-1. Configure `get-authorization-context` and `set-header` policies to fetch the token credentials and present them in an **Authorization** header of the API requests.
-
-For a step-by-step guide to call an example backend API using credentials generated in credential manager, see [Configure credential manager - GitHub](credentials-how-to-github.md).
- 
+You can secure either or both inbound access to the MCP server (from an MCP client to API Management) and outbound access (from API Management to the MCP server backend). For information and examples, see [Secure access to MCP servers](secure-mcp-servers.md).
 
 ## Monitoring
 
@@ -147,16 +109,14 @@ Use [Azure API Center](../api-center/register-discover-mcp-server.md) to registe
 
 ## Availability
 
-<!-- availability in workspaces?-->
-
-
 MCP servers in API Management are available in the following service tiers:
 
 * **Classic tiers**: Basic, Standard, Premium
 * **v2 tiers**: Basic v2, Standard v2, Premium v2
 
 > [!NOTE]
-> In the classic tiers, you must join the [AI Gateway Early update group](configure-service-update-settings.md) to access MCP server features, and access the portal at a feature-specific URL.
+> * In the classic tiers, you must join the [AI Gateway Early update group](configure-service-update-settings.md) to access MCP server features, and access the portal at a feature-specific URL.
+> * MCP servers aren't currently supported in [workspaces](workspaces-overview.md).
 
 ## Related content
 
@@ -169,3 +129,5 @@ MCP servers in API Management are available in the following service tiers:
 * [Expose REST API in API Management as an MCP server](export-rest-mcp-server.md)
 
 * [Expose and govern existing MCP server](expose-existing-mcp-server.md)
+
+* [Secure access to MCP servers](secure-mcp-servers.md)

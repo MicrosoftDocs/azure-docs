@@ -260,6 +260,8 @@
       href: export-rest-mcp-server.md
     - name: Expose existing MCP server
       href: expose-existing-mcp-server.md
+    - name: Secure access to MCP servers
+      href: secure-mcp-servers.md
 - name: Manage APIs with policies
   items:
   - name: API Management policies overview

@@ -15,6 +15,9 @@ Learn more about configuring policies:
 * [Transform and protect your API](../articles/api-management/transform-api.md)
 * [Set and edit policies](../articles/api-management/set-edit-policies.md)
 
+> [!IMPORTANT]
+> Do not access the response body using `context.Response.Body` within MCP server policies. Doing so triggers response buffering, which interferes with the streaming behavior required by MCP servers and may cause them to malfunction.
+
 To configure policies for the MCP server:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
@@ -86,6 +89,7 @@ After adding an MCP server in Visual Studio Code, you can use tools in agent mod
 | `401 Unauthorized` error from backend           | Authorization header not forwarded        | Use `set-header` policy to manually attach token         |
 | API call works in API Management but fails in agent | Incorrect base URL or missing token       | Double-check security policies and endpoint            |
 | Not able to create MCP server           | MCP server capability is not available in Consumption or Developer tier, and must be enabled using [update group](../articles/api-management/configure-service-update-settings.md) in classic Basic, Standard, and Premium tiers  | Use a supported classic or v2 tier - see [Prerequisites](#prerequisites) |
+|  | | |
 
 ## Related content
 

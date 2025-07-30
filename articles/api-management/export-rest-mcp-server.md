@@ -44,6 +44,8 @@ The following limitations currently apply to this preview:
     > [!NOTE]
     > Other API types in API Management that aren't HTTP-compatible can't be exposed as MCP servers.
 
++ If you’ve enabled diagnostic logging via Application Insights or Azure Monitor at the global scope (All APIs) for your API Management service instance, ensure that the **Number of payload bytes to log** setting for Frontend Response is set to 0. This prevents unintended logging of response bodies across all APIs and helps ensure proper functioning of MCP servers. To log payloads selectively for specific APIs, configure the setting individually at the API scope, allowing targeted control over response logging.
+
 + To test the MCP server, you can use Visual Studio Code with access to [GitHub Copilot](https://code.visualstudio.com/docs/copilot/setup).
 
 
