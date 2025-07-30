@@ -47,8 +47,8 @@ For each Discovery workspace, you can select from free or paid options. The numb
             <td><ul><li>N/A</li></ul></td>
             <td>
                 <ul>
-                    <li>Backfill: 30 days</li>
-                    <li>History: 18 months</li>
+                    <li>Backfill*: 15 days</li>
+                    <li>Retention**: 15 days</li>
                 </ul>
             </td>            
         </tr>
@@ -76,14 +76,16 @@ For each Discovery workspace, you can select from free or paid options. The numb
             </td>            
             <td>
                 <ul>
-                    <li>Backfill: 30 days</li>
-                    <li>History: 18 months</li>
+                    <li>Backfill*: 30 days</li>
+                    <li>Retention**: 18 months</li>
                 </ul>
             </td>            
         </tr>
     </tbody>
 </table>
 
+\* The backfill feature automatically adds historic data into a Storage Discovery workspace from before the workspace is created.<br>
+\*\* Every workspace retains insights for some time to allow for historical analysis. 
 
 ## Understand billing
 
@@ -95,7 +97,7 @@ For example: Azure Blob Storage consists of storage accounts and each storage ac
 |                                | Free pricing plan | Standard pricing plan |
 |--------------------------------|-------------------|-----------------------|
 | **Storage accounts analyzed**  | Free              | A fee per storage resource (for example: storage account) that is in a scope of your workspace. The more storage resources you analyze, the more the average resource cost decreases.|
-| **Total objects analyzed***    | Free              | A fee per data object (for example: blob object) that is contained in a storage resource. The more storage objects you analyze, the more the average object cost decreases. |
+| **Total objects analyzed**     | Free              | A fee per data object (for example: blob object) that is contained in a storage resource. The more storage objects you analyze, the more the average object cost decreases. |
 
 <br>
 > [!NOTE]
