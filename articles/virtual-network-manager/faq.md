@@ -5,10 +5,10 @@ services: virtual-network-manager
 author: mbender-ms
 ms.service: azure-virtual-network-manager
 ms.topic: faq
-ms.date: 11/25/2024
+ms.date: 07/11/2025
 ms.author: mbender
 ms.custom:
-  - reference_regions
+  - references_regions
   - build-2025
 ---
 
@@ -28,14 +28,14 @@ For current information about region support, refer to [Products available by re
 ### What are common use cases for Azure Virtual Network Manager?
 
 * You can create network groups to meet the security requirements of your environment and its functions. For example, you can create network groups for your production and test environments to manage their connectivity and security rules at scale.
-  
-  For security rules, you can create a security admin configuration with two collections. Each collection is targeted on your production and test network groups, respectively. After deployment, this configuration enforces one set of security rules for network resources for your production environment, and one set for your test environment.
+
+  For security admin rules, you can create a security admin configuration with two rule collections. Each rule collection is targeted on your production and test network groups, respectively. After deployment, this configuration enforces one set of security admin rules for network resources for your production environment, and another set for your test environment.
 
 * You can apply connectivity configurations to create a mesh or a hub-and-spoke network topology for a large number of virtual networks across your organization's subscriptions.
 
-* You can deny high-risk traffic. As an administrator of an enterprise, you can block specific protocols or sources that override any network security group (NSG) rules that would normally allow the traffic.
+* You can deny high-risk traffic. As an administrator of an enterprise, you can block specific protocols or sources that override any network security group rules that would normally allow the traffic.
 
-* You can always allow traffic. For example, you might permit a specific security scanner to always have inbound connectivity to all your resources, even if NSG rules are configured to deny the traffic.
+* You can force-allow traffic. For example, you might permit a specific security scanner to always have inbound connectivity to all your resources, even if network security group rules are configured to deny the traffic.
 
 ### What's the cost of using Azure Virtual Network Manager?
 
@@ -53,11 +53,12 @@ You can find current pricing for your region on the [Azure Virtual Network Manag
 
 You can deploy and manage an Azure Virtual Network Manager instance and configurations through various tools, including:
 
-* [Azure portal](./create-virtual-network-manager-portal.md)
-* [Azure CLI](./create-virtual-network-manager-cli.md)
-* [Azure PowerShell](./create-virtual-network-manager-powershell.md)
-* [ARM Template](./create-virtual-network-manager-template.md)
-* [Terraform](./create-virtual-network-manager-terraform.md)
+* [Azure portal](create-virtual-network-manager-portal.md)
+* [Azure CLI](create-virtual-network-manager-cli.md)
+* [Azure PowerShell](create-virtual-network-manager-powershell.md)
+* [ARM Template](create-virtual-network-manager-template.md)
+* [Terraform](create-virtual-network-manager-terraform.md)
+* [Bicep](create-virtual-network-manager-bicep.md)
 
 ## Technical
 
@@ -65,17 +66,17 @@ You can deploy and manage an Azure Virtual Network Manager instance and configur
 
 Yes, a virtual network can belong to more than one Azure Virtual Network Manager instance.
 
-### Can spoke VNets be connected to a VWAN hub while in a mesh topology so that those spoke VNets can communicate directly?
+### Can spoke virtual networks be connected to a Virtual WAN hub while in a mesh connectivity configuration so that those spoke virtual networks can communicate directly?
 
-Yes, spoke VNets can connect to VWAN hubs while in the mesh group. Those VNets in the mesh group have direct connectivity.
+Yes, spoke virtual networks can connect to Virtual WAN hubs while in the mesh connectivity configuration. Those virtual networks in the meshed group have direct connectivity with each other.
 
-### Will operations to the IP prefixes in VNETs that are a part of the Azure Virtual Network Manager mesh propagate automatically? 
+### Will operations to the IP prefixes in virtual networks that are a part of the Azure Virtual Network Manager mesh propagate automatically? 
 
-VNets in mesh are automatically in sync. IP prefixes will be updated automatically. This means that traffic within the mesh will work even after there are changes in IP prefixes in VNets in the mesh.
+Virtual networks in the mesh are automatically in sync. IP prefixes will be updated automatically. This means traffic within the mesh will work even after there are changes in IP prefixes in virtual networks in the mesh.
 
-### How do I verify a mesh topology is configured and applied? 
+### How do I verify a mesh connectivity configuration is applied as intended? 
 
-Refer to the documentation [How to view applied configurations](/azure/virtual-network-manager/how-to-view-applied-configurations?branch=main). A mesh topology isn't a virtual network peering, so you can't see mesh connectivity in peering.
+Refer to the documentation [How to view applied configurations](how-to-view-applied-configurations.md). A mesh connectivity configuration doesn't connect virtual networks with virtual network peering, so you can't see the mesh connectivity in peering blades.
 
 ### What happens if the region where the Azure Virtual Network Manager is created is down? Does it affect deployed configurations or only prevent configuration changes?
 
@@ -97,11 +98,7 @@ You need to deploy a **None** configuration to all regions where you have a conf
 
 Yes, if you have the appropriate permissions to access those virtual networks.
 
-### What is dynamic group membership?
-
-See [Dynamic membership](concept-network-groups.md#dynamic-membership).
-
-### How does the deployment of configuration differ for dynamic membership and static membership?
+### How does the deployment of configuration differ between network groups with manually added members and conditionally added members?
 
 See [Configuration deployments in Azure Virtual Network Manager](concept-deployments.md).
 
@@ -115,28 +112,29 @@ No. Azure Virtual Network Manager doesn't store any customer data.
 
 ### Can an Azure Virtual Network Manager instance be moved?
 
-No. Azure Virtual Network Manager doesn't currently support that capability. If you need to move an instance, you can consider deleting it and using the Azure Resource Manager template to create another one in another location.
+No. Azure Virtual Network Manager doesn't currently support the ability to move its instance to another region, resource group, or subscription. If you need to move an instance, consider deleting it and using the Azure Resource Manager template to create another one in the desired location.
 
 ### Can I move a subscription with an Azure Virtual Network Manager to another tenant?
+
 Yes, but there are some considerations to keep in mind:
 - The target tenant can't have an Azure Virtual Network Manager created.
-- The spokes virtual networks in the network group can lose their reference when changing tenants, thus losing connectivity to the hub virtual network. To resolve this, after moving the subscription to another tenant, you must manually add the spokes vnets to the network group of Azure Virtual Network Manager.
+- The spoke virtual networks in the network group can lose their reference when changing tenants, thus losing connectivity to the hub virtual network. To resolve this, after moving the subscription to another tenant, you must manually add the spoke virtual networks to the network group of Azure Virtual Network Manager.
 
 ### How can I see what configurations are applied to help me troubleshoot?
 
-You can view Azure Virtual Network Manager settings under **Network Manager** for a virtual network. The settings show both connectivity and security admin configurations that are applied. For more information, see [View configurations applied by Azure Virtual Network Manager](how-to-view-applied-configurations.md).
+You can view Azure Virtual Network Manager settings under **Network Manager** for a virtual network. The settings show configurations that are applied. For more information, see [View configurations applied by Azure Virtual Network Manager](how-to-view-applied-configurations.md).
 
-### What happens when all zones are down in a region with a Virtual Network Manager instance?
+### What happens when all zones are down in a region with an Azure Virtual Network Manager instance?
 
 If a regional outage occurs, all configurations applied to current managed virtual network resources remain intact during the outage. You can't create new configurations or modify existing configurations during the outage. After the outage is resolved, you can continue to manage your virtual network resources as before.
 
 ### Can a virtual network managed by Azure Virtual Network Manager be peered to an unmanaged virtual network?
 
-Yes. Azure Virtual Network Manager is fully compatible with preexisting hub-and-spoke topology deployments that use peering. You don't need to delete any existing peered connections between the spokes and the hub. The migration occurs without any downtime to your network.
+Yes. Azure Virtual Network Manager is fully compatible with preexisting hub-and-spoke topologies created with manual peering. You don't need to delete any existing peered connections between the hub and spoke virtual networks. The migration occurs without any downtime to your network.
 
 ### Can I migrate an existing hub-and-spoke topology to Azure Virtual Network Manager?
 
-Yes. Migrating existing virtual networks to the hub-and-spoke topology in Azure Virtual Network Manager is straightforward. You can [create a hub-and-spoke topology connectivity configuration](how-to-create-hub-and-spoke.md). When you deploy this configuration, Virtual Network Manager automatically creates the necessary peerings. Any preexisting peerings remain intact, so there's no downtime.
+Yes. Migrating existing virtual networks to the hub-and-spoke topology in Azure Virtual Network Manager is straightforward. You can [create a hub-and-spoke topology connectivity configuration](how-to-create-hub-and-spoke.md). When you deploy this configuration, Azure Virtual Network Manager automatically creates the necessary peerings. Any preexisting peerings remain intact, so there's no downtime.
 
 ### How do connected groups differ from virtual network peering in establishing connectivity between virtual networks?
 
@@ -144,10 +142,11 @@ In Azure, virtual network peering and connected groups are two methods of establ
 
 In a connected group, all virtual networks are connected without individual peering relationships. For example, if three virtual networks are part of the same connected group, connectivity is enabled between each virtual network without the need for individual peering relationships.
 
+The effect of each method is the same, where bi-directional connectivity is established between virtual networks. However, connected groups simplify the management of connectivity by allowing you to manage multiple virtual networks as a single entity and enabling you to achieve a higher scale of connectivity beyond peering limits.
+
 ### When managing virtual networks using virtual network peering, does this result in paying virtual network peering charges twice with Azure Virtual Network Manager?
 
 There's no second or double charge for peering. Your virtual network manager respects all previously created virtual network peerings, and migrates those connections. All peering resources, whether created inside a virtual network manager or outside, with incur a single peering charge.
-
 
 ### Can I create exceptions to security admin rules?
 
@@ -155,7 +154,7 @@ Normally, security admin rules are defined to block traffic across virtual netwo
 
 ### How can I deploy multiple security admin configurations to a region?
 
-You can deploy only one security admin configuration to a region. However, multiple connectivity configurations can exist in a region if you [create multiple rule collections](how-to-block-network-traffic-portal.md#add-a-rule-collection-and-security-rule) in a security configuration.
+You can deploy only one security admin configuration to a region. However, multiple connectivity configurations can exist in a region if you [create multiple rule collections](how-to-block-network-traffic-portal.md#add-a-rule-collection-and-security-rule) in a security admin configuration.
 
 ### Do security admin rules apply to Azure private endpoints?
 
@@ -172,11 +171,11 @@ Currently, security admin rules don't apply to Azure private endpoints that fall
 
 No, an Azure Virtual WAN hub can't be in a network group at this time.
 
-### Can I use an Azure Virtual WAN instance as the hub in a Virtual Network Manager hub-and-spoke topology configuration?
+### Can I use an Azure Virtual WAN instance as the hub in an Azure Virtual Network Manager hub-and-spoke connectivity configuration?
 
 No, an Azure Virtual WAN hub isn't supported as the hub in a hub-and-spoke topology at this time.
 
-### My virtual network isn't getting the configurations I'm expecting. How do I troubleshoot?
+### My virtual network isn't receiving the configurations I'm expecting. How do I troubleshoot?
 
 Use the following questions for possible solutions.
 

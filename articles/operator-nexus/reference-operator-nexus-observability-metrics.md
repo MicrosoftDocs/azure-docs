@@ -153,6 +153,15 @@ All of the measurements are collected at 5-minute intervals.
 | Lldp Frame out       | LLDPFrameOut in a network device refers to the number of Link Layer Discovery Protocol (LLDP) frames that the device sent. LLDP is used by network devices to advertise their identity and capabilities to other devices on the same network. |
 | Lldp TLV unknown     | LLDPTLVUnknown in a network device refers to the number of Link Layer Discovery Protocol (LLDP) frames received that contain unknown Type-Length-Value (TLV) entries. TLVs are used in network protocols to specify optional information. An "unknown" TLV suggests the device received data that it doesn't recognize or can't interpret, which could indicate compatibility issues within the network. |
 
+## Terminal service monitoring
+
+Monitors terminal server IP reachability (TS Net1 and TS Net3, IPv4) and HTTP file server availability via periodic (every 5 minutes) ICMP ping from Azure Fabric Monitoring Infrastructure. Metrics reflect real-time reachability status, including disconnected or unhealthy scenarios. For TsPing, any value apart from 1 indicates an unhealthy state (2: Destination Unreachable, 3: Time Exceeded provide specific reasons). For NnfFileServer, any value apart from 200 is unhealthy; -1 indicates the server is unreachable or there is an error on the monitoring service.
+
+| **Metric**        | **Value**                                                                                                 | **Targeted ARM Resource** |
+| ----------------- | --------------------------------------------------------------------------------------------------------- | ------------------------- |
+| **TsPing**        | 1: ICMP Echo Reply  <br> 2: Destination Unreachable <br> 3: Time Exceeded <br> 4: ICMP Echo <br> 5: Error | Fabric                    |
+| **NnfFileServer** | 200: HTTP OK <br> 500: HTTP Error <br> -1: Server Not Timed out / Not reachable                           | Fabric                    |
+
 
 ## Network fabric device resource utilization
 

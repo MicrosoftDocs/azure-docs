@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 03/11/2025
 ms.author: anfdocs
+# Customer intent: As a cloud storage administrator, I want to understand how Kerberos authentication works in Azure NetApp Files, so that I can configure secure access for SMB and NFS protocols and manage authentication processes effectively within my organization.
 ---
 
 # Understand Kerberos in Azure NetApp Files
@@ -531,6 +532,7 @@ When an Azure NetApp Files NFS Kerberos mount is accessed by a user (other than 
 - If the user doesn't exist in LDAP or LDAP can't be queried (server is down, DNS lookup fails, bind fails, LDAP search times out, user doesn't exist) then the mapping fails and access is denied.
 - If the user exists, group memberships are gathered. 
 - The mapping succeeds and an NFS service ticket is issued to the client (seen in `klist -e` commands). Access is allowed based on the file permissions on the export path.
+</details>
 
 ### LDAP's role with Kerberos in Azure NetApp Files
 

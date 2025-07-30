@@ -21,7 +21,7 @@ The JavaScript Feature Management libraries extend the framework with feature fl
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule). For information about installing Node.js either directly on Windows or using the Windows Subsystem for Linux (WSL), see [Get started with Node.js](/windows/dev-environment/javascript/nodejs-overview)
 
 ## Add a feature flag
@@ -55,7 +55,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
     async function run() {
         // Connect to Azure App Configuration using endpoint and token credential
-        const settings = await load(endpoint, credential, {
+        const appConfig = await load(endpoint, credential, {
             featureFlagOptions: {
                 enabled: true,
                 // Note: selectors must be explicitly provided for feature flags.
@@ -69,13 +69,12 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
             }
         });
 
-        // Create a feature flag provider which uses a map as feature flag source
-        const ffProvider = new ConfigurationMapFeatureFlagProvider(settings);
-        // Create a feature manager which will evaluate the feature flag
-        const fm = new FeatureManager(ffProvider);
+        // Create feature manager with feature flag provider that accesses feature flags from App Configuration
+        const fm = new FeatureManager(
+            new ConfigurationMapFeatureFlagProvider(appConfig));
 
         while (true) {
-            await settings.refresh(); // Refresh to get the latest feature flag settings
+            await appConfig.refresh(); // Refresh to get the latest feature flag settings
             const isEnabled = await fm.isEnabled("Beta"); // Evaluate the feature flag
             console.log(`Beta is enabled: ${isEnabled}`);
             await sleepInMs(5000);
@@ -94,7 +93,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
     async function run() {
         // Connect to Azure App Configuration using connection string
-        const settings = await load(connectionString, {
+        const appConfig = await load(connectionString, {
             featureFlagOptions: {
                 enabled: true,
                 // Note: selectors must be explicitly provided for feature flags.
@@ -108,13 +107,12 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
             }
         });
 
-        // Create a feature flag provider which uses a map as feature flag source
-        const ffProvider = new ConfigurationMapFeatureFlagProvider(settings);
-        // Create a feature manager which will evaluate the feature flag
-        const fm = new FeatureManager(ffProvider);
+        // Create feature manager with feature flag provider that accesses feature flags from App Configuration
+        const fm = new FeatureManager(
+            new ConfigurationMapFeatureFlagProvider(appConfig));
 
         while (true) {
-            await settings.refresh(); // Refresh to get the latest feature flag settings
+            await appConfig.refresh(); // Refresh to get the latest feature flag settings
             const isEnabled = await fm.isEnabled("Beta"); // Evaluate the feature flag
             console.log(`Beta is enabled: ${isEnabled}`);
             await sleepInMs(5000);

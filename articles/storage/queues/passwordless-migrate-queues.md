@@ -2,12 +2,13 @@
 title: Migrate applications to use passwordless authentication with Azure Queue Storage
 titleSuffix: Azure Storage
 description: Learn to migrate existing applications away from Shared Key authorization with the account key to instead use Microsoft Entra ID and Azure RBAC for enhanced security with Azure Storage Queues.
-author: alexwolfmsft
-ms.author: alexwolf
-ms.date: 05/09/2023
+author: pauljewellmsft
+ms.author: pauljewell
+ms.date: 07/28/2025
 ms.service: azure-queue-storage
 ms.topic: how-to
 ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, passwordless-go, devx-track-azurecli, devx-track-azurepowershell
+# Customer intent: "As a developer migrating an application, I want to implement passwordless authentication for Azure Queue Storage, so that I can enhance security and eliminate the need for managing secrets in my application."
 ---
 
 # Migrate an application to use passwordless connections with Azure Queue Storage
@@ -165,7 +166,7 @@ The Azure Identity client library, for each of the following ecosystems, provide
     credential = DefaultAzureCredential()
 
     queue_client = QueueClient(
-        account_url = "https://%s.blob.core.windows.net" % storage_account_name,
+        account_url = "https://%s.queue.core.windows.net" % storage_account_name,
         queue_name = queue_name,
         credential = credential
     )

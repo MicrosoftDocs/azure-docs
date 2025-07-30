@@ -7,6 +7,7 @@ ms.date: 01/04/2024
 author: ju-shim
 ms.author: jushiman
 ms.custom: engagement-fy23
+# Customer intent: As a network administrator, I want to request an authorization key for ExpressRoute, so that I can establish secure connectivity for my Azure VMware Solution private cloud.
 ---
 
 <!-- used in tutorial-expressroute-global-reach-private-cloud.md and create-ipsec-tunnel.md -->

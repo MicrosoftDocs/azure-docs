@@ -8,6 +8,7 @@ ms.date: 10/30/2023
 ms.author: sagarkeswani
 author: sagarkeswani
 #Customer intent: As a developer, I want to deploy S/4HANA infrastructure using Azure Center for SAP solutions so that I can manage SAP workloads in the Azure portal.
+# Customer intent: As an IT administrator, I want to deploy S/4HANA infrastructure options using Azure Center for SAP solutions through the Azure portal, so that I can efficiently manage my SAP workloads in a reliable and scalable environment.
 ---
 
 # Deploy S/4HANA infrastructure with Azure Center for SAP solutions

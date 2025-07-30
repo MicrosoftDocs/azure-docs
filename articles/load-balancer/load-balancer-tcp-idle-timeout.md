@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 02/12/2025
 ms.author: mbender
 ms.custom: template-how-to
+# Customer intent: "As a network administrator, I want to configure TCP reset and idle timeout settings for my load balancer, so that I can ensure proper session management and maintain connections for longer periods of inactivity."
 ---
 
 # Configure TCP reset and idle timeout for Azure Load Balancer

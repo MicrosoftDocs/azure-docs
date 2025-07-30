@@ -8,6 +8,7 @@ ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 04/16/2025
 ms.author: cherylmc
+# Customer intent: "As a network administrator, I want to configure customer-controlled maintenance windows for my VPN gateways, so that I can schedule updates and maintenance tasks during off-peak hours to minimize disruption in service."
 ---
 
 # Configure maintenance windows for your virtual network gateways

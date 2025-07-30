@@ -6,6 +6,7 @@ ms.topic: faq
 ms.date: 04/29/2025
 ms.author: jsuri
 author: jyothisuri
+# Customer intent: "As a VMware administrator, I want to deploy the Azure Site Recovery replication appliance, so that I can ensure effective disaster recovery of my virtual machines to Azure."
 ---
 
 # Support matrix for deploy Azure Site Recovery replication appliance - Modernized

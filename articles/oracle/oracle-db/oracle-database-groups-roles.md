@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 12/12/2023
 ms.custom: engagement-fy23
+# Customer intent: As a database administrator, I want to understand the groups and roles in Oracle Database@Azure so that I can manage user access and permissions effectively in my cloud environment.
 ---
 
 # Groups and roles in Oracle Database@Azure

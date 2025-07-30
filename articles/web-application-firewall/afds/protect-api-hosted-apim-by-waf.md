@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 07/13/2023
+# Customer intent: As a security administrator, I want to implement Azure Web Application Firewall with Azure Front Door for API protection, so that I can safeguard our APIs from web application attacks while ensuring access is restricted and monitored.
 ---
 
 # Protect APIs hosted on API Management using Azure Web Application Firewall 

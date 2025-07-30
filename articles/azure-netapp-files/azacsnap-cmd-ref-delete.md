@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: reference
 ms.date: 06/10/2024
 ms.author: phjensen
+# Customer intent: As a cloud administrator, I want to use the delete command of the Application Consistent Snapshot tool, so that I can efficiently manage and delete volume snapshots and catalog entries for Azure NetApp Files while ensuring proper replication handling.
 ---
 
 # Delete using Azure Application Consistent Snapshot tool

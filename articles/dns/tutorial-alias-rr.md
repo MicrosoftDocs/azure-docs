@@ -10,6 +10,7 @@ ms.topic: tutorial
 ms.date: 11/30/2023
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 #Customer intent: As an experienced network administrator, I want to configure Azure an DNS alias record to refer to a resource record within the zone.
+# Customer intent: "As a network administrator, I want to configure an alias record in Azure DNS to point to a resource record, so that I can effectively manage the DNS records and enhance resource referencing within my domain."
 ---
 
 # Tutorial: Create an alias record to refer to a zone resource record

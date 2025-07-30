@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 07/09/2024
 ms.author: kendownie
 ms.custom: devx-track-azurecli
+# Customer intent: As a cloud architect, I want to install Azure Container Storage on an AKS cluster using Azure Arc CLI commands so that I can enable scalable and flexible storage solutions for my containerized applications.
 ---
 
 # Tutorial: Install Azure Container Storage using Azure Arc CLI commands

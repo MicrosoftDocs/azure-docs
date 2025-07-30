@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.date: 08/19/2020
 ms.author: jinglou
 ms.reviewer: cralvord,richardgao
+# Customer intent: As a cloud storage user, I want to manage and view different versions of my blobs using a user-friendly interface, so that I can easily access, restore, and delete specific blob versions as needed for effective data management.
 ---
 
 # Azure Storage Explorer blob versioning guide

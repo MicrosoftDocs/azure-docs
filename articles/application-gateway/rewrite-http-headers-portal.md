@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: mbender
 ms.custom: mvc
+# Customer intent: As an application administrator, I want to configure HTTP header rewrites in an application gateway, so that I can customize request and response headers to meet my application's needs.
 ---
 
 # Rewrite HTTP request and response headers with Azure Application Gateway - Azure portal

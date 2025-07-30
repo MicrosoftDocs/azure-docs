@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
 ms.date: 11/30/2023
 ms.author: allensu
+# Customer intent: "As a network administrator, I want to manage DNS records in Azure using PowerShell, so that I can efficiently create, modify, or delete record sets for my domains hosted in Azure DNS."
 ---
 
 # Manage DNS records and recordsets in Azure DNS using Azure PowerShell

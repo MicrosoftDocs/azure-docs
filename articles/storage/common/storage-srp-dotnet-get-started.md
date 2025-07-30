@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 02/12/2025
 ms.devlang: csharp
 ms.custom: template-how-to, devguide-csharp, devx-track-dotnet
+# Customer intent: As a .NET developer, I want to integrate the Azure Storage management library into my application, so that I can efficiently manage storage accounts and their resources using familiar API calls and patterns.
 ---
 
 # Get started with the Azure Storage management library for .NET

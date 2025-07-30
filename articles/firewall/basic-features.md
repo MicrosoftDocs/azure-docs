@@ -7,6 +7,7 @@ ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 06/14/2024
 ms.author: duau
+# Customer intent: "As a network security engineer, I want to implement Azure Firewall Basic features, so that I can enhance the security and management of my cloud-based network resources effectively."
 ---
 
 # Azure Firewall Basic features

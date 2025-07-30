@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.date: 12/10/2019
 ms.author: jsuri
 author: jyothisuri
+# Customer intent: As an IT administrator responsible for disaster recovery, I want to execute a failover of on-premises machines to the cloud, so that I can ensure business continuity and minimize downtime during a disaster.
 ---
 # Run a failover from on-premises to Azure
 

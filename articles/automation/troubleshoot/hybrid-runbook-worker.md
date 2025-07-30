@@ -5,6 +5,8 @@ services: automation
 ms.date: 09/17/2023
 ms.topic: troubleshooting
 ms.custom: linux-related-content, has-azure-ad-ps-ref, azure-ad-ref-level-one-done
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Troubleshoot agent-based Hybrid Runbook Worker issues in Automation

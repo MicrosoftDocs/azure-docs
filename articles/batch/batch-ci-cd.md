@@ -4,6 +4,7 @@ description: Use Azure Pipelines CI/CD build and release pipelines to deploy Azu
 ms.date: 04/02/2025
 ms.topic: how-to
 ms.custom: devx-track-arm-template
+# Customer intent: As a DevOps engineer, I want to set up CI/CD pipelines using ARM templates with Azure Pipelines so that I can automate the deployment of high-performance computing solutions efficiently on Azure Batch.
 ---
 
 # Use Azure Pipelines to build and deploy an HPC solution
