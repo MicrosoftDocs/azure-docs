@@ -127,7 +127,7 @@ testType: JMX
 engineInstances: 1
 failureCriteria:
   clientMetrics:
-    - avg(responseTimeMs) > 300
+    - avg(response_time_ms) > 300
     - percentage(error) > 50
     - getCustomerDetails: avg(latency) > 200
   serverMetrics:
