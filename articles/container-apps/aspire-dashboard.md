@@ -74,7 +74,7 @@ az containerapp env dotnet-component create \
 The `create` command returns the dashboard URL that you can open in a browser.
 
 >[!NOTE]
-> Custom domains aren't supported for accessing the Aspire Dashboard. You must use the default domain name provided by Azure Container Apps, such as: `https://<dotnet-component-name>.ext.<cluster-name>.<region>.azurecontainerapps.io`
+> Custom domains aren't supported for accessing the Aspire Dashboard. You must use the default domain name provided by Azure Container Apps, such as: `https://<DOTNET_COMPONENT_NAME>.ext.<CLUSTER_NAME>.<REGION>.azurecontainerapps.io`
 
 ::: zone-end
 
