@@ -500,7 +500,8 @@ The following diagram shows the data flow through the various processing modules
 
 :::image type="content" source="media/howto-dataflow-graph-wasm/wasm-dataflow-graph-complex.svg" alt-text="Diagram showing a complex data flow graph example with multiple modules" border="false":::
 
-<!-- ```mermaid
+<!-- 
+```mermaid
 graph TD
   source["source"]
   delay["module-window/delay"]
@@ -517,24 +518,24 @@ graph TD
   accumulate_collection["module-collection/accumulate"]
   map_enrichment["module-enrichment/map (overtemp, topic)"]
   sink["sink"]
-
-  source --> delay
-  delay --> branch_snapshot
-  branch_snapshot -->|sensor data| branch_temp
-  branch_snapshot -->|snapshot| map_format
-  map_format --> map_snapshot
-  map_snapshot --> accumulate_snapshot
-  accumulate_snapshot --> concatenate
-  branch_temp -->|temp| map_temp
-  branch_temp -->|humidity| accumulate_humidity
-  map_temp --> filter_temp
-  filter_temp --> accumulate_temp
-  accumulate_temp --> concatenate
-  accumulate_humidity --> concatenate
-  concatenate --> accumulate_collection
-  accumulate_collection --> map_enrichment
-  map_enrichment --> sink
-``` -->
+  source - -> delay
+  delay - -> branch_snapshot
+  branch_snapshot - ->|sensor data| branch_temp
+  branch_snapshot - ->|snapshot| map_format
+  map_format - -> map_snapshot
+  map_snapshot - -> accumulate_snapshot
+  accumulate_snapshot - -> concatenate
+  branch_temp - ->|temp| map_temp
+  branch_temp - ->|humidity| accumulate_humidity
+  map_temp - -> filter_temp
+  filter_temp - -> accumulate_temp
+  accumulate_temp - -> concatenate
+  accumulate_humidity - -> concatenate
+  concatenate - -> accumulate_collection
+  accumulate_collection - -> map_enrichment
+  map_enrichment - -> sink
+``` 
+-->
 
 As shown in the diagram, data flows from a single source through multiple processing stages:
 

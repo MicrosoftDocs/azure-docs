@@ -626,7 +626,8 @@ For example, this diagram illustrates the relationship between graph definitions
 
 :::image type="content" source="media/howto-develop-wasm-modules/wasm-dataflow-overall-architecture.svg" alt-text="Diagram showing the relationship between graph definitions, WASM modules, and data flow graphs" border="false":::
 
-<!-- ```mermaid
+<!--
+```mermaid
 graph LR
     subgraph "Development"
         YML[Graph Definition YAML] 
@@ -645,15 +646,15 @@ graph LR
     subgraph "Data Flow Graph"
         MQTT[Source Endpoint] 
         subgraph GDE["Graph Execution"]
-            S[source] --> M1[temperature operator]
-            M1 --> M2[filter operator]
-            M2 --> M3[analytics operator]
-            M3 --> K[sink]
+            S[source] - -> M1[temperature operator]
+            M1 - -> M2[filter operator]
+            M2 - -> M3[analytics operator]
+            M3 - -> K[sink]
         end
         DEST[Destination Endpoint]
         
-        MQTT --> S
-        K --> DEST
+        MQTT - -> S
+        K - -> DEST
     end
     
     YML -.-> OCI1
@@ -664,7 +665,8 @@ graph LR
     OCI2 -.-> M1
     OCI3 -.-> M2
     OCI4 -.-> M3
-``` -->
+```
+-->
 
 ### Registry deployment
 
