@@ -20,7 +20,7 @@ As you learn about Deployment Environments, you might encounter components of [M
 
 This diagram shows the key components of Deployment Environments and how they relate to each other. You can learn more about each component in the following sections.
 
-:::image type="content" source="media/concept-environments-key-concepts/deployment-environments-architecture-new.png" alt-text="Diagram showing the key components of Deployment Environments.":::
+:::image type="content" source="media/concept-environments-key-concepts/deployment-environments-architecture-new.png" alt-text="Diagram showing the key components of Deployment Environments." lightbox="media/concept-environments-key-concepts/deployment-environments-architecture-new.png":::
 
 ## Dev centers
 
