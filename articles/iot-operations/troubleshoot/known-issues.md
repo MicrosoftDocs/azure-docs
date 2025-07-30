@@ -335,7 +335,7 @@ Log signature: N/A
 
 When you create a data flow graph using the WASM, the MQTT session doesn't have the request persistence flag set. 
 
-To work around this issue, set MQTT broker **Retained messages** mode to `All`. For mor information, see [Configure MQTT broker persistence](../manage-mqtt-broker/howto-broker-persistence.md).
+To work around this issue, set MQTT broker **Retained messages** mode to `All`. For more information, see [Configure MQTT broker persistence](../manage-mqtt-broker/howto-broker-persistence.md).
 
 ### Complex data might be flattened when enriching data in a data flow
 
@@ -349,7 +349,7 @@ Log signature: N/A
 
 ---
 
-When enriching data using complex object DSS reference data, the output may be moved to the root level instead of preserving the original structure.
+When enriching data using complex object DSS reference data, the output might be moved to the root level instead of preserving the original structure.
 
 For example, if you have a complex object with properties like:
 
