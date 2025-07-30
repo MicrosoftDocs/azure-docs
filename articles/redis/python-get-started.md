@@ -25,7 +25,7 @@ In this article, you learn how to use an Azure Redis cache with the Python langu
 - Install [Python 3.7+](https://www.python.org/downloads/) language environment
 - Add these imports from  to your project and to your development environment
   - `redis` - The Redis Python client
-  - `redis-entraid` - Redis Entra ID authentication extension
+  - `redis-entraid` - Redis Microsoft Entra ID authentication extension
   - `azure-identity` - Azure authentication library
 
 ## Create an Azure Managed Redis instance
@@ -46,7 +46,7 @@ Optionally, you can create a cache using Azure CLI, PowerShell, whichever you pr
 In the first part of the code sample, set your connection to the cache. 
 
 - Ports for Azure Managed Redis and Enterprise caches: 10000
-- Ports for Azure cache for Redis instances: 6380
+- Ports for Azure Cache for Redis instances: 6380
 
 ```python
 import redis
@@ -143,7 +143,7 @@ C:\utils\python-quickstart>python quickstart-amr.py
 
 ```
 
-Here, you can see this code sample in its entirety. There is some error checking around that were omitted from the earlier code explanations for simplicity. The final step is closing the connection to the cache.
+Here, you can see this code sample in its entirety. The code contains some error checking omitted from the earlier code explanations for simplicity. The final step is closing the connection to the cache.
 
 ```python
 # Python Quickstart using Azure Entra ID authentication
