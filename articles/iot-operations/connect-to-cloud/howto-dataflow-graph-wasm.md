@@ -482,9 +482,9 @@ This example demonstrates a sophisticated data processing workflow that handles 
 
 The complex graph processes three data streams and combines them into enriched sensor analytics:
 
-1. Temperature processing: Converts Fahrenheit to Celsius, filters invalid readings, and calculates statistics
-2. Humidity processing: Accumulates humidity measurements over time intervals  
-3. Image processing: Performs object detection on camera snapshots and formats results
+- Temperature processing: Converts Fahrenheit to Celsius, filters invalid readings, and calculates statistics
+- Humidity processing: Accumulates humidity measurements over time intervals  
+- Image processing: Performs object detection on camera snapshots and formats results
 
 The graph uses specialized modules from the [operators directory](https://github.com/Azure-Samples/explore-iot-operations/tree/wasm/samples/wasm/operators):
 
@@ -498,7 +498,7 @@ The graph uses specialized modules from the [operators directory](https://github
 
 The following diagram shows the data flow through the various processing modules:
 
-:::image type="content" source="media/howto-dataflow-graph-wasm/wasm-dataflow-graph-complex.svg" alt-text="Diagram showing a complex data flow graph example with multiple modules" border="false":::
+:::image type="content" source="media/howto-dataflow-graph-wasm/wasm-dataflow-graph-complex.svg" alt-text="Diagram showing a complex data flow graph example with multiple modules." border="false":::
 
 <!-- 
 ```mermaid
@@ -863,8 +863,8 @@ Request disk persistence allows data flow graphs to maintain state across restar
 
 The data flow graph makes this persistence request during subscription using an MQTTv5 user property. This feature only works when:
 
-1. The data flow uses the MQTT broker as a source (source node with MQTT endpoint)
-1. The MQTT broker has persistence enabled with dynamic persistence mode set to `Enabled` for the data type, like subscriber queues
+- The data flow uses the MQTT broker as a source (source node with MQTT endpoint)
+- The MQTT broker has persistence enabled with dynamic persistence mode set to `Enabled` for the data type, like subscriber queues
 
 This configuration allows MQTT clients like data flow graphs to request disk persistence for their subscriptions using MQTTv5 user properties. For detailed MQTT broker persistence configuration, see [Configure MQTT broker persistence](../manage-mqtt-broker/howto-broker-persistence.md).
 

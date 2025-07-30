@@ -660,8 +660,8 @@ Request disk persistence allows data flows to maintain state across restarts. Wh
 
 The data flow graph makes this persistence request during subscription using an MQTTv5 user property. This feature only works when:
 
-1. The data flow uses the MQTT broker or asset as source
-1. The MQTT broker has persistence enabled with dynamic persistence mode set to `Enabled` for the data type, like subscriber queues
+- The data flow uses the MQTT broker or asset as source
+- The MQTT broker has persistence enabled with dynamic persistence mode set to `Enabled` for the data type, like subscriber queues
 
 This configuration allows MQTT clients like data flows to request disk persistence for their subscriptions using MQTTv5 user properties. For detailed MQTT broker persistence configuration, see [Configure MQTT broker persistence](../manage-mqtt-broker/howto-broker-persistence.md).
 

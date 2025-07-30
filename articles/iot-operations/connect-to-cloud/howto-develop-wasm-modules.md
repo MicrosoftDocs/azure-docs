@@ -1,5 +1,5 @@
 ---
-title: Develop WebAssembly modules and graph definitions for data flow graphs (preview)
+title: Develop WebAssembly Modules and Graph Definitions for Data Flow Graphs (Preview)
 description: Learn how to develop WebAssembly modules and graph definitions in Rust and Python for custom data processing in Azure IoT Operations data flow graphs.
 author: PatAltimore
 ms.author: patricka
@@ -70,7 +70,7 @@ The hybrid logical clock approach ensures several capabilities:
 - **Progress guarantees**: The system knows when processing is complete  
 - **Distributed coordination**: Multiple nodes stay synchronized
 
-## Understanding operators and modules
+## Understand operators and modules
 
 Understanding the distinction between operators and modules is essential for WASM development:
 
@@ -528,7 +528,7 @@ Use Docker builds for consistent builds across different environments and automa
 
 ---
 
-## Implementing operators
+## Implement operators
 
 # [Rust](#tab/rust)
 
@@ -566,11 +566,11 @@ Graph definitions are central to WASM development as they define how your module
 
 Graph definitions follow a formal [JSON schema](https://github.com/Azure-Samples/explore-iot-operations/blob/wasm/samples/wasm/ConfigGraph.json) that validates structure and ensures compatibility. The configuration includes:
 
-1. Module requirements: API and host library version compatibility
-2. Module configurations: Runtime parameters for operator customization  
-3. Operations: Processing nodes in your workflow
-4. Connections: Data flow routing between operations
-5. Schemas (optional): Data validation schemas
+- Module requirements: API and host library version compatibility
+- Module configurations: Runtime parameters for operator customization  
+- Operations: Processing nodes in your workflow
+- Connections: Data flow routing between operations
+- Schemas (optional): Data validation schemas
 
 ### Basic graph structure
 
@@ -615,16 +615,16 @@ For working examples, see:
 
 The relationship between graph definitions and Azure IoT Operations data flow graphs works as follows:
 
-1. **Graph definition artifact**: Your YAML file defines the internal processing logic with source/sink operations as abstract endpoints
-2. **WASM modules**: Referenced modules implement the actual processing operators  
-3. **Registry storage**: Both graph definitions and WASM modules are uploaded to a container registry (such as Azure Container Registry) as OCI artifacts
-4. **Data flow graph resource**: The Azure Resource Manager or Kubernetes resource "wraps" the graph definition and connects it to real endpoints
-5. **Runtime deployment**: The data flow engine pulls the artifacts from the registry and deploys them
-6. **Endpoint mapping**: The abstract source/sink operations in your graph connect to actual MQTT topics, Azure Event Hubs, or other data sources
+- **Graph definition artifact**: Your YAML file defines the internal processing logic with source/sink operations as abstract endpoints
+- **WASM modules**: Referenced modules implement the actual processing operators  
+- **Registry storage**: Both graph definitions and WASM modules are uploaded to a container registry (such as Azure Container Registry) as OCI artifacts
+- **Data flow graph resource**: The Azure Resource Manager or Kubernetes resource "wraps" the graph definition and connects it to real endpoints
+- **Runtime deployment**: The data flow engine pulls the artifacts from the registry and deploys them
+- **Endpoint mapping**: The abstract source/sink operations in your graph connect to actual MQTT topics, Azure Event Hubs, or other data sources
 
 For example, this diagram illustrates the relationship between graph definitions, WASM modules, and data flow graphs:
 
-:::image type="content" source="media/howto-develop-wasm-modules/wasm-dataflow-overall-architecture.svg" alt-text="Diagram showing the relationship between graph definitions, WASM modules, and data flow graphs" border="false":::
+:::image type="content" source="media/howto-develop-wasm-modules/wasm-dataflow-overall-architecture.svg" alt-text="Diagram showing the relationship between graph definitions, WASM modules, and data flow graphs." border="false":::
 
 <!--
 ```mermaid
@@ -699,7 +699,7 @@ moduleConfigurations:
         required: false
 ```
 
-### Consuming parameters in code
+### Consume parameters in code
 
 Parameters are accessed through the `ModuleConfiguration` struct passed to your operator's `init` function:
 
