@@ -10,7 +10,7 @@ ms.custom:
   - ai-gen-description
   - ai-seo-date:07/09/2025
 ms.service: azure-application-gateway
-ms.date: 07/25/2025
+ms.date: 07/29/2025
 ---
 
 # Reliability in Azure Application Gateway v2
