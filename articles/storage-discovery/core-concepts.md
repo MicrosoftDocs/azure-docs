@@ -2,11 +2,11 @@
 title: Planning for Storage Discovery deployment | Microsoft Docs
 titleSuffix: Azure Storage Discovery
 description: Storage Discovery provides insights on storage capacity, transactions, and configurations - providing visibility into your storage estate at entire organization level and aiding business decisions.
-author: pthippeswamy
-ms.service: azure-storage-mover
+author: fauhse
+ms.service: azure-storage-discovery
 ms.topic: overview
 ms.date: 08/01/2025
-ms.author: shaas
+ms.author: fauhse
 ms.custom: references_regions
 ---
 
@@ -16,8 +16,8 @@ The concepts and terminology used throughout this documentation are defined belo
 
 ## Key concepts
 
-### Azure Storage Discovery workspace (ASDW) 
-The Azure Storage Discovery workspace is the resource used to deploy and manage Storage Discovery in your subscription. It defines the scope of analysis - such as subscriptions or resource groups and once created, it enables visibility into capacity, transactions, and configuration trends across storage accounts within the selected "scope".
+### Azure Storage Discovery workspace 
+The Azure Storage Discovery workspace (ASDW) is the resource used to deploy and manage Storage Discovery in your subscription. It defines the scope of analysis - such as subscriptions or resource groups and once created, it enables visibility into capacity, transactions, and configuration trends across storage accounts within the selected "scope".
 
 ### Workspace Root
 Azure Resource Manager (ARM) resource identifiers that define the root-level boundaries of an Azure Storage Discovery Workspace (ASDW). These roots specify the top-level Azure resources - such as subscriptions and/or resource groups - over which the discovery workspace will operate.
@@ -26,8 +26,8 @@ Example:
 
 ```json
 "workspaceRoots": [
-  "/subscriptions/abc123...",
-  "/subscriptions/abc123/resourceGroups/rg1"
+  "/subscriptions/ffff5f5f-aa6a-bb7b-cc8c-dddddd9d9d9d",
+  "/subscriptions/ffff5f5f-aa6a-bb7b-cc8c-dddddd9d9d9d/resourceGroups/myResourceGroup"
 ]
 ```
 

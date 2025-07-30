@@ -1,13 +1,27 @@
 ---
-author: pthippeswamy
-ms.author: pthippeswamy
+author: fauhse
+ms.author: fauhse
 ms.topic: include
 ms.date: 08/01/2025
-ms.service: azure-storage-mover
+ms.service: azure-storage-discovery
 ms.custom: references_regions
 ---
 
-List of regions from which storage insights will be aggregated by Storage Discovery is as given below. This list is temporary and will change over time as Public Preview support continues to expand.
+<!-- 
+!########################################################
+STATUS: DRAFT
+
+CONTENT: IN PROGRESS
+
+REVIEW Stephen/Fabian: IN PROGRESS
+EDIT PASS: IN PROGRESS
+
+Document score: 100 - 102/0 (words, issues)
+
+!########################################################
+-->
+
+Storage Discovery insights aggregation is supported within the following regions. This list continues to expand as preview support continues to expand.
 
 **Americas:**
 - Canada Central
