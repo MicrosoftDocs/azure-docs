@@ -63,13 +63,11 @@ mkdir: cannot create directory ‘256charsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
 SMB path lengths can be extended when using Windows 10/Windows Server 2016 version 1607 or later by changing a registry value as covered in [Maximum Path Length Limitation](/windows/win32/fileio/maximum-file-path-limitation?tabs=registry). When this value is changed, path lengths can extend out to up to 32,767 bytes (minus metadata values).
 
-:::image type="content" source="./media/understand-path-lengths/path-group-policy-management.png" alt-text="Screenshot of Group Policy Management window." lightbox="./media/understand-path-lengths/path-group-policy-management.png":::
+:::image type="content" source="./media/understand-path-lengths/path-group-policy-management.png" alt-text="Screenshot of Group Policy Management window.":::
 
-:::image type="content" source="./media/understand-path-lengths/enable-long-paths.png" alt-text="Screenshot of window to enable long file paths." lightbox="./media/understand-path-lengths/enable-long-paths.png":::
+:::image type="content" source="./media/understand-path-lengths/enable-long-paths.png" alt-text="Screenshot of window to enable long file paths.":::
 
 Once this feature is enabled, you must access the SMB share needs using `\\?\` in the path to allow longer path lengths. This method doesn't support UNC paths, so the SMB share needs to be mapped to a drive letter.
-
-:::image type="content" source="./media/understand-path-lengths/dialog-cannot-find.png" alt-text="Screenshot of dialog window with undiscoverable path." lightbox="./media/understand-path-lengths/dialog-cannot-find.png":::
 
 Using `\\?\Z:` instead allows access and supports longer file paths.
 
