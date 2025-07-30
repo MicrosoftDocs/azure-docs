@@ -52,7 +52,7 @@ Creating connections to Azure resources requires appropriate permissions.
 > |`Microsoft.AppPlatform/Spring/apps/deployments/*/read`|Get the deployments for a specific application|
 > |`Microsoft.AppPlatform/Spring/apps/deployments/*/write`|Create or update the deployment for a specific application|
 > |`Microsoft.AppPlatform/Spring/apps/deployments/*/delete`|Delete the deployment for a specific application|
-> |`Microsoft.AppPlatform/Spring/apps/deployments/listConnectorProps/action`|Get the connector properties of deployment for a specific application|
+> |`Microsoft.AppPlatform/Spring/apps/deployments/listConnectorProps/action`|Get the connector properties of the deployment for a specific application|
 
 ### Azure Container Apps 
 
