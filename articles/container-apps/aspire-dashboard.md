@@ -56,7 +56,7 @@ You can enable the Aspire Dashboard on any existing container app using the foll
 You can also find the Aspire Dashboard settings by browsing to your Container Apps environment and selecting *Monitoring* > *Logging options*.
 
 >[!NOTE]
-> Custom domains aren't supported for accessing the Aspire Dashboard. You must use the default domain name provided by Azure Container Apps, such as: `https://<dotnet-component-name>.ext.<cluster-name>.<region>.azurecontainerapps.io`
+> Custom domains aren't supported for accessing the Aspire Dashboard. You must use the default domain name provided by Azure Container Apps, such as: `https://<DOTNET_COMPONENT_NAME>.ext.<CLUSTER_NAME>.<REGION>.azurecontainerapps.io`
 
 ::: zone-end
 
