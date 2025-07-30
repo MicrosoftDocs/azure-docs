@@ -75,8 +75,9 @@ AUM performs the following steps:
 - Initiate the download and installation of updates with the Windows Update client or Linux package manager.
 
 >[!Note]
-> 1. The machines will report their update status based on the source they are configured to synchronize with. If the Windows Update service is configured to report to WSUS, the results in Update Manager might differ from what Microsoft Update shows, depending on when WSUS last synchronized with Microsoft Update. This behavior is the same for Linux machines that are configured to report to a local repository instead of a public package repository.
-> 1. Update Manager will only find updates that the Windows Update service finds when you select the local **Check for updates** button on the local Windows system. On Linux systems only updates on the local repository will be discovered.
+> - The machines will report their update status based on the source they are configured to synchronize with. If the Windows Update service is configured to report to WSUS, the results in Update Manager might differ from what Microsoft Update shows, depending on when WSUS last synchronized with Microsoft Update. This behavior is the same for Linux machines that are configured to report to a local repository instead of a public package repository.
+> - Update Manager will only find updates that the Windows Update service finds when you select the local **Check for updates** button on the local Windows system. On Linux systems only updates on the local repository will be discovered.
+> - The Windows Update page in the Settings app shows the progress and history of updates managed by the Windows Update orchestrator workflow. Updates installed using the Windows Update Agent (WUA) APIs do not appear on this page. To avoid potential conflicts, we recommend to disable the Windows Update orchestrator when using WUA APIs. For guidance on [how to disable the orchestrator](/windows/privacy/manage-connections-from-windows-operating-system-components-to-microsoft-services#bkmk-wu).
 
 ## Updates data stored in Azure Resource Graph
 
