@@ -100,6 +100,7 @@ For example: Azure Blob Storage consists of storage accounts and each storage ac
 | **Total objects analyzed**     | Free              | A fee per data object (for example: blob object) that is contained in a storage resource. The more storage objects you analyze, the more the average object cost decreases. |
 
 <br>
+
 > [!NOTE]
 > The cost for these billing components in your market and currency will be published on Azure.com before billing begins on October 1, 2025.
 
