@@ -5,7 +5,7 @@ services: application gateway
 author: jaesoni
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 07/18/2025
+ms.date: 07/29/2025
 ms.author: mbender
 ms.custom:
   - build-2025
@@ -100,6 +100,9 @@ To determine whether clients connecting to your Application Gateway resource are
 
 ### Logs
 You can also check the [Application Gateway Access logs](monitor-application-gateway-reference.md#access-log-category) to view this information in log format.
+
+> [!NOTE]
+> The metrics and logs for the V1 SKUs do not provide client TLS protocol information.
 
 ### Error information
 Once support for TLS versions 1.0 and 1.1 is discontinued, clients may encounter errors such as `curl: (35) error:0A000410:SSL routines::sslv3 alert handshake failure`. Depending on the browser being used, various messages indicating TLS handshake failures may be displayed.
