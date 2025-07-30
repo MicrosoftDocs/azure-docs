@@ -222,6 +222,8 @@
       href: howto-targetingfilter-aspnet-core.md
     - name: JavaScript
       href: howto-targetingfilter-javascript.md
+    - name: Go Gin
+      href: howto-targetingfilter-go.md
   - name: Use variant feature flags
     items:
     - name: Overview
