@@ -216,6 +216,9 @@ items:
       - name: WASM with data flow graphs
         href: connect-to-cloud/howto-dataflow-graph-wasm.md
         displayName: data flow, WASM, WebAssembly, graph, transform, enrich
+      - name: Develop WASM modules and graphs
+        href: connect-to-cloud/howto-develop-wasm-modules.md
+        displayName: data flow, WASM, WebAssembly, development, Rust, Python, modules, graph definitions
     - name: Manage network
       items:
       - name: Overview

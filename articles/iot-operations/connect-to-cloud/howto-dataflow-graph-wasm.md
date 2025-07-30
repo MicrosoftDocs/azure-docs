@@ -24,11 +24,12 @@ Azure IoT Operations data flow graphs support WebAssembly (WASM) modules for cus
 
 - Deploy an Azure IoT Operations instance on an Arc-enabled Kubernetes cluster. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
 - Use Azure Container Registry (ACR) to store WASM modules and graphs.
-- Install the ORAS CLI to push WASM modules to the registry.
+- Install the OCI Registry As Storage (ORAS) CLI to push WASM modules to the registry.
+- Develop custom WASM modules by following guidance in [Develop WebAssembly modules for data flow graphs](howto-develop-wasm-modules.md).
 
 ## Overview
 
-WebAssembly (WASM) modules in Azure IoT Operations data flow graphs let you process data at the edge with high performance and security. WASM runs in a sandboxed environment and supports programming languages such as Rust, C++, and AssemblyScript.
+WebAssembly (WASM) modules in Azure IoT Operations data flow graphs let you process data at the edge with high performance and security. WASM runs in a sandboxed environment and supports Rust and Python.
 
 ### How WASM data flow graphs work
 
@@ -51,7 +52,7 @@ These examples show how to set up and deploy WASM data flow graphs for common sc
 
 Azure IoT Operations needs a container registry to pull WASM modules and graph definitions. You can use Azure Container Registry (ACR) or another OCI-compatible registry.
 
-To create and configure an Azure Container Registry, see [Deploy Azure Container Registry](). <!-- TODO -->
+To create and configure an Azure Container Registry, see [Deploy Azure Container Registry](/azure/container-registry/container-registry-get-started-portal).
 
 ### Install ORAS CLI
 
@@ -63,39 +64,36 @@ For this preview, use prebuilt sample modules:
 
 ```bash
 # Pull sample modules and graphs
-oras pull tkmodules.azurecr.io/graph-simple:1.0.0
-oras pull tkmodules.azurecr.io/graph-complex:1.0.0
-oras pull tkmodules.azurecr.io/temperature:1.0.0
-oras pull tkmodules.azurecr.io/window:1.0.0
-oras pull tkmodules.azurecr.io/snapshot:1.0.0
-oras pull tkmodules.azurecr.io/format:1.0.0
-oras pull tkmodules.azurecr.io/humidity:1.0.0
-oras pull tkmodules.azurecr.io/collection:1.0.0
-oras pull tkmodules.azurecr.io/enrichment:1.0.0
-oras pull tkmodules.azurecr.io/filter:1.0.0
+oras pull ghcr.io/azure-samples/explore-iot-operations/graph-simple:1.0.0
+oras pull ghcr.io/azure-samples/explore-iot-operations/graph-complex:1.0.0
+oras pull ghcr.io/azure-samples/explore-iot-operations/temperature:1.0.0
+oras pull ghcr.io/azure-samples/explore-iot-operations/window:1.0.0
+oras pull ghcr.io/azure-samples/explore-iot-operations/snapshot:1.0.0
+oras pull ghcr.io/azure-samples/explore-iot-operations/format:1.0.0
+oras pull ghcr.io/azure-samples/explore-iot-operations/humidity:1.0.0
+oras pull ghcr.io/azure-samples/explore-iot-operations/collection:1.0.0
+oras pull ghcr.io/azure-samples/explore-iot-operations/enrichment:1.0.0
+oras pull ghcr.io/azure-samples/explore-iot-operations/filter:1.0.0
 ```
 
 ### Push modules to your registry
 
 ```bash
 # Log in to your ACR
-az acr login --name <your-acr-name>
+az acr login --name <YOUR_ACR_NAME>
 
 # Push modules to your registry
-oras push <your-acr-name>.azurecr.io/graph-simple:1.0.0 graph-simple.yaml
-oras push <your-acr-name>.azurecr.io/graph-complex:1.0.0 graph-complex.yaml
-oras push <your-acr-name>.azurecr.io/temperature:1.0.0 temperature-1.0.0.wasm
-oras push <your-acr-name>.azurecr.io/window:1.0.0 window-1.0.0.wasm
-oras push <your-acr-name>.azurecr.io/snapshot:1.0.0 snapshot-1.0.0.wasm
-oras push <your-acr-name>.azurecr.io/format:1.0.0 format-1.0.0.wasm
-oras push <your-acr-name>.azurecr.io/humidity:1.0.0 humidity-1.0.0.wasm
-oras push <your-acr-name>.azurecr.io/collection:1.0.0 collection-1.0.0.wasm
-oras push <your-acr-name>.azurecr.io/enrichment:1.0.0 enrichment-1.0.0.wasm
-oras push <your-acr-name>.azurecr.io/filter:1.0.0 filter-1.0.0.wasm
+oras push <YOUR_ACR_NAME>.azurecr.io/graph-simple:1.0.0 graph-simple.yaml
+oras push <YOUR_ACR_NAME>.azurecr.io/graph-complex:1.0.0 graph-complex.yaml
+oras push <YOUR_ACR_NAME>.azurecr.io/temperature:1.0.0 temperature-1.0.0.wasm
+oras push <YOUR_ACR_NAME>.azurecr.io/window:1.0.0 window-1.0.0.wasm
+oras push <YOUR_ACR_NAME>.azurecr.io/snapshot:1.0.0 snapshot-1.0.0.wasm
+oras push <YOUR_ACR_NAME>.azurecr.io/format:1.0.0 format-1.0.0.wasm
+oras push <YOUR_ACR_NAME>.azurecr.io/humidity:1.0.0 humidity-1.0.0.wasm
+oras push <YOUR_ACR_NAME>.azurecr.io/collection:1.0.0 collection-1.0.0.wasm
+oras push <YOUR_ACR_NAME>.azurecr.io/enrichment:1.0.0 enrichment-1.0.0.wasm
+oras push <YOUR_ACR_NAME>.azurecr.io/filter:1.0.0 filter-1.0.0.wasm
 ```
-
-> [!IMPORTANT]
-> Update the ACR references in your data flow deployments if you use a different registry from the sample modules.
 
 ### Create a registry endpoint
 
@@ -111,7 +109,7 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param registryEndpointName string = '<REGISTRY_ENDPOINT_NAME>'
 param acrName string = '<YOUR_ACR_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2025-07-01-preview'' existing = {
   name: aioInstanceName
 }
 
@@ -119,7 +117,7 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource registryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2024-11-01' = {
+resource registryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2025-07-01-preview'' = {
   parent: aioInstance
   name: registryEndpointName
   extendedLocation: {
@@ -212,11 +210,57 @@ For detailed instructions, see [Assign Azure roles using the Azure portal](/azur
 
 ## Example 1: Basic deployment with one WASM module
 
-This scenario shows a simple data flow that uses a WASM module to convert temperature data from Fahrenheit to Celsius. The source code for this module is available [here](). <!--PLACEHOLDER--> Instead of building the module yourself, use the precompiled version that's already pushed to the ACR as `graph-simple:1.0.0` in earlier steps.
+This example converts temperature data from Fahrenheit to Celsius using a WASM module. The [temperature module source code](https://github.com/Azure-Samples/explore-iot-operations/tree/wasm/samples/wasm/operators/temperature) is available on GitHub. Use the precompiled version `graph-simple:1.0.0` that you pushed to your container registry.
 
-<!-- TODO: Add simple graph YAML definition and explanation -->
+### How it works
+
+The [graph definition](https://github.com/Azure-Samples/explore-iot-operations/blob/wasm/samples/wasm/graph-simple.yaml) creates a simple three-stage pipeline:
+
+1. **Source**: Receives temperature data from MQTT
+2. **Map**: Processes data with the temperature WASM module
+3. **Sink**: Sends converted data back to MQTT
+
+The graph references the temperature module:
+
+```yaml
+operations:
+  - operationType: "map"
+    name: "module-temperature/map" 
+    module: "temperature:1.0.0"
+```
+
+The [temperature module](https://github.com/Azure-Samples/explore-iot-operations/blob/wasm/samples/wasm/operators/temperature/src/lib.rs) converts Fahrenheit to Celsius using the standard formula `(F - 32) × 5/9 = C`:
+
+```rust
+if measurement.unit == MeasurementTemperatureUnit::Fahrenheit {
+    measurement.value = Some((measurement.value.unwrap() - 32.) * 5. / 9.);
+    measurement.unit = MeasurementTemperatureUnit::Celsius;
+}
+```
+
+Input format:
+```json
+{"temperature": {"value": 100.0, "unit": "F"}}
+```
+
+Output format:
+```json
+{"temperature": {"value": 37.8, "unit": "C"}}
+```
+
+The following configuration creates a data flow graph that uses this temperature conversion pipeline. The graph references the `graph-simple:1.0.0` artifact, which contains the YAML definition and pulls the temperature module from your container registry.
 
 ### Configure the data flow graph
+
+This configuration defines three nodes that implement the temperature conversion workflow: a source node that subscribes to incoming temperature data, a graph processing node that runs the WASM module, and a destination node that publishes the converted results.
+
+The data flow graph resource "wraps" the graph definition artifact and connects its abstract source/sink operations to concrete endpoints:
+
+- The graph definition's `source` operation connects to the data flow's source node (MQTT topic)
+- The graph definition's `sink` operation connects to the data flow's destination node (MQTT topic)  
+- The graph definition's processing operations run within the graph processing node
+
+This separation allows the same graph definition to be deployed with different endpoints across environments while keeping the processing logic unchanged.
 
 # [Bicep](#tab/bicep)
 
@@ -226,7 +270,7 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param dataflowGraphName string = '<GRAPH_NAME>'
 param registryEndpointName string = '<REGISTRY_ENDPOINT_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2025-07-01-preview'' existing = {
   name: aioInstanceName
 }
 
@@ -234,12 +278,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-11-01' existing = {
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2025-07-01-preview'' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2024-11-01' = {
+resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-07-01-preview'' = {
   parent: defaultDataflowProfile
   name: dataflowGraphName
   extendedLocation: {
@@ -432,11 +476,85 @@ mosquitto_pub -h aio-broker -p 18883 \
 
 ## Example 2: Deploy a complex graph
 
-This scenario shows a more complex data flow graph that processes multiple data sources and includes advanced processing modules.
+This example demonstrates a sophisticated data processing workflow that handles multiple data types including temperature, humidity, and image data. The [complex graph definition](https://github.com/Azure-Samples/explore-iot-operations/blob/wasm/samples/wasm/graph-complex.yaml) orchestrates multiple WASM modules to perform advanced analytics and object detection.
 
-<!-- TODO: Add complex graph YAML definition and explanation -->
+### How it works
+
+The complex graph processes three data streams and combines them into enriched sensor analytics:
+
+- Temperature processing: Converts Fahrenheit to Celsius, filters invalid readings, and calculates statistics
+- Humidity processing: Accumulates humidity measurements over time intervals  
+- Image processing: Performs object detection on camera snapshots and formats results
+
+The graph uses specialized modules from the [operators directory](https://github.com/Azure-Samples/explore-iot-operations/tree/wasm/samples/wasm/operators):
+
+- Window module: Delays data for time-based processing
+- Temperature modules: Handle conversion, filtering, and statistical analysis
+- Humidity module: Processes environmental data
+- Snapshot modules: Manage image data routing and object detection
+- Format module: Prepares images for processing
+- Collection module: Aggregates multi-sensor data
+- Enrichment module: Adds metadata and overtemperature alerts
+
+The following diagram shows the data flow through the various processing modules:
+
+:::image type="content" source="media/howto-dataflow-graph-wasm/wasm-dataflow-graph-complex.svg" alt-text="Diagram showing a complex data flow graph example with multiple modules." border="false":::
+
+<!-- 
+```mermaid
+graph TD
+  source["source"]
+  delay["module-window/delay"]
+  branch_snapshot["module-snapshot/branch"]
+  branch_temp["module-temperature/branch"]
+  map_temp["module-temperature/map (F -> C)"]
+  filter_temp["module-temperature/filter (valid)"]
+  accumulate_temp["module-temperature/accumulate (max, min, avg, last)"]
+  accumulate_humidity["module-humidity/accumulate (max, min, avg, last)"]
+  map_format["module-format/map (image, snapshot)"]
+  map_snapshot["module-snapshot/map (object detection)"]
+  accumulate_snapshot["module-snapshot/accumulate (collection)"]
+  concatenate["concatenate"]
+  accumulate_collection["module-collection/accumulate"]
+  map_enrichment["module-enrichment/map (overtemp, topic)"]
+  sink["sink"]
+  source - -> delay
+  delay - -> branch_snapshot
+  branch_snapshot - ->|sensor data| branch_temp
+  branch_snapshot - ->|snapshot| map_format
+  map_format - -> map_snapshot
+  map_snapshot - -> accumulate_snapshot
+  accumulate_snapshot - -> concatenate
+  branch_temp - ->|temp| map_temp
+  branch_temp - ->|humidity| accumulate_humidity
+  map_temp - -> filter_temp
+  filter_temp - -> accumulate_temp
+  accumulate_temp - -> concatenate
+  accumulate_humidity - -> concatenate
+  concatenate - -> accumulate_collection
+  accumulate_collection - -> map_enrichment
+  map_enrichment - -> sink
+``` 
+-->
+
+As shown in the diagram, data flows from a single source through multiple processing stages:
+
+- The window module delays incoming data for time-based processing
+- Branch operations route data based on content type (sensor data vs. snapshots)
+- Temperature data undergoes conversion, filtering, and statistical accumulation
+- Humidity data gets accumulated with statistical analysis
+- Image data gets formatted and processed through object detection
+- All processed data streams merge at the concatenate operation
+- The collection module aggregates the multi-sensor results
+- The enrichment module adds final metadata and alerts before output
+
+Branch operations enable parallel processing of different sensor inputs, allowing the graph to handle multiple data types efficiently within a single workflow.
 
 ### Configure the complex data flow graph
+
+This configuration implements the multi-sensor processing workflow using the `graph-complex:1.0.0` artifact. Notice how the data flow graph deployment is similar to Example 1 - both use the same three-node pattern (source, graph processor, destination) even though the processing logic is different.
+
+This similarity occurs because the data flow graph resource acts as a host environment that loads and executes graph definitions. The actual processing logic resides in the graph definition artifact (`graph-simple:1.0.0` vs `graph-complex:1.0.0`), which contains the YAML specification of operations and connections between WASM modules. The data flow graph resource provides the runtime infrastructure to pull the artifact, instantiate the modules, and route data through the defined workflow.
 
 # [Bicep](#tab/bicep)
 
@@ -446,7 +564,7 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param dataflowGraphName string = '<COMPLEX_GRAPH_NAME>'
 param registryEndpointName string = '<REGISTRY_ENDPOINT_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2025-07-01-preview'' existing = {
   name: aioInstanceName
 }
 
@@ -454,12 +572,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-11-01' existing = {
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2025-07-01-preview'' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource complexDataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2024-11-01' = {
+resource complexDataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-07-01-preview'' = {
   parent: defaultDataflowProfile
   name: dataflowGraphName
   extendedLocation: {
@@ -489,10 +607,6 @@ resource complexDataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfile
           registryEndpointRef: registryEndpointName
           artifact: 'graph-complex:1.0.0'
           configuration: [
-            {
-              key: 'processing-mode'
-              value: 'enhanced'
-            }
             {
               key: 'snapshot_topic'
               value: 'sensor/images/raw'
@@ -559,8 +673,6 @@ spec:
         registryEndpointRef: <REGISTRY_ENDPOINT_NAME>
         artifact: graph-complex:1.0.0
         configuration:
-          - key: processing-mode
-            value: enhanced
           - key: snapshot_topic
             value: sensor/images/raw
 
@@ -649,14 +761,18 @@ while true; do
 done
 ```
 
-## Develop WASM modules
+## Develop custom WASM modules
 
-> [!NOTE]
-> The VS Code extension for WASM module development is currently in private preview. Contact your Microsoft representative for access.
+To create custom data processing logic for your data flow graphs, develop WebAssembly modules in Rust or Python. Custom modules enable you to implement specialized business logic, data transformations, and analytics that aren't available in the built-in operators.
 
-<!-- TODO: Add WASM module development overview -- ### Use WASM operators -->
-<!-- TODO: Add WASM operators documentation content ## Develop graph definition -->
-<!-- TODO: Add graph definition development overview -->
+For comprehensive development guidance including:
+- Setting up your development environment
+- Creating operators in Rust and Python
+- Understanding the data model and interfaces
+- Building and testing your modules
+- Configuring graph definitions with parameters
+
+See [Develop WebAssembly modules for data flow graphs](howto-develop-wasm-modules.md).
 
 ## Configuration reference
 
@@ -679,7 +795,7 @@ The mode property determines whether the data flow graph is actively processing 
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2024-11-01' = {
+resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-07-01-preview'' = {
   // ... other properties
   properties: {
     mode: 'Enabled'  // or 'Disabled'
@@ -712,12 +828,12 @@ The profile reference connects your data flow graph to a data flow profile, whic
 In Bicep, you specify the profile by creating the data flow graph as a child resource of the profile:
 
 ```bicep
-resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-11-01' existing = {
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2025-07-01-preview'' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2024-11-01' = {
+resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-07-01-preview'' = {
   parent: defaultDataflowProfile  // This establishes the profile relationship
   // ... other properties
 }
@@ -738,16 +854,26 @@ spec:
 
 ---
 
-### Disk persistence
+### Request disk persistence
 
-Disk persistence allows data flow graphs to maintain state across restarts. When enabled, the graph can recover processing state if pods are restarted. This is useful for stateful processing scenarios where losing intermediate data would be problematic.
+> [!IMPORTANT]
+> There is a known issue with disk persistence for data flow graphs. This feature is currently not working as expected. For more information, see [Known issues](../troubleshoot/known-issues.md).
 
-The setting accepts `Enabled` or `Disabled` (case-insensitive), with `Disabled` as the default.
+Request disk persistence allows data flow graphs to maintain state across restarts. When you enable this feature, the graph can recover processing state if connected broker restarts. This feature is useful for stateful processing scenarios where losing intermediate data would be problematic. When you enable request disk persistence, the broker persists the MQTT data, like messages in the subscriber queue, to disk. This approach ensures that your data flow's data source won't experience data loss during power outages or broker restarts. The broker maintains optimal performance because persistence is configured per data flow, so only the data flows that need persistence use this feature.
+
+The data flow graph makes this persistence request during subscription using an MQTTv5 user property. This feature only works when:
+
+- The data flow uses the MQTT broker as a source (source node with MQTT endpoint)
+- The MQTT broker has persistence enabled with dynamic persistence mode set to `Enabled` for the data type, like subscriber queues
+
+This configuration allows MQTT clients like data flow graphs to request disk persistence for their subscriptions using MQTTv5 user properties. For detailed MQTT broker persistence configuration, see [Configure MQTT broker persistence](../manage-mqtt-broker/howto-broker-persistence.md).
+
+The setting accepts `Enabled` or `Disabled`, with `Disabled` as the default.
 
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2024-11-01' = {
+resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-07-01-preview'' = {
   // ... other properties
   properties: {
     requestDiskPersistence: 'Enabled'
@@ -932,7 +1058,7 @@ For storage destinations like Azure Data Lake or Fabric OneLake, you can specify
 
 Node connections define the data flow path between nodes. Each connection specifies a source node and destination node, creating the processing pipeline. Connections can optionally include schema validation to ensure data integrity between processing stages.
 
-When you specify schema validation, the system validates data format and structure as it flows between nodes. This helps catch data inconsistencies early and ensures WASM modules receive data in the expected format.
+When you specify schema validation, the system validates data format and structure as it flows between nodes. The validation helps catch data inconsistencies early and ensures WASM modules receive data in the expected format.
 
 # [Bicep](#tab/bicep)
 
@@ -1016,13 +1142,14 @@ Storage endpoints typically require output schema settings to define data serial
 
 #### Registry endpoints
 
-Registry endpoints provide access to container registries for pulling WASM modules and graph definitions. They're not used directly in data flow but are referenced by graph processing nodes.
+Registry endpoints provide access to container registries for pulling WASM modules and graph definitions. They're not used directly in data flow but graph processing nodes reference them.
 
 For detailed configuration information, see [Configure registry endpoints](howto-configure-registry-endpoint.md).
 
 
 ## Related content
 
+- [Develop WebAssembly modules for data flow graphs](howto-develop-wasm-modules.md)
 - [Configure registry endpoints](howto-configure-registry-endpoint.md)
 - [Configure MQTT data flow endpoints](howto-configure-mqtt-endpoint.md)
 - [Configure Azure Event Hubs and Kafka data flow endpoints](howto-configure-kafka-endpoint.md)
