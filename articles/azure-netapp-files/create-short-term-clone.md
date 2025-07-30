@@ -24,7 +24,7 @@ By default, short-term clones convert to regular volumes after 32 days. While no
 * If the capacity pool hosting the short-term clone is set to auto QoS, throughput is calculated based on the quota value you assign when creating the short-term clone. 
 * When you convert a short-term clone to a regular volume, the size of the regular volume is calculated based on inherited size (the shared space between the short-term clone and its parent volume) plus short-term clone quota in bytes. This conversion has an impact on throughput. 
 * There is no change in behavior for short-term clones in capacity pools with manual QoS.  
-* Short term clones don't support the all operations as regular volumes. Snapshot policies, backup, replication, short-term clones and default user quota are not avilable short-term clone. If the parent volume has a backup or snapshot policy, the policy isn't applied to the short-term clone.
+* Short-term clones don't support the all operations as regular volumes. Snapshot policies, backup, replication, short-term clones and default user quota are not avilable short-term clone. If the parent volume has a backup or snapshot policy, the policy isn't applied to the short-term clone.
 * Short-term clones aren't supported on large volumes or volumes enabled for cool access.
 * Short-term clones are supported for volumes in cross-zone and cross-region replication. To create a short-term clone of a DR volume, create a snapshot from the source then create the short-term clone from the destination volume. 
 * A short-term clone is automatically converted to a regular volume in its designated capacity pool 32 days after the clone operation completes. To prevent this conversion, manually delete the short-term clone before 32 days have elapsed. 
@@ -43,7 +43,7 @@ Short-term clones are currently in preview. To take advantage of the feature, yo
     ```azurepowershell-interactive
     Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFShortTermClone
     ```
-1. Registration for short term clones isn't automatic and may take up to a week. You can check on the registration status with the command: 
+1. Registration for short-term clones isn't automatic and may take up to a week. Check the registration status with the command: 
 
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFShortTermClone
@@ -61,7 +61,7 @@ Short-term clones are currently in preview. To take advantage of the feature, yo
 1. Select **Snapshots**.
 1. Right-click the snapshot you want to clone. Select **Create short-term clone from snapshot**.
 1. Confirm you understand that the short-term clone automatically converts to a regular volume 32 days after the clone completes, which may incur costs due to a capacity pool automatically resizing. 
-1. Complete the required fields in the **Create short term clone volume** menu:
+1. Complete the required fields in the **Create short-term clone volume** menu:
 
 	Provide a **Volume name**.
 	Select a **Capacity pool**.
