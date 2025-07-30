@@ -1,5 +1,5 @@
 ---
-title: Set Up Least Privileged Accounts in Azure Migrate
+title: Set Up Least Privileged Accounts
 description: Learn how to configure the Azure Migrate appliance with least privileged access by setting up read-only VMware roles with guest operations and scoped permissions.
 author: molishv
 ms.author: molir
@@ -363,7 +363,7 @@ Ensure that the user who corresponds to the added MySQL credentials has the foll
 
 Use the following commands to grant the necessary privileges to the MySQL user:
 
-```
+```sql
 GRANT USAGE ON . TO 'newuser'@'localhost'; GRANT PROCESS ON . TO 'newuser'@'localhost'; GRANT SELECT (User, Host, Super_priv, File_priv, Create_tablespace_priv, Shutdown_priv) ON mysql.user TO 'newuser'@'localhost'; FLUSH PRIVILEGES;`. .
 
 ```
