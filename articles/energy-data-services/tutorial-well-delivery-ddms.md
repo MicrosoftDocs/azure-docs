@@ -84,17 +84,13 @@ For more information, see [Manage legal tags](how-to-manage-legal-tags.md).
 
 ### Add users to an entitlement group
 
-For users to have the proper permissions to make Petrel DDMS API calls, they must be part of the `users.datalake.admins@{data-partition-id}.dataservices.energy` entitlement group. This call adds a user to the proper group.
+For users to have the proper permissions to make Well Delivery DDMS API calls, they must be part of the `data.default.viewers@{data-partition-id}.dataservices.energy` and `data.default.owners@<data_partition_id>.dataservices.energy` entitlement groups. This call adds a user to the proper group.
 
-The user in this case is the client ID or OID in the token that's used for authentication. For example, if you generate a token by using a client ID of `8cdxxxxxxxxxxxx`, you must add `8cdxxxxxxxxxxxx` to the `users.datalake.admins` group.
 Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entitlements for the user .
-
 
 ### Create a well record
 
 Create a well record in your Azure Data Manager for Energy instance.
-
-Method: `PUT`
 
 ```bash
 curl --request PUT \
@@ -138,9 +134,6 @@ curl --request PUT \
 ### Create a wellbore record
 
 Create a wellbore record in your Azure Data Manager for Energy instance.
-
-Method: `PUT`
-
 
 ```bash
 curl --request PUT \
@@ -186,9 +179,6 @@ curl --request PUT \
 ### Create an activity plan
 
 Create an activity plan.
-
-Method: `PUT`
-
 
 ```bash
 
