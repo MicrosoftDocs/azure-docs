@@ -135,7 +135,7 @@ Keep in mind the following considerations as you use Azure SRE Agent:
 
 * English is the only supported language in the chat interface
 * During preview, you can deploy the agent to the Sweden Central region, but the agent can monitor and remediate issues for services in any region.
-* Your data is not shared with any parties outside Microsoft. For more information, see the [Microsoft privacy policy](https://www.microsoft.com/privacy/privacystatement).
+* For more information on how data is managed in Azure SRE Agent, see the [Microsoft privacy policy](https://www.microsoft.com/privacy/privacystatement).
 
 ## Preview access
 
