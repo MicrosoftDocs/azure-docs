@@ -164,30 +164,14 @@ An OPC UA server connection fails with a `BadSecurityModeRejected` error if the 
 
 ### The OPC PLC simulator doesn't send data to the MQTT broker after you create a device for it
 
-To work around this issue, run the following command to set `autoAcceptUntrustedServerCertificates=true` for the device endpoint:
+To work around this issue, update the device inbound endpoint in the operations experience to automatically accept untrusted server certificates:
 
-```bash
-ENDPOINT_NAME=<name-of-you-endpoint-here>
-kubectl patch AssetEndpointProfile $ENDPOINT_NAME \
--n azure-iot-operations \
---type=merge \
--p '{"spec":{"additionalConfiguration":"{\"applicationName\":\"'"$ENDPOINT_NAME"'\",\"security\":{\"autoAcceptUntrustedServerCertificates\":true}}"}}'
-```
+:::image type="content" source="media/troubleshoot/auto-accept-certificate.png" alt-text="Screenshot that shows the option in the operations experience to automatically accept untrusted certificates.":::
+
+You can use the the `az iot ops ns device endpoint inbound add opcua` to add endpoints to the device that automatically accept untrusted server certificates.
 
 > [!CAUTION]
 > Don't use this configuration in production or preproduction environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDOS attacks.
-
-You can patch all your devices with the following command:
-
-```bash
-ENDPOINTS=$(kubectl get AssetEndpointProfile -n azure-iot-operations --no-headers -o custom-columns=":metadata.name")
-for ENDPOINT_NAME in `echo "$ENDPOINTS"`; do \
-kubectl patch AssetEndpointProfile $ENDPOINT_NAME \
-   -n azure-iot-operations \
-   --type=merge \
-   -p '{"spec":{"additionalConfiguration":"{\"applicationName\":\"'"$ENDPOINT_NAME"'\",\"security\":{\"autoAcceptUntrustedServerCertificates\":true}}"}}'; \
-done
-```
 
 ## Troubleshoot Azure IoT Layered Network Management (preview)
 
