@@ -25,7 +25,7 @@ To learn about how to deploy Azure Firewall to support your solution's reliabili
 
 ## Reliability architecture overview
 
-An *instance* is a virtual machine (VM)-level unit of the firewall. Each instance represents the infrastructure that handles traffic and performs firewall checks. You don't specify the number of instances. Azure Firewall automatically scales out when average throughput, CPU consumption, and connection usage reach predefined thresholds. For more information, see [Azure Firewall performance](/azure/firewall/firewall-performance). The platform automatically manages instance creation, health monitoring, and replacement of unhealthy instances.
+An *instance* is a virtual machine (VM)-level unit of the firewall. Each instance represents the infrastructure that handles traffic and performs firewall checks. You don't specify the number of instances, and Azure Firewall automatically provides a minimum of two instances to enable high availability f your firewall. Azure Firewall automatically scales out when average throughput, CPU consumption, and connection usage reach predefined thresholds. For more information, see [Azure Firewall performance](/azure/firewall/firewall-performance). The platform automatically manages instance creation, health monitoring, and replacement of unhealthy instances.
 
 Azure Firewall achieves redundancy through its built-in high availability architecture. The service automatically distributes firewall instances across multiple fault domains within a region, providing protection against server and server rack failures. You can enable zone redundancy to distribute instances across multiple availability zones and protect against datacenter failures.
 
@@ -159,7 +159,7 @@ The options for testing for zone failures depend on the availability zone config
 
 - *Zone-redundant:* The Azure Firewall platform manages traffic routing, failover, and failback for zone-redundant firewall resources. You don't need to initiate anything. Because this feature is fully managed, you don't need to validate availability zone failure processes.
 
-- *Zonal:* For zonal deployments with multiple instances across zones, you should regularly test your custom failover and traffic routing mechanisms to ensure they work correctly during zone failures. Consider using Azure Chaos Studio to simulate zone failures and validate your disaster recovery procedures.
+- *Zonal:* You can simulate some aspects of the failure of an availability zone by explicitly stopping a firewall. By stopping the Azure Firewall, you can test how other systems and load balancers handle an outage in the gateway. For more information, see [How can I stop and start Azure Firewall?](/azure/firewall/firewall-faq#how-can-i-stop-and-start-azure-firewall).
 
 ## Multi-region support
 
