@@ -59,7 +59,7 @@ spec:
 The following functionality is not supported on an Azure Web Application Firewall policy that's associated with Application Gateway for Containers:
 
 * Azure Web Application Firewall integration in Microsoft Security Copilot
-* Azure Web Application Firewall integration in Microsoft Security Copilot (embedded)
+* Embedded Azure Web Application Firewall integration in Microsoft Security Copilot
 * JavaScript challenge actions
 * Core Rule Set (CRS) 3.2 and earlier rule sets
 

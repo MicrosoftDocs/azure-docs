@@ -29,7 +29,8 @@ Application Gateway for Containers uses Azure Web Application Firewall to block 
 
 - If you're following the Application Load Balancer (ALB) managed deployment strategy, ensure that you:
 
-  - Provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md). - Provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+  - Provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md).
+  - Provisioned the Application Gateway for Containers resources via the [`ApplicationLoadBalancer` custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 
 - Apply the following `deployment.yaml` file on your cluster to create a sample web application that demonstrates the header rewrite:
 
@@ -119,7 +120,7 @@ After you create the `Gateway` resource, ensure that the status is valid, the li
 kubectl get gateway gateway-01 -n test-infra -o yaml
 ```
 
-Here's example output of successful creation of a `Gateway` resource:
+Here's example output for successful creation of a `Gateway` resource:
 
 ```yaml
 status:
