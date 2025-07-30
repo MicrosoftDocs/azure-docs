@@ -25,14 +25,14 @@ Azure SRE Agent helps you manage and troubleshoot your Azure resources through n
 
 ## App Services
 
-### Resource Discovery
+### Resource discovery
 
-- List all my web apps
+- List all my web apps.
 - What services or resources is my web app connected to?
 - Which resource group is my app part of?
 - Which apps are hosted on Linux vs Windows in my environment?
 - Are any of my web apps still running on deprecated or unsupported runtime versions?
-- Show me visualization of memory usage % for my web app for last week
+- Show me visualization of memory usage % for my web app for last week.
 - Can you list all environment variables or app settings for this app?
 - What App Service Plan is this app running on, and who else shares it?
 - Are there any staging slots configured for this web app?
@@ -41,29 +41,29 @@ Azure SRE Agent helps you manage and troubleshoot your Azure resources through n
 - Which apps have health checks enabled, and what are their probe paths?
 - Can you list the auto scale rules configured across all of my App Services?
 - Which apps have diagnostic logging turned on?
-- Show me all web apps using .NET 6 runtime
+- Show me all web apps using .NET 6 runtime.
 - What changed in my web app last week?
 - What are some best practices I can apply to my web app?
 
 ### Diagnostics \& troubleshooting
 
 - Can you analyze my app's availability over the last 24 hours?
-- Give me slow endpoints for my APIs
+- Give me slow endpoints for my APIs.
 - Why is my web app timed out?
 - Why is my web app throwing 500 errors?
 - My web app is down. Can you analyze it?
-- My web is stuck and isn't loading – investigate for me
+- My web is stuck and isn't loading – investigate for me.
 
 ## Container Apps
 
-### Resource Discovery
+### Resource discovery
 
-- List all my container apps
+- List all my container apps.
 - What is the ingress configuration for my container app?
 - Which revision of my container app is currently active?
 - What changed in my container app in the last week?
-- Show me visualization of memory utilization % for my container app for last week
-- Show me visualization of CPU utilization % for my container app for last week
+- Show me visualization of memory utilization % for my container app for last week.
+- Show me visualization of CPU utilization % for my container app for last week.
 - What container images are used in each of my container apps?
 - Which apps have Dapr enabled?
 - What secrets or environment variables are defined for my app?
@@ -71,7 +71,7 @@ Azure SRE Agent helps you manage and troubleshoot your Azure resources through n
 - Which apps are connected to other services via Dapr pub/sub?
 - Are any of my apps configured to run on a virtual network?
 - Which of my container apps has auto scaling enabled?
-- Show me all apps with public ingress enabled
+- Show me all apps with public ingress enabled.
 - Which of my container apps use managed identities?
 - Which apps use multiple revisions at once?
 - What are some best practices I can apply to my container app?
@@ -86,7 +86,7 @@ Azure SRE Agent helps you manage and troubleshoot your Azure resources through n
 
 ## Azure Kubernetes Service
 
-### Resource Discovery 
+### Resource discovery 
 
 - Which node pools are configured for my AKS cluster?
 - Which workloads are in a crash loop or failed state?
@@ -134,5 +134,5 @@ Azure SRE Agent helps you manage and troubleshoot your Azure resources through n
 - What's the failure rate for my API operations in my API Management?
 - Is there anything wrong with my API Managements VNet configuration?
 - Can you help me inspect the global policy for my API Management?
-- Is my {name-here} API in my API Management causing any errors?
-- Can you help me change/delete my {nsg-name} NSG rule on my API Management instance?
+- Is my `<NAME>` API in my API Management causing any errors?
+- Can you help me change/delete my <NSG_NAME> NSG rule on my API Management instance?
