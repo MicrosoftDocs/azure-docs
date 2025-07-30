@@ -253,6 +253,20 @@ In the public preview release, the media connector accepts device inbound endpoi
 
 This enables input data from multiple source types. However, because the output configuration is based on the `streamConfiguration`, the possibilities for using data from these sources are limited.
 
+### Secret sync conflict
+
+---
+
+Issue ID: 0606
+
+---
+
+Log signature: N/A
+
+---
+
+When using secret sync, ensure that secret names are globally unique. If a local secret with the same name exists, connectors might fail to retrieve the intended secret.
+
 ## Data flows issues
 
 This section lists current known issues for data flows.
