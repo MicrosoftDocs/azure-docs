@@ -73,6 +73,10 @@ To learn about how to create multi-region solutions using Azure Kubernetes Servi
 Log Analytics workspaces in Azure Monitor Logs don't use paired regions. To ensure business continuity and protect against data loss, enable cross-region workspace replication.
 For more information, see [Enhance resilience by replicating your Log Analytics workspace across regions](/azure/azure-monitor/logs/workspace-replication).
 
+## Azure Queue Storage
+
+To learn about how to create multi-region solutions using Azure Queue Storage, see [Reliability in Azure Queue Storage](./reliability-storage-queue.md).
+
 ## Azure Service Bus 
 
 Azure Service Bus can provide regional resiliency, without a dependency on region pairs, by using either [Geo Replication](/azure/service-bus-messaging/service-bus-geo-replication) or [Geo-Disaster Recovery](/azure/service-bus-messaging/service-bus-geo-replication) features.
@@ -120,6 +124,8 @@ To achieve geo-replication in nonpaired regions:
 
    > [!IMPORTANT]
    > You must disable cloud tiering to ensure that all data is present locally, and provision enough storage on the Azure Virtual Machine to hold the entire dataset. To ensure changes replicate quickly to the secondary region, files should only be accessed and modified on the server endpoint rather than in Azure.
+
+- **For Azure Queue Storage:** To learn about how to create multi-region solutions using Azure Queue Storage, see [Reliability in Azure Queue Storage](./reliability-storage-queue.md).
 
 ## Azure Virtual Desktop
 
