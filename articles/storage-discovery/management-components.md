@@ -1,6 +1,6 @@
 ---
-title: Understanding the Azure Storage Mover resource hierarchy
-description: Understanding the Azure Storage Mover resource hierarchy
+title: Understanding the Azure Storage Discovery management components
+description: Understanding the Azure Storage Discovery management components
 author: fauhse
 ms.author: fauhse
 ms.service: azure-storage-discovery
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 08/01/2025
 ---
 
-# Understanding the Azure Storage Discovery resource hierarchy
+# Understanding the Azure Storage Discovery management components
 
 Several Azure resources are involved in a Storage Discovery deployment. This article describes each of these resources, their uses, and best practices for expressing your migration needs with them.
 
