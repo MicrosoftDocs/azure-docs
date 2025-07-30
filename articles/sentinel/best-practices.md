@@ -77,7 +77,7 @@ The following table provides high-level incident management and response tasks a
 
 ## Optimize data collection and ingestion
 
-Review the Microsoft Sentinel [data collection best practices](data-collection-best-practices.md), which include prioritizing data connectors, filtering logs, and optimizing data ingestion.
+Review the Microsoft Sentinel [data collection best practices](best-practices-data.md), which include prioritizing data connectors, filtering logs, and optimizing data ingestion.
 
 ## Make your Kusto Query Language queries faster
 
