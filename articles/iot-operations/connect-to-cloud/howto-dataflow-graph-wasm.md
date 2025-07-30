@@ -498,9 +498,9 @@ The graph uses specialized modules from the [operators directory](https://github
 
 The following diagram shows the data flow through the various processing modules:
 
-<!-- TODO: Add complex graph YAML definition and explanation -->
+:::image type="content" source="media/howto-dataflow-graph-wasm/wasm-dataflow-graph-complex.svg" alt-text="Diagram showing a complex data flow graph example with multiple modules" border="false":::
 
-```mermaid
+<!-- ```mermaid
 graph TD
   source["source"]
   delay["module-window/delay"]
@@ -534,7 +534,7 @@ graph TD
   concatenate --> accumulate_collection
   accumulate_collection --> map_enrichment
   map_enrichment --> sink
-```
+``` -->
 
 As shown in the diagram, data flows from a single source through multiple processing stages:
 

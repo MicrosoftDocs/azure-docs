@@ -622,36 +622,49 @@ The relationship between graph definitions and Azure IoT Operations data flow gr
 5. **Runtime deployment**: The data flow engine pulls the artifacts from the registry and deploys them
 6. **Endpoint mapping**: The abstract source/sink operations in your graph connect to actual MQTT topics, Azure Event Hubs, or other data sources
 
-```mermaid
+For example, this diagram illustrates the relationship between graph definitions, WASM modules, and data flow graphs:
+
+:::image type="content" source="media/howto-develop-wasm-modules/wasm-dataflow-overall-architecture.svg" alt-text="Diagram showing the relationship between graph definitions, WASM modules, and data flow graphs" border="false":::
+
+<!-- ```mermaid
 graph LR
     subgraph "Development"
         YML[Graph Definition YAML] 
-        WASM[WASM Modules]
+        WASM1[Temperature Module]
+        WASM2[Filter Module]
+        WASM3[Analytics Module]
     end
     
     subgraph "Registry (ACR)"
-        OCI1[Graph Definition OCI]
-        OCI2[WASM Module OCI]
+        OCI1[Graph:1.1.0]
+        OCI2[Temperature:1.0.0]
+        OCI3[Filter:2.1.0]
+        OCI4[Analytics:1.5.0]
     end
     
-    subgraph "Graph Definition (YAML)"
-        S[source] --> M[map operator]
-        M --> K[sink]
+    subgraph "Data Flow Graph"
+        MQTT[Source Endpoint] 
+        subgraph GDE["Graph Execution"]
+            S[source] --> M1[temperature operator]
+            M1 --> M2[filter operator]
+            M2 --> M3[analytics operator]
+            M3 --> K[sink]
+        end
+        DEST[Destination Endpoint]
+        
+        MQTT --> S
+        K --> DEST
     end
     
-    subgraph "Data Flow Graph Resource"
-        MQTT[MQTT Source] --> G[Graph Processor]
-        G --> DEST[Destination]
-    end
-    
-    YML --> OCI1
-    WASM --> OCI2
-    OCI1 --> S
-    OCI2 --> M
-    S -.wraps to.-> MQTT
-    K -.wraps to.-> DEST
-    M -.runs as.-> G
-```
+    YML -.-> OCI1
+    WASM1 -.-> OCI2
+    WASM2 -.-> OCI3
+    WASM3 -.-> OCI4
+    OCI1 -.-> GDE
+    OCI2 -.-> M1
+    OCI3 -.-> M2
+    OCI4 -.-> M3
+``` -->
 
 ### Registry deployment
 
