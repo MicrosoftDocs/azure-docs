@@ -146,6 +146,13 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
    az extension add --upgrade --name azure-iot-ops
    ```
 
+    > [!IMPORTANT]
+    > For [preview releases](./howto-upgrade.md#upgrade-to-preview-version), you need to append the `--allow-preview` flag to the `az extension add` command to install the preview version of the Azure IoT Operations CLI extension.
+    >
+    > ```azurecli
+    > az extension add --upgrade --name azure-iot-ops --allow-preview
+    > ```
+
 1. Copy and run the provided [az iot ops schema registry create](/cli/azure/iot/ops/schema/registry#az-iot-ops-schema-registry-create) command to create a schema registry which is used by Azure IoT Operations components. If you chose to use an existing schema registry, this command isn't displayed on the **Automation** tab.
 
    > [!NOTE]
@@ -163,6 +170,9 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
       1. In the left menu, select **Namespaces**. 
       1. Then select **+ Create** to create a new namespace. Make sure to use the same resource group as your Arc-enabled Kubernetes cluster.
 
+    > [!NOTE]
+    > Namespace resources are available from [2507 preview release](https://github.com/Azure/azure-iot-operations/releases/tag/v1.2.35). If you're using an earlier release version, namespaces aren't available and you can skip this step. 
+
 1. To prepare the cluster for Azure IoT Operations deployment, copy and run the provided [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command.
 
    > [!TIP]
@@ -174,25 +184,26 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
 
     * If you want to use an existing namespace, add the following parameter to the `create` command:
 
-    ```azurecli
-    --ns-resource-id $(az iot ops ns show --name <my namespace name> --resource-group $RESOURCE_GROUP -o tsv --query id)
-    ```
+        ```azurecli
+        --ns-resource-id $(az iot ops ns show --name <my namespace name> --resource-group $RESOURCE_GROUP -o tsv --query id)
+        ```
 
    * If you want to use the preview connector configuration, add the following parameter to the `create` command:
 
-      ```bash
-      --feature connectors.settings.preview=Enabled
-      ```
+        ```bash
+        --feature connectors.settings.preview=Enabled
+        ```
+    
+        > [!NOTE]
+        > The `--feature` configuration parameter is only available in the [latest GA version](https://github.com/Azure/azure-iot-operations/releases/tag/v1.1.59). If you're using the [2507 preview release](https://github.com/Azure/azure-iot-operations/releases/tag/v1.2.35), this parameter isn't available.
 
     * If you followed the optional prerequisites to set up your own certificate authority issuer, add the `--trust-settings` parameters to the `create` command:
 
-    ```bash
-    --trust-settings configMapName=<CONFIGMAP_NAME> configMapKey=<CONFIGMAP_KEY_WITH_PUBLICKEY_VALUE> issuerKind=<CLUSTERISSUER_OR_ISSUER> issuerName=<ISSUER_NAME>
-    ```
+        ```bash
+        --trust-settings configMapName=<CONFIGMAP_NAME> configMapKey=<CONFIGMAP_KEY_WITH_PUBLICKEY_VALUE> issuerKind=<CLUSTERISSUER_OR_ISSUER> issuerName=<ISSUER_NAME>
+        ```
 
-1. Enable secret sync for the deployed Azure IoT Operations instance. Copy and run the provided [az iot ops secretsync enable](/cli/azure/iot/ops/secretsync#az-iot-ops-secretsync-enable) command.
-
-   This command:
+1. Enable secret sync for the deployed Azure IoT Operations instance. Copy and run the provided [az iot ops secretsync enable](/cli/azure/iot/ops/secretsync#az-iot-ops-secretsync-enable) command. This command:
 
    * Creates a federated identity credential using the user-assigned managed identity.
    * Adds a role assignment to the user-assigned managed identity for access to the Azure Key Vault.

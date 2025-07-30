@@ -7,7 +7,7 @@ ms.service: azure-iot-operations
 ms.topic: how-to
 ms.date: 07/23/2025
 
-#CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can disover and use media streams from an ONVIF compliant camera.
+#CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can discover and use media streams from an ONVIF compliant camera.
 ---
 
 # Configure the connector for ONVIF (preview)
@@ -122,3 +122,48 @@ You can now use the discovered media device to create an asset that captures sna
     :::image type="content" source="media/howto-use-onvif-connector/media-asset-created.png" alt-text="Screenshot that shows the media asset created in the operations experience." lightbox="media/howto-use-onvif-connector/media-asset-created.png":::
 
 The media asset is now configured to capture snapshots from the ONVIF compliant camera and publish them to the MQTT broker.
+
+## Create an ONVIF asset for event management and control
+
+ONVIF compliant cameras can generate events such as motion detection and respond to control commands such as pan, tilt, and zoom. You can create an ONVIF asset from the discovered ONVIF device that captures these events and enables you to control the camera.
+
+After you add an ONVIF device in the operations experience, a discovered ONVIF asset is created automatically:
+
+:::image type="content" source="media/howto-use-onvif-connector/discovered-onvif-asset.png" alt-text="Screenshot that shows the ONVIF asset discovered from the ONVIF device." lightbox="media/howto-use-onvif-connector/discovered-onvif-asset.png":::
+
+To create an ONVIF asset for event management and control:
+
+1. Select the discovered asset and then select **Import and create asset**.
+
+1. On the **Asset details** page, enter a name and description for the asset. The device inbound endpoint is already selected for you.
+
+    :::image type="content" source="media/howto-use-onvif-connector/discovered-onvif-asset-detail.png" alt-text="Screenshot that shows the detailed ONVIF asset discovered from the ONVIF device." lightbox="media/howto-use-onvif-connector/discovered-onvif-asset-detail.png":::
+
+1. On the **Events** page, select **Manage event groups** to choose the types of event to capture from the camera. You can choose from event groups such as motion detection and camera tampering:
+
+    :::image type="content" source="media/howto-use-onvif-connector/manage-event-groups.png" alt-text="Screenshot that shows the manage event groups page for the ONVIF asset." lightbox="media/howto-use-onvif-connector/manage-event-groups.png":::
+
+1. For each event group you keep, configure the MQTT topic it publishes to:
+
+    :::image type="content" source="media/howto-use-onvif-connector/event-group-detail.png" alt-text="Screenshot that shows how to configure an event group." lightbox="media/howto-use-onvif-connector/event-group-detail.png":::
+
+1. On the **Actions** page, select **Manage management groups** to choose the actions, such as pan, tilt, and zoom, that you want to use to control the ONVIF camera.
+
+    :::image type="content" source="media/howto-use-onvif-connector/manage-management-groups.png" alt-text="Screenshot that shows the manage management groups page for the ONVIF asset." lightbox="media/howto-use-onvif-connector/manage-management-groups.png":::
+
+1. For each management group you keep, configure the MQTT topic it subscribes to:
+
+     :::image type="content" source="media/howto-use-onvif-connector/management-group-detail.png" alt-text="Screenshot that shows how to configure a management group." lightbox="media/howto-use-onvif-connector/management-group-detail.png":::
+
+1. Review the summary of the ONVIF asset configuration and then select **Create** to create the asset. After a few minutes, the **Assets** page shows the new asset.
+
+## Manage and control the camera
+
+To interact with the ONVIF camera, you can publish MQTT messages that the connector for ONVIF subscribes to. The message format is based on the [ONVIF network interface specifications](https://www.onvif.org/profiles/specifications/).
+
+The [Azure IoT Operations connector for ONVIF PTZ Demo](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/aio-onvif-connector-ptz-demo) sample application shows how to use the connector for ONVIF to:
+
+- Use the media asset definition to retrieve a profile token from the camera's media service.
+- Use the profile token when you use the camera's PTZ capabilities control its position and orientation.
+
+The sample application uses the Azure IoT Operations MQTT broker to send commands to interact with the connector for ONVIF. To learn more, see [Publish and subscribe MQTT messages using MQTT broker](../manage-mqtt-broker/overview-broker.md).

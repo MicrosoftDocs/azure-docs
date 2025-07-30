@@ -1,5 +1,5 @@
 ---
-title: Enable secure settings
+title: Enable Secure Settings to a Test Instance 
 description: Enable secure settings in your Azure IoT Operations instance for developing a production-ready scenario.
 author: asergaz
 ms.author: sergaz

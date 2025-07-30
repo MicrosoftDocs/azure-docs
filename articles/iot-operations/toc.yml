@@ -37,9 +37,6 @@ items:
       - name: Upgrade
         href: deploy-iot-ops/howto-upgrade.md
         displayName: Kubernetes, version
-      - name: Enable secure settings
-        href: deploy-iot-ops/howto-enable-secure-settings.md
-        displayName: Kubernetes, cluster, secrets, management, user-assigned, managed identity
       - name: Production deployment guidelines
         href: deploy-iot-ops/concept-production-guidelines.md
         displayName: Kubernetes, cluster, security, networking, observability, schema registry
@@ -48,6 +45,9 @@ items:
         displayName: Kubernetes, cluster, single, multiple, node, multi, performance
     - name: Secure your deployment
       items:
+      - name: Built-in RBAC
+        href: secure-iot-ops/built-in-rbac.md
+        displayName: Azure RBAC, custom roles, resources, access control, permissions
       - name: Manage certificates
         href: secure-iot-ops/howto-manage-certificates.md
         displayName: TLS, X.509, certificate, root CA, self-signed, trusted CA, CA, issuer, cert-manager, trust-manager
@@ -60,6 +60,9 @@ items:
       - name: Secure your solution
         href: ../iot/iot-overview-security.md
         displayName: security, best practice, guidelines, defender
+      - name: Enable secure settings
+        href: deploy-iot-ops/howto-enable-secure-settings.md
+        displayName: Kubernetes, cluster, secrets, management, user-assigned, managed identity
     - name: Discover and manage assets and devices
       items:
       - name: Asset and device management overview
