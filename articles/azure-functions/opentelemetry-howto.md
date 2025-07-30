@@ -90,7 +90,7 @@ Examples in this article assume your app is using `IHostApplicationBuilder`, whi
     ### [Application Insights](#tab/app-insights)
 
     ```cmd
-    dotnet add package Microsoft.Azure.Functions.Worker.OpenTelemetry --version 1.0.0-preview1 
+    dotnet add package Microsoft.Azure.Functions.Worker.OpenTelemetry --version  1.1.0-preview6
     dotnet add package OpenTelemetry.Extensions.Hosting 
     dotnet add package Azure.Monitor.OpenTelemetry.Exporter  
     ```
@@ -98,7 +98,7 @@ Examples in this article assume your app is using `IHostApplicationBuilder`, whi
     ### [OTLP Exporter](#tab/otlp-export) 
 
     ```cmd
-    dotnet add package Microsoft.Azure.Functions.Worker.OpenTelemetry --version 1.0.0-preview1 
+    dotnet add package Microsoft.Azure.Functions.Worker.OpenTelemetry --version 1.1.0-preview6
     dotnet add package OpenTelemetry.Extensions.Hosting 
     dotnet add package OpenTelemetry.Exporter.OpenTelemetryProtocol   
     ```
