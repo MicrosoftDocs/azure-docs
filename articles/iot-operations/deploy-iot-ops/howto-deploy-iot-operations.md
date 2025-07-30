@@ -181,28 +181,26 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
 
     * If you want to use an existing namespace, add the following parameter to the `create` command:
 
-    ```azurecli
-    --ns-resource-id $(az iot ops ns show --name <my namespace name> --resource-group $RESOURCE_GROUP -o tsv --query id)
-    ```
+        ```azurecli
+        --ns-resource-id $(az iot ops ns show --name <my namespace name> --resource-group $RESOURCE_GROUP -o tsv --query id)
+        ```
 
    * If you want to use the preview connector configuration, add the following parameter to the `create` command:
 
-      ```bash
-      --feature connectors.settings.preview=Enabled
-      ```
-
-    > [!NOTE]
-    > The `--feature` configuration parameter isn't available in 2507 preview release.
+        ```bash
+        --feature connectors.settings.preview=Enabled
+        ```
+    
+        > [!NOTE]
+        > The `--feature` configuration parameter isn't available in 2507 preview release.
 
     * If you followed the optional prerequisites to set up your own certificate authority issuer, add the `--trust-settings` parameters to the `create` command:
 
-    ```bash
-    --trust-settings configMapName=<CONFIGMAP_NAME> configMapKey=<CONFIGMAP_KEY_WITH_PUBLICKEY_VALUE> issuerKind=<CLUSTERISSUER_OR_ISSUER> issuerName=<ISSUER_NAME>
-    ```
+        ```bash
+        --trust-settings configMapName=<CONFIGMAP_NAME> configMapKey=<CONFIGMAP_KEY_WITH_PUBLICKEY_VALUE> issuerKind=<CLUSTERISSUER_OR_ISSUER> issuerName=<ISSUER_NAME>
+        ```
 
-1. Enable secret sync for the deployed Azure IoT Operations instance. Copy and run the provided [az iot ops secretsync enable](/cli/azure/iot/ops/secretsync#az-iot-ops-secretsync-enable) command.
-
-   This command:
+1. Enable secret sync for the deployed Azure IoT Operations instance. Copy and run the provided [az iot ops secretsync enable](/cli/azure/iot/ops/secretsync#az-iot-ops-secretsync-enable) command. This command:
 
    * Creates a federated identity credential using the user-assigned managed identity.
    * Adds a role assignment to the user-assigned managed identity for access to the Azure Key Vault.

@@ -165,18 +165,18 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
 
     * If you want to use an existing namespace, add the following parameter to the `create` command:
 
-    ```azurecli
-    --ns-resource-id $(az iot ops ns show --name <my namespace name> --resource-group $RESOURCE_GROUP -o tsv --query id)
-    ```
+        ```azurecli
+        --ns-resource-id $(az iot ops ns show --name <my namespace name> --resource-group $RESOURCE_GROUP -o tsv --query id)
+        ```
 
     * If you want to use the preview connector configuration, add the following parameter to the `create` command:
 
-    ```azurecli
-    --feature connectors.settings.preview=Enabled
-    ```
-
-    > [!NOTE]
-    > The `--feature` configuration parameter isn't available in 2507 preview release.
+        ```azurecli
+        --feature connectors.settings.preview=Enabled
+        ```
+    
+        > [!NOTE]
+        > The `--feature` configuration parameter isn't available in 2507 preview release.
 
 1. Once all of the Azure CLI commands complete successfully, you can close the **Install Azure IoT Operations** wizard.
 
