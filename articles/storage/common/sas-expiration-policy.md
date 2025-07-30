@@ -82,6 +82,7 @@ To configure a SAS expiration policy in the Azure portal, follow these steps:
 1. [Optional] Define the expiration action. The default **Log** action helps you detect trends and investigate access without disrupting users, while **Block** action lets you enforce zero-tolerance for out-of-policy SAS tokens.
 
 1. Select **Save** to save your changes.
+ :::image type="content" source="media/sas-expiration-policy/configure-sas-expiration-policy-portal.png" alt-text="Screenshot showing how to configure a SAS expiration policy in the Azure portal." lightbox="media/sas-expiration-policy/configure-sas-expiration-policy-portal.png":::
 
 #### [PowerShell](#tab/azure-powershell)
 
