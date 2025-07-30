@@ -99,8 +99,19 @@ You have up to 15 days to commit after migration preparation. Use this time to v
 
 Azure Advisor will notify you if your gateway is eligible or requires migration. You can also check your ExpressRoute Gateway resource in the Azure portal—if your gateway is eligible, a banner at the top of the page will display the message "Implement Zone Redundant ExpressRoute Gateways."
 
-:::image type="content" source="./media/gateway-migration/advisor.png" alt-text="Image showing Azure Advisor notification in overview of the gateway." lightbox="./media/expressroute-howto-linkvnet-portal-resource-manager/gateway-circuit.png":::
+:::image type="content" source="./media/gateway-migration/advisor.png" alt-text="Image showing Azure Advisor notification in overview of the gateway." lightbox="./media/gateway-migration/advisor-expansion.png":::
+
+### How do I validate if my gateway is Zone Resilient after migration?
+
+To confirm your gateway is zone resilient after migration:
+
+- Check Azure Advisor: If your gateway is zone resilient, you will no longer see Advisor alerts recommending a zone-redundant gateway.
+- Verify resource tags: The migrated gateway will have a default tag labeled `GatewaySKUMigration`, indicating it has been moved to the zone-resilient deployment model.
+
+These checks confirm that your gateway is now zone resilient.
+
 ### Can I roll back this change?
+
 Yes, until it is committed. The migration is composed of four major steps:​
 
 1. Validate – Confirms if your gateway is eligible for migration. ​
