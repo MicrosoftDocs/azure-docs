@@ -132,6 +132,14 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
     az extension add --upgrade --name azure-iot-ops
     ```
 
+
+    > [!IMPORTANT]
+    > For [preview releases](./howto-upgrade.md#upgrade-to-preview-version), you need to append the `--allow-preview` flag to the `az extension add` command to install the preview version of the Azure IoT Operations CLI extension.
+    >
+    > ```azurecli
+    > az extension add --upgrade --name azure-iot-ops --allow-preview
+    > ```
+
 1. Copy and run the provided [az iot ops schema registry create](/cli/azure/iot/ops/schema/registry#az-iot-ops-schema-registry-create) command to create a schema registry which is used by Azure IoT Operations components. If you chose to use an existing schema registry, this command isn't displayed on the **Automation** tab.
 
 1. Azure IoT Operations uses *namespaces* to organize assets and devices. Each Azure IoT Operations instance uses a single namespace for its assets and devices. You can use an existing namespace or run the `az iot ops ns create` command to create an Azure Device Registry namespace. Replace `<my namespace name>` with a unique name for your namespace.
@@ -145,6 +153,9 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
       1. In the search box, type and select **Azure Device Registry**.
       1. In the left menu, select **Namespaces**. 
       1. Then select **+ Create** to create a new namespace. Make sure to use the same resource group as your Arc-enabled Kubernetes cluster.
+    
+    > [!NOTE]
+    > Namespace resources are available from [2507 preview release](https://github.com/Azure/azure-iot-operations/releases/tag/v1.2.35). If you're using an earlier release version, namespaces aren't available and you can skip this step. 
 
 1. Prepare the cluster for Azure IoT Operations deployment. Copy and run the provided [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command.
 
@@ -157,15 +168,18 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
 
     * If you want to use an existing namespace, add the following parameter to the `create` command:
 
-    ```azurecli
-    --ns-resource-id $(az iot ops ns show --name <my namespace name> --resource-group $RESOURCE_GROUP -o tsv --query id)
-    ```
+        ```azurecli
+        --ns-resource-id $(az iot ops ns show --name <my namespace name> --resource-group $RESOURCE_GROUP -o tsv --query id)
+        ```
 
     * If you want to use the preview connector configuration, add the following parameter to the `create` command:
 
-    ```azurecli
-    --feature connectors.settings.preview=Enabled
-    ```
+        ```azurecli
+        --feature connectors.settings.preview=Enabled
+        ```
+    
+        > [!NOTE]
+        > The `--feature` configuration parameter is only available in the [latest GA version](https://github.com/Azure/azure-iot-operations/releases/tag/v1.1.59). If you're using the [2507 preview release](https://github.com/Azure/azure-iot-operations/releases/tag/v1.2.35), this parameter isn't available.
 
 1. Once all of the Azure CLI commands complete successfully, you can close the **Install Azure IoT Operations** wizard.
 

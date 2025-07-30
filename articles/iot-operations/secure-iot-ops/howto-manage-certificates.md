@@ -1,5 +1,5 @@
 ---
-title: Manage certificates
+title: Manage Certificates
 description: Azure IoT Operations uses TLS to encrypt communication. Learn how to manage certificates for internal and external communications, and how to bring your own certificate authority (CA) issuer for a production deployment.
 author: asergaz
 ms.author: sergaz
