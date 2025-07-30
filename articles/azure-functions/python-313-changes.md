@@ -63,13 +63,13 @@ Python 3.13 introduces several enhancements to Azure Functions, improving perfor
 
    Python 3.13 shows a **~4% reduction in cold start time** compared to Python 3.11, resulting in faster app startup.
 
-3. **Faster JSON Handling with Orjson (Optional)**
+3. **Faster JSON Handling with `Orjson` (Optional)**
 
    Azure Functions now supports automatic use of `Orjson`, a high-performance JSON library written in Rust.
-   - When `Orjson` is included in your app’s dependencies (e.g., in `requirements.txt`), the runtime will automatically use it for JSON 
+   - When `Orjson` is included in your app’s dependencies (for example, in `requirements.txt`), the runtime automatically uses it for JSON 
    serialization and deserialization—**no code changes required**.
    - Benchmarks show up to **40% lower latency** and **50% higher throughput** for JSON-heavy workloads such as HTTP APIs and event processing.
-   - If `Orjson` is not present, the standard `json` library is used instead, ensuring backward compatibility.
+   - If `Orjson` isn't present, the standard `json` library is used instead, ensuring backward compatibility.
 
 4. **Simplified Opt-In for HTTP Streaming**
    - The [HTTP Streaming](./functions-bindings-http-webhook-trigger.md?tabs=python-v2&pivots=programming-language-python#http-streams-1) feature is now available 
