@@ -5,4 +5,4 @@ ms.topic: include
 ms.date: 07/30/2025
 ---
 > [!IMPORTANT]
-> For Microsoft Sentinel customers using Customer-Managed Keys (CMK) for data encryption, we advise against onboarding to the Microsoft Sentinel data lake during the preview. Due to current preview limitations, certain data lake components don't support encryption using CMK. As a result, onboarding to the Microsoft Sentinel data lake at this stage may lead to noncompliance with your organization's encryption policies or data protection requirements. We recommend waiting until full CMK support is available across all Microsoft Sentinel data lake layers before proceeding.
+> If your organization uses Customer-Managed Keys (CMK) for data encryption, be aware that CMK isn't fully supported for data stored in the Microsoft Sentinel data lake during the preview period. Any data ingested into the data lake, such as custom tables or transformed data is encrypted using Microsoft-managed keys. Onboarding to the Sentinel data lake during the preview period may not fully align with your organization's encryption policies or data protection standards.
