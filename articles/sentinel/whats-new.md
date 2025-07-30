@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: batamig
 ms.author: bagol
 ms.topic: concept-article
-ms.date: 07/08/2025
+ms.date: 07/17/2025
 #Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
 ms.custom:
   - build-2025
@@ -20,8 +20,70 @@ The listed features were released in the last six months. For information about 
 
 ## July 2025
 
+- [Microsoft Sentinel data lake (preview) ](#microsoft-sentinel-data-lake-preview)
+- [Table management and retention settings in the Microsoft Defender portal](#table-management-and-retention-settings-in-the-microsoft-defender-portal)
+- [Microsoft Sentinel data lake permissions integrated with Microsoft Defender XDR unified RBAC (Preview)](#microsoft-sentinel-data-lake-permissions-integrated-with-microsoft-defender-xdr-unified-rbac-preview)
+- [For new customers only: Automatic onboarding and redirection to the Microsoft Defender portal](#for-new-customers-only-automatic-onboarding-and-redirection-to-the-microsoft-defender-portal)
 - [No limit on the number of workspaces you can onboard to the Defender portal](#no-limit-on-the-number-of-workspaces-you-can-onboard-to-the-defender-portal)
 - [Microsoft Sentinel in the Azure portal to be retired July 2026](#microsoft-sentinel-in-the-azure-portal-to-be-retired-july-2026)
+
+### Microsoft Sentinel data lake (preview) 
+
+Microsoft Sentinel is now enhanced with a modern data lake, purpose-built to streamline data management, reduce costs, and accelerate AI adoption for security operations teams. The new Microsoft Sentinel data lake offers cost-effective, long-term storage, eliminating the need to choose between affordability and robust security. Security teams gain deeper visibility and faster incident resolution, all within the familiar Sentinel experience, enriched through seamless integration with advanced data analytics tools.  
+
+Key benefits of the Microsoft Sentinel data lake include:
++	Single, open-format data copy for efficient and cost-effective storage
++	Separation of storage and compute for greater flexibility
++	Support for multiple analytics engines to unlock deeper insights from your security data
++	Native integration with Microsoft Sentinel, including the ability to select tiering for log data across analytics and lake tiers
+For more information, see 
+
+Explore the data lake using KQL queries, or use the new Microsoft Sentinel data lake notebook for VS Code to visualize and analyze your data.
+
+For more information, see:
+
+- [Microsoft Sentinel data lake](datalake/sentinel-lake-overview.md)
+- [KQL and the Microsoft Sentinel data lake (preview)](datalake/kql-overview.md) 
+- [Jupyter notebooks and the Microsoft Sentinel data lake (preview)](datalake/notebooks-overview.md)
+- [Data lake tech blog](https://aka.ms/datalaketechblog)
+
+### Table management and retention settings in the Microsoft Defender portal
+
+Table management and retention settings are now available in the Microsoft Defender portals. You can view and manage table settings in the Microsoft Defender portal, including retention settings for Microsoft Sentinel and Defender XDR tables, and switch between analytics and data lake tiers.
+
+For more information, see:
++ [Manage data tiers and retention in Microsoft Sentinel (preview)](manage-data-overview.md) 
++ [Configure table settings in Microsoft Sentinel (preview)](manage-table-tiers-retention.md).
+
+
+### Microsoft Sentinel data lake permissions integrated with Microsoft Defender XDR unified RBAC (preview)
+
+Starting in July 2025, Microsoft Sentinel data lake permissions are provided through Microsoft Defender XDR unified RBAC. Support for unified RBAC is available in addition the support provided by global Microsoft Entra ID roles.
+
+For more information, see:
+
+- [Microsoft Defender XDR Unified role-based access control (RBAC)](/defender-xdr/manage-rbac)
+- [Create custom roles with Microsoft Defender XDR Unified RBAC](/defender-xdr/create-custom-rbac-roles)
+- [Permissions in Microsoft Defender XDR Unified role-based access control (RBAC)](/defender-xdr/custom-permissions-details)
+- [Roles and permissions for the Microsoft Sentinel data lake (Preview)](/azure/sentinel/roles#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview)
+
+### For new customers only: Automatic onboarding and redirection to the Microsoft Defender portal
+
+For this update, new Microsoft Sentinel customers are customers who are [onboarding the first workspace in their tenant to Microsoft Sentinel](quickstart-onboard.md) on or after **July 1, 2025**.
+
+Starting **July 1, 2025**, such new customers who have the permissions of a subscription [Owner](/azure/role-based-access-control/built-in-roles#owner) or a [User access administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator), and are also not Azure Lighthouse-delegated users, have their workspaces automatically onboarded to the Defender portal together with onboarding to Microsoft Sentinel. Users of such workspaces, who also aren't Azure Lighthouse-delegated users, see links in Microsoft Sentinel in the Azure portal that redirect them to the Defender portal. Such users use Microsoft Sentinel in the Defender portal only.
+
+:::image type="content" source="media/overview/redirect-no-defender.png" alt-text="Screenshot of redirect links in the Azure portal to the Defender portal.":::
+
+New customers who don't have relevant permissions aren't automatically onboarded to the Defender portal, but they do still see redirection links in the Azure portal, together with prompts to have a user with relevant permissions manually onboard the workspace to the Defender portal.
+
+This change streamlines the onboarding process and ensures that new customers can immediately take advantage of unified security operations capabilities without the extra step of manually onboarding their workspaces.
+
+For more information, see:
+
+- [Onboard Microsoft Sentinel](quickstart-onboard.md)
+- [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md)
+- [Changes for new customers starting July 2025](overview.md#changes-for-new-customers-starting-july-2025)
 
 ### No limit on the number of workspaces you can onboard to the Defender portal
 

@@ -7,6 +7,7 @@ ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-blob-storage
 ms.date: 07/30/2025
+ai-usage: ai-assisted
 #Customer intent: As an engineer responsible for business continuity, I want to understand the details of how Azure Blob Storage works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow during different kinds of situations.
 ---
 
@@ -82,6 +83,8 @@ This section describes what to expect when a blob storage account is configured 
 This section describes what to expect when a blob storage account is configured for ZRS and there's an availability zone outage.
 
 [!INCLUDE [Storage - Zone down experience](includes/storage/reliability-storage-availability-zone-down-experience-include.md)]
+
+- **Traffic rerouting.** Azure automatically reroutes traffic to the remaining healthy availability zones. The service maintains full functionality using the surviving zones with no customer intervention required.
 
 ### Failback
 

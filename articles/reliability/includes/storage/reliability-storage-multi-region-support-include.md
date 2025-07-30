@@ -1,6 +1,6 @@
 ---
- title: include file
- description: include file
+ title: Description of Azure Storage geo-redundant storage
+ description: Description of Azure Storage geo-redundant storage
  author: anaharris-ms
  ms.service: azure
  ms.topic: include
@@ -22,6 +22,6 @@ Azure Storage provides several types of geo-redundant storage in paired regions.
 
    :::image type="content" source="../../media/reliability-storage/geo-redundant-storage.png" alt-text="Diagram showing how data is replicated with GRS." lightbox="../../media/reliability-storage/geo-redundant-storage.png" border="false":::
 
-- [Geo-zone redundant storage (GZRS)](/azure/storage/common/storage-redundancy#geo-zone-redundant-storage) replicates data in multiple availabilty zones in the primary region, and also into the paired region.
+- [Geo-zone redundant storage (GZRS)](/azure/storage/common/storage-redundancy#geo-zone-redundant-storage) replicates data in multiple availability zones in the primary region, and also into the paired region.
 
   :::image type="content" source="../../media/reliability-storage/geo-zone-redundant-storage.png" alt-text="Diagram showing how data is replicated with GZRS." lightbox="../../media/reliability-storage/geo-zone-redundant-storage.png" border="false":::

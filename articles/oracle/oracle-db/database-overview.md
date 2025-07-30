@@ -8,6 +8,7 @@ ms.topic: overview
 ms.date: 10/01/2024
 ms.custom: engagement-fy23
 ms.author: jacobjaygbay
+# Customer intent: As a database administrator, I want to provision and manage Oracle Database services within Azure, so that I can leverage high performance and low latency for my critical workloads while utilizing familiar Azure management tools.
 ---
 
 

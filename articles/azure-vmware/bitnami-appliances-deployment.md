@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 12/24/2024
 ms.custom: engagement-fy23
+# Customer intent: "As a cloud administrator, I want to deploy Bitnami virtual appliances in my Azure VMware Solution private cloud, so that I can streamline the installation and configuration of essential applications for my development and production environments."
 ---
 
 # Bitnami appliance deployment

@@ -11,7 +11,7 @@
   - name: Price comparison
     href: ddos-pricing-guide.md
   - name: What is Azure network security?
-    href: /azure/networking/security/network-security.md?toc=/azure/ddos-protection/toc.json
+    href: /azure/networking/security/network-security?toc=/azure/ddos-protection/toc.json
   - name: FAQ
     href: ddos-faq.yml
 - name: Configure
@@ -68,7 +68,7 @@
   - name: Onboard partners
     href: ddos-protection-partner-onboarding.md
   - name: Security baseline
-    href: /security/benchmark/azure/baselines/azure-ddos-protection-security-baseline?toc=%2fazure%2fddos-protection%2ftoc.json?toc=/azure/ddos-protection/TOC.json
+    href: /security/benchmark/azure/baselines/azure-ddos-protection-security-baseline?toc=%2fazure%2fddos-protection%2ftoc.json
   - name: Azure Security blog
     href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: Resiliency

@@ -25,10 +25,10 @@ landingContent:
         links:
           - text: What is Microsoft Dev Box?
             url: overview-what-is-microsoft-dev-box.md
-          - text: Architecture overview
-            url: concept-dev-box-architecture.md
           - text: Microsoft Dev Box concepts
             url: concept-dev-box-concepts.md
+          - text: Architecture overview
+            url: concept-dev-box-architecture.md
           - text: Microsoft Dev Box Roadmap
             url: dev-box-roadmap.md
       - linkListType: learn
@@ -87,6 +87,8 @@ landingContent:
             url: how-to-request-quota-increase.md
           - text: Configure Dev Box Hibernation
             url: how-to-configure-dev-box-hibernation.md
+          - text: Delete unused dev boxes
+            url: how-to-auto-delete-dev-box.md
           - text: Autostop Dev Boxes on schedule             
             url: how-to-configure-stop-schedule.md
           - text: Skip or delay a scheduled shutdown

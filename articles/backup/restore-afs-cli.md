@@ -4,8 +4,8 @@ description: Learn how to use the Azure CLI to restore backed-up Azure Files in 
 ms.topic: how-to
 ms.custom: devx-track-azurecli, engagement-fy24
 ms.date: 06/03/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to restore backed-up Azure Files using the command line, so that I can efficiently recover entire shares or specific files as needed, ensuring quick restoration and minimal impact on operations.
 ---
 

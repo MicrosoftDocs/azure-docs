@@ -1,6 +1,6 @@
 ---
- title: include file
- description: include file
+ title: Description of Azure Storage availability zone zone-down experience
+ description: Description of Azure Storage availability zone zone-down experience
  author: anaharris-ms
  ms.service: azure
  ms.topic: include
@@ -16,5 +16,3 @@
 - **Expected data loss:** No data loss occurs during zone failures because data is synchronously replicated across multiple zones before write operations complete.
 
 - **Expected downtime:** A small amount of downtime - typically, a few seconds - may occur during automatic failover as traffic is redirected to healthy zones.
-
-- **Traffic rerouting.** Azure automatically reroutes traffic to the remaining healthy availability zones. The service maintains full functionality using the surviving zones with no customer intervention required.

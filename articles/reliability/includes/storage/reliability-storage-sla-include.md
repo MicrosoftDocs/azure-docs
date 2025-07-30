@@ -1,6 +1,6 @@
 ---
- title: include file
- description: include file
+ title: Diagram of Azure Storage service level agreement
+ description: Diagram of Azure Storage service level agreement
  author: anaharris-ms
  ms.service: azure
  ms.topic: include

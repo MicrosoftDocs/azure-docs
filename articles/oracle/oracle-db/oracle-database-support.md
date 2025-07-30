@@ -8,6 +8,7 @@ ms.topic: overview
 ms.date: 04/15/2025
 ms.custom: engagement-fy23
 ms.author: jacobjaygbay
+# Customer intent: "As a database administrator managing Oracle Database on Azure, I want clear guidance on support procedures and contacts for both Oracle and Azure, so that I can efficiently resolve any issues and maintain optimal database performance."
 ---
 
 # Support for Oracle Database@Azure

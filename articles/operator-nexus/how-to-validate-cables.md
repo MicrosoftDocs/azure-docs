@@ -15,6 +15,9 @@ This article explains the  Fabric cable validation, where the primary function o
 
 For BOM details, refer to [Azure Operator Nexus SKUs](./reference-operator-nexus-skus.md)
 
+>[!Note]
+> As part of our continued commitment to security and modernization, we are announcing the end of support for Shared Access Signature (SAS) URL–based access to customer-provided storage accounts in Azure Operator Nexus 2508.1 release.
+
 ## Prerequisites
 
 - Ensure the Nexus Network Fabric is successfully provisioned.

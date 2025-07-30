@@ -23,10 +23,12 @@
   items:
   - name: Networking architecture
     href: networking.md
-  - name: Resiliency
+  - name: Reliability
     items:
-    - name: Migrate to availability zone support
-      href: ../../reliability/migrate-app-service-environment.md
+    - name: Reliability in Azure App Service Environment
+      href: ../../reliability/reliability-app-service-environment.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json&bc=/azure/app-service/breadcrumb/toc.json
+    - name: Configure App Service Environment for zone redundancy
+      href: configure-zone-redundancy-environment.md
   - name: Certificates
     href: overview-certificates.md
   - name: Diagnostics

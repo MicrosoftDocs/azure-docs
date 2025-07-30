@@ -14,6 +14,9 @@ ms.date: 11/20/2024
 
 The standard Azure HDInsight cluster is a single-user cluster. It's suitable for most companies that have smaller application teams building large data workloads. Each user can create a dedicated cluster on demand and destroy it when it's not needed anymore.
 
+> [!NOTE]
+> Enterprise Security Package for HDInsight is retiring, and will reach end of support by July 31, 2026.
+
 Many enterprises have moved toward a model in which IT teams manage clusters, and multiple application teams share clusters. These larger enterprises need multiuser access to each cluster in Azure HDInsight.
 
 HDInsight relies on a popular identity provider--Active Directory--in a managed way. By integrating HDInsight with [Microsoft Entra Domain Services](../../active-directory-domain-services/overview.md), you can access the clusters by using your domain credentials.

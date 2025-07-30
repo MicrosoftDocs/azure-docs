@@ -3,8 +3,8 @@ title: Restore files to Windows Server using the MARS Agent
 description: In this article, learn how to restore data stored in Azure to a Windows server or Windows computer with the Microsoft Azure Recovery Services (MARS) Agent.
 ms.topic: how-to
 ms.date: 06/20/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a system administrator, I want to restore files from Azure Backup to a Windows Server using the Recovery Services Agent, so that I can recover critical data from backup vaults quickly and efficiently, whether to the original machine or an alternate one."
 ---
 # Restore files to Windows Server using the MARS Agent

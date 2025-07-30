@@ -121,7 +121,7 @@ items:
     items:
     - name: Connectivity to an Azure Virtual Network
       href: native-network-connectivity.md
-    - name: Connect to on-premises environment
+    - name: Connect to an on-premises environment
       href: native-connect-on-premises.md
     - name: Internet connectivity options
       href: native-internet-connectivity-design-considerations.md
@@ -379,8 +379,12 @@ items:
     href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud
   - name: Configure VMware Cloud Director Service in Azure VMware Solution
     href: configure-vmware-cloud-director-service-azure-vmware-solution.md
-  - name: Self service maintenance orchestration (preview)
+  - name: Plan self-service maintenance for Azure VMware Solution (public preview)
     href: self-service-maintenance-orchestration.md
+  - name: Enable VMware Cloud Director Service with Azure VMware Solution
+    href: enable-vmware-cds-with-azure.md
+  - name: Deploy VMware Cloud Director Availability in Azure VMware Solution
+    href: deploy-vmware-cloud-director-availability-in-azure-vmware-solution.md
 - name: Resources
   items:
   - name: Learning paths
