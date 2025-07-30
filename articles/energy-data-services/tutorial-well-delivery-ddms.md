@@ -27,7 +27,7 @@ For more information about DDMS, see [DDMS concepts](concepts-ddms.md).
 * An Azure subscription
 * An instance of [Azure Data Manager for Energy](quickstart-create-microsoft-energy-data-services-instance.md) created in your Azure subscription
 * cURL command-line tool installed on your machine
-* Generate the service principal access token to call the Seismic APIs. See [How to generate auth token](how-to-generate-auth-token.md).
+* Generate the service principal access token to call the Well Delivery APIs. See [How to generate auth token](how-to-generate-auth-token.md).
 
 ## Get your Azure Data Manager for Energy instance details
 
