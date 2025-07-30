@@ -30,7 +30,7 @@ By the end of this guide, you'll be able to securely browse and access Microsoft
 
 ## Register web API application for ArcGIS Pro
 ### [Public](#tab/public)
-1. Open the Azure Portal and go to **Microsoft Entra ID**.
+1. Open the Azure portal and go to **Microsoft Entra ID**.
 
     [ ![Screenshot showing a user selecting Microsoft Entra ID from Azure portal.](media/microsoft-entra-id.png) ](media/microsoft-entra-id.png#lightbox)
 
@@ -106,7 +106,7 @@ By the end of this guide, you'll be able to securely browse and access Microsoft
     [ ![Screenshot showing how to add a client app.](media/add-a-client-app.png) ](media/add-a-client-app.png#lightbox)
 ### [US Gov](#tab/usgov)
 
-1. Open the Azure Portal and go to **Microsoft Entra ID**.
+1. Open the Azure portal and go to **Microsoft Entra ID**.
 
     [ ![Screenshot showing a user selecting Microsoft Entra ID from Azure portal.](media/microsoft-entra-id.png) ](media/microsoft-entra-id.png#lightbox)
 
@@ -328,7 +328,7 @@ This section outlines how to configure authentication and data access in the **A
 
     - Enter your **Entra Domain** and **Client ID**.
 
-      - You can [find your **Entra Domain**](/partner-center/account-settings/find-ids-and-domain-names) (also know as your **Primary Domain**) from with Microsoft Entra ID from your Azure Portal
+      - You can [find your **Entra Domain**](/partner-center/account-settings/find-ids-and-domain-names) (also know as your **Primary Domain**) from with Microsoft Entra ID from your Azure portal
 
       - Your **Client ID** is the client ID you set above in the **Add a client application** step.
 
@@ -372,7 +372,7 @@ This section outlines how to configure authentication and data access in the **A
 
     - Enter your **Entra Domain** and **Client ID**.
 
-      - You can [find your **Entra Domain**](/partner-center/account-settings/find-ids-and-domain-names) (also know as your **Primary Domain**) from with Microsoft Entra ID from your Azure Portal
+      - You can [find your **Entra Domain**](/partner-center/account-settings/find-ids-and-domain-names) (also know as your **Primary Domain**) from with Microsoft Entra ID from your Azure portal
       - Your **Client ID** is the client ID you set above in the **Add a client application** step.
 
     - Add the following **scopes**:
@@ -396,7 +396,7 @@ This section outlines how to configure authentication and data access in the **A
 
 ## Prepare and record GeoCatalog information
 
-1. Create an Microsoft Planetary Computer Pro GeoCatalog in your Azure subscription (for example,
+1. Create a Microsoft Planetary Computer Pro GeoCatalog in your Azure subscription (for example,
      arcgisprogeocatalog), and locate it in the appropriate resource group.
 
     [ ![Screenshot showing find hiddentype GeoCatalog.](media/find-hidden-type-geocatalog.png) ](media/find-hidden-type-geocatalog.png#lightbox)
@@ -454,7 +454,7 @@ This section outlines how to configure authentication and data access in the **A
 
 1. For **Bucket (Container) Name** use the **Container Name** value that you recorded earlier: ```sentinel-2-l2a-tutorial-1000-<unique-id>```.
 
-1. Do not specify a **Folder**.
+1. Don't specify a **Folder**.
 
 1. Add the provider option **ARC_TOKEN_SERVICE_API** and set the value to your **Token API Endpoint** that you constructed earlier. For example:
 
@@ -483,7 +483,7 @@ This section outlines how to configure authentication and data access in the **A
 
     - Reference the Authentication settings made in previous step.
 
-    - Add **Custom Paramaters**: Name: ```api-version```, Value: ```2025-04-30-preview```
+    - Add **Custom Parameters**: Name: ```api-version```, Value: ```2025-04-30-preview```
     
     - Add the ACS connection file that was created in previous step to the **Cloud Storage Connections** list.
 
