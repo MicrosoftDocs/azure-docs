@@ -35,7 +35,7 @@ In addition to the code and subcode, more detailed troubleshooting information c
 
 The following table contains the most common codes and subcodes. If your error isn't in this table, refer to the generic codes and subcodes to get more information about your specific scenario.
 
-### Most common Call Automation error codes
+### Call Automation error codes
 
 | Callback Event                   | Code | Subcode | Description                                                                                             | Mitigation |
 |----------------------------------|------|---------|---------------------------------------------------------------------------------------------------------|------------|
