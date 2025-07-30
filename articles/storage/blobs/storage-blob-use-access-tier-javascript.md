@@ -3,8 +3,8 @@ title: Set or change a blob's access tier with JavaScript or TypeScript
 titleSuffix: Azure Storage 
 description: Learn how to set or change a blob's access tier in your Azure Storage account using the JavaScript client library.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 
 ms.service: azure-blob-storage
 ms.topic: how-to
@@ -100,3 +100,4 @@ Create a [BlobBatchClient](/javascript/api/@azure/storage-blob/blobbatchclient).
 
 - [Access tiers best practices](access-tiers-best-practices.md)
 - [Blob rehydration from the archive tier](archive-rehydrate-overview.md)
+

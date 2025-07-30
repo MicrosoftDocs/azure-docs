@@ -33,7 +33,7 @@ additionalContent:
         # Card
         - title: Overview
           links:
-          - url: deploy-planning.md
+          - url: deployment-planning.md
             text: Planning for a Storage Discovery deployment
           - url: create-workspace.md
             text: Deploying a Storage Discovery resource

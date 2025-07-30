@@ -52,6 +52,8 @@ As organizations scale their digital footprint, managing storage across thousand
 
 ## Next steps
 
+These articles will help you plan your Discovery deployment and enable you to successfully create the Discovery workspace resource.
+
 - [Planning for an Azure Storage Discovery deployment](deployment-planning.md)
 - [Create Storage Discovery Workspace by using the Azure portal](create-workspace.md)
 - [Pricing and billing](pricing.md)

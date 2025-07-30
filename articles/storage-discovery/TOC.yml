@@ -11,7 +11,7 @@ items:
   - name: Discovery core concepts
     href: core-concepts.md 
   - name: Planning for deployment
-    href: deploy-planning.md
+    href: deployment-planning.md
   - name: Understand Discovery Pricing
     href: pricing.md
 - name: How-To
