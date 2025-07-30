@@ -3,12 +3,12 @@ title: Use Java to manage properties and metadata for a blob container
 titleSuffix: Azure Storage
 description: Learn how to set and retrieve system properties and store custom metadata on blob containers in your Azure Storage account using the Java client library.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/05/2024
-ms.author: pauljewell
+ms.author: shaas
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 # Customer intent: As a Java developer, I want to manage properties and metadata for blob containers, so that I can customize my storage resources and retrieve relevant information for my applications.
@@ -97,3 +97,4 @@ The `getProperties` method retrieves container properties and metadata by callin
 [!INCLUDE [storage-dev-guide-resources-java](../../../includes/storage-dev-guides/storage-dev-guide-resources-java.md)]
 
 [!INCLUDE [storage-dev-guide-next-steps-java](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-java.md)]
+
