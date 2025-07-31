@@ -41,17 +41,20 @@ conceptualContent:
       items:
       - title: Adopt Azure
         links:
-          - url: /azure/cloud-adoption-framework/migrate/prepare/ready-azure-landing-zone
-            text: Prepare your Azure environment for migration
+          - url: /azure/cloud-adoption-framework/plan/discover-existing-workload-inventory
+            text: Create a cloud adoption plan
             itemType: tutorial
-          - url: /azure/cloud-adoption-framework/migrate/assess/classify
-            text: Assess workload readiness and classification
+          - url: /azure/cloud-adoption-framework/ready/
+            text: Prepare your Azure environment
             itemType: tutorial
-          - url: /azure/cloud-adoption-framework/migrate/deploy/
-            text: Deploy Azure services for migration
+          - url: /azure/cloud-adoption-framework/migrate/plan-migration
+            text: Plan your migration
             itemType: tutorial
-          - url: /azure/cloud-adoption-framework/migrate/release/
-            text: Release deployed workloads to production
+          - url: /azure/cloud-adoption-framework/migrate/prepare-workloads-cloud
+            text: Prepare workloads for the cloud
+            itemType: tutorial
+          - url: /azure/cloud-adoption-framework/migrate/execute-migration
+            text: Execute migration
             itemType: tutorial
       - title: Design and govern for Azure
         links:

@@ -145,13 +145,11 @@ This action sets the following states:
 
 ### Step 5: Refresh configuration
 
-This step pushes the latest configuration to the device after it enters maintenance mode (applicable only for CE and TOR).
+This operation pushes the latest configuration to the device (for all type of the devices). If a maintenance profile is already configured on the device (applicable to CE and TOR), it will be retained during this operation.
 
 ```Azure CLI
 az networkfabric device refresh-configuration --resource-name <resource-name> --resource-group <rg-name>
 ```
-
-This action pushes the latest configuration to the device. 
 
 This action keeps the device in following states:
 

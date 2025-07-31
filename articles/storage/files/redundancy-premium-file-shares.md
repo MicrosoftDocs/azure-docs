@@ -116,6 +116,7 @@ ZRS for SSD file shares is supported in the following subset of Azure regions:
 - (Asia Pacific) China North 3
 - (Asia Pacific) Southeast Asia
 - (Asia Pacific) Korea Central
+- (Asia Pacific) Malaysia West
 - (Asia Pacific) East Asia
 - (Asia Pacific) Indonesia Central
 - (Asia Pacific) Japan East

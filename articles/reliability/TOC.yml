@@ -86,11 +86,7 @@
     - name: Azure Container Instances
       href: reliability-containers.md
     - name: Azure Container Registry
-      items:
-      - name: Availability zones
-        href: /azure/container-registry/zone-redundancy?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Disaster recovery
-        href: /azure/container-registry/container-registry-geo-replication?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: reliability-container-registry.md
     - name: Azure Kubernetes Service (AKS)
       href: reliability-aks.md
     - name: Azure Service Fabric
@@ -297,6 +293,8 @@
       href: reliability-elastic-san.md
     - name: Azure NetApp Files
       href: ../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Queue Storage
+      href: reliability-storage-queue.md
     - name: Azure Storage Actions
       href: reliability-storage-actions.md
     - name: Azure Storage-Disk Storage
@@ -388,7 +386,7 @@
       - name: Azure Service Bus
         href: /azure/service-bus-messaging/service-bus-outages-disasters#availability-zones?toc=/azure/reliability
       - name: Azure SQL Database
-        href: migrate-sql-database.md
+        href: /azure/azure-sql/database/enable-zone-redundancy?view=azuresql-db&preserve-view=true&toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure SQL Managed Instance
         href: /azure/azure-sql/managed-instance/instance-zone-redundancy-configure
       - name: Azure Storage accounts
@@ -441,8 +439,6 @@
         href: /azure/azure-cache-for-redis/cache-faq?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#caches-with-a-dependency-on-cloud-services--classic
       - name: Classic Resource Providers
         href: /azure/azure-resource-manager/management/deployment-models?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Integration Services Environment 
-        href: /azure/logic-apps/export-from-ise-to-standard-logic-app?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Microsoft HPC Pack  
         href: /powershell/high-performance-computing/burst-to-cloud-services-retirement-guide?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Virtual WAN  
