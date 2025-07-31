@@ -15,6 +15,10 @@ This document lists some common questions and issues Device Update users have re
 
 ## <a name="import"></a>Importing updates
 
+### Q: I’ve imported an update successfully, but it's not showing as available for me to deploy to devices which it should be compatible with
+
+Double-check that your import manifest .json file doesn’t have any accidental errors, especially in the [Compatibility object](/azure/iot-hub-device-update/import-schema) values. The compatibility properties in the import manifest must match exactly with the properties reported by your devices. This is to ensure that the right updates are always only sent to the right devices. For example, if there's a typographical error in the import manifest that causes a compatibility property to have a missing, transposed or extra character compared to what’s reported by a device, the Device Update for IoT Hub service won’t be able to match the update to that device. If you've already imported an update, you can quickly check for issues with compatibility properties by clicking the "Details" link for that update and then clicking “Additional details” in the right-hand flyout menu. From there, you can view the import manifest JSON content for that update and identify any potential errors.
+
 ### Q: I'm having trouble connecting my Device Update instance to my IoT Hub instance
 
 Please ensure your IoT Hub message routes are configured correctly, as per the [Device Update resources](./device-update-resources.md) documentation.
