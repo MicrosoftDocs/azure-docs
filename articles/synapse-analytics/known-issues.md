@@ -35,6 +35,7 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 |Azure Synapse serverless SQL pool|[Query failures in serverless SQL pools](#query-failures-in-serverless-sql-pools)|Has workaround|
 |Azure Synapse serverless SQL pool|[Storage access issues due to authorization header being too long](#storage-access-issues-due-to-authorization-header-being-too-long)|Has workaround|
 |Azure Synapse serverless SQL pool|[Querying a view shows unexpected results](#querying-a-view-shows-unexpected-results)|Has workaround|
+|Azure Synapse serverless SQL pool|[Queries longer than 7,500 characters may not appear in Log Analytics](#queries-longer-than-7500-characters-may-not-appear-in-log-analytics)|Has workaround|
 |Azure Synapse Workspace|[Blob storage linked service with User Assigned Managed Identity (UAMI) is not getting listed](#blob-storage-linked-service-with-user-assigned-managed-identity-uami-is-not-getting-listed)|Has workaround|
 |Azure Synapse Workspace|[Failed to delete Synapse workspace & Unable to delete virtual network](#failed-to-delete-synapse-workspace--unable-to-delete-virtual-network)|Has workaround|
 |Azure Synapse Workspace|[REST API PUT operations or ARM/Bicep templates to update network settings fail](#rest-api-put-operations-or-armbicep-templates-to-update-network-settings-fail)|Has workaround|
@@ -252,6 +253,17 @@ Suggested workarounds are:
 When you query the view for which the underlying schema has changed after the view was created, you may encounter unexpected results. This means that the view references columns or objects that were modified or no longer exist. To overcome this you need to manually adjust the view definition to align with the underlying schema changes.
 
 **Workaround**: Manually adjust the view definition. 
+
+### Queries longer than 7,500 characters may not appear in Log Analytics
+
+Queries that exceed 7,500 characters in length might not be captured in the `SynapseBuiltinSqlPoolRequestsEnded` table in Log Analytics.
+
+**Workaround**: 
+
+Suggested workarounds are:
+
+- Use the `sys.dm_exec_requests_history` view in your Synapse Serverless SQL pool to access historical query execution details.
+- Refactor the query to reduce its length below 7,500 characters, if feasible.
 
 
 ## Recently closed known issues
