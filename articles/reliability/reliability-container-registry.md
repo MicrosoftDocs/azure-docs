@@ -34,7 +34,7 @@ Container Registry is built on distributed Azure infrastructure to provide high 
 
 <!-- :::image type="content" source="./media/reliability-acr/acr-service-architecture.png" alt-text="Diagram that shows Container Registry service architecture with client access, control plane, data plane, and storage layer components." lightbox="./media/reliability-acr/acr-service-architecture.png" border="false":::-->
 
-- **The control plane** is a centralized management in the home region for registry configuration, authentication configuration, and replication policies.
+- **The control plane** is a centralized management component in the home region for registry configuration, authentication configuration, and replication policies.
 
 - **The data plane** is a distributed service that handles container image push and pull operations across regions and availability zones.
 
