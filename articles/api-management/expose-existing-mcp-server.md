@@ -4,7 +4,7 @@ description: Learn how to expose and govern an existing Model Context Protocol (
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 07/25/2025
+ms.date: 07/31/2025
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
@@ -34,10 +34,10 @@ Learn more about:
 
 ## Limitations
 
-The following limitations currently apply to this preview:
+The following limitations apply to this preview:
 
 * The external MCP server must conform to MCP version `2025-06-18` or later. The server must support:
-    * Either no authorization or authorization protocols that comply with the following standards: [https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization#standards-compliance](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization#standards-compliance) 
+    * Either no authorization, or authorization protocols that comply with the following standards: [https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization#standards-compliance](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization#standards-compliance) 
     * Streamable HTTP transport
 
     > [!IMPORTANT]

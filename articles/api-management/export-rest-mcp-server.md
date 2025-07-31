@@ -4,7 +4,7 @@ description: Learn how to expose a REST API in Azure API Management as an MCP se
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 07/25/2025
+ms.date: 07/31/2025
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
@@ -29,7 +29,7 @@ Learn more about:
 
 ## Limitations
 
-The following limitations currently apply to this preview:
+The following limitations apply to this preview:
 
 * API Management supports MCP server tools, but doesn't support MCP resources or prompts.
 * MCP server capabilities aren't supported in API Management [workspaces](workspaces-overview.md).

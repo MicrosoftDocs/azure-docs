@@ -2,7 +2,7 @@
 author: dlepow
 ms.service: azure-api-management
 ms.topic: include
-ms.date: 07/15/2025
+ms.date: 07/31/2025
 ms.author: danlep
 ---
 ## Configure policies for the MCP server
@@ -16,9 +16,9 @@ Learn more about configuring policies:
 * [Set and edit policies](../articles/api-management/set-edit-policies.md)
 
 > [!IMPORTANT]
-> Do not access the response body using `context.Response.Body` within MCP server policies. Doing so triggers response buffering, which interferes with the streaming behavior required by MCP servers and may cause them to malfunction.
+> Do not access the response body using the `context.Response.Body` variable within MCP server policies. Doing so triggers response buffering, which interferes with the streaming behavior required by MCP servers and may cause them to malfunction.
 
-To configure policies for the MCP server:
+To configure policies for the MCP server: 
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left-hand menu, under **APIs**, select **MCP Servers**.
@@ -41,7 +41,7 @@ Use a compliant LLM agent (such as GitHub Copilot, Semantic Kernel, or Copilot S
 
 ### Add the MCP server in Visual Studio Code
 
-For example, in Visual Studio Code, use GitHub Copilot chat in agent mode (preview) to add the MCP server and use the tools. For background about MCP servers in Visual Studio Code, see [Use MCP Servers in VS Code (Preview)](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
+In Visual Studio Code, use GitHub Copilot chat in agent mode to add the MCP server and use the tools. For background about MCP servers in Visual Studio Code, see [Use MCP Servers in VS Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
 
 To add the MCP server in Visual Studio Code:
 
@@ -89,7 +89,7 @@ After adding an MCP server in Visual Studio Code, you can use tools in agent mod
 | `401 Unauthorized` error from backend           | Authorization header not forwarded        | Use `set-header` policy to manually attach token         |
 | API call works in API Management but fails in agent | Incorrect base URL or missing token       | Double-check security policies and endpoint            |
 | Not able to create MCP server           | MCP server capability is not available in Consumption or Developer tier, and must be enabled using [update group](../articles/api-management/configure-service-update-settings.md) in classic Basic, Standard, and Premium tiers  | Use a supported classic or v2 tier - see [Prerequisites](#prerequisites) |
-| MCP server fails when diagnostic logs are enabled | Response body logging or access through policy interferes with MCP transport        | Disable response body logging at all APIs scope - see [Prerequisites](#prerequisites) |
+| MCP server streaming fails when diagnostic logs are enabled | Logging of response body or access through policy interferes with MCP transport        | Disable response body logging at the All APIs scope - see [Prerequisites](#prerequisites) |
 
 ## Related content
 
