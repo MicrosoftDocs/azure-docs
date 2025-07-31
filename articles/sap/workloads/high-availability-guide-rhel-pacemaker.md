@@ -43,12 +43,12 @@ Read the following SAP Notes and articles first:
 ## Overview
 
 > [!IMPORTANT]
-> Pacemaker clusters that span multiple Virtual networks(VNets)/subnets are not covered by standard support policies.
+> Pacemaker clusters that span multiple Virtual networks(VNets)/subnets aren't covered by standard support policies.
 
 There are two options available on Azure for configuring the fencing in a pacemaker cluster for RHEL: Azure fence agent, which restarts a failed node via the Azure APIs, or you can use SBD device.
 
 > [!IMPORTANT]
-> In Azure, RHEL high availability cluster with storage based fencing (fence_sbd) uses software-emulated watchdog. It is important to review [Software-Emulated Watchdog Known Limitations](https://access.redhat.com/articles/7034141) and [Support Policies for RHEL High Availability Clusters - sbd and fence_sbd](https://access.redhat.com/articles/2800691) when selecting SBD as the fencing mechanism.
+> In Azure, RHEL high availability cluster with storage based fencing (fence_sbd) uses software-emulated watchdog. It's important to review [Software-Emulated Watchdog Known Limitations](https://access.redhat.com/articles/7034141) and [Support Policies for RHEL High Availability Clusters - sbd and fence_sbd](https://access.redhat.com/articles/2800691) when selecting SBD as the fencing mechanism.
 
 ### Use an SBD device
 
@@ -66,9 +66,9 @@ You can configure the SBD device by using either of two options:
   ![Diagram of pacemaker with iSCSI target server as SBD device in RHEL](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
   > [!IMPORTANT]
-  > When you're planning to deploy and configure Linux pacemaker cluster nodes and SBD devices, do not allow the routing between your virtual machines and the VMs that are hosting the SBD devices to pass through any other devices, such as a [network virtual appliance (NVA)](https://azure.microsoft.com/solutions/network-appliances/).
+  > When you're planning to deploy and configure Linux pacemaker cluster nodes and SBD devices, don't allow the routing between your virtual machines and the VMs that are hosting the SBD devices to pass through any other devices, such as a [network virtual appliance (NVA)](https://azure.microsoft.com/solutions/network-appliances/).
   >
-  > Maintenance events and other issues with the NVA can have a negative impact on the stability and reliability of the overall cluster configuration. For more information, see [user-defined routing rules](../../virtual-network/virtual-networks-udr-overview.md).
+  > Maintenance events and other issues with the NVA can have a negative effect on the stability and reliability of the overall cluster configuration. For more information, see [user-defined routing rules](../../virtual-network/virtual-networks-udr-overview.md).
 
 * SBD with Azure shared disk
 
@@ -105,7 +105,7 @@ You first need to create the iSCSI target virtual machines. You can share iSCSI 
 
 1. Deploy virtual machines that run on supported RHEL OS version, and connect to them via SSH. The VMs don't have to be of large size. VM sizes such as Standard_E2s_v3 or Standard_D2s_v3 are sufficient. Be sure to use Premium storage for the OS disk.
 
-2. It isn't necessary to use RHEL for SAP with HA and Update Services, or RHEL for SAP Apps OS image for the iSCSI target server. A standard RHEL OS image can be used instead. However, be aware that the support life cycle varies between different OS product releases.
+2. It isn't necessary to use RHEL for SAP with HA and Update Services, or RHEL for SAP Apps OS image for the iSCSI target server. A standard RHEL OS image can be used instead. However, the support life cycle varies between different OS product releases.
 
 3. Run following commands on all iSCSI target virtual machines.
 
@@ -842,7 +842,7 @@ Based on the selected fencing mechanism, follow only one section for relevant in
    > When using Azure government cloud, you must specify `cloud=` option when configuring fence agent. For example, `cloud=usgov` for the Azure US government cloud. For details on RedHat support on Azure government cloud, see [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341).
 
    > [!TIP]
-   > The option `pcmk_host_map` is *only* required in the command if the RHEL hostnames and the Azure VM names are *not* identical. Specify the mapping in the format **hostname:vm-name**. For more information, see [What format should I use to specify node mappings to fencing devices in pcmk_host_map?](https://access.redhat.com/solutions/2619961).
+   > The option `pcmk_host_map` is *only* required in the command if the RHEL hostnames and the Azure VM names aren't* identical. Specify the mapping in the format **hostname:vm-name**. For more information, see [What format should I use to specify node mappings to fencing devices in pcmk_host_map?](https://access.redhat.com/solutions/2619961).
 
    #### [Managed identity](#tab/msi)
 

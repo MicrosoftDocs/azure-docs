@@ -38,14 +38,14 @@ You can configure the SBD device by using either of two options:
   
   The SBD device requires at least one additional virtual machine (VM) that acts as an Internet Small Computer System Interface (iSCSI) target server and provides an SBD device. These iSCSI target servers can, however, be shared with other Pacemaker clusters. The advantage of using an SBD device is that if you're already using SBD devices on-premises, they don't require any changes to how you operate the Pacemaker cluster.
   
-  You can use up to three SBD devices for a Pacemaker cluster to allow an SBD device to become unavailable (for example, during OS patching of the iSCSI target server). If you want to use more than one SBD device per Pacemaker, be sure to deploy multiple iSCSI target servers and connect one SBD from each iSCSI target server. We recommend using either one SBD device or three. Pacemaker can't automatically fence a cluster node if only two SBD devices are configured and one of them is unavailable. If you want to be able to fence when one iSCSI target server is down, you have to use three SBD devices and, therefore, three iSCSI target servers. That's the most resilient configuration when you're using SBDs.
+  You can use up to three SBD devices for a Pacemaker cluster to allow an SBD device to become unavailable (for example, during OS patching of the iSCSI target server). If you want to use more than one SBD device per Pacemaker, be sure to deploy multiple iSCSI target servers and connect one SBD from each iSCSI target server. We recommend using either one SBD device or three. Pacemaker can't automatically fence a cluster node if only two SBD devices are configured and one of them is unavailable. If you want to ensure fencing is possible even if one iSCSI target server fails, you need to use three SBD devices, which means deploying three iSCSI target servers. This setup provides the high level of resilience when using SBD devices.
   
   ![Diagram of Pacemaker on SLES overview.](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
   
   >[!IMPORTANT]
   > When you're planning and deploying Linux Pacemaker clustered nodes and SBD devices, don't allow the routing between your virtual machines and the VMs that are hosting the SBD devices to pass through any other devices, such as a [network virtual appliance (NVA)](https://azure.microsoft.com/solutions/network-appliances/).
   >
-  > Maintenance events and other issues with the NVA can have a negative impact on the stability and reliability of the overall cluster configuration. For more information, see [User-defined routing rules](../../virtual-network/virtual-networks-udr-overview.md).
+  > Maintenance events and other issues with the NVA can have a negative effect on the stability and reliability of the overall cluster configuration. For more information, see [User-defined routing rules](../../virtual-network/virtual-networks-udr-overview.md).
 
 - SBD with an Azure shared disk:
   
@@ -64,13 +64,13 @@ You can configure the SBD device by using either of two options:
   - A ZRS for managed disk is currently unavailable in all regions with availability zones. For more information, review the ZRS "Limitations" section in [Redundancy options for managed disks](/azure/virtual-machines/disks-redundancy#limitations).
   - The Azure shared disk that you use for SBD devices doesn't need to be large. The [maxShares](/azure/virtual-machines/disks-shared-enable#disk-sizes) value determines how many cluster nodes can use the shared disk. For example, you can use P1 or P2 disk sizes for your SBD device on two-node cluster such as SAP ASCS/ERS or SAP HANA scale-up.
   - For [HANA scale-out with HANA system replication (HSR) and Pacemaker](sap-hana-high-availability-scale-out-hsr-suse.md), you can use an Azure shared disk for SBD devices in clusters with up to four nodes per replication site because of the current limit of [maxShares](/azure/virtual-machines/disks-shared-enable#disk-sizes).
-  - We do *not* recommend attaching an Azure shared disk SBD device across Pacemaker clusters.
+  - We don't recommend attaching an Azure shared disk SBD device across Pacemaker clusters.
   - If you use multiple Azure shared disk SBD devices, check on the limit for a maximum number of data disks that can be attached to a VM.
   - For more information about limitations for Azure shared disks, carefully review the "Limitations" section of [Azure shared disk documentation](/azure/virtual-machines/disks-shared#limitations).
 
 ### Use an Azure fence agent
 
-You can set up fencing by using an Azure fence agent. Azure fence agent requires managed identities for the cluster VMs or a service principal that manages restarting failed nodes via Azure APIs. Azure fence agent doesn't require the deployment of additional virtual machines.
+You can set up fencing by using an Azure fence agent. Azure fence agent requires managed identities for the cluster VMs or a service principal that manages to restart failed nodes via Azure APIs. Azure fence agent doesn't require the deployment of additional virtual machines.
 
 ## SBD with an iSCSI target server
 
@@ -124,7 +124,7 @@ To create the iSCSI disks for the clusters to be used by your SAP systems, run t
 - **nw1-xscs-0** and **nw1-xscs-1**: The hostnames of the **NW1** ASCS cluster nodes.
 - **nw1-db-0** and **nw1-db-1**: The hostnames of the database cluster nodes.
 
-In the following instructions, replace adjust the hostnames of your cluster nodes and the SID of your SAP system.
+In the following instructions, update the hostnames of your cluster nodes and the SID of your SAP system.
 
 1. Create the root folder for all SBD devices.
 
@@ -372,7 +372,7 @@ Run the following commands on the nodes of the new cluster that you want to crea
      sudo vi /etc/sysconfig/sbd
      ```
 
-     b. Change the property of the SBD device, enable the Pacemaker integration, and change the start mode of SBD. Also, adjust SBD_DELAY_START value, if required
+     b. Change the property of the SBD device, enable the Pacemaker integration, and change the start mode of SBD. Also, adjust SBD_DELAY_START value, if necessary
 
      ```bash
      [...]
@@ -388,7 +388,7 @@ Run the following commands on the nodes of the new cluster that you want to crea
      ```
 
      > [!NOTE]
-     > If the `SBD_DELAY_START` property value is set to "no" or "yes", update it to specific delay value, in seconds. For additional information, refer to the `Configuration via environment` section in the `man sbd` manual.
+     > If the `SBD_DELAY_START` property value is set to "no" or "yes", then update it to specific delay value, in seconds. For more information, see the `Configuration via environment` section in the `man sbd` manual.
 
      c. Ensure that the `TimeoutStartSec` value in the SBD service file is greater than the value of SBD_DELAY_START. See the [SBD file configuration documentation](https://documentation.suse.com/sle-ha/15-SP6/html/SLE-HA-all/cha-ha-storage-protect.html#pro-ha-storage-protect-sbd-config) for details.
 
@@ -399,7 +399,7 @@ Run the following commands on the nodes of the new cluster that you want to crea
      # TimeoutAbortUSec=4min 19s
      ```
 
-     If the value is default (90s) or it is set less than SBD_DELAY_START, follow steps to adjust the value.
+     If the value is default (90 seconds) or it's set less than SBD_DELAY_START, follow steps to adjust the value.
 
      ```bash
      sudo mkdir /etc/systemd/system/sbd.service.d
@@ -411,7 +411,7 @@ Run the following commands on the nodes of the new cluster that you want to crea
      >
      > In the new cluster build, both `SBD_DELAY_START` and `TimeoutStartSec` values are automatically set.
      >
-     > On existing cluster configuration, the value of `SBD_DELAY_START` could be set as "no" or "yes", and `TimeoutStartSec` would be different. Upgrading the SLES version does not update the value, so you will need to adjust these settings manually.
+     > On existing cluster configuration, the value of `SBD_DELAY_START` could be set as "no" or "yes", and `TimeoutStartSec` would be different. Upgrading the SLES version doesn't update the value, so you'll need to adjust these settings manually.
 
 1. **[A]** Create the `softdog` configuration file.
 
@@ -526,7 +526,7 @@ foreach ($vmName in $vmNames) {
    sudo vi /etc/sysconfig/sbd
    ```
 
-   b. Change the property of the SBD device, enable the Pacemaker integration, and change the start mode of SBD. Also, adjust SBD_DELAY_START value, if required
+   b. Change the property of the SBD device, enable the Pacemaker integration, and change the start mode of SBD. Also, adjust SBD_DELAY_START value, if necessary
 
    ```bash
    [...]
@@ -542,7 +542,7 @@ foreach ($vmName in $vmNames) {
    ```
 
    > [!NOTE]
-   > If the `SBD_DELAY_START` property value is set to "no" or "yes", update it to specific delay value, in seconds. For additional information, refer to the `Configuration via environment` section in the `man sbd` manual.
+   > If the `SBD_DELAY_START` property value is set to "no" or "yes", update it to specific delay value, in seconds. For more information, see the `Configuration via environment` section in the `man sbd` manual.
 
    c. Ensure that the `TimeoutStartSec` value in the SBD service file is greater than the value of `SBD_DELAY_START`. See the [SBD file configuration documentation](https://documentation.suse.com/sle-ha/15-SP6/html/SLE-HA-all/cha-ha-storage-protect.html#pro-ha-storage-protect-sbd-config) for details.
 
@@ -553,7 +553,7 @@ foreach ($vmName in $vmNames) {
    # TimeoutAbortUSec=4min 19s
    ```
 
-   If the value is default (90s) or it is set less than SBD_DELAY_START, follow steps to adjust the value.
+   If the value is default (90 seconds) or it's set less than SBD_DELAY_START, follow steps to adjust the value.
 
    ```bash
    sudo mkdir /etc/systemd/system/sbd.service.d
@@ -565,7 +565,7 @@ foreach ($vmName in $vmNames) {
    >
    > In the new cluster build, both `SBD_DELAY_START` and `TimeoutStartSec` values are automatically set.
    >
-   > On existing cluster configuration, the value of `SBD_DELAY_START` could be set as "no" or "yes", and `TimeoutStartSec` would be different. Upgrading the SLES version does not update the value, so you will need to adjust these settings manually.
+   > On existing cluster configuration, the value of `SBD_DELAY_START` could be set as "no" or "yes", and `TimeoutStartSec` would be different. Upgrading the SLES version doesn't update the value, so you need to adjust these settings manually.
 
 6. Create the `softdog` configuration file.
 
@@ -585,11 +585,11 @@ This section applies only if you want to use a fencing device with an Azure fenc
 
 ### Create an Azure fence agent device
 
-This section applies only if you're using a fencing device that's based on an Azure fence agent. The fencing device uses either a managed identity or a service principal to authorize against Microsoft Azure.
+This section applies only if you're using Azure fence agent as a fencing device. The Azure fence agent uses either a managed identity or a service principal to authorize against Microsoft Azure.
 
 #### [Managed identity](#tab/msi)
 
-To create a managed identity (MSI), [create a system-assigned](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) managed identity for each VM in the cluster. Should a system-assigned managed identity already exist, it will be used. User assigned managed identities shouldn't be used with Pacemaker at this time. Azure fence agent, based on managed identity is supported for SLES 12 SP5 and SLES 15 SP1 and above.  
+To create a managed identity (MSI), [create a system-assigned](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) managed identity for each VM in the cluster. If a system-assigned managed identity is already enabled, then it would be used. User assigned managed identities shouldn't be used with Pacemaker at this time. Azure fence agent, based on managed identity is supported for SLES 12 SP5 and SLES 15 SP1 and higher.  
 
 #### [Service principal](#tab/spn)
 
@@ -646,7 +646,7 @@ Assign the custom role "Linux Fence Agent Role" that was created in the last cha
 
 #### [Service principal](#tab/spn)
 
-Assign the custom role *Linux fence agent Role* that you already created to the service principal. Do *not* use the *Owner* role anymore. For more information, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+Assign the custom role *Linux fence agent Role* that you already created to the service principal. Don't use the *Owner* role anymore. For more information, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 Make sure to assign the custom role to the service principal at all VM (cluster node) scopes.
 
@@ -675,8 +675,8 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 
    > [!IMPORTANT]
    >
-   > - **SLES 12 SP5:** If python-azure-core-1.23.1-**2.12.8** is installed, the Azure fence agent may fail to start in a Pacemaker cluster, displaying the error message “Azure Resource Manager Python SDK not found or not accessible” in /var/log/messages. Follow the instructions in [SUSE KBA 21532](https://www.suse.com/support/kb/doc/?id=000021532) for more details.
-   > - **SLES 15 SP4+:** After updating the OS, the Azure libraries for Python might use the Python 3.11 interpreter, causing the Azure fence agent to fail to start in a Pacemaker cluster. The error message “Azure Resource Manager Python SDK not found or not accessible” will appear in /var/log/messages. Follow the instructions in [SUSE KBA 21504](https://www.suse.com/support/kb/doc/?id=000021504) for more details.
+   > - **SLES 12 SP5:** If python-azure-core-1.23.1-**2.12.8** is installed, the Azure fence agent could fail to start in a Pacemaker cluster, displaying the error message "Azure Resource Manager Python SDK not found or not accessible" in /var/log/messages. Follow the instructions in [SUSE KBA 21532](https://www.suse.com/support/kb/doc/?id=000021532) for more details.
+   > - **SLES 15 SP4+:** After updating the OS, the Azure libraries for Python might use the Python 3.11 interpreter, causing the Azure fence agent to fail to start in a Pacemaker cluster. The error message "Azure Resource Manager Python SDK not found or not accessible" would appear in /var/log/messages. Follow the instructions in [SUSE KBA 21504](https://www.suse.com/support/kb/doc/?id=000021504) for more details.
 
 2. **[A]** Install the component, which you need for the cluster resources.
 
@@ -839,9 +839,9 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
     > To achieve the faster failover times with the Azure fence agent:
     >
     > - On SLES 12 SP5, install version 4.6.2 or later of the *python-azure-mgmt-compute* package.
-    > - If your *python-azure-mgmt-compute or python**3**-azure-mgmt-compute* package version is 17.0.0-6.7.1, follow the instructions in [SUSE KBA](https://www.suse.com/support/kb/doc/?id=000020377) to update the fence-agents version and install the Azure Identity client library for Python module if it is missing.
+    > - If your *python-azure-mgmt-compute or python**3**-azure-mgmt-compute* package version is 17.0.0-6.7.1, follow the instructions in [SUSE KBA](https://www.suse.com/support/kb/doc/?id=000020377) to update the fence-agents version and install the Azure Identity client library for Python module if it's missing.
 
-12. **[A]** Set up the hostname resolution.
+12. **[A]** Setup the hostname resolution.
 
     You can either use a DNS server or modify the */etc/hosts* file on all nodes. This example shows how to use the */etc/hosts* file.
 
@@ -961,7 +961,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 
 > [!TIP]
 >
-> - To avoid fence races within a two-node pacemaker cluster, you can configure additional "priority-fencing-delay" cluster property. This property introduces additional delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For additional details, see [SUSE Linux Enterprise Server high availability extension administration guide](https://documentation.suse.com/sle-ha/15-SP3/single-html/SLE-HA-administration/#pro-ha-storage-protect-fencing).
+> - To avoid fence races within a two-node pacemaker cluster, you can configure additional "priority-fencing-delay" cluster property. This property introduces additional delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For more information, see [SUSE Linux Enterprise Server high availability extension administration guide](https://documentation.suse.com/sle-ha/15-SP3/single-html/SLE-HA-administration/#pro-ha-storage-protect-fencing).
 > - The instruction on setting "priority-fencing-delay" cluster property can be found in respective SAP ASCS/ERS (applicable only on ENSA2) and SAP HANA scale-up high availability document.
 
 1. **[1]** If you're using an SBD device (iSCSI target server or Azure shared disk) as a fencing device, run the following commands. Enable the use of a fencing device, and set the fence delay.
@@ -979,7 +979,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
       op monitor interval="600" timeout="15"
    ```
 
-1. **[1]** If you're using an Azure fence agent for fencing, run the following commands. After you've assigned roles to both cluster nodes, you can configure the fencing devices in the cluster.
+1. **[1]** If you're using an Azure fence agent for fencing, run the following commands. After assigning roles to both cluster nodes, you can configure the fencing devices in the cluster.
 
    ```bash
    sudo crm configure property stonith-enabled=true
@@ -1122,9 +1122,9 @@ The `#heath-azure` attribute is set back to `0` on pacemaker startup once all ev
 
 ## Next steps
 
-- [Azure Virtual Machines planning and implementation for SAP][planning-guide]
-- [Azure Virtual Machines deployment for SAP][deployment-guide]
-- [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]
-- [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server][sles-nfs-guide]
-- [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP applications][sles-guide]
-- To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure VMs, see [High availability of SAP HANA on Azure Virtual Machines][sap-hana-ha]
+- [Azure Virtual Machines planning and implementation for SAP][planning-guide].
+- [Azure Virtual Machines deployment for SAP][deployment-guide].
+- [Azure Virtual Machines DBMS deployment for SAP][dbms-guide].
+- [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server][sles-nfs-guide].
+- [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP applications][sles-guide].
+- To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure VMs, see [High availability of SAP HANA on Azure Virtual Machines][sap-hana-ha].
