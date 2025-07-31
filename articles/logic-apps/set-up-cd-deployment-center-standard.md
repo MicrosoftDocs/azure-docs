@@ -1,19 +1,19 @@
 ---
-title: Set Up CD for Standard Logic Apps with Deployment Center
-description: Learn how to automate deployment for Standard logic apps with Deployment Center in Azure.
+title: Set Up CD in Standard Logic Apps with Deployment Center
+description: Learn how to automate continuous deployment (CD) for Standard logic apps by integrating your source code repository with Deployment Center.
 ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, wsilveiranz, azla
 ms.topic: how-to
 ms.date: 08/14/2025
-# Customer intent: As a logic app workflow developer, I want to automate deployment for Standard logic apps by directly integrating my source code repository with my logic app resources and setting up continuous deployment by using Deployment Center in Azure.
+# Customer intent: As a logic app workflow developer, I want to set up CD for Standard logic apps by integrating my source code repository with Deployment Center.
 ---
 
-# Set up CD for Standard logic apps with Deployment Center in Azure
+# Set up CD for Standard logic apps with Deployment Center
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-To streamline automation for your Standard logic app deployments, directly integrate your source code repository with your logic app resources by using Deployment Center in Azure. Deployment Center gives you the capability to set up continuous deployment (CD), so you can make sure that every change committed to your repository gets automatically deployed to your logic app in Azure. This configuration helps your team ship new features, fix bugs, and respond to changes more quickly, yet maintain control and visibility over the deployment process.
+To streamline deployment automation for Standard logic apps, you can directly integrate your source code repository with your logic app resources by using Deployment Center. This capability helps you set up continuous deployment (CD) directly within your logic app, so you can make sure that every change committed to your repository gets automatically deployed to your logic app. Your team can then ship new features, fix bugs, and respond to changes faster, yet maintain control and visibility over the deployment process.
 
 Deployment Center supports multiple source control providers, seamlessly fits into modern DevOps workloads and scenarios, and makes sure that your logic apps stay current and production ready.
 
