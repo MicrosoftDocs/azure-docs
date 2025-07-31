@@ -18,7 +18,7 @@ ai-usage: ai-assisted
 >
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or not yet released into general availability.
 
-This article shows you how to develop custom WebAssembly (WASM) modules and graph definitions for Azure IoT Operations data flow graphs. You can create modules in Rust or Python to implement custom processing logic. You can also define graph configurations that specify how your modules connect into complete processing workflows.
+This article shows you how to develop custom WebAssembly (WASM) modules and graph definitions for Azure IoT Operations data flow graphs. Create modules in Rust or Python to implement custom processing logic. Define graph configurations that specify how your modules connect into complete processing workflows.
 
 ## Overview
 
@@ -42,9 +42,9 @@ Data flow graphs build on the [Timely dataflow](https://docs.rs/timely/latest/ti
 
 ### Why timely dataflow?
 
-Traditional stream processing systems face challenges with several issues. Out-of-order data can cause events to arrive later than expected. Partial results make it difficult to know when computations are complete. Coordination issues arise when synchronizing distributed processing.
+Traditional stream processing systems have several challenges. Out-of-order data means events can arrive later than expected. Partial results make it hard to know when computations finish. Coordination issues happen when synchronizing distributed processing.
 
-Timely dataflow solves problems through:
+Timely dataflow solves these problems through:
 
 #### Timestamps and progress tracking
 
@@ -90,7 +90,7 @@ Operators are the fundamental processing units based on [Timely dataflow operato
 Modules are the implementation of operator logic as WASM code. A single module can implement multiple operator types. For example, a temperature module might provide:
 
 - A map operator for unit conversion
-- A filter operator for threshold checking  
+- A filter operator for threshold checking
 - A branch operator for routing decisions
 - An accumulate operator for statistical aggregation
 
@@ -206,7 +206,7 @@ source ~/.bashrc
 
 # [Python](#tab/python)
 
-Python development uses componentize-py with WebAssembly Interface Types (WIT) for code generation. No other environment configuration is required beyond installing the prerequisites.
+Python development uses componentize-py with WebAssembly Interface Types (WIT) for code generation. You don't need any other environment configuration beyond installing the prerequisites.
 
 ---
 
@@ -382,7 +382,7 @@ fn my_branch(input: DataModel, timestamp: HybridLogicalClock) -> bool {
 
 #### Host APIs
 
-Access distributed services through the SDK:
+Use the SDK to work with distributed services:
 
 State store for persistent data:
 
@@ -422,7 +422,7 @@ metrics::record_to_histogram("processing_duration", duration_ms, Some(labels))?;
 
 # [Python](#tab/python)
 
-Python WASM development doesn't use a traditional SDK. Instead, you work with generated bindings from WebAssembly Interface Types (WIT). These bindings provide:
+Python WASM development doesn't use a traditional SDK. Instead, you use generated bindings from WebAssembly Interface Types (WIT). These bindings give you:
 
 Typed interfaces for operators:
 ```python
@@ -532,7 +532,7 @@ Use Docker builds for consistent builds across different environments and automa
 
 # [Rust](#tab/rust)
 
-For comprehensive examples of map, filter, branch, accumulate, and delay operators, see the [Rust examples](https://github.com/Azure-Samples/explore-iot-operations/tree/wasm/samples/wasm/rust/examples) in the samples repository. Complete implementations include:
+For comprehensive examples of map, filter, branch, accumulate, and delay operators, see the [Rust examples](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples) in the samples repository. Complete implementations include:
 
 - **Map operators**: Data transformation and conversion logic
 - **Filter operators**: Conditional data processing and validation
@@ -541,11 +541,11 @@ For comprehensive examples of map, filter, branch, accumulate, and delay operato
 - **Delay operators**: Time-based processing control
 - **Complex workflows**: Multi-operator configurations with state management
 
-For a complete implementation example, see the [branch module](https://github.com/Azure-Samples/explore-iot-operations/tree/wasm/samples/wasm/rust/examples/branch), which demonstrates parameter usage for conditional routing logic.
+For a complete implementation example, see the [branch module](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples/branch), which demonstrates parameter usage for conditional routing logic.
 
 # [Python](#tab/python)
 
-For comprehensive examples of map, filter, branch, accumulate, and delay operators, see the [Python examples](https://github.com/Azure-Samples/explore-iot-operations/tree/wasm/samples/wasm/python/examples) in the samples repository. Complete implementations include:
+For comprehensive examples of map, filter, branch, accumulate, and delay operators, see the [Python examples](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/python/examples) in the samples repository. Complete implementations include:
 
 - **Map operators**: Data transformation and conversion logic
 - **Filter operators**: Conditional data processing and validation
@@ -560,7 +560,7 @@ The Python examples demonstrate working implementations that show the complete s
 
 ## Graph definitions and WASM integration
 
-Graph definitions are central to WASM development as they define how your modules connect into processing workflows. Understanding the relationship between graph definitions and data flow graphs is essential for effective development.
+Graph definitions are central to WASM development because they define how your modules connect to processing workflows. Understanding the relationship between graph definitions and data flow graphs helps you develop effectively.
 
 ### Graph definition structure
 
@@ -613,7 +613,7 @@ For working examples, see:
 
 ### How graph definitions become data flows
 
-The relationship between graph definitions and Azure IoT Operations data flow graphs works as follows:
+Here's how graph definitions and Azure IoT Operations data flow graphs relate:
 
 - **Graph definition artifact**: Your YAML file defines the internal processing logic with source/sink operations as abstract endpoints
 - **WASM modules**: Referenced modules implement the actual processing operators  
@@ -741,11 +741,11 @@ def temperature_converter_init(configuration):
 
 ---
 
-For a complete implementation example, see the [branch module](https://github.com/Azure-Samples/explore-iot-operations/tree/wasm/samples/wasm/rust/examples/branch), which demonstrates parameter usage for conditional routing logic.
+For a complete implementation example, see the [branch module](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples/branch), which demonstrates parameter usage for conditional routing logic.
 
 ## Next steps
 
-- See complete examples and advanced patterns in the [Azure IoT Operations WASM samples](https://github.com/Azure-Samples/explore-iot-operations/tree/wasm/samples/wasm) repository.
+- See complete examples and advanced patterns in the [Azure IoT Operations WASM samples](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm) repository.
 - Learn how to deploy your modules in [Use WebAssembly with data flow graphs](howto-dataflow-graph-wasm.md).
 - Configure your data flow endpoints in [Configure data flow endpoints](howto-configure-dataflow-endpoint.md).
 
