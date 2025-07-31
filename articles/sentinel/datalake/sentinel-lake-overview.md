@@ -95,24 +95,9 @@ Auditing is automatically turned on for Microsoft Sentinel data lake. Features t
 For more information on audited data lake activities, see [Audit log for Microsoft Sentinel data lake](./auditing-lake-activities.md)
 
 ## Supported regions
-Microsoft Sentinel data lake is supported in the following regions during public preview:
-+ Southeast Asia 
-+ West Europe
-+ East US
-+ West US 2 
-+ Australia East
-+ East US 2
-+ Central US 
-+ Canada Central
-+ North Europe
-+ Israel Central
-+ Japan East
-+ France Central
-+ Central India
-+ Switzerland North
-+ UK South
-+ South Central US
- 
+
+For a list of supported regions, see [Regions supported for Microsoft Sentinel data lake](../geographical-availability-data-residency.md#regions-supported-for-microsoft-sentinel-data-lake) 
+
  
 ## Get started
 

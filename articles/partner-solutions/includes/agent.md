@@ -24,3 +24,5 @@ To uninstall an agent:
 1. Choose a resource.
 
 1. Select **Uninstall Extension**.
+
+1. Select **OK**.

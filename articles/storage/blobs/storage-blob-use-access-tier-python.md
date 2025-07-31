@@ -3,8 +3,8 @@ title: Set or change a blob's access tier with Python
 titleSuffix: Azure Storage 
 description: Learn how to set or change a blob's access tier in your Azure Storage account using the Python client library.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 
 ms.service: azure-blob-storage
 ms.topic: how-to
@@ -128,3 +128,4 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 
 - [Access tiers best practices](access-tiers-best-practices.md)
 - [Blob rehydration from the archive tier](archive-rehydrate-overview.md)
+
