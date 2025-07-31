@@ -67,7 +67,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2024-11-01' = {
     # [Azure portal](#tab/portal)
     
     1. In the [Azure portal](https://portal.azure.com), go to your App Service plan.
-    1. Select **Settings > Scale out (App Service plan)** in the left navigation pane.
+    1. Select **Settings** > **Scale out (App Service plan)** in the left navigation pane.
     1. Select **Zone Redundancy** to enable zone redundancy. Deselect it to disable it. 
     
         The zone redundancy status of an App Service plan changes almost instantaneously. No downtime or performance problems occur during the process. 
@@ -127,7 +127,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2024-11-01' = {
 
 To check whether an existing App Service plan supports zone redundancy, do the following steps:
 
-1. Determine the maximum number of availability zones that the App Service plan supports by using the Azure portal, Azure CLI, or Bicep and Resource Manager.
+1. Determine the maximum number of availability zones that the App Service plan supports by using the Azure portal, the Azure CLI, or Bicep and Resource Manager.
 
     # [Azure portal](#tab/portal)
     

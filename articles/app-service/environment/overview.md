@@ -25,10 +25,10 @@ An App Service Environment provides hosting capabilities for various workloads:
 
 App Service Environments are designed to support application workloads that require specific performance and security features:
 
-- Support for high scale.
-- Isolation and secure network access.
-- Support for high memory usage.
-- Ability to handle high requests per second (RPS).
+- Support for high scale
+- Isolation and secure network access
+- Support for high memory usage
+- Ability to handle high requests per second (RPS)
 
 You can create multiple App Service Environments in a single Azure region or across multiple Azure regions. This flexibility makes an App Service Environment ideal for horizontally scaling stateless applications that have a high RPS requirement.
 
@@ -86,7 +86,7 @@ App Service Environment v3 differs from earlier versions in the following ways:
 
 - You can deploy an App Service Environment v3 with zone redundancy enabled. This option is available only in regions where all dependencies support zone redundancy. You can enable zone redundancy at creation or anytime after deployment.
 
-  Consider the following factors for an environment with zone redundancy:
+  Consider the following factors for an environment that has zone redundancy:
  
   - Each App Service plan must have at least two instances to distribute them across zones.
   - Each App Service plan's zone redundancy status is independent, so you can use a mix of zone-redundant and non-zone-redundant plans.
@@ -101,7 +101,7 @@ App Service Environment v3 differs from earlier versions in the following ways:
 
 - It no longer requires front-end scaling adjustments. App Service Environment v3 front ends automatically scale to meet your needs and are deployed on improved hosts.
 
-- It allows scale operations to proceed while another operation is in progress, as long as they involve different OS and size combinations. For example, while your Windows small App Service plan scales, you can start a scale operation for a Windows medium plan or any other plan except Windows small.
+- It allows scale operations to proceed while another operation is in progress, as long as they have different OS and size combinations. For example, while your Windows small App Service plan scales, you can start a scale operation for a Windows medium plan or any other plan except Windows small.
 
 - It supports access to apps in an internal-VIP App Service Environment v3 across global peering. Earlier versions don't support this access.
 

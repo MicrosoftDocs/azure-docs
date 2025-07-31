@@ -127,13 +127,13 @@ If you enable your App Service Environment to be zone redundant, you can also se
     # [Azure portal](#tab/portal)
     
     1. In the [Azure portal](https://portal.azure.com), go to your App Service plan.
-    1. Select **Settings > Scale out (App Service plan)** in the left navigation pane.
+    1. Select **Settings** > **Scale out (App Service plan)** in the left navigation pane.
     1. Select **Zone redundancy** to enable zone redundancy. Deselect it to disable it.
      
     :::image type="content" source="./media/configure-zone-redundancy/app-service-plan-zone-redundancy-portal-isolated.png" alt-text="Screenshot of zone redundancy property for an App Service plan in the Azure portal.":::
     
     >[!IMPORTANT]
-    >If you have *Rules Based* scaling enabled, you can't use the Azure portal to enable zone redundancy for your App Service plan. You must use the Azure CLI or Bicep and Resource Manager instead.
+    >If you have *Rules Based* scaling enabled, you can't use the Azure portal to enable zone redundancy for your App Service plan. You must use the Azure CLI or Bicep and Azure Resource Manager instead.
     
     # [Azure CLI](#tab/azurecli)
     
