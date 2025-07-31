@@ -23,6 +23,6 @@ Features included:
 - 15 days of backfill for any newly created discovery scope in Free SKU
 - SKU upgrade and downgrade options
 
-### Known Issues
+### Known Limitations
 
-- Insights for both "Standard" and "Premium" storage accounts are included in reports. However, filtering by performance type to isolate insights for 'Premium' accounts is currently unavailable.
+- Reports include insights for both Standard and Premium storage accounts. However, filtering specifically by performance type to isolate insights for Premium accounts is not yet supported. We are actively working to enable this functionality in an upcoming release.
