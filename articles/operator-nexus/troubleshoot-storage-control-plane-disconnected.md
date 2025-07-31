@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting storage control plane connectivity issues.
+title: Troubleshoot storage control plane connectivity issues.
 description: Troubleshooting Azure Resource Health alerts about control plane connectivity issues.
 author: jensheasby
 ms.author: jensheasby
@@ -8,7 +8,7 @@ ms.topic: troubleshooting
 ms.service: azure-operator-nexus
 ---
 
-# Troubleshooting control plane connectivity issues - Azure Resource Health
+# Troubleshoot control plane connectivity issues - Azure Resource Health
 
 This article provides troubleshooting advice and escalation methods for Operator Nexus clusters that are
 reporting issues with control plane connectivity in Azure Resource Health.
@@ -25,7 +25,7 @@ categories of alert have different symptoms:
   volumes cannot come up, and existing workloads that rely on `nexus-volume` volumes cannot be migrated to a
   new node. Additionally, new cloud services networks cannot be created.
 
-## Troubleshooting
+## Troubleshoot
 
 The cluster may be marked as degraded during a storage appliance upgrade, since these upgrades take controllers
 offline one by one. The cluster should return to healthy status after the upgrade is complete.

@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting unhealthy CSI (storage)
+title: Troubleshoot unhealthy CSI (storage)
 description: Troubleshooting Azure Resource Health alerts about unhealthy CSI pods (storage)
 author: jensheasby
 ms.author: jensheasby
@@ -8,7 +8,7 @@ ms.topic: troubleshooting
 ms.service: azure-operator-nexus
 ---
 
-# Troubleshooting unhealthy CSI pods (storage) - Azure Resource Health
+# Troubleshoot unhealthy CSI pods (storage) - Azure Resource Health
 
 This article provides troubleshooting advice and escalation methods for Operator Nexus clusters that are
 reporting unhealthy Container Storage Interface (CSI) pods in Azure Resource Health.
@@ -20,7 +20,7 @@ responsible for control plane operations for volumes in the undercloud. If these
 relying on `nexus-volume` storage may fail to come up, or existing workloads may not be able to be migrated.
 You may also experience issues provisioning new cloud services networks.
 
-## Troubleshooting
+## Troubleshoot
 
 You should raise a support ticket with Microsoft, quoting the text of this troubleshooting guide, and the Azure
 resource ID of the affected cluster.

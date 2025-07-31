@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting unhealthy NFS pods
+title: Troubleshoot unhealthy NFS pods
 description: Troubleshooting Azure Resource Health alerts about NFS
 author: jensheasby
 ms.author: jensheasby
@@ -8,7 +8,7 @@ ms.topic: troubleshooting
 ms.service: azure-operator-nexus
 ---
 
-# Troubleshooting unhealthy NFS pods - Azure Resource Health
+# Troubleshoot unhealthy NFS pods - Azure Resource Health
 
 This article provides troubleshooting advice and escalation methods for Operator Nexus clusters that are
 reporting unhealthy Network File System (NFS) pods in Azure Resource Health.
@@ -20,7 +20,7 @@ operations for `nexus-shared` volumes in the tenant layer. Therefore, if a clust
 existing `nexus-shared` volumes may experience data plane disruption, and new `nexus-shared` volumes may
 fail to be created.
 
-## Troubleshooting
+## Troubleshoot
 
 You should raise a ticket with Microsoft, quoting the text of this troubleshooting guide, and the Azure
 resource ID of the affected cluster.

@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting failed volume attachments
+title: Troubleshoot failed volume attachments
 description: Troubleshooting Azure Resource Health alerts about failed volume attachments
 author: jensheasby
 ms.author: jensheasby
@@ -8,7 +8,7 @@ ms.topic: troubleshooting
 ms.service: azure-operator-nexus
 ---
 
-# Troubleshooting failed volume attachments - Azure Resource Health
+# Troubleshoot failed volume attachments - Azure Resource Health
 
 This article provides troubleshooting advice and escalation methods for Operator Nexus clusters that are
 reporting failed volume attachments in Azure Resource Health.
@@ -25,10 +25,10 @@ where a high percentage of volume attachments are failed, indicating a more seri
 
 This alert may be seen at the same time as the `ControlPlaneStorageConnectivityUnhealthyVIP` alert. In this
 case, the lost connectivity on the storage control plane is likely the cause of the failed attachments. You
-should follow the [troubleshooting guide for that issue]. If after resolving that incident, this alert persists,
+should follow the [Troubleshooting guide for that issue]. If after resolving that incident, this alert persists,
 return to this guide.
 
 If control plane connectivity issues are not the root cause, you should raise a ticket with Microsoft, quoting the
 text of this troubleshooting guide, and the Azure resource ID of the affected cluster.
 
-[troubleshooting guide for that issue]: ./troubleshoot-storage-control-plane-disconnected.md
+[Troubleshooting guide for that issue]: ./troubleshoot-storage-control-plane-disconnected.md
