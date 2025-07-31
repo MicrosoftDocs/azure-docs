@@ -42,15 +42,15 @@ Container Registry is built on distributed Azure infrastructure to provide high 
 
 Microsoft is responsible for managing the underlying Container Registry infrastructure, which includes the following types of maintenance:
 
- - *Control plane maintenance* for registry management
+ - **Control plane maintenance** for registry management
 
- - *Data plane maintenance* for container image operations across regions and availability zones
+ - **Data plane maintenance** for container image operations across regions and availability zones
  
 As a customer, you're responsible for the following scenarios:
  
-- *Application-level resilience:* Implement appropriate retry logic and failover handling in your container applications and orchestration platforms.
+- **Application-level resilience:** Implement appropriate retry logic and failover handling in your container applications and orchestration platforms.
 
-- *Zone resiliency configuration:* Enable zone redundancy for regions where your container registry is deployed.
+- **Zone resiliency configuration:** Enable zone redundancy for regions where your container registry is deployed.
 
 - *Geo-replication configuration:* Choose appropriate regions for geo-replication based on your geographic distribution, compliance, and performance requirements.
 
