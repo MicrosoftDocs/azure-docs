@@ -47,6 +47,10 @@ Due to Azure Logic Apps (Standard) similarities with Azure Functions, for more i
 
 1. When you're done, select **Apply**.
 
+The following example shows where to find the **SCM Basic Auth Publishing Credentials** setting:
+
+:::image type="content" source="media/set-up-cd-deployment-center-standard/scm-basic-auth.png" alt-text="Screenshot shows Azure portal, Standard logic app, Configuration page, and selected setting for SCM Basic Auth Publishing Credentials." lightbox="media/set-up-cd-deployment-center-standard/scm-basic-auth.png":::
+
 ### Create user-assigned managed identity and assign roles
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
