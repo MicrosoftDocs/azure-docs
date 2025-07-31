@@ -1,9 +1,9 @@
 ---
 title: Support for physical discovery and assessment in Azure Migrate and Modernize
 description: 'Learn about support for physical discovery and assessment with Azure Migrate: Discovery and assessment.'
-author: Vikram1988
-ms.author: vibansa
-ms.manager: abhemraj
+author: molishv
+ms.author: molir
+ms.manager: ronai
 ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 04/04/2025
@@ -303,7 +303,7 @@ Supported servers | You can enable agentless dependency analysis on up to 1,000 
 Operating systems | Servers running all Windows and Linux versions that meet the server requirements and have the required access permissions are supported.
 Server requirements | Windows servers must have PowerShell remoting enabled and PowerShell version 2.0 or later installed. <br/><br/> Linux servers must have SSH connectivity enabled and ensure that the following commands can be executed on the Linux servers: touch, chmod, cat, ps, grep, echo, sha256sum, awk, netstat, ls, sudo, dpkg, rpm, sed, getcap, which, date.
 Windows server access | A user account (local or domain) with administrator permissions on servers.
-Linux server access | A sudo user account with permissions to execute ls and netstat commands. If you're providing a sudo user account, ensure that you enable **NOPASSWD** for the account to run the required commands without prompting for a password every time the sudo command is invoked. <br/> <br/> Alternatively, you can create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files set by using the following commands: <br/><br/> <code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep usr/bin/ls</code><br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep usr/bin/netstat</code>
+Linux server access | Refer this [link](tutorial-discover-physical.md#prepare-linux-server) for Linux server access. 
 Port access | Windows servers need access on port 5985 (HTTP). Linux servers need access on port 22 (TCP).
 Discovery method |  Agentless dependency analysis is performed by directly connecting to the servers by using the server credentials added on the appliance. <br/><br/> The appliance gathers the dependency information from Windows servers by using PowerShell remoting and from Linux servers by using the SSH connection. <br/><br/> No agent is installed on the servers to pull dependency data.
 
