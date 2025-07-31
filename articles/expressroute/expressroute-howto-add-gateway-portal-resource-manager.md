@@ -41,7 +41,7 @@ The steps for this tutorial use the values in the following configuration refere
 * Gateway type = "ExpressRoute" This type is required for an ExpressRoute configuration.
 
     > [!IMPORTANT]
-    > ExpressRoute Virtual Network Gateways no longer support the Basic Public IP SKU. Microsoft will create an Auto-assigned Standard Public IP associated with the Virtual Network Gateway. [ExpressRoute Auto-Assigned Public IP](expressroute-about-virtual-network-gateways#auto-assigned-public-ip.md)
+    > ExpressRoute Virtual Network Gateways no longer support the Basic Public IP SKU. Microsoft will create an Auto-assigned Standard Public IP associated with the Virtual Network Gateway. [ExpressRoute Auto-Assigned Public IP](expressroute-about-virtual-network-gateways.md#auto-assigned-public-ip)
     >
 
 ## Create the gateway subnet
@@ -80,7 +80,7 @@ The steps for this tutorial use the values in the following configuration refere
     | Maximum Scale Units | This option is only available when you select the **ErGwScale (Preview)** SKU. Enter the maximum number of scale units you want to use. For more information, see [ExpressRoute Gateway Scale Units](scalable-gateway.md). |
     | Virtual network | Select *vnet-1*. |
     | **Public IP address** | |
-    | Assignment | By default, all ExpressRoute Gateways will have an [Auto-Assigned Public IP](expressroute-about-virtual-network-gateways#auto-assigned-public-ip.md). |
+    | Assignment | By default, all ExpressRoute Gateways will have an [Auto-Assigned Public IP](expressroute-about-virtual-network-gateways.md#auto-assigned-public-ip). |
 
     > [!IMPORTANT]
     > If you plan to use IPv6-based private peering over ExpressRoute, please make sure to create your gateway with a Public IP address of type Standard, Static using the [PowerShell instructions](./expressroute-howto-add-gateway-resource-manager.md#add-a-gateway).
