@@ -14,6 +14,12 @@ items:
   items:
   - name: Manage your resource
     href: manage.md
+  - name: Get support
+    href: https://pure1.purestorage.com/
+  - name: Troubleshoot
+    href: https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Azure_Native_Pure_Storage_Cloud/troubleshooting/c_troubleshooting.html
+- name: Tools
+  items:
   - name: GO SDK
     href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/purestorageblock/armpurestorageblock
   - name: Java SDK
