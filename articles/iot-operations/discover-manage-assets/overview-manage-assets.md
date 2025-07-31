@@ -13,7 +13,7 @@ ai-usage: ai-assisted
 # What is asset and device management in Azure IoT Operations?
 
 > [!IMPORTANT]
-> Devices (preview) are new in version 1.2.x of Azure IoT Operations. To view the asset endpoint documentation, see [Asset management overview](https://go.microsoft.com/fwlink/?linkid=2328508&clcid=0x409) on the previous versions site.
+> Devices (preview) are new in version 1.2.x of Azure IoT Operations. To view the asset endpoint documentation, see [Asset management overview](/previous-versions/azure/iot-operations/discover-manage-assets/overview-manage-assets) on the previous versions site.
 
 In Azure IoT Operations, a key task is to manage the assets and devices that are part of your solution. This article:
 
