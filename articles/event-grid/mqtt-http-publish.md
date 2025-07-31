@@ -115,9 +115,7 @@ This table describes how HTTP request parts map to MQTT PUBLISH packet propertie
 - The Microsoft Entra Object ID becomes the MQTT clientId.
 - The AuthN/AuthZ model aligns with standard MQTT connections.
 
-## Routing, Enrichment & Observability
-
-- HTTP messages pass through the Event Grid routing pipeline, ensuring consistent routing, enrichment, and delivery guarantees.
+## Routing and Observability
 
 - Metrics and logs include:
   - Protocol: http-publish
