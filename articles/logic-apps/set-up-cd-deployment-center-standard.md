@@ -143,7 +143,7 @@ To make sure that your deployment works correctly, follow these steps:
 
 1. Return to your logic app's Deployment Center page, and select the **Logs** tab.
 
-1. If necessary, refresh the **Logs** page. Review the status message to check that the deployment successfully finished, for example:
+1. If necessary, refresh the **Logs** tab. Review the status message to check that the deployment successfully finished, for example:
 
    :::image type="content" source="media/set-up-cd-deployment-center-standard/deployment-center-logs.png" alt-text="Screenshot shows Azure portal, logic app's Deployment Center page, and selected Logs tab with deployment status." lightbox="media/set-up-cd-deployment-center-standard/deployment-center-logs.png":::
 
