@@ -65,6 +65,8 @@ To onboard to the Microsoft Sentinel data lake Public Preview, you must be an ex
 + You must have a Microsoft Sentinel primary workspace and other workspaces in the same region as your tenant’s home region.
 + You must have read privileges to the primary and other workspaces so they can be attached to the data lake. For public preview, attaching a primary and all workspaces to the data lake is only supported if they're in the same region as your tenant home region.
 
+[!INCLUDE [Customer-managed keys limitation](../includes/customer-managed-keys-limitation.md)]
+
 The following roles that are required to set up billing and authorize ingestion of asset data into the data lake:
 
 + Azure Subscription owner for billing setup.
@@ -77,8 +79,10 @@ The following roles that are required to set up billing and authorize ingestion 
 
 ## Existing Microsoft Sentinel workspaces
 
-The Microsoft Sentinel data lake mirrors data from Microsoft Sentinel workspaces that are connected to the Defender portal. You must connect your Microsoft Sentinel workspaces to the Defender portal to include them in the data lake. If you have connected Sentinel to the Defender portal, to onboard to the data lake, the primary workspace must be in the tenant's home geographic region. If you haven't connected Microsoft Sentinel to the Defender portal, you can connect your Microsoft Sentinel workspaces to the Defender portal after onboarding, and the data will be mirrored to the data lake. For more information, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/unified-secops-platform/microsoft-sentinel-onboard).
+The Microsoft Sentinel data lake mirrors data from Microsoft Sentinel workspaces that are connected to the Defender portal. You must connect your Microsoft Sentinel workspaces to the Defender portal to include them in the data lake. If you have connected Microsoft Sentinel to the Defender portal, to onboard to the data lake, the primary workspace must be in the tenant's home geographic region. If you haven't connected Microsoft Sentinel to the Defender portal, you can connect your Microsoft Sentinel workspaces to the Defender portal after onboarding, and the data will be mirrored to the data lake. For more information, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/unified-secops-platform/microsoft-sentinel-onboard).
 
+> [!NOTE]
+> During preview, you can onboard up to 20 workspaces to the Microsoft Sentinel data lake. 
 
 ## Onboarding steps
 
@@ -114,7 +118,7 @@ Use the following steps to onboard to the Microsoft Sentinel data lake from the 
     :::image type="content" source="./media/sentinel-lake-onboarding/setup-started.png" lightbox="./media/sentinel-lake-onboarding/setup-started.png" alt-text="A screenshot showing the progress of the onboarding process.":::
 
 
-1. While the setup process is running, the following banner is displayed on the Defender portal home page. You can select **View setup details** to re-open the panel to check progress. 
+1. While the setup process is running, the following banner is displayed on the Defender portal home page. You can select **View setup details** to reopen the panel to check progress. 
  
     :::image type="content" source="./media/sentinel-lake-onboarding/onboarding-in-progress.png" lightbox="./media/sentinel-lake-onboarding/onboarding-in-progress.png" alt-text="A screenshot showing the onboarding in progress banner.":::
 

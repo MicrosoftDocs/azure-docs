@@ -84,6 +84,9 @@ val df = spark.read.format("cosmos.olap").options(config).load()
 df.show(10)
 ```
 
+> [!NOTE]
+> Azure Cosmos DB's Synapse Link Spark connector does not support Managed Identity.
+
 #### Access token authentication requires role assignment
 
 To use the access token approach, you need to generate access tokens. Since access tokens are associated with Azure identities, correct role-based access control (RBAC) must be assigned to the identity. The role assignment is on data plane level, and you must have minimum control plane permissions to perform the role assignment.
@@ -117,7 +120,6 @@ The Identity Access Management (IAM) role assignments from Azure portal are on c
 
 > [!Note]
 > When using an Azure app registration, Use the `Object Id` as the service principal ID. Also, the principal ID and the Cosmos DB account must be in the same tenant.
-
 
 #### Generating the access token - Synapse Notebooks
 
