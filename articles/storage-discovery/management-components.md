@@ -12,8 +12,7 @@ ms.date: 08/01/2025
 
 Several Azure resources are involved in a Storage Discovery deployment. This article describes each of these resources, their uses, and best practices for expressing your migration needs with them.
 
-> [!NOTE]
-> An image goes here.
+:::image type="content" source="media/management-components/managements-components.png" alt-text="An image showing the Storage Discovery management resources further described in this article." lightbox="media/management-components/management-components.png":::
 
 ## Workspace
 
@@ -23,8 +22,7 @@ You're better able to manage your data if all resources find their home in the s
 
 When you deploy the workspace, your subscription is registered with the *Microsoft.StorageDiscovery* resource provider. You also assign the region in which control messages and metadata about your cloud estate is stored. The Storage Discovery workspace itself isn't directly responsible for aggregating your storage insights. Instead, the dingsbum sends them directly to the reporting interface Azure Storage. Because the dingsbum performs most the work, the proximity between storage account and the dingsbum is more important for performance than your storage discovery workspace's location.
 
-> [!NOTE]
-> An image goes here.
+:::image type="content" source="media/management-components/discovery-components.png" alt-text="An image showing the Storage Discovery Azure resources further described in this article." lightbox="media/management-components/discovery-components.png":::
 
 ## Root
 
@@ -54,7 +52,7 @@ Users have flexibility to define:
 
 ...ad nauseam.
 
-Grouping sources into a scoppe doesn't mean you have to analyze all of them in parallel. You have control over what to aggregate and when to aggregate it. The remaining sections in this article describe more resources that allow for such fine-grained control.
+Grouping sources into a scope doesn't mean you have to analyze all of them in parallel. You have control over what to aggregate and when to aggregate it. The remaining sections in this article describe more resources that allow for such fine-grained control.
 
 > [!TIP]
 > You can optionally add a description to your workspace. A description can help to keep track of additional information for your workspace.
