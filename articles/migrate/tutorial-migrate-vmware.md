@@ -216,7 +216,7 @@ Do a test migration as follows:
     :::image type="content" source="./media/tutorial-migrate-vmware/test-migrate-inline.png" alt-text="Screenshot of Test migration." lightbox="./media/tutorial-migrate-vmware/test-migrate-expanded.png":::
 
 3. In **Test migration**, select the Azure VNet in which the Azure VM will be located during testing. We recommend you use a non-production VNet. 
-4. Choose the subnet to which you would like to associate each of the Network Interface Cards (NICs) of the migrated VM.
+4. Select the subnet to which you would like to associate each of the Network Interface Cards (NICs) of the migrated VM.
 
     :::image type="content" source="./media/tutorial-migrate-vmware/test-migration-subnet-selection.png" alt-text="Screenshot shows subnet selection during test migration.":::
 1. You have an option to upgrade the Windows Server OS during test migration. To upgrade, select the **Upgrade available** option. In the pane that appears, select the target OS version that you want to upgrade to and select **Apply**. [Learn more](./how-to-upgrade-windows.md).
