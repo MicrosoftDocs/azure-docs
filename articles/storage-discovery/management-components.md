@@ -50,7 +50,6 @@ Users have flexibility to define:
 - A scope with a combination of ARM tags, resource groups, subscriptions, regions, storage account types, storage account names, storage account locations, and storage account access tiers will include storage accounts that match the tags within the specified resource groups, subscriptions, regions, storage account types, storage account names, storage account locations, and storage account access tiers.
 - A scope with a combination of ARM tags, resource groups, subscriptions, regions, storage account types, storage account names, storage account locations, storage account access tiers, and storage account replication types will include storage accounts that match the tags within the specified resource groups, subscriptions, regions, storage account types, storage account names, storage account locations, storage account access tiers, and storage account replication types.
 
-...ad nauseam.
 
 Grouping sources into a scope doesn't mean you have to analyze all of them in parallel. You have control over what to aggregate and when to aggregate it. The remaining sections in this article describe more resources that allow for such fine-grained control.
 
