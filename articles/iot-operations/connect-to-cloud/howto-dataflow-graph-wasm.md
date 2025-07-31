@@ -210,11 +210,11 @@ For detailed instructions, see [Assign Azure roles using the Azure portal](/azur
 
 ## Example 1: Basic deployment with one WASM module
 
-This example converts temperature data from Fahrenheit to Celsius using a WASM module. The [temperature module source code](https://github.com/Azure-Samples/explore-iot-operations/tree/wasm/samples/wasm/operators/temperature) is available on GitHub. Use the precompiled version `graph-simple:1.0.0` that you pushed to your container registry.
+This example converts temperature data from Fahrenheit to Celsius by using a WASM module. The [temperature module source code](https://github.com/Azure-Samples/explore-iot-operations/tree/wasm/samples/wasm/operators/temperature) is available on GitHub. Use the precompiled version `graph-simple:1.0.0` that you pushed to your container registry.
 
 ### How it works
 
-The [graph definition](https://github.com/Azure-Samples/explore-iot-operations/blob/wasm/samples/wasm/graph-simple.yaml) creates a simple three-stage pipeline:
+The [graph definition](https://github.com/Azure-Samples/explore-iot-operations/blob/wasm/samples/wasm/graph-simple.yaml) creates a simple, three-stage pipeline:
 
 1. **Source**: Receives temperature data from MQTT
 2. **Map**: Processes data with the temperature WASM module
@@ -229,7 +229,7 @@ operations:
     module: "temperature:1.0.0"
 ```
 
-The [temperature module](https://github.com/Azure-Samples/explore-iot-operations/blob/wasm/samples/wasm/operators/temperature/src/lib.rs) converts Fahrenheit to Celsius using the standard formula `(F - 32) × 5/9 = C`:
+The [temperature module](https://github.com/Azure-Samples/explore-iot-operations/blob/wasm/samples/wasm/operators/temperature/src/lib.rs) converts Fahrenheit to Celsius by using the standard formula `(F - 32) × 5/9 = C`:
 
 ```rust
 if measurement.unit == MeasurementTemperatureUnit::Fahrenheit {
@@ -257,10 +257,10 @@ This configuration defines three nodes that implement the temperature conversion
 The data flow graph resource "wraps" the graph definition artifact and connects its abstract source/sink operations to concrete endpoints:
 
 - The graph definition's `source` operation connects to the data flow's source node (MQTT topic)
-- The graph definition's `sink` operation connects to the data flow's destination node (MQTT topic)  
+- The graph definition's `sink` operation connects to the data flow's destination node (MQTT topic)
 - The graph definition's processing operations run within the graph processing node
 
-This separation allows the same graph definition to be deployed with different endpoints across environments while keeping the processing logic unchanged.
+This separation lets you deploy the same graph definition with different endpoints across environments while keeping the processing logic unchanged.
 
 # [Bicep](#tab/bicep)
 
