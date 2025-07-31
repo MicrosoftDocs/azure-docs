@@ -155,7 +155,7 @@ Follow this [tutorial](tutorial-seismic-ddms.md) to Prepare Subproject which inv
 
 ### Upload the File
 
-There are two ways to upload a SEGY file. One option is to use the sasurl through cURL call. You need to setup cURL on your OS. 
+There are two ways to upload a SEGY file. One option is to use the SASurl through cURL call. You need to setup cURL on your OS. 
 The second method is to use [SDUTIL](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tags/azure-stable). To log in to your instance for ADME via the tool you need to generate a refresh token for the instance. See [How to generate auth token](how-to-generate-auth-token.md). Alternatively, you can modify the code of SDUTIL to use client credentials instead to log in. If you haven't already, you need to setup SDUTIL.Check this guide for setting up [SDUTIL](tutorial-seismic-ddms-sdutil.md) Download the codebase and edit the `config.yaml` at the root. Replace the contents of this config file with the following yaml. 
 
 ```yaml
@@ -182,17 +182,19 @@ azure:
 #### Method 1: cURL
 
 ##### Get gcs url:
+
+```bash
 cURL -X GET \
     -H "content-type: application/json" \
     -H "Authorization: Bearer <access_token>" \
     "https://<DNS>/seistore-svc/api/v3/dataset/tenant/<datapartition>/subproject/<vdssubprojectname>/dataset/<datasetname>"
-
+```
 
 **Sample Response:**
 Should be a string. we call it gcsstring.
 
 
-##### Get the sasurl:
+##### Get the SASurl:
 
 Use the following `cURL` command to get a SAS upload URL:
 
@@ -206,17 +208,17 @@ cURL -X 'GET' \
 **Sample Response:**
 ```json
 {
-  "access_token": "<sas token>",
+  "access_token": "<SAS token>",
   "expires_in": <duration>,
-  "token_type": "SasUrl"
+  "token_type": "SASUrl"
 }
 ```
-#### Modify sas url. Replace container name in sas url  with filepath i.e gcsstring
+#### Modify SAS url. Replace container name in SAS url  with filepath i.e gcsstring
 
 ```bash
 filepath="<gcsstring>"
 container=$(echo "$filepath" | cut -d'/' -f1)
-sasurl=$(echo "<sas token>" | sed "s|$container|$filepath|")
+SASurl=$(echo "<SAS token>" | sed "s|$container|$filepath|")
 ```
 
 ##### Upload the SEG-Y file:
@@ -224,7 +226,7 @@ sasurl=$(echo "<sas token>" | sed "s|$container|$filepath|")
 Use the following `cURL` command:
 
 ```bash
-cURL -X PUT -T "<local_file_path>" "<sas_url>" \
+cURL -X PUT -T "<local_file_path>" "<SAS_url>" \
      -H "x-ms-blob-type: BlockBlob"
 ```
 
@@ -445,19 +447,19 @@ cURL --request GET \
 }
 ```
 
-3. You can see if the converted file is present using the following command in sdutil or in the cURL API call:
+1. You can see if the converted file is present using the following command in sdutil
 
     ```bash
     python sdutil ls sd://<data-partition-id>/vdssubprojectname
     ```
 
-4. Verify the converted files are present on the specified location in DAG Trigger or not
+2. Verify the converted files are present on the specified location in DAG Trigger or not
 
     ```markdown
     python sdutil ls sd://<data-partition-id>/vdssubprojectname/
     ```
 
-5. If you would like to download and inspect your VDS files, don't use the `cp` command as it will not work. The VDS conversion results in multiple files, therefore the `cp` command won't be able to download all of them in one command. Use either the [SEGYExport](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/SEGYExport/README.html) or [VDSCopy](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/VDSCopy/README.html) tool instead. These tools use a series of REST calls accessing a [naming scheme](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/connection.html) to retrieve information about all the resulting VDS files.
+3. If you would like to download and inspect your VDS files, don't use the `cp` command as it will not work. The VDS conversion results in multiple files, therefore the `cp` command won't be able to download all of them in one command. Use either the [SEGYExport](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/SEGYExport/README.html) or [VDSCopy](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/VDSCopy/README.html) tool instead. These tools use a series of REST calls accessing a [naming scheme](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/connection.html) to retrieve information about all the resulting VDS files.
 
 OSDU&reg; is a trademark of The Open Group.
 
