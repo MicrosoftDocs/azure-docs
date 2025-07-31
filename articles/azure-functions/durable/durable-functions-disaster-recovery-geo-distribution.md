@@ -9,7 +9,7 @@ ms.author: azfuncdf
 
 # Disaster recovery and geo-distribution in Azure Durable Functions
 
-Microsoft strives to ensure that Azure services are always available. However, unplanned service outages may occur. If your application requires resiliency, Microsoft recommends configuring your app for geo-redundancy. Additionally, customers should have a disaster recovery plan in place for handling a regional service outage. An important part of a disaster recovery plan is preparing to fail over to the secondary replica of your app and storage in the event that the primary replica becomes unavailable.
+Microsoft strives to ensure that Azure services are always available. However, unplanned service outages may occur. If your application requires resiliency, Microsoft recommends configuring your app for geo-redundancy. Additionally, customers should have a disaster recovery plan in place for handling a regional service outage. An important part of a disaster recovery plan is preparing to fail over to the secondary replica of your app and storage when the primary replica becomes unavailable.
 
 In Durable Functions, all state is persisted in Azure Storage by default. A [task hub](durable-functions-task-hubs.md) is a logical container for Azure Storage resources that are used for [orchestrations](durable-functions-types-features-overview.md#orchestrator-functions) and [entities](durable-functions-types-features-overview.md#entity-functions). Orchestrator, activity, and entity functions can only interact with each other when they belong to the same task hub. This document will refer to task hubs when describing scenarios for keeping these Azure Storage resources highly available.
 
@@ -67,7 +67,7 @@ This approach adds improvements on the previous scenario:
 Important considerations for this scenario:
 
 - If the function app is deployed using a dedicated App Service plan, replicating the compute infrastructure in the failover datacenter increases costs.
-- Current state isn't failed over, which implies that existing orchestrations and entities will be effectively paused and unavailable until the primary region recovers.
+- Current state isn't failed over, which implies that existing orchestrations and entities are effectively paused and unavailable until the primary region recovers.
 
 To summarize, the tradeoff between the first and second scenario is that latency is preserved and egress costs are minimized but existing orchestrations and entities will be unavailable during the downtime. Whether these tradeoffs are acceptable depends on the requirements of the application.
 
