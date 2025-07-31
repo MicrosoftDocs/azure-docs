@@ -1,13 +1,27 @@
 ---
-author: pthippeswamy
-ms.author: pthippeswamy
+author: fauhse
+ms.author: fauhse
 ms.topic: include
 ms.date: 08/01/2025
-ms.service: azure-storage-mover
+ms.service: azure-storage-discovery
 ms.custom: references_regions
 ---
 
-Below is the list of regions where storage discovery workspaces can be created:
+<!-- 
+!########################################################
+STATUS: DRAFT
+
+CONTENT: IN PROGRESS
+
+REVIEW Stephen/Fabian: IN PROGRESS
+EDIT PASS: IN PROGRESS
+
+Document score: 100 - 20/0 (words, issues)
+
+!########################################################
+-->
+
+Storage Discovery workspaces can be created in the following regions:
 
 - France Central
 - Canada Central

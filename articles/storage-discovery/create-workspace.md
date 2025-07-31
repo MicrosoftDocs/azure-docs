@@ -1,72 +1,124 @@
 ---
-title: Create and manage a storage discovery workspace
+title: Create and manage an Azure Storage Discovery Workspace
 titleSuffix: Azure Storage Discovery
-description: Learn how to create a discovery workspace.
-author: pthippeswamy
-ms.service: azure-storage-mover
-ms.topic: how-to
-ms.author: shaas
-ms.date: 08/01/2025
+description: Learn how to create an Azure Storage Discovery Workspace.
+author: fauhse
+
+ms.service: azure-storage-discovery
+ms.topic: overview
+ms.date: 07/22/2025
+ms.author: fauhse
 ---
+
+<!-- 
+!########################################################
+STATUS: DRAFT
+
+CONTENT: IN PROGRESS
+
+REVIEW Stephen/Fabian: IN PROGRESS
+EDIT PASS: IN PROGRESS
+
+Document score: 100 - 495/0 (words, issues)
+
+!########################################################
+-->
 
 # Create and manage a storage discovery workspace
 
-The Azure Storage Discovery Workspace (ASDW) is a central resource within the Azure Storage Discovery platform designed to help users manage and visualize storage data across various scopes—such as tenants, subscriptions, and resource groups.
+The Azure Storage Discovery Workspace (ASDW) is a central resource within the Azure Storage Discovery platform. A discovery workspace is designed to help users manage and visualize storage data across various scopes such as tenants, subscriptions, and resource groups.
 
-This article helps you create an ASDW resource.
+Follow the steps in this article to create an ASDW resource.
 
-## Create an ASDW from Azure portal
+## Create a storage discovery workspace
 
-Click on **Create**
+You can create a storage discovery workspace using the Azure portal, Azure CLI, or ARM templates. 
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot of the create ASDW page.](./media/create-resource.png)
+### [Azure portal](#tab/portal)
 
-Choose a **Subscription** and **Resource group** to create the discovery workspace
+Create an ASDW resource by selecting **Create** as shown in the following image.
 
-The following table describes each element.
+:::image source="media/create-workspace/create-resource-sml.png" alt-text="Screenshot of the Create ASDW page."  lightbox="media/create-workspace/create-resource.png":::
 
-| Element | Description |
-|---|--|
-| `Name` | The name of the Discovery workspace resource. |
-| `Description` | Optional. Description of the Discovery workspace resource. |
-| `Region` | Azure region where the Discovery resource is created.<sup>1</sup>|
-| `Pricing plan` | Storage Discovery pricing plan.<sup>2</sup>|
+Choose the **Subscription** and **Resource group** in which to create the discovery workspace. The following table describes each element.
+
+| Element        | Description                                                       |
+|----------------|-------------------------------------------------------------------|
+| `Name`         | The name of the Discovery workspace resource.                     |
+| `Description`  | Optional. Description of the Discovery workspace resource.        |
+| `Region`       | Azure region where the Discovery resource is created.<sup>1</sup> |
+| `Pricing plan` | Storage Discovery pricing plan.<sup>2</sup>                       |
 
 <sup>1</sup> For information on regions covered, see [Storage Discovery workspace regions](deployment-planning.md). 
 <sup>2</sup> For information on Storage Discovery pricing plan, see [Understand Storage Discovery Pricing](pricing.md).
 
-### Define workspace root
-Workspace root specifies the top-level Azure resource identifiers - such as subscriptions or resource groups - where Storage Discovery initiates its scan for storage accounts. These identifiers serve as the root of the discovery process, defining the overall scope and boundaries of your Azure estate that is analyzed. Select the subscriptions and/or resource groups that need to be included in the workspace.
+## Define workspaceRoots
+
+A workspaceRoot specifies the top-level Azure resource identifiers where Storage Discovery initiates its scan for storage accounts. These identifiers are typically subscriptions or resource groups, and serve as the root of the discovery process. WorkspaceRoots define the overall scope and boundaries of your Azure estate for analysis.
+
+Select the subscriptions and/or resource groups you want to include in the workspace.
 
 > [!NOTE]
-> - Ensure that the user or service principal deploying the workspace has at least **Reader** access to each specified resource.
-> - Up to 100 resources - subscriptions and/or resource groups can be included in one Discovery workspace.
+> - Ensure that the user or service principal deploying the workspace is granted at least **Reader** access to each specified root.
+> - Up to 100 resources - subscriptions and/or resource groups can be included in one ASDW.
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot of the workspace root.](./media/workspace-roots-checks.png)
+:::image source="media/create-workspace/workspace-roots-checks-sml.png" alt-text="Screenshot of the workspaceRoots."  lightbox="media/create-workspace/workspace-roots-checks.png":::
 
-Once the subscriptions, resource groups or tenant is added to the workspace, an access check is run to verify if the user has Microsoft.Storage/storageAccounts/read on the added resources. As the checks are running, status of the run is as shown:
+After you add your subscriptions, resource groups, or tenant to your workspace, the service runs an access check to verify that the user has `Microsoft.Storage/storageAccounts/read` on the added resources. The following image provides an example of an access check failure with the associated status message.
 
-If you do not have Microsoft.Storage/storageAccounts/read on any of the resources added, remove the resource from the workSpace root to proceed with the creation of workspace or resolve the access issue and try again.
+:::image source="media/create-workspace/create-access-sml.png" alt-text="Screenshot of the access check on workspaceRoots."  lightbox="media/create-workspace/create-access.png":::
 
-### Create Scope
-Scopes are logical groupings of storage accounts within the defined workspace root. They allow you to filter and organize data using tags and resource types. Scope enables targeted insights - you can create scopes for different departments, environments, or compliance zones.
+If you don't have `Microsoft.Storage/storageAccounts/read` on any of the resources added, remove the resource from the workSpaceRoots to proceed with the creation of workspace or resolve the access issue and try again.
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot of scope](./media/scope.png)
+## Create a Scope
+Scopes are logical groupings of storage accounts within the defined workspaceRoots. Scopes allow you to filter and organize data using tags and resource types, enabling targeted insights. For example, you can create scopes for individual departments, environments, or compliance zones.
+
+:::image source="media/create-workspace/create-scope-sml.png" alt-text="Screenshot of a scope."  lightbox="media/create-workspace/create-scope.png":::
 
 > [!IMPORTANT]
-> **Default Scope** is added automatically, which would include all storage accounts within the subscriptions or resource groups added in the **workspace root**
+> A **default Scope** is added automatically, which includes all storage accounts within subscriptions or resource groups added in the **workspaceRoots**.
 
-Add tags, if needed on the ASDW resource and click on Review and Create.
+Add tags on the ASDW resource, if needed, and select **Review and Create**. You aren't able to deploy the resource until an access validation is complete. If the check for the workspaceRoots resources isn't complete, a message is displayed.
 
-If the access check for the workspace root resources hasn’t finished yet, the Review and Create tab shows a message saying the check is still in progress. You won’t be able to deploy the resource until the check is complete.
-
-> [!NOTE]
-> Note that Discovery resource creation fails if the access checks on any added subscription or resource group or tenant is not successful.
-
-When the access checks complete successfully, resource can be deployed.
+:::image source="media/create-workspace/access-check-sml.png" alt-text="Screenshot of access checks running."  lightbox="media/create-workspace/access-check.png":::
 
 > [!NOTE]
-> Note that it will take up to 24 hours for the metrics to start appearing in the Reports after the scope is created.
+> Discovery resource creation fails if the access checks on any subscription, resource group, or tenant isn't successful.
+
+After the access checks complete successfully, the resource can be deployed as shown in the following sample image.
+
+:::image source="media/create-workspace/deploy-resource-sml.png" alt-text="Screenshot of the deployment complete."  lightbox="media/create-workspace/deploy-resource.png":::
+
+### [Azure PowerShell](#tab/powershell)
+
+Something like this:
+
+```powershell
+
+# Set variables for the resources
+$resGroupName   = "MyResourceGroup"
+$workSpaceName  = "MyStorageDiscoveryWorkspace"
+$location       = "East US"
+$DiscoveryScopeLevel1 = "MyScopeLevel1"
+$DiscoveryScopeLevel2 = "MyScopeLevel2"
+
+# First, prepare local DiscoveryScope object, which can be used to 
+# both create/update Workspace
+$scope1 =  New-AzStorageDiscoveryScopeObject -DisplayName "test1" `
+            -ResourceType "Microsoft.Storage/storageAccounts"  `
+            -TagKeysOnly "e2etest1" -Tag @{"tag1" = "value1"; "tag2" = "value2" }
+$scope2 =  New-AzStorageDiscoveryScopeObject -DisplayName "test2" `
+            -ResourceType "Microsoft.Storage/storageAccounts"  `
+            -TagKeysOnly "e2etest2" -Tag @{"tag3" = "value3" }
+
+# CVreate the discovery workspace
+New-AzStorageDiscoveryWorkspace -Name $workSpaceName  -ResourceGroupName $resGroupName `
+-Location $location -Description 123 -WorkspaceRoot $DiscoveryScopeLevel1 `
+-Sku Standard   -Scope $scope1  # -debug 
+
+```
+
+---
+
+> [!NOTE]
+> It can take up to 24 hours after scope creation for metrics to begin appearing in reports.
