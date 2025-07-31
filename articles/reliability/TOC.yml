@@ -218,7 +218,7 @@
   - name: Networking
     items:
     - name: Azure Application Gateway v2
-      href: reliability-application-gateway-v2.md#configure-availability-zone-support
+      href: reliability-application-gateway-v2.md
     - name: Azure Application Gateway for Containers
       href: reliability-app-gateway-containers.md#availability-zone-support
     - name: Azure Bastion
