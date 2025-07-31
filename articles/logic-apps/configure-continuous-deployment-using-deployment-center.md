@@ -1,6 +1,6 @@
 ---
 title: Set Up Continuous Deployment with Deployment Center
-description: Automate Azure Logic Apps Standard applications deployments using Azure Deployment Center feature.
+description: Learn how to automate deployment for Standard logic apps by using Deployment Center in Azure.
 ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, wsilveiranz, azla
