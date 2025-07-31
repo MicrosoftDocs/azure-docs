@@ -113,7 +113,7 @@ Once support for TLS versions 1.0 and 1.1 is discontinued, clients may encounter
 A default TLS policy for Application Gateway is a packaged set of supported TLS versions and cipher suites. This allows customers to begin using secured traffic by only configuring HTTPS or TLS listeners and backend settings, without any additional configuration for TLS version or ciphers. Application Gateway uses one of its predefined policies as the default.
 
 ### How will the default TLS policies be impacted after legacy TLS versions 1.0 and 1.1 retirement?
-Until September 2025, V2 SKUs utilize two [default TLS policies](application-gateway-ssl-policy-overview.md#default-tls-policy) based on the API version specified during resource deployment. Deployments using API version **2023-02-01 or later** apply `AppGwSslPolicy20220101` by default, while earlier API versions use `AppGwSslPolicy20150501`. With the deprecation of TLS 1.0 and 1.1, the older `AppGwSslPolicy20150501` policy, will be discontinued. Consequently, `AppGwSslPolicy20220101` will become the default policy for all V2 gateways.
+Until September 2025, V2 SKUs utilize two [default TLS policies](application-gateway-ssl-policy-overview.md#default-tls-policy) based on the API version specified during resource deployment. Deployments using API version **2023-02-01 or later** apply `AppGwSslPolicy20220101` by default, while earlier API versions use `AppGwSslPolicy20150501`. With the deprecation of TLS 1.0 and 1.1, the older `AppGwSslPolicy20150501` policy, will be discontinued. So, `AppGwSslPolicy20220101` will become the default policy for all V2 gateways.
 
 The default policy for the V1 SKU will remain unchanged since `AppGwSslPolicy20220101` will not be introduced for this retiring SKU.
 
@@ -129,15 +129,15 @@ The predefined policies `AppGwSslPolicy20150501` and `AppGwSslPolicy20170401` th
 Application Gateway will not modify any resource having customer-defined TLS configurations. Only the default TLS policy for gateways that have not explicitly set a TLS policy or lack any TLS-related settings (such as HTTPS or TLS listeners) will be automatically updated to use `AppGwSslPolicy20220101`.
 
 ### Will my gateway go in a Failed state?
-If you have chosen any to-be-discounted TLS policy in the configuration of your gateway and don’t update it to one of the supported policies by August 2025, your gateway will enter a Failed state when performing a configuration update.
+If you have chosen any deprecating TLS policy in the configuration of your gateway and don’t update it a supported policy by August 2025, your gateway will enter a Failed state when performing a configuration update.
 
-A non-functional TLS configuration, such an SSLProfile not linked to any listener, will not have any impact on the control plane of the gateway.
+A nonfunctional TLS configuration, such an SSLProfile not linked to any listener, will not have any impact on the control plane of the gateway.
 
 ### How is the release for this change planned?
 Given the scale of our fleet, after 30 August 2025, the deprecation of TLS versions will be implemented separately for the Data and Control Planes (in that order). Any region-specific details will not be available; therefore, we strongly advise you to take all necessary actions before this retirement date.
 
 ### Is there any potential impact if I haven’t selected any TLS policy and my gateway uses only HTTP/TCP configurations?
-If your gateway does not use any TLS configuration — either through SSLPolicy or SSLProfile — there will be no impact after August 2025. 
+If your gateway does not use any TLS configuration—either through SSLPolicy or SSLProfile—there will be no impact after August 2025.
 
 
 
