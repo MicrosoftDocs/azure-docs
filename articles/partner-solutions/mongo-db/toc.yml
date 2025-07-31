@@ -21,4 +21,4 @@ items:
   - name: Get support
     href: https://www.mongodb.com/company/contact
   - name: Troubleshoot
-    href: troubleshoot.md
+    href: /troubleshoot/azure/partner-solutions/marketplace-purchases-errors
