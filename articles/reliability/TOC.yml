@@ -217,12 +217,10 @@
         href: ../site-recovery/azure-to-azure-tutorial-enable-replication.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
   - name: Networking
     items:
-    - name: Azure Application Gateway (V2)
-      items:
-      - name: Availability zones
-        href: ../application-gateway/application-gateway-autoscaling-zone-redundant.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Application Gateway v2
+      href: reliability-application-gateway-v2.md
     - name: Azure Application Gateway for Containers
-      href: reliability-app-gateway-containers.md    
+      href: reliability-app-gateway-containers.md
     - name: Azure Bastion
       href: reliability-bastion.md
     - name: Azure Communications Gateway

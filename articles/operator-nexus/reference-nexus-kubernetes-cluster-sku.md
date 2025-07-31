@@ -13,13 +13,14 @@ ms.custom: template-reference
 
 The Azure Operator Nexus Kubernetes cluster VMs are grouped into node pools, which are collections of VMs that have the same configuration. The VMs in a node pool are used to run your Kubernetes workloads. The Azure Operator Nexus Kubernetes cluster supports the following VM SKUs. These SKUs are available in all Azure regions where the Azure Operator Nexus Kubernetes cluster is available.
 
-There are three types of VM SKUs:
+There are four types of VM SKUs:
 
 * General purpose
 * Performance optimized
 * Memory optimized
+* Storage optimized
 
-The primary difference between general-purpose and performance-optimized types of VMs is their approach to emulator thread isolation. VM SKUs optimized for performance have dedicated emulator threads, which allow each VM to operate at maximum efficiency. Conversely, general-purpose VM SKUs have emulator threads that run on the same processors as applications running inside the VM. For application workloads that cannot tolerate other workloads sharing their processors, we recommend using the performance-optimized SKUs. Memory-optimized SKUs allow application workloads with very large memory requirements to access resources from both NUMA cells within the physical machine. As these SKUs are highly resource intensive, it is recommended to use a smaller SKU if suitable for the application workload.
+The primary difference between general-purpose and performance-optimized types of VMs is their approach to emulator thread isolation. VM SKUs optimized for performance have dedicated emulator threads, which allow each VM to operate at maximum efficiency. Conversely, general-purpose VM SKUs have emulator threads that run on the same processors as applications running inside the VM. For application workloads that cannot tolerate other workloads sharing their processors, we recommend using the performance-optimized SKUs. Memory-optimized SKUs allow application workloads with very large memory requirements to access resources from both NUMA cells within the physical machine. As these SKUs are highly resource intensive, it is recommended to use a smaller SKU if suitable for the application workload. Storage-optimized SKUs enable Kubernetes nodes to allocate up to 1.6 TiB of local disk space for workloads that need more storage than the standard 300 GiB allocated by other SKUs.
 
 All these SKUs are having the following characteristics:
 
