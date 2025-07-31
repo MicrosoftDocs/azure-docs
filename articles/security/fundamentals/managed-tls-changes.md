@@ -34,9 +34,9 @@ A: Domain Control Validation (DCV) is a critical process used to verify that an 
 A: No. The feature is very much supported and in fact is receiving several key updates that improve the overall user experience.
 
 > [!NOTE]
-> AFD classic and CDN Classic SKUs, which are on the path to deprecation, are retiring support for adding new vanity domains. For more information, see Azure Front Door (classic) and Azure CDN from Microsoft Classic SKU ending CNAME based domain validation and new domain/profile creations by August 15, 2025. Customers are recommended to use managed certificates with AFD Standard and Premium SKUs for new vanity domains.
+> AFD classic and CDN Classic SKUs, which are on the path to deprecation, are retiring support for adding new vanity domains. For more information, see [Azure Front Door (classic) and Azure CDN from Microsoft Classic SKU ending CNAME based domain validation and new domain/profile creations by August 15, 2025](https://azure.microsoft.com/en-us/updates?id=498522). Customers are recommended to use managed certificates with AFD Standard and Premium SKUs for new vanity domains.
 
 **Q: Is DigiCert retiring CNAME domain control validation?**
 
-A: No, only this specific CNAME validation method unique to Azure services is being retired. The CNAME DCV method used by DigiCert customers such as the one described here for OV/EV certificates and here for DV certificates is not impacted. Only Azure is impacted by this change.
+A: No. Only this specific CNAME validation method unique to Azure services is being retired. The CNAME DCV method used by DigiCert customers, such as the one described for DigiCert [OV/EV certificates](https://docs.digicert.com/en/certcentral/manage-certificates/supported-dcv-methods-for-validating-the-domains-on-ov-ev-tls-ssl-certificate-orders/use-the-dns-cname-validation-method-to-verify-domain-control.html) and [DV certificates](https://docs.digicert.com/en/certcentral/manage-certificates/dv-certificate-enrollment/domain-control-validation--dcv--methods/use-the-dns-cname-dcv-method.html) is not impacted. Only Azure is impacted by this change.
 
