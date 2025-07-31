@@ -165,29 +165,29 @@ Also include the following information if possible, as it can be useful for narr
 
 - On the Raspberry Pi Device there are two sets of logs found here:
 
-    ```markdown
-    /adu/logs
-    ```
+```markdown
+/adu/logs
+```
 
-    ```markdown
-    /var/cache/do-client-lite/log
-    ```
+```markdown
+/var/cache/do-client-lite/log
+```
 
 - For the packaged client, the logs are found here:
 
-      ```markdown
-    /var/log/adu
-    ```
+```markdown
+/var/log/adu
+```
 
-      ```markdown
-    /var/cache/do-client-lite/log
-    ```
+```markdown
+/var/cache/do-client-lite/log
+```
 
 - For the Simulator, the logs are found here:
 
-    ```markdown
-    /tmp/aduc-logs
-    ```
+```markdown
+/tmp/aduc-logs
+```
 
 ### Error codes
 
