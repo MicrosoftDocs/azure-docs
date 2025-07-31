@@ -9,7 +9,7 @@
  ms.custom: include file
 ---
 
-[Locally redundant storage (LRS)](/azure/storage/common/storage-redundancy?#locally-redundant-storage) replicates the data within your storage accounts to one or more Azure availability zones located in the primary region of your choice. Although there's no option to choose your preferred availability zone, Azure may move or expand LRS accounts across zones to improve load balancing. LRS provides at least 99.999999999 (11 nines) durability of objects over a given year. For more information about availability zones, see [What are Availability Zones?](../../availability-zones-overview.md).
+[Locally redundant storage (LRS)](/azure/storage/common/storage-redundancy?#locally-redundant-storage) replicates the data within your storage accounts to one or more Azure availability zones located in the primary region of your choice. Although there's no option to choose your preferred availability zone, Azure may move or expand LRS accounts across zones to improve load balancing. There's no guarantee that your data will be spread across zones. LRS provides at least 99.999999999 (11 nines) durability of objects over a given year. For more information about availability zones, see [What are Availability Zones?](../../availability-zones-overview.md).
 
 :::image type="content" source="../../media/reliability-storage/locally-redundant-storage.png" alt-text="Diagram showing how data is replicated in availability zones with LRS." lightbox="../../media/reliability-storage/locally-redundant-storage.png" border="false":::
 

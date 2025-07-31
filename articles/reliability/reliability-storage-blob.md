@@ -46,7 +46,7 @@ To effectively manage transient faults when using Azure Blob Storage, implement 
 
 [!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
 
-Azure Blob Storage provides robust availability zone support through zone-redundant storage (ZRS) configurations that automatically distribute your data across multiple availability zones within a region. When you configure a storage account for ZRS, Azure synchronously replicates your blob data across multiple availability zones, ensuring that your data remains accessible even if one zone experiences an outage.
+Azure Blob Storage provides robust availability zone support through zone-redundant storage (ZRS) configurations that automatically distribute your data across multiple availability zones within a region. Unlike LRS, ZRS guarantees that Azure synchronously replicates your blob data across multiple availability zones. ZRS ensures that your data remains accessible even if one zone experiences an outage.
 
 Zone redundancy is enabled at the storage account level and applies to all blob containers within that account. You cannot configure individual containers for different redundancy levels - the setting applies to the entire storage account. When an availability zone experiences an outage, Azure Storage automatically routes requests to healthy zones without requiring any intervention from you or your application.
 
