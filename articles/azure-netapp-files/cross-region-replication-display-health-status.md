@@ -67,7 +67,7 @@ Create [alert rules in Azure Monitor](/azure/azure-monitor/alerts/alerts-overvie
 
 * [Cross-region replication](replication.md)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
-* [Resize a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
+* [Resize a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-replication-destination-volume)
 * [Volume replication metrics](azure-netapp-files-metrics.md#replication)
 * [Delete volume replications or volumes](cross-region-replication-delete.md)
 * [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)

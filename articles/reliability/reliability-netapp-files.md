@@ -153,7 +153,7 @@ By default, Azure NetApp Files is a single-region service. If the region becomes
 
 ### Region support
 
-The secondary region that you can replicate your volumes to depends on the primary region. For more information, see [supported region pairs](../azure-netapp-files/replication.md#supported-cross-region-replication-pairs). 
+The secondary region that you can replicate your volumes to depends on the primary region. For more information, see [supported region pairs](../azure-netapp-files/replication.md#supported-region-pairs). 
 
 ### Considerations
 
