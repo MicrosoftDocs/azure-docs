@@ -45,7 +45,7 @@ Save this token to use in the `Authorization: Bearer <TOKEN>` header.
 Here’s an example cURL command to simulate the HTTP Publish. 
 
 ```http
-curl -X POST "https://contoso.westus3-1.ts.eventgrid.azure.net/mqtt/messages?topic=devices%2XXXX-0000%2Fprompt&api-version=2025-02-15-preview" \ 
+curl -X POST "https://contoso.westus3-1.ts.eventgrid.azure.net/mqtt/messages?topic=devices%2XXXX-0000%2Fprompt&api-version=2025-08-01-preview" \ 
   -H "Authorization: Bearer <ENTRA_TOKEN_HERE>" \ 
   -H "mqtt-qos: 1" \ 
   -H "mqtt-retain: 0" \ 
@@ -110,7 +110,7 @@ In this sample command:
               }
             ],
             "url": {
-              "raw": "https://{{namespace}}/mqtt/messages?topic={{topic}}&api-version=2025-02-15-preview",
+              "raw": "https://{{namespace}}/mqtt/messages?topic={{topic}}&api-version=2025-08-01-preview",
               "host": [
                 "{{namespace}}"
               ],
