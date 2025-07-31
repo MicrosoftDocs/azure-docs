@@ -43,7 +43,6 @@ Follow these steps to migrate to a new gateway using the Azure portal:
     |--|--|
     | **Gateway name** | Enter a name for the new gateway. |
     | **Gateway SKU** | Select the SKU for the new gateway. |
-    | **Public IP address** | Select **Add new**, provide a name for the new public IP, choose an availability zone, and select **OK**. |
 
     > [!NOTE]
     > During this process, your existing virtual network gateway is locked, preventing the creation or modification of connections.
