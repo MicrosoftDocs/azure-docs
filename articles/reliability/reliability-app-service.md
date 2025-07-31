@@ -79,7 +79,7 @@ If you enable availability zones but specify a capacity of less than two, the pl
 
 ### Configure availability zone support
 
-- **Create a new zone-redundant App Service plan.** For more information, see [Create a new App Service plan that includes zone redundancy](../app-service/configure-zone-redundancy.md#create-a-new-app-service-plan-that-includes-zone-redundancy).
+- **Create a new zone-redundant App Service plan.** For more information, see [Create a new App Service plan that includes zone redundancy](../app-service/configure-zone-redundancy.md#create-a-new-zone-redundant-app-service-plan).
 
 - **Enable or disable zone redundancy on an existing App Service plan.** For more information, see [Set zone redundancy for an existing App Service plan](../app-service/configure-zone-redundancy.md#set-zone-redundancy-for-an-existing-app-service-plan).
 
