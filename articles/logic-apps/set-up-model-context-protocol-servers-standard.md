@@ -40,13 +40,17 @@ The following table describes the benefits that you get when you set up Standard
 | Flexibility | Azure Logic Apps provides 1,400+ connectors that provide access and ways to work with enterprise assets and resources whether they in the cloud or on premises. |
 | Access points | Azure Logic Apps supports various connectivity models for running your MCP server. For you can run your server in the cloud, exposed as a private endpoint, or connected to virtual networks and on-premises resources. |
 | Security | When you expose your logic app as an MCP server, make sure that you set up a strong security posture and meet your enterprise security requirements. You can use Microsoft Entra ID with EasyAuth for authentication and authorization and to secure your MCP server and Standard workflows. |
-| Monitoring, governance, and compliance | Azure Logic Apps provides workflow run history and integration with Application Insights or Log Analytics so that you get the data necessary to manage and monitor your MCP tools and support your needs around diagnostics and troubleshooting, reporting, traceability, and auditing. |
+| Monitoring, governance, and compliance | Azure Logic Apps provides workflow run history and integration with Application Insights or Log Analytics so that you get the data necessary to manage and monitor your MCP server tools and support your needs around diagnostics and troubleshooting, reporting, traceability, and auditing. |
 
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- The Standard logic app resource and workflows that you want to set up as an MCP server with tools that agents can use. To use the workflows as MCP tools, the workflows must start with the **Request** trigger named **When a HTTP request is received** and include the **Response** action.
+- The Standard logic app resource and workflows that you want to set up as an MCP server with tools that agents can use.
+
+  - This capability applies only to Standard workflows that use the Workflow Service Plan or App Service Environment v3 option.
+
+  - Workflows must start with the **Request** trigger named **When a HTTP request is received** and include the **Response** action.
 
   For more information, see the following documentation:
 
@@ -55,50 +59,9 @@ The following table describes the benefits that you get when you set up Standard
 
 - An [app registration](/entra/identity-platform/app-objects-and-service-principals?tabs=browser#application-registration) to use in the EasyAuth setup for your logic app.
 
-  This app registration is an identity that your logic app uses to delegate identity and access management functions to Microsoft Entra ID.
+  This app registration is an identity that your logic app resource uses to delegate identity and access management functions to Microsoft Entra ID.
 
-  To create an app registration, follow these steps:
-
-  1. In the [Azure portal](https://portal.azure.com) search box, enter **app registrations**.
-
-  1. On the **App registrations** page toolbar, select **New registration**.
-
-  1. On the **Register an application** page, provide the following information:
-
-     | Property | Required | Description |
-     |----------|----------|-------------|
-     | **Name** | Yes | The name for your app registration. |
-     | **Supported account types** | Yes | The accounts that can use or access your logic app. |
-     | **Redirect URI** | No | Skip this section. |
-     
-   1. When you're done, select **Register**.
-
-   1. On the app registration page, copy and save the **Directory (tenant) ID** for later use.
-
-   1. On the app registration sidebar, under **Manage**, select **Expose an API**.
-
-   1. Next to **Application ID URI**, select **Add**. Keep the default value, copy and save this value for later use, and select **Save**.
-
-   1. Under **Scopes defined by this API**, select **Add a scope** to provide granular permissions to your app's users.
-
-      1. On the **Add a scope pane**, provide the following information:
-
-         | Property | Required | Description |
-         |----------|----------|-------------|
-         | **Scope name** | Yes | A relevant name for the permissions scope that uses the following format:<br><br> `<*resource*>.<*operation*>.<*constraint*>` <br><br>For more information, see [Scopes and permissions in the Microsoft identity platform](/entra/identity-platform/scopes-oidc). |
-         | **Who can consent** | Yes | Select **Admins and users**. |
-
-         For more information, see [Add a scope](/entra/identity-platform/quickstart-configure-app-expose-web-apis#add-a-scope).
-
-      1. When you're done, select **Add scope**.
-
-   For more information, see [Register an application in Microsoft Entra ID](/entra/identity-platform/quickstart-register-app).
-
-   When you finish these steps, you have the following values to use later with your logic app:
-
-   - Directory (tenant) ID
-
-   - Application ID URI
+  For instructions, see [Create an app registration](#create-app-registration-logic-app).
 
 ## Considerations for workflows as tools
 
@@ -181,6 +144,56 @@ To help agents correctly find and run tools, add the following metadata to the *
 > describing the format for parameter inputs. So, if a parameter expects a base64 encoded string, 
 > including this detail in the parameter description might help.
 
+## Create an app registration
+
+To create an app registration for your logic app to use, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com) search box, enter **app registrations**.
+
+1. On the **App registrations** page toolbar, select **New registration**.
+
+1. On the **Register an application** page, provide the following information:
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Name** | Yes | The name for your app registration. |
+   | **Supported account types** | Yes | The accounts that can use or access your logic app. |
+   | **Redirect URI** | No | Skip this section. |
+     
+1. When you're done, select **Register**.
+
+1. On the app registration page, copy and save the **Directory (tenant) ID** for later use.
+
+1. On the app registration sidebar, under **Manage**, select **Expose an API**.
+
+1. Next to **Application ID URI**, select **Add**. Keep the default value, copy and save this value for later use, and select **Save**.
+
+1. Under **Scopes defined by this API**, select **Add a scope** to provide granular permissions to your app's users.
+
+   1. On the **Add a scope pane**, provide the following information:
+
+      | Property | Required | Description |
+      |----------|----------|-------------|
+      | **Scope name** | Yes | A relevant name for the permissions scope that uses the following format:<br><br> `<resource>.<operation>.<constraint>` <br><br>This example uses `user_impersonation`. For more information, see [Scopes and permissions in the Microsoft identity platform](/entra/identity-platform/scopes-oidc). |
+      | **Who can consent** | Yes | Based on your organization's policies, select the option that best aligns with your policies. This example selects **Admins and users**. |
+      | **Admin consent display name** | Yes ||
+      | **Admin consent description** | Yes ||
+      | **User consent display name** | No ||
+      | **User consent description** | No ||
+      | **State** | Yes | Select **Enabled**. |
+
+      For more information, see [Add a scope](/entra/identity-platform/quickstart-configure-app-expose-web-apis#add-a-scope).
+
+   1. When you're done, select **Add scope**.
+
+For more information, see [Register an application in Microsoft Entra ID](/entra/identity-platform/quickstart-register-app).
+
+When you finish these steps, you have the following values to use later with your logic app:
+
+- Directory (tenant) ID
+
+- Application ID URI
+
 ## Set up logic app as MCP server
 
 For this task, you need to edit the **host.json** file for your Standard logic app resource.
@@ -230,6 +243,9 @@ For this task, you need to edit the **host.json** file for your Standard logic a
        }
    }
    ```
+
+## Set up EasyAuth for your logic app
+
 
 ## Related content
 
