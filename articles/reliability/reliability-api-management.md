@@ -11,7 +11,7 @@ ms.date: 07/17/2025
 
 # Reliability in Azure API Management
 
-Azure API Management is a fully managed service that helps organizations publish, secure, transform, maintain, and monitor APIs. The service acts as a gateway that sits between API consumers and back-end services. It provides essential capabilities like authentication, rate limiting, response caching, and request and response transformations. Organizations can use API Management to create a consistent and secure API experience while abstracting the complexity of the underlying back-end services.
+Azure API Management is a fully managed service that helps organizations publish, secure, transform, maintain, and monitor APIs. The service acts as a gateway that sits between API consumers and backend services. It provides essential capabilities like authentication, rate limiting, response caching, and request and response transformations. Organizations can use API Management to create a consistent and secure API experience while abstracting the complexity of the underlying backend services.
 
 API Management provides several reliability features designed to ensure high availability and fault tolerance for your API infrastructure. The service provides built-in redundancy through multiple deployment units, automatic failover capabilities between availability zones, and multi-region deployment options for global API distribution. API Management includes intelligent traffic routing, health monitoring, and automatic retry mechanisms that help maintain service continuity even during infrastructure failures or high-traffic scenarios.
 
@@ -50,7 +50,7 @@ To learn about how to deploy API Management to support your solution's reliabili
 
 [!INCLUDE[introduction to transient faults](./includes/reliability-transient-fault-description-include.md)]
 
-When you use API Management in front of an API, you might need to retry requests that fail because of transient faults. To protect your back-end API from being overwhelmed by too many requests, API Management provides retry, rate-limit, and quota policies. You can also configure load balancing and circuit breaker capabilities by using [back-end resources](../api-management/backends.md).
+When you use API Management in front of an API, you might need to retry requests that fail because of transient faults. To protect your backend API from being overwhelmed by too many requests, API Management provides retry, rate-limit, and quota policies. You can also configure load balancing and circuit breaker capabilities by using [backend resources](../api-management/backends.md).
 
 ## Availability zone support
 
@@ -89,7 +89,7 @@ API Management supports availability zones for the Premium (classic) tier in all
 
 ### Requirements
 
-You must use the Premium (classic) tier to configure availability zone support. API Management doesn't support availability zones in the classic Consumption, Developer, Basic, and Standard tiers or in the Basic v2, Standard v2, and Premium v2 tiers. To upgrade your instance to the Premium (classic) tier, see [Upgrade to the Premium tier](../api-management/upgrade-and-scale.md#change-your-api-management-service-tier).
+You must use the Premium (classic) tier to configure availability zone support. API Management doesn't currently support availability zones in the classic Consumption, Developer, Basic, and Standard tiers or in the Basic v2, Standard v2, and Premium v2 tiers. To upgrade your instance to the Premium (classic) tier, see [Upgrade to the Premium tier](../api-management/upgrade-and-scale.md#change-your-api-management-service-tier).
 
 > [!NOTE]
 > The Premium v2 tier with enterprise capabilities is in preview. To determine whether your design should rely on early access features or generally available capabilities, evaluate your design and implementation timelines in relation to the available information about Premium v2's release and migration paths.
@@ -260,7 +260,7 @@ This section describes what to expect when API Management instances are configur
 
 - **Traffic routing between regions:** API Management automatically routes incoming requests to a regional gateway. A request is routed to the regional gateway with the lowest latency from the client. If you need to use a different routing approach, you can configure your own Traffic Manager with custom routing rules. For more information, see [Use custom routing to API Management regional gateways](../api-management/api-management-howto-deploy-multi-region.md#use-custom-routing-to-api-management-regional-gateways).
 
-    When a request reaches an API Management regional gateway, it's routed to the back-end API unless a policy returns a response directly from the gateway, such as a cached response or an error code. In a multi-region solution, you need to take care to route to an instance of the back-end API that meets your performance requirements. For more information, see [Route API calls to regional back-end services](../api-management/api-management-howto-deploy-multi-region.md#route-api-calls-to-regional-back-end-services).
+    When a request reaches an API Management regional gateway, it's routed to the backend API unless a policy returns a response directly from the gateway, such as a cached response or an error code. In a multi-region solution, you need to take care to route to an instance of the backend API that meets your performance requirements. For more information, see [Route API calls to regional backend services](../api-management/api-management-howto-deploy-multi-region.md#route-api-calls-to-regional-back-end-services).
 
 - **Data replication between regions:** Gateway configuration, such as APIs and policy definitions, are regularly synchronized between the primary and secondary regions you add. Propagation of updates to the regional gateways normally takes less than 10 seconds.
 
@@ -321,7 +321,7 @@ The SLA for API Management describes the expected availability of the service. I
 
 When you deploy an API Management instance in multiple availability zones or regions, the uptime percentage defined in the SLA increases.
 
-The service provides its own SLA, but you also need to account for the anticipated reliability of other workload components, such as the API back ends.
+The service provides its own SLA, but you also need to account for the anticipated reliability of other workload components, such as the API backends.
 
 ## Related content
 

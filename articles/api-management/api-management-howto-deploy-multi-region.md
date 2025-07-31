@@ -58,11 +58,11 @@ When adding a region, you configure:
 1. For the location you would like to remove, select the context menu using the **...** button at the right end of the table. Select **Delete**.
 1. Confirm the deletion and select **Save** to apply the changes.
 
-## Route API calls to regional back-end services
+## Route API calls to regional backend services
 
-By default, each API routes requests to a single back-end service URL. Even if you configure API Management gateways in various regions, the API gateway still forwards requests to the same back-end service, which is deployed in only one region. In this case, improved performance comes only from responses cached within API Management in a region specific to the request. Contacting the back end across the globe might still cause high latency.
+By default, each API routes requests to a single backend service URL. Even if you configure API Management gateways in various regions, the API gateway still forwards requests to the same backend service, which is deployed in only one region. In this case, improved performance comes only from responses cached within API Management in a region specific to the request. Contacting the backend across the globe might still cause high latency.
 
-To take advantage of geographical distribution of your system, you should deploy back-end services in the same regions as API Management instances. Then, by using policies and the `@(context.Deployment.Region)` property, you can route the traffic to local instances of your back end.
+To take advantage of geographical distribution of your system, you should deploy backend services in the same regions as API Management instances. Then, by using policies and the `@(context.Deployment.Region)` property, you can route the traffic to local instances of your backend.
 
 1. Go to your API Management instance and select **APIs** from the left menu.
 2. Select your desired API.
@@ -102,11 +102,11 @@ To take advantage of geographical distribution of your system, you should deploy
     </policies>
     ```
 
-### Use Traffic Manager for routing to regional back ends
+### Use Traffic Manager for routing to regional backends
 
-You can also front your back-end services with [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), direct the API calls to the Traffic Manager, and let it resolve the routing automatically. 
+You can also front your backend services with [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), direct the API calls to the Traffic Manager, and let it resolve the routing automatically. 
 
-* For traffic distribution and failover, we recommend using Traffic Manager with the [**Geographic**](../traffic-manager/traffic-manager-routing-methods.md#geographic-traffic-routing-method) routing method. We don't recommend using Traffic Manager with the Weighted routing method with API Management back ends.
+* For traffic distribution and failover, we recommend using Traffic Manager with the [**Geographic**](../traffic-manager/traffic-manager-routing-methods.md#geographic-traffic-routing-method) routing method. We don't recommend using Traffic Manager with the Weighted routing method with API Management backends.
 
 * For traffic control during maintenance operations, we recommend using the Priority routing method.
 
@@ -124,8 +124,8 @@ API Management routes the requests to a regional gateway based on [the lowest la
 
 Under some conditions, you might need to temporarily disable routing to one of the regional gateways. For example:
 
-* After you add a new region, to keep it disabled while you configure and test the regional back-end service 
-* During regular back-end maintenance in a region
+* After you add a new region, to keep it disabled while you configure and test the regional backend service 
+* During regular backend maintenance in a region
 * To redirect traffic to other regions during a planned disaster recovery drill that simulates an unavailable region, or during a regional failure 
 
 To disable routing to a regional gateway in your API Management instance, update the gateway's `disableGateway` property value to `true`. You can set the value by using the [Create or update service](/rest/api/apimanagement/current-ga/api-management-service/create-or-update) REST API, the [az apim update](/cli/azure/apim#az-apim-update) command in the Azure CLI, the [set-azapimanagement](/powershell/module/az.apimanagement/set-azapimanagement) Azure PowerShell cmdlet, or other Azure tools.
