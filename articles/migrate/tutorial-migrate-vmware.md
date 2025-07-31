@@ -142,7 +142,7 @@ Enable replication as follows:
 1. Track job status in the portal notifications.
 2. Monitor replication status by selecting on the numerical value next to **Azure VM** in **Migration and modernization**. 
 
-![Monitor replication](./media/tutorial-migrate-vmware/replicating-servers.png)
+![Screenshot that shows monitor replication.](./media/tutorial-migrate-vmware/replicating-servers.png)
 
 Replication occurs as follows: <br /><br />
 - When the Start Replication job finishes successfully, the machines begin their initial replication to Azure. <br /><br />
@@ -195,7 +195,7 @@ Get-AzMigrateServerMigrationStatus   -ProjectName "<your-project-name>"   -Resou
 
 16. You run this command to get the following output: <br /><br />
 
-:::image type="content" source="./media/tutorial-migrate-vmware/appliance-name.png" alt-text="Screenshot shows azure migrate server migratoin status." lightbox="./media/tutorial-migrate-vmware/appliance-name.png":::
+:::image type="content" source="./media/tutorial-migrate-vmware/appliance-name.png" alt-text="Screenshot shows azure migrate server migration status." lightbox="./media/tutorial-migrate-vmware/appliance-name.png":::
 
 ## Run a test migration
 
