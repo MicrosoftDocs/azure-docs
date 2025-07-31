@@ -1,12 +1,12 @@
 ---
 title: About the move process in Azure Resource Mover
 description: Learn about the process for moving resources across regions with Azure Resource Mover.
-author: jyothisuri
+author: jasminemehndir
+ms.author: v-jasmineme
 ms.service: azure-resource-mover
 ms.topic: overview
-ms.date: 12/27/2024
+ms.date: 07/31/2025
 ms.update-cycle: 180-days
-ms.author: jsuri
 ms.custom: UpdateFrequency.5
 # Customer intent: "As an Azure administrator, I want to understand the process of moving resources across regions, so that I can effectively manage dependencies and minimize downtime during the transition."
 ---
