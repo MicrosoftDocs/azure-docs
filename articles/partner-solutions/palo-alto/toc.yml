@@ -8,13 +8,13 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a Cloud NGFW by Palo Alto Networks resource
+  - name: Create a resource
     href: create.md
 - name: How to
   items:
-  - name: Manage your Cloud NGFW by Palo Alto Networks resource
+  - name: Manage your resource
     href: manage.md
-  - name: Troubleshoot Cloud NGFW by Palo Alto Networks 
+  - name: Troubleshoot
     href: /troubleshoot/azure/partner-solutions/welcome-native-integrations
   - name: Deploy Cloud NGFW by Palo Alto Networks with the Application Gateway
     href: application-gateway.md
