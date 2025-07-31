@@ -532,7 +532,7 @@ Use Docker builds for consistent builds across different environments and automa
 
 # [Rust](#tab/rust)
 
-For comprehensive examples of map, filter, branch, accumulate, and delay operators, see the [Rust examples](https://github.com/Azure-Samples/explore-iot-operations/tree/wasm/samples/wasm/rust/examples) in the samples repository. Complete implementations include:
+For comprehensive examples of map, filter, branch, accumulate, and delay operators, see the [Rust examples](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples) in the samples repository. Complete implementations include:
 
 - **Map operators**: Data transformation and conversion logic
 - **Filter operators**: Conditional data processing and validation
@@ -541,11 +541,11 @@ For comprehensive examples of map, filter, branch, accumulate, and delay operato
 - **Delay operators**: Time-based processing control
 - **Complex workflows**: Multi-operator configurations with state management
 
-For a complete implementation example, see the [branch module](https://github.com/Azure-Samples/explore-iot-operations/tree/wasm/samples/wasm/rust/examples/branch), which demonstrates parameter usage for conditional routing logic.
+For a complete implementation example, see the [branch module](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples/branch), which demonstrates parameter usage for conditional routing logic.
 
 # [Python](#tab/python)
 
-For comprehensive examples of map, filter, branch, accumulate, and delay operators, see the [Python examples](https://github.com/Azure-Samples/explore-iot-operations/tree/wasm/samples/wasm/python/examples) in the samples repository. Complete implementations include:
+For comprehensive examples of map, filter, branch, accumulate, and delay operators, see the [Python examples](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/python/examples) in the samples repository. Complete implementations include:
 
 - **Map operators**: Data transformation and conversion logic
 - **Filter operators**: Conditional data processing and validation
@@ -741,11 +741,11 @@ def temperature_converter_init(configuration):
 
 ---
 
-For a complete implementation example, see the [branch module](https://github.com/Azure-Samples/explore-iot-operations/tree/wasm/samples/wasm/rust/examples/branch), which demonstrates parameter usage for conditional routing logic.
+For a complete implementation example, see the [branch module](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples/branch), which demonstrates parameter usage for conditional routing logic.
 
 ## Next steps
 
-- See complete examples and advanced patterns in the [Azure IoT Operations WASM samples](https://github.com/Azure-Samples/explore-iot-operations/tree/wasm/samples/wasm) repository.
+- See complete examples and advanced patterns in the [Azure IoT Operations WASM samples](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm) repository.
 - Learn how to deploy your modules in [Use WebAssembly with data flow graphs](howto-dataflow-graph-wasm.md).
 - Configure your data flow endpoints in [Configure data flow endpoints](howto-configure-dataflow-endpoint.md).
 
