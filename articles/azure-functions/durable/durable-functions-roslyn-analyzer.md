@@ -13,7 +13,7 @@ zone_pivot_groups: function-worker-process
 ::: zone pivot="isolated"
 The Durable Functions Roslyn Analyzer is a live code analyzer that guides C# users to adhere to Durable Functions specific [code constraints](./durable-functions-code-constraints.md). This analyzer is enabled by default to check your Durable Functions code and generate warnings and errors when there's any. A list of shipped analyzer rules can be found in the [analyzer release notes](https://github.com/microsoft/durabletask-dotnet/blob/main/src/Analyzers/AnalyzerReleases.Shipped.md).
 
-For more information on the .NET Isolated Analyzer (improvements, releases, bug fixes, etc.), please visit [the durabletask-dotnet release notes page](https://github.com/microsoft/durabletask-dotnet/releases).
+For more information on the .NET Isolated Analyzer (improvements, releases, bug fixes, etc.), visit [the durabletask-dotnet release notes page](https://github.com/microsoft/durabletask-dotnet/releases).
 
 > [!NOTE]
 > The .NET Isolated Roslyn Analyzer is only available starting from [Microsoft.Azure.Functions.Worker.Extensions.DurableTask v1.6.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/1.6.0).
@@ -26,7 +26,7 @@ The Durable Functions Roslyn Analyzer is a live code analyzer that guides C# use
 
 The Roslyn Analyzer for the **in-process** model is available and provides diagnostics to enforce Durable Functions best practices. See the [Analyzer v0.2.0 release](https://github.com/Azure/azure-functions-durable-extension/releases/tag/Analyzer-v0.2.0) for details.
 
-For updated information about the .NET In-Process Analyzer, please visit [the durable-extension release notes page](https://github.com/Azure/azure-functions-durable-extension/releases).
+For updated information about the .NET In-Process Analyzer, visit [the durable-extension release notes page](https://github.com/Azure/azure-functions-durable-extension/releases).
 
 ## Configuration
 
