@@ -12,7 +12,7 @@ ms.date: 08/01/2025
 
 Several Azure resources are involved in a Storage Discovery deployment. This article describes each of these resources, their uses, and best practices for expressing your migration needs with them.
 
-:::image type="content" source="media/management-components/managements-components.png" alt-text="An image showing the Storage Discovery management resources further described in this article." lightbox="media/management-components/management-components.png":::
+:::image type="content" source="media/management-components/discovery-components.png" alt-text="An image showing the Storage Discovery management resources further described in this article." lightbox="media/management-components/discovery-components.png":::
 
 ## Workspace
 
