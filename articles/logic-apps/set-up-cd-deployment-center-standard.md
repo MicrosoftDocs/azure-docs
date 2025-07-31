@@ -63,7 +63,7 @@ The following example shows where to find the **SCM Basic Auth Publishing Creden
 
 1. When you're done, continue on to create scripts for Deployment Center.
 
-## Generate Deployment Center scripts in Visual Studio Code
+## Generate scripts for Deployment Center
 
 1. In Visual Studio Code, open the workspace and project for your Standard logic app.
 
@@ -93,7 +93,7 @@ The following example shows where to find the **SCM Basic Auth Publishing Creden
 
 1. When you're done, push your changes to your source control repository.
 
-## Set up Deployment Center for your logic app in the portal
+## Set up Deployment Center with your source repository
 
 ### [GitHub](#tab/github)
 
