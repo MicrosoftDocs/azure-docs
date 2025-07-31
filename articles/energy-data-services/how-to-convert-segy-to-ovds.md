@@ -11,7 +11,7 @@ ms.custom: template-concept
 
 # How to convert a SEG-Y file to oVDS
 
-In this article, you learn how to convert SEG-Y formatted data to the Open VDS (oVDS) format. Seismic data stored in the industry standard SEG-Y format can be converted to oVDS format for use in applications via the Seismic DDMS(Domain data management service). See here for  OSDU&reg; community reference: [SEG-Y to oVDS conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-vds-conversion/-/tree/master). This tutorial is a step by step guideline on how to perform the conversion. Note the actual production workflow may differ and use it as a guide for the required set of steps to achieve the conversion.
+In this article, you learn how to convert SEG-Y formatted data to the Open VDS (oVDS) format. Seismic data stored in the industry standard SEG-Y format can be converted to oVDS format for use in applications via the Seismic DDMS. See here for  OSDU&reg; community reference: [SEG-Y to oVDS conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-vds-conversion/-/tree/master). This tutorial is a step by step guideline on how to perform the conversion. Note the actual production workflow may differ and use it as a guide for the required set of steps to achieve the conversion.
 
 ## Prerequisites
 * An Azure subscription
@@ -38,7 +38,7 @@ Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entit
 
 ### Set up your environment
 
-Ensure you have `cURL` installed on your system. You will use it to make API calls.
+Ensure you have `cURL` installed on your system. You use it to make API calls.
 
 ## Step by Step Process to convert SEG-Y file to oVDS 
 
@@ -213,7 +213,7 @@ cURL -X 'GET' \
   "token_type": "SASUrl"
 }
 ```
-#### Modify SAS url. Replace container name in SAS url with filepath, i.e. gcsstring
+#### Modify SAS url. Replace container name in SAS url with filepath, that is, gcsstring
 
 ```bash
 filepath="<gcsstring>"
@@ -410,7 +410,7 @@ cURL -X POST "https://<DNS>/api/workflow/v1/workflow/segy-to-vds-conversion" \
 }
 ```
 
-2. Let the DAG run to the `succeeded` state. You can check the status using the workflow status call. The run ID is in the response of the above call
+2. Let the DAG run to the `succeeded` state. You can check the status using the workflow status call. The run ID is in the response of the previous step.
 
 Use the following `cURL` command:
 
@@ -459,7 +459,7 @@ cURL --request GET \
     python sdutil ls sd://<data-partition-id>/vdssubprojectname/
     ```
 
-3. If you would like to download and inspect your VDS files, don't use the `cp` command as doesn't work. The VDS conversion results in multiple files, therefore the `cp` command will not download all of them in one command. Use either the [SEGYExport](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/SEGYExport/README.html) or [VDSCopy](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/VDSCopy/README.html) tool instead. These tools use a series of REST calls accessing a [naming scheme](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/connection.html) to retrieve information about all the resulting VDS files.
+3. If you would like to download and inspect your VDS files, don't use the `cp` command as it doesn't work. The VDS conversion results in multiple files, therefore the `cp` command won't download all of them in one command. Use either the [SEGYExport](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/SEGYExport/README.html) or [VDSCopy](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/VDSCopy/README.html) tool instead. These tools use a series of REST calls accessing a [naming scheme](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/connection.html) to retrieve information about all the resulting VDS files.
 
 OSDU&reg; is a trademark of The Open Group.
 
