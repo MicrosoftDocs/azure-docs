@@ -11,7 +11,7 @@ ms.custom:
   - ai-gen-description
 ---
 
-## MQTT retain support in Azure Event Grid (preview)
+# MQTT retain support in Azure Event Grid (preview)
 The MQTT Retain feature in Azure Event Grid (Preview) ensures that the last known good value of a topic is stored and readily available for new subscribers. This capability allows new clients to instantly receive the most recent message upon connection, eliminating the need to wait for the next publish. It is beneficial in scenarios such as device state reporting, control signals, or configuration data, where timely access to the latest message is critical. 
 
 This article provides an overview of how the MQTT Retain feature works, its billing implications, storage limits, message deletion methods, and retain management considerations.

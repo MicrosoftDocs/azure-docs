@@ -56,7 +56,7 @@ Here are some highlights of MQTT messaging support in Azure Event Grid:
 - MQTT over WebSockets - Enable connectivity for clients in firewall-restricted environments.
 - Custom domain names - Allows users to assign their own domain names to Event Grid namespace's MQTT endpoints, enhancing security and simplifying client configuration.
 - Client Life Cycle events - Allow applications to react to events about the client connection status or the client resource operations.
-- **HTTP Publish** - Enables devices and services to send MQTT messages to Azure Event Grid over HTTPS, simplifying integration with non-MQTT clients. 
+- [HTTP Publish](mqtt-http-publish.md) - Enables devices and services to send MQTT messages to Azure Event Grid over HTTPS, simplifying integration with non-MQTT clients. 
 - [MQTT Retain](mqtt-retain.md) - Ensures the last known message on a topic is automatically delivered to new subscribers, enabling instant state synchronization. 
 
 For more information about MQTT broker, see the following articles: 

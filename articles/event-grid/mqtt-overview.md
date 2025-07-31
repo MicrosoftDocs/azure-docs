@@ -123,7 +123,7 @@ An MQTT retain message is used to store the last known good value of a topic on 
  
 ### HTTP Publish(preview) 
 
-HTTP Publish enables applications to publish MQTT messages to Azure Event Grid MQTT Broker over a simple HTTPS POST request, without maintaining an active MQTT session. It’s best suited for scenarios where MQTT clients are not feasible or necessary—such as serverless functions, cloud services, or backend applications—allowing event-driven architectures to inject MQTT messages reliably and securely. Common use cases include publishing device commands, alerts, or control signals from Azure Functions, Logic Apps, or API integrations. 
+HTTP Publish enables applications to publish MQTT messages to Azure Event Grid MQTT Broker over a simple HTTPS POST request, without maintaining an active MQTT session. It’s best suited for scenarios where MQTT clients are not feasible or necessary—such as serverless functions, cloud services, or backend applications—allowing event-driven architectures to inject MQTT messages reliably and securely. Common use cases include publishing device commands, alerts, or control signals from Azure Functions, Logic Apps, or API integrations. For more information, see [HTTP Publish of MQTT messages in Azure Event Grid](mqtt-http-publish.md).
 
 ## Concepts
 See the following articles for concepts of MQTT broker in Azure Event Grid: 

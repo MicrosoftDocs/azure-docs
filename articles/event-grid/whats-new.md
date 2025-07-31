@@ -16,12 +16,13 @@ The following features of Event Grid Namespaces moved from public preview to gen
 
 - [OAuth 2.0 (JSON Web Token) authentication ( Refresh- with Direct upload of (Privacy-Enhanced Mail) PEM certificates)](authenticate-with-namespaces-using-json-web-tokens.md#configure-oauth-20-jwt-authentication-settings-on-your-event-grid-namespace---direct-upload) 
 - [Custom Webhook Authentication](authenticate-with-namespaces-using-webhook-authentication.md) 
-- [MQTT Compliance – Supports assigned client identifier](mqtt-support.md#assigned-client-identifiers-preview).
+- [MQTT Compliance – Supports assigned client identifier](mqtt-support.md#assigned-client-identifiers).
 - [MQTT limit change](quotas-limits.md) – Inbound MQTT publishing requests per session: 1,000 messages per second.
 
 The following features are released in Preview: 
 - MQTT Compliance – [MQTT Retain support](mqtt-retain.md).
-- HTTP Publish capability.
+- [HTTP Publish of MQTT messages in Azure Event Grid](mqtt-http-publish.md).
+
 
 ## May 2025
 The following features of Event Grid Namespaces moved from public preview to general availability (GA).
@@ -49,7 +50,7 @@ The following features are released in Preview:
 - [OAuth 2.0 (JSON Web Token) authentication ( Refresh- with Direct upload of (Privacy-Enhanced Mail) PEM certificates)](authenticate-with-namespaces-using-json-web-tokens.md#configure-oauth-20-jwt-authentication-settings-on-your-event-grid-namespace---direct-upload) 
 - [Custom Webhook Authentication](authenticate-with-namespaces-using-webhook-authentication.md)
 - [Send MQTT events directly to Microsoft Fabric using Azure Event Grid ](mqtt-events-fabric.md)
-- MQTT Compliance –  [Supports assigned client identifier](mqtt-support.md#assigned-client-identifiers-preview). 
+- MQTT Compliance –  [Supports assigned client identifier](mqtt-support.md#assigned-client-identifiers). 
 - [MQTT limit change](quotas-limits.md) – Inbound MQTT publishing requests per session: 1,000 messages per second. 
 
 ## November 2024

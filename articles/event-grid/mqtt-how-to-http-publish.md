@@ -15,8 +15,11 @@ ms.custom:
   - ai-gen-description
 ---
 
-# How to Publish MQTT Messages via HTTP with Azure Event Grid
+# How to Publish MQTT Messages via HTTP with Azure Event Grid (preview)
 Azure Event Grid now supports publishing MQTT messages via HTTP, enabling backend systems to send messages to devices without maintaining persistent MQTT connections. This approach simplifies integration for applications that prefer stateless communication, uses secure authentication with Entra ID, and provides scalable, reliable delivery to MQTT clients. In this article, you learn how to use the HTTP Publish API, obtain the necessary credentials, and verify message delivery using popular tools like Bruno, and MQTTX.
+
+> [!NOTE]
+> This feature is currently in preview. 
 
 This article explains how to publish MQTT messages via HTTP with Azure Event Grid. 
 
@@ -35,7 +38,7 @@ az account get-access-token --resource=https://<namespaceFQDN> --query accessTok
 
 Save this token to use in the `Authorization: Bearer <TOKEN>` header. 
 
-# [cURL](#tab/curl)
+### [cURL](#tab/curl)
 
 Here’s an example cURL command to simulate the HTTP Publish. 
 
@@ -57,7 +60,7 @@ In this sample command:
 - Add optional headers for QoS, retain flag, response topic, user properties. 
 - Payload goes in the request body. 
 
-# [Bruno](#tab/brno)
+### [Bruno](#tab/brno)
 
 ## Import to Bruno
 1. Open Bruno.
