@@ -110,7 +110,7 @@ This section explains how to configure availability zone support for your gatewa
 
     - *Azure CLI:* You should explicitly select zones by using the `--zones` parameter in the `az network application-gateway create` command. To pin the gateway to a single zone, specify the logical zone number.
     - *Azure PowerShell:* Use the `-Zone` parameter in the `New-AzApplicationGateway` command. To pin the gateway to a single zone, specify the logical zone number.
-    - *Bicep/ARM templates:*: Configure the `zones` property in the resource definition. To pin the gateway to a single zone, specify the logical zone number.
+    - *Bicep/ARM templates:* Configure the `zones` property in the resource definition. To pin the gateway to a single zone, specify the logical zone number.
 
     > [!NOTE]
     > [!INCLUDE [Availability zone numbering](./includes/reliability-availability-zone-numbering-include.md)]
