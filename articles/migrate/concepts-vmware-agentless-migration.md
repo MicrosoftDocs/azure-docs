@@ -31,7 +31,7 @@ When you perform the migration operation on a replicating VM, an on-demand delta
 
 Before you trigger the migration, you must shut down the on-premises VM. Shutting down the VM prevents data loss during migration.
 
-After the migration is successful and the VM restarts in Azure, ensure that you stop the replication of the VM. Stopping the replication deletes the intermediate disks (seed disks) that were created during data replication. You also avoid incurring extra charges associated with the storage transactions on these disks.
+After the migration is successful and the VM restarts in Azure, ensure that you stop the replication of the VM. Stopping the replication deletes the intermediate disks (seed disks) that were created during data replication. You then avoid incurring extra charges associated with the storage transactions on these disks.
 
 ## Replication cycles
 
@@ -49,12 +49,12 @@ A cycle is complete after the disks are consolidated.
 
 ## Components for replication
 
-An Azure Migrate appliance has the following on-premises components that are responsible for replication:
+An Azure Migrate appliance has the following *on-premises* components that are responsible for replication:
 
 - Data replication agent
 - Gateway agent
 
-The following table summarizes the Azure components that are created when you use the agentless method of VMware VM migration.
+The following table summarizes the *Azure* components that are created when you use the agentless method of VMware VM migration.
 
 | Component | Region | Subscription | Description |
 | --- | --- | --- | --- |
@@ -69,11 +69,11 @@ The following table summarizes the Azure components that are created when you us
 
 ## Required permissions
 
-When you start replication for the first time, the logged-in user must be assigned the following roles:
+When you start replication for the first time, the logged-in user must have the following roles:
 
 - Owner or Contributor and User Access Administrator on the Azure Migrate project's resource group and the target resource group
 
-For the subsequent replications, the logged-in user must be assigned the following roles:
+For the subsequent replications, the logged-in user must have the following roles:
 
 - Owner or Contributor on the Azure Migrate project's resource group and the target resource group
 
@@ -97,7 +97,7 @@ The second stage ensures that the data that's transferred to the Azure disks is 
 
 Every changed block that's uploaded is compressed and encrypted before it's written as a blob in the log storage account. Azure Migrate computes the checksum of this block before compression. This checksum is stored as metadata along with the compressed data.
 
-Upon decompression, the checksum for the data is calculated and compared with the checksum computed in the source environment. If there's a mismatch, the data isn't written to the Azure disks, and the cycle is considered failed. Because every cycle is resynchronization, the mismatch is fixed in the next cycle.
+Upon decompression, Azure Migrate calculates the checksum for the data and compares it with the checksum computed in the source environment. If there's a mismatch, the data isn't written to the Azure disks, and the cycle is considered failed. Because every cycle is resynchronization, the mismatch is fixed in the next cycle.
 
 ## Security
 
@@ -105,7 +105,7 @@ The Azure Migrate appliance compresses data and encrypts it before uploading it.
 
 ## Replication status
 
-When a VM undergoes replication (data copy), these states are possible:
+When a VM undergoes replication (data copy), there are several possible states:
 
 - **Initial replication queued**: The VM is queued for replication or migration because other VMs might be consuming the on-premises resources during replication or migration. After the resources are free, this VM is processed.
 - **Initial replication in progress**: The VM is scheduled for initial replication.
@@ -137,7 +137,7 @@ When a VM undergoes replication (data copy), these states are possible:
 
 - **Test migration pending**: The VM is in the delta replication phase. You can now perform test migration (or production migration).
 - **Test migration clean up pending**: After test migration is complete, perform a test migration cleanup to avoid charges in Azure.
-- **Ready to migrate**: The VM is ready to be migrated to Azure.
+- **Ready to migrate**: The VM is ready for migration to Azure.
 - **Migration in progress queued**: The VM is queued for migration because other VMs are consuming the on-premises resources during replication (or migration). After the resources are free, the VM is processed.
 - **Test migration/Migration in progress**: The VM is undergoing a test migration or a production migration. You can select the link to check the ongoing migration job.
 - **Date, timestamp**: The test migration or production migration happened at this date and time.
@@ -164,12 +164,14 @@ Delta replication cycles are scheduled as follows:
 
 - When you trigger migration, an on-demand (pre-failover) delta replication cycle occurs for the VM before migration.
 
-### Prioritization of VMs for various stages of replication
+### Prioritization
+
+Here's the prioritization of VMs for various stages of replication:
 
 - Ongoing VM replications are prioritized over scheduled replications (new replications).
 - The on-demand (pre-failover) delta replication cycle has the highest priority, followed by the initial replication cycle. The delta replication cycle has the lowest priority.
 
-That is, whenever you trigger a migration operation, the on-demand replication cycle for the VM is scheduled. Other ongoing replications have to wait if they're competing for resources.
+Whenever you trigger a migration operation, the on-demand replication cycle for the VM is scheduled. Other ongoing replications have to wait if they're competing for resources.
 
 ### Constraints
 
@@ -177,7 +179,7 @@ The following constraints help ensure that you don't exceed the IOPS limits on t
 
 - Each Azure Migrate appliance supports the replication of 52 disks in parallel.
 - Each ESXi host supports 8 disks. Every ESXi host has a 32-MB NFC buffer. So, you can schedule 8 disks on the host. (Each disk takes up 4 MB of buffer for incident response and disaster recovery.)
-- Each datastore can have a maximum of 15 disk snapshots. The only exception is when a VM has more than 15 disks attached to it.
+- Each datastore can have a maximum of 15 disk snapshots. The only exception is when more than 15 disks are attached to a VM.
 
 ## Scale-out replication
 
@@ -223,7 +225,7 @@ You can also increase and decrease replication bandwidth based on a schedule by 
 
 ### Blackout window
 
-Azure Migrate provides a configuration-based mechanism that you can use to specify the time interval during which you don't want any replications to proceed. This interval is called the *blackout window*. The need for a blackout window can arise in multiple scenarios, such as when the source environment is resource constrained or when you want replication to happen only during non-business hours.
+Azure Migrate provides a configuration-based mechanism that you can use to specify the time interval during which you don't want any replications to proceed. This interval is called the *blackout window*. The need for a blackout window can arise in multiple scenarios, such as when the source environment is resource constrained or when you want replication to happen only outside business hours.
 
 > [!NOTE]
 > The existing replication cycles at the start of the blackout window finish before the replication pauses.
@@ -250,7 +252,7 @@ The list of blackout windows is a pipe-delimited (`|`) string of the format `<Da
 }
 ```
 
-The first value in the preceding example indicates a blackout window that starts every Monday at 7:00 AM local time on the appliance and lasts 7 hours.
+The first value in the preceding example indicates a blackout window that starts every Monday at 7:00 AM local time (time on the appliance) and lasts 7 hours.
 
 After you create or update `GatewayDataWorker.json` with these contents, you need to restart the gateway service on the appliance for these changes to take effect.
 
