@@ -4,7 +4,7 @@ description: Find out about reliability in Azure Firewall, including availabilit
 author: duongau
 ms.author: duau
 ms.topic: reliability-article
-ms.custom: subject-reliability, references_regions
+ms.custom: subject-reliability
 ai-usage: ai-assisted
 ms.service: azure-firewall
 ms.date: 07/23/2025
@@ -25,7 +25,9 @@ To learn about how to deploy Azure Firewall to support your solution's reliabili
 
 ## Reliability architecture overview
 
-An *instance* is a virtual machine (VM)-level unit of the firewall. Each instance represents the infrastructure that handles traffic and performs firewall checks. You don't specify the number of instances, and Azure Firewall automatically provides a minimum of two instances to enable high availability f your firewall. Azure Firewall automatically scales out when average throughput, CPU consumption, and connection usage reach predefined thresholds. For more information, see [Azure Firewall performance](/azure/firewall/firewall-performance). The platform automatically manages instance creation, health monitoring, and replacement of unhealthy instances.
+An *instance* is a virtual machine (VM)-level unit of the firewall. Each instance represents the infrastructure that handles traffic and performs firewall checks.
+
+You don't specify the number of instances or your firewall. Azure Firewall automatically provides a minimum of two instances to enable high availability of your firewall. Your firewall automatically scales out when average throughput, CPU consumption, and connection usage reach predefined thresholds. For more information, see [Azure Firewall performance](/azure/firewall/firewall-performance). The platform automatically manages instance creation, health monitoring, and replacement of unhealthy instances.
 
 Azure Firewall achieves redundancy through its built-in high availability architecture. The service automatically distributes firewall instances across multiple fault domains within a region, providing protection against server and server rack failures. You can enable zone redundancy to distribute instances across multiple availability zones and protect against datacenter failures.
 
@@ -66,11 +68,6 @@ Azure Firewall supports availability zones in [all regions that support availabi
 - For zone-redundant firewalls, you must use standard public IP addresses and you must configure them to be zone-redundant.
 - For zonal firewalls, you must use standard public IP addresses and can configure them to either be zone-redundant or zonal in the same zone as the firewall.
 
-### Considerations
-
-- **Deployment-time configuration**: Availability zone configuration can only be set during initial deployment. You can't modify zone settings for existing firewalls.
-- **Regional capacity constraints**: Some regions have capacity constraints in specific zones (Physical zone 2 in North Europe and Physical zone 3 in Southeast Asia).
-
 ### Cost
 
 There's no extra cost for a firewall deployed in more than one availability zone.
@@ -95,9 +92,9 @@ This section explains how to configure availability zone support for your firewa
     > [!NOTE]
     > [!INCLUDE [Availability zone numbering](./includes/reliability-availability-zone-numbering-include.md)]
 
-- **Change the availability zone configuration of an existing firewall:** Availability zones can only be configured during initial deployment. Existing firewalls can't be converted to use availability zones.
+- **Change the availability zone configuration of an existing firewall:** You can reconfigure the availability zones used for a firewall by stopping the firewall and reconfiguring it. For more information, see [How can I configure availability zones after deployment?](/azure/firewall/firewall-faq#how-can-i-configure-availability-zones-after-deployment).
 
-- **Disable availability zone support:** Availability zone support can't be disabled.
+- **Disable availability zone support:** You can availability zones used by a firewall, but you can't convert a zone-redundant or zonal firewall to nonzonal.
 
 ### Normal operations
 
@@ -111,11 +108,7 @@ The following section describes what to expect when Azure Firewall is configured
 
 - **Instance management**: The platform automatically manages instance placement across the zones your firewall uses, replacing failed instances and maintaining the configured instance count. Health monitoring ensures that only healthy instances receive traffic.
 
-- **Data replication between zones:** The data replication behavior depends on the availability zone configuration your firewall uses:
-
-  - *Zone-redundant:* Azure Firewall automatically replicates configuration and state data across instances to ensure consistent policy enforcement and seamless failover between instances.
-
-  - *Zonal:* If you deploy multiple zonal instances across different zones, you're responsible for synchronizing configuration across each firewall. Consider using Azure Firewall Manager to keep your firewall configuration consistent.
+- **Data replication between zones:** Azure Firewall doesn't need to synchronize connection state across availability zones. Each connection's state is maintained by the instance that processes the request.
 
 ### Zone-down experience
 
@@ -135,7 +128,7 @@ The following section describes what to expect when Azure Firewall is configured
 
 - **Expected downtime**: The downtime you can expect depends on the availability zone configuration your firewall uses:
 
-    - *Zone-redundant:* Zone-redundant firewalls are expected to have no downtime during an availability zone outage.
+    - *Zone-redundant:* Zone-redundant firewalls are expected to have a small amount of downtime (typically, a few seconds) during an availability zone outage. Client applications should follow practices for [transient fault handling](#transient-faults), including implementing retry policies with exponential back-off.
 
     - *Zonal:* For zonal firewalls, when a zone is unavailable, your firewall is unavailable until the availability zone recovers.
 
