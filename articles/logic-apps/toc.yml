@@ -169,8 +169,8 @@ items:
       href: set-up-devops-deployment-single-tenant-azure-logic-apps.md
     - name: Automate DevOps build and deployment
       href: automate-build-deployment-standard.md
-    - name: Configure continuous deployment using Deployment Center
-      href: configure-continuous-deployment-using-deployment-center.md
+    - name: Set up CD with Deployment Center
+      href: set-up-cd-deployment-center-standard.md
     - name: Deploy Standard logic apps to private storage accounts
       href: deploy-single-tenant-logic-apps-private-storage-account.md
     - name: Export Consumption workflows to Standard logic app
