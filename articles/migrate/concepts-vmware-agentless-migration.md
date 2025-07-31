@@ -54,7 +54,7 @@ An Azure Migrate appliance has the following on-premises components that are res
 - Data replication agent
 - Gateway agent
 
-The following table summarizes the Azure artifacts that are created when you use the agentless method of VMware VM migration.
+The following table summarizes the Azure components that are created when you use the agentless method of VMware VM migration.
 
 | Component | Region | Subscription | Description |
 | --- | --- | --- | --- |
@@ -112,18 +112,18 @@ When a VM undergoes replication (data copy), these states are possible:
 - **Initial replication**: The VM is undergoing initial replication. When the VM is undergoing initial replication, you can't proceed with test migration and production migration. You can only stop replication at this stage.
 - **Initial replication (x%)**: The initial replication is active and has progressed by the shown percentage.
 - **Delta sync**: The VM might be undergoing a delta replication cycle that replicates the remaining data churn since the last replication cycle.
-- **Pause in progress**: The VM is undergoing an active delta replication cycle and is paused.  
+- **Pause in progress**: The VM is undergoing an active delta replication cycle and is paused.
 - **Paused**: The replication cycles are paused. You can resume the replication cycles by performing the operation to resume replication.
 - **Resume queued**: The VM is queued for resuming replication because other VMs are currently consuming the on-premises resources.
 - **Resume in progress (x%)**: The replication cycle is being resumed for the VM and has progressed by the shown percentage.
-- **Stop replication in progress**: Replication cleanup is in progress. When you stop replication, the intermediate managed disks (seed disks) created during replication are deleted. [Learn more](#stop-replicationcomplete-migration).  
-- **Complete migration in progress**: Migration cleanup is in progress. When you complete migration, the intermediate managed disks (seed disks) created during replication are deleted. [Learn more](#stop-replicationcomplete-migration).  
+- **Stop replication in progress**: Replication cleanup is in progress. When you stop replication, the intermediate managed disks (seed disks) created during replication are deleted. You can learn more about stopping replication [later in this article](#stopping-replication-or-completing-a-migration).
+- **Complete migration in progress**: Migration cleanup is in progress. When you complete migration, the intermediate managed disks (seed disks) created during replication are deleted. You can learn more about completing replication [later in this article](#stopping-replication-or-completing-a-migration).
 - **–** : When the VM is successfully migrated or when you stop replication, the status changes to a dash. After you complete migration or stop replication and the operation finishes successfully, the VM is removed from the list of replicating machines. You can find the VM on the tab for virtual machines in the replication wizard.
 
 ### Other states
 
 - **Initial replication failed**: The initial data couldn't be copied for the VM. Follow the remediation guidance to resolve.
-- **Repair pending**: There was a problem in the replication cycle.  You can select the link to understand possible causes and actions to remediate (as applicable). If you opted for **Automatically repair replication** by selecting **Yes** when you triggered replication of VM, the tool tries to repair it for you. Otherwise, select the VM, and then select **Repair Replication**.
+- **Repair pending**: There was a problem in the replication cycle. You can select the link to understand possible causes and actions to remediate (as applicable). If you opted for **Automatically repair replication** by selecting **Yes** when you triggered replication of VM, the tool tries to repair it for you. Otherwise, select the VM, and then select **Repair Replication**.
 
   If you didn't opt for **Automatically repair replication** or if the repair step didn't work for you, stop replication for the VM. Reset the CBT on the VM, and then reconfigure the replication.
 - **Repair replication queued**: The VM is queued for replication repair because other VMs are consuming the on-premises resources. After the resources are free, the VM is processed for repair replication.
@@ -189,7 +189,7 @@ The following diagram shows the recommended way to use the scale-out appliance.
 
 You can deploy the scale-out appliance anytime after you configure the primary appliance, but it isn't required until 300 VMs are replicating concurrently. When 300 VMs are replicating concurrently, you must deploy the scale-out appliance to proceed.
 
-## Stopping replication
+## Stopping replication or completing a migration
 
 When you stop replication, the intermediate managed disks (seed disks) created during replication are deleted. You can stop replication only during an active replication. You can select **Complete migration** to stop the replication after the VM is migrated.
 
@@ -207,7 +207,7 @@ If the current delta replication cycle experiences delays due to high data churn
 
 If the snapshot size increases (due to churn pattern) to an extent that crosses the available capacity of the datastore, there's a risk of the datastore running out of space. This situation can adversely affect production workloads and might render the source VM unresponsive.
 
-To mitigate this risk, we recommend that you increase the datastore size proactively. If multiple VMs that are being replicated concurrently have disks in a datastore that has low available capacity, we advise that you perform migrations one VM at a time to avoid resource contention.
+To mitigate this risk, we recommend that you increase the datastore size proactively. If multiple VMs that you're replicating concurrently have disks in a datastore that has low available capacity, we advise that you perform migrations one VM at a time to avoid resource contention.
 
 ## Management of replication
 
