@@ -1,10 +1,10 @@
 ---
 title: Changes to the Managed TLS Feature
 description: Learn about changes to the Azure managed TLS solution and domain control validation process.
-
-ms.service: entra
-ms.subservice: id-protection
-ms.topic: concept
+services: security
+ms.service: security
+ms.subservice: security-fundamentals
+ms.topic: concept-article
 ms.date: 07/31/2025
 
 ms.author: sarahlipsey
