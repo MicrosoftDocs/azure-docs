@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 07/15/2025
+ms.date: 07/29/2025
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
@@ -211,17 +211,22 @@ As a protection for our customers, Microsoft places some restrictions on telepho
 | 261 | Madagascar | 10 | 30 |
 | 263 | Zimbabwe | 10 | 30 |
 | 265 |	Malawi  |	10	| 30 |
+| 266 | Lesotho | 10 | 30 |
+| 359 | Bulgaria | 20 | 100 
 | 373 |	Moldova |	20	| 100 |
 | 375 |	Belarus   |	10	| 30 |
+| 380 | Ukraine | 50 | 200 |
 | 381 | Serbia | 50 | 200 |
 | 386 | Slovenia | 10 | 50 |
 | 501 |  Belize| 10  |  30  |
-| 502 | Guatemala | 10 | 50 
+| 502 | Guatemala | 10 | 50 | 
 | 503 | El Salvador | 10 | 30 |
+| 504 | Honduras | 50 | 200 |
 | 52 | Mexico | 100 | 500 |
 | 53 | Cuba | 10 | 30 |
 | 58 |	Venezuela|	10	| 30 |
 | 591 | Bolivia | 10 | 30 |
+| 593 | Ecuador | 20 | 100 |
 | 60 | Malaysia | 50 | 200 |
 | 62 |  Indonesia | 50  |  200 |
 | 63 |  Philippines   | 50  |  200 |
@@ -239,6 +244,7 @@ As a protection for our customers, Microsoft places some restrictions on telepho
 | 961 |	Lebanon  |	10	| 30 |
 | 963 |	Syria  |	10	| 30 |
 | 964 | Iraq | 50 | 200 |
+| 965 | Kuwait | 50 | 200 |
 | 967 |	Yemen	|10	| 30 |
 | 970 |  State of Palestine| 10  |  30  |
 | 972 |	Israel  |	50	| 200 |
@@ -250,7 +256,7 @@ As a protection for our customers, Microsoft places some restrictions on telepho
 | 994 | Azerbaijan | 50 | 200 | 
 | 995 | Georgia | 10 | 30 |
 | 996 |	Kyrgyzstan  |	10	| 30 |
-| 998 | Uzbekistan | 10 | 30 
+| 998 | Uzbekistan | 10 | 30 |
 
 ## Next steps
 

@@ -73,7 +73,7 @@ This section provides guidance on how to secure the connections between your ass
 
 - **Configure TLS with automatic certificate management for listeners in your MQTT broker**: Azure IoT Operations provides automatic certificate management for listeners in your MQTT broker. This capability reduces the administrative overhead of manually managing certificates, ensures timely renewals, and helps maintain compliance with security policies. To learn more, see [Secure MQTT broker communication by using BrokerListener](../iot-operations/manage-mqtt-broker/howto-configure-brokerlistener.md).
 
-- **Set up a secure connection to OPC UA server**: When connecting to an OPC UA server, you should determine which OPC UA servers you trust to securely establish a session with. To learn more, see [Configure OPC UA certificates infrastructure for the connector for OPC UA](../iot-operations/discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md).
+- **Set up a secure connection to OPC UA server**: When connecting to an OPC UA server, you should determine which OPC UA servers you trust to securely establish a session with. To learn more, see [Configure OPC UA certificates infrastructure for the connector for OPC UA](../iot-operations/discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md).
 
 - **Isolate and segment networks**: Use network segmentation and firewalls to isolate IoT Operations clusters and edge devices from other network resources. Add required endpoints to your allowlist if using enterprise firewalls or proxies. To learn more, see [Production deployment guidelines – Networking](../iot-operations/deploy-iot-ops/concept-production-guidelines.md#networking).
 

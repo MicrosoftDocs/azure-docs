@@ -54,11 +54,11 @@ conceptualContent:
   summary: Azure IoT offers you services and technologies to build edge-based, cloud-based, and hybrid IoT solutions.
   items:
     # Card
-    - title: Asset and device development
+    - title: Device development
       links:
         - url: ./iot-overview-device-development.md
           itemType: overview
-          text: Introduction to IoT asset and device development
+          text: Introduction to IoT device development
         - url: ./iot-sdks.md#device-sdks
           itemType: reference
           text: Device SDKs reference
@@ -70,11 +70,11 @@ conceptualContent:
           text: Send sensor data from a device to an Azure IoT hub
 
     # Card
-    - title: Asset and device connectivity
+    - title: Device connectivity
       links:
         - url: ./iot-overview-device-connectivity.md
           itemType: overview
-          text: Introduction to IoT asset and device connectivity and infrastructure
+          text: Introduction to IoT device connectivity and infrastructure
         - url: ../iot-operations/end-to-end-tutorials/tutorial-add-assets.md
           itemType: tutorial
           text: Connect OPC UA assets to Azure IoT Operations
@@ -85,14 +85,14 @@ conceptualContent:
           itemType: overview
           text: Connect IoT Edge devices to IoT Hub
     # Card
-    - title: Asset and device management and control
+    - title: Device management and control
       links:
         - url: ./iot-overview-device-management.md
           itemType: overview
-          text: Introduction to IoT asset and device management and control
+          text: Introduction to IoT device management and control
         - url: ../iot-operations/discover-manage-assets/overview-manage-assets.md
           itemType: concept
-          text: What is asset management in Azure IoT Operations?
+          text: What is device management in Azure IoT Operations?
         - url: https://github.com/Azure/iot-operations-sdks/tree/main
           itemType: reference
           text: Command and control with Azure IoT Operations SDKs (preview)

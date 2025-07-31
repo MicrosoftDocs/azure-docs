@@ -6,7 +6,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 04/18/2024
+ms.date: 07/31/2025
 ms.author: mbender
 # Customer intent: "As an existing Application Gateway V1 customer, I want to understand the migration process to V2 and its timeline, so that I can ensure my services remain operational and avoid disruptions before the retirement of V1 on April 28, 2026."
 ---
@@ -41,7 +41,7 @@ On April 28, 2026, the V1 gateways are fully retired and all active AppGateway V
 
 ### Does the retirement of Basic SKU Public IPs in September 2025 affect my existing V1 Application Gateways?
 
-Existing V1 Application Gateways will continue to function normally until April 2026. However, creation of new V1 Application Gateways will be disabled after August 2024. We strongly recommend that you plan and migrate your existing V1 Application Gateways to V2 as soon as possible to ensure a smooth transition.
+While the Basic SKU Public IPs are scheduled for retirement by September 2025, the Basic IP resources linked to Application Gateway V1 deployments will not be impacted until the retirement of V1 Application Gateways. This will be handled by Microsoft and needs no customer intervention.
 
 ### How do I migrate my application gateway V1 to V2 SKU?
 

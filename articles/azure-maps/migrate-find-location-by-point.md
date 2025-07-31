@@ -59,7 +59,7 @@ https://dev.virtualearth.net/REST/v1/Locations/48.830345,2.338166&key={BingMapsK
 Azure Maps _Get Reverse Geocoding_ API request:
 
 ``` http
-http://atlas.microsoft.com/reverseGeocode?api-version=2023-06-01&coordinates=2.338166,48.830345&subscription-key={Your-Azure-Maps-Subscription-key}
+https://atlas.microsoft.com/reverseGeocode?api-version=2023-06-01&coordinates=2.338166,48.830345&subscription-key={Your-Azure-Maps-Subscription-key}
 ```
 
 ## Response fields

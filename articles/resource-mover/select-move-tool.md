@@ -1,12 +1,12 @@
 ---
 title: Choose a tool for moving Azure resources across regions
 description: Review options and tools for moving Azure resources across regions.
-author: jyothisuri
+author: jasminemehndir
+ms.author: v-jasmineme
+ms.date: 07/31/2025
 ms.service: azure-resource-mover
 ms.topic: overview
-ms.date: 12/27/2024
 ms.update-cycle: 180-days
-ms.author: jsuri
 ms.custom: mvc, engagement-fy23, UpdateFrequency.5
 # Customer intent: As an Azure administrator, I want to compare the available tools for moving resources across regions, so that I can select the most suitable option for efficiently relocating my Azure resources based on their dependencies and requirements.
 ---

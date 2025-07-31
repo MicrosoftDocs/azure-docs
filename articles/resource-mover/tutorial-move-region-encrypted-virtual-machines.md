@@ -1,11 +1,11 @@
 ---
 title: Move encrypted Azure VMs across regions by using Azure Resource Mover
 description: Learn how to move encrypted Azure VMs to another region by using Azure Resource Mover.
-author: jyothisuri 
 ms.service: azure-resource-mover
 ms.topic: tutorial
-ms.date: 12/27/2024
-ms.author: jsuri
+author: jasminemehndir
+ms.author: v-jasmineme
+ms.date: 07/31/2025
 ms.custom: mvc, engagement-fy23
 # Customer intent: As an Azure administrator, I want to migrate encrypted virtual machines to a different Azure region using a resource mover tool, so that I can optimize resource management and comply with regional data regulations.
 ---
