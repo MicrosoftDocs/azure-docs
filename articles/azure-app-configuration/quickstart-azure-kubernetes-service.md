@@ -19,7 +19,7 @@ ms.author: junbchen
 
 In this quickstart, you run an ASP.NET Core app in Azure Kubernetes Service (AKS). The app consumes a ConfigMap built from Azure App Configuration data. When you use the Kubernetes platform, you can set up pods to consume configuration data from ConfigMaps. This practice improves the portability of your applications, because you can decouple configuration data from your container images.
 
-[Azure App Configuration Kubernetes Provider](https://mcr.microsoft.com/artifact/mar/azure-app-configuration/kubernetes-provider/about) offers a way to construct Kubernetes ConfigMaps and Secrets from App Configuration key-values and Azure Key Vault references. When you use this provider, you can use App Configuration to centrally store and manage your configuration data without making changes to your application code.
+[Azure App Configuration Kubernetes Provider](https://mcr.microsoft.com/artifact/mar/azure-app-configuration/kubernetes-provider/about) offers a way to construct Kubernetes ConfigMaps and Secrets from key-values and Azure Key Vault references that are stored in App Configuration. When you use this provider, you can use App Configuration to centrally store and manage your configuration data without making changes to your application code.
 
 A ConfigMap can be consumed as environment variables or a mounted file. In this quickstart, you incorporate Azure App Configuration Kubernetes Provider in your AKS workload. The provider creates a ConfigMap from data in your App Configuration store. In the workload, you run a basic ASP.NET Core app in a pod that consumes the ConfigMap as a JSON file mounted in a data volume.
 
@@ -109,7 +109,7 @@ If you already have an AKS application that reads configuration from a file, you
 
 ### Containerize the application 
 
-1. Run the [dotnet publish](/dotnet/core/tools/dotnet-publish) command to build the app in release mode and create the assets in the *published* directory.
+1. To build the app in release mode and create the assets in the *published* directory, run the [dotnet publish](/dotnet/core/tools/dotnet-publish) command.
    
     ```dotnetcli
     dotnet publish -c Release -o published
@@ -132,7 +132,7 @@ If you already have an AKS application that reads configuration from a file, you
 
 ### Push the image to Container Registry
 
-1. Run the [az acr login](/cli/azure/acr#az-acr-login) command to sign in to your container registry. The following code signs in to a registry named `myregistry`. Replace that registry name with the name of your registry.
+1. To sign in to your container registry, run the [az acr login](/cli/azure/acr#az-acr-login) command. The following code signs in to a registry named `myregistry`. Replace that registry name with the name of your registry.
 
     ```azurecli
     az acr login --name myregistry
@@ -140,7 +140,7 @@ If you already have an AKS application that reads configuration from a file, you
 
     The command returns `Login Succeeded` if you successfully sign in.
 
-1. Use [docker tag](https://docs.docker.com/reference/cli/docker/image/tag/) to create a tag called `myregistry.azurecr.io/aspnetapp:v1` for the `aspnetapp` image. Replace `myregistry` with the name of your registry.
+1. To create a tag called `myregistry.azurecr.io/aspnetapp:v1` for the `aspnetapp` image, use the [docker tag](https://docs.docker.com/reference/cli/docker/image/tag/) command. Replace `myregistry` with the name of your registry.
 
     ```docker
     docker tag aspnetapp myregistry.azurecr.io/aspnetapp:v1
@@ -149,7 +149,7 @@ If you already have an AKS application that reads configuration from a file, you
     > [!TIP]
     > To review the list of your existing Docker images and tags, run `docker image ls`. In this scenario, the output should list at least two images: `aspnetapp` and `myregistry.azurecr.io/aspnetapp`.
 
-1. Use [docker push](https://docs.docker.com/reference/cli/docker/image/push/) to upload the image to the container registry. For example, the following command pushes the image to a repository named `aspnetapp` with tag `v1` under the registry `myregistry`:
+1. To upload the image to the container registry, use the [docker push](https://docs.docker.com/reference/cli/docker/image/push/) command. For example, the following command pushes the image to a repository named `aspnetapp` with tag `v1` under the registry `myregistry`:
 
     ```docker
     docker push myregistry.azurecr.io/aspnetapp:v1
@@ -159,7 +159,7 @@ If you already have an AKS application that reads configuration from a file, you
 
 1. Create a *Deployment* directory in the root directory of your project.
 
-1. To define a deployment, add a *deployment.yaml* file with the following content to the *Deployment* directory. Replace the value of `template.spec.containers.image` with the image you created in the previous step.
+1. To define a deployment, add a *deployment.yaml* file with the following content to the *Deployment* directory. Replace the value of `template.spec.containers.image` with the tag you created in the previous section.
 
     ```yaml
     apiVersion: apps/v1
@@ -200,14 +200,14 @@ If you already have an AKS application that reads configuration from a file, you
         app: aspnetapp-demo
     ```
 
-1. Run the following commands to deploy the application to the AKS cluster and create the resources:
+1. To deploy the application to the AKS cluster and create the resources, run the following commands:
 
     ```console
     kubectl create namespace appconfig-demo
     kubectl apply -f ./Deployment -n appconfig-demo
     ```
 
-1. Run the following command to get the external IP address exposed by the `LoadBalancer` service:
+1. To get the external IP address exposed by the `LoadBalancer` service, run the following command:
    
     ```console
     kubectl get service aspnetapp-demo-service -n appconfig-demo
@@ -382,7 +382,7 @@ status:
   phase: COMPLETE
 ```
 
-If the phase property isn't `COMPLETE`, the data isn't downloaded from your App Configuration store properly. Run the following command to show the logs of Azure App Configuration Kubernetes Provider:
+If the phase property isn't `COMPLETE`, the data isn't downloaded from your App Configuration store properly. To access the logs of Azure App Configuration Kubernetes Provider, run the following command:
 
 ```console    
 kubectl logs deployment/az-appconfig-k8s-provider -n azappconfig-system
@@ -419,7 +419,7 @@ Starting with version 2.0.0, a user-provided service account is required for aut
 
 ## Clean up resources
 
-Use the following command to uninstall Azure App Configuration Kubernetes Provider from your AKS cluster if you want to keep the AKS cluster:
+If you want to uninstall Azure App Configuration Kubernetes Provider but keep your AKS cluster, use the following command to uninstall the provider:
 
 ```console
 helm uninstall azureappconfiguration.kubernetesprovider --namespace azappconfig-system
