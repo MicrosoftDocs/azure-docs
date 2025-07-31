@@ -15,6 +15,6 @@ items:
   - name: Manage your Cloud NGFW by Palo Alto Networks resource
     href: manage.md
   - name: Troubleshoot Cloud NGFW by Palo Alto Networks 
-    href: troubleshoot.md
+    href: /troubleshoot/azure/partner-solutions/welcome-native-integrations
   - name: Deploy Cloud NGFW by Palo Alto Networks with the Application Gateway
     href: application-gateway.md
