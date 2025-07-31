@@ -13,21 +13,21 @@ ms.custom: vmware-scenario-422, engagement-fy24
 
 # Agentless migration architecture
 
-This article describes the replication concepts when you're migrating VMware virtual machines (VMs) by using the agentless migration method in Azure Accelerate.
+This article describes the replication concepts when you're migrating VMware virtual machines (VMs) by using the agentless migration method in Azure Migrate.
 
 ## Replication process
 
-The agentless replication option works by using VMware snapshots and VMware changed block tracking (CBT) technology to replicate data from VM disks. The following block diagram shows you the steps involved when you migrate your VMs by using Azure Accelerate.
+The agentless replication option works by using VMware snapshots and VMware changed block tracking (CBT) technology to replicate data from VM disks. The following block diagram shows you the steps involved when you migrate your VMs by using Azure Migrate.
 
 ![Diagram of migration steps for virtual machines.](./media/concepts-vmware-agentless-migration/migration-phases.png)
 
-When you configure replication for a VM, it goes through an initial replication phase. During this phase, Azure Accelerate takes a VM snapshot. The service then replicates a full copy of data from the snapshot disks to managed disks in your target subscription.
+When you configure replication for a VM, it goes through an initial replication phase. During this phase, Azure Migrate takes a VM snapshot. The service then replicates a full copy of data from the snapshot disks to managed disks in your target subscription.
 
 After initial replication for the VM is complete, the replication process transitions to an incremental replication (delta replication) phase. In this phase, data changes that occurred since the beginning of the last completed replication cycle are replicated and written to the replica managed disks. This part of the process keeps replication in sync with changes on the VM.
 
-Azure Accelerate uses VMware CBT technology to keep track of changes between replication cycles. At the start of a replication cycle, Azure Accelerate takes a VM snapshot. The service uses CBT to get the changes between the current snapshot and the last successfully replicated snapshot. Only the data that changed since the previous completed replication cycle is replicated, to keep replication for the VM in sync. At the end of each replication cycle, the snapshot is released, and Azure Accelerate performs snapshot consolidation for the VM.
+Azure Migrate uses VMware CBT technology to keep track of changes between replication cycles. At the start of a replication cycle, Azure Migrate takes a VM snapshot. The service uses CBT to get the changes between the current snapshot and the last successfully replicated snapshot. Only the data that changed since the previous completed replication cycle is replicated, to keep replication for the VM in sync. At the end of each replication cycle, the snapshot is released, and Azure Migrate performs snapshot consolidation for the VM.
 
-When you perform the migration operation on a replicating VM, an on-demand delta replication cycle replicates the remaining changes since the last replication cycle. After the on-demand cycle finishes, Azure Accelerate creates the VM in Azure by using the replica managed disks that correspond to the VM.
+When you perform the migration operation on a replicating VM, an on-demand delta replication cycle replicates the remaining changes since the last replication cycle. After the on-demand cycle finishes, Azure Migrate creates the VM in Azure by using the replica managed disks that correspond to the VM.
 
 Before you trigger the migration, you must shut down the on-premises VM. Shutting down the VM prevents data loss during migration.
 
@@ -87,7 +87,7 @@ There are two stages in every replication cycle, to help ensure data integrity b
 
 The first stage validates that every sector that changed in the source disk is replicated to the target disk. You perform the validation by using bitmaps.
 
-The source disk is divided into sectors of 512 bytes. Every sector in the source disk is mapped to a bit in the bitmap. When data replication starts, Azure Accelerate creates a bitmap for all the changed blocks (in delta cycle) in the source disk that needs to be replicated. Similarly, when the data is transferred to the target Azure disk, Azure Accelerate creates a bitmap.
+The source disk is divided into sectors of 512 bytes. Every sector in the source disk is mapped to a bit in the bitmap. When data replication starts, Azure Migrate creates a bitmap for all the changed blocks (in delta cycle) in the source disk that needs to be replicated. Similarly, when the data is transferred to the target Azure disk, Azure Migrate creates a bitmap.
 
 After the data transfer finishes successfully, the cloud service compares the two bitmaps to ensure that it didn't miss any changed block. If there's any mismatch between the bitmaps, the cycle is considered failed. Because every cycle is resynchronization, the mismatch is fixed in the next cycle.
 
@@ -95,7 +95,7 @@ After the data transfer finishes successfully, the cloud service compares the tw
 
 The second stage ensures that the data that's transferred to the Azure disks is the same as the data that was replicated from the source disks.
 
-Every changed block that's uploaded is compressed and encrypted before it's written as a blob in the log storage account. Azure Accelerate computes the checksum of this block before compression. This checksum is stored as metadata along with the compressed data.
+Every changed block that's uploaded is compressed and encrypted before it's written as a blob in the log storage account. Azure Migrate computes the checksum of this block before compression. This checksum is stored as metadata along with the compressed data.
 
 Upon decompression, the checksum for the data is calculated and compared with the checksum computed in the source environment. If there's a mismatch, the data isn't written to the Azure disks, and the cycle is considered failed. Because every cycle is resynchronization, the mismatch is fixed in the next cycle.
 
