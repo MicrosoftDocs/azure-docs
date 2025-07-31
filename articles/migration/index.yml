@@ -125,6 +125,7 @@ sections:
          :::column-end:::               
          :::column:::
          **[Databases](/azure/migration/migrate-from-on-premise)**
+        
         Discover scenarios that you can use to migrate on-premise databases to Azure.
          :::column-end:::         
          :::column:::
