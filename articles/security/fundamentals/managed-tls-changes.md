@@ -34,7 +34,7 @@ A: Domain Control Validation (DCV) is a critical process used to verify that an 
 A: No. The feature is very much supported and in fact is receiving several key updates that improve the overall user experience.
 
 > [!NOTE]
-> AFD classic and CDN Classic SKUs, which are on the path to deprecation, are retiring support for adding new vanity domains. For more information, see [Azure Front Door (classic) and Azure CDN from Microsoft Classic SKU ending CNAME based domain validation and new domain/profile creations by August 15, 2025](https://azure.microsoft.com/en-us/updates?id=498522). Customers are recommended to use managed certificates with AFD Standard and Premium SKUs for new vanity domains.
+> AFD classic and CDN Classic SKUs, which are on the path to deprecation, are retiring support for adding new vanity domains. For more information, see [Azure Front Door (classic) and Azure CDN from Microsoft Classic SKU ending CNAME based domain validation and new domain/profile creations by August 15, 2025](https://azure.microsoft.com/updates?id=498522). Customers are recommended to use managed certificates with AFD Standard and Premium SKUs for new vanity domains.
 
 **Q: Is DigiCert retiring CNAME domain control validation?**
 
