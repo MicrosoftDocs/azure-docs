@@ -14,7 +14,7 @@ ms.date: 07/23/2025
 
 This article describes reliability support in Azure Container Registry, covering intra-regional resiliency via [availability zones](#availability-zone-support) and cross-region resiliency via [geo-replication](#multi-region-support).
 
-Container Registry is a managed container registry service used to store and manage your private Docker container images and related artifacts for your container deployments. For more information, see [What is Container Registry?](/azure/container-registry/container-registry-intro)
+Container Registry is a managed container registry service used to store and manage your private Docker container images and related artifacts for your container deployments. For more information, see [Introduction to Container Registry](/azure/container-registry/container-registry-intro).
 
 [!INCLUDE [Shared responsibility](includes/reliability-shared-responsibility-include.md)]
 
@@ -30,7 +30,7 @@ For production workloads, we recommend that you take the following actions:
 
 ## Reliability architecture overview
 
-Container Registry is built on Azure's distributed infrastructure to provide high availability and data durability. The service consists of several key components that work together to ensure reliability. The following diagram illustrates the core service architecture.
+Container Registry is built on distributed Azure infrastructure to provide high availability and data durability. The service consists of several key components that work together to ensure reliability. The following diagram illustrates the core service architecture.
 
 <!-- :::image type="content" source="./media/reliability-acr/acr-service-architecture.png" alt-text="Diagram that shows Container Registry service architecture with client access, control plane, data plane, and storage layer components." lightbox="./media/reliability-acr/acr-service-architecture.png" border="false":::-->
 
@@ -54,7 +54,7 @@ As a customer, you're responsible for the following scenarios:
 
 - *Geo-replication configuration:* Choose appropriate regions for geo-replication based on your geographic distribution, compliance, and performance requirements.
 
-Container Registry also supports *tasks*, which can help you automate your container builds and maintenance operations. Tasks run on compute infrastructure that Microsoft manages and can be triggered to run manually based on events or based on a schedule. For more information, see [Automate container image builds and maintenance by using Container Registry tasks](/azure/container-registry/container-registry-tasks-overview).
+Container Registry also supports *tasks*, which can help you automate your container builds and maintenance operations. Tasks run on Microsoft-managed compute infrastructure and support manual, event-based, or scheduled triggers. For more information, see [Automate container image builds and maintenance by using Container Registry tasks](/azure/container-registry/container-registry-tasks-overview).
 
 > [!NOTE]
 > Container Registry supports [connected registries](/azure/container-registry/intro-connected-registry), which are on-premises or remote replicas that synchronize with your cloud-based Container Registry. When you use connected registries, you're responsible for configuring them to meet your reliability requirements. Connected registries are out of scope for this article.
@@ -95,15 +95,15 @@ Zone redundancy is included with Premium tier registries at no extra cost. The P
 
 ### Configure availability zone support
 
-- **Create a zone-redundant registry.** To create a new zone-redundant registry, see [Create a zone-redundant registry in Container Registry](/azure/container-registry/zone-redundancy).
+- **Create a zone-redundant registry.** For more information, see [Create a zone-redundant registry in Container Registry](/azure/container-registry/zone-redundancy).
 
 - **Enable zone redundancy on an existing registry.** You can only configure zone redundancy when a registry is created. To get zone redundancy, you must create a new Premium registry in a supported region and migrate your container images.
 
-    Existing Basic or Standard tier registries can be upgraded to Premium tier. However, only upgrading the tiers doesn't enable zone redundancy for existing registries, and you need to create a new registry.
+    Existing Basic or Standard tier registries can be upgraded to the Premium tier. However, only upgrading the tiers doesn't enable zone redundancy for existing registries. You need to create a new registry.
 
     To migrate your artifacts between registries, you can [create a transfer pipeline](/azure/container-registry/container-registry-transfer-prerequisites). Alternatively, you can [import container images to a container registry](/azure/container-registry/container-registry-import-images).
 
-    If your registry uses [geo-replication](#multi-region-support) and zone redundancy together, you configure zone redundancy on each regional replica. For more information, see [Create a zone-redundant replica in Container Registry](/azure/container-registry/zone-redundancy-replica). You can only change the zone redundancy setting after a geo-replication is created by deleting and re-creating the replication.
+    If your registry uses [geo-replication](#multi-region-support) and zone redundancy together, you configure zone redundancy on each regional replica. For more information, see [Create a zone-redundant replica in Container Registry](/azure/container-registry/zone-redundancy-replica). You can only change the zone redundancy setting after a geo-replication is created by deleting and recreating the replication.
 
 - **Disable zone redundancy.** Zone redundancy can't be disabled after it's enabled for a registry. If you need a non-zone-redundant registry, you must create a new registry and migrate your container images.
 
@@ -131,7 +131,7 @@ When a zone becomes unavailable, Container Registry automatically handles the fa
 
 - **Active requests:** When an availability zone is unavailable, any requests in progress that are connected to resources in the faulty availability zone are terminated. They need to be retried.
 
-- **Expected data loss:** Any recent writes that were made in the faulty zone might not have been replicated to other regions, which means that they might be lost until the zone recovers. The data loss is typically expected to be less than 15 minutes, but that's not guaranteed.
+- **Expected data loss:** Any recent writes made in the faulty zone might not be replicated to other regions, which means that they might be lost until the zone recovers. The data loss is typically expected to be less than 15 minutes, but that's not guaranteed.
 
 - **Expected downtime:** A small amount of downtime might occur during automatic failover as traffic is redirected to healthy zones. This downtime is typically a few seconds for most registry operations. We recommend that you follow [transient fault handling best practices](#transient-faults) to minimize the effect of zone failover on your applications.
 
@@ -151,11 +151,11 @@ Container Registry provides native multi-region support through geo-replication 
 
 Geo-replication enables resiliency to regional outages. If your registry is geo-replicated and a regional outage occurs, the registry data continues to be available from the other regions that you selected. If you don't enable geo-replication, then your data might become unavailable during a region outage.
 
-You can also use geo-replication if you want local access to container images within those regions and to reduce latency for globally distributed applications.
+You can also use geo-replication to get local access to container images within those regions and to reduce latency for globally distributed applications.
 
 When you deploy Container Registry and enable geo-replication, Microsoft uses Azure Traffic Manager to distribute data plane requests between your replicas and to automatically fail over between replicas if a regional replica is unavailable.
 
-Container Registry geo-replication doesn't rely on Azure paired regions. You have flexibility to select any combination of Azure regions for replication based on your specific geographic, performance, and compliance requirements. Each geo-replicated registry functions as a registry endpoint. It supports most registry operations, including image pushes, pulls, and management tasks.
+Container Registry geo-replication doesn't rely on Azure paired regions. You can select any combination of Azure regions for replication based on your specific geographic, performance, and compliance requirements. Each geo-replicated registry functions as a registry endpoint. It supports most registry operations, including image pushes, pulls, and management tasks.
 
 This section summarizes information about geo-replication as it relates to reliability. For more information, see [Geo-replication in Container Registry](/azure/container-registry/container-registry-geo-replication).
 
@@ -169,7 +169,7 @@ You must use the Premium tier to enable geo-replication.
 
 ### Considerations
 
-- **Zone redundant replicas:** When you use geo-replication in regions that support availability zones, you can configure zone redundancy on each replica independently.
+- **Zone-redundant replicas:** When you use geo-replication in regions that support availability zones, you can configure zone redundancy on each replica independently.
 
 - **Control plane:** The control plane runs in the home region. If the home region is unavailable, control plane operations are unavailable, and you might not be able to modify the registry's configuration.
 
@@ -181,13 +181,13 @@ Each geo-replicated region is billed separately according to Premium tier pricin
 
 ### Configure multi-region support
 
-Geo-replication can be configured during registry creation or added to existing Premium registries. Geo-replication can be configured through the Azure portal, Azure CLI, Azure PowerShell, or Azure Resource Manager templates.
+Geo-replication can be configured during registry creation or added to existing Premium registries. Geo-replication can be configured through the Azure portal, the Azure CLI, Azure PowerShell, or Azure Resource Manager templates.
 
 - **Create a geo-replicated registry.** Configure geo-replication after registry creation by specifying extra regions.
 
-- **Enable geo-replication on an existing registry.** To enable geo-replication capabilities, upgrade existing Basic or Standard tier registries to Premium tier. You can change the replication regions at any time. For more information, see [Configure geo-replication](/azure/container-registry/container-registry-geo-replication#configure-geo-replication).
+- **Enable geo-replication on an existing registry.** To enable geo-replication capabilities, upgrade existing Basic or Standard tier registries to the Premium tier. You can change the replication regions at any time. For more information, see [Configure geo-replication](/azure/container-registry/container-registry-geo-replication#configure-geo-replication).
 
-    You can configure zone redundancy on each regional replica. For more information, see [Create a zone-redundant replica in Container Registry](/azure/container-registry/zone-redundancy-replica). You can only change the zone redundancy setting after a geo-replication is created by deleting and re-creating the replication.
+    You can configure zone redundancy on each regional replica. For more information, see [Create a zone-redundant replica in Container Registry](/azure/container-registry/zone-redundancy-replica). You can only change the zone redundancy setting after a geo-replication is created by deleting and recreating the replication.
 
 - **Disable geo-replication.** Remove individual regional replicas through the Azure portal or command-line tools. The home region registry can't be removed.
 
@@ -220,7 +220,7 @@ When a region becomes unavailable, container operations can continue to use alte
 
 - **Active requests:** Any active requests currently in flight to an unavailable region will fail and must be retried so that they can be directed to a healthy region.
 
-- **Expected data loss:** Any recent writes that were made in the faulty region might not have been replicated to other regions. This failure means that they might be lost until the region recovers. Typically, the data loss is expected to be less than 15 minutes, but that's not guaranteed.
+- **Expected data loss:** Any recent writes made in the faulty region might not be replicated to other regions. This failure means that they might be lost until the region recovers. Typically, the data loss is expected to be less than 15 minutes, but that's not guaranteed.
 
 - **Expected downtime:** For data plane operations, a small amount of downtime is expected for data plane operations while failover completes, which typically takes 1 to 2 minutes.
 
@@ -230,7 +230,7 @@ When a region becomes unavailable, container operations can continue to use alte
 
 ### Failback
 
-When a region recovers, data plane operations automatically resume for that regional endpoint through Traffic Manager routing. The service synchronizes any changes that occurred during the outage by using asynchronous replication with eventual consistency.
+When a region recovers, data plane operations automatically resume for that regional endpoint through Traffic Manager routing. The service synchronizes any changes that occur during the outage by using asynchronous replication with eventual consistency.
 
 ### Testing for region failures
 
