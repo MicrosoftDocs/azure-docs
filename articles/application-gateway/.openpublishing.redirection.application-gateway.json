@@ -346,9 +346,9 @@
             "redirect_document_id": false
         },
         {
-           "source_path_from_root": "/articles/virtual-machines/migration/migration-classic-resource-manager-faq.md",
-           "redirect_url": "/azure/application-gateway/classic-to-resource-manager",
-             "redirect_document_id": false
+           "source_path_from_root": "/azure/application-gateway/classic-to-resource-manager",
+           "redirect_url": "/articles/virtual-machines/migration/migration-classic-resource-manager-faq.md",
+           "redirect_document_id": false
         }
     ]
 }
