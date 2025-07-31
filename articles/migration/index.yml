@@ -112,7 +112,6 @@ sections:
          Understand how Microsoft Azure services compare to Google Cloud.
          :::column-end:::         
       :::row-end:::
-      ---
 
       #### [On-premise](#tab/onprem)
 
@@ -121,6 +120,7 @@ sections:
       :::row:::
          :::column:::
          **[Select your migration strategy](/azure/cloud-adoption-framework/plan/select-cloud-migration-strategy)**
+         
          Learn how to pick the right approach for each workload, presenting the options, when to choose each, and the pros/cons trade-offs.
          :::column-end:::               
          :::column:::
@@ -129,6 +129,7 @@ sections:
          :::column-end:::         
          :::column:::
          **[Infrastructure](/azure/migration/migrate-from-on-premise)**
+        
         Discover scenarios that you can use to migrate on-premise infrastructure like virtual machines to Azure.
          :::column-end:::                  
       :::row-end:::
