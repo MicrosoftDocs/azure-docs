@@ -6963,8 +6963,12 @@
       "source_path": "articles/reliability/migrate-sql-database.md",
       "redirect_url": "/azure/azure-sql/database/enable-zone-redundancy",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/migrate-app-gateway-v2.md",
+      "redirect_url": "/azure/reliability/reliability-application-gateway-v2",
+      "redirect_document_id": false
     }
-    
   ]
 }
 

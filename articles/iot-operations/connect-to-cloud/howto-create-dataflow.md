@@ -536,7 +536,7 @@ sourceSettings:
 
 ---
 
-If the instance count in the [data flow profile](howto-configure-dataflow-profile.md) is greater than one, shared subscription is automatically enabled for all data flows that use a message broker source. In this case, the `$shared` prefix is added and the shared subscription group name automatically generated. For example, if you have a data flow profile with an instance count of 3, and your data flow uses a message broker endpoint as source configured with topics `topic1` and `topic2`, they are automatically converted to shared subscriptions as `$shared/<GENERATED_GROUP_NAME>/topic1` and `$shared/<GENERATED_GROUP_NAME>/topic2`. 
+If the instance count in the [data flow profile](howto-configure-dataflow-profile.md) is greater than one, shared subscription is automatically enabled for all data flows that use a message broker source. In this case, the `$shared` prefix is added and the shared subscription group name automatically generated. For example, if you have a data flow profile with an instance count of 3, and your data flow uses a message broker endpoint as source configured with topics `topic1` and `topic2`, they're automatically converted to shared subscriptions as `$shared/<GENERATED_GROUP_NAME>/topic1` and `$shared/<GENERATED_GROUP_NAME>/topic2`. 
 
 You can explicitly create a topic named `$shared/mygroup/topic` in your configuration. However, adding the `$shared` topic explicitly isn't recommended since the `$shared` prefix is automatically added when needed. Data flows can make optimizations with the group name if it isn't set. For example, `$share` isn't set and data flows only has to operate over the topic name.
 
@@ -545,7 +545,7 @@ You can explicitly create a topic named `$shared/mygroup/topic` in your configur
 
 #### Kafka topics
 
-When the source is a Kafka (Event Hubs included) endpoint, specify the individual Kafka topics to subscribe to for incoming messages. Wildcards are not supported, so you must specify each topic statically.
+When the source is a Kafka (Event Hubs included) endpoint, specify the individual Kafka topics to subscribe to for incoming messages. Wildcards aren't supported, so you must specify each topic statically.
 
 > [!NOTE]
 > When using Event Hubs via the Kafka endpoint, each individual event hub within the namespace is the Kafka topic. For example, if you have an Event Hubs namespace with two event hubs, `thermostats` and `humidifiers`, you can specify each event hub as a Kafka topic.
@@ -631,7 +631,7 @@ In operations experience data flow **Source details**, select **Message broker**
 
 # [Bicep](#tab/bicep)
 
-Once you have used the [schema registry to store the schema](concept-schema-registry.md), you can reference it in the data flow configuration.
+Once you use the [schema registry to store the schema](concept-schema-registry.md), you can reference it in the data flow configuration.
 
 ```bicep
 sourceSettings: {
@@ -642,7 +642,7 @@ sourceSettings: {
 
 # [Kubernetes (preview)](#tab/kubernetes)
 
-Once you have used the [schema registry to store the schema](concept-schema-registry.md), you can reference it in the data flow configuration.
+Once you use the [schema registry to store the schema](concept-schema-registry.md), you can reference it in the data flow configuration.
 
 ```yaml
 sourceSettings:
@@ -656,20 +656,20 @@ To learn more, see [Understand message schemas](concept-schema-registry.md).
 
 ## Request disk persistence (preview)
 
-Request disk persistence allows data flows to maintain state across restarts. When you enable this feature, the graph can recover processing state if connected broker restarts. This feature is useful for stateful processing scenarios where losing intermediate data would be problematic. When you enable request disk persistence, the broker persists the MQTT data, like messages in the subscriber queue, to disk. This approach ensures that your data flow's data source doesn't experience data loss during power outages or broker restarts. The broker maintains optimal performance because persistence is configured per data flow, so only the data flows that need persistence use this feature.
+Request disk persistence lets data flows keep state across restarts. When you enable this feature, the graph recovers processing state if the connected broker restarts. This feature is useful for stateful processing scenarios where losing intermediate data is a problem. When you enable request disk persistence, the broker persists the MQTT data, like messages in the subscriber queue, to disk. This approach makes sure your data flow's data source doesn't lose data during power outages or broker restarts. The broker maintains optimal performance because persistence is configured per data flow, so only the data flows that need persistence use this feature.
 
-The data flow graph makes this persistence request during subscription using an MQTTv5 user property. This feature only works when:
+The data flow graph requests this persistence during subscription by using an MQTTv5 user property. This feature works only when:
 
-- The data flow uses the MQTT broker or asset as source
+- The data flow uses the MQTT broker or asset as the source
 - The MQTT broker has persistence enabled with dynamic persistence mode set to `Enabled` for the data type, like subscriber queues
 
-This configuration allows MQTT clients like data flows to request disk persistence for their subscriptions using MQTTv5 user properties. For detailed MQTT broker persistence configuration, see [Configure MQTT broker persistence](../manage-mqtt-broker/howto-broker-persistence.md).
+This configuration lets MQTT clients like data flows request disk persistence for their subscriptions by using MQTTv5 user properties. For details about MQTT broker persistence configuration, see [Configure MQTT broker persistence](../manage-mqtt-broker/howto-broker-persistence.md).
 
-The setting accepts `Enabled` or `Disabled`, with `Disabled` as the default.
+The setting accepts `Enabled` or `Disabled`. `Disabled` is the default.
 
 # [Operations experience](#tab/portal)
 
-When creating or editing a data flow, select **Edit**, then check **Yes** next to **Request data persistence**.
+When you create or edit a data flow, select **Edit**, and then select **Yes** next to **Request data persistence**.
 
 # [Azure CLI](#tab/cli)
 
@@ -1522,7 +1522,7 @@ For MQTT endpoints, you can use dynamic topic variables in the `dataDestination`
 
 For example, `processed/factory/${inputTopic.2}` routes messages from `factory/1/data` to `processed/factory/1`. Topic segments are 1-indexed, and leading/trailing slashes are ignored.
 
-If a topic variable cannot be resolved (for example, `${inputTopic.5}` when the input topic only has 3 segments), the message is dropped and a warning is logged. Wildcard characters (`#` and `+`) are not allowed in destination topics.
+If a topic variable cannot be resolved (for example, `${inputTopic.5}` when the input topic only has three segments), the message is dropped and a warning is logged. Wildcard characters (`#` and `+`) aren't allowed in destination topics.
 
 > [!NOTE]
 > The characters `$`, `{`, and `}` are valid in MQTT topic names, so a topic like `factory/$inputTopic.2` is acceptable but incorrect if you intended to use the dynamic topic variable.

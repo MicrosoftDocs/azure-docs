@@ -37,6 +37,7 @@ For scale-in events, Application Gateway drains existing connections for 5 minut
 
 ## Next steps
 
+- Learn more about zone redundancy in [Reliability for Application Gateway v2](../reliability/reliability-application-gateway-v2.md)
 - Learn how to [Schedule autoscaling for Application Gateway](application-gateway-externally-managed-scheduled-autoscaling.md)
 - Learn more about [Application Gateway v2](overview-v2.md)
 - [Create an autoscaling, zone redundant application gateway with a reserved virtual IP address using Azure PowerShell](tutorial-autoscale-ps.md)

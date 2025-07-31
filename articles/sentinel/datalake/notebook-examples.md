@@ -22,8 +22,8 @@ To run these examples, must have the required permissions and Visual Studio Code
 ## Failed sign-in attempts analysis
 
 This example identifies users with failed sign-in attempts. To do so, this notebook example processes sign-in data from two tables: 
- + microsoft.entra.id.SignInLogs 
- + microsoft.entra.id.AADNonInteractiveUserSignInLogs
+ + SigninLogs 
+ + AADNonInteractiveUserSignInLogs
 
 The notebook performs the following steps:
 1. Create a function to process data from the specified tables, which includes:
@@ -32,7 +32,7 @@ The notebook performs the following steps:
     1. Aggregate the data to count the number of failed and successful sign-in attempts for each user.
     1. Filter the data to include only users with more than 100 failed sign-in attempts and at least one successful sign-in attempt.
     1. Order the results by the number of failed sign-in attempts.
-1. Call the function for both `SignInLogs` and `AADNonInteractiveUserSignInLogs` tables.
+1. Call the function for both `SigninLogs` and `AADNonInteractiveUserSignInLogs` tables.
 1. Combine the results from both tables into a single DataFrame.
 1. Convert the DataFrame to a Pandas DataFrame.
 1. Filter the Pandas DataFrame to show the top 20 users with the highest number of failed sign-in attempts.
@@ -81,7 +81,7 @@ def process_data(table_name,workspace_name):
 
 # Process the tables to a common schema
 workspace_name = "your-workspace-name"  # Replace with your actual workspace name
-aad_signin = process_data("SignInLogs", workspace_name)
+aad_signin = process_data("SigninLogs", workspace_name)
 aad_non_int = process_data("AADNonInteractiveUserSignInLogs", workspace_name)
 
 # Union the DataFrames
@@ -131,13 +131,13 @@ The following screenshot shows a sample of the output of the code above, display
 
 ## Access Microsoft Entra ID sign-in logs for a specific user  
 
-The following code sample demonstrates how to access the Microsoft Entra ID `SignInLogs` table and filter the results for a specific user. It retrieves various fields such as UserDisplayName, UserPrincipalName, UserId, and more.
+The following code sample demonstrates how to access the Microsoft Entra ID `SigninLogs` table and filter the results for a specific user. It retrieves various fields such as UserDisplayName, UserPrincipalName, UserId, and more.
 
 ```python  
 from sentinel_lake.providers import MicrosoftSentinelProvider
 data_provider = MicrosoftSentinelProvider(spark)
  
-table_name = "SignInLogs"  
+table_name = "SigninLogs"  
 workspace_name = "your-workspace-name"  # Replace with your actual workspace name
 df = data_provider.read_table(table_name, workspace_name)  
 df.select("UserDisplayName", "UserPrincipalName", "UserId", "CorrelationId", "UserType", 
@@ -149,7 +149,7 @@ df.select("UserDisplayName", "UserPrincipalName", "UserId", "CorrelationId", "Us
 
 ## Examine sign-in locations  
 
-The following code sample demonstrates how to extract and display sign-in locations from the Microsoft Entra ID SignInLogs table. It uses the `from_json` function to parse the JSON structure of the `LocationDetails` field, allowing you to access specific location attributes such as city, state, and country or region.
+The following code sample demonstrates how to extract and display sign-in locations from the Microsoft Entra ID SigninLogs table. It uses the `from_json` function to parse the JSON structure of the `LocationDetails` field, allowing you to access specific location attributes such as city, state, and country or region.
 
 ```python  
 from sentinel_lake.providers import MicrosoftSentinelProvider
@@ -158,7 +158,7 @@ from pyspark.sql.types import StructType, StructField, StringType
  
 data_provider = MicrosoftSentinelProvider(spark)  
 workspace_name = "your-workspace-name"  # Replace with your actual workspace name
-table_name = "SignInLogs"  
+table_name = "SigninLogs"  
 df = data_provider.read_table(table_name, workspace_name)  
  
 location_schema = StructType([  
@@ -240,7 +240,7 @@ def process_data(table_name, workspace_name):
            .withColumn("IPCustomEntity", col("IPAddress"))
     return df
 workspace_name = "your-workspace-name"  # Replace with your actual workspace name
-aad_signin = process_data("SignInLogs", workspace_name)
+aad_signin = process_data("SigninLogs", workspace_name)
 aad_non_int = process_data("AADNonInteractiveUserSignInLogs",workspace_name)
 result_df = aad_signin.unionByName(aad_non_int)
 result_df.show()
