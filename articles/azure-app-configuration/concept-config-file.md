@@ -30,8 +30,13 @@ The following example is a configuration file named `appsettings.json` containin
             "Default": "Warning"
         }
     },
-    "FeatureManagement": {
-        "Beta": false
+    "feature_management": {
+        "feature_flags": [
+            {
+                "id": "Beta",
+                "enabled": false
+            }
+        ]
     }
 }
 ```
