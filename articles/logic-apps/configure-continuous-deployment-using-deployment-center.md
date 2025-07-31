@@ -5,7 +5,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, wsilveiranz, azla
 ms.topic: how-to
-ms.date: 07/30/2025
+ms.date: 08/14/2025
 # Customer intent: As a logic app workflow developer, I want to automate deployment for Standard logic apps by directly integrating my source code repository with my logic app resources and setting up continuous deployment by using Deployment Center in Azure.
 
 ---
