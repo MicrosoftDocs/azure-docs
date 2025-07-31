@@ -31,7 +31,7 @@ In this article, you learn how to convert SEG-Y formatted data to the Open VDS (
 | Parameter | Value to use | Example | Where to find this value |
 |----|----|----|----|
 | `DNS` | URI | `<instance>.energy.azure.com` | Find this value on the overview page of the Azure Data Manager for Energy instance. |
-| `data-partition-id` | Data partitions | `<data-partition-id>` | Find this value on the Data Partitions section within the Azure Data Manager for Energy instance. |
+| `data-partition-id` | Data partition | `<data-partition-id>` | Find this value on the Data Partition section within the Azure Data Manager for Energy instance. |
 | `access_token`       | access_token value       | `0.ATcA01-XWHdJ0ES-qDevC6r...........`| Follow [How to generate auth token](how-to-generate-auth-token.md) to create an access_token and save it.|
 
 Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entitlements for the user who's running this tutorial.
@@ -44,7 +44,7 @@ Ensure you have `cURL` installed on your system. You use it to make API calls.
 
 ### Create a legal tag
 
-Create a legal tag that is automatically added to the Seismic DDMS environment for data compliance.
+Create a legal tag for data compliance.
 
 API: **Setup** > **Create Legal Tag for SDMS**
 
@@ -149,14 +149,14 @@ If you didn't create entitlements groups, follow the directions as outlined in [
 
 Follow this [tutorial](tutorial-seismic-ddms.md) to Prepare Subproject that involves following steps:
 
-1. Register Data Partition to Seismic -Create a tenant
+1. Register Data Partition to Seismic - Create a tenant
 2. Create a Subproject
 3. Register a Dataset
 
 ### Upload the File
 
 There are two ways to upload a SEGY file. One option is to use the SASurl through cURL call. You need to set up cURL on your OS. 
-The second method is to use [SDUTIL](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tags/azure-stable). To log in to your instance for ADME via the tool, you need to generate a refresh token for the instance. See [How to generate auth token](how-to-generate-auth-token.md). Alternatively, you can modify the code of SDUTIL to use client credentials instead to log in. If you haven't already, you need to set up SDUTIL. Check this guide for setting up [SDUTIL](tutorial-seismic-ddms-sdutil.md) Download the codebase and edit the `config.yaml` at the root. Replace the contents of this config file with the following yaml. 
+The second method is to use [SDUTIL](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tags/azure-stable). To log in to your instance for ADME via the tool, you need to generate a refresh token for the instance. See [How to generate auth token](how-to-generate-auth-token.md). Alternatively, you can modify the code of SDUTIL to use client credentials instead to log in. If you haven't already, you need to set up SDUTIL. Check the [guide](tutorial-seismic-ddms-sdutil.md) for setting up SDUTIL Download the codebase and edit the `config.yaml` at the root. Replace the contents of this config file with the following yaml. 
 
 ```yaml
 seistore:
@@ -179,7 +179,7 @@ azure:
     empty: none
 ```
 
-#### Method 1: cURL
+#### Method 1: Using cURL to upload file
 
 ##### Get gcs url:
 
@@ -376,58 +376,58 @@ cURL --request PUT \
 
     Fetch the ID token from sdutil for the uploaded file or use an access/bearer token from cURL.
 
-```markdown
-python sdutil auth idtoken
-```
+    ```markdown
+    python sdutil auth idtoken
+    ```
 
-Use the following `cURL` command to trigger workflow:
+    Use the following `cURL` command to trigger workflow:
 
-```bash
-cURL -X POST "https://<DNS>/api/workflow/v1/workflow/segy-to-vds-conversion" \
-     -H "Authorization: Bearer <access_token>" \
-     -H "Content-Type: application/json" \
-     -d '{
-           "executionContext": {
-               "Payload": {
-                   "AppKey": "test-app",
-                   "data-partition-id": "<data_partition_id>"
-               },
-               "vds_url": "sd://<data_partition_id>/<vdssubprojectname>",
-               "work_product_id": "<work-product-id>",
-               "file_record_id": "<file-record-id>",
-               "persistent_id": "<persistent_id>",
-               "id_token": "<access_token>"
-           }
-       }'
-```
+    ```bash
+    cURL -X POST "https://<DNS>/api/workflow/v1/workflow/segy-to-vds-conversion" \
+        -H "Authorization: Bearer <access_token>" \
+        -H "Content-Type: application/json" \
+        -d '{
+            "executionContext": {
+                "Payload": {
+                    "AppKey": "test-app",
+                    "data-partition-id": "<data_partition_id>"
+                },
+                "vds_url": "sd://<data_partition_id>/<vdssubprojectname>",
+                "work_product_id": "<work-product-id>",
+                "file_record_id": "<file-record-id>",
+                "persistent_id": "<persistent_id>",
+                "id_token": "<access_token>"
+            }
+        }'
+    ```
 
-**Sample Response:**
-```json
-{
-  "runId": "workflow-12345",
-  "status": "Running",
-  "message": "Workflow triggered successfully."
-}
-```
+    **Sample Response:**
+    ```json
+    {
+    "runId": "workflow-12345",
+    "status": "Running",
+    "message": "Workflow triggered successfully."
+    }
+    ```
 
 2. Let the DAG run to the `succeeded` state. You can check the status using the workflow status call. The run ID is in the response of the previous step.
 
-Use the following `cURL` command:
+    Use the following `cURL` command:
 
-```bash
-cURL -X GET "https://<DNS>/api/workflow/v1/workflow/segy-to-vds-conversion/<vds_run_id>" \
-     -H "Authorization: Bearer <access_token>" \
-     -H "Content-Type: application/json"
-```
+    ```bash
+    cURL -X GET "https://<DNS>/api/workflow/v1/workflow/segy-to-vds-conversion/<vds_run_id>" \
+        -H "Authorization: Bearer <access_token>" \
+        -H "Content-Type: application/json"
+    ```
 
-**Sample Response:**
-```json
-{
-  "runId": "workflow-12345",
-  "status": "Completed",
-  "message": "Workflow completed successfully."
-}
-```
+    **Sample Response:**
+    ```json
+    {
+    "runId": "workflow-12345",
+    "status": "Completed",
+    "message": "Workflow completed successfully."
+    }
+    ```
 
 ### Verify File Conversion
 
