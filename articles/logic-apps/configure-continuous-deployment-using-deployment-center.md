@@ -18,7 +18,7 @@ Deployment Center for Logic Apps Standard provides a streamlined and automated w
 ## Prerequisites
 
 -   An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
--   [Visual Studio Code with the Azure Logic Apps (Standard) extension installed and their prerequisites](https://learn.microsoft.com/en-us/azure/logic-apps/create-single-tenant-workflows-visual-studio-code#prerequisites).
+-   [Visual Studio Code with the Azure Logic Apps (Standard) extension installed and their prerequisites](/azure/logic-apps/create-single-tenant-workflows-visual-studio-code#prerequisites).
 -   An Azure Standard Logic Apps application with Basic Source Control Management (SCM) Authentication enabled. This application is the target of the continuous deployment process.
 -   An Azure Key Vault instance, used to store connection strings and secrets.
 -   A User-Assigned Managed Identity associated to the Logic Apps application, with the following role assignments:
