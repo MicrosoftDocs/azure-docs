@@ -46,7 +46,7 @@ Out-of-policy SAS are those which do not have a signed start or have a validity 
 Start by reviewing your current SAS token usage and setting an appropriate expiration policy for your storage accounts. We recommend starting with **Log** action to monitor your diagnostic logs for policy violations. We strongly recommend using **Block** action to ensure that if a SAS token has passed the validity of the expiration period set on the storage account, then access to storage must be blocked.
 
 > [!IMPORTANT]
-> SAS Expiration Action is not supported for user delegation shared access signatures through HDFS endpoint or service-level shared access signatures with a stored access policy.
+> SAS Expiration Action is not supported for user delegation SAS through the HDFS endpoint or service-level shared access signatures with a stored access policy.
 
 ## Configure a SAS expiration policy
 
