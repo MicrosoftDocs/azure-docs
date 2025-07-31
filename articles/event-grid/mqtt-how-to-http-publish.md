@@ -38,6 +38,8 @@ az account get-access-token --resource=https://<namespaceFQDN> --query accessTok
 
 Save this token to use in the `Authorization: Bearer <TOKEN>` header. 
 
+## Publish messages using HTTP
+
 ### [cURL](#tab/curl)
 
 Here’s an example cURL command to simulate the HTTP Publish. 
