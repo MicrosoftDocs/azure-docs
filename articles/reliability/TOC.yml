@@ -293,6 +293,8 @@
       href: reliability-elastic-san.md
     - name: Azure NetApp Files
       href: reliability-netapp-files.md
+    - name: Azure Queue Storage
+      href: reliability-storage-queue.md
     - name: Azure Storage Actions
       href: reliability-storage-actions.md
     - name: Azure Storage-Disk Storage
