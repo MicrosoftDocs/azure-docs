@@ -77,9 +77,7 @@ The following example shows where to find the **SCM Basic Auth Publishing Creden
 
    1. Select the Azure subscription for your deployed Standard logic app.
 
-   1. Select the Azure resource group for your logic app.
-
-   1. Select your logic app.
+   1. Select the Azure resource group for your logic app, and then select your logic app.
 
    1. Select the associated user-assigned managed identity that has **Logic Apps Standard Contributor** role-based access.
 
@@ -109,7 +107,7 @@ To set up Deployment Center with a repository in GitHub for your Standard logic 
 
 1. Under the **Source** list, select **Change provider**, and select **App Service Build Service** as the build provider.
 
-   :::image type="content" source="media/set-up-cd-deployment-center-standard/select-build-provider.png" alt-text="Screenshot shows Azure portal, Standard logic app sidebar, Deployment Center page, and selected option for App Service Build Service." lightbox="media/set-up-cd-deployment-center-standard/select-build-provider.png":::
+   :::image type="content" source="media/set-up-cd-deployment-center-standard/github-build-provider.png" alt-text="Screenshot shows Azure portal, Standard logic app sidebar, Deployment Center page, GitHub as source, and selected App Service Build Service." lightbox="media/set-up-cd-deployment-center-standard/github-build-provider.png":::
 
 1. In GitHub, sign in, if necessary, and select your organization.
 
@@ -127,9 +125,9 @@ To set up Deployment Center with a repository in Azure Repos for your Standard l
 
 1. From the **Source** list, select **Azure Repos** as your source repository.
 
-1. Under the **Source** list, select **Change provider**, and select **App Service Build Service** as the build provider.
+1. Under the **Source** list, select **Change provider**, and select **App Service Build Service** as the build provider, if not selected already.
 
-   :::image type="content" source="media/set-up-cd-deployment-center-standard/select-build-provider.png" alt-text="Screenshot shows Azure portal, Standard logic app sidebar, Deployment Center page, and selected build provider for App Service Build Service." lightbox="media/set-up-cd-deployment-center-standard/select-build-provider.png":::
+   :::image type="content" source="media/set-up-cd-deployment-center-standard/azure-repos-build-provider.png" alt-text="Screenshot shows Azure portal, Standard logic app sidebar, Deployment Center page, Azure Repos as source, and selected App Service Build Service." lightbox="media/set-up-cd-deployment-center-standard/azure-repos-build-provider.png":::
 
 1. In Azure DevOps, sign in, if necessary, and select your organization.
 
