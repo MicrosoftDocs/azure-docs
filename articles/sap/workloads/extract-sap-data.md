@@ -22,7 +22,7 @@ Enterprises are increasingly adopting Microsoft Fabric as the foundation of thei
 
 ## Data sources in SAP system
 
-SAP offers multiple layers of data access, each serving different analytical and reporting needs. This section introduces the main types of data sources available in an SAP landscape, explaining what they're and how they work.
+SAP offers multiple layers of data access, each serving different analytical and reporting needs. This section introduces the main types of data sources available in an SAP landscape, explaining what they are and how they work.
 
 ### Tables and views
 
@@ -50,7 +50,7 @@ Further along the data journey, BW objects take over the responsibility for stor
 
 As a general recommendation, the higher the level you access in the data stack, the more content and business logic you can reuse. Instead of manually joining base tables to create a consolidated view of sales orders, you can apply dedicated objects delivered by SAP, which already include relevant joins, filters, and field mappings. This approach significantly reduces development effort and ensures consistency with how data is used within the system. However, it also means to accept the built-in transformations such as filtering out certain document statuses. If other fields are needed, changes must be made at the source level, for example by extending the CDS View.
 
-The following table provides examples of common scenarios and recommends the most suitable SAP data source in each case. Note that the use of a specific object is a design decision and should always be evaluated based on available options, data requirements, and system capabilities.
+The following table provides examples of common scenarios and recommends the most suitable SAP data source in each case. The use of a specific object is a design decision and should always be evaluated based on available options, data requirements, and system capabilities.
 
 | Scenario / Intent | Recommended data source |
 |----|----|
@@ -87,7 +87,7 @@ You can use pipelines and dataflows in Microsoft Fabric to extract and transform
 
 **Figure 1**: SAP data connectivity options within Microsoft Fabric.
 
-:::image type="content" source="media/sap-extract-data-fabric/1-sap-data-connectivity-options.png" alt-text="Diagram shows SAP data connectivity options within Microsoft Fabric":::
+:::image type="content" source="media/sap-extract-data-fabric/1-sap-data-connectivity-options.png" alt-text="Diagram shows SAP data connectivity options within Microsoft Fabric." lightbox="true":::
 
 
 #### SAP Table connector
@@ -126,7 +126,7 @@ Azure Data Factory is a cloud-based data integration service that enables you to
 
 **Figure 2**: SAP to Microsoft Fabric data connectivity options within Azure Data Factory.
 
-:::image type="content" source="media/sap-extract-data-fabric/2-sap-data-connectivity-azure-data-factory.png" alt-text="Diagram shows SAP to Microsoft Fabric data connectivity options within Azure Data Factory":::
+:::image type="content" source="media/sap-extract-data-fabric/2-sap-data-connectivity-azure-data-factory.png" alt-text="Diagram shows SAP to Microsoft Fabric data connectivity options within Azure Data Factory." lightbox="true":::
 
 
 #### SAP CDC connector
@@ -156,7 +156,7 @@ SAP Datasphere is SAP’s enterprise-grade solution for extracting and transform
 
 **Figure 3**: SAP to Microsoft Fabric data connectivity options within SAP Datasphere.
 
-:::image type="content" source="media/sap-extract-data-fabric/3-sap-connectivity-options-datasphere.png" alt-text="Diagram shows SAP to Microsoft Fabric data connectivity options within SAP Datasphere":::
+:::image type="content" source="media/sap-extract-data-fabric/3-sap-connectivity-options-datasphere.png" alt-text="Diagram shows SAP to Microsoft Fabric data connectivity options within SAP Datasphere." lightbox="true":::
 
 
 #### Premium Outbound Integration
@@ -185,13 +185,13 @@ Learn more about [partner solutions supporting Open Mirroring](https://learn.mic
 
 **Figure 4**: SAP to Microsoft Fabric data connectivity options using partner solutions.
 
-:::image type="content" source="media/sap-extract-data-fabric/4-sap-connectivity-options-partner-solutions.png" alt-text="Diagram shows SAP to Microsoft Fabric data connectivity options using partner solutions":::
+:::image type="content" source="media/sap-extract-data-fabric/4-sap-connectivity-options-partner-solutions.png" alt-text="Diagram shows SAP to Microsoft Fabric data connectivity options using partner solutions." lightbox="true":::
 
 Partner solutions usually support two integration patterns:
 
 #### Open Mirroring
 
-Partner solutions leverage a set of native Microsoft Fabric APIs to synchronize source datasets with mirrored databases in Fabric. This approach ensures that the target tables remain a consistent and up-to-date copy of the source, as the mirroring engine automatically process and merges changes. 
+Partner solutions apply a set of native Microsoft Fabric APIs to synchronize source datasets with mirrored databases in Fabric. This approach ensures that the target tables remain a consistent and up-to-date copy of the source, as the mirroring engine automatically process and merges changes. 
 
 [Learn more about Open Mirroring in Microsoft Fabric](https://learn.microsoft.com/fabric/database/mirrored-database/open-mirroring).
 
