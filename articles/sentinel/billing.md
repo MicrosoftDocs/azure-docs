@@ -72,7 +72,7 @@ For more information, see [Microsoft Sentinel data lake](datalake/sentinel-lake-
 The data lake tier incurs charges based on usage of various data like capabilities. 
 - **Data lake ingestion** charges are incurred per GB of data ingested for tables in Lake only mode.
 - **Data lake storage** charges are incurred per GB per month for any data stored beyond the interactive retention period or in Lake only mode.
-- **Data processing** charges are incurred per GB processed to transform data. This would bill for the [data collection rules](data-transformation.md#dcr-support-in-microsoft-sentinel) capability over data ingested into data lake.
+- **Data processing** charges are incurred per GB processed to transform 3rd party data. This would bill for the [data collection rules](data-transformation.md#dcr-support-in-microsoft-sentinel) capability over data ingested into data lake.
 - **Data lake query** charges are incurred per GB of data analyzed using data lake exploration KQL queries, KQL jobs, or Search.
 - **Advanced data insights** charges are incurred per compute hour used when using data lake exploration notebook sessions or running data lake exploration notebook jobs. Compute hours are calculated by multiplying the number of cores in the pool selected for the notebook with the amount of time a session was active or a job was running.
 
