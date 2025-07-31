@@ -17,7 +17,7 @@ This document lists some common questions and issues reported by Device Update u
 
 ### Q: I imported an update successfully, but it's not showing as available for me to deploy to devices that it should be compatible with
 
-Double-check that your import manifest .json file doesn’t have any accidental errors, especially in the [Compatibility object](/azure/iot-hub-device-update/import-schema) values. The compatibility properties in the import manifest must match exactly with the properties reported by your devices, which ensures that the right updates are always only sent to the right devices. For example, if there's a typographical error in the import manifest that causes a compatibility property to have a missing, transposed or extra character compared to what a device reports, the Device Update for IoT Hub service can't match the update to that device. If you've already imported an update, you can quickly check for issues with compatibility properties by clicking the "Details" link for that update and then clicking “Additional details” in the right-hand flyout menu. From there, you can view the import manifest JSON content for that update and identify any potential errors.
+Double-check that your import manifest .json file doesn’t have any accidental errors, especially in the [Compatibility object](/azure/iot-hub-device-update/import-schema) values. The compatibility properties in the import manifest must match exactly with the properties reported by your devices, which ensures that the right updates are always only sent to the right devices. For example, there could be a typographical error in the import manifest that causes a compatibility property to have a missing, transposed or extra character compared to what a device reports. If so, the Device Update for IoT Hub service can't match the update to that device. If you already imported an update, you can quickly check for issues with compatibility properties by clicking the "Details" link for that update and then clicking “Additional details” in the right-hand flyout menu. From there, you can view the import manifest JSON content for that update and identify any potential errors.
 
 ### Q: I'm having trouble connecting my Device Update instance to my IoT Hub instance
 
@@ -25,7 +25,7 @@ Ensure your IoT Hub message routes are configured correctly, as per the [Device 
 
 ### Q: I'm encountering a role-related error (error message in Azure portal or a 403 API error)
 
-You may not have access permissions configured correctly. Ensure you have configured access permissions correctly as per the [Device Update access control](./device-update-control-access.md) documentation.
+You may not have access permissions configured correctly. Ensure access permissions are configured correctly as per the [Device Update access control](./device-update-control-access.md) documentation.
 
 ### Q: I'm encountering a 500-type error when importing content to the Device Update service
 
@@ -61,9 +61,9 @@ The device compliance status can take up to 5 minutes to refresh.
 
 ### Q: My device's deployment status shows incompatible, what should I do?
 
-The manufacturer and model properties of a targeted device may have changed after connecting the device to IoT Hub, causing the device to now be considered incompatible with the update content of the current deployment.
+The manufacturer and model properties of a targeted device might have changed after connecting the device to IoT Hub, causing the device to now be considered incompatible with the update content of the current deployment.
 
-Check the [ADU Core Interface](./device-update-plug-and-play.md) to see what manufacturer and model your device is reporting to the Device Update service, and make sure it matches the manufacturer and model you specified in the [import manifest](./import-concepts.md) of the update content being deployed. You can change these properties for a given device using the [Device Update configuration file](./device-update-configuration-file.md).
+Check the [ADU Core Interface](./device-update-plug-and-play.md) to see what manufacturer and model your device is reporting to the Device Update service. Make sure it matches the manufacturer and model you specified in the [import manifest](./import-concepts.md) of the update content that you're deploying. You can change these properties for a given device using the [Device Update configuration file](./device-update-configuration-file.md).
 
 ### Q: I see my deployment is in "Active" stage but none of my devices are "In progress" with the update. What should I do?
 
@@ -79,25 +79,25 @@ If you are using Device Provisioning Service (DPS), then ensure that you tag you
 
 ### Q: My deployment completed successfully, but some devices failed to update
 
-This condition may have been caused by a client-side error on the failed devices. See the Device Failures section of this troubleshooting guide.
+This condition can be caused by a client-side error on the failed devices. See the Device Failures section of this troubleshooting guide.
 
 ### Q: I encountered an error in the UX when trying to initiate a deployment
 
-This condition may have been caused by a service/UX bug, or by an API permissions issue. Follow the instructions in the [Contacting Microsoft Support](#contact) section to file a support request with Microsoft.
+This condition can be caused by a service/UX bug, or by an API permissions issue. Follow the instructions in the [Contacting Microsoft Support](#contact) section to file a support request with Microsoft.
 
 ### Q: I started a deployment but it isn’t reaching an end state
 
-This condition may have been caused by a service performance issue, a service bug, or a client bug. Retry your deployment after 10 minutes. If you encounter the same issue, please pull your device logs and refer to the Device Failures section of this troubleshooting guide. If the same issue persists, file a support request with Microsoft by following the instructions in the [Contacting Microsoft Support](#contact) section.
+This condition can be caused by a service performance issue, a service bug, or a client bug. Retry your deployment after 10 minutes. If you encounter the same issue, please pull your device logs and refer to the Device Failures section of this troubleshooting guide. If the same issue persists, follow the instructions in the [Contacting Microsoft Support](#contact) section to file a support request with Microsoft.
 
-### Q: I migrated from a device level agent to adding the agent as a Module identity on the device, and my update shows as 'in-progress' even though it has been applied to the device
+### Q: I migrated from a device-level agent to adding the agent as a Module identity on the device. Now my update shows as 'in-progress' even though it's applied to the device
 
-This condition may have happened because an older agent that was communicating over the Device Twin was not removed. When you provision the Device Update agent as a Module (see [how to](device-update-agent-provisioning.md)) all communications between the device and the Device Update service happen over the Module Twin so remember to tag the Module Twin of the device when creating [groups](device-update-groups.md) and all [communications](device-update-plug-and-play.md) must happen over the module twin.
+This condition can happen if an older agent that was communicating over the Device Twin was not removed. When you provision the Device Update agent as a Module (see [how to](device-update-agent-provisioning.md)), all communications between the device and the Device Update service happen over the Module Twin. Remember to tag the Module Twin of the device when creating [groups](device-update-groups.md) and all [communications](device-update-plug-and-play.md) must happen over the module twin.
 
 ## <a name="download"></a> Downloading updates onto devices
 
-### Q: How do I resume a download when a device has reconnected after a period of disconnection?
+### Q: How do I resume a download when a device reconnects after a period of disconnection?
 
-The download will self-resume when connectivity is restored within a 24-hour period. After 24 hours, the download will need to be reinitiated by the user.
+The download will self-resume when connectivity is restored within a 24-hour period. After 24 hours, the user will need to reinitiate the download.
 
 ## <a name="mcc"></a> Using Microsoft Connected Cache (MCC)
 
@@ -107,9 +107,9 @@ Refer to the [IoT Edge documentation](../iot-edge/index.yml) for deploying Edge 
 
 ### Q: One of my IoT devices is attempting to download an update through MCC, but is failing
 
-There are several issues that could be causing an IoT device to fail in connecting to MCC. In order to diagnose the issue, please collect the DO client and Nginx logs from the failing device (see the [Contacting Microsoft Support](#contact) section for instructions on gathering client logs).
+There are several issues that could be causing an IoT device to fail in connecting to MCC. In order to diagnose the issue, collect the DO client and Nginx logs from the failing device (see the [Contacting Microsoft Support](#contact) section for instructions on gathering client logs).
 
-Your device may be failing to pull content from the Internet to pass to its MCC module because the URL it’s using isn’t allowed. To determine if so, you will need to check your IoT Edge environment variables in Azure portal.
+Your device may be failing to pull content from the Internet to pass to its MCC module because the URL it’s using isn’t allowed. Confirm this by checking your IoT Edge environment variables in the Azure portal.
 
 ## <a name="instance"></a> Troubleshooting a missing instance in the Azure portal
 
@@ -117,11 +117,12 @@ Your device may be failing to pull content from the Internet to pass to its MCC 
 
 There are a few possible causes for this issue. See below for troubleshooting steps.
 
-A Device Update instance needs to be associated with an Azure IoT hub in the same resource group and subscription. If you’ve moved either your Device Update instance or your hub to a different resource group or subscription, you may not see your instance in the Azure portal. You’ll need to do one of the following steps in order to continue using Device Update for IoT Hub:
+A Device Update instance needs to be associated with an Azure IoT hub in the same resource group and subscription. If you move either your Device Update instance or your hub to a different resource group or subscription, you may not see your instance in the Azure portal. If so, do one of the following steps in order to continue using Device Update for IoT Hub:
 
-- Return the moved item(s) to their original configuration.
+- Return the moved items to their original configuration.
+
 - If you only moved your IoT hub from one resource group to another, modify your Device Update instance with the IoT hub’s new resourceId.
-- If you moved item(s) from one subscription to another, make sure the Device Update account and IoT hub are in the same subscription, and then modify your Device Update instance with the IoT hub’s new resourceId.
+- If you moved items from one subscription to another, make sure the Device Update account and IoT hub are in the same subscription, and then modify your Device Update instance with the IoT hub’s new resourceId.
 
 At least Read-level permissions are needed for both your IoT hub and your Device Update for IoT Hub account in order to access Device Update functionality via the IoT hub experience in the Azure portal.
 
@@ -146,21 +147,19 @@ Learn more about [role-based access control](device-update-control-access.md) fo
 
 ## <a name="contact"></a> Contacting Microsoft Support
 
-If you run into issues that can't be resolved using the FAQs above, you can file a support request with Microsoft Support through the Azure portal interface. Depending on which category you indicate your issue belongs to, you may be asked to gather and share additional data to help Microsoft Support investigate your issue.
+If you run into issues that can't be resolved using the content on this page, you can file a support request with Microsoft Support through the Azure portal interface. Depending on which category you indicate your issue belongs to, you may be asked to gather and share more data to help Microsoft Support investigate your issue.
 
-Please see below for instructions on how to gather each data type.
+See the remaining text in this section for instructions on how to gather each data type.
 
 You can use [getDevice](/dotnet/api/azure.iot.deviceupdate.devicemanagementclient.getdevice?view=azure-dotnet-preview&preserve-view=true) to check for additional information in the payload response of the API.
 
-In addition, the following information can be useful for narrowing down the root cause of your issue:
+Also include the following information if possible, as it can be useful for narrowing down the root cause of your issue:
 
 - What type of device you are attempting to update (IoT Edge Gateway, other)
 - What Device Update client type you are using (Image-based, Package-based, Simulator)
 - What OS your device is running
 - Details regarding your device's architecture
 - Whether you have successfully used Device Update to update a device before
-
-If you have any of the above information available, please include it in your description of the issue.
 
 ### Collecting client logs
 
@@ -174,13 +173,13 @@ If you have any of the above information available, please include it in your de
     /var/cache/do-client-lite/log
     ```
 
-- For the packaged client the logs are found here:
+- For the packaged client, the logs are found here:
 
-    ```markdown
+      ```markdown
     /var/log/adu
     ```
 
-    ```markdown
+      ```markdown
     /var/cache/do-client-lite/log
     ```
 
@@ -194,7 +193,7 @@ If you have any of the above information available, please include it in your de
 
 You may be asked to provide error codes when reporting an issue related to importing an update, a device failure, or deploying an update.
 
-Error codes can be obtained by looking at the [ADUCoreInterface](./device-update-plug-and-play.md) interface. Please refer to the [Device Update error codes](./device-update-error-codes.md) documentation for information on how to parse error codes for self-diagnosis and troubleshooting.
+Error codes can be obtained by looking at the [ADUCoreInterface](./device-update-plug-and-play.md) interface. Refer to the [Device Update error codes](./device-update-error-codes.md) documentation for information on how to parse error codes for self-diagnosis and troubleshooting.
 
 ### Trace ID
 
