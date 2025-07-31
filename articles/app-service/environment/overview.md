@@ -68,7 +68,7 @@ Most customers don't require isolation down to the hardware level, so consider t
 
 ## Virtual network support
 
-An App Service Environment is a deployment of App Service that runs in a single subnet within a virtual network. When you deploy an app into an App Service Environment, it uses the inbound address assigned to the environment. If your App Service Environment is deployed with an internal virtual IP (VIP) address, the inbound address for all apps is an address within the App Service Environment subnet. If your App Service Environment is deployed with an external VIP address, the inbound address is a public-facing address, and your apps are listed in a public Domain Name System (DNS).
+An App Service Environment is a deployment of App Service that runs in a single subnet within a virtual network. When you deploy an app into an App Service Environment, it uses the inbound address assigned to the environment. If your App Service Environment is deployed with an internal virtual IP (VIP) address, the inbound address for all apps is an address within the App Service Environment subnet. If your App Service Environment is deployed with an external VIP address, the inbound address is a public-facing address, and your apps are listed in the public Domain Name System (DNS).
 
 An App Service Environment v3 in its subnet uses a variable number of addresses, depending on the number of instances and the amount of traffic. Some infrastructure roles scale automatically, depending on the number of App Service plans and the load. Use a `/24` Classless Inter-Domain Routing (CIDR) block that has 256 addresses for your App Service Environment v3 subnet. This size can host an App Service Environment v3 at full scale-out capacity.
 
@@ -93,7 +93,7 @@ App Service Environment v3 differs from earlier versions in the following ways:
   - To make plans zone redundant, the App Service Environment must have zone redundancy enabled.
   - You can scale non-zone-redundant plans down to a single instance.
   
-  For more information, see [Reliability in App Service](../../reliability/reliability-app-service.md?pivots=isolated).
+  For more information, see [Reliability in App Service Environment](../../reliability/reliability-app-service-environment.md).
 
 - You can deploy an App Service Environment v3 on a dedicated host group. Host group deployments aren't zone redundant.
 

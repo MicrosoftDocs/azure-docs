@@ -29,7 +29,7 @@ For more information about reliability support in App Service, see [Reliability 
 
 ## Production deployment recommendations
 
-[Enable zone redundancy](#availability-zone-support) on your environment. Your App Service plans must use a minimum of two instances.
+[Enable zone redundancy](#availability-zone-support) on your environment, which requires that your App Service plans use a minimum of two instances.
 
 ## Reliability architecture overview
 
@@ -55,7 +55,7 @@ To use an App Service Environment, your plans must use the [Isolated v2 pricing 
 
 You can configure your App Service Environment as *zone redundant*. You can also configure your App Service plans to be zone redundant, which distributes them across multiple availability zones.
 
-You can enable or disable zone redundancy on each specific plan.
+However, you can enable or disable zone redundancy on each plan. This means that you can have some plans in your environment that are zone redundant and others that aren't.
 
 When you create a zone-redundant App Service plan in your environment, the instances of your App Service plan are distributed across the availability zones in the region. For more information, see [Instance distribution across zones](../reliability/reliability-app-service.md#instance-distribution-across-zones).
 

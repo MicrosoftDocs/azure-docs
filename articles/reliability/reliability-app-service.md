@@ -21,7 +21,7 @@ For more information about reliability support in App Service Environment, see [
 
 ## Production deployment recommendations
 
-For more information about App Service support for reliability requirements and how reliability affects other aspects of your architecture, see [Architecture best practices for the Web Apps feature of App Service](/azure/well-architected/service-guides/app-service-web-apps).
+To learn about how to deploy App Service to support your solution's reliability requirements, and how reliability affects other aspects of your architecture, see [Architecture best practices for App Service (Web Apps) in the Azure Well-Architected Framework](/azure/well-architected/service-guides/app-service-web-apps).
 
 ## Reliability architecture overview
 

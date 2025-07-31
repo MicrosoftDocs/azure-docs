@@ -12,7 +12,7 @@ ms.author: anaharris
 
 Azure App Service provides built-in reliability features to help ensure that your applications remain available and resilient. This article describes how to create an App Service plan that includes zone redundancy. It also covers how to disable and enable zone redundancy on existing plans and how to check for zone redundancy support. For more information about zone redundancy, see [Reliability in App Service](../reliability/reliability-app-service.md).
 
-## Create a new App Service plan that includes zone redundancy
+## Create a new zone-redundant App Service plan
 
 To create a new App Service plan that includes zone redundancy, follow the appropriate steps.
 

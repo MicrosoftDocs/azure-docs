@@ -9,7 +9,7 @@
 
 When you create a zone-redundant App Service plan, Azure distributes the plan's instances across availability zones in the region. This distribution ensures that your apps remain available even if one zone experiences an outage.
 
-Instance distribution in a zone-redundant deployment follows specific rules. These rules apply as the app scales in and out:
+Instance distribution in a zone-redundant deployment follows specific rules. These rules also apply as the app scales in and out:
 
 - **Minimum instances:** Your App Service plan must have a minimum of two instances for zone redundancy.
 

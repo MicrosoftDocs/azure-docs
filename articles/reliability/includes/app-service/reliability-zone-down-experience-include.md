@@ -8,7 +8,7 @@
 ---
 An availability zone outage might affect some aspects of App Service, even though the application continues to serve traffic. These behaviors include App Service plan scaling, application creation, application configuration, and application publishing.
 
-Expect the following outcomes when you configure App Service plans for zone redundancy and one or more availability zones are unavailable:
+The following list describes what to expect when App Service plans are configured for zone redundancy and one or more availability zones are unavailable:
 
 - **Detection and response:** The App Service platform automatically detects failures in an availability zone and initiates a response. No manual intervention is required to initiate a zone failover.
 

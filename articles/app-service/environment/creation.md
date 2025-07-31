@@ -25,13 +25,13 @@ An [App Service Environment][Intro] is a single-tenant deployment of Azure App S
   - Subnet size
   - The name of your App Service Environment
 
-   Ensure that your subnet is large enough to accommodate the maximum scale of your App Service Environment. Use a `/24` subnet with 256 addresses as the recommended size.
+- Ensure that your subnet is large enough to accommodate the maximum scale of your App Service Environment. Use a `/24` subnet with 256 addresses as the recommended size.
 
 - Select your virtual IP (VIP) type. The virtual IP type determines how your apps are accessed.
 
    Choose between the following two virtual IP types:
 
-    - *Internal VIP:* Your apps use an address within your App Service Environment subnet that doesn't appear in public Domain Name System (DNS). When you create an App Service Environment in the Azure portal, you can set up an Azure private DNS zone. Specify an **Inbound IP address** and select either **Automatic** or **Manual**.
+    - *Internal VIP:* Your apps use an address within your App Service Environment subnet that doesn't appear in the public Domain Name System (DNS). When you create an App Service Environment in the Azure portal, you can set up an Azure private DNS zone. Specify an **Inbound IP address** and select either **Automatic** or **Manual**.
 
     - *External VIP:* Your apps use a public-facing address listed in public DNS. You can specify an **Inbound IP address** and select either **Automatic** or **Manual**. If you select **Manual**, you must create a standard public IP address in Azure first.
 
@@ -41,7 +41,7 @@ An [App Service Environment][Intro] is a single-tenant deployment of Azure App S
      
      You must pay a minimum charge for one instance of Windows Isolated v2 in your App Service plan. When you use one or more instances, the charge is removed. This fee isn't additive.
     
-   - *Zone redundant deployment:* Zone redundancy ensures that workloads remain available even if one zone experiences an outage. In regions that support availability zones, you can configure App Service Environments so that apps are distributed across multiple availability zones within the same region. You must include at least two instances in your App Service plan to ensure redundancy across zones. You can scale out by adding one or more instances at a time. For more information, see [Reliability in App Service Environments](../../reliability/reliability-app-service-environment.md).
+   - *Zone redundant deployment:* Zone redundancy ensures that workloads remain available even if one zone experiences an outage. In regions that support availability zones, you can configure App Service Environments so that apps are distributed across multiple availability zones within the same region. You must include at least two instances in your App Service plan to ensure redundancy across zones. You can scale out by adding one or more instances at a time. For more information, see [Reliability in App Service Environment](../../reliability/reliability-app-service-environment.md).
    
    - *Host group deployment:* Your apps are deployed onto a dedicated host group. The dedicated host group isn't zone redundant. You can install and use your App Service Environment on dedicated hardware. There's no minimum instance charge for using an App Service Environment on a dedicated host group. However, you must pay for the host group when you provision the App Service Environment. You also pay a discounted App Service plan rate when you create your plans and scale out.
    

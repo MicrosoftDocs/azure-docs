@@ -6,7 +6,7 @@
  ms.author: anaharris
  ms.custom: include file
 ---
-Expect the following outcomes when you configure App Service plans for zone redundancy and all availability zones function properly:
+The following list describes what to expect when App Service plans are configured for zone redundancy and all availability zones are operational:
 
 - **Traffic routing between zones:** During normal operations, traffic is routed between all available App Service plan instances across all availability zones.
 
