@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Data Manager for Energy Preview - How to convert a segy to ovds file
-description: This article explains how to convert a SGY file to oVDS file format
+description: This article explains how to convert a SEG-Y file to oVDS file format
 author: suzafar
 ms.author: suzafar
 ms.service: azure-data-manager-energy
@@ -11,20 +11,20 @@ ms.custom: template-concept
 
 # How to convert a SEG-Y file to oVDS
 
-In this article, you will learn how to convert SEG-Y formatted data to the Open VDS (oVDS) format. Seismic data stored in the industry standard SEG-Y format can be converted to oVDS format for use in applications via the Seismic DDMS. See here for  OSDU&reg; community reference: [SEG-Y to oVDS conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-vds-conversion/-/tree/master). This tutorial is a step by step guideline on how to perform the conversion. Note the actual production workflow may differ and use it as a guide for the required set of steps to achieve the conversion.
+In this article, you learn how to convert SEG-Y formatted data to the Open VDS (oVDS) format. Seismic data stored in the industry standard SEG-Y format can be converted to oVDS format for use in applications via the Seismic DDMS(Domain data management service). See here for  OSDU&reg; community reference: [SEG-Y to oVDS conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-vds-conversion/-/tree/master). This tutorial is a step by step guideline on how to perform the conversion. Note the actual production workflow may differ and use it as a guide for the required set of steps to achieve the conversion.
 
 ## Prerequisites
 * An Azure subscription
 * An instance of [Azure Data Manager for Energy](quickstart-create-microsoft-energy-data-services-instance.md) created in your Azure subscription
 * cURL command-line tool installed on your machine
-* Generate the service principal access_token to call the Seismic APIs. See [How to generate auth token](how-to-generate-auth-token.md).
+* Service principal access_token to call the Seismic APIs. See [How to generate auth token](how-to-generate-auth-token.md).
 - A SEG-Y File
   - You may use any of the following files from the Volve dataset as a test. The Volve data set itself is available from [Equinor](https://www.equinor.com/energy/volve-data-sharing).
     - [Small < 100 MB](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/azure/m16-master/source/ddms-smoke-tests/ST0202R08_PSDM_DELTA_FIELD_DEPTH.MIG_FIN.POST_STACK.3D.JS-017534.segy)
     - [Medium < 250 MB](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/azure/m16-master/source/ddms-smoke-tests/ST0202R08_PS_PSDM_RAW_DEPTH.MIG_RAW.POST_STACK.3D.JS-017534.segy)
     - [Large ~ 1 GB](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/283ba58aff7c40e62c2ac649e48a33643571f449/source/ddms-smoke-tests/sample-ST10010ZC11_PZ_PSDM_KIRCH_FULL_T.MIG_FIN.POST_STACK.3D.JS-017536.segy)
 
-### Get details for the Azure Data Manager for Energy instance
+### Get details for the Azure Data Manager for Energy (ADME) instance
 
 * For this tutorial, you need the following parameters:
 
@@ -145,9 +145,9 @@ cURL -X POST "https://<DNS>/api/entitlements/v2/groups/users.datalake.admins@<da
 }
 ```
 
-If you haven't yet created entitlements groups, follow the directions as outlined in [How to manage users](how-to-manage-users.md). If you would like to see what groups you have, use [Get entitlements groups for a given user](how-to-manage-users.md#get-osdu-groups-for-a-given-user-in-a-data-partition). Data access isolation is achieved with this dedicated ACL (access control list) per object within a given data partition. 
+If you didn't create entitlements groups, follow the directions as outlined in [How to manage users](how-to-manage-users.md). If you would like to see what groups you have, use [Get entitlements groups for a given user](how-to-manage-users.md#get-osdu-groups-for-a-given-user-in-a-data-partition). Data access isolation is achieved with this dedicated ACL (access control list) per object within a given data partition. 
 
-Follow this [tutorial](tutorial-seismic-ddms.md) to Prepare Subproject which involves following steps:
+Follow this [tutorial](tutorial-seismic-ddms.md) to Prepare Subproject that involves following steps:
 
 1. Register Data Partition to Seismic -Create a tenant
 2. Create a Subproject
@@ -155,8 +155,8 @@ Follow this [tutorial](tutorial-seismic-ddms.md) to Prepare Subproject which inv
 
 ### Upload the File
 
-There are two ways to upload a SEGY file. One option is to use the SASurl through cURL call. You need to setup cURL on your OS. 
-The second method is to use [SDUTIL](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tags/azure-stable). To log in to your instance for ADME via the tool you need to generate a refresh token for the instance. See [How to generate auth token](how-to-generate-auth-token.md). Alternatively, you can modify the code of SDUTIL to use client credentials instead to log in. If you haven't already, you need to setup SDUTIL.Check this guide for setting up [SDUTIL](tutorial-seismic-ddms-sdutil.md) Download the codebase and edit the `config.yaml` at the root. Replace the contents of this config file with the following yaml. 
+There are two ways to upload a SEGY file. One option is to use the SASurl through cURL call. You need to set up cURL on your OS. 
+The second method is to use [SDUTIL](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tags/azure-stable). To log in to your instance for ADME via the tool, you need to generate a refresh token for the instance. See [How to generate auth token](how-to-generate-auth-token.md). Alternatively, you can modify the code of SDUTIL to use client credentials instead to log in. If you haven't already, you need to set up SDUTIL. Check this guide for setting up [SDUTIL](tutorial-seismic-ddms-sdutil.md) Download the codebase and edit the `config.yaml` at the root. Replace the contents of this config file with the following yaml. 
 
 ```yaml
 seistore:
@@ -191,7 +191,7 @@ cURL -X GET \
 ```
 
 **Sample Response:**
-Should be a string. we call it gcsstring.
+Should be a string. We call it gcsstring.
 
 
 ##### Get the SASurl:
@@ -213,7 +213,7 @@ cURL -X 'GET' \
   "token_type": "SASUrl"
 }
 ```
-#### Modify SAS url. Replace container name in SAS url  with filepath i.e gcsstring
+#### Modify SAS url. Replace container name in SAS url with filepath, i.e. gcsstring
 
 ```bash
 filepath="<gcsstring>"
@@ -372,7 +372,7 @@ cURL --request PUT \
 
 ### Run Converter
 
-1. Trigger the VDS Conversion DAG to convert your data using the execution context values you had saved above.
+1. Trigger the VDS Conversion DAG to convert your data using the execution context values you saved in previous step.
 
     Fetch the ID token from sdutil for the uploaded file or use an access/bearer token from cURL.
 
@@ -459,7 +459,7 @@ cURL --request GET \
     python sdutil ls sd://<data-partition-id>/vdssubprojectname/
     ```
 
-3. If you would like to download and inspect your VDS files, don't use the `cp` command as it will not work. The VDS conversion results in multiple files, therefore the `cp` command won't be able to download all of them in one command. Use either the [SEGYExport](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/SEGYExport/README.html) or [VDSCopy](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/VDSCopy/README.html) tool instead. These tools use a series of REST calls accessing a [naming scheme](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/connection.html) to retrieve information about all the resulting VDS files.
+3. If you would like to download and inspect your VDS files, don't use the `cp` command as doesn't work. The VDS conversion results in multiple files, therefore the `cp` command will not download all of them in one command. Use either the [SEGYExport](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/SEGYExport/README.html) or [VDSCopy](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/VDSCopy/README.html) tool instead. These tools use a series of REST calls accessing a [naming scheme](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/connection.html) to retrieve information about all the resulting VDS files.
 
 OSDU&reg; is a trademark of The Open Group.
 
