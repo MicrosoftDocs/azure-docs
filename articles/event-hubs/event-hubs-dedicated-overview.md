@@ -14,9 +14,6 @@ ms.custom:
 # Azure Event Hubs Dedicated tier overview
 Azure Event Hubs Dedicated tier is a single-tenant solution designed to meet the needs of enterprise-scale, mission-critical event streaming workloads. This article provides an overview of the Dedicated tier, highlighting its key features, benefits, and use cases, showing how it supports high-performance, low-latency applications using Event Hubs SDK or Apache Kafka APIs.
 
-> [!NOTE]
-> The Dedicated tier isn't available in all regions. Try to create a dedicated cluster in the Azure portal. See the supported regions in the **Location** dropdown list on the **Create Event Hubs Cluster** page.
-
 ## Benefits of dedicated clusters
 
 The Dedicated tier of Event Hubs offers several benefits to customers who need to run mission-critical workloads at enterprise-level capacity.
@@ -78,7 +75,9 @@ Approximately one CU in a self-serve scalable cluster provides *ingress capacity
 With self-serve scalable clusters, you can purchase up to 10 CUs for a cluster in the Azure portal. In contrast to traditional clusters, these clusters can be scaled incrementally with CUs ranging from 1 to 10. If you need a cluster larger than 10 CUs, you can [submit a support request](event-hubs-dedicated-cluster-create-portal.md#submit-a-support-request) to scale up your cluster after its creation.
 
 > [!IMPORTANT]
-> To create or scale an AZ-enabled self-serve cluster, you must [submit a support request](event-hubs-dedicated-cluster-create-portal.md#submit-a-support-request) requesting three CUs or greater. A three CU (or greater) self-serve cluster created via Portal is NOT AZ-enabled.
+> To enable Availability zones on a Event Hubs dedicated cluster, it must be provisioned with three or more CUs.
+>
+
 ### Legacy clusters
 
 Event Hubs dedicated clusters created before the availability of self-serve scalable clusters are referred to as legacy clusters.
