@@ -23,10 +23,10 @@ items:
   - name: GO SDK
     href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/purestorageblock/armpurestorageblock
   - name: Java SDK
-    href: https://learn.microsoft.com/java/api/overview/azure/purestorageblock
+    href: /java/api/overview/azure/purestorageblock
   - name: JavaScript
-    href: https://learn.microsoft.com/en-us/javascript/api/overview/azure/arm-purestorageblock-readme
+    href: /javascript/api/overview/azure/arm-purestorageblock-readme
   - name: Python SDK  
-    href: https://learn.microsoft.com/python/api/overview/azure/mgmt-purestorageblock-readme
+    href: /python/api/overview/azure/mgmt-purestorageblock-readme
   - name: .NET SDK  
-    href: https://learn.microsoft.com//dotnet/api/overview/azure/purestorageblock
+    href: /dotnet/api/overview/azure/purestorageblock
