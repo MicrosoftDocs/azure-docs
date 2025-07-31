@@ -1,7 +1,7 @@
 ---
 title: OSDU Services Available on Azure Data Manager for Energy
 description: This article provides an overview of the OSDU services available on Azure Data Manager for Energy and the OSDU services that are exclusively available in the community version.
-author: marielherzog
+author: marielherz
 ms.service: azure-data-manager-energy
 ms.author: marielherzog
 ms.topic: conceptual
@@ -54,7 +54,7 @@ Azure Data Manager for Energy is currently compliant with the M25 OSDU® milesto
 
 ## OSDU&reg; services unavailable on Azure Data Manager for Energy
 Note: The following OSDU&reg; services are currently unavailable on Azure Data Manager for Energy.
-- **Geospatial Consumption Zone** Note: Users can alternatively [deploy the Geospatial Consumption Zone](how-to-deploy-gcz?tabs=unix-shell%2Cportal&pivots=gcz-aks) service integrated with ADME.
+- **Geospatial Consumption Zone** Note: Users can alternatively [deploy the Geospatial Consumption Zone](how-to-deploy-gcz.md) service integrated with ADME.
 - **Partition** Note: Operations can still be performed using the available data partition APIs or through Azure portal.
 - **Schema Upgrade** Note: Users can alternatively [deploy the Schema Upgrade Tool](https://github.com/EirikHaughom/ADME/tree/main/Guides/Schema%20Upgrade%20Tool) integrated with ADME.
 - **Energistcs Parser DAG (WITSML Parser v2, Resqml Parser, ProdML Parser)**
