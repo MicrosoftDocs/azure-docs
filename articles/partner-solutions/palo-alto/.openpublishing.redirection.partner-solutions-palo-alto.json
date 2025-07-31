@@ -26,7 +26,7 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/partner-solutions/palo-alto/palo-alto-troubleshoot.md",
+            "source_path_from_root": "/articles/partner-solutions/palo-alto/troubleshoot.md",
             "redirect_url": "/troubleshoot/azure/partner-solutions/welcome-native-integrations",
             "redirect_document_id": false
         } 
