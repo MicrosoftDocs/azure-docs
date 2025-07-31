@@ -41,7 +41,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/partner-solutions/qumulo/qumulo-troubleshoot.md",
+            "source_path_from_root": "/articles/partner-solutions/qumulo/troubleshoot.md",
             "redirect_url": "/troubleshoot/azure/partner-solutions/welcome-native-integrations",
             "redirect_document_id": false
         },
