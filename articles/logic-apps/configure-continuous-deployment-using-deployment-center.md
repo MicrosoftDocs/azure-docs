@@ -37,10 +37,10 @@ Follow the steps below to configure and use Deployment Center with Logic Apps St
 ![An image of the Logic Apps Standard context Menu with the Generate deployment script option selected.](media/generate-deployment-screen-menu-option.png)
 
 2.  Follow the prompts to complete these steps:
-    1.  Select the existing Azure subscription where your Logic Apps is deployed.
-    2.  Select the existing resource group where your Logic App is deployed.
-    3.  Select your Logic Apps where the project will be published.
-    4.  Select the associated user managed identity that has the **Logic Apps Standard Contributor** permissions.
+    - Select the existing Azure subscription where your Logic Apps is deployed.
+    - Select the existing resource group where your Logic App is deployed.
+    - Select your Logic Apps where the project will be published.
+    - Select the associated user managed identity that has the **Logic Apps Standard Contributor** permissions.
 
 When you're done, Visual Studio Code creates the following resources:
 
