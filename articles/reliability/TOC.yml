@@ -220,7 +220,7 @@
     - name: Azure Application Gateway v2
       href: reliability-application-gateway-v2.md
     - name: Azure Application Gateway for Containers
-      href: reliability-app-gateway-containers.md#availability-zone-support
+      href: reliability-app-gateway-containers.md
     - name: Azure Bastion
       href: reliability-bastion.md
     - name: Azure Communications Gateway
