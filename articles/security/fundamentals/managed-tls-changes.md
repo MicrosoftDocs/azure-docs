@@ -1,0 +1,42 @@
+---
+title: Changes to the Managed TLS Feature
+description: Learn about changes to the Azure managed TLS solution and domain control validation process.
+
+ms.service: entra
+ms.subservice: id-protection
+ms.topic: concept
+ms.date: 07/31/2025
+
+ms.author: sarahlipsey
+author: shlipsey3
+manager: pmwongera
+ms.reviewer: quentinb
+---
+
+# Changes to the Managed TLS Feature
+
+Azure offers a comprehensive managed TLS solution integrated with services such as Azure Front Door (AFD) and CDN Classic, Azure Front Door Standard/Premium SKU, Azure API Management, Azure App Service, Azure Container Apps, and Azure Static Web Apps. This capability includes managed TLS server certificates for customer vanity domains, provided by DigiCert.
+
+DigiCert is transitioning to a new open-source software (OSS) domain control validation (DCV) platform designed to enhance transparency and accountability in domain validation processes. DigiCert will no longer support the legacy CNAME Delegation DCV workflow for domain control validation in the specified Azure services.
+
+Consequently, these Azure services will be introducing an enhanced domain control validation process, aiming to significantly expedite domain validation and address key vulnerabilities in the user experience.
+
+This change does not impact the standard CNAME DCV process for DigiCert customers, where validation uses a random value in the CNAME record. Only a unique method previously exclusive to Microsoft is being retired.
+
+## Frequently Asked Questions
+
+**Q: What is domain control validation?**
+
+A: Domain Control Validation (DCV) is a critical process used to verify that an entity requesting a TLS/SSL certificate has legitimate control over the domain(s) listed in the certificate.
+
+**Q: Is support for vanity domains being retired?**
+
+A: No. The feature is very much supported and in fact is receiving several key updates that improve the overall user experience.
+
+> [!NOTE]
+> AFD classic and CDN Classic SKUs, which are on the path to deprecation, are retiring support for adding new vanity domains. For more information, see Azure Front Door (classic) and Azure CDN from Microsoft Classic SKU ending CNAME based domain validation and new domain/profile creations by August 15, 2025. Customers are recommended to use managed certificates with AFD Standard and Premium SKUs for new vanity domains.
+
+**Q: Is DigiCert retiring CNAME domain control validation?**
+
+A: No, only this specific CNAME validation method unique to Azure services is being retired. The CNAME DCV method used by DigiCert customers such as the one described here for OV/EV certificates and here for DV certificates is not impacted. Only Azure is impacted by this change.
+
