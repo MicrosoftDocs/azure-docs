@@ -84,7 +84,7 @@ The following steps show you how to create and display the Map control in a web 
    * The `onload` event in the body of the page calls the `GetMap` function when the body of the page finishes loading.
    * The `GetMap` function contains the inline JavaScript code used to access the Azure Maps APIs. This function is added in the next step.
 
-3. Next, add the following JavaScript code to the `GetMap` function, just beneath the code added in the last step. This code creates a map control and initializes it using your Azure Maps subscription keys that you provide. Make sure and replace the string `<Your Azure Maps Key>` with the Azure Maps primary key that you copied from your Maps account.
+3. Next, add the following JavaScript code to the `GetMap` function, just beneath the code added in the last step. This code creates a map control and initializes it using your Azure Maps subscription keys that you provide. Make sure to replace the string `<Your Azure Maps Key>` with the Azure Maps primary key that you copied from your Maps account.
 
     ```javascript
     //Instantiate a map object
