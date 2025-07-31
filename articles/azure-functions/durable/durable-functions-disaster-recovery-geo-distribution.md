@@ -51,18 +51,18 @@ However,  using this scenario consider:
 > 
 > Prior to v2.3.0, function apps that are configured to use the same storage account will process messages and update storage artifacts concurrently, resulting in much higher overall latencies and egress costs. If the primary and replica apps ever have different code deployed to them, even temporarily, then orchestrations could also fail to execute correctly because of orchestrator function inconsistencies across the two apps. It is therefore recommended that all apps that require geo-distribution for disaster recovery purposes use v2.3.0 or higher of the Durable extension.
 
-## Scenario 2 - Load balanced compute with regional storage
+## Scenario 2 - Load balanced compute with regional storage or regional Durable Task Scheduler
 
-The preceding scenario covers only the case of failure in the compute infrastructure. If the storage service fails, it will result in an outage of the function app.
-To ensure continuous operation of the durable functions, this scenario uses a local storage account on each region to which the function apps are deployed.
+The preceding scenario only covers failure scenarios limited to the compute infrastructure and is the recommended solution for failovers. If either the storage service or the Durable Task Scheduler (DTS) fails, it will result in an outage of the function app.
+To ensure continuous operation of durable functions, this scenario deploys a dedicated storage account or a Scheduler (DTS instance) in each region where function apps are hosted. ***Currently, this is the recommended disaster recovery approach when using Durable Task Scheduler.***
 
 ![Diagram showing scenario 2.](./media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario02.png)
 
 This approach adds improvements on the previous scenario:
 
-- If the function app fails, Traffic Manager takes care of failing over to the secondary region. However, because the function app relies on its own storage account, the durable functions continue to work.
-- During a failover, there is no additional latency in the failover region since the function app and the storage account are colocated.
-- Failure of the storage layer will cause failures in the durable functions, which in turn will trigger a redirection to the failover region. Again, since the function app and storage are isolated per region, the durable functions will continue to work.
+- **Regional State Isolation:** Each function app is linked to its own regional storage account or DTS instance. If the function app fails, Traffic Manager redirects traffic to the secondary region. Because the function app in each region uses its local storage or DTS, durable functions can continue processing using local state.
+- **No Added Latency on Failover:** During a failover, function app and state provider (storage or DTS) are co-located, so there is no additional latency in the failover region.
+- **Resilience to State Backing Failures:** If the storage account or DTS instance in one region fails, the durable functions in that region will fail, which will trigger redirection to the secondary region. Because compute and state are isolated per region, the failover region’s durable functions remain operational.
 
 Important considerations for this scenario:
 
