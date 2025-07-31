@@ -37,6 +37,14 @@ Assessment | You can add up to 35,000 servers in a single group.<br/><br/> You c
 
 - **Operating system:** All Windows and Linux operating systems can be assessed for migration.
 
+> [!CAUTION]
+> This article references Windows Server versions that have reached End of Support (EOS).Microsoft has officially ended support for the following operating systems:
+> - Windows Server 2003
+> - Windows Server 2008 (including SP2 and R2 SP1)
+> - Windows Server 2012
+> - Windows Server 2012 R2
+As a result, Azure Migrate doesn’t guarantee consistent or reliable outcomes for these OS versions. Customers may face problems and are strongly advised to upgrade to a supported Windows Server version before starting migration.
+
 ## Azure Migrate appliance requirements
 
 Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for discovery and assessment. The appliance for physical servers can run on a virtual machine (VM) or a physical server.
