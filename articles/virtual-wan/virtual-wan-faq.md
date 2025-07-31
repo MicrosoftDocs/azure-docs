@@ -32,7 +32,7 @@ Virtual WAN provides many functionalities built into a single pane of glass. Thi
 * VPN ExpressRoute Interconnectivity
 * [VNet-to-VNet transitive connectivity](virtual-wan-about.md#transit-vnet)
 * [Centralized Routing](about-virtual-hub-routing.md)
-* [Azure Firewall and Firewall Manager security](https://learn.microsoft.com/azure/firewall-manager/secured-virtual-hub)
+* [Azure Firewall and Firewall Manager security](/azure/firewall-manager/secured-virtual-hub)
 * [Monitoring](monitor-virtual-wan.md) 
 * [ExpressRoute Encryption](vpn-over-expressroute.md) and
 * [Many other capabilities](virtual-wan-about.md)
@@ -507,7 +507,7 @@ This limit is adjustable. For more information on the limit, the procedure to re
 
 ### Which services are included in the Maintenance Configuration scope of Network Gateways? 
 
-For Virtual WAN, you can configure maintenance windows for site-to-site VPN gateways and ExpressRoute gateways.
+For Virtual WAN, you can configure maintenance windows for site-to-site VPN gateways, point-to-site VPN gateways and ExpressRoute gateways.
 
 ### Which maintenance is supported or not supported by customer-controlled maintenance?
 

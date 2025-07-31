@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content, references_regions
 ms.topic: how-to
-ms.date: 07/02/2025
+ms.date: 07/08/2025
 ms.author: kendownie
 # Customer intent: As a Linux system administrator, I want to mount an NFS Azure file share, so that I can securely access and manage data stored in Azure from my Linux environment.
 ---
@@ -64,11 +64,11 @@ You can use the `nconnect` Linux mount option to improve performance for NFS Azu
 ### Mount an NFS share using the Azure portal (Recommended)
 
 1. Once the file share is created, select the share and then select **Connect from Linux**.
-2. Enter the mount path you'd like to use, then copy the script and run it on your client. Azure portal offers a step-by-step, ready-to-use installation script tailored to your selected Linux distribution for installing the AZNFS mount helper package and to securely mount the share using [Encyption in Transit](encryption-in-transit-for-nfs-shares.md). Only the required mount options are included in the script, but you can add other [recommended mount options](#mount-options).
+1. Enter the mount path you'd like to use, then copy the script and run it on your client. Azure portal offers a step-by-step, ready-to-use installation script tailored to your selected Linux distribution for installing the AZNFS mount helper package and to securely mount the share using [Encyption in Transit](encryption-in-transit-for-nfs-shares.md). Only the required mount options are included in the script, but you can add other [recommended mount options](#mount-options).
 
    :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/mount-file-share.png" alt-text="Screenshot showing how to connect to an N F S file share from Linux using a provided mounting script." lightbox="media/storage-files-how-to-mount-nfs-shares/mount-file-share.png" border="true":::
 
-The NFS file share is now mounted.
+The NFS file share should now be mounted. If the mount fails, ensure that the *Secure transfer required* setting is [enabled on the storage account](encryption-in-transit-for-nfs-shares.md?tabs=azure-portal%2CUbuntu#enforce-encryption-in-transit).
 
 ### Mount an NFS share using the NFS client mount in command line
 
@@ -110,13 +110,43 @@ sudo mount -t nfs <YourStorageAccountName>.core.windows.net:/<YourStorageAccount
 
 ### Mount an NFS share using /etc/fstab
 
-If you want the NFS file share to automatically mount every time the Linux server or VM boots, create a record in the **/etc/fstab** file for your Azure file share. Replace `YourStorageAccountName` and `FileShareName` with your information.
+If you want the NFS file share to automatically mount every time the Linux server or VM boots, create a record in the **/etc/fstab** file for your Azure file share. The record will differ depending on whether or not you're using the AZNFS Mount Helper or the native NFS mount commands.
+
+To determine whether the AZNFS Mount Helper package is installed on your client, run the following command:
+
+```bash
+systemctl is-active --quiet aznfswatchdog && echo -e "\nAZNFS Mount Helper is installed! \n"
+```
+
+If the package is installed, then the message `AZNFS Mount Helper is installed!` appears.
+
+Remember to replace `<YourStorageAccountName>` and `<FileShareName>` with your own values. For more information, enter the command `man fstab` from the Linux command line.
+
+#### Mount using AZNFS Mount Helper and encryption in transit (recommended)
+
+The record in **/etc/fstab** should look like this if you're using the AZNFS Mount Helper and want to mount the share using encryption in transit. 
+
+```bash
+<YourStorageAccountName>.file.core.windows.net:/<YourStorageAccountName>/<FileShareName> /media/<YourStorageAccountName>/<FileShareName> aznfs defaults,sec=sys,vers=4.1,nolock,proto=tcp,nofail,_netdev   0 2
+```
+
+If the mount fails, ensure that the *Secure transfer required* setting is [enabled on the storage account](encryption-in-transit-for-nfs-shares.md?tabs=azure-portal%2CUbuntu#enforce-encryption-in-transit).
+
+#### Mount using AZNFS Mount Helper without encryption in transit
+
+If you're using the AZNFS Mount Helper but don't want to use encryption in transit, the record in **/etc/fstab** should look like this:
+
+```bash
+<YourStorageAccountName>.file.core.windows.net:/<YourStorageAccountName>/<FileShareName> /media/<YourStorageAccountName>/<FileShareName> aznfs defaults,sec=sys,vers=4.1,nolock,proto=tcp,nofail,_netdev,notls   0 2
+```
+
+#### Mount using native NFS mount commands
+
+If you're using the native NFS mount without AZNFS, the record in **/etc/fstab** should look like this:
 
 ```bash
 <YourStorageAccountName>.file.core.windows.net:/<YourStorageAccountName>/<FileShareName> /media/<YourStorageAccountName>/<FileShareName> nfs vers=4,minorversion=1,_netdev,nofail,sec=sys 0 0
 ```
-
-For more information, enter the command `man fstab` from the Linux command line.
 
 ### Mount options
 

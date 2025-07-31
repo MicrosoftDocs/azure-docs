@@ -59,9 +59,6 @@ Check that the zipped file is secure, before you deploy it.
 2. Run the following command to generate the hash for the VHD
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v3.20.09.25.zip -Algorithm SHA256```
-
-Verify the latest hash value by comparing the outcome of above command to the value documented [here](./tutorial-discover-hyper-v.md#verify-security)
-
 ## Create the appliance
 
 Import the downloaded file, and create an appliance.

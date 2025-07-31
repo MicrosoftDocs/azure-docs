@@ -118,6 +118,12 @@ items:
           href: tutorial-ai-openai-search-java.md
         - name: Chatbot with local SLM
           href: tutorial-ai-slm-spring-boot.md
+        - name: Add MCP server to app
+          href: tutorial-ai-model-context-protocol-server-java.md
+        - name: AI Foundry Agent calling web app
+          href: tutorial-ai-integrate-azure-ai-agent-java.md
+        - name: Agentic web app
+          href: tutorial-ai-agent-web-app-semantic-kernel-java.md
   - name: Node.js
     items:
     - name: Quickstart
@@ -142,6 +148,12 @@ items:
           href: tutorial-ai-openai-search-nodejs.md
         - name: Chatbot with local SLM
           href: tutorial-ai-slm-expressjs.md
+        - name: Add MCP server to app
+          href: tutorial-ai-model-context-protocol-server-node.md
+        - name: AI Foundry Agent calling web app
+          href: tutorial-ai-integrate-azure-ai-agent-node.md
+        - name: Agentic web app
+          href: tutorial-ai-agent-web-app-langgraph-foundry-node.md
   - name: Python
     items:
     - name: Quickstart
@@ -506,6 +518,14 @@ items:
           href: tutorial-custom-container.md
         - name: Deploy with Azure Pipelines
           href: deploy-container-azure-pipelines.md
+- name: Sidecars
+  items:
+    - name: Overview
+      href: overview-sidecar.md
+    - name: Configure sidecars
+      href: configure-sidecar.md
+    - name: Migrate from multi-container
+      href: migrate-sidecar-multi-container-apps.md
 - name: WebJobs
   items:
     - name: Overview
@@ -533,8 +553,8 @@ items:
   items:
   - name: Reliability in Azure App Service
     href: ../reliability/reliability-app-service.md?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
-  - name: Migrate to availability zones
-    href: ../reliability/migrate-app-service.md?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
+  - name: Configure App Service for zone redundancy
+    href: configure-zone-redundancy.md
 - name: Samples
   items:
     - name: Azure CLI

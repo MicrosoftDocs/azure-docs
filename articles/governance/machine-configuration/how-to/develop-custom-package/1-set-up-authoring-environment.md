@@ -1,7 +1,7 @@
 ---
 title: How to install the machine configuration authoring module
 description: Learn how to install the PowerShell module for creating and testing machine configuration policy definitions and assignments.
-ms.date: 02/01/2024
+ms.date: 07/22/2025
 ms.topic: how-to
 ---
 # How to set up a machine configuration authoring environment
@@ -24,7 +24,7 @@ Support for applying configurations through machine configuration is introduced 
 
 Operating systems where the module can be installed:
 
-- Ubuntu 20
+- Ubuntu 20+
 - Windows
 
 The module can be installed on a machine running PowerShell 7.x. Install the versions of PowerShell
@@ -33,45 +33,12 @@ listed in the following table for your operating system.
 | OS         | Minimum Required PowerShell Version | Installation                           |
 |------------|:-----------------------------------:|----------------------------------------|
 | Windows    |               `7.1.3`               | [Installing PowerShell on Windows][01] |
-| Ubuntu 20  |               `7.2.4`               | [Installing PowerShell on Ubuntu][02]  |
-
-For Linux, the following shell script downloads and installs PowerShell 7.2.4.
-
-```sh
-###################################
-# Prerequisites
-
-# Update the list of packages
-sudo apt-get update
-
-# Install pre-requisite packages.
-sudo apt-get install -y wget
-
-# Download the PowerShell package file
-wget https://github.com/PowerShell/PowerShell/releases/download/v7.2.4/powershell_7.2.4-1.deb_amd64.deb
-
-###################################
-# Install the PowerShell package
-sudo dpkg -i powershell_7.2.4-1.deb_amd64.deb
-
-# Resolve missing dependencies and finish the install (if necessary)
-sudo apt-get install -f
-
-# Delete the downloaded package file
-rm powershell_7.2.4-1.deb_amd64.deb
-
-# Switch the user to root before launching PowerShell
-sudo su
-
-# Start PowerShell
-pwsh
-```
+| Ubuntu 20+  |               `7.2.4`               | [Installing PowerShell on Ubuntu][02]  |
 
 The **GuestConfiguration** module requires the following software:
 
 - Azure PowerShell 5.9.0 or higher. The required Az PowerShell modules are installed automatically
   with the **GuestConfiguration** module, or you can follow [these instructions][03].
-
 
 ### Install the GuestConfiguration module from the PowerShell Gallery
 

@@ -4,8 +4,8 @@ description: Learn how to back up blobs in a storage account with an ARM templat
 ms.topic: quickstart
 ms.custom: devx-track-arm-template
 ms.date: 06/17/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a cloud administrator, I want to back up Azure Blob data in a storage account using an ARM template, so that I can ensure data protection with customizable retention policies and automated scheduling."
 ---
 

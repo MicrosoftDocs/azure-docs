@@ -3,12 +3,12 @@ title: List blob containers with Python
 titleSuffix: Azure Storage
 description: Learn how to list blob containers in your Azure Storage account using the Python client library.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/05/2024
-ms.author: pauljewell
+ms.author: shaas
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
 # Customer intent: "As a Python developer, I want to list blob containers in my Azure Storage account, so that I can manage and retrieve my stored data efficiently using the cloud's capabilities."

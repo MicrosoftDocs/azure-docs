@@ -9,6 +9,7 @@ ms.custom: devx-track-azurepowershell
 ms.topic: article
 ms.date: 04/24/2024
 ms.author: juergent
+# Customer intent: As an SAP system administrator, I want to configure deployment options like proximity placement groups and virtual machine scale sets, so that I can minimize network latency between SAP application and database tiers to ensure optimal performance for business processes.
 ---
 
 # Configuration options to minimize network latency with SAP applications

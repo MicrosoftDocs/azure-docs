@@ -3,7 +3,7 @@ title: Manage Runtime Environment and Associated Runbooks in Azure Automation
 description: This article tells how to manage runbooks in Runtime environment and associated runbooks Azure Automation
 services: automation
 ms.subservice: process-automation
-ms.date: 06/27/2025
+ms.date: 07/09/2025
 ms.topic: how-to
 ms.custom: references_regions
 ms.service: azure-automation
@@ -95,7 +95,7 @@ In the **Runtime Environments** page, you can view the newly created  Runtime en
 
 You can create a new Runtime environment for PowerShell 7.4 with Az PowerShell module in the Automation.
 
-```rest
+```REST
 PUT 
 https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Automation/automationAccounts/<accountName>/runtimeEnvironments/<runtimeEnvironmentName>?api-version=2024-10-23 
 
@@ -114,7 +114,7 @@ https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<reso
 ```
 Upload a package Az.Accounts to the Runtime environment.  
 
-```rest
+```REST
 PUT 
 https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Automation/automationAccounts/<accountName>/runtimeEnvironments/<runtimeEnvironmentName>/packages/Az.Accounts?api-version=2024-10-23
 
@@ -131,17 +131,9 @@ https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<reso
 ### View Runtime environment
 
 Get the Runtime environment properties from the Automation account.
-```rest
+```REST
 GET 
-https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Automation/automationAccounts/<accountName>/runtimeEnvironments/<runtimeEnvironmentName>?api-version=2023-05-15-preview 
-```
-
-### View Runtime environment
-
-Get the Runtime environment properties from the Automation account.
-```rest
-GET
-https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Automation/automationAccounts/<accountName>/runtimeEnvironments/<runtimeEnvironmentName>?api-version=2023-05-15-preview
+https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Automation/automationAccounts/<accountName>/runtimeEnvironments/<runtimeEnvironmentName>?api-version=2024-10-23 
 ```
 
 ### List Runtime environments
@@ -156,7 +148,7 @@ To list all the Runtime environments from the Automation account, follow this st
 
 #### [REST API](#tab/list-runtime-rest) 
 
-```rest
+```REST
 GET 
 https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Automation/automationAccounts/<accountName>/runtimeEnvironments?api-version=2024-10-23
 ```
@@ -185,7 +177,7 @@ To delete the Runtime environment from the Automation account, follow these step
 
 #### [REST API](#tab/delete-runtime-rest)
 
-```rest
+```REST
 DELETE  
 https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Automation/automationAccounts/<accountName>/runtimeEnvironments/<runtimeEnvironmentName>?api-version=2024-10-23
 ```
@@ -215,7 +207,7 @@ To update a Runtime environment, follow these steps:
 
 Update the Az module version of an existing Runtime environment.
 
-```rest
+```REST
 PATCH 
 https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Automation/automationAccounts/<accountName>/runtimeEnvironments/<runtimeEnvironmentName>?api-version=2024-10-23
 { 
@@ -269,7 +261,7 @@ This runbook is linked to the selected Runtime environment. All the packages in 
 **Prerequisite**
 - Configure a PowerShell Runtime environment and provide it as an input for runbook creation. 
 
-```rest
+```REST
 PUT 
 https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Automation/automationAccounts/<accountName>/runbooks/<runbookName>?api-version=2024-10-23
 
@@ -316,12 +308,12 @@ Check if the runbook executes as expected after update. If the runbook fails to 
 
 Update Runtime environment linked to a runbook.  
 
-```rest
+```REST
 PATCH 
 https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Automation/automationAccounts/<accountName>/runbooks/<runbookName>?api-version=2024-10-23
 { 
   "properties": { 
-    "type": "PowerShell" 
+    "type": "PowerShell",
     "runtimeEnvironment": "<runtimeEnvironmentName>" 
   } 
 } 
@@ -357,7 +349,7 @@ To test runbook execution before publishing Runtime environment changes, follow 
 
 Run a test job for a runbook with a different Runtime environment. This scenario is useful when a runbook needs to be tested with a Runtime environment before update.
 
-```rest
+```REST
 PUT 
 https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Automation/automationAccounts/<accountName>/runbooks/<runbookName>/draft/testJob?api-version=2024-10-23
 { 
@@ -378,7 +370,7 @@ You can execute runbooks linked to Runtime Environment both on Azure and Hybrid 
 #### [REST API](#tab/create-cloud-job-rest)
 Jobs inherit the Runtime environment from the runbook. Run a cloud job for a published runbook.
 
-```rest
+```REST
 PUT
 https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Automation/automationAccounts/<accountName>/jobs/<jobName>?api-version=2024-10-23
 {

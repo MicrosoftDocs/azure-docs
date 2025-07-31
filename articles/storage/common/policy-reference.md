@@ -23,19 +23,19 @@ the link in the **Version** column to view the source on the
 
 ## Microsoft.Storage
 
-[!INCLUDE [azure-policy-reference-service-storage](../../../includes/policy/reference/byrp/microsoft.storage.md)]
+[!INCLUDE [azure-policy-reference-service-storage](~/azure-policy-autogen-docs/includes/policy/reference/byrp/microsoft.storage.md)]
 
 ## Microsoft.StorageCache
 
-[!INCLUDE [azure-policy-reference-service-storagecache](../../../includes/policy/reference/byrp/microsoft.storagecache.md)]
+[!INCLUDE [azure-policy-reference-service-storagecache](~/azure-policy-autogen-docs/includes/policy/reference/byrp/microsoft.storagecache.md)]
 
 ## Microsoft.StorageSync
 
-[!INCLUDE [azure-policy-reference-service-storagesync](../../../includes/policy/reference/byrp/microsoft.storagesync.md)]
+[!INCLUDE [azure-policy-reference-service-storagesync](~/azure-policy-autogen-docs/includes/policy/reference/byrp/microsoft.storagesync.md)]
 
 ## Microsoft.ClassicStorage
 
-[!INCLUDE [azure-policy-reference-service-storageclassic](../../../includes/policy/reference/byrp/microsoft.classicstorage.md)]
+[!INCLUDE [azure-policy-reference-service-storageclassic](~/azure-policy-autogen-docs/includes/policy/reference/byrp/microsoft.classicstorage.md)]
 
 ## Next steps
 

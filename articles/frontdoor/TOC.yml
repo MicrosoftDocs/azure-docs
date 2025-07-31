@@ -197,6 +197,8 @@
       href: /previous-versions/azure/cdn/edgio-retirement-faq?toc=/azure/frontdoor/toc.json
 - name: Security
   items:
+  - name: Secure your Front Door
+    href: secure-front-door.md
   - name: Security baseline
     href: /security/benchmark/azure/baselines/azure-front-door-security-baseline?toc=/azure/frontdoor/toc.json
   - name: DDoS protection

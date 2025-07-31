@@ -4,8 +4,8 @@ description: In this article, discover solutions for issues that you might encou
 ms.topic: troubleshooting
 ms.date: 01/31/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a backup administrator, I want to troubleshoot issues with Data Protection Manager, so that I can ensure reliable data protection and recovery processes for my organization.
 ---
 

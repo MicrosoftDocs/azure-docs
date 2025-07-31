@@ -45,7 +45,7 @@ You can use a similar pattern for REST and other supported languages to get task
 The List Pool Node Counts operation counts compute nodes by the following states in each pool. Separate aggregate counts are provided for dedicated nodes and Spot nodes in each pool.
 
 - **Creating**: An Azure-allocated VM that hasn't yet started to join a pool.
-- **Idle**: A compute node that's availale and currently not running any tasks.
+- **Idle**: A compute node that's available and currently not running any tasks.
 - **LeavingPool**: A node that is leaving the pool, either because the user explicitly removed it or because the pool is resizing or autoscaling down.
 - **Offline**: A node that Batch cannot use to schedule new tasks.
 - **Preempted**: A Spot node that was removed from the pool because Azure reclaimed the VM. A `preempted` node can be reinitialized when replacement Spot VM capacity is available.

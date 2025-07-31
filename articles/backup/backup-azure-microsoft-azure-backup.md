@@ -2,10 +2,10 @@
 title: Use Azure Backup Server to back up workloads
 description: In this article, learn how to prepare your environment to protect and back up workloads using Microsoft Azure Backup Server (MABS).
 ms.topic: how-to
-ms.date: 06/27/2025
+ms.date: 07/15/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
 # Customer intent: "As an IT administrator, I want to set up Azure Backup Server to back up application workloads, so that I can ensure data protection and recovery for my organization's critical systems."
 ---
@@ -402,3 +402,7 @@ You can use these articles to gain a deeper understanding of workload protection
 * [SQL Server backup](backup-azure-backup-sql.md)
 * [SharePoint Server backup](backup-azure-backup-sharepoint.md)
 * [Alternate server backup](backup-azure-alternate-dpm-server.md)
+
+## Related content
+
+[Run an unattended installation of MABS](backup-mabs-unattended-install.md).
