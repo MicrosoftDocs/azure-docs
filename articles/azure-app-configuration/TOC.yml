@@ -200,6 +200,8 @@
       href: howto-feature-filters-javascript.md
     - name: Python
       href: howto-feature-filters-python.md
+    - name: Go Gin
+      href: howto-feature-filters-go.md
   - name: Enable features on a schedule
     items:
     - name: Overview
@@ -208,6 +210,8 @@
       href: howto-timewindow-filter-aspnet-core.md
     - name: JavaScript
       href: howto-timewindow-filter-javascript.md
+    - name: Go Gin
+      href: howto-timewindow-filter-go.md
     - name: Python
       href: howto-time-window-filter-python.md
   - name: Roll out features to targeted audience
@@ -218,6 +222,8 @@
       href: howto-targetingfilter-aspnet-core.md
     - name: JavaScript
       href: howto-targetingfilter-javascript.md
+    - name: Go Gin
+      href: howto-targetingfilter-go.md
   - name: Use variant feature flags
     items:
     - name: Overview
