@@ -180,6 +180,7 @@
       "recommendation_types": ["Training", "Certification"],
       "uhfHeaderId": "azure",
       "ms.suite": "office",
+      "adobe-target": true,
       "contributors_to_exclude": [
         "alexbuckgit",
         "American-Dipper",
