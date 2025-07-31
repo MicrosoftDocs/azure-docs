@@ -11,13 +11,13 @@ ms.custom: template-concept
 
 # How to convert a SEG-Y file to oVDS
 
-In this article, you learn how to convert SEG-Y formatted data to the Open VDS (oVDS) format. Seismic data stored in the industry standard SEG-Y format can be converted to oVDS format for use in applications via the Seismic DMS. See here for  OSDU&reg; community here: [SEG-Y to oVDS conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-vds-conversion/-/tree/master). This tutorial is a step by step guideline how to perform the conversion. Note the actual production workflow may differ and use as a guide for the required set of steps to achieve the conversion.
+In this article, you will learn how to convert SEG-Y formatted data to the Open VDS (oVDS) format. Seismic data stored in the industry standard SEG-Y format can be converted to oVDS format for use in applications via the Seismic DDMS. See here for  OSDU&reg; community reference: [SEG-Y to oVDS conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-vds-conversion/-/tree/master). This tutorial is a step by step guideline on how to perform the conversion. Note the actual production workflow may differ and use it as a guide for the required set of steps to achieve the conversion.
 
 ## Prerequisites
 * An Azure subscription
 * An instance of [Azure Data Manager for Energy](quickstart-create-microsoft-energy-data-services-instance.md) created in your Azure subscription
 * cURL command-line tool installed on your machine
-* Generate the service principal access token to call the Seismic APIs. See [How to generate auth token](how-to-generate-auth-token.md).
+* Generate the service principal access_token to call the Seismic APIs. See [How to generate auth token](how-to-generate-auth-token.md).
 - A SEG-Y File
   - You may use any of the following files from the Volve dataset as a test. The Volve data set itself is available from [Equinor](https://www.equinor.com/energy/volve-data-sharing).
     - [Small < 100 MB](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/azure/m16-master/source/ddms-smoke-tests/ST0202R08_PSDM_DELTA_FIELD_DEPTH.MIG_FIN.POST_STACK.3D.JS-017534.segy)
@@ -32,7 +32,7 @@ In this article, you learn how to convert SEG-Y formatted data to the Open VDS (
 |----|----|----|----|
 | `DNS` | URI | `<instance>.energy.azure.com` | Find this value on the overview page of the Azure Data Manager for Energy instance. |
 | `data-partition-id` | Data partitions | `<data-partition-id>` | Find this value on the Data Partitions section within the Azure Data Manager for Energy instance. |
-| `access_token`       | Access token value       | `0.ATcA01-XWHdJ0ES-qDevC6r...........`| Follow [How to generate auth token](how-to-generate-auth-token.md) to create an access token and save it.|
+| `access_token`       | access_token value       | `0.ATcA01-XWHdJ0ES-qDevC6r...........`| Follow [How to generate auth token](how-to-generate-auth-token.md) to create an access_token and save it.|
 
 Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entitlements for the user who's running this tutorial.
 
@@ -49,8 +49,8 @@ Create a legal tag that is automatically added to the Seismic DDMS environment f
 API: **Setup** > **Create Legal Tag for SDMS**
 
 ```bash
-curl --request POST \
-  --url https://{base_url}/api/legal/v1/legaltags \
+cURL --request POST \
+  --url https://{DNS}/api/legal/v1/legaltags \
   --header 'Authorization: Bearer {access_token}' \
   --header 'Content-Type: application/json' \
   --header 'Data-Partition-Id:  {data_partition_id}' \
@@ -102,10 +102,10 @@ This file contains the sample [Vector Header Mapping](https://github.com/microso
 
 ### Validate User Access
 
-Use the following `curl` command to get user groups:
+Use the following `cURL` command to get user groups:
 
 ```bash
-curl -X GET "https://<DNS>/api/entitlements/v2/groups" \
+cURL -X GET "https://<DNS>/api/entitlements/v2/groups" \
      -H "Authorization: Bearer <access_token>" \
      -H "Content-Type: application/json" \
      -H "data-partition-id: <data_partition_id>"
@@ -124,10 +124,10 @@ curl -X GET "https://<DNS>/api/entitlements/v2/groups" \
 
 ### Add User to Admin Group
 
-Use the following `curl` command to add a user to the admin group:
+Use the following `cURL` command to add a user to the admin group:
 
 ```bash
-curl -X POST "https://<DNS>/api/entitlements/v2/groups/users.datalake.admins@<data_partition_id>.<domain>/members" \
+cURL -X POST "https://<DNS>/api/entitlements/v2/groups/users.datalake.admins@<data_partition_id>.<domain>/members" \
      -H "Authorization: Bearer <access_token>" \
      -H "Content-Type: application/json" \
      -H "data-partition-id: <data_partition_id>"
@@ -148,14 +148,15 @@ curl -X POST "https://<DNS>/api/entitlements/v2/groups/users.datalake.admins@<da
 If you haven't yet created entitlements groups, follow the directions as outlined in [How to manage users](how-to-manage-users.md). If you would like to see what groups you have, use [Get entitlements groups for a given user](how-to-manage-users.md#get-osdu-groups-for-a-given-user-in-a-data-partition). Data access isolation is achieved with this dedicated ACL (access control list) per object within a given data partition. 
 
 Follow this [tutorial](tutorial-seismic-ddms.md) to Prepare Subproject which involves following steps:
-Register Data Partition to Seismic
-Create Subproject
-Create dataset
+
+1. Register Data Partition to Seismic -Create a tenant
+2. Create a Subproject
+3. Register a Dataset
 
 ### Upload the File
 
-There are two ways to upload a SEGY file. One option is to use the sasurl through curl call. You need to setup Curl on your OS. 
-The second method is to use [SDUTIL](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tags/azure-stable). To log in to your instance for ADME via the tool you need to generate a refresh token for the instance. See [How to generate auth token](how-to-generate-auth-token.md). Alternatively, you can modify the code of SDUTIL to use client credentials instead to log in. If you haven't already, you need to setup SDUTIL. Download the codebase and edit the `config.yaml` at the root. Replace the contents of this config file with the following yaml. 
+There are two ways to upload a SEGY file. One option is to use the sasurl through cURL call. You need to setup cURL on your OS. 
+The second method is to use [SDUTIL](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tags/azure-stable). To log in to your instance for ADME via the tool you need to generate a refresh token for the instance. See [How to generate auth token](how-to-generate-auth-token.md). Alternatively, you can modify the code of SDUTIL to use client credentials instead to log in. If you haven't already, you need to setup SDUTIL.Check this guide for setting up [SDUTIL](tutorial-seismic-ddms-sdutil.md) Download the codebase and edit the `config.yaml` at the root. Replace the contents of this config file with the following yaml. 
 
 ```yaml
 seistore:
@@ -178,12 +179,12 @@ azure:
     empty: none
 ```
 
-#### Method 1: curl
+#### Method 1: cURL
 
 ##### Get gcs url:
-curl -X GET \
+cURL -X GET \
     -H "content-type: application/json" \
-    -H "Authorization: Bearer <access>" \
+    -H "Authorization: Bearer <access_token>" \
     "https://<DNS>/seistore-svc/api/v3/dataset/tenant/<datapartition>/subproject/<vdssubprojectname>/dataset/<datasetname>"
 
 
@@ -193,13 +194,13 @@ Should be a string. we call it gcsstring.
 
 ##### Get the sasurl:
 
-Use the following `curl` command to get a SAS upload URL:
+Use the following `cURL` command to get a SAS upload URL:
 
 ```bash
-curl -X 'GET' \
+cURL -X 'GET' \
   'https://<DNS>/seistore-svc/api/v3/utility/upload-connection-string?sdpath=sd://<tenant>/<vdssubprojectname>' \
   -H 'accept: application/json' \
-  -H 'Authorization: Bearer <access token>'
+  -H 'Authorization: Bearer <access_token>'
 ```
 
 **Sample Response:**
@@ -218,12 +219,12 @@ container=$(echo "$filepath" | cut -d'/' -f1)
 sasurl=$(echo "<sas token>" | sed "s|$container|$filepath|")
 ```
 
-##### Upload the file:
+##### Upload the SEG-Y file:
 
-Use the following `curl` command:
+Use the following `cURL` command:
 
 ```bash
-curl -X PUT -T "<local_file_path>" "<sas_url>" \
+cURL -X PUT -T "<local_file_path>" "<sas_url>" \
      -H "x-ms-blob-type: BlockBlob"
 ```
 
@@ -237,19 +238,19 @@ curl -X PUT -T "<local_file_path>" "<sas_url>" \
 
 ##### Verify upload
 
-Use the following `curl` command to verify file upload:
+Use the following `cURL` command to verify file upload:
 
 ```bash
-curl -X 'GET' \
-  'https://<DNS>/seistore-svc/api/v3/utility/ls?sdpath=sd%3A%2F%2F<tenant>%2F<vdssubprojectname>' \
+cURL -X 'GET' \
+  'https://<DNS>/seistore-svc/api/v3/utility/ls?sdpath=sd://<tenant>/<vdssubprojectname>' \
   -H 'accept: application/json' \
-  -H 'Authorization: Bearer <access token>'
+  -H 'Authorization: Bearer <access_token>'
 ```
 
 **Sample Response:**
 ```json
 [
-  list of file.
+  list of files.
 ]
 ```
 
@@ -279,10 +280,12 @@ python sdutil cp ST10010ZC11_PZ_PSDM_KIRCH_FULL_T.MIG_FIN.POST_STACK.3D.JS-01753
 
 ### Create Header Vector Mapping 
 
-Use the following `curl` command:
+This file contains the sample [Vector Header Mapping](https://github.com/microsoft/adme-samples/blob/main/postman/CreateVectorHeaderMappingKeys_SEGYtoVDS.json). You can get the request payload from sample. 
+
+Use the following `cURL` command:
 
 ```bash
-curl -X PUT "https://<DNS>/api/storage/v2/records" \
+cURL -X PUT "https://<DNS>/api/storage/v2/records" \
      -H "Authorization: Bearer <access_token>" \
      -H "Content-Type: application/json" \
      -H "data-partition-id: <data_partition_id>" \
@@ -316,10 +319,12 @@ curl -X PUT "https://<DNS>/api/storage/v2/records" \
 
 ### Create Storage Records
 
-Use the following `curl` command to create storage records:
+This file contains the sample [Storage Records](https://github.com/microsoft/adme-samples/blob/main/postman/StorageRecord_SEGYtoVDS.json) for the VDS conversion. 
+
+Use the following `cURL` command to create storage records:
 
 ```bash
-curl --request PUT \
+cURL --request PUT \
   --url 'https://<DNS>/api/storage/v2/records' \
   --header 'Accept: application/json' \
   --header 'Authorization: Bearer {{access_token}}' \
@@ -367,16 +372,16 @@ curl --request PUT \
 
 1. Trigger the VDS Conversion DAG to convert your data using the execution context values you had saved above.
 
-    Fetch the ID token from sdutil for the uploaded file or use an access/bearer token from curl.
+    Fetch the ID token from sdutil for the uploaded file or use an access/bearer token from cURL.
 
 ```markdown
 python sdutil auth idtoken
 ```
 
-Use the following `curl` command:
+Use the following `cURL` command to trigger workflow:
 
 ```bash
-curl -X POST "https://<DNS>/api/workflow/v1/workflow/segy-to-vds-conversion" \
+cURL -X POST "https://<DNS>/api/workflow/v1/workflow/segy-to-vds-conversion" \
      -H "Authorization: Bearer <access_token>" \
      -H "Content-Type: application/json" \
      -d '{
@@ -405,10 +410,10 @@ curl -X POST "https://<DNS>/api/workflow/v1/workflow/segy-to-vds-conversion" \
 
 2. Let the DAG run to the `succeeded` state. You can check the status using the workflow status call. The run ID is in the response of the above call
 
-Use the following `curl` command:
+Use the following `cURL` command:
 
 ```bash
-curl -X GET "https://<DNS>/api/workflow/v1/workflow/segy-to-vds-conversion/<vds_run_id>" \
+cURL -X GET "https://<DNS>/api/workflow/v1/workflow/segy-to-vds-conversion/<vds_run_id>" \
      -H "Authorization: Bearer <access_token>" \
      -H "Content-Type: application/json"
 ```
@@ -424,10 +429,10 @@ curl -X GET "https://<DNS>/api/workflow/v1/workflow/segy-to-vds-conversion/<vds_
 
 ### Verify File Conversion
 
-Use the following `curl` command to verify file conversion:
+Use the following `cURL` command to verify file conversion:
 
 ```bash
-curl --request GET \
+cURL --request GET \
   --url 'http://{{seismic_ddms_host}}/utility/ls?sdpath=sd://{{tenant}}/{{vdsTestSubprojectName}}' \
   --header 'Authorization: Bearer {{access_token}}'
 
@@ -440,7 +445,7 @@ curl --request GET \
 }
 ```
 
-3. You can see if the converted file is present using the following command in sdutil or in the curl API call:
+3. You can see if the converted file is present using the following command in sdutil or in the cURL API call:
 
     ```bash
     python sdutil ls sd://<data-partition-id>/vdssubprojectname
