@@ -1,5 +1,5 @@
 ---
-title: Configure continuous deployment using Deployment Center
+title: Set Up Continuous Deployment with Deployment Center
 description: Automate Azure Logic Apps Standard applications deployments using Azure Deployment Center feature.
 ms.service: azure-logic-apps
 ms.suite: integration
