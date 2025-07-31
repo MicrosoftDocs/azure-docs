@@ -18,7 +18,7 @@ This article provides links to reliability guidance for many Azure services. Mos
 
 - *Transient fault handling* describes how the service handles day-to-day transient faults that can occur in the cloud. It also describes how to handle these faults in your application, including information about retry policies, timeouts, and other best practices.
 
-- *Availability zones* describes zonal and zone-redundant deployment options, traffic routing and data replication between zones, what happens when a zone experiences an outage, failback, and how to configure your resources for availability zone support.
+- *Availability zones* describe zonal and zone-redundant deployment options, traffic routing and data replication between zones, what happens when a zone experiences an outage, failback, and how to configure your resources for availability zone support.
 
 - *Multi-region support* describes how to configure multi-region or geo-disaster support, traffic routing and data replication between regions, region-down experience, failover and failback support, and alternative multi-region support.
 
@@ -42,7 +42,7 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure API Center| [Reliability in Azure API Center](reliability-api-center.md) ||
 |Azure API Management | [Reliability in API Management](reliability-api-management.md) ||
 |Azure App Configuration||[How does App Configuration ensure high data availability?](../azure-app-configuration/faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-does-app-configuration-ensure-high-data-availability) </p> [Resiliency and disaster recovery](../azure-app-configuration/concept-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&tabs=core2x)|
-|Azure Application Gateway v2||[Scale Application Gateway v2 and WAF v2](../application-gateway/application-gateway-autoscaling-zone-redundant.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+|Azure Application Gateway v2||[Scale Application Gateway v2](../application-gateway/application-gateway-autoscaling-zone-redundant.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Application Gateway for Containers| [Reliability in Application Gateway for Containers](reliability-app-gateway-containers.md )    ||
 |Azure Health Data Services||[Disaster recovery for Health Data Services](../healthcare-apis/azure-api-for-fhir/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure App Service| [Reliability in App Service](reliability-app-service.md)||
