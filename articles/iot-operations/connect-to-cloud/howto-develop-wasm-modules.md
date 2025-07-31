@@ -89,10 +89,10 @@ Operators are the fundamental processing units based on [Timely dataflow operato
 
 Modules are the implementation of operator logic as WASM code. A single module can implement multiple operator types. For example, a temperature module might provide:
 
-- A map operator for unit conversion.
-- A filter operator for threshold checking.
-- A branch operator for routing decisions.
-- An accumulate operator for statistical aggregation.
+- A map operator for unit conversion
+- A filter operator for threshold checking
+- A branch operator for routing decisions
+- An accumulate operator for statistical aggregation
 
 ### The relationship
 
