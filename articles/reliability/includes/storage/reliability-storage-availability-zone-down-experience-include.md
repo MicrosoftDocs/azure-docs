@@ -13,6 +13,8 @@
 
     If a zone becomes unavailable, Azure undertakes networking updates such as Domain Name System (DNS) repointing.
 
+- **Notification:** Zone failure events can be monitored through Azure Service Health and Resource Health. Set up alerts on these services to receive notifications of zone-level issues.
+
 - **Active requests:** In-flight requests might be dropped during the recovery process and should be retried. Applications should [implement retry logic](#transient-faults) to handle these temporary interruptions.
 
 - **Expected data loss:** No data loss occurs during zone failures because data is synchronously replicated across multiple zones before write operations complete.
