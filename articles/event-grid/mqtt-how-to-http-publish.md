@@ -73,7 +73,7 @@ In this sample command:
 
 ---
 
-## Step 4: Verify in MQTTX
+## Verify in MQTTX
 Use MQTTX or any MQTT library (like paho-mqtt Python) to subscribe to the same topic to confirm delivery. 
 
 1. Create a new connection in MQTTX:
@@ -97,3 +97,5 @@ If the publish **succeeds**, you see:
 - **Message doesn’t appear?** — Ensure topic is percent-encoded in the URL, check broker routing config, and verify you’re using the same namespace.
 
 
+## Related content
+For an overview of this feature, see [HTTP Publihs of MQTT messages with Azure Event Grid](mqtt-http-publish.md).
