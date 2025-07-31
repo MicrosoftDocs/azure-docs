@@ -187,7 +187,7 @@ azure:
 cURL -X GET \
     -H "content-type: application/json" \
     -H "Authorization: Bearer <access_token>" \
-    "https://<DNS>/seistore-svc/api/v3/dataset/tenant/<datapartition>/subproject/<vdssubprojectname>/dataset/<datasetname>"
+    "https://<DNS>/seistore-svc/api/v3/dataset/tenant/<data-partition-id>/subproject/<vdssubprojectname>/dataset/<datasetname>"
 ```
 
 **Sample Response:**
