@@ -35,7 +35,7 @@ Due to Azure Logic Apps (Standard) similarities with Azure Functions, for more i
   |-------------|-------------|
   | Enable the **SCM Basic Auth Publishing Credentials** setting. | To enable this setting, see [Turn on SCM Basic Auth Publishing Credentials](#turn-on-scm-basic-auth-publishing-credentials). |
   | Create a *user-assigned managed identity* on your logic app. | This identity needs to have role assignments on the following resources: <br><br>- **Logic Apps Standard Contributor** role on your logic app's resource group. <br><br>- **Key Vault Secrets User** role on your key vault resource. <br><br>For more information, see [Create the user-assigned managed identity and assign roles](#create-user-assigned-managed-identity-and-assign-roles). |
-  | Create a workspace and project in Visual Studo Code for your logic app. | This workspace also needs a connection to your source control repository. To create the workspace and project, you can [export your Standard logic app to Visual Studio Code](export-standard-logic-app-to-visual-studio-code.md). |
+  | Create a workspace and project in Visual Studio Code for your logic app. | This workspace also needs a connection to your source control repository. To create the workspace and project, you can [export your Standard logic app to Visual Studio Code](export-standard-logic-app-to-visual-studio-code.md). |
 
 ### Turn on SCM Basic Auth publishing credentials
 
@@ -91,45 +91,60 @@ Due to Azure Logic Apps (Standard) similarities with Azure Functions, for more i
 
 1. When you're done, push your changes to your source control repository.
 
-## Configure Azure Logic Apps Standard Deployment Center in the portal
+## Set up Deployment Center for your logic app in the portal
 
 ### [GitHub](#tab/github)
 
-To configure Azure Logic Apps Standard Deployment Center with a GitHub repository, follow these steps:
+To set up Deployment Center with a repository in GitHub for your Standard logic app, follow these steps:
 
-1.  In the [Azure portal](https://portal.azure.com/), go to your Standard logic app resource.
-2.  On the logic app menu, under **Deployment**, select **Deployment Center.**
-3.  Select GitHub as source repository.
-4.  Change the provider to App Service Build Service.
+1. In the [Azure portal](https://portal.azure.com/), open your Standard logic app resource.
 
-    ![An image of the Build Provide drop-down menu.](media/select-build-provider.png)
+1. On the resource sidebar, under **Deployment**, select **Deployment Center**.
 
-5.  Sign in to GitHub, if you aren't signed yet.
-6.  Select your organization.
-7.  Select your repository.
-8.  Select your branch.
+1. From the **Source** list, select **GitHub** as your source repository.
 
-Scroll back to the top of the page and click **Save.**
+1. Under the **Source** list, select **Change provider**, and select **App Service Build Service** as the build provider.
 
-# [Azure Repos](#tab/azure-repos)
-To configure Azure Logic Apps Standard Deployment Center with an Azure Repo repository, follow these steps:
+   :::image type="content" source="media/set-up-cd-deployment-center-standard/select-build-provider.png" alt-text="Screenshot shows Azure portal, Standard logic app sidebar, Deployment Center page, and selected option for App Service Build Service." lightbox="media/set-up-cd-deployment-center-standard/select-build-provider.png":::
 
-1.  In the [Azure portal](https://portal.azure.com/), go to your Standard logic app resource.
-2.  On the logic app menu, under **Deployment**, select **Deployment Center.**
-3.  Select Azure Repos as source repository.
-4.  Change the provider to App Service Build Service.
+1. In GitHub, sign in, if necessary, and select your organization.
 
-    ![A screenshot of a computer AI-generated content may be incorrect.](media/select-build-provider.png)
+1. Select your repository, and then select your branch.
 
-5.  Select your organization
-6.  Select your project
-7.  Select your repository
-8.  Select your branch
+1. When you're done, at the top of the page, select **Save**.
 
-Scroll back to the top of the page and click **Save.**
+### [Azure Repos](#tab/azure-repos)
+
+To set up Deployment Center with a repository in Azure Repos for your Standard logic app, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com/), open your Standard logic app resource.
+
+1. On the resource sidebar, under **Deployment**, select **Deployment Center**.
+
+1. From the **Source** list, select **Azure Repos** as your source repository.
+
+1. Under the **Source** list, select **Change provider**, and select **App Service Build Service** as the build provider.
+
+   :::image type="content" source="media/set-up-cd-deployment-center-standard/select-build-provider.png" alt-text="Screenshot shows Azure portal, Standard logic app sidebar, Deployment Center page, and selected build provider for App Service Build Service." lightbox="media/set-up-cd-deployment-center-standard/select-build-provider.png":::
+
+1. In Azure DevOps, sign in, if necessary, and select your organization.
+
+1. Select your project, your repository, and your branch.
+
+1. When you're done, at the top of the page, select **Save**.
 
 ---
 
-Verify that your deployment worked correctly by checking the Logs tab and check if the deployment completed successfully.
+## Confirm successful deployment
 
-![An image of the Deployment Center Logs tab with a successful deployment.](media/deployment-center-logs.png)
+To make sure that your deployment works correctly, follow these steps:
+
+1. Return to your logic app's Deployment Center page, and select the **Logs** tab.
+
+1. If necessary, refresh the **Logs** page. Review the status message to check that the deployment successfully finished, for example:
+
+   :::image type="content" source="media/set-up-cd-deployment-center-standard/deployment-center-logs.png" alt-text="Screenshot shows Azure portal, logic app's Deployment Center page, and selected Logs tab with deployment status." lightbox="media/set-up-cd-deployment-center-standard/deployment-center-logs.png":::
+
+## Related content
+
+- [Automate build and deployment for Standard logic app workflows with Azure DevOps](automate-build-deployment-standard.md)
