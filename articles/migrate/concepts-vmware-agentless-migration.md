@@ -89,7 +89,7 @@ The first stage validates that every sector that changed in the source disk is r
 
 The source disk is divided into sectors of 512 bytes. Every sector in the source disk is mapped to a bit in the bitmap. When data replication starts, Azure Accelerate creates a bitmap for all the changed blocks (in delta cycle) in the source disk that needs to be replicated. Similarly, when the data is transferred to the target Azure disk, Azure Accelerate creates a bitmap.
 
-After the data transfer finishes successfully, the cloud service compares the two bitmaps to ensure that it didn't miss any changed block. If there's any mismatch between the bitmaps, the cycle is considered failed. Because every cycle is resynchronization, the mismatch will be fixed in the next cycle.
+After the data transfer finishes successfully, the cloud service compares the two bitmaps to ensure that it didn't miss any changed block. If there's any mismatch between the bitmaps, the cycle is considered failed. Because every cycle is resynchronization, the mismatch is fixed in the next cycle.
 
 ### Check replicated data
 
@@ -97,7 +97,7 @@ The second stage ensures that the data that's transferred to the Azure disks is 
 
 Every changed block that's uploaded is compressed and encrypted before it's written as a blob in the log storage account. Azure Accelerate computes the checksum of this block before compression. This checksum is stored as metadata along with the compressed data.
 
-Upon decompression, the checksum for the data is calculated and compared with the checksum computed in the source environment. If there's a mismatch, the data isn't written to the Azure disks, and the cycle is considered failed. Because every cycle is resynchronization, the mismatch will be fixed in the next cycle.
+Upon decompression, the checksum for the data is calculated and compared with the checksum computed in the source environment. If there's a mismatch, the data isn't written to the Azure disks, and the cycle is considered failed. Because every cycle is resynchronization, the mismatch is fixed in the next cycle.
 
 ## Security
 
@@ -123,19 +123,19 @@ When a VM undergoes replication (data copy), these states are possible:
 ### Other states
 
 - **Initial replication failed**: The initial data couldn't be copied for the VM. Follow the remediation guidance to resolve.
-- **Repair pending**: There was a problem in the replication cycle.  You can select the link to understand possible causes and actions to remediate (as applicable). If you opted for **Automatically repair replication** by selecting **Yes** when you triggered replication of VM, the tool tries to repair it for you. Otherwise, select the VM, and select **Repair Replication**.
+- **Repair pending**: There was a problem in the replication cycle.  You can select the link to understand possible causes and actions to remediate (as applicable). If you opted for **Automatically repair replication** by selecting **Yes** when you triggered replication of VM, the tool tries to repair it for you. Otherwise, select the VM, and then select **Repair Replication**.
 
-  If you didn't opt for **Automatically repair replication** or if the repair step didn't work for you, then stop replication for the VM. Reset the CBT on the VM, and then reconfigure the replication.
+  If you didn't opt for **Automatically repair replication** or if the repair step didn't work for you, stop replication for the VM. Reset the CBT on the VM, and then reconfigure the replication.
 - **Repair replication queued**: The VM is queued for replication repair because other VMs are consuming the on-premises resources. After the resources are free, the VM is processed for repair replication.
 - **Resync (x%)**: The VM is undergoing a data resynchronization. This resynchronization can happen if there was a problem or a mismatch during data replication.
 - **Stop replication/complete migration failed**: Select the link to understand the possible causes for failure and actions to remediate (as applicable).
 
 > [!NOTE]
-> Some VMs are put in queued state to ensure minimal impact on the source environment due to consumption of storage input/output operations per second (IOPS) consumption. These VMs are processed based on the scheduling logic as described [later in this article](#scheduling-logic).
+> Some VMs go into a queued state to ensure minimal impact on the source environment due to the consumption of storage input/output operations per second (IOPS). These VMs are processed based on the scheduling logic, as described [later in this article](#scheduling-logic).
 
 ## Status of the test migration or production migration
 
-- **Test migration pending**: The VM is in delta replication phase. You can now perform test migration (or production migration).
+- **Test migration pending**: The VM is in the delta replication phase. You can now perform test migration (or production migration).
 - **Test migration clean up pending**: After test migration is complete, perform a test migration cleanup to avoid charges in Azure.
 - **Ready to migrate**: The VM is ready to be migrated to Azure.
 - **Migration in progress queued**: The VM is queued for migration because other VMs are consuming the on-premises resources during replication (or migration). After the resources are free, the VM is processed.
@@ -157,12 +157,12 @@ Delta replication cycles are scheduled as follows:
 - First delta replication cycle is scheduled immediately after the initial replication cycle finishes.
 - Next delta replication cycles are scheduled according to the following logic: `min[max[1 hour, (<Previous delta replication cycle time>/2)], 12 hours]`.
 
-  That is, the next delta replication will be scheduled no sooner than one hour and no later than 12 hours. For example, if a VM takes four hours for a delta replication cycle, the next delta replication cycle is scheduled in two hours, and not in the next hour.
+  That is, the next delta replication is scheduled no sooner than 1 hour and no later than 12 hours. For example, if a VM takes 4 hours for a delta replication cycle, the next delta replication cycle is scheduled in 2 hours, and not in the next hour.
 
   > [!NOTE]
   > The scheduling logic is different after the initial replication finishes. The first delta cycle is scheduled immediately after the initial replication finishes. Subsequent cycles follow the scheduling logic.
 
-- When you trigger migration, an on-demand (pre-failover) delta replication cycle occurs for the VM prior to migration.
+- When you trigger migration, an on-demand (pre-failover) delta replication cycle occurs for the VM before migration.
 
 ### Prioritization of VMs for various stages of replication
 
@@ -181,13 +181,13 @@ The following constraints help ensure that you don't exceed the IOPS limits on t
 
 ## Scale-out replication
 
-Azure Migrate supports concurrent replication of 500 VMs. When you plan to replicate more than 300 VMs, you must deploy a scale-out appliance. The scale-out appliance is similar to an Azure Migrate primary appliance but consists only of gateway agent to facilitate data transfer to Azure.
+Azure Migrate supports concurrent replication of 500 VMs. When you plan to replicate more than 300 VMs, you must deploy a scale-out appliance. The scale-out appliance is similar to an Azure Migrate primary appliance but consists only of a gateway agent to facilitate data transfer to Azure.
 
 The following diagram shows the recommended way to use the scale-out appliance.
 
 ![Diagram of the stages of a scale-out configuration.](./media/concepts-vmware-agentless-migration/scale-out-configuration.png)
 
-You can deploy the scale-out appliance anytime after you configure the primary appliance, but isn't required until 300 VMs are replicating concurrently. When 300 VMs are replicating concurrently, you must deploy the scale-out appliance to proceed.
+You can deploy the scale-out appliance anytime after you configure the primary appliance, but it isn't required until 300 VMs are replicating concurrently. When 300 VMs are replicating concurrently, you must deploy the scale-out appliance to proceed.
 
 ## Stopping replication
 
@@ -215,18 +215,15 @@ To mitigate this risk, we recommend that you increase the datastore size proacti
 
 You can increase or decrease the replication bandwidth by using `NetQosPolicy`. The `AppNamePrefix` value to use in `NetQosPolicy` is `GatewayWindowsService.exe`.
 
-You can create a policy on the Azure Migrate appliance to throttle replication traffic from the appliance by creating a policy like this one:
+To throttle replication traffic from the Azure Migrate appliance, you can create a policy like the following example on the appliance. This policy applies to all the replicating VMs from the Azure Migrate appliance simultaneously.
 
 ```New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1MB```
-
-> [!NOTE]
-> This policy applies to all the replicating VMs from the Azure Migrate appliance simultaneously.
 
 You can also increase and decrease replication bandwidth based on a schedule by using the [sample script](common-questions-server-migration.md).
 
 ### Blackout window
 
-Azure Migrate provides a configuration-based mechanism that you can use to specify the time interval during which you don't want any replications to proceed. This time interval is called the *blackout window*. The need for a blackout window can arise in multiple scenarios, such as when the source environment is resource constrained or when you want replication to happen only during non-business hours.
+Azure Migrate provides a configuration-based mechanism that you can use to specify the time interval during which you don't want any replications to proceed. This interval is called the *blackout window*. The need for a blackout window can arise in multiple scenarios, such as when the source environment is resource constrained or when you want replication to happen only during non-business hours.
 
 > [!NOTE]
 > The existing replication cycles at the start of the blackout window finish before the replication pauses.
@@ -253,7 +250,7 @@ The list of blackout windows is a pipe-delimited (`|`) string of the format `<Da
 }
 ```
 
-The first value in the preceding example indicates a blackout window that starts every Monday at 7:00 AM local time (time on the appliance) and lasts 7 hours.
+The first value in the preceding example indicates a blackout window that starts every Monday at 7:00 AM local time on the appliance and lasts 7 hours.
 
 After you create or update `GatewayDataWorker.json` with these contents, you need to restart the gateway service on the appliance for these changes to take effect.
 
