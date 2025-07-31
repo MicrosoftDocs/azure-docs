@@ -311,8 +311,6 @@
       href: retirement-faq.md
   - name: Configure alerts
     href: configure-alerts-with-templates.md
-  - name: Classic to Resource Manager
-    href: classic-to-resource-manager.md
   - name: Configure Private Link
     href: private-link-configure.md
 - name: Health monitoring
