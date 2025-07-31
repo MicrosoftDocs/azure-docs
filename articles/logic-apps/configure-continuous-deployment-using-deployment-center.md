@@ -27,14 +27,14 @@ Due to Azure Logic Apps (Standard) similarities with Azure Functions, for more i
 
 - An Azure Key Vault resource for you to store connection strings and secrets.
 
-  For more information, see [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md).
+  For more information, see [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal).
 
 - Your Standard logic app resource with the following requirements:
 
   | Requirement | Description |
   |-------------|-------------|
   | Enable the **SCM Basic Auth Publishing Credentials** setting. | To enable this setting, see [Turn on SCM Basic Auth Publishing Credentials](#turn-on-scm-basic-auth-publishing-credentials). |
-  | Create a *user-assigned managed identity* on your logic app. | This identity needs to have role assignments on the following resources: <br><br>- **Logic Apps Standard Contributor** role on your logic app's resource group. <br><br>- **Key Vault Secrets User** role on your key vault resource. <br><br>For more information, see [Create the user-assigned managed identity and assign roles](#set-up-user-identity-and-assign-roles). |
+  | Create a *user-assigned managed identity* on your logic app. | This identity needs to have role assignments on the following resources: <br><br>- **Logic Apps Standard Contributor** role on your logic app's resource group. <br><br>- **Key Vault Secrets User** role on your key vault resource. <br><br>For more information, see [Create the user-assigned managed identity and assign roles](#create-user-assigned-managed-identity-and-assign-roles). |
   | Create a workspace and project in Visual Studo Code for your logic app. | This workspace also needs a connection to your source control repository. To create the workspace and project, you can [export your Standard logic app to Visual Studio Code](export-standard-logic-app-to-visual-studio-code.md). |
 
 ### Turn on SCM Basic Auth publishing credentials
@@ -47,7 +47,7 @@ Due to Azure Logic Apps (Standard) similarities with Azure Functions, for more i
 
 1. When you're done, select **Apply**.
 
-### Create the user-assigned managed identity and assign roles
+### Create user-assigned managed identity and assign roles
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -59,32 +59,42 @@ Due to Azure Logic Apps (Standard) similarities with Azure Functions, for more i
 
 1. When you're done, continue on to create scripts for Deployment Center.
 
-## Create Deployment Center scripts in Visual Studio Code
+## Generate Deployment Center scripts in Visual Studio Code
 
-1. In Visual Studio Code, open your **Logic Apps project** context menu and select **Generate deployment scripts…**
+1. In Visual Studio Code, open the workspace and project for your Standard logic app.
 
-    ![An image of the Logic Apps Standard context Menu with the Generate deployment script option selected.](media/generate-deployment-screen-menu-option.png)
+1. On the Visual Studio Code Activity Bar, select **Explorer** (files icon) to open the Explorer window, which shows your logic app project and files.
 
-1. Complete the steps, following the prompts from the wizard:
+1. In the **Explorer** window, find the project root level. Open the project context menu, and select **Generate deployment scripts**.
 
-   - Select the existing Azure subscription where your Logic Apps is deployed.
-   - Select the the target resource group.
-   - Select the target Logic Apps application.
-   - Select the associated user managed identity that has the **Logic Apps Standard Contributor** permissions.
+   :::image type="content" source="media/set-up-cd-deployment-center-standard/generate-deployment-scripts.png" alt-text="Screenshot shows Visual Studio Code, Standard logic app project with context menu, and selected option to generate deployment scripts." lightbox="media/set-up-cd-deployment-center-standard/generate-deployment-scripts.png":::
 
-When you're done, Visual Studio Code creates the following resources:
+1. Follow the prompts to complete the following steps:
 
-| Folder Name                   | File Name           | Description                                                                                                                                                                                                                                                                                                                                                         |
-|-------------------------------|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \<Logic Apps project folder\> | cloud.settings.json | This file copies the keys required to deploy the Logic Apps application from the local.settings.json. The file will have associated values for any nonsecret value, and a placeholder to include a keyvault reference for any secrets.                                                                                                                             |
-| deployment                    | deploy.ps1          | This is the deployment script parameterized with the items you selected during the wizard. This script deploys the logic app code and update the authentication required for any Azure managed connection defined in connections.json. It also configures the settings defined in the cloud.settings.json file created in the Logic Apps project. |
-|                               | README.md           | The README.md file contains instructions on how to update cloud.settings.json to safely deploy application secrets, including: Connection strings required for Service Provider connections in the project. API Management keys Azure Function keys Any other customer defined secrets.                                                                             |
+   1. Select the Azure subscription for your deployed Standard logic app.
 
-Once you review the files and update cloud.settings.json with the keyvault references, push your changes to your source control.
+   1. Select the Azure resource group for your logic app.
 
-### Configure Azure Logic Apps Standard Deployment Center in the portal
+   1. Select your logic app.
 
-# [GitHub](#tab/github)
+   1. Select the associated user-assigned managed identity that has **Logic Apps Standard Contributor** role-based access.
+
+   When you're done, Visual Studio Code creates the following folders and files:
+
+   | Folder name | File name | Description |
+   |-------------|-----------|-------------|
+   | <*logic-app-project-folder-name*> | **cloud.settings.json** | This file contains the following content: <br><br>- Keys copied from the **local.settings.json** file and required for logic app deployment. <br><br>- Placeholders to specify the key vault references for any secrets. <br><br>- Any associated nonsecret values. |
+   | **deployment** | **deploy.ps1** | This deployment script parameterizes the items that you selected during deployment script generation. The script also performs the following tasks: <br><br>- Deploys the logic app code. <br><br>- Updates the authentication required for any Azure-hosted managed connection definition in the **connections.json** file. <br><br>- Configures the settings defined in the **cloud.settings.json** file created in your logic app project. |
+   | <*logic-app-project-folder-name*> | **README.md** | This file contains instructions about how to update the **cloud.settings.json** so you can safely deploy application secrets, for example: <br><br>- Connection strings required for built-in, service provider-based connections in your project. <br><br>- Keys for Azure API Management, Azure Functions, and so on. <br><br>- Keys for any other customer-defined secrets. |
+
+1. Review the created files, and update the **cloud.settings.json** with your key vault references.
+
+1. When you're done, push your changes to your source control repository.
+
+## Configure Azure Logic Apps Standard Deployment Center in the portal
+
+### [GitHub](#tab/github)
+
 To configure Azure Logic Apps Standard Deployment Center with a GitHub repository, follow these steps:
 
 1.  In the [Azure portal](https://portal.azure.com/), go to your Standard logic app resource.
