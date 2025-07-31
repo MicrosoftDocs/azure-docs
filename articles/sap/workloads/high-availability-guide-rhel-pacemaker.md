@@ -376,7 +376,8 @@ On the cluster nodes, connect and discover iSCSI device that was created in the 
        [...]
        SBD_STARTMODE=always
        [...]
-       SBD_DELAY_START=yes
+       # # In some cases, a longer delay than the default "msgwait" seconds is needed. So, set a specific delay value, in seconds. See, `man sbd` for more information. 
+       SBD_DELAY_START=216
        [...]
        ```
 
@@ -397,12 +398,13 @@ On the cluster nodes, connect and discover iSCSI device that was created in the 
 
     ```bash
     sudo mkdir /etc/systemd/system/sbd.service.d
-    echo -e "[Service]\nTimeoutSec=144" | sudo tee /etc/systemd/system/sbd.service.d/sbd_delay_start.conf
+    echo -e "[Service]\nTimeoutSec=259" | sudo tee /etc/systemd/system/sbd.service.d/sbd_delay_start.conf
     sudo systemctl daemon-reload
     
     systemctl show sbd | grep -i timeout
-    # TimeoutStartUSec=2min 24s
-    # TimeoutStopUSec=2min 24s
+    # TimeoutStartUSec=4min 19s
+    # TimeoutStopUSec=4min 19s
+    # TimeoutAbortUSec=4min 19s
     ```
 
 ## SBD with an Azure shared disk
@@ -507,7 +509,7 @@ foreach ($vmName in $vmNames) {
       sudo vi /etc/sysconfig/sbd
       ```
 
-   2. Change the property of the SBD device, enable the pacemaker integration, and change the start mode of SBD
+   2. Change the property of the SBD device, enable the pacemaker integration, change the start mode of SBD, and adjust SBD_DELAY_START value. 
 
       ```bash
       [...]
@@ -517,7 +519,8 @@ foreach ($vmName in $vmNames) {
       [...]
       SBD_STARTMODE=always
       [...]
-      SBD_DELAY_START=yes
+      # In some cases, a longer delay than the default "msgwait" seconds is needed. So, set a specific delay value, in seconds. See, `man sbd` for more information. 
+      SBD_DELAY_START=216
       [...]
       ```
 
@@ -538,12 +541,13 @@ foreach ($vmName in $vmNames) {
 
    ```bash
    sudo mkdir /etc/systemd/system/sbd.service.d
-   echo -e "[Service]\nTimeoutSec=144" | sudo tee /etc/systemd/system/sbd.service.d/sbd_delay_start.conf
+   echo -e "[Service]\nTimeoutSec=259" | sudo tee /etc/systemd/system/sbd.service.d/sbd_delay_start.conf
    sudo systemctl daemon-reload
    
    systemctl show sbd | grep -i timeout
-   # TimeoutStartUSec=2min 24s
-   # TimeoutStopUSec=2min 24s
+   # TimeoutStartUSec=4min 19s
+   # TimeoutStopUSec=4min 19s
+   # TimeoutAbortUSec=4min 19s
    ```
 
 ## Azure fence agent configuration
@@ -574,7 +578,7 @@ The fencing device uses either a managed identity for Azure resource or a servic
    1. Make a note of the **Value**. It's used as the **password** for the service principal.
    1. Select **Overview**. Make a note of the **Application ID**. It's used as the username (**login ID** in the following steps) of the service principal.
 
-    ---
+   ---
 
 2. Create a custom role for the fence agent
 
@@ -618,7 +622,7 @@ The fencing device uses either a managed identity for Azure resource or a servic
 
    Make sure to assign the role for both cluster nodes.
 
-    ---
+   ---
 
 ## Cluster installation
 
@@ -799,7 +803,7 @@ Based on the selected fencing mechanism, follow only one section for relevant in
 2. **[1]** For the SBD device configured using iSCSI target servers or Azure shared disk, run the following commands.
 
    ```bash
-   sudo pcs property set stonith-timeout=144
+   sudo pcs property set stonith-timeout=210
    sudo pcs property set stonith-enabled=true
 
    # Replace the device IDs with your device ID. 
@@ -812,7 +816,7 @@ Based on the selected fencing mechanism, follow only one section for relevant in
 
    ```bash
    sudo pcs cluster stop --all
-
+   
    # It would take time to start the cluster as "SBD_DELAY_START" is set to "yes"
    sudo pcs cluster start --all
    ```
@@ -859,7 +863,7 @@ Based on the selected fencing mechanism, follow only one section for relevant in
    subscriptionId="subscription id" pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
    power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
    op monitor interval=3600
-
+   
    # Run following command if you are setting up fence agent on (two-node cluster and pacemaker version less than 2.0.4-6.el8)
    sudo pcs stonith create rsc_st_azure fence_azure_arm msi=true resourceGroup="resource group" \
    subscriptionId="subscription id" pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
@@ -888,7 +892,7 @@ Based on the selected fencing mechanism, follow only one section for relevant in
    pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
    power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
    op monitor interval=3600
-
+   
    # Run following command if you are setting up fence agent on (two-node cluster and pacemaker version less than 2.0.4-6.el8)
    sudo pcs stonith create rsc_st_azure fence_azure_arm username="login ID" password="password" \
    resourceGroup="resource group" tenantId="tenant ID" subscriptionId="subscription id" \
@@ -897,7 +901,7 @@ Based on the selected fencing mechanism, follow only one section for relevant in
    op monitor interval=3600
    ```
 
-    ---
+   ---
 
 If you're using a fencing device based on service principal configuration, read [Change from SPN to MSI for Pacemaker clusters by using Azure fencing](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-high-availability-change-from-spn-to-msi-for/ba-p/3609278) and learn how to convert to managed identity configuration.
 
@@ -1008,6 +1012,7 @@ The following Red Hat KB articles contain important information about configurin
 * For information on how to change the default timeout, see [How do I configure kdump for use with the RHEL 6, 7, 8 HA Add-On?](https://access.redhat.com/articles/67570).
 * For information on how to reduce failover delay when you use `fence_kdump`, see [Can I reduce the expected delay of failover when adding fence_kdump configuration?](https://access.redhat.com/solutions/5512331).
   
+
 Run the following optional steps to add `fence_kdump` as a first-level fencing configuration, in addition to the Azure fence agent configuration.
 
 1. **[A]** Verify that `kdump` is active and configured.

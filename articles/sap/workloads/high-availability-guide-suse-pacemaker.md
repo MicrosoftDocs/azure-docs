@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.custom: devx-track-azurepowershell, linux-related-content
-ms.date: 05/21/2025
+ms.date: 07/31/2025
 ms.author: radeltch
 # Customer intent: "As a system administrator, I want to set up Pacemaker with fencing on SUSE Linux Enterprise Server in Azure, so that I can ensure high availability and reliability for my applications running in the cloud."
 ---
@@ -366,26 +366,52 @@ Run the following commands on the nodes of the new cluster that you want to crea
 
 1. **[A]** Adapt the SBD configuration.
 
-    a. Open the SBD config file.
+     a. Open the SBD config file.
 
-    ```bash
-    sudo vi /etc/sysconfig/sbd
-    ```
+     ```bash
+     sudo vi /etc/sysconfig/sbd
+     ```
 
-    b. Change the property of the SBD device, enable the Pacemaker integration, and change the start mode of SBD.
+     b. Change the property of the SBD device, enable the Pacemaker integration, and change the start mode of SBD. Also, adjust SBD_DELAY_START value, if required
 
-    ```bash
-    [...]
-    SBD_DEVICE="/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03;/dev/disk/by-id/scsi-360014053fe4da371a5a4bb69a419a4df;/dev/disk/by-id/scsi-36001405f88f30e7c9684678bc87fe7bf"
-    [...]
-    SBD_PACEMAKER="yes"
-    [...]
-    SBD_STARTMODE="always"
-    [...]
-    ```
+     ```bash
+     [...]
+     SBD_DEVICE="/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03;/dev/disk/by-id/scsi-360014053fe4da371a5a4bb69a419a4df;/dev/disk/by-id/scsi-36001405f88f30e7c9684678bc87fe7bf"
+     [...]
+     # In some cases, a longer delay than the default "msgwait" seconds is needed. So, set a specific delay value, in seconds. See, `man sbd` for more information. 
+     SBD_DELAY_START=216
+     [...]
+     SBD_PACEMAKER="yes"
+     [...]
+     SBD_STARTMODE="always"
+     [...]
+     ```
 
-    > [!NOTE]
-    > If the SBD_DELAY_START property value is set to "no", change the value to "yes". You must also check the SBD service file to ensure that the value of TimeoutStartSec is greater than the value of SBD_DELAY_START. For more information, see [SBD file configuration](https://documentation.suse.com/sle-ha/15-SP5/html/SLE-HA-all/cha-ha-storage-protect.html#pro-ha-storage-protect-sbd-config)
+     > [!NOTE]
+     > If the `SBD_DELAY_START` property value is set to "no" or "yes", update it to specific delay value, in seconds. For additional information, refer to the `Configuration via environment` section in the `man sbd` manual.
+
+     c. Ensure that the `TimeoutStartSec` value in the SBD service file is greater than the value of SBD_DELAY_START. See the [SBD file configuration documentation](https://documentation.suse.com/sle-ha/15-SP6/html/SLE-HA-all/cha-ha-storage-protect.html#pro-ha-storage-protect-sbd-config) for details.
+
+     ```bash
+     sudo systemctl show sbd | grep -i Timeout
+     # TimeoutStartUSec=4min 19s
+     # TimeoutStopUSec=4min 19s
+     # TimeoutAbortUSec=4min 19s
+     ```
+
+     If the value is default (90s) or it is set less than SBD_DELAY_START, follow steps to adjust the value.
+
+     ```bash
+     sudo mkdir /etc/systemd/system/sbd.service.d
+     echo -e "[Service]\nTimeoutSec=259" | sudo tee /etc/systemd/system/sbd.service.d/sbd_delay_start.conf
+     sudo systemctl daemon-reload
+     ```
+
+     > [!NOTE]
+     >
+     > In the new cluster build, both `SBD_DELAY_START` and `TimeoutStartSec` values are automatically set.
+     >
+     > On existing cluster configuration, the value of `SBD_DELAY_START` could be set as "no" or "yes", and `TimeoutStartSec` would be different. Upgrading the SLES version does not update the value, so you will need to adjust these settings manually.
 
 1. **[A]** Create the `softdog` configuration file.
 
@@ -405,69 +431,40 @@ This section applies only if you want to use an SBD device with an Azure shared 
 
 ### Create and attach an Azure shared disk with PowerShell
 
-1. Adjust the values for your resource group, Azure region, virtual machines, logical unit numbers (LUNs), and so on.
+To create and attach an Azure shared disk with PowerShell, execute following instruction. If you want to deploy resources by using the Azure CLI or the Azure portal, you can also refer to [Deploy a ZRS disk](/azure/virtual-machines/disks-deploy-zrs).
 
-   ```bash
-   $ResourceGroup = "MyResourceGroup"
-   $Location = "MyAzureRegion"
-   ```
+```bash
+$ResourceGroup = "MyResourceGroup"
+$Location = "MyAzureRegion"
+$DiskSizeInGB = 4
+$DiskName = "SBD-disk1"
+$ShareNodes = 2
+$LRSSkuName = "Premium_LRS"
+$ZRSSkuName = "Premium_ZRS"
+$vmNames = @("prod-cl1-0", "prod-cl1-1")  # VMs to attach the disk
 
-2. Define the size of the disk based on available disk size for Premium SSDs. In this example, P1 disk size of 4G is mentioned.
+# ZRS Azure shared disk: Configure an Azure shared disk with ZRS for a premium shared disk
+$zrsDiskConfig = New-AzDiskConfig -Location $Location -SkuName $ZRSSkuName -CreateOption Empty -DiskSizeGB $DiskSizeInGB -MaxSharesCount $ShareNodes
+$zrsDataDisk = New-AzDisk -ResourceGroupName $ResourceGroup -DiskName $DiskName -Disk $zrsDiskConfig
 
-   ```bash
-   $DiskSizeInGB = 4
-   $DiskName = "SBD-disk1"
-   ```
+# Attach ZRS disk to cluster VMs
+foreach ($vmName in $vmNames) {
+  $vm = Get-AzVM -ResourceGroupName $resourceGroup -Name $vmName
+  Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Attach -ManagedDiskId $zrsDataDisk.Id -Lun 0
+  Update-AzVM -VM $vm -ResourceGroupName $resourceGroup -Verbose
+}
 
-3. With parameter -MaxSharesCount, define the maximum number of cluster nodes to attach the shared disk for the SBD device.
+# LRS Azure shared disk: Configure an Azure shared disk with LRS for a premium shared disk
+$lrsDiskConfig = New-AzDiskConfig -Location $Location -SkuName $LRSSkuName -CreateOption Empty -DiskSizeGB $DiskSizeInGB -MaxSharesCount $ShareNodes
+$lrsDataDisk = New-AzDisk -ResourceGroupName $ResourceGroup -DiskName $DiskName -Disk $lrsDiskConfig
 
-   ```bash
-   $ShareNodes = 2
-   ```
-
-4. For an SBD device that uses LRS for an Azure premium shared disk, use the following storage SkuName:
-
-   ```bash
-   $SkuName = "Premium_LRS"
-   ```
-
-5. For an SBD device that uses ZRS for an Azure premium shared disk, use the following storage SkuName:
-
-   ```bash
-   $SkuName = "Premium_ZRS"
-   ```
-
-6. Set up an Azure shared disk.
-
-   ```bash
-   $diskConfig = New-AzDiskConfig -Location $Location -SkuName $SkuName -CreateOption Empty -DiskSizeGB $DiskSizeInGB -MaxSharesCount $ShareNodes
-   $dataDisk = New-AzDisk -ResourceGroupName $ResourceGroup -DiskName $DiskName -Disk $diskConfig
-   ```
-
-7. Attach the disk to the cluster VMs.
-
-   ```bash
-   $VM1 = "prod-cl1-0"
-   $VM2 = "prod-cl1-1"
-   ```
-
-   a. Add the Azure shared disk to cluster node 1.
-
-   ```bash
-   $vm = Get-AzVM -ResourceGroupName $ResourceGroup -Name $VM1
-   $vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun 0
-   Update-AzVm -VM $vm -ResourceGroupName $ResourceGroup -Verbose
-   ```
-
-   b. Add the Azure shared disk to cluster node 2.
-
-   ```bash
-   $vm = Get-AzVM -ResourceGroupName $ResourceGroup -Name $VM2
-   $vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun 0
-   Update-AzVm -VM $vm -ResourceGroupName $ResourceGroup -Verbose
-   ```
-
-If you want to deploy resources by using the Azure CLI or the Azure portal, you can also refer to [Deploy a ZRS disk](/azure/virtual-machines/disks-deploy-zrs).
+# Attach LRS disk to cluster VMs
+foreach ($vmName in $vmNames) {
+  $vm = Get-AzVM -ResourceGroupName $resourceGroup -Name $vmName
+  Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Attach -ManagedDiskId $lrsDataDisk.Id -Lun 0
+  Update-AzVM -VM $vm -ResourceGroupName $resourceGroup -Verbose
+}
+```
 
 ### Set up an Azure shared disk SBD device
 
@@ -480,30 +477,33 @@ If you want to deploy resources by using the Azure CLI or the Azure portal, you 
 2. **[A]** Make sure that the attached disk is available.
 
    ```bash
-   # lsblk
-   NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-   fd0      2:0    1    4K  0 disk
-   sda      8:0    0   30G  0 disk
-   ├─sda1   8:1    0    2M  0 part
-   ├─sda2   8:2    0  512M  0 part /boot/efi
-   ├─sda3   8:3    0    1G  0 part /boot
-   ├─sda4   8:4    0 28.5G  0 part /
-   sdb      8:16   0  256G  0 disk
-   ├─sdb1   8:17   0  256G  0 part /mnt
-   sdc      8:32   0    4G  0 disk
-   sr0     11:0    1 1024M  0 rom
+   lsblk
    
-   # lsscsi
-   [1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0
-   [2:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sda
-   [3:0:1:0]    disk    Msft     Virtual Disk     1.0   /dev/sdb
-   [5:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc
+   # NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+   # fd0      2:0    1    4K  0 disk
+   # sda      8:0    0   30G  0 disk
+   # ├─sda1   8:1    0    2M  0 part
+   # ├─sda2   8:2    0  512M  0 part /boot/efi
+   # ├─sda3   8:3    0    1G  0 part /boot
+   # ├─sda4   8:4    0 28.5G  0 part /
+   # sdb      8:16   0  256G  0 disk
+   # ├─sdb1   8:17   0  256G  0 part /mnt
+   # sdc      8:32   0    4G  0 disk
+   # sr0     11:0    1 1024M  0 rom
+   
+   lsscsi
+   
+   # [1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0
+   # [2:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sda
+   # [3:0:1:0]    disk    Msft     Virtual Disk     1.0   /dev/sdb
+   # [5:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc
    ```
 
 3. **[A]** Retrieve the IDs of the attached disks.
 
    ```bash
    # ls -l /dev/disk/by-id/scsi-* | grep sdc
+   
    lrwxrwxrwx 1 root root  9 Nov  8 16:55 /dev/disk/by-id/scsi-14d534654202020204208a67da80744439b513b2a9728af19 -> ../../sdc
    lrwxrwxrwx 1 root root  9 Nov  8 16:55 /dev/disk/by-id/scsi-3600224804208a67da8073b2a9728af19 -> ../../sdc
    ```
@@ -526,11 +526,14 @@ If you want to deploy resources by using the Azure CLI or the Azure portal, you 
    sudo vi /etc/sysconfig/sbd
    ```
 
-   b. Change the property of the SBD device, enable the Pacemaker integration, and change the start mode of the SBD device.
+   b. Change the property of the SBD device, enable the Pacemaker integration, and change the start mode of SBD. Also, adjust SBD_DELAY_START value, if required
 
    ```bash
    [...]
    SBD_DEVICE="/dev/disk/by-id/scsi-3600224804208a67da8073b2a9728af19"
+   [...]
+   # # In some cases, a longer delay than the default "msgwait" seconds is needed. So, set a specific delay value, in seconds. See, `man sbd` for more information. 
+   SBD_DELAY_START=216
    [...]
    SBD_PACEMAKER="yes"
    [...]
@@ -538,8 +541,31 @@ If you want to deploy resources by using the Azure CLI or the Azure portal, you 
    [...]
    ```
 
-    > [!NOTE]
-    > If the SBD_DELAY_START property value is set to "no", change the value to "yes". You must also check the SBD service file to ensure that the value of TimeoutStartSec is greater than the value of SBD_DELAY_START. For more information, see [SBD file configuration](https://documentation.suse.com/sle-ha/15-SP5/html/SLE-HA-all/cha-ha-storage-protect.html#pro-ha-storage-protect-sbd-config)
+   > [!NOTE]
+   > If the `SBD_DELAY_START` property value is set to "no" or "yes", update it to specific delay value, in seconds. For additional information, refer to the `Configuration via environment` section in the `man sbd` manual.
+
+   c. Ensure that the `TimeoutStartSec` value in the SBD service file is greater than the value of `SBD_DELAY_START`. See the [SBD file configuration documentation](https://documentation.suse.com/sle-ha/15-SP6/html/SLE-HA-all/cha-ha-storage-protect.html#pro-ha-storage-protect-sbd-config) for details.
+
+   ```bash
+   sudo systemctl show sbd | grep -i Timeout
+   # TimeoutStartUSec=4min 19s
+   # TimeoutStopUSec=4min 19s
+   # TimeoutAbortUSec=4min 19s
+   ```
+
+   If the value is default (90s) or it is set less than SBD_DELAY_START, follow steps to adjust the value.
+
+   ```bash
+   sudo mkdir /etc/systemd/system/sbd.service.d
+   echo -e "[Service]\nTimeoutSec=259" | sudo tee /etc/systemd/system/sbd.service.d/sbd_delay_start.conf
+   sudo systemctl daemon-reload
+   ```
+
+   > [!NOTE]
+   >
+   > In the new cluster build, both `SBD_DELAY_START` and `TimeoutStartSec` values are automatically set.
+   >
+   > On existing cluster configuration, the value of `SBD_DELAY_START` could be set as "no" or "yes", and `TimeoutStartSec` would be different. Upgrading the SLES version does not update the value, so you will need to adjust these settings manually.
 
 6. Create the `softdog` configuration file.
 
@@ -941,7 +967,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 1. **[1]** If you're using an SBD device (iSCSI target server or Azure shared disk) as a fencing device, run the following commands. Enable the use of a fencing device, and set the fence delay.
 
    ```bash
-   sudo crm configure property stonith-timeout=144
+   sudo crm configure property stonith-timeout=210
    sudo crm configure property stonith-enabled=true
    
    # List the resources to find the name of the SBD device
@@ -991,7 +1017,7 @@ sudo crm configure property stonith-timeout=900
 
 ---
 
-   If you're using fencing device, based on service principal configuration, read [Change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-high-availability-change-from-spn-to-msi-for/ba-p/3609278) and learn how to convert to managed identity configuration.
+If you're using fencing device, based on service principal configuration, read [Change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-high-availability-change-from-spn-to-msi-for/ba-p/3609278) and learn how to convert to managed identity configuration.
 
    > [!IMPORTANT]
    > The monitoring and fencing operations are deserialized. As a result, if there's a longer-running monitoring operation and simultaneous fencing event, there's no delay to the cluster failover because the monitoring operation is already running.
