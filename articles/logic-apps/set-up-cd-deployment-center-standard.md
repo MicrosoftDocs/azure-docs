@@ -125,6 +125,8 @@ To set up Deployment Center with a repository in Azure Repos for your Standard l
 
 1. From the **Source** list, select **Azure Repos** as your source repository.
 
+   By default, **App Service Build Service** is the build provider for **Azure Repos**. If not, complete the next step to change the build provider. Otherwise, skip the next step.
+
 1. Under the **Source** list, select **Change provider**, and select **App Service Build Service** as the build provider, if not selected already.
 
    :::image type="content" source="media/set-up-cd-deployment-center-standard/azure-repos-build-provider.png" alt-text="Screenshot shows Azure portal, Standard logic app sidebar, Deployment Center page, Azure Repos as source, and selected App Service Build Service." lightbox="media/set-up-cd-deployment-center-standard/azure-repos-build-provider.png":::
