@@ -98,8 +98,6 @@ sections:
 
       #### [Google Cloud](#tab/google-cloud)
 
-      ### Scenarios
-
       :::row:::
          :::column:::
          **[Databases](/azure/migration/migrate-databases-from-google-cloud)**
@@ -114,8 +112,6 @@ sections:
       :::row-end:::
 
       #### [On-premise](#tab/onprem)
-
-      ### Scenarios
 
       :::row:::
          :::column:::
