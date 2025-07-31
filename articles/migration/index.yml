@@ -38,7 +38,7 @@ sections:
       - componentType: card
         title: Amazon Web Services (AWS) to Azure
         summary: Compare AWS and Azure and review example scenarios to help integrate components for transition to Azure.
-        imageUrl: ./images/removeme.png
+        imageUrl: ./images/collection.png
         links:
           - componentType: link
             url: /azure/migration/migrate-from-aws
@@ -46,7 +46,7 @@ sections:
       - componentType: card
         title: Google Cloud to Azure
         summary: Compare Google Cloud and Azure and review example scenarios to help integrate components for transition to Azure.
-        imageUrl: ./images/removeme.png
+        imageUrl: ./images/collection.png
         links:
           - componentType: link
             url: /azure/migration/migrate-from-google-cloud
@@ -54,7 +54,7 @@ sections:
       - componentType: card
         title: On-premise to Azure
         summary: Review example scenarios to help integrate components for transition to Azure.
-        imageUrl: ./images/removeme.png
+        imageUrl: ./images/collection.png
         links:
           - componentType: link
             url: /azure/migration/migrate-from-on-premise
