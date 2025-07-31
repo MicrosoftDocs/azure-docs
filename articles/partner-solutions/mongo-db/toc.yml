@@ -18,10 +18,10 @@ items:
   items:
   - name: Manage a resource
     href: manage.md
+  - name: Troubleshoot a resource
+    href: /troubleshoot/azure/partner-solutions/welcome-native-integrations
   - name: Get support
     href: https://www.mongodb.com/company/contact
-  - name: Troubleshoot
-    href: troubleshoot.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -38,6 +38,3 @@ items:
     href: /python/api/overview/azure/mgmt-mongodbatlas-readme
   - name: Go
     href: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/mongodbatlas/armmongodbatlas
-    
-  
-    
