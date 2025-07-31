@@ -155,7 +155,7 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
       1. Then select **+ Create** to create a new namespace. Make sure to use the same resource group as your Arc-enabled Kubernetes cluster.
     
     > [!NOTE]
-    > Namespace resources are available from [2507 preview release](https://github.com/Azure/azure-iot-operations/releases/tag/v1.2.35). If you're using an earlier release version, namespaces aren't available and you can skip this step. 
+    > Namespace resources are available from [2507 preview release](https://github.com/Azure/azure-iot-operations/releases/tag/v1.2.36). If you're using an earlier release version, namespaces aren't available and you can skip this step. 
 
 1. Prepare the cluster for Azure IoT Operations deployment. Copy and run the provided [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command.
 
@@ -179,7 +179,7 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
         ```
     
         > [!NOTE]
-        > The `--feature` configuration parameter is only available in the [latest GA version](https://github.com/Azure/azure-iot-operations/releases/tag/v1.1.59). If you're using the [2507 preview release](https://github.com/Azure/azure-iot-operations/releases/tag/v1.2.35), this parameter isn't available.
+        > The `--feature` configuration parameter is only available in the [latest GA version](https://github.com/Azure/azure-iot-operations/releases/tag/v1.1.59). If you're using the [2507 preview release](https://github.com/Azure/azure-iot-operations/releases/tag/v1.2.36), this parameter isn't available.
 
 1. Once all of the Azure CLI commands complete successfully, you can close the **Install Azure IoT Operations** wizard.
 
