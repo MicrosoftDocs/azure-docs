@@ -13,54 +13,54 @@ This is a short-term limitation during the preview period.
 
 <details>
   <summary>Americas</summary>
-  
-- Canada Central
-- Canada East
-- Mexico Central
-- US Central
-- US East
-- US East2
-- US North
-- US South
-- US South East
-- US West
-- US West2
-- US West3
-- US West Central
-
+  <ul>
+    <li>Canada Central</li>
+    <li>Canada East</li>
+    <li>Mexico Central</li>
+    <li>US Central</li>
+    <li>US East</li>
+    <li>US East2</li>
+    <li>US North</li>
+    <li>US South</li>
+    <li>US South East</li>
+    <li>US West</li>
+    <li>US West2</li>
+    <li>US West3</li>
+    <li>US West Central</li>
+  </ul>
 </details>
 
 <details>
   <summary>Europe</summary>
-  
-- Europe North
-- Europe West
-- France Central
-- France South
-- Germany North
-- Germany West Central
-- Italy North
-- Israel Central
-- Norway East
-- Norway West
-- Poland Central
-- Spain Central
-- Sweden Central
-- Sweden South
-- Switzerland North
-- Switzerland West
-- UK South
-- UK West
-
+  <ul>
+    <li>Europe North</li>
+    <li>Europe West</li>
+    <li>France Central</li>
+    <li>France South</li>
+    <li>Germany North</li>
+    <li>Germany West Central</li>
+    <li>Italy North</li>
+    <li>Israel Central</li>
+    <li>Norway East</li>
+    <li>Norway West</li>
+    <li>Poland Central</li>
+    <li>Spain Central</li>
+    <li>Sweden Central</li>
+    <li>Sweden South</li>
+    <li>Switzerland North</li>
+    <li>Switzerland West</li>
+    <li>UK South</li>
+    <li>UK West</li>
+  </ul>
 </details>
 
 <details>
   <summary>Asia Pacific</summary>
-  
-- Australia Central
-- Australia Central2
-- Australia East
-- Australia South East
-- New Zealand North
-
+  <ul>
+    <li>Australia Central</li>
+    <li>Australia Central2</li>
+    <li>Australia East</li>
+    <li>Australia South East</li>
+    <li>New Zealand North</li>
+  </ul>
 </details>
