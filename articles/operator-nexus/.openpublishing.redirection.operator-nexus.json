@@ -41,6 +41,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "howto-replace-a-device-in-azure-operator-nexus-network-fabric.md",
+      "redirect_url": "howto-replace-network-devices",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "howto-use-azure-policy-for-aks-cluster-security.md",
       "redirect_url": "howto-use-azure-policy",
       "redirect_document_id": false

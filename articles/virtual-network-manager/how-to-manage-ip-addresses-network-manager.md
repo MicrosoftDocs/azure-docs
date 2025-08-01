@@ -23,6 +23,8 @@ Azure Virtual Network Manager allows you to manage IP addresses by creating and 
 - A virtual network that you want to associate with an IP address pool.
 - To manage IP addresses in your network manager, you have the **Network Contributor** role with [role-based access control](../role-based-access-control/quickstart-assign-role-user-portal.md) Classic Admin/legacy authorization isn't supported.
 
+
+
 ## Create an IP address pool
 
 In this step, you create an IP address pool for your virtual network.

@@ -11,82 +11,115 @@ ms.custom:
   - ai-gen-description
   - ai-seo-date:06/16/2025
 ms.topic: how-to
-ms.date: 06/16/2025
+ms.date: 07/09/2025
 ms.author: mbender
 # Customer intent: As a cloud architect, I want to configure Application Gateway Private Link so that I can securely connect workloads over a private network without exposing them to the public internet.
 ---
 
 # Configure Azure Application Gateway Private Link
 
-Application Gateway Private Link allows you to connect your workloads over a private connection spanning across VNets and subscriptions. For more information, see [Application Gateway Private Link](private-link.md).
+Azure Application Gateway Private Link enables you to establish secure, private connections to your Application Gateway from workloads spanning across virtual networks (VNets) and subscriptions. This feature provides private connectivity without exposing traffic to the public internet. For more information, see [Application Gateway Private Link](private-link.md).
 
-:::image type="content" source="media/private-link/private-link.png" alt-text="Screenshot of diagram showing Application Gateway Private Link.":::
+:::image type="content" source="media/private-link/private-link.png" alt-text="Screenshot of diagram showing Application Gateway Private Link architecture.":::
 
 ## Configuration options
 
-Application Gateway Private Link can be configured via multiple options, such as, but not limited to, the Azure portal, Azure PowerShell, and Azure CLI.
+You can configure Application Gateway Private Link using multiple methods:
+- Azure portal
+- Azure PowerShell
+- Azure CLI
 
 # [Azure portal](#tab/portal)
 
-**Define a subnet for Private Link Configuration**
+## Prerequisites
 
-To enable Private Link Configuration, a subnet, different from the Application Gateway subnet, is required for the private link IP configuration. Private Link must use a subnet that doesn't contain any Application Gateways. Subnet sizing is determined by the number of connections required for your deployment. Each IP address allocated to this subnet ensures 64-K concurrent TCP connections that can be established via Private Link at single point in time. Allocate more IP addresses to allow more connections via Private Link. For example: `n * 64K`; where `n` is the number of IP addresses being provisioned.
+Before configuring Private Link, ensure you have:
+- An existing Application Gateway
+- A virtual network with a dedicated subnet for Private Link (separate from the Application Gateway subnet)
+- Appropriate permissions to create and configure Private Link resources
+
+## Define a subnet for Private Link configuration
+
+To enable Private Link configuration, you must create a dedicated subnet that's separate from the Application Gateway subnet. This subnet is used exclusively for Private Link IP configurations and can't contain any Application Gateway instances.
+
+**Subnet sizing considerations:**
+- Each IP address allocated to this subnet supports up to 65,536 concurrent TCP connections through Private Link
+- To calculate required IP addresses: `n × 65,536` connections, where `n` is the number of IP addresses provisioned
+- Maximum of eight IP addresses per Private Link configuration
+- Only dynamic IP address allocation is supported
+
+> [!IMPORTANT]
+> The combined length of the Application Gateway name and Private Link configuration name must not exceed 70 characters to avoid deployment failures.
+
+To create a dedicated subnet for Private Link, see [Add, change, or delete a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet).
+
+## Configure Private Link
+
+The Private Link configuration defines the infrastructure that enables connections from Private Endpoints to your Application Gateway. Before creating the Private Link configuration, ensure that a listener is actively configured to use the target frontend IP configuration.
+
+Follow these steps to create the Private Link configuration:
+
+1. Navigate to the [Azure portal](https://portal.azure.com).
+2. Search for and select **Application Gateways**.
+3. Select your Application Gateway instance.
+4. In the left navigation pane, select **Private link**, then select **+ Add**.
+5. Configure the following settings:
+   - **Name**: Enter a name for the Private Link configuration
+   - **Private link subnet**: Select the dedicated subnet for Private Link IP addresses
+   - **Frontend IP Configuration**: Select the frontend IP configuration that Private Link should forward traffic to
+   - **Private IP address settings**: Configure at least one IP address
+6. Select **Add** to create the configuration.
+7. From your Application Gateway settings, copy and save the **Resource ID**. This identifier is required when setting up Private Endpoints from different Microsoft Entra tenants.
+
+## Configure Private Endpoint
+
+A Private Endpoint is a network interface that uses a private IP address from your virtual network to connect securely to Azure Application Gateway. Clients use the Private Endpoint's private IP address to establish connections to the Application Gateway through a secure tunnel.
+
+To create a Private Endpoint, follow these steps:
+
+1. In the Application Gateway portal, select the **Private endpoint connections** tab.
+2. Select **+ Private endpoint**.
+3. On the **Basics** tab:
+   - Configure the resource group, name, and region for the Private Endpoint
+   - Select **Next: Resource >**
+4. On the **Resource** tab:
+   - Verify the target resource settings
+   - Select **Next: Virtual Network >**
+5. On the **Virtual Network** tab:
+   - Select the virtual network and subnet where the Private Endpoint network interface will be created
+   - Select **Next: DNS >**
+6. On the **DNS** tab:
+   - Configure DNS settings as needed
+   - Select **Next: Tags >**
+7. On the **Tags** tab:
+   - Optionally add resource tags
+   - Select **Next: Review + create >**
+8. Review the configuration and select **Create**.
+
+> [!IMPORTANT]
+> If the public or private IP configuration resource is missing when trying to select a _Target sub-resource_ on the _Resource_ tab of private endpoint creation, ensure a listener is actively utilizing the respected frontend IP configuration. Frontend IP configurations without an associated listener can't be shown as a _Target sub-resource_.
 
 > [!NOTE]
-> The maximum number of IP addresses per private link configuration is eight. Only dynamic allocation is supported.
+> When provisioning a Private Endpoint from a different Microsoft Entra tenant, you must use the Azure Application Gateway Resource ID and specify the frontend IP configuration name as the target sub-resource. 
+For example, if your private IP configuration is named `PrivateFrontendIp` in the portal, use `PrivateFrontendIp` as the target sub-resource value.
 
-> [!NOTE]
-> The Application Gateway name and Private link name together shouldn't exceed 70 characters.To avoid deployment failures due to name length constraints, ensure that both the Application Gateway name and the Private Link configuration name are kept sufficiently short.
-
-
-Complete the following steps to create a new subnet:
-
-[Add, change, or delete a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)
-
-**Configure Private Link**
-
-The Private link configuration defines the infrastructure used by Application Gateway to enable connections from Private Endpoints. While creating the Private Link configuration ensure a listener is actively utilizing the respected frontend IP configuration. Complete the following steps to create the Private Link configuration:
-
-1. Go to the [Azure portal](https://portal.azure.com)
-1. Search for and select **Application Gateways**.
-1. Select the name of the application gateway you want to enable private link.
-1. Select **Private link** then select **+ Add**.
-1. Configure the following items:
-
-   - **Name**: The name of the private link configuration.
-   - **Private link subnet**: The subnet IP addresses should be consumed from.
-   - **Frontend IP Configuration**: The frontend IP address that private link should forward traffic to on Application Gateway.
-   - **Private IP address settings**: specify at least one IP address
-
-1. Select **Add**.
-1. Within your Application Gateway's settings, obtain and make a note of the **Resource ID**. This is required if you're setting up a Private Endpoint within a different Microsoft Entra tenant.
-
-**Configure Private Endpoint**
-
-A private endpoint is a network interface that uses a private IP address from the virtual network containing clients wishing to connect to your Application Gateway. Each of the clients uses the private IP address of the Private Endpoint to tunnel traffic to the Application Gateway. To create a private endpoint, complete the following steps:
-
-1. Select the **Private endpoint connections** tab.
-1. Select **+ Private endpoint**.
-1. On the **Basics** tab, configure a resource group, name, and region for the Private Endpoint. Select **Next: Resource >**.
-1. On the **Resource** tab, select **Next: Virtual Network >**.
-1. On the **Virtual Network** tab, configure a virtual network and subnet where the private endpoint network interface should be provisioned to. Select **Next: DNS >**.
-1. On the **Tags** tab, optionally configure resource tags. Select **Next: Tags >**.
-1. Select **Next: Review + create >** then select **Create**.
-
-> [!NOTE]
-> If the public or private IP configuration resource is missing when trying to select a _Target sub-resource_ on the _Resource_ tab of private endpoint creation, please ensure a listener is actively utilizing the respected frontend IP configuration. Frontend IP configurations without an associated listener won't be shown as a _Target sub-resource_.
-
-> [!NOTE]
-> If you're provisioning a **Private Endpoint** from within another tenant, you will need to utilize the Azure Application Gateway Resource ID and the _Name_ of the Frontend IP configuration as the target sub-resource. For example, if I had a private IP associated to the Application Gateway and the Name listed in Frontend IP configuration of the portal for the private IP is _PrivateFrontendIp_, the target sub-resource value would be: _PrivateFrontendIp_.
-
-> [!NOTE]
-> If you have to move a **Private Endpoint** to another subscription, you must first delete the existing **Private Endpoint** connection between the **Private Link** and **Private Endpoint**. Once this is completed, you have to re-create a new **Private Endpoint** connection in the new subscription to establish connection between **Private Link** and **Private Endpoint**.
+> [!CAUTION]
+> When moving a Private Endpoint to a different subscription, you must first delete the existing connection between the Private Link and Private Endpoint. After deletion, create a new Private Endpoint connection in the target subscription to reestablish connectivity.
 
 
 
 # [Azure PowerShell](#tab/powershell)
 
-To configure Private link on an existing Application Gateway via Azure PowerShell, use following commands:
+## Prerequisites
+
+Before using PowerShell commands, ensure you have:
+- Azure PowerShell module installed and configured
+- Appropriate permissions to modify Application Gateway and network resources
+- An existing Application Gateway and virtual network (VNet) service
+
+## Configure Private Link using PowerShell
+
+Use the following PowerShell commands to configure Private Link on an existing Application Gateway:
 
 ```azurepowershell
 # Disable Private Link Service Network Policies
@@ -99,33 +132,39 @@ $vnet = Get-AzVirtualNetwork @net
 
 ($vnet | Select -ExpandProperty subnets | Where-Object {$_.Name -eq 'AppGW-PL-Subnet'}).PrivateLinkServiceNetworkPolicies = "Disabled"
 
+# Apply the network policy changes
 $vnet | Set-AzVirtualNetwork
 
-# Get Application Gateway Frontend IP Name
+# Get Application Gateway Frontend IP Name 
 $agw = Get-AzApplicationGateway -Name AppGW-PL-PSH -ResourceGroupName AppGW-PL-PSH-RG
-# List the names
+# List the available Frontend IP configuration Names
 $agw.FrontendIPConfigurations | Select Name
 
-# Add a new Private Link configuration and associate it with an existing Frontend IP
+# Create Private Link IP configuration
 $PrivateLinkIpConfiguration = New-AzApplicationGatewayPrivateLinkIpConfiguration `
                             -Name "ipConfig01" `
                             -Subnet ($vnet | Select -ExpandProperty subnets | Where-Object {$_.Name -eq 'AppGW-PL-Subnet'}) `
                             -Primary
 
-# Add the Private Link configuration to the gateway configuration
+# Add Private Link configuration to Application Gateway
 Add-AzApplicationGatewayPrivateLinkConfiguration `
-                            -ApplicationGateway $agw `
-                            -Name "privateLinkConfig01" `
-                            -IpConfiguration $PrivateLinkIpConfiguration
+    -ApplicationGateway $agw `
+    -Name "privateLinkConfig01" `
+    -IpConfiguration $PrivateLinkIpConfiguration
 
-# Associate private link configuration to Frontend IP
+# Associate Private Link configuration with Frontend IP
 $agwPip = ($agw | Select -ExpandProperty FrontendIpConfigurations| Where-Object {$_.Name -eq 'appGwPublicFrontendIp'}).PublicIPAddress.Id
 $privateLinkConfiguration = ($agw | Select -ExpandProperty PrivateLinkConfigurations | Where-Object {$_.Name -eq 'privateLinkConfig01'}).Id
-Set-AzApplicationGatewayFrontendIPConfig -ApplicationGateway $agw -Name "appGwPublicFrontendIp" -PublicIPAddressId $agwPip -PrivateLinkConfigurationId $privateLinkConfiguration
+Set
+-AzApplicationGatewayFrontendIPConfig 
+-ApplicationGateway $agw -Name "appGwPublicFrontendIp" 
+-PublicIPAddressId $agwPip 
+-PrivateLinkConfigurationId $privateLinkConfiguration
 
-# Apply the change to the gateway
+# Apply changes to Application Gateway
 Set-AzApplicationGateway -ApplicationGateway $agw
 
+# Configure Private Endpoint network (in the client/consumer virtual network)
 # Disable Private Endpoint Network Policies
 # https://learn.microsoft.com/azure/private-link/disable-private-endpoint-network-policy
 $net =@{
@@ -141,10 +180,13 @@ $vnet_plendpoint | Set-AzVirtualNetwork
 # Create Private Link Endpoint - Group ID is the same as the frontend IP configuration
 $privateEndpointConnection = New-AzPrivateLinkServiceConnection -Name "AppGW-PL-Connection" -PrivateLinkServiceId $agw.Id -GroupID "appGwPublicFrontendIp"
 
-## Create private endpoint
+## Create the Private Endpoint
 New-AzPrivateEndpoint -Name "AppGWPrivateEndpoint" -ResourceGroupName $vnet_plendpoint.ResourceGroupName -Location $vnet_plendpoint.Location -Subnet ($vnet_plendpoint | Select -ExpandProperty subnets | Where-Object {$_.Name -eq 'MySubnet'}) -PrivateLinkServiceConnection $privateEndpointConnection
 ```
-The following is a list of all Azure PowerShell references for Private Link Configuration on Application Gateway:
+
+## PowerShell cmdlet reference
+
+The following Azure PowerShell cmdlets are available for managing Application Gateway Private Link configurations:
 - [Get-AzApplicationGatewayPrivateLinkConfiguration](/powershell/module/az.network/get-azapplicationgatewayprivatelinkconfiguration)
 - [New-AzApplicationGatewayPrivateLinkConfiguration](/powershell/module/az.network/new-azapplicationgatewayprivatelinkconfiguration)
 - [New-AzApplicationGatewayPrivateLinkIpConfiguration](/powershell/module/az.network/new-azapplicationgatewayprivatelinkipconfiguration)
@@ -154,60 +196,75 @@ The following is a list of all Azure PowerShell references for Private Link Conf
 
 # [Azure CLI](#tab/cli)
 
-To configure Private link on an existing Application Gateway via Azure CLI, use following commands:
+## Prerequisites
+
+Before using Azure CLI commands, ensure you have:
+- Azure CLI installed and configured
+- Appropriate permissions to modify Application Gateway and network resources
+- An existing Application Gateway and virtual network (VNet) service
+
+## Configure Private Link using Azure CLI
+
+Use the following Azure CLI commands to configure Private Link on an existing Application Gateway:
 
 ```azurecli
-# Disable Private Link Service Network Policies
-# https://learn.microsoft.com/azure/private-link/disable-private-endpoint-network-policy
+# Disable Private Link Service Network Policies on the Private Link subnet
+# Reference: https://learn.microsoft.com/azure/private-link/disable-private-endpoint-network-policy
 az network vnet subnet update \
-				--name AppGW-PL-Subnet \
-				--vnet-name AppGW-PL-CLI-VNET \
-				--resource-group AppGW-PL-CLI-RG \
-				--disable-private-link-service-network-policies true
+    --name AppGW-PL-Subnet \
+    --vnet-name AppGW-PL-CLI-VNET \
+    --resource-group AppGW-PL-CLI-RG \
+    --disable-private-link-service-network-policies true
 
-# Get Application Gateway Frontend IP Name
+# List available Frontend IP configurations
 az network application-gateway frontend-ip list \
-							--gateway-name AppGW-PL-CLI \
-							--resource-group AppGW-PL-CLI-RG
+    --gateway-name AppGW-PL-CLI \
+    --resource-group AppGW-PL-CLI-RG
 
-# Add a new Private Link configuration and associate it with an existing Frontend IP
+# Create Private Link configuration and associate with Frontend IP
 az network application-gateway private-link add \
-							--frontend-ip appGwPublicFrontendIp \
-							--name privateLinkConfig01 \
-							--subnet /subscriptions/XXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXX/resourceGroups/AppGW-PL-CLI-RG/providers/Microsoft.Network/virtualNetworks/AppGW-PL-CLI-VNET/subnets/AppGW-PL-Subnet \
-							--gateway-name AppGW-PL-CLI \
-							--resource-group AppGW-PL-CLI-RG
+    --frontend-ip appGwPublicFrontendIp \
+    --name privateLinkConfig01 \
+    --subnet /subscriptions/XXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXX/resourceGroups/AppGW-PL-CLI-RG/providers/Microsoft.Network/virtualNetworks/AppGW-PL-CLI-VNET/subnets/AppGW-PL-Subnet \
+    --gateway-name AppGW-PL-CLI \
+    --resource-group AppGW-PL-CLI-RG
 
-# Get Private Link resource ID
+# Verify Private Link configuration
 az network application-gateway private-link list \
-				--gateway-name AppGW-PL-CLI \
-				--resource-group AppGW-PL-CLI-RG
+    --gateway-name AppGW-PL-CLI \
+    --resource-group AppGW-PL-CLI-RG
 
-
-
+# Configure Private Endpoint network (in the client/consumer virtual network)
 # Disable Private Endpoint Network Policies
-# https://learn.microsoft.com/azure/private-link/disable-private-endpoint-network-policy
 az network vnet subnet update \
-				--name MySubnet \
-				--vnet-name AppGW-PL-Endpoint-CLI-VNET \
-				--resource-group AppGW-PL-Endpoint-CLI-RG \
-				--disable-private-endpoint-network-policies true
+    --name MySubnet \
+    --vnet-name AppGW-PL-Endpoint-CLI-VNET \
+    --resource-group AppGW-PL-Endpoint-CLI-RG \
+    --disable-private-endpoint-network-policies true
 
-# Create Private Link Endpoint - Group ID is the same as the frontend IP configuration
+# Create Private Endpoint
+# Note: Group ID must match the Frontend IP configuration name
 az network private-endpoint create \
-	--name AppGWPrivateEndpoint \
-	--resource-group AppGW-PL-Endpoint-CLI-RG \
-	--vnet-name AppGW-PL-Endpoint-CLI-VNET \
-	--subnet MySubnet \
-	--group-id appGwPublicFrontendIp \
-	--private-connection-resource-id /subscriptions/XXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXX/resourceGroups/AppGW-PL-CLI-RG/providers/Microsoft.Network/applicationGateways/AppGW-PL-CLI \
-	--connection-name AppGW-PL-Connection
+    --name AppGWPrivateEndpoint \
+    --resource-group AppGW-PL-Endpoint-CLI-RG \
+    --vnet-name AppGW-PL-Endpoint-CLI-VNET \
+    --subnet MySubnet \
+    --group-id appGwPublicFrontendIp \
+    --private-connection-resource-id /subscriptions/XXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXX/resourceGroups/AppGW-PL-CLI-RG/providers/Microsoft.Network/applicationGateways/AppGW-PL-CLI \
+    --connection-name AppGW-PL-Connection
 ```
 
-A list of all Azure CLI references for Private Link Configuration on Application Gateway is available here: [Azure CLI CLI - Private Link](/cli/azure/network/application-gateway/private-link)
+## Azure CLI reference
+
+For comprehensive Azure CLI command reference for Application Gateway Private Link configuration, see [Azure CLI - Application Gateway Private Link](/cli/azure/network/application-gateway/private-link).
 
 ---
 
 ## Next steps
 
-- Learn about Azure Private Link: [What is Azure Private Link](../private-link/private-link-overview.md).
+To learn more about Azure Private Link and related services:
+
+- [What is Azure Private Link?](../private-link/private-link-overview.md)
+- [Application Gateway Private Link overview](private-link.md)
+- [Private Link service overview](../private-link/private-link-service-overview.md)
+- [Private endpoints overview](../private-link/private-endpoint-overview.md)

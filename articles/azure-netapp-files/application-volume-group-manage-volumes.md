@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 05/14/2025
+ms.date: 07/11/2025
 ms.author: anfdocs
 ms.custom:
   - build-2025
@@ -14,8 +14,6 @@ ms.custom:
 # Manage volumes in an application volume group for SAP HANA
 
 You can manage a volume from its volume group. You can resize, delete, or change throughput for the volume. 
-
-[!INCLUDE [Application volume group CLI & PowerShell limitation](includes/application-volume-group-powershell.md)]
 
 ## Steps
 

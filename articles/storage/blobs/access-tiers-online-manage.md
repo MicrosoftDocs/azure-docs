@@ -18,7 +18,8 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 You can set a blob's access tier in any of the following ways:
 
-- By setting the default online access tier for the storage account. Blobs in the account inherit this access tier unless you explicitly override the setting for an individual blob.
+- By setting the account default access tier setting for the storage account. Blobs in the account inherit this access tier unless you explicitly override the setting for an individual blob.
+
 - By explicitly setting a blob's tier on upload. You can create a blob in the hot, cool, cold, or archive tier.
 - By changing an existing blob's tier with a Set Blob Tier operation. Typically, you would use this operation to move from a hotter tier to a cooler one.
 - By copying a blob with a Copy Blob operation. Typically, you would use this operation to move from a cooler tier to a hotter one.

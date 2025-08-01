@@ -5,8 +5,8 @@ ms.reviewer: dapatil
 ms.topic: how-to
 ms.date: 05/30/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a backup administrator, I want to understand and assign Azure role-based access controls for backup management operations, so that I can ensure proper access levels and security within my team for effective backup operations.
 ---
 

@@ -29,21 +29,27 @@ Ensure that your subnet is large enough to accommodate the maximum scale of your
 
 ## Deployment considerations
 
-Before you deploy your App Service Environment, consider the virtual IP (VIP) type and the deployment type.
+Before you deploy your App Service Environment, you must consider both the virtual IP (VIP) type and the deployment type you want to use.
 
-With an *internal VIP*, your apps are accessible through an address within your App Service Environment subnet and aren’t listed in a public Domain Name System (DNS). When you create your App Service Environment in the Azure portal, you can set up an Azure private DNS zone for your App Service Environment.  
+- Select which virtual IP type you wish to use. The virtual IP type determines how your apps are accessible.
 
-With an *external VIP*, your apps use an address that faces the public internet and are listed in a public DNS. For both *internal VIP* and *external VIP*, you can specify an *Inbound IP address* and select either the *Automatic* or *Manual* option. If you select the *Manual* option for *external VIP*, you must first create a standard *Public IP address* in Azure. 
+   You can choose between the following two virtual IP types:
 
-You can select *single zone*, *zone redundant*, or *host group* for the deployment type. The single zone is available in all regions where App Service Environment v3 is available. With the single-zone deployment type, you have a minimum charge in your App Service plan of one instance of Windows Isolated v2. When you use one or more instances, the charge is removed. This fee isn't additive.
+    - *Internal VIP*: Your apps are accessible through an address within your App Service Environment subnet and aren’t listed in a public Domain Name System (DNS). When you create your App Service Environment in the Azure portal, you can set up an Azure private DNS zone for your App Service Environment. You can specify an *Inbound IP address* and select either the *Automatic* or *Manual* option.
 
-In a zone-redundant App Service Environment, your apps are distributed across the maximum number of available zones, up to three, within the same region. Zone redundancy is available in regions that support availability zones. With this deployment type, your App Service plan must include at least two instances to ensure redundancy across zones. You can scale up App Service plans by adding one or more instances at a time. Scaling doesn't have to be in units of two or three. However, the app is only balanced across all availability zones when the total number of instances are multiples of two or three, depending on the number of available zones. To view the number of available zones for your App Service Environment, see the *Maximum available zones* property in the **Configuration** blade of the Azure portal. If the value is two or three, your App Service Environment is zone redundant.
+    - *External VIP*: Your apps use an address that faces the public internet and are listed in a public DNS. You can specify an *Inbound IP address* and select either the *Automatic* or *Manual* option. If you select the *Manual* option, you must first create a standard *Public IP address* in Azure.
 
-A zone-redundant deployment provides three or four times the infrastructure, depending on the maximum number of available zones. This redundancy ensures that workloads remain available even if one zone experiences an outage. There's no added charge to have a zone-redundant App Service Environment. For more information about zone redundancy, see [Reliability in App Service](../../reliability/reliability-app-service.md?pivots=isolated).
-
-In a host group deployment, your apps are deployed onto a dedicated host group. The dedicated host group isn't zone redundant. In a host group deployment, you can install and use your App Service Environment on dedicated hardware. There's no minimum instance charge for using App Service Environment on a dedicated host group. However, you must pay for the host group when you provision the App Service Environment. You also pay a discounted App Service plan rate as you create your plans and scale out.
-
-A dedicated host group deployment allocates a finite number of cores, which both the App Service plans and the infrastructure roles use. This type of deployment can't reach the 200 total instance count normally available in App Service Environment. The number of total possible instances is related to the total number of App Service plan instances, plus the load-based number of infrastructure roles.
+- Select which deployment type you wish to use. The deployment type determines how your apps are distributed across the App Service Environment. You can choose between the following three types:
+    
+     - *Regional deployment:* This is also called a *nonzonal* deployment. Available in all regions where App Service Environment v3 is available. In regions with availability zones, your apps run in a single zone. If any availability zone in the region experiences an outage, regional deployments might be in the affected zone and could experience downtime.
+     
+         With the regional deployment type, you have a minimum charge in your App Service plan of one instance of Windows Isolated v2. When you use one or more instances, the charge is removed. This fee isn't additive.
+    
+     - *Zone redundant deployment:* Zone redundancy ensures that workloads remain available even if one zone experiences an outage. In regions that support availability zones, you can configure App Service Environment so that your apps are distributed across multiple availability zones within the same region. With zone redundancy, your App Service plan must include at least two instances of your plan to ensure redundancy across zones. You can scale out App Service plans by adding one or more instances at a time. For more information such as requirements and considerations on zone redundancy in Azure App Service Environment, see [Reliability in App Service Environment](../../reliability/reliability-app-service-environment.md).
+   
+   - *Host group deployment:* Your apps are deployed onto a dedicated host group. The dedicated host group isn't zone redundant. In a host group deployment, you can install and use your App Service Environment on dedicated hardware. There's no minimum instance charge for using App Service Environment on a dedicated host group. However, you must pay for the host group when you provision the App Service Environment. You also pay a discounted App Service plan rate as you create your plans and scale out.
+   
+      A dedicated host group deployment allocates a finite number of cores, which both the App Service plans and the infrastructure roles use. This type of deployment can't reach the 200 total instance count normally available in App Service Environment. The number of total possible instances is related to the total number of App Service plan instances, plus the load-based number of infrastructure roles.
 
 ## Create an App Service Environment in the portal
 
@@ -60,6 +66,11 @@ To create an App Service Environment in the Azure portal, complete the following
    :::image type="content" source="./media/creation/creation-hosting.png" alt-text="Screenshot that shows the App Service Environment hosting selections." border="true":::
    
 1. From the **Networking** tab, for **Virtual Network**, select or create your virtual network. For **Subnet**, select or create your subnet. If you create an App Service Environment with an internal VIP, you can configure Azure DNS private zones to point your domain suffix to your App Service Environment. For more information, see the DNS section in [Use an App Service Environment](/azure/app-service/environment/using#dns-configuration). If you create an App Service Environment with an internal VIP, you can specify a private IP address by using the **Manual** option for **Inbound IP address**.
+
+   > [!NOTE]
+   > If you use an existing subnet that has either a network security group or route table associated with it, you must either delegate the subnet to `Microsoft.web/hostingEnvironments` yourself or ensure you have have at a minimum the following RBAC permissions for your associated resources:
+   > * `Microsoft.Network/routeTables/join/action`
+   > * `Microsoft.Network/networkSecurityGroups/join/action`
 
    :::image type="content" source="./media/creation/creation-networking-internal.png" alt-text="Screenshot that shows App Service Environment networking (App Service Environment Internal) selections." border="true":::
 

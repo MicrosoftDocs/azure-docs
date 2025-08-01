@@ -4,9 +4,8 @@ description: Schema reference guide for Workflow Definition Language trigger and
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 03/27/2025
-ms.custom:
+ms.topic: reference
+ms.date: 07/17/2025
 ---
 
 # Schema reference guide for trigger and action types in Azure Logic Apps
@@ -548,10 +547,15 @@ For more information plus examples for this trigger, see [Create and schedule re
 
 This trigger makes your logic app callable by creating an endpoint that can accept incoming requests. For this trigger, provide a JSON schema that describes and validates the payload or inputs that the trigger receives from the incoming request. The schema also makes trigger properties easier to reference from later actions in the workflow.
 
+> [!NOTE]
+>
+> The original name for the **Request** trigger was **manual**, which might still appear in some places. This 
+> name changed to create more consistency around the kind of workflow pattern that you use the trigger to build.
+
 To call this trigger, you must use the `listCallbackUrl` API, which is described in the [Workflow Service REST API](/rest/api/logic/workflows). To learn how to use this trigger as an HTTP endpoint, see [Call, trigger, or nest workflows with HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md).
 
 ```json
-"manual": {
+"Request": {
    "type": "Request",
    "kind": "Http",
    "inputs": {
@@ -600,7 +604,7 @@ To call this trigger, you must use the `listCallbackUrl` API, which is described
 This trigger specifies that an incoming request must use the HTTP POST method to call the trigger and includes a schema that validates input from the incoming request:
 
 ```json
-"manual": {
+"Request": {
    "type": "Request",
    "kind": "Http",
    "inputs": {

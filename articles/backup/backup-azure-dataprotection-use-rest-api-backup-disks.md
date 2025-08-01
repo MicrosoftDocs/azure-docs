@@ -4,8 +4,8 @@ description: In this article, learn how to configure, initiate, and manage backu
 ms.topic: how-to
 ms.date: 06/11/2025
 ms.assetid: 6050a941-89d7-4b27-9976-69898cc34cde
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
 # Customer intent: "As a cloud administrator, I want to configure and manage backups for Azure Disks using a REST API, so that I can automate snapshot lifecycle management and ensure data protection without incurring infrastructure costs or performance impact."
 ---

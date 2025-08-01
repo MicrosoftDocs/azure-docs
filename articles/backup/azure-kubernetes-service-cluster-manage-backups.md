@@ -8,8 +8,8 @@ ms.custom:
   - ignite-2023
   - ignite-2024
 ms.date: 06/18/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a cloud administrator, I want to manage backups for Azure Kubernetes Service clusters using Azure Backup, so that I can ensure data protection and recovery for my applications and services."
 ---
 

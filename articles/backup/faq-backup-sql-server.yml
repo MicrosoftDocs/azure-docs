@@ -5,9 +5,9 @@ metadata:
   ms.reviewer: vijayts
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 06/24/2025
-  author: jyothisuri
-  ms.author: jsuri
+  ms.date: 07/25/2025
+  author: AbhishekMallick-MS
+  ms.author: v-mallicka
 
     
 title: FAQ about SQL Server databases that are running on an Azure VM backup
@@ -43,22 +43,26 @@ sections:
           1. On the SQL Server instance, in the *C:\Program Files\Azure Workload Backup\bin* folder, create or edit the **ExtensionSettingsOverrides.json** file.
           1. In the **ExtensionSettingsOverrides.json** file, set `{"EnableAutoHealer": false}`.
           1. Save the changes and close the file.
-          1. On the SQL Server instance, open **Task Manage**, and then restart the **AzureWLBackupCoordinatorSvc** service.
+          1. On the **SQL Server instance**, open **Task Manager**, stop `AzureWLBackupPluginSvs` and `AzureWLBackupInquirySvc` services, and then restart the `AzureWLBackupCoordinatorSvc` service.
           
+             `AzureWLBackupPluginSvs` and `AzureWLBackupInquirySvc` services auto-start when new tasks arrive. Avoid restarting `AzureWLBackupCoordinatorSvc` during active backups; otherwise, it aborts them and might trigger full remedial backups.
+
       - question: |
           Can I control how many concurrent backups run on the SQL server?
         answer: |
           Yes. You can throttle the rate at which the backup policy runs to minimize the impact on a SQL Server instance. To change the setting:
           
           1. On the SQL Server instance, in the *C:\Program Files\Azure Workload Backup\bin* folder, create the *ExtensionSettingsOverrides.json* file.
-          2. In the **ExtensionSettingsOverrides.json** file, change the `DefaultBackupTasksThreshold` setting to a lower value (for example, 5). <br>
+          1. In the **ExtensionSettingsOverrides.json** file, change the `DefaultBackupTasksThreshold` setting to a lower value (for example, 5). <br>
             `{"DefaultBackupTasksThreshold": 5}`
           <br>
           The default value of DefaultBackupTasksThreshold is **20**.
           
-          3. Save your changes and close the file.
-          4. On the SQL Server instance, open **Task Manager**. Restart the **AzureWLBackupCoordinatorSvc** service.<br/> <br/>
-           While this method helps if the backup application is consuming a large quantity of resources, SQL Server [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) is a more generic way to specify limits on the amount of CPU, physical IO, and memory that incoming application requests can use.
+          1. Save your changes and close the file.
+          1. On the **SQL Server instance**, open **Task Manager**, stop `AzureWLBackupPluginSvs` and `AzureWLBackupInquirySvc` services, and then restart the `AzureWLBackupCoordinatorSvc` service.
+          
+             `AzureWLBackupPluginSvs` and `AzureWLBackupInquirySvc` services auto-start when new tasks arrive. Avoid restarting `AzureWLBackupCoordinatorSvc` during active backups; otherwise, it aborts them and might trigger full remedial backups. For more generic control over CPU, I/O, and memory usage by backup applications, use **SQL Server Resource Governor**.
+
           
           > [!NOTE]
           > In the UX you can still go ahead and schedule as many backups at any given time. However they'll be processed in a sliding window of say, 5, according to the above example.
@@ -144,6 +148,12 @@ sections:
           Connecting the Azure environment to on-premises network using ExpressRoute and  configured forced tunneling directs all the traffic to the on-premises network. How can I configure the settings so that Azure SQL Server workload backup traffic won't pass through the on-premises network and directly connects to Recovery Services vault?
         answer: |
           During the backup operation, the *backup job* connects to three Service Endpoints - `AzureBackup`, `AzureStorage`, and `Microsoft Entra ID`. In this scenario, we recommend you to configure the Service Endpoint to `AzureStorage`, which helps to send the traffic from the Virtual Network to the Storage directly. For Azure Backup and Microsoft Entra ID, you can configure UDR over service tags so that the traffic travels to backbone network instead of on-premises.
+
+      - question: |
+          Why do I need write permission on the source SQL Server to restore to another SQL Server?
+        answer: |
+          You need write access to the source VM during a PowerShell-based SQL ALR restore to confirm that the data owner is initiating the restore. This check prevents unauthorized access through the Recovery Services Vault. If the source VM no longer exists, the vault skips validation and lets you restore to any VM without needing write access to the original source.
+
 
 additionalContent: |
 
