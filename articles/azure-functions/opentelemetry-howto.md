@@ -104,7 +104,7 @@ Examples in this article assume your app is using `IHostApplicationBuilder`, whi
     ```
     ---
 
-1. In your Program.cs project file, add this `using` statement:
+2. In your Program.cs project file, add this `using` statement:
 
     ### [Application Insights](#tab/app-insights)
 
@@ -120,7 +120,7 @@ Examples in this article assume your app is using `IHostApplicationBuilder`, whi
 
     ---
 
-1. The way that you configure OpenTelemetry depends if your project startup uses `IHostBuilder` or `IHostApplicationBuilder`, which was introduced in v2.x of the .NET isolated worker model extension.
+3. The way that you configure OpenTelemetry depends if your project startup uses `IHostBuilder` or `IHostApplicationBuilder`, which was introduced in v2.x of the .NET isolated worker model extension.
 
     ### [IHostApplicationBuilder](#tab/ihostapplicationbuilder/app-insights)
     
@@ -207,7 +207,7 @@ Examples in this article assume your app is using `IHostApplicationBuilder`, whi
     </dependency>
     ```
 
-    ### [Kotlin](#tab/maven/otlp-export) 
+    ### [Kotlin](#tab/kotlin/otlp-export) 
 
     ```kotlin
     implementation("com.microsoft.azure.functions:azure-functions-java-opentelemetry:1.0.0")
@@ -272,7 +272,7 @@ Examples in this article assume your app is using `IHostApplicationBuilder`, whi
 
     ---
 
-1. Update the `main` field in your package.json file to include this new `src/index.js` file, which might look like this: 
+2. Update the `main` field in your package.json file to include this new `src/index.js` file, which might look like this: 
 
     ```json
     "main": "src/{index.js,functions/*.js}"
@@ -291,7 +291,7 @@ Examples in this article assume your app is using `IHostApplicationBuilder`, whi
 
     ---
 
-1. Update the `main` field in your package.json file to include the output of this new `src/index.ts` file, which might look like this: 
+2. Update the `main` field in your package.json file to include the output of this new `src/index.ts` file, which might look like this: 
 
     ```json
     "main": "dist/src/{index.js,functions/*.js}"
