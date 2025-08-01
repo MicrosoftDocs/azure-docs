@@ -11,7 +11,7 @@ ms.service: azure-file-storage
 
 # Estimate the cost of Azure Files
 
-In this article, you learn how to estimate the cost difference between the Provisioned v1 and Provisioned v2 SSD billing models for Azure Files in three scenarios. You get a detailed breakdown of three scenarios used in the Provisioned v2 SSD release blog post.
+In this article, you learn how to estimate the cost difference between the Provisioned v1 and Provisioned v2 SSD billing models for Azure Files. You get a detailed breakdown of three scenarios used in the Provisioned v2 SSD release blog post.
 
 > [!IMPORTANT]
 > These prices are meant only as examples and shouldn't be used to calculate your costs. For official prices, see the [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/). For more information about how to choose the correct billing model, see [Understand Azure Files billing](understanding-billing.md). We also encourage you to use [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/) to perform the actual calculations.
