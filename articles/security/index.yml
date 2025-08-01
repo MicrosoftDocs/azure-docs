@@ -190,8 +190,6 @@ additionalContent:
               text: Azure Key Vault
             - url: /azure/key-vault/managed-hsm/
               text: Azure Managed HSM
-            - url: /azure/dedicated-hsm/
-              text: Azure Dedicated HSM
             - url: /azure/payment-hsm/
               text: Azure Payment-HSM
 

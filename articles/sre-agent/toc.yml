@@ -29,5 +29,3 @@ items:
   items:
     - name: Starter prompts
       href: prompts.md
-    - name: Incident management tools
-      href: incident-management-tools.md

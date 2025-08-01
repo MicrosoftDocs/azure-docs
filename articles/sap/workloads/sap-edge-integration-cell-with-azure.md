@@ -24,7 +24,7 @@ Using [Azure Kubernetes Service (AKS)](/azure/aks/) SAP Edge Integration Cell ma
 
 :::image type="content" source="media/sap-eic/overview.png" alt-text="Screenshot of SAP Edge Integration Cell architecture with Azure and Azure ARC.":::
 
-This article builds on top of SAP's documentation and walks you through the deployment considerations and Azure best practices.
+This article builds on top of [SAP's documentation and architecture center](https://architecture.learning.sap.com/docs/ref-arch/263f576c90/2). The article walks you through the deployment considerations and Azure best practices.
 
 ## Getting Started
 
@@ -65,3 +65,4 @@ Familiarize yourself with the mentioned support policy, [Long-term support](/azu
 
 - Use [the accelerator project](https://github.com/Azure/sap-edge-integration-cell-on-azure-accelerator) for SAP Edge Integration Cell with Azure to get started quickly.
 - For more information, see the latest [SAP Edge Integration Cell documentation](https://help.sap.com/docs/integration-suite/sap-integration-suite/what-is-sap-integration-suite-edge-integration-cell).
+- Explore the SAP Architecture Center for [Edge Integration Cell on Azure](https://architecture.learning.sap.com/docs/ref-arch/263f576c90/2).

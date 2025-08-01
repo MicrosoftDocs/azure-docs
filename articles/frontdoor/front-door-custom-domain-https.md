@@ -17,9 +17,10 @@ ms.custom:
 **Applies to:** :heavy_check_mark: Front Door (classic)
 
 > [!IMPORTANT]
-> - Starting August 15, 2025, Azure Front Door (classic) will no longer support new domain onboarding or profile creation. Migrate to [AFD Standard and Premium](/azure/frontdoor/tier-migration) to create new domains or profiles and avoid service disruption. [Learn more](https://azure.microsoft.com/updates?id=498522)
-> - Starting August 15, 2025, Azure Front Door (classic) will no longer support Managed certificates. To avoid service disruption, either [switch to Bring Your Own Certificate (BYOC)](/azure/frontdoor/front-door-custom-domain-https?tabs=powershell) or migrate to [AFD Standard and Premium](/azure/frontdoor/tier-migration) by August 15, 2025. Existing managed certificates will be auto renewed before August 15, 2025, and remain valid until April 14, 2026.  [Learn more](https://azure.microsoft.com/updates?id=498522)
-> - Azure Front Door (classic) will be retired on March 31, 2027. To avoid service disruption, ⁠[migrate to ⁠AFD Standard or Premium](/azure/frontdoor/tier-migration). ⁠[Learn more](https://azure.microsoft.com/updates?id=azure-front-door-classic-will-be-retired-on-31-march-2027).
+> - Starting August 15, 2025, Azure Front Door (classic) will no longer support new domain onboarding. Migrate to [AFD Standard and Premium](/azure/frontdoor/tier-migration) to create new domains or profiles and avoid service disruption. [Learn more](https://azure.microsoft.com/updates?id=498522)
+- Starting August 15, 2025, Azure Front Door (classic) will no longer support Managed certificates. To avoid service disruption, either [switch to Bring Your Own Certificate (BYOC)](/azure/frontdoor/front-door-custom-domain-https?tabs=powershell) or migrate to [AFD Standard and Premium](/azure/frontdoor/tier-migration) by August 15, 2025. Existing managed certificates will be auto renewed before August 15, 2025, and remain valid until April 14, 2026.  [Learn more](https://azure.microsoft.com/updates?id=498522)
+- Azure Front Door (classic) will be retired on March 31, 2027. To avoid service disruption, ⁠[migrate to ⁠AFD Standard or Premium](/azure/frontdoor/tier-migration). ⁠[Learn more](https://azure.microsoft.com/updates?id=azure-front-door-classic-will-be-retired-on-31-march-2027).
+
 
 This article explains how to enable HTTPS for a custom domain associated with your Front Door (classic). Using HTTPS on your custom domain (for example, `https://www.contoso.com`) ensures secure data transmission via TLS/SSL encryption. When a web browser connects to a website using HTTPS, it validates the website's security certificate and verifies its legitimacy, providing security and protecting your web applications from malicious attacks.
 

@@ -463,7 +463,8 @@ IoT Hub records this log when a message containing valid trace properties arrive
 }
 ```
 
-Here, `durationMs` isn't calculated as IoT Hub's clock might not be in sync with the device clock, and thus a duration calculation can be misleading. We recommend writing logic using the timestamps in the `properties` section to capture spikes in device-to-cloud latency.
+> [!NOTE]
+> Here, `durationMs` isn't calculated as IoT Hub's clock might not be in sync with the device clock, and thus a duration calculation can be misleading. We recommend writing logic using the timestamps in the `properties` section to capture spikes in device-to-cloud latency.
 
 | Property | Type | Description |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|

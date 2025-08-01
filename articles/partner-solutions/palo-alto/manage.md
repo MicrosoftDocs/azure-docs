@@ -40,8 +40,9 @@ To change the Cloud NGFW's billing plan, go to **Overview** and select **Change 
 > [!NOTE]
 > The **Delete** button on the resource is activated only if all connected resources are already deleted. For more information, see [Azure Resource Manager resource group and resource deletion](/azure/azure-resource-manager/management/delete-resource-group).
 
-## Next step
+## Related content
 
-- For help with troubleshooting, see [Troubleshooting Palo Alto integration with Azure](troubleshoot.md).
+- [Azure Virtual Network FAQ](../../virtual-network/virtual-networks-faq.md)
+- [Virtual WAN FAQ](../../virtual-wan/virtual-wan-faq.md)
 
 
