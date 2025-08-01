@@ -69,7 +69,7 @@ Using `Orjson` can provide both lower latency and higher throughput for JSON-hea
 These features are no longer supported by Functions when using Python 3.13 and later versions:
 
 - **[Worker Extensions](./functions-reference-python.md#python-worker-extensions)**: Custom worker extensions aren't compatible with the Python 3.13+ runtime. If your app rely on these extensions, you must reevaluate or migrate to using supported alternatives.
-- **[Shared Memory](./functions-reference-python.md#shared-memory-preview)**: The shared memory feature used for large payload optimization isn't available starting with Python 3.13. By default, all communication now uses gRPC-based messaging.
+- **[Shared Memory](./functions-reference-python.md#shared-memory)**: The shared memory feature used for large payload optimization isn't available starting with Python 3.13. By default, all communication now uses gRPC-based messaging.
 
 ## Related article
 
