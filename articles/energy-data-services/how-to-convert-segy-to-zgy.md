@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # How to convert a SEG-Y file to ZGY
 
-In this article, you learn how to convert SEG-Y formatted data to the ZGY format. Seismic data stored in industry standard SEG-Y format can be converted to ZGY for use in applications such as Petrel via the Seismic DMS. See here for [ZGY Conversion FAQ's](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion#faq) and more background can be found in the OSDU&reg; community here: [SEG-Y to ZGY conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion). This tutorial is a step by step guideline how to perform the conversion. Note the actual production workflow may differ and use as a guide for the required set of steps to achieve the conversion. 
+In this article, you learn how to convert SEG-Y formatted data to the ZGY format. Seismic data stored in industry standard SEG-Y format can be converted to ZGY for use in applications such as Petrel via the Seismic DMS. See here for [ZGY Conversion FAQ's](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion#faq) and more background can be found in the OSDU&reg; community here: [SEG-Y to ZGY conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion). This tutorial is a step by step guideline on how to perform the conversion. Note the actual production workflow may differ and use it as a guide for the required set of steps to achieve the conversion. 
 
 ## Prerequisites
 * An Azure subscription
@@ -42,13 +42,11 @@ Ensure you have `cURL` installed on your system. You use it to make API calls.
 
 ## Step by Step Process to convert SEG-Y file to ZGY file
 
-### Create a Legal Tag
-
 ### Create a legal tag
 
 Create a legal tag for data compliance.
 
-API: **Setup** > **Create Legal Tag for SDMS**
+**Create Legal Tag for SDMS**
 
 ```bash
 cURL --request POST \
@@ -109,12 +107,12 @@ Conversion uses a manifest file that you upload to your storage account later in
 
 1. Clone the [repo](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion/-/tree/master/) and navigate to the folder `doc/sample-records/volve`
 2. Edit the values in the `prepare-records.sh` bash script. Recall that the format of the legal tag is prefixed with the Azure Data Manager for Energy instance name and data partition name, so it looks like `<instancename>-<datapartitionname>-<legaltagname>`.
-```bash
-DATA_PARTITION_ID=<data-partition-id>
-ACL_OWNER=data.default.owners@<data-partition-id>.<domain>
-ACL_VIEWER=data.default.viewers@<data-partition-id>.<domain>
-LEGAL_TAG=<legal_tag_name>
-```
+    ```bash
+    DATA_PARTITION_ID=<data-partition-id>
+    ACL_OWNER=data.default.owners@<data-partition-id>.<domain>
+    ACL_VIEWER=data.default.viewers@<data-partition-id>.<domain>
+    LEGAL_TAG=<legal_tag_name>
+    ```
 3. Run the `prepare-records.sh` script.
 4. The output is a JSON array with all objects and is saved in the `all_records.json` file.
 5. Save the `filecollection_segy_id` and the `work_product_id` values in that JSON file to use in the conversion step. That way the converter knows where to look for this contents of your `all_records.json`.
@@ -197,7 +195,7 @@ Follow this [tutorial](tutorial-seismic-ddms.md) to Prepare Subproject that invo
 ### Upload the File
 
 There are two ways to upload a SEGY file. One option is to use the SASurl through cURL call. You need to set up cURL on your OS. 
-The second method is to use [SDUTIL](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tags/azure-stable). To log in to your instance for ADME via the tool, you need to generate a refresh token for the instance. See [How to generate auth token](how-to-generate-auth-token.md). Alternatively, you can modify the code of SDUTIL to use client credentials instead to log in. If you haven't already, you need to set up SDUTIL. Check the [guide](tutorial-seismic-ddms-sdutil.md) for setting up SDUTIL Download the codebase and edit the `config.yaml` at the root. Replace the contents of this config file with the following yaml. 
+The second method is to use [SDUTIL](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tags/azure-stable). To log in to your instance for ADME via the tool, you need to generate a refresh token for the instance. See [How to generate auth token](how-to-generate-auth-token.md). Alternatively, you can modify the code of SDUTIL to use client credentials instead to log in. If you haven't already, you need to set up SDUTIL. Check the [guide](tutorial-seismic-ddms-sdutil.md) for setting up SDUTIL. Download the codebase and edit the `config.yaml` at the root. Replace the contents of this config file with the following yaml. 
 
 ```yaml
 seistore:
@@ -378,37 +376,37 @@ cURL --request PUT \
 
     Fetch the ID token from sdutil for the uploaded file or use an access/bearer token.
 
-```markdown
-python sdutil auth idtoken
-```
+    ```Markdown
+    python sdutil auth idtoken
+    ```
 
- Use the following `cURL` command to trigger workflow:
+    Use the following `cURL` command to trigger workflow:
 
- ```Bash
-    cURL -X POST "https://<DNS>/api/workflow/v1/workflow/<segy-to-zgy-conversion dag id>" \
-        -H "Authorization: Bearer <access_token>" \
-        -H "Content-Type: application/json" \
-        -d '{
-            "executionContext": {
-                "data_partition_id": "{{DATA_PARTITION_ID}}",
-                "sd_svc_api_key": "no",
-                "storage_svc_api_key": "no",
-                "filecollection_segy_id": "{{DATA_PARTITION_ID}}:dataset--FileCollection.SEGY:e4a9fc6241610b3a0327f7ace99b9c6f",
-                "work_product_id":"{{DATA_PARTITION_ID}}:work-product--WorkProduct:819c76be31892652773f5dacd642b0e8",
-                "id_token": "{{access_token}}"
+    ```Bash
+        cURL -X POST "https://<DNS>/api/workflow/v1/workflow/<segy-to-zgy-conversion dag id>" \
+            -H "Authorization: Bearer <access_token>" \
+            -H "Content-Type: application/json" \
+            -d '{
+                "executionContext": {
+                    "data_partition_id": "{{DATA_PARTITION_ID}}",
+                    "sd_svc_api_key": "no",
+                    "storage_svc_api_key": "no",
+                    "filecollection_segy_id": "{{DATA_PARTITION_ID}}:dataset--FileCollection.SEGY:e4a9fc6241610b3a0327f7ace99b9c6f",
+                    "work_product_id":"{{DATA_PARTITION_ID}}:work-product--WorkProduct:819c76be31892652773f5dacd642b0e8",
+                    "id_token": "{{access_token}}"
+                }
+
+        }'
+    ```
+
+    **Sample Response:**
+        ```json
+            {
+            "runId": "workflow-12345",
+            "status": "Running",
+            "message": "Workflow triggered successfully."
             }
-
-    }'
-```
-
-**Sample Response:**
-```json
-    {
-    "runId": "workflow-12345",
-    "status": "Running",
-    "message": "Workflow triggered successfully."
-    }
-```
+        ```
 
 
 2. Let the DAG run to the `succeeded` state. You can check the status using the workflow status call. The run ID is in the response of the previous call
@@ -429,7 +427,7 @@ python sdutil auth idtoken
     "message": "Workflow completed successfully."
     }
     ```
-    Use the following `cURL` command to verify file conversion:
+3. Use the following `cURL` command to verify file conversion:
 
     ```bash
     cURL --request GET \
@@ -445,7 +443,7 @@ python sdutil auth idtoken
     }
     ```
 
-3. You can see if the converted file is present using the following command in sdutil
+4. You can see if the converted file is present using the following command in sdutil
 
     ```bash
     python sdutil ls sd://<data-partition-id>/<subprojectname>
@@ -453,7 +451,7 @@ python sdutil auth idtoken
 
 
 
-4. You can download and inspect the file using the [sdutil](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tags/azure-stable) `cp` command:
+5. You can download and inspect the file using the [sdutil](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tags/azure-stable) `cp` command:
 
     ```bash
     python sdutil cp sd://<data-partition-id>/<subproject>/<filename.zgy> <local/destination/path>

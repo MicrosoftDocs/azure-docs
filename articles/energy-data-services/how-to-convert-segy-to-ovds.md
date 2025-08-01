@@ -46,7 +46,7 @@ Ensure you have `cURL` installed on your system. You use it to make API calls.
 
 Create a legal tag for data compliance.
 
-API: **Setup** > **Create Legal Tag for SDMS**
+ **Create Legal Tag for SDMS**
 
 ```bash
 cURL --request POST \
@@ -156,7 +156,7 @@ Follow this [tutorial](tutorial-seismic-ddms.md) to Prepare Subproject that invo
 ### Upload the File
 
 There are two ways to upload a SEGY file. One option is to use the SASurl through cURL call. You need to set up cURL on your OS. 
-The second method is to use [SDUTIL](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tags/azure-stable). To log in to your instance for ADME via the tool, you need to generate a refresh token for the instance. See [How to generate auth token](how-to-generate-auth-token.md). Alternatively, you can modify the code of SDUTIL to use client credentials instead to log in. If you haven't already, you need to set up SDUTIL. Check the [guide](tutorial-seismic-ddms-sdutil.md) for setting up SDUTIL Download the codebase and edit the `config.yaml` at the root. Replace the contents of this config file with the following yaml. 
+The second method is to use [SDUTIL](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tags/azure-stable). To log in to your instance for ADME via the tool, you need to generate a refresh token for the instance. See [How to generate auth token](how-to-generate-auth-token.md). Alternatively, you can modify the code of SDUTIL to use client credentials instead to log in. If you haven't already, you need to set up SDUTIL. Check the [guide](tutorial-seismic-ddms-sdutil.md) for setting up SDUTIL. Download the codebase and edit the `config.yaml` at the root. Replace the contents of this config file with the following yaml. 
 
 ```yaml
 seistore:
@@ -431,34 +431,34 @@ cURL --request PUT \
 
 ### Verify File Conversion
 
-Use the following `cURL` command to verify file conversion:
+1. Use the following `cURL` command to verify file conversion:
 
- ```Bash
-    cURL --request GET \
-    --url 'http://{{seismic_ddms_host}}/utility/ls?sdpath=sd://{{tenant}}/{{vdsTestSubprojectName}}' \
-    --header 'Authorization: Bearer {{access_token}}'
-```
-    
-**Sample Response:**
+    ```Bash
+        cURL --request GET \
+        --url 'http://{{seismic_ddms_host}}/utility/ls?sdpath=sd://{{tenant}}/{{vdsTestSubprojectName}}' \
+        --header 'Authorization: Bearer {{access_token}}'
+    ```
+        
+    **Sample Response:**
     ```json
-    {
-    List of datasets
-    }
+        {
+        List of datasets
+        }
     ```
 
-1. You can see if the converted file is present using the following command in sdutil
+2. You can see if the converted file is present using the following command in sdutil
 
     ```bash
     python sdutil ls sd://<data-partition-id>/vdssubprojectname
     ```
 
-2. Verify the converted files are present on the specified location in DAG Trigger or not
+3. Verify the converted files are present on the specified location in DAG Trigger or not
 
     ```Markdown
     python sdutil ls sd://<data-partition-id>/vdssubprojectname/
     ```
 
-3. If you would like to download and inspect your VDS files, don't use the `cp` command as it doesn't work. The VDS conversion results in multiple files, therefore the `cp` command won't download all of them in one command. Use either the [SEGYExport](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/SEGYExport/README.html) or [VDSCopy](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/VDSCopy/README.html) tool instead. These tools use a series of REST calls accessing a [naming scheme](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/connection.html) to retrieve information about all the resulting VDS files.
+4. If you would like to download and inspect your VDS files, don't use the `cp` command as it doesn't work. The VDS conversion results in multiple files, therefore the `cp` command won't download all of them in one command. Use either the [SEGYExport](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/SEGYExport/README.html) or [VDSCopy](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/VDSCopy/README.html) tool instead. These tools use a series of REST calls accessing a [naming scheme](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/connection.html) to retrieve information about all the resulting VDS files.
 
 OSDU&reg; is a trademark of The Open Group.
 
