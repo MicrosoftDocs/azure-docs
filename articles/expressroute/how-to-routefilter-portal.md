@@ -100,17 +100,17 @@ Get a list of BGP community values. Find the BGP community values associated wit
 
 Use the following cmdlet to get the list of BGP community values and prefixes associated with services accessible through Microsoft peering:
 
-    ```azurepowershell-interactive
-    Get-AzBgpServiceCommunity
-    ```
+```azurepowershell-interactive
+Get-AzBgpServiceCommunity
+```
 
 # [**Azure CLI**](#tab/cli)
 
 Use the following cmdlet to get the list of BGP community values and prefixes associated with services accessible through Microsoft peering:
 
-    ```azurecli-interactive
-    az network route-filter rule list-service-communities
-    ```
+```azurecli-interactive
+az network route-filter rule list-service-communities
+```
 
 ---
 
