@@ -33,7 +33,7 @@ This article shows you how to set up the *API Center portal* (preview), an Azure
 
 ## Customize and publish the API Center portal
 
-After you create the API Center portal app registration, you need to configure and publish the API Center portal. Complete the following steps in the Azure portal.
+After creating the API Center portal app registration, you can customize settings for your API Center portal. Complete the following steps in the Azure portal.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API center.
 1. In the left menu, under **API Center portal**, select **Settings**.
@@ -56,7 +56,7 @@ Settings on the **API visibility** page control which APIs are discoverable (vis
 
 #### Anonymous access
 
-Optionally enable anonymous read access to the API Center portal, allowing unauthenticated users to discover the APIs. This setting is useful for public APIs or MCP servers.
+Optionally enable anonymous read access to the API Center's APIs in the API Center portal and through the data plane APIs, allowing unauthenticated users to discover the APIs. This setting is useful to make public APIs or MCP servers discoverable.
 
 > [!CAUTION]
 > Enabling anonymous access makes your APIs visible to anyone on the internet. However, users must still sign in to the portal to [test the APIs](#enable-access-to-test-console-for-apis). If you enable anonymous access, consider adding filters to limit the APIs that are discoverable by unauthenticated users.
