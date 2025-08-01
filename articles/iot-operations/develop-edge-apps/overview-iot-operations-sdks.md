@@ -74,7 +74,7 @@ Read further about the components of the SDKs:
 
 The SDKs supports the following application types:
 
-// ASK: This links to our edge application readme and akri connector readme. Akri connector should go to the mslearn page. We might not want the edge application readme.
+// ASK: Akri connector should go to the mslearn page by Dominic directly. 
 
 | Application type | Description |
 |-|-|
