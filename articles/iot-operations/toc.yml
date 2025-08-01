@@ -216,12 +216,17 @@ items:
       - name: Manage data flow profiles
         href: connect-to-cloud/howto-configure-dataflow-profile.md
         displayName: data flow, scale, scaling
-      - name: WASM with data flow graphs
-        href: connect-to-cloud/howto-dataflow-graph-wasm.md
-        displayName: data flow, WASM, WebAssembly, graph, transform, enrich
-      - name: Develop WASM modules and graphs
-        href: connect-to-cloud/howto-develop-wasm-modules.md
-        displayName: data flow, WASM, WebAssembly, development, Rust, Python, modules, graph definitions
+      - name: Use WASM data flow graphs (preview)
+        items:
+        - name: Deploy WASM data flow graphs
+          href: connect-to-cloud/howto-dataflow-graph-wasm.md
+          displayName: data flow, WASM, WebAssembly, graph, transform, enrich, deploy, registry, test
+        - name: Develop WASM modules
+          href: connect-to-cloud/howto-develop-wasm-modules.md
+          displayName: data flow, WASM, WebAssembly, development, Rust, Python, modules, operators
+        - name: Configure graph definitions
+          href: connect-to-cloud/howto-configure-wasm-graph-definitions.md
+          displayName: data flow, WASM, WebAssembly, graph definitions, YAML, configuration, workflow
     - name: Manage network
       items:
       - name: Overview
