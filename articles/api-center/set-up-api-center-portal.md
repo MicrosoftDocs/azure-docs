@@ -4,7 +4,7 @@ description: How to set up the API Center portal, a managed website that enables
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 04/30/2025
+ms.date: 07/31/2025
 ms.update-cycle: 180-days
 ms.author: danlep 
 ms.custom: 
@@ -31,30 +31,40 @@ This article shows you how to set up the *API Center portal* (preview), an Azure
 
 [!INCLUDE [api-center-portal-app-registration](includes/api-center-portal-app-registration.md)]
 
-## Configure and publish the API Center portal
+## Customize and publish the API Center portal
 
-After you create the API Center portal app registration, you need to configure and publish the API center portal. Complete the following steps in the Azure portal. 
+After you create the API Center portal app registration, you need to configure and publish the API Center portal. Complete the following steps in the Azure portal.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API center.
-1. In the left menu, under **API Center portal**, select **Portal settings**.
+1. In the left menu, under **API Center portal**, select **Settings**.
     :::image type="content" source="media/set-up-api-center-portal/configure-portal-settings.png" alt-text="Screenshot of API Center portal settings in the Azure portal." lightbox="media/set-up-api-center-portal/configure-portal-settings.png":::
-1. On the **Identity provider** tab, select **Start set up**. On the screen that appears, do the following:
-    1. In **Client ID**, enter the **Application (client) ID** from the app registration you created in the previous section.
-    1. Confirm that the **Redirect URI** is the value you configured in the app registration. 
-    1. Select **Save + publish**.
+1. If you set up an app registration manually, on the **Identity provider** tab, select **Start set up**. If you used the quick setup, this step is already complete.
+    1. On the **Manual** tab, in **Client ID**, enter the **Application (client) ID** from the app registration you created in the previous section.
+    3. Confirm that the **Redirect URI** is the value you configured in the app registration. 
+    4. Select **Save + publish**.
 1. On the **Site profile** tab, enter a website name that you want to appear in the top bar of the API Center portal. Select **Save + publish**.
-1. On the **API visibility** tab, optionally add filters for APIs that you want to make discoverable in the portal. Select **Save + publish**. [Learn more about API visibility](#api-visibility)
+1. On the **API visibility** tab, optionally enable anonymous read access to the portal and add filters for APIs that you want to make discoverable in the portal. Select **Save + publish**. [Learn more about API visibility](#api-visibility)
 
 You can now access the API Center portal:
-* On the **Portal settings** page, select **View API Center portal** to open the portal in a new tab. 
+* On the portal's **Settings** page, select **View API Center portal** to open the portal in a new tab. 
 * Or, enter the following URL in your browser, replacing `<service-name>` and `<location>` with the name of your API center and the location where it's deployed:<br/>
     `https://<service-name>.portal.<location>.azure-apicenter.ms`
 
 ### API visibility
 
-API visibility settings control which APIs are discoverable (visible) to API Center portal users. The API Center portal uses the data plane API to retrieve and display APIs, and by default retrieves all APIs in your API center. Visibility settings apply to all users of the API Center portal.
+Settings on the **API visibility** control which APIs are discoverable (visible) to API Center portal users. The API Center portal uses the data plane API to retrieve and display APIs, and by default retrieves all APIs in your API center for [signed-in users](#enable-sign-in-to-portal-by-microsoft-entra-users-and-groups). Visibility settings apply to all users of the API Center portal.
 
-To make only specific APIs visible, go to the **API visibility** tab in the API Center portal settings. Here, add filter conditions for APIs based on built-in or custom API [metadata](metadata.md) properties. For instance, you can choose to display APIs only of certain types (like REST or GraphQL) or based on certain specification formats (such as OpenAPI). Additionally, you can select values of custom metadata properties that categorize your APIs.
+#### Anonymous access
+
+Optionally enable anonymous read access to the API Center portal, allowing unauthenticated users to discover the APIs. This setting is useful for public APIs or MCP servers.
+
+> [!CAUTION]
+> Enabling anonymous access makes your APIs visible to anyone on the internet. However, users must still sign in to the portal to try out APIs or view API details. If you enable anonymous access, consider adding filters to limit the APIs that are discoverable by unauthenticated users.
+
+
+#### Filter APIs by metadata
+
+To make only specific APIs visible, add filter conditions for APIs based on built-in or custom API [metadata](metadata.md) properties. For instance, you can choose to display APIs only of certain types (like REST or GraphQL) or based on certain specification formats (such as OpenAPI). Additionally, you can select values of custom metadata properties that categorize your APIs.
 
 :::image type="content" source="media/set-up-api-center-portal/add-visibility-condition.png" alt-text="Screenshot of adding API visibility conditions in the portal.":::.
 
