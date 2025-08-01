@@ -1,5 +1,5 @@
 ---
-title: Configure Webassembly Graph Definitions For Data Flow Graphs (Preview)
+title: Configure WebAssembly Graph Definitions For Data Flow Graphs (Preview)
 description: Learn how to create and configure WebAssembly graph definitions that define data processing workflows for Azure IoT Operations data flow graphs.
 author: PatAltimore
 ms.author: patricka
@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 
 ---
 
-# Configure WebAssembly graph definitions for data flow graphs (preview)
+# Configure WebAssembly (WASM) graph definitions for data flow graphs (preview)
 
 > [!IMPORTANT]
 > WebAssembly (WASM) graph definitions for data flow graphs are in **preview**. This feature has limitations and is not for production workloads.

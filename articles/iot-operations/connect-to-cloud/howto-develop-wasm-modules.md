@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 
 ---
 
-# Develop WebAssembly modules and graph definitions for data flow graphs (preview)
+# Develop WebAssembly (WASM) modules and graph definitions for data flow graphs (preview)
 
 > [!IMPORTANT]
 > WebAssembly (WASM) development for data flow graphs is in **preview**. This feature has limitations and isn't for production workloads.

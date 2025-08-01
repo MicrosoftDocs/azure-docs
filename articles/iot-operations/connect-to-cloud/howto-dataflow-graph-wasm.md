@@ -1,5 +1,5 @@
 ---
-title: Use Webassembly (Wasm) With Data Flow Graphs (Preview)
+title: Use WebAssembly With Data Flow Graphs (Preview)
 description: Learn how to deploy and use WebAssembly modules with data flow graphs in Azure IoT Operations to process data at the edge.
 author: PatAltimore
 ms.author: patricka
