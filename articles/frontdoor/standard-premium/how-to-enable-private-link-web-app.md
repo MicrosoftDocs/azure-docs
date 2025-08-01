@@ -46,7 +46,7 @@ This article guides you through configuring Azure Front Door Premium to connect 
 ::: zone-end
 
 > [!NOTE]
-> Private endpoints require your App Service plan to meet specific requirements. For more information, see [Using Private Endpoints for Azure Web App](../../app-service/networking/private-endpoint.md). This feature is not supported with App Service Slots.
+> Private endpoints require your App Service plan to meet specific requirements. For more information, see [Using Private Endpoints for Azure Web App](../../app-service/networking/private-endpoint.md). This feature isn't supported with App Service Slots.
 
 ## Enable Private Link to an App Service (Web App or Function App) in Azure Front Door Premium
 
@@ -141,7 +141,7 @@ It can take a few minutes for the connection to fully establish after approval. 
 
 ## Common mistakes to avoid
 
-The following is a common mistake when configuring an origin with Azure Private Link enabled:
+The following mistake is common when configuring an origin with Azure Private Link enabled:
 
 - Adding the origin with Azure Private Link enabled to an existing origin group that contains public origins. Azure Front Door doesn't allow mixing public and private origins in the same origin group. 
 
