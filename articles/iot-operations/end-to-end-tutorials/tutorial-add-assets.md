@@ -23,16 +23,17 @@ In this tutorial, you use the operations experience web UI to create your assets
 
 ## Prerequisites
 
-An instance of Azure IoT Operations with secure settings enabled deployed in a Kubernetes cluster. To create an instance, use one of the following to deploy Azure IoT Operations:
+A preview instance of Azure IoT Operations with secure settings enabled deployed in a Kubernetes cluster. To create a preview instance, use one of the following to deploy Azure IoT Operations:
 
 - [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) provides simple instructions to deploy an Azure IoT Operations instance that you can use for the tutorials. Then, to enable secure settings follow the steps in [Enable secure settings in Azure IoT Operations](../deploy-iot-ops/howto-enable-secure-settings.md).
-- [Deployment overview](../deploy-iot-ops/overview-deploy.md) provides detailed instructions to deploy an Azure IoT Operations instance on Windows using Azure Kubernetes Service Edge Essentials or Ubuntu using K3s. Follow the steps in the deployment article for a secure settings deployment.
+- [Deployment overview](../deploy-iot-ops/overview-deploy.md) provides detailed instructions to deploy an Azure IoT Operations instance on Windows using Azure Kubernetes Service Edge Essentials or Ubuntu using K3s. Follow the steps in the deployment article for a secure settings deployment and to install the latest preview version.
 
 After you enable secure settings, the resource group that contains your Azure IoT Operations instance also contains the following resources:
 
 - An Azure Key Vault instance to store the secrets to synchronize into your Kubernetes cluster.
 - A user-assigned managed identity that Azure IoT Operations uses to access the Azure Key Vault instance.
 - A user-assigned managed identity that Azure IoT Operations components such as data flows can use to uses to connect to cloud endpoints such as Azure Event Hubs.
+- An Azure Device Registry namespace to store your namespace assets and devices.
 
 Ensure that when you configure secure settings that you [give your user account permissions to manage secrets](/azure/key-vault/secrets/quick-create-cli#give-your-user-account-permissions-to-manage-secrets-in-key-vault) with the **Key Vault Secrets Officer** role.
 

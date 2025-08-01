@@ -19,6 +19,10 @@ Azure Front Door introduced two new tiers named Standard and Premium on March 29
 
 In our ongoing efforts to provide the best product experience and streamline our portfolio of products and tiers, we're announcing the retirement of the Azure CDN Standard from Microsoft (classic) tier. This retirement will affect the public cloud and the Azure Government regions of Arizona and Texas, effective September 30, 2027. We strongly recommend all users of Azure CDN Standard from Microsoft (classic) to transition to Azure Front Door Standard and Premium.  
 
+> [!IMPORTANT]
+> - Starting August 15, 2025, Azure CDN from Microsoft (classic) will no longer support new domain onboarding or profile creation. Migrate to [AFD Standard and Premium](/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) to create new domains or profiles and avoid service disruption. [Learn more](https://azure.microsoft.com/updates?id=498522)
+> - Starting August 15, 2025, Azure CDN from Microsoft (classic) will no longer support Managed certificates. To avoid service disruption, either [switch to Bring Your Own Certificate (BYOC)](/azure/cdn/cdn-custom-ssl?toc=%2Fazure%2Ffrontdoor%2Ftoc.json&tabs=option-1-default-enable-https-with-a-cdn-managed-certificate) or migrate to [AFD Standard and Premium](/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) by this date. Existing managed certificates will be auto renewed before August 15, 2025, and remain valid until April 14, 2026. [Learn more](https://azure.microsoft.com/updates?id=498522)
+
 ## Frequently asked questions
 
 ### When is the retirement for Azure CDN Standard from Microsoft (classic)?
@@ -76,7 +80,7 @@ Currently, Azure CDN Standard from Microsoft (classic) retirement affects the pu
 
 ### Can I make updates to Azure CDN Standard from Microsoft (classic) resources?
 
-You can still update your existing Azure CDN Standard from Microsoft (classic) resources using the Azure portal, Terraform, and all command line tools until September 30, 2027. However, you won't be able to create new Azure CDN Standard from Microsoft (classic) resources starting October 1, 2025. We strongly recommend you migrate to Azure Front Door Standard or Premium tier as soon as possible. 
+You can still update your existing Azure CDN Standard from Microsoft (classic) resources using the Azure portal, Terraform, and all command line tools until September 30, 2027. Starting August 15, 2025, Azure CDN from Microsoft (classic) will no longer support new resource creation or new domain onboarding or Managed certificates. We strongly recommend you migrate to Azure Front Door Standard or Premium tier as soon as possible. 
 
 ### Can I roll back to Azure CDN Standard from Microsoft (classic) after migration?
 

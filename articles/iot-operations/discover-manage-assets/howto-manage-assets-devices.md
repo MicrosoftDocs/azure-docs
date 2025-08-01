@@ -31,7 +31,7 @@ This article describes how to use the operations experience web UI:
 
 ## Prerequisites
 
-To use the operations experience, you need a running instance of Azure IoT Operations.
+To use the operations experience, you need a running preview instance of Azure IoT Operations.
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
