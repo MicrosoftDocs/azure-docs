@@ -93,7 +93,7 @@ In Azure Pipelines, you create a *service connection* in your Azure DevOps proje
 
 1. If you don't have a user-assigned managed identity for the project, [add one](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
    > [!NOTE] 
-   > You can use one of three options for identity: app registration, user-assigned managed identity, and system-assigned managed identity. App registration is the most secure option, and user-assigned managed identity is the second most secure. To use app registration, you need to have appropriate permissions. For more information see [Azure Resource Manager service connection special cases](/azure/devops/pipelines/library/azure-resource-manager-alternate-approaches).
+   > You can use one of three options for identity: app registration, user-assigned managed identity, and system-assigned managed identity. App registration is the most secure option. To use app registration, you need to have appropriate permissions. For more information see [Azure Resource Manager service connection special cases](/azure/devops/pipelines/library/azure-resource-manager-alternate-approaches).
 1. Sign in to your Azure DevOps organization (`https://dev.azure.com/<your-organization>`). Replace `<your-organization>` with your project identifier.
 1. Select your project. 
 1. Select **Project settings** > **Service connections** > **Create service connection**.
