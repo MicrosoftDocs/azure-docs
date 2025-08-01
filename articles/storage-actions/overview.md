@@ -20,7 +20,7 @@ Azure Storage Actions is a fully managed platform designed to automate data mana
 You can use Azure Storage Actions to automate tasks such as moving data to more cost-effective tiers, manage the retention of versions, snapshots or sensitive data sets, rehydrating data from archive storage so that it is available for immediate use, or manage blob index tags and metadata for better organization and data retrieval.
 
 > [!IMPORTANT]
-> Azure Storage Actions is generally available in these [regions](#supported-regions). Some regions remain in PREVIEW. For a list, see [Regions supported at the preview level](#regions-supported-at-the-preview-level).
+> Azure Storage Actions is generally available in these [regions](#supported-regions).
 
 ## Terms and definitions
 
@@ -80,7 +80,7 @@ At the end of your billing cycle, the charges for each meter are summed. Your bi
 
 ## Supported Regions
 
-Azure Storage tasks are generally available in the following public cloud regions:
+Azure Storage Actions is generally available in the following public cloud regions:
 
 - Australia Central
 
@@ -88,43 +88,80 @@ Azure Storage tasks are generally available in the following public cloud region
 
 - Australia Southeast
 
-- Brazil south
+- Brazil South
+
 - Brazil Southeast
+
 - Canada Central
+
 - Central India
+
 - Central US
+
 - East US 2
+
 - France Central
+
 - Germany North
+
 - Germany West Central
+
 - Israel Central
+
 - Italy North
+
 - Japan East
+
 - Japan West
+
 - Jio India Central
+
 - Korea Central
+
 - Korea South
+
 - North Central US
+
 - North Europe
+
 - Norway East
+
 - Norway West
+
 - South Africa North
+
 - South Africa West
-- South Central Us
+
+- South Central US
+
 - South India
+
 - Spain Central
+
 - Sweden Central
+
 - Sweden South
+
 - Switzerland North
+
 - Switzerland West
+
 - UAE Central
+
 - UAE North
+
 - UK South
+
 - UK West
+
 - West Central US
+
 - West Europe
+
 - West US
+
 - West US 2
+
 - West US 3
 
 ## Next steps
