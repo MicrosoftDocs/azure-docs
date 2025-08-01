@@ -157,7 +157,7 @@ spec:
 > [!NOTE]
 > You can reuse registry endpoints across multiple data flow graphs and other Azure IoT Operations components, like Akri connectors.
 
-### Get extension name and tenant ID
+### Get extension name
 
 ```azurecli
 # Get extension name
@@ -167,12 +167,9 @@ az k8s-extension list \
   --cluster-type connectedClusters \
   --query "[?extensionType=='microsoft.iotoperations'].name" \
   --output tsv
-
-# Get tenant ID  
-az account show --query tenantId --output tsv
 ```
 
-The first command returns the extension name (for example, `azure-iot-operations-4gh3y`). The second command returns your tenant ID.
+The first command returns the extension name (for example, `azure-iot-operations-4gh3y`).
 
 ### Configure managed identity permissions
 
