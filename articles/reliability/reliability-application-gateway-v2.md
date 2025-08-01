@@ -244,4 +244,4 @@ The service-level agreement (SLA) for Application Gateway describes the expected
 
 ## Related content
 
-- [Azure reliability overview](reliability-application-gateway-v2.md)
+- [Azure reliability overview](/azure/reliability/overview)
