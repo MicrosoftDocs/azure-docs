@@ -493,7 +493,7 @@ sapcontrol -nr <instance number> -function StopSystem
    # 2021-04-08 22:21:26.816573 ha_dr_SAPHanaSR SOK
    ```
 
----
+    ---
 
 5. **[1]** Verify the susChkSrv hook installation.
    Run the following command as \<sap-sid\>adm on HANA VMs:
