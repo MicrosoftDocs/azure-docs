@@ -140,7 +140,8 @@ The following example using `_include` will bulk delete all DiagnosticReport res
 `DELETE [base]/DiagnosticReport/$bulk-delete?_lastUpdated=lt2021-12-12&_include=DiagnosticReport:based-on:ServiceRequest&_include:iterate=ServiceRequest:encounter`
 
 ### `$bulk-delete` with `_not-referenced`
-Note: The `_not-referenced` feature is available in Azure Health Data Services FHIR Server only, and isn't available in Azure API for FHIR.
+>[!Note]
+> The `_not-referenced` feature is available in Azure Health Data Services FHIR Server only, and isn't available in Azure API for FHIR.
 
 As mentioned in the "Query parameters" section, the `$bulk-delete` operation uses FHIR service supported search parameters. This includes the new `_not-referenced` parameter, which allows you to search for and delete resources that are not referenced by any other resources. 
 
