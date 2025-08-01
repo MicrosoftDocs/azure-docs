@@ -43,7 +43,17 @@ The following table summarizes all the observability capabilities supported by A
 
 *3. The [self-hosted gateway](self-hosted-gateway-overview.md) currently doesn't send diagnostic logs to Azure Monitor. However, it's possible to configure and persist logs locally where the self-hosted gateway is deployed. For more information, please see [configuring local metrics and logs for self-hosted gateway](how-to-configure-local-metrics-logs.md)*
 
-## Related content
+## Best practices
+
+The following practices can enhance your API observability: 
+- Granular monitoring: Enable [per-method](https://learn.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor) metrics for detailed insights into response times and error rates.
+- Tail latency monitoring: Configure per-method alerts for tail latency (e.g., 90th, 95th, or 99th [percentile](https://learn.microsoft.com/kusto/query/percentiles-aggregation-function)), as average latency can be misleading. To implement this, use Kusto Query Language (KQL) to forward logs to a Log Analytics workspace.
+- Proactive Alerting: Establish per-method alerts for error rates and low success [rates](https://learn.microsoft.com/azure/azure-monitor/reference/supported-metrics/microsoft-apimanagement-service-metrics) , utilizing rates instead of counts to ensure accuracy.
+- Distributed tracing: Enable [tracing](https://learn.microsoft.com/azure/api-management/api-management-howto-app-insights?tabs=rest) to identify performance bottlenecks and troubleshoot issues.
+- Resource tagging: Apply [tags to APIs](https://learn.microsoft.com/rest/api/apimanagement/tag/assign-to-api) for accurate cost tracking and allocation.
+
+## Next Steps
+
 
 - Get started with [Azure Monitor for API Management](monitor-api-management.md)
 - Learn how to log requests with [Application Insights](api-management-howto-app-insights.md)
