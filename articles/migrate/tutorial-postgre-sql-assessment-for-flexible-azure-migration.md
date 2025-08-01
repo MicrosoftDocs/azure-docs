@@ -52,9 +52,7 @@ Run an assessment as follows:
 
 1.  After selecting the PostgreSQL workloads, select **Next** to proceed.
 
-:::image type="content" source="./media/
-tutorial-postgre-sql-assessment-for-flexible-azure-migration/review-selected-workloads.png" alt-text="Screenshot shows how to revie the selected workloads" lightbox="./media/
-tutorial-postgre-sql-assessment-for-flexible-azure-migration/review-selected-workloads.png":::
+:::image type="content" source="./media/tutorial-postgre-sql-assessment-for-flexible-azure-migration/review-selected-workloads.png" alt-text="Screenshot shows how to review selected workloads" lightbox="./media/tutorial-postgre-sql-assessment-for-flexible-azure-migration/rreview-selected-workloads.png":::
 
 1. In the **General** tab, either set custom values or keep the default assessment settings, and then select **Next**.
 
