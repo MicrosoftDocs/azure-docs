@@ -575,7 +575,7 @@ Indicates the URL to which OpenTelemetry-formatted data is exported for ingestio
 
 ## OTEL_EXPORTER_OTLP_HEADERS
 
-Sets an optional list of headers that are appled to all outgoing data exported to an OpenTelemetry endpoint. You should use this setting when the OpenTelemetry endpoint requires to supply an API key. For more information, see [Use OpenTelemetry with Azure Functions](opentelemetry-howto.md). 
+Sets an optional list of headers that are applied to all outgoing data exported to an OpenTelemetry endpoint. You should use this setting when the OpenTelemetry endpoint requires to supply an API key. For more information, see [Use OpenTelemetry with Azure Functions](opentelemetry-howto.md). 
 
 ## PIP\_INDEX\_URL
 
