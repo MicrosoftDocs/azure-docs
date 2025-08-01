@@ -51,7 +51,7 @@ The traditional approach of access control for IT has been based on restricting 
 
 Organizations must embrace a Zero Trust approach to access control as they embrace remote work and use cloud technology to digitally transform their business model, customer engagement model, employee engagement, and empowerment model.
 
-Zero Trust principles help establish and continuously improve security assurances, while maintaining flexibility to keep pace with this new world. Most zero trust journeys start with access control and focus on identity as a preferred and primary control while they continue to embrace network security technology as a key element. Network technology and the security perimeter tactic are still present in a modern access control model, but they aren't the dominant and preferred approach in a complete access control strategy.
+Zero Trust principles help establish and continuously improve security assurances, while maintaining flexibility to keep pace with this new world. Most Zero Trust journeys start with access control and focus on identity as a preferred and primary control while they continue to embrace network security technology as a key element. Network technology and the security perimeter tactic are still present in a modern access control model, but they aren't the dominant and preferred approach in a complete access control strategy.
 
 For more information on the Zero Trust transformation of access control, see the Cloud Adoption Framework's [access control](/azure/cloud-adoption-framework/secure/access-control).
 
