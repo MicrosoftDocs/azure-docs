@@ -73,7 +73,7 @@ For Consumption logic app workflows, the same setting controls the maximum numbe
 
 * In multitenant Azure Logic Apps, the 90-day default limit is the same as the maximum limit. You can only decrease this value.
 
-No matter what the current retention limit is on the workflow, the retention limit at the time of run start is always used for calculating retention for a workflow run.
+* Retention is always calculated by using the limit in place when the workflow started running, no matter the current limit that's on the workflow.
 
 #### Portal
 
