@@ -52,14 +52,14 @@ You can now access the API Center portal:
 
 ### API visibility
 
-Settings on the **API visibility** control which APIs are discoverable (visible) to API Center portal users. The API Center portal uses the data plane API to retrieve and display APIs, and by default retrieves all APIs in your API center for [signed-in users](#enable-sign-in-to-portal-by-microsoft-entra-users-and-groups). Visibility settings apply to all users of the API Center portal.
+Settings on the **API visibility** page control which APIs are discoverable (visible) to API Center portal users. The API Center portal uses the data plane API to retrieve and display APIs, and by default retrieves all APIs in your API center for [signed-in users](#enable-sign-in-to-portal-by-microsoft-entra-users-and-groups). Visibility settings apply to all users of the API Center portal.
 
 #### Anonymous access
 
 Optionally enable anonymous read access to the API Center portal, allowing unauthenticated users to discover the APIs. This setting is useful for public APIs or MCP servers.
 
 > [!CAUTION]
-> Enabling anonymous access makes your APIs visible to anyone on the internet. However, users must still sign in to the portal to try out APIs or view API details. If you enable anonymous access, consider adding filters to limit the APIs that are discoverable by unauthenticated users.
+> Enabling anonymous access makes your APIs visible to anyone on the internet. However, users must still sign in to the portal to [test the APIs](#enable-access-to-test-console-for-apis). If you enable anonymous access, consider adding filters to limit the APIs that are discoverable by unauthenticated users.
 
 
 #### Filter APIs by metadata
