@@ -47,8 +47,8 @@ For each Discovery workspace, you can select from free or paid options. The numb
             <td><ul><li>N/A</li></ul></td>
             <td>
                 <ul>
-                    <li>Backfill*: 15 days</li>
-                    <li>Retention**: 15 days</li>
+                    <li>Backfill<sup>1</sup>: 15 days</li>
+                    <li>Retention<sup>2</sup>: 15 days</li>
                 </ul>
             </td>            
         </tr>
@@ -76,16 +76,16 @@ For each Discovery workspace, you can select from free or paid options. The numb
             </td>            
             <td>
                 <ul>
-                    <li>Backfill*: 30 days</li>
-                    <li>Retention**: 18 months</li>
+                    <li>Backfill<sup>1</sup>: 30 days</li>
+                    <li>Retention<sup>2</sup>: 18 months</li>
                 </ul>
             </td>            
         </tr>
     </tbody>
 </table>
 
-\* The backfill feature automatically adds historic data into a Storage Discovery workspace from before the workspace is created.<br>
-\*\* Every workspace retains insights for some time to allow for historical analysis. 
+<sup>1</sup> The backfill feature automatically adds historic data into a Storage Discovery workspace from before the workspace is created.<br>
+<sup>2</sup> Every workspace retains insights for some time to allow for historical analysis. 
 
 ## Understand billing
 
