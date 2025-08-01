@@ -93,7 +93,7 @@ This table outlines the permissions assigned to each role within the Azure RBAC 
 
 Keep in mind that Cost Management Reader and Cost Management Contributor roles don't provide access to invoices. For more information, see [How to grant access to invoices](../manage/manage-billing-access.md#give-read-only-access-to-billing).
 
-## Billing Scopes
+## Billing scopes
 
 Billing scopes differ based on your Microsoft agreement type:
 
@@ -105,14 +105,15 @@ Billing scopes differ based on your Microsoft agreement type:
 
 Enterprise Agreement (EA), also called enrollments, has the following billing scopes:
 
-[**Billing account**](../manage/view-all-accounts.md) - Represents an EA enrollment and is the scope at which invoices are generated. All purchase and usage charges are visible in this scope in both the Actual and Amortized Cost datasets, with some important distinctions.
-
-The Actual Cost dataset includes all meter-emitted usage charges from Azure, Marketplace and Microsoft 365 offers. It also includes purchases from Marketplace and Microsoft 365, as well as commitment-based benefits (reservations and savings plans). The benefit offsets the charges, so usage records covered by a commitment appear with zero costs.  
-
-The Amortized Cost data set, also includes all usage records, Marketplace and Microsoft 365 purchases. However, the commitment-based purchases do not appear directly because their costs are amortized and applied to the usage where the benefit is consumed. As a result, the same usage that appears with zero costs in Actual Cost, shows charges in the Amortized Cost dataset. The Amortized Cost data set doesn't match your invoice, since it reflects amortized allocations rather than billed amounts.
-Learn more about amortized costs here [View amortized benefit costs](/azure/cost-management-billing/reservations/view-amortized-costs).
-
-Resource type: `Microsoft.Billing/billingAccounts (accountType = Enrollment)`
+- [**Billing account**](../manage/view-all-accounts.md) - Represents an EA enrollment and is the scope at which invoices are generated. All purchase and usage charges are visible in this scope in both the Actual and Amortized Cost datasets, with some important distinctions.
+  
+  The Actual Cost dataset includes all meter-emitted usage charges from Azure, Marketplace and Microsoft 365 offers. It also includes purchases from Marketplace and Microsoft 365, as well as commitment-based benefits (reservations and savings plans). The benefit offsets the charges, so usage records covered by a commitment appear with zero costs.  
+  
+  The Amortized Cost data set, also includes all usage records, Marketplace and Microsoft 365 purchases. However, the commitment-based purchases do not appear directly because their costs are amortized and applied to the usage where the benefit is consumed. As a result, the same usage that appears with zero costs in Actual Cost, shows charges in the Amortized Cost dataset. The Amortized Cost data set doesn't match your invoice, since it reflects amortized allocations rather than billed amounts.
+  
+  Learn more about amortized costs here [View amortized benefit costs](/azure/cost-management-billing/reservations/view-amortized-costs).
+  
+  Resource type: `Microsoft.Billing/billingAccounts (accountType = Enrollment)`
 
 - **Department** - Optional grouping of enrollment accounts within a billing account. Usage charges are available on this scope. Purchases, such as Marketplace and commitment-based benefits like reservations, are not available at this scope.
 
@@ -126,7 +127,7 @@ Although RBAC scopes are bound to a single directory, EA billing scopes aren't. 
 
 #### Roles used in Cost Management on Enterprise Agreement scopes
 
-##### Billing Account Roles
+##### Billing Account roles
 
 - **Enterprise admin** – Can view all cost data. Can manage billing account settings and control who can see cost details, like enabling account owner (AO) or department admins (DA) to view charges. Users with this role automatically have the same permissions at the Department and Account scopes within the same enrollment.
 - **Enterprise read-only user** – Can view billing account settings, cost data, and cost configuration, but cannot modify them. Can manage budgets and exports. Users with this role automatically have the same permissions at the Department and Account scopes within the same enrollment.

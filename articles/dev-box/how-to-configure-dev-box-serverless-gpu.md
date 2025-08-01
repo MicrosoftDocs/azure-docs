@@ -34,6 +34,7 @@ Serverless GPU compute in Dev Box uses Azure Container Apps (ACA). When a develo
 ## Prerequisites
 - An Azure subscription
 - *Microsoft.App* registered for your subscription
+- *Microsoft.CognitiveServices* registered for your subscription
 - A Microsoft Dev Box project 
 
 ## Configure serverless GPU

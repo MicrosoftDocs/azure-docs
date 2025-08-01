@@ -95,6 +95,9 @@ items:
         href: how-to-customizations-connect-resource-repository.md
       - name: Add and Manage Catalogs
         href: how-to-configure-catalog.md
+      - name: Imagedefinition.yaml and task.yaml reference
+        href: reference-dev-box-customizations.md
+        displayName: Customize, schema, yaml, imagedefinition, task
   - name: Create & connect to dev boxes
     items:
       - name: Manage a dev box through developer portal
@@ -177,9 +180,6 @@ items:
         href: how-to-get-help.md
   - name: Reference
     items:
-      - name: "Reference: imagedefinition.yaml and task.yaml files"
-        href: reference-dev-box-customizations.md
-        displayName: Customize, schema, yaml, imagedefinition, task
       - name: Install Azure CLI devcenter extension
         href: how-to-install-dev-box-cli.md
       - name: Azure CLI - az devcenter

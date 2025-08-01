@@ -1,0 +1,28 @@
+items:
+- name: Azure Storage Discovery documentation
+  href: ./index.yml
+- name: Overview
+  items:
+  - name: What is Azure Storage Discovery?
+    href: overview.md  
+  expanded: true
+- name: Concepts
+  items:
+  - name: Management components
+    href: management-components.md
+  - name: Planning for deployment
+    href: deployment-planning.md
+  - name: Pricing
+    href: pricing.md
+- name: How-To
+  items: 
+  - name: Deploy
+    items:
+    - name: Create Storage Discovery Workspace
+      href: create-workspace.md     
+- name: Resources
+  items:
+  - name: Release notes
+    href: release-notes.md
+  - name: Frequently Asked Questions
+    href: frequently-asked-questions.md
