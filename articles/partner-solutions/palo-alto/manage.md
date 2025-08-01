@@ -48,4 +48,10 @@ You can also request support in the Azure portal from the [resource overview](#r
 
 Select **Support + Troubleshooting** > **New support request** from the service menu, then choose the link to [Contact PAN customer support](https://support.paloaltonetworks.com/Support/Index). 
 
+## Related content
+
+- [Azure Virtual Network FAQ](../../virtual-network/virtual-networks-faq.md)
+- [Virtual WAN FAQ](../../virtual-wan/virtual-wan-faq.md)
+
+
 

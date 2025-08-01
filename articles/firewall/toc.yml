@@ -130,8 +130,8 @@ items:
       href: deploy-terraform.md
     - name: ARM template
       href: deploy-template.md
-    - name: Secured hub customer public IP
-      href: secured-hub-customer-public-ip.md
+  - name: Secured hub customer public IP
+    href: secured-hub-customer-public-ip.md
   - name: Azure policy
     items:
     - name: Portal

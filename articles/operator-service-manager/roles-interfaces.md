@@ -8,66 +8,73 @@ ms.topic: concept-article
 ms.service: azure-operator-service-manager
 ---
 
-# Roles and Interfaces
+# Roles and interfaces for Azure Operator Service Manager
 
-Azure Operator Service Manager (AOSM) provides three distinct interfaces catering to three roles:
+Azure Operator Service Manager provides three distinct interfaces that cater to three roles:
 
-- Network Function Publisher
-- Network Service Designer
-- Network Service Operator
+- Network function (NF) publisher
+- Service designer
+- Service operator
 
-In practice, multiple of these roles can be performed by the same person if necessary.
+In practice, the same person can perform more than one of these roles if necessary.
 
-:::image type="content" source="media/roles-interfaces-diagram.png" alt-text="Diagram showing three interfaces catering to three roles: Publisher, Designer and Operator." lightbox="media/roles-interfaces-diagram.png":::
+:::image type="content" source="media/roles-interfaces-diagram.png" alt-text="Diagram that shows three interfaces catering to three roles: publisher, designer, and operator." lightbox="media/roles-interfaces-diagram.png":::
 
-## Network Function (NF) Publisher - Role 1
+## NF publisher
 
-The Network Function (NF) Publisher creates and publishes network functions to Azure Operator Service Manager (AOSM).  Publisher responsibilities include:
+The NF publisher creates and publishes network functions to Azure Operator Service Manager. NF publisher responsibilities include:
+
 - Create the network function.
-- Encode that in a Network Function Definition (NFD).
-- Determine the deployment parameters to expose to the Service Designer.
-- Onboard the Network Function Definition (NFD) to Azure Operator Service Manager (AOSM).
+- Encode the network function in a network function definition (NFD).
+- Determine the deployment parameters to expose to the service designer.
+- Onboard the NFD to Azure Operator Service Manager.
 - Upload the associated artifacts.
-- Validate the Network Function Definition (NFD).
+- Validate the NFD.
 
-The term *Publisher* is synonymous. The Network Function (NF) Publisher is responsible for creating/updating these Azure Operator Service Manager (AOSM) resources:
-- Publisher
-- Artifact Store
-- Artifact Manifest
-- Network Function Definition Group
-- Network Function Definition Version
-
-## Service Designer - Role 2
-
-The Service Designer is responsible for building a Network Service Design (NSD). The Service Designer takes a collection of Network Function Definition (NFDs) from various Network Function (NF) Publishers. When collecting the Network Function Definitions (NFDs) is complete, the Service Designer combines them together along with Azure infrastructure to create a cohesive service.  The Service Designer determines how to parametrize the service by defining one or more Configuration Group Schemas (CGSs). The Configuration Group Schemas (CGSs) define the inputs that the Service Operator must supply in the Configuration Group Values (CGVs).
-
-The Service Designer determines how inputs from the Service Operator map down to parameters required by the Network Function (NF) Publishers and the Azure infrastructure.
-
-As part of creating the Network Service Design (NSD) the Service Designer must consider the upgrade and scaling requirements of the service.
-
-The Service Designer is responsible for creating/updating the following Azure Operator Service Manager (AOSM) objects:
+The NF publisher is responsible for creating and updating these Azure Operator Service Manager resources:
 
 - Publisher
-- Artifact Store
-- Artifact Manifest
-- Network Service Design Group
-- Network Service Design Version
-- Configuration Group Schema
+- Artifact store
+- Artifact manifest
+- Network function definition group (NFDG)
+- Network function definition version (NFDV)
 
-## Service Operator - Role 3
+## Service designer
 
-The Service Operator is the person who runs the service on a day to day basis.  The Service Operator duties include creating, modifying and monitoring these objects:
+The service designer is responsible for building a network service design (NSD). The service designer collects NFDs from various NF publishers. When collection of the NFDs is complete, the service designer combines them with the Azure infrastructure to create a cohesive service.
+
+The service designer determines how to parametrize the service by defining one or more configuration group schemas (CGSs). The CGSs define the inputs that the service operator must supply in the configuration group values (CGVs).
+
+The service designer determines how inputs from the service operator map to parameters that the NF publishers and the Azure infrastructure require.
+
+As part of creating the network service design, the service designer must consider the upgrade and scaling requirements of the service.
+
+The service designer is responsible for creating and updating the following Azure Operator Service Manager objects:
+
+- Publisher
+- Artifact store
+- Artifact manifest
+- Network service design group (NSDG)
+- Network service design version (NSDV)
+- CGS
+
+## Service operator
+
+The service operator is the person who runs the service on a day-to-day basis. The service operator's duties include creating, modifying, and monitoring these objects:
+
 - Site
-- Site Network Service (SNS)
-- Configuration Group Values (CGV)
+- Site network service (SNS)
+- CGVs
 
-The process to create a Site Network Service consists of:
-- Selecting a Network Function Design Version (NSDV) for the new service.
-- Applying parameters using inputs in the form of a Site and one or more Configuration Group Schemas (CGSs).
+The process to create an SNS consists of:
 
-The Service Designer determines the exact format of these inputs.
+- Selecting an NFDV for the new service.
+- Applying parameters by using inputs in the form of a site and one or more CGSs.
 
-A Service Operator is responsible for creating/updating the following Azure Operator Service Manager (AOSM) objects:
+The service designer determines the exact format of these inputs.
+
+A service operator is responsible for creating and updating the following Azure Operator Service Manager objects:
+
 - Site
-- Configuration Group Values
-- Site Network Service
+- CGVs
+- SNS
