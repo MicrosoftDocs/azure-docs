@@ -383,7 +383,7 @@ cURL --request PUT \
     Use the following `cURL` command to trigger workflow:
 
     ```bash
-    cURL -X POST "https://<DNS>/api/workflow/v1/workflow/segy-to-vds-conversion" \
+    cURL -X POST "https://<DNS>/api/workflow/v1/workflow/<segy-to-vds-conversion dag id>" \
         -H "Authorization: Bearer <access_token>" \
         -H "Content-Type: application/json" \
         -d '{
@@ -431,21 +431,21 @@ cURL --request PUT \
 
 ### Verify File Conversion
 
-Use the following `cURL` command to verify file conversion:
+    Use the following `cURL` command to verify file conversion:
 
-```bash
-cURL --request GET \
-  --url 'http://{{seismic_ddms_host}}/utility/ls?sdpath=sd://{{tenant}}/{{vdsTestSubprojectName}}' \
-  --header 'Authorization: Bearer {{access_token}}'
+    ```bash
+    cURL --request GET \
+    --url 'http://{{seismic_ddms_host}}/utility/ls?sdpath=sd://{{tenant}}/{{vdsTestSubprojectName}}' \
+    --header 'Authorization: Bearer {{access_token}}'
 
-```
+    ```
 
-**Sample Response:**
-```json
-{
-  List of datasets
-}
-```
+    **Sample Response:**
+    ```json
+    {
+    List of datasets
+    }
+    ```
 
 1. You can see if the converted file is present using the following command in sdutil
 
