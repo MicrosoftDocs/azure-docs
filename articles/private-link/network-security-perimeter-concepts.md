@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
 ms.topic: overview
-ms.date: 07/29/2025
+ms.date: 08/01/2025
 ms.custom:
   - references_regions, ignite-2024
   - ai-gen-docs-bap
@@ -94,16 +94,16 @@ For example, upon creating a network security perimeter and associating a set of
 
 A network security perimeter-aware private link resource is a PaaS resource that can be associated with a network security perimeter. Currently the list of onboarded private link resources are as follows:
 
-| Private link resource name | Resource type | Resources |
-|---------------------------|---------------|-----------|
-| [Azure Monitor](/azure/azure-monitor/essentials/network-security-perimeter)             | Microsoft.Insights/dataCollectionEndpoints</br>Microsoft.Insights/ScheduledQueryRules</br>Microsoft.Insights/actionGroups</br>Microsoft.OperationalInsights/workspaces | Log Analytics Workspace, Application Insights, Alerts, Notification Service |
-| [Azure AI Search](/azure/search/search-security-network-security-perimiter)          | Microsoft.Search/searchServices | - |
-| [Cosmos DB](/azure/cosmos-db/how-to-configure-nsp)                | Microsoft.DocumentDB/databaseAccounts | - |
-| [Event Hubs](/azure/event-hubs/network-security-perimeter)                | Microsoft.EventHub/namespaces | - |
-| [Key Vault](/azure/key-vault/general/network-security#network-security-perimeter-preview)                 | Microsoft.KeyVault/vaults | - |
-| [SQL DB](/azure/azure-sql/database/network-security-perimeter)                    | Microsoft.Sql/servers | - |
-| [Storage](/azure/storage/common/storage-network-security#network-secuirty-perimeter-preview)               | Microsoft.Storage/storageAccounts | - |
-| [Azure OpenAI service](/azure/ai-services/openai/how-to/network-security-perimeter) | Microsoft.CognitiveServices | - |
+| Private link resource name | Resource type | Resources | Availability |
+|---------------------------|---------------|-----------| --------- |
+| [Azure Monitor](/azure/azure-monitor/essentials/network-security-perimeter)             | Microsoft.Insights/dataCollectionEndpoints</br>Microsoft.Insights/ScheduledQueryRules</br>Microsoft.Insights/actionGroups</br>Microsoft.OperationalInsights/workspaces | Log Analytics Workspace, Application Insights, Alerts, Notification Service | Generally available |
+| [Azure AI Search](/azure/search/search-security-network-security-perimiter)          | Microsoft.Search/searchServices | Generally Available |
+| [Cosmos DB](/azure/cosmos-db/how-to-configure-nsp)                | Microsoft.DocumentDB/databaseAccounts | Public Preview |
+| [Event Hubs](/azure/event-hubs/network-security-perimeter)                | Microsoft.EventHub/namespaces | Generally Available |
+| [Key Vault](/azure/key-vault/general/network-security#network-security-perimeter-preview)                 | Microsoft.KeyVault/vaults | Generally Available |
+| [SQL DB](/azure/azure-sql/database/network-security-perimeter)                    | Microsoft.Sql/servers | Public Preview |
+| [Storage](/azure/storage/common/storage-network-security#network-secuirty-perimeter-preview)               | Microsoft.Storage/storageAccounts | Generally Available |
+| [Azure OpenAI service](/azure/ai-services/openai/how-to/network-security-perimeter) | Microsoft.CognitiveServices | Public Preview |
 
 > [!NOTE]
 > Refer to the respective private link resource documentation for information on currently unsupported scenarios.
