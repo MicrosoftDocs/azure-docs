@@ -68,7 +68,7 @@ Assume we're making a price comparison in the following hot archive for multimed
 - 15,000 IOPS
 - 2048 MiB/sec throughput  
 
-For this scenario, if we're using the provisioned v1 billing model, we must follow the provisioned storage requirements and over-provision our IOPS and throughput. Here are the reverse calculations on the IOPS and throughput to see how much we are over-provisioned.
+For this scenario, if we're using the Provisioned v1 billing model, we must follow the provisioned storage requirements and over-provision our IOPS and throughput. Here are the reverse calculations on the IOPS and throughput to see how much we are over-provisioned.
 - IOPS limit will be 102,400 + 3,000 = 105,400 IOPS
 - Throughput limit will be 102,400\*0.1+100=10,340 MiB / sec
 
