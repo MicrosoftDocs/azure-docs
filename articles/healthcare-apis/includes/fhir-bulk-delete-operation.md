@@ -151,19 +151,14 @@ The following example will bulk delete all Patient resources that are not refere
 
 
 ### `$bulk-delete` with excluded resource types
-<!--- check with Paola: confirm gen 2 only or both Note: This feature is available in Azure Health Data Services FHIR Server only, and is not available in Azure API for FHIR. --->
 
-
-
-
-<!--- Check with Paola: Can it be multiple, or just one resource type? --->
-
-
-The `$bulk-delete` operation supports configuring excluded resource types. When you perform a bulk delete operation, these resource types are excluded from deletion. This means that if you include this parameter and specify a resource type in your bulk delete request, those resource types will not be deleted, and the operation will complete successfully deleting everything else in the request, without deleting the specified excluded resource type.
+The `$bulk-delete` operation supports configuring excluded resource types. When you perform a bulk delete operation, these resource types are excluded from deletion. This means that if you include this parameter and specify a comma separated list of resource types in your bulk delete request, those resource types will not be deleted, and the operation will complete successfully deleting everything else in the request, without deleting the specified excluded resource types.
 
 The following example will delete all resources in your FHIR server, except for the `Patient` resource type:  
 `DELETE [base]/$bulk-delete?excludedResourceTypes=patient`
 
+The following example will delete all resources in your FHIR server, except for the `Patient` and `Observation` resource types:  
+`DELETE [base]/$bulk-delete?excludedResourceTypes=patient,observation`
 
 ### `$bulk-delete` and removing references
 
