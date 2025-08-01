@@ -120,9 +120,9 @@ The following section describes what to expect when Azure Firewall is configured
 
     - *Zonal:* For firewalls that are configured to be zonal, you need to detect the loss of an availability zone and initiate a failover to a secondary firewall that you create in another availability zone.
 
-- **Active connections:** When an availability zone is unavailable, any requests in progress that are connected to a firewall instance in the faulty availability zone might be terminated and need to be retried.
-
 - **Notification:** Zone failure events can be monitored through Azure Service Health. Set up alerts on Azure Search Health to receive notifications of zone-level issues.
+
+- **Active connections:** When an availability zone is unavailable, any requests in progress that are connected to a firewall instance in the faulty availability zone might be terminated and need to be retried.
 
 - **Expected data loss**: No data loss is expected during zone failover as Azure Firewall doesn't store persistent customer data.
 
