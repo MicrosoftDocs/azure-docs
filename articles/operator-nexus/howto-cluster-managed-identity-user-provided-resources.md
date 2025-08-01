@@ -5,7 +5,7 @@ author: eak13
 ms.author: ekarandjeff
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 6/10/2025
+ms.date: 07/09/2025
 ms.custom: template-how-to
 ---
 
@@ -103,6 +103,19 @@ The `--command-output-settings` data construct is used to define the Storage Acc
 - `container-url`: The URL of the storage account container that is to be used by the specified identities.
 - `identity-resource-id`: The user assigned managed identity resource ID to use. Mutually exclusive with a system assigned identity type.
 - `identity-type`: The type of managed identity that is being selected. Use `UserAssignedIdentity`.
+- `overrides`: Optional. An array of override objects which can be used to override the storage account container and identity to use for specific types of run commands. Each override object consists of the following fields:
+  - `command-output-type`: The type of run command to override.
+  - `container-url`: The URL of the storage account container to use for the specified command type.
+  - `identity-resource-id`: The user assigned managed identity resource ID to use for the specified command type.
+  - `identity-type`: The type of managed identity that is being selected. Use `UserAssignedIdentity`.
+
+Valid `command-output-type` values are:
+- `BareMetalMachineRunCommand`: Output from the `az networkcloud baremetalmachine run-command` command.
+- `BareMetalMachineRunDataExtracts`: Output from the `az networkcloud baremetalmachine run-data-extract` command.
+- `BareMetalMachineRunReadCommands`: Output from the `az networkcloud baremetalmachine run-read-command` command.
+- `StorageRunReadCommands`: Output from the `az networkcloud storageappliance run-read-command` command.
+
+Run command output will be written to the storage account container defined in the `overrides` for the specific command type, using the associated identity for that override. If no matching override is found, the default `container-url` and `identity-resource-id` from the command output settings will be used.
 
 #### Log Analytics Workspace settings
 
