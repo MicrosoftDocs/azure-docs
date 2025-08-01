@@ -5,7 +5,7 @@ author: vinnieangel
 ms.author: vangellotti
 ms.service: azure-education
 ms.topic: tutorial
-ms.date: 7/11/2025
+ms.date: 7/31/2025
 ms.custom: template-tutorial
 ---
 
