@@ -29,23 +29,21 @@ You can view and change settings by selecting one of the following settings cate
 - Properties 
 - Locks
 
-## Rulestack
+## Security Policies
 
-1. Select **Rulestack** in the service menu.
+1. Select **Security Policies** under **Settings** the left pane.
 
-1. For the **Managed by**, select either **Azure Portal** or **"Palo Alto Networks Panorama** to determine the mechanism for managing Rulestack. You must have Palo Alto Networks Panorama set up in order to select it.
+1. In **Local Rulestack**, select an existing rulestack from the dropdown list.
 
-1. For the **Local Rulestack**, select an existing Rulestack from the dropdown.
+## Log Settings
 
-## Log settings
+1. Select **Log Settings** under **Settings** in the left pane.
 
-1. Select **Log Settings** in the service menu.
-
-1. Select **edit** to enable **Log Settings**.
+1. Select **Edit** to enable **Log Settings**.
 
 1. Select the **Enable Log Settings** checkbox.
 
-1. Select **Log Setting** from the dropdown list.
+1. In **Log Settings**, select the settings.
 
 ## Change plan
 
