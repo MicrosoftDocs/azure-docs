@@ -6950,6 +6950,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sre-agent/incident-management-tools.md",
+      "redirect_url": "/azure/sre-agent/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/app-service/tutorial-sre-agent.md",
       "redirect_url": "/azure/sre-agent/troubleshoot-azure-app-service",
       "redirect_document_id": false
