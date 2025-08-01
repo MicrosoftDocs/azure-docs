@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content, references_regions
 ms.topic: how-to
-ms.date: 07/08/2025
+ms.date: 08/01/2025
 ms.author: kendownie
 # Customer intent: As a Linux system administrator, I want to mount an NFS Azure file share, so that I can securely access and manage data stored in Azure from my Linux environment.
 ---
@@ -15,35 +15,69 @@ ms.author: kendownie
 Azure file shares can be mounted in Linux distributions using either the Server Message Block (SMB) protocol or the Network File System (NFS) protocol. This article is focused on mounting with NFS. For details on mounting SMB file shares, see [Use Azure Files with Linux](storage-how-to-use-files-linux.md). For details on each of the available protocols, see [Azure file share protocols](storage-files-planning.md#available-protocols).
 
 ## Applies to
-| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
-|-|-|-|-|:-:|:-:|
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+
+| Management model     | Billing model  | Media tier     | Redundancy     |                SMB                |                 NFS                 |
+| -------------------- | -------------- | -------------- | -------------- | :-------------------------------: | :---------------------------------: |
+| Microsoft.FileShares | Provisioned v2 | SSD (premium)  | Local (LRS)    | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.FileShares | Provisioned v2 | SSD (premium)  | Zone (ZRS)     | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage    | Provisioned v2 | HDD (standard) | Local (LRS)    | ![No](../media/icons/no-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage    | Provisioned v2 | HDD (standard) | Zone (ZRS)     | ![No](../media/icons/no-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage    | Provisioned v2 | HDD (standard) | Geo (GRS)      | ![No](../media/icons/no-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage    | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage    | Provisioned v1 | SSD (premium)  | Local (LRS)    | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage    | Provisioned v1 | SSD (premium)  | Zone (ZRS)     | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage    | Pay-as-you-go  | HDD (standard) | Local (LRS)    | ![No](../media/icons/no-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage    | Pay-as-you-go  | HDD (standard) | Zone (ZRS)     | ![No](../media/icons/no-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage    | Pay-as-you-go  | HDD (standard) | Geo (GRS)      | ![No](../media/icons/no-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage    | Pay-as-you-go  | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) |  ![No](../media/icons/no-icon.png)  |
 
 ## Support
 
 [!INCLUDE [files-nfs-limitations](../../../includes/files-nfs-limitations.md)]
 
-## Regional availability
+## Deploy an Azure VM running Linux
 
-NFS file shares are supported in all the same regions that support SSD file shares. See [Azure Files redundancy support for SSD file shares](./redundancy-premium-file-shares.md).
+First, create an Azure VM running Linux to represent the on-premises server. When you create the VM, a virtual network will be created for you. The NFS protocol can only be used from a machine inside of a virtual network.
 
-## Step 1: Configure network security
+1. Select **Home**, and then select **Virtual machines** under **Azure services**.
 
-NFS file shares can only be accessed from trusted networks. Currently, the only way to secure the data in your storage account is by using a virtual network and other network security settings. Any other tools used to secure data, including account key authorization, Microsoft Entra security, and access control lists (ACLs) can't be used to authorize an NFSv4.1 request.
+1. Select **+ Create** and then **Azure virtual machine**.
+
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription and resource group are selected. Under **Instance details**, type _myVM_ for the **Virtual machine name**, and select the same region as your storage account.
+
+1. Under **Availability options**, select _No infrastructure redundancy required_. Under **Security type**, select _Standard_.
+
+1. Choose your Linux distribution for your **Image**. Leave the other defaults. The default size and pricing is only shown as an example. Size availability and pricing are dependent on your region and subscription.
+
+   :::image type="content" source="media/storage-files-quick-create-use-linux/vm-project-instance-details.png" alt-text="Screenshot showing how to enter the project and instance details to create a new V M." lightbox="media/storage-files-quick-create-use-linux/vm-project-instance-details.png" border="true":::
+
+1. Under **Administrator account**, select **SSH public key**. Leave the rest of the defaults.
+
+   :::image type="content" source="media/storage-files-quick-create-use-linux/vm-admin-account.png" alt-text="Screenshot showing how to configure the administrator account and create an S S H key pair for a new V M." lightbox="media/storage-files-quick-create-use-linux/vm-admin-account.png" border="true":::
+
+1. Under **Inbound port rules > Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** and **HTTP (80)** from the drop-down.
+
+   :::image type="content" source="media/storage-files-quick-create-use-linux/create-vm-inbound-port-rules.png" alt-text="Screenshot showing how to configure the inbound port rules for a new V M." lightbox="media/storage-files-quick-create-use-linux/create-vm-inbound-port-rules.png" border="true":::
+
+   > [!IMPORTANT]
+   > Setting SSH port(s) open to the internet is only recommended for testing. If you want to change this setting later, go back to the **Basics** tab.
+
+1. Select the **Review + create** button at the bottom of the page.
+
+1. On the **Create a virtual machine** page, you can see the details about the VM you're about to create. Under **Networking**, note the name of the virtual network. When you're ready, select **Create**.
+
+1. When the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will be downloaded as **myVM_key.pem**. Make sure you know where the .pem file was downloaded, because you'll need the path to it to connect to your VM.
+
+You'll see a message that deployment is in progress. Wait a few minutes for deployment to complete.
+
+## Configure network security
 
 > [!IMPORTANT]
 > The NFSv4.1 protocol runs on port 2049. If you're connecting from an on-premises network, make sure that your client allows outgoing communication through port 2049. If you grant access to specific VNets, make sure that any network security groups associated with those VNets don't contain security rules that block incoming communication through port 2049.
 
 ### Create a private endpoint or service endpoint
+
+If you are using Microsoft.FileShares, and have already setup network when you are creating the file share, you may skip this step.
 
 To use NFS Azure file shares, you must either [create a private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint) (recommended) or [restrict access to your public endpoint](storage-files-networking-endpoints.md#restrict-public-endpoint-access).
 
@@ -55,7 +89,7 @@ To enable hybrid access to an NFS Azure file share, use one of the following net
 - [Configure a Site-to-Site (S2S) VPN](storage-files-configure-s2s-vpn.md).
 - Configure [ExpressRoute](../../expressroute/expressroute-introduction.md).
 
-## Step 2: Mount an NFS Azure file share
+## Mount an NFS Azure file share
 
 You can mount the share using the AZNFS mount helper in Azure portal, or you can use the native NFS mount commands in CLI. You can also create a record in the **/etc/fstab** file to automatically mount the share every time the Linux server or VM boots.
 
@@ -68,44 +102,48 @@ You can use the `nconnect` Linux mount option to improve performance for NFS Azu
 
    :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/mount-file-share.png" alt-text="Screenshot showing how to connect to an N F S file share from Linux using a provided mounting script." lightbox="media/storage-files-how-to-mount-nfs-shares/mount-file-share.png" border="true":::
 
-The NFS file share should now be mounted. If the mount fails, ensure that the *Secure transfer required* setting is [enabled on the storage account](encryption-in-transit-for-nfs-shares.md?tabs=azure-portal%2CUbuntu#enforce-encryption-in-transit).
+The NFS file share should now be mounted. If the mount fails, ensure that the _Secure transfer required_ setting is [enabled on the storage account](encryption-in-transit-for-nfs-shares.md?tabs=azure-portal%2CUbuntu#enforce-encryption-in-transit).
 
 ### Mount an NFS share using the NFS client mount in command line
 
 Alternatively, you can also mount the Azure file share using NFS client mount in command line. Select the tab below for your Linux distribution to see the commands you need to run. Be sure to replace `<YourStorageAccountName>` and `<FileShareName>` with your information.
 
 # [Ubuntu/Debian](#tab/Ubuntu)
+
 ```bash
 sudo apt-get -y update
 sudo apt-get install nfs-common
- 
+
 /mount/<YourStorageAccountName>/<FileShareName>
- 
+
 sudo mkdir -p /mount/<YourStorageAccountName>/<FileShareName>
 sudo mount -t nfs <YourStorageAccountName>.file.core.windows.net:/<YourStorageAccountName>/<FileShareName> /mount/<YourStorageAccountName>/<FileShareName> -o vers=4,minorversion=1,sec=sys,nconnect=4
 ```
 
 # [RHEL/CentOS](#tab/RHEL)
+
 ```bash
 sudo yum update
 sudo yum install nfs-utils
- 
+
 /mount/<YourStorageAccountName>/<FileShareName>
- 
+
 sudo mkdir -p /mount/<YourStorageAccountName>/<FileShareName>
 sudo mount -t nfs <YourStorageAccountName>.file.core.windows.net:/<YourStorageAccountName>/<FileShareName> /mount/<YourStorageAccountName>/<FileShareName> -o vers=4,minorversion=1,sec=sys,nconnect=4
 ```
 
 ### [SUSE](#tab/SUSE)
+
 ```bash
 sudo zypper update
 sudo zypper -n install nfs-client
- 
+
 /mount/<YourStorageAccountName>/<FileShareName>
- 
+
 sudo mkdir -p /mount/<YourStorageAccountName>/<FileShareName>
 sudo mount -t nfs <YourStorageAccountName>.core.windows.net:/<YourStorageAccountName>/<FileShareName> /mount/<YourStorageAccountName>/<FileShareName> -o vers=4,minorversion=1,sec=sys,nconnect=4
 ```
+
 ---
 
 ### Mount an NFS share using /etc/fstab
@@ -124,13 +162,13 @@ Remember to replace `<YourStorageAccountName>` and `<FileShareName>` with your o
 
 #### Mount using AZNFS Mount Helper and encryption in transit (recommended)
 
-The record in **/etc/fstab** should look like this if you're using the AZNFS Mount Helper and want to mount the share using encryption in transit. 
+The record in **/etc/fstab** should look like this if you're using the AZNFS Mount Helper and want to mount the share using encryption in transit.
 
 ```bash
 <YourStorageAccountName>.file.core.windows.net:/<YourStorageAccountName>/<FileShareName> /media/<YourStorageAccountName>/<FileShareName> aznfs defaults,sec=sys,vers=4.1,nolock,proto=tcp,nofail,_netdev   0 2
 ```
 
-If the mount fails, ensure that the *Secure transfer required* setting is [enabled on the storage account](encryption-in-transit-for-nfs-shares.md?tabs=azure-portal%2CUbuntu#enforce-encryption-in-transit).
+If the mount fails, ensure that the _Secure transfer required_ setting is [enabled on the storage account](encryption-in-transit-for-nfs-shares.md?tabs=azure-portal%2CUbuntu#enforce-encryption-in-transit).
 
 #### Mount using AZNFS Mount Helper without encryption in transit
 
@@ -153,7 +191,7 @@ If you're using the native NFS mount without AZNFS, the record in **/etc/fstab**
 The following mount options are recommended or required when mounting NFS Azure file shares.
 
 | **Mount option** | **Recommended value** | **Description** |
-|******************|***********************|*****************|
+|**\*\*\*\***\*\***\*\*\*\***|\***\*\*\*\*\***\*\*\*\***\*\*\*\*\***|**\*\*\*\***\***\*\*\*\***|
 | `vers` | 4 | Required. Specifies which version of the NFS protocol to use. Azure Files only supports NFSv4.1. |
 | `minorversion` | 1 | Required. Specifies the minor version of the NFS protocol. Some Linux distros don't recognize minor versions on the `vers` parameter. So instead of `vers=4.1`, use `vers=4,minorversion=1`. |
 | `sec` | sys | Required. Specifies the type of security to use when authenticating an NFS connection. Setting `sec=sys` uses the local UNIX UIDs and GIDs that use AUTH_SYS to authenticate NFS operations. |
@@ -164,7 +202,7 @@ The following mount options are recommended or required when mounting NFS Azure 
 | `nconnect` | 4 | Recommended. Nconnect increases performance by using multiple TCP connections between the client and your NFS share. We recommend configuring the mount options with the optimal setting of nconnect=4. Currently, there are no gains beyond four channels for the Azure Files implementation of nconnect. |
 | `clean` | n/a | A non-TLS mount might fail if a prior TLS mount to the same server ended abruptly, leaving stale entries. To resolve this issue, remount the share using the `clean` option, which immediately clears any stale entries. This applies only for AZNFS mount. |
 
-## Step 3: Validate connectivity
+## Validate connectivity
 
 If your mount fails, it's possible that your private endpoint wasn't set up correctly or isn't accessible. For details on confirming connectivity, see [Verify connectivity](storage-files-networking-endpoints.md#verify-connectivity).
 
