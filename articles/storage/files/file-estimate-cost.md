@@ -58,7 +58,7 @@ To meet both requirements, in Provisioned v1, we need to provision 17,000 GiB to
 
 100 – ($925.42 / $2720.00 × 100) = 65.98%
 
-For this workload experience, Provisioned v2 SSD offers a 66% discount compared to the provisioned v1 billing model.
+For this workload, Provisioned v2 SSD offers a 66% discount compared to the Provisioned v1 billing model.
 
 ### Comparison of a hot archive for multimedia workload
 
