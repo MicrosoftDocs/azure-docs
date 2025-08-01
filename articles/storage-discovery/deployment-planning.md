@@ -128,7 +128,7 @@ The Azure Storage Discovery workspace stores the computed insights for your stor
 |Enable a person to share these insights with others | Storage Discovery workspace: `Owner`|
 
 > [!CAUTION]
-> When you provide other users access to a workspace, they might not be privileged to know about the existence of the Azure resources covered by the workspace. You are disclosing all insights of the workspace - there are no further permission checks. Providing access to a workspace does not provide access to an individual storage account, resource group, or subscription. Individual resources remain governed by RBAC.
+> When you provide other users access to a workspace, you are disclosing all insights of the workspace. Other users might not be privileged to know about the existence of the Azure resources or insights about the data they store. Providing access to a workspace does not provide access to an individual storage account, resource group, or subscription. Individual resources remain governed by RBAC.
 
 ## Next steps
 
