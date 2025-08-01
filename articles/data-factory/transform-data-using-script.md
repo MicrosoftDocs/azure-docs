@@ -23,7 +23,7 @@ You can use the Script activity to invoke a SQL script in one of the following d
 - Azure Database for PostgreSQL
 - Azure SQL Database 
 - Azure Synapse Analytics 
-- SQL Server Database. If you are using SQL Server, install Self-hosted integration runtime on the same machine that hosts the database or on a separate machine that has access to the database. Self-Hosted integration runtime is a component that connects data sources on-premises/on Azure VM with cloud services in a secure and managed way. See the [Self-hosted integration runtime](create-self-hosted-integration-runtime.md) article for details. 
+- SQL Server Database. If you're using SQL Server, install Self-hosted integration runtime on the same machine that hosts the database or on a separate machine that has access to the database. Self-Hosted integration runtime is a component that connects data sources on-premises/on Azure VM with cloud services in a secure and managed way. See the [Self-hosted integration runtime](create-self-hosted-integration-runtime.md) article for details.
 - Oracle
 - Snowflake
 
@@ -37,7 +37,7 @@ The script can contain either a single SQL statement or multiple SQL statements 
 
 ## Syntax details
 
-Here is the JSON format for defining a Script activity: 
+Here's the JSON format for defining a Script activity: 
 
 ```json
 { 
@@ -153,11 +153,11 @@ Sample output:
 |outputTruncated     |Indicator of whether the output exceeds the limits and get truncated.          |If output exceeds the limits.         |
 
 > [!NOTE]
-> - The output is collected every time a script block is executed. The final output is the merged result of all script block outputs. The output parameter with same name in different script block will get overwritten. 
-> - Since the output has size / rows limitation, the output will be truncated in following order: logs -> parameters -> rows. Note, this applies to a single script block, which means the output rows of next script block won’t evict previous logs. 
+> - The output is collected every time a script block is executed. The final output is the merged result of all script block outputs. The output parameter with same name in different script block gets overwritten. 
+> - Since the output has size / rows limitation, the output is truncated in following order: logs -> parameters -> rows. Note, this applies to a single script block, which means the output rows of next script block won’t evict previous logs. 
 > - Any error caused by log won’t fail the activity. 
-> - For consuming activity output resultSets in down stream activity please refer to the [Lookup activity result documentation](control-flow-lookup-activity.md#use-the-lookup-activity-result).
-> - Use outputLogs when you are using 'PRINT' statements for logging purpose. If query returns resultSets, it will be available in the activity output and will be limited to 5000 rows/ 4MB size limit. 
+> - For consuming activity output resultSets in down stream activity, refer to the [Lookup activity result documentation](control-flow-lookup-activity.md#use-the-lookup-activity-result).
+> - Use outputLogs when you're using 'PRINT' statements for logging purpose. If query returns resultSets, it is available in the activity output and is limited to 5000 rows/ 4 MB size limit. 
 
 ## Configure the Script activity using UI
 
