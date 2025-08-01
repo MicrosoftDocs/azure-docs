@@ -400,13 +400,13 @@ cURL --request PUT \
     ```
 
     **Sample Response:**
-        ```json
-            {
-            "runId": "workflow-12345",
-            "status": "Running",
-            "message": "Workflow triggered successfully."
-            }
-        ```
+    ```json
+    {
+    "runId": "workflow-12345",
+    "status": "Running",
+    "message": "Workflow triggered successfully."
+    }
+    ```
 
 
 2. Let the DAG run to the `succeeded` state. You can check the status using the workflow status call. The run ID is in the response of the previous call
