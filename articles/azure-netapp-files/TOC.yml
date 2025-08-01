@@ -79,8 +79,6 @@
       href: azure-netapp-files-network-topologies.md
     - name: Resource limits for Azure NetApp Files
       href: azure-netapp-files-resource-limits.md
-    - name: Reliability in Azure NetApp Files 
-      href: ../reliability/reliability-netapp-files.md
     - name: Understand large volumes 
       href: large-volumes.md
     - name: Requirements and considerations for large volumes
@@ -179,10 +177,10 @@
           href: application-volume-group-oracle-considerations.md
   - name: Data protection and resiliency
     items:
+    - name: Reliability in Azure NetApp Files 
+      href: ../reliability/reliability-netapp-files.md?toc=azure/azure-netapp-files/toc.json
     - name: Understand data protection and disaster recovery options
       href: data-protection-disaster-recovery-options.md
-    - name: Reliability in Azure NetApp Files 
-      href: ../reliability/reliability-netapp-files.md
     - name: How Azure NetApp Files snapshots work
       href: snapshots-introduction.md
     - name: Azure NetApp Files backup
