@@ -129,7 +129,7 @@ The predefined policies `AppGwSslPolicy20150501` and `AppGwSslPolicy20170401` th
 Application Gateway won't modify any resource having customer-defined TLS configurations. Only the default TLS policy for gateways that have not explicitly set a TLS policy or lack any TLS-related settings (such as HTTPS or TLS listeners) will be automatically updated to use `AppGwSslPolicy20220101`.
 
 ### Will my gateway go in a Failed state?
-If you have chosen any deprecating TLS policy in the configuration of your gateway and don’t update it a supported policy by August 2025, your gateway will enter a Failed state when performing a configuration update.
+If you have chosen any deprecating TLS policy in the configuration of your gateway and don’t update it to a supported policy by August 2025, your gateway will enter a Failed state when performing a configuration update.
 
 A nonfunctional TLS configuration, such a SSLProfile not linked to any listener, won't have any impact on the control plane of the gateway.
 
