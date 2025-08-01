@@ -465,6 +465,34 @@ fn my_branch(input: DataModel, timestamp: HybridLogicalClock) -> bool {
 }
 ```
 
+#### Module configuration parameters
+
+Your WASM operators can receive runtime configuration parameters through the `ModuleConfiguration` struct passed to the `init` function. These parameters are defined in the graph definition and allow runtime customization without rebuilding modules.
+
+```rust
+use tinykube_wasm_sdk::logger::{self, Level};
+use tinykube_wasm_sdk::ModuleConfiguration;
+
+fn my_operator_init(configuration: ModuleConfiguration) -> bool {
+    // Access required parameters
+    if let Some(threshold_param) = configuration.parameters.get("temperature_threshold") {
+        let threshold: f64 = threshold_param.parse().unwrap_or(25.0);
+        logger::log(Level::Info, "my-operator", &format!("Using threshold: {}", threshold));
+    }
+    
+    // Access optional parameters with defaults
+    let unit = configuration.parameters
+        .get("output_unit")
+        .map(|s| s.as_str())
+        .unwrap_or("celsius");
+    
+    logger::log(Level::Info, "my-operator", &format!("Output unit: {}", unit));
+    true
+}
+```
+
+For detailed information about defining configuration parameters in graph definitions, see [Module configuration parameters](howto-configure-wasm-graph-definitions.md#module-configuration-parameters).
+
 #### Host APIs
 
 Use the SDK to work with distributed services:
@@ -518,10 +546,21 @@ from map_impl.imports import types
 
 # Implement the operator interface
 class Map(exports.Map):
+    def init(self, configuration) -> bool:
+        # Access configuration parameters
+        threshold = configuration.get_parameter("temperature_threshold")
+        unit = configuration.get_parameter("output_unit", default="celsius")
+        
+        imports.logger.log(imports.logger.Level.INFO, "my-operator", 
+                          f"Initialized with threshold={threshold}, unit={unit}")
+        return True
+    
     def process(self, message: types.DataModel) -> types.DataModel:
         # Your processing logic here
         return message
 ```
+
+For detailed information about defining configuration parameters in graph definitions, see [Module configuration parameters](howto-configure-wasm-graph-definitions.md#module-configuration-parameters).
 
 Logging through imports:
 ```python

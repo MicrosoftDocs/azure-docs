@@ -245,7 +245,7 @@ For detailed instructions on uploading graph definitions and WASM modules to reg
 
 ## Module configuration parameters
 
-Module configurations define runtime parameters that your WASM operators can access:
+Graph definitions can specify runtime parameters for WASM operators through module configurations:
 
 ```yaml
 moduleConfigurations:
@@ -261,45 +261,7 @@ moduleConfigurations:
         required: false
 ```
 
-## Consume parameters in code
-
-Parameters are accessed through the `ModuleConfiguration` struct passed to your operator's `init` function:
-
-### Rust example
-
-```rust
-use tinykube_wasm_sdk::logger::{self, Level};
-use tinykube_wasm_sdk::ModuleConfiguration;
-
-fn branch_init(configuration: ModuleConfiguration) -> bool {
-    // Access required parameters
-    if let Some(threshold_param) = configuration.parameters.get("temperature_threshold") {
-        let threshold: f64 = threshold_param.parse().unwrap_or(25.0);
-        logger::log(Level::Info, "branch", &format!("Using threshold: {}", threshold));
-    }
-    
-    // Access optional parameters with defaults
-    let unit = configuration.parameters
-        .get("output_unit")
-        .map(|s| s.as_str())
-        .unwrap_or("celsius");
-    
-    true
-}
-```
-
-### Python example
-
-```python
-def temperature_converter_init(configuration):
-    # Access configuration parameters
-    threshold = configuration.get_parameter("temperature_threshold")
-    unit = configuration.get_parameter("output_unit", default="celsius")
-    
-    imports.logger.log(imports.logger.Level.INFO, "temperature-converter", 
-                      f"Initialized with threshold={threshold}, unit={unit}")
-    return True
-```
+These parameters are passed to your WASM operator's `init` function at runtime, enabling dynamic configuration without rebuilding modules. For detailed examples of how to access and use these parameters in your Rust and Python code, see [Module configuration parameters](howto-develop-wasm-modules.md#module-configuration-parameters).
 
 For a complete implementation example, see the [branch module](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples/branch), which demonstrates parameter usage for conditional routing logic.
 
