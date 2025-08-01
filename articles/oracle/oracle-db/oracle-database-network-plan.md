@@ -33,7 +33,9 @@ Advanced network features enhance the virtual networking experience, offering im
 * South Central US
 * Southeast Asia
 * Sweden Central
-* US West  
+* US West
+* US West 2
+* US West 3 
 * UK South 
 * UK West
 
