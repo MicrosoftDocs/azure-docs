@@ -113,6 +113,7 @@ Deployment Environments uses role-based access control to grant permissions for 
 
 1. In the [Azure portal](https://portal.azure.com/), go to your Deployment Environments project.
 1. If you don't have a user-assigned managed identity for the project, [add one](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
+   > [!NOTE] You can use one of three options for identity: app registration, user-assigned managed identity, and system-assigned managed identity. App registration is the most secure option, and user-assigned managed identity is the second most secure. To use app registration, you need to have appropriate permisstions. For more information see [Azure Resource Manager service connection special cases](../devops/pipelines/library/azure-resource-manager-alternate-approaches.md).
 1. Select **Access control (IAM)** > **Add** > **Add role assignment**.
 1. On the **Role** tab, select **Deployment Environments User** in the list of job function roles.
 1. On the **Members** tab, select **Managed identity** and **Select members**.
