@@ -86,10 +86,8 @@ The SDKs supports the following application types:
 
 ## Samples and tutorials
 
-// ASK: The link to samples is okay here?
 Review the [samples](https://github.com/Azure/iot-operations-sdks/tree/main/samples) directory for samples about creating applications for Azure IoT Operation on the supported languages.
 
-// ASK: Should this be linking to the scaffolding?
 To deploy a fully functional application to a cluster and see the SDKs in action, follow the [Tutorial: Build an event-driven app](https://github.com/Azure/iot-operations-sdks/blob/main/samples/event_driven_app/README.md).
 
 ## Next step
