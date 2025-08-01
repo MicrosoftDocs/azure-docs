@@ -384,7 +384,7 @@ python sdutil auth idtoken
 
  Use the following `cURL` command to trigger workflow:
 
-    ```bash
+ ```Bash
     cURL -X POST "https://<DNS>/api/workflow/v1/workflow/<segy-to-zgy-conversion dag id>" \
         -H "Authorization: Bearer <access_token>" \
         -H "Content-Type: application/json" \
@@ -399,16 +399,16 @@ python sdutil auth idtoken
             }
 
     }'
-    ```
+```
 
-    **Sample Response:**
-    ```json
+**Sample Response:**
+```json
     {
     "runId": "workflow-12345",
     "status": "Running",
     "message": "Workflow triggered successfully."
     }
-    ```
+```
 
 
 2. Let the DAG run to the `succeeded` state. You can check the status using the workflow status call. The run ID is in the response of the previous call
