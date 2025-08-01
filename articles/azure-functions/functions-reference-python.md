@@ -1081,7 +1081,7 @@ Azure Functions supports the following Python versions:
 | ----- | :-----: |
 | 4.x | 3.13 (Preview)<br/>3.12<br/>3.11<br/>3.10<br/>|
 > [!IMPORTANT]  
-> Python 3.13 is supported **only** on the Flex Consumption, Premium, and Dedicated plans.
+> Python 3.13 is currently supported on the Flex Consumption, Premium, and Dedicated plans. Python 3.13 support on the Consumption plan is pending.
 
 \* Official Python distributions
 
