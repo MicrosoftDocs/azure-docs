@@ -71,9 +71,9 @@ items:
       - name: Understand assets and devices
         href: discover-manage-assets/concept-assets-devices.md
         displayName: data points, events, operations, experience, southbound
-      - name: Understand discovery with Akri services
+      - name: Understand connectivity with Akri services
         href: discover-manage-assets/overview-akri.md
-        displayName: OPC UA, akri, detect, device, registry, southbound
+        displayName: OPC UA, akri, discover, detect, device, registry, southbound
       - name: Use the operations experience UI
         href: discover-manage-assets/howto-manage-assets-devices.md
         displayName: operations, experience, site, instance, device, data points, events, CLI, kubectl, southbound
@@ -116,7 +116,7 @@ items:
         - name: Use the connector for ONVIF
           href: discover-manage-assets/howto-use-onvif-connector.md
           displayName: camera, PTZ, pan, tilt, zoom, DiscoveredAsset, DiscoveredAssetEndpointProfile, media, events, stream, southbound
-      - name: Connect to HTTP endpoints
+      - name: Connect to REST/HTTP endpoints
         items:
         - name: Understand the connector for REST/HTTP
           href: discover-manage-assets/overview-http-connector.md
