@@ -74,7 +74,7 @@ In this section, you map the Private Link service to a private endpoint within A
     | Target sub resource | Choose *site* as the subresource type for the selected resource. |
     | Request message | Enter a custom message to display while approving the Private Endpoint. |
 
-    :::image type="content" source="../media/how-to-enable-private-link-app-service/private-endpoint-app-service.png" alt-text="Screenshot of enabling private link.":::
+    :::image type="content" source="../media/how-to-enable-private-link-web-app/private-endpoint-app-service.png" alt-text="Screenshot of enabling private link.":::
 
 1. Select **Add** to save your configuration, then select **Update** to save the origin group settings.
 
@@ -113,7 +113,7 @@ az afd origin create --enabled-state Enabled \
 
 1. In the **Networking** section, select **Configure your private endpoint connections**.
 
-    :::image type="content" source="../media/how-to-enable-private-link-app-service/app-service-configure-endpoint.png" alt-text="Screenshot of networking settings in App Service.":::
+    :::image type="content" source="../media/how-to-enable-private-link-web-app/app-service-configure-endpoint.png" alt-text="Screenshot of networking settings in App Service.":::
 
 1. Find the *pending* private endpoint request from Azure Front Door Premium and select **Approve**.
 
