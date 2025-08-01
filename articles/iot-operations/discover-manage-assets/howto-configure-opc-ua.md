@@ -27,7 +27,7 @@ These assets, tags, and events map inbound data from OPC UA servers to friendly 
 
 ## Prerequisites
 
-To configure devices and assets, you need a running instance of Azure IoT Operations.
+To configure devices and assets, you need a running preview instance of Azure IoT Operations.
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 

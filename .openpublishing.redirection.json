@@ -4035,6 +4035,36 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/expressroute/quickstart-create-expressroute-vnet-template.md",
+      "redirect_url": "/azure/expressroute/expressroute-howto-circuit-resource-manager-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/expressroute/expressroute-howto-expressroute-direct-cli.md",
+      "redirect_url": "/azure/expressroute/how-to-expressroute-direct-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/expressroute/expressroute-howto-erdirect.md",
+      "redirect_url": "/azure/expressroute/how-to-expressroute-direct-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/expressroute/how-to-routefilter-cli.md",
+      "redirect_url": "/azure/expressroute/how-to-routefilter-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/expressroute/how-to-routefilter-powershell.md",
+      "redirect_url": "/azure/expressroute/how-to-routefilter-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/expressroute/work-remotely-support.md",
+      "redirect_url": "/azure/networking/working-remotely-support",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/expressroute/working-remotely-support.md",
       "redirect_url": "/azure/expressroute/work-remotely-support",
       "redirect_document_id": false
