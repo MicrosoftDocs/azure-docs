@@ -6,24 +6,14 @@ ms.date: 08/01/2025
 ms.service: azure-storage-discovery
 ms.custom: references_regions
 ---
-
 <!-- 
-!########################################################
-STATUS: DRAFT
-
-CONTENT: IN PROGRESS
-
-REVIEW Stephen/Fabian: IN PROGRESS
-EDIT PASS: IN PROGRESS
-
-Document score: 100 - 102/0 (words, issues)
-
-!########################################################
+Storage Discovery insights aggregation is supported within the following regions.
+This is a short-term limitation during the preview period.
 -->
-
-Storage Discovery insights aggregation is supported within the following regions. This list continues to expand as preview support continues to expand.
-
-**Americas:**
+<details>
+  <summary>Americas</summary>
+  
+  #### Americas
 - Canada Central
 - Canada East
 - Mexico Central
@@ -37,8 +27,12 @@ Storage Discovery insights aggregation is supported within the following regions
 - US West2
 - US West3
 - US West Central
+</details>
 
-**Europe:**
+<details>
+  <summary>Europe</summary>
+  
+  #### Europe
 - Europe North
 - Europe West
 - France Central
@@ -57,10 +51,15 @@ Storage Discovery insights aggregation is supported within the following regions
 - Switzerland West
 - UK South
 - UK West
+</details>
 
-**Asia Pacific:**
+<details>
+  <summary>Asia Pacific</summary>
+  
+  #### Asia Pacific
 - Australia Central
 - Australia Central2
 - Australia East
 - Australia South East
 - New Zealand North
+</details>
