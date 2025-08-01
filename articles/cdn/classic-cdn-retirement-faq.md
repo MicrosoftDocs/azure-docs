@@ -76,7 +76,7 @@ Currently, Azure CDN Standard from Microsoft (classic) retirement affects the pu
 
 ### Can I make updates to Azure CDN Standard from Microsoft (classic) resources?
 
-You can still update your existing Azure CDN Standard from Microsoft (classic) resources using the Azure portal, Terraform, and all command line tools until September 30, 2027. However, you won't be able to create new Azure CDN Standard from Microsoft (classic) resources starting October 1, 2025. We strongly recommend you migrate to Azure Front Door Standard or Premium tier as soon as possible. 
+You can still update your existing Azure CDN Standard from Microsoft (classic) resources using the Azure portal, Terraform, and all command line tools until September 30, 2027. However, you won't be able to create new Azure CDN Standard from Microsoft (classic) resources starting August 15, 2025. We strongly recommend you migrate to Azure Front Door Standard or Premium tier as soon as possible. 
 
 ### Can I roll back to Azure CDN Standard from Microsoft (classic) after migration?
 
