@@ -14,18 +14,18 @@ ms.custom: engagement-fy24
 
 As you plan your migration to Azure, it's important to assess your on-premises PostgreSQL workloads to determine cloud readiness, identify potential risks, and estimate migration costs and complexity. This article guides you through assessing discovered PostgreSQL instances and databases using the Azure Migrate: Discovery and assessment tool, helping you prepare for migration to Azure Database for PostgreSQL flexible server.
 
-In this tutorial, you will learn how to:
+In this tutorial, you learn how to:
 
 - Run a configuration-based assessment for PostgreSQL.
 - Review the results of an Azure Database for PostgreSQL assessment.
 
 ## Prerequisites
 
-Ensure you have an Azure subscription and have discovered your on-premises PostgreSQL instances using Azure Migrate.
+Ensure you have an Azure subscription and discover your on-premises PostgreSQL instances using Azure Migrate.
 
 - If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
-- Before assessing your PostgreSQL instances for migration to Azure Database for PostgreSQL flexible server, ensure you've already discovered the instances you want to assess using the Azure Migrate appliance. For guidance, follow the [discovery tutorial](tutorial-discover-vmware.md).
-- If you're using an existing Azure Migrate project, ensure you've completed all [prerequisites](how-to-discover-applications.md) outlined in this article.
+- Before you assess your PostgreSQL instances for migration to Azure Database for PostgreSQL flexible server, make sure you discover the instances using the Azure Migrate appliance. For guidance, follow the [discovery tutorial](tutorial-discover-vmware.md).
+- If you use an existing Azure Migrate project, ensure you complete all [prerequisites](how-to-discover-applications.md) outlined in this article.
 
 
 ## Determine sizing strategy for assessment
@@ -52,7 +52,7 @@ Run an assessment as follows:
 
 1.  After selecting the PostgreSQL workloads, select **Next** to proceed.
 
-:::image type="content" source="./media/tutorial-postgre-sql-assessment-for-flexible-azure-migration/review-selected-workloads.png" alt-text="Screenshot shows how to review selected workloads" lightbox="./media/tutorial-postgre-sql-assessment-for-flexible-azure-migration/rreview-selected-workloads.png":::
+:::image type="content" source="./media/tutorial-postgre-sql-assessment-for-flexible-azure-migration/review-selected-workloads.png" alt-text="Screenshot shows how to review selected workloads" lightbox="./media/tutorial-postgre-sql-assessment-for-flexible-azure-migration/review-selected-workloads.png":::
 
 1. In the **General** tab, either set custom values or keep the default assessment settings, and then select **Next**.
 
