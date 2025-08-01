@@ -13,7 +13,7 @@ manager: pmwongera
 ms.reviewer: quentinb
 ---
 
-# Changes to the Managed TLS Feature
+# Changes to the managed TLS feature
 
 Azure offers a comprehensive managed TLS solution integrated with services such as Azure Front Door (AFD) and CDN Classic, Azure Front Door Standard/Premium SKU, Azure API Management, Azure App Service, Azure Container Apps, and Azure Static Web Apps. This capability includes managed TLS server certificates for customer vanity domains, provided by DigiCert.
 
@@ -23,7 +23,7 @@ Consequently, these Azure services will be introducing an enhanced domain contro
 
 This change does not impact the standard CNAME DCV process for DigiCert customers, where validation uses a random value in the CNAME record. Only a unique method previously exclusive to Microsoft is being retired.
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 **Q: What is domain control validation?**
 
