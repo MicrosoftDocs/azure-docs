@@ -49,7 +49,7 @@ Here's the steps to get your objects which still rely on the deprecated connecto
 
 Users can run a PowerShell script to programmatically extract a list of Azure Data Factory or Synapse linked services that are using integration runtimes running on versions that are either out of support or nearing end-of-support. The script can be customized to query each data factory under a specified tenant or subscription, enumerate a list of specified linked services, and inspect configuration properties such as connection types, connector versions. It can then cross-reference these details against known version EOS timelines, flagging any linked services using unsupported or soon-to-be unsupported connector versions. This automated approach enables users to proactively identify and remediate outdated components to ensure continued support, security compliance, and service availability. 
 
-You can find examples of the script and customize it as needed：
+You can find examples of the script and customize it as needed:
 
 - [Script that requires your tenant ID and subscription ID](https://github.com/Azure/Azure-DataFactory/blob/main/Connector/FindImpactedObjects.ps1)
 - [Script that requires your tenant ID](https://github.com/Azure/Azure-DataFactory/blob/main/Connector/FindImpactedObjects1.ps1)
