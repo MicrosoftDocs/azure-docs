@@ -1008,7 +1008,7 @@ var host = new HostBuilder()
     {
         logging.Services.Configure<LoggerFilterOptions>(options =>
         {
-            LoggerFilterRule defaultRule = options.Rules.FirstOrDefault(rule => rule.ProviderName
+            LoggerFilterRule? defaultRule = options.Rules.FirstOrDefault(rule => rule.ProviderName
                 == "Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider");
             if (defaultRule is not null)
             {
@@ -1038,7 +1038,7 @@ builder.Services
 
 builder.Logging.Services.Configure<LoggerFilterOptions>(options =>
     {
-        LoggerFilterRule defaultRule = options.Rules.FirstOrDefault(rule => rule.ProviderName
+        LoggerFilterRule? defaultRule = options.Rules.FirstOrDefault(rule => rule.ProviderName
             == "Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider");
         if (defaultRule is not null)
         {
