@@ -72,7 +72,7 @@ For more information about media paths, see [call flows conceptual documentation
 
 This call flow topology example depicts customers that use Azure Communication Services from the cloud without any on-premises deployment, such as Azure direct routing. In this topology, traffic to and from Azure Communication Services flows over the internet.
 
-:::image type="content" source="./media/call-flows/detailed-flow-general.png" alt-text="Diagram that shows Azure Communication Services call flow topology initiated by a cloud based user over the internet.":::
+:::image type="content" source="./media/call-flows/detailed-flow-general.png" alt-text="Diagram that shows the Azure Communication Services call flow topology initiated by a cloud-based user over the internet.":::
 
 The direction of the arrows in the preceding diagram reflects the direction of the initial communication that affects connectivity at the enterprise perimeters. For UDP media, the first packets might flow in the reverse direction, but these packets might be blocked until packets are flowing in the other direction.
 
@@ -133,7 +133,7 @@ This media transmission is bidirectional. The direction indicates which side ini
 
 ### Customer network to external user (direct media)
 
-:::image type="content" source="./media/call-flows/one-to-one-with-extenal.png" alt-text="Diagram that shows a one-to-one call flow between an external user with direct media.":::
+:::image type="content" source="./media/call-flows/one-to-one-with-extenal.png" alt-text="Diagram that shows a one-to-one call flow with an external user with direct media.":::
 
 In step 7, Flow 2 (from the customer network to the client's peer over the internet) is selected.
 
@@ -157,7 +157,7 @@ This media transmission is bidirectional. The direction of Flow 2 to the remote 
 
 ### VPN user to external user (direct media)
 
-:::image type="content" source="./media/call-flows/vpn-user-to-external-user.png" alt-text="Diagram that shows a one-to-one call flow for and external user calling a VPN user with direct media.":::
+:::image type="content" source="./media/call-flows/vpn-user-to-external-user.png" alt-text="Diagram that shows a one-to-one call flow for an external user calling a VPN user with direct media.":::
 
 Signaling between the VPN user to the customer network uses Flow 2* and Flow 4 to Azure. However, media bypasses the VPN and is routed by using Flow 6.
 
