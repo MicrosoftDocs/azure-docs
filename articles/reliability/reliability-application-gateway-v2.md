@@ -135,7 +135,7 @@ To manage capacity effectively, take the following actions:
 
   If you use manual scaling, to prepare for availability zone failure, consider *over-provisioning* the number of instances in your gateway. Over-provisioning allows the solution to tolerate some degree of capacity loss, while still continuing to function without degraded performance. For more information, see [Manage capacity with over-provisioning](/azure/reliability/concept-redundancy-replication-backup#manage-capacity-with-over-provisioning).
 
-- **Monitor capacity metrics.** You should also adjust scaling parameters based on your traffic patterns and performance requirements.
+- **Monitor capacity metrics.** Monitor capacity metrics and adjust scaling parameters based on your traffic patterns and performance requirements.
 
 ### Normal operations
 
