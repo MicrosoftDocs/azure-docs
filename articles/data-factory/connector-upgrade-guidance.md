@@ -51,8 +51,8 @@ Users can run a PowerShell script to programmatically extract a list of Azure Da
 
 You can find examples of the script and customize it as needed:
 
-- [Script that requires your tenant ID and subscription ID](https://github.com/Azure/Azure-DataFactory/blob/main/Connector/FindImpactedObjects.ps1)
-- [Script that requires your tenant ID](https://github.com/Azure/Azure-DataFactory/blob/main/Connector/FindImpactedObjects1.ps1)
+- [Script to list all linked services within the specified subscription ID](https://github.com/Azure/Azure-DataFactory/blob/main/Connector/FindImpactedObjects.ps1)
+- [Script to list all linked services within the specified tenant ID](https://github.com/Azure/Azure-DataFactory/blob/main/Connector/FindImpactedObjects1.ps1)
 
 ## Automatic connector upgrade 
 
