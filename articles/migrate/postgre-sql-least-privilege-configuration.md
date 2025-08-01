@@ -7,7 +7,7 @@ ms.service: azure-migrate
 ms.topic: concept-article 
 ms.date: 08/01/2025
 ms.custom: engagement-fy24 
-# Customer intent: 
+# Customer intent: Customers want to securely configure Azure Migrate for PostgreSQL discovery by creating custom accounts with minimal permissions. The goal is to avoid using superuser access while ensuring the appliance can collect necessary metadata for assessment.
 ---
 
 # Overview PostegreSQL
@@ -83,10 +83,10 @@ COMMIT;
 -- Usage instructions:
 --   Replace :username and :password with actual values using psql variables:
 --   psql -v username=myuser -v password=mypassword -f CreateUser.sql
-
 ```
 
->[Note!] 
+
+> [Note!] 
 > This user has only the minimum privileges required for Azure Migrate discovery and assessment.
 > - The user cannot create databases, roles, or replicate.
 > - Always use strong passwords and follow your organization's security policies.
@@ -110,7 +110,7 @@ psql -h <hostname> -p <port> -d <database> -U <superuser> \
     -f CreateUser.sql
 ```
 
-### Verify User Creation
+### Verify user creation
 
 To confirm the user was created and assigned the correct privileges, run the following queries:
 
@@ -153,4 +153,8 @@ Use a least-privilege PostgreSQL account exclusively for Azure Migrate, regularl
 - Test the script in a development or staging environment prior to production use.
 - Follow your organization's security best practices for password complexity and management.
 - After script execution, review the granted permissions to ensure they meet your security requirements.
-- If you encounter issues, consult the PostgreSQL documentation or contact your database administrator for support.
+- If you encounter issues, see [PostgreSQL documentation](https://www.postgresql.org/docs/17/index.html) or contact your database administrator for support.
+
+## Next steps
+
+
