@@ -13,7 +13,7 @@ This article outlines important Python feature updates introduced by Azure Funct
 
 ## Python runtime version control 
 
-Starting with Python 3.13, Functions introduced runtime version control, a new opt-in feature that lets you target specific versions of the Functions Python runtime used by your app.
+Starting with Python 3.13, Functions introduces runtime version control, a new opt-in feature that lets you target specific versions of the Functions Python runtime used by your app.
 
 Without version control enabled, your app continues to run on a default version of the Python runtime, which is managed by Functions. You must modify your *requirements.txt* file to instead request the latest released version, a prereleased version, or to be able to pin your app to a specific version of the Python runtime. 
 
@@ -36,7 +36,7 @@ This table indicates the versioning behavior based on the version value of this 
 
 Keep these considerations in mind when using runtime version control with your Python 3.13+ app:
 
-- Avoid pinning any product app to prerelease (alpha, beta, or dev) runtime versions.
+- Avoid pinning any production app to prerelease (alpha, beta, or dev) runtime versions.
 - Review [Python runtime release notes](https://github.com/Azure/azure-functions-python-worker/releases) regularly to be aware of changes that are being applied to your app's Python runtime or to determine when to update a pinned version. 
 
 
