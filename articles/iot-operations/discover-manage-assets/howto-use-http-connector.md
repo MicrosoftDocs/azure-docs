@@ -25,7 +25,7 @@ This article explains how to use the connector for REST/HTTP to perform tasks su
 
 ## Prerequisites
 
-To configure devices and assets, you need a running instance of Azure IoT Operations.
+To configure devices and assets, you need a running preview instance of Azure IoT Operations.
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
