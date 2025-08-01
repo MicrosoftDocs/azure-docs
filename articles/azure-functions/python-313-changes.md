@@ -1,88 +1,72 @@
 ---
-title: Updates for Python 3.13+
-description: Understand key changes, new features, and compatibility considerations for running Azure Functions with Python 3.13 and above.
-ms.topic: article
+title: Updates for Python 3.13+ in Azure Functions 
+description: Understand key changes, new features, and compatibility considerations for running Azure Functions with Python 3.13 and later versions.
+ms.topic: concept-article
 ms.date: 07/24/2025
 ms.devlang: python
 ms.custom: devx-track-python, py-fresh-zinc
 ---
-# Changes and Guidance for Python 3.13+ in Azure Functions
-This guide outlines important updates introduced with Python 3.13+ in Azure Functions, including runtime version management, performance enhancements, and removed features.
 
-## Python Runtime Version Control (Python 3.13+)
-Starting with Python 3.13, Azure Functions introduces runtime version control, 
-a new opt-in feature that allows you to specify which version of the **Python** runtime your app uses.
+# Changes and guidance for Python 3.13+ in Azure Functions
 
-By default, apps continue to run on a stable platform-managed runtime version—**no changes are 
-required** unless you choose to opt in.
+This article outlines important Python feature updates introduced by Azure Functions starting with Python 3.13. These changes include runtime version management, performance enhancements, and several removed features.
 
-### How to Enable
-To enable runtime version control, add the appropriate package to your `requirements.txt`
-- For the **v2 programming model**, add:
-```python
-azure-functions-runtime
-```
-- For the **v1 programming model**, add:
-```python
-azure-functions-runtime-v1
-```
+## Python runtime version control 
 
-### Runtime Versioning Options
-There are three ways to manage your runtime version:
+Starting with Python 3.13, Functions introduced runtime version control, a new opt-in feature that lets you target specific versions of the Functions Python runtime used by your app.
 
-1. **Pin to a specific version** (for example, `azure-functions-runtime==1.2.0`):
-   - Pinning to a specific version ensures that your app’s runtime behavior remains consistent, with **no automatic updates**.
-   - This approach is recommended for critical production workloads where stability and predictability are essential.
-   - New features, fixes, and improvements aren't applied automatically—you must manually update the version to receive them.
-2. **Include the package without pinning** (for example, `azure-functions-runtime`):
-   - Including the package without specifying a version allows your app to **automatically receive the latest stable runtime updates**.
-   - This option is ideal for staying current with platform improvements and features.
-   - New changes are adopted when the app is rebuilt and redeployed.
-3. **Omit the package entirely**:
-   - If you choose not to include the `azure-functions-runtime` package, your app runs using a platform-managed runtime version.
-   - By default, the platform uses a stable version (for example, latest - 1) and updates it periodically.
-   - Omitting the package ensures stability and broad compatibility, but **access to the newest features and fixes** may be delayed until the 
-   default version is updated.
+Without version control enabled, your app continues to run on a default version of the Python runtime, which is managed by Functions. You must modify your *requirements.txt* file to instead request the latest released version, a prereleased version, or to be able to pin your app to a specific version of the Python runtime. 
 
-### Best Practices
-- Avoid pinning to **alpha, beta, or dev versions** in production environments.
-- Review [release notes](https://github.com/Azure/azure-functions-python-worker/releases) regularly if using unpinned versions to track changes.
+You enable runtime version control by adding a reference to the Python runtime package to your *requirements.txt* file, where the value assigned to the package determines the runtime version used.
+ 
+The specific reference you add in *requirements.txt* depends on your Python programming model, which can be one of these values:
+
+| Model version |  Package name |
+| ----- | ----- |
+| [v2](functions-reference-python.md?pivots=python-mode-decorators#programming-model) | `azure-functions-runtime` | 
+| [v1](functions-reference-python.md?pivots=python-mode-configuration#programming-model)  | `azure-functions-runtime-v1` |
+
+This table indicates the versioning behavior based on the version value of this setting in your *requirements.txt* file:
+
+| Version | Example | Behavior |
+| --- | ---- | ---- |
+| No value set | `azure-functions-runtime` | Your Python 3.13+ app runs on the latest available version of the Functions Python runtime. This option is best for staying current with platform improvements and features, since your app automatically receives the latest stable runtime updates. |
+| Pinned to a specific version | `azure-functions-runtime==1.2.0` | Your Python 3.13+ app stays on the pinned runtime version and doesn't receive automatic updates. You must instead manually update your pinned version to take advantage of new features, fixes, and improvements in the runtime. Pinning is recommended for critical production workloads where stability and predictability are essential. Pinning also lets you test your app on prereleased runtime versions during development. |
+| No package reference | n/a | By not setting the `azure-functions-runtime`, your Python 3.13+ app runs on a default version of the Python runtime that is behind the latest released version. Updates are made periodically by Functions. This option ensures stability and broad compatibility. However, access to the newest features and fixes are delayed until the default version is updated. | 
+
+Keep these considerations in mind when using runtime version control with your Python 3.13+ app:
+
+- Avoid pinning any product app to prerelease (alpha, beta, or dev) runtime versions.
+- Review [Python runtime release notes](https://github.com/Azure/azure-functions-python-worker/releases) regularly to be aware of changes that are being applied to your app's Python runtime or to determine when to update a pinned version. 
 
 
-## Key Changes and Improvements in Python 3.13+
-Python 3.13 introduces several enhancements to Azure Functions, improving performance, reliability, and runtime behavior:
+## Other changes and improvements introduced in Python 3.13
 
-1. **Dependency Isolation (Enabled by Default)**
+Python 3.13 introduces several enhancements to Functions that improve performance and reliability and otherwise affect runtime behaviors:
 
-   Function apps now benefit from full **dependency isolation**.
-   - If your app includes a dependency also used by the Python worker (for example, `azure-functions`, `grpcio`), your app uses **its own version**, 
-   while the worker uses **its own internal version**.
-   - This isolation prevents version conflicts and improves compatibility with custom packages.
+### Dependency isolation now enabled by default
 
-2. **Cold Start Performance**
+Your apps can now benefit from full *dependency isolation*, which means that when your app includes a dependency that's also used by the Python worker, such as `azure-functions` or `grpcio`, your app can use its own version even though the Python runtime uses a different version internally.
 
-   Python 3.13 shows a **~4% reduction in cold start time** compared to Python 3.11, resulting in faster app startup.
+This isolation prevents version conflicts and improves compatibility with custom packages.
 
-3. **Faster JSON Handling with `Orjson` (Optional)**
+### Improved cold start performance
 
-   Azure Functions now supports automatic use of `Orjson`, a high-performance JSON library written in Rust.
-   - When `Orjson` is included in your app’s dependencies (for example, in `requirements.txt`), the runtime automatically uses it for JSON 
-   serialization and deserialization—**no code changes required**.
-   - Benchmarks show up to **40% lower latency** and **50% higher throughput** for JSON-heavy workloads such as HTTP APIs and event processing.
-   - If `Orjson` isn't present, the standard `json` library is used instead, ensuring backward compatibility.
+Python 3.13 provides a measurable reduction in [cold start time](./event-driven-scaling.md#cold-start) compared to Python 3.11, which results in faster app startup.
 
-4. **Simplified Opt-In for HTTP Streaming**
-   - The [HTTP Streaming](./functions-bindings-http-webhook-trigger.md?tabs=python-v2&pivots=programming-language-python#http-streams-1) feature is now available 
-   **without requiring any App Setting configuration**.
-   - Users still need to opt in at the function level but no longer need to add `PYTHON_ENABLE_INIT_INDEXING` to use it.
+### Faster JSON handling with `Orjson` support
 
+Functions now supports the automatic use of `Orjson`, a high-performance JSON library written in Rust. When `Orjson` is included in your app’s dependencies, the runtime automatically uses it for JSON serialization and deserialization without you having to make any changes in your code.
 
-## Unsupported Features in Python 3.13+
-The following features are **no longer supported** in Azure Functions when using Python 3.13 and above:
+Using `Orjson` can provide both lower latency and higher throughput for JSON-heavy workloads, such as HTTP API calls and event processing. To ensure backward compatibility, the standard `json` library is used when `Orjson` isn't available.
 
-- **Worker Extensions**
-Custom worker extensions aren't compatible with the Python 3.13+ runtime. Functionality that previously relied on these extensions 
-must be reevaluated or migrated to supported alternatives.
-- **Shared Memory**
-The shared memory feature used for large payload optimization is no longer available in Python 3.13+. All communication now uses 
-gRPC-based messaging by default.
+### Simplified opt-in for HTTP streaming
+
+- The [HTTP Streaming](./functions-bindings-http-webhook-trigger.md?tabs=python-v2&pivots=programming-language-python#http-streams-1) feature is now available without requiring any changes to your app setting or other configurations. While you must still opt in at the function level, you no longer need to add the `PYTHON_ENABLE_INIT_INDEXING` setting to use the feature.
+
+## Feature support removed in Python
+
+These features are no longer supported by Functions when using Python 3.13 and later versions:
+
+- **Worker Extensions**: Custom worker extensions aren't compatible with the Python 3.13+ runtime. If your app rely on these extensions, you must reevaluate or migrate to using supported alternatives.
+- **Shared Memory**: The shared memory feature used for large payload optimization isn't available starting with Python 3.13. By default, all communication now uses gRPC-based messaging.
