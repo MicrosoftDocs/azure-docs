@@ -97,7 +97,7 @@ Zone redundancy is included with Premium tier registries at no extra cost. The P
 
 - **Create a zone-redundant registry.** For more information, see [Create a zone-redundant registry in Container Registry](/azure/container-registry/zone-redundancy).
 
-- **Enable zone redundancy on an existing registry.**   You can only configure zone redundancy when a registry is created.  To enable zone redundancy for registries, you must create a new Premium registry in a supported region and migrate your container images.  
+- **Enable zone redundancy on an existing registry.** You can only configure zone redundancy when a registry is created. To enable zone redundancy for registries, you must create a new Premium registry in a supported region and migrate your container images. 
 
 
 Although existing Basic or Standard tier registries can be upgraded to Premium tier, the upgrade itself doesn't enable zone redundancy, and you'll still have to create a new registry in the Premium tier. 
