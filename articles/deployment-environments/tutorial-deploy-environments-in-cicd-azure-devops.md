@@ -103,9 +103,9 @@ In Azure Pipelines, you create a *service connection* in your Azure DevOps proje
     | Field | Value |
     | ----- | ----- |
     |**Identity type**|**Managed identity**|
-    |Subscription for managed identity||
-    |Resource group for managed identity ||
-    |Managed identity ||
+    |**Subscription for managed identity**|Enter the Azure subscription that contains the managed identity. |
+    |**Resource group for managed identity** |Enter the resource group that contains the managed identity.|
+    |**Managed identity** |Enter the name of the managed identity.|
     | **Scope Level** | **Subscription** |
     | **Subscription ID** | Enter the ID of the Azure subscription that hosts your dev center resource. |
     | **Subscription name** | Enter the name of the subscription. |
