@@ -137,7 +137,7 @@ A nonfunctional TLS configuration, such an SSLProfile not linked to any listener
 Given the scale of our fleet, after 30 August 2025, the deprecation of TLS versions will be implemented separately for the Data and Control Planes (in that order). Any region-specific details won't be available; therefore, we strongly advise you to take all necessary actions before this retirement date.
 
 ### Is there any potential impact if I haven’t selected any TLS policy and my gateway uses only HTTP/TCP configurations?
-If your gateway doesn't use any TLS configuration—either through SSLPolicy or SSLProfile—there will be no impact after August 2025.
+If your gateway doesn't use any TLS configuration—either through SSLPolicy, SSLProfile, HTTPS or TLS Listeners—there will be no impact after August 2025.
 
 
 
