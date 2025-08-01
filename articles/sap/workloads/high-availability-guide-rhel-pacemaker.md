@@ -578,7 +578,7 @@ The fencing device uses either a managed identity for Azure resource or a servic
    1. Make a note of the **Value**. It's used as the **password** for the service principal.
    1. Select **Overview**. Make a note of the **Application ID**. It's used as the username (**login ID** in the following steps) of the service principal.
 
-   ---
+    ---
 
 2. Create a custom role for the fence agent
 
@@ -622,7 +622,7 @@ The fencing device uses either a managed identity for Azure resource or a servic
 
    Make sure to assign the role for both cluster nodes.
 
-   ---
+    ---
 
 ## Cluster installation
 

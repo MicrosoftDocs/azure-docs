@@ -461,7 +461,7 @@ sapcontrol -nr <instance number> -function StopSystem
   
      For details about implementing the SAP HANA system replication hook, see [Set up HANA HA/DR providers](https://documentation.suse.com/sbp/sap-15/html/SLES4SAP-hana-sr-guide-PerfOpt-15/index.html#cha.s4s.hana-hook).
 
----
+    ---
 
 3. **[A]** Start SAP HANA on both nodes.
    Run the following command as \<sap-sid\>adm:
