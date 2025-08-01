@@ -120,7 +120,7 @@ For Standard logic app workflows, you can decrease or increase the 90-day defaul
 
 By default, the app setting named **Workflows.RuntimeConfiguration.RetentionInDays** is set to keep 90 days of data. The host setting named **Runtime.FlowMaintenanceJob.RetentionCooldownInterval** is set to check every 7 days for old data to delete. If you leave these default values, you might see data *up to* 97 days old. For example, suppose Azure Logic Apps checks on Day X and deletes data older than Day X - 90 days, and then waits for 7 days before running again. This behavior results in data that ages up to 97 days before the job runs again. However, if you set the interval to 1 day, but leave the retention days at the default value, the maximum delay to delete old data is 90+1 days.
 
-No matter what the current retention limit is on the workflow, the retention limit at the time of run start is always used for calculating retention for a workflow run.
+Retention is always calculated by using the limit in place when the workflow started running, no matter the current limit that's on the workflow.
 
 #### Portal
 
