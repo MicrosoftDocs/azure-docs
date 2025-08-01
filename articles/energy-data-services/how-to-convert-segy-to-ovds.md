@@ -376,13 +376,13 @@ cURL --request PUT \
 
     Fetch the ID token from sdutil for the uploaded file or use an access/bearer token from cURL.
 
-    ```markdown
+    ```Markdown
     python sdutil auth idtoken
     ```
 
     Use the following `cURL` command to trigger workflow:
 
-    ```bash
+    ```Bash
     cURL -X POST "https://<DNS>/api/workflow/v1/workflow/<segy-to-vds-conversion dag id>" \
         -H "Authorization: Bearer <access_token>" \
         -H "Content-Type: application/json" \
@@ -414,7 +414,7 @@ cURL --request PUT \
 
     Use the following `cURL` command:
 
-    ```bash
+    ```Bash
     cURL -X GET "https://<DNS>/api/workflow/v1/workflow/segy-to-vds-conversion/<vds_run_id>" \
         -H "Authorization: Bearer <access_token>" \
         -H "Content-Type: application/json"
@@ -431,16 +431,15 @@ cURL --request PUT \
 
 ### Verify File Conversion
 
-    Use the following `cURL` command to verify file conversion:
+Use the following `cURL` command to verify file conversion:
 
-    ```bash
+ ```Bash
     cURL --request GET \
     --url 'http://{{seismic_ddms_host}}/utility/ls?sdpath=sd://{{tenant}}/{{vdsTestSubprojectName}}' \
     --header 'Authorization: Bearer {{access_token}}'
-
-    ```
-
-    **Sample Response:**
+```
+    
+**Sample Response:**
     ```json
     {
     List of datasets
@@ -455,7 +454,7 @@ cURL --request PUT \
 
 2. Verify the converted files are present on the specified location in DAG Trigger or not
 
-    ```markdown
+    ```Markdown
     python sdutil ls sd://<data-partition-id>/vdssubprojectname/
     ```
 
