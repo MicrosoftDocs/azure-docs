@@ -34,8 +34,6 @@ ms.author: radeltch
 [sles-for-sap-bp12]:https://documentation.suse.com/sbp/sap-12/
 [sles-for-sap-bp15]:https://documentation.suse.com/sbp/sap-15/
 
-[sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
-
 To establish high availability in an on-premises SAP HANA deployment, you can use either SAP HANA system replication or shared storage.
 
 Currently on Azure virtual machines (VMs), SAP HANA system replication on Azure is the only supported high availability function.
@@ -376,10 +374,10 @@ sapcontrol -nr <instance number> -function StopSystem
 
    #### [SAPHanaSR-angi](#tab/saphanasr-angi)
 
-   1. **[A]** Adjust *global.ini* on each cluster node. 
+   1. **[A]** Adjust *global.ini* on each cluster node.
 
       If you choose not to use the recommended susChkSrv hook, remove the entire `[ha_dr_provider_suschksrv]` block from the following parameters. You can adjust the behavior of `susChkSrv` by using the `action_on_lost` parameter. Valid values are [ `ignore` | `stop` | `kill` | `fence` ].
-  
+
       ```bash
       [ha_dr_provider_sushanasr]
       provider = susHanaSR
@@ -391,12 +389,12 @@ sapcontrol -nr <instance number> -function StopSystem
       path = /usr/share/SAPHanaSR-angi
       execution_order = 3
       action_on_lost = fence
-  
+      
       [trace]
       ha_dr_sushanasr = info
       ha_dr_suschksrv = info
       ```
-  
+   
       If you point parameter path to the default `/usr/share/SAPHanaSR-angi` location, the Python hook code updates automatically through OS updates or package updates. HANA uses the hook code updates when it next restarts. With an optional own path like `/hana/shared/myHooks`, you can decouple OS updates from the hook version that you use.
 
    1. **[A]** The cluster requires *sudoers* configuration on each cluster node for \<sap-sid\>adm. In this example, that's achieved by creating a new file.
@@ -673,8 +671,13 @@ sudo crm configure primitive rsc_nc_<HANA SID>_HDB<instance number> azure-lb por
 
 sudo crm configure group g_ip_<HANA SID>_HDB<instance number> rsc_ip_<HANA SID>_HDB<instance number> rsc_nc_<HANA SID>_HDB<instance number>
 
+# Run the following command if the cluster nodes are running on SLES 12 SP05.
 sudo crm configure colocation col_saphana_ip_<HANA SID>_HDB<instance number> 4000: g_ip_<HANA SID>_HDB<instance number>:Started \
-  msl_SAPHana_<HANA SID>_HDB<instance number>:Master  
+  msl_SAPHana_<HANA SID>_HDB<instance number>:Master
+  
+# Run the following command if the cluster nodes are running on SLES 15 SP03 or later.
+sudo crm configure colocation col_saphana_ip_<HANA SID>_HDB<instance number> 4000: g_ip_<HANA SID>_HDB<instance number>:Started \
+  msl_SAPHana_<HANA SID>_HDB<instance number>:Promoted
 
 sudo crm configure order ord_SAPHana_<HANA SID>_HDB<instance number> Optional: cln_SAPHanaTopology_<HANA SID>_HDB<instance number> \
   msl_SAPHana_<HANA SID>_HDB<instance number>
@@ -804,8 +807,13 @@ crm configure primitive rsc_secnc_<HANA SID>_HDB<instance number> azure-lb port=
 
 crm configure group g_secip_<HANA SID>_HDB<instance number> rsc_secip_<HANA SID>_HDB<instance number> rsc_secnc_<HANA SID>_HDB<instance number>
 
+# Run the following command if the cluster nodes are running on SLES 12 SP05.
 crm configure colocation col_saphana_secip_<HANA SID>_HDB<instance number> 4000: g_secip_<HANA SID>_HDB<instance number>:Started \
- msl_SAPHana_<HANA SID>_HDB<instance number>:Slave 
+ msl_SAPHana_<HANA SID>_HDB<instance number>:Slave
+ 
+# Run the following command if the cluster nodes are running on SLES 15 SP03 or later.
+crm configure colocation col_saphana_secip_<HANA SID>_HDB<instance number> 4000: g_secip_<HANA SID>_HDB<instance number>:Started \
+ msl_SAPHana_<HANA SID>_HDB<instance number>:Unpromoted
 
 crm configure property maintenance-mode=false
 ```
