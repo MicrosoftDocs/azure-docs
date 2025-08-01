@@ -106,12 +106,12 @@ In Azure Pipelines, you create a *service connection* in your Azure DevOps proje
     |**Subscription for managed identity**|Enter the Azure subscription that contains the managed identity. |
     |**Resource group for managed identity** |Enter the resource group that contains the managed identity.|
     |**Managed identity** |Enter the name of the managed identity.|
-    | **Scope Level** | **Subscription** |
-    | **Subscription ID** | Enter the ID of the Azure subscription that hosts your dev center resource. |
-    | **Subscription name** | Enter the name of the subscription. |
-    |**Tenant Id**|Enter the ID of the tenant.|
+    | **Scope level for sevice connection** | **Subscription** |
+    | **Subscription for sercie connection** | Enter the ID of the Azure subscription that hosts your dev center resource. |
     | **Service Connection Name** | Enter a unique name for the service connection. |
     | **Grant access permission to all pipelines** | Select this checkbox. |
+
+1. Select **Save**.
 
 ### Grant the service connection access to the Deployment Environments project
 
