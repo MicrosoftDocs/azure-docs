@@ -19,7 +19,7 @@ In this article, you learn how to estimate the cost difference between the Provi
 
 ### Comparison using default IOPS and throughput
 
-For this scenario, we are using the recommended IOPS and throughput based on our capacity request:
+For this scenario, we're using the recommended IOPS and throughput based on our capacity request:
 
 - 10,240 GiB in capacity
 - 13,240 IOPS
