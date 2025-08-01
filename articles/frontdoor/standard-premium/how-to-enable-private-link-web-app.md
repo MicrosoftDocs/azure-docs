@@ -23,7 +23,7 @@ This article guides you through configuring Azure Front Door Premium to connect 
 
 ::: zone pivot="front-door-portal"
 
-- An Azure Front Door Premium profile with an origin group. For more information, see [Create an Azure Front Door - CLI](../create-front-door-portal.md).
+- An Azure Front Door Premium profile with an origin group. For more information, see [Create an Azure Front Door](../create-front-door-portal.md).
 
 - A Private Link. For more information, see [Create a Private Link service](../../private-link/create-private-link-service-portal.md).
 
@@ -33,7 +33,7 @@ This article guides you through configuring Azure Front Door Premium to connect 
 
 ::: zone pivot="front-door-cli"
 
-- An Azure Front Door Premium profile with an origin group. For more information, see [Create an Azure Front Door - CLI](../create-front-door-cli.md).
+- An Azure Front Door Premium profile with an origin group. For more information, see [Create an Azure Front Door](../create-front-door-cli.md).
 
 - A Private Link. For more information, see [Create a Private Link service](../../private-link/create-private-link-service-cli.md).
 
@@ -58,11 +58,7 @@ In this section, you map the Private Link service to a private endpoint within A
 
 1. Choose the origin group that should contain the App Service (Web App or Function App) origin you want to enable Private Link for.
 
-1. Select **+ Add an origin** to add a new origin or select an existing one from the list.
-
-    :::image type="content" source="../media/how-to-enable-private-link-app-service/private-endpoint-app-service.png" alt-text="Screenshot of enabling private link.":::
-
-1. Use the following table to configure the settings for the origin:
+1. Select **+ Add an origin** to add a new origin or select an existing one from the list. Use the following table to configure the settings for the origin:
 
     | Setting | Value |
     | ------- | ----- |
@@ -77,6 +73,8 @@ In this section, you map the Private Link service to a private endpoint within A
     | Region | Select the region that matches or is closest to your origin. |
     | Target sub resource | Choose *site* as the subresource type for the selected resource. |
     | Request message | Enter a custom message to display while approving the Private Endpoint. |
+
+    :::image type="content" source="../media/how-to-enable-private-link-app-service/private-endpoint-app-service.png" alt-text="Screenshot of enabling private link.":::
 
 1. Select **Add** to save your configuration, then select **Update** to save the origin group settings.
 
@@ -113,7 +111,7 @@ az afd origin create --enabled-state Enabled \
 
 1. Navigate to the App Service you configured with Private Link in the previous section. Under **Settings**, select **Networking**.
 
-1. In the **Networking** section, select on **Configure your private endpoint connections**.
+1. In the **Networking** section, select **Configure your private endpoint connections**.
 
     :::image type="content" source="../media/how-to-enable-private-link-app-service/app-service-configure-endpoint.png" alt-text="Screenshot of networking settings in App Service.":::
 
