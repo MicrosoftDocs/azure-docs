@@ -86,9 +86,9 @@ Storage Discovery workspaces can be created in the following regions. More regio
 While a Storage Discovery workspace can cover storage accounts from other subscriptions and resource groups, and even other regions, there's an important region limitation you need to be aware of for a successful Storage Discovery deployment.
 
 The Discovery service covers only storage accounts located in the following regions:
-
+<br>
 [!INCLUDE [data-plane-regions](includes/data-plane-regions.md)]
-
+<br>
 > [!WARNING]
 > The Discovery service currently can't consider storage accounts located in regions not included in the previously listed locations. Including storage accounts from unsupported regions in a scope can lead to an incomplete set of insights. A short-term limitation of the preview period.
 
