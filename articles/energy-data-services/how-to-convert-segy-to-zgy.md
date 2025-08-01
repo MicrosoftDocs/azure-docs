@@ -135,7 +135,7 @@ LEGAL_TAG=<legal_tag_name>
 > - `P6MapGridBearingOfBinGridJaxis`
 > - `P6TransformationMethod`
 > - `persistableReferenceCrs` from the `asIngestedCoordinates` block
-> If the `SeismicBinGrid` has the P6 parameters and the CRS specified under `AsIngestedCoordinates`, the conversion itself should be able to complete successfully, but Petrel will not understand the survey geometry of the file unless it also gets the 5 corner points under `SpatialArea`,`AsIngestedCoordinates`, `SpatialArea`, and `Wgs84Coordinates`.
+> If the `SeismicBinGrid` has the P6 parameters and the CRS specified under `AsIngestedCoordinates`, the conversion itself should be able to complete successfully, but Petrel doesn't understand the survey geometry of the file unless it also gets the five corner points under `SpatialArea`,`AsIngestedCoordinates`, `SpatialArea`, and `Wgs84Coordinates`.
 
 ### User Access
 
@@ -374,9 +374,9 @@ cURL --request PUT \
 
 ### Run Converter
 
-1. Trigger the ZGY Conversion DAG to convert your data using the execution context values you had saved above.
+1. Trigger the ZGY Conversion DAG to convert your data using the execution context values you saved in previous step.
 
-    Fetch the ID token from sdutil for the uploaded file or use an access/bearer token from Postman.
+    Fetch the ID token from sdutil for the uploaded file or use an access/bearer token.
 
 ```markdown
 python sdutil auth idtoken
@@ -411,7 +411,7 @@ python sdutil auth idtoken
     ```
 
 
-2. Let the DAG run to the `succeeded` state. You can check the status using the workflow status call. The run ID is in the response of the above call
+2. Let the DAG run to the `succeeded` state. You can check the status using the workflow status call. The run ID is in the response of the previous call
 
     Use the following `cURL` command:
 
