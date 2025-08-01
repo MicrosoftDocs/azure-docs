@@ -83,7 +83,7 @@ Application Gateway supports availability zones for the Standard_v2 and WAF_v2 t
 - Your gateway must have a minimum of two instances.
 
   > [!NOTE]
-  > All gateways have a minium of two instances. Even if the Azure portal indicates that your gateway has a single instance, internally it's always created with a minimum of two instances.
+  > All gateways have a minimum of two instances. Even if the Azure portal indicates that your gateway has a single instance, internally it's always created with a minimum of two instances.
 
 ### Considerations
 
