@@ -94,13 +94,11 @@ az account set --subscription "<subscription ID>"
 
 # [**Portal**](#tab/portal)
 
-1. Get a list of BGP community values
-
-Find the BGP community values associated with services accessible through Microsoft peering on the [ExpressRoute routing requirements](expressroute-routing.md) page.
+Get a list of BGP community values. Find the BGP community values associated with services accessible through Microsoft peering on the [ExpressRoute routing requirements](expressroute-routing.md) page.
 
 # [**PowerShell**](#tab/powershell)
 
-1. Use the following cmdlet to get the list of BGP community values and prefixes associated with services accessible through Microsoft peering:
+Use the following cmdlet to get the list of BGP community values and prefixes associated with services accessible through Microsoft peering:
 
     ```azurepowershell-interactive
     Get-AzBgpServiceCommunity
@@ -108,7 +106,7 @@ Find the BGP community values associated with services accessible through Micros
 
 # [**Azure CLI**](#tab/cli)
 
-1. Use the following cmdlet to get the list of BGP community values and prefixes associated with services accessible through Microsoft peering:
+Use the following cmdlet to get the list of BGP community values and prefixes associated with services accessible through Microsoft peering:
 
     ```azurecli-interactive
     az network route-filter rule list-service-communities
