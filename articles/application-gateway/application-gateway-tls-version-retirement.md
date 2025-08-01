@@ -131,13 +131,13 @@ Application Gateway won't modify any resource having customer-defined TLS config
 ### Will my gateway go in a Failed state?
 If you have chosen any deprecating TLS policy in the configuration of your gateway and don’t update it a supported policy by August 2025, your gateway will enter a Failed state when performing a configuration update.
 
-A nonfunctional TLS configuration, such an SSLProfile not linked to any listener, won't have any impact on the control plane of the gateway.
+A nonfunctional TLS configuration, such a SSLProfile not linked to any listener, won't have any impact on the control plane of the gateway.
 
 ### How is the release for this change planned?
 Given the scale of our fleet, after 30 August 2025, the deprecation of TLS versions will be implemented separately for the Data and Control Planes (in that order). Any region-specific details won't be available; therefore, we strongly advise you to take all necessary actions before this retirement date.
 
 ### Is there any potential impact if I haven’t selected any TLS policy and my gateway uses only HTTP/TCP configurations?
-If your gateway doesn't use any TLS configuration—either through SSLPolicy, SSLProfile, HTTPS or TLS Listeners—there will be no impact after August 2025.
+If your gateway doesn't use any TLS configuration—either through SSLPolicy, SSLProfile, HTTPS, or TLS Listeners—there will be no impact after August 2025.
 
 
 
