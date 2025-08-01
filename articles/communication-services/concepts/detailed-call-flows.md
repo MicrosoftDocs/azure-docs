@@ -173,7 +173,7 @@ In this case, signaling and media from the customer network to Azure use Flow 4.
 
 ### Use case: Azure Communication Services group calls
 
-The audio, video, and screen-sharing service is part of Azure Communication Services. It has a public IP address that must be reachable from the customer network and must be reachable from a nomadic cloud client. Each client and endpoint needs to be able to connect to the service.
+The service that provides audio, video, and screen-sharing is part of Azure Communication Services. It has a public IP address that must be reachable from the customer network and must be reachable from a nomadic cloud client. Each client and endpoint needs to be able to connect to the service.
 
 Internal clients obtain local, reflexive, and relay candidates in the same manner as described for one-to-one calls. The clients send these candidates to the service in an invite. The service doesn't use a relay because it has a publicly reachable IP address, so it responds with its local IP address candidate. The client and the service check connectivity in the same manner described for one-to-one calls.
 
