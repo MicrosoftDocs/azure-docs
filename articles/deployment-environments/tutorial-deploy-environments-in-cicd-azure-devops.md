@@ -161,7 +161,7 @@ Azure CLI is a command-line tool that provides a set of commands for working wit
    
       | Placeholder                     | Value |
       | ------------------------------- | ----- |
-      | `<dev-center-name>`             | The name of your dev center. |
+      | `<DevCenterName>`             | The name of your dev center. |
       | `<project-name>`                | The name of your project. |
       | `<catalog-name>`                | The name of your catalog. |
       | `<environment-definition-name>` | Do not change. Defines the environment definition that's used. |
