@@ -167,7 +167,8 @@ The `$bulk-delete` operation supports removing references to resources that are 
 
 `"display": "Referenced resource deleted"`
 
-Note: This feature only works with hard delete, so you must also set the `_hardDelete` query parameter to `true`.
+>[!Note]
+> This feature only works with hard delete, so you must also set the `_hardDelete` query parameter to `true`.
 
 This is useful for maintaining data integrity and ensuring that resources that are no longer needed are properly cleaned up.
 
