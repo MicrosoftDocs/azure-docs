@@ -91,6 +91,9 @@ To create project environment types:
 
 In Azure Pipelines, you create a *service connection* in your Azure DevOps project to access resources in your Azure subscription.  
 
+1. If you don't have a user-assigned managed identity for the project, [add one](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
+   > [!NOTE] 
+   > You can use one of three options for identity: app registration, user-assigned managed identity, and system-assigned managed identity. App registration is the most secure option, and user-assigned managed identity is the second most secure. To use app registration, you need to have appropriate permissions. For more information see [Azure Resource Manager service connection special cases](/azure/devops/pipelines/library/azure-resource-manager-alternate-approaches).
 1. Sign in to your Azure DevOps organization (`https://dev.azure.com/<your-organization>`). Replace `<your-organization>` with your project identifier.
 1. Select your project. 
 1. Select **Project settings** > **Service connections** > **Create service connection**.
@@ -99,7 +102,10 @@ In Azure Pipelines, you create a *service connection* in your Azure DevOps proje
 
     | Field | Value |
     | ----- | ----- |
-    |**Identity type**|**Managed identity (agent-assigned)**|
+    |**Identity type**|**Managed identity**|
+    |Subscription for managed identity||
+    |Resource group for managed identity ||
+    |Managed identity ||
     | **Scope Level** | **Subscription** |
     | **Subscription ID** | Enter the ID of the Azure subscription that hosts your dev center resource. |
     | **Subscription name** | Enter the name of the subscription. |
@@ -111,10 +117,8 @@ In Azure Pipelines, you create a *service connection* in your Azure DevOps proje
 
 Deployment Environments uses role-based access control to grant permissions for performing specific activities on your Deployment Environments resource. To make changes from a CI/CD pipeline, you grant the Deployment Environments User role to the managed identity.
 
-1. Go to the [Azure portal](https://portal.azure.com/).
-1. If you don't have a user-assigned managed identity for the project, [add one](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
-   > [!NOTE] 
-   > You can use one of three options for identity: app registration, user-assigned managed identity, and system-assigned managed identity. App registration is the most secure option, and user-assigned managed identity is the second most secure. To use app registration, you need to have appropriate permissions. For more information see [Azure Resource Manager service connection special cases](/azure/devops/pipelines/library/azure-resource-manager-alternate-approaches).
+ 
+
 1. In the [Azure portal](https://portal.azure.com/), go to your Deployment Environments project.
 1. Select **Access control (IAM)** > **Add** > **Add role assignment**.
 1. On the **Role** tab, select **Deployment Environments User** in the list of job function roles.
