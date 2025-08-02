@@ -319,6 +319,4 @@ When you navigate to this URL, the browser should display similar output as when
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Connect to Azure Cosmos DB](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-csharp&tabs=isolated-process)
-> [!div class="nextstepaction"]
-> [Connect to Azure Queue Storage](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-csharp&tabs=isolated-process)
+> [Connect to Azure Queue Storage](functions-add-output-binding-storage-queue-cli.md)
