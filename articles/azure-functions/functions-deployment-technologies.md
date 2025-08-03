@@ -104,7 +104,7 @@ To enable remote build on Linux Consumption, Elastic Premium, and App Service pl
 + [`ENABLE_ORYX_BUILD=true`](functions-app-settings.md#enable_oryx_build)
 + [`SCM_DO_BUILD_DURING_DEPLOYMENT=true`](functions-app-settings.md#scm_do_build_during_deployment)
 
-By default, both [Azure Functions Core Tools](functions-run-local.md) and the [Azure Functions Extension for Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-csharp#publish-the-project-to-azure) perform remote builds when deploying to Linux. Because of this, both tools automatically create these settings for you in Azure.
+By default, both [Azure Functions Core Tools](functions-run-local.md) and the [Azure Functions Extension for Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-csharp#deploy-the-project-to-azure) perform remote builds when deploying to Linux. Because of this, both tools automatically create these settings for you in Azure.
 
 When apps are built remotely on Linux, they [run from the deployment package](run-functions-from-deployment-package.md).
 

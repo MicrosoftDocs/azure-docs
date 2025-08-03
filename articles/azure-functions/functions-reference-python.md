@@ -1137,7 +1137,7 @@ func azure functionapp publish <APP_NAME>
 
 Remember to replace `<APP_NAME>` with the name of your function app in Azure.
 
-The [Azure Functions Extension for Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-csharp#publish-the-project-to-azure) also requests a remote build by default.
+The [Azure Functions Extension for Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-csharp#deploy-the-project-to-azure) also requests a remote build by default.
 
 ### Local build
 
