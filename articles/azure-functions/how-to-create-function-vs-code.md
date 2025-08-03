@@ -132,7 +132,7 @@ After you verify that the function runs correctly on your local computer, you ca
 
 ## Use AI to normalize and validate input
 
-This is an example prompt for Copilot Chat that updates the existing Python function to retrieve parameters from either the query string or JSON body, apply formatting or type conversions, and return them as JSON in the response: 
+This is an example prompt for Copilot Chat that updates the existing function code to retrieve parameters from either the query string or JSON body, apply formatting or type conversions, and return them as JSON in the response: 
 
 ```copilot-prompt
 Modify the function to accept name, email, and age from either the query parameters or the JSON body of the request, whichever is available. Return all three parameters in the JSON response, applying these rules:
@@ -142,7 +142,10 @@ Convert age to an integer, otherwise return "not provided"
 Use sensible defaults if any parameter is missing
 ```
 
-You can customize your prompt to add specifics as needed. The rest of the article assumes that you can continue to use a GET command to call your endpoint. If GitHub Copilot updates your app so that it instead requires a POST request, you must instead use an HTTP testing tool that securely submits POST requests to call the `httpexample` endpoint. 
+You can customize your prompt to add specifics as needed. 
+
+> [!TIP]  
+> The rest of the article assumes that you can continue to use a GET command to call your endpoint. Should GitHub Copilot update your app to require data be sent in the message `body`, you must also have a [secure HTTP test tool](functions-develop-local.md#http-test-tools) to submit POST requests with data in the message body when calling the `httpexample` endpoint. 
 
 GitHub Copilot is powered by AI, so surprises and mistakes are possible. For more information, see [Copilot FAQs](https://aka.ms/copilot-general-use-faqs). When you are satistfied with your app, you can use Visual Studio Code to publish the project directly to Azure.
 
