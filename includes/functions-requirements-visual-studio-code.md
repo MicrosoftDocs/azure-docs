@@ -25,7 +25,8 @@ ms.author: glenga
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 + [Node.js 18.x](https://nodejs.org/en/about/previous-releases) or above. Use the `node --version` command to check your version.
-::: zone-end  
+::: zone-end 
+::: zone pivot="programming-language-powershell"  
 + [PowerShell 7.2](/powershell/scripting/install/installing-powershell-core-on-windows)
 
 + [.NET 6.0 runtime](https://dotnet.microsoft.com/download/dotnet)     
