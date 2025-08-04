@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Create custom Azure DNS records for a web app'
-description: In this tutorial, you learn how to create custom domain DNS records for web apps using Azure DNS.
+title: 'Tutorial: Create Custom Azure DNS Records For a Web App'
+description: Learn to create custom DNS records in Azure DNS for web apps. Configure A, TXT, and CNAME records to enable custom domains. Includes PowerShell, CLI, and portal steps.
 services: dns
 author: asudbring
 ms.service: azure-dns
@@ -12,9 +12,9 @@ ms.custom: devx-track-azurepowershell
 # Customer intent: "As a network administrator, I want to create custom DNS records in Azure DNS for my web app, so that I can allow users to access it via a personalized domain name."
 ---
 
-# Tutorial: Create DNS records in a custom domain for a web app 
+# Create DNS records in a custom domain for a web app 
 
-You can configure Azure DNS to host a custom domain for your web apps. For example, you can create an Azure web app and have your users access it using either `www.contoso.com` or `contoso.com` as a fully qualified domain name (FQDN).
+Configure Azure DNS to host custom domains for your web apps and enable users to access them via personalized domain names. You can create Azure DNS records that allow users to access your web app using either `www.contoso.com` or `contoso.com` as a fully qualified domain name (FQDN).
 
 To do this, you have to create three records:
 
@@ -44,7 +44,6 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 > [!NOTE]
 > In this tutorial, `contoso.com` is used as an example domain name. Replace `contoso.com` with your own domain name.
 
-
 ### [Portal](#tab/azure-portal)
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -71,7 +70,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 An A record is used to map a name to its IP address. In the following example, assign "\@" as an A record using your web app IPv4 address. \@ typically represents the root domain.
 
-### Get the IPv4 address
+### Get the IPv4 address of your web app
 
 # [Portal](#tab/azure-portal)
 
@@ -113,7 +112,7 @@ az webapp show \
 
 ---
 
-### Create the record
+### Create the A record
 
 # [Portal](#tab/azure-portal)
 
