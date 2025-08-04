@@ -20,7 +20,7 @@ This article describes features, enhancements, and bug fixes released in 2025 fo
 ## August 2025
 ### FHIR service
 
-**Bulk Delete remove references feature**: The $bulk-delete operation now supports the option to remove references to resources that are being deleted. This means that if you delete a resource that is referenced by another resource, the reference will be removed from the referencing resource. More information [here](https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/fhir-bulk-delete#preview-capabilities-for-the-bulk-delete-operation). 
+**Bulk Delete remove references feature**: The $bulk-delete operation now supports the option to remove references to resources that are being deleted. This means that if you delete a resource that is referenced by another resource, the reference will be removed from the referencing resource. More information [here](https://learn.microsoft.com/azure/healthcare-apis/fhir/fhir-bulk-delete#preview-capabilities-for-the-bulk-delete-operation). 
 
 **Patient export improvement**: Improved performance of Patient/$export functionality by splitting patients into smaller groups and processing them in parallel.
 
