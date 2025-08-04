@@ -29,7 +29,7 @@ IoT Hub uses Transport Layer Security (TLS) to secure connections from IoT devic
 > - US Gov Arizona 
 > - US Gov Virginia (TLS 1.0/1.1 support isn't available in this region. TLS 1.2 enforcement must be enabled or IoT Hub creation fails). 
 >
-> To find out the version of TLS your IoT Hub devices are running, refer to [TLS 1.0 and 1.1 end of support guide](#checking-tls-versions-for-iot-hub-devices).
+> To find out the version of TLS your IoT Hub devices are running, refer to [TLS 1.0 and 1.1 end of support guide](#checking-tls-versions-and-cipher-suites-for-iot-hub-devices).
 
 ## Mutual TLS support
 
