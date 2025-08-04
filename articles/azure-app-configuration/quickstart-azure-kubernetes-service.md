@@ -200,6 +200,12 @@ If you already have an AKS application that reads configuration from a file, you
         app: aspnetapp-demo
     ```
 
+1. To make it possible for kubectl to connect to your AKS cluster, run the following command. It downloads the credentials for your AKS cluster and merges them into the context for your cluster.
+
+    ```console
+    az aks get-credentials --name <your-AKS-instance-name> --resource-group <your-AKS-resource-group>
+    ```
+
 1. To deploy the application to the AKS cluster and create the resources, run the following commands:
 
     ```console
@@ -248,7 +254,7 @@ Add the following keys and values to the App Configuration store. For each one, 
     az provider register --namespace Microsoft.KubernetesConfiguration
     ```
 
-    Install the AKS extension for App Configuration. Replace the `cluster-name` and `resource-group` parameter values with the corresponding values from your AKS instance.
+    Install the AKS extension for App Configuration. Replace the `cluster-name` and `resource-group` parameter values with the corresponding values from your AKS instance. By default, the provider is installed in the `azappconfig-system` namespace.
 
     ```azurecli
     az k8s-extension create --cluster-type managedClusters \
@@ -267,7 +273,7 @@ Add the following keys and values to the App Configuration store. For each one, 
     ```azurecli
     az aks get-credentials --name <your-AKS-instance-name> --resource-group <your-AKS-resource-group>
     ```
-    
+
     Install the Helm chart.
 
     ```console
@@ -367,7 +373,7 @@ If the ConfigMap isn't created, run the following command to get the data retrie
 kubectl get AzureAppConfigurationProvider appconfigurationprovider-sample -n appconfig-demo -o yaml
 ```
 
-If Azure App Configuration Kubernetes Provider retrieves data from your App Configuration store successfully, the `phase` property in the `status` section of the output should be `COMPLETE`, as shown in the following example:
+If Azure App Configuration Kubernetes Provider retrieves data from your App Configuration store successfully, the `phase` property in the `status` section of the output should be `Complete`, as shown in the following example:
 
 ```console
 $ kubectl get AzureAppConfigurationProvider appconfigurationprovider-sample -n appconfig-demo -o yaml
@@ -376,10 +382,11 @@ apiVersion: azconfig.io/v1
 kind: AzureAppConfigurationProvider
   ... ... ...
 status:
-  lastReconcileTime: "2023-04-06T06:17:06Z"
-  lastSyncTime: "2023-04-06T06:17:06Z"
-  message: Complete sync settings to ConfigMap or Secret
-  phase: COMPLETE
+  lastReconcileTime: "2025-08-04T13:58:02Z"
+  lastSyncTime: "2025-08-04T13:58:02Z"
+  message: Complete sync key-values from App Configuration to target ConfigMap or
+    Secret.
+  phase: Complete
 ```
 
 If the phase property isn't `COMPLETE`, the data isn't downloaded from your App Configuration store properly. To access the logs of Azure App Configuration Kubernetes Provider, run the following command:
@@ -421,9 +428,22 @@ Starting with version 2.0.0, a user-provided service account is required for aut
 
 If you want to uninstall Azure App Configuration Kubernetes Provider but keep your AKS cluster, use the following command to uninstall the provider:
 
+#### [AKS extension](#tab/extension)
+
+```azurecli
+az k8s-extension delete --cluster-type managedClusters \
+    --cluster-name <your-AKS-instance-name> \
+    --resource-group <your-AKS-resource-group> \
+    --name appconfigurationkubernetesprovider
+```
+
+#### [Helm chart](#tab/helm)
+
 ```console
 helm uninstall azureappconfiguration.kubernetesprovider --namespace azappconfig-system
 ```
+
+---
 
 [!INCLUDE[Azure App Configuration cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
