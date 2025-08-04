@@ -20,7 +20,11 @@ items:
     - name: Security context
       href: security-context.md
     - name: Incident management
-      href: incident-management.md
+      items:
+        - name: Overview
+          href: incident-management.md
+        - name: Custom handlers
+          href: incident-handler-custom.md
     - name: Troubleshooting
       href: troubleshoot.md
     - name: Billing
