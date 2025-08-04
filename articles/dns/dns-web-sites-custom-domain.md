@@ -84,9 +84,40 @@ An A record is used to map a name to its IP address. In the following example, a
 
 ### Get the IPv4 address
 
+# [Portal](#tab/azure-portal)
+
 In the left navigation of the App Services page in the Azure portal, select **Custom domains**, then copy the IP address of your web app:
 
 :::image type="content" source="./media/dns-web-sites-custom-domain/app-service-custom-domains.png" alt-text="Screenshot of Azure App Service Custom domains page showing the web app IP address.":::
+
+# [PowerShell](#tab/azure-powershell)
+
+To get the IP address of your web app, use:
+
+```azurepowershell
+$webAppParams = @{
+    Name = "contoso"
+    ResourceGroupName = "<your web app resource group>"
+}
+$webApp = Get-AzWebApp @webAppParams
+$inboundIpAddress = $webApp.InboundIpAddress
+Write-Output "Web app inbound IP address: $inboundIpAddress"
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To get the IP address of your web app, use:
+
+```azurecli
+# Get the inbound IP address
+az webapp show \
+    --name contoso \
+    --resource-group <your web app resource group> \
+    --query "inboundIpAddress" \
+    --output tsv
+```
+
+---
 
 ### Create the record
 
