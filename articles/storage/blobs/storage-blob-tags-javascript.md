@@ -3,8 +3,8 @@ title: Use blob index tags to manage and find data with JavaScript or TypeScript
 titleSuffix: Azure Storage
 description: Learn how to categorize, manage, and query for blob objects by using the JavaScript client library.  
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.date: 10/28/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
@@ -133,3 +133,4 @@ The Azure SDK for JavaScript contains libraries that build on top of the Azure R
 
 - [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md)
 - [Use blob index tags to manage and find data on Azure Blob Storage](storage-blob-index-how-to.md)
+

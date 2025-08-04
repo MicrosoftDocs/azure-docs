@@ -9,6 +9,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.date: 04/29/2025
 ms.author: radeltch
+# Customer intent: "As an IT administrator managing SAP applications on Azure, I want to configure high availability for SAP NetWeaver on RHEL using shared storage, so that I can ensure reliable performance and minimize downtime."
 ---
 
 # Azure Virtual Machines HA for SAP NetWeaver on RHEL with Azure NetApp Files for SAP applications

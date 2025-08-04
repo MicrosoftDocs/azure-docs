@@ -3,12 +3,12 @@ title: Tutorial - Build a highly available application with Blob storage
 titleSuffix: Azure Storage
 description: Use read-access geo-zone-redundant (RA-GZRS) storage to make your application data highly available.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
 ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.date: 09/02/2022
-ms.author: pauljewell
+ms.author: shaas
 ms.reviewer: artek
 ms.devlang: csharp
 # ms.devlang: csharp, javascript, python
@@ -202,4 +202,5 @@ Advance to part two of the series to learn how to simulate a failure and force y
 
 > [!div class="nextstepaction"]
 > [Simulate a failure in reading from the primary region](simulate-primary-region-failure.md)
+
 

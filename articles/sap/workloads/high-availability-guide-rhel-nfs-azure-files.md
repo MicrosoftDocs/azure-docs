@@ -9,6 +9,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.date: 04/29/2025
 ms.author: radeltch
+# Customer intent: "As a system architect, I want to configure high availability for SAP NetWeaver on Azure VMs using NFS on Azure Files, so that I can ensure resilience and fault tolerance for critical enterprise applications."
 ---
 
 # High availability for SAP NetWeaver on VMs on RHEL with NFS on Azure Files

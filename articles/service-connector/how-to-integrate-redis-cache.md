@@ -5,12 +5,12 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 03/14/2025
+ms.date: 07/23/2025
 ---
 
 # Integrate Azure Cache for Redis with Service Connector
 
-This article covers supported authentication methods, clients, and sample code you can use to connect your apps to Azure Cache for Redis using Service Connector.In this article, you'll also find default environment variable names, values, and configuration obtained when creating service connections.
+This article covers supported authentication methods, clients, and sample code you can use to connect your apps to Azure Cache for Redis using Service Connector. In this article, you'll also find default environment variable names, values, and configuration obtained when creating service connections.
 
 ## Supported compute services
 
@@ -28,13 +28,13 @@ The following table shows which combinations of authentication methods and clien
 
 | Client type        | System-assigned managed identity | User-assigned managed identity | Secret / connection string | Service principal |
 |--------------------|----------------------------------|--------------------------------|----------------------------|-------------------|
-| .NET               | Yes                               | Yes                             | Yes                        | Yes                |
-| Go                 | No                               | No                             | Yes                        | No                |
-| Java               | Yes                               | Yes                             | Yes                        | Yes                |
+| .NET               | Yes                              | Yes                            | Yes                        | Yes               |
+| Go                 | Yes                              | Yes                            | Yes                        | Yes               |
+| Java               | Yes                              | Yes                            | Yes                        | Yes               |
 | Java - Spring Boot | No                               | No                             | Yes                        | No                |
-| Node.js            | Yes                               | Yes                             | Yes                        | Yes                |
-| Python             | Yes                               | Yes                             | Yes                        | Yes                |
-| None               | Yes                               | Yes                             | Yes                        | Yes                |
+| Node.js            | Yes                              | Yes                            | Yes                        | Yes               |
+| Python             | Yes                              | Yes                            | Yes                        | Yes               |
+| None               | Yes                              | Yes                            | Yes                        | Yes               |
 
 ## Default environment variable names or application properties and sample code
 

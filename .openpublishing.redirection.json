@@ -1,6 +1,41 @@
 {
   "redirections": [
     {
+      "source_path": "articles/expressroute/expressroute-troubleshooting-arp-classic.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-troubleshooting-arp-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-howto-circuit-classic.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-howto-circuit-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-howto-routing-classic.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-howto-routing-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-howto-linkvnet-classic.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-howto-linkvnet-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-howto-move-arm.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-howto-move-arm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-move.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-move",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-migration-classic-resource-manager.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-migration-classic-resource-manager",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/api-center/discover-shadow-apis-dev-proxy.md",
       "redirect_url": "/previous-versions/azure/api-center/discover-shadow-apis-dev-proxy",
       "redirect_document_id": false
@@ -4000,8 +4035,53 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/expressroute/quickstart-create-expressroute-vnet-template.md",
+      "redirect_url": "/azure/expressroute/expressroute-howto-circuit-resource-manager-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/expressroute/expressroute-howto-expressroute-direct-cli.md",
+      "redirect_url": "/azure/expressroute/how-to-expressroute-direct-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/expressroute/expressroute-howto-erdirect.md",
+      "redirect_url": "/azure/expressroute/how-to-expressroute-direct-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/expressroute/how-to-routefilter-cli.md",
+      "redirect_url": "/azure/expressroute/how-to-routefilter-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/expressroute/how-to-routefilter-powershell.md",
+      "redirect_url": "/azure/expressroute/how-to-routefilter-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/expressroute/work-remotely-support.md",
+      "redirect_url": "/azure/networking/working-remotely-support",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/expressroute/working-remotely-support.md",
       "redirect_url": "/azure/expressroute/work-remotely-support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/expressroute/expressroute-howto-add-ipv6-powershell.md",
+      "redirect_url": "/azure/expressroute/expressroute-howto-add-ipv6",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/expressroute/expressroute-howto-add-ipv6-cli.md",
+      "redirect_url": "/azure/expressroute/expressroute-howto-add-ipv6",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/expressroute/expressroute-howto-add-ipv6-portal.md",
+      "redirect_url": "/azure/expressroute/expressroute-howto-add-ipv6",
       "redirect_document_id": false
     },
     {
@@ -6870,6 +6950,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sre-agent/incident-management-tools.md",
+      "redirect_url": "/azure/sre-agent/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/app-service/tutorial-sre-agent.md",
       "redirect_url": "/azure/sre-agent/troubleshoot-azure-app-service",
       "redirect_document_id": false
@@ -6895,6 +6980,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/reliability/migrate-workload-aks-mysql.md",
+      "redirect_url": "/azure/reliability/availability-zones-migration-overview",
+      "redirect_document_id": true
+    },
+    {
        "source_path": "articles/private-5g-core/disconnected-mode.md",
        "redirect_url": "/azure/private-5g-core/azure-stack-edge-disconnects",
        "redirect_document_id": true
@@ -6902,6 +6992,16 @@
     {
       "source_path": "articles/signups/startup-programs.md",
       "redirect_url": "/azure/signups/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/migrate-sql-database.md",
+      "redirect_url": "/azure/azure-sql/database/enable-zone-redundancy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/migrate-app-gateway-v2.md",
+      "redirect_url": "/azure/reliability/reliability-application-gateway-v2",
       "redirect_document_id": false
     }
   ]
