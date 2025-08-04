@@ -12,6 +12,9 @@ ms.author: vanshsingh
 
 # Use Microsoft Playwright Testing Reporting preview with Playwright sharding
 
+> [!NOTE]
+> Playwright Testing is now part of [Azure App Testing](https://aka.ms/AzureAppTesting), a unified service for functional and performance tests. Learn more about how to [get started](https://aka.ms/AzureAppTesting/announcements).
+
 In this article, you learn how to use the Microsoft Playwright Testing service's reporting feature with test runs that use [Playwright's sharding features](https://playwright.dev/docs/test-sharding). 
 
 Playwright's sharding enables you to split your test suite to run across multiple machines simultaneously. This feature helps running tests in parallel.
