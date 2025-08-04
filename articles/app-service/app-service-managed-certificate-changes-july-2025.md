@@ -14,13 +14,13 @@ ms.date: 07/28/2025
 
 Starting July 28, 2025, Azure App Service Managed Certificates (ASMC) are subject to new issuance and renewal requirements due to DigiCert’s migration to a new validation platform. This change is driven by industry-wide compliance with Multi-Perspective Issuance Corroboration (MPIC).
 
-For a detailed explanation of the underlying changes at DigiCert, refer to [changes to the managed TLS feature](../security/fundamentals/managed-tls-changes.md).
+For a detailed explanation of the underlying changes at DigiCert, refer to [changes to the managed Transport Layer Security (TLS) feature](../security/fundamentals/managed-tls-changes.md).
 
 ## What’s changing
 
 - **Validation method update**: ASMC now uses HTTP Token validation for both apex and subdomains. Previously, subdomains were validated using CNAME records, which did not require public access. With HTTP Token, DigiCert must reach a specific endpoint on your app to verify domain ownership.
 
-  App Service automatically places the required token at the correct path for validation. This applies to both initial certificate issuance and renewals, meaning:
+  App Service automatically places the required token at the correct path for validation. This process applies to both initial certificate issuance and renewals, meaning:
 
   - The customer experience for requesting an ASMC or proving domain ownership remains unchanged.
   - All API and CLI request payloads for ASMC creation or renewal are unaffected.
@@ -31,8 +31,7 @@ For a detailed explanation of the underlying changes at DigiCert, refer to [chan
 
 ## Impacted scenarios
 
-You will not be able to create or renew ASMCs if:
-
+You can't create or renew ASMCs if:
 - Your app is not publicly accessible.
 - You use Azure Traffic Manager with nested or external endpoints.
 - You rely on `*.trafficmanager.net` domains.
@@ -55,7 +54,7 @@ We recognize that making applications publicly accessible may conflict with cust
 2. **Add the certificate to the site**  
    After acquiring a certificate for your custom domain, you need to upload it to your App Service app and configure it for use. After acquiring a certificate for your custom domain, you need to upload it to your App Service app and configure it for use.
    > [!TIP]  
-   > Ensure that you have [authorized App Service to read the certificates from Key vault](configure-ssl-certificate.md#authorize-app-service-to-read-from-the-vault). Use the specific identity listed in the documentation and not the Managed Identity of the site.
+   > Make sure to [authorized App Service to read the certificates from Key vault](configure-ssl-certificate.md#authorize-app-service-to-read-from-the-vault). Use the specific identity listed in the documentation and not the Managed Identity of the site.
    - [REST API: Import KV certificate to site](/rest/api/appservice/certificates/create-or-update)
    - [CLI: Import KV certificate to site](/cli/azure/webapp/config/ssl#az-webapp-config-ssl-import)
 
@@ -84,10 +83,10 @@ We recognize that making applications publicly accessible may conflict with cust
 **Temporary mitigation: DigiCert IP allowlisting**  
 Some customers may choose to allowlist [DigiCert’s domain validation IPs](https://knowledge.digicert.com/alerts/ip-address-domain-validation) as a short-term workaround. This can help buy time to move away from using ASMC for websites that aren’t publicly accessible, especially given the short notice of the change.
 > [!NOTE]
-> This isn’t an official or supported long-term solution. Microsoft’s stance remains that **public access is required** to avoid potential service disruptions. Consider the following:
+> Allowlisting DigiCert's IP isn’t an official or supported long-term solution. Microsoft’s stance remains that **public access is required** to avoid potential service disruptions. Consider the following:
 >
 > - DigiCert manages its own IPs and may change them without notice.
-> - Microsoft doesn’t control DigiCert’s infrastructure and can’t guarantee the documentation will stay up to date.
+> - Microsoft doesn’t control DigiCert’s infrastructure and can’t guarantee the documentation stay up to date.
 > - Microsoft doesn’t provide alerts if DigiCert updates its IPs.
 > - Use this approach at your own risk.
 
@@ -102,7 +101,7 @@ Only “Azure Endpoints” are supported. “Nested” and “External” endpoi
 **Recommended mitigation:**
 
 - Switch to Azure Endpoints or use a custom domain secured with a custom certificate.
-- For guidance on using App Service as an Azure Traffic Manager endpoint, refer to [App Service and Traffic Manager Profiles](web-sites-traffic-manager#app-service-and-traffic-manager-profiles).
+- For guidance on using App Service as an Azure Traffic Manager endpoint, refer to [App Service and Traffic Manager Profiles](web-sites-traffic-manager#app-service-and-traffic-manager-profiles.md).
 
 ---
 
@@ -115,8 +114,8 @@ Certificates for `*.trafficmanager.net` domains are not supported. If your app r
 1. **Add a custom domain to the site**  
    You can configure a custom domain that points to your `trafficmanager.net` endpoint and secure it with your own certificate.
    
-    - If the custom domain is not yet live or does not currently serve traffic, refer to [set up custom domain name for your app](app-service-web-tutorial-custom-domain).
-    - If the domain is already active and serving traffic, refer to [migrate an active domain](manage-custom-dns-migrate-domain).
+    - If the custom domain is not yet live or does not currently serve traffic, refer to [set up custom domain name for your app](app-service-web-tutorial-custom-domain.md).
+    - If the domain is already active and serving traffic, refer to [migrate an active domain](manage-custom-dns-migrate-domain.md).
 
    > [!IMPORTANT]  
    > If the site restricts public access, do not use ASMC to secure the custom domain. This scenario is impacted by the validation change and will result in certificate issuance or renewal failure.
@@ -126,7 +125,7 @@ Certificates for `*.trafficmanager.net` domains are not supported. If your app r
 
 4. **Add the certificate to the site**  
    > [!TIP]  
-   > Ensure that you have [authorized App Service to read the certificates from Key vault](configure-ssl-certificate#authorize-app-service-to-read-from-the-vault). Use the specific identity listed in the documentation—not the Managed Identity of the site.
+   > Make sure to [authorized App Service to read the certificates from Key vault](configure-ssl-certificate#authorize-app-service-to-read-from-the-vault.md). Use the specific identity listed in the documentation—not the Managed Identity of the site.
    - [REST API: Import KV certificate to site](/rest/api/appservice/certificates/create-or-update)
    - [CLI: Import KV certificate to site](/cli/azure/webapp/config/ssl#az-webapp-config-ssl-import)
 
@@ -155,16 +154,16 @@ Certificates for `*.trafficmanager.net` domains are not supported. If your app r
 ## Frequently asked questions (FAQ)
 
 **Why is public access now required?**  
-Due to MPIC compliance, App Service is migrating to Http Token validation for all ASMC creation and renewal requests. DigiCert must verify domain ownership by reaching a specific endpoint on your app. This is only possible if the app is publicly accessible. 
+Due to MPIC compliance, App Service is migrating to Http Token validation for all ASMC creation and renewal requests. DigiCert must verify domain ownership by reaching a specific endpoint on your app. A successful validation with Http token is only possible if the app is publicly accessible. 
 
 **Can I still use CNAME records?**  
-Yes, you can still use CNAME records for DNS routing and for verifying domain ownership.
+Yes, you can still use CNAME records for domain name system (DNS) routing and for verifying domain ownership.
 
-**What if I allowlist DigiCert IPs?**  
-This may work temporarily, but Microsoft cannot guarantee stability or updates. DigiCert may change IPs without notice, and Microsoft will not maintain documentation for these IPs. Customers are responsible for monitoring and maintaining this configuration.
+**What if I allowlist DigiCert IP addresses?**  
+Allowlisting DigiCert’s domain validation IPs may work as a temporary workaround. However, Microsoft cannot guarantee that these IPs won’t change. DigiCert may update them without notice, and Microsoft does not maintain documentation for these IPs. Customers are responsible for monitoring and maintaining this configuration.
 
 **Are certificates for \*.azurewebsites.net impacted?**  
-No. These changes only apply to App Service Managed Certificates that are issued to customer’s custom domain.
+No, these changes do not apply to the *.azurewebsites.net certificates. ASMC is only issued to customer’s custom domain and not the default hostname.
 
 ---
 
