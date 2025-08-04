@@ -67,9 +67,6 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ---
 
-> [!NOTE]
-> In this tutorial, `contoso.com` is used as an example domain name. Replace `contoso.com` with your own domain name.
-
 ## Create the A record
 
 An A record is used to map a name to its IP address. In the following example, assign "\@" as an A record using your web app IPv4 address. \@ typically represents the root domain.
