@@ -34,6 +34,8 @@ The following steps will allow you to manually migrate the application to the V2
 
 #### Move secrets to application settings
 
+To move identity provider secrets to application settings, complete these steps.
+
 1. Get your existing configuration by using the V1 API:
 
    ```azurecli
