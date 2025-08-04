@@ -196,6 +196,18 @@ def main(req: func.HttpRequest, outputMessage: func.Out[str]) -> func.HttpRespon
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the <!--attribute API here--> attribute to define the function. C# script instead uses a [function.json configuration file](#configuration).
 
+# [Extension v2.x+](#tab/extensionv2)
+
+The attribute's constructor takes the following parameters:
+
+|Parameter | Description|
+|---------|----------------------|
+|**QueueName**| Name of the queue from which to receive messages. |
+|**ConnectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. The trigger won't work when you specify the connection string directly instead through an app setting. For example, when you have set `ConnectionStringSetting: "rabbitMQConnection"`, then in both the *local.settings.json* and in your function app you need a setting like `"RabbitMQConnection" : "< ActualConnectionstring >"`.|
+|**DisableCertificateValidation**|Gets or sets a value indicating whether certificate validation should be disabled. Not recommended for production. Does not apply when SSL is disabled.|
+
+# [Extension v1.x](#tab/extensionv1)
+
 The attribute's constructor takes the following parameters:
 
 |Parameter | Description|
@@ -206,6 +218,8 @@ The attribute's constructor takes the following parameters:
 |**PasswordSetting**|Name of the app setting that contains the password to access the queue, such as `PasswordSetting: "%< PasswordFromSettings >%"`. Ignored when using `ConnectStringSetting`.|
 |**ConnectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. The trigger won't work when you specify the connection string directly instead through an app setting. For example, when you have set `ConnectionStringSetting: "rabbitMQConnection"`, then in both the *local.settings.json* and in your function app you need a setting like `"RabbitMQConnection" : "< ActualConnectionstring >"`.|
 |**Port**|Gets or sets the port used. Defaults to 0, which points to the RabbitMQ client's default port setting of `5672`. |
+
+---
 
 # [Isolated worker model](#tab/isolated-process)
 
@@ -241,6 +255,18 @@ ILogger log)
 
 The `RabbitMQOutput` annotation allows you to create a function that runs when a RabbitMQ message is created.
 
+# [Extension v2.x+](#tab/extensionv2)
+
+The annotation supports the following configuration settings:
+
+|Setting | Description|
+|---------|----------------------|
+|**queueName**| Name of the queue from which to receive messages. |
+|**connectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. The trigger won't work when you specify the connection string directly instead through an app setting. For example, when you have set `ConnectionStringSetting: "rabbitMQConnection"`, then in both the *local.settings.json* and in your function app you need a setting like `"RabbitMQConnection" : "< ActualConnectionstring >"`.|
+|**disableCertificateValidation**|Gets or sets a value indicating whether certificate validation should be disabled. Not recommended for production. Does not apply when SSL is disabled.|
+
+# [Extension v1.x](#tab/extensionv1)
+
 The annotation supports the following configuration settings:
 
 |Setting | Description|
@@ -252,6 +278,8 @@ The annotation supports the following configuration settings:
 |**connectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. The trigger won't work when you specify the connection string directly instead through an app setting. For example, when you have set `ConnectionStringSetting: "rabbitMQConnection"`, then in both the *local.settings.json* and in your function app you need a setting like `"RabbitMQConnection" : "< ActualConnectionstring >"`.|
 |**port**|Gets or sets the port used. Defaults to 0, which points to the RabbitMQ client's default port setting of `5672`. |
 
+---
+
 See the output binding [example](#example) for more detail.
 
 ::: zone-end  
@@ -260,6 +288,19 @@ See the output binding [example](#example) for more detail.
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
+
+# [Extension v2.x+](#tab/extensionv2)
+
+|function.json property |Description|
+|---------|----------------------|
+|**type** | Must be set to `RabbitMQ`.|
+|**direction** | Must be set to `out`. |
+|**name** | The name of the variable that represents the queue in function code. |
+|**queueName**| Name of the queue to send messages to. |
+|**connectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. The trigger won't work when you specify the connection string directly instead of through an app setting in `local.settings.json`. For example, when you have set `connectionStringSetting: "rabbitMQConnection"` then in both the *local.settings.json* and in your function app you need a setting like `"rabbitMQConnection" : "< ActualConnectionstring >"`.|
+|**disableCertificateValidation**|Gets or sets a value indicating whether certificate validation should be disabled. Not recommended for production. Does not apply when SSL is disabled.|
+
+# [Extension v1.x](#tab/extensionv1)
 
 |function.json property |Description|
 |---------|----------------------|
@@ -272,6 +313,8 @@ The following table explains the binding configuration properties that you set i
 |**password**| Name of the app setting that contains the password to access the queue, such as UserNameSetting: "< UserNameFromSettings >". Ignored when using `connectStringSetting`.|
 |**connectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. The trigger won't work when you specify the connection string directly instead of through an app setting in `local.settings.json`. For example, when you have set `connectionStringSetting: "rabbitMQConnection"` then in both the *local.settings.json* and in your function app you need a setting like `"rabbitMQConnection" : "< ActualConnectionstring >"`.|
 |**port**| Gets or sets the Port used. Defaults to 0, which points to the RabbitMQ client's default port setting of `5672`.|
+
+---
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
