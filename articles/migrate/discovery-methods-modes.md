@@ -56,6 +56,7 @@ Ensure that software inventory is enabled before initiating workload discovery. 
 - Discovery of SQL Server instances and databases. 
 - Discovery of ASP.NET web apps. 
 - Discovery of MySQL database instances. 
+- Discovery of PostgreSQL instances and databases.
 
 
 ## Next steps

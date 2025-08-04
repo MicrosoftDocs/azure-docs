@@ -42,21 +42,21 @@ Run an assessment as follows:
 
 1.	In the overview page, select **Create Assessment**
 
-    :::image type="content" source="./media/tutorial-postgre-sql-assessment-for-flexible-azure-migration/create-assessment.png" alt-text="Screenshot shows how to create assessment" lightbox="./media/tutorial-postgre-sql-assessment-for-flexible-azure-migration/create-assessment.png":::
+    :::image type="content" source="./media/tutorial-postgresql-assessment-for-flexible-azure-migration/create-assessment.png" alt-text="Screenshot shows how to create assessment" lightbox="./media/tutorial-postgresql-assessment-for-flexible-azure-migration/create-assessment.png":::
 
 1. Enter an assessment name, select the **PostgreSQL workloads**, and then select **Add**.
 
-    :::image type="content" source="./media/tutorial-postgre-sql-assessment-for-flexible-azure-migration/assessment-name.png" alt-text="Screenshot shows how to add assessment name" lightbox="./media/tutorial-postgre-sql-assessment-for-flexible-azure-migration/assessment-name.png":::
+    :::image type="content" source="./media/tutorial-postgresql-assessment-for-flexible-azure-migration/assessment-name.png" alt-text="Screenshot shows how to add assessment name" lightbox="./media/tutorial-postgresql-assessment-for-flexible-azure-migration/assessment-name.png":::
 
-    :::image type="content" source="./media/tutorial-postgre-sql-assessment-for-flexible-azure-migration/select-workloads.png" alt-text="Screenshot shows how to select workloads" lightbox="./media/tutorial-postgre-sql-assessment-for-flexible-azure-migration/select-workloads.png":::
+    :::image type="content" source="./media/tutorial-postgresql-assessment-for-flexible-azure-migration/select-workloads.png" alt-text="Screenshot shows how to select workloads" lightbox="./media/tutorial-postgresql-assessment-for-flexible-azure-migration/select-workloads.png":::
 
 1.  After selecting the PostgreSQL workloads, select **Next** to proceed.
 
-:::image type="content" source="./media/tutorial-postgre-sql-assessment-for-flexible-azure-migration/review-selected-workloads.png" alt-text="Screenshot shows how to review selected workloads" lightbox="./media/tutorial-postgre-sql-assessment-for-flexible-azure-migration/review-selected-workloads.png":::
+:::image type="content" source="./media/tutorial-postgresql-assessment-for-flexible-azure-migration/review-selected-workloads.png" alt-text="Screenshot shows how to review selected workloads" lightbox="./media/tutorial-postgresql-assessment-for-flexible-azure-migration/review-selected-workloads.png":::
 
 1. In the **General** tab, either set custom values or keep the default assessment settings, and then select **Next**.
 
-    :::image type="content" source="./media/tutorial-postgre-sql-assessment-for-flexible-azure-migration/review-created-assessment.png" alt-text="Screenshot shows review the created assessment" lightbox="./media/tutorial-postgre-sql-assessment-for-flexible-azure-migration/review-created-assessment.png":::
+    :::image type="content" source="./media/tutorial-postgresql-assessment-for-flexible-azure-migration/review-created-assessment.png" alt-text="Screenshot shows review the created assessment" lightbox="./media/tutorial-postgresql-assessment-for-flexible-azure-migration/review-created-assessment.png":::
 
 | Section | Setting | Details|
 |---------|---------|--------|
@@ -74,11 +74,11 @@ Run an assessment as follows:
 
 1. In the **Advanced** tab, selelct **Edit Defaults** to enter PostgreSQL-specific settings.
 
-    :::image type="content" source="./media/tutorial-postgre-sql-assessment-for-flexible-azure-migration/edit-deafults.png" alt-text="Screenshot shows users to configure PostgreSQL-specific settings by selecting edit defaults" lightbox="./media/tutorial-postgre-sql-assessment-for-flexible-azure-migration/edit-deafults.png":::
+    :::image type="content" source="./media/tutorial-postgresql-assessment-for-flexible-azure-migration/edit-deafults.png" alt-text="Screenshot shows users to configure PostgreSQL-specific settings by selecting edit defaults" lightbox="./media/tutorial-postgresql-assessment-for-flexible-azure-migration/edit-deafults.png":::
 
 1. Select **Edit Defaults** for PostgreSQL, configure the required settings, select **Save**, return to the **Advanced** tab, and then select **Next**.
 
-    :::image type="content" source="./media/tutorial-postgre-sql-assessment-for-flexible-azure-migration/postgresql-database-settings.png" alt-text="Screenshot shows the user through configuring PostgreSQL settings." lightbox="./media/tutorial-postgre-sql-assessment-for-flexible-azure-migration/postgresql-database-settings.png":::
+    :::image type="content" source="./media/tutorial-postgresql-assessment-for-flexible-azure-migration/postgresql-database-settings.png" alt-text="Screenshot shows the user through configuring PostgreSQL settings." lightbox="./media/tutorial-postgresql-assessment-for-flexible-azure-migration/postgresql-database-settings.png":::
 
     | Section | Setting |  Details  |
     |---------|---------| ----------|
@@ -88,16 +88,16 @@ Run an assessment as follows:
 
 1. In the **Review + Create Assessment** step, check the details and select **Create** to start the assessment.
 
-    :::image type="content" source="./media/tutorial-postgre-sql-assessment-for-flexible-azure-migration/review-create-assessment.png" alt-text="Screenshot shows to create and run the assessment." lightbox="./media/tutorial-postgre-sql-assessment-for-flexible-azure-migration/review-create-assessment.png":::
+    :::image type="content" source="./media/tutorial-postgresql-assessment-for-flexible-azure-migration/review-create-assessment.png" alt-text="Screenshot shows to create and run the assessment." lightbox="./media/tutorial-postgresql-assessment-for-flexible-azure-migration/review-create-assessment.png":::
 
 1. After creating the assessment, go to the **Overview** page and select **View** all reports, or under **Decide and plan**, and then select **Assessments** to view the report.
 
-    :::image type="content" source="./media/tutorial-postgre-sql-assessment-for-flexible-azure-migration/assessments.png" alt-text="Screenshot shows to decide and plan the assessment." lightbox="./media/tutorial-postgre-sql-assessment-for-flexible-azure-migration/assessments.png":::
+    :::image type="content" source="./media/tutorial-postgresql-assessment-for-flexible-azure-migration/assessments.png" alt-text="Screenshot shows to decide and plan the assessment." lightbox="./media/tutorial-postgresql-assessment-for-flexible-azure-migration/assessments.png":::
 
 1. Select the name of the assessment you want to view.
     
 
-    :::image type="content" source="./media/tutorial-postgre-sql-assessment-for-flexible-azure-migration/assessments-two.png" alt-text="Screenshot shows to select the required assessment." lightbox="./media/tutorial-postgre-sql-assessment-for-flexible-azure-migration/assessments-two.png":::
+    :::image type="content" source="./media/tutorial-postgresql-assessment-for-flexible-azure-migration/assessments-two.png" alt-text="Screenshot shows to select the required assessment." lightbox="./media/tutorial-postgresql-assessment-for-flexible-azure-migration/assessments-two.png":::
 
 > [Note!]
 > This is a configuration-based assessment that analyzes your PostgreSQL setup for compatibility with Azure Database for PostgreSQL flexible server.
