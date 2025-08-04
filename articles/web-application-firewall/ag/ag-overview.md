@@ -79,7 +79,7 @@ To use a web application firewall on Application Gateway, you must create a WAF 
 You can configure a WAF policy and associate that policy with one or more application gateways for protection. A WAF policy consists of two types of security rules:
 
 - Custom rules that you create
-- Managed rule sets that are a collection of Azure-managed preconfigured set of rules
+- Managed rule sets that are collections of Azure-managed preconfigured rules
 
 When both are present, the WAF processes custom rules before processing the rules in a managed rule set. A rule consists of a match condition, a priority, and an action. Supported action types are `ALLOW`, `BLOCK`, and `LOG`. You can create a fully customized policy that meets your specific requirements for application protection by combining managed and custom rules.
 
