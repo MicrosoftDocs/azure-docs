@@ -38,7 +38,7 @@ Run the code in Azure Cloud Shell or in PowerShell locally in Visual Studio Code
 $tenantid="your tenant id"
 $subscriptionid="your subscription id"
 $resourcegroupname="your resource group name"
-$b2cName="your b2c tenant name"
+$b2cName="your-entra-external-id-tenant-name"
 
 ### login to azure
 Connect-AzAccount -Tenant $tenantid -SubscriptionId $subscriptionid 
@@ -47,7 +47,7 @@ Connect-AzAccount -Tenant $tenantid -SubscriptionId $subscriptionid
 New-AzResourceGroup -Name $resourcegroupname -Location $region
 
 ### deploy the resource
-New-AzResourceGroupDeployment -ResourceGroupName $resourcegroupname -TemplateUri https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/main/samples/fhir-aad-b2c/b2c-arm-template.json -b2cName $b2cNa
+New-AzResourceGroupDeployment -ResourceGroupName $resourcegroupname -TemplateUri https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/main/samples/fhir-aad-b2c/b2c-arm-template.json -b2cName $b2cName
 ```
 
 #### [Azure CLI](#tab/command-line)
@@ -61,7 +61,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourcegroupname -TemplateUri
 tenantid=your tenant id
 subscriptionid=your subscription id
 resourcegroupname=your resource group name
-b2cName=your b2c tenant name
+b2cName=your-entra-external-id-tenant-name
 
 ### login to azure
 az login
