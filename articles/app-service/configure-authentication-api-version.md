@@ -1,11 +1,12 @@
 ---
-title: Manage AuthN/AuthZ API versions
+title: Manage AuthN/AuthZ API Versions
 description: Upgrade your App Service authentication API to V2 or pin it to a specific version, if needed.
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/09/2023
 ms.custom: devx-track-azurecli, AppServiceIdentity
 author: cephalin
 ms.author: cephalin
+# customer intent: As an app developer, I want to customize the API and runtime versions of the built-in authentication and authorization in App Service.
 ---
 
 # Manage the API and runtime versions of App Service authentication
@@ -31,7 +32,7 @@ The automated migration process will move provider secrets into application sett
 
 The following steps will allow you to manually migrate the application to the V2 API if you don't wish to use the automatic version mentioned above.
 
-#### Moving secrets to application settings
+#### Move secrets to application settings
 
 1. Get your existing configuration by using the V1 API:
 
@@ -137,7 +138,7 @@ The following steps will allow you to manually migrate the application to the V2
 
 You've now migrated the app to store identity provider secrets as application settings.
 
-#### Support for Microsoft Account provider registrations
+#### Switch a configuration to a Microsoft Entra provider
 
 If your existing configuration contains a Microsoft Account provider and doesn't contain a Microsoft Entra provider, you can switch the configuration over to the Microsoft Entra provider and then perform the migration. To do this:
 
@@ -154,7 +155,7 @@ If your existing configuration contains a Microsoft Account provider and doesn't
 > [!WARNING]
 > It is possible to converge the two registrations by modifying the [supported account types](../active-directory/develop/supported-accounts-validation.md) for the Microsoft Entra app registration. However, this would force a new consent prompt for Microsoft Account users, and those users' identity claims may be different in structure, `sub` notably changing values since a new App ID is being used. This approach is not recommended unless thoroughly understood. You should instead wait for support for the two registrations in the V2 API surface.
 
-#### Switching to V2
+#### Switch to V2
 
 Once the above steps have been performed, navigate to the app in the Azure portal. Select the "Authentication (preview)" section. 
 
@@ -221,7 +222,7 @@ Replace `<my_app_name>` with the name of your app. Also replace `<my_resource_gr
 
 You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md) by choosing **Try it** in the preceding code sample. You can also use the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command after executing [az login](/cli/azure/reference-index#az-login) to sign in.
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Tutorial: Authenticate and authorize users end-to-end](tutorial-auth-aad.md)
