@@ -57,7 +57,7 @@ sections:
         imageUrl: ./images/collection.png
         links:
           - componentType: link
-            url: /azure/migration/migrate-from-on-premise
+            url: /azure/migration/migrate-from-on-premises
             text: Learn more            
 
   - componentType: markdown
@@ -120,12 +120,12 @@ sections:
          Learn how to pick the right approach for each workload, presenting the options, when to choose each, and the pros/cons trade-offs.
          :::column-end:::               
          :::column:::
-         **[Databases](/azure/migration/migrate-from-on-premise)**
+         **[Databases](/azure/migration/migrate-from-on-premises)**
         
         Discover scenarios that you can use to migrate on-premise databases to Azure.
          :::column-end:::         
          :::column:::
-         **[Infrastructure](/azure/migration/migrate-from-on-premise)**
+         **[Infrastructure](/azure/migration/migrate-from-on-premises)**
         
         Discover scenarios that you can use to migrate on-premise infrastructure like virtual machines to Azure.
          :::column-end:::                  
