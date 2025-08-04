@@ -8,7 +8,7 @@ ms.service: azure-operator-nexus
 
 ## Send command output to a user specified storage account
 
-See [Azure Operator Nexus Cluster support for managed identities and user provided resources](./howto-cluster-managed-identity-user-provided-resources.md)
+See [Azure Operator Nexus Cluster support for managed identities and user provided resources](../../howto-cluster-managed-identity-user-provided-resources.md)
 
 To access the output, users need the appropriate access to the storage blob. For information on assigning roles to storage accounts, see [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal).
 
