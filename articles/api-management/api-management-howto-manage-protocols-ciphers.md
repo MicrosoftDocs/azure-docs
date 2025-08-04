@@ -99,5 +99,5 @@ You can enable backend-side TLS 1.3 from the **Protocols + ciphers** page:
 ## Related content
 
 * For recommendations on securing your API Management instance, see [Azure security baseline for API Management](/security/benchmark/azure/baselines/api-management-security-baseline).
-* Learn about security considerations in the API Management [Architecture best practices for API Management](azure/well-architected/service-guides/azure-api-management#).
+* Learn about security considerations in the API Management [Architecture best practices for API Management](/azure/well-architected/service-guides/azure-api-management#).
 * Learn more about [TLS](/dotnet/framework/network-programming/tls).
