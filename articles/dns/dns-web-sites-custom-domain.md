@@ -90,7 +90,7 @@ In the left navigation of the App Services page in the Azure portal, select **Cu
 
 ### Create the record
 
-# [Azure portal](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 
 1. Navigate to your DNS zone in the Azure portal.
 1. Select **+ Record set**.
@@ -106,7 +106,7 @@ In the left navigation of the App Services page in the Azure portal, select **Cu
 
 1. Select **OK** to create the record.
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/azure-powershell)
 
 To create the A record, use:
 
@@ -154,7 +154,7 @@ App Services uses this record only at configuration time to verify that you own 
 > [!NOTE]
 > If you want to verify the domain name, but not route production traffic to the web app, you only need to specify the TXT record for the verification step.  Verification does not require an A or CNAME record in addition to the TXT record.
 
-# [Azure portal](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 
 1. Navigate to your DNS zone in the Azure portal.
 1. Select **+ Record set**.
@@ -170,7 +170,7 @@ App Services uses this record only at configuration time to verify that you own 
 
 1. Select **OK** to create the record.
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/azure-powershell)
 
 To create the TXT record, use:
 
@@ -204,7 +204,7 @@ az network dns record-set txt add-record \
 
 If your domain is already managed by Azure DNS (see [DNS domain delegation](dns-domain-delegation.md)), you can use the following example to create a CNAME record for contoso.azurewebsites.net. The CNAME created in this example has a "time to live" of 600 seconds in DNS zone named "contoso.com" with the alias for the web app contoso.azurewebsites.net.
 
-# [Azure portal](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 
 1. Navigate to your DNS zone in the Azure portal.
 1. Select **+ Record set**.
@@ -220,7 +220,7 @@ If your domain is already managed by Azure DNS (see [DNS domain delegation](dns-
 
 1. Select **OK** to create the record.
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $cnameRecordParams = @{
@@ -311,7 +311,7 @@ contoso.com text =
 
 Now, you can add the custom host names to your web app:
 
-# [Azure portal](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 
 1. Navigate to your web app in the Azure portal.
 1. In the left navigation under **Settings**, select **Custom domains**.
@@ -321,7 +321,7 @@ Now, you can add the custom host names to your web app:
 1. If validation is successful, select **Add custom domain**.
 1. Repeat steps 3-6 for each custom domain you want to add (both **contoso.com** and **www.contoso.com**).
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $webAppParams = @{
@@ -364,14 +364,14 @@ You should see the same page for both URLs. For example:
 
 When no longer needed, you can delete all resources created in this tutorial by deleting the resource group **test-rg**:
 
-# [Azure portal](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 
 1. On the Azure portal menu, select **Resource groups**.
 1. Select the **test-rg** resource group.
 1. On the **Overview** page, select **Delete resource group**.
 1. Enter *test-rg* and select **Delete**.
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $resourceGroupParams = @{
