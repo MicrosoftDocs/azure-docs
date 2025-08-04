@@ -35,25 +35,23 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
+* A domain name that you can host in Azure DNS. You must have full control of this domain. Full control includes the ability to set the name server (NS) records for the domain.
+
+* A web app. If you don't have one, you can [create a static HTML web app](../app-service/quickstart-html.md) for this tutorial.
+
+* An Azure DNS zone with delegation in your registrar to Azure DNS. If you don't have one, you can [create a DNS zone](./dns-getstarted-powershell.md), then [delegate your domain](dns-delegate-domain-azure-dns.md#delegate-the-domain) to Azure DNS.
+
+> [!NOTE]
+> In this tutorial, `contoso.com` is used as an example domain name. Replace `contoso.com` with your own domain name.
+
+
 ### [Portal](#tab/azure-portal)
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- A domain name that you can host in Azure DNS. You must have full control of this domain. Full control includes the ability to set the name server (NS) records for the domain.
-
-- A web app. If you don't have one, you can [create a static HTML web app](../app-service/quickstart-html.md) for this tutorial.
-
-- An Azure DNS zone with delegation in your registrar to Azure DNS. If you don't have one, you can create a DNS zone, then [delegate your domain](dns-delegate-domain-azure-dns.md#delegate-the-domain) to Azure DNS.
-
 ### [PowerShell](#tab/azure-powershell)
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-- A domain name that you can host in Azure DNS. You must have full control of this domain. Full control includes the ability to set the name server (NS) records for the domain.
-
-- A web app. If you don't have one, you can [create a static HTML web app](../app-service/quickstart-html.md) for this tutorial.
-
-- An Azure DNS zone with delegation in your registrar to Azure DNS. If you don't have one, you can create a DNS zone, then [delegate your domain](dns-delegate-domain-azure-dns.md#delegate-the-domain) to Azure DNS.
 
 - Azure Cloud Shell or Azure PowerShell.
 
@@ -64,12 +62,6 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ### [Azure CLI](#tab/azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
-
-- A domain name that you can host in Azure DNS. You must have full control of this domain. Full control includes the ability to set the name server (NS) records for the domain.
-
-- A web app. If you don't have one, you can [create a static HTML web app](../app-service/quickstart-html.md) for this tutorial.
-
-- An Azure DNS zone with delegation in your registrar to Azure DNS. If you don't have one, you can create a DNS zone, then [delegate your domain](dns-delegate-domain-azure-dns.md#delegate-the-domain) to Azure DNS.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
