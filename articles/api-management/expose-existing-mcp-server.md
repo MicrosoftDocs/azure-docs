@@ -4,7 +4,7 @@ description: Learn how to expose and govern an existing Model Context Protocol (
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 07/31/2025
+ms.date: 08/04/2025
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
@@ -34,14 +34,14 @@ Learn more about:
 
 ## Limitations
 
-The following limitations apply to this preview:
+The following limitations apply to this preview. Preview features are subject to change, so check back for updates.
 
 * The external MCP server must conform to MCP version `2025-06-18` or later. The server must support:
     * Either no authorization, or authorization protocols that comply with the following standards: [https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization#standards-compliance](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization#standards-compliance) 
     * Streamable HTTP transport
 
     > [!IMPORTANT]
-    > Servers conforming to older MCP versions or using SSE transport only are not supported.
+    > Servers conforming to older MCP versions or using only SSE transport are not supported.
 
 * API Management supports MCP server tool capabilities, but not MCP resources or prompts.
 * MCP server capabilities aren't supported in API Management [workspaces](workspaces-overview.md).
@@ -68,7 +68,7 @@ Follow these steps to expose an existing MCP server is API Management:
 1. In the left-hand menu, under **APIs**, select **MCP servers** > **+ Create MCP server**.
 1. Select **Expose an existing MCP server**.
 1. In **Backend MCP server**:
-    1. Enter the existing **MCP server base URL**.
+    1. Enter the existing **MCP server base URL**. Example: `https://learn.microsoft.com/api/mcp` for the Microsoft Learn MCP server
     1. In**Transport type**, **Streamable HTTP** is selected by default.
 1. In **New MCP server**:
     1. Enter a **Name** the MCP server in API Management.
@@ -84,7 +84,7 @@ Follow these steps to expose an existing MCP server is API Management:
 :::image type="content" source="media/expose-existing-mcp-server/mcp-server-list.png" alt-text="Screenshot of the MCP server list in the portal.":::
 
 > [!IMPORTANT]
-> API Management doesn't display tools from the existing MCP server. All tool registration and configuration must be done on the existing remote MCP server.
+> Currently, API Management doesn't display tools from the existing MCP server. All tool registration and configuration must be done on the existing remote MCP server.
 
 [!INCLUDE [api-management-configure-test-mcp-server](../../includes/api-management-configure-test-mcp-server.md)]
 

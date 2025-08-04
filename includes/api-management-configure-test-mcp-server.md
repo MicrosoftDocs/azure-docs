@@ -2,7 +2,7 @@
 author: dlepow
 ms.service: azure-api-management
 ms.topic: include
-ms.date: 07/31/2025
+ms.date: 08/04/2025
 ms.author: danlep
 ---
 ## Configure policies for the MCP server
@@ -14,8 +14,9 @@ Learn more about configuring policies:
 * [Policies in API Management](../articles/api-management/api-management-howto-policies.md)
 * [Transform and protect your API](../articles/api-management/transform-api.md)
 * [Set and edit policies](../articles/api-management/set-edit-policies.md)
+* [Secure access to MCP server](../articles/api-management/secure-mcp-servers.md)
 
-> [!IMPORTANT]
+> [!CAUTION]
 > Do not access the response body using the `context.Response.Body` variable within MCP server policies. Doing so triggers response buffering, which interferes with the streaming behavior required by MCP servers and may cause them to malfunction.
 
 To configure policies for the MCP server: 
@@ -88,8 +89,7 @@ After adding an MCP server in Visual Studio Code, you can use tools in agent mod
 |-------------------------------------------|-------------------------------------------|--------------------------------------------------------|
 | `401 Unauthorized` error from backend           | Authorization header not forwarded        | Use `set-header` policy to manually attach token         |
 | API call works in API Management but fails in agent | Incorrect base URL or missing token       | Double-check security policies and endpoint            |
-| Not able to create MCP server           | MCP server capability is not available in Consumption or Developer tier, and must be enabled using [update group](../articles/api-management/configure-service-update-settings.md) in classic Basic, Standard, and Premium tiers  | Use a supported classic or v2 tier - see [Prerequisites](#prerequisites) |
-| MCP server streaming fails when diagnostic logs are enabled | Logging of response body or access through policy interferes with MCP transport        | Disable response body logging at the All APIs scope - see [Prerequisites](#prerequisites) |
+| MCP server streaming fails when diagnostic logs are enabled | Logging of response body or accessing response body through policy interferes with MCP transport        | Disable response body logging at the All APIs scope - see [Prerequisites](#prerequisites) |
 
 ## Related content
 

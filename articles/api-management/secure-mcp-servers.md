@@ -4,7 +4,7 @@ description: Learn how secure access to MCP servers managed in Azure API Managem
 author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 07/30/2025
+ms.date: 08/04/2025
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
@@ -14,16 +14,15 @@ ms.custom:
 
 [!INCLUDE [api-management-availability-premium-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-standard-basic-premiumv2-standardv2-basicv2.md)]
 
-
 With  [MCP server support in API Management](mcp-server-overview.md), you can expose and govern access to MCP servers and their tools. This article describes how to secure access to MCP servers managed in API Management, including both MCP servers exposed from managed REST APIs and existing MCP servers hosted outside of API Management.
 
-You can secure either or both inbound access to the MCP server (from an MCP client to API Management) and outbound access (from API Management to the MCP server backend).
+You can secure either or both inbound access to the MCP server (from an MCP client to API Management) and outbound access (from API Management to the MCP server).
 
 ## Secure inbound access
 
 ### Key-based authentication
 
-If the backend API is protected with an API Management subscription key passed in a `Ocp-Apim-Subscription-Key` header, MCP clients can present the key in the incoming requests, and the MCP server can validate the key. For example, in Visual Studio Code, you can add a `headers` section to the MCP server configuration to require the subscription key in the request headers:
+If the MCP server is protected with an API Management subscription key passed in a `Ocp-Apim-Subscription-Key` header, MCP clients can present the key in the incoming requests, and the MCP server can validate the key. For example, in Visual Studio Code, you can add a `headers` section to the MCP server configuration to require the subscription key in the request headers:
 
 ```json
 {
@@ -38,28 +37,43 @@ If the backend API is protected with an API Management subscription key passed i
 
 ```
 
-Visual Studio Code provides ways to store the subscription key in the workspace or user settings, or to pass the key through user input, so you don't have to hard-code it in the MCP server configuration.
+> [!NOTE]
+> Securely manage subscription keys using Visual Studio Code workspace settings or secure inputs. 
+>
+ 
+### Token-based authentication (OAuth 2.1 with Microsoft Entra ID)
 
-> [!CAUTION]
-> When you use an MCP server in API Management, incoming headers like **Authorization** aren't automatically passed to your backend API. If your backend needs a token, you can add it as an input parameter in your API definition. Alternatively, use policies like `get-authorization-context` and `set-header` to generate and attach the token, as noted in the following section.
+MCP clients can present OAuth tokens or JWTs issued by Microsoft Entra ID using an `Authorization` header and validated by API Management. 
 
-### Token-based authentication
-
-You can generate an access token (JWT) using your identity provider, and pass the token in a request to the MCP server in an `Authorization` header. Then, API Management can use a policy to validate the JWT in the incoming request. This ensures that only authorized clients can access the MCP server. 
-
-API Management provides the generic [validate-jwt](validate-jwt-policy.md) policy, or the [validate-azure-ad-token](validate-azure-ad-token-policy.md) policy when using Microsoft Entra ID, to validate the JWT in the incoming requests. 
-
-For example, you can use the following policy to validate a Microsoft Entra ID token presented in an incoming request:
+For example, use the [validate-azure-ad-token](validate-azure-ad-token-policy.md) policy to validate Microsoft Entra ID tokens:
 
 ```xml
-<validate-azure-ad-token tenant-id="your-tenant-id" header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">     
+<validate-azure-ad-token tenant-id="your-entra-tenant-id" header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">     
     <client-application-ids>
-        <application-id>your-client-id</application-id>
+        <application-id>your-client-application-id</application-id>
     </client-application-ids> 
 </validate-azure-ad-token>
 ```
 
-For more inbound authorization options and samples, including using OAuth authorization, see:
+### Forward tokens to backend
+
+By default, API Management doesn't automatically forward incoming headers such as `Authorization` to an MCP server backend. To forward tokens securely today, you currently have these options: 
+
+* Explicitly define `Authorization` as a required header in the API settings and forward the header in the `Outbound` policy. 
+
+    Example policy snippet: 
+
+    ```xml
+    <!-- Forward Authorization header to backend --> 
+    <set-header name="Authorization" exists-action="override"> 
+        <value>@(context.Request.Headers.GetValueOrDefault("Authorization"))</value> 
+    </set-header> 
+    ```
+
+* Use API Management credential manager and policies (`get-authorization-context`, `set-header`) to securely forward the token. See [Secure outbound access](#secure-outbound-access) for details.
+
+
+For more inbound authorization options and samples, see:
 
 * [MCP server authorization with Protected Resource Metadata (PRM) sample](https://github.com/blackchoey/remote-mcp-apim-oauth-prm)
 
@@ -67,38 +81,39 @@ For more inbound authorization options and samples, including using OAuth author
 
 * [MCP client authorization lab](https://github.com/Azure-Samples/AI-Gateway/tree/main/labs/mcp-client-authorization)
 
-
 ## Secure outbound access
 
-Use API Management's [credential manager](credentials-overview.md) to securely inject secrets or tokens for calls to a backend API. For example, use the credential manager to obtain and present an OAuth 2.0 access token from an identity provider to access the backend API called by an MCP server tool.
+Use API Management's [credential manager](credentials-overview.md) to securely inject OAuth 2.0 tokens for backend API requests made by MCP server tools. 
 
-At a high level, the process is as follows:
+### Steps to configure OAuth 2-based outbound access
 
-1. Register an application in a supported identity provider.
-1. Create a credential provider resource in API Management to manage the credentials from the identity provider.
-1. Configure a connection to the provider in API Management.
-1. Configure `get-authorization-context` and `set-header` policies to fetch the token credentials and present them in an **Authorization** header of the API requests.
+**Step 1:** Register an application in the identity provider. 
 
-    For example, the following policy retrieves an access token from the credential manager and sets it in the `Authorization` header of the request to the backend API:
+**Step 2:** Create a credential provider in API Management linked to the identity provider. 
+
+**Step 3:** Configure connections within credential manager. 
+
+**Step 4:** Apply API Management policies to dynamically fetch and attach credentials.  
+
+For example, the following policy retrieves an access token from the credential manager and sets it in the `Authorization` header of the outgoing request:
     
-    ```xml
-    <!-- Add to inbound policy. -->
-    <get-authorization-context
-        provider-id="your-credential-provider-id    " 
-        authorization-id="auth-01" 
-        context-variable-name="auth-context" 
-        identity-type="managed" 
-        ignore-error="false" />
-    <!-- Attach the token to the backend call -->
-    <set-header name="Authorization" exists-action="override">
-        <value>@("Bearer " + ((Authorization)context.Variables.GetValueOrDefault("auth-context"))?.AccessToken)</value>
-    </set-header>
-    ```
+```xml
+<!-- Add to inbound policy. -->
+<get-authorization-context
+    provider-id="your-credential-provider-id" 
+    authorization-id="auth-01" 
+    context-variable-name="auth-context" 
+    identity-type="managed" 
+    ignore-error="false" />
+<!-- Attach the token to the backend call -->
+<set-header name="Authorization" exists-action="override">
+    <value>@("Bearer " + ((Authorization)context.Variables.GetValueOrDefault("auth-context"))?.AccessToken)</value>
+</set-header>
+```
 
-For a step-by-step guide to call an example backend API using credentials generated in credential manager, see [Configure credential manager - GitHub](credentials-how-to-github.md).
+For a step-by-step guide to call an example backend using credentials generated in credential manager, see [Configure credential manager - GitHub](credentials-how-to-github.md).
 
 ## Related content
-
 
 * [Register and discover remote MCP servers in Azure API Center](../api-center/register-discover-mcp-server.md)
 

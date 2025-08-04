@@ -4,7 +4,7 @@ description: Learn how Azure API Management enables secure, scalable access to r
 author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 07/23/2025
+ms.date: 08/04/2025
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
@@ -49,7 +49,7 @@ The MCP architecture is built on [JSON-RPC 2.0 for messaging](https://modelconte
 
 * **Remote MCP servers** - Run as independent processes accessible over the internet using HTTP-based transports (like Streamable HTTP), enabling MCP clients to connect to external services and APIs hosted anywhere.
 
-* **Local MCP servers** MCP clients use standard input/output as a local transport method to connect to MCP servers on the same machine,.
+* **Local MCP servers** MCP clients use standard input/output as a local transport method to connect to MCP servers on the same machine.
 
 ## MCP server endpoints
 
@@ -69,8 +69,8 @@ In preview, API Management provides two built-in ways to expose MCP servers:
 
 | Source                                   | Description                                                                                   |
 |-------------------------------------------|-----------------------------------------------------------------------------------------------|
-| REST API as MCP server                    | Expose any REST API managed in API Management as an MCP server, including REST APIs imported from Azure resources. API operations become MCP tools. [Learn more](export-rest-mcp-server.md) |
-| Existing MCP server                       | Expose an MCP-compatible server (for example, LangChain, LangServe, Azure logic app, Azure function app) via API Management. [Learn more](expose-existing-mcp-server.md) |
+| **REST API as MCP server**                    | Expose any REST API managed in API Management as an MCP server, including REST APIs imported from Azure resources. API operations become MCP tools. [Learn more](export-rest-mcp-server.md) |
+| **Existing MCP server**                       | Expose an MCP-compatible server (for example, LangChain, LangServe, Azure logic app, Azure function app) via API Management. [Learn more](expose-existing-mcp-server.md) |
 
 See the linked articles for step-by-step instructions and preview limitations.
 
@@ -79,37 +79,35 @@ See the linked articles for step-by-step instructions and preview limitations.
 
 Configure one or more API Management [policies](api-management-howto-policies.md) to help manage the MCP server. Currently, policies are applied to all API operations exposed as tools in the MCP server and can be used to control access, authentication, and other aspects of the tools.
 
-Configure policies such as the following::
+Configure policies such as the following:
 
 * **Rate limiting and quota enforcement** - Limit the number of requests per time period to the MCP server's tools, and set usage quotas for clients or subscriptions.
-* **Authentication and authorization** - Require and validate incoming requests using JSON web tokens (JWT) issued by Microsoft Entra ID or other idenity providers for secure access.
+* **Authentication and authorization** - Require and validate incoming requests using JSON web tokens (JWT) issued by Microsoft Entra ID or other identity providers for secure access.
 * **IP filtering** - Restrict access to the MCP server's tools based on client IP addresses.
 * **Caching** - Cache responses from the MCP server's tools to improve performance and reduce backend load.
 
 
 ## Secure access to the MCP server
 
-You can secure either or both inbound access to the MCP server (from an MCP client to API Management) and outbound access (from API Management to the MCP server backend). Apply one or more security measures depending on your backends and your organization's security posture. For more information and examples, see [Secure access to MCP servers](secure-mcp-servers.md). 
+You can secure either or both inbound access to the MCP server (from an MCP client to API Management) and outbound access (from API Management to the MCP server backend). Apply one or more security measures depending on your backends and your organization's security posture. 
+
+For more information and examples, see [Secure access to MCP servers](secure-mcp-servers.md). 
 
 ## Monitoring
 
-To monitor MCP servers in Azure API Management, you can use API Management's built-in [integration with Azure Monitor](monitor-api-management.md) for gateway activity. This allows you to:
+To monitor MCP servers in Azure API Management, you can use API Management's built-in [integration with Azure Monitor](monitor-api-management.md) for gateway activity.
 
-* Track diagnostic logs, request/response traces, and usage metrics for MCP server endpoints.
-* Analyze traffic patterns, performance, and errors using Azure Monitor workbooks, metrics, and logs.
-* Send logs to Azure Log Analytics for advanced querying and analysis.
-* Use [Azure Application Insights](api-management-howto-app-insights.md) for detailed telemetry and performance monitoring of MCP servers.
-* Set up alerts for specific events or thresholds.
-* View monitoring data in the Azure portal under your API Management instance’s **Monitoring** or **Logs** panes.
+* Configure [Azure Application Insights](api-management-howto-app-insights.md) or Azure Monitor to capture MCP server requests, responses, and detailed diagnostics.
+* Include correlation IDs in request headers to track requests across multiple systems and components.  
+* Configure [trace](trace-policy.md) policies for your MCP servers to add a custom trace into the request tracing output in the test console, Application Insights telemetries,  or resource logs.
 
 For more information, see [Monitor API Management](monitor-api-management.md).
-
 
 ## Discover MCP servers
 
 Use [Azure API Center](../api-center/register-discover-mcp-server.md) to register and discover MCP servers in your organization. 
 
-* Azure API Center provides a centralized location for managing MCP servers, including those exposed in API Management and those hosted outside of API Management. 
+* Azure API Center provides a centralized location for managing MCP servers, including servers exposed in API Management and servers hosted outside of API Management. 
 
 * Deploy the [API Center portal](../api-center/set-up-api-center-portal.md) to enable your users to discover and interact with MCP servers through a private, enterprise-ready MCP server registry.
 
@@ -121,12 +119,10 @@ In preview, MCP servers in API Management are available in the following service
 * **v2 tiers**: Basic v2, Standard v2, Premium v2
 
 > [!NOTE]
-> * In the classic tiers, you must join the [AI Gateway Early update group](configure-service-update-settings.md) to access MCP server features.
+> * In the classic tiers, access MCP server features by joining the [AI Gateway Early update group](configure-service-update-settings.md).
 > * MCP servers aren't currently supported in [workspaces](workspaces-overview.md) or the self-hosted gateway.
 
 ## Related content
-
-
 
 * [Use the Azure API Management extension for VS Code to import and manage APIs](visual-studio-code-tutorial.md)
 
