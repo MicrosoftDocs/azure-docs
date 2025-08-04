@@ -11,7 +11,9 @@ ms.custom: devx-track-dotnet
 ---
 # At-scale assessment of .NET web apps
 
-Once you've discovered ASP.NET web apps you should proceed to the next step of assessing these web apps. Assessment provides you with migration readiness and sizing recommendations based on properties defined by you. Below is the list of key assessment capabilities: 
+Once you've discovered ASP.NET web apps you should proceed to the next step of assessing these web apps. Assessment provides you with migration readiness and sizing recommendations based on properties defined by you. 
+
+## Key assessment capabilities 
 
 - Modify assessment properties as per your requirements like target Azure region, application isolation requirements, and reserved instance pricing. 
 - Provide App Service SKU recommendation and display monthly cost estimates 
@@ -26,5 +28,8 @@ For more information on web apps assessment, see:
 - [Azure App Service assessments in Azure Migrate Discovery and assessment tool](../migrate/concepts-azure-webapps-assessment-calculation.md)
 - [Assessment best practices in Azure Migrate Discovery and assessment tool](../migrate/best-practices-assessment.md)
 
-Next step:
-[At-scale migration of .NET web apps](/training/modules/migrate-app-service-migration-assistant/)
+## Next step
+
+> [!div class="nextstepaction"]
+> [At-scale migration of .NET web apps](/training/modules/migrate-app-service-migration-assistant/)
+
