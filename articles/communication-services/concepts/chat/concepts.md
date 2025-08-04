@@ -41,8 +41,6 @@ Azure Communication Services supports three levels of user access control, using
 
 Azure Communication Services stores chat threads according to the [data retention policy](/purview/create-retention-policies) in effect when the thread is created. You can update the retention policy if needed during the retention time period you set. After you delete a chat thread (by policy or by a Delete API request), it can't be retrieved.
 
-[!INCLUDE [chat-retention-policy.md](../../includes/chat-retention-policy.md)]
-
 You can choose between:
 - Indefinite thread retention.
 - Automatic deletion between 30 and 90 days via the retention policy on the [Create Chat Thread API](/rest/api/communication/chat/chat/create-chat-thread).

@@ -15,15 +15,9 @@ ms.date: 06/27/2025
 
 This quickstart shows you how to download, install, and run AppCAT 7 against a sample Java project.
 
-## Prerequisites
-
-Before downloading AppCAT, be sure the JDK is installed and configured correctly.
-
-- [The Microsoft Build of OpenJDK 17](/java/openjdk/install). Ensure that the `JAVA_HOME` environment variable is set.
-
 ## Download and install
 
-To use the `appcat` CLI, you must download the package specific to your environment, and have the required dependencies in your environment. The `appcat` CLI runs on any environment such as Windows, Linux, or Mac, using Intel, Arm, or Apple Silicon hardware. For the JDK requirement, we recommend you use the [Microsoft Build of OpenJDK](/java/openjdk).
+To use the `appcat` CLI, you must download the package specific to your environment, and have the required dependencies in your environment. The `appcat` CLI runs on any environment such as Windows, Linux, or Mac, using Intel, Arm, or Apple Silicon hardware. 
 
 | OS      | Architecture    | Download Link  | Other files              |
 |---------|-----------------|----------------|--------------------------|
@@ -68,6 +62,7 @@ Extract the binary from the downloaded file. You should see the following folder
 ├── NOTICE.txt
 ├── maven.default.index
 ├── jdtls/
+├── justj.zip (Windows) / justj.tar.gz (Linux/macOS)
 ├── static-report/
 ├── maven-wrapper/
 ├── .appcat-ignore

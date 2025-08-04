@@ -23,7 +23,7 @@ Private endpoints availability varies by App Configuration tier:
 - **Free tier**: Not available
 - **Developer tier**: Up to 1 private endpoint
 - **Standard tier**: Up to 10 private endpoints
-- **Premium tier**: Up to 100 private endpoints
+- **Premium tier**: Up to 40 private endpoints
 
 For more information about pricing, see [Azure App Configuration pricing](https://azure.microsoft.com/pricing/details/app-configuration/).
 

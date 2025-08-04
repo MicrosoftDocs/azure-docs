@@ -97,7 +97,7 @@ external_table("microsoft.entra.id.AADRiskyUsers")
 ## Query considerations and limitations
 
 + Queries are run against a single workspace. Make sure you select the correct workspace before running a query.
-+ Executing KQL queries on the Microsoft Sentinel data lake incurs charges based on query billing meters. For more information, see [../billing.md#data-lake-tier].
++ Executing KQL queries on the Microsoft Sentinel data lake incurs charges based on query billing meters. For more information, see [Plan costs and understand Microsoft Sentinel pricing and billing](../billing.md#data-lake-tier).
 + Review data ingestion and table retention policy. Before setting query time range, be aware of data retention on your data lake tables and whether data is available for selected time range. For more information, see [Manage data tiers and retention in Microsoft Defender portal (preview)](https://aka.ms/manage-data-defender-portal-overview).
 + KQL queries against the data lake are lower performant than queries on analytics tier. It’s recommended to use KQL queries against the data lake only when exploring historical data or when tables are stored in data lake-only mode.
 

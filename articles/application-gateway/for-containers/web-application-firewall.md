@@ -64,12 +64,12 @@ The following functionality is not supported on an Azure Web Application Firewal
 
 ## Pricing
 
-Azure Web Application Firewall is incrementally billed in addition to Application Gateway for Containers. Two metrics track Azure Web Application Firewall consumption:
+Azure Web Application Firewall is incrementally billed in addition to Application Gateway for Containers. Two meters track Azure Web Application Firewall consumption:
 
-* `AGC WAF Hour`
-* `AGC 1M WAF Requests`
+* **Application Gateway for Containers WAF Hour**
+* **Application Gateway for Containers 1 million WAF Requests**
 
-An `AGC WAF Hour` rate is incurred for the duration that a security policy references an Azure Web Application Firewall policy.
+An **Application Gateway for Containers WAF Hour** rate is incurred for the duration that a security policy references an Azure Web Application Firewall policy.
 
 As Azure Web Application Firewall rules or bot protection processes each request, a consumption rate is billed per 1 million requests.
 

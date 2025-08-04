@@ -17,6 +17,14 @@ This article provides the release notes for Azure Migrate application and code a
 
 ## Release history
 
+### 7.7.0.2
+
+This release contains the following fixes and enhancements:
+
+- Removed JDK from the prerequisites. 
+- Removed **output.json** or **output.yaml** from result output.
+- Fixed the issue where the `azure-password-01000` rule detects only one violation, even when multiple violations exist in the same file.
+
 ### 7.7.0.1
 
 This release contains the following fixes and enhancements:
@@ -117,6 +125,12 @@ This release is based on a different set of components of the Konveyor project.
 - A new engine based on the [Konveyor Analyzer LSP](https://github.com/konveyor/analyzer-lsp) project, with a CLI based on the [Konveyor Kantra](https://github.com/konveyor/kantra/) project.
 
 ## Known issues
+
+### 7.7.0.2
+
+- Rules issues:
+  - The `azure-system-config-01000` rules aren't being triggered.
+- An error in the **Watcher Error** channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
 
 ### 7.7.0.1
 
