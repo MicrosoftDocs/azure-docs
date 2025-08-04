@@ -219,6 +219,7 @@ Four Rack environments have 17 Devices:
 4. Aggregate Rack CEs upgrade one after the other in serial.
    >[!Important]
    >**After each CE upgrade, wait for a duration of five minutes to ensure that the recovery process is complete before proceeding to the next CE.**
+   
    >[!Important]
    >**For the remaining Aggregate Rack devices, the order for the device upgrades is not important as long as they are done in a serial manner.**
 5. Aggregate Rack NPBs upgrade one after the other in serial.
