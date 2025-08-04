@@ -63,7 +63,7 @@ To deploy Azure Functions on Azure Container Apps, you package your Functions ap
 
 _Create via CLI: Set “kind=functionapp” property_
 
-In the Azure portal, enable the "Optimize for Azure Functions" option during container app creation to streamline the setup.
+In the Azure portal, select the *Optimize for Azure Functions* option during container app creation to streamline the setup.
 
 <img width="752" height="594" alt="Create via Portal: Option to optimize for Azure Functions" src="https://github.com/user-attachments/assets/fe7e3287-27fa-48c2-81a4-70e7ed9f250f" />
 
