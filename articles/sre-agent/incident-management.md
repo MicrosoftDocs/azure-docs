@@ -14,12 +14,10 @@ Azure SRE Agent streamlines incident management by automatically collecting, ana
 
 Azure SRE Agent receives alerts from incident management platforms such as:
 
-* [Azure Monitor](/azure/azure-monitor/fundamentals/overview)
+* [Azure Monitor alerts](/azure-monitor/alerts/alerts-overview)
 * [PagerDuty](https://www.pagerduty.com/)
 
-Alerts are triggered by predefined conditions configured in these systems external to SRE Agent.
-
-When SRE Agent receives an alert from the management platform, the agent brings the incident into its context, analyzes the situation, and determines the next steps. This process mimics how a human SRE would acknowledge and investigate an incident.
+When SRE Agent receives an alert from the management platform, the agent brings the incident into its context, analyzes the incident, and determines the next steps. This process mimics how a human SRE would acknowledge and investigate an incident.
 
 After being notified of an issue, SRE Agent reviews logs, health probes, and other telemetry to assess the incident. During the assessment step, the agent summarizes findings, determines if the alert is a false positive, and decides whether action is needed.
 
@@ -27,11 +25,23 @@ After being notified of an issue, SRE Agent reviews logs, health probes, and oth
 
 SRE Agent responds to incidents based on its configuration and operational mode.
 
-* **Reader**: In reader mode, the agent provides recommendations and requires human intervention for resolution.
+When an incident is detected, a new thread appears in the chat history that includes the initial analysis done by the agent.
+
+Depending on the incident [handler settings](incident-handler-custom.md), the agent can respond in a semi-autonomous, or fully autonomous manner.
+
+* **Reader**: In reader mode, the agent provides recommendations and prompts a human for permission to remediate problems on behalf of the logged in user.
 
 * **Autonomous**: In autonomous mode, the agent could automatically close incidents or take corrective actions, depending on your configuration settings. The agent can also update or close incidents in management platforms to maintain synchronization across platforms.
 
-You define the rules for how incidents of different priorities are handled. By customizing the rules in the management platforms, you decide which incidents the agent should acknowledge, resolve, or escalate. These rules can be set via prompts or configuration options.
+You can control what type of incidents SRE Agent handles by controlling the configuration settings of the management platform. For instance, you might decide that all P5 incidents are sent to the SRE Agent, while P1 incidents require complete human attention.
+
+Once an incident is sent to the SRE Agent, you then can control how the agent responds by customizing incident handlers. Within an incident handler, you have control over:
+
+* The agent's autonomy level
+* Tools available to the agent for reporting and remediation
+* Custom instructions further guiding the agent how to deal with incidents
+
+For more information, see [Custom incident handlers](incident-handler-custom.md).
 
 ## Platform integration
 
