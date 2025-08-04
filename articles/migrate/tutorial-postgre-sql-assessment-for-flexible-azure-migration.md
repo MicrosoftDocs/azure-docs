@@ -102,3 +102,4 @@ Run an assessment as follows:
 > [Note!]
 > This is a configuration-based assessment that analyzes your PostgreSQL setup for compatibility with Azure Database for PostgreSQL flexible server.
 
+
