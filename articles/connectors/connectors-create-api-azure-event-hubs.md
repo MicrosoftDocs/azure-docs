@@ -39,7 +39,7 @@ To make sure that your workflow can access your event hub, check your permission
 
 1. On the namespace menu, under **Settings**, select **Shared access policies**. In the **Claims** column, check that you have at least **Manage** permissions for that namespace.
 
-   :::image type="content" source="./media/connectors-create-api-azure-event-hubs/event-hubs-namespace.png" alt-text="Screenshot showing the Azure portal, your Event Hubs namespace, and Manage permissions appearing in the Claims column.":::
+   :::image type="content" source="./media/connectors-create-api-azure-event-hubs/event-hubs-namespace.png" alt-text="Screenshot showing the Azure portal, your Event Hubs namespace, and Manage permissions appearing in the Claims column." lightbox="./media/connectors-create-api-azure-event-hubs/event-hubs-namespace.png":::
 
 1. If you want to later manually enter your connection information, get the connection string for your event hub namespace.
 
@@ -47,7 +47,7 @@ To make sure that your workflow can access your event hub, check your permission
 
    1. Find your primary key's connection string. Copy and save the connection string for later use.
 
-      :::image type="content" source="media/connectors-create-api-azure-event-hubs/find-event-hub-namespace-connection-string.png" alt-text="Screenshot showing the primary key's connection string with the copy button selected.":::
+      :::image type="content" source="media/connectors-create-api-azure-event-hubs/find-event-hub-namespace-connection-string.png" alt-text="Screenshot showing the primary key's connection string with the copy button selected." lightbox="media/connectors-create-api-azure-event-hubs/find-event-hub-namespace-connection-string.png":::
 
       > [!TIP]
       > To confirm whether your connection string is associated with your Event Hubs namespace or with a specific event hub, make sure the connection string doesn't have the `EntityPath` parameter. If you find this parameter, the connection string is for a specific Event Hubs entity and isn't the correct string to use with your workflow.
@@ -143,7 +143,7 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
 
 1. In the action, provide information about the events that you want to send. Open the **Add new parameter** list. Selecting a parameter adds that property to the action.
 
-   :::image type="content" source="./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png" alt-text="Screenshot showing the Advanced Parameters option.":::
+   :::image type="content" source="./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png" alt-text="Screenshot showing the Advanced Parameters option." lightbox="./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png":::
 
    | Property | Required | Description |
    |----------|----------|-------------|
