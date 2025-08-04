@@ -3,7 +3,7 @@ title: Bicep deployment what-if
 description: Determine what changes will happen to your resources before deploying a Bicep file.
 ms.topic: conceptual
 ms.custom: devx-track-bicep, devx-track-azurecli, devx-track-azurepowershell
-ms.date: 04/28/2025
+ms.date: 08/04/2025
 ---
 
 # Bicep deployment what-if operation
@@ -14,23 +14,15 @@ You can use the what-if operation with [Visual Studio Code](./visual-studio-code
 
 During What-If operations, the evaluation and expansion of `templateLink` aren't supported. As a result, any resources deployed using template links within nested deployments, including template spec references, won't be visible in the What-If operation results.
 
-### Training resources
-
-If you would rather learn about the what-if operation through step-by-step guidance, see [Preview Azure deployment changes by using what-if](/training/modules/arm-template-whatif/).
+## Prerequisites
 
 [!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
 
-## What-if limits
+### Install Azure CLI module
 
-What-if expands nested templates until these limits are reached:
+To use what-if in Azure CLI, you must have Azure CLI 2.14.0 or later. If needed, [install the latest version of Azure CLI](/cli/azure/install-azure-cli).
 
-- 500 nested templates.
-- 800 resource groups in a cross resource-group deployment.
-- 5 minutes taken for expanding the nested templates.
-
-When one of the limits is reached, the remaining resources' [change type](#change-types) is set to **Ignore**.
-
-## Install Azure PowerShell module
+### Install Azure PowerShell module
 
 To use what-if in PowerShell, you must have version **4.2 or later of the Az module**.
 
@@ -42,68 +34,11 @@ Install-Module -Name Az -Force
 
 For more information about installing modules, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
-## Install Azure CLI module
+## Running the what-if operation
 
-To use what-if in Azure CLI, you must have Azure CLI 2.14.0 or later. If needed, [install the latest version of Azure CLI](/cli/azure/install-azure-cli).
+### What-if commands
 
-## See results
-
-When you use what-if in PowerShell or Azure CLI, the output includes color-coded results that help you see the different types of changes.
-
-![Bicep deployment what-if operation fullresourcepayload and change types](./media/deploy-what-if/resource-manager-deployment-whatif-change-types.png)
-
-The text output is:
-
-```powershell
-Resource and property changes are indicated with these symbols:
-  - Delete
-  + Create
-  ~ Modify
-
-The deployment will update the following scope:
-
-Scope: /subscriptions/./resourceGroups/ExampleGroup
-
-  ~ Microsoft.Network/virtualNetworks/vnet-001 [2018-10-01]
-    - tags.Owner: "Team A"
-    ~ properties.addressSpace.addressPrefixes: [
-      - 0: "10.0.0.0/16"
-      + 0: "10.0.0.0/15"
-      ]
-    ~ properties.subnets: [
-      - 0:
-
-          name:                     "subnet001"
-          properties.addressPrefix: "10.0.0.0/24"
-
-      ]
-
-Resource changes: 1 to modify.
-```
-
-> [!NOTE]
-> The what-if operation can't resolve the [reference function](./bicep-functions-resource.md#reference). Every time you set a property to a template expression that includes the reference function, what-if reports the property will change. This behavior happens because what-if compares the current value of the property (such as `true` or `false` for a boolean value) with the unresolved template expression. Obviously, these values will not match. When you deploy the Bicep file, the property will only change when the template expression resolves to a different value.
-
-## What-if commands
-
-### Azure PowerShell
-
-To preview changes before deploying a Bicep file, use [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) or [New-AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment). Add the `-Whatif` switch parameter to the deployment command.
-
-- `New-AzResourceGroupDeployment -Whatif` for resource group deployments
-- `New-AzSubscriptionDeployment -Whatif` and `New-AzDeployment -Whatif` for subscription level deployments
-
-You can use the `-Confirm` switch parameter to preview the changes and get prompted to continue with the deployment.
-
-- `New-AzResourceGroupDeployment -Confirm` for resource group deployments
-- `New-AzSubscriptionDeployment -Confirm` and `New-AzDeployment -Confirm` for subscription level deployments
-
-The preceding commands return a text summary that you can manually inspect. To get an object that you can programmatically inspect for changes, use [Get-AzResourceGroupDeploymentWhatIfResult](/powershell/module/az.resources/get-azresourcegroupdeploymentwhatifresult) or [Get-AzSubscriptionDeploymentWhatIfResult](/powershell/module/az.resources/get-azdeploymentwhatifresult).
-
-- `$results = Get-AzResourceGroupDeploymentWhatIfResult` for resource group deployments
-- `$results = Get-AzSubscriptionDeploymentWhatIfResult` or `$results = Get-AzDeploymentWhatIfResult` for subscription level deployments
-
-### Azure CLI
+# [Azure CLI](#tab/azure-cli)
 
 To preview changes before deploying a Bicep file, use:
 
@@ -125,7 +60,24 @@ The preceding commands return a text summary that you can manually inspect. To g
 
 If you want to return the results without colors, open your [Azure CLI configuration](/cli/azure/azure-cli-configuration) file. Set **no_color** to **yes**.
 
-### Azure REST API
+# [PowerShell](#tab/azure-powershell)
+
+To preview changes before deploying a Bicep file, use [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) or [New-AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment). Add the `-Whatif` switch parameter to the deployment command.
+
+- `New-AzResourceGroupDeployment -Whatif` for resource group deployments
+- `New-AzSubscriptionDeployment -Whatif` and `New-AzDeployment -Whatif` for subscription level deployments
+
+You can use the `-Confirm` switch parameter to preview the changes and get prompted to continue with the deployment.
+
+- `New-AzResourceGroupDeployment -Confirm` for resource group deployments
+- `New-AzSubscriptionDeployment -Confirm` and `New-AzDeployment -Confirm` for subscription level deployments
+
+The preceding commands return a text summary that you can manually inspect. To get an object that you can programmatically inspect for changes, use [Get-AzResourceGroupDeploymentWhatIfResult](/powershell/module/az.resources/get-azresourcegroupdeploymentwhatifresult) or [Get-AzSubscriptionDeploymentWhatIfResult](/powershell/module/az.resources/get-azdeploymentwhatifresult).
+
+- `$results = Get-AzResourceGroupDeploymentWhatIfResult` for resource group deployments
+- `$results = Get-AzSubscriptionDeploymentWhatIfResult` or `$results = Get-AzDeploymentWhatIfResult` for subscription level deployments
+
+---
 
 For REST API, use:
 
@@ -134,85 +86,12 @@ For REST API, use:
 - [Deployments - What If At Management Group Scope](/rest/api/resources/deployments/whatifatmanagementgroupscope) for management group deployments
 - [Deployments - What If At Tenant Scope](/rest/api/resources/deployments/whatifattenantscope) for tenant deployments.
 
-## Change types
-
-The what-if operation lists seven different types of changes:
-
-- **Create**: The resource doesn't currently exist but is defined in the Bicep file. The resource will be created.
-- **Delete**: This change type only applies when using [complete mode](../templates/deployment-modes.md) for JSON template deployment. The resource exists, but isn't defined in the Bicep file. With complete mode, the resource will be deleted. Only resources that [support complete mode deletion](../templates/deployment-complete-mode-deletion.md) are included in this change type.
-- **Ignore**: The resource exists, but isn't defined in the Bicep file. The resource won't be deployed or modified. When you reach the limits for expanding nested templates, you'll encounter this change type. See [What-if limits](#what-if-limits).
-- **NoChange**: The resource exists, and is defined in the Bicep file. The resource will be redeployed, but the properties of the resource won't change. This change type is returned when [ResultFormat](#result-format) is set to `FullResourcePayloads`, which is the default value.
-- **NoEffect**: The property is ready-only and will be ignored by the service. For example, the `sku.tier` property is always set to match `sku.name` in the [`Microsoft.ServiceBus`](/azure/templates/microsoft.servicebus/namespaces) namespace.
-- **Modify**: The resource exists, and is defined in the Bicep file. The resource will be redeployed, and the properties of the resource will change. This change type is returned when [ResultFormat](#result-format) is set to `FullResourcePayloads`, which is the default value.
-- **Deploy**: The resource exists, and is defined in the Bicep file. The resource will be redeployed. The properties of the resource may or may not change. The operation returns this change type when it doesn't have enough information to determine if any properties will change. You only see this condition when [ResultFormat](#result-format) is set to `ResourceIdOnly`.
-
-## Result format
-
-You control the level of detail that is returned about the predicted changes. You have two options:
-
-- **FullResourcePayloads** - returns a list of resources that will change and details about the properties that will change
-- **ResourceIdOnly** - returns a list of resources that will change
-
-The default value is **FullResourcePayloads**.
-
-For PowerShell deployment commands, use the `-WhatIfResultFormat` parameter. In the programmatic object commands, use the `ResultFormat` parameter.
-
-For Azure CLI, use the `--result-format` parameter.
-
-The following results show the two different output formats:
-
-- Full resource payloads
-
-  ```powershell
-  Resource and property changes are indicated with these symbols:
-    - Delete
-    + Create
-    ~ Modify
-
-  The deployment will update the following scope:
-
-  Scope: /subscriptions/./resourceGroups/ExampleGroup
-
-    ~ Microsoft.Network/virtualNetworks/vnet-001 [2018-10-01]
-      - tags.Owner: "Team A"
-      ~ properties.addressSpace.addressPrefixes: [
-        - 0: "10.0.0.0/16"
-        + 0: "10.0.0.0/15"
-        ]
-      ~ properties.subnets: [
-        - 0:
-
-          name:                     "subnet001"
-          properties.addressPrefix: "10.0.0.0/24"
-
-        ]
-
-  Resource changes: 1 to modify.
-  ```
-
-- Resource ID only
-
-  ```powershell
-  Resource and property changes are indicated with this symbol:
-    ! Deploy
-
-  The deployment will update the following scope:
-
-  Scope: /subscriptions/./resourceGroups/ExampleGroup
-
-    ! Microsoft.Network/virtualNetworks/vnet-001
-
-  Resource changes: 1 to deploy.
-  ```
-
-## Run what-if operation
-
 ### Set up environment
 
 To see how what-if works, let's runs some tests. First, deploy a Bicep file that creates a virtual network. You'll use this virtual network to test how changes are reported by what-if. Download a copy of the Bicep file.
 
 ```bicep
-resource vnet 'Microsoft.Network/virtualNetworks@2023-11-01' = {
+resource vnet 'Microsoft.Network/virtualNetworks@2024-07-01' = {
   name: 'vnet-001'
   location: resourceGroup().location
   tags: {
@@ -363,36 +242,7 @@ At the bottom of the output, it shows the tag Owner was deleted. The address pre
 
 Some of the properties that are listed as deleted won't actually change. Properties can be incorrectly reported as deleted when they aren't in the Bicep file, but are automatically set during deployment as default values. This result is considered "noise" in the what-if response. The final deployed resource will have the values set for the properties. As the what-if operation matures, these properties will be filtered out of the result.
 
-## Programmatically evaluate what-if results
-
-Now, let's programmatically evaluate the what-if results by setting the command to a variable.
-
-# [PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-$results = Get-AzResourceGroupDeploymentWhatIfResult `
-  -ResourceGroupName ExampleGroup `
-  --template-file "what-if-after.bicep"
-```
-
-You can see a summary of each change.
-
-```azurepowershell
-foreach ($change in $results.Changes)
-{
-  $change.Delta
-}
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli
-results=$(az deployment group what-if --resource-group ExampleGroup --template-file "what-if-after.bicep" --no-pretty-print)
-```
-
----
-
-## Confirm deletion
+### Confirm deletion
 
 To preview changes before deploying a Bicep file, use the confirm switch parameter with the deployment command. If the changes are as you expected, respond that you want the deployment to complete.
 
@@ -452,6 +302,156 @@ Are you sure you want to execute the deployment?
 ```
 
 You see the expected changes and can confirm that you want the deployment to run.
+
+### Programmatically evaluate what-if results
+
+Now, let's programmatically evaluate the what-if results by setting the command to a variable.
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+$results = Get-AzResourceGroupDeploymentWhatIfResult `
+  -ResourceGroupName ExampleGroup `
+  --template-file "what-if-after.bicep"
+```
+
+You can see a summary of each change.
+
+```azurepowershell
+foreach ($change in $results.Changes)
+{
+  $change.Delta
+}
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+results=$(az deployment group what-if --resource-group ExampleGroup --template-file "what-if-after.bicep" --no-pretty-print)
+```
+
+---
+
+## Understand what-if results
+
+### View results
+
+When you use what-if in PowerShell or Azure CLI, the output includes color-coded results that help you see the different types of changes.
+
+![Bicep deployment what-if operation fullresourcepayload and change types](./media/deploy-what-if/resource-manager-deployment-whatif-change-types.png)
+
+The text output is:
+
+```powershell
+Resource and property changes are indicated with these symbols:
+  - Delete
+  + Create
+  ~ Modify
+
+The deployment will update the following scope:
+
+Scope: /subscriptions/./resourceGroups/ExampleGroup
+
+  ~ Microsoft.Network/virtualNetworks/vnet-001 [2018-10-01]
+    - tags.Owner: "Team A"
+    ~ properties.addressSpace.addressPrefixes: [
+      - 0: "10.0.0.0/16"
+      + 0: "10.0.0.0/15"
+      ]
+    ~ properties.subnets: [
+      - 0:
+
+          name:                     "subnet001"
+          properties.addressPrefix: "10.0.0.0/24"
+
+      ]
+
+Resource changes: 1 to modify.
+```
+
+> [!NOTE]
+> The what-if operation can't resolve the [reference function](./bicep-functions-resource.md#reference). Every time you set a property to a template expression that includes the reference function, what-if reports the property will change. This behavior happens because what-if compares the current value of the property (such as `true` or `false` for a boolean value) with the unresolved template expression. Obviously, these values will not match. When you deploy the Bicep file, the property will only change when the template expression resolves to a different value.
+
+### Change types
+
+The what-if operation lists seven different types of changes:
+
+- **Create**: The resource doesn't currently exist but is defined in the Bicep file. The resource will be created.
+- **Delete**: This change type only applies when using [complete mode](../templates/deployment-modes.md) for JSON template deployment. The resource exists, but isn't defined in the Bicep file. With complete mode, the resource will be deleted. Only resources that [support complete mode deletion](../templates/deployment-complete-mode-deletion.md) are included in this change type.
+- **Ignore**: The resource exists, but isn't defined in the Bicep file. The resource won't be deployed or modified. When you reach the limits for expanding nested templates, you'll encounter this change type. See [What-if limits](#what-if-limits).
+- **NoChange**: The resource exists, and is defined in the Bicep file. The resource will be redeployed, but the properties of the resource won't change. This change type is returned when [ResultFormat](#result-format) is set to `FullResourcePayloads`, which is the default value.
+- **NoEffect**: The property is ready-only and will be ignored by the service. For example, the `sku.tier` property is always set to match `sku.name` in the [`Microsoft.ServiceBus`](/azure/templates/microsoft.servicebus/namespaces) namespace.
+- **Modify**: The resource exists, and is defined in the Bicep file. The resource will be redeployed, and the properties of the resource will change. This change type is returned when [ResultFormat](#result-format) is set to `FullResourcePayloads`, which is the default value.
+- **Deploy**: The resource exists, and is defined in the Bicep file. The resource will be redeployed. The properties of the resource may or may not change. The operation returns this change type when it doesn't have enough information to determine if any properties will change. You only see this condition when [ResultFormat](#result-format) is set to `ResourceIdOnly`.
+
+### Result format
+
+You control the level of detail that is returned about the predicted changes. You have two options:
+
+- **FullResourcePayloads** - returns a list of resources that will change and details about the properties that will change
+- **ResourceIdOnly** - returns a list of resources that will change
+
+The default value is **FullResourcePayloads**.
+
+For PowerShell deployment commands, use the `-WhatIfResultFormat` parameter. In the programmatic object commands, use the `ResultFormat` parameter.
+
+For Azure CLI, use the `--result-format` parameter.
+
+The following results show the two different output formats:
+
+- Full resource payloads
+
+  ```powershell
+  Resource and property changes are indicated with these symbols:
+    - Delete
+    + Create
+    ~ Modify
+
+  The deployment will update the following scope:
+
+  Scope: /subscriptions/./resourceGroups/ExampleGroup
+
+    ~ Microsoft.Network/virtualNetworks/vnet-001 [2018-10-01]
+      - tags.Owner: "Team A"
+      ~ properties.addressSpace.addressPrefixes: [
+        - 0: "10.0.0.0/16"
+        + 0: "10.0.0.0/15"
+        ]
+      ~ properties.subnets: [
+        - 0:
+
+          name:                     "subnet001"
+          properties.addressPrefix: "10.0.0.0/24"
+
+        ]
+
+  Resource changes: 1 to modify.
+  ```
+
+- Resource ID only
+
+  ```powershell
+  Resource and property changes are indicated with this symbol:
+    ! Deploy
+
+  The deployment will update the following scope:
+
+  Scope: /subscriptions/./resourceGroups/ExampleGroup
+
+    ! Microsoft.Network/virtualNetworks/vnet-001
+
+  Resource changes: 1 to deploy.
+  ```
+
+## Limitations
+
+What-if expands nested templates until these limits are reached:
+
+- 500 nested templates.
+- 800 resource groups in a cross resource-group deployment.
+- 5 minutes taken for expanding the nested templates.
+
+When one of the limits is reached, the remaining resources' [change type](#change-types) is set to **Ignore**.
 
 ## Clean up resources
 
