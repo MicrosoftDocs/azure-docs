@@ -44,7 +44,7 @@ WebJobs come in three main types:
 
 :::image type="content" border="false" source="media/overview-webjobs/webjob-types-app-service.png" alt-text="Diagram overview of WebJobs in Azure App Service, showing job types.":::
 
-[!INCLUDE [webjobs supported platforms and file types](../includes/webjobs-create/webjobs-supported-platforms.md)]
+[!INCLUDE [webjobs supported platforms and file types](./includes/webjobs-create/webjobs-supported-platforms.md)]
 
 ## Deployment options
 
