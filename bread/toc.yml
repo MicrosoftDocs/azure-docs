@@ -106,9 +106,6 @@ items:
     - name: App Service Environments
       tocHref: /azure/app-service/environment/
       topicHref: /azure/app-service/environment/
-    - name: Web Apps
-      tocHref: /azure/app-service/
-      topicHref: /azure/app-service/
     - name: Mobile Apps
       tocHref: /azure/developer/mobile-apps/azure-mobile-apps/overview
       topicHref: /azure/developer/mobile-apps/azure-mobile-apps/overview

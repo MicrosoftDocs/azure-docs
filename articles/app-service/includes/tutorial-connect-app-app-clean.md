@@ -9,7 +9,6 @@ ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.devlang: azurecli
 ms.custom: azureday1
-ms.subservice: web-apps
 ---
 
 In the preceding steps, you created Azure resources in a resource group. 

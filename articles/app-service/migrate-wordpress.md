@@ -2,8 +2,7 @@
 title: Migrate WordPress to App Service on Linux
 description: Migrate WordPress to App Service on Linux.
 author: msangapu-msft
-
-ms.subservice: wordpress
+ms.service: azure-app-service
 ms.topic: article
 ms.date: 01/20/2023
 ms.author: msangapu
