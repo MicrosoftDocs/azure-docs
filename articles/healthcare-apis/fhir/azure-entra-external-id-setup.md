@@ -21,9 +21,9 @@ Creating an Entra External ID tenant for the FHIR service sets up a secure infra
 
 If you already created an Entra External id, you can skip to [Deploy the FHIR service with entra external id](#deploy-the-fhir-service-by-using-an-arm-template). 
 
-### Deploy an Entra External Id Tenant by using an ARM template
+### Deploy an Entra External ID Tenant by using an ARM template
 
-Use PowerShell or Azure CLI to deploy the [ARM template](https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/main/samples/fhir-aad-b2c/b2c-arm-template.json) programmatically to an Azure subscription. For more information about syntax, properties, and usage of the template, see [Deploy an instance of Azure Active Directory B2C](https://learn.microsoft.com/en-us/azure/templates/microsoft.azureactivedirectory/ciamdirectories?pivots=deployment-language-terraform). 
+Use PowerShell or Azure CLI to deploy the [ARM template](https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/main/samples/fhir-aad-b2c/b2c-arm-template.json) programmatically to an Azure subscription. For more information about syntax, properties, and usage of the template, see [ Deploy an instance of Microsoft Entra External ID.](https://learn.microsoft.com/en-us/azure/templates/microsoft.azureactivedirectory/ciamdirectories?pivots=deployment-language-terraform). 
 
 Run the code in Azure Cloud Shell or in PowerShell locally in Visual Studio Code to deploy the FHIR service to the Entra External Id.
 
