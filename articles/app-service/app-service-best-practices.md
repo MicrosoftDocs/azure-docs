@@ -100,7 +100,7 @@ In App Service, you can add identical custom domains to multiple web apps, as lo
 
 Another option is to use a load balancer in front of the web apps, such as Azure Front Door or Azure Traffic Manager, to ensure high availability for your web apps. For more information, see [Quickstart: Create an Azure Front Door (classic) using the Azure portal](../frontdoor/quickstart-create-front-door.md) or [Controlling Azure App Service traffic with Azure Traffic Manager](./web-sites-traffic-manager.md).
 
-## Related content
+## Resource-specific best practices
 
 To get actionable best practices that are specific to your resource, use [App Service diagnostics](./overview-diagnostics.md):
 
