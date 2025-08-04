@@ -37,6 +37,8 @@ In the Azure portal, there are three sections for the migration process:
 
 ## <a name="migrate"></a>Migrate to a Standard SKU public IP address
 
+#### [Portal](#tab/portal)
+
 Use the steps in the Azure portal to migrate your Basic SKU public IP address resource to a Standard SKU public IP address resource.
 
 > [!NOTE]
@@ -51,7 +53,7 @@ Use the steps in the Azure portal to migrate your Basic SKU public IP address re
 
 1. The **Migrate** tab lets you prepare for migration, and then migrate. If the environment requires manual preparation steps, you'll see a list of prerequisites that must be met before migration can begin. If these prerequisites aren't met, validation fails and you can't proceed with the migration. You must fix any issues identified in this section before you can proceed with the migration.
 
-   For example, if your gateway subnet doesn't have enough available IP addresses, you'll see a message indicating that the gateway subnet size must be increased. To fix this issue, go to your virtual network and [change](../virtual-network/virtual-network-manage-subnet.md#change-subnet-settings) the GatewaySubnet size to /27 or larger.
+Before your initiate migration for your VPN gateway, verify that your gateway subnet has at least three available IP addresses in your current prefix.If your current gateway subnet is /28 or smaller, the migration tool may error out. You need to [add multiple prefixes](../virtual-network/how-to-multiple-prefixes-subnet.md) for the gateway subnet before you can proceed with migration.
 
 1. When all the prerequisites are met, you see the **Prepare** button. Click the **Prepare** button to prepare the new Standard SKU public IP address resources.
 
@@ -90,6 +92,52 @@ When the public IP address migration is complete, you can view your resources on
 * To view the gateway SKU, go to the **Overview** page for your VPN gateway.
 
 * To view the public IP address SKU, go to the **Properties** page for your VPN gateway. Click the IP address value to open the Public IP address resource and view the resource SKU.
+#### [PowerShell](#tab/powershell)
+
+Use Azure PowerShell to migrate your Basic SKU public IP address resource to a Standard SKU public IP address resource.
+
+> [!NOTE]
+> * Migrating your public IP address from Basic SKU to Standard SKU also upgrades your VPN Gateway SKU from a non-AZ to an AZ SKU.
+> * Before starting migration, ensure your gateway subnet has at least three available IP addresses in its current prefix. If your subnet is /28 or smaller, the migration tool may fail. [Add multiple prefixes](../virtual-network/how-to-multiple-prefixes-subnet.md) if needed.
+
+### Prepare for migration
+
+Run [Invoke-AzVirtualNetworkGatewayPrepareMigration](/powershell/module/az.network/invoke-azvirtualnetworkgatewaypreparemigration?view=azps-latest) to prepare your gateway for migration.
+
+```azurepowershell-interactive
+$gateway = Get-AzVirtualNetworkGateway -Name "ContosoVirtualGateway" -ResourceGroupName "RGName"
+$migrationParams = New-AzVirtualNetworkGatewayMigrationParameter -MigrationType UpgradeDeploymentToStandardIP
+Invoke-AzVirtualNetworkGatewayPrepareMigration -InputObject $gateway -MigrationParameter $migrationParams
+```
+
+### Execute migration
+
+Run [Invoke-AzVirtualNetworkGatewayExecuteMigration](/powershell/module/az.network/invoke-azvirtualnetworkgatewayexecutemigration?view=azps-latest) to start the migration.
+
+```azurepowershell-interactive
+$gateway = Get-AzVirtualNetworkGateway -Name "ContosoVirtualGateway" -ResourceGroupName "RGName"
+Invoke-AzVirtualNetworkGatewayExecuteMigration -InputObject $gateway
+```
+
+### Commit migration
+
+After validating that migration was successful, run [Invoke-AzVirtualNetworkGatewayCommitMigration](/powershell/module/az.network/invoke-azvirtualnetworkgatewaycommitmigration?view=azps-latest) to finalize the migration.
+
+```azurepowershell-interactive
+$gateway = Get-AzVirtualNetworkGateway -Name "ContosoVirtualGateway" -ResourceGroupName "RGName"
+Invoke-AzVirtualNetworkGatewayCommitMigration -InputObject $gateway
+```
+
+### Abort migration
+
+If you need to roll back the migration before committing, run [Invoke-AzVirtualNetworkGatewayAbortMigration](/powershell/module/az.network/invoke-azvirtualnetworkgatewayabortmigration?view=azps-latest).
+
+```azurepowershell-interactive
+$gateway = Get-AzVirtualNetworkGateway -Name "ContosoVirtualGateway" -ResourceGroupName "RGName"
+Invoke-AzVirtualNetworkGatewayAbortMigration -InputObject $gateway
+```
+
+---
 
 ## Known Issues
 
