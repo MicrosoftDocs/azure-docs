@@ -52,29 +52,29 @@ Run an assessment as follows:
 
 1.  After selecting the PostgreSQL workloads, select **Next** to proceed.
 
-:::image type="content" source="./media/tutorial-postgresql-assessment-for-flexible-azure-migration/review-selected-workloads.png" alt-text="Screenshot shows how to review selected workloads" lightbox="./media/tutorial-postgresql-assessment-for-flexible-azure-migration/review-selected-workloads.png":::
+    :::image type="content" source="./media/tutorial-postgresql-assessment-for-flexible-azure-migration/review-selected-workloads.png" alt-text="Screenshot shows how to review selected workloads" lightbox="./media/tutorial-postgresql-assessment-for-flexible-azure-migration/review-selected-workloads.png":::
 
 1. In the **General** tab, either set custom values or keep the default assessment settings, and then select **Next**.
 
     :::image type="content" source="./media/tutorial-postgresql-assessment-for-flexible-azure-migration/review-created-assessment.png" alt-text="Screenshot shows review the created assessment" lightbox="./media/tutorial-postgresql-assessment-for-flexible-azure-migration/review-created-assessment.png":::
 
-| Section | Setting | Details|
-|---------|---------|--------|
-| Target and pricing settings | Default target location | The Azure region to which you want to migrate. Azure Database for PostgreSQL flexible server configuration and cost recommendations are based on the location that you specify|
-| Target and pricing settings | Default environment | Choose the environment type (Production or Dev/Test) for PostgreSQL deployments to apply the appropriate pricing.|  
-| Target and pricing settings | Currency   | The billing currency for your account.|
-| Target and pricing settings | Program/Offer | Specify the Microsoft licensing program you would like to use for cost estimation. Select Enterprise Agreement if you have a negotiated Enterprise Agreement with Microsoft. Choose the Azure offer in which you're enrolled. By default, this field is set to Pay-as-you-go, which provides retail Azure prices.<br>You can apply another discount by using Reserved Capacity and Azure Hybrid Benefit on top of the Pay-as-you-go offer.<br>You can apply Azure Hybrid Benefit to both Pay-as-you-go and Dev/Test environments. However, the assessment doesn't support applying Reserved Capacity to Dev/Test environments.<br>If the offer is Pay-as-you-go and Reserved Capacity is set to 'No reserved instances,' the monthly cost is calculated by multiplying the VM uptime hours by the hourly price of the recommended SKU. |
-| Target and pricing settings | Default Savings options - Azure Database for PostgreSQL flexible server (PaaS) | Specify the reserved capacity savings option that you want the assessment to consider, helping to optimize your Azure cost.<br>Azure reservations (one or three year reserved) are a good option for the most consistently running resources.<br>When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.|
-| Target and pricing settings | Discount (%) | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%. |
-| Target and pricing settings | Uptime | Specify the duration (days per month/hour per day) that servers/VMs run. This is useful for computing cost estimates for PostgreSQL on Azure VM where you're aware that Azure VMs might not run continuously.   |
-| Assessment criteria | Sizing criteria | You can change this to As on-premises to get recommendations based on just the on-premises PostgreSQL Server configuration without the performance metric-based optimizations.  |
-| Assessment criteria  | Performance history  | Indicate the data duration on which you want to base the assessment. This setting isn't applicable for PostgreSQL instances as the sizing criteria is "Configuration-based". Performance history is relevant when performance-based assessments are available.|
-| Assessment criteria | Percentile utilization | Indicate the percentile value you want to use for the performance sample. This setting isn't applicable for PostgreSQL instances as the sizing criteria is "Configuration-based". Performance history is relevant when performance-based assessments are available.  | 
-| Assessment criteria  | Comfort factor | Indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage. |
+    | Section | Setting | Details|
+    |---------|---------|--------|
+    | Target and pricing settings | Default target location | The Azure region to which you want to migrate. Azure Database for PostgreSQL flexible server configuration and cost recommendations are based on the location that you specify|
+    | Target and pricing settings | Default environment | Choose the environment type (Production or Dev/Test) for PostgreSQL deployments to apply the appropriate pricing.|  
+    | Target and pricing settings | Currency   | The billing currency for your account.|
+    | Target and pricing settings | Program/Offer | Specify the Microsoft licensing program you would like to use for cost estimation. Select Enterprise Agreement if you have a negotiated Enterprise Agreement with Microsoft. Choose the Azure offer in which you're enrolled. By default, this field is set to Pay-as-you-go, which provides retail Azure prices.<br>You can apply another discount by using Reserved Capacity and Azure Hybrid Benefit on top of the Pay-as-you-go offer.<br>You can apply Azure Hybrid Benefit to both Pay-as-you-go and Dev/Test environments. However, the assessment doesn't support applying Reserved Capacity to Dev/Test environments.<br>If the offer is Pay-as-you-go and Reserved Capacity is set to 'No reserved instances,' the monthly cost is calculated by multiplying the VM uptime hours by the hourly price of the recommended SKU. |
+    | Target and pricing settings | Default Savings options - Azure Database for PostgreSQL flexible server (PaaS) | Specify the reserved capacity savings option that you want the assessment to consider, helping to optimize your Azure cost.<br>Azure reservations (one or three year reserved) are a good option for the most consistently running resources.<br>When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.|
+    | Target and pricing settings | Discount (%) | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%. |
+    | Target and pricing settings | Uptime | Specify the duration (days per month/hour per day) that servers/VMs run. This is useful for computing cost estimates for PostgreSQL on Azure VM where you're aware that Azure VMs might not run continuously.   |
+    | Assessment criteria | Sizing criteria | You can change this to As on-premises to get recommendations based on just the on-premises PostgreSQL Server configuration without the performance metric-based optimizations.  |
+    | Assessment criteria  | Performance history  | Indicate the data duration on which you want to base the assessment. This setting isn't applicable for PostgreSQL instances as the sizing criteria is "Configuration-based". Performance history is relevant when performance-based assessments are available.|
+    | Assessment criteria | Percentile utilization | Indicate the percentile value you want to use for the performance sample. This setting isn't applicable for PostgreSQL instances as the sizing criteria is "Configuration-based". Performance history is relevant when performance-based assessments are available.  | 
+    | Assessment criteria  | Comfort factor | Indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage. |
 
 1. In the **Advanced** tab, selelct **Edit Defaults** to enter PostgreSQL-specific settings.
 
-    :::image type="content" source="./media/tutorial-postgresql-assessment-for-flexible-azure-migration/edit-deafults.png" alt-text="Screenshot shows users to configure PostgreSQL-specific settings by selecting edit defaults" lightbox="./media/tutorial-postgresql-assessment-for-flexible-azure-migration/edit-deafults.png":::
+    :::image type="content" source="./media/tutorial-postgresql-assessment-for-flexible-azure-migration/edit-defaults.png" alt-text="Screenshot shows users to configure PostgreSQL-specific settings by selecting edit defaults" lightbox="./media/tutorial-postgresql-assessment-for-flexible-azure-migration/edit-defaults.png":::
 
 1. Select **Edit Defaults** for PostgreSQL, configure the required settings, select **Save**, return to the **Advanced** tab, and then select **Next**.
 
