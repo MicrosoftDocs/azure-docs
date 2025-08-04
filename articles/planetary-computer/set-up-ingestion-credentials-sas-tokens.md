@@ -3,7 +3,7 @@ title: SAS Tokens for Data Ingestion in Microsoft Planetary Computer Pro
 description: Learn how to add credentials and ingest data into Microsoft Planetary Computer Pro.
 author: prasadko
 ms.author: prasadkomma
-ms.service: azure
+ms.service: planetary-computer-pro
 ms.topic: how-to
 ms.date: 05/08/2025
 
@@ -138,7 +138,7 @@ container_name = parsed_url.path.lstrip("/")
 # Login to Azure using the Azure CLI
 credential = azure.identity.AzureCliCredential()
 
-# Setup Blob Service Client
+# Set up Blob Service Client
 with azure.storage.blob.BlobServiceClient(
         account_url=account_url,
         credential=credential,
@@ -196,7 +196,7 @@ else:
 ```
 
 ## Next steps
-Now that you have setup managed identity, its time to ingest data. 
+Now that you have set up managed identity, its time to ingest data. 
 
 For Single Item Ingestion:
 

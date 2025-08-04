@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 08/08/2024
 ms.author: allensu
 ms.custom: template-how-to
+# Customer intent: As a cloud administrator, I want to create, disable, enable, and delete Traffic Manager profiles so that I can effectively manage traffic routing to my cloud services and ensure optimal performance for users.
 ---
 
 # Manage an Azure Traffic Manager profile

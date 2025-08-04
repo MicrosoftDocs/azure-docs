@@ -21,7 +21,9 @@ This article provides the properties and schema for Service Bus events. For an 
 | [Azure Service Bus to Event Grid integration](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Overview of integrating Service Bus with Event Grid. |
 
 > [!NOTE]
-> When a failover occurs for a Service Bus namespace that's Geo-DR enabled, the secondary namespace doesn't emit events to Event Grid. You need to manually add the Event Grid subscription for the secondary namespace. 
+> When a failover occurs for a Service Bus namespace that's Geo-DR enabled, the secondary namespace doesn't emit events to Event Grid. You need to manually add the Event Grid subscription for the secondary namespace.
+>
+> Check the [Service Bus Geo-Replication documentation](/azure/service-bus-messaging/service-bus-geo-replication) to understand what happens for a Service Bus namespace that's Geo-Replication enabled.
 
 ## Next steps
 

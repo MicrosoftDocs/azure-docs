@@ -9,6 +9,7 @@ ms.service: azure-traffic-manager
 ms.topic: concept-article
 ms.date: 08/08/2024
 ms.author: allensu
+# Customer intent: "As a cloud architect, I want to implement nested traffic manager profiles, so that I can combine multiple traffic-routing methods to optimize application deployment and ensure high availability across various regions."
 ---
 
 # Nested Traffic Manager profiles

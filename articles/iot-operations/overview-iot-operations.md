@@ -1,13 +1,13 @@
 ---
 title: What is Azure IoT Operations?
-description: Azure IoT Operations is a unified data plane for the edge, that runs on Azure Arc-enabled Kubernetes clusters, and part of the Microsoft adaptive cloud approach.
+description: Azure IoT Operations is a unified data plane for the edge that runs on Azure Arc-enabled Kubernetes clusters, and is part of the Microsoft adaptive cloud approach.
 author: dominicbetts
 ms.author: dobett
-ms.topic: conceptual
+ms.topic: overview
 ms.custom:
   - ignite-2023
   - references_regions
-ms.date: 10/22/2024
+ms.date: 07/17/2025
 ---
 
 # What is Azure IoT Operations?
@@ -51,7 +51,7 @@ With Azure IoT Operations, you can use data collected from assets and equipment 
 
 ## Architecture overview
 
-<!-- Art Library Source# ConceptArt-0-000-067 -->
+<!-- Art Library Source# ConceptArt-0-000-077 -->
 
 :::image type="content" source="media/overview-iot-operations/azure-iot-operations-architecture.svg" alt-text="Diagram that shows the high-level architecture of Azure IoT Operations." lightbox="media/overview-iot-operations/azure-iot-operations-architecture.png" border="false":::
 
@@ -69,11 +69,13 @@ Azure IoT Operations runs on Arc-enabled Kubernetes clusters on the edge. You ca
 
 ## Manage devices and assets
 
-Azure IoT Operations can connect to various industrial devices and assets. You can use the [operations experience](discover-manage-assets/howto-manage-assets-remotely.md?tabs=portal) or the [Azure CLI](discover-manage-assets/howto-manage-assets-remotely.md?tabs=cli) to manage the devices and assets that you want to connect to.
+Azure IoT Operations can connect to various industrial devices and assets. You can use the [operations experience](discover-manage-assets/howto-configure-opc-ua.md) or the [Azure CLI](discover-manage-assets/howto-configure-opc-ua.md) to manage the devices and assets that you want to connect to.
 
-The [connector for OPC UA](discover-manage-assets/overview-opcua-broker.md) manages the connection to OPC UA servers and other leaf devices. The connector for OPC UA publishes data from the OPC UA servers to MQTT broker topics.
+The [connector for OPC UA](discover-manage-assets/overview-opc-ua-connector.md) manages the connection to OPC UA servers and other leaf devices. The connector for OPC UA publishes data from the OPC UA servers to MQTT broker topics.
 
-Azure IoT Operations uses the Azure Device Registry to store information about local assets in the cloud. The service enables you to [manage assets on the edge from the Azure portal or the Azure CLI](discover-manage-assets/howto-secure-assets.md). The Azure Device Registry also includes a schema registry for the assets. Data flows use these schemas to deserialize and serialize messages.
+Azure IoT Operations uses the Azure Device Registry to store information about local assets in the cloud. The service enables you to [manage assets on the edge from the Azure portal or the Azure CLI](discover-manage-assets/howto-secure-assets.md). The Azure Device Registry uses _namespaces (preview)_ to organize assets and devices. Each Azure IoT Operations instance uses a single namespace for its assets and devices. Multiple instances can share a single namespace.
+
+The Azure Device Registry also includes a schema registry for the assets. Data flows use these schemas to deserialize and serialize messages.
 
 ## Automatic asset discovery
 
@@ -121,15 +123,13 @@ To visualize and analyze sensor data and messages from your devices and assets, 
 
 To secure communication between devices and the cloud through isolated network environments based on the ISA-95/Purdue Network architecture, use the Azure IoT Layered Network Management (preview) component.
 
+## Supported versions
+
+[!INCLUDE [supported-versions](includes/supported-versions.md)]
+
 ## Supported environments
 
-Microsoft supports the following environments for Azure IoT Operations deployments.
-
-| Environment | Minimum version | Availability |
-| ----------- | --------------- | ------------ |
-| K3s on Ubuntu 24.04 | K3s version 1.31.1 | General availability |
-| Azure Kubernetes Service (AKS) Edge Essentials on Windows 11 IoT Enterprise | AksEdge-K3s-1.29.6-1.8.202.0 | Public preview |
-| Azure Kubernetes Service (AKS) on Azure Local | Azure Stack HCI OS, version 23H2, build 2411 | Public preview |
+[!INCLUDE [supported-environments-table](includes/supported-environments-table.md)]
 
 ## Supported regions
 
@@ -144,6 +144,7 @@ Azure IoT Operations supports clusters that are Arc-enabled in the following reg
 | West US 3    | westus3     |
 | West Europe  | westeurope  |
 | North Europe | northeurope |
+|Germany West Central | germanywestcentral |
 
 This list of supported regions only applies to the region that you use when connecting your cluster to Azure Arc. This list doesn't restrict you from using your preferred Azure region for your cloud resources. Azure IoT Operations components and other resources deployed to your cluster in these supported regions can still connect to cloud resources in different regions.
 

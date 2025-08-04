@@ -3,7 +3,7 @@ title: Bulk Data Ingestion in Microsoft Planetary Computer Pro
 description: This article shows how to use the Microsoft Planetary Computer Pro Bulk Ingestion API to ingest a large volume of geospatial data into a GeoCatalog.
 author: prasadko
 ms.author: prasadkomma
-ms.service: azure
+ms.service: planetary-computer-pro
 ms.topic: how-to #Don't Change
 ms.date: 04/18/2024
 #customer intent: As a geocatalog user, I want to use the Bulk Ingestion API so that I can efficiently ingest a large amount of geospatial data into my GeoCatalog.
@@ -315,7 +315,7 @@ In this final step, we're using the ingestion API to initiate a bulk ingestion w
     else:
         print(f"Failed to create ingestion run: {wf_response.text}")
 
-Once the workflow is complete, you can query, retrieve, or visualize your geospatial data using the GeoCatalog STAC or data APIs, or with the Data Explorer.
+Once the workflow is complete, you can query, retrieve, or visualize your geospatial data using the GeoCatalog STAC or data APIs, or with the Data Explorer. If you encounter issues, refer to the [troubleshooting guide](./troubleshooting-ingestion.md) or the list of [ingestion error codes](./error-codes-ingestion.md).
  
 ## Clean up resources
 
@@ -348,3 +348,5 @@ Now that you added a few items, you should configure the data for visualization.
 - [Quickstart: Ingest data using the Microsoft Planetary Computer Pro web interface](./ingest-via-web-interface.md)
 - [Ingest data into Microsoft Planetary Computer Pro](./ingestion-overview.md)
 - [Ingestion source for Microsoft Planetary Computer Pro](./ingestion-source.md)
+- [Troubleshooting data ingestion](./troubleshooting-ingestion.md)
+- [Error codes: Microsoft Planetary Computer Pro ingestion](./error-codes-ingestion.md)

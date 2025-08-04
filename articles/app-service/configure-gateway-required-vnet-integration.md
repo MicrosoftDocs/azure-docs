@@ -1,14 +1,17 @@
 ---
 title: Configure gateway-required virtual network integration for your app
 description: Integrate your app in Azure App Service with Azure virtual networks using gateway-required virtual network integration.
-author: madsd
+author: seligj95
 ms.topic: how-to
-ms.date: 10/17/2023
-ms.author: madsd
+ms.date: 06/19/2025
+ms.author: jordanselig
 ms.custom:
   - build-2025
 ---
 # Configure gateway-required virtual network integration
+
+> [!IMPORTANT]
+> For all virtual network integrations with App Service, the recommended method uses [regional virtual network integration](./overview-vnet-integration.md). Gateway-required virtual network integration is a legacy method with limitations that regional virtual network integration mitigates.
 
 Gateway-required virtual network integration supports connecting to a virtual network in another region or to a classic virtual network. Gateway-required virtual network integration only works for Windows plans. We recommend using [regional virtual network integration](./overview-vnet-integration.md) to integrate with virtual networks.
 
@@ -38,7 +41,7 @@ To create a gateway:
 
 1. [Create the VPN gateway and subnet](../vpn-gateway/tutorial-create-gateway-portal.md). Select a route-based VPN type.
 
-1. [Set the point-to-site addresses](../vpn-gateway/point-to-site-certificate-gateway.md#addresspool). If the gateway isn't in the basic SKU, then IKEV2 must be disabled in the point-to-site configuration and SSTP must be selected. The point-to-site address space must be in the RFC 1918 address blocks 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16.
+1. [Set the point-to-site addresses](../vpn-gateway/point-to-site-certificate-gateway.md#addresspool). If the gateway isn't in the basic SKU, then IKEV2 must be disabled in the point-to-site configuration and SSTP must be selected. The point-to-site address space must be in the RFC 1,918 address blocks 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16.
 
 If you create the gateway for use with gateway-required virtual network integration, you don't need to upload a certificate. Creating the gateway can take 30 minutes. You won't be able to integrate your app with your virtual network until the gateway is created.
 
@@ -79,7 +82,7 @@ The App Service plan virtual network integration UI shows you all the virtual ne
 The private IP assigned to the instance is exposed via the environment variable WEBSITE_PRIVATE_IP. Kudu console UI also shows the list of environment variables available to the web app. This IP is an IP from the address range of the point-to-site address pool configured on the virtual network gateway. This IP will be used by the web app to connect to the resources through the Azure virtual network.
 
 > [!NOTE]
-> The value of WEBSITE_PRIVATE_IP is bound to change. However, it will be an IP within the address range of the point-to-site address range, so you'll need to allow access from the entire address range.
+> The value of WEBSITE_PRIVATE_IP is bound to change. However, it will be an IP within the address range of the point-to-site address range, so you need to allow access from the entire address range.
 >
 
 ## Gateway-required virtual network integration routing
@@ -94,11 +97,11 @@ If certificates or network information is changed, select **Sync Network**. When
 
 ### Certificate renewal
 
-The certificate used by the gateway-required virtual network integration has a lifespan of 8 years. If you have apps with gateway-required virtual network integrations that live longer you will have to renew the certificate. You can validate if your certificate has expired or has less than 6 month to expiry by visiting the VNet Integration page in Azure portal.
+The certificate used by the gateway-required virtual network integration has a lifespan of eight years. If you have apps with gateway-required virtual network integrations that live longer you'll have to renew the certificate. You can validate if your certificate has expired or has less than six months to expiry by visiting the VNet Integration page in Azure portal.
 
 :::image type="content" source="./media/overview-vnet-integration/vnetint-gateway-cert-expiry.png" alt-text="Screenshot that shows a near expiry gateway-required virtual network integration certificate.":::
 
-You can renew your certificate when the portal shows a near expiry or expired certificate. To renew the certificate you need to disconnect and reconnect the virtual network. Reconnecting will cause a brief outage in connectivity between your app and your virtual network. Your app isn't restarted, but the loss of connectivity could cause your site to not function properly.
+You can renew your certificate when the portal shows a near expiry or expired certificate. To renew the certificate, you need to disconnect and reconnect the virtual network. Reconnecting causes a brief outage in connectivity between your app and your virtual network. Your app isn't restarted, but the loss of connectivity could cause your site to not function properly.
 
 ## Pricing details
 

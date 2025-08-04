@@ -10,6 +10,7 @@ ms.date: 03/12/2025
 ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm, devx-track-arm-template
 
 #CustomerIntent: As an Azure administrator, I want to learn how to enable NSG flow logs using an ARM template so that I can log traffic flowing through a network security group.
+# Customer intent: As an Azure administrator, I want to enable NSG flow logs using an ARM template so that I can efficiently monitor and analyze network traffic for security compliance.
 ---
 
 # Quickstart: Configure NSG flow logs using an Azure Resource Manager (ARM) template

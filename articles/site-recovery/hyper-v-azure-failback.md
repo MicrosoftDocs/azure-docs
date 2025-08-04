@@ -8,6 +8,7 @@ ms.date: 12/19/2024
 ms.author: jsuri
 ms.custom: engagement-fy23
 
+# Customer intent: "As a system administrator, I want to fail back Hyper-V VMs from Azure to an on-premises site, so that I can ensure minimal downtime and maintain data consistency while transitioning workloads back to local infrastructure."
 ---
 
 # Run a failback for Hyper-V VMs

@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 10/12/2023
+# Customer intent: "As a security administrator, I want to configure Web Application Firewall policies for Azure Front Door, so that I can control access to my web applications and ensure protection against malicious traffic."
 ---
 
 # Policy settings for Web Application Firewall in Azure Front Door

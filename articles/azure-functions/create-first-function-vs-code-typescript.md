@@ -16,7 +16,7 @@ In this article, you use Visual Studio Code to create a TypeScript function that
 
 Completion of this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
-There's also a [CLI-based version](create-first-function-cli-typescript.md) of this article.
+There's also a [CLI-based version](how-to-create-function-azure-cli.md?pivots=programming-language-typescript) of this article.
 
 ## Configure your environment
 

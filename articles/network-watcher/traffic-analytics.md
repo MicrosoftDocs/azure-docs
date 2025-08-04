@@ -10,6 +10,7 @@ ms.date: 04/14/2025
 ms.custom: references_regions
 
 #CustomerIntent: As an Azure administrator, I want to use Traffic analytics to analyze Network Watcher flow logs so that I can view network activity, secure my networks, and optimize performance.
+# Customer intent: As an Azure administrator, I want to analyze flow logs with traffic analytics so that I can gain insights into network activity, enhance security, and optimize network performance in my cloud infrastructure.
 ---
 
 # Traffic analytics overview

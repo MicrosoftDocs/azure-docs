@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 12/02/2022
 ms.author: akashdubey
 ms.custom: engagement-fy23, linux-related-content
+# Customer intent: "As a Linux system administrator, I want to mount Azure Blob Storage using BlobFuse v1, so that I can easily access and manage my blob data through the Linux file system."
 ---
 
 # How to mount Azure Blob Storage as a file system with BlobFuse v1

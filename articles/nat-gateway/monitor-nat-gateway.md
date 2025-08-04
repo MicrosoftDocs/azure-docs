@@ -7,6 +7,7 @@ ms.topic: concept-article
 author: asudbring
 ms.author: allensu
 ms.service: azure-nat-gateway
+# Customer intent: As a cloud administrator, I want to monitor the performance and health of Azure NAT Gateway using Azure Monitor metrics and alerts, so that I can identify and troubleshoot issues effectively.
 ---
 
 # Monitor Azure NAT Gateway

@@ -5,13 +5,13 @@ description: Use MQTT broker to publish and subscribe to messages. Destinations 
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom:
   - ignite-2023
   - ai-gen-docs-bap
   - ai-gen-title
   - ai-seo-date:05/07/2025
-ms.date: 05/07/2025
+ms.date: 06/06/2025
 ms.service: azure-iot-operations
 ---
 

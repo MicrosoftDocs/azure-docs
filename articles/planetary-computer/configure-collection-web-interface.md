@@ -3,7 +3,7 @@ title: Configure collections for visualization in Microsoft Planetary Computer P
 description: Learn how to configure collections in the Microsoft Planetary Computer Pro portal. 
 author: beharris
 ms.author: brentharris
-ms.service: azure
+ms.service: planetary-computer-pro
 ms.topic: quickstart
 ms.date: 04/23/2025
 #customer intent: As a user of geospatial data, I want to configure a collection in the Planetary Computer Pro web interface so that I can visualize my data in the Explorer.
@@ -51,10 +51,19 @@ To configure a collection in the Microsoft Planetary Computer Pro web interface,
 3. Once you define your configuration JSONs, select **Update** to save your changes.
    
 4. When you successfully configure your collection, there's a selectable **Launch in Explorer** button below the **Spatial Extent** basemap on the right-hand side of your collection's **Overview** tab. Select this button to open the Explorer and visualize your data.
- 
+
+For a detailed guide with sample configurations, view the [data visualization sample guide](./data-visualization-samples.md).
+
 ## Next steps
 
 Now that your collection is ready to be visualized, it's time to view it in the Explorer.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Use the Microsoft Planetary Computer Pro Explorer](./use-explorer.md)
+
+## Related content
+
+- [Data visualization sample guide](./data-visualization-samples.md)
+- [Mosaic configurations for collections in Microsoft Planetary Computer Pro](./mosaic-configurations-for-collections.md)
+- [Render configuration for Microsoft Planetary Computer Pro](./render-configuration.md)
+- [Tile settings for Microsoft Planetary Computer Pro](./tile-settings.md)

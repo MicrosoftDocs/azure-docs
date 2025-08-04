@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 03/21/2025
 ms.author: anfdocs
 ms.custom: references_regions
+# Customer intent: "As a cloud architect, I want to implement cross-region replication for Azure NetApp Files volumes, so that I can ensure data protection and rapid recovery during regional outages or disasters."
 ---
 # Cross-region replication of Azure NetApp Files volumes
 

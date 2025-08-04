@@ -8,6 +8,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: how-to
 ms.date: 10/29/2024
 ms.custom: template-how-to-pattern
+# Customer intent: As an IT administrator, I want to configure additional secondary sites for an existing HANA Pacemaker cluster, so that I can enhance disaster recovery capabilities across multiple Azure regions.
 ---
 
 # Add additional secondary sites to a HANA Pacemaker cluster

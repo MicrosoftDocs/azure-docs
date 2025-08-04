@@ -23,7 +23,7 @@ highlightedContent:
     # Card
     - title: Azure network security overview 
       itemType: overview # controls the icon image and super-title text 
-      url: ../../security/fundamentals/network-overview.md
+      url: /azure/networking/security/network-security
     # Card
     - title: Azure best practices for network security
       itemType: concept
@@ -101,7 +101,7 @@ conceptualContent:
               itemType: tutorial
               text: Secure your virtual hub with Azure Firewall            
         # Card 3
-        - title: Zero trust for web applications
+        - title: Zero Trust for web applications
           links:
             - url: ../../web-application-firewall/overview.md
               itemType: overview
@@ -168,9 +168,12 @@ conceptualContent:
             - url: /azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture
               itemType: architecture
               text: Mission-critical baseline architecture with network control
-            - url: /azure/well-architected/services/networking/azure-firewall
+            - url: /azure/well-architected/service-guides/azure-application-gateway
               itemType: architecture
               text: Azure Well-Architected Framework review - Azure Firewall
+            - url: /azure/well-architected/service-guides/azure-firewall
+              itemType: architecture
+              text: Architecture best practices for Azure Firewall - Azure Well-Architected Framework
           # footerLink (optional)
           footerLink:
             url: https://learn.microsoft.com/en-us/azure/architecture/

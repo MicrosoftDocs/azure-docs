@@ -9,6 +9,7 @@ ms.service: azure-load-balancer
 ms.topic: how-to 
 ms.date: 06/27/2024
 ms.custom: template-how-to, engagement-fy23, devx-track-azurecli
+# Customer intent: "As a network administrator, I want to gather and analyze Load Balancer metrics using the command-line interface, so that I can monitor performance and ensure the reliability of our cloud infrastructure."
 ---
 
 # Get Load Balancer metrics with Azure Monitor CLI 

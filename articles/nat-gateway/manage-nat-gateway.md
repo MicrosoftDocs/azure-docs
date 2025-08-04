@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 09/17/2024
 ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
 #Customer intent: As a network administrator, I want to learn how to create and remove a NAT gateway resource from a virtual network subnet. I also want to learn how to add and remove public IP addresses and prefixes used for outbound connectivity.
+# Customer intent: As a network administrator, I want to create and manage NAT gateway resources within a virtual network subnet, including adding or removing public IP addresses and prefixes, so that I can ensure reliable outbound connectivity for my resources.
 ---
 
 # Manage NAT gateway

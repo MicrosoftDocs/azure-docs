@@ -3,7 +3,7 @@ title: STAC framework in Microsoft Planetary Computer Pro
 description: This article provides an overview of the SpatioTemporal Asset Catalog (STAC) specification and how it's used by Microsoft Planetary Computer Pro.
 author: beharris
 ms.author: brentharris
-ms.service: azure
+ms.service: planetary-computer-pro
 ms.topic: concept-article
 ms.date: 04/09/2025
 #customer intent: As an Microsoft Planetary Computer Pro user, I want to understand the STAC Specification.
@@ -96,6 +96,19 @@ Collections in GeoCatalog are defined in JSON format and include the following f
 | Keywords | List of keywords describing the collection. |
 | STAC Version | Required - STAC version used by the collection. |
 
+### Item assets
+
+The `item_assets` field, at the collection level, provides a way to determine what assets (data files) are available in any child Item. The listed assets in this field don't imply that all assets are available for all Items (it should be the union of the available assets, not the intersection of the available assets). This field is enabled in a GeoCatalog via the [item_assets extension](https://github.com/stac-extensions/item-assets) of the STAC specification. The items assets extension is required if you want to visualize Items in the GeoCatalog Explorer.
+
+The `item_assets` field is itself an object, with at least two of the following fields:
+
+| Field | Type | Description |
+| ------------- | ------------- | ----------- |
+| title | string | The displayed title for clients and users. |
+| description | string | A description of the Asset providing more details, such as how it was processed or created. |
+| type | string | [Media type](https://github.com/radiantearth/stac-spec/tree/v1.0.0-rc.1/catalog-spec/catalog-spec.md#media-types) of the asset. |
+| roles | list of strings | The semantic roles of the asset, similar to the use of rel in links. |
+
 ### Collection JSON examples
 
 The following example shows a minimal collection JSON. For more fields, refer to the [STAC collection specification](https://github.com/radiantearth/stac-spec/blob/master/collection-spec/collection-spec.md).
@@ -142,19 +155,6 @@ In order to visualize collections in the GeoCatalog Explorer, there are several 
 - [Render configuration](./render-configuration.md)
 - [Tile settings](./tile-settings.md)
 - [Queryable fields](./queryables-for-explorer-custom-search-filter.md)
-
-### Item assets
-
-The `item_assets` field, at the collection level, provides a way to determine what assets (datafiles) are available in any child Item. Otherwise a random Item would need to be examined to determine assets available, but that random Item might not be representative of the rest. Assets included at the collection level doesn't imply that all assets are available for all Items (it should be the union of the available assets, not the intersection of the available assets). This field is enabled in a GeoCatalog via the [item_assets extension](https://github.com/stac-extensions/item-assets) of the STAC specification. The items assets extension is required if you want to visualize Items in the GeoCatalog Explorer.
-
-The `item_assets` field is itself an object, with at least two of the following fields:
-
-| Field | Type | Description |
-| ------------- | ------------- | ----------- |
-| title | string | The displayed title for clients and users. |
-| description | string | A description of the Asset providing more details, such as how it was processed or created. |
-| type | string | [Media type](https://github.com/radiantearth/stac-spec/tree/v1.0.0-rc.1/catalog-spec/catalog-spec.md#media-types) of the asset. |
-| roles | list of strings | The semantic roles of the asset, similar to the use of rel in links. |
 
 ## STAC items
 

@@ -6,4 +6,4 @@ ms.custom:
 ---
 
 > [!IMPORTANT]
-> Microsoft recommends using Microsoft Entra ID authentication for the most secure authentication experience instead of using passwords or access keys. The authentication described in this section of the article uses access keys, which require a high degree of trust in the application and carries risks not present when using Microsoft Entra ID. Use the approach in this document only when Microsoft Entra ID authentication isn't viable.
+> Microsoft recommends using Microsoft Entra ID authentication for the most secure authentication experience instead of using passwords or access keys. Access keys require a high degree of trust in the application and carry risks not present when using Microsoft Entra ID. Use the access keys only when Microsoft Entra ID authentication isn't viable.

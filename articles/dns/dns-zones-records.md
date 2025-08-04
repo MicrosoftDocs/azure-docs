@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.custom: H1Hack27Feb2017
 ms.date: 11/04/2024
 ms.author: allensu
+# Customer intent: As a domain administrator, I want to manage DNS zones and records in Azure DNS, so that I can maintain control over my domain names and ensure high availability and efficient resolution of DNS queries.
 ---
 
 # Overview of DNS zones and records

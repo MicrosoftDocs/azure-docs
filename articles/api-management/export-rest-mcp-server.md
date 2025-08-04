@@ -4,8 +4,9 @@ description: Learn how to expose a REST API in Azure API Management as an MCP se
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 05/18/2025
+ms.date: 06/27/2025
 ms.author: danlep
+ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2025
 ---
@@ -19,8 +20,8 @@ In API Management, you can expose a REST API managed in API Management as a remo
 
 Using API Management to expose remote MCP servers provides centralized control over authentication, authorization, and monitoring. It simplifies the process of exposing APIs as MCP servers while helping to mitigate common security risks and ensuring scalability.
 
-> [!NOTE]
-> This feature is currently in preview. It's being released first to the **AI Gateway Early** [update group](configure-service-update-settings.md). After joining the group, it can take 2 hours to access MCP server features.
+> [!IMPORTANT]
+> This feature is being introduced in preview in the classic Basic, Standard, and Premium tiers. It's being released first to the **AI Gateway Early** [update group](configure-service-update-settings.md). After joining the group, it can take 2 hours to access MCP server features.
 
 In this article, you learn how to:
 
@@ -36,13 +37,14 @@ In this article, you learn how to:
 + Make sure that your instance manages a REST API that you'd like to expose as an MCP server. To import a sample API, see [Import and publish your first API](import-and-publish.md).
     > [!NOTE]
     > Only HTTP APIs from API Management can be exposed as MCP servers.
++ If you’ve enabled diagnostic logging via Application Insights or Azure Monitor at the global scope (All APIs) for your API Management service instance, ensure that the “Number of payload bytes to log” setting for Frontend Response is set to 0. This prevents unintended logging of response bodies across all APIs and helps ensure proper functioning of MCP servers. To log payloads selectively for specific APIs, configure the setting individually at the API scope, allowing targeted control over response logging.
 + To test the MCP server, you can use Visual Studio Code with access to [GitHub Copilot](https://code.visualstudio.com/docs/copilot/setup).
 
 
 ## Expose API as an MCP server
 
 
-1. In the Azure portal, access the MCP server preview at the following URL:
+1. In the Azure portal, access the MCP server preview at the following URL. The preview can ony be used in the supported API Management tiers:
 
     ```
     https://portal.azure.com/?Microsoft_Azure_ApiManagement=mcp
@@ -61,6 +63,8 @@ The MCP server is created and the API operations are exposed as tools. The MCP s
 :::image type="content" source="media/export-rest-mcp-server/mcp-server-list.png" alt-text="Screenshot of the MCP server list in the portal.":::
 
 ## Configure policies for the MCP server
+> [!IMPORTANT]
+> Do not access the response body using `context.Response.Body` within MCP server policies. Doing so triggers response buffering, which interferes with the streaming behavior required by MCP servers and may cause them to malfunction.
 
 Configure one or more API Management [policies](api-management-howto-policies.md) to help manage the MCP server. The policies are applied to all API operations exposed as tools in the MCP server and can be used to control access, authentication, and other aspects of the tools.
 
@@ -84,6 +88,9 @@ To configure policies for the MCP server:
 To verify that the MCP server is working, you can use Visual Studio Code to send requests to the MCP server tools.
 
 In Visual Studio Code, use GitHub Copilot chat in agent mode (preview) to add the MCP server and use the tools. For background about MCP servers in Visual Studio Code, see [Use MCP Servers in VS Code (Preview)](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
+
+> [!TIP]
+> If you use the [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector) to test an MCP server created by API Management, we recommend using version 0.9.0.
 
 ### Add the MCP server in Visual Studio Code
 

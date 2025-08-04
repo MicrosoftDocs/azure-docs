@@ -1,5 +1,5 @@
 ---
-title: Use source control integration in Azure Automation
+title: Use Source Control Integration in Azure Automation
 description: This article tells you how to synchronize Azure Automation source control with other repositories.
 services: automation
 ms.subservice: process-automation
@@ -7,6 +7,8 @@ ms.date: 05/08/2025
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Use source control integration
@@ -16,7 +18,8 @@ ms.service: azure-automation
  Source control integration lets you easily collaborate with your team, track changes, and roll back to earlier versions of your runbooks. For example, source control allows you to synchronize different branches in source control with your development, test, and production Automation accounts.
 
 > [!NOTE]
-> Source control synchronization jobs are run under the user's Automation account and are billed at the same rate as other Automation jobs. Additionally, Azure Automation Jobs do not support MFA (Multi-Factor Authentication).
+> * Source control synchronization jobs are run under the user's Automation account and are billed at the same rate as other Automation jobs. Additionally, Azure Automation Jobs do not support Multi-Factor Authentication (MFA).
+> * Source control integration is supported for PowerShell 5.1 runbooks only.
 
 ## Source control types
 
@@ -39,7 +42,7 @@ Azure Automation supports three types of source control:
 > 
 > If you have both a Run As account and managed identity enabled, then managed identity is given preference.
 
-> [!Important]
+> [!IMPORTANT]
 > Azure Automation Run As Account has retired on **September 30, 2023**. We recommend that you use [Managed Identities](migrate-run-as-accounts-managed-identity.md).
 
 > [!NOTE]
@@ -52,6 +55,8 @@ This section tells how to configure source control for your Automation account. 
 ### Assign managed identity to Contributor role
 
 This example uses Azure PowerShell to show how to assign the Contributor role in the subscription to the Azure Automation account resource.
+
+To assign managed identity to Contributor role, follow these steps:
 
 1. Open a PowerShell console with elevated privileges.
 1. Sign in to Azure by running the command `Connect-AzAccount`.
@@ -66,27 +71,27 @@ This example uses Azure PowerShell to show how to assign the Contributor role in
 
 ### Configure source control in Azure portal
 
-Use this procedure to configure source control using the Azure portal.
+To configure source control using the Azure portal, follow these steps:
 
-1. In your Automation account, select **Source Control** and click **Add**.
+1. In your Automation account, select **Source Control** and select **Add**.
 
     ![Select source control](./media/source-control-integration/select-source-control.png)
 
-2. Choose **Source Control type**, then click **Authenticate**.
+2. Choose **Source Control type**, then select **Authenticate**.
 
 3. A browser window opens and prompts you to sign in. Follow the prompts to complete authentication.
 
-4. On the Source Control Summary page, use the fields to fill in the source control properties defined below. Click **Save** when finished.
+4. On the **Source Control Summary** page, use the fields to fill in the source control properties defined below. Select **Save** when finished.
 
     |Property  |Description  |
     |---------|---------|
     |Source control name     | A friendly name for the source control. This name must contain only letters and numbers.        |
     |Source control type     | Type of source control mechanism. Available options are:</br> * GitHub</br>* Azure DevOps (Git)</br> * Azure DevOps (TFVC)        |
-    |Repository     | Name of the repository or project. The first 200 repositories are retrieved. To search for a repository, type the name in the field and click **Search on GitHub**.|
+    |Repository     | Name of the repository or project. The first 200 repositories are retrieved. To search for a repository, type the name in the field and select **Search on GitHub**.|
     |Branch     | Branch from which to pull the source files. Branch targeting isn't available for the TFVC source control type.          |
     |Folder path     | Folder that contains the runbooks to synchronize, for example, **/Runbooks**. Only runbooks in the specified folder are synchronized. Recursion isn't supported.        |
     |Auto Sync<sup>1</sup>     | Setting that turns on or off automatic synchronization when a commit is made in the source control repository or GitHub repo.        |
-    |Publish Runbook     | Setting of On if runbooks are automatically published after synchronization from source control, and Off otherwise.           |
+    |Publish Runbook     | Setting of On, if runbooks are automatically published after synchronization from source control, and Off otherwise.           |
     |Description     | Text specifying additional details about the source control.        |
 
     <sup>1 To enable Auto Sync when configuring the source control integration with Azure DevOps, you must be the Project Administrator or the GitHub repo owner. Collaborators can only configure Source Control without Auto Sync.</sup></br>
@@ -136,7 +141,7 @@ Source control requires some minimum permissions for PATs. The following subsect
 
 ##### Minimum PAT permissions for GitHub
 
-The following table defines the minimum PAT permissions required for GitHub. For more information about creating a PAT in GitHub, see [Creating a personal access token for the command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
+The following table defines the minimum PAT permissions required for GitHub. For more information about creating a PAT in GitHub, see [Create a personal access token for the command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
 
 |Scope  |Description  |
 |---------|---------|
@@ -167,19 +172,19 @@ The following list defines the minimum PAT permissions required for Azure DevOps
 
 ## Synchronize with source control
 
-Follow these steps to synchronize with source control.
+To synchronize with source control, follow these steps:
 
-1. Select the source from the table on the Source control page.
+1. Select the source from the table on the **Source control** page.
 
-2. Click **Start Sync** to start the sync process.
+2. Select **Start Sync** to start the sync process.
 
-3. View the status of the current sync job or previous ones by clicking the **Sync jobs** tab.
+3. View the status of the current sync job or previous ones by selecting the **Sync jobs** tab.
 
 4. On the **Source Control** dropdown menu, select a source control mechanism.
 
     ![Sync status](./media/source-control-integration/sync-status.png)
 
-5. Clicking on a job allows you to view the job output. The following example is the output from a source control sync job.
+5. Selecting a job allows you to view the job output. The following example is the output from a source control sync job.
 
     ```output
     ===================================================================
@@ -211,17 +216,17 @@ Follow these steps to synchronize with source control.
 
     ```
 
-6. Additional logging is available by selecting **All Logs** on the Source Control Sync Job Summary page. These additional log entries can help you troubleshoot issues that might arise when using source control.
+6. Additional logging is available by selecting **All Logs** on the **Source Control Sync Job Summary** page. These additional log entries can help you troubleshoot issues that might arise when using source control.
 
 ## Disconnect source control
 
-To disconnect from a source control repository:
+To disconnect from a source control repository, follow these steps:
 
 1. Open **Source control** under **Account Settings** in your Automation account.
 
 2. Select the source control mechanism to remove.
 
-3. On the Source Control Summary page, click **Delete**.
+3. On the **Source Control Summary** page, select **Delete**.
 
 ## Handle encoding issues
 

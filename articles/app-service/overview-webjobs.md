@@ -4,6 +4,7 @@ description: "An overview of Azure WebJobs, covering its types, supported platfo
 keywords: "Azure WebJobs, App Service, background processing, triggered jobs, continuous jobs, NCRONTAB, deployment, Azure, technical overview"
 ms.topic: overview
 ms.date: 5/2/2025
+ms.update-cycle: 180-days
 author: msangapu-msft
 ms.author: msangapu
 ms.reviewer: ggailey

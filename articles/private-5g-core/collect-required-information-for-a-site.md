@@ -195,7 +195,7 @@ If you want to access your local monitoring tools using local usernames and pass
 You'll be able to change the authentication method later by following [Modify the local access configuration in a site](modify-local-access-configuration.md).
 
 > [!NOTE]
-> While in [disconnected mode](disconnected-mode.md), you won't be able to change the local monitoring authentication method or sign in using Microsoft Entra ID. If you expect to need access to your local monitoring tools while the ASE is disconnected, consider using the local username and password authentication method instead.
+> While in [disconnected mode](/azure/private-5g-core/azure-stack-edge-disconnects), you won't be able to change the local monitoring authentication method or sign in using Microsoft Entra ID. If you expect to need access to your local monitoring tools while the ASE is disconnected, consider using the local username and password authentication method instead.
 
 ## Collect local monitoring values
 

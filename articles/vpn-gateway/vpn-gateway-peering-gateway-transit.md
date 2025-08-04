@@ -9,6 +9,7 @@ ms.date: 06/19/2024
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 
+# Customer intent: As a network administrator, I want to configure gateway transit for virtual network peering, so that I can enable efficient connectivity between multiple Azure virtual networks and optimize network resource usage.
 ---
 # Configure VPN gateway transit for virtual network peering
 

@@ -47,7 +47,7 @@ You can use Device Update management and deployment controls to maximize product
 - An update management experience integrated with Azure IoT Hub.
 - Programmatic APIs to enable automation and custom portal experiences.
 - Subscription- and role-based access controls available through the Azure portal.
-- At-a-glance update compliance and status views across heterogenous device fleets.
+- At-a-glance update compliance and status views across heterogeneous device fleets.
 - Azure CLI support for creating and managing Device Update resources, groups, and deployments.
 
 ### Control over deployment details

@@ -8,11 +8,16 @@ ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/31/2025
 ROBOTS: NOINDEX
+# Customer intent: "As a web administrator, I want to configure rules in the Content Delivery Network to enforce HTTPS, so that I can improve security and ensure all user requests are served securely."
 ---
 
 # Set up the Standard rules engine for Azure Content Delivery Network
 
-[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+> [!IMPORTANT]
+> - Starting August 15, 2025, Azure CDN from Microsoft (classic) will no longer support new domain onboarding or profile creation. Migrate to [AFD Standard and Premium](/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) to create new domains or profiles and avoid service disruption. [Learn more](https://azure.microsoft.com/updates?id=498522)
+> - Starting August 15, 2025, Azure CDN from Microsoft (classic) will no longer support Managed certificates. To avoid service disruption, either [switch to Bring Your Own Certificate (BYOC)](/azure/cdn/cdn-custom-ssl?toc=%2Fazure%2Ffrontdoor%2Ftoc.json&tabs=option-1-default-enable-https-with-a-cdn-managed-certificate) or migrate to [AFD Standard and Premium](/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) by this date. Existing managed certificates will be auto renewed before August 15, 2025, and remain valid until April 14, 2026. [Learn more](https://azure.microsoft.com/updates?id=498522)
+> - Azure CDN Standard from Microsoft (classic) will be retired on September 30, 2027. To avoid service disruption ⁠[migrate to AFD Standard or Premium](/azure/cdn/migrate-tier). ⁠[Learn more.](https://azure.microsoft.com/updates?id=Azure-CDN-Standard-from-Microsoft-classic-will-be-retired-on-30-September-2027)
+> - Azure CDN from Edgio was retired on January 15, 2025. ⁠[Learn more.](/previous-versions/azure/cdn/edgio-retirement-faq?toc=%2Fazure%2Ffrontdoor%2FTOC.json)
 
 This article describes how to set up and use the Standard rules engine for Azure Content Delivery Network.
 
@@ -34,35 +39,34 @@ You can use the Standard rules engine for Azure Content Delivery Network to cust
     The **Rules Engine** pane opens and displays the list of available global rules.
 
     [![Screenshot of Azure Content Delivery Network new rules page.](./media/cdn-standard-rules-engine/cdn-new-rule.png)](./media/cdn-standard-rules-engine/cdn-new-rule.png#lightbox)
-
-   > [!IMPORTANT]
+   
+      > [!IMPORTANT]
    > The order in which multiple rules are listed affects how rules are handled. The actions that are specified in a rule might be overwritten by a subsequent rule.
-   >
 
 1. Select **Add rule** and enter a rule name. Rule names must begin with a letter and can contain only numbers and letters.
 
 1. To identify the type of requests the rule applies to, create a match condition:
-    1. Select **Add condition**, and then select the **Request protocol** match condition.
-    1. For **Operator**, select **Equals**.
-    1. For **Value**, select **HTTP**.
-
+1. Select **Add condition**, and then select the **Request protocol** match condition.
+   1. For **Operator**, select **Equals**.
+   1. For **Value**, select **HTTP**.
+      
    [![Screenshot of Azure Content Delivery Network rule match condition.](./media/cdn-standard-rules-engine/cdn-match-condition.png)](./media/cdn-standard-rules-engine/cdn-match-condition.png#lightbox)
-
-   > [!NOTE]
-   > You can select from multiple match conditions in the **Add condition** dropdown list. For a detailed list of match conditions, see [Match conditions in the Standard rules engine](cdn-standard-rules-engine-match-conditions.md).
-
+   
+> [!NOTE]
+> You can select from multiple match conditions in the **Add condition** dropdown list. For a detailed list of match conditions, see [Match conditions in the Standard rules engine](cdn-standard-rules-engine-match-conditions.md).
+> 
 1. Select the action to apply to the requests that satisfy the match condition:
-   1. Select **Add action**, and then select **URL redirect**.
+1. Select **Add action**, and then select **URL redirect**.
    1. For **Type**, select **Found (302)**.
    1. For **Protocol**, select **HTTPS**.
    1. Leave all other fields blank to use incoming values.
 
    [![Screenshot of Azure Content Delivery Network rule action.](./media/cdn-standard-rules-engine/cdn-action.png)](./media/cdn-standard-rules-engine/cdn-action.png#lightbox)
+   
+ > [!NOTE]
+ > You can select from multiple actions in the **Add action** dropdown list. For a detailed list of actions, see [Actions in the Standard rules engine](cdn-standard-rules-engine-actions.md).
 
-   > [!NOTE]
-   > You can select from multiple actions in the **Add action** dropdown list. For a detailed list of actions, see [Actions in the Standard rules engine](cdn-standard-rules-engine-actions.md).
-
-6. Select **Save** to save the new rule. The rule is now available to use.
+7. Select **Save** to save the new rule. The rule is now available to use.
 
    > [!IMPORTANT]
    > Rule changes might take up to 15 minutes to propagate through Azure Content Delivery Network.

@@ -6,6 +6,7 @@ ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 01/09/2025
 ms.author: jsuri
+# Customer intent: As an IT administrator, I want to set up disaster recovery for virtual machines using Azure Extended Zones, so that I can ensure data availability and business continuity during unexpected outages.
 ---
 
 # Tutorial: Set up disaster recovery for VMs on Azure Extended Zones using Vault flow

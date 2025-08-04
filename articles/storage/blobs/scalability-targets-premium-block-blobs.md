@@ -8,6 +8,7 @@ ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.date: 12/18/2019
 ms.author: akashdubey
+# Customer intent: "As a cloud architect, I want to evaluate premium block blob storage for my applications, so that I can ensure they meet high transaction rates and low-latency requirements while scaling effectively."
 ---
 
 # Scalability targets for premium block blob storage accounts
