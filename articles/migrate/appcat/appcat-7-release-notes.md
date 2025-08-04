@@ -22,8 +22,8 @@ This article provides the release notes for Azure Migrate application and code a
 This release contains the following fixes and enhancements:
 
 - Removed JDK from the prerequisites. 
-- Remove `output.json` or `output.yaml` from result output
-- Fix the issue about `azure-password-01000` rule detects only one violation, even when multiple violations exist in the same file.
+- Removed **output.json** or **output.yaml** from result output.
+- Fixed the issue where the `azure-password-01000` rule detects only one violation, even when multiple violations exist in the same file.
 
 ### 7.7.0.1
 
