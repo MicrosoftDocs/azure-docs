@@ -37,6 +37,21 @@ Install-Module -Name Az -Force
 For more information about installing modules, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ---
+
+## Limitations
+
+What-if expands nested templates until these limits are reached:
+
+- 500 nested templates.
+- 800 resource groups in a cross resource-group deployment.
+- 5 minutes taken for expanding the nested templates.
+
+When one of the limits is reached, the remaining resources' [change type](#change-types) is set to **Ignore**.
+
+### Short-circuiting
+
+The what-if operation in Bicep deployments may encounter "short-circuiting," a scenario where the service cannot fully analyze a module or resource due to the deployment's structure or dependencies on external state. Short-circuiting of an individual resource occurs when its resource ID or API version cannot be calculated outside the deployment context, often due to unresolved expressions or external dependencies. While rare, short-circuiting of modules or nested deployment resources can also happen, resulting in all resources within the module being excluded from the what-if analysis results. In such cases, the API response includes a diagnostic message to indicate the issue.
+
 ## Running the what-if operation
 
 ### What-if commands
@@ -452,16 +467,6 @@ The following results show the two different output formats:
 
   Resource changes: 1 to deploy.
   ```
-
-## Limitations
-
-What-if expands nested templates until these limits are reached:
-
-- 500 nested templates.
-- 800 resource groups in a cross resource-group deployment.
-- 5 minutes taken for expanding the nested templates.
-
-When one of the limits is reached, the remaining resources' [change type](#change-types) is set to **Ignore**.
 
 ## Clean up resources
 
