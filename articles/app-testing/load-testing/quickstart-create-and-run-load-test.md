@@ -26,7 +26,7 @@ After you complete this quickstart, you'll have a resource and load test that yo
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An Azure account with permission to create and manage resources in the subscription, such as the [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Owner](../role-based-access-control/built-in-roles.md#owner) role.
+- An Azure account with permission to create and manage resources in the subscription, such as the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) or [Owner](../../role-based-access-control/built-in-roles.md#owner) role.
 
 ## What problem will we solve?
 
@@ -159,7 +159,7 @@ You can further expand the load test to also monitor server-side metrics of the 
 
 ## Clean up resources
 
-[!INCLUDE [alt-delete-resource-group](../../includes/alt-delete-resource-group.md)]
+[!INCLUDE [alt-delete-resource-group](../../../includes/alt-delete-resource-group.md)]
 
 ## Next step
 

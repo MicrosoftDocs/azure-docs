@@ -14,17 +14,17 @@ ms.custom: template-how-to
 
 # Manage access to Azure Load Testing
 
-In this article, you learn how to manage access (authorization) to an Azure load testing resource. [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) is used to manage access to Azure resources, such as the ability to create new resources or use existing ones. You can grant role-based access to users using the Azure portal, Azure Command-Line tools, or Azure Management APIs.
+In this article, you learn how to manage access (authorization) to an Azure load testing resource. [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) is used to manage access to Azure resources, such as the ability to create new resources or use existing ones. You can grant role-based access to users using the Azure portal, Azure Command-Line tools, or Azure Management APIs.
 
 ## Prerequisites
 
 To assign Azure roles, your Azure account must have:
 
-* `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../role-based-access-control/built-in-roles.md#owner).
+* `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../../role-based-access-control/built-in-roles.md#owner).
 
 To create a new load testing resource, your Azure account must have:
 
-- Permission to create resources in the resource group for the load testing resource, such as the [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Owner](../role-based-access-control/built-in-roles.md#owner) role.
+- Permission to create resources in the resource group for the load testing resource, such as the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) or [Owner](../../role-based-access-control/built-in-roles.md#owner) role.
 
 ## Roles in Azure Load Testing
 
@@ -39,7 +39,7 @@ In Azure Load Testing, access is granted by assigning the appropriate Azure role
 If you have the **Owner**, **Contributor**, or **Load Test Owner** role at the subscription level, you automatically have the same permissions as the **Load Test Owner** at the resource level.
 
 > [!IMPORTANT]
-> Role access can be scoped to multiple levels in Azure. For example, someone with owner access to a resource might not have owner access to the resource group that contains the resource. For more information, see [How Azure RBAC works](../role-based-access-control/overview.md#how-azure-rbac-works).
+> Role access can be scoped to multiple levels in Azure. For example, someone with owner access to a resource might not have owner access to the resource group that contains the resource. For more information, see [How Azure RBAC works](../../role-based-access-control/overview.md#how-azure-rbac-works).
 
 ## Role permissions
 

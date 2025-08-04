@@ -16,7 +16,9 @@ ms.date: 10/11/2023
 
 1. From the Azure portal menu or the **Home page**, select **Create a resource**.
 
-1. On the **Marketplace** page, search for and select **Azure Load Testing**.
+1. On the **Marketplace** page, search for and select **Azure App Testing**.
+
+1. On the **Azure App Testing** hub, select **Azure Load Testing** within the workspaces section.
 
 1. On the **Azure Load Testing** pane, select **Create**.
 
@@ -37,7 +39,7 @@ ms.date: 10/11/2023
 1. Review the settings you provide, and then select **Create**. It takes a few minutes to create the account. Wait for the portal page to display **Your deployment is complete** before moving on.
 
 1. To view the new resource, select **Go to resource**.
-    
+
 1. Optionally, [manage access to your Azure Load Testing resource](../../how-to-assign-roles.md).
 
     Azure Load Testing uses role-based access control (RBAC) to manage permissions for your resource. If you encounter this message, your account doesn't have the necessary permissions to manage tests.

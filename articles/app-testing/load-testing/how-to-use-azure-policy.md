@@ -12,7 +12,7 @@ ms.topic: how-to
   
 # Secure your Azure Load Testing resources with Azure Policy
 
-[Azure Policy](../governance/policy/overview.md) is a governance tool that allows you to enforce organizational standards and to assess compliance at-scale. The policies allow you to perform audits, real-time enforcement, and remediation of your Azure environment. Audit results are available in your compliance dashboard. In the dashboard, you can review which resources and components are compliant and noncompliant, and take remediation actions. For more information, see the [Overview of the Azure Policy service](../governance/policy/overview.md). 
+[Azure Policy](../../governance/policy/overview.md) is a governance tool that allows you to enforce organizational standards and to assess compliance at-scale. The policies allow you to perform audits, real-time enforcement, and remediation of your Azure environment. Audit results are available in your compliance dashboard. In the dashboard, you can review which resources and components are compliant and noncompliant, and take remediation actions. For more information, see the [Overview of the Azure Policy service](../../governance/policy/overview.md). 
 
 Use Azure policy to manage your load testing resources in scenarios like:
 
@@ -24,17 +24,17 @@ Use Azure policy to manage your load testing resources in scenarios like:
 
 ## Types of policy effects and guidance
 
-When enforcing a policy, you can determine its [effect](../governance/policy/policy-glossary.md#effect) over the resulting evaluation. Each policy definition allows you to choose one of multiple [effects](../governance/policy/concepts/effect-basics.md). Therefore, policy enforcement may behave differently depending on the type of operation you are evaluating. In general, the effects for policies that integrate with Azure Load Testing include:
+When enforcing a policy, you can determine its [effect](../../governance/policy/policy-glossary.md#effect) over the resulting evaluation. Each policy definition allows you to choose one of multiple [effects](../../governance/policy/concepts/effect-basics.md). Therefore, policy enforcement may behave differently depending on the type of operation you are evaluating. In general, the effects for policies that integrate with Azure Load Testing include:
 
-- [**Audit**](../governance/policy/concepts/effects.md#audit): When the effect of a policy is set to `Audit`, the policy doesn't cause any breaking changes to your environment. The policy alerts you to Azure Load Testing resources that don't comply with the policy definitions within a specified scope. Components are marked as noncompliant in the policy compliance dashboard. The `Audit` value is default if no policy effect is selected. 
+- [**Audit**](../../governance/policy/concepts/effects.md#audit): When the effect of a policy is set to `Audit`, the policy doesn't cause any breaking changes to your environment. The policy alerts you to Azure Load Testing resources that don't comply with the policy definitions within a specified scope. Components are marked as noncompliant in the policy compliance dashboard. The `Audit` value is default if no policy effect is selected. 
 
-- [**Deny**](../governance/policy/concepts/effects.md#deny): When the effect of a policy is set to `Deny`, the policy blocks the creation of a new test run that doesn't comply with the policy definition. Existing noncompliant test runs and resources are not affected. The 'Audit' capabilities continue to operate.
+- [**Deny**](../../governance/policy/concepts/effects.md#deny): When the effect of a policy is set to `Deny`, the policy blocks the creation of a new test run that doesn't comply with the policy definition. Existing noncompliant test runs and resources are not affected. The 'Audit' capabilities continue to operate.
 
-- [**Disabled**](../governance/policy/concepts/effects.md#disabled): When the effect of a policy is set to `Disabled`, the policy gets evaluated but enforcement doesn't take effect. This effect is useful to disable the policy for a specific condition as opposed to all conditions.
+- [**Disabled**](../../governance/policy/concepts/effects.md#disabled): When the effect of a policy is set to `Disabled`, the policy gets evaluated but enforcement doesn't take effect. This effect is useful to disable the policy for a specific condition as opposed to all conditions.
 
 ## Built-in policy definitions
 
-Predetermined policies, referred to as 'built-ins', allow governance over your load testing resources so you don't have to write custom policies in JSON format to enforce commonly used rules associated with best security practices. Even though built-ins are predetermined, certain policies require you to define parameters. For example, by defining the effect of the policy, you can audit the load testing resource before enforcing a deny operation to prevent outages. See [built-in policies for Azure Load Testing](../governance/policy/samples/built-in-policies.md#azure-load-testing) to view the current built-in policies available for Azure Load Testing. 
+Predetermined policies, referred to as 'built-ins', allow governance over your load testing resources so you don't have to write custom policies in JSON format to enforce commonly used rules associated with best security practices. Even though built-ins are predetermined, certain policies require you to define parameters. For example, by defining the effect of the policy, you can audit the load testing resource before enforcing a deny operation to prevent outages. See [built-in policies for Azure Load Testing](../../governance/policy/samples/built-in-policies.md#azure-load-testing) to view the current built-in policies available for Azure Load Testing. 
 
 ## Enable and manage a load testing policy
 
@@ -100,5 +100,5 @@ Predetermined policies, referred to as 'built-ins', allow governance over your l
 
 ## Next steps
 
-- Learn more about the [Azure Policy service](../governance/policy/overview.md)
-- See Key Vault samples: [Azure Load Testing built-in policy definitions](../governance/policy/samples/built-in-policies.md#azure-load-testing)
+- Learn more about the [Azure Policy service](../../governance/policy/overview.md)
+- See Key Vault samples: [Azure Load Testing built-in policy definitions](../../governance/policy/samples/built-in-policies.md#azure-load-testing)
