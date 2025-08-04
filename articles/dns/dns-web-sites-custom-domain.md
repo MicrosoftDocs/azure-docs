@@ -1,4 +1,5 @@
 ---
+title: 'Tutorial: Create custom Azure DNS records for a web app'
 description: In this tutorial, you learn how to create custom domain DNS records for web apps using Azure DNS.
 services: dns
 author: asudbring
