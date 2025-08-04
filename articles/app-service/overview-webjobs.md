@@ -42,27 +42,9 @@ WebJobs come in three main types:
 - **Scheduled WebJobs**: A specialized type of triggered WebJob that runs on a defined schedule using a `settings.job` file with [NCRONTAB expressions](webjobs-create.md#ncrontab-expressions).
 - **Continuous WebJobs**: Run persistently in the background while your App Service app is running. Ideal for queue polling or background monitoring tasks.
 
-
 :::image type="content" border="false" source="media/overview-webjobs/webjob-types-app-service.png" alt-text="Diagram overview of WebJobs in Azure App Service, showing job types.":::
 
-## Supported platforms and file types
-
-WebJobs are supported on the following App Service hosting options:
-
-- Windows code
-- Windows containers
-- Linux code
-- Linux containers
-
-Supported file/script types include:
-
-- Windows executables and scripts: `.exe`, `.cmd`, `.bat`
-- PowerShell scripts: `.ps1`
-- Bash scripts: `.sh`
-- Scripting languages: Python (`.py`), Node.js (`.js`), PHP (`.php`), F# (`.fsx`)
-- Any language runtime included in your container app
-
-This versatility enables you to integrate WebJobs into a wide range of application architectures using the tools and languages you're already comfortable with.
+[!INCLUDE [webjobs supported platforms and file types](../includes/webjobs-create/webjobs-supported-platforms.md)]
 
 ## Deployment options
 

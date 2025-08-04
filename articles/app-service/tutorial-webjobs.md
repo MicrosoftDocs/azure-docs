@@ -235,6 +235,10 @@ node webjob.js
 
 WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs at no additional cost. This sample uses a scheduled (Triggered) WebJob to output the system time once every minute.  
 
+> [!IMPORTANT]
+> WebJobs aren't supported in custom Linux containers based on Alpine Linux, including Linux apps using Java 8 and Java 11 runtime stacks. Starting with Java 17 Linux apps, Azure App Service uses non-Alpine based images, which are compatible with WebJobs.
+>
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
