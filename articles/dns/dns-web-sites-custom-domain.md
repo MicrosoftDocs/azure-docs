@@ -34,29 +34,48 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-* An Azure account with an active subscription.
+### [Portal](#tab/azure-portal)
 
-* A domain name that you can host in Azure DNS. You must have full control of this domain. Full control includes the ability to set the name server (NS) records for the domain.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* A web app. If you don't have one, you can [create a static HTML web app](../app-service/quickstart-html.md) for this tutorial.
+- A domain name that you can host in Azure DNS. You must have full control of this domain. Full control includes the ability to set the name server (NS) records for the domain.
 
-* An Azure DNS zone with delegation in your registrar to Azure DNS. If you don't have one, you can create a DNS zone, then [delegate your domain](dns-delegate-domain-azure-dns.md#delegate-the-domain) to Azure DNS.
+- A web app. If you don't have one, you can [create a static HTML web app](../app-service/quickstart-html.md) for this tutorial.
 
-# [Portal](#tab/azure-portal)
+- An Azure DNS zone with delegation in your registrar to Azure DNS. If you don't have one, you can create a DNS zone, then [delegate your domain](dns-delegate-domain-azure-dns.md#delegate-the-domain) to Azure DNS.
 
-[!INCLUDE [Azure portal prerequisites](~/reusable-content/ce-skilling/azure/includes/azure-portal-prerequisites.md)]
+### [PowerShell](#tab/azure-powershell)
 
-# [PowerShell](#tab/azure-powershell)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-[!INCLUDE [powershell-local-cloudshell](~/reusable-content/ce-skilling/azure/includes/powershell-local-cloudshell.md)]
+- A domain name that you can host in Azure DNS. You must have full control of this domain. Full control includes the ability to set the name server (NS) records for the domain.
 
-If you're running PowerShell locally, you also need the Azure PowerShell module. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+- A web app. If you don't have one, you can [create a static HTML web app](../app-service/quickstart-html.md) for this tutorial.
 
-# [Azure CLI](#tab/azure-cli)
+- An Azure DNS zone with delegation in your registrar to Azure DNS. If you don't have one, you can create a DNS zone, then [delegate your domain](dns-delegate-domain-azure-dns.md#delegate-the-domain) to Azure DNS.
 
-[!INCLUDE [azure-cli-local-cloudshell](~/reusable-content/ce-skilling/azure/includes/azure-cli-local-cloudshell.md)]
+- Azure Cloud Shell or Azure PowerShell.
+
+  The steps in this tutorial run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+
+  You can also [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. The steps in this article require Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Update the Azure PowerShell module](/powershell/azure/install-Az-ps#update-the-azure-powershell-module).
+
+### [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+
+- A domain name that you can host in Azure DNS. You must have full control of this domain. Full control includes the ability to set the name server (NS) records for the domain.
+
+- A web app. If you don't have one, you can [create a static HTML web app](../app-service/quickstart-html.md) for this tutorial.
+
+- An Azure DNS zone with delegation in your registrar to Azure DNS. If you don't have one, you can create a DNS zone, then [delegate your domain](dns-delegate-domain-azure-dns.md#delegate-the-domain) to Azure DNS.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ---
+
+> [!NOTE]
+> In this tutorial, `contoso.com` is used as an example domain name. Replace `contoso.com` with your own domain name.
 
 ## Create the A record
 
