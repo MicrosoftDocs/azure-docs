@@ -154,7 +154,7 @@ User flows define the sequence of steps users must follow to sign in. In this ex
 ![Screenshot showing user flow configuration and selection of fhirUser attribute in Microsoft Entra External ID.](media/azure-entra-external-setup/entra-external-identity-provider-pages.png)
 
 
-### Step 4: Create a Resource Application
+### Create a Resource Application
 
 The Microsoft Entra External ID **resource application** handles authentication requests from your healthcare application to Microsoft Entra External ID.
 
