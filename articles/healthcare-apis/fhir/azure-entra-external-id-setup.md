@@ -399,13 +399,13 @@ Obtain an access token to test the authentication flow.
    - **Auth URL**. This value can be created using the name of the B2C tenant and the name of the user flow.
 
    ```http
-      https://{YOUR_EXTERNAL_ID_TENANT_NAME}.b2clogin.com/{YOUR_B2C_TENANT_NAME}.onmicrosoft.com/{YOUR_USER_FLOW_NAME}/oauth2/v2.0/authorize
+      https://{YOUR_EXTERNAL_ID_TENANT_NAME}.ciamlogin.com/{YOUR_EXTERNAL_ID_TENANT_ID}/oauth2/v2.0/authorize
       ```
 
    - **Access Token URL**. This value can be created using the name of the B2C tenant and the name of the user flow.
 
     ```http
-      https://{YOUR_EXTERNAL_ID_TENANT_NAME}.b2clogin.com/{YOUR_B2C_TENANT_NAME}.onmicrosoft.com/{YOUR_USER_FLOW_NAME}/oauth2/v2.0/token
+      https://{YOUR_EXTERNAL_ID_TENANT_NAME}.ciamlogin.com{YOUR_EXTERNAL_ID_TENANT_ID}/oauth2/v2.0/token
       ```
     - **Client ID**. This value is the application (client) ID of the B2C resource application.
 
@@ -417,6 +417,7 @@ Obtain an access token to test the authentication flow.
      
 
      1. Copy the fully qualified scope from the **Expose an API** section of the B2C resource application.
+     Example:
 
      ```http
       http
