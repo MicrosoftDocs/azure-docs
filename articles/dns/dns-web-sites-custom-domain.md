@@ -5,7 +5,7 @@ services: dns
 author: asudbring
 ms.service: azure-dns
 ms.topic: tutorial
-ms.date: 06/07/2024
+ms.date: 08/03/2025
 ms.author: allensu 
 ms.custom: devx-track-azurepowershell
 #Customer intent: As an experienced network administrator, I want to create DNS records in Azure DNS, so I can host a web app in a custom domain.
@@ -93,14 +93,18 @@ In the left navigation of the App Services page in the Azure portal, select **Cu
 # [Azure portal](#tab/azure-portal)
 
 1. Navigate to your DNS zone in the Azure portal.
-2. Select **+ Record set**.
-3. On the **Add record set** page, enter the following information:
-   - **Name**: Enter **@** (represents the root domain)
-   - **Type**: Select **A**
-   - **TTL**: Enter **600**
-   - **TTL unit**: Select **Seconds**
-   - **IP address**: Enter the IP address of your web app (copied from the previous step)
-4. Select **OK** to create the record.
+1. Select **+ Record set**.
+1. On the **Add record set** page, enter the following information:
+
+   | Setting | Value |
+   |---------|-------|
+   | **Name** | **@** (represents the root domain) |
+   | **Type** | **A** |
+   | **TTL** | **600** |
+   | **TTL unit** | **Seconds** |
+   | **IP address** | Enter the IP address of your web app (copied from the previous step) |
+
+1. Select **OK** to create the record.
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -153,14 +157,18 @@ App Services uses this record only at configuration time to verify that you own 
 # [Azure portal](#tab/azure-portal)
 
 1. Navigate to your DNS zone in the Azure portal.
-2. Select **+ Record set**.
-3. On the **Add record set** page, enter the following information:
-   - **Name**: Enter **@** (represents the root domain)
-   - **Type**: Select **TXT**
-   - **TTL**: Enter **600**
-   - **TTL unit**: Select **Seconds**
-   - **Value**: Enter your web app's default domain name (for example, **contoso.azurewebsites.net**)
-4. Select **OK** to create the record.
+1. Select **+ Record set**.
+1. On the **Add record set** page, enter the following information:
+
+   | Setting | Value |
+   |---------|-------|
+   | **Name** | **@** (represents the root domain) |
+   | **Type** | **TXT** |
+   | **TTL** | **600** |
+   | **TTL unit** | **Seconds** |
+   | **Value** | Enter your web app's default domain name (for example, **contoso.azurewebsites.net**) |
+
+1. Select **OK** to create the record.
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -199,14 +207,18 @@ If your domain is already managed by Azure DNS (see [DNS domain delegation](dns-
 # [Azure portal](#tab/azure-portal)
 
 1. Navigate to your DNS zone in the Azure portal.
-2. Select **+ Record set**.
-3. On the **Add record set** page, enter the following information:
-   - **Name**: Enter **www**
-   - **Type**: Select **CNAME**
-   - **TTL**: Enter **600**
-   - **TTL unit**: Select **Seconds**
-   - **Alias**: Enter your web app's default domain name (for example, **contoso.azurewebsites.net**)
-4. Select **OK** to create the record.
+1. Select **+ Record set**.
+1. On the **Add record set** page, enter the following information:
+
+   | Setting | Value |
+   |---------|-------|
+   | **Name** | **www** |
+   | **Type** | **CNAME** |
+   | **TTL** | **600** |
+   | **TTL unit** | **Seconds** |
+   | **Alias** | Enter your web app's default domain name (for example, **contoso.azurewebsites.net**) |
+
+1. Select **OK** to create the record.
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -294,6 +306,7 @@ contoso.com text =
 
         "contoso.azurewebsites.net"
 ```
+
 ## Add custom host names
 
 Now, you can add the custom host names to your web app:
@@ -301,12 +314,12 @@ Now, you can add the custom host names to your web app:
 # [Azure portal](#tab/azure-portal)
 
 1. Navigate to your web app in the Azure portal.
-2. In the left navigation under **Settings**, select **Custom domains**.
-3. Select **+ Add custom domain**.
-4. In the **Custom domain** field, enter your domain name (for example, **contoso.com** or **www.contoso.com**).
-5. Select **Validate**. Azure will validate that the DNS records you created are properly configured.
-6. If validation is successful, select **Add custom domain**.
-7. Repeat steps 3-6 for each custom domain you want to add (both **contoso.com** and **www.contoso.com**).
+1. In the left navigation under **Settings**, select **Custom domains**.
+1. Select **+ Add custom domain**.
+1. In the **Custom domain** field, enter your domain name (for example, **contoso.com** or **www.contoso.com**).
+1. Select **Validate**. Azure will validate that the DNS records you created are properly configured.
+1. If validation is successful, select **Add custom domain**.
+1. Repeat steps 3-6 for each custom domain you want to add (both **contoso.com** and **www.contoso.com**).
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -354,9 +367,9 @@ When no longer needed, you can delete all resources created in this tutorial by 
 # [Azure portal](#tab/azure-portal)
 
 1. On the Azure portal menu, select **Resource groups**.
-2. Select the **test-rg** resource group.
-3. On the **Overview** page, select **Delete resource group**.
-4. Enter *test-rg* and select **Delete**.
+1. Select the **test-rg** resource group.
+1. On the **Overview** page, select **Delete resource group**.
+1. Enter *test-rg* and select **Delete**.
 
 # [Azure PowerShell](#tab/azure-powershell)
 
