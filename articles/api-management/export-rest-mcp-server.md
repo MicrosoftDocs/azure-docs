@@ -30,7 +30,7 @@ Learn more about:
 ## Limitations
 
 The following limitations apply to this preview. Preview features are subject to change, so check back for updates.
-
+    
 * API Management supports MCP server tools, but doesn't support MCP resources or prompts.
 * MCP server capabilities aren't supported in API Management [workspaces](workspaces-overview.md).
 
@@ -69,9 +69,9 @@ Follow these steps to expose a managed REST API in API Management as an MCP serv
 :::image type="content" source="media/export-rest-mcp-server/create-mcp-server.png" alt-text="Screenshot of creating an MCP server in the portal." :::
 
 * The MCP server is created and the API operations are exposed as tools. 
-* The MCP server is listed in the **MCP Servers** blade. The **Server URL** column shows the endpoint of the MCP server that you can call for testing or within a client application.
+* The MCP server is listed in the **MCP Servers** blade. The **Server URL** column shows the endpoint of the MCP server to call for testing or within a client application.
 
 
-:::image type="content" source="media/export-rest-mcp-server/mcp-server-list.png" alt-text="Screenshot of the MCP server list in the portal.":::
+:::image type="content" source="media/export-rest-mcp-server/mcp-server-list.png" alt-text="Screenshot of the MCP server list in the portal." lightbox="media/export-rest-mcp-server/mcp-server-list-large.png":::
 
 [!INCLUDE [api-management-configure-test-mcp-server](../../includes/api-management-configure-test-mcp-server.md)]

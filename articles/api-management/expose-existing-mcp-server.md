@@ -79,9 +79,9 @@ Follow these steps to expose an existing MCP server is API Management:
 :::image type="content" source="media/expose-existing-mcp-server/create-mcp-server.png" alt-text="Screenshot of creating an MCP server in the portal." :::
 
 * The MCP server is created and the remote server's operations are exposed as tools. 
-* The MCP server is listed in the **MCP Servers** pane. The **Server URL** column shows the MCP server URL that you can call for testing or within a client application.
+* The MCP server is listed in the **MCP Servers** pane. The **Server URL** column shows the MCP server URL to call for testing or within a client application.
 
-:::image type="content" source="media/expose-existing-mcp-server/mcp-server-list.png" alt-text="Screenshot of the MCP server list in the portal.":::
+:::image type="content" source="media/expose-existing-mcp-server/mcp-server-list.png" alt-text="Screenshot of the MCP server list in the portal." lightbox="media/expose-existing-mcp-server/mcp-server-list-large.png":::
 
 > [!IMPORTANT]
 > Currently, API Management doesn't display tools from the existing MCP server. All tool registration and configuration must be done on the existing remote MCP server.
