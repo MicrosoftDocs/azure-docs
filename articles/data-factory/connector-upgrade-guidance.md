@@ -9,7 +9,7 @@ ms.topic: concept-article
 ms.custom:
   - references_regions
   - build-2025
-ms.date: 07/11/2025
+ms.date: 07/31/2025
 ---
 
 # Connector upgrade guidance
@@ -47,9 +47,12 @@ Here's the steps to get your objects which still rely on the deprecated connecto
 
 ## How to find your impacted objects programmatically 
 
-Users can run a PowerShell script to programmatically extract a list of Azure Data Factory or Synapse linked services that are using integration runtimes running on versions that are either out of support or nearing end-of-support. The script can be customized to query each data factory under a specified subscription, enumerate a list of specified linked services, and inspect configuration properties such as connection types, connector versions. It can then cross-reference these details against known version EOS timelines, flagging any linked services using unsupported or soon-to-be unsupported connector versions. This automated approach enables users to proactively identify and remediate outdated components to ensure continued support, security compliance, and service availability. 
+Users can run a PowerShell script to programmatically extract a list of Azure Data Factory or Synapse linked services that are using integration runtimes running on versions that are either out of support or nearing end-of-support. The script can be customized to query each data factory under a specified tenant or subscription, enumerate a list of specified linked services, and inspect configuration properties such as connection types, connector versions. It can then cross-reference these details against known version EOS timelines, flagging any linked services using unsupported or soon-to-be unsupported connector versions. This automated approach enables users to proactively identify and remediate outdated components to ensure continued support, security compliance, and service availability. 
 
-You can find an example of the script [here](https://github.com/Azure/Azure-DataFactory/blob/main/Connector/FindImpactedObjects.ps1) and customize it as needed. 
+You can find examples of the script and customize it as needed:
+
+- [Script to list all linked services within the specified subscription ID](https://github.com/Azure/Azure-DataFactory/blob/main/Connector/FindImpactedObjects.ps1)
+- [Script to list all linked services within the specified tenant ID](https://github.com/Azure/Azure-DataFactory/blob/main/Connector/FindImpactedObjects1.ps1)
 
 ## Automatic connector upgrade 
 
@@ -61,7 +64,7 @@ In cases where certain scenarios running on the latest GA connector version are 
 
 These auto-upgraded workloads aren't affected by the announced removal date of the older version, giving users additional time to evaluate and transition to the latest GA version without facing immediate failures. 
 
-You can identify which activities have been automatically upgraded by inspecting the activity output, where relevant upgraded information is recorded.
+You can identify which activities have been automatically upgraded by inspecting the activity output, where relevant upgraded information is recorded. The examples below show the upgraded information in various activity outputs.
 
 **Example:**
 
