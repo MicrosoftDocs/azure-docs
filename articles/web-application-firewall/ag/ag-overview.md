@@ -13,7 +13,7 @@ ms.date: 03/10/2025
 
 An Azure Web Application Firewall deployment on Azure Application Gateway actively safeguards your web applications against common exploits and vulnerabilities. As web applications become more frequent targets for malicious attacks, these attacks often exploit well-known vulnerabilities such as SQL injection and cross-site scripting.
 
-Azure Web Application Firewall on Application Gateway is based on [Core Rule Set (CRS)](application-gateway-crs-rulegroups-rules.md) from the Open Web Application Security Project (OWASP).
+Azure Web Application Firewall on Application Gateway is based on the [Core Rule Set (CRS)](application-gateway-crs-rulegroups-rules.md) from the Open Web Application Security Project (OWASP).
 
 All of the following Azure Web Application Firewall features exist inside a web application firewall (WAF) policy. You can create multiple policies and associate them with an application gateway, with individual listeners, or with path-based routing rules on an application gateway. This association enables you to define separate policies for each site behind your application gateway if necessary. For more information on WAF policies, see [Create WAF policies for Application Gateway](create-waf-policy-ag.md).
 
@@ -38,7 +38,7 @@ This section describes the core benefits that Azure Web Application Firewall on 
 
 - Create custom WAF policies for different sites behind the same WAF.
 
-- Help protect your web applications from malicious bots with the *IP reputation* rule set.
+- Help protect your web applications from malicious bots with the IP Reputation Rule Set.
 
 - Help protect your application against DDoS attacks. For more information, see [Application (Layer 7) DDoS protection](../shared/application-ddos-protection.md).
 
@@ -69,7 +69,7 @@ This section describes the core benefits that Azure Web Application Firewall on 
 - Exclusion lists that let you omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens that are used for authentication or password fields.
 - Ability to create custom rules to suit the specific needs of your applications.
 - Ability to geo-filter traffic, to allow or block certain countries/regions from gaining access to your applications.
-- Rule set that helps protect your applications from bots.
+- Bot Manager Rule Set that helps protect your applications from bots.
 - Ability to inspect JSON and XML in the request body.
 
 ## WAF policy and rules
@@ -97,9 +97,9 @@ Application Gateway also supports the creation of your own custom rules. Applica
 
 The `Geomatch` operator is now available for custom rules. For more information, see [Geomatch custom rules](geomatch-custom-rules.md).
 
-### Rule set for bot protection
+### Bot Manager Rule Set
 
-You can enable a managed rule set for bot protection to take custom actions on requests from all bot categories.
+You can enable a managed Bot Manager Rule Set to take custom actions on requests from all bot categories.
 
 Application Gateway supports three bot categories:
 
@@ -142,10 +142,10 @@ The WAF engine is the component that inspects traffic and detects whether a requ
 
 You can choose which action the WAF runs when a request matches a rule condition. Application Gateway supports the following actions:
 
-- **Allow**: The request passes through the WAF and is forwarded to the back end. No further lower-priority rules can block this request. These actions apply only to Bot Manager Rule Set. They don't apply to CRS.
+- **Allow**: The request passes through the WAF and is forwarded to the back end. No further lower-priority rules can block this request. These actions apply only to the Bot Manager Rule Set. They don't apply to CRS.
 - **Block**: The request is blocked. The WAF sends a response to the client without forwarding the request to the back end.
 - **Log**: The request is logged in the WAF logs. The WAF continues to evaluate lower-priority rules.
-- **Anomaly score**: This action is the default for CRS. The total anomaly score is incremented when a request matches a rule with this action. Anomaly scoring doesn't apply to Bot Manager Rule Set.
+- **Anomaly score**: This action is the default for CRS. The total anomaly score is incremented when a request matches a rule with this action. Anomaly scoring doesn't apply to the Bot Manager Rule Set.
 
 ### Anomaly scoring mode
 
