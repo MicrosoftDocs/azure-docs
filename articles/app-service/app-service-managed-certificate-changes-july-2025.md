@@ -8,9 +8,7 @@ ms.topic: conceptual
 ms.date: 07/28/2025
 ---
 
-# App Service Managed Certificate (ASMC) Changes – July 28, 2025
-
-## Overview
+# App Service Managed Certificate (ASMC) changes – July 28, 2025
 
 Starting July 28, 2025, Azure App Service Managed Certificates (ASMC) are subject to new issuance and renewal requirements due to DigiCert’s migration to a new validation platform. This change is driven by industry-wide compliance with Multi-Perspective Issuance Corroboration (MPIC).
 
@@ -92,7 +90,6 @@ Some customers may choose to allowlist [DigiCert’s domain validation IPs](http
 
 For guidance on configuring access restrictions, refer to [set up Azure App Service access restrictions](app-service-ip-restrictions.md).
 
----
 
 ### Scenario 2: Azure Traffic Manager with nested or external endpoints
 
@@ -103,7 +100,6 @@ Only “Azure Endpoints” are supported. “Nested” and “External” endpoi
 - Switch to Azure Endpoints or use a custom domain secured with a custom certificate.
 - For guidance on using App Service as an Azure Traffic Manager endpoint, refer to [App Service and Traffic Manager Profiles](web-sites-traffic-manager.md#app-service-and-traffic-manager-profiles).
 
----
 
 ### Scenario 3: Use of trafficmanager.net domains
 
@@ -149,7 +145,6 @@ Certificates for `*.trafficmanager.net` domains are not supported. If your app r
    - [REST API: Delete Certificate](/rest/api/appservice/certificates/delete)
    - [CLI: Delete certificate](/cli/azure/webapp/config/ssl#az-webapp-config-ssl-delete)
 
----
 
 ## Frequently asked questions (FAQ)
 
@@ -165,7 +160,6 @@ Allowlisting DigiCert’s domain validation IPs may work as a temporary workarou
 **Are certificates for \*.azurewebsites.net impacted?**  
 No, these changes do not apply to the *.azurewebsites.net certificates. ASMC is only issued to customer’s custom domain and not the default hostname.
 
----
 
 ## Other resources
 
