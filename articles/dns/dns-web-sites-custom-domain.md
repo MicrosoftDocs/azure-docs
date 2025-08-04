@@ -16,11 +16,11 @@ ms.custom: devx-track-azurepowershell
 
 Configure Azure DNS to host custom domains for your web apps and enable users to access them via personalized domain names. You can create Azure DNS records that allow users to access your web app using either `www.contoso.com` or `contoso.com` as a fully qualified domain name (FQDN).
 
-To do this, you have to create three records:
+To add a custom domain to your web app, you have to create three records:
 
-* A root "A" record pointing to contoso.com
-* A root "TXT" record for verification
-* A "CNAME" record for the www name that points to the A record
+* A root **`A`** record pointing to contoso.com
+* A root **`TXT`** record for verification
+* A **`CNAME`** record for the www name that points to the A record
 
 In this tutorial, you learn how to:
 
@@ -54,7 +54,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 - Azure Cloud Shell or Azure PowerShell.
 
-  The steps in this tutorial run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+  The steps in this tutorial run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloud shell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
   You can also [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. The steps in this article require Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Update the Azure PowerShell module](/powershell/azure/install-Az-ps#update-the-azure-powershell-module).
 
@@ -182,7 +182,7 @@ az network dns record-set a add-record \
 App Services uses this record only at configuration time to verify that you own the custom domain. You can delete this TXT record after your custom domain is validated and configured in App Service.
 
 > [!NOTE]
-> If you want to verify the domain name, but not route production traffic to the web app, you only need to specify the TXT record for the verification step. Verification does not require an A or CNAME record in addition to the TXT record.
+> If you want to verify the domain name, but not route production traffic to the web app, you only need to specify the TXT record for the verification step. Verification doesn't require an A or CNAME record in addition to the TXT record.
 
 # [Portal](#tab/azure-portal)
 
@@ -238,7 +238,7 @@ az network dns record-set txt add-record \
 
 ## Create the CNAME record
 
-If your domain is already managed by Azure DNS (see [DNS domain delegation](dns-domain-delegation.md)), you can use the following example to create a CNAME record for contoso.azurewebsites.net. The CNAME created in this example has a "time to live" of 600 seconds in DNS zone named "contoso.com" with the alias for the web app contoso.azurewebsites.net.
+You can create a CNAME record for contoso.azurewebsites.net if Azure DNS already manages your domain (see [DNS domain delegation](dns-domain-delegation.md)). This example creates a CNAME record with a "time to live" of 600 seconds in the DNS zone named "contoso.com" and sets the alias to contoso.azurewebsites.net.
 
 # [Portal](#tab/azure-portal)
 
@@ -292,7 +292,7 @@ az network dns record-set cname set-record \
 
 ## Test the new records
 
-You can validate the records were created correctly by querying the "www.contoso.com"  and "contoso.com" using nslookup, as shown below:
+You can validate that you created the records correctly by querying "www.contoso.com" and "contoso.com" using nslookup, as shown in the following example:
 
 ```
 PS C:\> nslookup
@@ -349,13 +349,13 @@ Add the custom host names to your web app:
     | Setting | Value |
     |---------|-------|
     | Domain provider | Select **All other services** |
-    | TLS/SSL certificate | Select **None** (you can add a TLS/SSL certificate later) |
+    | TLS/SSL certificate | Select **None** (you can add an TLS/SSL certificate later) |
     | TLS/SSL type | Select **SNI SSL** |
     | Domain | Enter your domain name (for example, **contoso.com**) |
 
-    The domain validation will see the records you created in the previous steps.
+    The domain validation sees the records you created in the previous steps.
 
-1. Select **Validate**. Azure will validate that the DNS records you created are properly configured.
+1. Select **Validate**. Azure validates that the DNS records you created are properly configured.
 
 1. Select **Add**.
 
@@ -396,7 +396,7 @@ az webapp config hostname add \
 Open a browser and browse to `http://www.<your domain name>` and `http://<your domain name>`.
 
 > [!NOTE]
-> Make sure you include the `http://` prefix, otherwise your browser may attempt to predict a URL for you.
+> Make sure you include the `http://` prefix. Your browser might attempt to predict a URL for you.
 
 You should see the same page for both URLs. For example:
 
