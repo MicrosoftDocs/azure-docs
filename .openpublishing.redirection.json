@@ -1,6 +1,111 @@
 {
   "redirections": [
     {
+      "source_path": "articles/managed-ccf/application-scenarios.md",
+      "redirect_url": "/previous-versions/azure/managed-ccf/application-scenarios",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/confidential-consortium-framework-overview.md",
+      "redirect_url": "/previous-versions/azure/managed-ccf/confidential-consortium-framework-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/faq.yml",
+      "redirect_url": "/previous-versions/azure/managed-ccf/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/get-started.md",
+      "redirect_url": "/previous-versions/azure/managed-ccf/get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/how-to-activate-members.md",
+      "redirect_url": "/previous-versions/azure/managed-ccf/how-to-activate-members",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/how-to-backup-restore-resource.md",
+      "redirect_url": "/previous-versions/azure/managed-ccf/how-to-backup-restore-resource",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/how-to-enable-azure-monitor.md",
+      "redirect_url": "/previous-versions/azure/managed-ccf/how-to-enable-azure-monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/how-to-manage-members.md",
+      "redirect_url": "/previous-versions/azure/managed-ccf/how-to-manage-members",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/how-to-update-application.md",
+      "redirect_url": "/previous-versions/azure/managed-ccf/how-to-update-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/how-to-update-javascript-runtime-options.md",
+      "redirect_url": "/previous-versions/azure/managed-ccf/how-to-update-javascript-runtime-options",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/how-to-view-members.md",
+      "redirect_url": "/previous-versions/azure/managed-ccf/how-to-view-members",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/index.yml",
+      "redirect_url": "/previous-versions/azure/managed-ccf/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/overview.md",
+      "redirect_url": "/previous-versions/azure/managed-ccf/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/quickstart-cli.md",
+      "redirect_url": "/previous-versions/azure/managed-ccf/quickstart-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/quickstart-deploy-application.md",
+      "redirect_url": "/previous-versions/azure/managed-ccf/quickstart-deploy-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/quickstart-go.md",
+      "redirect_url": "/previous-versions/azure/managed-ccf/quickstart-go",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/quickstart-java.md",
+      "redirect_url": "/previous-versions/azure/managed-ccf/quickstart-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/quickstart-net.md",
+      "redirect_url": "/previous-versions/azure/managed-ccf/quickstart-net",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/quickstart-portal.md",
+      "redirect_url": "/previous-versions/azure/managed-ccf/quickstart-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/quickstart-python.md",
+      "redirect_url": "/previous-versions/azure/managed-ccf/quickstart-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/quickstart-typescript.md",
+      "redirect_url": "/previous-versions/azure/managed-ccf/quickstart-typescript",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/expressroute/expressroute-troubleshooting-arp-classic.md",
       "redirect_url": "/previous-versions/azure/expressroute/expressroute-troubleshooting-arp-classic",
       "redirect_document_id": false
