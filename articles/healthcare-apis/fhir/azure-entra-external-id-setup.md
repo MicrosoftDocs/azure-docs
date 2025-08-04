@@ -173,7 +173,7 @@ The Microsoft Entra External ID **resource application** handles authentication 
 
 ![Screenshot showing the application registration page in Microsoft Entra External ID.](media/azure-entra-external-setup/external-entra-application-registration-pages.png)
 
- #### Configure API permissions for the app
+ ### Configure API permissions for the app
 1. On the **App registrations page** in the left pane, choose **Manifest**.
 
 2. Scroll until you find the `oauth2PermissionScopes` array in `Microsoft Graph App Manifest (New) tab`. Replace the array with one or more values in the [`oauth2Permissions.json`](https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/main/samples/fhir-aad-b2c/oauth2Permissions.json) file. Copy the entire array or individual permissions.
@@ -185,7 +185,7 @@ If a permission level isn't appropriate for all users, **do not** include it in 
 
 ![Screenshot showing the oauth2PermissionScopes array being edited in the app manifest.](media/azure-entra-external-setup/entra-external-oauth2-permissions-pages.png)
 
- #### Expose the web API and assign an application ID URI
+ ### Expose the web API and assign an application ID URI
 
 1. On the **App registrations** page in the left pane, choose **Expose an API**.
 
@@ -260,12 +260,12 @@ If a permission level isn't appropriate for all users, **do not** include it in 
 
 21. select **save**
 
-#### Deploy the FHIR service by using an ARM Template
+### Deploy the FHIR service by using an ARM Template
  Use an ARM template to simplify deploying the FHIR service. Use PowerShell or Azure CLI to deploy the ARM template to an Azure subscription..
 
 Run the code in **Azure Cloud Shell** or in **PowerShell locally using Visual Studio Code** to deploy the FHIR service with Microsoft Entra External ID as the identity provider.
 
-#### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell)
 
 ```PowerShell
 ### Set variables
@@ -300,17 +300,17 @@ New-AzResourceGroupDeployment `
 ```
 ---
 
- ####  Validate Microsoft Entra External ID Users Can Access FHIR Resources
+ ###  Validate Microsoft Entra External ID Users Can Access FHIR Resources
 
 The validation process involves creating a patient resource in the FHIR service, linking the patient resource to the Microsoft Entra External ID user, and configuring REST Client to get an access token for External ID users. After the validation process is complete, you can fetch the patient resource by using the External ID test user.
 
-#### Use REST Client to get an access token
+### Use REST Client to get an access token
 
 For steps to obtain the proper access to the FHIR service, see [Access the FHIR service using REST Client](https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/using-rest-client).
 
 When you follow the steps in the [Get the FHIR patient](https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/using-rest-client#get-fhir-patient-data) data section, the request returns an empty response because the FHIR service is new and doesn't have any patient resources.
 
-#### Create a patient resource in the FHIR service
+### Create a patient resource in the FHIR service
 
 It's important to note that users in the Microsoft Entra External ID tenant aren't able to read any resources until the user (such as a patient or practitioner) is linked to a FHIR resource. A user with the `FhirDataWriter` or `FhirDataContributor` role in the Microsoft Entra ID where the FHIR service is tenanted must perform this step.
 
@@ -335,11 +335,11 @@ It's important to note that users in the Microsoft Entra External ID tenant aren
 2. Verify the patient is created by changing the method back to `GET` and verifying that a request to `{{fhirurl}}/Patient` returns the newly created patient.
 
 
-#### Link the patient resource to Microsoft Entra External ID User. 
+### Link the patient resource to Microsoft Entra External ID User. 
 
 Create an explicit link between the test user in the **Microsoft Entra External ID** tenant and the resource in the FHIR service. Use **extension attributes** in Microsoft Graph to define this link. For more information, see [Custom user attributes and claims in user flows](https://learn.microsoft.com/azure/active-directory-b2c/user-flow-custom-attributes).
 
-## Link Entra External ID User with FHIR Resource
+### Link Entra External ID User with FHIR Resource
 
 1. Go to **App registrations**
 
@@ -378,7 +378,7 @@ For more information, see [Manage extension attributes through Microsoft Graph](
 After the request is formatted, choose Run query. Wait for a successful response that confirms the user in the Entra External Id is linked to the patient resource in the FHIR service.
 
 
-#### Configuration to obtain an access token for Microsoft Entra External ID users
+### Configuration to obtain an access token for Microsoft Entra External ID users
 
 Obtain an access token to test the authentication flow.
 
@@ -423,7 +423,7 @@ Obtain an access token to test the authentication flow.
       {YOUR_APPLICATION_ID_URI}/patient.all.read
       ```
 
-      #### Fetch the patient resource by using the Microsoft Entra External ID user
+      ### Fetch the patient resource by using the Microsoft Entra External ID user
 
 Verify that Microsoft Entra External ID users can access FHIR resources.
 
