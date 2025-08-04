@@ -37,7 +37,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 * A domain name that you can host in Azure DNS. You must have full control of this domain. Full control includes the ability to set the name server (NS) records for the domain.
 
-* A web app. If you don't have one, you can [create a static HTML web app](../app-service/quickstart-html.md) for this tutorial.
+* A web app. If you don't have one, you can [create a web app](/azure/app-service/quickstart-dotnetcore?tabs=net80&pivots=development-environment-azure-portal) for this tutorial.
 
 * An Azure DNS zone with delegation in your registrar to Azure DNS. If you don't have one, you can [create a DNS zone](./dns-getstarted-powershell.md), then [delegate your domain](dns-delegate-domain-azure-dns.md#delegate-the-domain) to Azure DNS.
 
@@ -75,7 +75,13 @@ An A record is used to map a name to its IP address. In the following example, a
 
 # [Portal](#tab/azure-portal)
 
-In the left navigation of the App Services page in the Azure portal, select **Custom domains**, then copy the IP address of your web app:
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In the search box at the top of the portal, enter **App Services**, and select it from the results.
+
+1. Select your web app from the list.
+
+1. In the left navigation of the App Services page in the Azure portal, expand **Settings**, then select **Custom domains**, then copy the IP address of your web app:
 
 :::image type="content" source="./media/dns-web-sites-custom-domain/app-service-custom-domains.png" alt-text="Screenshot of Azure App Service Custom domains page showing the web app IP address.":::
 
@@ -84,13 +90,12 @@ In the left navigation of the App Services page in the Azure portal, select **Cu
 To get the IP address of your web app, use:
 
 ```azurepowershell
-$webAppParams = @{
-    Name = "contoso"
+$params = @{
     ResourceGroupName = "<your web app resource group>"
+    Name = "contoso"
 }
-$webApp = Get-AzWebApp @webAppParams
-$inboundIpAddress = $webApp.InboundIpAddress
-Write-Output "Web app inbound IP address: $inboundIpAddress"
+$webapp = Get-AzWebApp @params
+($webapp.OutboundIpAddresses -split ',')[0].Trim()
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -100,10 +105,10 @@ To get the IP address of your web app, use:
 ```azurecli
 # Get the inbound IP address
 az webapp show \
-    --name contoso \
-    --resource-group <your web app resource group> \
-    --query "inboundIpAddress" \
-    --output tsv
+    --resource-group "test-rg" \
+    --name "web-app" \
+    --query "outboundIpAddresses" \
+    --output tsv | cut -d',' -f2
 ```
 
 ---
@@ -371,10 +376,10 @@ az webapp config hostname add \
 ---
 ## Test the custom host names
 
-Open a browser and browse to `http://www.<your domain name>` and `http://<you domain name>`.
+Open a browser and browse to `http://www.<your domain name>` and `http://<your domain name>`.
 
 > [!NOTE]
-> Make sure you include the `http://` prefix, otherwise your browser may attempt to predict a URL for you!
+> Make sure you include the `http://` prefix, otherwise your browser may attempt to predict a URL for you.
 
 You should see the same page for both URLs. For example:
 
