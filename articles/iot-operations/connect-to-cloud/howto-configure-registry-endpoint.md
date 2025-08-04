@@ -1,5 +1,5 @@
 ---
-title: Configure registry endpoints in Azure IoT Operations
+title: Configure Registry Endpoints in Azure IoT Operations (Preview)
 description: Learn how to configure registry endpoints for container registries in Azure IoT Operations data flow graphs.
 author: PatAltimore
 ms.author: patricka
@@ -12,7 +12,7 @@ ai-usage: ai-assisted
 #CustomerIntent: As an operator, I want to understand how to configure registry endpoints in Azure IoT Operations so that I can pull WASM modules and graph definitions from container registries.
 ---
 
-# Configure registry endpoints
+# Configure registry endpoints (preview)
 
 [!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
@@ -20,7 +20,7 @@ Data flow graphs use registry endpoints to pull WebAssembly (WASM) modules and g
 
 ## Prerequisites
 
-- An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md)
+- An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md), version 1.2 preview or later
 - Access to a container registry, such as Azure Container Registry
 
 ## Registry endpoint overview
