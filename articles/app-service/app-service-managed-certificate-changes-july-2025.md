@@ -101,7 +101,7 @@ Only “Azure Endpoints” are supported. “Nested” and “External” endpoi
 **Recommended mitigation:**
 
 - Switch to Azure Endpoints or use a custom domain secured with a custom certificate.
-- For guidance on using App Service as an Azure Traffic Manager endpoint, refer to [App Service and Traffic Manager Profiles](web-sites-traffic-manager#app-service-and-traffic-manager-profiles.md).
+- For guidance on using App Service as an Azure Traffic Manager endpoint, refer to [App Service and Traffic Manager Profiles](web-sites-traffic-manager.md#app-service-and-traffic-manager-profiles).
 
 ---
 
@@ -125,7 +125,7 @@ Certificates for `*.trafficmanager.net` domains are not supported. If your app r
 
 4. **Add the certificate to the site**  
    > [!TIP]  
-   > Make sure to [authorized App Service to read the certificates from Key vault](configure-ssl-certificate#authorize-app-service-to-read-from-the-vault.md). Use the specific identity listed in the documentation—not the Managed Identity of the site.
+   > Make sure to [authorized App Service to read the certificates from Key vault](configure-ssl-certificate.md#authorize-app-service-to-read-from-the-vault). Use the specific identity listed in the documentation—not the Managed Identity of the site.
    - [REST API: Import KV certificate to site](/rest/api/appservice/certificates/create-or-update)
    - [CLI: Import KV certificate to site](/cli/azure/webapp/config/ssl#az-webapp-config-ssl-import)
 
