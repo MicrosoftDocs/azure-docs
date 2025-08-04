@@ -1,5 +1,4 @@
 ---
-title: 'Tutorial: Create custom Azure DNS records for a web app'
 description: In this tutorial, you learn how to create custom domain DNS records for web apps using Azure DNS.
 services: dns
 author: asudbring
@@ -22,7 +21,6 @@ To do this, you have to create three records:
 * A root "TXT" record for verification
 * A "CNAME" record for the www name that points to the A record
 
-
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -42,18 +40,23 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 * A web app. If you don't have one, you can [create a static HTML web app](../app-service/quickstart-html.md) for this tutorial.
 
-* An Azure DNS zone with delegation in your registrar to Azure DNS. If you don't have one, you can [create a DNS zone](./dns-getstarted-powershell.md), then [delegate your domain](dns-delegate-domain-azure-dns.md#delegate-the-domain) to Azure DNS.
+* An Azure DNS zone with delegation in your registrar to Azure DNS. If you don't have one, you can create a DNS zone, then [delegate your domain](dns-delegate-domain-azure-dns.md#delegate-the-domain) to Azure DNS.
 
-> [!NOTE]
-> In this tutorial, `contoso.com` is used as an example domain name. Replace `contoso.com` with your own domain name.
+# [Portal](#tab/azure-portal)
 
-[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
+[!INCLUDE [Azure portal prerequisites](~/reusable-content/ce-skilling/azure/includes/azure-portal-prerequisites.md)]
 
-[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
+# [PowerShell](#tab/azure-powershell)
 
-## Sign in to Azure
+[!INCLUDE [powershell-local-cloudshell](~/reusable-content/ce-skilling/azure/includes/powershell-local-cloudshell.md)]
 
-Sign in to the [Azure portal](https://portal.azure.com).
+If you're running PowerShell locally, you also need the Azure PowerShell module. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+
+# [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [azure-cli-local-cloudshell](~/reusable-content/ce-skilling/azure/includes/azure-cli-local-cloudshell.md)]
+
+---
 
 ## Create the A record
 
@@ -67,13 +70,55 @@ In the left navigation of the App Services page in the Azure portal, select **Cu
 
 ### Create the record
 
+# [Azure portal](#tab/azure-portal)
+
+1. Navigate to your DNS zone in the Azure portal.
+2. Select **+ Record set**.
+3. On the **Add record set** page, enter the following information:
+   - **Name**: Enter **@** (represents the root domain)
+   - **Type**: Select **A**
+   - **TTL**: Enter **600**
+   - **TTL unit**: Select **Seconds**
+   - **IP address**: Enter the IP address of your web app (copied from the previous step)
+4. Select **OK** to create the record.
+
+# [Azure PowerShell](#tab/azure-powershell)
+
 To create the A record, use:
 
 ```azurepowershell
-New-AzDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
- -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 `
- -DnsRecords (New-AzDnsRecordConfig -IPv4Address "<ip of web app service>")
+$recordParams = @{
+    Name = "@"
+    RecordType = "A"
+    ZoneName = "contoso.com"
+    ResourceGroupName = "test-rg"
+    Ttl = 600
+    DnsRecords = (New-AzDnsRecordConfig -IPv4Address "<ip of web app service>")
+}
+New-AzDnsRecordSet @recordParams
 ```
+
+# [Azure CLI](#tab/azure-cli)
+
+To create the A record, use:
+
+```azurecli
+# Create the A record set
+az network dns record-set a create \
+    --resource-group test-rg \
+    --zone-name contoso.com \
+    --name "@" \
+    --ttl 600
+
+# Add the IP address to the A record set
+az network dns record-set a add-record \
+    --resource-group test-rg \
+    --zone-name contoso.com \
+    --record-set-name "@" \
+    --ipv4-address "<ip of web app service>"
+```
+
+---
 
 > [!IMPORTANT]
 > The A record must be manually updated if the underlying IP address for the web app changes.
@@ -85,22 +130,76 @@ App Services uses this record only at configuration time to verify that you own 
 > [!NOTE]
 > If you want to verify the domain name, but not route production traffic to the web app, you only need to specify the TXT record for the verification step.  Verification does not require an A or CNAME record in addition to the TXT record.
 
+# [Azure portal](#tab/azure-portal)
+
+1. Navigate to your DNS zone in the Azure portal.
+2. Select **+ Record set**.
+3. On the **Add record set** page, enter the following information:
+   - **Name**: Enter **@** (represents the root domain)
+   - **Type**: Select **TXT**
+   - **TTL**: Enter **600**
+   - **TTL unit**: Select **Seconds**
+   - **Value**: Enter your web app's default domain name (for example, **contoso.azurewebsites.net**)
+4. Select **OK** to create the record.
+
+# [Azure PowerShell](#tab/azure-powershell)
+
 To create the TXT record, use:
 
 ```azurepowershell
-New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup `
- -Name "@" -RecordType "txt" -Ttl 600 `
- -DnsRecords (New-AzDnsRecordConfig -Value  "contoso.azurewebsites.net")
+$txtRecordParams = @{
+    ZoneName = "contoso.com"
+    ResourceGroupName = "test-rg"
+    Name = "@"
+    RecordType = "txt"
+    Ttl = 600
+    DnsRecords = (New-AzDnsRecordConfig -Value "contoso.azurewebsites.net")
+}
+New-AzDnsRecordSet @txtRecordParams
 ```
+
+# [Azure CLI](#tab/azure-cli)
+
+To create the TXT record, use:
+
+```azurecli
+az network dns record-set txt add-record \
+    --resource-group test-rg \
+    --zone-name contoso.com \
+    --record-set-name "@" \
+    --value "contoso.azurewebsites.net"
+```
+
+---
 
 ## Create the CNAME record
 
 If your domain is already managed by Azure DNS (see [DNS domain delegation](dns-domain-delegation.md)), you can use the following example to create a CNAME record for contoso.azurewebsites.net. The CNAME created in this example has a "time to live" of 600 seconds in DNS zone named "contoso.com" with the alias for the web app contoso.azurewebsites.net.
 
+# [Azure portal](#tab/azure-portal)
+
+1. Navigate to your DNS zone in the Azure portal.
+2. Select **+ Record set**.
+3. On the **Add record set** page, enter the following information:
+   - **Name**: Enter **www**
+   - **Type**: Select **CNAME**
+   - **TTL**: Enter **600**
+   - **TTL unit**: Select **Seconds**
+   - **Alias**: Enter your web app's default domain name (for example, **contoso.azurewebsites.net**)
+4. Select **OK** to create the record.
+
+# [Azure PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
-New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName "MyAzureResourceGroup" `
- -Name "www" -RecordType "CNAME" -Ttl 600 `
- -DnsRecords (New-AzDnsRecordConfig -cname "contoso.azurewebsites.net")
+$cnameRecordParams = @{
+    ZoneName = "contoso.com"
+    ResourceGroupName = "test-rg"
+    Name = "www"
+    RecordType = "CNAME"
+    Ttl = 600
+    DnsRecords = (New-AzDnsRecordConfig -cname "contoso.azurewebsites.net")
+}
+New-AzDnsRecordSet @cnameRecordParams
 ```
 
 The following example is the response:
@@ -115,6 +214,26 @@ The following example is the response:
     Records           : {contoso.azurewebsites.net}
     Tags              : {}
 ```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+# Create the CNAME record set
+az network dns record-set cname create \
+    --resource-group test-rg \
+    --zone-name contoso.com \
+    --name "www" \
+    --ttl 600
+
+# Add the CNAME record
+az network dns record-set cname add-record \
+    --resource-group test-rg \
+    --zone-name contoso.com \
+    --record-set-name "www" \
+    --cname "contoso.azurewebsites.net"
+```
+
+---
 
 ## Test the new records
 
@@ -159,12 +278,44 @@ contoso.com text =
 
 Now, you can add the custom host names to your web app:
 
+# [Azure portal](#tab/azure-portal)
+
+1. Navigate to your web app in the Azure portal.
+2. In the left navigation under **Settings**, select **Custom domains**.
+3. Select **+ Add custom domain**.
+4. In the **Custom domain** field, enter your domain name (for example, **contoso.com** or **www.contoso.com**).
+5. Select **Validate**. Azure will validate that the DNS records you created are properly configured.
+6. If validation is successful, select **Add custom domain**.
+7. Repeat steps 3-6 for each custom domain you want to add (both **contoso.com** and **www.contoso.com**).
+
+# [Azure PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
-set-AzWebApp `
- -Name contoso `
- -ResourceGroupName <your web app resource group> `
- -HostNames @("contoso.com","www.contoso.com","contoso.azurewebsites.net")
+$webAppParams = @{
+    Name = "contoso"
+    ResourceGroupName = "<your web app resource group>"
+    HostNames = @("contoso.com","www.contoso.com","contoso.azurewebsites.net")
+}
+Set-AzWebApp @webAppParams
 ```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+# Add contoso.com
+az webapp config hostname add \
+    --webapp-name contoso \
+    --resource-group <your web app resource group> \
+    --hostname contoso.com
+
+# Add www.contoso.com
+az webapp config hostname add \
+    --webapp-name contoso \
+    --resource-group <your web app resource group> \
+    --hostname www.contoso.com
+```
+
+---
 ## Test the custom host names
 
 Open a browser and browse to `http://www.<your domain name>` and `http://<you domain name>`.
@@ -178,12 +329,32 @@ You should see the same page for both URLs. For example:
 
 ## Clean up resources
 
-When no longer needed, you can delete all resources created in this tutorial by deleting the resource group **MyAzureResourceGroup**:
+When no longer needed, you can delete all resources created in this tutorial by deleting the resource group **test-rg**:
+
+# [Azure portal](#tab/azure-portal)
 
 1. On the Azure portal menu, select **Resource groups**.
-2. Select the **MyAzureResourceGroup** resource group.
+2. Select the **test-rg** resource group.
 3. On the **Overview** page, select **Delete resource group**.
-4. Enter *MyAzureResourceGroup* and select **Delete**.
+4. Enter *test-rg* and select **Delete**.
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+$resourceGroupParams = @{
+    Name = "test-rg"
+    Force = $true
+}
+Remove-AzResourceGroup @resourceGroupParams
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az group delete --name test-rg --yes --no-wait
+```
+
+---
 
 ## Next steps
 
