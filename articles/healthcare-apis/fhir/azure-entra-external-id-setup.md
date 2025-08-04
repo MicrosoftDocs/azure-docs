@@ -1,6 +1,6 @@
 ---
-title: Use Microsoft Entra External Id to grant access to the FHIR service in Azure Health Data Services
-description: Learn how to use Microsoft Entra External id with the FHIR service to enable access to healthcare applications and users.
+title: Use Microsoft Entra External ID to grant access to the FHIR service in Azure Health Data Services
+description: Learn how to use Microsoft Entra External ID with the FHIR service to enable access to healthcare applications and users.
 services: healthcare-apis
 author: Mahesh
 ms.service: azure-health-data-services
@@ -23,7 +23,7 @@ If you already created an Entra External id, you can skip to [Deploy the FHIR se
 
 ### Deploy an Entra External Id Tenant by using an ARM template
 
-Use PowerShell or Azure CLI to deploy the [ARM template](https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/main/samples/fhir-aad-b2c/b2c-arm-template.json) programmatically to an Azure subscription. For more information about syntax, properties, and usage of the template, see [Deploy an instance of Azure Active Directory B2C](/azure/templates/microsoft.azureactivedirectory/b2cdirectories?pivots=deployment-language-arm-template). 
+Use PowerShell or Azure CLI to deploy the [ARM template](https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/main/samples/fhir-aad-b2c/b2c-arm-template.json) programmatically to an Azure subscription. For more information about syntax, properties, and usage of the template, see [Deploy an instance of Azure Active Directory B2C](https://learn.microsoft.com/en-us/azure/templates/microsoft.azureactivedirectory/ciamdirectories?pivots=deployment-language-terraform). 
 
 Run the code in Azure Cloud Shell or in PowerShell locally in Visual Studio Code to deploy the FHIR service to the Entra External Id.
 
