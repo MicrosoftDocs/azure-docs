@@ -5,7 +5,7 @@ services: security
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: concept-article
-ms.date: 07/31/2025
+ms.date: 08/04/2025
 
 ms.author: sarahlipsey
 author: shlipsey3
@@ -21,7 +21,7 @@ DigiCert is transitioning to a new open-source software (OSS) domain control val
 
 Consequently, these Azure services will be introducing an enhanced domain control validation process, aiming to significantly expedite domain validation and address key vulnerabilities in the user experience.
 
-This change does not impact the standard CNAME DCV process for DigiCert customers, where validation uses a random value in the CNAME record. Only a unique method previously exclusive to Microsoft is being retired.
+This change does not impact the standard CNAME DCV process for DigiCert customers, where validation uses a random value in the CNAME record. Only a unique workflow previously exclusive to Microsoft is being retired.
 
 ## Frequently asked questions
 
