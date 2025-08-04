@@ -160,7 +160,7 @@ Keep these other considerations in mind when using Functions on Container Apps:
     - [Enable ingress](../container-apps/ingress-overview.md)
     - [Use Azure API Management (APIM) to authenticate requests](../azure-functions/security-concepts.md#use-azure-api-management-apim-to-authenticate-requests)
     - [Deploy your function app to a virtual network](../container-apps/custom-virtual-networks.md?tabs=workload-profiles-env)
-- **Quota and Resource Limits**: ACA environments have default limits on memory, CPU, and instance counts per region. Review the [environment limits](../container-apps/environment.md#limits-and-quotas) and [default quotas](../container-apps/quotas.md). If your workload requires more resources, you can [request a quota increase](../container-apps/quota-requests.md).
+- **Quota and resource limits**: Container Apps environments have default limits on memory, CPU, and instance counts per region. For more information, see the [environment limits](../container-apps/environment.md#limits-and-quotas) and [default quotas](../container-apps/quotas.md). If your workload requires more resources, you can [request a quota increase](../container-apps/quota-requests.md).
 
 ## Submit Feedback
 
