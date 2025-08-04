@@ -3,7 +3,7 @@ title: Configure Premium V3 tier
 description: Learn how to better performance for your web, mobile, and API app in Azure App Service by scaling to the new Premium V3 pricing tier.
 keywords: app service, azure app service, scale, scalable, app service plan, app service cost
 ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
-ms.topic: article
+ms.topic: concept-article
 ms.date: 02/21/2025
 ms.author: msangapu
 author: msangapu-msft
@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 #customer intent: As a deployment engineer, I want to understand the process and the benefits of scaling up apps to the Premium V3 pricing tier in Azure App Service.
 ---
 
-# Configure Premium V3 tier for Azure App Service
+# Configuring Premium V3 tier for Azure App Service
 
 The new Premium V3 pricing tier gives you faster processors, SSD storage, and memory-optimized options. It offers to quadruple the memory-to-core ratio of the existing pricing tiers. The memory-to-core ratio is double the Premium V2 tier. With the performance advantage, you could save money by running your apps on fewer instances. In this article, you learn how to create an app in Premium V3 tier or scale up an app to Premium V3 tier.
 
