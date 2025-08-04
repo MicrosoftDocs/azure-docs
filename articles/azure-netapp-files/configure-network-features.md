@@ -70,8 +70,10 @@ You can edit the network features option of existing volumes from *Basic* to *St
 
 ### <a name="edit"></a> Edit network features 
 
+<!-- terraform net features
 >[!IMPORTANT]
 >You must follow separate instructions if you use Terraform-managed volumes. For more information see, [Update network features for Terraform-managed Azure NetApp Files volumes](#terraform).
+-->
 
 # [Portal](#tab/portal)
 
@@ -162,7 +164,7 @@ You should be using the [latest version of the Azure NetApp Files REST API](/res
 1. Confirm the network features changed with a GET request. 
 
 ---
-
+<!-- terraform
 ### <a name="terraform"></a> Update Terraform-managed Azure NetApp Files volume from Basic to Standard 
 
 If your Azure NetApp Files volume is managed using Terraform, editing the network features requires additional steps. Terraform-managed Azure resources store their state in a local file, which is in your Terraform module or in Terraform Cloud. 
@@ -245,6 +247,7 @@ The `ignore_changes` feature is intended to be used when a resource’s referenc
     The terraform.tfstate file doesn't reflect the change. Don't change the `network_features` parameter in the configuration file. 
 
     :::image type="content" source="./media/configure-network-features/updated-terraform-module.png" alt-text="Screenshot of updated Terraform module." lightbox="./media/configure-network-features/updated-terraform-module.png":::
+-->
 
 ## Next steps  
 
