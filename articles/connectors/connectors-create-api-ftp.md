@@ -244,7 +244,7 @@ Before you can use an FTP action, your workflow must already start with a trigge
 
    ![Screenshot shows Consumption workflow designer and FTP connection profile for an action.](./media/connectors-create-api-ftp/ftp-action-connection-consumption.png)
 
-1. After the **Get file metadata** action information box appears, click inside the **File** box so that the dynamic content list opens.
+1. After the **Get file metadata** action information box appears, select inside the **File** box so that the dynamic content list opens.
 
    You can now select outputs from the preceding trigger.
 
@@ -264,7 +264,7 @@ Before you can use an FTP action, your workflow must already start with a trigge
 
    ![Screenshot shows the Azure portal, Consumption workflow designer, search box with "ftp get file content" entered, and "Get file content" action selected.](./media/connectors-create-api-ftp/ftp-get-file-content-action-consumption.png)
 
-1. After the **Get file content** action information box appears, click inside the **File** box so that the dynamic content list opens.
+1. After the **Get file content** action information box appears, select inside the **File** box so that the dynamic content list opens.
 
    You can now select outputs from the preceding trigger and any other actions.
 
@@ -313,7 +313,7 @@ The steps to add and use an FTP action differ based on whether your workflow use
 
    ![Screenshot shows Standard workflow designer, FTP built-in action, and connection profile.](./media/connectors-create-api-ftp/ftp-action-connection-built-in-standard.png)
 
-1. In the action information pane that appears, click inside the **File path** box so that the dynamic content list opens.
+1. In the action information pane that appears, select inside the **File path** box so that the dynamic content list opens.
 
    You can now select outputs from the preceding trigger.
 
@@ -352,7 +352,7 @@ The steps to add and use an FTP action differ based on whether your workflow use
 
    ![Screenshot shows Standard workflow designer, FTP managed connector action, and connection profile.](./media/connectors-create-api-ftp/ftp-action-connection-azure-standard.png)
 
-1. In the action information pane that appears, click inside the **File** box so that the dynamic content list opens.
+1. In the action information pane that appears, select inside the **File** box so that the dynamic content list opens.
 
    You can now select outputs from the preceding trigger.
 
@@ -372,7 +372,7 @@ The steps to add and use an FTP action differ based on whether your workflow use
 
    ![Screenshot shows Standard workflow designer, "Get file content" action, and "File" property set to "Id" trigger output.](./media/connectors-create-api-ftp/ftp-get-file-content-azure-standard.png)
 
-1. In the action information pane that appears, click inside the **File** box so that the dynamic content list opens.
+1. In the action information pane that appears, select inside the **File** box so that the dynamic content list opens.
 
    You can now select outputs from the preceding trigger or actions.
 
@@ -412,7 +412,7 @@ To check that your workflow returns the content that you expect, add another act
 
    For example, you can include the **File content** output from the **Get file content** action. To find this output, follow these steps:
 
-   1. In the **Get file content** action, click inside the **Body** box so that the dynamic content list opens.
+   1. In the **Get file content** action, select inside the **Body** box so that the dynamic content list opens.
 
    1. In the dynamic content list, next to **Get file content**, select **See more**.
 
@@ -448,7 +448,7 @@ To check that your workflow returns the content that you expect, add another act
 
    For example, you can include the **File content** output from the **Get file content** action. To find this output, follow these steps:
 
-   1. In the **Get file content** action, click inside the **Body** box so that the dynamic content list opens. In the dynamic content list, next to **Get file content**, select **See more**.
+   1. In the **Get file content** action, select inside the **Body** box so that the dynamic content list opens. In the dynamic content list, next to **Get file content**, select **See more**.
 
       ![Screenshot shows Standard workflow designer, "Send an email" action, and dynamic content list opened with "See more" selected next to "Get file content".](./media/connectors-create-api-ftp/send-email-action-body-see-more-built-in-standard.png)
 
@@ -486,7 +486,7 @@ To check that your workflow returns the content that you expect, add another act
 
    For example, you can include the **File content** output from the **Get file content** action. To find this output, follow these steps:
 
-   1. In the **Get file content** action, click inside the **Body** box so that the dynamic content list opens. In the dynamic content list, next to **Get file content**, select **See more**.
+   1. In the **Get file content** action, select inside the **Body** box so that the dynamic content list opens. In the dynamic content list, next to **Get file content**, select **See more**.
 
       ![Screenshot shows Standard workflow designer, "Send an email" action, and dynamic content list opened with "See more" selected next to "Get file content" managed action section.](./media/connectors-create-api-ftp/send-email-action-body-see-more-azure-standard.png)
 
@@ -517,7 +517,6 @@ The FTP built-in connector is available only for Standard logic app workflows an
 | Trigger | Description |
 |---------|-------------|
 | [**When a file is added or updated**](#when-file-added-updated) | Start a logic app workflow when a file is added or updated in the specified folder on the FTP server. <p><p>**Note**: This trigger gets only the file metadata or properties, not the file content. However, to get the content, your workflow can follow this trigger with the [**Get file content**](#get-file-content) action. |
-|||
 
 | Action | Description |
 |--------|-------------|
@@ -527,7 +526,6 @@ The FTP built-in connector is available only for Standard logic app workflows an
 | [**Get file metadata**](#get-file-metadata) | Get the metadata or properties of a file using the specified file path. |
 | [**List files and subfolders in a folder**](#list-files-subfolders-folder) | Get a list of files and subfolders in the specified folder. |
 | [**Update file**](#update-file) | Update a file using the specified file path and file content. |
-|||
 
 <a name="when-file-added-updated"></a>
 
@@ -544,7 +542,6 @@ This trigger starts a logic app workflow run when a file is added or updated in 
 | **Folder path** | `folderPath` | True | `string` | The folder path, relative to the root directory. |
 | **Number of files to return** | `maxFileCount` | False | `integer` | The maximum number of files to return from a single trigger run. Valid values range from 1 - 100. <br><br>**Note**: By default, the **Split On** setting is enabled and forces this trigger to process each file individually in parallel. |
 | **Cutoff timestamp to ignore older files** | `oldFileCutOffTimestamp` | False | `dateTime` | The cutoff time to use for ignoring older files. Use the timestamp format `YYYY-MM-DDTHH:MM:SS`. To disable this feature, leave this property empty. |
-||||||
 
 #### Returns
 
@@ -553,7 +550,6 @@ When the trigger's **Split On** setting is enabled, the trigger returns the meta
 | Name | Type |
 |------|------|
 | **List of files** | [BlobMetadata](/connectors/ftp/#blobmetadata) |
-|||
 
 <a name="create-file"></a>
 
@@ -576,7 +572,7 @@ This action creates a file using the specified file path and file content. If th
 |------|-----|----------|------|-------------|
 | **File path** | `filePath` | True | `string` | The file path, including the file name extension if any, relative to the root directory. |
 | **File content** | `fileContent` | True | `string` | The file content. |
-||||||
+
 
 #### Returns
 
@@ -588,7 +584,6 @@ This action returns a [BlobMetadata](/connectors/ftp/#blobmetadata) object named
 | **File metadata File path** | `string` |
 | **File metadata File size** | `string` |
 | **File metadata** | [BlobMetadata](/connectors/ftp/#blobmetadata) |
-|||
 
 <a name="delete-file"></a>
 
@@ -603,7 +598,6 @@ This action deletes a file using the specified file path.
 | Name | Key | Required | Type | Description |
 |------|-----|----------|------|-------------|
 | **File path** | `filePath` | True | `string` | The file path, including the file name extension if any, relative to the root directory. |
-||||||
 
 #### Returns
 
@@ -622,7 +616,6 @@ This action gets the content of a file using the specified file path.
 | Name | Key | Required | Type | Description |
 |------|-----|----------|------|-------------|
 | **File path** | `path` | True | `string` | The file path, including the file name extension if any, relative to the root directory. |
-||||||
 
 #### Returns
 
@@ -631,7 +624,6 @@ This action returns the content of a file as a binary value named **File content
 | Name | Type |
 |------|------|
 | **File content** | Binary |
-|||
 
 <a name="get-file-metadata"></a>
 
@@ -646,7 +638,6 @@ This action gets the metadata or properties of a file using the specified file p
 | Name | Key | Required | Type | Description |
 |------|-----|----------|------|-------------|
 | **File path** | `path` | True | `string` | The file path, including the file name extension if any, relative to the root directory. |
-||||||
 
 #### Returns
 
@@ -659,7 +650,6 @@ This action returns the following outputs:
 | **File size** | `string` |
 | **Last updated time** | `string` |
 | **File metadata** | [BlobMetadata](/connectors/ftp/#blobmetadata) |
-|||
 
 <a name="list-files-subfolders-folder"></a>
 
@@ -675,16 +665,14 @@ This action gets a list of files and subfolders in the specified folder.
 |------|-----|----------|------|-------------|
 | **Folder path** | `folderPath` | True | `string` | The folder path, relative to the root directory. |
 | **File content** | `fileContent` | True | `string` | The content for the file |
-||||||
 
 #### Returns
 
-This action returns an array that's named **Response** and contains [BlobMetadata](/connectors/ftp/#blobmetadata) objects.
+This action returns an array named **Response** and contains [BlobMetadata](/connectors/ftp/#blobmetadata) objects.
 
 | Name | Type |
 |------|------|
 | **Response** | Array with [BlobMetadata](/connectors/ftp/#blobmetadata) objects |
-|||
 
 <a name="update-file"></a>
 
@@ -707,7 +695,6 @@ This action updates a file using the specified file path and file content.
 |------|-----|----------|------|-------------|
 | **File path** | `filePath` | True | `string` | The file path, including the file name extension if any, relative to the root directory. |
 | **File content** | `fileContent` | True | `string` | The content for the file |
-||||||
 
 #### Returns
 
@@ -716,7 +703,6 @@ This action returns a [BlobMetadata](/connectors/ftp/#blobmetadata) object named
 | Name | Type |
 |------|------|
 | **Body** | [BlobMetadata](/connectors/ftp/#blobmetadata) |
-|||
 
 ## Next steps
 
