@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 08/04/2025
+ms.date: 08/05/2025
 ms.author: danlep
 ---
 
@@ -30,6 +30,10 @@ Depending on the service tier, API Management supports TLS versions up to 1.2 or
 > * The following tiers don't support changes to the default cipher configuration: **Consumption**, **Basic v2**, **Standard v2**, **Premium v2**. 
 > * In [workspaces](workspaces-overview.md), the managed gateway doesn't support changes to the default protocol and cipher configuration.
 
+> [!NOTE]
+> Depending on the API Management service tier, changes can take 15 to 45 minutes or longer to apply. An instance in the Developer service tier has downtime during the process. Instances in the Basic and higher tiers don't have downtime during the process.  
+
+
 ## Prerequisites
 
 * An API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
@@ -42,42 +46,33 @@ Depending on the service tier, API Management supports TLS versions up to 1.2 or
 1. Enable or disable desired protocols or ciphers.
 1. Select **Save**.
 
-Changes can take 15 to 45 minutes or longer to apply. An instance in the Developer service tier has downtime during the process. Instances in the Basic and higher tiers don't have downtime during the process.  
-
 > [!NOTE]
 > Some protocols or cipher suites (such as backend-side TLS 1.2) can't be enabled or disabled from the Azure portal. Instead, you'll need to apply the REST API call. Use the `properties.customProperties` structure in the [Create/Update API Management Service](/rest/api/apimanagement/current-ga/api-management-service/create-or-update) REST API.
 
-## TLS 1.3 support
+## TLS 1.3 support in Consumption and classic tiers
 
-
-<!-- Questions:
-
-1. In v1/Consumption tiers, is TLS 1.2 also enabled by default, or is it only TLS 1.3?
-2. Is TLS 1.3 supported in v2 tiers for client-side and backend-side connections?
-3. What ciphers are supported in TLS 1.3? Any user configuration possible?
-4. Can TLS 1.3 be enabled/disabled via REST API 
-5. On backend side, is TLS 1.2 also enabled by default? 
-6. Is TLS 1.3 also supported in workspace gateways?     -->
-
-TLS 1.3 support is available in the API Management **Consumption**, **Developer**, **Basic**, **Standard**, and **Premium** service tiers. In most instances created in those service tiers, TLS 1.3 is enabled by default for client-side connections. Enabling backend-side TLS 1.3 is optional.
+TLS 1.3 support is available in the API Management **Consumption** and classic **Developer**, **Basic**, **Standard**, and **Premium** service tiers. In most instances created in those service tiers, TLS 1.3 is enabled by default for client-side connections. Enabling backend-side TLS 1.3 is optional. TLS 1.2 is also enabled by default on both client and backend sides.
 
 TLS 1.3 is a major revision of the TLS protocol that provides improved security and performance. It includes features such as reduced handshake latency and improved security against certain types of attacks.
 
+> [!NOTE]
+> The [v2 tiers](v2-service-tiers-overview.md) of API Management and [workspace gateways](workspaces-overview.md) support TLS 1.2 by default for client-side and backend-side connections. They don't currently support TLS 1.3.
+
 ### Optionally enable TLS 1.3 when clients require certificate renegotiation
 
-If your API Management service is detected to have received TLS connections that require certificate renegotiation, enabling client-side TLS 1.3 in your instance is *optional*. TLS-compliant clients that require certificate renegotiation are not compatible with TLS 1.3. 
+Client-side TLS 1.3 is disabled by default in **Consumption** and classic tier instances that recently received TLS connections that require certificate renegotiation. Certificate renegotiation in TLS allows client and server to renegotiate connection parameters mid-session for authentication without terminating the connection. TLS-compliant clients that rely on certificate renegotiation are not compatible with TLS 1.3. 
 
-You can review the recent connections that required certificate renegotiation page and choose whether to enable TLS 1.3 for client-side connections:
+After reviewing recent client connections that used certificate renegotiation, you can choose whether to enable TLS 1.3 for client-side connections:
 
 1. On the **Protocols + ciphers** page, in the **Client protocol** section, next to **TLS 1.3**, select **View and manage configuration**.
 1. Review the list of **Recent client certificate renegotiations**. The list shows API operations where clients recently used client certificate renegotiation.
 1. If you choose to enable TLS 1.3 for client-side connections, select **Enable**.
 1. Select **Close**.
 
+After enabling TLS 1.3, review gateway request metrics or TLS-related exceptions in Application Insights that indicate TLS connection failures. If necessary, disable TLS 1.3 for client-side connections and downgrade to TLS 1.2.
+
 > [!WARNING]
-> * If your APIs are accessed by TLS-compliant clients that rely on certificate renegotiation, enabling TLS 1.3 for client-side connections will cause those clients to fail to connect. 
-> * We recommend carefully monitoring the **Recent client certificate renegotiations** list both before and after enabling TLS 1.3 for client-side connections.
-> * After enabling TLS 1.3, review gateway request metrics or TLS-related exceptions in Application Insights that indicate TLS connection failures. If necessary, disable TLS 1.3 for client-side connections and downgrade to TLS 1.2.
+> If your APIs are accessed by TLS-compliant clients that rely on certificate renegotiation, enabling TLS 1.3 for client-side connections will cause those clients to fail to connect. 
 
 ### Optionally disable TLS 1.3 
 
@@ -89,7 +84,10 @@ If you need to disable TLS 1.3 for client-side connections, you can do so from t
 
 ### Backend-side TLS 1.3
 
-Enabling backend-side TLS 1.3 is optional. If you enable it, API Management will use TLS 1.3 for connections to your backend services that support it.
+Enabling backend-side TLS 1.3 is optional. If you enable it, API Management uses TLS 1.3 for connections to your backend services.
+
+> [!WARNING]
+> Enabling TLS 1.3 for backend-side connections will cause connection failures with backend services that rely on client certificate renegotiation between API Management and the backends.
 
 You can enable backend-side TLS 1.3 from the **Protocols + ciphers** page:    
 
