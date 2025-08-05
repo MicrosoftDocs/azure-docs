@@ -19,10 +19,7 @@ Healthcare organizations can use [Microsoft Entra External ID](https://learn.mic
 
 Creating an Entra External ID tenant for the FHIR service sets up a secure infrastructure for managing user identities in your healthcare applications. 
 
-If you already created an Entra External id, you can skip to [Deploy the FHIR service with Entra External ID](#deploy-the-fhir-service-by-using-an-arm-template). 
-for more details: https://learn.microsoft.com/en-us/entra/fundamentals/create-new-tenant
-
----
+If you already created an Entra External id, you can skip to [Deploy the FHIR service with Entra External ID](#deploy-the-fhir-service-by-using-an-arm-template).
 
 ## Prerequisites
 
