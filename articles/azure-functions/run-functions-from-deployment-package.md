@@ -105,6 +105,9 @@ This section provides information about how to run your function app from a pack
 + When you're running on a Dedicated plan, ensure you enable [Always On](dedicated-plan.md#always-on).
 + You can use [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload package files to blob containers in your storage account.
 
+> [!NOTE]
+> Currently, an existing Function App resource that runs a local ZIP package cannot be migrated to run from a remote ZIP package. You will have to create a new Function App resource configured to run from an external URL.
+
 ### Manually uploading a package to Blob Storage
 
 To deploy a zipped package when using the URL option, you must create a .zip compressed deployment package and upload it to the destination. The following procedure deploys to a container in Blob Storage:
