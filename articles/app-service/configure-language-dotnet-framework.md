@@ -1,10 +1,10 @@
 ---
-title: Configure ASP.NET apps
+title: Configure ASP.NET Apps
 description: Learn how to configure an ASP.NET app in Azure App Service. This article shows the most common configuration tasks. 
 
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-dotnet
-ms.topic: article
+ms.topic: concept-article
 ms.date: 07/07/2025
 author: cephalin
 ms.author: cephalin
@@ -112,7 +112,7 @@ Trace.TraceInformation("GET /Home/Index"); // Information trace
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
 
-## More resources
+## Related content
 
 - [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
 - [Environment variables and app settings reference](reference-app-settings.md)
