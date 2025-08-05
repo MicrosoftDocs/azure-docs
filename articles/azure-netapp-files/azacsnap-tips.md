@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 04/17/2024
+ms.date: 08/04/2025
 ms.author: phjensen
 # Customer intent: As a DevOps engineer managing database backups, I want to configure and monitor the Azure Application Consistent Snapshot tool for Azure NetApp Files, so that I can automate and ensure the reliability of regular snapshot backups for my SAP HANA databases.
 ---
