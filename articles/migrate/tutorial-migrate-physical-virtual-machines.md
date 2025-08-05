@@ -115,7 +115,7 @@ To set up a new appliance, you can use PowerShell installer script. Ensure you m
 ## Set up the replication appliance
 
 > [!NOTE]
-> We recommend that you perform discovery and assessment prior to the migration by using the Azure Migrate: Discovery and assessment tool, a separate lightweight Azure Migrate appliance. You can deploy the appliance as a physical server to continuously discover servers and performance metadata. For more information, see [Discover physical servers](tutorial-discover-physical.md).
+> We recommend that you perform discovery and assessment prior to the migration by using the Azure Migrate: Discovery and assessment tool, a separate lightweight Azure Migrate appliance. You can deploy the appliance as a physical server to continuously discover servers and performance metadata. [Learn more](tutorial-discover-physical.md).
 
 The first step of migration is to set up the replication appliance. To set up the appliance for physical server migration, download the installer file for the appliance. Then run it on the machine you prepared. After you install the appliance, register it with your migrate project using the key copied from the portal.
 
@@ -362,8 +362,8 @@ Now, select machines for migration.
 
 1. In the Azure Migrate project, select **Execute** > **Migrations** > **Replicate**.
 1. In **Replicate**, > **Source settings** > **Are your machines virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
-1. In **On-premises appliance**, select the name of the replication appliance that you set up. Then select **continue**.
-1. In **Guest credentials**, select the friendly name of the credentials created previously during the replication appliance setup. Then select **Next: Virtual machines**.
+1. In **On-premises appliance**, select the name of the replication appliance that you set up and then select **continue**.
+1. In **Guest credentials**, select the friendly name of the credentials created previously during the replication appliance setup and then select **Next: Virtual machines**.
 
     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/source-settings.png" alt-text="Screenshot that shows source settings.":::
 
@@ -446,7 +446,7 @@ When delta replication begins, you can run a test migration for the VMs before y
 
 To do a test migration:
 
-1. In **Migrations**, select **Replications summary** , select **other** under **Replications**.
+1. In **Migrations**, select **Replications summary** and then select **other** under **Replications**.
 
 1. In the **Replicating machines** tab, right-click the VM to test and select **Test migrate**.
 
@@ -469,7 +469,7 @@ To do a test migration:
 
 After you verify that the test migration works as expected, you can migrate the on-premises machines.
 
-1. In the Azure Migrate project, select **Migrationss** > **Replications summary**, select **Other** under **Replications**.
+1. In the Azure Migrate project, select **Migrationss** > **Replications summary** and then select **Other** under **Replications**.
 1. In **Replicating machines**, right-click the VM and select **Migrate**.
 1. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **No** > **OK**.
 
