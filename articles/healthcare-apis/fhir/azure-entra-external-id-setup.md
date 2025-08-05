@@ -20,64 +20,64 @@ Healthcare organizations can use [Microsoft Entra External ID](https://learn.mic
 Creating an Entra External ID tenant for the FHIR service sets up a secure infrastructure for managing user identities in your healthcare applications. 
 
 If you already created an Entra External id, you can skip to [Deploy the FHIR service with Entra External ID](#deploy-the-fhir-service-by-using-an-arm-template). 
-
-### Deploy an Entra External ID Tenant by using an ARM template
-
-Use PowerShell or Azure CLI to deploy the [ARM template](https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/main/samples/fhir-aad-b2c/b2c-arm-template.json) programmatically to an Azure subscription. For more information about syntax, properties, and usage of the template, see [ Deploy an instance of Microsoft Entra External ID.](https://learn.microsoft.com/en-us/azure/templates/microsoft.azureactivedirectory/ciamdirectories?pivots=deployment-language-terraform). 
-
-Run the code in Azure Cloud Shell or in PowerShell locally in Visual Studio Code to deploy the FHIR service to the Entra External Id.
-
-#### [PowerShell](#tab/powershell)
-
-1. Use `Connect-AzAccount` to sign in to Azure. After you sign in, use `Get-AzContext` to verify the subscription and tenant you want to use. Change the subscription and tenant if needed.
-
-1. Create a new resource group (or use an existing one) by skipping the "create resource group" step, or commenting out the line starting with `New-AzResourceGroup`.
-
-```PowerShell
-### variables
-$tenantid="your tenant id"
-$subscriptionid="your subscription id"
-$resourcegroupname="your resource group name"
-$b2cName="your-entra-external-id-tenant-name"
-
-### login to azure
-Connect-AzAccount -Tenant $tenantid -SubscriptionId $subscriptionid 
-
-### create resource group
-New-AzResourceGroup -Name $resourcegroupname -Location $region
-
-### deploy the resource
-New-AzResourceGroupDeployment -ResourceGroupName $resourcegroupname -TemplateUri https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/main/samples/fhir-aad-b2c/b2c-arm-template.json -b2cName $b2cName
-```
-
-#### [Azure CLI](#tab/command-line)
-
-1. Use `Connect-AzAccount` to sign in to Azure. After you sign in, use `az account show --output table` to verify the subscription and tenant you want to use. Change the subscription and tenant if needed.
-
-1. Create a new resource group (or use an existing one) by skipping the "create resource group" step or commenting out the line starting with `az group create`.
-
-```bash
-### variables
-tenantid=your tenant id
-subscriptionid=your subscription id
-resourcegroupname=your resource group name
-b2cName=your-entra-external-id-tenant-name
-
-### login to azure
-az login
-az account show --output table
-az account set --subscription $subscriptionid
-
-### create resource group
-az group create --name $resourcegroupname --location $region
-
-### deploy the resource
-az deployment group create --resource-group $resourcegroupname --template-uri https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/main/samples/fhir-aad-b2c/b2c-arm-template.json --parameters b2cName=$b2cName
-```
+for more details: https://learn.microsoft.com/en-us/entra/fundamentals/create-new-tenant
 
 ---
 
+## Prerequisites
 
+- An Azure subscription.
+
+- An Azure account that's been assigned at least the [**Tenant Creator**](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#tenant-creator) role, scoped to the subscription or to a resource group within the subscription.
+
+
+
+### Create a new external tenant with external configurations
+
+Creating a Microsoft Entra External ID tenant provisions a new external tenant, which enables external users to access healthcare applications securely. for more information [Use your Azure subscription to create an external tenant](https://learn.microsoft.com/en-us/entra/external-id/customers/quickstart-tenant-setup)
+
+1. Sign in to your organization's [Microsoft Entra admin center ](https://entra.microsoft.com).
+
+
+
+2. Browse to **Entra ID > Overview > Manage tenants.** 
+
+3. Select **Create**.
+
+![Create tenant screenshot](https://learn.microsoft.com/en-us/entra/external-id/customers/media/how-to-create-external-tenant-portal/create-tenant.png)
+
+4. Select **External**, and then **Continue.**
+
+![Screenshot showing the selection of tenant type in Microsoft Entra External ID.](https://learn.microsoft.com/en-us/entra/external-id/customers/media/how-to-create-external-tenant-portal/select-tenant-type.png)
+
+5. On the **Basics** page of the **Create a tenant** page,enter the following information:
+
+   - Type your desired **Tenant Name** (for example Contoso Customers)..
+
+   - Type your desired Domain Name (for example Contosocustomers)..
+
+   - Select your desired **Location**. This selection can't be changed later.
+
+![Screenshot showing the Basics page in the Create a tenant pane.](https://learn.microsoft.com/en-us/entra/external-id/customers/media/how-to-create-external-tenant-portal/add-basics-to-external-tenant.png)
+
+
+6. Select **Next:** **Add a Subscription**.
+- On the Add a subscription tab, enter the following information:
+   - Next to Subscription, select your subscription from the menu.
+   - Next to Resource group, select a resource group from the menu. If there are no available resource groups, select Create new, type a Name, and then select OK.
+   - If Resource group location appears, select the geographic location of the resource group from the menu.
+
+![ subscription section during Microsoft Entra External ID tenant creation.](https://learn.microsoft.com/en-us/entra/external-id/customers/media/how-to-create-external-tenant-portal/add-subscription.png)
+
+7. Select **Next: Review + create**.  If the information that you entered is correct, select Create. The tenant creation process can take up to 30 minutes. You can monitor the progress of the tenant creation process in the Notifications pane. Once the external tenant is created, you can access it in both the Microsoft Entra admin center and the Azure portal.
+
+![the confirmation message after a Microsoft Entra External ID tenant is successfully created.](https://learn.microsoft.com/en-us/entra/external-id/customers/media/how-to-create-external-tenant-portal/tenant-successfully-created.png)
+
+11. After selecting the link, you're redirected to the **Multi-Factor Authentication (MFA)** setup page.
+
+12. Complete the MFA setup process as prompted.
+
+13. After successful MFA configuration, you're automatically redirected to the newly created Microsoft Entra External ID tenant.
 
 ### Add a test user to the Microsoft Entra External ID tenant
 
