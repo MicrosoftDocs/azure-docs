@@ -57,20 +57,20 @@ The following table contains the most common codes and subcodes. If your error i
 | CallDisconnected               | 200  | 4521    | Participant abruptly disconnected (e.g., closed app, tab, or browser without hanging up). | Recommend graceful hang-up logic in client. Use client logs to verify if app was force-closed. |
 | CallDisconnected               | 200  | 5000    | Participant removed by another participant. | Check call control logic for removal operations. Confirm if the removal was intentional. |
 | CallDisconnected               | 200  | 5010    | Call ended because only one participant remained. | This is expected behavior. Rejoin with multiple participants if call was meant to continue. |
-| CallDisconnected               | 200  | 5013    | Call ended because no one else joined the group call. | Check timing of participant joins; consider adding retry or delay logic. |
+| CallDisconnected               | 200  | 5013    | Call ended because no one else joined the group call. | Check timing of participant joins. |
 | CallDisconnected               | 200  | 7000    | Call ended by Azure Communication Services Call Automation or a server-side bot. | Confirm if bot logic triggered end of call. Review bot implementation and call flow. |
 | CallDisconnected               | 200  | 7015    | Call ended by service after successful transfer. | No action needed; call was terminated as part of expected transfer behavior. |
 | CallDisconnected               | 487  | 0       | Call ended successfully as caller canceled the call. | No action needed. Ensure cancellation is intentional. |
-| CallDisconnected               | 487  | 10003   | Call was accepted by another endpoint (e.g., user answered on mobile instead of desktop). | Application logic should check for endpoint priority or re-route logic. |
-| CallDisconnected               | 487  | 10024   | Call was declined by all callee endpoints. | Consider retry logic or fallback routing to another contact. |
-| CallDisconnected               | 500  | 10045   | Azure Communication Services infrastructure error. | Retry the call after short delay. Capture logs and contact support if issue persists. |
+| CallDisconnected               | 487  | 10003   | Call was accepted by another endpoint (e.g. different bot answered the call). Ensure bots only answer calls directed to them.| Application logic should check for endpoint priority or re-route logic. |
+| CallDisconnected               | 487  | 10024   | Call was declined by all callee endpoints. | No action needed. |
+| CallDisconnected               | 500  | 10045   | Azure Communication Services infrastructure error. | Capture logs and contact support if issue persists. |
 | CallDisconnected               | 503  | 560503  | Unexpected server error. | Retry call with exponential backoff. If issue recurs, collect logs and open support ticket. |
 | CreateCallFailed               | 401  | 10009   | Unauthenticated identity. | Ensure Azure Communication Services token is valid, scoped, and not expired. |
 | CreateCallFailed               | 403  | 510403  | Call marked as spam and blocked. | Review outbound calling pattern. Ensure it complies with anti-spam policies. |
-| CreateCallFailed               | 403  | 560403  | Call was forbidden, canceled, or rejected. | Validate permissions and target user status. Retry with correct parameters. |
+| CreateCallFailed               | 403  | 560403  | Call was forbidden, canceled, or rejected. | Validate permissions and target user status. |
 | CreateCallFailed               | 404  | 4500    | Call ID does not exist or call has already ended. | Double check call ID and call lifecycle. Ensure you’re not referencing an expired call. |
 | CreateCallFailed               | 480  | 10078   | Remote participant not registered or reachable. | Confirm callee’s client app is running and registered. Retry later if needed. |
-| CreateCallFailed               | 480  | 560480  | No answer from callee. | Confirm user availability. Consider retrying later or alerting fallback contact. |
+| CreateCallFailed               | 480  | 560480  | No answer from callee. | Confirm user availability. |
 | CreateCallFailed               | 487  | 540487  | Call canceled by the originator. | No action needed. Verify the source application canceled the call as intended. |
 | ConnectFailed                  | 408  | 10056   | Timeout: No response from participant during call connection. | Ensure remote participant's network or app is responsive. Consider retry logic. |
 | ConnectFailed                  | 408  | 10057   | Timeout during meeting join or call acceptance. | Validate participant's presence and client readiness. |
@@ -80,8 +80,8 @@ The following table contains the most common codes and subcodes. If your error i
 | ConnectFailed                  | 484  | 560484  | Invalid or incomplete callee address. | Validate callee identifier (e.g., phone number, ACS ID). Correct and retry. |
 | ConnectFailed                  | 486  | 560484  | PSTN participant was busy or unavailable. | Consider retry with delay or provide callback option. |
 | AnswerFailed                   | 401  | 71005   | Token validation error while answering the call. | Ensure AnswerCall request has a valid, non-expired token. |
-| AnswerFailed                   | 404  | 404     | Unable to answer – call not found or already ended. | Confirm the call is still active before responding. |
-| AnswerFailed                   | 408  | 4506    | Timeout – callee didn’t respond in time. | Validate user's app availability and push notifications. |
+| AnswerFailed                   | 404  | 404     | Unable to answer – call not found or already ended. |  |
+| AnswerFailed                   | 408  | 4506    | Timeout – callee didn’t respond in time. | Validate application availability and push notifications. |
 | AnswerFailed                   | 495  | 4507    | Invalid Azure Communication Services token. | Check token generation and scope. Regenerate token if needed. |
 | AnswerFailed                   | 430  | 10315   | Failed to deliver signaling message to client. | Ensure client app is reachable and can receive signaling messages. |
 | AnswerFailed                   | 430  | 10317   | Client did not acknowledge signaling request. | Check client app responsiveness. Restart app or device if needed. |
@@ -89,7 +89,7 @@ The following table contains the most common codes and subcodes. If your error i
 | AnswerFailed                   | 487  | 10004   | Timeout – user did not accept or reject in time. | Consider adding fallback path or extended ringing duration. |
 | AnswerFailed                   | 487  | 4501    | Declined or failed to generate media offer (e.g., endpoint mismatch). | Verify media capabilities and ensure compatibility across participants. |
 | AnswerFailed                   | 490  | 4502    | Network issue – browser failed to complete the request. | Validate client connectivity and allowlist ACS domains in network settings. |
-| AnswerFailed                   | 496  | 7       | Lost network connection; retries failed. | Prompt user to reconnect. Log and monitor recurring disconnects for further analysis. |
+| AnswerFailed                   | 496  | 7       | Lost network connection; retries failed. | Log and monitor recurring disconnects for further analysis. |
 
 > [!TIP]
 > You can use these mappings to route failures to appropriate logging, telemetry, or user notification systems based on the callback event and subcode.
