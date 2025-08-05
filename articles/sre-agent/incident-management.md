@@ -3,7 +3,7 @@ title: Incident management in Azure SRE Agent (preview)
 description: Learn how the Azure SRE Agent incident management capabilities help reduce manual intervention and accelerate resolution times for your Azure resources.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 07/21/2025
+ms.date: 08/05/2025
 ms.author: cshoe
 ms.service: azure
 ---
@@ -27,7 +27,7 @@ SRE Agent responds to incidents based on its configuration and operational mode.
 
 When an incident is detected, a new thread appears in the chat history that includes the initial analysis done by the agent.
 
-Depending on the incident [handler settings](incident-handler-custom.md), the agent can respond in a semi-autonomous, or fully autonomous manner.
+Depending on the incident [handler settings](incident-handler.md), the agent can respond in a semi-autonomous, or fully autonomous manner.
 
 * **Reader**: In reader mode, the agent provides recommendations and prompts a human for permission to remediate problems on behalf of the logged in user.
 
@@ -41,7 +41,7 @@ Once an incident is sent to the SRE Agent, you then can control how the agent re
 * Tools available to the agent for reporting and remediation
 * Custom instructions further guiding the agent how to deal with incidents
 
-For more information, see [Custom incident handlers](incident-handler-custom.md).
+For more information, see [Incident handlers](incident-handler.md).
 
 ## Platform integration
 

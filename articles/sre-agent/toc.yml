@@ -23,8 +23,8 @@ items:
       items:
         - name: Overview
           href: incident-management.md
-        - name: Custom handlers
-          href: incident-handler-custom.md
+        - name: Incident handlers
+          href: incident-handler.md
     - name: Troubleshooting
       href: troubleshoot.md
     - name: Billing

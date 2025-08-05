@@ -3,7 +3,7 @@ title: Custom incident handlers in Azure SRE Agent (preview)
 description: Learn To create a custom incident handler with specialized instructions for mitigating incidents.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 08/04/2025
+ms.date: 08/05/2025
 ms.author: cshoe
 ms.service: azure
 ---
