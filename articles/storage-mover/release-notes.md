@@ -20,7 +20,7 @@ The following Azure Storage Mover agent versions are supported:
 | Milestone                                     | Version number | Release date       | Status                                        |
 |-----------------------------------------------|----------------|--------------------|-----------------------------------------------|
 | Enhanced Network checks and OS update         | 3.4.846        | Jul 30, 2025       | Current                                       |
-| Enhanced Network checks                       | 3.3.760        | April 8, 2025      | Supported. Downloading latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent) is recommended.|
+| Enhanced Network checks and support for data transfers from SMB source to Azure Blob target | 3.3.760        | April 8, 2025      | Supported. Downloading latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent) is recommended.|
 | Bandwidth Management and general improvements | 3.1.613        | July 10, 2024      | No longer supported. Decommission and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
 | Performance and security improvements         | 3.1.593        | June 16, 2024      | No longer supported. Decommission and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
 | Agent registration and private networking improvements | 3.0.500| April 2, 2024     | No longer supported. Decommission and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|

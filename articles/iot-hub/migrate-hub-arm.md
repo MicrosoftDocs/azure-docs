@@ -411,7 +411,7 @@ Now you have the environment variables in a file with the SET commands, and you 
     dotnet run arg1 arg2 arg3 arg4 arg5
     ```
 
-    The dotnet command builds and runs the application. Because you're passing in the options when you run the application, you can change the values of them each time you run the application. For example, you may want to run it once and create new devices, then run it again and copy those devices to a new hub, and so on. You can also perform all the steps in the same run, although we recommend not deleting any devices until you're certain you're finished with the migration. Here's an example that creates 1,000 devices and then copies them to the other hub.
+    The dotnet command builds and runs the application. Because you're passing in the options when you run the application, you can change the values of them each time you run the application. For example, you may want to run it once and create new devices, then run it again and copy those devices to a new hub, and so on. You can also perform all the steps in the same run, although we recommend **not deleting** any devices until you're certain you're finished with the migration. Here's an example that creates 1,000 devices and then copies them to the other hub.
 
     ``` console
     // Format: dotnet run add-devices num-to-add copy-devices delete-source-devices delete-destination-devices

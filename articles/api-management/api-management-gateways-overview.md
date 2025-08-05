@@ -77,12 +77,12 @@ The following tables compare features available in the following API Management 
 | [Built-in cache](api-management-howto-cache.md) | ✔️ | ✔️ | ❌ | ❌ | ✔️ |
 | [External Redis-compatible cache](api-management-howto-cache-external.md) | ✔️ | ✔️ |✔️ | ✔️ | ❌ |
 | [Virtual network injection](virtual-network-concepts.md)  |  Developer, Premium | Premium v2 | ❌ | ✔️<sup>1,2</sup> | ✔️ |
-| [Inbound private endpoints](private-endpoint.md)  |  Developer, Basic, Standard, Premium | Standard v2 | ❌ | ❌ | ❌ |
+| [Inbound private endpoints](private-endpoint.md)  |  ✔️ | Standard v2 | ❌ | ❌ | ❌ |
 | [Outbound virtual network integration](integrate-vnet-outbound.md)  | ❌ | Standard  v2, Premium v2  |  ❌ | ❌ | ✔️ |
 | [Availability zones](zone-redundancy.md)  |  Premium | ❌  | ❌ | ✔️<sup>1</sup> | ❌ |
 | [Multi-region deployment](api-management-howto-deploy-multi-region.md) |  Premium | ❌ |  ❌ | ✔️<sup>1</sup> | ❌ |
 | [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ | ❌ | ❌ | ✔️<sup>3</sup> |  ❌ |
-| [Managed domain certificates](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  Developer, Basic, Standard, Premium | ❌ | ✔️ | ❌ | ❌ |
+| [Managed domain certificates](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  ✔️ | ❌ | ✔️ | ❌ | ❌ |
 | [TLS settings](api-management-howto-manage-protocols-ciphers.md) |  ✔️ | ✔️ | ✔️ | ✔️ | ❌ |
 | **HTTP/2** (Client-to-gateway) | ✔️<sup>4</sup> | ✔️<sup>4</sup> |❌ | ✔️ | ❌ |
 | **HTTP/2** (Gateway-to-backend) |  ❌ | ✔️<sup>5</sup> | ❌ | ✔️<sup>5</sup> | ❌ |
@@ -114,8 +114,7 @@ The following tables compare features available in the following API Management 
 | [Azure OpenAI and LLM](azure-openai-api-from-specification.md) | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 | [Circuit breaker in backend](backends.md#circuit-breaker)  |  ✔️ | ✔️ | ❌ | ✔️ | ✔️ |
 | [Load-balanced backend pool](backends.md#load-balanced-pool)  |  ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
-
-<sup>1</sup> Synthetic GraphQL subscriptions (preview) aren't supported.
+| [Pass-through MCP server](expose-existing-mcp-server.md) (preview) |  Basic, Standard, Premium | ✔️ | ❌ | ❌ | ❌ |
 
 ### Policies
 

@@ -1,41 +1,41 @@
 ---
-title: Web Application Firewall on Application Gateway for Containers
-description: This page provides an overview of the Web Application Firewall (WAF) on Application Gateway for Containers, including setup, limitations, known issues, and more.
+title: Azure Web Application Firewall on Application Gateway for Containers
+description: This article provides an overview of Azure Web Application Firewall on Application Gateway for Containers, including setup, limitations, and pricing.
 services: application-gateway
 author: jackstromberg
 ms.service: azure-appgw-for-containers
-ms.topic: how-to
+ms.topic: concept-article
 ms.date: 7/22/2025
 ms.author: jstrom
 ---
 
-# Web Application Firewall on Application Gateway for Containers
+# Azure Web Application Firewall on Application Gateway for Containers
 
-Web Application Firewall (WAF) provides centralized protection of your web applications from common exploits and vulnerabilities. All WAF functionality exists inside of a WAF policy, which can be referenced at listener or path-based routing rules within Gateway API yaml configuration.
+Azure Web Application Firewall provides centralized protection of your web applications from common exploits and vulnerabilities. All Azure Web Application Firewall functionality exists inside a policy, which can be referenced at listener or path-based routing rules within the Gateway API YAML configuration.
 
-![Diagram depicting a request being blocked by a web application firewall rule.](./media/how-to-web-application-firewall-gateway-api/web-application-firewall.png)
+![Diagram that shows an Azure Web Application Firewall rule blocking a request.](./media/how-to-web-application-firewall-gateway-api/web-application-firewall.png)
 
 ## Application Gateway for Containers implementation
 
-### Security Policy
+### Security policy
 
-Application Gateway for Containers introduces a new child resource in Azure Resource Manager (ARM), called a SecurityPolicy. The SecurityPolicy is what brings scope to which WAF policies may be referenced by the ALB Controller.
+Application Gateway for Containers introduces a new child resource called `SecurityPolicy` in Azure Resource Manager. The `SecurityPolicy` resource brings scope to which Azure Web Application Firewall policies the ALB Controller can reference.
 
-### Kubernetes Custom Resource
+### Kubernetes custom resource
 
-Application Gateway for Containers introduces a new custom resource called `WebApplicationFirewallPolicy`. The custom resource is responsible for defining which WAF Policy should be used at which scope.
+Application Gateway for Containers introduces a new custom resource called `WebApplicationFirewallPolicy`. The custom resource is responsible for defining which Azure Web Application Firewall policy should be used at which scope.
 
-The following scopes may be defined:
+The resource can define the following scopes:
 
-* Gateway
-* HTTPRoute
+* `Gateway`
+* `HTTPRoute`
 
-In addition, the following sections may be referenced by name for each of the parent resources:
+In addition, the resource can reference the following sections by name for each of the parent resources:
 
-* Gateway - Listener
-* HTTPRoute - Path
+* `Gateway`: `Listener`
+* `HTTPRoute`: `Path`
 
-Here is an example YAML configuration that shows targeting a specific path called `pathA` on an HTTPRoute resource:
+Here's an example YAML configuration that shows targeting a specific path called `pathA` on an `HTTPRoute` resource:
 
 ```yaml
 apiVersion: alb.networking.azure.io/v1
@@ -56,24 +56,22 @@ spec:
 
 ## Limitations
 
-The following functionality is not supported on a WAF Policy associated with Application Gateway for Containers:
+The following functionality is not supported on an Azure Web Application Firewall policy that's associated with Application Gateway for Containers:
 
-* WAF Security Copilot
-* WAF Security Copilot – Embedded
-* JavaScript (JS) Challenge Actions
-* CRS 3.2 and lower ruleset
+* Azure Web Application Firewall integration in Microsoft Security Copilot
+* JavaScript challenge actions
+* Core Rule Set (CRS) 3.2 and earlier rule sets
 
 ## Pricing
 
-WAF is incrementally billed in addition to Application Gateway for Containers. Two meters track WAF consumption: 
+Azure Web Application Firewall is incrementally billed in addition to Application Gateway for Containers. Two meters track Azure Web Application Firewall consumption:
 
-* AGC WAF Hour
-* AGC 1M WAF Requests
+* **Application Gateway for Containers WAF Hour**
+* **Application Gateway for Containers 1 million WAF Requests**
 
-An AGC WAF Hour is incurred for the duration a security policy has a WAF policy referenced.
+An **Application Gateway for Containers WAF Hour** rate is incurred for the duration that a security policy references an Azure Web Application Firewall policy.
 
-As each request is processed by WAF rules or Bot Protection, a consumption rate is billed per 1 million requests.
+As Azure Web Application Firewall rules or bot protection processes each request, a consumption rate is billed per 1 million requests.
 
 > [!NOTE]
-> Application Gateway for Containers + WAF is in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The association of Application Gateway for Containers with Azure Web Application Firewall is in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
