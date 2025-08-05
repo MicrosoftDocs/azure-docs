@@ -12,7 +12,7 @@ ms.update-cycle: 180-days
 #CustomerIntent: I want to set up Standard logic app workflows in Azure Logic Apps as tools in a Model Context Protocol (MCP) server that works with AI models.
 ---
 
-# Set up Standard logic app workflows as MCP servers for AI models (Preview)
+# Set up Standard logic apps as MCP servers for AI models (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
