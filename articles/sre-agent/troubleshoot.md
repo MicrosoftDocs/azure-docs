@@ -4,7 +4,7 @@ description: Learn to troubleshoot common problems in Azure SRE Agent.
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: tutorial
-ms.date: 07/17/2025
+ms.date: 07/31/2025
 ms.service: azure
 ---
 
@@ -77,6 +77,16 @@ To resolve the issue:
 
 * Use the *Check Access* feature in the Azure portal to verify you have the right permissions.
 
+## Portal becomes unresponsive
+
+If the Azure portal becomes unresponsive as you try to use SRE Agent, then your firewall rules might be blocking access to an Azure domain.
+
+To grant access to the proper domain, allowlist `*.azuresre.ai` in your firewall settings.
+
+## Considerations
+
+- Zscaler might block access to `*.azuresre.ai` domain by default.
+ 
 ## Related content
 
 * [Security contexts](./security-context.md)

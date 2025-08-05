@@ -72,7 +72,7 @@ Regions supported for Microsoft Sentinel raw data, and for processed and configu
 | Continent              | Country/Region   | Azure Region                          |
 |------------------------|------------------|---------------------------------------|
 | North America          | Canada           | Canada Central                        |
-| North America          | United States    | Central US<br>East US<br>East US 2<br>East US 2 EUAP<br>South Central US<br>West US2 |
+| North America          | United States    | Central US<br>East US<br>East US 2<br>South Central US<br>West US2 |
 | Asia and Middle East   |       -          | Southeast Asia                        |
 |  Asia and Middle East  | India            | Central India                         |
 |  Asia and Middle East  | Israel           | Israel Central                        |

@@ -1,17 +1,18 @@
 ---
-title: Quickstart - Create a service connection in App Service with the Azure CLI
-description: Quickstart showing how to create a service connection in App Service with the Azure CLI
+title: "Quickstart: Create a Service Connection in App Service with the Azure CLI"
+description: In this quickstart, learn how to create a service connection in App Service with the Azure CLI.
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: quickstart
-ms.date: 11/17/2023
+ms.date: 07/25/2025
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli, build-2024
+#customer intent: As a developer who uses Azure App Service, I want to connect my clusters to other Cloud resources, with Service Connection managing authentication and networking settings.
 ---
 # Quickstart: Create a service connection in App Service with the Azure CLI
 
-This quickstart describes the steps for creating a service connection in Azure App Service with the Azure CLI.
+In this quickstart, you create a service connection in Azure App Service with the Azure CLI.
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
@@ -22,16 +23,17 @@ This quickstart describes the steps for creating a service connection in Azure A
 
 ## Initial set-up
 
-1. If you're using Service Connector for the first time, start by running the command [az provider register](/cli/azure/provider#az-provider-register) to register the Service Connector resource provider.
+1. If you're using Service Connector for the first time, run the command [az provider register](/cli/azure/provider#az-provider-register) to register the Service Connector resource provider.
 
    ```azurecli
    az provider register -n Microsoft.ServiceLinker
    ```
 
    > [!TIP]
-   > You can check if the resource provider has already been registered by running the command  `az provider show -n "Microsoft.ServiceLinker" --query registrationState`. If the output is `Registered`, then Service Connector has already been registered.
+   > You can check if the resource provider is already registered by running the command `az provider show --name "Microsoft.ServiceLinker" --query registrationState`. If the output is `Registered`, then Service Connector is registered.
    >
-2. Optionally, use the Azure CLI [az webapp connection list-support-types](/cli/azure/webapp/connection#az-webapp-connection-list-support-types) command to get a list of supported target services for App Service.
+
+1. Optionally, use the Azure CLI [az webapp connection list-support-types](/cli/azure/webapp/connection#az-webapp-connection-list-support-types) command to get a list of supported target services for App Service.
 
    ```azurecli
    az webapp connection list-support-types --output table
@@ -42,9 +44,9 @@ This quickstart describes the steps for creating a service connection in Azure A
 #### [Using a managed identity](#tab/Using-Managed-Identity)
 
 > [!IMPORTANT]
-> Using Managed Identity requires you have the permission to [Microsoft Entra role assignment](/entra/identity/role-based-access-control/manage-roles-portal). Without this permission, creating a connection will fail. You can ask your subscription owner to grant you this permission or use an access key to create the connection.
+> Using Managed Identity requires you have the permission to [Microsoft Entra role assignment](/entra/identity/role-based-access-control/manage-roles-portal). Without this permission, creating a connection fails. You can ask your subscription owner to grant you this permission or use an access key to create the connection.
 
-Use the Azure CLI [az webapp connection](/cli/azure/webapp/connection) command to create a service connection to a Blob Storage with a system-assigned Managed Identity, providing the following information:
+Use the Azure CLI [az webapp connection](/cli/azure/webapp/connection) command to create a service connection to a Blob Storage with a system-assigned Managed Identity. Provide the following information:
 
 - The name of the resource group that contains the App Service
 - The name of the App Service
@@ -56,14 +58,14 @@ az webapp connection create storage-blob
 ```
 
 > [!NOTE]
-> If you don't have a Blob Storage, you can run `az webapp connection create storage-blob --new --system-identity` to provision a new Blob Storage resource and directly connected it to your App Service instance.
+> If you don't have a Blob Storage, run `az webapp connection create storage-blob --new --system-identity` to provision a new Blob Storage resource and directly connected it to your App Service instance.
 
 #### [Using an access key](#tab/Using-access-key)
 
 > [!WARNING]
-> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application. It carries risks that aren't present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
-Use the Azure CLI [az webapp connection create](/cli/azure/webapp/connection/create) command to create a service connection to an Azure Blob Storage with an access key, providing the following information:
+Use the Azure CLI [az webapp connection create](/cli/azure/webapp/connection/create) command to create a service connection to an Azure Blob Storage with an access key. Provide the following information:
 
 - **Source compute service resource group name:** the resource group name of the App Service.
 - **App Service name:** the name of your App Service that connects to the target service.
@@ -90,9 +92,9 @@ Run the Azure CLI [az webapp connection](/cli/azure/webapp/connection) command t
 az webapp connection list -g "<your-app-service-resource-group>" -n "<your-app-service-name>" --output table
 ```
 
-## Next steps
+## Related content
 
-Follow the tutorials below to start building your own application with Service Connector.
+Build your own application with Service Connector.
 
 > [!div class="nextstepaction"]
 > [Tutorial: WebApp + Storage with Azure CLI](./tutorial-csharp-webapp-storage-cli.md)
