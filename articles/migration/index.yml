@@ -153,7 +153,7 @@ sections:
           componentType: link
           url: /azure/architecture/aws-professional/eks-to-aks/
           text: Learn more
-      - avatarUrl: images/aws.svg
+      - avatarUrl: images/amazon-web-services.svg
         componentType: testimonial-card
         name: Azure for AWS Professionals
         role: Documentation
