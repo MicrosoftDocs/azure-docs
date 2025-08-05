@@ -57,7 +57,7 @@ To create or edit a Resource Health alert rule, you need:
    :::image type="content" source="media/resource-health/resource-health-new-action-group.png" alt-text="Screenshot showing new action group creation wizard with basics tab.":::
 
    - Under **Notification type**, select channels (Email, SMS, Push, Voice) and add stakeholder contacts
-   :::image type="content" source="media/resource-health/resource-health-action-group-notifications.png" alt-text="Screenshot showing new action group creation wizard with notifications tab.":::
+   :::image type="content" source="media/resource-health/resource-health-action-group-notifications.png" alt-text="Screenshot showing new action group creation wizard with notifications tab." lightbox="media/resource-health/resource-health-action-group-notifications.png":::
 
    - Under **Review + create**, review the details and click on **Create**
 
@@ -78,7 +78,7 @@ To create or edit a Resource Health alert rule, you need:
 
 - **View triggered alerts**: search for your alert rule name and select the **History** tab. You can click on any of the triggered alerts to know about it.
 
-   :::image type="content" source="media/resource-health/alert-rule-history.png" alt-text="Screenshot showing an alert rule history.":::
+   :::image type="content" source="media/resource-health/alert-rule-history.png" alt-text="Screenshot showing an alert rule history." lightbox="media/resource-health/resource-health/alert-rule-history.png":::
 
 - **Edit an existing rule**: open its **Overview** page and click **Edit**.
 
