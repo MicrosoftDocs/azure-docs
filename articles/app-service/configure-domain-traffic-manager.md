@@ -1,5 +1,5 @@
 ---
-title: Set up Traffic Manager for your domain
+title: Set up Traffic Manager for Your Domain
 description: Discover how to use Azure Traffic Manager with a custom domain to improve app performance and global availability.
 keywords: Azure Traffic Manager, custom domain, load balancing, Azure App Service, traffic management
 ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
@@ -7,6 +7,7 @@ ms.topic: article
 ms.date: 02/14/2025
 author: msangapu-msft
 ms.author: msangapu
+# As a systems administrator, I want to use Traffic Manager with a custom domain so that I can improve app performance and global availability. 
 ---
 # Configure Traffic Manager for your Azure App Service domain
 
@@ -91,7 +92,7 @@ After the records for your domain name have propagated, use the browser to verif
 
     ![Add DNS name to the app](./media/configure-domain-traffic-manager/enable-traffic-manager-domain.png)
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Secure a custom DNS name with an TLS/SSL binding in Azure App Service](configure-ssl-bindings.md)
