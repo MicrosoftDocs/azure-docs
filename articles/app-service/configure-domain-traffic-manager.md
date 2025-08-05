@@ -35,15 +35,15 @@ To check the pricing tier:
 
 1. On the **App Services** page, select the name of your Azure app.
 
-![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/select-app.png)
+   ![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
 1. In the left navigation of the app page, select **Scale up (App Service plan)**.
 
-![Scale-up menu](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
+   ![Scale-up menu](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
 1. The app's current tier is highlighted by a blue border. Check to make sure that the app is in **Standard** tier or above (any tier in the **Production** or **Isolated** category). If yes, close the **Scale up** page and skip to [Create the CNAME mapping](#create-the-cname-mapping).
 
-![Check pricing tier](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
+    ![Check pricing tier](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
 ### Scale up the App Service plan
 
