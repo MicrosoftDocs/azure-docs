@@ -17,9 +17,9 @@ Starting **May 1, 2020**, changes due to Google's [data security and privacy pol
 
 ## Affected workflows
 
-If you have logic app workflows that use the Gmail connector, you'll receive an email about potentially affected logic apps. However, starting **June 15, 2020**, any non-compliant workflows will be disabled. You can take either of these actions:
+If you have logic app workflows that use the Gmail connector, you receive an email about potentially affected logic apps. However, starting **June 15, 2020**, any noncompliant workflows are disabled. You can take either of these actions:
 
-* Update the affected logic apps by [following the steps in this topic](#update-affected-workflows). You need to create a Google client app, which provides a client ID and client secret that you use for authentication in your Gmail trigger or action.
+* Update the affected logic apps by [following the steps in this section](#update-affected-workflows). You need to create a Google client app, which provides a client ID and client secret that you use for authentication in your Gmail trigger or action.
 
 * Update the affected logic apps so that they use only the [Google-approved connectors](#approved-connectors) before you re-enable the disabled logic apps.
 
@@ -31,7 +31,7 @@ Under this policy, when you use a Gmail consumer account, you can use the Gmail 
 
 * Azure Logic Apps built-in triggers and actions: Batch, Control, Data Operations, Date Time, Flat File, Liquid, Request, Schedule, Variables, and XML
 
-  Built-in triggers and actions that aren't approved by Google, such as HTTP, Azure Functions, Azure Logic Apps, and others, make a logic app non-compliant with the Gmail connector because the app can send or receive data from anywhere.
+  Built-in triggers and actions that Google doesn't approve make a logic app noncompliant with the Gmail connector. The app can send or receive data from anywhere. These triggers and actions include HTTP, Azure Functions, and Azure Logic Apps.
 
 * Google services: Gmail, Google Calendar, Google Contacts, Google Drive, Google Sheets, and Google Tasks
 
@@ -39,9 +39,9 @@ Under this policy, when you use a Gmail consumer account, you can use the Gmail 
 
 * Connectors for customer-managed data sources: FTP, RSS, SFTP, SMTP, and SQL Server
 
-## Non-compliant examples
+## Noncompliant examples
 
-Here are some examples that use the Gmail connector with built-in triggers and actions or managed connectors that aren't approved by Google:
+Here are some examples that use the Gmail connector with built-in triggers and actions or managed connectors that Google doesn't approve:
 
 * This logic app workflow uses the Gmail connector with the HTTP built-in trigger:
 
@@ -63,7 +63,7 @@ For the most recent information, see the [Gmail connector's technical reference 
 
 ## Steps for affected workflows
 
-If you have to use the Gmail connector with a Gmail consumer account and Google non-approved connectors in a logic app, you can create your own Google app for personal or internal use in your enterprise. For this scenario, here are the high-level steps that you need to take:
+If you have to use the Gmail connector with a Gmail consumer account and Google nonapproved connectors in a logic app, you can create your own Google app for personal or internal use in your enterprise. For this scenario, here are the high-level steps that you need to take:
 
 1. Create a Google client app by using the [Google API Console](https://console.developers.google.com).
 
@@ -75,7 +75,7 @@ For more information, see the [Gmail connector's technical reference documentati
 
 To set up a project for your client app, use the [Google API Console wizard](https://console.developers.google.com/start/api?id=gmail&credential=client_key) and follow the instructions. Or, for detailed steps, review the instructions in the [Gmail connector's technical reference documentation](/connectors/gmail/#authentication-and-bring-your-own-application).
 
-When you're done, your screen looks like this example except you'll have your own **Client ID** and **Client secret** values, which you later use in your logic app.
+When you're done, your screen looks like this example except that you have your own **Client ID** and **Client secret** values, which you later use in your logic app.
 
 ![Client ID and client secret for your Google client app](./media/connectors-google-data-security-privacy-policy/google-api-console.png)
 
@@ -95,14 +95,13 @@ To use the client ID and client secret from your Google client app in your Gmail
 
    | Property | Value | Description |
    |----------|-------|-------------|
-   | **Authentication Type** | **Bring your own application** | Specifies that you'll use your own client app for authentication. |
+   | **Authentication Type** | **Bring your own application** | Specifies that you use your own client app for authentication. |
    | **Client ID** | <*client-ID*> | The client ID from your Google client app |
    | **Client Secret** | <*client-secret*> | The client secret from your Google client app |
-   ||||
 
 1. When you're done, select **Sign in**.
 
-   A page appears that shows the client app that you created. If you're using a Gmail consumer account, you might get a page that show your client app isn't verified by Google and prompts you to first allow access to your Google account.
+   A page appears that shows the client app that you created. If you're using a Gmail consumer account, you might get a page that shows that Google can't verify your client app. It prompts you to first allow access to your Google account.
 
    ![Prompt for access to your Google account](./media/connectors-google-data-security-privacy-policy/allow-access-authorized-domain.png)
 
