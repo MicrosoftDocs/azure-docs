@@ -10,6 +10,8 @@ ms.date: 05/12/2025
 
 After you create your NGINXaaS resource in the Azure portal, you might need to get information about it or change it.
 
+## Resource overview 
+
 [!INCLUDE [manage](../includes/manage.md)]
 
 :::image type="content" source="media/nginx-manage/nginx-resource-overview.png" alt-text="Screenshot of an NGINXaaS resource in the Azure portal with the overview displayed." lightbox="media/nginx-manage/nginx-resource-overview.png":::
