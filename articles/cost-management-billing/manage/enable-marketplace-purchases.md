@@ -4,7 +4,7 @@ description: This article covers the steps used to enable marketplace private of
 author: echung
 ms.reviewer: echung
 ms.service: cost-management-billing
-ms.subservice: enterprise
+ms.subservice: microsoft-customer-agreement
 ms.topic: conceptual
 ms.date: 01/22/2025
 ms.author: echung

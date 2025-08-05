@@ -79,9 +79,9 @@ We recognize that making applications publicly accessible may conflict with cust
    - [CLI: Delete certificate](/cli/azure/webapp/config/ssl#az-webapp-config-ssl-delete)
 
 **Temporary mitigation: DigiCert IP allowlisting**  
-Some customers may choose to allowlist [DigiCert’s domain validation IPs](https://knowledge.digicert.com/alerts/ip-address-domain-validation) as a short-term workaround. This can help buy time to move away from using ASMC for websites that aren’t publicly accessible, especially given the short notice of the change.
+Some customers may choose to allowlist [DigiCert’s domain validation IPs](https://knowledge.digicert.com/alerts/ip-address-domain-validation) as a short-term workaround. This may help maintain certificate issuance while transitioning away from using ASMC for websites that aren’t publicly accessible.
 > [!NOTE]
-> Allowlisting DigiCert's IP isn’t an official or supported long-term solution. Microsoft’s stance remains that **public access is required** to avoid potential service disruptions. Consider the following:
+> Allowlisting DigiCert's IP isn’t an official or supported long-term solution. Microsoft’s stance remains that **public access is required** to avoid potential service disruptions. Keep in mind:
 >
 > - DigiCert manages its own IPs and may change them without notice.
 > - Microsoft doesn’t control DigiCert’s infrastructure and can’t guarantee the documentation stay up to date.

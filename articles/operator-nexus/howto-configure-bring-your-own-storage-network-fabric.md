@@ -159,6 +159,18 @@ az networkfabric fabric update \
 
 After making changes, ensure you run the following to apply configuration:
 
+Lock fabric configuration
+
+```Azure CLI
+az networkfabric fabric lock-fabric \
+    --action Lock \
+    --lock-type Configuration \
+    --network-fabric-name "example-fabric" \
+    --resource-group "example-rg"
+```
+
+Commit configuration
+
 ```azurecli
 az networkfabric fabric commit-configuration \
   --resource-group <rgname> \

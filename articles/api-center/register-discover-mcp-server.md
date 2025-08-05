@@ -4,7 +4,7 @@ description: Learn about how Azure API Center can be a centralized registry for 
 author: dlepow
 ms.service: azure-api-center
 ms.topic: concept-article
-ms.date: 07/22/2025
+ms.date: 08/04/2025
 ms.author: danlep 
 # Customer intent: As an API program manager, I want to register and discover  MCP servers as APIs in my API Center inventory.
 ms.custom:
@@ -74,6 +74,7 @@ For a live example of how Azure API Center can power your private, enterprise-re
 
 ## Related content
 
+* [About MCP servers in API Management](../api-management/mcp-server-overview.md)
 * [Import APIs to your API center from API Management](import-api-management-apis.md)
 * [Use the Visual Studio extension for API Center](build-register-apis-vscode-extension.md) to build and register APIs from Visual Studio Code.
 

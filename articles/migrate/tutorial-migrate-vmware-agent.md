@@ -295,7 +295,7 @@ Select VMs for migration.
 
 ## Simplified experience
 
-Now, the selection experience type is both classic and simplified. The new simplified process follows a streamlined flow that begins with discovery, followed by replication, and finally migration. This is an upgraded agent-based migration stack for physical and VMware environments. For more information, see [Simplified experience](tutorial-migrate-physical-virtual-machines.md#simplified-experience).
+Now, the selection experience type is both classic and simplified. The new simplified process follows a streamlined flow that begins with discovery, followed by replication, and finally migration. This is an upgraded agent-based migration stack for physical and VMware environments. [Learn more](https://github.com/MicrosoftDocs/azure-docs-pr/blob/c7aa974797f544e2f4e1059af2c0b59249271ccd/articles/migrate/tutorial-migrate-physical-virtual-machines.md#simplified-experience-recommended) about simplified experience.
 
 
 ## Track and monitor

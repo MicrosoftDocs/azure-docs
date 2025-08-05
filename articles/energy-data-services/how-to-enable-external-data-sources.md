@@ -18,7 +18,7 @@ External Data Sources (EDS) is a capability in [OSDU&reg;](https://osduforum.org
 For more information about External Data Sources (EDS), see [The OSDU Forum 2Q 2022 Newsletter - EDS](https://osduforum.org/wp-content/uploads/2022/06/The-OSDU-Forum-2Q-2022-Newsletter.pdf).  
 
 > [!NOTE]
-> EDS M23 preview is now available on Azure Data Manager for Energy in Developer tier only.
+> EDS M25 preview is now available on Azure Data Manager for Energy in Developer tier only.
 
 > [!IMPORTANT]
 > Limit your Identity Provider (IdP) token to read operations only.
@@ -52,22 +52,8 @@ To enable External Data Sources Preview on your Azure Data Manager for Energy, c
 - Data partition name (the data partition in which EDS needs to be enabled for automated triggering of EDS-Scheduler)
 - Key Vault name (created in [Prerequisites](#prerequisites)) 
 
-> [!NOTE]
-> Support for [multiple data partitions](https://community.opengroup.org/osdu/platform/data-flow/ingestion/external-data-sources/core-external-data-workflow/-/issues/51) is currently enabled for manual triggering of the EDS Ingest DAG, but this feature has not yet been implemented for the EDS Scheduler.
-
 We notify you once EDS preview is enabled in your Azure Data Manager for Energy resource.
 
-## Known issues
-- Below issues are specific to [OSDU&reg;](https://osduforum.org/) M23 release: 
-    - EDS ingest DAG results in failures when the data supplier’s wrapper Search service is unavailable. 
-    - EDS Dataset service response provides an empty response when data supplier’s Dataset wrapper service is unavailable. 
-    - Secret service responds with 5xx HTTP response code instead of 4xx in some cases. For example, 
-        - When an application tries to recover a deleted secret, which isn't deleted. 
-        - When an application tries to get an invalid deleted secret. 
-
-## Limitations
-Manifest ingestion by Reference DAG ([Sandbox feature](https://osdu.projects.opengroup.org/pmc/work-products/pmc-portal/pmc-policies/main/maturity/maturity-list.html)) is not supported yet. Therefore, you will not be able to ingest manifest payloads larger than 12MB. To work around this issue, you can alter the CSDJ filter condition to retrieve external data in smaller chunks at regular intervals.
- 
 ## FAQ
 See [External data sources FAQ.](faq-energy-data-services.yml#external-data-sources)
 
