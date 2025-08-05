@@ -29,11 +29,11 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Migrate SQL Server from on-premisess using Database Migration Service
+          - text: Migrate SQL Server from on-premises using Database Migration Service
             url:  /data-migration/sql-server/database/database-migration-service
-          - text: Migrate MySQL from on-premisess to Azure Database for MySQL
-            url:  /azure/mysql/migrate/mysql-on-premisess-azure-db/05-migration-methods
-          - text: Migrate PostgreSQL databases online from on-premisess to Azure
+          - text: Migrate MySQL from on-premises to Azure Database for MySQL
+            url:  /azure/mysql/migrate/mysql-on-premises-azure-db/05-migration-methods
+          - text: Migrate PostgreSQL databases online from on-premises to Azure
             url:  /azure/dms/tutorial-postgresql-azure-postgresql-online
           - text: Migrate Oracle to Azure SQL Database
             url:  /azure/azure-sql/migration-guides/database/oracle-to-sql-database-guide?view=azuresql
@@ -41,13 +41,13 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Prepare on-premisess machines for Azure migration
+          - text: Prepare on-premises machines for Azure migration
             url:  /azure/migrate/prepare-for-migration?view=migrate-classic
-          - text: Migrate on-premisess workloads using Azure Migrate
+          - text: Migrate on-premises workloads using Azure Migrate
             url:  /azure/migrate/migrate-services-overview?view=migrate-classic
           - text: Migrate VMware, Hyper-V, and physical servers to Azure
-            url:  /azure/site-recovery/migrate-tutorial-on-premisess-azure
-          - text: Migrate Hyper-V VMs from on-premisess to Azure
+            url:  /azure/site-recovery/migrate-tutorial-on-premises-azure
+          - text: Migrate Hyper-V VMs from on-premises to Azure
             url:  /azure/migrate/tutorial-migrate-hyper-v?view=migrate-classic
           - text: Migrate Azure high-performance computing (HPC)
             url:  /azure/cloud-adoption-framework/scenarios/azure-hpc/migrate
@@ -59,8 +59,8 @@ landingContent:
             url:  /training/paths/microsoft-learn-azure-database-for-postgresql/
           - text: Migrate Linux-hosted PostgreSQL to Azure
             url:  /training/paths/migrate-linux-postgres-azure/
-          - text: Migrate on-premisess MySQL databases to Azure
-            url:  /training/modules/migrate-on-premisess-mysql-databases/
+          - text: Migrate on-premises MySQL databases to Azure
+            url:  /training/modules/migrate-on-premises-mysql-databases/
   - title: Explore related resources
     linkLists:
       - linkListType: reference
