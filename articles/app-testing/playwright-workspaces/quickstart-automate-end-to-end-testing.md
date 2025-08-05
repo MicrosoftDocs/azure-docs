@@ -51,7 +51,7 @@ To get the service endpoint URL and store it as a CI workflow secret, perform th
 
 1. Select the **Get Started** page.
 
-:::image type="content" source="./media/quickstart-automate-end-to-end-testing/navigate-to-get-started.png" alt-text="Screenshot that shows how to navigate to the Get Started page." lightbox="./media/quickstart-automate-end-to-end-testing/navigate-to-get-started.png":::
+    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/navigate-to-get-started.png" alt-text="Screenshot that shows how to navigate to the Get Started page." lightbox="./media/quickstart-automate-end-to-end-testing/navigate-to-get-started.png":::
 
 1. In **Add region endpoint in your setup**, copy the service endpoint URL.
 
