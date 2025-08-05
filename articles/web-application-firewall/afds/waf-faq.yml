@@ -66,7 +66,7 @@ sections:
         answer: |
           When you enable the WAF on an existing application, it's common to have false-positive detections in which the WAF rules detect legitimate traffic as a threat. To minimize the risk of an impact to your users, we recommend the following process:
           
-          1. Enable the WAF in [**Detection** mode](./waf-front-door-create-portal.md#change-mode) to ensure that the WAF doesn't block requests while you're working through this process. We recommend this step for testing purposes on the WAF.
+          1. Enable the WAF in [detection mode](./waf-front-door-create-portal.md#change-mode) to ensure that the WAF doesn't block requests while you're working through this process. We recommend this step for testing purposes on the WAF.
           
              > [!IMPORTANT]
              > This process describes how to enable the WAF on a new or existing solution when your priority is to minimize the disturbance to your application's users. If you're under attack or imminent threat, you might want to instead deploy the WAF in **Prevention** mode immediately. You can then use the tuning process to monitor and tune the WAF over time. This approach will probably cause some of your legitimate traffic to be blocked, which is why we recommend using it only when you're under threat.
@@ -79,7 +79,7 @@ sections:
       - question: |
           Do you support the same WAF features in all integrated platforms?
         answer: |
-          Currently, ModSecurity CRS 3.0, CRS 3.1, and CRS 3.2 rules are supported only with Azure Web Application Firewall on Application Gateway. Rate limiting and Azure-managed DRS rules are supported only with Azure Web Application Firewall on Azure Front Door.
+          Currently, Core Rule Set (CRS) 3.0, CRS 3.1, and CRS 3.2 rules are supported only with Azure Web Application Firewall on Application Gateway. Rate limiting and Azure-managed DRS rules are supported only with Azure Web Application Firewall on Azure Front Door.
 
       - question: |
           Is DDoS protection integrated with Azure Front Door? 

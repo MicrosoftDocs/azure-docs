@@ -12,7 +12,7 @@ ms.date: 07/22/2025
 
 # What is Azure Web Application Firewall on Application Gateway for Containers (preview)?
 
-Azure Web Application Firewall on [Azure Application Gateway for Containers](../../application-gateway/for-containers/overview.md) provides comprehensive protection for your Kubernetes workloads against common web vulnerabilities and attacks, including SQL injection, cross-site scripting (XSS), and other Open Web Application Security Project (OWASP) top 10 threats.
+Azure Web Application Firewall on [Azure Application Gateway for Containers](../../application-gateway/for-containers/overview.md) provides comprehensive protection for your Kubernetes workloads against common web vulnerabilities and attacks. For example, it addresses SQL injection, cross-site scripting (XSS), and other Open Web Application Security Project (OWASP) top 10 threats.
 
 Application Gateway for Containers is an application-layer (Layer 7) solution for [load balancing](/azure/architecture/guide/technology-choices/load-balancing-overview) and dynamic traffic management. It's designed specifically for workloads running in Kubernetes clusters. It represents the evolution of the [Application Gateway Ingress Controller (AGIC)](../../application-gateway/ingress-controller-overview.md).
 
@@ -58,7 +58,7 @@ The following functionality isn't supported on a WAF policy that's associated wi
 
 ## Pricing
 
-Azure Web Application Firewall usage is billed separately from Application Gateway for Containers usage. When you enable Azure Web Application Firewall on your Application Gateway for Containers resource, two additional WAF-specific meters are added to your bill:
+Azure Web Application Firewall usage is billed separately from Application Gateway for Containers usage. When you enable Azure Web Application Firewall on your Application Gateway for Containers resource, two WAF-specific meters are added to your bill:
 
 - **1 AGC WAF Hour**: A fixed cost charged for the duration that a security policy references a WAF policy.
 - **1M WAF Requests**: A consumption-based meter that bills per 1 million requests processed by the WAF and charges for each enabled rule set. For example, if you enable both the Default Rule Set (DRS) and the Bot Manager Rule Set, you're billed for two rule sets.

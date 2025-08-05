@@ -24,7 +24,7 @@ sections:
       - question: |
           What features does the WAF product tier support?
         answer: |
-          The WAF tier of Applicaton Gateway supports all the features available in the Standard tier.
+          The WAF tier of Application Gateway supports all the features available in the Standard tier.
 
       - question: |
           How do I monitor the Application Gateway WAF?
