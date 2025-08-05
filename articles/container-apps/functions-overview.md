@@ -15,7 +15,7 @@ Azure Functions on Azure Container Apps offers a fully managed serverless hostin
 
 This approach is useful when you want your Functions to run alongside other containerized apps like microservices, APIs, or websites. Further, containerizing your function apps can help when you need custom dependencies or want to take advantage of scale-to-zero for cost savings. If you're running compute-heavy tasks like AI inference, Container Apps also supports GPU-based hosting through serverless GPU offering and Dedicated workload profiles.
 
-As an integrated feature on Azure Container Apps,  you can  deploy Azure Functions images directly onto Azure Container Apps using the `Microsoft.App` resource provider by setting `kind=functionapp` when calling `az containerapp create`. Apps created this way have access to all Azure Container Apps features. If deploying via Azure portal, you can enable the *Optimize for Functions app* option during setup.
+As an integrated feature on Azure Container Apps,  you can  deploy Azure Functions images directly onto Azure Container Apps using the `Microsoft.App` resource provider by setting `kind=functionapp` when calling `az containerapp create`. Apps created this way have access to all Azure Container Apps features. If deploying via Azure portal, you can enable the *Optimize for Functions app* option during setup. Refer to [deployment and setup](../container-apps/functions-overview.md#deployment-and-setup) section for more details.
 
 ## Key benefits
 The Container Apps hosting model builds on the flexibility of containerized workloads and the event-driven nature of Azure Functions. It offers the following key advantages:
@@ -59,16 +59,22 @@ Azure Functions on Container Apps are ideal for a wide range of use cases, espec
 
 To deploy Azure Functions on Azure Container Apps, you package your Functions app as a custom container image and deploy it like any other container app with one key difference. You need to set the `kind=functionapp` property when using the Azure CLI or ARM/Bicep templates. For detailed steps and examples, refer to the official [getting started documentation](../container-apps/functions-usage.md?pivots=azure-cli#create-a-functions-app-1).
 
-<img width="752" height="278" alt="Create via CLI: Set kind functionapp property" src="https://github.com/user-attachments/assets/1b1e70d1-e3bf-4103-b5b0-a7f03015b4db" />
-
-_Create via CLI: Set “kind=functionapp” property_
+```azurecli
+az containerapp create \
+  --resource-group $RESOURCE_GROUP_NAME \
+  --name $CONTAINER_APP_NAME \
+  --environment $ENVIRONMENT_NAME \
+  --image mcr.microsoft.com/azure-functions/dotnet8-quickstart-demo:1.0 \
+  --ingress external \
+  --target-port 80 \
+  --kind functionapp \
+  --query properties.outputs.fqdn
+```
+This command returns the URL of your Functions app. Copy this URL and paste it into a web browser.
 
 In the Azure portal, select the *Optimize for Azure Functions* option during container app creation to streamline the setup.
 
 <img width="752" height="594" alt="Create via Portal: Option to optimize for Azure Functions" src="https://github.com/user-attachments/assets/fe7e3287-27fa-48c2-81a4-70e7ed9f250f" />
-
-
-_Create via Portal: Option to "Optimize for Azure Functions"_
 
 All standard deployment methods are supported, including:
 - [Azure CLI](../container-apps/functions-usage.md?pivots=azure-cli)
@@ -148,10 +154,10 @@ Azure Functions on Container Apps integrate seamlessly with Azure’s observabil
 
 Keep these other considerations in mind when using Functions on Container Apps:
 
-- **Ingress Requirement for Auto-Scaling**: To enable automatic scaling based on events, [ingress must be enabled](../container-apps/ingress-how-to.md)—either publicly or within the ACA environment.
-- **Mandatory Storage Account**: Every Functions app deployed on ACA must be linked to a storage account. This is required for managing triggers, logs, and state. Review the [storage account guidance](../azure-functions/storage-considerations.md) for best practices.
-- **Multi-Revision Storage**: When deploying with multiple active revisions, you should assign a dedicated storage account to each revision. This helps prevent conflicts and ensures proper isolation. Alternatively, if you do not require concurrent revisions, consider using the default single revision mode for simplified management.
-- **Cold Start Latency**: When your container app scales in to zero during idle periods, the first request after inactivity experiences a cold start. This can introduce more latencies. Learn more about [reducing cold start times](../container-apps/cold-start.md).
+- **Ingress Requirement for Auto-Scaling**: To enable automatic scaling based on events, [ingress must be enabled](../container-apps/ingress-how-to.md)—either publicly or within the Container Apps environment.
+- **Mandatory Storage Account**: Every Functions app deployed on Container Apps must be linked to a storage account. This is required for managing triggers, logs, and state. Review the [storage account guidance](../azure-functions/storage-considerations.md) for best practices.
+- **Multi-revision storage**: When deploying with multiple active revisions, assign a dedicated storage account to each revision. Using a dedicated storage account helps prevent conflicts and ensures proper isolation. Alternatively, if you do not require concurrent revisions, consider using the default single revision mode for simplified management.
+- **Cold start latency**: When your container app scales in to zero during idle periods, the first request after inactivity experiences a cold start. Learn more about [reducing cold start times](../container-apps/cold-start.md).
 - **Application insights integration**: For robust monitoring and diagnostics, link your Functions app to Application Insights. For more information, see [App Insights integration with Functions](../azure-functions/configure-monitoring.md?tabs=v2#enable-application-insights-integration).
 - **Functions proxies**: Not supported. For API gateway scenarios, integrate with Azure API Management instead.
 - **Deployment slots**: Staging and production slots are not available. Use [blue-green deployment strategies](../container-apps/blue-green-deployment.md) for zero-downtime releases.
