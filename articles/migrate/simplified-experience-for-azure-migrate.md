@@ -18,7 +18,7 @@ The enhanced agent-based migration stack designed for physical and VMware enviro
 - It utilizes Windows Server 2019 (WS2019) for the replication appliance.
 - It offers a unified OS support matrix and implies that customers can benefit from a consistent and streamlined approach to operating system support across their migration processes.
 
-The upgraded agent-based migration stack provides customers with the tools and capabilities to efficiently migrate newer Linux distributions. It also allows them to utilize WS2019 for replication and benefit from a unified OS support matrix. These features enhance the overall migration process to Azure. [Learn more](tutorial-migrate-physical-virtual-machines.md#simplified-experience)
+The upgraded agent-based migration stack provides customers with the tools and capabilities to efficiently migrate newer Linux distributions. It also allows them to utilize WS2019 for replication and benefit from a unified OS support matrix. These features enhance the overall migration process to Azure. [Learn more](https://github.com/MicrosoftDocs/azure-docs-pr/blob/caf87f24c172f2bdf388d5d6334f76f154114f34/articles/migrate/tutorial-migrate-physical-virtual-machines.md#simplified-experience-recommended)
 
 ## Key differences
 
@@ -35,4 +35,4 @@ The key differences between the Classic and Simplified experience:
 ## Next steps
 
 - Learn about the [Classic experience](tutorial-migrate-physical-virtual-machines.md).
-- Learn about the [Simplified experience](tutorial-migrate-physical-virtual-machines.md#simplified-experience).
+- Learn about the [Simplified experience](https://github.com/MicrosoftDocs/azure-docs-pr/blob/caf87f24c172f2bdf388d5d6334f76f154114f34/articles/migrate/tutorial-migrate-physical-virtual-machines.md#simplified-experience-recommended).
