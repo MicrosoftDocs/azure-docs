@@ -1,10 +1,11 @@
 ---
 title: Deploy with Azure Pipelines
 description: Learn how to use Azure Pipelines to deploy your custom Windows container to App Service from a CI/CD pipeline.
-ms.topic: article
+ms.topic: how-to
 ms.date: 6/10/2024
 author: jefmarti
 ms.author: jefmarti
+# As a developer, I want to deploy a custom Windows container to App Service from a CI/CD pipeline. 
 ---
 
 # Deploy a custom container to App Service using Azure Pipelines
@@ -41,6 +42,7 @@ Once your repository is created with your .NET application and supporting docker
 1. Under the next Review tab, click the **Save** button
 
 ## Build and push image to Azure Container Registry
+
 After your pipeline is created and saved, you'll need to edit the pipeline to run the steps for building the container, pushing to a registry, and deploying the image to App Service. To start, navigate to the **Pipelines** menu, choose your pipeline that you created and click the **Edit** button.
 
 First, you need to add the docker task so you can build the image. Add the following code and replace the Dockerfile: app/Dockerfile with the path to your Dockerfile.
@@ -78,6 +80,7 @@ trigger:
 ```
 
 ## Add the App Service deploy task
+
 Next, you need to set up the deploy task. This requires your subscription name, application name, and container registry. Add a new stage to the yaml file by pasting the code below.
 
 ```yaml
