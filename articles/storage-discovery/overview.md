@@ -104,6 +104,6 @@ Alternatively, you can save the resource list as a *\*.csv* file and use it for 
 
 These articles help plan your Discovery deployment and enable you to successfully create the Discovery workspace resource.
 
-- [Planning for an Azure Storage Discovery deployment](deployment-planning.md)
-- [Create Storage Discovery Workspace by using the Azure portal](create-workspace.md)
-- [Pricing and billing](pricing.md)
+- [Plan a Storage Discovery deployment](deployment-planning.md)
+- [Create a Storage Discovery workspace](create-workspace.md)
+- [Understand pricing](pricing.md)
