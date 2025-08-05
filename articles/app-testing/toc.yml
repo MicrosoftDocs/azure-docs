@@ -1,0 +1,75 @@
+items:
+- name: Playwright Workspaces
+  expanded: true
+  items:
+    - name: Overview
+      items: 
+        - name: What is Playwright Workspaces?
+          displayName: Playwright, MPT, overview, introduction
+          href: playwright-workspaces/overview-what-is-microsoft-playwright-workspaces.md
+        - name: Try Playwright Workspaces for free
+          displayName: free trial, free, trial, try
+          href: playwright-workspaces/how-to-try-playwright-workspaces-free.md
+    - name: Quickstarts
+      items: 
+        - name: Run end-to-end tests at scale
+          displayName: getting started, quickstart, cli, command-line, playwright
+          href: playwright-workspaces/quickstart-run-end-to-end-tests.md
+        - name: Set up continuous end-to-end testing
+          displayName: getting started, quickstart, github actions, azure pipelines, azure devops, ci/cd, CICD, continuous integration, continuous delivery
+          href: playwright-workspaces/quickstart-automate-end-to-end-testing.md
+    - name: Concepts
+      items:
+        - name: Determine optimal test suite configuration
+          displayName: workers, concurrency, parallel, parallelism, parallelize, parallelization
+          href: playwright-workspaces/concept-determine-optimal-configuration.md
+    - name: How-to guides
+      items:
+        - name: Optimize regional latency
+          displayName: region, location, workspace, location preference, latency
+          href: playwright-workspaces/how-to-optimize-regional-latency.md
+        - name: Manage workspaces
+          href: playwright-workspaces/how-to-manage-playwright-workspace.md
+        - name: Manage access tokens
+          displayName: permissions, access, security, authentication, authorization, keys, secrets, revoke
+          href: playwright-workspaces/how-to-manage-access-tokens.md
+        - name: Manage workspace access
+          displayName: RBAC, permissions, access, role-based access control, users, roles, security, authorization, authentication, grant, revoke
+          href: playwright-workspaces/how-to-manage-workspace-access.md
+        - name: Run tests for local and private apps
+          displayName: local, localhost, internal app, private apps, private endpoint
+          href: playwright-workspaces/how-to-test-local-applications.md
+        - name: Configure visual comparisons
+          href: playwright-workspaces/how-to-configure-visual-comparisons.md    
+        - name: Manage authentication
+          href: playwright-workspaces/how-to-manage-authentication.md
+        - name: Use service package options
+          href: playwright-workspaces/how-to-use-service-config-file.md
+    - name: Tutorials
+      items: 
+        - name: Accelerate Playwright test run and troubleshoot efficiently
+          displayName: Playwright, parallel execution, cloud-hosted browsers, service, playwright service
+          href: playwright-workspaces/tutorial-run-end-to-end-tests.md
+    - name: Samples
+      items:
+        - name: Contoso Traders cloud testing demo
+          href: https://github.com/microsoft/contosotraders-cloudtesting/
+        - name: Examples repository
+          href: https://github.com/microsoft/playwright-testing-service/
+    - name: Troubleshoot & debug
+      items:
+        - name: Troubleshoot test run failures
+          href: playwright-workspaces/troubleshoot-test-run-failures.md
+    - name: Resources
+      items: 
+        - name: Azure roadmap
+          href: https://azure.microsoft.com/updates/
+        - name: Playwright documentation
+          href: https://playwright.dev
+        - name: Pricing
+          href: https://aka.ms/pww/pricing
+        - name: Regional availability
+          href: https://azure.microsoft.com/regions/services/
+        - name: Service limits
+          displayName: quotas, limits, capacity, supported browsers, supported platforms, supported operating systems, supported OS, supported OSes, supported OSs, supported devices, supported device, supported mobile devices, supported mobile device, supported mobile OS, supported mobile OSes, supported mobile operating systems, supported mobile operating system,
+          href: playwright-workspaces/resource-limits-quotas-capacity.md
