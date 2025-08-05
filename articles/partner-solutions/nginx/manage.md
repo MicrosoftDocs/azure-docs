@@ -90,6 +90,14 @@ After the account is deleted, logs are no longer sent to NGINXaaS.
 
 Enable CI/CD deployments by using GitHub Actions integrations.
 
+## Get support
+
+Contact [NGINX](https://my.f5.com/manage/s/) for customer support.
+
+You can also request support in the Azure portal from the [resource overview](#resource-overview).
+
+Select **Support + Troubleshooting** > **New support request** from the service menu, then choose the link to [Raise a support ticket](https://my.f5.com/manage/s/).
+
 ## Next step
 
 > [!div class="nextstepaction"]
