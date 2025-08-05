@@ -31,10 +31,6 @@ This article describes the process of setting up a webhook as a subscriber for S
 [!INCLUDE [Azure CLI](./includes/create-event-subscription-az-cli.md)]
 ::: zone-end
 
-::: zone pivot="platform-net"
-[!INCLUDE [.NET](./includes/create-event-subscription-net.md)]
-::: zone-end
-
 ::: zone pivot="platform-powershell"
 [!INCLUDE [PowerShell](./includes/create-event-subscription-powershell.md)]
 ::: zone-end
