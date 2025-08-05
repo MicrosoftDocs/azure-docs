@@ -19,10 +19,6 @@ Users [use Advanced Security Information Model (ASIM) parsers](normalization-abo
 
 To understand how parsers fit within the ASIM architecture, refer to the [ASIM architecture diagram](normalization.md#asim-components).
 
-> [!IMPORTANT]
-> ASIM is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-
 ## Built-in ASIM parsers and workspace-deployed parsers
 
 Many ASIM parsers are built in and available out-of-the-box in every Microsoft Sentinel workspace. ASIM also supports deploying parsers to specific workspaces [from GitHub](https://aka.ms/DeployASIM), using an ARM template or manually. Both out-of-the-box and workspace-deployed parsers are functionally equivalent, but have slightly different naming conventions, allowing both parser sets to coexist in the same Microsoft Sentinel workspace.

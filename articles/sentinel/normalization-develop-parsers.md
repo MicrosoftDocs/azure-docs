@@ -29,10 +29,6 @@ Microsoft Sentinel provides built-in, source-specific parsers for many data sour
 
 To understand how parsers fit within the ASIM architecture, refer to the [ASIM architecture diagram](normalization.md#asim-components).
 
-> [!IMPORTANT]
-> ASIM is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-
 ## Custom ASIM parser development process
 
 The following workflow describes the high level steps in developing a custom ASIM, source-specific parser:

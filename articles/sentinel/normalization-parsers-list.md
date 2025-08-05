@@ -15,10 +15,6 @@ ms.author: vakohl
 
 This document provides a list of Advanced Security Information Model (ASIM) parsers. For an overview of ASIM parsers refer to the [parsers overview](normalization-parsers-overview.md). To understand how parsers fit within the ASIM architecture, refer to the [ASIM architecture diagram](normalization.md#asim-components).
 
-> [!IMPORTANT]
-> ASIM is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-
 ## Alert event parsers
 
 To use ASIM alert event parsers, deploy the parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/ASimAlertEvent). Microsoft Sentinel provides the following parsers in the packages deployed from GitHub:

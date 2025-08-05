@@ -33,10 +33,6 @@ You may need to manage the source-specific parsers used by each unifying parser 
 
 This article guides you through managing your parsers, whether using built-in, unifying ASIM parsers or workspace-deployed unifying parsers. 
 
-> [!IMPORTANT]
-> ASIM is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-
 ## Prerequisites
 
 The procedures in this article assume that all source-specific parsers have already been deployed to your Microsoft Sentinel workspace. 
