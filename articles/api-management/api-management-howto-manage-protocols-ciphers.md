@@ -60,25 +60,27 @@ TLS 1.3 is a major revision of the TLS protocol that provides improved security 
 
 ### Optionally enable TLS 1.3 when clients require certificate renegotiation
 
-Client-side TLS 1.3 is disabled by default in certain classic tier instances that recently received API requests over TLS connections that used certificate renegotiation. Certificate renegotiation in TLS allows client and server to renegotiate connection parameters mid-session for authentication without terminating the connection. TLS-compliant clients that rely on certificate renegotiation are not compatible with TLS 1.3. 
+TLS 1.3 doesn't support certificate renegotiation. Because of this, client-side TLS 1.3 is disabled by default on classic tier instances that recently handled requests with certificate renegotiation. Certificate renegotiation in TLS allows client and server to renegotiate connection parameters mid-session for authentication without terminating the connection.
 
-In these instances, you can review recent API requests that used certificate renegotiation and choose whether to enable TLS 1.3 for client-side connections:
+In these instances, you can review recent API requests that used certificate renegotiation and choose whether to enable TLS 1.3 for client-side connections.
+
+> [!WARNING]
+> If your APIs are accessed by TLS-compliant clients that rely on certificate renegotiation, enabling TLS 1.3 for client-side connections will cause those clients to fail to connect. 
+
+To enable TLS 1.3 for client-side connections in these instances, configure settings on the **Protocols + ciphers** page:
 
 1. On the **Protocols + ciphers** page, in the **Client protocol** section, next to **TLS 1.3**, select **View and manage configuration**.
 1. Review the list of **Recent client certificate renegotiations**. The list shows API operations where clients recently used client certificate renegotiation.
 1. If you choose to enable TLS 1.3 for client-side connections, select **Enable**.
 1. Select **Close**.
 
-After enabling TLS 1.3, review gateway request metrics or TLS-related exceptions in Application Insights that indicate TLS connection failures. If necessary, disable TLS 1.3 for client-side connections and downgrade to TLS 1.2.
+After enabling TLS 1.3, review gateway request metrics or TLS-related exceptions in logs that indicate TLS connection failures. If necessary, disable TLS 1.3 for client-side connections and downgrade to TLS 1.2.
 
 If you need to disable TLS 1.3 for client-side connections in these instances, configure settings on the **Protocols + ciphers** page:
 
 1. On the **Protocols + ciphers** page, in the **Client protocol** section, next to **TLS 1.3**, select **View and manage configuration**.
 1. Select **Disable**.
 1. Select **Close**.
-
-> [!WARNING]
-> If your APIs are accessed by TLS-compliant clients that rely on certificate renegotiation, enabling TLS 1.3 for client-side connections will cause those clients to fail to connect. 
 
 ### Backend-side TLS 1.3
 
