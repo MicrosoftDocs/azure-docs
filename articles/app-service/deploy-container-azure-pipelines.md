@@ -26,12 +26,13 @@ Before you create your pipeline, you should first create your Service Connection
 ## Secure your secrets
 Since we're using sensitive information that you don't want others to access, we use variables to protect our information. Create a variable by following the directions [here](/azure/devops/pipelines/process/variables).
 
-To add a Variable, you click the **Variables** button next to the Save button in the top-right of the editing view for your pipeline. Select the **New Variable** button and enter your information. Add the variables below with your own secrets appropriate from each resource.
+1. To add a variable, click the **Variables** button next to the **Save** button in the top-right of the editing view for your pipeline. 
+1. Select the **New Variable** button and enter your information. Add the variables below with your own secrets appropriate from each resource.
 
-- vmImageName: 'windows-latest'
-- imageRepository: 'your-image-repo-name'
-- dockerfilePath: '$(Build.SourcesDirectory)/path/to/Dockerfile'
-- dockerRegistryServiceConnection: 'your-service-connection-number'
+   - vmImageName: 'windows-latest'
+   - imageRepository: 'your-image-repo-name'
+   - dockerfilePath: '$(Build.SourcesDirectory)/path/to/Dockerfile'
+   - dockerRegistryServiceConnection: 'your-service-connection-number'
 
 ## Create a new pipeline
 Once your repository is created with your .NET application and supporting dockerfile, you can create your pipeline following these steps.
@@ -81,40 +82,42 @@ trigger:
 
 ## Add the App Service deploy task
 
-Next, you need to set up the deploy task. This requires your subscription name, application name, and container registry. Add a new stage to the yaml file by pasting the code below.
+Next, you need to set up the deploy task. This requires your subscription name, application name, and container registry. 
 
-```yaml
-- stage: Deploy
-  displayName: Deploy to App Service
-  jobs:
-  - job: Deploy
-    displayName: Deploy
-    pool:
-      vmImage: $(vmImageName)
-    steps:
-```
+1. Add a new stage to the yaml file by pasting the code below.
 
-Next, navigate to the **Show assistant** tab in the upper right hand corner and find the **Azure App Service deploy** task and fill out the following form:
+   ```yaml
+   - stage: Deploy
+     displayName: Deploy to App Service
+     jobs:
+     - job: Deploy
+       displayName: Deploy
+       pool:
+         vmImage: $(vmImageName)
+       steps:
+   ```
 
-- Connection type: Azure Resource Manager
-- Azure subscription: your-subscription-name
-- App Service type: Web App for Containers (Windows)
-- App Service name: your-app-name
-- Registry or Namespace: your-azure-container-registry-namespace
-- Image: your-azure-container-registry-image-name
+1. navigate to the **Show assistant** tab in the upper right hand corner and find the **Azure App Service deploy** task and fill out the following form:
 
-Once you have those filled out, click the **Add** button to add the task below:
+   - Connection type: Azure Resource Manager
+   - Azure subscription: your-subscription-name
+   - App Service type: Web App for Containers (Windows)
+   - App Service name: your-app-name
+   - Registry or Namespace: your-azure-container-registry-namespace
+   - Image: your-azure-container-registry-image-name
 
-```yaml
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'my-subscription-name'
-    appType: 'webAppHyperVContainer'
-    WebAppName: 'my-app-name'
-    DockerNamespace: 'myregsitry.azurecr.io'
-    DockerRepository: 'dotnetframework:12'
-```
+1.  Click the **Add** button to add the task below:
+
+   ```yaml
+   - task: AzureRmWebAppDeployment@4
+     inputs:
+       ConnectionType: 'AzureRM'
+       azureSubscription: 'my-subscription-name'
+       appType: 'webAppHyperVContainer'
+       WebAppName: 'my-app-name'
+       DockerNamespace: 'myregsitry.azurecr.io'
+       DockerRepository: 'dotnetframework:12'
+   ```
 
 After you've added the task the pipeline is ready to run. Click the **Validate and save** button and run the pipeline. The pipeline goes through the steps to build and push the Windows container image to Azure Container Registry and deploy the image to App Service.
 
