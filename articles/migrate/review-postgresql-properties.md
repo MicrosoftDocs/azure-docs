@@ -117,3 +117,5 @@ To review readiness reports for different migration strategies:
     - **Monthly storage cost**: Cost based on the allocated storage capacity.
     - **Recommended configuration**: Specific SKU recommendation based on assessment analysis.
     - **Cost variations**: Reflect differences in resource requirements across instances.
+    
+## Next steps
