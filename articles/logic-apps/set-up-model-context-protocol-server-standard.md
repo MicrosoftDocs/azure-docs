@@ -1,6 +1,6 @@
 ---
 title: Set up Standard Workflows as MCP Servers
-description: Learn how to set up Standard logic apps as Model Context Protocol (MCP) servers that AI agents can call.
+description: Learn how to set up Standard logic apps as Model Context Protocol (MCP) servers that work with AI large language models (LLMs).
 services: logic-apps
 ms.suite: integration
 ms.author: kewear
@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.date: 08/06/2025
 ms.update-cycle: 180-days
-#CustomerIntent: I want to call Standard logic app workflows in Azure Logic Apps as Model Context Protocol (MCP) servers as tools from AI agents.
+#CustomerIntent: I want to set up Standard logic app workflows in Azure Logic Apps as tools in a Model Context Protocol (MCP) server that works with AI models.
 ---
 
-# Set up Standard logic app workflows as MCP servers for AI agents (Preview)
+# Set up Standard logic app workflows as MCP servers for AI models (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -21,9 +21,9 @@ ms.update-cycle: 180-days
 > The following capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-AI agents interpret requests and fulfill them by using prebuilt *tools*, which are operations that agents call to perform tasks, such as send an email, query a database, or trigger a workflow. In Azure Logic Apps, you can jumpstart building these tools by reconfiguring Standard logic apps as custom Model Context Protocol (MCP) servers.
+AI agents work with large language models (LLMs) to accept, interpret, and fulfill requests by using prebuilt *tools* that agents call to complete tasks, such as send an email, query a database, or trigger a workflow. In Azure Logic Apps, you can jumpstart building these tools by reconfiguring Standard logic apps as custom Model Context Protocol (MCP) servers. This capability means that you can repurpose existing workflows as tools that AI agents and models can use to interact with enterprise resources and assets.
 
-MCP is an open standard that lets AI agents work with external systems and tools in a secure, discoverable, and structured way. This standard defines how to describe, run, and authenticate access to tools so that agents can interact with real-world systems such as databases, APIs, and business workflows. An MCP server works like a bridge between an AI agent and the tools that the agent can use.
+MCP is an open standard that lets AI agents and models work with external systems and tools in a secure, discoverable, and structured way. This standard defines how to describe, run, and authenticate access to tools so that agents can interact with real-world systems such as databases, APIs, and business workflows. You can think about an MCP server as a bridge between an AI agent or model and the tools that the agent or model can use.
 
 :::image type="content" source="media/set-up-model-context-protocol-servers-standard/agent-tools.png" alt-text="Conceptual diagram that shows an agent and interactions with related components." lightbox="media/set-up-model-context-protocol-servers-standard/agent-tools.png":::
 
@@ -32,7 +32,7 @@ For more information, see the following articles:
 - [What is an AI Agent?](/azure/ai-foundry/agents/overview#what-is-an-ai-agent)
 - [Introduction - Get started with the Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro)
 
-The following table describes the benefits that you get when you set up Standard logic app workflows as custom MCP servers:
+The following table describes the benefits that you get when you set up Standard logic apps as custom MCP servers:
 
 | Benefit | Description |
 |---------|-------------|
@@ -46,7 +46,7 @@ The following table describes the benefits that you get when you set up Standard
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- The Standard logic app resource and workflows that you want to set up as an MCP server with tools that agents can use.
+- The Standard logic app resource and workflows that you want to set up as an MCP server with tools that agents or models can use.
 
   - This capability applies only to Standard workflows that use the Workflow Service Plan or App Service Environment v3 option.
 
@@ -83,7 +83,7 @@ The following table describes the benefits that you get when you set up Standard
 
 When you build workflows to use as MCP tools, review the following considerations and best practices:
 
-To help agents correctly find and run tools, add the following metadata to the **Request** trigger and request payloads. This metadata improves the agent's reliability and accuracy in using tools.
+To help agents or models correctly find and run tools, add the following metadata to the **Request** trigger and request payloads. This metadata improves the agent's reliability and accuracy in using tools.
 
 > [!TIP]
 >
