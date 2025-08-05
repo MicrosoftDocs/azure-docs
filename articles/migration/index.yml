@@ -52,7 +52,7 @@ sections:
             url: /azure/migration/migrate-from-google-cloud
             text: Learn more
       - componentType: card
-        title: On-premise to Azure
+        title: On-premises to Azure
         summary: Review example scenarios to help integrate components for transition to Azure.
         imageUrl: ./images/collection.png
         links:
@@ -111,7 +111,7 @@ sections:
          :::column-end:::         
       :::row-end:::
 
-      #### [On-premise](#tab/onprem)
+      #### [On-premises](#tab/onprem)
 
       :::row:::
          :::column:::
@@ -122,12 +122,12 @@ sections:
          :::column:::
          **[Databases](/azure/migration/migrate-from-on-premises)**
         
-        Discover scenarios that you can use to migrate on-premise databases to Azure.
+        Discover scenarios that you can use to migrate on-premises databases to Azure.
          :::column-end:::         
          :::column:::
          **[Infrastructure](/azure/migration/migrate-from-on-premises)**
         
-        Discover scenarios that you can use to migrate on-premise infrastructure like virtual machines to Azure.
+        Discover scenarios that you can use to migrate on-premises infrastructure like virtual machines to Azure.
          :::column-end:::                  
       :::row-end:::
       ---      
