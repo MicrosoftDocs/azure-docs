@@ -141,16 +141,16 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
 
 1. If you're prompted to create a connection to your event hub, [provide the requested connection information](#create-connection).
 
-1. In the action, provide information about the events that you want to send. Open the **Add new parameter** list. Selecting a parameter adds that property to the action.
+1. In the action, provide information about the events that you want to send. Open the **Advanced parameters** list. Selecting a parameter adds that property to the action.
 
    :::image type="content" source="./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png" alt-text="Screenshot showing the Advanced Parameters option." lightbox="./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png":::
 
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Event Hub name** | Yes | The event hub where you want to send the event |
+   | **Partition key** | No | The [partition](../event-hubs/event-hubs-features.md#partitions) ID for where to send the event |
    | **Content** | No | The content for the event you want to send |
    | **Properties** | No | The app properties and values to send |
-   | **Partition key** | No | The [partition](../event-hubs/event-hubs-features.md#partitions) ID for where to send the event |
 
    For example, you can send the output from your Event Hubs trigger to another event hub:
 
