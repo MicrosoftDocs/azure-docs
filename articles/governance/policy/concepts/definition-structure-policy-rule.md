@@ -724,7 +724,7 @@ The length of the string created by the `concat()` function depends on the value
 
 - For more information about policy definition structure, go to [basics](./definition-structure-basics.md), [parameters](./definition-structure-parameters.md), and [alias](./definition-structure-alias.md).
 - For initiatives, go to [initiative definition structure](./initiative-definition-structure.md).
-- Review examples at [Azure Policy samples](../samples/index.md).
+- Review examples at [Azure Policy samples](/azure/governance/policy/samples/index).
 - Review [Understanding policy effects](effect-basics.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).
