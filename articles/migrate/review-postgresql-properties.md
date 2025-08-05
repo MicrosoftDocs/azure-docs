@@ -83,17 +83,17 @@ The Supportability section shows the support status of the PostgreSQL versions i
 
 Assess the migration readiness of your PostgreSQL instances, identify potential issues, and review recommendations to ensure a smooth transition to Azure.
 
-    :::image type="content" source="./media/review-postgresql-properties/review-readiness-for-diff-migrations.png" alt-text="Screenshot shows how to review the readiness for different migrations" lightbox="./media/review-postgresql-properties/review-readiness-for-diff-migrations.png":::
+:::image type="content" source="./media/review-postgresql-properties/review-readiness-for-diff-migrations.png" alt-text="Screenshot shows how to review the readiness for different migrations" lightbox="./media/review-postgresql-properties/review-readiness-for-diff-migrations.png":::
 
 To review readiness reports for different migration strategies:
 
 1. Select the **Readiness report** for the desired migration strategy.
 1. Review the readiness columns in the selected report to assess migration preparedness.
 
-| Migration strategy  | Readiness Columns (Respective deployment target)  |
-|-------------------|-----------------------------------------|
-| Recommended    | Azure Database for PostgreSQL flexible Server readiness    |
-| Instances to Azure Database for PostgreSQL| Azure Database for PostgreSQL flexible Server readiness     | Servers to PostgreSQL Server on Azure VM  | Azure VM readiness (PostgreSQL Server on Azure VM)   |
+    | Migration strategy  | Readiness Columns (Respective deployment target)  |
+    |-------------------|-----------------------------------------|
+    | Recommended    | Azure Database for PostgreSQL flexible Server readiness    |
+    | Instances to Azure Database for PostgreSQL| Azure Database for PostgreSQL flexible Server readiness     | Servers to PostgreSQL Server on Azure VM  | Azure VM readiness (PostgreSQL Server on Azure VM)   |
 
 1. Review the readiness status for assessed PostgreSQL instances:
     - **Ready**: The instance can be migrated to Azure Database for PostgreSQL flexible server without any migration issues.
