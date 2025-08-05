@@ -1,6 +1,6 @@
 ---
 title: Set up Standard Workflows as MCP Servers
-description: Learn how to set up Standard logic apps as Model Context Protocol (MCP) servers that work with AI large language models (LLMs).
+description: Learn how to set up Standard logic apps as Model Context Protocol (MCP) servers that work with large language models (LLMs), AI agents, and MCP clients.
 services: logic-apps
 ms.suite: integration
 ms.author: kewear
@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.date: 08/29/2025
 ms.update-cycle: 180-days
-#CustomerIntent: I want to set up Standard logic app workflows in Azure Logic Apps as tools in a Model Context Protocol (MCP) server that works with AI models.
+#CustomerIntent: I want to set up Standard logic app workflows in Azure Logic Apps as tools in a Model Context Protocol (MCP) server that works with LLMs, AI agents, and MCP clients.
 ---
 
-# Set up Standard logic apps as MCP servers for AI models (Preview)
+# Set up Standard logic apps as MCP servers for LLMs, AI agents, and MCP clients (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -21,15 +21,18 @@ ms.update-cycle: 180-days
 > The following capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-AI agents work with large language models (LLMs) to accept, interpret, and fulfill requests by using prebuilt *tools* that agents call to complete tasks, such as send an email, query a database, or trigger a workflow. In Azure Logic Apps, you can jumpstart building these tools by reconfiguring Standard logic apps as custom Model Context Protocol (MCP) servers. This capability means that you can repurpose existing workflows as tools that AI agents and models can use to interact with enterprise resources and assets.
+Typically, large language models (LLMs) work with AI agents that handle and fulfill requests by using prebuilt *tools* that agents call to complete tasks, such as send an email, query a database, or trigger a workflow. In Azure Logic Apps, you can jumpstart building these tools by reconfiguring Standard logic apps as custom Model Context Protocol (MCP) servers. This capability means that you can repurpose existing workflows as tools that LLMs, AI agents, and MCP clients can use to interact with enterprise resources and assets.
 
-MCP is an open standard that lets AI agents and models work with external systems and tools in a secure, discoverable, and structured way. This standard defines how to describe, run, and authenticate access to tools so that agents can interact with real-world systems such as databases, APIs, and business workflows. You can think about an MCP server as a bridge between an AI agent or model and the tools that the agent or model can use.
+MCP is an open standard that lets LLMs, AI agents, and MCP clients work with external systems and tools in a secure, discoverable, and structured way. This standard defines how to describe, run, and authenticate access to tools so that agents can interact with real-world systems such as databases, APIs, and business workflows. You can think about an MCP server as a bridge between an LLM, AI agent, or MCP client and the tools that the LLM, AI agent, or MCP client can use.
 
-:::image type="content" source="media/set-up-model-context-protocol-server-standard/agent-tools.png" alt-text="Conceptual diagram that shows an agent and interactions with related components." lightbox="media/set-up-model-context-protocol-server-standard/agent-tools.png":::
+:::image type="content" source="media/set-up-model-context-protocol-server-standard/mcp-arch.png" alt-text="Conceptual diagram that shows an agent and interactions with related components." lightbox="media/set-up-model-context-protocol-server-standard/mcp-arch.png":::
 
 For more information, see the following articles:
 
 - [What is an AI Agent?](/azure/ai-foundry/agents/overview#what-is-an-ai-agent)
+- [About LLMs](/training/modules/introduction-large-language-models/2-understand-large-language-models)
+- [MCP server concepts](https://modelcontextprotocol.io/docs/learn/server-concepts)
+- [MCP client concepts](https://modelcontextprotocol.io/docs/learn/client-concepts)
 - [Introduction - Get started with the Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro)
 
 The following table describes the benefits that you get when you set up Standard logic apps as custom MCP servers:
@@ -346,7 +349,7 @@ For this task, you need to edit the **host.json** file for your Standard logic a
 
    1. Under the chat input box, from the **Built-in** modes list, and select **Agent**.
 
-   1. From the models list, select the model to use.
+   1. From the LLM list, select the LLM to use.
 
    1. To browse the tools available in your MCP server, select **Configure Tools**.
 
