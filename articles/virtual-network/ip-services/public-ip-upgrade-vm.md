@@ -108,7 +108,7 @@ There is no way to evaluate upgrading a Public IP without completing the action.
 
 Yes, the process of upgrading a Zonal Basic SKU Public IP to a Zonal Standard SKU Public IP is identical and works in the script.
 
-### If I specify a NIC associated with a public IP targeted for migration in the AppGW backend pool, will this script remove it from the pool?
+### If I specify a NIC associated with a public IP targeted for migration in the Application Gateway backend pool, will this script remove it from the pool?
 
 Yes, it will be removed. After running the script, you will need to manually reassign the NIC to the Application Gateway backend pool.
 Alternatively, you can avoid this issue by explicitly specifying the private IP address in the backend pool configuration before migration.
