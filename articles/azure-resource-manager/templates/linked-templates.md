@@ -343,7 +343,7 @@ The following example deploys a SQL server and retrieves a key vault secret to u
 
 Be careful when using secure parameter values in a nested template. If you set the scope to outer, the secure values are stored as plain text in the deployment history. A user viewing the template in the deployment history could see the secure values. Instead use the inner scope or add to the parent template the resources that need secure values.
 
-The following excerpt shows which values are or arn't secure:
+The following excerpt shows which values are or aren't secure:
 
 ```json
 {

@@ -36,7 +36,7 @@ Use the `mode` and `batchSize` properties to specify if the resources are deploy
 
 ## Copy limits
 
-The count can't exceed 800 or be a negative number. It can be zero if you deploy the template with a recent version of the zure CLI, PowerShell, or REST API. Specifically, you must use:
+The count can't exceed 800 or be a negative number. It can be zero if you deploy the template with a recent version of the Azure CLI, PowerShell, or REST API. Specifically, you must use:
 
 - Azure PowerShell **2.6** or later.
 - Azure CLI **2.0.74** or later.
