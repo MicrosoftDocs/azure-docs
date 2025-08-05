@@ -5,11 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-<<<<<<< HEAD
-ms.date: 06/11/2025
-=======
 ms.date: 07/17/2025
->>>>>>> 0f1c6faff00e5f159dc0c9e7152a5b93b362922f
 ms.author: anfdocs
 # Customer intent: As a data administrator, I want to create and manage snapshots in Azure NetApp Files, so that I can ensure efficient data protection, quick recovery options, and scalable storage management for my organization's critical data.
 ---
