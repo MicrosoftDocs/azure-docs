@@ -39,7 +39,7 @@
             "source_path_from_root": "/articles/partner-solutions/informatica/informatica-troubleshoot.md",
             "redirect_url": "/azure/partner-solutions/informatica/troubleshoot",
             "redirect_document_id": true
-        };
+        },
         {
             "source_path_from_root": "/articles/partner-solutions/informatica/troubleshoot.md",
             "redirect_url": "/troubleshoot/azure/partner-solutions/welcome-native-integrations",
