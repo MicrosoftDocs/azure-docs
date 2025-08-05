@@ -7,7 +7,7 @@ ms.author: kewear
 ms.reviewers: estfan, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 08/06/2025
+ms.date: 08/29/2025
 ms.update-cycle: 180-days
 #CustomerIntent: I want to set up Standard logic app workflows in Azure Logic Apps as tools in a Model Context Protocol (MCP) server that works with AI models.
 ---
@@ -25,7 +25,7 @@ AI agents work with large language models (LLMs) to accept, interpret, and fulfi
 
 MCP is an open standard that lets AI agents and models work with external systems and tools in a secure, discoverable, and structured way. This standard defines how to describe, run, and authenticate access to tools so that agents can interact with real-world systems such as databases, APIs, and business workflows. You can think about an MCP server as a bridge between an AI agent or model and the tools that the agent or model can use.
 
-:::image type="content" source="media/set-up-model-context-protocol-servers-standard/agent-tools.png" alt-text="Conceptual diagram that shows an agent and interactions with related components." lightbox="media/set-up-model-context-protocol-servers-standard/agent-tools.png":::
+:::image type="content" source="media/set-up-model-context-protocol-server-standard/agent-tools.png" alt-text="Conceptual diagram that shows an agent and interactions with related components." lightbox="media/set-up-model-context-protocol-server-standard/agent-tools.png":::
 
 For more information, see the following articles:
 
