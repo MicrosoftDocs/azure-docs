@@ -45,16 +45,6 @@ A network security perimeter includes the following components:
 | **Resource association** | Perimeter membership for a PaaS resource. |
 | **Diagnostics settings** | Extension resource hosted by Microsoft Insights to collect logs & metrics for all resources in the perimeter. |
 
-> [!IMPORTANT]
-> The following onboarded services are in public preview with Network Security Perimeter:
-> - Cosmos DB
-> - SQL DB
-> - Azure Open AI Service
->   
-> These previews are provided without a service level agreement, and it's not recommended for production workloads.
-> Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 > [!NOTE]
 > For organizational and informational safety, don't include any personally identifiable or sensitive data in the network security perimeter rules or other network security perimeter configurations.
 
@@ -114,6 +104,16 @@ A network security perimeter-aware private link resource is a PaaS resource that
 | [SQL DB](/azure/azure-sql/database/network-security-perimeter)                    | Microsoft.Sql/servers | | Public Preview |
 | [Storage](/azure/storage/common/storage-network-security#network-secuirty-perimeter-preview)               | Microsoft.Storage/storageAccounts | | Generally Available |
 | [Azure OpenAI service](/azure/ai-services/openai/how-to/network-security-perimeter) | Microsoft.CognitiveServices | | Public Preview |
+
+> [!IMPORTANT]
+> The following onboarded services are in public preview with Network Security Perimeter:
+> - Cosmos DB
+> - SQL DB
+> - Azure Open AI Service
+>   
+> These previews are provided without a service level agreement, and it's not recommended for production workloads.
+> Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
 > Refer to the respective private link resource documentation for information on currently unsupported scenarios.
