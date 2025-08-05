@@ -37,7 +37,7 @@ landingContent:
             url: informatica-create-advanced-serverless.md
       - linkListType: how-to-guide
         links:
-          - text: Troubleshooting an Informatica IDMC organization
+          - text: Troubleshoot
             url: /troubleshoot/azure/partner-solutions/welcome-native-integrations
           - text: Get support
             url: https://support.informatica.com/
