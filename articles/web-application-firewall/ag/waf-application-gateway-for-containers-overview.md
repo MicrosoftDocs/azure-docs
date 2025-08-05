@@ -60,8 +60,8 @@ The following functionality isn't supported on a WAF policy that's associated wi
 
 Azure Web Application Firewall usage is billed separately from Application Gateway for Containers usage. When you enable Azure Web Application Firewall on your Application Gateway for Containers resource, two additional WAF-specific meters are added to your bill:
 
-- **Application Gateway for Containers WAF Hour**: A fixed cost charged for the duration that a security policy references a WAF policy.
-- **Application Gateway for Containers 1 million WAF Requests**: A consumption-based meter that bills per 1 million requests processed by the WAF and charges for each enabled rule set. For example, if you enable both the Default Rule Set (DRS) and the Bot Manager Rule Set, you're billed for two rule sets.
+- **1 AGC WAF Hour**: A fixed cost charged for the duration that a security policy references a WAF policy.
+- **1M WAF Requests**: A consumption-based meter that bills per 1 million requests processed by the WAF and charges for each enabled rule set. For example, if you enable both the Default Rule Set (DRS) and the Bot Manager Rule Set, you're billed for two rule sets.
 
 For more pricing information, see [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway) and [Azure Web Application Firewall pricing](https://azure.microsoft.com/pricing/details/web-application-firewall).
 
