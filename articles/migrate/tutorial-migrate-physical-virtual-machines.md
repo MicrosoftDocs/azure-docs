@@ -314,7 +314,7 @@ Use the following steps to register the appliance:
     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/provide-vcenter-information.png" alt-text="Screenshot shows how to provide vcenter information":::.
 
 1. Select **Add vCenter Server** to input the vCenter information.
-1. Enter the server name or IP address of the vCenter, including the port number. Then, provide the username, password, and a friendly name.
+1. Enter the server name or IP address of the vCenter, including the port number and then provide the username, password, and a friendly name.
 This information is used to retrieve details about the virtual machines managed through the vCenter. The user account details are encrypted and stored locally on the machine. [Learn more](../site-recovery/vmware-azure-tutorial-prepare-on-premises.md).
 
     > [!Note]
