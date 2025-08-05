@@ -225,6 +225,7 @@ To validate that the Azure Storage is mounted successfully for the app:
 ### Troubleshooting
 
 - The mount directory in the custom container should be empty. Any content stored at this path is deleted when the Azure Storage is mounted, if you specify a directory under */home*, for example. If you migrate files for an existing app, make a backup of the app and its content before you begin.
+- When mounting an NFS share, you'll need to ensure that Secure Transfer Required is disabled on the storage account. App Service doesn't support mounting NFS shares when this is enabled. It uses port 2409 and virtual network integration and private endpoints as the security measure.
 - If you delete an Azure Storage account, container, or share, remove the corresponding storage mount configuration in the app to avoid possible error scenarios.
 - We don't recommend that you use storage mounts for local databases, such as SQLite, or for any other applications and components that rely on file handles and locks.
 - Ensure the following ports are open when using virtual network integration: Azure Files: 80 and 445. Azure Blobs: 80 and 443.

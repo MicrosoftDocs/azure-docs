@@ -96,7 +96,9 @@ To have this configuration take effect in your environment, you need to deploy t
     :::image type="content" source="./media/how-to-create-hub-and-spoke/deployment-succeeded.png" alt-text="Screenshot of configuration deployment in progress status.":::
 
 > [!NOTE]
-> If you're currently using virtual network peerings created outside of Azure Virtual Network Manager and want to manage your topology and connectivity with Azure Virtual Network Manager, you can migrate without any downtime to your network. Azure Virtual Network Manager instances are fully compatible with preexisting hub-and-spoke topology deployments using manual peerings. When you deploy a connectivity configuration, the connectivity established is additive by default. This means that you aren't required to delete any existing peered connections between the hub and spoke virtual networks while you verify the connectivity configuration is establishing connectivity as desired.
+> If you're currently using virtual network peerings created outside of Azure Virtual Network Manager and want to manage your topology and connectivity with Azure Virtual Network Manager, you have a few options for deployment to eliminate or minimize downtime to your network:
+> 1. **Deploy Azure Virtual Network Manager connectivity configurations on top of existing peerings.** Connectivity configurations are fully compatible with preexisting manual peerings. When you deploy a connectivity configuration, by default Azure Virtual Network Manager reuses existing peerings that achieve the connectivity described in the configuration and establishes additional connectivity as needed. This means that you aren't required to delete any existing peerings between the hub and spoke virtual networks.
+> 2. **Fully manage connectivity with Azure Virtual Network Manager.** If you want to fully manage connectivity from a single control plane, you can opt to *Delete existing peerings* to remove all previously created peerings from the network groups' virtual networks targeted in this configuration upon deployment.
 
 ## Confirm configuration deployment
 
