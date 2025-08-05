@@ -2,7 +2,7 @@
 title: Manage and monitor SQL Server DBs on an Azure VM
 description: This article describes how to manage and monitor SQL Server databases that are running on an Azure VM.
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 08/05/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -20,9 +20,9 @@ If you haven't yet configured backups for your SQL Server databases, see [Back u
 
 ## Monitor backup jobs in the portal
 
-Azure Backup shows all scheduled and on-demand operations under **Backup jobs** in **Backup center** in the Azure portal, except the scheduled log backups since they can be very frequent. The jobs you see in this portal includes database discovery and registration, configure backup, and backup and restore operations.
+Azure Backup shows all scheduled and on-demand operations under **Jobs** in **Business Continuity Center** in the Azure portal, except the scheduled log backups since they can be very frequent. The jobs you see in this portal includes database discovery and registration, configure backup, and backup and restore operations.
 
-:::image type="content" source="./media/backup-azure-sql-database/backup-operations-in-backup-center-jobs-inline.png" alt-text="Screenshot showing the Backup jobs under Backup jobs." lightbox="./media/backup-azure-sql-database/backup-operations-in-backup-center-jobs-expanded.png":::
+:::image type="content" source="./media/backup-azure-sql-database/monitor-sql-database-backup-operations.png" alt-text="Screenshot shows the Backup jobs in Azure Business Continuity Center." lightbox="./media/backup-azure-sql-database/monitor-sql-database-backup-operations.png":::
 
 For details on Monitoring scenarios, go to [Monitoring in the Azure portal](backup-azure-monitoring-built-in-monitor.md) and [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
 
