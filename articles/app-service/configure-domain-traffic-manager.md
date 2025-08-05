@@ -3,7 +3,7 @@ title: Set up Traffic Manager for Your Domain
 description: Discover how to use Azure Traffic Manager with a custom domain to improve app performance and global availability.
 keywords: Azure Traffic Manager, custom domain, load balancing, Azure App Service, traffic management
 ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/14/2025
 author: msangapu-msft
 ms.author: msangapu
@@ -29,25 +29,29 @@ To map a custom DNS name to an app that's integrated with Azure Traffic Manager,
 
 ### Check the pricing tier
 
-In the [Azure portal](https://portal.azure.com), search for and select **App Services**.
+To check the pricing tier:
 
-On the **App Services** page, select the name of your Azure app.
+1. In the [Azure portal](https://portal.azure.com), search for and select **App Services**.
+
+1. On the **App Services** page, select the name of your Azure app.
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
-In the left navigation of the app page, select **Scale up (App Service plan)**.
+1. In the left navigation of the app page, select **Scale up (App Service plan)**.
 
 ![Scale-up menu](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-The app's current tier is highlighted by a blue border. Check to make sure that the app is in **Standard** tier or above (any tier in the **Production** or **Isolated** category). If yes, close the **Scale up** page and skip to [Create the CNAME mapping](#create-the-cname-mapping).
+1. The app's current tier is highlighted by a blue border. Check to make sure that the app is in **Standard** tier or above (any tier in the **Production** or **Isolated** category). If yes, close the **Scale up** page and skip to [Create the CNAME mapping](#create-the-cname-mapping).
 
 ![Check pricing tier](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
 ### Scale up the App Service plan
 
-If you need to scale up your app, select any of the pricing tiers in the **Production** category. For additional options, click **See additional options**.
+If you need to scale up your app:
 
-Click **Apply**.
+1. Select any of the pricing tiers in the **Production** category. For additional options, click **See additional options**.
+
+1. Click **Apply**.
 
 ## Create Traffic Manager endpoint
 
