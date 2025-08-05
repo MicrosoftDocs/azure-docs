@@ -113,7 +113,7 @@ The tag can be used to allow outbound traffic in a Network security group (NSG) 
 
 ## Inbound IPv6 support
 
-Azure App Service supports IPv6 for inbound traffic. Apps can receive traffic over both IPv4 and IPv6 protocols, providing compatibility with modern networks and clients that require IPv6 connectivity.
+Azure App Service supports IPv6 for inbound traffic on all Basic, Standard, and Premium SKUs, as well as Functions Consumption, Functions Elastic Premium, and Logic Apps Standard plans. Apps can receive traffic over both IPv4 and IPv6 protocols, providing compatibility with modern networks and clients that require IPv6 connectivity.
 
 > [!NOTE]
 > Outbound IPv6 support is in public preview just for Windows apps. For more information on outbound IPv6 support, see [Announcing App Service Outbound IPv6 Support in Public Preview](https://techcommunity.microsoft.com/blog/appsonazureblog/announcing-app-service-outbound-ipv6-support-in-public-preview/4423368). All outbound connections from your Linux apps still use IPv4.
