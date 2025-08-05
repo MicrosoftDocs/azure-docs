@@ -4,7 +4,7 @@ description: Describes the components of an assessment in Azure Migrate for Post
 author: habibaum
 ms.author: v-uhabiba
 ms.service: azure-migrate 
-ms.topic: tutorial-article
+ms.topic: tutorial
 ms.date: 08/05/2025
 ms.custom: engagement-fy24 
 # Customer intent: Customers want to assess on-premises PostgreSQL workloads using Azure Migrate to prepare for migration to Azure Database for PostgreSQL flexible server. They aim to evaluate cloud readiness, risks, and costs through configuration-based assessments.
