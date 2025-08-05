@@ -31,7 +31,7 @@ The following table lists the limits for the Playwright Workspaces free trial.
 |-|-|
 | Duration of trial | 30 days |
 | Total test minutes¹ | 100 minutes |
-| Number of workspaces²³ | 1 |
+| Number of workspaces<sup>2,3</sup> | 1 |
 
 ¹ If your usage exceeds the free test minute limit, only the overage counts toward the pay-as-you-go billing model. See [Playwright Workspaces preview pricing](https://aka.ms/pww/pricing)
 
@@ -48,13 +48,14 @@ To get started with running your Playwright tests on cloud browsers, you first n
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Select the menu button in the upper-left corner of the portal, and then select **Create a resource** a resource.
-
-    ![Screenshot that shows the Azure portal menu to create a new resource.](./media/how-to-manage-playwright-workspace/azure-portal-create-resource.png)
-
+    
+    :::image type="content" source="./media/how-to-manage-playwright-workspace/azure-portal-create-resource.png" alt-text="Screenshot that shows the Azure portal menu to create a new resource." lightbox="./media/how-to-manage-playwright-workspace/azure-portal-create-resource.png":::
+    
 1. Enter *Playwright Workspaces* in the search box.
 1. Select the **Playwright Workspaces** card, and then select **Create**.
 
-    ![Screenshot that shows the Azure Marketplace search page with the Playwright Workspaces search result.](./media/how-to-manage-playwright-workspace/azure-portal-search-playwright-resource.png)
+    :::image type="content" source="./media/how-to-manage-playwright-workspace/azure-portal-search-playwright-resource.png" alt-text="Screenshot that shows the Azure Marketplace search page with the Playwright Workspaces search result." lightbox="./media/how-to-manage-playwright-workspace/azure-portal-search-playwright-resource.png":::
+
 
 1. Provide the following information to configure a new Playwright workspace:
 
@@ -76,7 +77,8 @@ To get started with running your Playwright tests on cloud browsers, you first n
 
 1. To view the new workspace, select **Go to resource**.
 
-    ![Screenshot that shows the deployment completion information in the Azure portal.](./media/how-to-manage-playwright-workspace/create-resource-deployment-complete.png)
+    :::image type="content" source="./media/how-to-manage-playwright-workspace/create-resource-deployment-complete.png" alt-text="Screenshot that shows the deployment completion information in the Azure portal." lightbox="./media/how-to-manage-playwright-workspace/create-resource-deployment-complete.png":::
+
 
 ## Upgrade your workspace
 

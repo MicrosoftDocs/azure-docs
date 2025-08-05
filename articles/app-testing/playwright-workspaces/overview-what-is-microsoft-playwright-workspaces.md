@@ -70,7 +70,7 @@ Playwright Workspaces is built on top of the Playwright framework.
 
 Playwright Workspaces instantiates cloud-hosted browsers across different operating systems. Playwright executes tests on the client machine—either a developer workstation or a CI agent—and remotely control cloud-hosted browsers via the Playwright Workspaces service. The test code remains on the client machine throughout the test run, while browser interactions are performed in the cloud.
 
-![Diagram that shows an architecture overview of Playwright Workspaces.](./media/overview-what-is-microsoft-playwright-workspaces/playwright-workspaces-architecture-overview.png)
+:::image type="content" source="./media/overview-what-is-microsoft-playwright-workspaces/playwright-workspaces-architecture-overview.png" alt-text="Diagram that shows an architecture overview of Playwright Workspaces." lightbox="./media/overview-what-is-microsoft-playwright-workspaces/playwright-workspaces-architecture-overview.png":::
 
 After a test run completes, the test results, trace files, and other test run files are available on the client machine.
 

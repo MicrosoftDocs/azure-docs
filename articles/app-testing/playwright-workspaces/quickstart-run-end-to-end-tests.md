@@ -37,12 +37,12 @@ To get started with running your Playwright tests on cloud browsers, you first n
 
 1. Select the menu button in the upper-left corner of the portal, and then select **Create a resource** a resource.
 
-    ![Screenshot that shows the Azure portal menu to create a new resource.](./media/how-to-manage-playwright-workspace/azure-portal-create-resource.png)
+    :::image type="content" source="./media/how-to-manage-playwright-workspace/azure-portal-create-resource.png" alt-text="Screenshot that shows the Azure portal menu to create a new resource." lightbox="./media/how-to-manage-playwright-workspace/azure-portal-create-resource.png":::
 
 1. Enter *Playwright Workspaces* in the search box.
 1. Select the **Playwright Workspaces** card, and then select **Create**.
 
-    ![Screenshot that shows the Azure Marketplace search page with the Playwright Workspaces search result.](./media/how-to-manage-playwright-workspace/azure-portal-search-playwright-resource.png)
+    :::image type="content" source="./media/how-to-manage-playwright-workspace/azure-portal-search-playwright-resource.png" alt-text="Screenshot that shows the Azure Marketplace search page with the Playwright Workspaces search result." lightbox="./media/how-to-manage-playwright-workspace/azure-portal-search-playwright-resource.png":::
 
 1. Provide the following information to configure a new Playwright workspace:
 
@@ -64,8 +64,7 @@ To get started with running your Playwright tests on cloud browsers, you first n
 
 1. To view the new workspace, select **Go to resource**.
 
-    ![Screenshot that shows the deployment completion information in the Azure portal.](./media/how-to-manage-playwright-workspace/create-resource-deployment-complete.png)
-
+    :::image type="content" source="./media/how-to-manage-playwright-workspace/create-resource-deployment-complete.png" alt-text="Screenshot that shows the deployment completion information in the Azure portal." lightbox="./media/how-to-manage-playwright-workspace/create-resource-deployment-complete.png":::
 
 ## Install Playwright Workspaces package 
 
@@ -103,13 +102,13 @@ To get the service endpoint URL, perform the following steps:
 
 1. Select the **Get Started** page.
 
-![Screenshot that shows how to navigate to the Get Started page.](./media/quickstart-automate-end-to-end-testing/navigate-to-get-started.png)
+    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/navigate-to-get-started.png" alt-text="Screenshot that shows how to navigate to the Get Started page." lightbox="./media/quickstart-automate-end-to-end-testing/navigate-to-get-started.png":::
 
 1. In **Add region endpoint in your setup**, copy the service endpoint URL.
 
     Make sure this URL is available in `PLAYWRIGHT_SERVICE_URL` environment variable.
 
-    ![Screenshot that shows how to copy the service endpoint URL.](./media/quickstart-run-end-to-end-tests/copy-service-endpoint-url.png)
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/copy-service-endpoint-url.png" alt-text="Screenshot that shows how to copy the service endpoint URL." lightbox="../media/quickstart-run-end-to-end-tests/copy-service-endpoint-url.png":::
 
 ::: zone pivot="playwright-test-runner"
 
@@ -239,7 +238,8 @@ To run a single Playwright test in Visual Studio Code with Playwright Workspaces
 
     The test explorer automatically detects your Playwright tests and the service configuration in your project.
 
-    ![Screenshot of Visual Studio Code Test Explorer.](./media/quickstart-run-end-to-end-tests/visual-studio-code-test-explorer.png)
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/visual-studio-code-test-explorer.png" alt-text="Screenshot of Visual Studio Code Test Explorer." lightbox="./media/quickstart-run-end-to-end-tests/visual-studio-code-test-explorer.png":::
+
 
 1. Select **Select Default Profile**, and then select your default projects from the service configuration file.
 
@@ -247,20 +247,21 @@ To run a single Playwright test in Visual Studio Code with Playwright Workspaces
 
     By setting a default profile, you can automatically run your tests with the service, or run multiple Playwright projects simultaneously.
 
-    ![Screenshot of choosing the default run profile in Visual Studio Code](./media/quickstart-run-end-to-end-tests/visual-studio-code-choose-run-profile.png)
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/visual-studio-code-choose-run-profile.png" alt-text="Screenshot of choosing the default run profile in Visual Studio Code." lightbox="./media/quickstart-run-end-to-end-tests/visual-studio-code-choose-run-profile.png":::
+
 
 1. From the list of tests, select the **Run test** button next to a test to run it.
 
     The test runs on the projects you selected in the default profile. If you selected one or more projects from the service configuration, the test runs on remote browsers in your workspace.
 
-    ![Screenshot of running a single test in Visual Studio Code](./media/quickstart-run-end-to-end-tests/visual-studio-code-run-test.png)
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/visual-studio-code-run-test.png" alt-text="Screenshot of running a single test in Visual Studio Code." lightbox="./media/quickstart-run-end-to-end-tests/visual-studio-code-run-test.png":::
 
     > [!TIP]
     > You can still debug your test code when you run your tests on remote browsers by using the **Debug test** button.
 
 1. You can view the test results directly in Visual Studio Code.
 
-    ![Screenshot of test results in Visual Studio Code.](./media/quickstart-run-end-to-end-tests/visual-studio-code-test-results.png)
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/visual-studio-code-test-results.png" alt-text="Screenshot of test results in Visual Studio Code." lightbox="./media/quickstart-run-end-to-end-tests/visual-studio-code-test-results.png":::
 
 ---
 
@@ -306,14 +307,14 @@ To run your Playwright test suite in Visual Studio Code with Playwright Workspac
 
     When you run all tests, the default profile is used. In the previous step, you configured the default profile to use projects from the service configuration.
 
-    ![Screenshot of how to run all tests from Test Explorer Visual Studio Code.](./media/quickstart-run-end-to-end-tests/visual-studio-code-run-all-tests.png)
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/visual-studio-code-run-all-tests.png" alt-text="Screenshot of how to run all tests from Test Explorer Visual Studio Code." lightbox="./media/quickstart-run-end-to-end-tests/visual-studio-code-run-all-tests.png":::
 
     > [!TIP]
     > You can still debug your test code when you run your tests on remote browsers by using the **Debug tests** button.
 
 1. Alternately, you can select a specific service configuration from the list to only run the tests for a specific browser configuration.
 
-    ![Screenshot of how to select a specific project to run tests against in Visual Studio Code.](./media/quickstart-run-end-to-end-tests/visual-studio-code-run-all-tests-select-project.png)
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/visual-studio-code-run-all-tests-select-project.png" alt-text="Screenshot of how to select a specific project to run tests against in Visual Studio Code." lightbox="./media/quickstart-run-end-to-end-tests/visual-studio-code-run-all-tests-select-project.png":::
 
 1. You can view all test results in the **Test results** tab.
 

@@ -52,19 +52,19 @@ You can grant a user access to a Playwright workspace by using the Azure portal:
 
     If you don't have permissions to assign roles, the **Add role assignment** option is disabled.
 
-    ![Screenshot that shows how to add a role assignment to your workspace in the Azure portal.](media/how-to-manage-workspace-access/add-role-assignment.png)
+    :::image type="content" source="./media/how-to-manage-workspace-access/add-role-assignment.png" alt-text="Screenshot that shows how to add a role assignment to your workspace in the Azure portal." lightbox="./media/how-to-manage-workspace-access/add-role-assignment.png":::
 
 1. On the **Role** tab, select **Privileged administrator** roles.
 
 1. Select one of the Playwright Workspaces [default roles](#default-roles), and then select **Next**.
 
-    ![Screenshot that shows the list of roles when adding a role assignment in the Azure portal.](media/how-to-manage-workspace-access/add-role-assignment-select-role.png)
+    :::image type="content" source="./media/how-to-manage-workspace-access/add-role-assignment-select-role.png" alt-text="Screenshot that shows the list of roles when adding a role assignment in the Azure portal." lightbox="./media/how-to-manage-workspace-access/add-role-assignment-select-role.png":::
 
 1. On the **Members** tab, make sure **User, group, or service principal** is selected.
 
 1. Select **Select members**, find and select the users, groups, or service principals.
 
-    ![Screenshot that shows the member selection interface when adding a role assignment in the Azure portal.](media/how-to-manage-workspace-access/add-role-assignment-select-members.png)
+    :::image type="content" source="./media/how-to-manage-workspace-access/add-role-assignment-select-members.png" alt-text="Screenshot that shows the member selection interface when adding a role assignment in the Azure portal." lightbox="./media/how-to-manage-workspace-access/add-role-assignment-select-members.png":::
 
 1. Select **Review + assign** to assign the role.
 
@@ -80,7 +80,8 @@ You can revoke a user's access to a Playwright workspace using the Azure portal:
 
 1. In the list of role assignments, add a checkmark next to the user and role you want to remove, and then select **Remove**.
 
-    ![Screenshot that shows the list of role assignments and how to delete an assignment in the Azure portal.](media/how-to-manage-workspace-access/remove-role-assignment.png)
+    :::image type="content" source="./media/how-to-manage-workspace-access/remove-role-assignment.png" alt-text="Screenshot that shows the list of role assignments and how to delete an assignment in the Azure portal." lightbox="./media/how-to-manage-workspace-access/remove-role-assignment.png":::
+
 
 1. Select **Yes** in the confirmation window to remove the role assignment.
 
@@ -118,7 +119,8 @@ Perform the following steps to manage permissions with a custom role:
 
 1. Select the required permission like `Microsoft.LoadTestService/PlaywrightWorkspaces/write`, and then select **Add**.
 
-    ![Screenshot that shows the list of permissions for adding to the custom role in the Azure portal, highlighting the permission record to add.](media/how-to-manage-workspace-access/custom-role-permissions.png)
+    :::image type="content" source="./media/how-to-manage-workspace-access/custom-role-permissions.png" alt-text="Screenshot that shows the list of permissions for adding to the custom role in the Azure portal, highlighting the permission record to add." lightbox="./media/how-to-manage-workspace-access/custom-role-permissions.png":::
+
 
 1. Follow these steps to [add a role assignment](/azure/role-based-access-control/role-assignments-portal) for the custom role to the user account.
 

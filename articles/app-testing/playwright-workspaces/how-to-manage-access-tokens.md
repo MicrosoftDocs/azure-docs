@@ -82,18 +82,19 @@ To create a new workspace access token:
 
 1. On the **Access Management** page, select **Generate token**.
 
-    :::image type="content" source="./media/how-to-manage-access-tokens/playwright-workspaces-generate-new-access-token.png" alt-text="Screenshot that shows the access tokens settings page in the Azure portal, highlighting the 'Generate new token' button" lightbox="./media/how-to-manage-access-tokens/playwright-workspaces-generate-new-access-token.png":::
+    :::image type="content" source="./media/how-to-manage-access-tokens/playwright-workspaces-generate-new-access-token.png" alt-text="Screenshot that shows the access tokens settings page in the Azure portal, highlighting the 'Generate new token' button." lightbox="./media/how-to-manage-access-tokens/playwright-workspaces-generate-new-access-token.png":::
 
 
 1. Enter the access token details, and then select **Generate token**.
 
-    ![Screenshot that shows setup guide in the Azure portal, highlighting the 'Generate token' button.](./media/how-to-manage-access-tokens/playwright-workspaces-generate-access-token.png)
+    :::image type="content" source="./media/how-to-manage-access-tokens/playwright-workspaces-generate-access-token.png" alt-text="Screenshot that shows setup guide in the Azure portal, highlighting the 'Generate token' button." lightbox="./media/how-to-manage-access-tokens/playwright-workspaces-generate-access-token.png":::
+
 
 1. Copy the access token for the workspace.
 
     You can save the access token in a CI/CD secrets store or use it in an environment variable for running tests interactively.
 
-    ![Screenshot that shows how to copy the generated access token in the Azure portal.](./media/how-to-manage-access-tokens/playwright-workspaces-copy-access-token.png)
+    :::image type="content" source="./media/how-to-manage-access-tokens/playwright-workspaces-copy-access-token.png" alt-text="Screenshot that shows how to copy the generated access token in the Azure portal" lightbox="./media/how-to-manage-access-tokens/playwright-workspaces-copy-access-token.png":::
     
     > [!IMPORTANT]
     > You can only access the token value immediately after you've created it. You can't access the token value anymore at a later time.
