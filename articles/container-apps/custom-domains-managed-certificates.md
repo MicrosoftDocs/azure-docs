@@ -26,7 +26,7 @@ Azure Container Apps provides a free managed certificate for your custom domain.
 
 The requirements are:
 
-- Enable HTTP ingress and ensure your container app is publicly accessible.
+- Enable HTTP ingress and ensure your container app is publicly accessible from the [digicert IP addresses](https://knowledge.digicert.com/alerts/ip-address-domain-validation).
 
 - Must have an A record for apex domains that points to your Container Apps environment's IP address.
 
