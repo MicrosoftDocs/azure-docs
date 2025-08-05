@@ -78,7 +78,7 @@ productDirectory:
       links:
         - url: ./new-relic/new-relic-overview.md
           text: Get end-to-end cloud observability to analyze and troubleshoot performance of applications, infrastructure, logs, real-user monitoring and more.
-    - title: MongoDB Atlas (preview)
+    - title: MongoDB Atlas
       imageSrc: ./media/index/mongo-db.svg
       links:
         - url: ./mongo-db/overview.md
@@ -93,7 +93,7 @@ productDirectory:
       links:
         - url: ./palo-alto/palo-alto-overview.md
           text: Protect your organization with a next generation firewall solution integrated with Azure.
-    - title: Pure Storage (preview)
+    - title: Pure Storage Preview
       imageSrc: ./media/index/pure-storage.svg
       links:
         - url: pure-storage/overview.md

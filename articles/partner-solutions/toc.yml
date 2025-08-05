@@ -24,7 +24,7 @@ items:
     href: ./informatica/index.yml
   - name: LambdaTest - HyperExecute
     href: ./lambda-test/index.yml
-  - name: MongoDB Atlas (preview)
+  - name: MongoDB Atlas
     href: ./mongo-db/index.yml
   - name: Neon Serverless Postgres
     href: ./neon/index.yml 
