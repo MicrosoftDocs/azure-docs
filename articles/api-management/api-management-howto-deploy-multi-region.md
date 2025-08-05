@@ -5,7 +5,7 @@ description: Learn how to deploy a Premium tier Azure API Management instance to
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 07/29/2024
+ms.date: 07/07/2025
 ms.author: danlep
 ---
 
@@ -19,7 +19,7 @@ When adding a region, you configure:
 
 * The number of scale [units](upgrade-and-scale.md) that region will host. 
 
-* Optional [availability zones](../reliability/migrate-api-mgt.md), if that region supports it.
+* [Availability zones](enable-availability-zone-support.md), if that region supports it. By default, API Management automatically configures availability zones for the added region, which is recommended. You can also manually configure availability zones for the added region.
 
 * [Virtual network](virtual-network-concepts.md) settings in the added region, if networking is configured in the existing region or regions.
 
@@ -35,29 +35,30 @@ When adding a region, you configure:
 
 ## Prerequisites
 
+* Thoroughly understand all requirements and considerations for enabling multi-region deployment in API Management by reading [Reliability in API Management](../reliability/reliability-api-management.md). 
 * If you haven't created an API Management service instance, see [Create an API Management service instance](get-started-create-service-instance.md). Select the Premium service tier.
 * If your API Management instance is deployed in a virtual network, ensure that you set up a virtual network and subnet in the location that you plan to add, and within the same subscription. See [virtual network prerequisites](api-management-using-with-vnet.md#prerequisites).
 
-## <a name="add-region"> </a>Deploy API Management service to an additional region
+## Deploy API Management service to an additional region
 
 1. In the Azure portal, navigate to your API Management service and select **Locations** from the left menu.
 1. Select **+ Add** in the top bar.
 1. Select the added location from the dropdown list.
 1. Select the number of scale **[Units](upgrade-and-scale.md)** in the location.
-1. Optionally select one or more [**Availability zones**](../reliability/migrate-api-mgt.md). 
-1. If the API Management instance is deployed in a [virtual network](api-management-using-with-vnet.md), configure virtual network settings in the location, including virtual network, subnet, and public IP address (if enabling availability zones).
+1. If the region supports [**Availability zones**](enable-availability-zone-support.md), leave the **Automatic** setting (recommended), or optionally select one or more zones. If you select specific zones, the number of units that you selected must distribute evenly across the availability zones. For example, if you selected three units, you would select three zones so that each zone hosts one unit. 
+1. If the API Management instance is deployed in a [virtual network](api-management-using-with-vnet.md), configure virtual network settings in the location, including virtual network, subnet, and public IP address.
 1. Select **Add** to confirm.
 1. Repeat this process until you configure all locations.
 1. Select **Save** in the top bar to start the deployment process.
 
-## <a name="remove-region"> </a>Remove an API Management service region
+## Remove an API Management service region
 
 1. In the Azure portal, navigate to your API Management service and select **Locations** from the left menu.
 1. For the location you would like to remove, select the context menu using the **...** button at the right end of the table. Select **Delete**.
 1. Confirm the deletion and select **Save** to apply the changes.
 
 
-## <a name="route-backend"> </a>Route API calls to regional backend services
+## Route API calls to regional backend services
 
 By default, each API routes requests to a single backend service URL. Even if you've configured Azure API Management gateways in various regions, the API gateway will still forward requests to the same backend service, which is deployed in only one region. In this case, the performance gain will come only from responses cached within Azure API Management in a region specific to the request; contacting the backend across the globe may still cause high latency.
 
@@ -65,7 +66,7 @@ To take advantage of geographical distribution of your system, you should have b
 
 1. Navigate to your Azure API Management instance and select **APIs** from the left menu.
 2. Select your desired API.
-3. Select **Code editor** from the arrow dropdown in the **Inbound processing**.
+3. On the **Design** tab, in the **Inbound processing** section, select **Code editor**.
 
     ![API code editor](./media/api-management-howto-deploy-multi-region/api-management-api-code-editor.png)
 
@@ -109,7 +110,7 @@ You may also front your backend services with [Azure Traffic Manager](https://az
 
 * For traffic control during maintenance operations, we recommend using the Priority routing method.
 
-## <a name="custom-routing"> </a>Use custom routing to API Management regional gateways
+## Use custom routing to API Management regional gateways
 
 API Management routes the requests to a regional gateway based on [the lowest latency](../traffic-manager/traffic-manager-routing-methods.md#performance). Although it isn't possible to override this setting in API Management, you can use your own Traffic Manager with custom routing rules.
 
@@ -167,7 +168,7 @@ This section provides considerations for multi-region deployments when the API M
 * Configure each regional network independently. The [connectivity requirements](virtual-network-reference.md) such as required network security group rules for a virtual network in an added region are generally the same as those for a network in the primary region.
 * Virtual networks in the different regions don't need to be peered.
 > [!IMPORTANT]
-> When configured in internal VNet mode, each regional gateway must also have outbound connectivity on port 1433 to the Azure SQL database configured for your API Management instance, which is only in the *primary* region. Ensure that you allow connectivity to the FQDN or IP address of this Azure SQL database in any routes or firewall rules you configure for networks in your secondary regions; the Azure SQL service tag can't be used in this scenario. To find the Azure SQL database name in the primary region, go to the **Network** > **Network status** page of your API Management instance in the portal. 
+> When configured in internal virtual network mode, each regional gateway must also have outbound connectivity on port 1433 to the Azure SQL database configured for your API Management instance, which is only in the *primary* region. Ensure that you allow connectivity to the FQDN or IP address of this Azure SQL database in any routes or firewall rules you configure for networks in your secondary regions; the Azure SQL service endpoint can't be used in this scenario. To find the Azure SQL database name in the primary region, go to the **Network** > **Network status** page of your API Management instance in the portal. 
 
 ### IP addresses
 
@@ -185,10 +186,10 @@ This section provides considerations for multi-region deployments when the API M
 
 ## Related content
 
-* Learn more about configuring API Management for [high availability](high-availability.md).
+* Learn more about [reliability in API Management](../reliability/reliability-api-management.md)
 
-* Learn more about configuring [availability zones](../reliability/migrate-api-mgt.md) to improve the availability of an API Management instance in a region.
-
+* Learn more about enabling [availability zone support](enable-availability-zone-support.md) for an API Management instance.
+    
 * For more information about virtual networks and API Management, see:
 
     * [Connect to a virtual network using Azure API Management](api-management-using-with-vnet.md)

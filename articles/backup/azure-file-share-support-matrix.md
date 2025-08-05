@@ -5,8 +5,8 @@ ms.topic: reference
 ms.date: 07/10/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a cloud architect, I want to understand the supported configurations and limitations for backing up Azure files using Azure Backup, so that I can ensure my backup strategy meets compliance and operational requirements."
 ---
 

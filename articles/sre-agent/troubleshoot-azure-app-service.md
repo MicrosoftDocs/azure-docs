@@ -4,7 +4,7 @@ description: Learn how to use Azure SRE Agent (preview) and Azure App Service to
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: tutorial
-ms.date: 07/15/2025
+ms.date: 07/17/2025
 ms.service: azure
 ---
 
@@ -191,17 +191,16 @@ Now, create an Azure SRE Agent to monitor your App Service app.
 
 1. In the *Create agent* window, enter the following values:
 
-    | Property         | Value                     | Remarks                                                                 |
-    |------------------|---------------------------|-------------------------------------------------------------------------|
-    | Subscription     | Your Azure subscription   |                                                                         |
-    | Resource group   | `my-sre-agent-group`      | New group for the Azure SRE Agent                                             |
-    | Name             | `my-sre-agent`|                                                                         |
-    | Region           | **Sweden Central**        | Required during preview; can monitor resources in any Azure region      |
-    | Choose role      | **Contributor**           | Grants the agent permission to take action on your behalf               |
+    | Property | Value | Remarks |
+    |--|--|--|
+    | Subscription | Your Azure subscription |  |
+    | Resource group | `my-sre-agent-group` | New group for the Azure SRE Agent |
+    | Name | `my-sre-agent` |  |
+    | Region | **Sweden Central** | During preview, Azure SRE Agent is only available in the *Sweden Central* region, but the agent can monitor resources in any Azure region.<br><br>If you don't see any options in the dropdown, then you may not have permissions to access to the Sweden Central region. |
 
 1. Select **Select resource groups**.
 
-1. In the *Selected resource groups to monitor* window, search for and select `my-app-service-group`.
+1. In the *Selected resource groups to monitor* window, search for and check the checkbox next to `my-app-service-group`.
 
 1. Select **Save**.
 

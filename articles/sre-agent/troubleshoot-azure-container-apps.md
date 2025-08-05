@@ -3,7 +3,7 @@ title: 'Tutorial: Troubleshoot an app using an Azure SRE Agent (preview) in Azur
 description: Deploy an automated agent to help monitor and resolve issues with an SRE Agent in Azure Container Apps.
 author: craigshoemaker
 ms.topic: tutorial
-ms.date: 07/15/2025
+ms.date: 07/17/2025
 ms.author: cshoe
 ms.service: azure
 ---
@@ -121,8 +121,7 @@ Next, create an agent to monitor the *my-aca-app-group* resource group.
     | Property | Value |
     |---|---|
     | Agent name | Enter **my-aca-sre-agent**. |
-    | Region | Select **Sweden Central**.<br><br>During preview, the SRE Agent is only available in the *Sweden Central* region, but an agent can monitor resources in any Azure region. |
-    | Run mode| Select **Review*.<br><br>When in *review mode*, the agent works on your behalf only with your approval. |
+    | Region | Select **Sweden Central**.<br><br>During preview, Azure SRE Agent is only available in the *Sweden Central* region, but the agent can monitor resources in any Azure region.<br><br>If you don't see any options in the dropdown, then you may not have permissions to access to the Sweden Central region. |
 
 1. In the *Managed resource groups* section, select the **Select resource groups** button.
 

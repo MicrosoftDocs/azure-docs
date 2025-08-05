@@ -4,8 +4,8 @@ description: In this article, learn how to create a policy to back up blobs in a
 ms.topic: how-to
 ms.date: 07/02/2025
 ms.assetid: 93861379-5bec-4ed5-95d2-46f534a115fd
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to create an Azure Backup vault using REST API, so that I can efficiently manage and automate backup policies for blobs in storage accounts.
 ---
 

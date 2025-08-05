@@ -4,8 +4,8 @@ description: Symptoms, causes, and resolutions of the Azure Backup Vault related
 ms.topic: troubleshooting
 ms.date: 07/16/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a backup administrator, I want to troubleshoot Azure Backup Vault management errors, so that I can resolve issues related to System and User Identities efficiently."
 ---
 

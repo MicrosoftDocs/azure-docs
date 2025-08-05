@@ -4,9 +4,9 @@ description: Learn about Microsoft-managed connectors hosted on Azure in Azure L
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: engagement-fy23
-ms.date: 05/20/2024
+ms.date: 06/01/2025
 ---
 
 # Managed connectors in Azure Logic Apps

@@ -627,6 +627,18 @@
             "branch_mapping": {}
         },
         {
+            "path_to_root": "app-service-agentic-langgraph-foundry-node",
+            "url": "https://github.com/Azure-Samples/app-service-agentic-langgraph-foundry-node",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "app-service-agentic-semantic-kernel-java",
+            "url": "https://github.com/Azure-Samples/app-service-agentic-semantic-kernel-java",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
             "path_to_root": "playwright-testing-service",
             "url": "https://github.com/microsoft/playwright-testing-service",
             "branch": "main",

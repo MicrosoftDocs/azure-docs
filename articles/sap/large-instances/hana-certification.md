@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 02/11/2022
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
+# Customer intent: As an SAP administrator, I want to certify SAP HANA on Azure Large Instances, so that I can ensure it meets the necessary infrastructure and performance standards for deploying business-critical applications.
 ---
 # Certification
 

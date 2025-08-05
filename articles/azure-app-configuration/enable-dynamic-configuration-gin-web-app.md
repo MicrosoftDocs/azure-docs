@@ -40,7 +40,7 @@ Finish the quickstart: [Create a Gin web app with Azure App Configuration](./qui
     > [!TIP]
     > You can set the `Interval` property of the `RefreshOptions` to specify the minimum time between configuration refreshes. In this example, you use the default value of 30 seconds. Adjust to a higher value if you need to reduce the number of requests made to your App Configuration store.
 
-2. Update your `main.go` file to register a callback function for configuration updates:
+1. Update your `main.go` file to register a callback function for configuration updates:
 
     ```golang
     // Existing code
@@ -59,11 +59,21 @@ Finish the quickstart: [Create a Gin web app with Azure App Configuration](./qui
             return
         }
     })
+
+    // The rest of existing code
+    //... ...
     ```
 
-3. Add a configuration refresh middleware. Update *`main.go`* with the following code.
+1. Add a configuration refresh middleware. Update *`main.go`* with the following code.
 
     ```golang
+    // Existing code
+    // ... ...
+    type App struct {
+        Name      string
+        Port      int
+    }
+
     func configRefreshMiddleware(provider *azureappconfiguration.AzureAppConfiguration) gin.HandlerFunc {
         return func(c *gin.Context) {
             // Start refresh in a goroutine to avoid blocking the request
@@ -79,9 +89,12 @@ Finish the quickstart: [Create a Gin web app with Azure App Configuration](./qui
             c.Next()
         }
     }
+
+    // The rest of existing code
+    //... ...
     ```
 
-4. Use the configuration refresh middleware:
+1. Use the configuration refresh middleware:
 
     ```golang
     // Existing code
@@ -110,20 +123,21 @@ Now that you've set up dynamic configuration refresh, let's test it to see it in
 1. Run the application.
 
    ```bash
-   go run main.go
+    go mod tidy
+    go run .
    ```
 
-2. Open a web browser and navigate to `http://localhost:8080` to access your application. The web page looks like this:
+1. Open a web browser and navigate to `http://localhost:8080` to access your application. The web page looks like this:
 
     :::image type="content" source="./media/quickstarts/gin-app-refresh-before.png" alt-text="Screenshot of the gin web app refresh before.":::
 
-3. Navigate to your App Configuration store and update the value of the `Config.Message` key.
+1. Navigate to your App Configuration store and update the value of the `Config.Message` key.
 
     | Key                    | Value                                  | Content type       |
     |------------------------|----------------------------------------|--------------------|
     | *Config.Message*       | *Hello from Azure App Configuration - now with live updates!*               | Leave empty        |
 
-4. After refreshing the browser a few times, you'll see the updated content once the ConfigMap is updated in 30 seconds.
+1. After refreshing the browser a few times, you'll see the updated content once the ConfigMap is updated in 30 seconds.
 
     :::image type="content" source="./media/quickstarts/gin-app-refresh-after.png" alt-text="Screenshot of the gin web app refresh after.":::
 

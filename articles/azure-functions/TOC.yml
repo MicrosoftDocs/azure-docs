@@ -620,6 +620,7 @@
           displayName: monitoring
         - name: Work with OpenTelemetry
           href: opentelemetry-howto.md
+          displayName: OTel
     - name: Authenticate
       items:
         - name: Configure auth providers
@@ -692,20 +693,6 @@
               href: ../azure-web-pubsub/tutorial-serverless-notification.md?toc=/azure/azure-functions/toc.json
             - name: Work with Event Grid
               href: event-grid-how-tos.md
-        - name: Start/Stop VMs
-          items:
-            - name: Overview
-              href: start-stop-vms/overview.md
-            - name: Deploy and configure
-              href: start-stop-vms/deploy.md
-            - name: Manage and monitor
-              href: start-stop-vms/manage.md
-            - name: Remove Start/Stop VMs
-              href: start-stop-vms/remove.md
-            - name: Define pre-actions
-              href: start-stop-vms/pre-actions.md
-            - name: Troubleshoot
-              href: start-stop-vms/troubleshoot.md
         - name: Connect to SQL Database
           href: functions-scenario-database-table-cleanup.md
         - name: Connect to a virtual Network
@@ -1024,11 +1011,11 @@
             - name: Output
               href: functions-bindings-kafka-output.md
               displayName: Kafka
-        - name: MCP tool
+        - name: MCP
           items:
             - name: Overview
               href: functions-bindings-mcp.md
-              displayName: MCP tool
+              displayName: MCP
             - name: Trigger
               href: functions-bindings-mcp-trigger.md
               displayName: MCP tool
