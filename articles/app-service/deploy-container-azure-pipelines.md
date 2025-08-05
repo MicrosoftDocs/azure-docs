@@ -97,7 +97,7 @@ Next, you need to set up the deploy task. This requires your subscription name, 
        steps:
    ```
 
-1. navigate to the **Show assistant** tab in the upper right hand corner and find the **Azure App Service deploy** task and fill out the following form:
+1. Navigate to the **Show assistant** tab in the upper right hand corner and find the **Azure App Service deploy** task and fill out the following form:
 
    - Connection type: Azure Resource Manager
    - Azure subscription: your-subscription-name
@@ -106,7 +106,7 @@ Next, you need to set up the deploy task. This requires your subscription name, 
    - Registry or Namespace: your-azure-container-registry-namespace
    - Image: your-azure-container-registry-image-name
 
-1.  Click the **Add** button to add the task below:
+1. Click the **Add** button to add the task below:
 
    ```yaml
    - task: AzureRmWebAppDeployment@4
