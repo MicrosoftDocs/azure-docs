@@ -3,7 +3,7 @@ title: Configure APM platforms for Tomcat, JBoss, or Java SE apps
 description: Learn how to configure APM platforms, such as Application Insights, NewRelic, and AppDynamics, for Tomcat, JBoss, or Java SE app on Azure App Service.
 keywords: azure app service, web app, windows, oss, java, tomcat, jboss, spring boot, quarkus
 ms.devlang: java
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/17/2024
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java, linux-related-content
 zone_pivot_groups: app-service-java-hosting
