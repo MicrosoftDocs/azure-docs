@@ -61,7 +61,7 @@ The following table describes the benefits that you get when you set up Standard
 
   This app registration is an identity that your logic app resource uses to delegate identity and access management functions to Microsoft Entra ID.
 
-  For instructions, see [Create an app registration](#create-app-registration-logic-app).
+  For instructions, see [Create an app registration](#create-an-app-registration).
 
 - An MCP client to test your MCP server setup.
 
