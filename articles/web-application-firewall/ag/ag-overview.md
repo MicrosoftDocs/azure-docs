@@ -22,7 +22,7 @@ All of the following Azure Web Application Firewall features exist inside a web 
 
 :::image type="content" source="../media/ag-overview/waf1.png" alt-text="Diagram that illustrates how a web application firewall works with Azure Application Gateway.":::
 
-Application Gateway operates as an application delivery controller. It offers Transport Layer Security (TLS) (previously known as Secure Sockets Layer or SSL), termination, cookie-based session affinity, round-robin load distribution, content-based routing, the ability to host multiple websites, and security enhancements.
+Application Gateway operates as an application delivery controller. It offers Transport Layer Security (TLS) (previously known as Secure Sockets Layer or SSL) termination, cookie-based session affinity, round-robin load distribution, content-based routing, the ability to host multiple websites, and security enhancements.
 
 Application Gateway enhances security through TLS policy management and end-to-end TLS support. Integrating Azure Web Application Firewall into Application Gateway fortifies application security. This combination actively defends your web applications against common vulnerabilities and offers a centrally manageable location.
 
@@ -93,7 +93,7 @@ Application Gateway supports multiple rule sets, including CRS 3.2, CRS 3.1, and
 
 ### Custom rules
 
-Application Gateway also supports the creation of your own custom rules. Application Gateway evaluates custom rules for each request that passes through the WAF. These rules hold a higher priority than the rest of the rules in the managed rule sets. If a request meets a set of conditions, the WAF takes an action to allow or block. For more information on custom rules, see [Custom rules for Application Gateway](custom-waf-rules-overview.md).
+Application Gateway supports the creation of your own custom rules. Application Gateway evaluates custom rules for each request that passes through the WAF. These rules hold a higher priority than the rest of the rules in the managed rule sets. If a request meets a set of conditions, the WAF takes an action to allow or block. For more information on custom rules, see [Custom rules for Application Gateway](custom-waf-rules-overview.md).
 
 The `Geomatch` operator is now available for custom rules. For more information, see [Geomatch custom rules](geomatch-custom-rules.md).
 
@@ -132,20 +132,20 @@ You can configure the Application Gateway WAF to run in the following modes:
 - **Prevention mode**: Blocks intrusions and attacks that the rules detect. The attacker receives a "403 unauthorized access" exception, and the connection is closed. Prevention mode records such attacks in the WAF logs.
 
 > [!NOTE]
-> We recommend that you run a newly deployed WAF in detection mode for a short period of time in a production environment. Doing so provides the opportunity to obtain [firewall logs](../../application-gateway/application-gateway-diagnostics.md#firewall-log) and update any exceptions or [custom rules](./custom-waf-rules-overview.md) before transitioning to prevention mode. It also helps reduce the occurrence of unexpected blocked traffic.
+> We recommend that you run a newly deployed WAF in detection mode for a short period in a production environment. Doing so provides the opportunity to obtain [firewall logs](../../application-gateway/application-gateway-diagnostics.md#firewall-log) and update any exceptions or [custom rules](./custom-waf-rules-overview.md) before transitioning to prevention mode. It also helps reduce the occurrence of unexpected blocked traffic.
 
 ### WAF engine
 
-The WAF engine is the component that inspects traffic and detects whether a request contains a signature that indicates a potential attack. When you use CRS 3.2 or later, your web application firewall runs the new [WAF engine](waf-engine.md), which gives you higher performance and an improved set of features. When you use earlier versions of CRS, your WAF runs on an older engine. New features are available only on the new WAF engine.
+The WAF engine is the component that inspects traffic and detects whether a request contains a signature that indicates a potential attack. When you use CRS 3.2 or later, your web application firewall runs the new [WAF engine](waf-engine.md), which gives you higher performance and an improved set of features. When you use earlier versions of the CRS, your WAF runs on an older engine. New features are available only on the new WAF engine.
 
 ### WAF actions
 
 You can choose which action the WAF runs when a request matches a rule condition. Application Gateway supports the following actions:
 
-- **Allow**: The request passes through the WAF and is forwarded to the back end. No further lower-priority rules can block this request. These actions apply only to the Bot Manager Rule Set. They don't apply to CRS.
+- **Allow**: The request passes through the WAF and is forwarded to the back end. No further lower-priority rules can block this request. These actions apply only to the Bot Manager Rule Set. They don't apply to the CRS.
 - **Block**: The request is blocked. The WAF sends a response to the client without forwarding the request to the back end.
 - **Log**: The request is logged in the WAF logs. The WAF continues to evaluate lower-priority rules.
-- **Anomaly score**: This action is the default for CRS. The total anomaly score is incremented when a request matches a rule with this action. Anomaly scoring doesn't apply to the Bot Manager Rule Set.
+- **Anomaly score**: This action is the default for the CRS. The total anomaly score is incremented when a request matches a rule with this action. Anomaly scoring doesn't apply to the Bot Manager Rule Set.
 
 ### Anomaly scoring mode
 
@@ -187,7 +187,9 @@ To learn more about using logs, see [Diagnostic logs for Application Gateway](..
 
 [Defender for Cloud](../../security-center/security-center-introduction.md?toc=/azure/web-application-firewall/toc.json) helps you prevent, detect, and respond to threats. It provides increased visibility into, and control over, the security of your Azure resources. Application Gateway is [integrated with Defender for Cloud](../../security-center/security-center-partner-integration.md#integrated-azure-security-solutions).
 
-Defender for Cloud scans your environment to detect unprotected web applications. It can recommend an Application Gateway WAF to help protect these vulnerable resources. You create the firewalls directly from Defender for Cloud. These WAF instances are integrated with Defender for Cloud. They send alerts and health information to Defender for Cloud for reporting.
+Defender for Cloud scans your environment to detect unprotected web applications. It can recommend an Application Gateway WAF to help protect these vulnerable resources.
+
+You create the firewalls directly from Defender for Cloud. These WAF instances are integrated with Defender for Cloud. They send alerts and health information to Defender for Cloud for reporting.
 
 #### Microsoft Sentinel
 
@@ -197,7 +199,11 @@ With the firewall events workbook built into Azure Web Application Firewall, you
 
 #### Azure Monitor workbook for WAF
 
-The Azure Monitor workbook for WAF enables custom visualization of security-relevant WAF events across several filterable panels. It works with all WAF types, including Application Gateway, Azure Front Door, and Azure Content Delivery Network. You can filter it based on WAF type or a specific WAF instance. You import it via Azure Resource Manager template or gallery template. To deploy this workbook, see the [GitHub repository for Azure Web Application Firewall](https://aka.ms/AzWAFworkbook).
+The Azure Monitor workbook for WAF enables custom visualization of security-relevant WAF events across several filterable panels. It works with all WAF types, including Application Gateway, Azure Front Door, and Azure Content Delivery Network.
+
+You can filter this workbook based on WAF type or a specific WAF instance. You import it via Azure Resource Manager template or gallery template.
+
+To deploy this workbook, see the [GitHub repository for Azure Web Application Firewall](https://aka.ms/AzWAFworkbook).
 
 #### Logging
 
@@ -249,7 +255,7 @@ To learn what's new with Azure Web Application Firewall, see [Azure updates](htt
 
 ## Related content
 
-- Learn more about [WAF managed rules](application-gateway-crs-rulegroups-rules.md).
-- Learn more about [custom rules](custom-waf-rules-overview.md).
-- Learn about [Azure Web Application Firewall on Azure Front Door](../afds/afds-overview.md).
-- Learn about [Azure network security](../../networking/security/index.yml).
+- [Azure Web Application Firewall DRS and CRS rule groups and rules](application-gateway-crs-rulegroups-rules.md)
+- [Custom rules for Azure Web Application Firewall v2 on Azure Application Gateway](custom-waf-rules-overview.md)
+- [Azure Web Application Firewall on Azure Front Door](../afds/afds-overview.md)
+- [Azure network security documentation](../../networking/security/index.yml)
