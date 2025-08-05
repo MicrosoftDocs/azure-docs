@@ -78,7 +78,7 @@ To create or edit a Resource Health alert rule, you need:
 
 - **View triggered alerts**: search for your alert rule name and select the **History** tab. You can click on any of the triggered alerts to know about it.
 
-   :::image type="content" source="media/resource-health/alert-rule-history.png" alt-text="Screenshot showing an alert rule history." lightbox="media/resource-health/resource-health/alert-rule-history.png":::
+   :::image type="content" source="media/resource-health/alert-rule-history.png" alt-text="Screenshot showing an alert rule history." lightbox="media/resource-health/alert-rule-history.png":::
 
 - **Edit an existing rule**: open its **Overview** page and click **Edit**.
 
