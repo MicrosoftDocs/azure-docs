@@ -69,9 +69,15 @@ The following table describes the benefits that you get when you set up Standard
 
   > [!NOTE]
   >
-  > Make sure to use the latest version for MCP server testing. Visual Studio Code includes 
-  > generally available MCP support in versions after 1.102. For more information, see 
+  > Make sure to use the latest version of Visual Studio Code for MCP server testing. Visual Studio Code 
+  > includes generally available MCP support in versions after 1.102. For more information, see 
   > [MCP servers in Visual Studio Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
+
+  For the testing example, you need the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot). For more information, see the following articles:
+
+  - [Use extensions in Visual Studio Code](https://code.visualstudio.com/docs/getstarted/extensions)
+  - [Set up Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/setup#_set-up-copilot-in-vs-code)
+  - [Get started with GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/getting-started)
 
 ## Considerations for workflows as tools
 
@@ -334,10 +340,22 @@ For this task, you need to edit the **host.json** file for your Standard logic a
 
    :::image type="content" source="media/set-up-model-context-protocol-server-standard/running-mcp-json-file.png" alt-text="Screenshot shows mcp.json file with Running status selected." lightbox="media/set-up-model-context-protocol-server-standard/running-mcp-json-file.png":::
 
-1. 
+1. As a test, try calling your MCP server from GitHub Copilot:
+
+   1. On the Visual Studio Code title bar, open the **Copilot** list, and select **Open Chat**.
+
+   1. Under the chat input box, from the **Built-in** modes list, and select **Agent**.
+
+   1. From the models list, select the model to use.
+
+   1. To browse the tools available in your MCP server, select **Configure Tools**.
+
+   1. In the tools list, select or clear tools as appropriate, but make sure that your new MCP server is selected.
+
+Now you can interact with your MCP server through the Copilot chat interface.
 
 ## Related content
 
-- [Run Consumption workflows as actions for agents in Azure AI Foundry](add-agent-action-create-run-workflow.md)
 - [Workflows with AI agents and models in Azure Logic Apps](agent-workflows-concepts.md)
 - [Create workflows that use AI agents and models](create-agent-workflows.md)
+- [Run Consumption workflows as actions for agents in Azure AI Foundry](add-agent-action-create-run-workflow.md)

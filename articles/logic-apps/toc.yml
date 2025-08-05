@@ -130,7 +130,7 @@ items:
     - name: Create AI agent workflows
       href: create-agent-workflows.md
     - name: Set up Standard logic apps as MCP servers
-      href: set-up-model-context-protocol-servers-standard.md
+      href: set-up-model-context-protocol-server-standard.md
     - name: Edit app and host settings
       href: edit-app-settings-host-settings.md
     - name: Enable stateful mode for stateless built-in connectors
