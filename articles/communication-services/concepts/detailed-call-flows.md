@@ -33,7 +33,7 @@ Azure Communication Services is built primarily on two types of traffic: *real-t
 
 Real-time media is transmitted by using Real-Time Transport Protocol (RTP). This protocol supports audio, video, and screen-sharing data transmission. This data is sensitive to network latency issues. Although it's possible to transmit real-time media by using TCP or HTTP, we recommend that you use User Datagram Protocol (UDP) as the transport-layer protocol to support high-performance end-user experiences. Media payloads transmitted over RTP are secured by using secure RTP (SRTP).
 
-Users of your Azure Communication Services solution connect to your services from their client devices. Communication between these devices and your servers is handled with *signaling*. For example, call initiation and real-time chat are supported by signaling between devices and your service. Most signaling traffic uses HTTPS REST. In some scenarios, you can use Session Initiation Protocol (SIP) as a signaling traffic protocol. While this type of traffic is less sensitive to latency, low-latency signaling give the users of your solution a pleasant end-user experience.
+Users of your Azure Communication Services solution connect to your services from their client devices. Communication between these devices and your servers is handled with *signaling*. For example, call initiation and real-time chat are supported by signaling between devices and your service. Most signaling traffic uses HTTPS REST. In some scenarios, you can use Session Initiation Protocol (SIP) as a signaling traffic protocol. While this type of traffic is less sensitive to latency, low-latency signaling provides a pleasant end-user experience.
 
 ### Media encryption
 
@@ -41,11 +41,11 @@ Call flows in Azure Communication Services that call SDK and Teams clients are b
 
 Media traffic is encrypted and flows between the caller and callee by using SRTP, a profile of RTP that provides confidentiality, authentication, and replay attack protection to RTP traffic. In most cases, client-to-client media traffic is negotiated through client-to-server connection signaling, and is encrypted by using SRTP when going directly from client to client.
 
-Azure Communication Services that call SDK clients use Datagram Transport Layer Security (DTLS) to derive an encryption key. After the DTLS handshake is done, the media begins to flow by using this DTLS-negotiated encryption key over SRTP.
+Azure Communication Services instances that call SDK clients use Datagram Transport Layer Security (DTLS) to derive an encryption key. After the DTLS handshake is done, the media begins to flow by using this DTLS-negotiated encryption key over SRTP.
 
-Azure Communication Services that call SDK and Teams clients use a credentials-based token for secure access to media relays over TURN. Media relays exchange the token over a Transport Layer Security (TLS) secured channel.
+Azure Communication Services instances that call SDK and Teams clients use a credentials-based token for secure access to media relays over TURN. Media relays exchange the token over a Transport Layer Security (TLS) secured channel.
 
-Azure Communication Services media traffic between two endpoints that participate in Azure Communication Services audio, video, and video sharing utilizes SRTP to encrypt the media stream. Cryptographic keys are negotiated between the two endpoints over a signaling protocol, which uses a TLS 1.2 and AES-256 (in GCM mode) encrypted UDP/TCP channel.
+Media traffic that's going between two endpoints that participate in Azure Communication Services audio, video, and video sharing utilizes SRTP to encrypt the media stream. Cryptographic keys are negotiated between the two endpoints over a signaling protocol, which uses a TLS 1.2 and AES-256 (in GCM mode) encrypted UDP/TCP channel.
 
 ### Call flow principles
 
@@ -64,7 +64,7 @@ The preferred route is direct to the remote peer (client). If a direct route isn
 
 * Signaling traffic always goes to *whatever server is closest to the user*.
 
-For more information about media paths, see [call flows conceptual documentation](./call-flows.md).
+For more information about media paths, see [Call flows conceptual documentation](./call-flows.md).
 
 ## Call flows in various topologies
 
@@ -93,7 +93,7 @@ The system uses STUN connectivity check messages to find which caller/called par
 
 If the local IP address and port candidates or the reflexive candidates have connectivity, then the direct path between the clients (or if you're using a NAT) is selected for media. If the clients are both on the customer network, then the direct path should be selected. This selection requires direct UDP connectivity within the customer network. If the clients are both nomadic cloud users, then depending on the NAT/firewall, media might use direct connectivity.
 
-If one client is internal on the customer network and one client is external (for example, a mobile cloud user), it's unlikely that direct connectivity between the local or reflexive candidates would be enabled. In this case, you can use one of the transport relay candidates from either client. For example, the internal client obtained a relay candidate from the transport relay in Azure; the external client needs to be able to send STUN/RTP/RTCP packets to the transport relay. Another option is that the internal client sends to the relay candidate obtained by the mobile cloud client. Although UDP connectivity for media is highly recommended, TCP is supported.
+If one client is internal on the customer network and one client is external (for example, a mobile cloud user), it's unlikely that direct connectivity between the local or reflexive candidates would be enabled. In this case, you can use one of the transport relay candidates from either client. For example, if the internal client obtained a relay candidate from the transport relay in Azure, and the external client needs to be able to send STUN/RTP/RTCP packets to the transport relay. Another option is that the internal client sends to the relay candidate obtained by the mobile cloud client. Although UDP connectivity for media is highly recommended, TCP is supported.
 
 #### High-level steps
 
@@ -117,7 +117,7 @@ If one client is internal on the customer network and one client is external (fo
 
 :::image type="content" source="./media/call-flows/one-to-one-internal.png" alt-text="Diagram that shows traffic flow within the customer network between two Azure Communication Services users.":::
 
-In Step 7, peer-to-peer media Flow 5 is selected.
+In step 7, peer-to-peer media Flow 5 is selected.
 
 This media transmission is bidirectional. The direction of Flow 5 indicates that one side initiates the communication from a connectivity perspective. In this case, it doesn't matter which direction is used, because both endpoints are within the customer network.
 
@@ -125,7 +125,7 @@ This media transmission is bidirectional. The direction of Flow 5 indicates that
 
 :::image type="content" source="./media/call-flows/one-to-one-via-relay.png" alt-text="Diagram that shows a one-to-one call flow with an external user via an Azure transport relay.":::
 
-In Step 7, Flow 4 (from the customer network to Azure Communication Services) and Flow 3 (from a remote mobile Azure Communication Services user to Azure Communication Services) are selected.
+In step 7, Flow 4 (from the customer network to Azure Communication Services) and Flow 3 (from a remote mobile Azure Communication Services user to Azure Communication Services) are selected.
 
 The Teams transport relay handles these flows within Azure.
 
@@ -173,7 +173,7 @@ In this case, signaling and media from the customer network to Azure use Flow 4.
 
 ### Use case: Azure Communication Services group calls
 
-The service that provides audio, video, and screen-sharing is part of Azure Communication Services. It has a public IP address that must be reachable from the customer network and must be reachable from a nomadic cloud client. Each client and endpoint needs to be able to connect to the service.
+The service that provides audio, video, and screen-sharing is part of Azure Communication Services. It has a public IP address that must be reachable from both the customer network and a nomadic cloud client. Each client and endpoint needs to be able to connect to the service.
 
 Internal clients obtain local, reflexive, and relay candidates in the same manner as described for one-to-one calls. The clients send these candidates to the service in an invite. The service doesn't use a relay because it has a publicly reachable IP address, so it responds with its local IP address candidate. The client and the service check connectivity in the same manner described for one-to-one calls.
 
@@ -181,7 +181,7 @@ Internal clients obtain local, reflexive, and relay candidates in the same manne
 
 ### Interoperability restrictions
 
-Media flowing through Azure Communication Services is restricted as follows:
+Media that flows through Azure Communication Services is restricted as follows:
 
 * **Third-party Session Border Controller (SBC)**: An SBC on the boundary with PSTN should terminate the RTP/RTCP stream, secured by using SRTP, and not relay it to the next hop. If you relay the flow to the next hop, it might not be understood.
 
@@ -206,4 +206,4 @@ Media flowing through Azure Communication Services is restricted as follows:
 ## Related content
 
 * Learn more about [call types](../concepts/voice-video-calling/about-call-types.md).
-* Learn about [Client-server architecture](./client-and-server-architecture.md).
+* Learn about [client-server architecture](./client-and-server-architecture.md).
