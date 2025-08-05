@@ -52,7 +52,5 @@ You can also request support in the Azure portal from the resource overview.
 
 Select **Support + Troubleshooting** > **New support request** from the service menu, then choose the link to [Informatica support website](https://support.informatica.com/) for support
 
-## Next steps
 
-- Get help with troubleshooting, see [Troubleshooting Informatica integration with Azure](troubleshoot.md).
 
