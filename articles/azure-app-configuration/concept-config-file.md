@@ -20,7 +20,7 @@ Two file content profiles are available when you use configuration files:
 - The **default file content profile**: The conventional configuration file schema
 - The **KVSet file content profile**: A schema that contains all App Configuration key-value properties
 
-This article discusses both file content profiles. It also provides examples of importing and exporting configuration files. The examples use the Azure CLI, but the concepts in this article also apply to other App Configuration importing methods.
+This article discusses both file content profiles. It also provides examples of importing and exporting configuration files. The examples use the Azure CLI, but the concepts in this article also apply to other App Configuration import methods.
 
 ## File content profile: default
 
@@ -129,7 +129,7 @@ After you export the file, open it in a text editor and make the following chang
 - Set the `Beta` feature flag `enabled` property to `true`.
 - Set the `Logging:LogLevel:Default` property to `Debug`.
 
-To import the updated file to your App Configuration store, run the following CLI command, which includes the `--profile appconfig/kvset` parameter. You don't need to specify any data transformation rules such as a separator, label, or content type like you did for the default file content profile. All needed information is already in the file.
+To import the updated file into your App Configuration store, run the following CLI command, which includes the `--profile appconfig/kvset` parameter. You don't need to specify data transformation rules such as a separator, label, or content type like you did for the default file content profile. All needed information is already in the file.
 
 ```azurecli-interactive
 az appconfig kv import --profile appconfig/kvset --name <App-Configuration-store-name> --source file --path appconfigdata.json --format json
