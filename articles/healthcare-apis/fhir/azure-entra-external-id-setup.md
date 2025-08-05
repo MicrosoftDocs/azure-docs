@@ -12,14 +12,14 @@ ms.author: Mahesh
 
 # Use Microsoft Entra External ID to grant access to the FHIR service
 
-Healthcare organizations can use [Microsoft Entra External id](https://learn.microsoft.com/en-us/entra/external-id/external-identities-overview) with the FHIR&reg; service in Azure Health Data Services to grant access to their applications and users. 
+Healthcare organizations can use [Microsoft Entra External ID](https://learn.microsoft.com/en-us/entra/external-id/external-identities-overview) with the FHIR&reg; service in Azure Health Data Services to grant access to their applications and users. 
 
 
 ## Create an Microsoft Entra External ID tenant for the FHIR service
 
 Creating an Entra External ID tenant for the FHIR service sets up a secure infrastructure for managing user identities in your healthcare applications. 
 
-If you already created an Entra External id, you can skip to [Deploy the FHIR service with entra external id](#deploy-the-fhir-service-by-using-an-arm-template). 
+If you already created an Entra External id, you can skip to [Deploy the FHIR service with Entra External ID](#deploy-the-fhir-service-by-using-an-arm-template). 
 
 ### Deploy an Entra External ID Tenant by using an ARM template
 
@@ -127,7 +127,7 @@ In this example, a user named **Test Patient1** is created in the Entra External
 
  ### Create a new user flow in Microsoft Entra External ID
 
-User flows define the sequence of steps users must follow to sign in. In this example, a user flow is defined so that when a user signs in and the access token provided includes the fhirUser claim.For details, see [Create user flows and custom policies in Microsoft Entra External ID](https://learn.microsoft.com/en-us/entra/external-id/customers/how-to-user-flow-sign-up-sign-in-customers#create-and-customize-a-user-flow).
+User flows define the sequence of steps users must follow to sign in. In this example, a user flow is defined so that when a user signs in and the access token provided includes the fhirUser claim.For more information, see [Create user flows and custom policies in Microsoft Entra External ID](https://learn.microsoft.com/en-us/entra/external-id/customers/how-to-user-flow-sign-up-sign-in-customers#create-and-customize-a-user-flow).
 
 1. In the [Microsoft Entra admin center](https://entra.microsoft.com), Navigate to **User flows** under **External Identities**
 
@@ -409,7 +409,7 @@ Obtain an access token to test the authentication flow.
       ```
     - **Client ID**. This value is the application (client) ID of the B2C resource application.
 
-      ```http
+      ```
       {YOUR_APPLICATION_ID}
       ```
 
@@ -419,8 +419,7 @@ Obtain an access token to test the authentication flow.
      1. Copy the fully qualified scope from the **Expose an API** section of the B2C resource application.
      Example:
 
-     ```http
-      http
+     ```
       {YOUR_APPLICATION_ID_URI}/patient.all.read
       ```
 
