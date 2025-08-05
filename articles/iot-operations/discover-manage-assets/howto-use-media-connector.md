@@ -23,11 +23,11 @@ This article explains how to use the media connector to perform tasks such as:
 - Define the devices that connect media sources to your Azure IoT Operations instance.
 - Add assets, and define their streams for capturing media from the media source.
 - Send an image snapshot to the MQTT broker.
-- Save a video stream to a local file system.
+- Save a video clip to Azure storage.
 
 ## Prerequisites
 
-To configure devices and assets, you need a running instance of Azure IoT Operations.
+To configure devices and assets, you need a running preview instance of Azure IoT Operations.
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
@@ -37,12 +37,11 @@ A camera connected to your network and accessible from your Azure IoT Operations
 
 [!INCLUDE [deploy-preview-media-connectors](../includes/deploy-preview-media-connectors.md)]
 
-> [!IMPORTANT]
-> If you don't enable preview features, you see the following error message in the `aio-supervisor-...` pod logs when you try to use the media or ONVIF connectors: `No connector configuration present for AssetEndpointProfile: <AssetEndpointProfileName>`.
-
 ## Create a device
 
 To configure the media connector, first create a device that defines the connection to the media source. The device includes the URL of the media source and any credentials you need to access the media source:
+
+# [Operations experience](#tab/portal)
 
 1. In the operations experience web UI, select **Devices** in the left navigation pane. Then select **Create new**.
 
@@ -64,9 +63,25 @@ To configure the media connector, first create a device that defines the connect
 
     :::image type="content" source="media/howto-use-media-connector/media-connector-device-created.png" alt-text="Screenshot that shows the list of devices." lightbox="media/howto-use-media-connector/media-connector-device-created.png":::
 
+# [Azure CLI](#tab/cli)
+
+Run the following commands:
+
+```azurecli
+az iot ops ns device create -n media-connector-cli -g {your resource group name} --instance {your instance name} 
+
+az iot ops ns device endpoint inbound add media --device media-connector-cli -g {your resource group name} -i {your instance name}  --name media-connector-cli-0 --endpoint-address "rtsp://samplecamera:554/stream1"
+```
+
+To learn more, see [az iot ops ns device](/cli/azure/iot/ops/ns/device).
+
+---
+
 ## Create an asset to publish an image snapshot
 
-To define a namespace asset that publishes an image snapshot from the media source, follow these steps:
+To define a namespace asset that publishes an image snapshot from the media source to the MQTT broker:
+
+# [Operations experience](#tab/portal)
 
 1. In the operations experience web UI, select **Assets** in the left navigation pane. Then select **Create namespace asset**.
 
@@ -78,7 +93,7 @@ To define a namespace asset that publishes an image snapshot from the media sour
 
 1. On the **Streams** page, select **Add stream** to add a stream for the asset.
 
-1. Add a name for the stream, such as `mysnapshots`. Set MQTT as the destination and add a name for the MQTT topic to publish to such as `mysnapshots`. Select `mqtt-to-snapshot` as the task type.
+1. Add a name for the stream, such as `mysnapshots`. Set MQTT as the destination and add a name for the MQTT topic to publish to such as `mysnapshots`. Select `snapshot-to-mqtt` as the task type.
 
     :::image type="content" source="media/howto-use-media-connector/add-snapshot-stream.png" alt-text="Screenshot that shows how to add a snapshot stream." lightbox="media/howto-use-media-connector/add-snapshot-stream.png":::
 
@@ -88,9 +103,23 @@ To define a namespace asset that publishes an image snapshot from the media sour
 
 1. On the **Review** page, review the details of the asset and select **Create** to create the asset.
 
+# [Azure CLI](#tab/cli)
+
+Run the following command:
+
+```azurecli
+az iot ops ns asset media create --name mymediaasset --instance {your instance name}  -g {your resource group name} --device media-connector-cli --endpoint media-connector-cli-0 --task-type snapshot-to-mqtt --task-format jpeg --snapshots-per-sec 0.25 --stream-dest topic="azure-iot-operations/data/snapshots" qos=Qos1 retain=Never ttl=60
+```
+
+To learn more, see [az iot ops ns asset rest](/cli/azure/iot/ops/ns/asset/rest).
+
+---
+
 ## Add a stream to save a video clip
 
 In this section, you add a stream to the asset that saves video clips from the media source to the file system.
+
+# [Operations experience](#tab/portal)
 
 1. In the operations experience web UI, select **Assets** in the left navigation pane. Then select the `my-media-source` asset you created in the previous section.
 
@@ -105,3 +134,13 @@ In this section, you add a stream to the asset that saves video clips from the m
 1. The new stream is listed in the asset's **Streams** page:
 
     :::image type="content" source="media/howto-use-media-connector/media-connector-streams.png" alt-text="Screenshot that shows the list of streams for the media connector asset." lightbox="media/howto-use-media-connector/media-connector-streams.png":::
+
+# [Azure CLI](#tab/cli)
+
+Run the following command:
+
+```azurecli
+az iot ops ns asset media stream add --asset mymediaasset --instance {your instance name}  -g {your resource group name} --name clipStream --task-type clip-to-fs --format mp4 --duration 30 --path /data/clips
+```
+
+---
