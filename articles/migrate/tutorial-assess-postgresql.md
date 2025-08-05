@@ -92,7 +92,7 @@ Run an assessment as follows:
 
 1. After creating the assessment, go to the **Overview** page and select **View** all reports, or under **Decide and plan**, and then select **Assessments** to view the report.
 
-    :::image type="content" source="./media/tutorial-assess-postgresql/assessments.png" alt-text="Screenshot shows to decide and plan the assessment." lightbox="./media/tutorial-assess-postgresql.png":::
+    :::image type="content" source="./media/tutorial-assess-postgresql/assessments.png" alt-text="Screenshot shows to decide and plan the assessment." lightbox="./media/tutorial-assess-postgresql/assessments.png":::
 
 1. Select the name of the assessment you want to view.
     
