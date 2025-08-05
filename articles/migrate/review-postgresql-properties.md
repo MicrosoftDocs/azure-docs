@@ -22,6 +22,7 @@ Follow these steps to view the assessment that you created.
 1. Select the assessment you want to view, for example, azmigrate-demo.
 
     :::image type="content" source="./media/review-postgresql-properties/select-assessment.png" alt-text="Screenshot shows how to select the assessment" lightbox="./media/review-postgresql-properties/select-assessment.png":::
+
 1. Review the summary of the assessment. You can also edit the assessment settings or recalculate the assessment.
 
 ## Assessed Workloads
@@ -54,3 +55,65 @@ Readiness report:
 
 ### Migration strategies
 
+- **Migrate all instances to Azure Database for PostgreSQL**: This strategy provides readiness insights and cost estimates for migrating all PostgreSQL instances to Azure Database for PostgreSQL.
+
+- **Migrate all servers to PostgreSQL Server on Azure VM**: This strategy outlines how to rehost servers running PostgreSQL instances to PostgreSQL on Azure Virtual Machines. It includes readiness and cost estimates. Even if PostgreSQL credentials aren't available, the report provides right-sized lift-and-shift recommendations for migrating servers to PostgreSQL on Azure VMs. The readiness and sizing logic aligns with the Azure VM assessment methodology.
+
+## Support status of assessed PostgreSQL instances
+
+The Supportability section shows the support status of the PostgreSQL versions identified during the assessment. The Discovery Details section provides a visual summary of the number of discovered PostgreSQL instances, categorized by version.
+
+1. To view the list of assessed PostgreSQL instances, select the graph in the **Supportability**
+1. The **Database instance version support status** column indicates whether the PostgreSQL version is in mainstream support or out of support.
+1. To view detailed support information, select the support status. A pane opens on the right and displays the following:
+    - Type of support status (Mainstream or Out of support)
+    - Remaining support duration
+    - Recommended actions to help secure workloads
+1. To view the remaining support duration (in months) for each PostgreSQL version:
+    - Select **Columns** > **Support ends in** > **Submit**.
+    - The **Support ends** in column displays the number of months remaining for support.
+1. Support status categories: 
+    - **Mainstream support**: The PostgreSQL version is actively supported and receives regular updates.
+    - **Out of support**: The PostgreSQL version no longer receives updates and should be upgraded to a supported version.
+
+    > [NOTE!]
+    > PostgreSQL instances running unsupported versions should be prioritized for migration to maintain security compliance and ensure continued support in Azure.
+
+## Review readiness
+
+Assess the migration readiness of your PostgreSQL instances, identify potential issues, and review recommendations to ensure a smooth transition to Azure.
+
+    :::image type="content" source="./media/review-postgresql-properties/review-readiness-for-diff-migrations.png" alt-text="Screenshot shows how to review the readiness for different migrations" lightbox="./media/review-postgresql-properties/review-readiness-for-diff-migrations.png":::
+
+To review readiness reports for different migration strategies:
+
+1. Select the **Readiness report** for the desired migration strategy.
+1. Review the readiness columns in the selected report to assess migration preparedness.
+
+| Migration strategy  | Readiness Columns (Respective deployment target)  |
+|-------------------|-----------------------------------------|
+| Recommended    | Azure Database for PostgreSQL flexible Server readiness    |
+| Instances to Azure Database for PostgreSQL| Azure Database for PostgreSQL flexible Server readiness     | Servers to PostgreSQL Server on Azure VM  | Azure VM readiness (PostgreSQL Server on Azure VM)   |
+
+1. Review the readiness status for assessed PostgreSQL instances:
+    - **Ready**: The instance can be migrated to Azure Database for PostgreSQL flexible server without any migration issues.
+    - **Ready with conditions**: The instance has one or more migration issues. Select the hyperlink to view the identified issues and recommended remediation steps.
+    - **Not ready**: The assessment did not identify an Azure Database for PostgreSQL flexible server configuration that meets the desired performance and configuration requirements. Select the hyperlink to view recommendations that can help make the instance ready for the target deployment type. 
+    - **Unknown**: Azure Migrate can't assess readiness because discovery is still in progress or there are issues that need to be resolved. To fix discovery issues, check the Notifications blade for details. If the issue persists, contact [Microsoft support](https://support.microsoft.com/).
+1. To view detailed information for a specific instance, select the instance name to drill down into the following details:
+    - Number of user databases
+    - Instance properties
+    - Configuration parameters scoped to the instance
+    - Source database storage details
+1. To view the list of user databases and their details, select the number of user databases.
+1. To review migration issues and warnings for a specific target deployment type, select **Review details** in the **Migration issues** column.
+1. Cost distribution by configuration: The assessment shows how costs are distributed across various Azure Database for PostgreSQL flexible server configurations: 
+    - Costs are calculated based on the recommended service tier and compute size.
+    - Each instance receives a specific SKU recommendation based on its configuration requirements.
+    - Recommended configurations vary depending on the workload characteristics of each instance.
+1. Instance-level cost details: To view cost details for a specific PostgreSQL instance, select the instance name in the table. The following information is displayed: 
+    - **Total monthly cost**: Combined compute and storage cost for the instance.
+    - **Monthly compute cost**: Cost based on the recommended compute configuration.
+    - **Monthly storage cost**: Cost based on the allocated storage capacity.
+    - **Recommended configuration**: Specific SKU recommendation based on assessment analysis.
+    - **Cost variations**: Reflect differences in resource requirements across instances.
