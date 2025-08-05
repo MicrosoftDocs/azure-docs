@@ -178,8 +178,9 @@ $vnet.PrivateEndpointVNetPolicies
 | **Limit** | **Description** |
 |---|---|
 | Subscription must be enabled before enabling High Scale Private Endpoints. | Enabling Private Endpoint virtual network Policies before allow listing subscription feature flag requires a reconfiguration. |
-| Swift based virtual machines aren't supported. | Swift based virtual machines deployed within a High Scale Private Endpoint virtual network aren't supported with this feature. |
-| Feature currently available in select regions. | West Central US <br> UK South <br> East Asia <br> US East <br> US North |
+| Access to Baremetal subnets from a HSPE enabled peered VNet is not supported | Connections destined to azure baremetal subnets will not work  |
+| Feature currently available in all public regions | Mooncake and Azure Gov regions are not supported at this time |
+
 
 ## Next Steps
 
