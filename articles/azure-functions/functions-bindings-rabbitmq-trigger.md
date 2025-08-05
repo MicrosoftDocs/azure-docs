@@ -162,8 +162,11 @@ The attribute's constructor takes the following parameters:
 |---------|----------------------|
 |**QueueName**| Name of the queue from which to receive messages. |
 |**ConnectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. The trigger won't work when you specify the connection string directly instead through an app setting. For example, when you have set `ConnectionStringSetting: "rabbitMQConnection"`, then in both the *local.settings.json* and in your function app you need a setting like `"RabbitMQConnection" : "< ActualConnectionstring >"`.|
-|**DisableAck**|Gets or sets a value indicating whether message acknowledgements from service would be disabled and needs to be done manually.|
-|**DisableCertificateValidation**|Gets or sets a value indicating whether certificate validation should be disabled. Not recommended for production. Does not apply when SSL is disabled.|
+|**DisableAck**|Boolean value that can be set to either `true` indicating that message acknowledgements from service would be disabled and needs to be done manually. `RabbitMQMessageActions` can be used to manually ack. When not set, messages are acknowledged automatically. |
+|**DisableCertificateValidation**|Boolean value that can be set to `true` indicating that certificate validation should be disabled. Default value is `false`. Not recommended for production. Does not apply when SSL is disabled.| 
+
+> [!NOTE]
+> The `DisableAck` parameter only works in the in-process worker model and is not supported in the isolated worker model.
 
 # [Extension v1.x](#tab/extensionv1)
 
@@ -219,7 +222,7 @@ The annotation supports the following configuration options:
 |---------|----------------------|
 |**queueName**| Name of the queue from which to receive messages. |
 |**connectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. The trigger won't work when you specify the connection string directly instead through an app setting. For example, when you have set `ConnectionStringSetting: "rabbitMQConnection"`, then in both the *local.settings.json* and in your function app you need a setting like `"RabbitMQConnection" : "< ActualConnectionstring >"`.|
-|**disableCertificateValidation**|Gets or sets a value indicating whether certificate validation should be disabled. Not recommended for production. Does not apply when SSL is disabled.|
+|**disableCertificateValidation**|Boolean value that can be set to `true` indicating that certificate validation should be disabled. Default value is `false`. Not recommended for production. Does not apply when SSL is disabled.|
 
 # [Extension v1.x](#tab/extensionv1)
 
@@ -252,7 +255,7 @@ The following table explains the binding configuration properties that you set i
 |**name** | The name of the variable that represents the queue in function code. |
 |**queueName**| Name of the queue from which to receive messages. |
 |**connectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. The trigger won't work when you specify the connection string directly instead through an app setting. For example, when you have set `connectionStringSetting: "rabbitMQConnection"`, then in both the *local.settings.json* and in your function app you need a setting like `"rabbitMQConnection" : "< ActualConnectionstring >"`.|
-|**disableCertificateValidation**|Gets or sets a value indicating whether certificate validation should be disabled. Not recommended for production. Does not apply when SSL is disabled.|
+|**disableCertificateValidation**|Boolean value that can be set to `true` indicating that certificate validation should be disabled. Default value is `false`. Not recommended for production. Does not apply when SSL is disabled.|
 
 # [Extension v1.x](#tab/extensionv1)
 
