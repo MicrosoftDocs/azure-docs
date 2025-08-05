@@ -45,6 +45,16 @@ A network security perimeter includes the following components:
 | **Resource association** | Perimeter membership for a PaaS resource. |
 | **Diagnostics settings** | Extension resource hosted by Microsoft Insights to collect logs & metrics for all resources in the perimeter. |
 
+> [!IMPORTANT]
+> The following onboarded services are in public preview with Network Security Perimeter:
+> - Cosmos DB
+> - SQL DB
+> - Azure Open AI Service
+>   
+> These preview on are provided without a service level agreement, and it's not recommended for production workloads.
+> Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 > [!NOTE]
 > For organizational and informational safety, don't include any personally identifiable or sensitive data in the network security perimeter rules or other network security perimeter configurations.
 
