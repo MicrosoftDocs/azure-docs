@@ -103,7 +103,7 @@ This setting controls the logging of stdout and stderr by iisnode. Iisnode captu
 
 ### devErrorsEnabled
 
-The default value is false. When set to true, iisnode displays the HTTP status code and Win32 error code on your browser. The win32 code is helpful in debugging certain types of issues.
+The default value is false. When set to true, iisnode displays the HTTP status code and Win32 error code on your browser. The Win32 code is helpful in debugging certain types of issues.
 
 ### debuggingEnabled (do not enable on live production site)
 
@@ -248,7 +248,7 @@ Some solutions to make this process faster are:
 
 The `cnodeconstants` [source file](https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h) lists all of the possible status/substatus combinations iisnode can return due to an error.
 
-Enable FREB for your application to see the win32 error code (be sure you enable FREB only on non-production sites for performance reasons).
+Enable FREB for your application to see the Win32 error code (be sure you enable FREB only on non-production sites for performance reasons).
 
 | HTTP Status | HTTP Substatus | Possible Reason? |
 | --- | --- | --- |
@@ -259,7 +259,7 @@ Enable FREB for your application to see the win32 error code (be sure you enable
 | 500 |1004-1018 |There was some error while sending the request or processing the response to/from node.exe. Check if node.exe crashed. check d:\\home\\LogFiles\\logging-errors.txt for stack trace. |
 | 503 |1000 |Not enough memory to allocate more named pipe connections. Check why your app is consuming so much memory. Check maxConcurrentRequestsPerProcess setting value. If it's not infinite and you have many requests, increase this value to prevent this error. |
 | 503 |1001 |Request could not be dispatched to node.exe because the application is recycling. After the application has recycled, requests should be served normally. |
-| 503 |1002 |Check win32 error code for actual reason – Request could not be dispatched to a node.exe. |
+| 503 |1002 |Check Win32 error code for actual reason – Request could not be dispatched to a node.exe. |
 | 503 |1003 |Named pipe is too Busy – Verify if node.exe is consuming excessive CPU |
 
 NODE.exe has a setting called `NODE_PENDING_PIPE_INSTANCES`. On Azure App Service, this value is set to 5000. Meaning that node.exe can accept 5000 requests at a time on the named pipe. This value should be good enough for most node applications running on Azure App Service. You should not see 503.1003 on Azure App Service because of the high value for the `NODE_PENDING_PIPE_INSTANCES`
