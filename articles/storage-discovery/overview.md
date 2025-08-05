@@ -95,10 +95,6 @@ You can navigate from a chart to a browse view.
 
 :::image type="content" source="media/overview/view-resources-small.png" alt-text="A chart tile with the View Resources button highlighted." lightbox="media/overview/view-resources-big.png":::
 
-<!-- 
-IMAGE NEEDS WORK
- -->
-
 ### 3. Taking action
 
 By browsing resources, you navigate directly to an individual resource for a configuration change. 
