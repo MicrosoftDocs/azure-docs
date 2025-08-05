@@ -59,7 +59,7 @@ WebJobs also provide **built-in logging** via Kudu and integration with App Serv
 
 ## Scaling considerations
 
-WebJobs scale together with your App Service plan. If your app is configured to scale out to multiple instances, your WebJobs will run on each instance as appropriate:
+WebJobs scale together with your App Service plan. If your app is configured to scale out to multiple instances, your WebJobs run on each instance as appropriate:
 - **Triggered WebJobs** will run on a single instance by default.
 - **Continuous WebJobs** can be configured to run on all instances or a single one using the `WEBJOBS_RUN_ONCE` setting.
 
@@ -67,7 +67,7 @@ If you need independently scalable or event-driven execution, [Azure Functions](
 
 ## Best practices
 
-- Use **triggered** WebJobs for ad hoc or scheduled operations.
+- Use **triggered** WebJobs for improvised or scheduled operations.
 - Use **continuous** WebJobs only when the task needs to run constantly (e.g., polling a queue).
 - Implement **retry logic and error handling** within your scripts.
 - Use **application logging** and **Kudu logs** to monitor job behavior.
@@ -85,8 +85,8 @@ If you need independently scalable or event-driven execution, [Azure Functions](
 
 ## <a name="NextSteps"></a> Next steps
 
-- [Background jobs best practices – Azure Architecture Center](/azure/architecture/best-practices/background-jobs)
+- [Review background jobs best practices – Azure Architecture Center](/azure/architecture/best-practices/background-jobs)
 - [Develop WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md)
 - [Get started with the WebJobs SDK](webjobs-sdk-get-started.md)
 - [Use the WebJobs SDK to build advanced jobs](webjobs-sdk-how-to.md)
-- [Kudu WebJobs reference on GitHub](https://github.com/projectkudu/kudu/wiki/WebJobs)
+- [Review Kudu WebJobs reference on GitHub](https://github.com/projectkudu/kudu/wiki/WebJobs)

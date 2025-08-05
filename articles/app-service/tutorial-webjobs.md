@@ -271,13 +271,13 @@ public class HelloWorld {
 
 ### Build the Java WebJob
 
-1. The `run.sh` script runs a jar with the name that's set in the Maven configuration. This script will run when our WebJob is triggered.
+1. The `run.sh` script runs a jar with the name that sets in the Maven configuration. This script runs when our WebJob is triggered.
 
     ```bash
     java -jar webjob-artifact-1.0.0.jar
     ``` 
 
-1. Next, we compile the Java project to produce the executable `.jar`. There are multiple ways to do this, but for this example, we’ll use Maven. Run the following commands from the `project/` directory:
+1. Next, we compile the Java project to produce the executable `.jar`. There are multiple ways to do this, but for this example, we use Maven. Run the following commands from the `project/` directory:
 
     ```bash
     mvn install 
@@ -322,7 +322,7 @@ public class HelloWorld {
 
 :::zone target="docs" pivot="php"
 
-WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs at no additional cost. This sample uses a scheduled (Triggered) WebJob to output the system time once every minute.  
+WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs at no extra cost. This sample uses a scheduled (Triggered) WebJob to output the system time once every minute.  
 
 ## Prerequisites
 
@@ -333,7 +333,7 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 
 ## Download the sample WebJob
 
-You can [download a pre-built sample project](https://github.com/Azure-Samples/App-Service-PHP-WebJobs-QuickStart/archive/refs/heads/main.zip) to get started quickly. The sample includes two files: `webjob.php` and `run.sh`.
+You can [download a prebuilt sample project](https://github.com/Azure-Samples/App-Service-PHP-WebJobs-QuickStart/archive/refs/heads/main.zip) to get started quickly. The sample includes two files: `webjob.php` and `run.sh`.
 
 The PHP script, `webjob.php`, outputs the current time to the console as shown below:
 
