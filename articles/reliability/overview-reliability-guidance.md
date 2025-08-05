@@ -53,7 +53,7 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure Communications Gateway | | [Reliability in Azure Communications Gateway](../communications-gateway/reliability-communications-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Container Apps| [Reliability in Azure Container Apps](reliability-azure-container-apps.md)||
 |Azure Container Instances| [Reliability in Azure Container Instances](reliability-containers.md)||
-|Azure Container Registry||[Enable zone redundancy in Azure Container Registry for resiliency and high availability](/azure/container-registry/zone-redundancy?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) </p> [Geo-replication in Azure Container Registry](/azure/container-registry/container-registry-geo-replication) |
+|Azure Container Registry|[Reliability in Azure Container Registry](reliability-container-registry.md) ||
 |Azure Cosmos DB for NoSQL| [Reliability in Azure Cosmos DB for NoSQL](reliability-cosmos-db-nosql.md) ||
 |Azure Cosmos DB for MongoDB vCore| [Reliability in Azure Cosmos DB for MongoDB vCore](reliability-cosmos-mongodb.md)||
 |Azure Cosmos DB for PostgreSQL| | [Availability zone outage resiliency in Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/concepts-availability-zones?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) </p> [High availability in Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/concepts-high-availability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
@@ -83,8 +83,8 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure Health Data Services: De-identification service (preview)|[Reliability in Azure Health Data Services: De-identification service](reliability-health-data-services-deidentification.md)||
 |Azure Health Data Services: Workspace services (FHIR®, DICOM®, MedTech) | | [Business continuity and disaster recovery considerations](/azure/healthcare-apis/business-continuity-disaster-recovery?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure HDInsight| [Reliability in Azure HDInsight](reliability-hdinsight.md)||
-|Azure IoT Hub|| [Reliability in Azure IoT Hub](reliability-iot-hub.md) |
-|Azure Key Vault|| [Reliability in Azure Key Vault](./reliability-key-vault.md) |
+|Azure IoT Hub| [Reliability in Azure IoT Hub](reliability-iot-hub.md) ||
+|Azure Key Vault| [Reliability in Azure Key Vault](./reliability-key-vault.md) ||
 |Azure Kubernetes Service (AKS)| [Reliability in Azure Kubernetes Service (AKS)](reliability-aks.md)||
 |Azure Load Balancer| [Reliability in Azure Load Balancer](reliability-load-balancer.md )||
 |Azure Logic Apps|[Reliability in Azure Logic Apps](reliability-logic-apps.md) ||
@@ -99,6 +99,7 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure Private 5G Core | |[Reliability in Azure Private 5G Core](../private-5g-core/reliability-private-5g-core.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Private Link|| [Azure Private Link availability](../private-link/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)   |
 |Azure Public IP|| [Azure Public IP Availability Zone](../virtual-network/ip-services/public-ip-addresses.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zone) |
+|Azure Queue Storage|[Reliability in Azure Queue Storage](reliability-storage-queue.md)||
 |Azure Route Server|| [Azure Route Server frequently asked questions (FAQ)](../route-server/route-server-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Service Bus|| [Best practices for insulating applications against Service Bus outages and disasters](../service-bus-messaging/service-bus-outages-disasters.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Service Fabric|| [Deploy an Azure Service Fabric cluster across Availability Zones](/azure/service-fabric/service-fabric-cross-availability-zones?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) </p> [Disaster recovery in Azure Service Fabric](/azure/service-fabric/service-fabric-disaster-recovery?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |

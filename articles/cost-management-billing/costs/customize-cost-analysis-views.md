@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description:  This article helps you customize views in Cost Analysis to understand how you're being charged and to investigate unexpected changes.
 author: shasulin
 ms.author: shasulin
-ms.date: 06/26/2025
+ms.date: 08/01/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -79,7 +79,8 @@ Because of the change in how costs are represented, it's important to note that 
 
 ## Select a currency
 
-Costs are shown in your billing currency by default. If you have charges in multiple currencies, costs are automatically converted to USD. If you have any non-USD charges, you can switch between currencies in the total KPI menu. You might see options like **GBP only** to view only the charges in that one currency or **All costs in USD** to view the normalized costs in USD. You can't view costs normalized to other currencies today.
+Costs are shown in your billing currency by default. If you have charges in multiple currencies, costs are automatically converted to USD. If you have any non-USD charges, you can switch between currencies in the total KPI menu. You might see options like **GBP only** to view only the charges in that one currency, or **All costs in USD** to view the normalized costs across all currencies in USD. The **All costs in USD** option aggregates and converts all charges—regardless of their original currency—into USD for a unified view. In contrast, selecting a specific currency like **USD only** will show only the charges originally billed in USD. You can't view costs normalized to other currencies today.
+Note that filtering to a specific currency may impact the available options in the **Group by** and **Filter by** dropdowns. Only services or attributes relevant to the selected currency will be shown. For example, if you don’t have any storage costs billed in CAD, **Storage** will not appear as a filter option when viewing CAD-only charges filtered by service.
 
 :::image type="content" source="./media/customize-cost-analysis-views/currency-costs.png" alt-text="Screenshot showing the currency selector." lightbox="./media/customize-cost-analysis-views/currency-costs.png" :::
 

@@ -17,9 +17,9 @@ ms.author: edbaynash
 
 The following service parameters and limits apply to the Microsoft Sentinel data lake service.
 
-[!INCLUDE [Service limits for VS Code notebooks](../includes/service-limits-notebooks.md)]
-
 [!INCLUDE [Service limits for tables, data management and ingestion](../includes/service-limits-table-manaement-ingestion.md)]
+
+[!INCLUDE [Service limits for VS Code notebooks](../includes/service-limits-notebooks.md)]
 
 [!INCLUDE [Service limits for KQL queries against the data lake](../includes/service-limits-kql-queries.md)]
 
