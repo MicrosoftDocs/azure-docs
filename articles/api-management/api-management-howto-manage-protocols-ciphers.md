@@ -51,7 +51,7 @@ Depending on the service tier, API Management supports TLS versions up to 1.2 or
 
 ## TLS 1.3 support in Consumption and classic tiers
 
-TLS 1.3 support is available in the API Management **Consumption** and classic **Developer**, **Basic**, **Standard**, and **Premium** service tiers. In most instances created in those service tiers, TLS 1.3 is enabled by default for client-side connections. Enabling backend-side TLS 1.3 is optional. TLS 1.2 is also enabled by default on both client and backend sides.
+TLS 1.3 support is available in the API Management classic service tiers (**Consumption**, **Developer**, **Basic**, **Standard**, and **Premium**). In most instances created in those service tiers, TLS 1.3 is enabled by default for client-side connections. Enabling backend-side TLS 1.3 is optional. TLS 1.2 is also enabled by default on both client and backend sides.
 
 TLS 1.3 is a major revision of the TLS protocol that provides improved security and performance. It includes features such as reduced handshake latency and improved security against certain types of attacks.
 
@@ -60,7 +60,7 @@ TLS 1.3 is a major revision of the TLS protocol that provides improved security 
 
 ### Optionally enable TLS 1.3 when clients require certificate renegotiation
 
-Client-side TLS 1.3 is disabled by default in **Consumption** and classic tier instances that recently received TLS connections that require certificate renegotiation. Certificate renegotiation in TLS allows client and server to renegotiate connection parameters mid-session for authentication without terminating the connection. TLS-compliant clients that rely on certificate renegotiation are not compatible with TLS 1.3. 
+Client-side TLS 1.3 is disabled by default in classic tier instances that recently received TLS connections that used certificate renegotiation. Certificate renegotiation in TLS allows client and server to renegotiate connection parameters mid-session for authentication without terminating the connection. TLS-compliant clients that rely on certificate renegotiation are not compatible with TLS 1.3. 
 
 After reviewing recent client connections that used certificate renegotiation, you can choose whether to enable TLS 1.3 for client-side connections:
 
