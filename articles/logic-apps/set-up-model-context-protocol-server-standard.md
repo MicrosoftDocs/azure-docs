@@ -194,7 +194,7 @@ To create an app registration for your logic app to use in your EasyAuth setup, 
       | Property | Required | Description |
       |----------|----------|-------------|
       | **Scope name** | Yes | A relevant name for the permissions scope that uses the following format:<br><br> `<resource>.<operation>.<constraint>` <br><br>This example uses `user_impersonation`. For more information, see [Scopes and permissions in the Microsoft identity platform](/entra/identity-platform/scopes-oidc). |
-      | **Who can consent** | Yes | Whether users can consent to this scope, or whether admins must also consent. Use **Admins only** for higher-privileged permissions. Based on your organization's policies, select the option that best aligns with your policies. This example selects **Admins and users**. |
+      | **Who can consent** | Yes | Whether users can also consent to this scope or whether only admins can consent. Use **Admins only** for higher-privileged permissions. Based on your organization's policies, select the option that best aligns with your policies. This example selects **Admins and users**. |
       | **Admin consent display name** | Yes | A short description about the scope's purpose that only admins can see. |
       | **Admin consent description** | Yes | A more detailed description about the permission granted by the scope that only admins can see. |
       | **User consent display name** | No | A short description about the scope's purpose. Only shown to users if you set **Who can consent** to **Admins and users**. If relevant, provide this information. |
@@ -233,7 +233,7 @@ Now set up EasyAuth authentication on the Standard logic app that you want to us
    |----------|----------|-------------|
    | **Application (client) ID** | Yes | The application (client) ID from your previously created app registration. |
    | **Issuer URL** | Yes | The following URL where you replace <*tenant-ID*> with the GUID for your directory (tenant): <br><br> `https://login.microsoftonline.com/<tenant-ID>/v2.0`|
-   | **Allowed token audences** | Yes | The application ID URI from your previously created app registration. |
+   | **Allowed token audiences** | Yes | The application ID URI from your previously created app registration. |
 
 1. In the **Additional checks** section, select the following options or provide information to further control authentication and access:
 
