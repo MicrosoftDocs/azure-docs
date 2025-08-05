@@ -16,11 +16,11 @@ metadata:
 
 landingContent:
   # Card
-  - title: About Azure App Testing
+  - title: About Azure Load Testing
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure App Testing?
-            url: overview-what-is-azure-app-testing.md
+          - text: What is Azure Load Testing?
+            url: load-testing/overview-what-is-azure-load-testing.md
 
   
