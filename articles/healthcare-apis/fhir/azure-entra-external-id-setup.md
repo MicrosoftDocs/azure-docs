@@ -413,10 +413,10 @@ Obtain an access token to test the authentication flow.
       {YOUR_APPLICATION_ID}
       ```
 
-      - **Scope**. This value is defined in the B2C resource application in the **Expose an API** section. The scope granted permission is `patient.all.read`. The scope request must be a fully qualified URL, for example, `https://testb2c.onmicrosoft.com/fhir/patient.all.read`. 
+    - **Scope**. This value is defined in the B2C resource application in the **Expose an API** section. The scope granted permission is `patient.all.read`. The scope request must be a fully qualified URL, for example, `https://testb2c.onmicrosoft.com/fhir/patient.all.read`. 
      
 
-     1. Copy the fully qualified scope from the **Expose an API** section of the B2C resource application.
+     - Copy the fully qualified scope from the **Expose an API** section of the B2C resource application.
      Example:
 
      ```
