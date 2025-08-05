@@ -61,7 +61,7 @@ Fortunately, several tools exist to make benchmarking Redis easier. Two of the m
 Prepare the cache instance with data required for the testing. Loading the instance with data ensures that the results more accurately reflect real-world conditions. The `{number-of-keys}` parameter should be determined by the size of your AMR instance and the size of each key. A good rule of thumb is to fill up the instance roughly 75% full, accounting for buffers. You can use this formula: `numberOfKeysToSet = (<TotalCacheSizeInBytes> * 0.75) / (1024 + 300)`. For example, if you're benchmarking on a Compute Optimized X3 instance, using 1,024-byte key sizes, as shown previously, that implies `{number-of-keys} = (3 * 1000000000 * 0.75) / (1024 + 300)`. The result equals approximately 1,699,396 keys.
 
 ```bash
-memtier_benchmark -h {your-cache-name}.{region}.redis.azure.net -p 10000 -a {your-access-key} --hide-histogram --pipeline=10 -clients=50 -threads=6 --key-maximum=1699396 -n allkeys --key-pattern=P:P --ratio=1:0 -data-size=1024 --tls --cluster-mode
+memtier_benchmark -h {your-cache-name}.{region}.redis.azure.net -p 10000 -a {your-access-key} --hide-histogram --pipeline=10 --clients=50 --threads=6 --key-maximum=1699396 -n allkeys --key-pattern=P:P --ratio=1:0 --data-size=1024 --tls --cluster-mode
 ```
 
 >[!NOTE]
@@ -71,12 +71,12 @@ memtier_benchmark -h {your-cache-name}.{region}.redis.azure.net -p 10000 -a {you
 This command tests pipelined GET requests with 1k payload. Use this command to test how much read throughput to expect from your cache instance. This example assumes you're using TLS and the OSS cluster policy. The `--key-pattern=R:R` parameter ensures that keys are randomly accessed, increasing the realism of the benchmark. This test runs for five minutes.
 
 ```bash
-memtier_benchmark -h {your-cache-name}.{region}.redis.azure.net -p 10000 -a {your-access-key} --hide-histogram --pipeline=10 -clients=50 -threads=6 -d 1024 --key-maximum=1699396 --key-pattern=R:R --ratio=0:1 --distinct-client-seed --test-time=300 --json-out-file=test_results.json --tls --tls-skip-verify --cluster-mode
+memtier_benchmark -h {your-cache-name}.{region}.redis.azure.net -p 10000 -a {your-access-key} --hide-histogram --pipeline=10 --clients=50 --threads=6 -d 1024 --key-maximum=1699396 --key-pattern=R:R --ratio=0:1 --distinct-client-seed --test-time=300 --json-out-file=test_results.json --tls --tls-skip-verify --cluster-mode
 ```
 
 ## Example performance benchmark data
 
-The table below shows optimal throughput that we observed while testing various sizes of Azure Managed Redis instances with a workload of all read commands and 1KB payload. The workload is same across all SKUs, except for the connection count (that is, different thread and client count as required by memtier_benchmark). The connection count is chosen per SKU to leverage the Azure Managed Redis instance optimally. We used `memtier_benchmark` from an IaaS Azure VM against the Azure Managed Redis endpoint, utilizing the memtier commands shown in the [memtier_benchmark examples](best-practices-performance.md#memtier_benchmark-examples) section. The throughput numbers are only for GET commands. Typically, SET commands have a lower throughput. Real-world performance varies based on Redis configuration and commands. These numbers are provided as a point of reference, not a guarantee.
+The table below shows optimal throughput that we observed while testing various sizes of Azure Managed Redis instances with a workload of all read commands and 1KB payload. The workload is same across all SKUs, except for the connection count (that is, different thread and client count as required by memtier_benchmark). The connection count is chosen per SKU to leverage the Azure Managed Redis instance optimally. We used `memtier_benchmark` from an IaaS Azure VM against the Azure Managed Redis endpoint, utilizing the memtier commands shown in the [memtier_benchmark examples](best-practices-performance.md#memtier_benchmark-examples) section. The throughput numbers are only for GET commands per second. Typically, SET commands have a lower throughput. Real-world performance varies based on Redis configuration and commands. These numbers are provided as a point of reference, not a guarantee.
 
 >[!CAUTION]
 >These values aren't guaranteed and there's no SLA for these numbers. We strongly recommend that you should [perform your own performance testing](best-practices-performance.md) to determine the right cache size for your application.
