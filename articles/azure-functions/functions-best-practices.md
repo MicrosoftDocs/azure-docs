@@ -129,17 +129,19 @@ Because transient failures are common in cloud computing, you should use a [retr
 
 Security is best considered during the planning phase and not after your functions are ready to go. To Learn how to securely develop and deploy functions, see [Securing Azure Functions](security-concepts.md).  
 
-## Consider concurrency
+## Consider concurrency and parallelism
 
-As demand builds on your function app as a result of incoming events, function apps running in Consumption and Premium plans are scaled out. It's important to understand how your function app responds to load and how the triggers can be configured to handle incoming events. For a general overview, see [Event-driven scaling in Azure Functions](event-driven-scaling.md).
+As demand builds on your function app as a result of incoming events, function apps running in Consumption and Premium plans are scaled out. It's important to understand how your function app responds to load and how the triggers can be configured to handle incoming events. For a general overview, see [Event-driven scaling in Azure Functions](event-driven-scaling.md). Dedicated (App Service) plans require you to provide for scaling out your function apps. 
 
-Dedicated (App Service) plans require you to provide for scaling out your function apps.
+Concurrency is about multitasking (usually done on one vCPU) and you can do only one task at a time, so your tasks have overlapping execution periods. Parallelism is about executing multiple tasks simultaneously across multiple vCPUs, so your tasks are literally running at the same time which allows for faster processing. 
 
 ### Worker process count
 
 In some cases, it's more efficient to handle the load by creating multiple processes, called language worker processes, in the instance before scale-out. The maximum number of language worker processes allowed is controlled by the [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) setting. The default for this setting is `1`, which means that multiple processes aren't used. After the maximum number of processes are reached, the function app is scaled out to more instances to handle the load. This setting doesn't apply for [C# class library functions](functions-dotnet-class-library.md), which run in the host process.
 
 When using `FUNCTIONS_WORKER_PROCESS_COUNT` on a Premium plan or Dedicated (App Service) plan, keep in mind the number of cores provided by your plan. For example, the Premium plan `EP2` provides two cores, so you should start with a value of `2` and increase by two as needed, up to the maximum.
+
+Also, most  programming languages have built-in support for concurrency and/or parallelism. For example, in Node.js you can achieve those by using [Cluster module](https://nodejs.org/api/cluster.html) or [Worker Threads](https://nodejs.org/api/worker_threads.html).
 
 ### Trigger configuration
 
