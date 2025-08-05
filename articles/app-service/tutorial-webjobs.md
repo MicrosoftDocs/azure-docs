@@ -271,7 +271,7 @@ public class HelloWorld {
 
 ### Build the Java WebJob
 
-1. The `run.sh` script runs a jar with the name that set in the Maven configuration. This script will run when our WebJob is triggered.
+1. The `run.sh` script runs a jar with the name that's set in the Maven configuration. This script will run when our WebJob is triggered.
 
     ```bash
     java -jar webjob-artifact-1.0.0.jar
