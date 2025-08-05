@@ -108,7 +108,7 @@ To get the service endpoint URL, perform the following steps:
 
     Make sure this URL is available in `PLAYWRIGHT_SERVICE_URL` environment variable.
 
-    :::image type="content" source="./media/quickstart-run-end-to-end-tests/copy-service-endpoint-url.png" alt-text="Screenshot that shows how to copy the service endpoint URL." lightbox="../media/quickstart-run-end-to-end-tests/copy-service-endpoint-url.png":::
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/copy-service-endpoint-url.png" alt-text="Screenshot that shows how to copy the service endpoint URL." lightbox="./media/quickstart-run-end-to-end-tests/copy-service-endpoint-url.png":::
 
 ::: zone pivot="playwright-test-runner"
 
