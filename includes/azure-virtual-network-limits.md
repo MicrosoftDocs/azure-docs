@@ -49,7 +49,7 @@ The following limits apply only for networking resources managed through **Azure
 | Virtual network TAPs |100 |
 | Network interface TAP configurations per virtual network TAP |100 |
 
-<sup>1</sup>Support for user-defined route per subscription higher than 600 is available via [Azure Virtual Network Manager](../articles/virtual-network-manager/overview.md). Review [Azure Virtual Network Manager limits](./azure-virtual-network-manager-limits.md) for more details. 
+<sup>1</sup>Support for user-defined route per subscription higher than 600 is available via [Azure Virtual Network Manager](../articles/virtual-network-manager/overview.md). 
 
 #### <a name="publicip-address"></a>Public IP address limits
 | Resource | Default limit | Maximum limit |
