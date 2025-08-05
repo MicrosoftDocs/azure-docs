@@ -79,7 +79,7 @@ To configure New Relic:
 
 ::: zone-end
 
-1. Create a New Relic account at [NewRelic.com](https://newrelic.com/signup)
+1. Create a NewRelic account at [NewRelic.com](https://newrelic.com/signup)
 2. [Download the Java agent from NewRelic](https://download.newrelic.com/newrelic/java-agent/newrelic-agent/current/newrelic-java.zip).
 3. Copy your license key, you need it to configure the agent later.
 4. [SSH into your App Service instance](configure-linux-open-ssh-session.md) and create a new directory */home/site/wwwroot/apm*.

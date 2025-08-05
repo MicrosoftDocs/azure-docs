@@ -1,15 +1,16 @@
 ---
-title: Configure data sources for Tomcat, JBoss, or Java SE apps
+title: Configure Data Sources for Tomcat, JBoss, or Java SE Apps
 description: Learn how to configure data sources for Tomcat, JBoss, or Java SE apps on Azure App Service, including native Windows and Linux container variants.
 keywords: azure app service, web app, windows, oss, java, tomcat, jboss
 ms.devlang: java
-ms.topic: article
+ms.topic: how-to 
 ms.date: 07/17/2024
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java, linux-related-content
 zone_pivot_groups: app-service-java-hosting
 adobe-target: true
 author: cephalin
 ms.author: cephalin
+# customer intent: As a developer, I want to configure a data source for Tomcat, JBoss, or Java SE apps.
 ---
 
 # Configure data sources for a Tomcat, JBoss, or Java SE app in Azure App Service
@@ -67,6 +68,8 @@ Or set the environment variables in the **Configuration** > **Application Settin
 Next, determine if the data source should be available to one application or to all applications running on the Tomcat servlet.
 
 ### Application-level data sources
+
+To configure an application-level data source:
 
 1. Create a *context.xml* file in the *META-INF/* directory of your project. Create the *META-INF/* directory if it doesn't exist.
 
@@ -404,7 +407,7 @@ App Service is a stateless hosting service, so you must put these steps into a s
 
 ::: zone-end
 
-## Next steps
+## Related content
 
 Visit the [Azure for Java Developers](/java/azure/) center to find Azure quickstarts, tutorials, and Java reference documentation.
 
