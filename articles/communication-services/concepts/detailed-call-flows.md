@@ -79,7 +79,7 @@ The direction of the arrows in the preceding diagram reflects the direction of t
 #### Flow descriptions
 
 * Flow 2 – Represents a flow initiated by a user on the customer network to the internet as a part of the user's Azure Communication Services experience. Examples of these flows include DNS and peer-to-peer media transmission.
-* Flow 2` – Represents a flow initiated by a remote mobile Azure Communication Services user with VPN to the customer network.
+* Flow 2 – Represents a flow initiated by a remote mobile Azure Communication Services user with VPN to the customer network.
 * Flow 3 – Represents a flow initiated by a remote mobile Azure Communication Services user to Azure Communication Services endpoints.
 * Flow 4 – Represents a flow initiated by a user on the customer network to Azure Communication Services.
 * Flow 5 – Represents a peer-to-peer media flow between one Azure Communication Services user and another within the customer network.
@@ -145,13 +145,13 @@ This media transmission is bidirectional. The direction of Flow 2 to the remote 
 
 :::image type="content" source="./media/call-flows/vpn-to-internal-via-relay.png" alt-text="Diagram that shows a one-to-one call flow between an internal user and a VPN user via Azure transport relay.":::
 
-Signaling between the VPN to the customer network uses Flow 2*. Signaling between the customer network and Azure uses Flow 4. However, media bypasses the VPN and is routed by using Flows 3 and 4 through Azure Media Relay.
+Signaling between the VPN to the customer network uses Flow 2. Signaling between the customer network and Azure uses Flow 4. However, media bypasses the VPN and is routed by using Flows 3 and 4 through Azure Media Relay.
 
 ### VPN user to internal user (direct media)
 
 :::image type="content" source="./media/call-flows/vpn-to-internal-direct-media.png" alt-text="Diagram that shows a one-to-one call flow between an internal user and a VPN user with direct media":::
 
-Signaling between the VPN to the customer network uses Flow 2'. Signaling between the customer network and Azure uses Flow 4. However, media bypasses the VPN and is routed by using Flow 2 from the customer network to the internet.
+Signaling between the VPN to the customer network uses Flow 2. Signaling between the customer network and Azure uses Flow 4. However, media bypasses the VPN and is routed by using Flow 2 from the customer network to the internet.
 
 This media transmission is bidirectional. The direction of Flow 2 to the remote mobile user indicates that one side initiates the communication from a connectivity perspective.
 
@@ -159,7 +159,7 @@ This media transmission is bidirectional. The direction of Flow 2 to the remote 
 
 :::image type="content" source="./media/call-flows/vpn-user-to-external-user.png" alt-text="Diagram that shows a one-to-one call flow for an external user calling a VPN user with direct media.":::
 
-Signaling between the VPN user to the customer network uses Flow 2* and Flow 4 to Azure. However, media bypasses the VPN and is routed by using Flow 6.
+Signaling between the VPN user to the customer network uses Flow 2 and Flow 4 to Azure. However, media bypasses the VPN and is routed by using Flow 6.
 
 This media transmission is bidirectional. The direction of Flow 6 to the remote mobile user indicates that one side initiates the communication from a connectivity perspective.
 
