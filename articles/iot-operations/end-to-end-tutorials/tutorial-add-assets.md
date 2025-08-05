@@ -198,7 +198,6 @@ To create an asset, select **Create namespace asset**. Then enter the following 
 | Inbound endpoint | `opc-ua-connector-0` |
 | Asset name | `thermostat` |
 | Description | `A simulated thermostat asset` |
-| Default MQTT topic | `azure-iot-operations/data/thermostat` |
 
 Remove the existing **Custom properties** and add the following custom properties. Be careful to use the exact property names, as the Power BI template in a later tutorial queries for them:
 
@@ -216,17 +215,19 @@ Select **Next** to go to the **Add tags** page.
 
 ### Create OPC UA tags
 
-Add an OPC UA tag on the **Add tags** page. To add a tag, select **Add tag**. Enter the tag details shown in the following table:
+Add an OPC UA tag on the **Tags** page. To add a tag, select **Add tag**. Enter the tag details shown in the following table:
 
-| Node ID            | Tag name    |
+| Data source        | Tag name    |
 | ------------------ | ----------- |
 | ns=3;s=SpikeData   | temperature |
 
-The node ID here is specific to the OPC UA simulator. The node generates random values within a specified range and also has intermittent spikes.
+The data source value here is a specific OPC UA simulator node. The node generates random values within a specified range and also has intermittent spikes.
 
 You can select **Manage default settings** to change the default sampling interval and queue size for each tag.
 
 :::image type="content" source="media/tutorial-add-assets/add-tag.png" lightbox="media/tutorial-add-assets/add-tag.png" alt-text="Screenshot of Azure IoT Operations add tag page.":::
+
+To configure the MQTT topic to publish the tag data to, select **Manage default dataset**. Enter `azure-iot-operations/data/thermostat` as the MQTT topic, then select **Update**. This topic is used by the data flow in the next tutorial to send messages to the cloud.
 
 Select **Next** to go to the **Add events** page and then **Next** to go to the **Review** page.
 
@@ -236,10 +237,10 @@ Review your asset and tag details and make any adjustments you need before you s
 
 :::image type="content" source="media/tutorial-add-assets/review-asset.png" lightbox="media/tutorial-add-assets/review-asset.png" alt-text="Screenshot of Azure IoT Operations create asset review page.":::
 
-This configuration deploys a new asset called `thermostat` to the cluster. You can view your assets in your resource group in the Azure portal. You can also use `kubectl` to view the assets locally in your cluster:
+This configuration deploys a new asset called `thermostat` to the cluster. You can also use `kubectl` to view the assets locally in your cluster:
 
 ```console
-kubectl get assets -n azure-iot-operations
+kubectl get assets.namespace -n azure-iot-operations
 ```
 
 ## View resources in the Azure portal
@@ -256,7 +257,7 @@ The portal enables you to view the asset details. Select **JSON View** for more 
 
 [!INCLUDE [deploy-mqttui](../includes/deploy-mqttui.md)]
 
-To verify that the thermostat asset you added is publishing data, view the messages in the `azure-iot-operations/data` topic:
+To verify that the thermostat asset you added is publishing data, view the messages in the `azure-iot-operations/data/thermostat` topic:
 
 ```output
 Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/thermostat', ... (92 bytes))
