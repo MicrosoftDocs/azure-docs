@@ -22,7 +22,7 @@ A list of shipped analyzer rules can be found in the [analyzer release notes](ht
 
 ## .NET in-process analyzer
 
-Information regarding the Roslyn Analyzer for the **in-process** model can be found on the[Analyzer v0.2.0 release page](https://github.com/Azure/azure-functions-durable-extension/releases/tag/Analyzer-v0.2.0).
+Information regarding the Roslyn Analyzer for the **in-process** model can be found on the [Analyzer v0.2.0 release page](https://github.com/Azure/azure-functions-durable-extension/releases/tag/Analyzer-v0.2.0).
 
 The following sections provide configuration instructions for more detailed analysis when using the .NET in-process analyzer. 
 
