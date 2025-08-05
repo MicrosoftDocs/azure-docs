@@ -64,7 +64,7 @@ To get started with running your Playwright tests on cloud browsers, you first n
 
 1. To view the new workspace, select **Go to resource**.
 
-    ![Screenshot that shows the deployment completion information in the Azure portal](./media/how-to-manage-playwright-workspace/create-resource-deployment-complete.png)
+    ![Screenshot that shows the deployment completion information in the Azure portal.](./media/how-to-manage-playwright-workspace/create-resource-deployment-complete.png)
 
 
 ## Install Playwright Workspaces package 
@@ -182,12 +182,12 @@ az login
 
 You can generate an access token from your Playwright workspace and use it in your setup. However, we strongly recommend Microsoft Entra ID for authentication due to its enhanced security. Access tokens, while convenient, function like long-lived passwords and are more susceptible to being compromised.
 
-1. Authentication using access tokens is disabled by default. To use, [Enable access-token based authentication](./how-to-manage-authentication.md#enable-authentication-using-access-tokens)
+1. Authentication using access tokens is disabled by default. To use, [Enable access-token based authentication](./how-to-manage-authentication.md#enable-authentication-using-access-tokens).
 
-2. [Set up authentication using access tokens](./how-to-manage-authentication.md#set-up-authentication-using-access-tokens)
+2. [Set up authentication using access tokens](./how-to-manage-authentication.md#set-up-authentication-using-access-tokens).
 
 > [!CAUTION]
-> We strongly recommend using Microsoft Entra ID for authentication to the service. If you are using access tokens, see [How to Manage Access Tokens](./how-to-manage-access-tokens.md)
+> We strongly recommend using Microsoft Entra ID for authentication to the service. If you are using access tokens, see [How to Manage Access Tokens](./how-to-manage-access-tokens.md).
 
 
 ## Run your tests at scale with Playwright Workspaces
@@ -313,7 +313,7 @@ To run your Playwright test suite in Visual Studio Code with Playwright Workspac
 
 1. Alternately, you can select a specific service configuration from the list to only run the tests for a specific browser configuration.
 
-    ![Screenshot of how to select a specific project to run tests against in Visual Studio Code](./media/quickstart-run-end-to-end-tests/visual-studio-code-run-all-tests-select-project.png)
+    ![Screenshot of how to select a specific project to run tests against in Visual Studio Code.](./media/quickstart-run-end-to-end-tests/visual-studio-code-run-all-tests-select-project.png)
 
 1. You can view all test results in the **Test results** tab.
 

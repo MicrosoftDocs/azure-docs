@@ -29,12 +29,12 @@ To connect with cloud browsers, you first need to create a Playwright workspace.
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Select the menu button in the upper-left corner of the portal, and then select **Create a resource** a resource.
 
-    ![Screenshot that shows the Azure portal menu to create a new resource.](./media/how-to-manage-playwright-workspace/azure-portal-create-resource.png)
+    :::image type="content" source="./media/how-to-manage-playwright-workspace/azure-portal-create-resource.png" alt-text="Screenshot that shows the Azure portal menu to create a new resource." lightbox="./media/how-to-manage-playwright-workspace/azure-portal-create-resource.png":::
 
 1. Enter *Playwright Workspaces* in the search box.
 1. Select the **Playwright Workspaces** card, and then select **Create**.
 
-    ![Screenshot that shows the Azure Marketplace search page with the Playwright Workspaces search result.](./media/how-to-manage-playwright-workspace/azure-portal-search-playwright-resource.png)
+    :::image type="content" source="./media/how-to-manage-playwright-workspace/azure-portal-search-playwright-resource.png" alt-text="Screenshot that shows the Azure Marketplace search page with the Playwright Workspaces search result." lightbox="./media/how-to-manage-playwright-workspace/azure-portal-search-playwright-resource.png":::
 
 1. Provide the following information to configure a new Playwright workspace:
 
@@ -56,7 +56,7 @@ To connect with cloud browsers, you first need to create a Playwright workspace.
 
 1. To view the new workspace, select **Go to resource**.
 
-    ![Screenshot that shows the deployment completion information in the Azure portal](./media/how-to-manage-playwright-workspace/create-resource-deployment-complete.png)
+    :::image type="content" source="./media/how-to-manage-playwright-workspace/create-resource-deployment-complete.png" alt-text="Screenshot that shows the deployment completion information in the Azure portal." lightbox="./media/how-to-manage-playwright-workspace/create-resource-deployment-complete.png":::
 
 ## Display a list of workspaces
 
@@ -68,7 +68,8 @@ To get the list of Playwright workspaces that you have access to:
 
 1. Select **Playwright Workspaces** from the **Services** section to view all your workspaces.
 
-    ![Screenshot that shows the search box in the Azure portal, to search for Playwright Workspaces resources.](./media/how-to-manage-playwright-workspace/azure-portal-search-playwright-workspaces.png)
+    :::image type="content" source="./media/how-to-manage-playwright-workspace/azure-portal-search-playwright-workspaces.png" alt-text="Screenshot that shows the search box in the Azure portal, to search for Playwright Workspaces resources." lightbox="./media/how-to-manage-playwright-workspace/azure-portal-search-playwright-workspaces.png":::
+    
 
 1. Look through the list of workspaces found. You can filter based on subscription, resource groups, and locations.
 

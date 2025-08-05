@@ -34,7 +34,7 @@ You can configure the regional settings for your workspace in the Azure portal.
 
     By default, the service uses remote browsers in the Azure region that's closest to the client machine to minimize latency.
 
-![Screenshot of the Region Management settings page](./media/how-to-optimize-regional-latency/configure-workspace-region-management.png )
+![Screenshot of the Region Management settings page.](./media/how-to-optimize-regional-latency/configure-workspace-region-management.png )
 
 ## Related content
 

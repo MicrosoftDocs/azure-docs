@@ -36,9 +36,9 @@ In this tutorial, you:
 
 Before you start, validate your environment:
 
-* Sign in to the Azure portal and check that your subscription is active.
+1. Sign in to the Azure portal and check that your subscription is active.
 
-* Check your version of the Azure CLI in a terminal or command window by running `az --version`. For the latest version, see the [latest release notes](/cli/azure/release-notes-azure-cli?tabs=azure-cli).
+1. Check your version of the Azure CLI in a terminal or command window by running `az --version`. For the latest version, see the [latest release notes](/cli/azure/release-notes-azure-cli?tabs=azure-cli).
 
   If you don't have the latest version, update your installation by following the [installation guide for your operating system or platform](/cli/azure/install-azure-cli).
 
@@ -108,8 +108,7 @@ To get started with running your Playwright tests on cloud browsers, you first n
 
 1. To view the new workspace, select **Go to resource**.
 
-    ![Screenshot that shows the deployment completion information in the Azure portal](./media/how-to-manage-playwright-workspace/create-resource-deployment-complete.png)
-
+    ![Screenshot that shows the deployment completion information in the Azure portal.](./media/how-to-manage-playwright-workspace/create-resource-deployment-complete.png)
 
 ### Install Playwright Workspaces package
 
@@ -125,11 +124,7 @@ This command generates `playwright.service.config.ts` file which serves to direc
 
 In your setup, you have to provide the region-specific service endpoint. The endpoint depends on the Azure region you selected when creating the workspace.
 
-To get the service endpoint URL, perform the following steps:
-
-1. In **Add region endpoint in your setup**, copy the region endpoint for your workspace.
-
-    The endpoint URL matches the Azure region that you selected when creating the workspace. Ensure this URL is available in `PLAYWRIGHT_SERVICE_URL` environment variable.
+To get the service endpoint URL, navigate to your workspace in the Azure portal. Then, in **Add region endpoint in your setup**, copy the region endpoint for your workspace. The endpoint URL matches the Azure region that you selected when creating the workspace. Ensure this URL is available in `PLAYWRIGHT_SERVICE_URL` environment variable.
 
 
 ### Set up your environment

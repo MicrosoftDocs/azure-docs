@@ -219,7 +219,7 @@ You can generate an access token from your Playwright workspace and use it in yo
 ::: zone pivot="playwright-test-runner"
 Update the CI workflow definition to run your Playwright tests with the Playwright CLI. Pass the [service configuration file](#add-service-configuration-file) as an input parameter for the Playwright CLI. You configure your environment by specifying environment variables.
 
-1. Open the CI workflow definition
+1. Open the CI workflow definition.
 
 1. Add the following steps to run your Playwright tests in Playwright Workspaces.
 

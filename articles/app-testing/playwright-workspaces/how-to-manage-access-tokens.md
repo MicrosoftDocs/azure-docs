@@ -49,7 +49,7 @@ To enable authentication using access tokens:
 
 1. Check the box for **Playwright Service Access Token** to enable it.
 
-!["Screenshot that shows turning on authentication using access tokens."](media/how-to-manage-authentication/enable-access-token.png)
+![Screenshot that shows turning on authentication using access tokens.](media/how-to-manage-authentication/enable-access-token.png)
 
 > [!CAUTION]
 > Authentication using access tokens is less secure. [Learn how to manage access tokens](./how-to-manage-access-tokens.md)
@@ -82,7 +82,8 @@ To create a new workspace access token:
 
 1. On the **Access Management** page, select **Generate token**.
 
-    ![Screenshot that shows the access tokens settings page in the Azure portal, highlighting the 'Generate new token' button.](./media/how-to-manage-access-tokens/playwright-workspaces-generate-new-access-token.png)
+    :::image type="content" source="./media/how-to-manage-access-tokens/playwright-workspaces-generate-new-access-token.png" alt-text="Screenshot that shows the access tokens settings page in the Azure portal, highlighting the 'Generate new token' button" lightbox="./media/how-to-manage-access-tokens/playwright-workspaces-generate-new-access-token.png":::
+
 
 1. Enter the access token details, and then select **Generate token**.
 

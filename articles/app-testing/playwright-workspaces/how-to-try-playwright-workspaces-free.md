@@ -76,7 +76,7 @@ To get started with running your Playwright tests on cloud browsers, you first n
 
 1. To view the new workspace, select **Go to resource**.
 
-    ![Screenshot that shows the deployment completion information in the Azure portal](./media/how-to-manage-playwright-workspace/create-resource-deployment-complete.png)
+    ![Screenshot that shows the deployment completion information in the Azure portal.](./media/how-to-manage-playwright-workspace/create-resource-deployment-complete.png)
 
 ## Upgrade your workspace
 

@@ -19,7 +19,7 @@ In Playwright, you can run tests in parallel by using worker processes. By using
 
 The following chart gives an example of running a test suite. By running the test suite with Playwright Workspaces instead of locally, you can significantly increase the parallelism and reduce the test completion time. Notice that, when running with the service, the completion time reaches a minimum limit, after which adding more workers only has a minimal effect. The chart also shows how using more computing resources on the client machine positively affects the test completion time for tests running with the service.
 
-![Line chart that shows the relation between the number of parallel workers and the test suite completion time for different run environments.](./media/concept-determine-optimal-configuration/playwright-workspaces-parallelization-chart.png)
+:::image type="content" source="./media/concept-determine-optimal-configuration/playwright-workspaces-parallelization-chart.png" alt-text="Line chart that shows the relation between the number of parallel workers and the test suite completion time for different run environments." lightbox="./media/concept-determine-optimal-configuration/playwright-workspaces-parallelization-chart.png":::
 
 ## Worker processes
 

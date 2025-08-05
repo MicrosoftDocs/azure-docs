@@ -46,7 +46,7 @@ To enable authentication using access tokens:
 
 1. Check the box for **Playwright Service Access Token** to enable it.
 
-!["Screenshot that shows turning on authentication using access tokens."](media/how-to-manage-authentication/enable-access-token.png)
+:::image type="content" source="./media/how-to-manage-authentication/enable-access-token.png" alt-text="Screenshot that shows turning on authentication using access tokens." lightbox="media/how-to-manage-authentication/enable-access-token.png":::
 
 > [!CAUTION]
 > Authentication using access tokens is less secure. [Learn how to manage access tokens](./how-to-manage-access-tokens.md)
@@ -97,13 +97,13 @@ To enable authentication using access tokens:
     ```
 ::: zone-end
 
-2. Create access token 
+2. Create access token. 
 
     Follow the steps to [create an access token](./how-to-manage-access-tokens.md#generate-a-workspace-access-token). Copy the value of the access token generated.
 
 ::: zone pivot="playwright-test-runner"
 
-3. Set up your environment
+3. Set up your environment.
 
     To set up your environment, configure the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` environment variable with the value you obtained in the previous steps. Ensure this environment variable is available in your setup where you are running tests.
 
@@ -127,7 +127,7 @@ To enable authentication using access tokens:
 
 ::: zone pivot="nunit-test-runner"
 
-3. Set up your environment
+3. Set up your environment.
 
     To set up your environment, configure the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` environment variable with the value you obtained in the previous steps. Ensure this environment variable is available in your setup where you are running tests.
 
