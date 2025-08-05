@@ -34,7 +34,7 @@ For a list of data stores that are supported as sources/sinks by the copy activi
 
 Specifically, this Teradata connector supports:
 
-- Teradata **version 17.0，17.10，17.20 and 20.0** for version 2.0.
+- Teradata **version 17.0, 17.10, 17.20 and 20.0** for version 2.0.
 - Teradata **version 14.10, 15.0, 15.10, 16.0, 16.10, and 16.20** for version 1.0.
 - Copying data by using **Basic**, **Windows**, or **LDAP** authentication.
 - Parallel copying from a Teradata source. See the [Parallel copy from Teradata](#parallel-copy-from-teradata) section for details.
@@ -45,7 +45,7 @@ Specifically, this Teradata connector supports:
 
 ### For version 2.0
 
- You need to [install .NET Data Provider](https://downloads.teradata.com/download/connectivity/net-data-provider-teradata) with version 20.00.03.00 or above on the machine running the self-hosted integration runtime under version 5.56.9318.1. The self-hosted integration runtime version 5.56.9318.1 or above provides a built-in Teradata driver, so you don't need to install it manually.
+ You need to [install .NET Data Provider](https://downloads.teradata.com/download/connectivity/net-data-provider-teradata) with version 20.00.03.00 or above on the machine running the self-hosted integration runtime with a version under 5.56.9318.1. Manual installation of the Teradata driver is not required when using self-hosted integration runtime version 5.56.9318.1 or above, as these versions provide a built-in driver.
 
 ### For version 1.0
 
