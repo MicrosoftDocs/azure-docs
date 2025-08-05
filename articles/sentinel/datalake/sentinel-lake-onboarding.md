@@ -65,6 +65,8 @@ To onboard to the Microsoft Sentinel data lake Public Preview, you must be an ex
 + You must have a Microsoft Sentinel primary workspace and other workspaces in the same region as your tenant’s home region.
 + You must have read privileges to the primary and other workspaces so they can be attached to the data lake. For public preview, attaching a primary and all workspaces to the data lake is only supported if they're in the same region as your tenant home region.
 
+[!INCLUDE [Customer-managed keys limitation](../includes/customer-managed-keys-limitation.md)]
+
 The following roles that are required to set up billing and authorize ingestion of asset data into the data lake:
 
 + Azure Subscription owner for billing setup.

@@ -83,8 +83,8 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure Health Data Services: De-identification service (preview)|[Reliability in Azure Health Data Services: De-identification service](reliability-health-data-services-deidentification.md)||
 |Azure Health Data Services: Workspace services (FHIR®, DICOM®, MedTech) | | [Business continuity and disaster recovery considerations](/azure/healthcare-apis/business-continuity-disaster-recovery?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure HDInsight| [Reliability in Azure HDInsight](reliability-hdinsight.md)||
-|Azure IoT Hub|| [Reliability in Azure IoT Hub](reliability-iot-hub.md) |
-|Azure Key Vault|| [Reliability in Azure Key Vault](./reliability-key-vault.md) |
+|Azure IoT Hub| [Reliability in Azure IoT Hub](reliability-iot-hub.md) ||
+|Azure Key Vault| [Reliability in Azure Key Vault](./reliability-key-vault.md) ||
 |Azure Kubernetes Service (AKS)| [Reliability in Azure Kubernetes Service (AKS)](reliability-aks.md)||
 |Azure Load Balancer| [Reliability in Azure Load Balancer](reliability-load-balancer.md )||
 |Azure Logic Apps|[Reliability in Azure Logic Apps](reliability-logic-apps.md) ||
@@ -99,6 +99,7 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure Private 5G Core | |[Reliability in Azure Private 5G Core](../private-5g-core/reliability-private-5g-core.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Private Link|| [Azure Private Link availability](../private-link/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)   |
 |Azure Public IP|| [Azure Public IP Availability Zone](../virtual-network/ip-services/public-ip-addresses.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zone) |
+|Azure Queue Storage|[Reliability in Azure Queue Storage](reliability-storage-queue.md)||
 |Azure Route Server|| [Azure Route Server frequently asked questions (FAQ)](../route-server/route-server-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Service Bus|| [Best practices for insulating applications against Service Bus outages and disasters](../service-bus-messaging/service-bus-outages-disasters.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Service Fabric|| [Deploy an Azure Service Fabric cluster across Availability Zones](/azure/service-fabric/service-fabric-cross-availability-zones?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) </p> [Disaster recovery in Azure Service Fabric](/azure/service-fabric/service-fabric-disaster-recovery?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
