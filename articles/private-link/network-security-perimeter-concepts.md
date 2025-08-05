@@ -51,7 +51,7 @@ A network security perimeter includes the following components:
 > - SQL DB
 > - Azure Open AI Service
 >   
-> These preview on are provided without a service level agreement, and it's not recommended for production workloads.
+> These previews are provided without a service level agreement, and it's not recommended for production workloads.
 > Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -118,7 +118,7 @@ A network security perimeter-aware private link resource is a PaaS resource that
 > [!NOTE]
 > Refer to the respective private link resource documentation for information on currently unsupported scenarios.
 
-## Supported access rules' types
+## Supported access rule types
 
 Network security perimeter supports the following access rule types:
 
