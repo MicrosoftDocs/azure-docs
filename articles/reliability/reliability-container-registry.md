@@ -46,7 +46,7 @@ Microsoft is responsible for managing the underlying Container Registry infrastr
 
  - **Data plane maintenance** for container image operations across regions and availability zones
  
-As a customer, you're responsible for the following scenarios:
+As a customer, you're responsible for the following actions:
  
 - **Application-level resilience:** Implement appropriate retry logic and failover handling in your container applications and orchestration platforms.
 
@@ -202,9 +202,6 @@ This section describes what to expect when a registry is configured for geo-repl
 - **Data replication between regions:** Geo-replication automatically synchronizes container images and artifacts across all configured regions by using asynchronous replication with eventual consistency. The service uses content-addressable storage to efficiently replicate only the unique image layers. This approach minimizes bandwidth usage and replication time. Read and write operations work on all geo-replicated regions. Changes made in any region are replicated to all other regions.
 
     Replication typically completes within minutes of changes. However, there's no guarantee on data replication timing. Large container images or high-frequency updates might take longer to replicate across all regions.
-
-> [!IMPORTANT]
-> The data replication approach across regions is usually different than the approach used across zones.
 
 ### Region-down experience
 
