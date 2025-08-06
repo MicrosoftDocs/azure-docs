@@ -1907,3 +1907,14 @@ groups:
     title: Azure CLI
   - id: azure-powershell
     title: Azure PowerShell
+#owner: kkendrick
+- id: elastic-resource-type
+  title: Elastic Resource Types
+  prompt: Select your Elastic resource type.
+  pivots:
+  - id: elastic-search
+    title: Elastic Search
+  - id: elastic-observability
+    title: Elastic Observability
+  - id: elastic-security
+    title: Elastic Security

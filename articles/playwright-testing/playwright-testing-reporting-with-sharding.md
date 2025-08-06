@@ -79,7 +79,7 @@ Here's an example of how you can set it in your pipeline via GitHub Actions.
       runs-on: ubuntu-latest
       steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
         # This step is to sign-in to Azure to run tests from GitHub Action workflow.

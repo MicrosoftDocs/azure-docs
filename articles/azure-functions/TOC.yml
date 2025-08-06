@@ -620,6 +620,7 @@
           displayName: monitoring
         - name: Work with OpenTelemetry
           href: opentelemetry-howto.md
+          displayName: OTel
     - name: Authenticate
       items:
         - name: Configure auth providers
@@ -1010,11 +1011,11 @@
             - name: Output
               href: functions-bindings-kafka-output.md
               displayName: Kafka
-        - name: MCP tool
+        - name: MCP
           items:
             - name: Overview
               href: functions-bindings-mcp.md
-              displayName: MCP tool
+              displayName: MCP
             - name: Trigger
               href: functions-bindings-mcp-trigger.md
               displayName: MCP tool

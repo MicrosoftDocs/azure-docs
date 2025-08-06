@@ -1,10 +1,10 @@
 ---
 title: Remove Microsoft Sentinel from your workspace
 description: Learn how to delete your Microsoft Sentinel instance to discontinue use of Microsoft Sentinel and the associated costs.
-author: cwatson-cat
+author: EdB-MSFT
 ms.topic: how-to
 ms.date: 07/16/2025
-ms.author: cwatson
+ms.author: edbaynash
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
