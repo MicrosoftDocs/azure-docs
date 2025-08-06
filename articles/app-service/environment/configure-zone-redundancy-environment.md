@@ -24,7 +24,11 @@ To learn more details about how App Service Environment supports zone redundancy
     
     # [Azure portal](#tab/portal)
     
-    This operation is not yet supported in the Azure portal. Use the Azure CLI or Bicep instead.
+    1. In the [Azure portal](https://portal.azure.com), go to your App Service Environment.
+    1. Select **Settings > Configuration** in the left navigation pane.
+    1. Select **Zone redundant** if you wish to enable zone redundancy. Deselect if you wish to disable it.
+     
+    :::image type="content" source="./media/configure-zone-redundancy/app-service-environment-enable-zone-redundancy.png" alt-text="Screenshot of zone redundancy property for an App Service Environment in the Azure portal.":::    
     
     # [Azure CLI](#tab/azurecli)
     
@@ -73,7 +77,13 @@ To see whether an existing App Service Environment supports zone redundancy:
 
     # [Azure portal](#tab/portal)
 
-    This operation is not yet supported in the Azure portal. Use the Azure CLI or Bicep instead.
+    1. In the [Azure portal](https://portal.azure.com), navigate to your App Service Environment.
+    
+    1. Select **Settings > Configuration** in the left navigation pane.
+    
+        The maximum number of zones that your App Service Environment can use is shown in **Maximum available zones**. 
+    
+        :::image type="content" source="./media/configure-zone-redundancy/app-service-environment-maximum-zones.png" alt-text="Screenshot of maximum available zones property in the Configuration blade in the Azure portal for an App Service Environment.":::
 
     # [Azure CLI](#tab/azurecli)
 
