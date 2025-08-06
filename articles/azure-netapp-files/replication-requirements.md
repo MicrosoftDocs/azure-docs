@@ -55,7 +55,7 @@ If you're using [cross-zone-region replication](replication.md#cross-zone-region
 * If you use the cool access feature, see [Manage Azure NetApp Files storage with cool access](manage-cool-access.md#considerations) for more considerations.
 * If the volume's size exceeds 95% utilization, there's a risk that replication to the destination volume can fail depending on the rate of data changes. 
 
-### ## <a name="supported-region-pairs"></a>Supported cross-region replication pairs
+### <a name="supported-region-pairs"></a>Supported cross-region replication pairs
 
 [!INCLUDE [Supported region pairs](includes/region-pairs.md)]
 

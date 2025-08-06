@@ -69,7 +69,7 @@ Regular Azure NetApp Files storage capacity charge applies to the replication de
 
 #### Pricing examples
 
-The cross-region replication amount billed in a month is based on the amount of data replicated through the cross-region replication feature during that month. The amount of data replicated is measured in GiB. It represents the sum of data replicated across two regions during all regular replications from the source volumes to the destination volumes and during all resync replications from the destination volumes to the source volumes.
+The cross-region replication amount billed in a month is based on the amount of data replicated through the cross-region replication feature during that month. The amount of data replicated is measured in GiB. It represents the sum of data replicated across two regions during all regular replications from the source volumes to the destination volumes and during all resync replications from the destination volumes to the source volumes. The following prices are for example purposes only.
 
 ##### Example 1: Month 1 baseline replication and incremental replications
 
