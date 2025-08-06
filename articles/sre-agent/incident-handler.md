@@ -3,12 +3,12 @@ title: Custom incident handlers in Azure SRE Agent (preview)
 description: Learn To create a custom incident handler with specialized instructions for mitigating incidents.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 08/05/2025
+ms.date: 08/06/2025
 ms.author: cshoe
 ms.service: azure
 ---
 
-# Custom incident handlers in Azure SRE Agent
+# Incident handlers in Azure SRE Agent
 
 A custom incident handler in Azure SRE Agent allows you to define how incidents are detected, reviewed, and mitigated within your environment. By configuring handlers, you can tailor the agent’s response to incidents, set autonomy levels, and provide custom instructions for incident management. You can choose between either semi-autonomous and fully autonomous operations, depending on your needs.
 
