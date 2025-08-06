@@ -37,20 +37,21 @@ After creating the API Center portal app registration, you can customize setting
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API center.
 1. In the left menu, under **API Center portal**, select **Settings**.
+
     :::image type="content" source="media/set-up-api-center-portal/configure-portal-settings.png" alt-text="Screenshot of API Center portal settings in the Azure portal." lightbox="media/set-up-api-center-portal/configure-portal-settings.png":::
-1. If you set up an app registration manually, on the **Identity provider** tab, select **Start set up**. If you used the quick setup, this step is already complete.
+1. If you set up an app registration manually, on the **Identity provider** tab, select **Start set up**. If you used the quick setup, this step is already complete, and you can continue to settings on other tabs.
     1. On the **Manual** tab, in **Client ID**, enter the **Application (client) ID** from the app registration you created in the previous section.
-    3. Confirm that the **Redirect URI** is the value you configured in the app registration. 
-    4. Select **Save + publish**.
+    1. Confirm that the **Redirect URI** is the value you configured in the app registration. 
+    1. Select **Save + publish**.
 1. On the **Site profile** tab, enter a website name that you want to appear in the top bar of the API Center portal. Select **Save + publish**.
 1. On the **API visibility** tab, optionally configure filters for APIs that you want to make discoverable in the portal. Select **Save + publish**. [Learn more about API visibility](#api-visibility)
 1. On the **Semantic search**, optionally enable [semantic search](#search-with-ai) to enhance API discovery in the portal. Select **Save + publish**.
-1. On the **Metadata** tab, optionally select custom metadata properties that you want to expose in API details and make searchable in the API Center portal. Select **Save**.
+1. On the **Metadata** tab, optionally select custom metadata properties that you want to expose in API details and make available for semantic search. Select **Save**.
 1. Select **Save + publish**.
 
 ## Access the portal
 
-After publishing, you can now access the API Center portal:
+After publishing, you can now access the API Center portal in your browser.
 
 * On the portal's **Settings** page, select **View API Center portal** to open the portal in a new tab. 
 * Or, enter the following URL in your browser, replacing `<service-name>` and `<location>` with the name of your API center and the location where it's deployed:<br/>
@@ -60,7 +61,7 @@ By default, the portal home page is reachable publicly but requires sign-in to a
 
 ## API visibility
 
-API visibility settings control which APIs are discoverable (visible) to API Center portal users. The API Center portal uses the [Azure API Center data plane API](/rest/api/dataplane/apicenter/operation-groups) to retrieve and display APIs, and by default retrieves all APIs in your API center for signed-in users with Azure RBAC permissions. Visibility settings apply to all users of the API Center portal.
+API visibility settings control which APIs are discoverable (visible) to API Center portal users. The API Center portal uses the [Azure API Center data plane API](/rest/api/dataplane/apicenter/operation-groups) to retrieve and display APIs in your API center, and by default shows all APIs for signed-in users with Azure RBAC permissions. Visibility settings apply to all users of the API Center portal.
 
 To make only specific APIs visible, go to the **API visibility** tab in the API Center portal settings. Here, add filter conditions for APIs based on built-in properties. For instance, choose to display APIs only of certain types (like REST or GraphQL) or based on certain specification formats (such as OpenAPI).
 
@@ -68,7 +69,10 @@ To make only specific APIs visible, go to the **API visibility** tab in the API 
 
 ### Anonymous access
 
-Optionally enable anonymous read access to the API Center's APIs, allowing unauthenticated users to discover the API inventory by direct calls to the API Center data plane API. For example, enable this setting to make APIs and MCP servers in your API center discoverable to unauthenticated users when you [self-host](self-host-api-center-portal.md) the API Center portal.
+Optionally enable anonymous read access to the API Center's APIs,  which allows unauthenticated users to discover the API inventory by direct calls to the API Center data plane API. For example, enable this setting to make APIs discoverable to unauthenticated users when you [self-host](self-host-api-center-portal.md) the API Center portal.
+
+> [!CAUTION]
+> When enabling anonymous access, take care not to expose sensitive information in API definitions or settings.
 
 ## Enable sign-in to portal by Microsoft Entra users and groups 
 
