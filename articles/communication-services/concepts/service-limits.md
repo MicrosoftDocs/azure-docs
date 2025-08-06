@@ -186,10 +186,10 @@ For more information, see:
 - [Introduction to Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
 - [Grant limited access to Azure Storage resources by using shared access signatures](/azure/storage/common/storage-sas-overview)
 
-### Send Number of recipients in email larger than 50
+### Send email to more than 50 recipients
 
-If you want to send emails to larger than 50 recipients, make a [support request](../support.md).
-However, when sending emails via SMTP, you cannot request.
+If you want to send emails to more than 50 recipients, make a [support request](../support.md).
+However, sending emails via SMTP to more than 50 recipients is not supported. 
 
 ### Action to take
 
