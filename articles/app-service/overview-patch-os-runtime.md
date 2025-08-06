@@ -1,7 +1,7 @@
 ---
-title: OS and runtime patching cadence
+title: OS and Runtime Patching Cadence
 description: Learn how Azure App Service updates the OS and runtimes, what runtimes and patch level your apps has, and how you can get update announcements.
-ms.topic: article
+ms.topic: concept-article
 ms.date: 01/21/2021
 ms.update-cycle: 1095-days
 ms.custom:
@@ -10,6 +10,7 @@ ms.custom:
   - build-2025
 author: cephalin
 ms.author: cephalin
+# Customer intent: As an App Service user, I want to learn how Azure App Service updates the OS and runtimes, what runtimes and patch level my apps has, and I you can get update announcements.
 ---
 
 # OS and runtime patching in Azure App Service
@@ -86,7 +87,7 @@ The following table shows how to the versions of Windows and of the language run
 >
 >
 
-## More resources
+## Related content
 
-[Trust Center: Security](https://www.microsoft.com/en-us/trustcenter/security)  
-[64 bit ASP.NET Core on Azure App Service](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)
+- [Trust Center: Security](https://www.microsoft.com/en-us/trustcenter/security)  
+- [64 bit ASP.NET Core on Azure App Service](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)
