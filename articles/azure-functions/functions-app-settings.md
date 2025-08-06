@@ -518,6 +518,10 @@ This setting enables the Python worker to use shared memory to improve throughpu
 
 With this setting enabled, you can use the [DOCKER_SHM_SIZE](#docker_shm_size) setting to set the shared memory size. To learn more, see [Shared memory](functions-reference-python.md#shared-memory).
 
+## JAVA_APPLICATIONINSIGHTS_ENABLE_TELEMETRY
+
+Indicates whether the Java worker process should output telemetry in an Open Telemetry format to the Application Insights endpoint. Setting this flag to `True` tells the Functions host to let the Java worker process stream OpenTelemetry logs directly, which prevents duplicate host-level entries. For more information, see [Configure application settings](opentelemetry-howto.md?pivots=programming-language-java#configure-application-settings).
+
 ## JAVA_ENABLE_SDK_TYPES
 
 Enables your function app to use native Azure SDK types in bindings.
@@ -577,6 +581,14 @@ To avoid excessive module upgrades on frequent Worker restarts, checking for mod
 
 To learn more, see [Dependency management](functions-reference-powershell.md#dependency-management).
 
+## OTEL_EXPORTER_OTLP_ENDPOINT
+
+Indicates the URL to which OpenTelemetry-formatted data is exported for ingestion. For more information, see [Use OpenTelemetry with Azure Functions](opentelemetry-howto.md). 
+
+## OTEL_EXPORTER_OTLP_HEADERS
+
+Sets an optional list of headers that are applied to all outgoing data exported to an OpenTelemetry endpoint. You should use this setting when the OpenTelemetry endpoint requires to supply an API key. For more information, see [Use OpenTelemetry with Azure Functions](opentelemetry-howto.md). 
+
 ## PIP\_INDEX\_URL
 
 This setting lets you override the base URL of the Python Package Index, which by default is `https://pypi.org/simple`. Use this setting when you need to run a remote build using custom dependencies. These custom dependencies can be in a package index repository compliant with PEP 503 (the simple repository API) or in a local directory that follows the same format.
@@ -605,6 +617,10 @@ A [continuous deployment](./functions-continuous-deployment.md) setting that tel
 |---|------------|
 |PROJECT |`WebProject/WebProject.csproj` |
 
+## PYTHON_APPLICATIONINSIGHTS_ENABLE_TELEMETRY
+
+Indicates whether the Python worker process should output telemetry in an Open Telemetry format to the Application Insights endpoint. Setting this flag to `True` tells the Functions host to let the Python worker process export OpenTelemetry data to [Application Insights endpoint](#applicationinsights_connection_string). For more information, see [Configure application settings](opentelemetry-howto.md?pivots=programming-language-python#configure-application-settings).
+
 ## PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES
 
 The configuration is specific to Python function apps. It defines the prioritization of module loading order. By default, this value is set to `0`.
@@ -619,6 +635,10 @@ The configuration is specific to Python function apps. It defines the prioritiza
 Enables debug-level logging in a Python function app. A value of `1` enables debug-level logging. Without this setting or with a value of `0`, only information and higher-level logs are sent from the Python worker to the Functions host. Use this setting when debugging or tracing your Python function executions.
 
 When debugging Python functions, make sure to also set a debug or trace [logging level](functions-host-json.md#logging) in the host.json file, as needed. To learn more, see [How to configure monitoring for Azure Functions](configure-monitoring.md).
+
+## PYTHON_ENABLE_OPENTELEMETRY
+
+Indicates whether the Python worker process should export telemetry to an Open Telemetry endpoint. Setting this flag to `True` tells the Functions host to let the Python worker process export OpenTelemetry data to the configured [OTEL_EXPORTER_OTLP_ENDPOINT](#otel_exporter_otlp_endpoint). For more information, see [Configure application settings](opentelemetry-howto.md?pivots=programming-language-python#configure-application-settings).
 
 ## PYTHON\_ENABLE\_WORKER\_EXTENSIONS
 
