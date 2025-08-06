@@ -32,7 +32,7 @@ Below the essentials, you can navigate to other details about your resource by s
 
 - Get Started
 - Documentation on Microsoft Learn
-- Pure Storage support
+- [Pure Storage support](https://pure1.purestorage.com/)
 
 ## Create a Storage Pool
 
