@@ -1,6 +1,6 @@
 ---
 title: PostgreSQL least privilege configuration
-description: Learn about creating a minimally privileged PostgreSQL account for Azure Migrate, avoiding superuser access, and using a utility to simplify secure setup.
+description: Learn how to securely set up a minimally privileged PostgreSQL account for Azure Migrate without requiring superuser access, using a built-in utility to streamline configuration and enhance security.
 author: habibaum
 ms.author: v-uhabiba
 ms.service: azure-migrate 
@@ -10,7 +10,7 @@ ms.custom: engagement-fy24
 # Customer intent: Customers want to securely configure Azure Migrate for PostgreSQL discovery by creating custom accounts with minimal permissions. The goal is to avoid using superuser access while ensuring the appliance can collect necessary metadata for assessment.
 ---
 
-# Overview PostegreSQL
+# Create a least-privilege PostgreSQL account for Azure Migrate discovery and assessment
 
 This article explains how to create a custom PostgreSQL account with the minimum permissions required for Discovery and Assessment in Azure Migrate.
 
@@ -155,6 +155,6 @@ Use a least-privilege PostgreSQL account exclusively for Azure Migrate, regularl
 - After script execution, review the granted permissions to ensure they meet your security requirements.
 - If you encounter issues, see [PostgreSQL documentation](https://www.postgresql.org/docs/17/index.html) or contact your database administrator for support.
 
-## Next steps
+## Related content
 
-
+- [PostgreSQL workloads for Migration to Azure](tutorial-assess-postgresql.md)

@@ -1,6 +1,6 @@
 ---
 title: Review PostgreSQL assessment properties
-description: Describes the components of an assessment in Azure Migrate for PostgreSQL workloads.
+description: Explains how to assess PostgreSQL workloads in Azure Migrate, including key components, readiness evaluation, and migration planning.
 author: habibaum
 ms.author: v-uhabiba
 ms.service: azure-migrate 
@@ -10,7 +10,7 @@ ms.custom: engagement-fy24
 # Customer intent: Customers want to assess on-premises PostgreSQL workloads using Azure Migrate to prepare for migration to Azure Database for PostgreSQL flexible server. They aim to evaluate cloud readiness, risks, and costs through configuration-based assessments.
 ---
 
-# Tutorial: Review a PostgreSQL assessment
+# Tutorial: Review PostgreSQL assessment results and Migration recommendations
 
 This article explains the key components of a PostgreSQL assessment and how to review the results after the assessment is created.
 
@@ -120,4 +120,3 @@ To review readiness reports for different migration strategies:
     - **Recommended configuration**: Specific SKU recommendation based on assessment analysis.
     - **Cost variations**: Reflect differences in resource requirements across instances.
     
-## Next steps
