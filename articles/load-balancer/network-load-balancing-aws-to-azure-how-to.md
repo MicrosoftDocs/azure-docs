@@ -37,7 +37,7 @@ In this example, a gaming company operates a high-performance multiplayer gaming
 
 ### Architectural overview
 
-This architecture example showcases common network load balancing features in AWS and Azure, including multi-protocol support, static IP addresses, cross-zone distribution, and client IP preservation. The goal is to migrate this architecture from AWS NLB to Azure Load Balancer while maintaining equivalent functionality and performance. In our architecture diagram, TCP traffic represents session management services and UDP traffic represent real-time game data services.
+This architecture example showcases common network load balancing features in AWS and Azure, including multi-protocol support, static IP addresses, cross-zone distribution, and client IP preservation. The goal is to migrate this architecture from AWS Network Load Balancer to Azure Load Balancer while maintaining equivalent functionality and performance. In our architecture diagram, TCP traffic represents game session management services and UDP traffic represent real-time game data services.
 
 Here's the architecture of the gaming platform workload in AWS:
 
