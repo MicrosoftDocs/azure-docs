@@ -11,7 +11,7 @@ adobe-target: true
 
 # What is Azure App Testing?
 
-Azure App Testing lets developers and QA teams run large-scale functional and performance tests to identify issues in their applications. Azure App Testing allows you to run functiona tests with [Playwright Workspaces](playwright-workspaces\overview-what-is-microsoft-playwright-workspaces.md) and performance tests using [Azure Load Testing](load-testing\overview-what-is-azure-load-testing.md). Spend less time managing infrastructure and less effort harnessing AI-driven test automation to boost quality and innovation.
+Azure App Testing lets developers and QA teams run large-scale functional and performance tests to identify issues in their applications. Azure App Testing allows you to run functional tests with [Playwright Workspaces](playwright-workspaces\overview-what-is-microsoft-playwright-workspaces.md) and performance tests using [Azure Load Testing](load-testing\overview-what-is-azure-load-testing.md). Spend less time managing infrastructure and less effort harnessing AI-driven test automation to boost quality and innovation.
 
 Azure Load Testing enables you to generate high-scale load and simulate traffic for your applications, regardless of where they're hosted. It supports running Apache JMeter-based tests or Locust-based tests. It also enables generating load from multiple regions and enables you to test private application endpoints. It provides detailed metrics and insights into the performance of your application under load, helping you identify bottlenecks and optimize performance.
 

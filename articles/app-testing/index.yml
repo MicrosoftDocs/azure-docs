@@ -116,7 +116,7 @@ landingContent:
             url: playwright-workspaces/how-to-manage-authentication.md
 
   # Card
-  - title: Analyze load test test results
+  - title: Analyze load test results
     linkLists:
       - linkListType: how-to-guide
         links:
