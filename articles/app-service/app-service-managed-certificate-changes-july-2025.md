@@ -30,14 +30,14 @@ For a detailed explanation of the underlying changes at DigiCert, refer to [chan
 ## Impacted scenarios
 
 You can't create or renew ASMCs if your:
-1. Site is not publicly accessible.
+- Site is not publicly accessible:
    - Public accessibility to your app is required. If your app is only accessible through private configurations, such as requiring a client certificate, disabling public network access, using private endpoints, or applying IP restrictions, you can't create or renew a managed certificate.
    - Other configurations that restrict public access, such as firewalls, authentication gateways, or custom access policies, may also affect eligibility for managed certificate issuance or renewal.
 
-1. Site is an Azure Traffic Manager "nested" or "external" endpoint:
+- Site is an Azure Traffic Manager "nested" or "external" endpoint:
    - Only "Azure Endpoints" on Traffic Manager is supported for certificate creation and renewal.
    - "Nested endpoints" and "External endpoints" is not supported.
-1. Site relies on _*.trafficmanager.net_ domains.
+- Site relies on _*.trafficmanager.net_ domains:
    - Certificates for _*.trafficmanager.net_ domains is not supported for creation or renewal.
 
 Existing certificates remain valid until expiration (up to six months), but will not renew automatically if your configuration is unsupported.
@@ -95,7 +95,7 @@ To help identify affected Traffic Manager profiles across your subscriptions, we
 > 
 
 To run the script:
-1. Download the [Powershell script from GitHub](https://github.com/nimccoll/NonAzureTrafficManagerEndpoints).
+1. Download the [PowerShell script from GitHub](https://github.com/nimccoll/NonAzureTrafficManagerEndpoints).
 1. Open PowerShell and navigate to the script location.
 1. Run the script.
    ```
