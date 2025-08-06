@@ -142,6 +142,7 @@ Evaluate these differences during your assessment phase and determine if your wo
 
 > [!NOTE]
 > Measuring performance and reliability is crucial to ensure that the migrated workload meets the same ultra-low latency standards as the original AWS NLB setup. This includes monitoring response times, connection establishment latency, jitter, and packet loss rates to ensure that the Azure Load Balancer performs optimally for real-time scenarios.
+>
 > To ensure your migrated workload meets the performance and reliability criteria expected, establish baseline metrics from the AWS NLB before migration. This will allow you to compare the performance of the Azure Load Balancer after migration and ensure that it meets or exceeds the established benchmarks. Include all relevant metrics such as latency percentiles, concurrent connections, and packet loss rates in your baseline measurements.
 
 ## Step 2: Preparation
