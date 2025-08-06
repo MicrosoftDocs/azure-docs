@@ -71,7 +71,7 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Toll-free verification
 
-If you have a new toll-free number and want to send a [high volume of SMS messages](../../concepts/sms/sms-faq.md#what-happens-if-i-dont-verify-my-toll-free-numbers) or send SMS messages to Canadian phone numbers, see [SMS FAQ > Submit toll free verification](../../concepts/sms/sms-faq.md#how-do-i-submit-a-toll-free-verification) to learn how to verify your toll-free number.
+If you have a new toll-free number and want to send a [high volume of SMS messages](../../concepts/sms/sms-faq.md#what-happens-if-i-dont-verify-my-toll-free-numbers) or send SMS messages to Canadian phone numbers, see [SMS FAQ > Submit toll free verification](../../concepts/sms/sms-faq.md#how-do-i-submit-an-application-for-a-toll-free-verification) to learn how to verify your toll-free number.
 
 ## Next steps
 

@@ -71,6 +71,11 @@ sections:
           Yes.
 
       - question: |
+          When viewing my Traffic Analytics workbooks, my data doesn't load due to 'low memory error'. How can I fix this to view my data in workbook? 
+        answer: |
+          Traffic Analytics workbooks are powered by Log Analytics queries. If the query exceeds limits for log analytics, the workbook could present low memory errors. To improve performance and reduce low memory errors, users can use Dedicated Log Analytics Clusters.
+
+      - question: |
           Will I lose the data stored in Log Analytics workspace if I delete the storage account used for flow logging?
         answer: |
           No. If you delete the storage account that is used for flow logs, the data stored in Log Analytics workspace won't be affected. You can still view historic data in Log Analytics workspace (some metrics will be impacted) but traffic analytics will no longer process any new flow logs until you update the flow logs to use a different storage account.
@@ -129,6 +134,11 @@ sections:
           What are the other resources created with my workspace?
         answer: |
           Traffic analytics creates and manages data collection rule (DCR) and data collection endpoint (DCE) resources in the same resource group as the workspace, prefixed with `NWTA`. If you perform any operation on these resources, traffic analytics might not function as expected. For more information, see [Data aggregation in traffic analytics](./traffic-analytics-schema.md#data-aggregation). For more information, see [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview?toc=/azure/network-watcher/toc.json) and [Data collection endpoints in Azure Monitor](/azure/azure-monitor/essentials/data-collection-endpoint-overview?toc=/azure/network-watcher/toc.json).
+
+      - question: |
+          Can I apply locks to the DCE and DCR resources created by traffic analytics? 
+        answer: |
+          It is not recommended to apply locks to DCR and DCE resources created by traffic analytics as these resources are managed by the service. Notably, locked resources would not be cleaned up upon deletion of the related flow logs. If you perform any operation on these resources, traffic analytics might not function as expected. For more information, see [Data aggregation in traffic analytics](./traffic-analytics-schema.md#data-aggregation).
 
       - question: |
           How does traffic analytics decide that an IP is malicious? 

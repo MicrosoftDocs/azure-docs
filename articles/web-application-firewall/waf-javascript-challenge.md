@@ -52,6 +52,8 @@ The WAF policy setting defines the JavaScript challenge cookie validity lifetime
 
 - **Rate limit isn't supported**: The JavaScript challenge action on Application Gateway isn't supported for *Rate Limit* type custom rules during the public preview.
 
+- **Application Gateway for Containers WAF**: During the public preview of Application Gateway for Containers WAF JavaScript challenge is not supported.
+
 ## Related content
 
 - [Front Door Web Application Firewall CAPTCHA](./afds/captcha-challenge.md)

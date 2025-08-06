@@ -50,6 +50,8 @@ This article explains how the billing models for Azure Files work, so you can be
 ## Applies to
 | Management model | Billing model | Media tier | Redundancy | SMB | NFS |
 |-|-|-|-|:-:|:-:|
+| Microsoft.Storage | Provisioned v2 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v2 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
@@ -110,6 +112,8 @@ The provisioned v2 model is provided for file shares in storage accounts with th
 
 | **Storage account kind** | **Storage account SKU** | **Type of file share available** |
 |-|-|-|
+| FileStorage | PremiumV2_LRS | SSD provisioned v2 file shares with the Local (LRS) redundancy specified. |
+| FileStorage | PremiumV2_ZRS | SSD provisioned v2 file shares with the Zone (ZRS) redundancy specified. |
 | FileStorage | StandardV2_LRS | HDD provisioned v2 file shares with the Local (LRS) redundancy specified. |
 | FileStorage | StandardV2_ZRS | HDD provisioned v2 file shares with the Zone (ZRS) redundancy specified. |
 | FileStorage | StandardV2_GRS | HDD provisioned v2 file shares with the Geo (GRS) redundancy specified. |
@@ -123,28 +127,28 @@ Currently, these SKUs are generally available in a limited subset of regions:
 ### Provisioned v2 provisioning detail
 When you create a provisioned v2 file share, you specify the provisioned capacity for the file share in terms of storage, IOPS, and throughput. File shares are limited based on the following attributes:
 
-| **Item** | **HDD value** |
-|-|-|
-| Storage provisioning unit | 1 GiB |
-| IOPS provisioning unit | 1 IO / sec |
-| Throughput provisioning unit | 1 MiB / sec |
-| Minimum provisioned storage per file share | 32 GiB |
-| Minimum provisioned IOPS per file share | 500 IOPS |
-| Minimum provisioned throughput per file share | 60 MiB / sec |
-| Maximum provisioned storage per file share | 256 TiB (262,144 GiB) |
-| Maximum provisioned IOPS per file share | 50,000 IOPS |
-| Maximum provisioned throughput per file share | 5,120 MiB / sec |
-| Maximum provisioned storage per storage account | 4 PiB (4,194,304 GiB) |
-| Maximum provisioned IOPS per storage account | 50,000 IOPS |
-| Maximum provisioned throughput per storage account | 5,120 MiB / sec |
-| Maximum number of file shares per storage account | 50 file shares |
+| Item | SSD value | HDD value |
+|-|-|-|
+| Storage provisioning unit | 1 GiB | 1 GiB |
+| IOPS provisioning unit | 1 IO / sec | 1 IO / sec |
+| Throughput provisioning unit | 1 MiB / sec | 1 MiB / sec |
+| Minimum provisioned storage per file share | 32 GiB | 32 GiB |
+| Minimum provisioned IOPS per file share | 3,000 IOPS | 500 IOPS |
+| Minimum provisioned throughput per file share | 100 MiB / sec | 60 MiB / sec |
+| Maximum provisioned storage per file share | 256 TiB (262,144 GiB) | 256 TiB (262,144 GiB) |
+| Maximum provisioned IOPS per file share | 102,400 IOPS | 50,000 IOPS |
+| Maximum provisioned throughput per file share | 10,340 MiB / sec | 5,120 MiB / sec |
+| Maximum provisioned storage per storage account | 256 TiB (262,144 GiB) | 4 PiB (4,194,304 GiB) |
+| Maximum provisioned IOPS per storage account | 102,400 IOPS | 50,000 IOPS |
+| Maximum provisioned throughput per storage account | 10,340 MiB / sec | 5,120 MiB / sec |
+| Maximum number of file shares per storage account | 50 file shares | 50 file shares |
 
 By default, we recommended IOPS and throughput provisioning based on the provisioned storage you specify. These recommendation formulas are based on typical customer usage for that amount of provisioned storage for that media tier in Azure Files:
 
-| **Formula name** | **HDD formula** |
-|-|-|
-| IOPS recommendation | `MIN(MAX(1000 + CEILING(0.2 * ProvisionedStorageGiB), 500), 50000)` |
-| Throughput recommendation | `MIN(MAX(60 + CEILING(0.02 * ProvisionedStorageGiB), 60), 5120)` |
+| Formula name | SSD formula | HDD formula |
+|-|-|-|
+| IOPS recommendation | `MIN(MAX(3000 + CEILING(1 * ProvisionedStorageGiB), 3000), 102400)` | `MIN(MAX(1000 + CEILING(0.2 * ProvisionedStorageGiB), 500), 50000)` |
+| Throughput recommendation | `MIN(MAX(100 + CEILING(0.1 * ProvisionedStorageGiB), 100), 10340)` | `MIN(MAX(60 + CEILING(0.02 * ProvisionedStorageGiB), 60), 5120)` |
 
 Depending on your individual file share requirements, you might find that you require more or less IOPS or throughput than our recommendations. You can optionally override these recommendations with your own values as desired.
 
@@ -161,22 +165,24 @@ Share credits have three states:
 
 A new file share starts with the full number of credits in its burst bucket. Burst credits don't accrue if the share IOPS fall below the provisioned limit due to throttling by the server. The following formulas are used to determine the burst IOPS limit and the number of credits possible for a file share:
 
-| **Item** | **HDD formula** |
-|-|-|
-| Burst IOPS limit | `MIN(MAX(3 * ProvisionedIOPS, 5000), 50000)` |
-| Burst IOPS credits | `(BurstLimit - ProvisionedIOPS) * 3600` |
+| Item | SSD formula | HDD formula |
+|-|-|-|
+| Burst IOPS limit | `MIN(MAX(3 * ProvisionedIOPS, 10000), 102400)` | `MIN(MAX(3 * ProvisionedIOPS, 5000), 50000)` |
+| Burst IOPS credits | `(BurstLimit - ProvisionedIOPS) * 3600` | `(BurstLimit - ProvisionedIOPS) * 3600` |
 
 The following table illustrates a few examples of these formulas for various provisioned IOPS amounts:
 
-| **Provisioned IOPS** | **HDD burst IOPS limit** | **HDD burst credits** |
-|-|-|-|
-| 500 | Up to 5,000 | 16,200,000 |
-| 1,000 | Up to 5,000 | 14,400,000 |
-| 3,000 | Up to 9,000 | 21,600,000 |
-| 5,000 | Up to 15,000 | 36,000,000 |
-| 10,000 | Up to 30,000 | 72,000,000 |
-| 25,000 | Up to 50,000 | 90,000,000 |
-| 50,000 | Up to 50,000 | 0 |
+| Provisioned IOPS | SSD burst IOPS limit | SSD burst credits | HDD burst IOPS limit | HDD burst credits |
+|-|-|-|-|-|
+| 500 | -- | -- | Up to 5,000 | 16,200,000 |
+| 1,000 | -- | -- | Up to 5,000 | 14,400,000 |
+| 3,000 | Up to 10,000 | 25,200,000 | Up to 9,000 | 21,600,000 |
+| 5,000 | Up to 15,000 | 36,000,000 | Up to 15,000 | 36,000,000 |
+| 10,000 | Up to 30,000 | 72,000,000 | Up to 30,000 | 72,000,000 |
+| 25,000 | Up to 75,000 | 180,000,000 | Up to 50,000 | 90,000,000 |
+| 50,000 | Up to 102,400 | 188,640,000 | Up to 50,000 | 0 |
+| 75,000 | Up to 102,400 | 98,640,000 | -- | -- |
+| 102,400 | Up to 102,400 | 0 | -- | -- |
 
 ### Provisioned v2 snapshots
 Azure Files supports snapshots, which are similar to volume shadow copies (VSS) on Windows File Server. For more information on share snapshots, see [Overview of snapshots for Azure Files](storage-snapshots-files.md).

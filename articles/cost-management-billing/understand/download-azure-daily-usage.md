@@ -58,15 +58,26 @@ To view and download usage data for a billing profile, you must be a billing pro
 
 Use the following information to download your Azure usage file.
 
-### Download usage file
+### Download usage file from the billing account or billing profile overview page
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for *Cost Management + Billing*.
 1. If necessary, select a billing scope.
 1. On the billing scope overview page, at the bottom of the page under **Shortcuts**, select **Download usage and prices**.
 1. On the Download usage and prices page, under **Azure usage file**, select **Prepare**. A notification message appears stating that the usage file is being prepared.
-    :::image type="content" source="./media/download-azure-daily-usage/download-usage-prices.png" border="true" alt-text="Screenshot showing navigation to Download usage and prices." lightbox="./media/download-azure-daily-usage/download-usage-prices.png" :::
-3. When the file is ready to download, select **Download**. If you missed the notification, you can view it from **Notifications** area in top right of the Azure portal (the bell symbol).
+ :::image type="content" source="./media/download-azure-daily-usage/download-usage-prices.png" border="true" alt-text="Screenshot showing navigation to Download usage and prices." lightbox="./media/download-azure-daily-usage/download-usage-prices.png" :::
+1. When the file is ready to download, select **Download**. If you missed the notification, you can view it from **Notifications** area in top right of the Azure portal (the bell symbol).
+
+### Download the usage file from the Invoices page
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for *Cost Management + Billing*.
+1. If necessary, select a billing scope.
+1. Select Billing>Invoices
+
+1. On the invoice list view, click the ellipses at the end of any invoice and select "Prepare Azure usage file".
+
+1. You can also download the Azure usage file from the invoice details page.
 
 #### Calculate discount in the usage file
 
@@ -125,7 +136,12 @@ To learn more about your invoice and usage charges, see:
 If you have a Microsoft Customer Agreement, see:
 
 - [Understand terms on your Microsoft Customer Agreement Azure detailed usage](mca-understand-your-usage.md)
+
 - [Understand the charges on your Microsoft Customer Agreement invoice](review-customer-agreement-bill.md)
+
 - [View and download your Microsoft Azure invoice](download-azure-invoice.md)
+
 - [View and download tax documents for your Microsoft Customer Agreement](mca-download-tax-document.md)
+
 - [View and download your organization's Azure pricing](../manage/ea-pricing.md)
+

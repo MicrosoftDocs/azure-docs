@@ -7,7 +7,7 @@ ms.author: patricka
 ms.topic: concept-article
 ms.custom:
   - ignite-2023
-ms.date: 06/30/2025
+ms.date: 07/08/2025
 
 #CustomerIntent: As an operator, I want understand how to use Azure IoT Operations networking to secure my devices.
 ms.service: azure-iot-operations
@@ -33,11 +33,11 @@ For more information, see [Access Azure services over Azure Firewall Explicit Pr
 
 In industries like manufacturing, segmented networking architectures (such as the [Purdue Network Architecture](https://en.wikipedia.org/wiki/Purdue_Enterprise_Reference_Architecture)) are common. These architectures create layers that minimize or block lower-level segments from connecting to the internet. Azure IoT Operations supports secure management of devices in these layered networks using open, industry-recognized software, and Kubernetes-based configuration.
 
-A [layered networking guidance sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/layered-networking) is available  in the Azure IoT Operations samples repository. It demonstrates how to:
+A [layered networking guidance sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/layered-networking) is available in the Azure IoT Operations samples repository. The guidance describes the environment Microsoft uses to validate Azure IoT Operations deployments in a layered network. The sample and guidance show how to:
 
-- Use Kubernetes-based configuration and networking primitives for layered environments
-- Connect devices in isolated networks at scale to [Azure Arc](/azure/azure-arc/) for application lifecycle management and remote configuration
-- Enforce security and governance across network levels with URL/IP allowlists and connection auditing
-- Ensure compatibility with all Azure IoT Operations services
+- Use Kubernetes-based configuration and networking primitives for layered environments.
+- Connect devices in isolated networks at scale to [Azure Arc](/azure/azure-arc/) for application lifecycle management and remote configuration.
+- Enforce security and governance across network levels with URL/IP allowlists and connection auditing.
+- Ensure compatibility with all Azure IoT Operations services.
 
 [!INCLUDE [retirement-notice](includes/retirement-notice.md)]

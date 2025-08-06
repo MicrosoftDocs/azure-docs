@@ -6,8 +6,8 @@ ms.topic: quickstart
 ms.date: 12/10/2024
 ms.custom: mvc, devx-track-azurecli, mode-api, engagement-fy24
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a database administrator, I want to back up my SAP HANA databases on Azure using CLI commands, so that I can ensure data protection and meet recovery objectives efficiently."
 ---
 

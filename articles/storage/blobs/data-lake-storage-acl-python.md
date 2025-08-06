@@ -2,9 +2,9 @@
 title: Use Python to manage ACLs in Azure Data Lake Storage
 titleSuffix: Azure Storage
 description: Use Python manage access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.service: azure-data-lake-storage
 ms.date: 09/06/2024
 ms.topic: how-to
@@ -202,3 +202,4 @@ To see an example that processes ACLs recursively in batches by specifying a bat
 - [Give Feedback](https://github.com/Azure/azure-sdk-for-python/issues)
 - [Access control model in Azure Data Lake Storage](data-lake-storage-access-control.md)
 - [Access control lists (ACLs) in Azure Data Lake Storage](data-lake-storage-access-control.md)
+

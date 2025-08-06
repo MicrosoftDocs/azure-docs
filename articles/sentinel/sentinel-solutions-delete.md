@@ -1,10 +1,10 @@
 ---
 title: Delete installed Microsoft Sentinel out-of-the-box content and solutions
 description: Remove solutions and content you deployed in Microsoft Sentinel.
-author: cwatson-cat
+author: EdB-MSFT
 ms.topic: how-to
 ms.date: 03/01/2024
-ms.author: cwatson
+ms.author: edbaynash
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal

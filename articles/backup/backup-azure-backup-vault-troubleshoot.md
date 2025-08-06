@@ -2,10 +2,10 @@
 title: Troubleshoot Azure Backup Vault
 description: Symptoms, causes, and resolutions of the Azure Backup Vault related operations.
 ms.topic: troubleshooting
-ms.date: 07/18/2024
+ms.date: 07/16/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a backup administrator, I want to troubleshoot Azure Backup Vault management errors, so that I can resolve issues related to System and User Identities efficiently."
 ---
 
@@ -27,6 +27,10 @@ This article provides troubleshooting steps that help you resolve Azure Backup V
 
 **Resolution:** To resolve this error, assign the same or alternate User Identity to the Backup Vault and update the Backup Instance to use the new identity in latter case. Otherwise, enable the System Identity of the Backup Vault, update the Backup Instance and assign all the necessary roles to it. 
 
-## Next steps
+## Related content
 
-- [About Azure Backup Vault](create-manage-backup-vault.md)
+- [About Azure Backup Vault](create-manage-backup-vault.md).
+- [Create and delete Backup vaults](create-manage-backup-vault.md).
+- [Manage Backup vaults](manage-backup-vault.md).
+
+
