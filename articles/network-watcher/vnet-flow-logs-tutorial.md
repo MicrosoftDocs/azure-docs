@@ -220,7 +220,7 @@ In this section, you go to the storage account you previously selected and downl
    :::image type="content" source="./media/vnet-flow-logs-tutorial/flow-log-file.png" alt-text="Screenshot showing how to download virtual network flow log data from the storage account in the Azure portal." lightbox="./media/vnet-flow-logs-tutorial/flow-log-file.png":::
 
 > [!NOTE]
-> You can use Azure Storage Explorer to access and download flow logs from your storage account. Fore more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+> You can use Azure Storage Explorer to access and download flow logs from your storage account. For more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 ## View the flow log
 
