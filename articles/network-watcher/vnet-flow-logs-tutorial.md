@@ -95,7 +95,7 @@ In this section, you create **myVM** virtual machine.
     | Virtual network | Select **myVNet**. |
     | Subnet | Select **mySubnet**. |
     | Public IP | Select **(new) myVM-ip**. |
-    | NIC network security group | Select **Basic**. This setting creates a network security group named **myVM-nsg** and associates it with the network interface of **myVM** virtual machine. |
+    | NIC network security group | Select **Basic**. |
     | Public inbound ports | Select **Allow selected ports**. |
     | Select inbound ports | Select **RDP (3389)**. |
 
@@ -156,7 +156,7 @@ In this section, you create a storage account to use it to store the flow logs.
 
 ## Create a flow log
 
-In this section, you create an NSG flow log that's saved into the storage account created previously in the tutorial.
+In this section, you create a virtual network flow log that's saved into the storage account created previously in the tutorial.
 
 1. In the search box at the top of the portal, enter ***network watcher***. Select **Network Watcher** from the search results.
 
@@ -199,7 +199,7 @@ In this section, you create an NSG flow log that's saved into the storage accoun
 
 ## Download the flow log
 
-In this section, you go to the storage account you previously selected and download the NSG flow log created in the previous section.
+In this section, you go to the storage account you previously selected and download the flow log created in the previous section.
 
 1. In the search box at the top of the portal, enter ***storage accounts***. Select **Storage accounts** from the search results.
 
@@ -289,5 +289,5 @@ When no longer needed, delete **myResourceGroup** resource group and all of the 
 ## Related content
 
 - [Virtual network flow logs](vnet-flow-logs-overview.md)
-- [Create, change, enable, disable, or delete virtual network flow logs](nsg-flow-logs-manage.md)
+- [Create, change, enable, disable, or delete virtual network flow logs](vnet-flow-logs-manage.md)
 - [Traffic analytics overview](traffic-analytics.md)
