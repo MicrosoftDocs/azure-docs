@@ -1,12 +1,15 @@
 ---
-title: Ways to monitor Azure NetApp Files | Microsoft Docs
+title: Ways to monitor Azure NetApp Files
 description: Describes ways to monitor Azure NetApp Files, including the Activity log, metrics, and capacity utilization monitoring.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 01/24/2022
+ms.date: 04/18/2025
 ms.author: anfdocs
+ms.custom:
+  - build-2025
+# Customer intent: As an IT admin managing Azure NetApp Files, I want to monitor activity logs, metrics, and capacity utilization, so that I can ensure optimal performance and resource management of my storage solution.
 ---
 # Ways to monitor Azure NetApp Files
 

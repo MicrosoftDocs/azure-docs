@@ -152,7 +152,7 @@ To control the way that an action tries to rerun in your workflow when intermitt
 
 ## Handle exceptions and errors
 
-In Azure Scheduler, if the default action fails to run, you can run an alterative action that addresses the error condition. In Azure Logic Apps, you can also perform the same task. For more information about exception handling in Azure Logic Apps, see [Handle errors and exceptions - RunAfter property](../logic-apps/logic-apps-exception-handling.md#control-run-after-behavior).
+In Azure Scheduler, if the default action fails to run, you can run an alternative action that addresses the error condition. In Azure Logic Apps, you can also perform the same task. For more information about exception handling in Azure Logic Apps, see [Handle errors and exceptions - RunAfter property](../logic-apps/logic-apps-exception-handling.md#control-run-after-behavior).
 
 1. In the designer, above the action that you want to handle, [add a parallel branch](../logic-apps/logic-apps-control-flow-branches.md).
 

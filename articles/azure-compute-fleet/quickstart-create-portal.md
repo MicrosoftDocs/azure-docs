@@ -9,6 +9,7 @@ ms.custom:
   - build-2024
 ms.date: 04/21/2025
 ms.reviewer: jushiman
+# Customer intent: As a cloud administrator, I want to deploy a Compute Fleet through the cloud portal, so that I can efficiently manage my virtual machine resources for various applications.
 ---
 
 # Create an Azure Compute Fleet using Azure portal 

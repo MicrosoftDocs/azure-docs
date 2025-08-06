@@ -4,6 +4,7 @@ description: Learn about the built-in authentication and authorization support i
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: conceptual
 ms.date: 03/28/2025
+ms.update-cycle: 1095-days
 ms.reviewer: mahender
 ms.custom: UpdateFrequency3, fasttrack-edit, AppServiceIdentity
 author: cephalin
@@ -13,8 +14,6 @@ ms.author: cephalin
 # Authentication and authorization in Azure App Service and Azure Functions
 
 Azure App Service provides built-in authentication (signing in users) and authorization (providing access to secure data) capabilities. These capabilities are sometimes called *Easy Auth*. You can use them to sign in users and access data by writing little or no code in your web app, RESTful API, mobile server, and [functions](../azure-functions/functions-overview.md).
-
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 This article describes how App Service helps simplify authentication and authorization for your app.
 
@@ -183,7 +182,7 @@ Disable [Azure Front Door caching](../frontdoor/front-door-caching.md) for the a
 
 ### Use the Azure Front Door endpoint for redirects
 
-App Service is usually not accessible directly when it's exposed by Azure Front Door. You can prevent this behavior, for example, by exposing App Service by using Azure Private Link in Azure Front Door Premium. To prevent the authentication workflow from redirecting traffic back to App Service directly, it's important to configure the application to redirect back to `https://<front-door-endpoint>/.auth/login/<provider>/callback`.
+App Service is usually not accessible directly when it's exposed by Azure Front Door. You can prevent this behavior, for example, by exposing App Service by using Azure Private Link in Azure Front Door Premium. To prevent the authentication workflow from redirecting traffic back to App Service directly. For more information, see [Redirect URI](/entra/identity-platform/reply-url).
 
 ### Ensure that App Service is using the right redirect URI
 

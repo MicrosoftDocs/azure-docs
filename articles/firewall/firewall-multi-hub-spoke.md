@@ -7,6 +7,7 @@ ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 03/17/2025
 ms.author: maroja
+# Customer intent: "As a network architect, I want to implement Azure Firewall in a multi hub and spoke topology, so that I can efficiently route and secure traffic between various virtual networks while simplifying network management."
 ---
 
 # Use Azure Firewall to route a multi hub and spoke topology

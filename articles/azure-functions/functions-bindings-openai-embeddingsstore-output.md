@@ -2,15 +2,17 @@
 title: Azure OpenAI embeddings store output binding for Azure Functions
 description: Learn how to use the Azure OpenAI embeddings store output binding to write searchable content to a semantic document store during function execution in Azure Functions.
 ms.topic: reference
-ms.custom: 
+ms.custom:
   - build-2024
   - devx-track-extended-java
   - devx-track-js
   - devx-track-python
   - devx-track-ts
+  - build-2025
 ms.collection: 
   - ce-skilling-ai-copilot
-ms.date: 01/07/2025
+ms.date: 05/15/2025
+ms.update-cycle: 180-days
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -29,13 +31,13 @@ For information on setup and configuration details of the Azure OpenAI extension
 ::: zone pivot="programming-language-csharp"  
 This example writes an HTTP input stream to a semantic document store at the provided URL. 
 
-:::code language="csharp" source="~/functions-openai-extension/samples/rag-aisearch/csharp-ooproc/FilePrompt.cs" range="29-70"::: 
+:::code language="csharp" source="~/functions-openai-extension/samples/rag-aisearch/csharp-ooproc/FilePrompt.cs" range="17-21,29-66"::: 
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"
 This example writes an HTTP input stream to a semantic document store at the provided URL. 
 
-:::code language="java" source="~/functions-openai-extension/samples/rag-aisearch/java/src/main/java/com/azfs/FilePrompt.java" range="24-68":::
+:::code language="java" source="~/functions-openai-extension/samples/rag-aisearch/java/src/main/java/com/azfs/FilePrompt.java" range="29-73":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript" 
@@ -66,7 +68,7 @@ For more information about *function.json* file properties, see the [Configurati
 ::: zone pivot="programming-language-python"  
 This example writes an HTTP input stream to a semantic document store at the provided URL. 
 
-:::code language="python" source="~/functions-openai-extension/samples/rag-aisearch/python/function_app.py" range="8-25":::
+:::code language="python" source="~/functions-openai-extension/samples/rag-aisearch/python/function_app.py" range="8-35":::
 
 ::: zone-end  
 <!--- End code examples section -->  
@@ -78,11 +80,12 @@ Apply the `EmbeddingsStoreOutput` attribute to define an embeddings store output
 | Parameter | Description |
 | --------- | ----------- |
 | **Input** | The input string for which to generate embeddings. |
-| **Model** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
+| **AIConnectionName** |  _Optional_. Gets or sets the name of the configuration section for AI service connectivity settings. For Azure OpenAI: If specified, looks for "Endpoint" and "Key" values in this configuration section. If not specified or the section doesn't exist, falls back to environment variables: AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_KEY. For user-assigned managed identity authentication, this property is required. For OpenAI service (non-Azure), set the OPENAI_API_KEY environment variable.|
+| **EmbeddingsModel** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
 | **MaxChunkLength** | _Optional_. The maximum number of characters used for chunking the input. For more information, see [Usage](#usage).|
 | **MaxOverlap** | _Optional_. Gets or sets the maximum number of characters to overlap between chunks.|
 | **InputType** | _Optional_. Gets the type of the input. |
-| **ConnectionName** | The name of an app setting or environment variable that contains the connection string value. This property supports binding expressions. |
+| **StoreConnectionName** | The name of an app setting or environment variable that contains the connection string value. This property supports binding expressions. |
 | **Collection** | The name of the collection or table or index to search. This property supports binding expressions.|
 
 ::: zone-end
@@ -95,11 +98,12 @@ The `EmbeddingsStoreOutput` annotation enables you to define an embeddings store
 | ------- | ----------- |
 | **name** | Gets or sets the name of the output binding. |
 | **input** | The input string for which to generate embeddings. |
-| **model** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
+| **aiConnectionName** |  _Optional_. Gets or sets the name of the configuration section for AI service connectivity settings. For Azure OpenAI: If specified, looks for "Endpoint" and "Key" values in this configuration section. If not specified or the section doesn't exist, falls back to environment variables: AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_KEY. For user-assigned managed identity authentication, this property is required. For OpenAI service (non-Azure), set the OPENAI_API_KEY environment variable.|
+| **embeddingsModel** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
 | **maxChunkLength** | _Optional_. The maximum number of characters used for chunking the input. For more information, see [Usage](#usage).|
 | **maxOverlap** | _Optional_. Gets or sets the maximum number of characters to overlap between chunks.|
 | **inputType** |  _Optional_. Gets the type of the input. |
-| **connectionName** | The name of an app setting or environment variable that contains the connection string value. This property supports binding expressions. |
+| **storeConnectionName** | The name of an app setting or environment variable that contains the connection string value. This property supports binding expressions. |
 | **collection** | The name of the collection or table or index to search. This property supports binding expressions.|
 
 ::: zone-end  
@@ -112,11 +116,12 @@ During the preview, define the output binding as a `generic_output_binding` bind
 |---------|-------------|
 | **arg_name** | The name of the variable that represents the binding parameter. |
 | **input** | The input string for which to generate embeddings. |
-| **model** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
+| **ai_connection_name** |  _Optional_. Gets or sets the name of the configuration section for AI service connectivity settings. For Azure OpenAI: If specified, looks for "Endpoint" and "Key" values in this configuration section. If not specified or the section doesn't exist, falls back to environment variables: AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_KEY. For user-assigned managed identity authentication, this property is required. For OpenAI service (non-Azure), set the OPENAI_API_KEY environment variable.|
+| **embeddings_model** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
 | **maxChunkLength** | _Optional_. The maximum number of characters used for chunking the input. For more information, see [Usage](#usage).|
 | **max_overlap** | _Optional_. Gets or sets the maximum number of characters to overlap between chunks.|
 | **input_type** | Gets the type of the input. |
-| **connection_name** | The name of an app setting or environment variable that contains the connection string value. This property supports binding expressions. |
+| **store_connection_name** | The name of an app setting or environment variable that contains the connection string value. This property supports binding expressions. |
 | **collection** | The name of the collection or table or index to search. This property supports binding expressions.|
 
 ::: zone-end
@@ -131,11 +136,12 @@ The binding supports these configuration properties that you set in the function
 | **direction** | Must be `out`. |
 | **name** | The name of the output binding. |
 | **input** | The input string for which to generate embeddings. |
-| **model** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
+| **aiConnectionName** |  _Optional_. Gets or sets the name of the configuration section for AI service connectivity settings. For Azure OpenAI: If specified, looks for "Endpoint" and "Key" values in this configuration section. If not specified or the section doesn't exist, falls back to environment variables: AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_KEY. For user-assigned managed identity authentication, this property is required. For OpenAI service (non-Azure), set the OPENAI_API_KEY environment variable.|
+| **embeddingsModel** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
 | **maxChunkLength** | _Optional_. The maximum number of characters used for chunking the input. For more information, see [Usage](#usage).|
 | **maxOverlap** | _Optional_. Gets or sets the maximum number of characters to overlap between chunks.|
 | **inputType** | _Optional_. Gets the type of the input. |
-| **connectionName** | The name of an app setting or environment variable that contains the connection string value. This property supports binding expressions. |
+| **storeConnectionName** | The name of an app setting or environment variable that contains the connection string value. This property supports binding expressions. |
 | **collection** | The name of the collection or table or index to search. This property supports binding expressions.|
 
 ::: zone-end  
@@ -147,11 +153,12 @@ The binding supports these properties, which are defined in your code:
 |Property | Description |
 |-----------------------|-------------|
 | **input** | The input string for which to generate embeddings. |
-| **model** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
+| **aiConnectionName** |  _Optional_. Gets or sets the name of the configuration section for AI service connectivity settings. For Azure OpenAI: If specified, looks for "Endpoint" and "Key" values in this configuration section. If not specified or the section doesn't exist, falls back to environment variables: AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_KEY. For user-assigned managed identity authentication, this property is required. For OpenAI service (non-Azure), set the OPENAI_API_KEY environment variable.|
+| **embeddingsModel** | _Optional_. The ID of the model to use, which defaults to `text-embedding-ada-002`. You shouldn't change the model for an existing database. For more information, see [Usage](#usage). |
 | **maxChunkLength** | _Optional_. The maximum number of characters used for chunking the input. For more information, see [Usage](#usage).|
 | **maxOverlap** | _Optional_. Gets or sets the maximum number of characters to overlap between chunks.|
 | **inputType** | _Optional_. Gets the type of the input. |
-| **connectionName** | The name of an app setting or environment variable that contains the connection string value. This property supports binding expressions. |
+| **storeConnectionName** | The name of an app setting or environment variable that contains the connection string value. This property supports binding expressions. |
 | **collection** | The name of the collection or table or index to search. This property supports binding expressions.|
 
 ::: zone-end  

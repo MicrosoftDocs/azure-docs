@@ -1041,7 +1041,6 @@ Returns Microsoft Entra token for a given audience, name (optional). The table b
 | Azure Management                                      | `AzureManagement`                     |
 | Azure SQL Data Warehouse (Dedicated and Serverless)   | `DW`                                  |
 | Azure Synapse                                         | `Synapse`                             |
-| Azure Data Lake Store                                 | `DataLakeStore`                       |
 | Azure Data Factory                                    | `ADF`                                 |
 | Azure Data Explorer                                   | `AzureDataExplorer`                   |
 | Azure Database for MySQL                              | `AzureOSSDB`                          |

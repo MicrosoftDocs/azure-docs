@@ -5,7 +5,8 @@ ms.topic: conceptual
 ms.custom:
   - ignite-2023
   - build-2024
-ms.date: 11/15/2023
+  - build-2025
+ms.date: 04/30/2025
 author: george-guirguis
 ms.author: geguirgu
 ms.subservice: mqtt
@@ -22,7 +23,7 @@ MQTT v5 introduced many improvements over MQTT v3.1.1 to deliver a more seamless
 - More control to clients over the communication through features like message and session expiry.
 - Standard important patterns like the request-response pattern.
 
-## Connection flow:
+## Connection flow
 
 Your MQTT clients *must* connect over TLS 1.2 or TLS 1.3. Attempts to skip this step fail with connection. 
 
@@ -52,7 +53,7 @@ Before using this feature, you need to configure the namespace to allow multiple
 >[!NOTE] 
 >For the Azure CLI configuration, update the **MaxClientSessionsPerAuthenticationName** property in the namespace payload with the desired value.
 
-#### Connection flow:
+#### Connection flow
 The CONNECT packets for each session should include the following properties:
 - Provide the Username property in the CONNECT packet to signify your client authentication name.
 - Provide the ClientID property in the CONNECT packet to signify the session name such as there are one or more values for the ClientID for each Username.
@@ -73,7 +74,7 @@ For example, the following combinations of Username and ClientIds in the CONNECT
 
 For more information, see [How to establish multiple sessions for a single client.](mqtt-establishing-multiple-sessions-per-client.md) 
 
-#### Handling sessions:
+#### Handling sessions
 
 - If a client tries to take over another client's active session by presenting its session name with a different authentication name, its connection request is rejected with an unauthorized error. For example, if Client B tries to connect to session 123 that is assigned at that time for client A, Client B's connection request is rejected. That being said, if the same client tries to reconnect with the same session names and the same authentication name, it's able to take over its existing session.
 - If a client resource is deleted without ending its session, other clients can't use its session name until the session expires. For example, If client B creates a session with session name 123 then client B gets deleted, client A can't connect to session 123 until it expires.
@@ -86,7 +87,7 @@ Azure Event Grid’s MQTT broker feature supports the following MQTT features:
 MQTT broker supports QoS 0 and 1, which define the guarantee of message delivery on PUBLISH and SUBSCRIBE packets between clients and MQTT broker. QoS 0 guarantees at-most-once delivery; messages with QoS 0 aren’t acknowledged by the subscriber nor get retransmitted by the publisher. QoS 1 guarantees at-least-once delivery; messages are acknowledged by the subscriber and get retransmitted by the publisher if they didn’t get acknowledged. QoS enables your clients to control the efficiency and reliability of the communication.
 
 ### Persistent sessions
-MQTT broker supports persistent sessions for MQTT v3.1.1 such that MQTT broker preserves information about a client’s session in case of disconnections to ensure reliability of the communication. This information includes the client’s subscriptions and missed/ unacknowledged QoS 1 messages. Clients can configure a persistent session through setting the cleanSession flag in the CONNECT packet to false.
+MQTT broker supports persistent sessions for MQTT v3.1.1 such that MQTT broker preserves information about a client’s session when it gets disconnected to ensure reliability of the communication. This information includes the client’s subscriptions and missed/ unacknowledged QoS 1 messages. Clients can configure a persistent session through setting the cleanSession flag in the CONNECT packet to false.
 
 #### Clean start and session expiry
 MQTT v5 introduced the clean start and session expiry features as an improvement over MQTT v3.1.1 in handling session persistence. Clean Start is a feature that allows a client to start a new session with MQTT broker, discarding any previous session data. Session Expiry allows a client to inform MQTT broker when an inactive session is considered expired and automatically removed. In the CONNECT packet, a client can set Clean Start flag to true and/or short session expiry interval for security reasons or to avoid any potential data conflicts that might have occurred during the previous session. A client can also set a clean start to false and/or long session expiry interval to ensure the reliability and efficiency of persistent sessions.
@@ -104,7 +105,7 @@ MQTT broker maintains a queue of messages for each active MQTT session that isn'
 
 ### Last Will and Testament (LWT) messages
 Last Will and Testament (LWT) notifies your MQTT clients with the abrupt disconnections of other MQTT clients. You can use LWT to ensure predictable and reliable flow of communication among MQTT clients during unexpected disconnections, which is valuable for scenarios where real-time communication, system reliability, and coordinated actions are critical. Clients that collaborate to perform complex tasks can react to LWT messages from each other by adjusting their behavior, redistributing tasks, or taking over certain responsibilities to maintain the system’s performance and stability.
-To use LWT, a client can specify the will message, will topic, and the rest of the will properties in the CONNECT packet during connection. When the client disconnects abruptly, the MQTT broker publishes the will message to all the clients that subscribed to the will topic. To reduce the noise from fluctuating disconnections, the client can set the will delay interval to a value greater than zero. In that case, if the client disconnects abruptly but restores the connection before the will delay interval expires, the will message isn't published.
+To use LWT, a client can specify the will message, will topic, and the rest of the will properties in the CONNECT packet during connection. When the client disconnects abruptly, the MQTT broker publishes the will message to all the clients that subscribed to the will topic. To reduce the noise from fluctuating disconnections, the client can set the delay interval to a value greater than zero. In that case, if the client disconnects abruptly but restores the connection before the delay interval expires, the will message isn't published.
 
 ### User properties 
 MQTT broker supports user properties on MQTT v5 PUBLISH packets that allow you to add custom key-value pairs in the message header to provide more context about the message. The use cases for user properties are versatile. You can use this feature to include the purpose or origin of the message so the receiver can handle the message without parsing the payload, saving computing resources. For example, a message with a user property indicating its purpose as a "warning" could trigger different handling logic than one with the purpose of "information."
@@ -114,10 +115,10 @@ MQTTv5 introduced fields in the MQTT PUBLISH packet header that provide context 
 
 :::image type="content" source="media/mqtt-support/mqtt-request-response-high-res.png" alt-text="Diagram of the request-response pattern example." border="false":::
 
-### Message expiry interval:
+### Message expiry interval
 In MQTT v5, message expiry interval allows messages to have a configurable lifespan. The message expiry interval is defined as the time interval between the time a message is published to MQTT broker and the time when the MQTT broker needs to discard the undelivered message. This feature is useful in scenarios where messages are only valid for a certain amount of time, such as time-sensitive commands, real-time data streaming, or security alerts. By setting a message expiry interval, MQTT broker can automatically remove outdated messages, ensuring that only relevant information is available to subscribers. If a message's expiry interval is set to zero, it means the message should never expire.
 
-### Topic aliases:
+### Topic aliases
 In MQTT v5, topic aliases allow a client to use a shorter alias in place of the full topic name in the published message. MQTT broker maintains a mapping between the topic alias and the actual topic name. This feature can save network bandwidth and reduce the size of the message header, particularly for topics with long names. It's useful in scenarios where the same topic is repeatedly published in multiple messages, such as in sensor networks. MQTT broker supports up to 10 topic aliases. A client can use a Topic Alias field in the PUBLISH packet to replace the full topic name with the corresponding alias.
 
 :::image type="content" source="media/mqtt-support/mqtt-topic-alias-high-res.png" alt-text="Diagram of the topic alias example." border="false":::
@@ -128,6 +129,21 @@ In MQTT v5, flow control refers to the mechanism for managing the rate and size 
 ### Negative acknowledgments and server-initiated disconnect packet
 For MQTT v5, MQTT broker is able to send negative acknowledgments (NACKs) and server-initiated disconnect packets that provide the client with more information about failures for  message delivery or connection. These features help the client diagnose the reason behind a failure and take appropriate mitigating actions. MQTT broker uses the reason codes that are defined in the [MQTT v5 Specification.](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html)
 
+### Message Ordering  
+MQTT v5 ensures in-order message delivery within per topic and per client when using Quality of Service (QoS) levels 1, which is crucial for workflows requiring sequence integrity. It's ideal for scenarios like telemetry, command execution, and time-series data.
+
+However, it doesn't guarantee ordering across different topics or when messages are sent with varying QoS levels. To learn more, contact us [askmqtt@microsoft.com](mailto:askmqtt@microsoft.com).
+
+### Assigned Client Identifiers (Preview) 
+MQTT v5 introduces support for assigned client identifiers, allowing the broker to generate and return a unique client ID when one isn't provided by the client. MQTT broker supports this feature, ensuring seamless client onboarding and reducing the need for clients to manage their own identifiers. It's especially useful in scenarios where client provisioning is dynamic or when devices have no preconfigured identity. Assigned client IDs can be retrieved from the CONNACK response and reused for future sessions to maintain consistent identification. 
+
+#### Managing client identifier and session limits in MQTT 
+
+- Assigned client identifiers allow clients to connect without specifying predefined identifiers, enabling temporary or persistent sessions. 
+- Clients can avoid being locked out by using short session expiry intervals during the first connection and saving the assigned client identifier for future use. 
+- For firmware updates or resets, clients should either retain their known client identifier or use modest session expiry intervals to avoid prolonged lockouts. 
+- Namespace configuration can increase session limits per client to minimize disruptions during updates or rollbacks. 
+
 ## Current limitations
 
 MQTT broker is adding more MQTT v5 and MQTT v3.1.1 features in the future to align more with the MQTT specifications. The following list details the current differences between features supported by the MQTT broker and the MQTT specifications:
@@ -137,12 +153,10 @@ MQTT broker is adding more MQTT v5 and MQTT v3.1.1 features in the future to ali
 MQTT v5 currently differs from the [MQTT v5 Specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html) in the following ways:
 - Shared Subscriptions aren't supported yet.
 - Retain flag isn't supported yet.
-- Maximum will delay interval is 300.
+- Maximum Will delay interval is 300.
 - Maximum QoS is 1.
 - Maximum Packet Size is 512 KiB
-- Message ordering isn't guaranteed.
 - Subscription Identifiers aren't supported.
-- Assigned Client Identifiers aren't supported yet.
 - Topic Alias Maximum is 10. The server doesn't assign any topic aliases for outgoing messages at this time. Clients can assign and use topic aliases within set limit.
 - CONNACK doesn't return Response Information property even if the CONNECT request contains Request Response Information property.
 - User Properties on CONNECT, SUBSCRIBE, DISCONNECT, PUBACK, AUTH packets aren't used by the service so they're not supported. If any of these requests include user properties, the request fails.
@@ -153,18 +167,15 @@ MQTT v5 currently differs from the [MQTT v5 Specification](https://docs.oasis-op
 
 MQTT v5 currently differs from the [MQTT v3.1.1 Specification](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html) in the following ways:
 - QoS2 and Retain Flag aren't supported yet. A publish request with a retain flag or with a QoS2 fails and closes the connection.
-- Message ordering isn't guaranteed.
 - Keep Alive Maximum is 1,160 seconds.
 
-## Code samples:
+## Code samples
 
 [This repository](https://github.com/Azure-Samples/MqttApplicationSamples) contains C#, C, and python code samples that show how to send telemetry, send commands, and broadcast alerts. The certificates created through the samples are fit for testing, but they aren't fit for production environments. 
 
-## Next steps:
+## Related content
 
-Learn more about MQTT:
-- [MQTT v3.1.1 Specification](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html)
-- [MQTT v5 Specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html)
+Learn more about MQTT: [MQTT v5 Specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html)
 
 Learn more about MQTT broker:
 - [Client authentication](mqtt-client-authentication.md)

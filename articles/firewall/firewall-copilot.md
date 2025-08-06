@@ -5,12 +5,14 @@ keywords: security copilot, copilot for security, threat intelligence, IDPS, int
 author: abhinavsriram
 ms.author: asriram
 ms.date: 04/25/2025
+ms.update-cycle: 180-days
 ms.topic: concept-article
 ms.service: azure-firewall
 ms.localizationpriority: high
 ms.custom:
   - ignite-2024
 ms.collection: Tier1, ce-skilling-ai-copilot
+# Customer intent: "As a security analyst, I want to use Security Copilot with Azure Firewall to investigate flagged traffic, so that I can enhance my threat detection and response capabilities efficiently."
 ---
 
 # Azure Firewall integration in Microsoft Security Copilot

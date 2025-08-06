@@ -161,9 +161,7 @@
     - name: Classic to Modernized
       href: classic-to-modernized-common-questions.md
     - name: Monitoring
-      href: monitoring-common-questions.md
-    - name: Shared disks
-      href: shared-disks-common-questions.md      
+      href: monitoring-common-questions.md     
   - name: About Azure VM disaster recovery
     items:
     - name: Azure to Azure disaster recovery architecture
@@ -642,8 +640,8 @@
     href: ../migrate/index.yml
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/?searchterms=Azure+Site+Recovery
   - name: Blog
     href: https://azure.microsoft.com/blog/tag/azure-site-recovery/
   - name: Microsoft Q&A question page

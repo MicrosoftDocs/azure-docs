@@ -6,7 +6,7 @@ ms.author: kimiamavon
 ms.service: azure-health-data-services
 ms.subservice: deidentification-service
 ms.topic: tutorial
-ms.date: 12/05/2024
+ms.date: 06/19/2025
 ---
 
 # Tutorial: Use a custom redaction format with the de-identification service

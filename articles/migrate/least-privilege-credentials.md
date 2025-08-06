@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.service: azure-migrate
 ms.date: 02/06/2025
 ms.custom: engagement-fy23
+# Customer intent: "As a database administrator, I want to create a custom account with minimal permissions for SQL Server discovery and assessment, so that I can securely establish connections without granting excessive access rights."
 ---
 
 # Provision custom accounts with least privileges for SQL Discovery and Assessment

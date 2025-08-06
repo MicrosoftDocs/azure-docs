@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.author: shaas
 ms.date: 04/19/2022
 ms.custom: devx-track-js, devx-track-azurepowershell
+# Customer intent: As a web developer, I want to host a static website in a cloud storage account, so that I can serve HTML, CSS, and JavaScript files directly to users without managing a web server.
 ---
 
 # Host a static website in Azure Storage

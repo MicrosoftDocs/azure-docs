@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.date: 09/30/2024
 
 #CustomerIntent: As an Azure administrator, I want to see the effective security rules applied to an Azure virtual machine (VM) instead of checking each network security group that applies to the VM.
+# Customer intent: As a network administrator, I want to access aggregated security rules for a virtual machine's network interface, so that I can effectively troubleshoot connectivity issues and audit compliance with organizational security policies.
 ---
 
 # Effective security rules overview

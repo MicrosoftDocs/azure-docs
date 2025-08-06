@@ -1,17 +1,17 @@
 ---
-title: Best practices for performance testing for Azure Managed Redis (preview)
-description: Learn how to test the performance of Azure Managed Redis (preview).
-
+title: Best practices for performance testing for Azure Managed Redis
+description: Learn how to test the performance of Azure Managed Redis.
+ms.date: 05/18/2025
 ms.service: azure-managed-redis
+ms.topic: conceptual
 ms.custom:
   - ignite-2024
-ms.topic: conceptual
-ms.date: 11/15/2024
+  - build-2025
 appliesto:
   - ✅ Azure Managed Redis
 ---
 
-# Performance testing with Azure Managed Redis (preview)
+# Performance testing with Azure Managed Redis
 
 Testing the performance of a Redis instance can be a complicated task. The performance of a Redis instance can vary based on parameters such as the number of clients, the size of data values, and whether pipelining is being used. There also can be a tradeoff between optimizing throughput or latency.
 
@@ -65,7 +65,7 @@ memtier_benchmark -h {your-cache-name}.{region}.redis.azure.net -p 10000 -a {you
 ```
 
 >[!NOTE]
->This example uses the `--tls`, `--tls-skip-verify`, and `--cluster-mode` flags. You do not need these if you're using Azure Managed Redis in non-TLS mode or if you're using the [Enterprise cluster policy](architecture.md#cluster-policies), respectively.
+>This example uses the `--tls`, `--tls-skip-verify`, and `--cluster-mode` flags. You don't need these if you're using Azure Managed Redis in non-TLS mode or if you're using the [Enterprise cluster policy](architecture.md#cluster-policies), respectively.
 
 **To test throughput:**
 This command tests pipelined GET requests with 1k payload. Use this command to test how much read throughput to expect from your cache instance. This example assumes you're using TLS and the OSS cluster policy. The `--key-pattern=R:R` parameter ensures that keys are randomly accessed, increasing the realism of the benchmark. This test runs for five minutes.
@@ -76,175 +76,44 @@ memtier_benchmark -h {your-cache-name}.{region}.redis.azure.net -p 10000 -a {you
 
 ## Example performance benchmark data
 
-The following tables show the maximum throughput values that were observed while testing various sizes of Azure Managed Redis instances. We used `memtier_benchmark` from an IaaS Azure VM against the Azure Managed Redis endpoint, utilizing the memtier commands shown in the [memtier_benchmark examples](best-practices-performance.md#memtier_benchmark-examples) section. The throughput numbers are only for GET commands. Typically, SET commands have a lower throughput. Real-world performance varies based on Redis configuration and commands. These numbers are provided as a point of reference, not a guarantee.
+The table below shows optimal throughput that we observed while testing various sizes of Azure Managed Redis instances with a workload of all read commands and 1KB payload. The workload is same across all SKUs, except for the connection count (that is, different thread and client count as required by memtier_benchmark). The connection count is chosen per SKU to leverage the Azure Managed Redis instance optimally. We used `memtier_benchmark` from an IaaS Azure VM against the Azure Managed Redis endpoint, utilizing the memtier commands shown in the [memtier_benchmark examples](best-practices-performance.md#memtier_benchmark-examples) section. The throughput numbers are only for GET commands. Typically, SET commands have a lower throughput. Real-world performance varies based on Redis configuration and commands. These numbers are provided as a point of reference, not a guarantee.
 
 >[!CAUTION]
 >These values aren't guaranteed and there's no SLA for these numbers. We strongly recommend that you should [perform your own performance testing](best-practices-performance.md) to determine the right cache size for your application.
->These numbers might change as we post newer results periodically.
+>Performance could vary for various reasons like different connection count, payload size, commands that are executed etc.
 >
 
 >[!IMPORTANT]
->Microsoft periodically updates the underlying VM used in cache instances. This can change the performance characteristics from cache to cache and from region to region. The example benchmarking values on this page reflect older generation cache hardware in a single region. You may see better or different results in practice, especially with network bandwidth.
+>Microsoft periodically updates the underlying VM used in cache instances. This can change the performance characteristics from cache to cache and from region to region. The example benchmarking values on this page reflect a particular generation cache hardware in a single region. You may see different results in practice, especially with network bandwidth.
 >
 
-Azure Managed Redis offers a choice of cluster policy: _Enterprise_ and _OSS_. Enterprise cluster policy is a simpler configuration that doesn't require the client to support clustering. OSS cluster policy, on the other hand, uses the [Redis cluster protocol](https://redis.io/docs/management/scaling) to support higher throughput. We recommend using OSS cluster policy in most cases. For more information, see [Clustering](architecture.md#clustering).
+Azure Managed Redis offers a choice of cluster policy: _Enterprise_ and _OSS_. Enterprise cluster policy is a simpler configuration that doesn't require the client to support clustering. OSS cluster policy, on the other hand, uses the [Redis cluster protocol](https://redis.io/docs/management/scaling) to support higher throughput. We recommend using OSS cluster policy in most cases, especially when you require high performance. For more information, see [Clustering](architecture.md#clustering).
 
-Benchmarks for both cluster policies are shown in the following tables. For the OSS cluster policy table, two benchmarking configurations are provided:
 
-- 300 connections (50 clients and 6 threads)
-- 2,500 connections (50 clients and 50 threads)
-
-The second benchmarks are provided because 300 connections aren't enough to fully demonstrate the performance of the larger cache instances.
-
-The following are throughput in GET operations per second on 1 kB payload for AMR instances along the number of client connections used for benchmarking. All numbers were computed for AMR instances with SSL connections and the network bandwidth is recorded in Mbps.
-
-### [300 connections](#tab/50threads6clients)
-
-#### OSS Cluster Policy
-
-| Size in GB | vCPU/Network BW/Memory Optimized | vCPU/Network BW/Balanced| vCPU/Network BW/Compute Optimized|
+| Size in GB | Memory Optimized | Balanced| Compute Optimized| 
 |--|--|--|--|
-| 1 | - | 2/5,000/103,500 | - |
-| 3 | - | 2/2,000/104,500 | 4/10,000/221,100 |
-| 6 | - | 2/2,000/106,500 | 4/10,000/210,850 |
-| 12 | 2/2,000/106,000 | 4/4,000/223,900 | 8/12,500/499,900 |
-| 24 | 4/4,000/227,800 | 8/8,000/495,300 | 16/12,500/485,920 |
-| 60 | 8/8,000/496,000 | 16/10,000/476,500 | 32/16,000/454,200 |
-| 120 | 16/10,000/476,200 | 32/16,000/462,200 | 64/28,000/463,800 |
+|0.5| - | 120,000| - |
+|1| - | 120,000| - | 
+|3| - | 230,000| 480,000 |
+|6| - | 230,000| 480,000 |
+|12| 230,000 | 480,000| 810,000 |
+|24| 480,000 | 810,000| 1,600,000 |
+|60| 810,000 | 1,500,000| 2,000,000 |
+|120| 1,500,000 | 2,000,000| 2,900,000 |
 
-#### Enterprise Cluster Policy
+The following table lists the connection count in terms of memtier_benchmark thread count, client count that was used to produce the throughput numbers. As mentioned above, changing the connection count could result in varying performance.
 
-| Size in GB | vCPU/Network BW/Memory Optimized | vCPU/Network BW/Balanced | vCPU/Network BW/Compute Optimized |
+| Size in GB | Clients/Threads/Connection Count for Memory Optimized | Clients/Threads/Connection Count for Balanced| Clients/Threads/Connection Count for Compute Optimized| 
 |--|--|--|--|
-| 1 | - | 2/5,000/56,900 | - |
-| 3 | - | 2/2,000/56,900 | 4/10,000/118,900 |
-| 6 | - | 2/2,000/59,200 | 4/10,000/111,950 |
-| 12 | 2/2,000/55,800 | 4/4,000/118,500 | 8/12,500/206,500 |
-| 24 | 4/4,000/122,000 | 8/8,000/205,500 | 16/12,500/294,700 |
-| 60 | 8/8,000/208,100 | 16/10,000/293,400 | 32/16,000/441,400 |
-| 120 | 16/10,000/285,600 | 32/16,000/451,700 | 64/28,000/516,200 |
+| 0.5 | - | 10/4/40 | - |
+| 1 | - | 10/4/40 | - |
+| 3 | - | 10/4/40 | 10/8/80 |
+| 6 | - | 10/4/40 | 10/8/80 |
+| 12 | 10/4/40 | 10/8/80 | 10/16/160 |
+| 24 | 10/8/80 | 10/16/160 | 20/16/320 |
+| 60 | 10/16/160| 20/16/320 | 20/32/640 |
+| 120 | 20/16/320 | 20/32/640 | 20/64/1280 |
 
-### [2,500 connections](#tab/50threads50clients)
-
-#### OSS Cluster Policy
-
-| Size in GB | vCPU/Network BW/Memory Optimized | vCPU/Network BW/Balanced | vCPU/Network BW/Compute Optimized |
-|--|--|--|--|
-| 24 | 4/4,000/226,600 | 8/8,000/492,200 | 16/12,500/874,100 |
-| 60 | 8/8,000/492,200 | 16/10,000/874,100 | 32/16,000/1,100,100 |
-| 120 | 16/10,000/874,100 | 32/16,000/1,100,100 | 64/28,000/2,400,300 |
-
-<!--  
-
-### Memory Optimized Tier
-
-#### OSS Cluster Policy
-
-| Instance | Size | vCPUs | Expected network bandwidth (Mbps)| `GET` requests per second without TLS (1-kB value size) | `GET` requests per second with TLS (1-kB value size) |
-|:---:| :--- | ---:|---:| ---:| ---:|
-| M10 |  12 GB |  2 | 2,000 | TBD | TBD |
-| M20 |  24 GB |  4 | 4,000 | TBD | TBD |
-| M50 |  60 GB |  8 | 8,000 | TBD | TBD |
-| M100 |  120 GB |  16 | 10,000 | TBD | TBD |
-| M150 | 180 GB | 24 | 24,000 | TBD | TBD |
-| M250 | 240 GB | 32 | 16,000 | TBD | TBD |
-| M350 | 360 GB | 48 | 24,000 | TBD | TBD |
-| M500 | 480 GB | 64 | 32,000 | TBD | TBD |
-| M700 | 720 GB | 96 | 32,000 | TBD | TBD |
-| M1000 | 960 GB | 128 | 64,000 | TBD | TBD |
-| M1500 | 1440 GB | 192 | 96,000 | TBD | TBD |
-| M2000 | 1920 GB | 256 | 128,000 | TBD | TBD |
-
-#### Enterprise Cluster Policy
-
-| Instance | Size | vCPUs | Expected network bandwidth (Mbps)| `GET` requests per second without TLS (1-kB value size) | `GET` requests per second with TLS (1-kB value size) |
-|:---:| :--- | ---:|---:| ---:| ---:|
-| M10 |  12 GB |  2 | 2,000 | TBD | TBD |
-| M20 |  24 GB |  4 | 4,000 | TBD | TBD |
-| M50 |  60 GB |  8 | 8,000 | TBD | TBD |
-| M100 |  120 GB |  16 | 10,000 | TBD | TBD |
-| M150 | 180 GB | 24 | 8,000 | TBD | TBD |
-| M250 | 240 GB | 32 | 16,000 | TBD | TBD |
-| M350 | 360 GB | 48 | 24,000 | TBD | TBD |
-| M500 | 480 GB | 64 | 32,000 | TBD | TBD |
-| M700 | 720 GB | 96 | 32,000 | TBD | TBD |
-| M1000 | 960 GB | 128 | 32,000 | TBD | TBD |
-| M1500 | 1440 GB | 192 | 32,000 | TBD | TBD |
-| M2000 | 1920 GB | 256 | 32,000 | TBD | TBD |
-
-### Balanced (Compute + Memory) Tier
-
-#### OSS Cluster Policy
-
-| Instance | Size | vCPUs | Expected network bandwidth (Mbps)| `GET` requests per second without TLS (1-kB value size) | `GET` requests per second with TLS (1-kB value size) |
-|:---:| :--- | ---:|---:| ---:| ---:|
-| B0 |  500 MB |  2 | 5,000 | TBD | TBD |
-| B1 |  1 GB |  2 | 5,000 | TBD | TBD |
-| B3 |  3 GB |  2 | 2,000 | TBD | TBD |
-| B5 |  6 GB |  2 | 2,000 | TBD | TBD |
-| B10 |  12 GB |  4 | 4,000 | TBD | TBD |
-| B20 |  24 GB |  8 | 8,000 | TBD | TBD |
-| B50 |  60 GB |  16 | 10,000 | TBD | TBD |
-| B100 |  120 GB |  32 | 16,000 | TBD | TBD |
-| B150 | 180 GB | 48 | 24,000 | TBD | TBD |
-| B250 | 240 GB | 64 | 32,000 | TBD | TBD |
-| B350 | 360 GB | 96 | 40,000 | TBD | TBD |
-| B500 | 480 GB | 128 | 64,000 | TBD | TBD |
-| B700 | 720 GB | 192 | 80,000 | TBD | TBD |
-| B1000 | 960 GB | 256 | 128,000 | TBD | TBD |
-
-#### Enterprise Cluster Policy
-
-| Instance | Size | vCPUs | Expected network bandwidth (Mbps)| `GET` requests per second without TLS (1-kB value size) | `GET` requests per second with TLS (1-kB value size) |
-|:---:| :--- | ---:|---:| ---:| ---:|
-| B0 |  500 MB |  2 | 5,000 | TBD | TBD |
-| B1 |  1 GB |  2 | 5,000 | TBD | TBD |
-| B3 |  3 GB |  2 | 2,000 | TBD | TBD |
-| B5 |  6 GB |  2 | 2,000 | TBD | TBD |
-| B10 |  12 GB |  4 | 4,000 | TBD | TBD |
-| B20 |  24 GB |  8 | 8,000 | TBD | TBD |
-| B50 |  60 GB |  16 | 10,000 | TBD | TBD |
-| B100 |  120 GB |  32 | 16,000 | TBD | TBD |
-| B150 | 180 GB | 48 | 24,000 | TBD | TBD |
-| B250 | 240 GB | 64 | 32,000 | TBD | TBD |
-| B350 | 360 GB | 96 | 40,000 | TBD | TBD |
-| B500 | 480 GB | 128 | 32,000 | TBD | TBD |
-| B700 | 720 GB | 192 | 40,000 | TBD | TBD |
-| B1000 | 960 GB | 256 | 32,000 | TBD | TBD |
-
-### Compute Optimized Tier
-
-#### OSS Cluster Policy
-
-| Instance | Size | vCPUs | Expected network bandwidth (Mbps)| `GET` requests per second without TLS (1-kB value size) | `GET` requests per second with TLS (1-kB value size) |
-|:---:| :--- | ---:|---:| ---:| ---:|
-| X3 |  3 GB |  4 | 10,000 | TBD | TBD |
-| X5 |  6 GB |  4 | 10,000 | TBD | TBD |
-| X10 |  12 GB |  8 | 12,500 | TBD | TBD |
-| X20 |  24 GB |  16 | 12,500 | TBD | TBD |
-| X50 |  60 GB |  32 | 16,000 | TBD | TBD |
-| X100 |  120 GB |  64 | 28,000 | TBD | TBD |
-| X150 | 180 GB | 96 | 35,000 | TBD | TBD |
-| X250 | 240 GB | 128 | 56,000 | TBD | TBD |
-| X350 | 360 GB | 192 | 70,000 | TBD | TBD |
-| X500 | 480 GB | 256 | 112,000 | TBD | TBD |
-| X700 | 720 GB | 320 | 140,000 | TBD | TBD |
-
-#### Enterprise Cluster Policy
-| Instance | Size | vCPUs | Expected network bandwidth (Mbps)| `GET` requests per second without TLS (1-kB value size) | `GET` requests per second with TLS (1-kB value size) |
-|:---:| :--- | ---:|---:| ---:| ---:|
-| X3 |  3 GB |  4 | 10,000 | TBD | TBD |
-| X5 |  6 GB |  4 | 10,000 | TBD | TBD |
-| X10 |  12 GB |  8 | 12,500 | TBD | TBD |
-| X20 |  24 GB |  16 | 12,500 | TBD | TBD |
-| X50 |  60 GB |  32 | 16,000 | TBD | TBD |
-| X100 |  120 GB |  64 | 28,000 | TBD | TBD |
-| X150 | 180 GB | 96 | 35,000 | TBD | TBD |
-| X250 | 240 GB | 128 | 28,000 | TBD | TBD |
-| X350 | 360 GB | 192 | 35,000 | TBD | TBD |
-| X500 | 480 GB | 256 | 28,000 | TBD | TBD |
-| X700 | 720 GB | 320 | 35,000 | TBD | TBD |
--->
 ## Next steps
 
 - [Development](best-practices-development.md)

@@ -11,7 +11,9 @@ ms.date: 05/01/2025
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.custom: devx-track-js
+ms.custom:
+  - devx-track-js
+  - build-2025
 ---
 
 # Calling SDK overview
@@ -176,7 +178,7 @@ The Azure Communication Services Calling SDK supports the following streaming co
 | Limit | Web | Windows/Android/iOS |
 | --- | --- | --- |
 | **Maximum # of outgoing local streams that can be sent simultaneously**     | 1 video and 1 screen sharing | 1 video + 1 screen sharing |
-| **Maximum # of incoming remote streams that can be rendered simultaneously** | 16 videos + 1 screen sharing on desktop browsers*, 4 videos + 1 screen sharing on web mobile browsers | 9 videos + 1 screen sharing |
+| **Maximum # of incoming remote streams that can be rendered simultaneously** | GA Webjs SDK - [16 videos + 1 screen sharing on desktop browsers](../../quickstarts/voice-video-calling/optimizing-video-placement.md#how-many-videos-to-place-in-a-grid-at-a-time) <br />4 videos + 1 screen sharing on web mobile browsers <br /> <br />  Public preview - [25 videos + 1 screen sharing on desktop browser](../../quickstarts/voice-video-calling/optimizing-video-placement.md#how-many-videos-to-place-in-a-grid-at-a-time) <br />4 videos + 1 screen sharing on web mobile browsers | 9 videos + 1 screen sharing |
 
 \* Starting from Azure Communication Services Web Calling SDK version [1.16.3](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1163-stable-2023-08-24). While the Calling SDK doesn't enforce these limits, your users might experience performance degradation if they're exceeded. Use the API of [Optimal Video Count](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#remote-video-quality) to determine the number of incoming video streams your web environment can support. To properly support 16 incoming videos, the computer needs a minimum of 16-GB RAM and a 4-core or greater CPU that is less than three years old.
 
@@ -191,16 +193,17 @@ The Azure Communication Services Calling SDK supports sending following video re
 
 | **Maximum video resolution**                 | WebJS Desktop | WebJS Mobile | iOS  | Android | Windows |
 |----------------------------------------------|---------------|--------------|------|---------|---------|
-| **Sending Video**                            | 1080p<sup>1</sup>         | 720p         | 720p | 720p    | 1080p   |
-| **Sending screen share**                     | 1080p         | 720p         | 720p | 720p    | 1080p   |
+| **Sending Video**                            | 1080p [enable](../../quickstarts/voice-video-calling/optimizing-video-placement.md#how-to-configure-to-send-a-1080p-stream)         | 720p         | 720p | 720p    | 1080p   |
+| **Sending screen share**                     | 1080p         | NA         | 720p | 720p    | 1080p   |
 | **Receiving a remote video or screen share** | 1080p         | 720p         | 720p | 720p    | 1080p   |
 
 ## Number of participants on a call support
-- Sending a [1080-p stream from WebJS desktop](../../quickstarts/voice-video-calling/optimizing-video-placement.md#how-to-configure-to-send-a-1080p-stream) is in public preview. GA versions of WebJS SDK for Desktop browser support sending a 720-p stream.
+- See detailed instructions on how [enable a 1080p from a web desktop browser](../../quickstarts/voice-video-calling/optimizing-video-placement.md#how-to-configure-to-send-a-1080p-stream).
 - Up to **350** users can join a group call, Room call, or Teams + Azure Communication Services call.
 - Once the call size reaches 100+ participants, the Calling SDK only displays the top four dominant speakers that have their video camera active.
 - When the number of people on the call is 100+, the viewable number of incoming videos automatically decreases from 4x4 (16 incoming videos) down to 2x2 (4 incoming videos).
 - When the number of users goes below 100, the number of supported incoming videos goes back up to 4x4 (16 incoming videos).
+- Screen sharing from a mobile browser is not available due to limitations within mobile browsers.
 
 ## Calling SDK timeouts
 The following timeouts apply to the Communication Services Calling SDKs:

@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.date: 05/08/2024
 ms.author: kendownie
 author: khdownie
+# Customer intent: As a cloud administrator, I want to migrate files between SMB Azure file shares using Robocopy, so that I can efficiently transition data with minimal downtime and optimize storage performance.
 ---
 
 # Migrate files from one SMB Azure file share to another

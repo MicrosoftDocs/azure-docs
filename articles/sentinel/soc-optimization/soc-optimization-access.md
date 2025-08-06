@@ -39,7 +39,7 @@ Watch the following video for an overview and demo of SOC optimization in the Mi
 
 ## Access the SOC optimization page
 
-Use one of the following tabs, depending on whether you're working in the Azure portal or Defender portal. When your workspace is onboarded for unified security operations, SOC optimizations include coverage from across Microsoft security services.
+Use one of the following tabs, depending on whether you're working in the Azure portal or Defender portal. When your workspace is onboarded to the Defender portal, SOC optimizations include coverage from across Microsoft security services.
 
 ### [Defender portal](#tab/defender-portal)
 

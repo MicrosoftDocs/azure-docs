@@ -3,12 +3,13 @@ title: Private Application Gateway deployment (preview)
 titleSuffix: Azure Application Gateway
 description: Learn how to restrict access to Application Gateway
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 4/15/2025
-ms.author: greglin
+ms.author: mbender
 #Customer intent: As an administrator, I want to evaluate Azure Private Application Gateway
+# Customer intent: "As a cloud administrator, I want to configure a Private Application Gateway with enhanced network controls, so that I can improve security and restrict data egress while managing inbound and outbound traffic effectively."
 ---
 
 # Private Application Gateway deployment (preview)
@@ -185,6 +186,10 @@ The resource tag is cosmetic, and serves to confirm that the gateway has been pr
 ## Application Gateway Subnet 
 
 Application Gateway Subnet is the subnet within the Virtual Network where the Application Gateway Resources will be deployed. In the Frontend Private Ip configuration, is important that this subnet can reach privately the resources that want to connect to your exposed app or site.
+
+> [!NOTE]
+> As of May 5, 2025, new and existing deployments of Private Application Gateway require Subnet Delegation to `Microsoft.Network/applicationGateways`.
+> Please follow [these steps](/azure/virtual-network/manage-subnet-delegation?tabs=manage-subnet-delegation-portal) for configuring Subnet Delegation.
 
 ## Outbound Internet connectivity
 

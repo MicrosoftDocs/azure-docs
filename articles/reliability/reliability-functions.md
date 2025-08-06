@@ -40,7 +40,7 @@ When you configure Flex Consumption plan apps as zone redundant, the platform au
 
 When zone redundancy is enabled in a Flex Consumption plan, instance spreading is determined inside the following rules:
 
-- [Always-ready](../azure-functions/flex-consumption-plan.md#always-ready-instances) instances are distributed across zones in a round-robin fashion.
+- [Always-ready](../azure-functions/flex-consumption-plan.md#always-ready-instances) instances are distributed across at least two zones in a round-robin fashion.
 - On-demand instances, which are created as a result of event source volumes as the app scales beyond always-ready, are distributed across availability zones on a _best effort_ basis. This means that for on-demand instances, faster scale-out is given preference over even distribution across availability zones. The platform attempts to even-out distribution over time.
 - To ensure zone resiliency with availability zones, the platform automatically maintains at least two always-ready instances for each [per-function scaling function or group](../azure-functions/flex-consumption-plan.md#per-function-scaling), regardless of the always-ready configuration for the app. Any instances created by the platform are platform-managed, billed as always-ready instances, and don't change the always-ready configuration settings.
 ::: zone-end 
@@ -49,7 +49,7 @@ When you configure Elastic Premium function app plans as zone redundant, the pla
 
 Instance spreading with a zone-redundant deployment is determined inside the following rules, even as the app scales in and out:
 
-- The minimum function app instance count is three. 
+- The minimum function app instance count is two. 
 - When you specify a capacity larger than the number of zones, the instances are spread evenly only when the capacity is a multiple of the number of zones. 
 - For a capacity value more than Number of Zones * Number of instances, extra instances are spread across the remaining zones.
 
@@ -107,8 +107,8 @@ Availability zone support is a property of the Premium plan. Here are current co
 - You can only enable availability zones in the plan when you create your app. You can't convert an existing Premium plan to use availability zones.
 - You must use a [zone redundant storage account (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) for your function app's [default host storage account](../azure-functions/storage-considerations.md#storage-account-requirements). If you use a different type of storage account, your app might behave unexpectedly during a zonal outage.
 - Both Windows and Linux are supported.
-- Function apps hosted on a Premium plan must have a minimum of three [always ready instances](../azure-functions/functions-premium-plan.md#always-ready-instances).
-- The platform enforces this minimum count behind the scenes if you specify an instance count fewer than three.
+- Function apps hosted on a Premium plan must have a minimum of two [always ready instances](../azure-functions/functions-premium-plan.md#always-ready-instances).
+- The platform enforces this minimum count behind the scenes if you specify an instance count fewer than two.
 - If you aren't using Premium plan or a scale unit that supports availability zones, are in an unsupported region, or are unsure, see the [migration guidance](../reliability/migrate-functions.md).
 ::: zone-end 
 ### Pricing 
@@ -118,7 +118,7 @@ There's no separate meter associated with enabling availability zones. Pricing f
 When you enable availability zones in an app with always-ready instance configuration of fewer than two instances for each [per-function scaling function or group](../azure-functions/flex-consumption-plan.md#per-function-scaling), the platform automatically creates two instances of the [always-ready](../azure-functions/flex-consumption-plan.md#always-ready-instances) type for each per-function scaling function or group. These new instances are also billed as always-ready instances.
 ::: zone-end 
 ::: zone pivot="premium-plan" 
-There's no extra cost associated with enabling availability zones. Pricing for a zone-redundant Premium App Service plan is the same as a single zone Premium plan. For each App Service plan you use, you're charged based on the SKU you choose, the capacity you specify, and any instances you scale to based on your autoscale criteria. If you enable availability zones on a plan with fewer than three instances, the platform enforces a minimum instance count of three for that App Service plan, and you're charged for all three instances.
+There's no extra cost associated with enabling availability zones. Pricing for a zone-redundant Premium App Service plan is the same as a single zone Premium plan. For each App Service plan you use, you're charged based on the SKU you choose, the capacity you specify, and any instances you scale to based on your autoscale criteria. If you enable availability zones on a plan with fewer than two instances, the platform enforces a minimum instance count of two for that App Service plan, and you're charged for both instances.
 ::: zone-end 
 ### Create a function app in a zone-redundant plan 
 ::: zone pivot="flex-consumption-plan"

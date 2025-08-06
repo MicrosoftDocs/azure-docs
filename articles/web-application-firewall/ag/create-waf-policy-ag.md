@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 01/15/2025
+# Customer intent: "As a cloud administrator, I want to create and manage Web Application Firewall policies for the Application Gateway, so that I can customize security settings for multiple sites efficiently and ensure each site is protected according to its specific requirements."
 ---
 
 # Create Web Application Firewall policies for Application Gateway

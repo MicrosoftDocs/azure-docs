@@ -3,11 +3,13 @@ title: Upgrade Basic Public IP Address to Standard SKU in Azure
 description: Upgrade basic public IP addresses to standard SKU in Azure. Learn migration steps, compare SKUs, and prepare for the September 30 2025 retirement.
 ms.service: azure-virtual-network
 ms.subservice: ip-services
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 ms.topic: overview
 author: mbender-ms
 ms.author: mbender
-ms.date: 05/12/2025
+ms.date: 06/11/2025
 # Customer intent: As an cloud engineer with Basic public IP services, I need guidance and direction on migrating my workloads off basic to Standard SKUs
 ---
 
@@ -31,7 +33,8 @@ We recommend the following approach to upgrade to Standard SKU public IP address
 
     b. If you don't need a zone redundant public IP address, use the [following upgrade options](#upgrade-disassociated-public-ips-using-portal-powershell-or-azure-cli).
 
-4. Determine if you need a regional or [global tier](../../load-balancer/cross-region-overview.md) public IP Address. If the public IP address aligns with a standard load balancer, the IP address *must align* with the load balancer tier.
+4. Determine if you need a regional or [global tier](../../load-balancer/cross-region-overview.md) public IP Address. 
+    1. If the public IP address aligns with a standard load balancer, the IP address *must align* with the load balancer tier.
 
 5. Create a migration plan for planned downtime.
 
@@ -42,9 +45,10 @@ We recommend the following approach to upgrade to Standard SKU public IP address
   | Virtual Machine | Use scripts or manually detach and upgrade public IPs. For standalone virtual machines, you can use the [upgrade script](public-ip-upgrade-vm.md) or for virtual machines in an availability set use [this script](public-ip-upgrade-availability-set.md). |
   | Virtual Machine Scale Sets | [Replace basic SKU instance public IP addresses](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking#public-ipv4-per-virtual-machine) with new standard SKU. |
   | Load Balancer (Basic SKU) | New Load Balancer SKU required. Use the upgrade script [Upgrade Basic Load Balancer to Standard SKU](../../load-balancer/upgrade-basic-standard-with-powershell.md) to upgrade to Standard Load Balancer. |
-  | VPN Gateway (using Basic IPs) | A migration path will be provided in the future. When this migration path is available, we update this decision path with migration information and send out a service health alert. For more information, see [Migrating a basic SKU FAQ](../../vpn-gateway/vpn-gateway-vpn-faq.md#migrating-a-basic-sku-public-ip-address-to-standard-sku). |
-  |  ExpressRoute Gateway (using Basic IPs) | New ExpressRoute Gateway is required. Follow the [ExpressRoute Gateway migration guidance](../../expressroute/gateway-migration.md) for upgrading from Basic to Standard SKU.  |
+  | VPN Gateway (using Basic IPs) | VPN Gateway migration is required. All non-AZ SKUs become AZ SKUs. Follow the [VPN Gateway migration guidance](../../vpn-gateway/basic-public-ip-migrate-howto.md) to upgrade to Standard SKU public IPs. |
+  |  ExpressRoute Gateway (using Basic IPs) | ExpressRoute Gateway migration is required. Follow the [ExpressRoute Gateway migration guidance](../../expressroute/gateway-migration.md)   |
   | Application Gateway (v1 SKU) | New AppGW SKU required. Use this [migration script to migrate from v1 to v2](../../application-gateway/migrate-v1-v2.md).  |
+  | Azure Databricks (using Basic IPs) | For ephemeral workloads, Standard SKU public IP addresses are automatically deployed as virtual machines (VMs) cycle out through regular usage attrition with new VMs. For long running workloads, we recommended manually [restarting the compute resources](/azure/databricks/compute/clusters-manage#restart) which replaces existing Basic IPs with Standard IPs.  |
 
 > [!NOTE]
 > If you have a virtual machine scale set (uniform model) with public IP configurations per instance, note these aren't Public IP resources and as such can't be upgraded; a new public IP address is required. You can use the SKU property to specify that Standard IP configurations are required for each VMSS instance as shown [here](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking#public-ipv4-per-virtual-machine). 
@@ -77,7 +81,7 @@ Use the Azure portal, Azure PowerShell, or Azure CLI to help upgrade from Basic 
 ## FAQ
 
 ### Will the Basic SKU public IP retirement impact Cloud Services Extended Support (CSES) deployments?
-No, this retirement won't impact your existing or new deployments on CSES. This means that you can still create (via non-Azure Portal methods; for example, Azure CLI, PowerShell, etc.) and use Basic SKU public IPs for CSES deployments. However, we advise using Standard SKU on ARM native resources that don't depend on CSES when possible, because Standard has more advantages than Basic.
+No, this retirement won't impact your existing or new deployments on CSES. This means that you can still create (via non-Azure Portal methods; for example, Azure CLI, PowerShell, etc.) and use Basic SKU public IPs for CSES deployments. However, we advise using Standard SKU on Azure Resource Manager native resources that don't depend on CSES when possible, because Standard has more advantages than Basic.
 
 ## Next steps
 

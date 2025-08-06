@@ -140,7 +140,7 @@ To upgrade the Guided Configuration, go to my.f5.com for [K85454683: Upgrade F5 
 
 Use BIG-IP configured with a client SSL profile to secure client-side traffic over TLS. Import a certificate that matches the domain name, used by the public-facing URL for your app. We recommend you use a public certificate authority, but you can use BIG-IP self-signed certificates for testing.
 
-To add and manage certificates in the BIG-IP VE, go to techdocs.f5.com for [BIG-IP System: SSL Administration](https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/bigip-ssl-administration-13-0-0.html).
+To add and manage certificates in the BIG-IP VE, go to techdocs.f5.com for [BIG-IP System: SSL Administration](https://techdocs.f5.com/en-us/bigip-17-5-0/big-ip-system-ssl-administration.html).
 
 
 ## Guided Configuration
@@ -453,4 +453,4 @@ The same access log provides detail.
   9. In the top-left corner, select **Apply Access Policy**. 
   10. Select **Apply**.
 
-For more information, go to techdocs.f5.com for [OAuth client and resource server troubleshooting tips](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-sso-13-0-0/37.html#GUID-774384BC-CF63-469D-A589-1595D0DDFBA2)
+For more information, go to techdocs.f5.com for [OAuth client and resource server troubleshooting tips](https://techdocs.f5.com/en-us/bigip-17-0-0/big-ip-access-policy-manager-oauth-configuration/apm-oauth-client-and-resource-server.html)

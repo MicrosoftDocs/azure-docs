@@ -79,3 +79,6 @@ definition:
 
 You can pass parameters to jobs using *jobParameters* property in Databricks activity.
 
+> [!NOTE]
+> Job parameters are only supported in Self-hosted IR version 5.52.0.0 or greater.
+

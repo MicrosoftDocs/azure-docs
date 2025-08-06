@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 05/12/2025
 ms.custom: vmware-scenario-422, MVC, engagement-fy25
+# Customer intent: As a system administrator, I want to migrate VMware vSphere VMs to Azure using agent-based migration, so that I can leverage cloud capabilities while ensuring minimal downtime and maintaining operational continuity during the transition.
 ---
 
 # Migrate VMware vSphere VMs to Azure (agent-based)
@@ -280,7 +281,7 @@ Select VMs for migration.
    - **Availability Zone**: Specify the Availability Zone to use.
    - **Availability Set**: Specify the Availability Set to use.
 
-17. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then click **Next**.
+17. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (Premium v2, Ultra SSD, Standard SSD, Standard HDD, or Premium Managed disks) in Azure. Then select **Next**.
     - You can exclude disks from replication.
     - If you exclude disks, they won't be present on the Azure VM after migration.
     - You can exclude disks if the mobility agent is already installed on that server. [Learn more](../site-recovery/exclude-disks-replication.md#exclude-limitations).
@@ -294,7 +295,7 @@ Select VMs for migration.
 
 ## Simplified experience
 
-Now, the selection experience type is both classic and simplified. The new simplified process follows a streamlined flow that begins with discovery, followed by replication, and finally migration. This is an upgraded agent-based migration stack for physical and VMware environments. For more information, see [Simplified experience](tutorial-migrate-physical-virtual-machines.md#simplified-experience).
+Now, the selection experience type is both classic and simplified. The new simplified process follows a streamlined flow that begins with discovery, followed by replication, and finally migration. This is an upgraded agent-based migration stack for physical and VMware environments. [Learn more](https://github.com/MicrosoftDocs/azure-docs-pr/blob/c7aa974797f544e2f4e1059af2c0b59249271ccd/articles/migrate/tutorial-migrate-physical-virtual-machines.md#simplified-experience-recommended) about simplified experience.
 
 
 ## Track and monitor

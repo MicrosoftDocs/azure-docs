@@ -4,33 +4,38 @@ description: Follow this quickstart to learn how to create your first app in Azu
 author: seligj95
 ms.author: msangapu
 ms.topic: quickstart
-ms.date: 10/20/2022
+ms.date: 04/29/2025
 ms.tool: terraform
-ms.custom: subject-terraform, devx-track-terraform
+ms.custom:
+  - subject-terraform
+  - devx-track-terraform
+  - build-2025
 ---
 
 # Quickstart: Create an App Service app by using a Terraform template
 
 Get started with [Azure App Service](overview.md) by deploying an app to the cloud via [Terraform](/azure/developer/terraform/). When you use a free App Service tier, there's no charge to complete this quickstart.
 
-Terraform allows you to define and create complete infrastructure deployments in Azure. You build Terraform templates in a human-readable format that create and configure Azure resources in a consistent, reproducible manner. This article shows you how to create a Windows app by using Terraform.
+Terraform allows you to define and create complete infrastructure deployments in Azure. You build Terraform templates in a human-readable format that create and configure Azure resources in a consistent, reproducible manner. This article shows you how to create an app by using Terraform.
 
 ## Prerequisites
 
-* You need an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-* Configure Terraform. Use one of the following options:
+* A Terraform configuration. Use one of the following options:
 
-  * [Configure Terraform in Azure Cloud Shell by using Bash](/azure/developer/terraform/get-started-cloud-shell-bash?tabs=bash)
-  * [Configure Terraform in Azure Cloud Shell by using PowerShell](/azure/developer/terraform/get-started-cloud-shell-powershell?tabs=bash)
-  * [Configure Terraform in Windows by using Bash](/azure/developer/terraform/get-started-windows-bash?tabs=bash)
-  * [Configure Terraform in Windows by using PowerShell](/azure/developer/terraform/get-started-windows-powershell?tabs=bash)
+  * [Configure Terraform in Azure Cloud Shell with Bash](/azure/developer/terraform/get-started-cloud-shell-bash?tabs=bash)
+  * [Configure Terraform in Azure Cloud Shell with PowerShell](/azure/developer/terraform/get-started-cloud-shell-powershell?tabs=bash)
+  * [Configure Terraform in Windows with Bash](/azure/developer/terraform/get-started-windows-bash?tabs=bash)
+  * [Configure Terraform in Windows with PowerShell](/azure/developer/terraform/get-started-windows-powershell?tabs=bash)
 
-By using the Azure Terraform Visual Studio Code extension, you can work with Terraform from the editor. By using this extension, you can author, test, and run Terraform configurations. The extension also supports resource graph visualization. See [this guide](/azure/developer/terraform/configure-vs-code-extension-for-terraform) to learn how to configure the Azure Terraform Visual Studio Code extension.
+* Azure Terraform Visual Studio Code extension. With this extension, you can work with Terraform from the editor to author, test, and run Terraform configurations. The extension also supports resource graph visualization. To learn how to install the extension, see [Install the Azure Terraform Visual Studio Code extension](/azure/developer/terraform/configure-vs-code-extension-for-terraform).
 
 ## Review the template
 
-This quickstart uses the following template. It deploys an App Service plan and an App Service app on Linux and a sample Node.js `Hello World` app from the [Azure Samples](https://github.com/Azure-Samples) repo.
+Choose the following Linux or Windows template to create an App Service plan and App Service app. Linux will create a sample Node.js `Hello World` app from the [Azure Samples](https://github.com/Azure-Samples) repo.  The Windows container template will create a sample ASP.NET app from the [Microsoft Container Registry](https://mcr.microsoft.com/).
+
+# [Linux](#tab/linux)
 
 ```hcl
 # Configure the Azure provider
@@ -105,11 +110,75 @@ The template defines the following four Azure resources. For further details and
 * [Microsoft.Web/sites/sourcecontrols](/azure/templates/microsoft.web/sites/sourcecontrols): Create an external Git deployment configuration.
   * [`azurerm_app_service_source_control`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service_source_control)
 
-For more information on how to construct Terraform templates, see [Terraform Learn documentation](https://learn.hashicorp.com/collections/terraform/azure-get-started?utm_source=WEBSITE&utm_medium=WEB_IO&utm_offer=ARTICLE_PAGE&utm_content=DOCS).
+# [Windows Container](#tab/windows-container)
+
+```hcl
+# Configure the Azure provider
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~>3.0.0"
+    }
+  }
+}
+
+provider "azurerm" {
+  features {}
+}
+
+# Generate a random integer to create a globally unique name
+resource "random_integer" "ri" {
+  min = 10000
+  max = 99999
+}
+
+# Create the resource group
+resource "azurerm_resource_group" "rg" {
+  name     = "rg-${random_integer.ri.result}"
+  location = "eastus"
+}
+
+# Create the Windows App Service Plan
+resource "azurerm_service_plan" "windows_appserviceplan" {
+  name                = "windows-asp-${random_integer.ri.result}"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  os_type             = "WindowsContainer"
+  sku_name            = "P1v3"
+}
+
+# Create the Windows Web App with a container
+resource "azurerm_windows_web_app" "windows_webapp" {
+  name                  = "windows-webapp-${random_integer.ri.result}"
+  location              = azurerm_resource_group.rg.location
+  resource_group_name   = azurerm_resource_group.rg.name
+  service_plan_id       = azurerm_service_plan.windows_appserviceplan.id
+
+  site_config {
+    always_on = true
+    app_command_line = ""
+    application_stack {
+      docker_container_name = "mcr.microsoft.com/dotnet/framework/samples"
+      docker_container_tag = "aspnetapp"
+    }
+  }
+
+  app_settings = {
+    DOCKER_REGISTRY_SERVER_USERNAME     = ""
+    DOCKER_REGISTRY_SERVER_PASSWORD     = ""
+    DOCKER_REGISTRY_SERVER_URL          = "https://mcr.microsoft.com"
+    WEBSITES_ENABLE_APP_SERVICE_STORAGE = "false"
+  }
+}
+
+```
+
+For more information on how to construct Terraform templates, see [Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/azure-get-started).
 
 ## Implement the Terraform code
 
-Terraform provides many features that you can use to manage, build, deploy, and update infrastructure. The following steps show you how to deploy and destroy your resources. The [Terraform Learn documentation](https://learn.hashicorp.com/collections/terraform/azure-get-started?utm_source=WEBSITE&utm_medium=WEB_IO&utm_offer=ARTICLE_PAGE&utm_content=DOCS) and [Terraform on Azure documentation](/azure/developer/terraform/) provide more detail. We recommend that you review the preceding documentation if Terraform is part of your Azure infrastructure strategy.
+Terraform provides many features that you can use to manage, build, deploy, and update infrastructure. The following steps show you how to deploy and destroy your resources. The [Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/azure-get-started) and [Terraform on Azure documentation](/azure/developer/terraform/) provide more detail. We recommend that you review the preceding documentation if Terraform is part of your Azure infrastructure strategy.
 
 1. Create a directory in which to test and run the sample Terraform code. Make it the current directory.
 
@@ -146,18 +215,18 @@ Terraform provides many features that you can use to manage, build, deploy, and 
 
 1. On the main menu of the Azure portal, select **Resource groups** and go to the resource group that you created by using the preceding template. The name is `myResourceGroup-` followed by a string of random integers.
 
-1. You can see the App Service and an App Service Plan that Terraform created.
+1. You can see the App Service and an App Service plan that Terraform created.
 
-1. Select **App Service** and go to the URL to verify that your site was created properly. You can also browse to `http://<app_name>.azurewebsites.net/`, where app name is `webapp-` followed by that same string of random integers from the resource group.
+1. Select **App Service** and go to the URL to verify that your site was created properly. You can also browse to `http://<app_name>.azurewebsites.net`, where the app name is `webapp-` followed by that same string of random integers from the resource group.
 
 ## Clean up resources
 
-When no longer needed, either [delete the resource group](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group) or go back to your terminal/command line and execute `terraform destroy` to delete all resources associated with this quickstart.
+When no longer needed, either [delete the resource group](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group) or go back to your terminal and execute `terraform destroy` to delete all resources associated with this quickstart.
 
 > [!NOTE]
-> You can find more Azure App Service Terraform samples in [this article](./samples-terraform.md). You can find even more Terraform samples across all of the Azure services on [GitHub](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples).
+> To find more Azure App Service Terraform samples, see [Terraform samples for Azure App Service](./samples-terraform.md). You can find even more Terraform samples across all of the Azure services on [GitHub](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples).
 
 ## Related content
 
-* [Learn more about using Terraform in Azure](/azure/terraform)
-* [Get Terraform samples for Azure App Service](./samples-terraform.md)
+* [Terraform on Azure documentation](/azure/terraform)
+* [Terraform samples for Azure App Service](./samples-terraform.md)

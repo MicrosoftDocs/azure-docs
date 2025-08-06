@@ -5,6 +5,8 @@ services: automation
 ms.subservice:
 ms.date: 04/22/2024
 ms.topic: troubleshooting
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Troubleshoot Azure Automation managed identity issues

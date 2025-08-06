@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.date: 04/21/2025
 
 #CustomerIntent: As an administrator, I want to learn what the prerequisites are to set up internet peering with Microsoft so I can plan correctly for the set up.
+# Customer intent: As an administrator, I want to understand the prerequisites for setting up internet peering so that I can ensure a smooth implementation process and compliance with necessary requirements.
 ---
 
 # Prerequisites to set up peering with Microsoft

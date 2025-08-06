@@ -97,7 +97,7 @@ The underlying SDK used by extension changed to use the Azure Cosmos DB V3 SDK, 
 
 ## Update the extension bundle
 
-By default, [extension bundles](./functions-bindings-register.md#extension-bundles) are used by non-.NET function apps to install binding extensions. The Azure Cosmos DB version 4 extension is part of the Microsoft Azure Functions version 4 extension bundle.
+By default, [extension bundles](./extension-bundles.md) are used by non-.NET function apps to install binding extensions. The Azure Cosmos DB version 4 extension is part of the Microsoft Azure Functions version 4 extension bundle.
 
 To update your application to use the latest extension bundle, update your `host.json`. The following `host.json` file uses version 4 of the Microsoft Azure Functions extension bundle.
 

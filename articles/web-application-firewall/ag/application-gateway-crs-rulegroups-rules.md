@@ -7,6 +7,9 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 03/06/2025
+ms.custom:
+  - build-2025
+# Customer intent: "As a web application security administrator, I want to manage DRS and CRS rule sets in the web application firewall, so that I can customize security settings and protect against a broad range of vulnerabilities effectively."
 ---
 
 # Web Application Firewall DRS and CRS rule groups and rules
@@ -74,6 +77,9 @@ CRS 3.2 includes 14 rule groups, as shown in the following table. Each group con
 > [!NOTE]
 > CRS 3.2 is only available on the WAF_v2 SKU. Because CRS 3.2 runs on the new Azure WAF engine, you can't downgrade to CRS 3.1 or earlier. If you need to downgrade, [contact Azure Support](https://aka.ms/azuresupportrequest).
 
+> [!NOTE]
+> Web Application Firewall (WAF) running on Application Gateway for Containers does not support the Core Ruleset (CRS).
+
 |Rule group name|Threat Type|
 |---|---|
 |General|**[General](?tabs=owasp32#general-32)**|
@@ -139,6 +145,9 @@ CRS 3.1 includes 14 rule groups, as shown in the following table. Each group con
 
 > [!NOTE]
 > CRS 3.1 is only available on the WAF_v2 SKU.
+
+> [!NOTE]
+> Web Application Firewall (WAF) running on Application Gateway for Containers does not support the Core Ruleset (CRS).
 
 |Rule group name|Description|
 |---|---|
@@ -264,7 +273,7 @@ The following rule groups and rules are available when using Web Application Fir
 |931100|Critical - 5|PL1|Possible Remote File Inclusion (RFI) Attack: URL Parameter using IP Address|
 |931110|Critical - 5|PL1|Possible Remote File Inclusion (RFI) Attack: Common RFI Vulnerable Parameter Name used w/URL Payload|
 |931120|Critical - 5|PL1|Possible Remote File Inclusion (RFI) Attack: URL Payload Used w/Trailing Question Mark Character (?)|
-|931130|Critical - 5|PL1|Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link|
+|931130|Critical - 5|PL2|Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link|
 
 ### <a name="drs932-21"></a> RCE - Remote Command Execution
 |Rule ID|Anomaly score severity|Paranoia Level|Description|

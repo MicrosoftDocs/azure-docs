@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 04/22/2025
 ms.author: anfdocs
+# Customer intent: As a cloud architect, I want to understand the requirements and best practices for deploying an application volume group for SAP HANA, so that I can ensure optimal performance and reliability of my SAP HANA setup on Azure.
 ---
 # Requirements and considerations for application volume group for SAP HANA 
 

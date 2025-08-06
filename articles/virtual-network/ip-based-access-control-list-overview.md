@@ -10,6 +10,7 @@ ms.date: 05/02/2024
 
 #customer intent: As a network administrator, I want to learn about IP based access control lists in Azure Virtual Network so that I can control network traffic to and from my resources.
 
+# Customer intent: As a network administrator, I want to understand IP based access control lists and service tags in Azure Virtual Network so that I can effectively manage network traffic and enhance the security of my resources.
 ---
 
 # What is an IP based access control list (ACL)?

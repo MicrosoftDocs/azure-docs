@@ -2,11 +2,12 @@
 title: URL Redirect for Azure Application Gateway for Containers - Gateway API
 description: Learn how to redirect URLs in Gateway API for Application Gateway for Containers.
 services: application gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
 ms.date: 11/5/2024
-ms.author: greglin
+ms.author: mbender
+# Customer intent: "As a cloud administrator, I want to configure URL redirection in an application gateway for containers, so that I can manage traffic effectively between HTTP and HTTPS protocols and ensure users are directed to the appropriate resources based on their requests."
 ---
 
 # URL Redirect for Azure Application Gateway for Containers - Gateway API

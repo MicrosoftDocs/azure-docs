@@ -7,6 +7,7 @@ ms.topic: concept-article
 author: AbdullahBell
 ms.author: abell
 ms.service: azure-private-link
+# Customer intent: As a cloud administrator, I want to monitor Azure Private Link using Azure Monitor, so that I can effectively collect, analyze, and set alerts on service performance metrics and logs to ensure optimal service availability and troubleshooting.
 ---
 
 # Monitor Azure Private Link

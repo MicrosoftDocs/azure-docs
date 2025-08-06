@@ -1,11 +1,13 @@
 ---
 title: Important details during migration either by portal or scripts in Azure Update Manager
 description: A summary of important pointers while migrating using Azure portal or migration scripts in Azure Update Manager
-author: snehasudhirG
+author: habibaum
+ms.author: v-uhabiba
 ms.service: azure-update-manager
 ms.topic: concept-article
 ms.date: 09/05/2024
-ms.author: sudhirsneha
+
+# Customer intent: "As a cloud administrator, I want to efficiently migrate automation schedules to Azure Update Manager using the portal or scripts, so that I can ensure all supported configurations are properly transferred and optimize my deployment processes."
 ---
 
 # Key points to note for automated migration

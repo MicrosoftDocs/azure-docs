@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 12/13/2024
 ms.author: cherylmc
 
+# Customer intent: As a network administrator, I want to modify the IP address prefixes and BGP settings of my local network gateway, so that I can ensure it accurately reflects the current network configuration and maintains connectivity.
 ---
 # Modify local network gateway settings using the Azure portal
 

@@ -1,13 +1,13 @@
 ---
 title: Import on-premises servers in a VMware environment using RVTools XLSX (preview)
 description: Learn how to import on-premises servers in a VMware environment by using the RVTools XLSX (preview).
-author: snehasudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.topic: tutorial
 ms.date: 05/12/2025
 ms.service: azure-migrate
 ms.custom: vmware-scenario-422
-#Customer intent: As an VMware admin, I want to import my on-premises servers running in a VMware environment.
+# Customer intent: As a VMware administrator, I want to import my on-premises server data using RVTools XLSX, so that I can efficiently migrate my servers to Azure without needing to set up additional discovery tools.
 ---
 
 # Tutorial: Import servers running in a VMware environment with RVTools XLSX (preview)
@@ -16,6 +16,9 @@ As part of your migration journey to Azure, you discover your on-premises invent
 
 This tutorial shows you how to discover the servers that are running in your VMware environment by using RVTools XLSX (preview). When you use this tool, you can control the data shared in the file and there's no need to set up the Azure Migrate appliance to discover servers. [Learn more](migrate-support-matrix-vmware.md#import-servers-using-rvtools-xlsx-preview).
 
+> [!NOTE]
+> * RVTools has a supply chain attack on May 12, 2025. The attack injected malware to the RVTools installer. Customers should download RVTools only from official websites and verify that the installer’s file hash matches on the official website. Customers should run anti-malware software to find any harmful programs.
+> * Microsoft doesn't own or support RVTools. Customers use the software at their own risk.
 
 In this tutorial, you learn how to:
 

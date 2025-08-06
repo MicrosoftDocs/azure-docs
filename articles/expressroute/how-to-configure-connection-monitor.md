@@ -7,6 +7,7 @@ ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 01/31/2025
 ms.author: duau
+# Customer intent: "As a network engineer, I want to configure Connection Monitor for Azure ExpressRoute, so that I can monitor connectivity and performance between Azure and on-premises locations to quickly identify and resolve potential network issues."
 ---
 
 # Configure Connection Monitor for Azure ExpressRoute

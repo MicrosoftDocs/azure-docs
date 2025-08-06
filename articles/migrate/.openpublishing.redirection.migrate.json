@@ -236,6 +236,141 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/migrate/vmware/migrate-support-matrix-vmware-migration.md",
+            "redirect_url": "/azure/migrate/migrate-support-matrix-vmware-migration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/migrate/vmware/migrate-support-matrix-vmware.md",
+            "redirect_url": "/azure/migrate/migrate-support-matrix-vmware",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/migrate/vmware/how-to-set-up-appliance-vmware.md",
+            "redirect_url": "/azure/migrate/how-to-set-up-appliance-vmware",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/migrate/vmware/tutorial-import-vmware-using-rvtools-xlsx.md",
+            "redirect_url": "/azure/migrate/tutorial-import-vmware-using-rvtools-xlsx",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/migrate/vmware/tutorial-assess-vmware-azure-vm.md",
+            "redirect_url": "/azure/migrate/tutorial-assess-vmware-azure-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/migrate/vmware/tutorial-assess-vmware-azure-vmware-solution.md",
+            "redirect_url": "/azure/migrate/tutorial-assess-vmware-azure-vmware-solution",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/migrate/vmware/concepts-vmware-agentless-migration.md",
+            "redirect_url": "/azure/migrate/concepts-vmware-agentless-migration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/migrate/vmware/tutorial-migrate-vmware.md",
+            "redirect_url": "/azure/migrate/tutorial-migrate-vmware",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/azure/migrate/vmware/tutorial-migrate-vmware.md",
+            "redirect_url": "/azure/migrate/tutorial-migrate-vmware",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/migrate/vmware/tutorial-migrate-vmware-powershell.md",
+            "redirect_url": "/azure/migrate/tutorial-migrate-vmware-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/migrate/vmware/agent-based-migration-architecture.md",
+            "redirect_url": "/azure/migrate/agent-based-migration-architecture",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/migrate/vmware/tutorial-migrate-vmware-agent.md",
+            "redirect_url": "/azure/migrate/tutorial-migrate-vmware-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/migrate/vmware/how-to-migrate-vmware-vms-with-cmk-disks.md",
+            "redirect_url": "/azure/migrate/how-to-migrate-vmware-vms-with-cmk-disks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/migrate/vmware/how-to-automate-migration.md",
+            "redirect_url": "/azure/migrate/how-to-automate-migration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/migrate/vmware/how-to-test-replicating-virtual-machines.md",
+            "redirect_url": "/azure/migrate/how-to-test-replicating-virtual-machines",
+            "redirect_document_id": false
+        },
+		{
+            "source_path_from_root": "/articles/migrate/vmware/migrate-vmware-servers-to-azure-using-private-link-agent-based.md",
+            "redirect_url": "/azure/migrate/migrate-vmware-servers-to-azure-using-private-link-agent-based",
+            "redirect_document_id": false
+        },
+		{
+            "source_path_from_root": "/articles/migrate/vmware/migrate-vmware-servers-to-azure-using-private-link.md",
+            "redirect_url": "/azure/migrate/migrate-vmware-servers-to-azure-using-private-link",
+            "redirect_document_id": false
+        },
+		{
+            "source_path_from_root": "/articles/migrate/vmware/prepare-for-agentless-migration.md",
+            "redirect_url": "/azure/migrate/prepare-for-agentless-migration",
+            "redirect_document_id": false
+        },
+		{
+            "source_path_from_root": "/articles/migrate/vmware/scale-vmware-assessment.md",
+            "redirect_url": "/azure/migrate/scale-vmware-assessment",
+            "redirect_document_id": false
+        },
+		{
+            "source_path_from_root": "/articles/migrate/vmware/server-migrate-overview.md",
+            "redirect_url": "/azure/migrate/server-migrate-overview",
+            "redirect_document_id": false
+        },
+		{
+            "source_path_from_root": "/articles/migrate/vmware/set-discovery-scope.md",
+            "redirect_url": "/azure/migrate/set-discovery-scope",
+            "redirect_document_id": false
+        },
+		{
+            "source_path_from_root": "/articles/migrate/vmware/start-here-vmware.md",
+            "redirect_url": "/azure/migrate/migrate-services-overview",
+            "redirect_document_id": false
+        },
+		{
+            "source_path_from_root": "/articles/migrate/vmware/troubleshoot-changed-block-tracking-replication.md",
+            "redirect_url": "/azure/migrate/troubleshoot-changed-block-tracking-replication",
+            "redirect_document_id": false
+        },
+		{
+            "source_path_from_root": "/articles/migrate/vmware/troubleshoot-replication-vmware.md",
+            "redirect_url": "/azure/migrate/troubleshoot-replication-vmware",
+            "redirect_document_id": false
+        },
+		{
+            "source_path_from_root": "/articles/migrate/vmware/tutorial-assess-sql-vmware.md",
+            "redirect_url": "/azure/migrate/tutorial-assess-sql-vmware",
+            "redirect_document_id": false
+        },
+		{
+            "source_path_from_root": "/articles/migrate/vmware/tutorial-assess-webapps-vmware.md",
+            "redirect_url": "/azure/migrate/tutorial-assess-webapps-vmware",
+            "redirect_document_id": false
+        },
+		{
+            "source_path_from_root": "/articles/migrate/vmware/tutorial-discover-vmware.md",
+            "redirect_url": "/azure/migrate/tutorial-discover-vmware",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/migrate/contoso-migration-overview.md",
             "redirect_url": "/azure/cloud-adoption-framework/migrate/",
             "redirect_document_id": false

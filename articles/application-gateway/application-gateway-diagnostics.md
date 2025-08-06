@@ -1,13 +1,19 @@
 ---
 title: Diagnostic logs
 titleSuffix: Azure Application Gateway
-description: Learn how to enable and manage logs for Azure Application Gateway.
+description: Explore how to use Azure Monitor to collect and analyze Application Gateway logs for better troubleshooting and data visualization.
+#customer intent: As a network engineer, I want to analyze access logs for specific HTTP status codes so that I can identify and resolve problematic requests.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 05/07/2025
-ms.author: greglin 
+ms.date: 06/16/2025
+ms.author: mbender
+ms.custom:
+  - ai-gen-docs-bap
+  - ai-gen-description
+  - ai-seo-date:06/16/2025 
+# Customer intent: "As an IT administrator, I want to enable and configure diagnostic logging for Azure Application Gateway, so that I can monitor resource performance and troubleshoot issues effectively."
 ---
 
 # Diagnostic logs for Application Gateway
@@ -30,20 +36,20 @@ You can use different types of logs in Azure to manage and troubleshoot applicat
 
 ## Examples of optimizing access logs using Workspace Transformations
 
-**Example 1: Selective Projection of Columns**: Imagine you have application gateway access logs with 20 columns, but you’re interested in analyzing data from only 6 specific columns. By using workspace transformation, you can project these 6 columns into your workspace, effectively excluding the other 14 columns. Even though the original data from those excluded columns won’t be stored, empty placeholders for them still appear in the Logs blade. This approach optimizes storage and ensures that only relevant data is retained for analysis.
+**Example 1: Selective Projection of Columns**: Imagine you have application gateway access logs with 20 columns, but you're interested in analyzing data from only six specific columns. By using workspace transformation, you can project these six columns into your workspace, effectively excluding the other 14 columns. Even though the original data from those excluded columns won't be stored, empty placeholders for them still appear in the Logs blade. This approach optimizes storage and ensures that only relevant data is retained for analysis.
 
- > [!NOTE]
- > Within the Logs blade, selecting the **Try New Log Analytics** option gives greater control over the columns displayed in your user interface.
+> [!NOTE]
+> Within the Logs blade, selecting the **Try New Log Analytics** option gives greater control over the columns displayed in your user interface.
 
 **Example 2: Focusing on Specific Status Codes**: When analyzing access logs, instead of processing all log entries, you can write a query to retrieve only rows with specific HTTP status codes (such as 4xx and 5xx). Since most requests ideally fall under the 2xx and 3xx categories (representing successful responses), focusing on the problematic status codes narrows down the data set. This targeted approach allows you to extract the most relevant and actionable information, making it both beneficial and cost-effective.
 
 **Recommended transition strategy to move from Azure diagnostic to resource specific table:**
 
 1. Assess current data retention: Determine the duration for which data is presently retained in the Azure diagnostics table (for example: assume the diagnostics table retains data for 15 days).
-2. Establish resource-specific retention: Implement a new Diagnostic setting with resource specific table.
-3. Parallel data collection: For a temporary period, collect data concurrently in both the Azure Diagnostics and the resource-specific settings.
-4. Confirm data accuracy: Verify that data collection is accurate and consistent in both settings.
-5. Remove Azure diagnostics setting: Remove the Azure Diagnostic setting to prevent duplicate data collection.
+1. Establish resource-specific retention: Implement a new Diagnostic setting with resource specific table.
+1. Parallel data collection: For a temporary period, collect data concurrently in both the Azure Diagnostics and the resource-specific settings.
+1. Confirm data accuracy: Verify that data collection is accurate and consistent in both settings.
+1. Remove Azure diagnostics setting: Remove the Azure Diagnostic setting to prevent duplicate data collection.
 
 Other storage locations:
 
@@ -57,22 +63,22 @@ Learn more about the Azure Monitor's [diagnostic settings destinations](/azure/a
 
 Activity logging is automatically enabled for every Resource Manager resource. You must enable access and performance logging to start collecting the data available through those logs. To enable logging, use the following steps:
 
-1. Note your storage account's resource ID, where the log data is stored. This value is of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Storage/storageAccounts/\<storage account name\>. You can use any storage account in your subscription. You can use the Azure portal to find this information.
+1. Note your storage account's resource ID, where the log data is stored. This value is of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resourceGroupName\>/providers/Microsoft.Storage/storageAccounts/\<storageAccountName\>. You can use any storage account in your subscription. You can use the Azure portal to find this information.
 
-   :::image type="content" source="media/application-gateway-diagnostics/diagnostics2.png" alt-text="Screenshot of storage account endpoints" lightbox="media/application-gateway-diagnostics/diagnostics2.png":::
+   :::image type="content" source="media/application-gateway-diagnostics/storage-endpoint-resource-id-thumb.png" alt-text="Screenshot of storage account endpoints." lightbox="media/application-gateway-diagnostics/storage-endpoint-resource-id.png":::
 
-2. Note your application gateway's resource ID for which logging is enabled. This value is of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/applicationGateways/\<application gateway name\>. You can use the portal to find this information.
+1. Note your application gateway's resource ID for which logging is enabled. This value is of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resourceGroupName\>/providers/Microsoft.Network/applicationGateways/\<applicationGatewayName\>. You can use the portal to find this information.
 
-   :::image type="content" source="media/application-gateway-diagnostics/diagnostics1.png" alt-text="Screenshot of app gateway properties" lightbox="media/application-gateway-diagnostics/diagnostics1.png":::
+   :::image type="content" source="media/application-gateway-diagnostics/application-gateway-endpoint-id-thumb.png" alt-text="Screenshot of app gateway properties." lightbox="media/application-gateway-diagnostics/application-gateway-endpoint-id.png":::
 
-3. Enable diagnostic logging by using the following PowerShell cmdlet:
+1. Enable diagnostic logging by using the following PowerShell cmdlet:
 
     ```powershell
-    Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
+    Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/applicationGateways/<applicationGatewayName> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Storage/storageAccounts/<storageAccountName> -Enabled $true
     ```
 
 > [!TIP]
->Activity logs do not require a separate storage account. The use of storage for access and performance logging incurs service charges.
+> Activity logs don't require a separate storage account. The use of storage for access and performance logging incurs service charges.
 
 ## Enable logging through the Azure portal
 
@@ -80,17 +86,17 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
 
    For Application Gateway, three logs are available:
 
-   * Access log
-   * Performance log (available only for the v1 SKU)
-   * Firewall log
+   - Access log
+   - Performance log (available only for the v1 SKU)
+   - Firewall log
 
 1. To start collecting data, select **Turn on diagnostics**.
 
-   ![Turning on diagnostics][1]
+   :::image type="content" source="media/application-gateway-diagnostics/turning-on-diagnostics.png" alt-text="Screenshot of turning on diagnostics.":::
 
 1. The **Diagnostics settings** page provides the settings for the diagnostic logs. In this example, Log Analytics stores the logs. You can also use event hubs and a storage account to save the diagnostic logs.
 
-   ![Starting the configuration process][2]
+   :::image type="content" source="media/application-gateway-diagnostics/starting-configuration-process.png" alt-text="Screenshot of starting the configuration process.":::
 
 1. Type a name for the settings, confirm the settings, and select **Save**.
 
@@ -107,17 +113,6 @@ You can also connect to your storage account and retrieve the JSON log entries f
 
 ## Next steps
 
-* Visualize counter and event logs by using [Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics).
-* [Visualize your Azure activity log with Power BI](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) blog post.
-* [View and analyze Azure activity logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blog post.
-
-[1]: ./media/application-gateway-diagnostics/figure1.png
-[2]: ./media/application-gateway-diagnostics/figure2.png
-[3]: ./media/application-gateway-diagnostics/figure3.png
-[4]: ./media/application-gateway-diagnostics/figure4.png
-[5]: ./media/application-gateway-diagnostics/figure5.png
-[6]: ./media/application-gateway-diagnostics/figure6.png
-[7]: ./media/application-gateway-diagnostics/figure7.png
-[8]: ./media/application-gateway-diagnostics/figure8.png
-[9]: ./media/application-gateway-diagnostics/figure9.png
-[10]: ./media/application-gateway-diagnostics/figure10.png
+- Visualize counter and event logs by using [Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics).
+- [Visualize your Azure activity log with Power BI](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) blog post.
+- [View and analyze Azure activity logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blog post.

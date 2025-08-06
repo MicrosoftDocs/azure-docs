@@ -144,7 +144,7 @@ You can assign environment variables to certain properties of the returned defin
 You can learn more about advanced filtering and other uses for the JQ library [here](https://devdocs.io/jq/).
 
 ## ade execute command
-The `ade execute` command is used to provide implicit logging for scripts executed inside the container. This way, any standard output, or standard error content produced during the command is logged to the operation's log file for the environment, and can be accessed using the Azure CLI.
+The `ade execute` command is used to provide implicit logging for scripts executed inside the container. This way, any standard output or standard error content produced during the command is logged to the operation's log file for the environment and can be accessed using the Azure CLI.
 
 You should pipe all standard errors from this command to the error log file specified at the environment variable $ADE_ERROR_LOG, so that environment error details are easily populated and surfaced on the developer portal.
 

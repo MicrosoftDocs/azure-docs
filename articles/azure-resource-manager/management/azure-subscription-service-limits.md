@@ -168,13 +168,13 @@ See [Limits in Azure Cosmos DB](/azure/cosmos-db/concepts-limits) for Azure Cosm
 
 [!INCLUDE [azure-data-explorer-limits](../../../includes/data-explorer-limits.md)]
 
-## Azure Database for MySQL
+## Azure Database for MySQL flexible server
 
-See [Limitations in Azure Database for MySQL](/azure/mysql/concepts-limits) for Azure Database for MySQL limits.
+See [Limitations in Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/concepts-limitations) for Azure Database for MySQL - Flexible Server limits.
 
-## Azure Database for PostgreSQL
+## Azure Database for PostgreSQL flexible server
 
-See [Limitations in Azure Database for PostgreSQL](/azure/postgresql/concepts-limits) for Azure Database for PostgreSQL limits.
+See [Limits in Azure Database for PostgreSQL flexible server](/azure/postgresql/flexible-server/concepts-limits) for Azure Database for PostgreSQL flexible server limits.
 
 ## Azure Deployment Environments limits
 
@@ -203,6 +203,8 @@ See [Azure Functions hosting options](../../azure-functions/functions-scale.md) 
 ## Azure Kubernetes Service limits
 
 [!INCLUDE [container-service-limits](~/reusable-content/ce-skilling/azure/includes/container-service-limits.md)]
+
+[!INCLUDE [container-quota-limits](~/reusable-content/ce-skilling/azure/includes/container-quota-limits.md)]
 
 ## Azure Lab Services
 
@@ -380,7 +382,11 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ## Azure Key Vault limits
 
-[!INCLUDE [key-vault-limits](~/reusable-content/ce-skilling/azure/includes/key-vault-limits.md)]
+[!INCLUDE [key-vault-limits](~/reusable-content/ce-skilling/azure/includes/key-vault/key-vault-service-limits.md)]
+
+## Azure Key Vault: Managed HSM limits
+
+[!INCLUDE [key-vault-limits](~/reusable-content/ce-skilling/azure/includes/key-vault/managed-hsm-service-limits.md)]
 
 ## Azure Managed Identity limits
 

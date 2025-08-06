@@ -1,10 +1,10 @@
 ---
 title: Best practices for Microsoft Sentinel
 description: Learn about best practices to employ when managing your Log Analytics workspace for Microsoft Sentinel.
-author: cwatson-cat
-ms.author: cwatson
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: conceptual
-ms.date: 06/28/2024
+ms.date: 07/16/2025
 
 
 #Customer intent: As a security operations center (SOC) analyst, I want to implement best practices for deploying and managing a cloud-based SIEM solution so that I can enhance threat detection, incident response, and overall security posture.
@@ -21,13 +21,17 @@ Best practice guidance is provided throughout the technical documentation for Mi
 
 Start with the [deployment guide for Microsoft Sentinel](deploy-overview.md). The deployment guide covers the high level steps to plan, deploy, and fine-tune your Microsoft Sentinel deployment. From that guide, select the provided links to find detailed guidance for each stage in your deployment.
 
+## Adopt a single-platform architecture
+
+Microsoft Sentinel is integrated with a modern data lake that offers affordable, long-term storage enabling teams to simplify data management, optimize costs, and accelerate the adoption of AI. The Microsoft Sentinel data lake (preview) enables a single-platform architecture for security data and empowers analysts with a unified query experience while leveraging Microsoft Sentinel’s rich connector ecosystem. For more information, see [Microsoft Sentinel data lake (preview)](datalake/sentinel-lake-overview.md).
+
 ## Microsoft security service integrations
 
 Microsoft Sentinel is empowered by the components that send data to your workspace, and is made stronger through integrations with other Microsoft services. Any logs ingested into products, such as Microsoft Defender for Cloud Apps, Microsoft Defender for Endpoint, and Microsoft Defender for Identity, allow these services to create detections, and in turn provide those detections to Microsoft Sentinel. Logs can also be ingested directly into Microsoft Sentinel to provide a fuller picture for events and incidents.
 
-For example, the following image shows how Microsoft Sentinel ingests data from other Microsoft services and multicloud and partner platforms to provide coverage for your environment:
+For example, the following image shows how Microsoft Sentinel ingests data from other Microsoft services, multicloud, and partner platforms to provide coverage for your environment:
 
-:::image type="content" source="media/best-practices/azure-sentinel-and-other-services.png" alt-text="Microsoft Sentinel integrating with other Microsoft and partner services":::
+:::image type="content" source="media/best-practices/azure-sentinel-and-other-services.png"  lightbox="media/best-practices/azure-sentinel-and-other-services.png" alt-text="A diagram showing the Microsoft Sentinel integrating with other Microsoft and partner services.":::
 
 More than ingesting alerts and logs from other sources, Microsoft Sentinel also:
 
@@ -39,7 +43,7 @@ More than ingesting alerts and logs from other sources, Microsoft Sentinel also:
 
 For more information about integrating data from other services or providers, see [Microsoft Sentinel data connectors](connect-data-sources.md).
 
-Consider onboarding Microsoft Sentinel to the Microsoft Defender portal to unify capabilities with Microsoft Defender XDR like incident management and advanced hunting. For more information, see the following articles:
+If you're using Microsoft Sentinel in the Azure portal, consider onboarding Microsoft Sentinel to the Microsoft Defender portal to unify capabilities with Microsoft Defender XDR like incident management and advanced hunting. For more information, see the following articles:
 
 - [Connect Microsoft Sentinel to Microsoft Defender XDR](/defender-xdr/microsoft-sentinel-onboard)
 - [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md)
@@ -49,7 +53,7 @@ Consider onboarding Microsoft Sentinel to the Microsoft Defender portal to unify
 
 The following image shows recommended steps in an incident management and response process.
 
-:::image type="content" source="media/best-practices/incident-handling.png" alt-text="Diagram of incident management process: Triage. Preparation. Remediation. Eradication. Post incident activities.":::
+:::image type="content" source="media/best-practices/incident-handling.png" alt-text="Diagram showing incident management process: Triage. Preparation. Remediation. Eradication. Post incident activities.":::
 
 The following table provides high-level descriptions for how to use Microsoft Sentinel features for incident management and response. For more information, see [Investigate incidents with Microsoft Sentinel](investigate-cases.md).
 
@@ -67,6 +71,7 @@ The following table provides high-level descriptions for how to use Microsoft Se
 
 - [Microsoft Sentinel operational guide](ops-guide.md)
 - [On-board Microsoft Sentinel](quickstart-onboard.md)
+- [On-board Microsoft Sentinel data lake](datalake/sentinel-lake-onboarding.md)
 - [Deployment guide for Microsoft Sentinel](deploy-overview.md)
 - [Protecting MSSP intellectual property in Microsoft Sentinel](mssp-protect-intellectual-property.md)
 

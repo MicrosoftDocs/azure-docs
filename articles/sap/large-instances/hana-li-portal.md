@@ -9,6 +9,7 @@ ms.topic: article
 ms.date: 07/01/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
+# Customer intent: "As a cloud administrator, I want to manage HANA Large Instances through the Azure portal, so that I can effectively oversee deployments, configurations, and support requests for optimal performance and reliability of my SAP applications."
 ---
 
 # Azure HANA Large Instances control through Azure portal

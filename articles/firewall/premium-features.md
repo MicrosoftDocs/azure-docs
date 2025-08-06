@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 03/17/2025
 ms.author: duau
 ms.custom: references_regions
+# Customer intent: "As a network security administrator, I want to implement Azure Firewall Premium features like TLS inspection and IDPS, so that I can enhance threat protection for our sensitive data and ensure compliance with industry standards."
 ---
 
 # Azure Firewall Premium features

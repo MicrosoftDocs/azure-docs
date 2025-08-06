@@ -8,6 +8,7 @@ ms.service: azure-cdn
 ms.topic: concept-article
 ms.date: 03/31/2025
 ROBOTS: NOINDEX
+# Customer intent: "As a web administrator managing content delivery, I want to configure match conditions and actions in the rules engine, so that I can optimize caching and request processing for better performance."
 ---
 
 # Standard rules engine reference for Azure Content Delivery Network

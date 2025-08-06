@@ -3,11 +3,12 @@ author: ggailey777
 ms.service: azure-functions
 ms.custom:
   - build-2024
+  - build-2025
 ms.topic: include
 ms.date: 03/06/2025
 ms.author: glenga
 ---
-| Resource |[Flex Consumption plan](/azure/azure-functions/flex-consumption-plan)|[Premium plan](/azure/azure-functions/functions-premium-plan)|[Dedicated plan](/azure/azure-functions/dedicated-plan)/[ASE](/azure/app-service/environment/intro)| [Container Apps](/azure/azure-functions/functions-container-apps-hosting)|[Consumption plan](/azure/azure-functions/consumption-plan)|
+| Resource |[Flex Consumption plan](../articles/azure-functions/flex-consumption-plan.md)|[Premium plan](../articles/azure-functions/functions-premium-plan.md)|[Dedicated plan](../articles/azure-functions/dedicated-plan.md)/[ASE](../articles/app-service/environment/overview.md)| [Container Apps](../articles/container-apps/functions-overview.md)|[Consumption plan](../articles/azure-functions/consumption-plan.md)|
 | --- | --- | --- | --- | --- | --- | 
 | Default [time-out duration](/azure/azure-functions/functions-scale#timeout) (min) | 30 | 30 |30<sup>1</sup> | 30<sup>16</sup> |5 |
 | Max [time-out duration](/azure/azure-functions/functions-scale#timeout) (min) | unbounded<sup>9</sup> | unbounded<sup>9</sup> | unbounded<sup>2</sup> | unbounded<sup>17</sup> |10 |
@@ -41,7 +42,7 @@ Notes on service limits:
 11. See [App Service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits) for details.  
 12. Including the production slot.  
 13. There's currently a limit of 5,000 function apps in a given subscription. 
-14. Flex Consumption plan instance sizes are currently defined as either 2,048 MB or 4,096 MB. For more information, see [Instance memory](/azure/azure-functions/flex-consumption-plan#instance-memory).  
+14. Flex Consumption plan instance sizes are currently defined as 512 MB, 2,048 MB, or 4,096 MB. For more information, see [Instance memory](/azure/azure-functions/flex-consumption-plan#instance-memory).  
 15. For details, see [Scale](../articles/azure-functions/functions-scale.md#scale) in the Hosting comparison article.
 16. When the [minimum number of replicas](/azure/container-apps/scale-app#scale-definition) is set to zero, the default time-out depends on the specific triggers used in the app.
 17. When the [minimum number of replicas](../articles/container-apps/scale-app.md#scale-definition) is set to one or more.

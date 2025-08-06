@@ -2,11 +2,14 @@
 title: Azure Application Gateway Backend Settings configuration
 description: This article describes how to configure Azure Application Gateway Backend Settings.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 05/09/2025
-ms.author: greglin
+ms.date: 05/15/2025
+ms.author: mbender
+ms.custom:
+  - build-2025
+# Customer intent: "As a cloud architect, I want to configure the Backend Settings for Azure Application Gateway, so that I can manage backend connections and optimize traffic routing based on various protocols and settings."
 ---
 
 # Application Gateway backend settings configuration
@@ -29,7 +32,7 @@ Azure Application Gateway uses gateway-managed cookies for maintaining user sess
 This feature is useful when you want to keep a user session on the same server and when session state is saved locally on the server for a user session. If the application can't handle cookie-based affinity, you can't use this feature. To use it, make sure that the clients support cookies.
 
 > [!NOTE]
-> Some vulnerability scans may flag the Application Gateway affinity cookie because the Secure or HttpOnly flags are not set. These scans don't take into account that the data in the cookie is generated using a one-way hash. The cookie doesn't contain any user information and is used purely for routing. 
+> Some vulnerability scans may flag the Application Gateway affinity cookie because the Secure or HttpOnly flags aren't set. These scans don't take into account that the data in the cookie is generated using a one-way hash. The cookie doesn't contain any user information and is used purely for routing. 
 
 
 The [Chromium browser](https://www.chromium.org/Home) [v80 update](https://chromiumdash.appspot.com/schedule) brought a mandate where HTTP cookies without [SameSite](https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-rfc6265bis-03#rfc.section.5.3.7) attribute have to be treated as SameSite=Lax. For CORS (Cross-Origin Resource Sharing) requests, if the cookie has to be sent in a third-party context, it has to use *SameSite=None; Secure* attributes and it should be sent over HTTPS only. Otherwise, in an HTTP only scenario, the browser doesn't send the cookies in the third-party context. The goal of this update from Chrome is to enhance security and to avoid Cross-Site Request Forgery (CSRF) attacks. 
@@ -69,13 +72,13 @@ This setting specifies the port where the backend servers listen to traffic from
 
 ### Trusted root certificate 
 
-If you select HTTPS as the backend protocol, the Application Gateway requires a trusted root certificate to trust the backend pool for end-to-end SSL. By default, the **Use well known CA certificate** option is set to **No**. If you plan to use a self-signed certificate, or a certificate signed by an internal Certificate Authority, then you must provide the Application Gateway the matching public certificate used by the backend pool. This certificate must be uploaded directly to the Application Gateway in .CER format.
+When selecting the HTTPS protocol in the backend settings, the application gateway resource utilizes its default Trusted Root CA certificate store to verify the chain and authenticity of the certificate provided by the backend server.
 
-If you plan to use a certificate on the backend pool that is signed by a trusted public Certificate Authority, then you can set the **Use well known CA certificate** option to **Yes** and skip uploading a public certificate.
+By default, the Application Gateway resource includes popular CA certificates, allowing seamless backend TLS connections when the backend server certificate is issued by a Public CA. However, if you intend to use a Private CA or a self-generated certificate, you must provide the corresponding Root CA certificate (.cer) in this Backend Settings configuration.
 
 ### Request timeout
 
-This setting is the number of seconds that the application gateway waits to receive a response from the backend server.
+This setting is the number of seconds that the application gateway waits to receive a response from the backend server. The default value is 20 seconds. However, you may wish to adjust this setting to the needs of your application. Acceptable values are from 1 second to 86400 seconds (24 hours).
 
 ### Override backend path
 
@@ -149,13 +152,13 @@ This setting specifies the port where the backend servers listen to traffic from
 
 ### Timeout
 
-This setting is the number of seconds that the application gateway waits before closing the frontend and backend connections in case there is no transmission of any data.
+This setting is the number of seconds that the application gateway waits before closing the frontend and backend connections in case there's no transmission of any data. Acceptable values are from 1 second to 86400 seconds (24 hours).
 
 ### Trusted root certificate 
 
-When selecting the TLS protocol in the backend settings, the application gateway resource utilizes a Trusted Root CA certificate store to verify the chain and authenticity of the certificate provided by the backend server.
+When selecting the TLS protocol in the backend settings, the application gateway resource utilizes its default Trusted Root CA certificate store to verify the chain and authenticity of the certificate provided by the backend server.
 
-By default, the Application Gateway resource includes popular CA certificates, allowing seamless backend TLS connections when the backend server certificate is issued by a well-known CA. However, if you intend to use a Private CA or a self-generated certificate, you must provide the corresponding Root CA certificate (.cer) in this Backend Settings configuration.
+By default, the Application Gateway resource includes popular CA certificates, allowing seamless backend TLS connections when the backend server certificate is issued by a Public CA. However, if you intend to use a Private CA or a self-generated certificate, you must provide the corresponding Root CA certificate (.cer) in this Backend Settings configuration.
 
 ### SNI (Server Name Indication)
 This configuration is applicable only to a backend setting with the TLS protocol. The SNI value provided here is transmitted to the backend server during the TLS handshake. The backend server must present the appropriate certificate.

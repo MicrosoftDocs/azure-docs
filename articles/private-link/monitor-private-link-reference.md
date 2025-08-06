@@ -7,6 +7,7 @@ ms.topic: reference
 author: AbdullahBell
 ms.author: abell
 ms.service: azure-private-link
+# Customer intent: As a cloud engineer, I want to access monitoring metrics for Azure Private Link, so that I can effectively track its performance and ensure optimal connectivity.
 ---
 
 # Azure Private Link monitoring data reference

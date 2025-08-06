@@ -8,6 +8,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network
 ms.subservice: ip-services
+# Customer intent: As an IT administrator, I want to monitor public IP addresses using Azure Monitor, so that I can gain insights on traffic data and DDoS attacks to ensure the security and performance of our network.
 ---
 
 # Monitor Public IP addresses

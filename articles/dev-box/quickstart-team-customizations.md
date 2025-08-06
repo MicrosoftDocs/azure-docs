@@ -15,8 +15,6 @@ ms.date: 11/06/2024
   
 # Quickstart: Create a dev box by using team customizations
 
-[!INCLUDE [note-build-2025](includes/note-build-2025.md)]
-  
 In this quickstart, you create a dev box by using Microsoft Dev Box team customizations. The feature uses an image definition file so that you can create consistently customized dev boxes for your development team and provide a tailored environment for your projects.
   
 ## Prerequisites
@@ -104,11 +102,11 @@ The sections that follow walk you through these tasks:
 
 1. Select **Sync settings**.
 
-   :::image type="content" source="./media/how-to-configure-customization-imaging/customizations-project-sync-settings-small.png" alt-text="Screenshot of the Catalogs pane in the Azure portal, with the button for sync settings highlighted." lightbox="./media/how-to-configure-customization-imaging/customizations-project-sync-settings.png":::
+   :::image type="content" source="./media/quickstart-team-customizations/customizations-project-sync-settings-small.png" alt-text="Screenshot of the Catalogs pane in the Azure portal, with the button for sync settings highlighted." lightbox="./media/quickstart-team-customizations/customizations-project-sync-settings.png":::
 
 1. On the **Sync settings** pane, select **Image definitions**, and then select **Save**.
 
-   :::image type="content" source="./media/how-to-configure-customization-imaging/customizations-project-sync-image-definitions.png" alt-text="Screenshot of the pane for sync settings in the Azure portal, with the checkbox for image definitions highlighted." lightbox="./media/how-to-configure-customization-imaging/customizations-project-sync-image-definitions.png":::
+   :::image type="content" source="./media/quickstart-team-customizations/customizations-project-sync-image-definitions.png" alt-text="Screenshot of the pane for sync settings in the Azure portal, with the checkbox for image definitions highlighted." lightbox="./media/quickstart-team-customizations/customizations-project-sync-image-definitions.png":::
 
 
 1. On the **Add catalog** pane, enter the following information, and then select **Add**:
@@ -208,5 +206,5 @@ Dev Box applies customizations as the final stage of the creation process. Dev B
   
 ## Related content
 
-- [Microsoft Dev Box team customizations](concept-what-are-team-customizations.md)
+- [Microsoft Dev Box customizations](concept-what-are-dev-box-customizations.md)
 - [Write a customization file for a dev box](./how-to-write-customization-file.md)

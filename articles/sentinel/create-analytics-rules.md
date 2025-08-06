@@ -20,6 +20,9 @@ You’ve set up [connectors and other means of collecting activity data](connect
 
 Microsoft Sentinel and its many [solutions provided in the Content hub](sentinel-solutions.md) offer templates for the most commonly used types of analytics rules, and you’re strongly encouraged to make use of those templates, customizing them to fit your specific scenarios. But it’s possible you might need something completely different, so in that case you can create a rule from scratch, using the analytics rule wizard.
 
+> [!NOTE]
+> If you're reviewing the details of a SOC optimization recommendation in the **SOC optimization** page and followed the **Learn more** link to this page, you might be looking for the list of suggested analytics rules. In this case, scroll to the bottom of the optimization details tab and select **Go to Content hub** to find and install the recommended rules specific to that recommendation. For more information, see [SOC optimization usage flow](soc-optimization/soc-optimization-access.md#soc-optimization-usage-flow).
+
 This article describes the process of creating an analytics rule from scratch, including using the **Analytics rule wizard**. It's accompanied by screenshots and directions to access the wizard in both the Azure portal and the Defender portal.
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
@@ -80,8 +83,8 @@ In the Azure portal, stages are represented visually as tabs. In the Defender po
 
     | Field | Description |
     | ----- | ----------- |
-    | **Name** | A unique name for your rule. This field supports plain text only. |
-    | **Description** | A free-text description for your rule.<br>If Microsoft Sentinel is onboarded to the Defender portal, this field supports plain text only. |
+    | **Name** | A unique name for your rule. This field supports plain text only. Any URLs included in the name should follow the [percent-encoding format](https://en.m.wikipedia.org/wiki/Percent-encoding) for them to display properly. |
+    | **Description** | A free-text description for your rule.<br>If Microsoft Sentinel is onboarded to the Defender portal, this field supports plain text only. Any URLs included in the description should follow the percent-encoding format for them to display properly. |
     | **Severity** | Match the impact the activity triggering the rule might have on the target environment, should the rule be a true positive.<br><br>**Informational**: No impact on your system, but the information might be indicative of future steps planned by a threat actor.<br>**Low**: The immediate impact would be minimal. A threat actor would likely need to conduct multiple steps before achieving an impact on an environment.<br>**Medium**: The threat actor could have some impact on the environment with this activity, but it would be limited in scope or require additional activity.<br> **High**: The activity identified provides the threat actor with wide ranging access to conduct actions on the environment or is triggered by impact on the environment. |
     | **MITRE ATT&CK** | Choose those threat activities which apply to your rule. Select from among the **MITRE ATT&CK** tactics and techniques presented in the drop-down list. You can make multiple selections.<br><br>For more information on maximizing your coverage of the MITRE ATT&CK threat landscape, see [Understand security coverage by the MITRE ATT&CK® framework](mitre-coverage.md). |
     | **Status** | **Enabled**: The rule runs immediately upon creation, or at the [specific date and time you choose to schedule it (currently in PREVIEW)](#schedule-and-scope-the-query).<br>**Disabled**: The rule is created but doesn't run. Enable it later from your **Active rules** tab when you need it. |
@@ -179,7 +182,7 @@ In the **Incident settings** tab, choose whether Microsoft Sentinel turns alerts
      >
      > - In this scenario, incidents are created by Microsoft Defender XDR, not by Microsoft Sentinel.
      > - These incidents appear in the incidents queue in both the Azure and Defender portals.
-     > - In the Azure portal, new incidents are displayed with "Microsoft Defender XDR" as the **incident provider name**.
+     > - In the Azure portal, new incidents are displayed with "Microsoft XDR" as the **incident provider name**.
 
    - If you want a single incident to be created from a group of alerts, instead of one for every single alert, see the next step.
 
