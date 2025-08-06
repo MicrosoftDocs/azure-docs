@@ -85,7 +85,9 @@ To create an App Service Environment in the Azure portal, complete the following
 
 After your App Service Environment is successfully created, you can select it as a location when you create your apps.
 
-To learn how to create an App Service Environment from an Azure Resource Manager template, see [Create an App Service Environment by using a Resource Manager template](how-to-create-from-template.md).
+## Related content
+
+- [Create an App Service Environment by using a Resource Manager template](how-to-create-from-template.md).
 
 <!--Links-->
 [Intro]: ./overview.md
