@@ -12,7 +12,7 @@ ms.custom: engagement-fy24
 
 # Tutorial: Review PostgreSQL assessment results and Migration recommendations
 
-This article explains the key components of a PostgreSQL assessment and how to review the results after the assessment is created.
+This article describes the key components of a PostgreSQL assessment and shows you how to review results, explore migration options, and evaluate cost and readiness for migrating to Azure.
 
 ## View an assessment 
 
@@ -61,7 +61,7 @@ Readiness report:
 
 ## Support status of assessed PostgreSQL instances
 
-The Supportability section shows the support status of the PostgreSQL versions identified during the assessment. The Discovery Details section provides a visual summary of the number of discovered PostgreSQL instances, categorized by version.
+The **Supportability** section shows the support status of the PostgreSQL versions identified during the assessment. The Discovery Details section provides a visual summary of the number of discovered PostgreSQL instances, categorized by version.
 
 1. To view the list of assessed PostgreSQL instances, select the graph in the **Supportability**
 1. The **Database instance version support status** column indicates whether the PostgreSQL version is in mainstream support or out of support.
@@ -76,8 +76,8 @@ The Supportability section shows the support status of the PostgreSQL versions i
     - **Mainstream support**: The PostgreSQL version is actively supported and receives regular updates.
     - **Out of support**: The PostgreSQL version no longer receives updates and should be upgraded to a supported version.
 
-> [NOTE!]
-> PostgreSQL instances running unsupported versions should be prioritized for migration to maintain security compliance and ensure continued support in Azure.
+    > [!NOTE]
+    > PostgreSQL instances running unsupported versions should be prioritized for migration to maintain security compliance and ensure continued support in Azure.
 
 ## Review readiness
 
@@ -91,11 +91,11 @@ To review readiness reports for different migration strategies:
 1. Review the readiness columns in the selected report to assess migration preparedness.
 
 
-| **Migration strategy**| **Readiness Columns (Respective deployment target)** | 
-| --- | --- |
-| Recommended | Azure Database for PostgreSQL flexible Server readiness |
-| Instances to Azure Database for PostgreSQL | Azure Database for PostgreSQL flexible Server readiness |
-| Servers to PostgreSQL Server on Azure VM | Azure VM readiness (PostgreSQL Server on Azure VM) |
+    | **Migration strategy**| **Readiness Columns (Respective deployment target)** | 
+    | --- | --- |
+    | Recommended | Azure Database for PostgreSQL flexible Server readiness |
+    | Instances to Azure Database for PostgreSQL | Azure Database for PostgreSQL flexible Server readiness |
+    | Servers to PostgreSQL Server on Azure VM | Azure VM readiness (PostgreSQL Server on Azure VM) |
 
 1. Review the readiness status for assessed PostgreSQL instances:
     - **Ready**: The instance can be migrated to Azure Database for PostgreSQL flexible server without any migration issues.

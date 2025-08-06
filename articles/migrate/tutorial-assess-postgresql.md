@@ -36,7 +36,7 @@ For the public preview, Azure Migrate supports configuration-based sizing criter
 |--------------| -----------|----------------|
 | As on-premises  | Assess based on PostgreSQL configuration data/metadata. | Recommended Azure Database for PostgreSQL flexible server configuration is based on the on-premises PostgreSQL configuration, which includes server parameters (`postgresql.conf`), allocated memory and connection settings, and database sizes. This assessment type is ideal for understanding configuration compatibility and planning migrations where performance baselines aren't yet available or when workload characteristics require a longer duration to capture comprehensive performance metrics. |
 
-### Run an assessment
+## Run an assessment
 
 Run an assessment as follows:
 
@@ -98,7 +98,7 @@ Run an assessment as follows:
     
     :::image type="content" source="./media/tutorial-assess-postgresql/assessments-two.png" alt-text="Screenshot shows to select the required assessment." lightbox="./media/tutorial-assess-postgresql/assessments-two.png":::
 
-> [Note!]
+> [!NOTE]
 > This is a configuration-based assessment that analyzes your PostgreSQL setup for compatibility with Azure Database for PostgreSQL flexible server.
 
 ## Next steps

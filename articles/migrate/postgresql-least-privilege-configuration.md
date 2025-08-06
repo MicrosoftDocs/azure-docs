@@ -22,7 +22,7 @@ Before starting discovery, configure the Azure Migrate appliance with PostgreSQL
 - Superuser access to the PostgreSQL instance
 - An Azure Migrate project set up
 
-### Minimum Required Privileges
+### Minimum required privileges
 
 To ensure security and compliance in Azure Migrate, create a PostgreSQL user with only the necessary permissions—minimizing risks of unauthorized access or unintended changes.
 
@@ -35,7 +35,7 @@ Based on Azure Migrate requirements, the minimum privileges needed are:
 - `pg_read_all_stats`: Access to database statistics
 - `pg_monitor`: Monitor database performance metrics
 
-### SQL Script Implementation
+### SQL script implementation
 
 Save the following content as `CreateUser.sql`:
 
@@ -85,8 +85,7 @@ COMMIT;
 --   psql -v username=myuser -v password=mypassword -f CreateUser.sql
 ```
 
-
-> [Note!] 
+> [!NOTE] 
 > This user has only the minimum privileges required for Azure Migrate discovery and assessment.
 > - The user cannot create databases, roles, or replicate.
 > - Always use strong passwords and follow your organization's security policies.
@@ -98,12 +97,11 @@ Follow these steps to use the provided SQL script:
 1. Save the script as `CreateUser.sql`.
 2. Replace the placeholders for username and password with your desired values using `psql` variables.
 
-
 ### Execute the script
 
 Run the script using the PostgreSQL command-line tool (`psql`) with superuser privileges. Replace the placeholders with your actual values:
 
-```sh
+```
 psql -h <hostname> -p <port> -d <database> -U <superuser> \
     -v username=azure_migrate_user \
     -v password='your_secure_password' \

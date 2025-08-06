@@ -98,7 +98,7 @@ Once connected, the appliance gathers configuration and performance data of SQL 
 - Configuration data is refreshed every 24 hours. As a result, changes to the PostgreSQL Server instance—such as updates to database status, server parameters, or newly installed extensions—may take up to 24 hours to appear in the portal.
 
 
-> [IMPORTANT!]
+> [!IMPORTANT]
 > - Ensure your PostgreSQL instances are set up to accept connections from the appliance IP address.
 > - The default PostgreSQL port 5432 must be accessible, or the custom port if one is configured.
 > - The listen_addresses parameter in postgresql.conf must include the network interface that the appliance can access.
