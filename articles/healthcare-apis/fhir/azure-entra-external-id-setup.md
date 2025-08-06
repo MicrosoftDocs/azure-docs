@@ -344,22 +344,18 @@ Create an explicit link between the test user in the **Microsoft Entra External 
 
 3. Note the Application (client) ID value..
 
-3. Under **Users > All users**, select **Test Patient1** and note the **Object ID**.
+4. Under **Users > All users**, select **Test Patient1** and note the **Object ID**.
 
-4. Open [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) Sign in with a user assigned to the Global Administrator role for the Microsoft Entra External ID tenant. (It's a good idea to create a new admin user in the Microsoft Entra tenant to manage users.)
+5. Open [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) Sign in with a user assigned to the Global Administrator role for the Microsoft Entra External ID tenant. (It's a good idea to create a new admin user in the Microsoft Entra tenant to manage users.)
 
-.
+6. Select the avatar for the user
 
-5. Select the avatar for the user, and then choose Consent to permissions.
+7. choose `Consent` to permissions.
 
 
+8. Scroll to `User`. Consent to `User.ReadWrite.All`. This permission allows you to update the Test Patient1 user with the fhirUser claim value.
 
-6. Scroll to `User`. Consent to User.ReadWrite.All. This permission allows you to update the Test Patient1 user with the fhirUser claim value.
-
-4. After the consent process completes, update the user. You need the b2c-extensions-app application (client) ID and the user Object ID.
-
-  - The **Application (client) ID** of the `b2c-extensions-app`
-- The **Object ID** of the user (e.g., Test Patient1)
+9. After the consent process completes, update the user. You need the b2c-extensions-app application (client) ID and the user Object ID.
 
 Perform the following steps:
 
@@ -368,11 +364,15 @@ Perform the following steps:
 - Change the URL to
 [https://graph.microsoft.com/v1.0/users/{USER_OBJECT_ID}](https://graph.microsoft.com/v1.0/users/{USER_OBJECT_ID})
      
-- Create the `PATCH` body. A `PATCH` body is a single key-value-pair, where the key format is `extension_{B2C_EXTENSION_APP_ID_NO_HYPHENS}_fhirUser` and the value is the fully qualified FHIR resource ID for the patient `https://{YOUR_FHIR_SERVICE}.azurehealthcareapis.com/Patient/1"`.
+- Create the `PATCH` body.
+
+- A `PATCH` body is a single key-value-pair, where the key format is `extension_{B2C_EXTENSION_APP_ID_NO_HYPHENS}_fhirUser`
+ - And the value is the fully qualified FHIR resource ID for the patient 
+`https://{YOUR_FHIR_SERVICE}.azurehealthcareapis.com/Patient/1"`.
 
 For more information, see [Manage extension attributes through Microsoft Graph](https://learn.microsoft.com/en-us/azure/active-directory-b2c/user-flow-custom-attributes?pivots=b2c-user-flow).
 
-After the request is formatted, choose Run query. Wait for a successful response that confirms the user in the Entra External Id is linked to the patient resource in the FHIR service.
+After the request is formatted choose Run query. Wait for a successful response that confirms the user in the Entra External Id is linked to the patient resource in the FHIR service.
 
 
 ### Configuration to obtain an access token for Microsoft Entra External ID users
@@ -420,9 +420,9 @@ Obtain an access token to test the authentication flow.
       {YOUR_APPLICATION_ID_URI}/patient.all.read
       ```
 
-      ### Fetch the patient resource by using the Microsoft Entra External ID user
+  ### Fetch the patient resource by using the Microsoft Entra External ID user
 
-Verify that Microsoft Entra External ID users can access FHIR resources.
+   Verify that Microsoft Entra External ID users can access FHIR resources.
 
 1. When the authorization configuration is set up to launch the Microsoft Entra External ID user flow, choose **Get New Access Token** to acquire an access token.
 
