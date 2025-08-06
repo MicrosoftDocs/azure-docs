@@ -76,8 +76,8 @@ The Supportability section shows the support status of the PostgreSQL versions i
     - **Mainstream support**: The PostgreSQL version is actively supported and receives regular updates.
     - **Out of support**: The PostgreSQL version no longer receives updates and should be upgraded to a supported version.
 
-    > [NOTE!]
-    > PostgreSQL instances running unsupported versions should be prioritized for migration to maintain security compliance and ensure continued support in Azure.
+> [NOTE!]
+> PostgreSQL instances running unsupported versions should be prioritized for migration to maintain security compliance and ensure continued support in Azure.
 
 ## Review readiness
 
@@ -90,10 +90,12 @@ To review readiness reports for different migration strategies:
 1. Select the **Readiness report** for the desired migration strategy.
 1. Review the readiness columns in the selected report to assess migration preparedness.
 
-    | Migration strategy  | Readiness Columns (Respective deployment target)  |
-    |-------------------|-----------------------------------------|
-    | Recommended    | Azure Database for PostgreSQL flexible Server readiness    |
-    | Instances to Azure Database for PostgreSQL| Azure Database for PostgreSQL flexible Server readiness     | Servers to PostgreSQL Server on Azure VM  | Azure VM readiness (PostgreSQL Server on Azure VM)   |
+
+| **Migration strategy**| **Readiness Columns (Respective deployment target)** | 
+| --- | --- |
+| Recommended | Azure Database for PostgreSQL flexible Server readiness |
+| Instances to Azure Database for PostgreSQL | Azure Database for PostgreSQL flexible Server readiness |
+| Servers to PostgreSQL Server on Azure VM | Azure VM readiness (PostgreSQL Server on Azure VM) |
 
 1. Review the readiness status for assessed PostgreSQL instances:
     - **Ready**: The instance can be migrated to Azure Database for PostgreSQL flexible server without any migration issues.

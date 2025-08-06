@@ -103,7 +103,7 @@ Once connected, the appliance gathers configuration and performance data of SQL 
 > - The default PostgreSQL port 5432 must be accessible, or the custom port if one is configured.
 > - The listen_addresses parameter in postgresql.conf must include the network interface that the appliance can access.
 
-[Learn more](/docs/current/auth-pg-hba-conf.html) on PostgreSQL configuration.
+[Learn more](https://www.postgresql.org/docs/current/auth-pg-hba-conf.html) on PostgreSQL configuration.
 
 ## Discover MySQL Server instances and databases (preview)
 

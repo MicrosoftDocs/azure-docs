@@ -15,6 +15,17 @@ ms.custom: mvc, engagement-fy25
 
 [Azure Migrate](migrate-services-overview.md) helps you discover, assess, and migrate on-premises servers, apps, and data to the Azure cloud platform. This article summarizes new releases and features in Azure Migrate.
 
+## Update (August 2025)
+
+Public preview: Azure Migrate now supports discovery and assessment of PostgreSQL Instances. You can use this capability to:
+- Discover PostgreSQL instances and their attributes within your environment
+- Assess the readiness of these instances for migration to Azure Database for PostgreSQL flexible server
+- Obtain recommendations on suitable compute and storage options, along with the associated costs
+- Analyse configuration compatibility including server parameters, extensions, and authentication methods
+- Review migration blockers and receive remediation guidance for seamless migration
+
+The preview of PostgreSQL discovery and assessment in Azure Migrate introduces key features including configuration-based analysis to generate migration recommendations, comprehensive discovery across VMware, Hyper-V, physical servers, and other cloud environments, detailed cost estimation for Azure compute and storage, and migration readiness classification with actionable remediation guidance.
+
 ## Update (July 2025)
 
 - General availability: Azure Migrate now supports SSH authentication for Linux servers in [VMware](tutorial-discover-vmware.md) and [Hyper-V](tutorial-discover-hyper-v.md#provide-server-credentials) appliance stacks, enabling guest discovery, software inventory, dependency analysis, and discovery of Java Tomcat applications.
