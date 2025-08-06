@@ -1,7 +1,7 @@
 ---
 title: Simplified experience for Azure Migrate
 description: Describes the simplified experience an upgraded agent-based migration stack for physical and VMware environments
-author: rashi-ms
+author: dhananjayanr98
 ms.author: v-uhabiba
 ms.manager: dhananjayanr
 ms.service: azure-migrate
@@ -12,13 +12,12 @@ ms.date: 04/24/2025
 
 # Overview of simplified experience for Azure Migrate (Agent-based VMWare or Physical servers)
 
-The enhanced agent-based migration stack designed for physical and VMware environments. The upgraded stack offers several significant benefits, such as:
-
-- It enables the migration of newer Linux distributions to Azure, expanding the range of supported operating systems and ensuring that customers can leverage the latest advancements in Linux technology. 
-- It utilizes Windows Server 2019 (WS2019) and 	Windows Server 2022 (WS2022) for the replication appliance.
-- It offers a unified OS support matrix and implies that customers can benefit from a consistent and streamlined approach to operating system support across their migration processes.
-
-The upgraded agent-based migration stack provides customers with the tools and capabilities to efficiently migrate newer Linux distributions. It also allows them to utilize WS2019 and WS2022 for replication and benefit from a unified OS support matrix. These features enhance the overall migration process to Azure. [Learn more](tutorial-migrate-physical-virtual-machines.md#simplified-experience-recommended)
+The simplified experience leverages an enhanced agent-based migration stack tailored for physical and VMware environments, offering several key advantages:
+- **Broader OS support**: It enables migration of newer Linux distributions to Azure, expanding compatibility and allowing customers to benefit from the latest innovations in Linux technology.
+- **Modern replication appliance**: It utilizes Windows Server 2019 (WS2019) and Windows Server 2022 (WS2022) for the replication appliance, ensuring robust and up-to-date infrastructure.
+- **Unified OS support matrix**: This provides a consistent and streamlined approach to operating system support across migration workflows, simplifying planning and execution.
+  
+Overall, the upgraded stack equips customers with powerful tools to efficiently migrate newer Linux distributions, leverage modern Windows Server platforms for replication, and benefit from a unified OS support framework—enhancing the entire migration journey to Azure. [Learn more](tutorial-migrate-physical-virtual-machines.md#simplified-experience-recommended)
 
 ## Key differences
 
@@ -30,14 +29,14 @@ The key differences between the Classic and Simplified experience:
 | Enhanced compatibility | Limited support for newer Linux distributions | Supports newer Linux distributions and uses Windows Server 2019 as the replication appliance. |
 | Improved performance and reliability | Standard performance and reliability | Leveraging latest technologies for better performance and reliability in physical and VMware agent-based migrations. |
 |Streamlined migration process| Traditional migration process	 | Provides a more seamless and efficient migration process, addressing multiple customer concerns. |
-| Deprecation of classic experience | Support for ongoing replications active until March 2026, Support for initializing new replications ends by October 30, 2025 | NA |
+| Deprecation of classic experience | Support for ongoing replications will be active until March 2026 and support for initializing new replications ends by October 30, 2025 | NA |
 
 ## Action Required
-- Do not use the classic experience for any new agent-based VMware or physical server replications. Replication initialization using classic experience will not be supported after **October 30, 2025**.
-- Support for servers currently under replication with the classic experience will continue until the retirement date, **March 30, 2026**. Please plan your migrations before the retirement date.
-- If you have any servers discovered via the replication appliance under classic experience, please plan your replications before **October 30, 2025**, and subsequent migrations accordingly.
+- We recommend using the **simplified experience** for initiating replication of any new agent-based VMware or physical servers. Please note that replication initialization via the classic experience will no longer be supported after **October 30, 2025**.
+- Servers currently under replication using the classic experience will continue to be supported until the retirement date of **March 30, 2026**. We encourage you to complete your migrations well before this date.
+- If you have servers discovered through the replication appliance under the classic experience, ensure replication is initiated before **October 30, 2025**, and plan your subsequent migrations accordingly.
 
-[Learn more](../site-recovery/vmware-physical-azure-classic-deprecation.md)
+[Learn more](../site-recovery/vmware-physical-azure-classic-deprecation.md) about the deprecation of classic experience.
 
 
 ## Next steps
