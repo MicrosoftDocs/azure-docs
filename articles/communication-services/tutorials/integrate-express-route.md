@@ -32,7 +32,7 @@ This article describes how to integrate Azure Communication Services with Expres
 
 ## Configure ExpressRoute
 
-Complete the following sections in order to configure your ExpressRoute circuit.
+To configure your ExpressRoute circuit, complete the following sections.
 
 ### Configure ExpressRoute for Microsoft peering
 
@@ -62,7 +62,7 @@ Route filters enable you to selectively consume services over ExpressRoute.
 
 #### Add Azure Communication Services to the route filter
 
-1. After you create the route filter, select **Rules** and select **+ Add**.
+1. After you create the route filter, select **Rules** and then select **+ Add**.
 
 1. In the list of services, select **Azure Communication Services**.
 
@@ -124,6 +124,6 @@ ExpressRoute provides [lower and more consistent latency compared to typical int
 
 ## Related content
 
-- [Azure Communication Services overview](../overview.md)
-- [What is Azure ExpressRoute](/azure/expressroute/expressroute-introduction)
+- [What is Azure Communication Services?](../overview.md)
+- [What is Azure ExpressRoute?](/azure/expressroute/expressroute-introduction)
 - [Azure Communication Services network recommendations](../concepts/voice-video-calling/network-requirements.md)
