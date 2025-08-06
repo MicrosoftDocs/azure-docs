@@ -4,7 +4,7 @@ description: How to set up the API Center portal, a managed website that enables
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 07/31/2025
+ms.date: 08/05/2025
 ms.update-cycle: 180-days
 ms.author: danlep 
 ms.custom: 
@@ -43,30 +43,32 @@ After creating the API Center portal app registration, you can customize setting
     3. Confirm that the **Redirect URI** is the value you configured in the app registration. 
     4. Select **Save + publish**.
 1. On the **Site profile** tab, enter a website name that you want to appear in the top bar of the API Center portal. Select **Save + publish**.
-1. On the **API visibility** tab, optionally enable anonymous read access to the portal and add filters for APIs that you want to make discoverable in the portal. Select **Save + publish**. [Learn more about API visibility](#api-visibility)
+1. On the **API visibility** tab, optionally configure filters for APIs that you want to make discoverable in the portal. Select **Save + publish**. [Learn more about API visibility](#api-visibility)
+1. On the **Semantic search**, optionally enable [semantic search](#search-with-ai) to enhance API discovery in the portal. Select **Save + publish**.
+1. On the **Metadata** tab, optionally select custom metadata properties that you want to expose in API details and make searchable in the API Center portal. Select **Save**.
+1. Select **Save + publish**.
 
-You can now access the API Center portal:
+## Access the portal
+
+After publishing, you can now access the API Center portal:
+
 * On the portal's **Settings** page, select **View API Center portal** to open the portal in a new tab. 
 * Or, enter the following URL in your browser, replacing `<service-name>` and `<location>` with the name of your API center and the location where it's deployed:<br/>
     `https://<service-name>.portal.<location>.azure-apicenter.ms`
 
-### API visibility
+By default, the portal home page is reachable publicly but requires sign-in to access APIs. See [Enable sign-in to portal by Microsoft Entra users and groups](#enable-sign-in-to-portal-by-microsoft-entra-users-and-groups) for details on how to configure user access to the portal.
 
-Settings on the **API visibility** page control which APIs are discoverable (visible) to API Center portal users. The API Center portal uses the data plane API to retrieve and display APIs, and by default retrieves all APIs in your API center for [signed-in users](#enable-sign-in-to-portal-by-microsoft-entra-users-and-groups). Visibility settings apply to all users of the API Center portal.
+## API visibility
 
-#### Anonymous access
+API visibility settings control which APIs are discoverable (visible) to API Center portal users. The API Center portal uses the [Azure API Center data plane API](/rest/api/dataplane/apicenter/operation-groups) to retrieve and display APIs, and by default retrieves all APIs in your API center for signed-in users with Azure RBAC permissions. Visibility settings apply to all users of the API Center portal.
 
-Optionally enable anonymous read access to the API Center's APIs in the API Center portal and through the data plane APIs, allowing unauthenticated users to discover the APIs. This setting is useful to make public APIs or MCP servers discoverable.
+To make only specific APIs visible, go to the **API visibility** tab in the API Center portal settings. Here, add filter conditions for APIs based on built-in properties. For instance, choose to display APIs only of certain types (like REST or GraphQL) or based on certain specification formats (such as OpenAPI).
 
-> [!CAUTION]
-> Enabling anonymous access makes your APIs visible to anyone on the internet. However, users must still sign in to the portal to [test the APIs](#enable-access-to-test-console-for-apis). If you enable anonymous access, consider adding filters to limit the APIs that are discoverable by unauthenticated users.
+:::image type="content" source="media/set-up-api-center-portal/add-visibility-condition.png" alt-text="Screenshot of adding API visibility conditions in the portal.":::
 
+### Anonymous access
 
-#### Filter APIs by metadata
-
-To make only specific APIs visible, add filter conditions for APIs based on built-in or custom API [metadata](metadata.md) properties. For instance, you can choose to display APIs only of certain types (like REST or GraphQL) or based on certain specification formats (such as OpenAPI). Additionally, you can select values of custom metadata properties that categorize your APIs.
-
-:::image type="content" source="media/set-up-api-center-portal/add-visibility-condition.png" alt-text="Screenshot of adding API visibility conditions in the portal.":::.
+Optionally enable anonymous read access to the API Center's APIs, allowing unauthenticated users to discover the API inventory by direct calls to the API Center data plane API. For example, enable this setting to make APIs and MCP servers in your API center discoverable to unauthenticated users when you [self-host](self-host-api-center-portal.md) the API Center portal.
 
 ## Enable sign-in to portal by Microsoft Entra users and groups 
 
@@ -92,7 +94,7 @@ The API Center portal supports and streamlines the work of developers who use an
 
 ## Search with AI
 
-In the Standard plan of Azure API Center, the API Center portal supplements basic name-based API search with AI-assisted *semantic search* built on API names and descriptions. Users can search for APIs using natural language queries, making it easier to find APIs based on their intent. For example, if a developer searches for "I need an API for inventory management," the portal can suggest relevant APIs, even if their names or descriptions don't include those exact words.
+In the Standard plan of Azure API Center, the API Center portal supplements basic name-based API search with AI-assisted *semantic search* built on API names, descriptions, and optionally custom metadata. Users can search for APIs using natural language queries, making it easier to find APIs based on their intent. For example, if a developer searches for "I need an API for inventory management," the portal can suggest relevant APIs, even if the API names or descriptions don't include those exact words.
 
 > [!TIP]
 > If you're using the Free plan of Azure API Center, you can [upgrade easily](frequently-asked-questions.yml#how-do-i-upgrade-my-api-center-from-the-free-plan-to-the-standard-plan) to the Standard plan to enable full service features including semantic search in the API Center portal.
