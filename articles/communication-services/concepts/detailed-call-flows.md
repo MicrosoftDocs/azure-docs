@@ -19,7 +19,7 @@ This article describes Azure Communication Services call flow topologies and det
 
 ### Network concepts
 
-Here are some terms that are in this article:
+Before you review call flow topologies, it's helpful to understand the terms that this article uses.
 
 A *customer network* contains any network segments that you manage. The customer network might include wired and wireless networks within your office or between offices, datacenters, and internet service providers.
 
@@ -45,7 +45,7 @@ Azure Communication Services instances that call SDK clients use Datagram Transp
 
 Azure Communication Services instances that call SDK and Teams clients use a credentials-based token for secure access to media relays over TURN. Media relays exchange the token over a Transport Layer Security (TLS) secured channel.
 
-Media traffic that's going between two endpoints that participate in Azure Communication Services audio, video, and video sharing utilizes SRTP to encrypt the media stream. Cryptographic keys are negotiated between the two endpoints over a signaling protocol, which uses a TLS 1.2 and AES-256 (in GCM mode) encrypted UDP/TCP channel.
+Media traffic that's going between two endpoints that participate in Azure Communication Services audio, video, and video sharing uses SRTP to encrypt the media stream. Cryptographic keys are negotiated between the two endpoints over a signaling protocol, which uses a TLS 1.2 and AES-256 (in GCM mode) encrypted UDP/TCP channel.
 
 ### Call flow principles
 
@@ -54,13 +54,13 @@ There are four general principles that underpin Azure Communication Services cal
 * The first participant of an Azure Communication Services group call determines the region in which the call is hosted. There are exceptions to this rule in some topologies, which you can find later in this article.
 * The media endpoint that's used to support an Azure Communication Services call is selected based on media processing needs, and isn't affected by the number of participants on a call.
 
-For example, a point-to-point call might use a media endpoint in the cloud to process media for transcription or recording. A call with two participants might not use any media endpoints. Group calls use a media endpoint for mixing and routing purposes.
+  For example, a point-to-point call might use a media endpoint in the cloud to process media for transcription or recording. A call with two participants might not use any media endpoints. Group calls use a media endpoint for mixing and routing purposes.
 
-This endpoint is selected based on the region in which the call is hosted. Media traffic sent from a client to the media endpoint might be routed directly. Or, it might use a transport relay in Azure if customer network firewall restrictions require it.
+  This endpoint is selected based on the region in which the call is hosted. Media traffic sent from a client to the media endpoint might be routed directly. Or, it might use a transport relay in Azure if customer network firewall restrictions require it.
 
 * Media traffic for peer-to-peer calls takes *the most direct route that's available*, assuming the call doesn't need a media endpoint in the cloud.
 
-The preferred route is direct to the remote peer (client). If a direct route isn't available, one or more transport relays forward the traffic. Media traffic shouldn't traverse servers that act like packet shapers or virtual private network (VPN) servers, or fulfill other functions that might delay processing and degrade the end-user experience.
+  The preferred route is direct to the remote peer (client). If a direct route isn't available, one or more transport relays forward the traffic. Media traffic shouldn't traverse servers that act like packet shapers or virtual private network (VPN) servers, or fulfill other functions that might delay processing and degrade the end-user experience.
 
 * Signaling traffic always goes to *whatever server is closest to the user*.
 
