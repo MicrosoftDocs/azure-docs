@@ -1,12 +1,13 @@
 ---
 title: 'App Service on Azure Arc'
 description: An introduction to App Service integration with Azure Arc for Azure operators.
-ms.topic: article
+ms.topic: overview
 ms.custom: devx-track-azurecli
 ms.date: 01/15/2025
 author: apwestgarth
 ms.author: msangapu
 ROBOTS: NOINDEX
+# Customer intent: As an Azure operator, I want to learn about App Service integration with Azure Arc so that I can evaluate whether it meets my needs. 
 ---
 
 # App Service, Functions, and Logic Apps on Azure Arc (Preview)
@@ -250,6 +251,6 @@ If your extension was in the stable version and auto-upgrade-minor-version is se
     az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.13.5
 ```
 
-## Next steps
+## Related content
 
-[Create an App Service Kubernetes environment (Preview)](manage-create-arc-environment.md)
+- [Create an App Service Kubernetes environment (Preview)](manage-create-arc-environment.md)
