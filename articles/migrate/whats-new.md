@@ -17,7 +17,7 @@ ms.custom: mvc, engagement-fy25
 
 ## Update (August 2025)
 
-- General availability: Azure Migrate enhances resiliency by supporting migration to [ZRS Disks](/azure/virtual-machines/disks-deploy-zrs?tabs=portal) during Migration only. **Zone-Redundant Storage (ZRS)** for Azure Disks synchronously replicates data across three physically separate availability zones within a region – each with independent power, cooling, and networking – enhancing Disk availability and resiliency.
+- General availability: Azure Migrate enhances resiliency by supporting migration to [ZRS Disks](/azure/virtual-machines/disks-deploy-zrs?tabs=portal) during Migration. **Zone-Redundant Storage (ZRS)** for Azure Disks synchronously replicates data across three physically separate availability zones within a region – each with independent power, cooling, and networking – enhancing Disk availability and resiliency.
 
 ## Update (July 2025)
 
