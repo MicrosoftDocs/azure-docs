@@ -138,9 +138,6 @@ There are currently two kinds of data connection rules possible for defining you
 
 Use an [API testing tool](#testing-apis) to call the data connector API to create the data connector which combines the connection rules and previous components. Verify the connector is now connected in the UI.
 
->[!TIP]
->If you're an Independent Software Vendor (ISV) and want support when building a Microsoft Sentinel integration using the Microsoft Sentinel Codeless Connector Framework, the Microsoft App Assure team may be able to assist. To engage the App Assure team, send email to [Microsoft Sentinel Partners](AzureSentinelPartner@microsoft.com).
-
 ## Secure confidential input
 
 Whatever authentication is used by your CCF data connector, take these steps to ensure confidential information is kept secure. The goal is to pass along credentials from the ARM template to the CCF without leaving readable confidential objects in your deployments history.
