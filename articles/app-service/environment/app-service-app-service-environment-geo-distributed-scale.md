@@ -1,21 +1,24 @@
 ---
-title: Geo distributed scale
+title: Geo-Distributed Scale
 description: Learn how to horizontally scale apps using geo-distribution with Traffic Manager and App Service Environments.
 author: seligj95
 
 ms.assetid: c1b05ca8-3703-4d87-a9ae-819d741787fb
-ms.topic: article
+ms.topic: concept-article
 ms.date: 11/18/2021
 ms.author: jordanselig
 ms.custom: references_regions, devx-track-azurepowershell
+# Customer intent: As a developer, I want to learn how to horizontally scale apps by using geo-distribution with Traffic Manager and App Service Environment.
 ---
-# Geo Distributed Scale with App Service Environments
-## Overview
-
+# Geo-distributed scale with App Service Environment
 
 Application scenarios that require very high scale can exceed the compute resource capacity available to a single deployment of an app.  Voting applications, sporting events, and televised entertainment events are all examples of scenarios that require extremely high scale. High scale requirements can be met by horizontally scaling out apps. To handle extreme load requirements, many app deployments can be made within a single region and across regions.
 
+## Overview
+
 App Service Environments are an ideal platform for horizontal scale-out. After selecting an App Service Environment configuration that can support a known request rate, developers can deploy additional App Service Environments in "cookie cutter" fashion to attain a desired peak load capacity.
+
+[!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 
 For example, suppose an app running on an App Service Environment configuration has been tested to handle 20K requests per second (RPS).  If the desired peak load capacity is 100K RPS, five (5) App Service Environments can be created and configured to ensure the application can handle the maximum projected load.
 
@@ -29,7 +32,7 @@ The conceptual diagram below depicts an app horizontally scaled out across three
 
 The remainder of this topic walks through the steps involved with setting up a distributed topology for the sample app using multiple App Service Environments.
 
-## Planning the Topology
+## Planning the topology
 Before building out a distributed app footprint, it helps to have a few pieces information ahead of time.
 
 * **Custom domain for the app:**  What is the custom domain name that customers will use to access the app?  For the sample app, the custom domain name is `www.asabuludemo.com`.
@@ -38,7 +41,7 @@ Before building out a distributed app footprint, it helps to have a few pieces i
 * **Naming convention for the App Service Environments:**  Each App Service Environment requires a unique name.  Beyond one or two App Service Environments, it's helpful to have a naming convention to help identify each App Service Environment.  For the sample app, a simple naming convention was used.  The names of the three App Service Environments are *fe1ase*, *fe2ase*, and *fe3ase*.
 * **Naming convention for the apps:**  Since multiple instances of the app will be deployed, a name is needed for each instance of the deployed app.  One little-known but convenient feature of App Service Environments is that the same app name can be used across multiple App Service Environments.  Since each App Service Environment has a unique domain suffix, developers can choose to reuse the exact same app name in each environment.  For example, a developer could have apps named as follows:  *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*, etc.  For the sample app, however, each app instance also has a unique name.  The app instance names used are *webfrontend1*, *webfrontend2*, and *webfrontend3*.
 
-## Setting up the Traffic Manager Profile
+## Setting up the Traffic Manager profile
 Once multiple instances of an app are deployed on multiple App Service Environments, the  individual app instances can be registered with Traffic Manager.  For the sample app, a Traffic Manager profile is needed for *scalable-ase-demo.trafficmanager.net* that can route customers to any of the following deployed app instances:
 
 * **webfrontend1.fe1ase.p.azurewebsites.net:**  An instance of the sample app deployed on the first App Service Environment.
@@ -76,7 +79,7 @@ Notice how there is one call to *Add-AzureTrafficManagerEndpointConfig* for each
 
 All of the three endpoints use the same value (10) for the *Weight* parameter.  This situation results in Traffic Manager spreading customer requests across all three app instances relatively evenly. 
 
-## Pointing the App's Custom Domain at the Traffic Manager Domain
+## Pointing the app's custom domain at the Traffic Manager domain
 The final step necessary is to point the custom domain of the app at the Traffic Manager domain.  For the sample app, point `www.asabuludemo.com` at `scalable-ase-demo.trafficmanager.net`.  Complete this step with the domain registrar that manages the custom domain.  
 
 Using your registrar's domain management tools, a CNAME records needs to be created which points the custom domain at the Traffic Manager domain.  The picture below shows an example of what this CNAME configuration looks like:
@@ -91,7 +94,7 @@ In this example, the custom domain is `www.asabuludemo.com`, and each applicatio
 
 For a recap of registering a custom domain with Azure App Service apps, see [registering custom domains][RegisterCustomDomain].
 
-## Trying out the Distributed Topology
+## Trying out the distributed topology
 The end result of the Traffic Manager and DNS configuration is that requests for `www.asabuludemo.com` will flow through the following sequence:
 
 1. A browser or device will make a DNS lookup for `www.asabuludemo.com`
@@ -106,10 +109,11 @@ The console picture below shows a DNS lookup for the sample app's custom domain.
 
 :::image type="content" source="./media/app-service-app-service-environment-geo-distributed-scale/dns-lookup.png" alt-text="Screenshot of DNS lookup result.":::
 
-## Additional Links and Information
-Documentation on the PowerShell [Azure Resource Manager Traffic Manager support][ARMTrafficManager].  
+## Related content
 
-[!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
+- [PowerShell Azure Resource Manager Traffic Manager support][ARMTrafficManager] 
+
+
 
 <!-- LINKS -->
 [AzureTrafficManagerProfile]: ../../traffic-manager/traffic-manager-manage-profiles.md
