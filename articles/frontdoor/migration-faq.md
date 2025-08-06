@@ -10,7 +10,7 @@ ms.date: 08/06/2025
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---
 
-# AFD & CDN Classic Migration FAQ
+# AFD and CDN Classic Migration FAQ
 
 This document provides answers to frequently asked questions regarding the migration from Azure Front Door (AFD) Classic and CDN Classic to AFD Standard/Premium.
 

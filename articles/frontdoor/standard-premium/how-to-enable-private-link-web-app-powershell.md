@@ -1,5 +1,5 @@
 ---
-title: 'Connect Azure Front Door Premium to an App Service origin with Private Link using Azure PowerShell'
+title: 'Connect Azure Front Door Premium to an App Service Origin with Private Link Using Azure PowerShell'
 titleSuffix: Azure Private Link
 description: Learn how to connect your Azure Front Door Premium to a WebApp privately using Azure PowerShell.
 services: frontdoor
@@ -10,7 +10,7 @@ ms.date: 11/15/2024
 ms.author: jainsabal
 ---
 
-# Connect Azure Front Door Premium to an App Service (Web App) origin with Private Link using Azure PowerShell
+# Connect Azure Front Door Premium to an App Service (Web App) Origin with Private Link Using Azure PowerShell
 
 This article guides you through how to configure Azure Front Door Premium tier to connect to your App Service (Web App) privately using the Azure Private Link service with Azure PowerShell.
 
