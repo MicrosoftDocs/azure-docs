@@ -157,6 +157,8 @@ You can add HTTP header filters to any rule. The following HTTP header names are
 - `X-Azure-FDID`
 - `X-FD-HealthProbe`
 
+++ For more information about the X-FD-HealthProbe, see [HTTP header filtering for site access restriction rules](/overview-access-restrictions#http-header-filtering-for-site-access-restriction-rules).
+
 For each header name, you can add up to eight values separated by commas. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
 
 ### Multi-source rules

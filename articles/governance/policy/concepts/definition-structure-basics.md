@@ -63,7 +63,7 @@ For example, the following JSON shows a policy that limits where resources are d
 }
 ```
 
-For more information, go to the [policy definition schema](https://schema.management.azure.com/schemas/2020-10-01/policyDefinition.json). Azure Policy built-ins and patterns are at [Azure Policy samples](../samples/index.md).
+For more information, go to the [policy definition schema](https://schema.management.azure.com/schemas/2020-10-01/policyDefinition.json). Azure Policy built-ins and patterns are at [Azure Policy samples](/azure/governance/policy/samples/index).
 
 ## Display name and description
 
@@ -98,7 +98,7 @@ For example, resource `Microsoft.Network/routeTables` supports tags and location
 
 We recommend that you set `mode` to `all` in most cases. All policy definitions created through the portal use the `all` mode. If you use PowerShell or Azure CLI, you can specify the `mode` parameter manually. If the policy definition doesn't include a `mode` value, it defaults to `all` in Azure PowerShell and to `null` in Azure CLI. A `null` mode is the same as using `indexed` to support backward compatibility.
 
-`indexed` should be used when creating policies that enforce tags or locations. While not required, it prevents resources that don't support tags and locations from showing up as non-compliant in the compliance results. The exception is resource groups and subscriptions. Policy definitions that enforce location or tags on a resource group or subscription should set `mode` to `all` and specifically target the `Microsoft.Resources/subscriptions/resourceGroups` or `Microsoft.Resources/subscriptions` type. For an example, see [Pattern: Tags - Sample #1](../samples/pattern-tags.md). For a list of resources that support tags, see [Tag support for Azure resources](../../../azure-resource-manager/management/tag-support.md).
+`indexed` should be used when creating policies that enforce tags or locations. While not required, it prevents resources that don't support tags and locations from showing up as non-compliant in the compliance results. The exception is resource groups and subscriptions. Policy definitions that enforce location or tags on a resource group or subscription should set `mode` to `all` and specifically target the `Microsoft.Resources/subscriptions/resourceGroups` or `Microsoft.Resources/subscriptions` type. For an example, see [Pattern: Tags - Sample #1](/azure/governance/policy/samples/pattern-tags). For a list of resources that support tags, see [Tag support for Azure resources](../../../azure-resource-manager/management/tag-support.md).
 
 ### Resource Provider modes
 
@@ -163,7 +163,7 @@ For more information, see [Understand scope in Azure Policy](./scope.md#definiti
 
 - For more information about policy definition structure, go to [parameters](./definition-structure-parameters.md), [policy rule](./definition-structure-policy-rule.md), and [alias](./definition-structure-alias.md).
 - For initiatives, go to [initiative definition structure](./initiative-definition-structure.md).
-- Review examples at [Azure Policy samples](../samples/index.md).
+- Review examples at [Azure Policy samples](/azure/governance/policy/samples/index).
 - Review [Understanding policy effects](effect-basics.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).

@@ -26,6 +26,18 @@ The media connector can connect to various sources, including:
 | Media file | `http://camera1/snapshot/profile1`<br/>`nfs://server/path/file.extension`<br/>` file://localhost/media/path/file.mkv`  | Any media file with a URL accessible from the cluster. |
 | Media folder | `file://host/path/to/folder/`<br/>`ftp://server/path/to/folder/` | A folder, accessible from the cluster, that contains media files such as snapshots or clips. |
 
+## Task types
+
+The media connector supports the following task types:
+
+| Task type | Description |
+|-----------|-------------|
+| snapshot-to-mqtt | Captures a snapshot from a media source and publishes it to an MQTT topic. |
+| clip-to-fs | Saves a video clip from a media source to the file system. |
+| snapshot-to-fs | Saves a snapshot from a media source to the file system. |
+| stream-to-rtsp | Proxies a live video stream from a media source to an RTSP endpoint. |
+| stream-to-rtsps | Proxies a live video stream from a media source to an RTSPs endpoint. |
+
 ## Example uses
 
 Example uses of the media connector include:

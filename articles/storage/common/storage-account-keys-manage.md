@@ -258,7 +258,7 @@ The key expiration period appears in the console output.
 
 ## Check for key expiration policy violations
 
-You can monitor your storage accounts with Azure Policy to ensure that account access keys have been rotated within the recommended period. Azure Storage provides a built-in policy for ensuring that storage account access keys are not expired. For more information about the built-in policy, see **Storage account keys should not be expired** in [List of built-in policy definitions](../../governance/policy/samples/built-in-policies.md#storage).
+You can monitor your storage accounts with Azure Policy to ensure that account access keys have been rotated within the recommended period. Azure Storage provides a built-in policy for ensuring that storage account access keys are not expired. For more information about the built-in policy, see **Storage account keys should not be expired** in [List of built-in policy definitions](/azure/governance/policy/samples/built-in-policies#storage).
 
 ### Assign the built-in policy for a resource scope
 

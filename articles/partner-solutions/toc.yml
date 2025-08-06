@@ -5,6 +5,8 @@ items:
     href: overview.md
   - name: Partner services
     href: partners.md
+  - name: Frequently asked questions
+    href: faq.yml
 - name: Partner services documentation
   expanded: true
   items:

@@ -85,4 +85,4 @@ For more information, see the following articles:
 
 - [What is Azure Policy?](../../governance/policy/overview.md)
 - [Tutorial: Create and manage policies to enforce compliance](../../governance/policy/tutorials/create-and-manage.md)
-- [Azure Policy built-in policy definitions](../../governance/policy/samples/built-in-policies.md)
+- [Azure Policy built-in policy definitions](/azure/governance/policy/samples/built-in-policies)

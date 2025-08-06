@@ -34,7 +34,7 @@ When enforcing a policy, you can determine its [effect](../governance/policy/pol
 
 ## Built-in policy definitions
 
-Predetermined policies, referred to as 'built-ins', allow governance over your load testing resources so you don't have to write custom policies in JSON format to enforce commonly used rules associated with best security practices. Even though built-ins are predetermined, certain policies require you to define parameters. For example, by defining the effect of the policy, you can audit the load testing resource before enforcing a deny operation to prevent outages. See [built-in policies for Azure Load Testing](../governance/policy/samples/built-in-policies.md#azure-load-testing) to view the current built-in policies available for Azure Load Testing. 
+Predetermined policies, referred to as 'built-ins', allow governance over your load testing resources so you don't have to write custom policies in JSON format to enforce commonly used rules associated with best security practices. Even though built-ins are predetermined, certain policies require you to define parameters. For example, by defining the effect of the policy, you can audit the load testing resource before enforcing a deny operation to prevent outages. See [built-in policies for Azure Load Testing](/azure/governance/policy/samples/built-in-policies#azure-load-testing) to view the current built-in policies available for Azure Load Testing. 
 
 ## Enable and manage a load testing policy
 
@@ -101,4 +101,4 @@ Predetermined policies, referred to as 'built-ins', allow governance over your l
 ## Next steps
 
 - Learn more about the [Azure Policy service](../governance/policy/overview.md)
-- See Key Vault samples: [Azure Load Testing built-in policy definitions](../governance/policy/samples/built-in-policies.md#azure-load-testing)
+- See Key Vault samples: [Azure Load Testing built-in policy definitions](/azure/governance/policy/samples/built-in-policies#azure-load-testing)

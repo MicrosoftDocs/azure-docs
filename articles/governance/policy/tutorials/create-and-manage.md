@@ -166,7 +166,7 @@ create a virtual machine in the G series, the request is denied.
    on [policy definition structure fields](../concepts/definition-structure-policy-rule.md#fields). An example
    of an alias might be `"Microsoft.Compute/VirtualMachines/Size"`.
 
-   To view more Azure Policy samples, see [Azure Policy samples](../samples/index.md).
+   To view more Azure Policy samples, see [Azure Policy samples](/azure/governance/policy/samples/index).
 
 1. Select **Save**.
 
