@@ -130,6 +130,9 @@ Once the change has been committed, it can no longer be rolled back.
 
 During the migration process, traffic is rerouted seamlessly. There is no expected packet loss or routing disruption under normal conditions.
 
+### What should I do if the Prepare step fails due to a cross-region connection on a Basic SKU circuit during gateway migration?
+
+If the Prepare step fails because your Basic SKU circuit has a cross-region connection, **abort** the gateway migration and **upgrade** the circuit SKU before trying again. This configuration is unsupported, and migration will continue to fail until the circuit SKU is upgraded.
 ## Next Steps
 
 - Troubleshoot migration  issues with [Troubleshooting Gateway Migration](gateway-migration-error-messaging.md).
