@@ -22,7 +22,7 @@ Resiliency is a shared responsibility between you and Microsoft, so this article
 Queue Storage provides several reliability features through the underlying Azure Storage platform. As part of Storage, Queue Storage inherits the same redundancy options, availability zone support, and geo-replication capabilities that ensure high availability and durability for your message queues. 
 
 > [!NOTE]
-> Queue Storage is part of the Storage platform. Some of the capabilities of Queue Storage are common across many Storage services. In this article, we use "Azure Storage" or "Storage" to indicate these common capabilities.
+> Queue Storage is part of the Storage platform. Some of the capabilities of Queue Storage are common across many Storage services. In this article, we use *Azure Storage* or *Storage* to indicate these common capabilities.
 
 ## Production deployment recommendations
 
@@ -183,7 +183,7 @@ This approach requires you to manage message distribution, handle data synchroni
 
 ## Backups
 
-Queue Storage doesn't provide traditional backup capabilities, like point-in-time restore, because queues are designed for transient message storage rather than long-term data persistence. Messages are typically processed and removed from queues during normal application operations.
+Queue Storage doesn't provide traditional backup capabilities, like point-in-time restore (PITR), because queues are designed for transient message storage instead of long-term data persistence. Messages are typically processed and removed from queues during normal application operations.
 
 For scenarios that require message durability beyond the built-in redundancy options, consider implementing your own application-level message logging or persistence to a permanent data store, like Blob Storage or Azure SQL Database. This approach allows you to maintain message history while using Queue Storage for its intended purpose of temporary message buffering and processing coordination.
 
