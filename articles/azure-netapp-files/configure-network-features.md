@@ -94,11 +94,6 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ### <a name="edit"></a> Edit network features
 
-<!-- terraform net features
->[!IMPORTANT]
->You must follow separate instructions if you use Terraform-managed volumes. For more information see, [Update network features for Terraform-managed Azure NetApp Files volumes](#terraform).
--->
-
 # [Portal](#tab/portal)
 
 1. Navigate to the volume for which you want to change the network features option. 
