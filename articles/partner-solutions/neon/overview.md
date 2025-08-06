@@ -1,29 +1,35 @@
 ---
-title: What Is Neon Serverless Postgres Preview?
+title: What Is Neon Serverless Postgres?
 description: Learn about Neon Serverless Postgres, a cloud-native Postgres solution designed for modern applications, in Azure Marketplace.
 author: ProfessorKendrick
 ms.topic: overview
-ms.date: 05/06/2025
+ms.date: 08/04/2025
+ai-usage: ai-assisted
 ---
+# What is Neon Serverless Postgres?
 
-# What is Neon Serverless Postgres Preview?
+Neon Serverless Postgres is a cloud-native, serverless, fully managed PostgreSQL database service jointly developed and managed by Microsoft and Neon as an Azure Native Integration. [!INCLUDE [what-is](../includes/what-is.md)]
 
-[!INCLUDE [what-is](../includes/what-is.md)]
+## What is it used for?
 
-An example of this kind of integration is the Neon Serverless Postgres service, which is now in preview. Microsoft and [Neon](https://neon.tech/) developed the service and manage it together. You can find it in the [Azure portal](https://portal.azure.com/) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/).
+Neon Serverless Postgres is designed for applications that require rapid scaling, cost optimization, and advanced development workflows.
 
-Neon is a cloud-native Postgres solution designed for modern applications. It offers a serverless, fully managed, and scalable Postgres database. Neon's advanced features include autoscaling, scale-to-zero, database branching, instant point-in-time restore, and time travel queries. Neon simplifies database management with seamless integration into your existing workflows. This integration provides a powerful, cost-efficient solution for developers and businesses.  
+Typical use cases include:
 
-Neon manages the Postgres infrastructure so that you can focus on building and optimizing your applications. For example, Neon manages database configuration, maintenance, and scaling operations.
+- Web and mobile applications with variable or unpredictable workloads
+- Development and testing environments that benefit from database branching and instant restore
+- Scenarios where developers need a fully managed PostgreSQL service with minimal operational overhead
+- Data analytics and reporting applications that require high availability and performance without the complexity of managing database infrastructure.
+- Applications that require a serverless database solution with automatic scaling and cost efficiency.
 
-With the service's intuitive onboarding process, you can quickly start using Neon's capabilities for your Azure workloads to keep your databases optimized for performance and reliability.
+## Key Features
 
-Neon Serverless Postgres provides these key capabilities:
+The following features set Neon Serverless Postgres apart from traditional managed database services and support modern application development and operations:
 
-- *Seamless onboarding* as an integrated service on Azure.
-- *Unified billing* via monthly billing on Azure Marketplace.
-- *Single sign-on* with no separate sign-up needed from the Neon portal.
-- *Management of all Neon resources* from the Azure portal. You track them on the **All resources** page with your other Azure resources.
+- **Scale-to-Zero**: Automatically scales down to zero when not in use, reducing costs while maintaining instant availability when needed.
+- **Serverless Autoscaling**: Automatically scales resources based on workload demands, ensuring optimal performance without manual intervention.
+- **Database Branching**: Enables developers to create isolated copies of a database for testing or development without impacting production data.
+- **Instant Point-in-Time Restore**: Allows rapid recovery of a database to a previous state for disaster recovery or testing purposes.
 
 ## Subscribe to Neon
 
