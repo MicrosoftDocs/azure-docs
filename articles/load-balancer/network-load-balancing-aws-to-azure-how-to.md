@@ -110,7 +110,7 @@ If your workload uses NLB capabilities that can't be directly addressed in Azure
 
 - **Architecture enhancement approach**: Use migration as an opportunity to modernize beyond AWS NLB capabilities by incorporating Azure Application Gateway for HTTP(S) APIs, Azure Traffic Manager for global distribution, and [Azure Front Door](../frontdoor/front-door-overview.md) for CDN and DDoS protection.
 
-In the end, you may need to make the decision on whether an AWS NLB feature is necessary if there's no direct Azure Load Balancer equivalent. and adjust your Azure environment and organization's services accordingly.
+In the end, you may need to make the decision on whether an AWS NLB feature is necessary if there's no direct Azure Load Balancer equivalent. and adjust your workload accordingly.
 
 #### Proxy Protocol Support
 
