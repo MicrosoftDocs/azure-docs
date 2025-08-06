@@ -20,11 +20,10 @@ In this article, you learn how to convert SEG-Y formatted data to the ZGY format
 * Service principal access_token to call the Seismic APIs. See [How to generate auth token](how-to-generate-auth-token.md).
 - A SEG-Y File
   - You may use any of the following files from the Volve dataset as a test. The Volve data set itself is available from [Equinor](https://www.equinor.com/energy/volve-data-sharing).
-    - [Small < 100 MB](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/azure/m16-master/source/ddms-smoke-tests/ST0202R08_PSDM_DELTA_FIELD_DEPTH.MIG_FIN.POST_STACK.3D.JS-017534.segy)
     - [Medium < 250 MB](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/azure/m16-master/source/ddms-smoke-tests/ST0202R08_PS_PSDM_RAW_DEPTH.MIG_RAW.POST_STACK.3D.JS-017534.segy)
     - [Large ~ 1 GB](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/283ba58aff7c40e62c2ac649e48a33643571f449/source/ddms-smoke-tests/sample-ST10010ZC11_PZ_PSDM_KIRCH_FULL_T.MIG_FIN.POST_STACK.3D.JS-017536.segy)
 
-### Get details for the Azure Data Manager for Energy (ADME) instance
+### Get details for the Azure Data Manager for Energy instance
 
 * For this tutorial, you need the following parameters:
 
@@ -50,7 +49,7 @@ Create a legal tag for data compliance.
 
 ```bash
 cURL --request POST \
-  --url https://{DNS}/api/legal/v1/legaltags \
+  --url https://<DNS>/api/legal/v1/legaltags \
   --header 'Authorization: Bearer {access_token}' \
   --header 'Content-Type: application/json' \
   --header 'Data-Partition-Id:  {data_partition_id}' \
@@ -137,7 +136,7 @@ Conversion uses a manifest file that you upload to your storage account later in
 
 ### User Access
 
-### Validate User Access
+### Validate user access
 
 Use the following `cURL` command to get user groups:
 
@@ -186,7 +185,7 @@ If you didn't create entitlements groups, follow the directions as outlined in [
 
 ### Prepare Subproject
 
-Follow this [tutorial](tutorial-seismic-ddms.md) to Prepare Subproject that involves following steps:
+Follow this [tutorial](tutorial-seismic-ddms.md) to Prepare subproject that involves following steps:
 
 1. Register Data Partition to Seismic - Create a tenant
 2. Create a Subproject
@@ -194,7 +193,7 @@ Follow this [tutorial](tutorial-seismic-ddms.md) to Prepare Subproject that invo
 
 ### Upload the File
 
-There are two ways to upload a SEGY file. One option is to use the SASurl through cURL call. You need to set up cURL on your OS. 
+There are two ways to upload a SEGY file. One option is to use the SAS url through cURL call. You need to set up cURL on your OS. 
 The second method is to use [SDUTIL](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tags/azure-stable). To log in to your instance for ADME via the tool, you need to generate a refresh token for the instance. See [How to generate auth token](how-to-generate-auth-token.md). Alternatively, you can modify the code of SDUTIL to use client credentials instead to log in. If you haven't already, you need to set up SDUTIL. Check the [guide](tutorial-seismic-ddms-sdutil.md) for setting up SDUTIL. Download the codebase and edit the `config.yaml` at the root. Replace the contents of this config file with the following yaml. 
 
 ```yaml
@@ -233,7 +232,7 @@ cURL -X GET \
 Should be a string. We call it gcsstring.
 
 
-##### Get the SASurl:
+##### Get the SAS url:
 
 Use the following `cURL` command to get a SAS upload URL:
 
