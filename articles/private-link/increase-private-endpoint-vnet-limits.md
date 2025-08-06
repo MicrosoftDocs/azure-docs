@@ -178,8 +178,8 @@ $vnet.PrivateEndpointVNetPolicies
 | **Limit** | **Description** |
 |---|---|
 | Subscription must be enabled before enabling High Scale Private Endpoints. | Enabling Private Endpoint virtual network Policies before allow listing subscription feature flag requires a reconfiguration. |
-| Access to Baremetal subnets from a HSPE enabled peered VNet is not supported | Connections destined to azure baremetal subnets will not work  |
-| Feature currently available in all public regions | Mooncake and Azure Gov regions are not supported at this time |
+| Access to Baremetal subnets from an HSPE enabled peered VNet isn't supported | Connections destined to Azure baremetal subnets won't work  |
+| Feature currently available in all public regions | Mooncake and Azure Gov regions aren't supported at this time |
 
 
 ## Next Steps
