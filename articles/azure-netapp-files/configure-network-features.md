@@ -68,7 +68,31 @@ You can edit the network features option of existing volumes from *Basic* to *St
 * <a name="no-downtime"></a> Azure NetApp Files supports a non-disruptive upgrade to Standard network features and a revert to Basic network features. This operation is expected to take at least 15 minutes. You can't create a regular or data protection volume or application volume group in the targeted network sibling set while the operation completes.    
 * If you revert from Standard to Basic network features, considerations apply and require careful planning. See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#constraints) for constraints and supported network topologies about Standard and Basic network features. 
 
-### <a name="edit"></a> Edit network features 
+### Register the feature
+
+Before editing network features on an existing volume, you need to register the feature. Ensure you are using the correct feature name for the change in network features you want to perform.
+
+* To upgrade to Standard network features from Basic, use the feature name `ANFBasicToStdNetworkFeaturesUpgrade`.
+* To revert from Standard network features to Basic, use the feature name `ANFStdToBasicNetworkFeaturesRevert`. 
+
+1.  Register the feature:
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBasicToStdNetworkFeaturesUpgrade 
+    ```
+
+2. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** can remain in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBasicToStdNetworkFeaturesUpgrade 
+    ```
+
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+
+### <a name="edit"></a> Edit network features
 
 <!-- terraform net features
 >[!IMPORTANT]
