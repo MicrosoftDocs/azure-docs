@@ -62,7 +62,7 @@ You can add a Delay until action:
 
 1. Select the plus sign (+) after a step and then select **Add an action**.
 
-1. In the search box, enter *delay until*. From the actions list, select **Delay until**
+1. In the search box, enter *delay until*. From the actions list, select **Delay until**.
 
    :::image type="content" source="./media/connectors-native-delay/add-delay-until-action.png" alt-text="Screenshot shows the Logic app designer, searching for a delay until action.":::
 
