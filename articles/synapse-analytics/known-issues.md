@@ -36,7 +36,7 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 |Azure Synapse serverless SQL pool|[Storage access issues due to authorization header being too long](#storage-access-issues-due-to-authorization-header-being-too-long)|Has workaround|
 |Azure Synapse serverless SQL pool|[Querying a view shows unexpected results](#querying-a-view-shows-unexpected-results)|Has workaround|
 |Azure Synapse serverless SQL pool|[Queries longer than 7,500 characters may not appear in Log Analytics](#queries-longer-than-7500-characters-may-not-appear-in-log-analytics)|Has workaround|
-|Azure Synapse serverless SQL pool|[Proxied connections can be affected by Gateway, resulting in connection failures]([#proxied-connections-may-result-in-failure-due-to-gateway))|No workaround|
+|Azure Synapse serverless SQL pool|[Proxied connections can be affected by Gateway, resulting in connection failures]([#proxied-connections-may-result-in-failure-due-to-gateway)|No workaround|
 |Azure Synapse Workspace|[Blob storage linked service with User Assigned Managed Identity (UAMI) isn't getting listed](#blob-storage-linked-service-with-user-assigned-managed-identity-uami-is-not-getting-listed)|Has workaround|
 |Azure Synapse Workspace|[Failed to delete Synapse workspace & Unable to delete virtual network](#failed-to-delete-synapse-workspace--unable-to-delete-virtual-network)|Has workaround|
 |Azure Synapse Workspace|[REST API PUT operations or ARM/Bicep templates to update network settings fail](#rest-api-put-operations-or-armbicep-templates-to-update-network-settings-fail)|Has workaround|
