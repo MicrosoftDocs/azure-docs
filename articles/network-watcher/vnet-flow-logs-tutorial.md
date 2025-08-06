@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Log network traffic flow'
+title: 'Tutorial: Log network traffic'
 titleSuffix: Azure Network Watcher
-description: In this tutorial, you learn how to log network traffic flow to and from a virtual network (VNet) using Network Watcher virtual network (VNet) flow logs.
+description: In this tutorial, you learn how to log network traffic flow to and from a virtual network (VNet) using Network Watcher virtual network flow logs.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: tutorial
-ms.date: 09/30/2024
+ms.date: 08/06/2025
 
 # CustomerIntent: As an Azure administrator, I need to log the network traffic to and from a virtual network so I can analyze the data for anomalies.
 ---
@@ -217,7 +217,7 @@ In this section, you go to the storage account you previously selected and downl
 
 6. Select the ellipsis **...** to the right of the PT1H.json file, then select **Download**.
 
-   :::image type="content" source="./media/vnet-flow-logs-tutorial/flow-log-file.png" alt-text="Screenshot showing how to download VNet flow log data from the storage account in the Azure portal." lightbox="./media/vnet-flow-logs-tutorial/flow-log-file.png":::
+   :::image type="content" source="./media/vnet-flow-logs-tutorial/flow-log-file.png" alt-text="Screenshot showing how to download virtual network flow log data from the storage account in the Azure portal." lightbox="./media/vnet-flow-logs-tutorial/flow-log-file.png":::
 
 > [!NOTE]
 > You can use Azure Storage Explorer to access and download flow logs from your storage account. Fore more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
