@@ -179,6 +179,8 @@
         href: migrate-cdn-to-front-door.md
     - name: AFD/CDN Classic migration FAQ
       href: afd-cdn-classic-migration-faq.md
+    - name: Post migration Dev-Ops experience
+      href: post-migration-dev-ops-experience.md
   - name: Upgrades
     items:
     - name: Upgrade from Standard to Premium tier - Portal
