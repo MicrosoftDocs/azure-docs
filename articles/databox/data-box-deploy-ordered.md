@@ -219,7 +219,7 @@ For detailed information on how to sign in to Azure using Windows PowerShell, se
 ## Order Data Box
 
 > [!NOTE]
-> Azure Data Box currently does not support Azure Files Provisioned v2 Storage Accounts. For on-prem to Azure migration scenarios, you can explore [Azure Storage Mover](../storage-mover/service-overview).
+> Azure Data Box currently does not support Azure Files Provisioned v2 Storage Accounts. For on-prem to Azure migration scenarios, you can explore [Azure Storage Mover](/azure/storage-mover/service-overview).
 
 To order a device, perform the following steps:
 
