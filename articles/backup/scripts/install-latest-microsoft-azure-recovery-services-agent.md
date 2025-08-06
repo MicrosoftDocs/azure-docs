@@ -10,7 +10,7 @@ ms.author: v-mallicka
 
 # PowerShell Script to install the latest MARS agent on an on-premises Windows server
 
-This script helps you to install the latest MARS agent on your on-premises Windows server. You can also [install the MARS agent using the installer](../backup/install-mars-agent.md#install-and-register-the-agent).
+This script helps you to install the latest MARS agent on your on-premises Windows server. You can also [install the MARS agent using the installer](../install-mars-agent.md#install-and-register-the-agent).
 
 ## Sample script
 
