@@ -122,7 +122,7 @@ NSG flow logging requires the **Microsoft.Insights** provider. To check its stat
 
 1. Select the Azure subscription that you want to enable the provider for in **Subscriptions**.
 
-1. Select **Resource providers** under **Settings** of your subscription.
+1. Under **Settings**, select **Resource providers**.
 
 1. Enter ***insight*** in the filter box.
 
