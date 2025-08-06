@@ -29,7 +29,7 @@ An *instance* is a virtual machine (VM)-level unit of the firewall. Each instanc
 
 To achieve high availability of your firewall, Azure Firewall automatically provides a minimum of two instances, without any intervention or configuration by you. Also, your firewall automatically scales out when average throughput, CPU consumption, and connection usage reach predefined thresholds. For more information, see [Azure Firewall performance](/azure/firewall/firewall-performance). The platform automatically manages instance creation, health monitoring, and replacement of unhealthy instances.
 
-To achieve redundancy, Firewall automatically distributes instances across multiple fault domains within a region, providing protection against server and server rack failures.  However, to increase redundancy and availability during datacenter failures, you can enable zone redundancy to distribute instances across multiple availability zones.
+To achieve redundancy, Azure Firewall automatically distributes instances across multiple fault domains within a region, providing protection against server and server rack failures. However, to increase redundancy and availability during datacenter failures, you can enable zone redundancy to distribute instances across multiple availability zones.
 
 >[!NOTE]
 >If you create your firewall using the Azure portal, zone-redundancy is automatically enabled.
@@ -50,11 +50,11 @@ Azure Firewall is automatically deployed across availability zones in supported 
 
 Azure Firewall supports both zone-redundant and zonal deployment models:
 
-- **Zone-redundant**:  When enabled for zone-redundancy, Firewall instances are distributed across multiple availability zones in the region, and Azure manages load balancing and failover between zones automatically.
+- **Zone-redundant**: When enabled for zone redundancy, firewall instances are distributed across multiple availability zones in the region, and Azure manages load balancing and failover between zones automatically.
 
     Zone-redundant firewalls achieve the highest uptime SLA, and are recommended for production workloads requiring maximum availability
 
-- **Zonal**: Firewall can be associated with a specific zone, to ensure the firewall is close in proximity to backend servers in order to optimize latency.
+- **Zonal**: Azure Firewall can be associated with a specific zone, to ensure the firewall is close in proximity to backend servers in order to optimize latency. All firewall instances are deployed within that zone.
 
     > [!IMPORTANT]
     > Pinning to a single availability zone is only recommended when [cross-zone latency](./availability-zones-overview.md#inter-zone-latency) is too high for your needs, and when you have verified that the latency doesn't meet your requirements. By itself, a zonal firewall doesn’t provide resiliency to an availability zone outage. To improve the resiliency of a zonal Azure Firewall deployment, you need to explicitly deploy separate firewalls into multiple availability zones and configure traffic routing and failover.
@@ -151,11 +151,11 @@ The failback behavior depends on the availability zone configuration that your f
 
 ### Testing
 
-The options for zone failure testing depend on your gateway's availability zone configuration:
+The options for zone failure testing depend on your firewall's availability zone configuration:
 
 - *Zone-redundant:* The Azure Firewall platform manages traffic routing, failover, and failback for zone-redundant firewall resources.  Because this feature is fully managed, you don't need to initiate any process or validate availability zone failure processes.
 
-- *Zonal:* You can simulate some aspects of the failure of an availability zone by explicitly stopping a firewall. By stopping the Azure Firewall, you can test how other systems and load balancers handle an outage in the gateway. For more information, see [How can I stop and start Azure Firewall?](/azure/firewall/firewall-faq#how-can-i-stop-and-start-azure-firewall).
+- *Zonal:* You can simulate some aspects of the failure of an availability zone by explicitly stopping a firewall. By stopping the Azure Firewall, you can test how other systems and load balancers handle an outage in the firewall. For more information, see [How can I stop and start Azure Firewall?](/azure/firewall/firewall-faq#how-can-i-stop-and-start-azure-firewall).
 
 ## Multi-region support
 
