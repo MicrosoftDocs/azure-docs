@@ -129,6 +129,7 @@ Confidential VMs *don't support*:
 - [Live migration](/windows-server/virtualization/hyper-v/manage/live-migration-overview)
 - [Screenshots under boot diagnostics](/azure/virtual-machines/boot-diagnostics#boot-diagnostics-view)
 - [Dynamic memory](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831766(v=ws.11))
+- Confidential disk encryption is only supported for disks that are smaller than 128 GB. For larger disks, it is recommended to opt for premium SSDs, particularly for disks exceeding 32 GB. 
 
 ## Next steps
 

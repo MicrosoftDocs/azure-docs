@@ -119,7 +119,7 @@ The following Azure services are supported:
 
 While ExpressRoute FastPath supports many configurations, it might not be suitable for all scenarios. The following limitations apply to ExpressRoute FastPath:
 
-- **Azure Internal Load Balancer**: ExpressRoute FastPath doesn't support Azure internal load balancers or Azure PaaS services in spoke virtual networks. Network traffic from your on-premises network to the private IP addresses of these services in the spoke virtual network gets routed through the ExpressRoute virtual network gateway. Internal load balancers within the hub virtual network aren't affected.
+- **Azure Internal Load Balancer**: ExpressRoute FastPath doesn't support Azure internal load balancers or Azure PaaS services in spoke virtual networks. Network traffic from your on-premises network to the private IP addresses of these services in the spoke virtual network gets routed through the ExpressRoute virtual network gateway. Internal load balancers within the hub virtual network aren't affected and traffic goes through FastPath.
 
 - **Virtual network peering**:
     
