@@ -23,7 +23,7 @@ This quickstart guide demonstrates how to
 - Dependencies for the language you plan to use
 
 > [!NOTE]
-> Except for the MQTT client libraries mentioned belows, you can choose any standard MQTT client libraries that meet the following requirements to connect to Web PubSub:
+> Except for the MQTT client libraries mentioned below, you can choose any standard MQTT client libraries that meet the following requirements to connect to Web PubSub:
 > * Support WebSocket transport.
 > * Support MQTT protocol 3.1.1 or 5.0.
 
