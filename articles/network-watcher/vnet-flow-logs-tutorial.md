@@ -243,7 +243,7 @@ Open the downloaded `PT1H.json` file using a text editor of your choice. The fol
 					{
                         "rule": "DefaultRule_AllowInternetOutBound",
                         "flowTuples": [
-                            "1754512773,10.0.0.4,13.107.21.200,49982,443,T,O,A,C,7,1158,12,8143"                            
+                            "1754512773,10.0.0.4,13.107.21.200,49982,443,6,O,C,NX,7,1158,12,8143"                            
                         ]
                     }
                 ]
@@ -264,12 +264,12 @@ The comma-separated information for **flowTuples** is as follows:
 | 443 | Destination port | The destination port that the flow was destined to. |
 | T | Protocol | The protocol of the flow. T: TCP. |
 | O | Direction | The direction of the flow. O: Outbound. |
-| A | Decision | The decision made by the security rule. A: Allowed. |
-| C | Flow State **Version 2 only** | The state of the flow. C: Continuing for an ongoing flow. |
-| 7 | Packets sent **Version 2 only** | The total number of TCP packets sent to destination since the last update. |
-| 1158 | Bytes sent **Version 2 only** | The total number of TCP packet bytes sent from source to destination since the last update. Packet bytes include the packet header and payload. |
-| 12 | Packets received **Version 2 only** | The total number of TCP packets received from destination since the last update. |
-| 8143 | Bytes received **Version 2 only** | The total number of TCP packet bytes received from destination since the last update. Packet bytes include packet header and payload.|
+| C | Flow State | The state of the flow. C: Continuing for an ongoing flow. |
+| NX | Flow encryption | The connection is unencrypted. |
+| 7 | Packets sent | The total number of TCP packets sent to destination since the last update. |
+| 1158 | Bytes sent | The total number of TCP packet bytes sent from source to destination since the last update. Packet bytes include the packet header and payload. |
+| 12 | Packets received | The total number of TCP packets received from destination since the last update. |
+| 8143 | Bytes received | The total number of TCP packet bytes received from destination since the last update. Packet bytes include packet header and payload.|
 
 ## Clean up resources
 
