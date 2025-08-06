@@ -137,7 +137,7 @@ The following section describes what to expect when your SQL managed instance is
 
 - **Data replication between zones:** Database files are stored in Azure Storage by using zone-redundant storage, which is attached to whichever node currently contains the active SQL Database Engine process.
 
-  All write operations to ZRS are replicated synchronously across all availability zones within the region. When you upload or modify data, the operation isn't considered complete until the data has been successfully replicated across all of the availability zones. This synchronous replication ensures strong consistency and zero data loss during zone failures. However, it may result in slightly higher write latency compared to locally redundant storage.
+  Write operations are synchronous, and aren't considered complete until the data has been successfully replicated across all of the availability zones. This synchronous replication ensures strong consistency and zero data loss during zone failures. However, it may result in slightly higher write latency compared to locally redundant storage.
 
 ::: zone-end
 
