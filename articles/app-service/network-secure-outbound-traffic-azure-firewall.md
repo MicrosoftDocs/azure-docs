@@ -85,7 +85,7 @@ When you create a virtual network, Azure automatically creates a [default route 
     | - | - |
     | **Address prefix** | *0.0.0.0/0* |
     | **Next hop type** | **Virtual appliance** |
-    | **Next hop address** | The private IP address for the firewall that you copied in [2. Deploy the firewall and get its IP](#2-deploy-the-firewall-and-get-its-ip). |
+    | **Next hop address** | The private IP address for the firewall that you copied in [Deploy the firewall and get its IP](#deploy-the-firewall-and-get-its-ip). |
 
 1. From the left navigation, select **Subnets** > **Associate**.
 1. In **Virtual network**, select your integrated virtual network.
