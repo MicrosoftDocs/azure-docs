@@ -35,7 +35,7 @@ You need any credentials required to access the HTTP source. If the HTTP source 
 
 ## Deploy the connector for REST/HTTP
 
-[!INCLUDE [deploy-preview-http-connectors](../includes/deploy-preview-media-connectors.md)]
+[!INCLUDE [deploy-preview-media-connectors-simple](../includes/deploy-preview-media-connectors-simple.md)]
 
 ## Create a device
 

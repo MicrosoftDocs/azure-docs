@@ -37,7 +37,7 @@ A camera connected to your network and accessible from your Azure IoT Operations
 
 [!INCLUDE [deploy-preview-media-connectors](../includes/deploy-preview-media-connectors.md)]
 
-## Create a device
+## Create a device with a media endpoint
 
 To configure the media connector, first create a device that defines the connection to the media source. The device includes the URL of the media source and any credentials you need to access the media source:
 
@@ -70,7 +70,7 @@ Run the following commands:
 ```azurecli
 az iot ops ns device create -n media-connector-cli -g {your resource group name} --instance {your instance name} 
 
-az iot ops ns device endpoint inbound add media --device media-connector-cli -g {your resource group name} -i {your instance name}  --name media-connector-cli-0 --endpoint-address "rtsp://samplecamera:554/stream1"
+az iot ops ns device endpoint inbound add media --device media-connector-cli -g {your resource group name} -i {your instance name}  --name media-connector-cli-0 --endpoint-address rtsp://samplecamera:554/stream1
 ```
 
 To learn more, see [az iot ops ns device](/cli/azure/iot/ops/ns/device).
