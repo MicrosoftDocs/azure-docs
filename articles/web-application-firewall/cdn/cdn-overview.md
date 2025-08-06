@@ -15,11 +15,13 @@ ms.date: 10/16/2023
 An Azure Web Application Firewall deployment on Azure Content Delivery Network provides centralized protection for your web content. Azure Web Application Firewall defends your web services against common exploits and vulnerabilities. It helps keep your service highly available for your users and helps you meet compliance requirements.
 
 > [!IMPORTANT]
-> The preview of Azure Web Application Firewall on Azure Content Delivery Network is no longer accepting new customers. We encourage customers to use [Azure Web Application Firewall on Azure Front Door](../afds/afds-overview.md) instead. We provide existing customers with a preview service-level agreement. Certain features might not be supported or might have constrained capabilities. For details, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> The preview of Azure Web Application Firewall on Azure Content Delivery Network is no longer accepting new customers. We encourage customers to use [Azure Web Application Firewall on Azure Front Door](../afds/afds-overview.md) instead.
+>
+> We provide existing customers with a preview service-level agreement. Certain features might not be supported or might have constrained capabilities. For details, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Web Application Firewall on Azure Content Delivery Network is a global and centralized solution. It's deployed on Azure network edge locations around the globe. Azure Web Application Firewall stops malicious attacks close to the attack sources, before they reach your origin. You get global protection at scale without sacrificing performance.
 
-A web application firewall (WAF) policy easily links to any content delivery network (CDN) endpoint in your subscription. You can deploy new rules within minutes, so you can respond quickly to changing threat patterns.
+A web application firewall (WAF) policy links to any content delivery network (CDN) endpoint in your subscription. You can deploy new rules within minutes, so you can respond quickly to changing threat patterns.
 
 ![Diagram that shows how Azure Web Application Firewall on Azure Content Delivery Network takes action on incoming requests.](../media/cdn-overview/waf-cdn-overview.png)
 
@@ -30,7 +32,9 @@ You can configure a WAF policy and associate that policy with one or more CDN en
 - **Custom rules**: Rules that you can create yourself.
 - **Managed rule sets**: Azure-managed preconfigured rules that you can enable.
 
-When both are present, the WAF processes custom rules before processing the rules in a managed rule set. A rule consists of a match condition, a priority, and an action. Supported action types are `ALLOW`, `BLOCK`, `LOG`, and `REDIRECT`. You can create a fully customized policy that meets your specific requirements for application protection by combining managed and custom rules.
+When both are present, the WAF processes custom rules before processing the rules in a managed rule set.
+
+A rule consists of a match condition, a priority, and an action. Supported action types are `ALLOW`, `BLOCK`, `LOG`, and `REDIRECT`. You can create a fully customized policy that meets your specific requirements for application protection by combining managed and custom rules.
 
 The WAF processes rules within a policy in a priority order. Priority is a unique integer that defines the order of rules to process. Smaller numbers are a higher priority, and the WAF evaluates those rules before rules that have a larger value. After the WAF matches a rule with a request, it applies the corresponding action that the rule defines to the request. After the WAF processes such a match, rules that have lower priorities aren't processed further.
 
@@ -78,7 +82,7 @@ Azure-managed rule sets provide a way to deploy protection against a common set 
 
 The version number of the Default Rule Set increments when new attack signatures are added to the rule set.
 
-The Default Rule Set is enabled by default in *detection* mode in your WAF policies. You can disable or enable individual rules within the Default Rule Set to meet your application requirements. You can also set specific actions (`ALLOW`, `BLOCK`, `REDIRECT`, and `LOG`) per rule. The default action for the managed Default Rule Set is `BLOCK`.
+The Default Rule Set is enabled by default in *detection* mode in your WAF policies. You can disable or enable individual rules within the Default Rule Set to meet your application requirements. You can also set specific actions (`ALLOW`, `BLOCK`, `LOG`, and `REDIRECT`) per rule. The default action for the managed Default Rule Set is `BLOCK`.
 
 Custom rules are always applied before the WAF evaluates the rules in the Default Rule Set. If a request matches a custom rule, the WAF applies the corresponding rule action. The request is either blocked or passed through to the back end. No other custom rules or rules in the Default Rule Set are processed. You can also remove the Default Rule Set from your WAF policies.
 
@@ -93,10 +97,10 @@ You can configure a WAF policy to run in the following two modes:
 
 You can choose one of the following actions when a request matches a rule's conditions:
 
-- **Allow**: The request passes through the WAF and is forwarded to the back end. No further lower-priority rules can block this request.
-- **Block**: The request is blocked. The WAF sends a response to the client without forwarding the request to the back end.
-- **Log**: The request is logged in the WAF logs. The WAF continues to evaluate lower-priority rules.
-- **Redirect**: The WAF redirects the request to the specified URI. The specified URI is a policy-level setting. After you configure the setting, all requests that match the **Redirect** action are sent to that URI.
+- `ALLOW`: The request passes through the WAF and is forwarded to the back end. No further lower-priority rules can block this request.
+- `BLOCK`: The request is blocked. The WAF sends a response to the client without forwarding the request to the back end.
+- `LOG`: The request is logged in the WAF logs. The WAF continues to evaluate lower-priority rules.
+- `REDIRECT`: The WAF redirects the request to the specified URI. The specified URI is a policy-level setting. After you configure the setting, all requests that match the `REDIRECT` action are sent to that URI.
 
 ## Configuration
 

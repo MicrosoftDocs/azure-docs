@@ -23,7 +23,7 @@ Azure Web Application Firewall provides real-time protection for these applicati
 
 ## Configuration
 
-To use Azure Web Application Firewall on your Application Gateway for Containers deployment, you need to attach your [WAF policy](create-waf-policy-ag.md) via a `SecurityPolicy` resource. This new Azure Resource Manager child resource is part of the Application Gateway for Containers integration. Your Application Load Balancer (ALB) Controller references it. It helps define the scope of how your WAF policy is applied to your application's traffic.
+To use Azure Web Application Firewall on your Application Gateway for Containers deployment, you need to attach your [WAF policy](create-waf-policy-ag.md) via a `SecurityPolicy` resource. This new Azure Resource Manager child resource is part of the Application Gateway for Containers integration. It's referenced by your Application Load Balancer (ALB) Controller and helps define the scope of how your WAF policy is applied to your application's traffic.
 
 Application Gateway for Containers also introduces a new resource called `WebApplicationFirewallPolicy`. This custom resource defines at which point the WAF policy is applied. You can configure it at the listener or route path level, via your Kubernetes resource's YAML file.
 
@@ -61,7 +61,7 @@ The following functionality isn't supported on a WAF policy that's associated wi
 Azure Web Application Firewall usage is billed separately from Application Gateway for Containers usage. When you enable Azure Web Application Firewall on your Application Gateway for Containers resource, two WAF-specific meters are added to your bill:
 
 - **1 AGC WAF Hour**: A fixed cost charged for the duration that a security policy references a WAF policy.
-- **1M WAF Requests**: A consumption-based meter that bills per 1 million requests processed by the WAF and charges for each enabled rule set. For example, if you enable both the Default Rule Set (DRS) and the Bot Manager Rule Set, you're billed for two rule sets.
+- **1M WAF Requests**: A consumption-based meter that bills per 1 million requests processed by the WAF and charges for each enabled rule set. For example, if you enable both the DRS and the Bot Manager Rule Set, you're billed for two rule sets.
 
 For more pricing information, see [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway) and [Azure Web Application Firewall pricing](https://azure.microsoft.com/pricing/details/web-application-firewall).
 

@@ -34,12 +34,12 @@ Azure Web Application Firewall can be deployed with these Microsoft services:
 - Azure Front Door
 - Azure Content Delivery Network
 
-Azure Web Application Firewall on Azure Content Delivery Network and Application Gateway for Containers are currently in public preview. Azure Web Application Firewall has features that are customized for each specific service.
+Azure Web Application Firewall on Azure Content Delivery Network and Azure Web Application Firewall on Application Gateway for Containers are currently in preview. Azure Web Application Firewall has features that are customized for each specific service.
 
 ## Related content
 
-- For more information about Azure Web Application Firewall on Application Gateway, see [What is Azure Web Application Firewall on Azure Application Gateway?](./ag/ag-overview.md).
-- For more information about Web Application Firewall on Azure Front Door, see [Azure Web Application Firewall on Azure Front Door](./afds/afds-overview.md).
-- For more information about Web Application Firewall on Content Delivery Network, see [Azure Web Application Firewall on Azure Content Delivery Network from Microsoft](./cdn/cdn-overview.md).
-- To learn more about Azure Web Application Firewall, see the training module [Introduction to Azure Web Application Firewall](/training/modules/introduction-azure-web-application-firewall/).
-- To learn more about Azure network security, see the [Azure network security documentation](../networking/security/index.yml).
+- [What is Azure Web Application Firewall on Azure Application Gateway?](./ag/ag-overview.md)
+- [Azure Web Application Firewall on Azure Front Door](./afds/afds-overview.md)
+- [Azure Web Application Firewall on Azure Content Delivery Network](./cdn/cdn-overview.md)
+- [Introduction to Azure Web Application Firewall](/training/modules/introduction-azure-web-application-firewall/) (training module)
+- [Azure network security documentation](../networking/security/index.yml)

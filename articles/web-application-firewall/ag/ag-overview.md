@@ -81,15 +81,13 @@ You can configure a WAF policy and associate that policy with one or more applic
 - Custom rules that you create
 - Managed rule sets that are collections of Azure-managed preconfigured rules
 
-When both are present, the WAF processes custom rules before processing the rules in a managed rule set. A rule consists of a match condition, a priority, and an action. Supported action types are `ALLOW`, `BLOCK`, and `LOG`. You can create a fully customized policy that meets your specific requirements for application protection by combining managed and custom rules.
+When both are present, the WAF processes custom rules before processing the rules in a managed rule set.
+
+A rule consists of a match condition, a priority, and an action. Supported action types are `ALLOW`, `BLOCK`, and `LOG`. You can create a fully customized policy that meets your specific requirements for application protection by combining managed and custom rules.
 
 The WAF processes rules within a policy in a priority order. Priority is a unique integer that defines the order of rules to process. A smaller integer value denotes a higher priority, and the WAF evaluates those rules before rules that have a higher integer value. After the WAF matches a rule with a request, it applies the corresponding action that the rule defines to the request. After the WAF processes such a match, rules that have lower priorities aren't processed further.
 
 A web application that Application Gateway delivers can have a WAF policy associated with it at the global level, at a per-site level, or at a per-URI level.
-
-### Rule sets
-
-Application Gateway supports multiple rule sets, including CRS 3.2, CRS 3.1, and CRS 3.0. These rules help protect your web applications from malicious activity. For more information, see [Web application firewall DRS and CRS rule groups and rules](application-gateway-crs-rulegroups-rules.md).
 
 ### Custom rules
 
@@ -97,7 +95,11 @@ Application Gateway supports the creation of your own custom rules. Application 
 
 The `Geomatch` operator is now available for custom rules. For more information, see [Geomatch custom rules](geomatch-custom-rules.md).
 
-### Bot Manager Rule Set
+### Rule sets
+
+Application Gateway supports multiple rule sets, including CRS 3.2, CRS 3.1, and CRS 3.0. These rules help protect your web applications from malicious activity. For more information, see [Web application firewall DRS and CRS rule groups and rules](application-gateway-crs-rulegroups-rules.md).
+
+#### Bot Manager Rule Set
 
 You can enable a managed Bot Manager Rule Set to take custom actions on requests from all bot categories.
 
