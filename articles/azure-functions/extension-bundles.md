@@ -31,12 +31,15 @@ This table lists all `Microsoft.Azure.Functions.ExtensionBundle` bundle versions
 
 <!-- | Bundle version | Version in host.json | Support state | End-of-support date | 
 | --- | --- | --- | --- | -->
-| Bundle version | Version in host.json | Support state | 
+
+| Bundle version | Version in host.json | Support state<sup>*</sup> | 
 | --- | --- | --- | 
 | [4.x](https://github.com/Azure/azure-functions-extension-bundles/blob/main/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) | `[4.0.0, 5.0.0)` | Active | <!---Not yet determined  |-->
 | [3.x](https://github.com/Azure/azure-functions-extension-bundles/blob/main-v3/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) | `[3.3.0, 4.0.0)` | Deprecated | <!---May 30, 2026 |-->
 | [2.x](https://github.com/Azure/azure-functions-extension-bundles/blob/main-v2/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) | `[2.*, 3.0.0)` | Deprecated | <!---May 30, 2026 |-->
 | [1.x](https://github.com/Azure/azure-functions-extension-bundles/blob/v1.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) | `[1.*, 2.0.0)` | Deprecated | <!---May 30, 2026 |-->
+
+<sup>*</sup> Deprecated bundle versions can use deprecated binding extension versions. For optimal supportability and reliability, you should [upgrade to the most recent bundle version](#upgrade-extension-bundles). 
 
 The default extension bundles are defined via version ranges. To see the `extensions.json` definition file that generates the current bundle version for a major extension, select the link in the table.
 
