@@ -89,3 +89,6 @@ Contact [Pure Storage](https://pure1.purestorage.com/) for customer support.
 
 See the [Pure Storage troubleshooting documentation](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Azure_Native_Pure_Storage_Cloud/troubleshooting/c_troubleshooting.html) for more information.
 
+## Related content
+
+For an end-to-end user guide on how to use the Pure Storage resource on Azure, visit [Pure Storage docs](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/deployment/c_psc_deployment.html).
