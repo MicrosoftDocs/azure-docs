@@ -32,6 +32,9 @@ Application Gateway for Containers consists of four billable items:
 - Association resource 
 - Capacity units
 
+> [!NOTE]
+> Currently there is no charge additional charge to enable Web Application Firewall (WAF) on Application Gateway for Containers beyond the added capacity units required for WAF to process requests. WAF on Application Gateway for Containers is in public preview and we will enable billing at a later date.
+
 #### Application Gateway for Containers hour
 
 An Application Gateway for Containers hour corresponds to the amount of time each Application Gateway for Containers parent resource is deployed. The Application Gateway for Containers resource is responsible for processing and coordinating configuration of your deployment.
