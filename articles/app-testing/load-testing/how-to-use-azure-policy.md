@@ -100,5 +100,5 @@ Predetermined policies, referred to as 'built-ins', allow governance over your l
 
 ## Next steps
 
-- Learn more about the [Azure Policy service](/azure/governance/policy/overview.md)
+- Learn more about the [Azure Policy service](../../governance/policy/overview.md)
 - See Key Vault samples: [Azure Load Testing built-in policy definitions](/azure/governance/policy/samples/built-in-policies#azure-load-testing)
