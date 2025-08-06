@@ -31,21 +31,22 @@ For a detailed explanation of the underlying changes at DigiCert, refer to [chan
 
 You can't create or renew ASMCs if your:
 1. Site is not publicly accessible.
-   - Public accessibility to your app is required. If your app is only accessible privately (for example, requiring a client certificate for access, disabling public network access, using private endpoints or IP restrictions), you will not be able to create or renew a managed certificate.
-   - Other site configurations or setup methods not explicitly listed here that restrict public access, such as firewalls, authentication gateways, or any custom access policies, can also impact eligibility for managed certificate issuance or renewal.
+   - Public accessibility to your app is required. If your app is only accessible through private configurations, such as requiring a client certificate, disabling public network access, using private endpoints, or applying IP restrictions, you can't create or renew a managed certificate.
+   - Other configurations that restrict public access, such as firewalls, authentication gateways, or custom access policies, may also affect eligibility for managed certificate issuance or renewal.
+
 1. Site is an Azure Traffic Manager "nested" or "external" endpoint:
-   - Only "Azure Endpoints" on Traffic Manager will be supported for certificate creation and renewal.
-   - "Nested endpoints" and "External endpoints" will not be supported.
+   - Only "Azure Endpoints" on Traffic Manager is supported for certificate creation and renewal.
+   - "Nested endpoints" and "External endpoints" is not supported.
 1. Site relies on _*.trafficmanager.net_ domains.
-   - Certificates for _*.trafficmanager.net_ domains will not be supported for creation or renewal.
+   - Certificates for _*.trafficmanager.net_ domains is not supported for creation or renewal.
 
 Existing certificates remain valid until expiration (up to six months), but will not renew automatically if your configuration is unsupported.
 
 ## Identify impacted resources
-You can use [Azure Resource Graph (ARG)](https://portal.azure.com/?feature.customPortal=false#view/HubsExtension/ArgQueryBlade) queries to help identify resources that may be affected under each scenario. Note that these queries are provided as a starting point and may not capture every configuration. Review your environment for any unique setups or custom configurations. 
+You can use [Azure Resource Graph (ARG)](https://portal.azure.com/?feature.customPortal=false#view/HubsExtension/ArgQueryBlade) queries to help identify resources that may be affected under each scenario. These queries are provided as a starting point and may not capture every configuration. Review your environment for any unique setups or custom configurations. 
 
 ### Scenario 1: Site is not publicly accessible
-This ARG query retrieves a list of sites that either have the public network access property disabled or are configured to use client certificates. It then filters for sites that are using App Service Managed Certificates (ASMC) for their custom hostname SSL bindings. These certificates are the ones that could be affected by the upcoming changes. However, note that this query does not provide complete coverage, as there may be other configurations impacting public access to your app that are not included here. Ultimately, this query serves as a helpful guide for users, but a thorough review of your environment is recommended. You can copy this query, paste it into [ARG Explorer](https://portal.azure.com/?feature.customPortal=false#view/HubsExtension/ArgQueryBlade), and then click "Run query" to view the results for your environment. 
+This ARG query retrieves a list of sites that either have the public network access property disabled or are configured to use client certificates. It then filters for sites that are using App Service Managed Certificates (ASMC) for their custom hostname SSL bindings. These certificates are the ones that could be affected by the upcoming changes. However, this query does not provide complete coverage, as there may be other configurations impacting public access to your app that are not included here. Ultimately, this query serves as a helpful guide for users, but a thorough review of your environment is recommended. You can copy this query, paste it into [ARG Explorer](https://portal.azure.com/?feature.customPortal=false#view/HubsExtension/ArgQueryBlade), and then click "Run query" to view the results for your environment. 
 
 ```kql
 // ARG Query: Identify App Service sites that commonly restrict public access and use ASMC for custom hostname SSL bindings 
