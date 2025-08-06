@@ -102,7 +102,7 @@ When making a change to the [tags](../azure-resource-manager/management/tag-reso
 
 **Workaround**: You can confirm that the change to the tags was successful and ignore/suppress the error message as needed.
 
-### Proxied Connections may result in failure due to Gateway
+### Proxied connections may result in failure due to gateway
 
 When establishing a connection from outside of the Azure network boundary, all connections are proxied through the Gateway as per the Default [Connection policy](security/connectivity-settings.md) for Synapse Workspaces. The same is applied when utilizing Private Endpoints in Synapse workspaces. Due to this policy this can lead to increased latency and reduced throughput when communicating wth the dedicated pool and be affected by Gateway outages.
 
