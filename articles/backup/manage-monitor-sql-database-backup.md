@@ -40,13 +40,13 @@ For more information on the supported alert scenarios, see [Azure Monitor alerts
 
 To monitor database backup alerts, follow these steps:
 
-1. In the Azure portal, go to **Backup center** and filter for **SQL in Azure VM** data source type.
+1. In the Azure portal, go to **Business Continuity Center** select **Monitoring + Reporting** > **Alerts**.
 
-   :::image type="content" source="./media/backup-azure-sql-database/sql-alerts-inline.png" alt-text="Screenshot showing the Backup alerts menu item." lightbox="./media/backup-azure-sql-database/sql-alerts-expanded.png":::
+   :::image type="content" source="./media/backup-azure-sql-database/alerts-list.png" alt-text="Screenshot shows the list of alerts." lightbox="./media/backup-azure-sql-database/alerts-list.png":::
 
-1. Select the **Alerts** menu item to view the list of all alerts that were fired for SQL database backups in the selected time period.
+1. On the **Alerts** pane, select the **Alert rule** for the SQL database to view the resources for which the alerts are triggered.
 
-   :::image type="content" source="./media/backup-azure-sql-database/sql-alerts-list-inline.png" alt-text="Screenshot showing the Backup alerts list." lightbox="./media/backup-azure-sql-database/sql-alerts-list-expanded.png":::
+   :::image type="content" source="./media/backup-azure-sql-database/sql-alerts.png" alt-text="Screenshot shows the failed Backup alerts list." lightbox="./media/backup-azure-sql-database/sql-alerts.png":::
 
 1. To configure notifications for these alerts, you must create an alert processing rule.
 
