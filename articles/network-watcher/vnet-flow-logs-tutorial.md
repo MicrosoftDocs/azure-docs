@@ -17,7 +17,7 @@ Virtual network flow logging is a feature of Azure Network Watcher that allows y
 
 This tutorial helps you use VNet flow logs to log a virtual machine's network traffic that flows through the virtual network.
 
-:::image type="content" source="./media/nsg-flow-logs-tutorial/nsg-flow-logs-tutorial-diagram.png" alt-text="Diagram shows the resources created during the tutorial.":::
+:::image type="content" source="./media/vnet-flow-logs-tutorial/flow-logs-tutorial-diagram.png" alt-text="Diagram shows the resources created during the tutorial.":::
 
 In this tutorial, you learn how to:
 
@@ -64,7 +64,7 @@ In this section, you create **myVM** virtual machine.
 
 1. In the search box at the top of the portal, enter ***virtual machines***. Select **Virtual machines** from the search results.
 
-1. Select **+ Create** and then select **Azure virtual machine**.
+1. Select **+ Create** and then select **Virtual machine**.
 
 1. In **Create a virtual machine**, enter or select the following values in the **Basics** tab:
 
@@ -78,8 +78,8 @@ In this section, you create **myVM** virtual machine.
     | Region | Select **(US) East US**. |
     | Availability Options | Select **No infrastructure redundancy required**. |
     | Security type | Select **Standard**. |
-    | Image | Select **Windows Server 2022 Datacenter: Azure Edition - x64 Gen2**. |
-    | Size | Choose a size or leave the default setting. |
+    | Image | Select the image that you prefer. This tutorial uses **Windows Server 2022 Datacenter: Azure Edition - x64 Gen2**. |
+    | Size | Choose a VM size or leave the default setting. |
     | **Administrator account** |  |
     | Username | Enter a username. |
     | Password | Enter a password. |
@@ -116,7 +116,7 @@ In this section, you create **myVM** virtual machine.
 
 ## Register Insights provider
 
-NSG flow logging requires the **Microsoft.Insights** provider. To check its status, follow these steps:
+Flow logging requires the **Microsoft.Insights** provider. To check its status, follow these steps:
 
 1. In the search box at the top of the portal, enter ***subscriptions***. Select **Subscriptions** from the search results.
 
@@ -144,16 +144,17 @@ In this section, you create a storage account to use it to store the flow logs.
     | Subscription | Select your Azure subscription. |
     | Resource Group | Select **myResourceGroup**. |
     | **Instance details** |  |
-    | Storage account name | Enter a unique name. This tutorial uses **mynwstorageaccount**. |
+    | Storage account name | Enter a unique name. This tutorial uses **nwteststorageaccount**. |
     | Region | Select **(US) East US**. The storage account must be in the same region as the virtual machine and its network security group. |
-    | Performance | Select **Standard**. NSG flow logs only support Standard-tier storage accounts. |
-    | Redundancy | Select **Locally-redundant storage (LRS)** or different replication strategy that matches your durability requirements. |
+    | Primary service | Select **Azure Blob Storage or Azure Data Lake Storage Gen 2**. |
+    | Performance | Select **Standard**. Flow logs only support Standard-tier storage accounts. |
+    | Redundancy | Select the redundancy you prefer. This tutorial uses **Locally-redundant storage (LRS)**. |
 
 1. Select the **Review** tab or select the **Review** button at the bottom.
 
 1. Review the settings, and then select **Create**.
 
-## Create an NSG flow log
+## Create a flow log
 
 In this section, you create an NSG flow log that's saved into the storage account created previously in the tutorial.
 
@@ -171,17 +172,18 @@ In this section, you create an NSG flow log that's saved into the storage accoun
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select the Azure subscription of your network security group that you want to log. |
-    | Network security group | Select **+ Select resource**. <br> In **Select network security group**, select **myVM-nsg**. Then, select **Confirm selection**. |
-    | Flow Log Name | Leave the default of **myVM-nsg-myResourceGroup-flowlog**. |
+    | Flow log type | Select **Virtual network**. |
+    | Virtual Network | Select **+ Select target resource**. <br> In **Select virtual network**, select **myVNet**. Then, select **Confirm selection**. |
+    | Flow Log Name | Leave the default of **myVNet-myresourcegroup-flowlog**. |
     | **Instance details** |   |
     | Subscription | Select the Azure subscription of your storage account. |
-    | Storage Accounts | Select the storage account you created in the previous steps. This tutorial uses **mynwstorageaccount**. |
-    | Retention (days) | Enter ***0*** to retain the flow logs data in the storage account forever (until you delete it from the storage account). To apply a retention policy, enter the retention time in days. For information about storage pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). |
+    | Storage accounts | Select the storage account you created in the previous steps. |
+    | Retention (days) | Enter ***10*** to retain the flow logs data in the storage account for 10 days. To keep the flow logs data in the storage account forever (until you delete it), enter ***0***. For information about storage pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). |
 
-    :::image type="content" source="./media/nsg-flow-logs-tutorial/create-nsg-flow-log.png" alt-text="Screenshot of create NSG flow log page in the Azure portal.":::
+    :::image type="content" source="./media/vnet-flow-logs-tutorial/create-vnet-flow-log.png" alt-text="Screenshot of create a flow log page in the Azure portal."  lightbox="./media/vnet-flow-logs-tutorial/create-vnet-flow-log.png":::
 
     > [!NOTE]
-    > The Azure portal creates NSG flow logs in the **NetworkWatcherRG** resource group.
+    > The Azure portal creates virtual network flow logs in the **NetworkWatcherRG** resource group.
 
 1. Select **Review + create**.
 
@@ -189,7 +191,7 @@ In this section, you create an NSG flow log that's saved into the storage accoun
 
 1. Once the deployment is complete, select **Go to resource** to confirm the flow log created and listed in the **Flow logs** page.
 
-    :::image type="content" source="./media/nsg-flow-logs-tutorial/flow-logs-list.png" alt-text="Screenshot of Flow logs page in the Azure portal showing the newly created flow log." lightbox="./media/nsg-flow-logs-tutorial/flow-logs-list.png":::
+    :::image type="content" source="./media/vnet-flow-logs-tutorial/flow-logs-list.png" alt-text="Screenshot of Flow logs page in the Azure portal showing the newly created flow log." lightbox="./media/vnet-flow-logs-tutorial/flow-logs-list.png":::
 
 1. Go back to your RDP session with **myVM** virtual machine.
 
@@ -201,21 +203,21 @@ In this section, you go to the storage account you previously selected and downl
 
 1. In the search box at the top of the portal, enter ***storage accounts***. Select **Storage accounts** from the search results.
 
-2. Select **mynwstorageaccount** or the storage account you previously created and selected to store the logs.
+2. Select **nwteststorageaccount** or the storage account you previously created and selected to store the logs.
 
 3. Under **Data storage**, select **Containers**.
 
-4. Select the **insights-logs-networksecuritygroupflowevent** container.
+4. Select the **insights-logs-flowlogflowevent** container.
 
-5. In the container, navigate the folder hierarchy until you get to the `PT1H.json` file. NSG log files are written to a folder hierarchy that follows the following naming convention:
+5. In the container, navigate the folder hierarchy until you get to the `PT1H.json` file that you want to download. Virtual network flow log files follow the following path::
 
     ```
-    https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{networSecurityGroupName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={acAddress}/PT1H.json
+    https://{storageAccountName}.blob.core.windows.net/insights-logs-flowlogflowevent/flowLogResourceID=/{subscriptionID}_NETWORKWATCHERRG/NETWORKWATCHER_{Region}_{ResourceName}-{ResourceGroupName}-FLOWLOGS/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
     ```
 
 6. Select the ellipsis **...** to the right of the PT1H.json file, then select **Download**.
 
-   :::image type="content" source="./media/nsg-flow-logs-tutorial/nsg-log-file.png" alt-text="Screenshot showing how to download nsg flow log from the storage account container in the Azure portal." lightbox="./media/nsg-flow-logs-tutorial/nsg-log-file.png":::
+   :::image type="content" source="./media/vnet-flow-logs-tutorial/flow-log-file.png" alt-text="Screenshot showing how to download VNet flow log data from the storage account in the Azure portal." lightbox="./media/vnet-flow-logs-tutorial/flow-log-file.png":::
 
 > [!NOTE]
 > You can use Azure Storage Explorer to access and download flow logs from your storage account. Fore more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
@@ -226,22 +228,22 @@ Open the downloaded `PT1H.json` file using a text editor of your choice. The fol
 
 ```json
 {
-    "time": "2023-02-26T23:45:44.1503927Z",
-    "systemId": "00000000-0000-0000-0000-000000000000",
+    "time": "2025-08-06T20:39:33.3186341Z",
+    "flowLogGUID": "00000000-0000-0000-0000-000000000000",
     "macAddress": "112233445566",
-    "category": "NetworkSecurityGroupFlowEvent",
-    "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/MYVM-NSG",
-    "operationName": "NetworkSecurityGroupFlowEvents",
-    "properties": {
-        "Version": 2,
+    "category": "FlowLogFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e//RESOURCEGROUPS/NETWORKWATCHERRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKWATCHERS/NETWORKWATCHER_EASTUS/FLOWLOGS/MYVNET-MYRESOURCEGROUP-FLOWLOG",
+	"flowLogVersion": 4,
+    "operationName": "FlowLogFlowEvent",
+    "flowRecords": {
         "flows": [
             {
-                "rule": "DefaultRule_AllowInternetOutBound",
-                "flows": [
-                    {
-                        "mac": "112233445566",
+				"aclID": "00000000-0000-0000-0000-000000000000",
+				"flowGroups": [
+					{
+                        "rule": "DefaultRule_AllowInternetOutBound",
                         "flowTuples": [
-                            "1677455097,10.0.0.4,13.107.21.200,49982,443,T,O,A,C,7,1158,12,8143"                            
+                            "1754512773,10.0.0.4,13.107.21.200,49982,443,T,O,A,C,7,1158,12,8143"                            
                         ]
                     }
                 ]
@@ -255,7 +257,7 @@ The comma-separated information for **flowTuples** is as follows:
 
 | Example data | What data represents | Explanation |
 | ------------ | -------------------- | ----------  |
-| 1677455097 | Time stamp | The time stamp of when the flow occurred in UNIX EPOCH format. In the previous example, the date converts to February 26, 2023 11:44:57 PM UTC/GMT. |
+| 1754512773 | Time stamp | The time stamp of when the flow occurred in UNIX EPOCH format. In the previous example, the date converts to February 26, 2023 11:44:57 PM UTC/GMT. |
 | 10.0.0.4 | Source IP address | The source IP address that the flow originated from. 10.0.0.4 is the private IP address of the VM you previously created.
 | 13.107.21.200 | Destination IP address | The destination IP address that the flow was destined to. 13.107.21.200 is the IP address of `www.bing.com`. Since the traffic is destined outside Azure, the security rule **DefaultRule_AllowInternetOutBound** processed the flow. |
 | 49982 | Source port | The source port that the flow originated from. |
@@ -282,7 +284,7 @@ When no longer needed, delete **myResourceGroup** resource group and all of the 
 1. Select **Delete** to confirm the deletion of the resource group and all its resources.
 
 > [!NOTE]
-> The **myVM-nsg-myResourceGroup-flowlog** flow log is in the **NetworkWatcherRG** resource group, but it'll be deleted after deleting the **myVM-nsg** network security group (by deleting the **myResourceGroup** resource group).
+> The **NetworkWatcher_eastus/myVNet-myresourcegroup-flowlog** resource is in the **NetworkWatcherRG** resource group, but it'll be deleted after deleting the **myVNet** virtual network (by deleting the **myResourceGroup** resource group).
 
 ## Related content
 
