@@ -1,33 +1,38 @@
 ---
-title: Connect to Azure Event Hubs
-description: Learn how to connect to your event hub, and add a trigger or an action to your workflow in Azure Logic Apps.
+title: Connect from Workflows to Azure Event Hubs
+description: Learn how to connect to your event hub and then add an Azure Event Hubs trigger or action to your workflow in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 08/05/2025
-#customer intent: As a developer, I want to connect logic app workflows to Azure Event Hubs to monitor and manage event from my event hub.
+#customer intent: As an integration developer, I want to connect my logic app workflows to Azure Event Hubs so I can automate tasks that monitor and manage events in my event hub.
 ---
 
-# Connect to an event hub from workflows in Azure Logic Apps
+# Connect workflows to event hubs in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-The Azure Event Hubs connector helps you connect your logic app workflows to event hubs in Azure. You can have your workflows monitor and manage events that are sent to an event hub. For example, your workflow can check, send, and receive events from your event hub. This article is guide to starting to use the Azure Event Hubs connector. It shows you how to connect to an event hub and add an Event Hubs trigger or action to your workflow.
+To automate tasks that monitor and manage events in an event hub from within your workflow in Azure Logic Apps, use the Azure **Event Hubs** connector operations. For example, your workflow can check, send, and receive events from your event hub.
 
-For more information about Azure Event Hubs or Azure Logic Apps, see [What is Azure Event Hubs](../event-hubs/event-hubs-about.md) or [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md).
+This article shows how to connect to your event hub by adding an **Event Hubs** trigger or action to your workflow.
 
-For all the operations and other technical information, such as properties and limits, see the [Event Hubs connector's reference page](/connectors/eventhubs/).
+
+## Connector reference
+
+For information about this connector's operations, their parameters, and other technical information, such as limits, known issues, and so on, see the [Event Hubs connector's reference page](/connectors/eventhubs/).
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - An [Event Hubs namespace and event hub](../event-hubs/event-hubs-create.md)
 
+  You also need the connection string for your event hub namespace. Make sure to check that your workflow can access your event hub. See [Check permissions and get connection string](#permissions-connection-string).
+
 - The logic app workflow where you want to access your event hub
 
-  To start a workflow with an Event Hubs trigger, you need an empty workflow. If you're new to [Azure Logic Apps](../logic-apps/logic-apps-overview.md), try this [quickstart to create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md).
+  To start your workflow with an Event Hubs trigger, you need an empty workflow. To use an Event Hubs action in your workflow, your workflow can start with any trigger that works best for your scenario.
 
 <a name="permissions-connection-string"></a>
 
@@ -39,18 +44,21 @@ To make sure that your workflow can access your event hub, check your permission
 
 1. On the namespace menu, under **Settings**, select **Shared access policies**. In the **Claims** column, check that you have at least **Manage** permissions for that namespace.
 
-   :::image type="content" source="./media/connectors-create-api-azure-event-hubs/event-hubs-namespace.png" alt-text="Screenshot showing the Azure portal, your Event Hubs namespace, and Manage permissions appearing in the Claims column." lightbox="./media/connectors-create-api-azure-event-hubs/event-hubs-namespace.png":::
+   :::image type="content" source="./media/connectors-create-api-azure-event-hubs/event-hubs-namespace.png" alt-text="Screenshot shows Azure portal, Event Hubs namespace, and Claims column with Manage permissions." lightbox="./media/connectors-create-api-azure-event-hubs/event-hubs-namespace.png":::
 
-1. If you want to later manually enter your connection information, get the connection string for your event hub namespace.
+1. Get the connection string for your event hub namespace so you can manually enter your connection information later:
 
    1. In the **Policy** column, select **RootManageSharedAccessKey**.
 
    1. Find your primary key's connection string. Copy and save the connection string for later use.
 
-      :::image type="content" source="media/connectors-create-api-azure-event-hubs/find-event-hub-namespace-connection-string.png" alt-text="Screenshot showing the primary key's connection string with the copy button selected." lightbox="media/connectors-create-api-azure-event-hubs/find-event-hub-namespace-connection-string.png":::
+      :::image type="content" source="media/connectors-create-api-azure-event-hubs/find-event-hub-namespace-connection-string.png" alt-text="Screenshot shows primary key connection string with copy button selected." lightbox="media/connectors-create-api-azure-event-hubs/find-event-hub-namespace-connection-string.png":::
 
       > [!TIP]
-      > To confirm whether your connection string is associated with your Event Hubs namespace or with a specific event hub, make sure the connection string doesn't have the `EntityPath` parameter. If you find this parameter, the connection string is for a specific Event Hubs entity and isn't the correct string to use with your workflow.
+      >
+      > To confirm that your connection string belongs to your Event Hubs namespace, and not a specific event hub, 
+      > make sure the connection string doesn't have the `EntityPath` parameter. If you find this parameter, 
+      > the connection string belongs to an event hub and isn't the correct string to use with your workflow.
 
 <a name="create-connection"></a>
 
@@ -158,7 +166,6 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
 
 1. When you're done, on the designer toolbar, select **Save**.
 
-## Connector reference
 
 For all the operations and other technical information, such as properties and limits, see the [Event Hubs connector's reference page](/connectors/eventhubs/).
 
