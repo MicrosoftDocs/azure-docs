@@ -111,20 +111,20 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=javascript#generated-project-files).
  
-    ::: zone pivot="programming-language-python"
-    4. In the local.settings.json file, update the `AzureWebJobsStorage` setting as in the following example:
+::: zone pivot="programming-language-python"
+4. In the local.settings.json file, update the `AzureWebJobsStorage` setting as in the following example:
 
-        ```json
-        "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-        ```
-        
-        This tells the local Functions host to use the storage emulator for the storage connection required by the Python v2 model. When you publish your project to Azure, this setting uses the default storage account instead. If you're using an Azure Storage account during local development, set your storage account connection string here.   
+    ```json
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    ```
+    
+    This tells the local Functions host to use the storage emulator for the storage connection required by the Python v2 model. When you publish your project to Azure, this setting uses the default storage account instead. If you're using an Azure Storage account during local development, set your storage account connection string here.   
 
 ## Start the emulator
 
 1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette. In the command palette, search for and select `Azurite: Start`.
 
-1. Check the bottom bar and verify that Azurite emulation services are running. If so, you can now run your function locally.  
+1. Check the bottom bar and verify that Azurite emulation services are running. If so, you can now run your function locally.
 ::: zone-end  
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
