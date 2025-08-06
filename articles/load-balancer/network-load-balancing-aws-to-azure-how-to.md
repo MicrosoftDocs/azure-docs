@@ -33,7 +33,7 @@ This article uses a gaming platform scenario to demonstrate common patterns like
 
 ## Example scenario: Gaming platform multi-protocol load balancing migration
 
-In this example, a gaming company operates a high-performance multiplayer gaming platform using AWS Network Load Balancer (NLB) to handle both TCP and UDP traffic simultaneously. The workload's architecture includes session management services running on EC2 instances handling player authentication and lobbies on port 7777 (TCP), and real-time game data services deployed on EC2 instances processing low-latency gameplay packets on port 7778 (UDP). The NLB provides static IP addresses, cross-zone load balancing, and client IP preservation for game analytics and anti-cheat systems. This business-critical setup supports their core gaming function of processing real-time multiplayer gaming with ultra-low latency across multiple availability zones.
+In this example, a gaming company operates a high-performance multiplayer gaming platform using AWS Network Load Balancer (NLB) to handle both TCP and UDP traffic simultaneously from game clients. The workload's architecture includes session management services running on EC2 instances handling player authentication and lobbies over TCP on port 7777, and real-time game data services deployed on EC2 instances processing low-latency gameplay packets over UDP on port 7778. The AWS NLB provides static IP addresses, cross-zone load balancing, and client IP preservation for game analytics and anti-cheat systems. This setup supports the workload's core gaming function of processing real-time multiplayer gaming with ultra-low latency while maintaining reliability across multiple availability zones.
 
 ### Architectural overview
 
