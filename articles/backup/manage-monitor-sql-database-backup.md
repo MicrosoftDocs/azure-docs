@@ -67,31 +67,30 @@ If you choose to leave recovery points, keep these details in mind:
 
 To stop protection for a database:
 
-1. Go to **Backup center** and click **Backup Instances** from the menu.
+1. Go to **Business Continuity Center** and select **Protection inventory** > **Protected items**.
 
-2. Select **SQL in Azure VM** as the datasource type.
+   :::image type="content" source="./media/backup-azure-sql-database/protected-items.png" alt-text="Screenshot shows how to select a protected SQL database item." lightbox="./media/backup-azure-sql-database/protected-items.png":::
+2. On the **Protected items** pane, select **SQL in Azure VM** as the datasource type, and then select a protected item from the list.
 
-   :::image type="content" source="./media/backup-azure-sql-database/backup-center-instance-inline.png" alt-text="Screenshot showing to select SQL in Azure VM." lightbox="./media/backup-azure-sql-database/backup-center-instance-expanded.png":::
+3. On the selected **protected item** pane, select the database instance for which you want to stop protection.
 
-3. Select the database for which you want to stop protection.
+   :::image type="content" source="./media/backup-azure-sql-database/sql-select-instance.png" alt-text="Screenshot shows how to select the database to stop protection." lightbox="./media/backup-azure-sql-database/sql-select-instance.png":::
 
-   :::image type="content" source="./media/backup-azure-sql-database/sql-select-instance-inline.png" alt-text="Screenshot showing to select the database to stop protection." lightbox="./media/backup-azure-sql-database/sql-select-instance-expanded.png":::
+4. On the selected **database instance** pane, select **Stop backup**.
 
-4. On the database menu, select **Stop backup**.
+   You can also right-click a particular row in the database instances view and select **Stop Backup**.
 
-   You can also right-click a particular row in the Backup Instances view and select **Stop Backup**.
+   :::image type="content" source="./media/backup-azure-sql-database/sql-stop-backup.png" alt-text="Screenshot shows the selection of Stop backup." lightbox="./media/backup-azure-sql-database/sql-stop-backup.png":::
 
-   :::image type="content" source="./media/backup-azure-sql-database/sql-stop-backup-inline.png" alt-text="Screenshot showing to select Stop backup." lightbox="./media/backup-azure-sql-database/sql-stop-backup-expanded.png":::
+5. On the **Stop Backup** pane, select whether to retain or delete data. If you want, provide a reason and comment.
 
-5. On the **Stop Backup** menu, select whether to retain or delete data. If you want, provide a reason and comment.
-
-    ![Retain or delete data on the Stop Backup menu](./media/backup-azure-sql-database/stop-backup-button.png)
+    :::image type="content" source="./media/backup-azure-sql-database/stop-backup.png" alt-text="Screenshot shows the options to retain or delete data on the Stop Backup pane.":::
 
 6. Select **Stop backup**.
 
 > [!NOTE]
 >
->For more information about the delete data option, see the FAQ below:
+>For more information about the delete data option, see the following FAQs:
 >
 >- [If I delete a database from an autoprotected instance, what will happen to the backups?](faq-backup-sql-server.yml#if-i-delete-a-database-from-an-autoprotected-instance--what-will-happen-to-the-backups-)
 >- [If I do stop backup operation of an autoprotected database what will be its behavior?](faq-backup-sql-server.yml#if-i-ve-changed-the-name-of-the-database-after-it-has-been-protected--what-will-be-the-behavior-)
