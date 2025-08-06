@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/08/2024
+ms.date: 07/16/2025
 ---
 
 # Transform XML in workflows with Azure Logic Apps

@@ -16,8 +16,8 @@ items:
     href: manage.md
   - name: Get support
     href: https://pure1.purestorage.com/
-  - name: Troubleshoot
-    href: https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/troubleshooting/c_troubleshooting.html
+  - name: Troubleshoot your resource
+    href: /troubleshoot/azure/partner-solutions/welcome-native-integrations
 - name: Tools
   items:
   - name: Resources and tools
@@ -32,3 +32,5 @@ items:
     href: /python/api/overview/azure/mgmt-purestorageblock-readme
   - name: .NET SDK  
     href: /dotnet/api/overview/azure/purestorageblock
+
+

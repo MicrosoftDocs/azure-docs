@@ -8,8 +8,8 @@ ms.custom:
   - engagement-fy24
   - build-2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a cloud administrator, I want to understand the supported scenarios and limitations for vaulted backups of Azure Data Lake Storage, so that I can effectively configure and manage data protection for my storage accounts."
 ---
 
@@ -20,6 +20,10 @@ This article summarizes the regional availability, supported scenarios, and limi
 ## Supported regions
 
 Vaulted backups of Azure Data Lake Storage are available in the following regions: France South, India West, West Central US, East Asia, India Central.
+
+>[!Note]
+>- This feature is currently in limited preview and is available in specific regions only. See the [supported regions](azure-data-lake-storage-backup-support-matrix.md#supported-regions).
+>- To enroll in this preview feature, fill [this form](https://forms.office.com/r/sixidTkYb4)  and write to [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
 
 ## Supported storage accounts
 
@@ -47,7 +51,8 @@ Azure Data Lake Storage protection (preview) has the following supported and uns
 - Any new containers that get created after backup configuration for the storage account aren't backed up automatically. To enable the backup operation for the new containers, modify the protection of the storage account. 
 - The storage accounts to be backed up must contain a *minimum of one container*. If the storage account doesn't contain any containers or if no containers are selected, an error might appear when you configure backup.
 - Object Replication fails to register changes when a storage account or container is deleted and recreated with the same name between two consecutive backups, causing recovery points to retain older blobs and versions.
-- Blobs are excluded from recovery points if you rename their parent path after creating them via async copy.
+- Blobs are excluded from recovery points if you rename any folder in their parent path when async copy in progress.
+- The backup operation isn't supported for blobs created using async copy. 
 - Backup vaults with User-Assigned Managed Identity (UAMI) aren't compatible with Azure Blob Vaulted backups. Only System-Assigned Managed Identity (SAMI) works, because the vault needs to access the storage account where the blobs are stored. The vault uses its system-assigned managed identity for this access.
 - You can protect the storage account with the vault in another subscription but in the same region as storage account.
 - Archive tier for vault is currently not supported.

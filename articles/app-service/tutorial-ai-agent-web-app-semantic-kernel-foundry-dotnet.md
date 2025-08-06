@@ -14,7 +14,7 @@ ms.collection: ce-skilling-ai-copilot
 
 # Tutorial: Build an agentic web app in Azure App Service with Microsoft Semantic Kernel or Azure AI Foundry Agent Service (.NET)
 
-This tutorial demonstrates how to add agentic capability to an existing data-driven CRUD application. It does this using two different approaches: Microsoft Semantic Kernel and Azure AI Foundry Agent Service.
+This tutorial demonstrates how to add agentic capability to an existing data-driven ASP.NET Core CRUD application. It does this using two different approaches: Microsoft Semantic Kernel and Azure AI Foundry Agent Service.
 
 If your web application already has useful features, like shopping, hotel booking, or data management, it's relatively straightforward to add agent functionality to your web application by wrapping those functionalities in a plugin (for Semantic Kernel) or as an OpenAPI endpoint (for AI Foundry Agent Service). In this tutorial, you start with a simple to-do list app. By the end, you'll be able to create, update, and manage tasks with an agent in an App Service app.
 
@@ -36,7 +36,7 @@ Both Semantic Kernel and Azure AI Foundry Agent Service enable you to build agen
 | Performance        | Fast (runs locally)            | Slower (managed, remote service)       |
 | Development        | Full code, maximum control     | Low code, rapid integration            |
 | Testing            | Manual/unit tests in code      | Built-in playground for quick testing  |
-| Scalability        | App-managed                    | Azure-managed, auto-scaled             |
+| Scalability        | App-managed                    | Azure-managed, autoscaled             |
 
 In this tutorial, you learn how to:
 
@@ -58,9 +58,9 @@ The easiest way to get started is by using GitHub Codespaces, which provides a c
 
 1. Navigate to the GitHub repository at [https://github.com/Azure-Samples/app-service-agentic-semantic-kernel-ai-foundry-agent](https://github.com/Azure-Samples/app-service-agentic-semantic-kernel-ai-foundry-agent).
 
-2. Select the **Code** button, select the **Codespaces** tab, and click **Create codespace on main**.
+2. Select the **Code** button, select the **Codespaces** tab, and select **Create codespace on main**.
 
-3. Wait a few moments for your Codespace to initialize. When ready, you'll see a fully configured VS Code environment in your browser.
+3. Wait a few moments for your Codespace to initialize. When ready, you'll see a fully configured development environment in your browser.
 
 4. Run the application locally:
 
@@ -103,6 +103,8 @@ The OpenAPI code is defined in *Program.cs*. For example, the "get tasks" API de
 -----
 
 ## Deploy the sample application
+
+The sample repository contains an Azure Developer CLI (AZD) template, which creates an App Service app with managed identity and deploys your sample application.
 
 1. In the terminal, log into Azure using Azure Developer CLI:
 
@@ -243,7 +245,7 @@ When you're done with the application, you can delete the App Service resources 
 azd down --purge
 ```
 
-Sind the AZD template doesn't include the Azure AI Foundry resources, you need to delete them manually if you want.
+Since the AZD template doesn't include the Azure AI Foundry resources, you need to delete them manually if you want.
 
 ## More resources
 

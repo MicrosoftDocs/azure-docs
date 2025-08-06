@@ -120,11 +120,7 @@
       - name: Connect to Azure Storage static website
         href: how-to-enable-private-link-storage-static-website.md
       - name: Connect to Azure App Service
-        items:
-        - name: Azure portal
-          href: standard-premium/how-to-enable-private-link-web-app.md
-        - name: Azure CLI
-          href: standard-premium/how-to-enable-private-link-web-app-cli.md
+        href: standard-premium/how-to-enable-private-link-web-app.md
       - name: Connect to Azure Application Gateway
         href: how-to-enable-private-link-application-gateway.md
       - name: Connect to Azure API Management
@@ -197,6 +193,8 @@
       href: /previous-versions/azure/cdn/edgio-retirement-faq?toc=/azure/frontdoor/toc.json
 - name: Security
   items:
+  - name: Secure your Front Door
+    href: secure-front-door.md
   - name: Security baseline
     href: /security/benchmark/azure/baselines/azure-front-door-security-baseline?toc=/azure/frontdoor/toc.json
   - name: DDoS protection

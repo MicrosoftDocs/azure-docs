@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 12/13/2024
 ms.custom: engagement-fy23
+# Customer intent: "As a system administrator, I want to configure Windows Server Active Directory as an external identity source for vCenter Server, so that I can authenticate users and manage role-based access efficiently."
 ---
 
 # Set an external identity source for vCenter Server

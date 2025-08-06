@@ -20,7 +20,7 @@ The Spring Boot Feature Management libraries extend the framework with comprehen
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - A supported [Java Development Kit SDK](/java/azure/jdk) with version 11.
 - [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
 

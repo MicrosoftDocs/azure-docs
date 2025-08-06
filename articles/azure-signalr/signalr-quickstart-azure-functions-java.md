@@ -255,4 +255,4 @@ In this quickstart, you built and ran a real-time serverless application in the 
 > [Bi-directional communicating in Serverless](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/BidirectionChat)
 
 > [!div class="nextstepaction"]
-> [Create your first function with Java and Maven](../azure-functions/create-first-function-cli-csharp.md?pivots=programming-language-java%2cprogramming-language-java)
+> [Create your first function with Java and Maven](../azure-functions/how-to-create-function-azure-cli.md?pivots=programming-language-java)

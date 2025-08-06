@@ -1,12 +1,8 @@
 ---
-title: "include file" 
-description: "include file" 
-services: microsoft-sentinel
-author: cwatson-cat
-ms.topic: "include"
+ms.topic: include
 ms.date: 08/26/2024
-ms.author: cwatson
-ms.custom: "include file"
+ms.author: edbaynash
+author: EdB-MSFT
 ---
 <!-- docutune:disable -->
 

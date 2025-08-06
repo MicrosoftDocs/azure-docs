@@ -1,5 +1,5 @@
 ---
-title: FAQs About Azure NetApp Files application volume groups | Microsoft Docs
+title: FAQs About Azure NetApp Files application volume groups
 description: Learn answers to frequently asked questions (FAQs) about Azure NetApp Files application volume groups.
 ms.service: azure-netapp-files
 ms.topic: concept-article

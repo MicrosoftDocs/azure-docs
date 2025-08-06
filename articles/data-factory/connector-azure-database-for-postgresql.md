@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/27/2025
+ms.date: 08/05/2025
 ---
 
 # Copy and transform data in Azure Database for PostgreSQL using Azure Data Factory or Synapse Analytics
@@ -324,7 +324,8 @@ Example:
 }
 ```
 
-
+> [!NOTE]
+> Microsoft Entra ID authentication using service principal and user-assigned managed identity is supported on the self-hosted integration runtime version 5.50 or above.
 
 
 ### Version 1.0
@@ -568,6 +569,9 @@ Best practices to load data with partition option:
 ## Mapping data flow properties
 
 When transforming data in mapping data flow, you can read and write to tables from Azure Database for PostgreSQL. For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows. You can choose to use an Azure Database for PostgreSQL dataset or an [inline dataset](data-flow-source.md#inline-datasets) as source and sink type.
+
+> [!NOTE]
+> Currently, only basic authentication is supported for both V1 and V2 versions of the Azure Database for PostgreSQL connector in Mapping Data Flows.
 
 ### Source transformation
 
