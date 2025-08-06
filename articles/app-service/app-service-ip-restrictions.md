@@ -159,7 +159,7 @@ You can add HTTP header filters to any rule. The following HTTP header names are
 - `X-Azure-FDID`
 - `X-FD-HealthProbe`
 
-++ X-FD-HealthProbe is Custom header for identifying the health probe of the reverse proxy. Azure Front Door sends "1" to uniquely identify a health probe request. The header can also be used for non-Microsoft proxies to identify health probes. Accepts any string up to 64 characters in length.
+++ For more information about the X-FD-HealthProbe, see [HTTP header filtering for site access restriction rules](/overview-access-restrictions#http-header-filtering-for-site-access-restriction-rules).
 
 For each header name, you can add up to eight values separated by commas. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
 
