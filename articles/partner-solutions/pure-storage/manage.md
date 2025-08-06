@@ -91,4 +91,4 @@ See the [Pure Storage troubleshooting documentation](https://support.purestorage
 
 ## Related content
 
-For an end-to-end user guide on how to use the Pure Storage resource on Azure, visit [Pure Storage docs](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/deployment/c_psc_deployment.html).
+[Resources and tools for Pure Storage Cloud on Azure](tools.md)
