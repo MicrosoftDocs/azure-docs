@@ -33,8 +33,7 @@ Azure Native Arize AI Cloud Service is used to monitor, debug, and optimize AI m
 ## Subscribe
 
 To subscribe to Azure Native Arize AI Cloud Service:
-
-[!INCLUDE [subscribe](../includes/subscribe.md)] *Arize AI Cloud Service*.
+You can subscribe to the service through the Azure Marketplace [online store](https://azuremarketplace.microsoft.com/marketplace/apps/arizeai1657829589668.arize-liftr-0?tab=Overview) or through the [Azure portal](https://portal.azure.com/#browse/arizeai.observabilityeval%2Forganizations). Search for it by name: *Arize AI Cloud Service*.
 
 [!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]
 
