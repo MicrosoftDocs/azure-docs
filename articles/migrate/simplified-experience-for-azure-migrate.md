@@ -10,7 +10,7 @@ ms.date: 04/24/2025
 # Customer intent: As a system administrator managing physical and VMware environments, I want to utilize an upgraded agent-based migration stack so that I can efficiently migrate newer Linux distributions and ensure a seamless migration process to Azure.
 ---
 
-# Overview of simplified experience for Azure Migrate (Agent-based VMWare or Physical servers)
+# Overview of simplified experience for Azure Migrate (agent-based VMware or physical servers)
 
 The simplified experience leverages an enhanced agent-based migration stack tailored for physical and VMware environments, offering several key advantages:
 - **Broader OS support**: It enables migration of newer Linux distributions to Azure, expanding compatibility and allowing customers to benefit from the latest innovations in Linux technology.
@@ -31,7 +31,7 @@ The key differences between the Classic and Simplified experience:
 |Streamlined migration process| Traditional migration process	 | Provides a more seamless and efficient migration process, addressing multiple customer concerns. |
 | Deprecation of classic experience | Support for ongoing replications will remain active until March 2026, while support for initiating new replications will end on October 30, 2025 | NA |
 
-## Action Required
+## Action required
 - We recommend using the **simplified experience** for initiating replication of any new agent-based VMware or physical servers.
   >[!NOTE]
   >Classic experience will not support starting replications on new servers after **October 30, 2025**.
