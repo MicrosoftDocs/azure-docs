@@ -11,6 +11,9 @@ ms.custom: template-how-to, devx-track-azurecli
 
 # Set up Key Vault for Managed Credential Rotation in Operator Nexus
 
+> [!NOTE]
+> If no key vault is configured for the Cluster resource, credential rotation will fail.
+
 Azure Operator Nexus utilizes secrets and certificates to manage component security across the platform. The Operator Nexus platform handles the rotation of these secrets and certificates. By default, Operator Nexus stores the credentials in a managed Key Vault. To keep the rotated credentials in their own Key Vault, the user must configure their own Key Vault to receive rotated credentials. This configuration requires the user to configure the Key Vault for the Azure Operator Nexus instance. Once created, the user needs to add a role assignment on the Customer Key Vault to allow the Operator Nexus Platform to write updated credentials, and additionally link the Customer Key Vault to the Nexus Cluster Resource.
 
 ## Prerequisites
