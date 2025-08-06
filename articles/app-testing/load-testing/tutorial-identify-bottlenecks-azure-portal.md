@@ -251,7 +251,7 @@ As a result, the overall performance of your application improved.
 
 ## Clean up resources
 
-[!INCLUDE [alt-delete-resource-group](../../includes/alt-delete-resource-group.md)]
+[!INCLUDE [alt-delete-resource-group](../../../includes/alt-delete-resource-group.md)]
 
 ## Related content
 

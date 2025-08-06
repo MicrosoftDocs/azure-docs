@@ -4,8 +4,8 @@ titleSuffix: Azure Load Testing
 description: Learn how to analyze test results using AI powered actionable insights 
 services: load-testing
 ms.service: azure-load-testing
-ms.author: vanshsingh
-author: vanshsingh
+ms.author: ninallam
+author: ninallam
 ms.date: 05/19/2025
 ms.topic: how-to
 

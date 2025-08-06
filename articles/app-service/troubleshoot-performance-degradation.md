@@ -175,4 +175,4 @@ You can also manage your app using Azure PowerShell. For more information, see [
 ## Related content
 
 - [Troubleshooting intermittent outbound connection errors in Azure App Service](troubleshoot-intermittent-outbound-connection-errors.md)
-- [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)
+- [Tutorial: Run a load test to identify performance bottlenecks in a web app](../app-testing/load-testing/tutorial-identify-bottlenecks-azure-portal.md)

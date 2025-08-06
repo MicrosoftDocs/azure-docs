@@ -39,7 +39,7 @@ Go through the following steps to move your resource to another region:
 
 To get started, export the ARM template for the Azure load testing resource and download the input artifacts for existing load tests. Later, you'll update the ARM template to deploy the resource in the target Azure region.
 
-1. Export the ARM template that contains settings and information for your Azure Load Testing resource by following the steps mentioned [here](../azure-resource-manager/templates/export-template-portal.md).
+1. Export the ARM template that contains settings and information for your Azure Load Testing resource by following the steps mentioned [here](../../azure-resource-manager/templates/export-template-portal.md).
 
     :::image type="content" source="media/how-to-move-an-azure-load-testing-resource/load-testing-export-arm-template.png" alt-text="Screenshot that shows the ARM template to export an Azure load testing resource in the Azure portal." lightbox="media/how-to-move-an-azure-load-testing-resource/load-testing-export-arm-template.png":::
 

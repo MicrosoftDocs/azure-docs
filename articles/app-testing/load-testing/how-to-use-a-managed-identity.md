@@ -109,7 +109,7 @@ You can add multiple user-assigned managed identities to your resource. For exam
 
 # [Portal](#tab/azure-portal)
 
-1. Create a user-assigned managed identity by following the instructions mentioned in [Create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
+1. Create a user-assigned managed identity by following the instructions mentioned in [Create a user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
 
     :::image type="content" source="media/how-to-use-a-managed-identity/create-user-assigned-managed-identity.png" alt-text="Screenshot that shows how to create a user-assigned managed identity in the Azure portal.":::
 
