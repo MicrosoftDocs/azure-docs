@@ -45,8 +45,8 @@ After creating the API Center portal app registration, you can customize setting
     1. Select **Save + publish**.
 1. On the **Site profile** tab, enter a website name that you want to appear in the top bar of the API Center portal. Select **Save + publish**.
 1. On the **API visibility** tab, optionally configure filters for APIs that you want to make discoverable in the portal. Select **Save + publish**. [Learn more about API visibility](#api-visibility)
-1. On the **Semantic search**, optionally enable [semantic search](#search-with-ai) to enhance API discovery in the portal. Select **Save + publish**.
-1. On the **Metadata** tab, optionally select custom metadata properties that you want to expose in API details and make available for semantic search. Select **Save**.
+1. On the **Semantic search** tab. optionally enable [semantic search](#search-with-ai) to enhance API discovery in the portal. Select **Save + publish**.
+1. On the **Metadata** tab, optionally select [custom metadata](metadata.md) properties that you want to expose in API details and semantic search. Select **Save**.
 1. Select **Save + publish**.
 
 ## Access the portal
