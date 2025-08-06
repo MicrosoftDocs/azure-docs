@@ -7,7 +7,7 @@ ms.topic: reliability-article
 ms.custom: subject-reliability
 ai-usage: ai-assisted
 ms.service: azure-firewall
-ms.date: 07/23/2025
+ms.date: 08/05/2025
 # Customer intent: As a cloud architect designing a high-availability solution, I want to understand Azure Firewall's reliability features, so that I can ensure my network security infrastructure meets our 99.99% uptime requirements.
 ---
 
@@ -27,15 +27,18 @@ To learn about how to deploy Azure Firewall to support your solution's reliabili
 
 An *instance* is a virtual machine (VM)-level unit of the firewall. Each instance represents the infrastructure that handles traffic and performs firewall checks.
 
-You don't specify the number of instances or your firewall. Azure Firewall automatically provides a minimum of two instances to enable high availability of your firewall. Your firewall automatically scales out when average throughput, CPU consumption, and connection usage reach predefined thresholds. For more information, see [Azure Firewall performance](/azure/firewall/firewall-performance). The platform automatically manages instance creation, health monitoring, and replacement of unhealthy instances.
+To achieve high availability of your firewall, Azure Firewall automatically provides a minimum of two instances, without any intervention or configuration by you. Also, your firewall automatically scales out when average throughput, CPU consumption, and connection usage reach predefined thresholds. For more information, see [Azure Firewall performance](/azure/firewall/firewall-performance). The platform automatically manages instance creation, health monitoring, and replacement of unhealthy instances.
 
-Azure Firewall achieves redundancy through its built-in high availability architecture. The service automatically distributes firewall instances across multiple fault domains within a region, providing protection against server and server rack failures. You can enable zone redundancy to distribute instances across multiple availability zones and protect against datacenter failures.
+To achieve redundancy, Firewall automatically distributes instances across multiple fault domains within a region, providing protection against server and server rack failures.  However, to increase redundancy and availability during datacenter failures, you can enable zone redundancy to distribute instances across multiple availability zones.
+
+>[!NOTE]
+>If you create your firewall using the Azure portal, zone-redundancy is automatically enabled.
 
 ## Transient faults
 
 [!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
 
-For applications connecting through Azure Firewall, implement retry logic with exponential backoff to handle potential transient connection issues. Azure Firewall's stateful nature ensures that legitimate connections are maintained during brief network interruptions.
+For applications that connect through Azure Firewall, implement retry logic with exponential backoff to handle potential transient connection issues. Azure Firewall's stateful nature ensures that legitimate connections are maintained during brief network interruptions.
 
 During scaling operations, which take 5-7 minutes to complete, existing connections are preserved while new firewall instances are added to handle increased load.
 
@@ -47,7 +50,7 @@ Azure Firewall is automatically deployed across availability zones in supported 
 
 Azure Firewall supports both zone-redundant and zonal deployment models:
 
-- **Zone-redundant**: Firewall instances are automatically distributed across multiple availability zones in the region, and Azure manages load balancing and failover between zones automatically.
+- **Zone-redundant**:  When enabled for zone-redundancy, Firewall instances are distributed across multiple availability zones in the region, and Azure manages load balancing and failover between zones automatically.
 
     Zone-redundant firewalls achieve the highest uptime SLA, and are recommended for production workloads requiring maximum availability
 
@@ -148,9 +151,9 @@ The failback behavior depends on the availability zone configuration that your f
 
 ### Testing
 
-The options for testing for zone failures depend on the availability zone configuration that your gateway uses:
+The options for zone failure testing depend on your gateway's availability zone configuration:
 
-- *Zone-redundant:* The Azure Firewall platform manages traffic routing, failover, and failback for zone-redundant firewall resources. You don't need to initiate anything. Because this feature is fully managed, you don't need to validate availability zone failure processes.
+- *Zone-redundant:* The Azure Firewall platform manages traffic routing, failover, and failback for zone-redundant firewall resources.  Because this feature is fully managed, you don't need to initiate any process or validate availability zone failure processes.
 
 - *Zonal:* You can simulate some aspects of the failure of an availability zone by explicitly stopping a firewall. By stopping the Azure Firewall, you can test how other systems and load balancers handle an outage in the gateway. For more information, see [How can I stop and start Azure Firewall?](/azure/firewall/firewall-faq#how-can-i-stop-and-start-azure-firewall).
 
