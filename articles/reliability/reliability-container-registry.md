@@ -115,7 +115,7 @@ This section describes what to expect when Container Registry resources are conf
 
 - **Traffic routing between zones:** Container Registry uses internal routing functionality to automatically distribute data plane operations across all availability zones within a region. The registry service automatically routes requests to healthy zones without requiring external load balancers.
 
-- **Data replication between zones:** Registry data, including container images, manifests, and metadata, are asynchronously replicated across multiple availability zones in both directions. Changes are replicated quickly across zones to maintain high availability and data durability. Replication is asynchronous, but it typically completes within minutes, and all zones remain available for read and write operations during replication.
+- **Data replication between zones:** Registry data, including container images, manifests, and metadata, are asynchronously replicated across multiple availability zones. Changes are replicated quickly across zones to maintain high availability and data durability. Replication is asynchronous, but it typically completes within minutes, and all zones remain available for read and write operations during replication.
 
 ### Zone-down experience
 
