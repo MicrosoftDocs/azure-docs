@@ -104,7 +104,7 @@ When making a change to the [tags](../azure-resource-manager/management/tag-reso
 
 ### Proxied connections may result in failure due to gateway
 
-When establishing a connection from outside of the Azure network boundary, all connections are proxied through the Gateway as per the Default [Connection policy](security/connectivity-settings.md) for Synapse Workspaces. The same is applied when utilizing Private Endpoints in Synapse workspaces. Due to this policy this can lead to increased latency and reduced throughput when communicating wth the dedicated pool and be affected by Gateway outages.
+When establishing a connection from outside of the Azure network boundary, all connections are proxied through the gateway as per the Default [Connection policy](security/connectivity-settings.md) for Synapse Workspaces. The same is applied when utilizing Private Endpoints in Synapse workspaces. Due to this policy, this can lead to increased latency and reduced throughput when communicating with the dedicated pool and be affected by gateway outages.
 
 **Workaround**: Currently there is no workaround for scenario however, development efforts are underway to address this in a future networking update. 
 
