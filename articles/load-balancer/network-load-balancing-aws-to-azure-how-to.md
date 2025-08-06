@@ -126,15 +126,16 @@ In the end, you may need to make the decision on whether an AWS NLB feature is n
 - **Application-level solutions**: Implement custom headers or application logic to track client information when needed
 - **Azure Application Gateway integration**: For HTTP-based APIs, use Application Gateway, which provides X-Forwarded-For headers
 
-> [!IMPORTANT]
-> The Proxy Protocol support illustrates an example of a critical mismatch in capability. There are others that don't have 1:1 equivalents in Azure Load Balancer. Such as:
->
-> - **Flow hash algorithm flexibility**: AWS NLB uses a 5-tuple flow hash algorithm for consistent connection routing with session stickiness at the network level. Azure Load Balancer provides distribution modes but doesn't offer the same granular flow hash consistency guarantees.
-> - **Per-availability zone static IP addresses**: AWS NLB provides dedicated static IP addresses for each availability zone where it operates, enabling zone-specific routing strategies. Azure Load Balancer provides zone-redundant static IPs but not per-zone IP addressing.
-> - **Advanced cross-zone load balancing control**: AWS NLB allows granular control over cross-zone load balancing at both load balancer and target group levels. Azure Load Balancer provides automatic zone redundancy with less granular control over traffic distribution strategies.
-> - **Connection draining timeout flexibility**: AWS NLB supports configurable connection draining delays for graceful instance removal during maintenance. Azure Load Balancer has connection draining capabilities but with different configuration options and behavior.
->
-> Evaluate these differences during your assessment phase and determine if your workload can accommodate these changes or if compensating architecture modifications are needed.
+#### Additional capability mismatches
+
+The preceding Proxy Protocol support illustrates an example of a critical mismatch in capability. There are others that don't have 1:1 equivalents in Azure Load Balancer. Such as:
+
+- **Flow hash algorithm flexibility**: AWS NLB uses a 5-tuple flow hash algorithm for consistent connection routing with session stickiness at the network level. Azure Load Balancer provides distribution modes but doesn't offer the same granular flow hash consistency guarantees.
+- **Per-availability zone static IP addresses**: AWS NLB provides dedicated static IP addresses for each availability zone where it operates, enabling zone-specific routing strategies. Azure Load Balancer provides zone-redundant static IPs but not per-zone IP addressing.
+- **Advanced cross-zone load balancing control**: AWS NLB allows granular control over cross-zone load balancing at both load balancer and target group levels. Azure Load Balancer provides automatic zone redundancy with less granular control over traffic distribution strategies.
+- **Connection draining timeout flexibility**: AWS NLB supports configurable connection draining delays for graceful instance removal during maintenance. Azure Load Balancer has connection draining capabilities but with different configuration options and behavior.
+
+Evaluate these differences during your assessment phase and determine if your workload can accommodate these changes or if compensating architecture modifications are needed.
 
 > [!NOTE]
 > Measuring performance and reliability is crucial to ensure that the migrated workload meets the same ultra-low latency standards as the original AWS NLB setup. This includes monitoring response times, connection establishment latency, jitter, and packet loss rates to ensure that the Azure Load Balancer performs optimally for real-time scenarios.
