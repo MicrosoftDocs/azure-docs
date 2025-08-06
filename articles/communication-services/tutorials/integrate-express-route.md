@@ -1,7 +1,7 @@
 ---
 title: Integrate Azure Communication Services with ExpressRoute
 titleSuffix: An Azure Communication Services article
-description: Integrate Azure Communication Services with ExpressRoute to extend your local networks into the Microsoft cloud over a private connection.
+description: Integrate Azure Communication Services with ExpressRoute to extend your local networks into the Microsoft Cloud over a private connection.
 author: hrazi
 manager: mharbut
 services: azure-communication-services
@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 
 Azure Communication Services enables developers to integrate voice, video, chat, and SMS capabilities into their applications by using cloud-based services. Organizations can use Azure ExpressRoute to establish private, dedicated network connections between their on-premises environments and Azure. This approach enhances the performance, reliability, and security of communication services.
 
-This article describes how to integrate Azure Communication Services with ExpressRoute to extend your local networks into the Microsoft cloud over a private connection.
+This article describes how to integrate Azure Communication Services with ExpressRoute to extend your local networks into the Microsoft Cloud over a private connection.
 
 ## Prerequisites
 
@@ -42,9 +42,9 @@ To enable connectivity to Azure Communication Services, set up Microsoft peering
 
 1. Enable Microsoft peering:
 
-1. Under the **Peerings** section, select **+ Add**.
+   1. Under the **Peerings** section, select **+ Add**.
 
-1. Choose **Microsoft Peering** and provide the required information, including your primary and secondary subnets, VLAN ID, and ASNs.
+   1. Select **Microsoft Peering** and provide the required information, including your primary and secondary subnets, VLAN ID, and ASNs.
 
 1. Make sure that your on-premises network advertises the correct routes to Azure services.
 
@@ -62,11 +62,11 @@ Route filters enable you to selectively consume services over ExpressRoute.
 
 #### Add Azure Communication Services to the route filter
 
-1. After creating the route filter, select **Rules** and select **+ Add**.
+1. After you create the route filter, select **Rules** and select **+ Add**.
 
-1. Choose **Azure Communication Services** from the list of services.
+1. In the list of services, select **Azure Communication Services**.
 
-1. If you use Microsoft Public Switched Telephone Network (PSTN), choose **Azure SIP Trunking** from the list of services.
+1. If you use Microsoft Public Switched Telephone Network (PSTN), select **Azure SIP Trunking** from the list of services.
 
 #### Associate route filter with an ExpressRoute circuit
 
@@ -74,7 +74,7 @@ Route filters enable you to selectively consume services over ExpressRoute.
 
 1. Under **Peerings**, select your Microsoft peering.
 
-1. Associate the route filter you created.
+1. Associate the route filter that you created.
 
 For more information, see [Configure route filters for Microsoft Peering by using the Azure portal](/azure/expressroute/how-to-routefilter-portal).
 
@@ -96,13 +96,12 @@ Make sure that your network security policies allow traffic to and from Azure Co
 
 1. Change your application's configuration to point to the Azure Communication Services endpoints accessible via ExpressRoute.
 
-1. If you're using Azure Communication Services SDKs, ensure they're configured to use the private endpoints.
+1. If you're using Azure Communication Services SDKs, ensure that they're configured to use the private endpoints.
 
 ### Considerations
 
-1. Verify that Azure Communication Services is available in your desired region and that it supports ExpressRoute connectivity.
-
-1. Assess your bandwidth needs to ensure your ExpressRoute circuit can support the communication load.
+* Verify that Azure Communication Services is available in your desired region and that it supports ExpressRoute connectivity.
+* Assess your bandwidth needs to ensure that your ExpressRoute circuit can support the communication load.
 
 ## Troubleshooting
 
@@ -113,7 +112,7 @@ Make sure that your network security policies allow traffic to and from Azure Co
 
 ### Can I use ExpressRoute with Azure Communication Services for all communication modes?
 
-No, ExpressRoute currently supports only voice mode by [direct routing](../concepts/telephony/direct-routing-provisioning.md) and [video communication](../concepts/voice-video-calling/calling-sdk-features.md) mode.
+No. ExpressRoute currently supports only voice mode by [direct routing](../concepts/telephony/direct-routing-provisioning.md) and [video communication](../concepts/voice-video-calling/calling-sdk-features.md) mode.
 
 ### Is there an added cost for using ExpressRoute with Azure Communication Services?
 
