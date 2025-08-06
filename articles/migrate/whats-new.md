@@ -15,6 +15,10 @@ ms.custom: mvc, engagement-fy25
 
 [Azure Migrate](migrate-services-overview.md) helps you discover, assess, and migrate on-premises servers, apps, and data to the Azure cloud platform. This article summarizes new releases and features in Azure Migrate.
 
+## Update (August 2025)
+
+- General availability: Azure Migrate enhances resiliency by supporting migration to [ZRS Disks](/azure/virtual-machines/disks-deploy-zrs?tabs=portal) during Migration. **Zone-Redundant Storage (ZRS)** for Azure Disks synchronously replicates data across three physically separate availability zones within a region – each with independent power, cooling, and networking – enhancing Disk availability and resiliency.
+
 ## Update (July 2025)
 
 - General availability: Azure Migrate now supports SSH authentication for Linux servers in [VMware](tutorial-discover-vmware.md) and [Hyper-V](tutorial-discover-hyper-v.md#provide-server-credentials) appliance stacks, enabling guest discovery, software inventory, dependency analysis, and discovery of Java Tomcat applications.
