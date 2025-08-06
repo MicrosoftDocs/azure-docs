@@ -1,17 +1,17 @@
 ---
-title: 'Tutorial: Log network traffic flow to and from a VM'
+title: 'Tutorial: Log network traffic flow'
 titleSuffix: Azure Network Watcher
-description: In this tutorial, you learn how to log network traffic flow to and from a virtual machine (VM) using Network Watcher virtual network (VNet) flow logs.
+description: In this tutorial, you learn how to log network traffic flow to and from a virtual network (VNet) using Network Watcher virtual network (VNet) flow logs.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: tutorial
 ms.date: 09/30/2024
 
-# CustomerIntent: As an Azure administrator, I need to log the network traffic to and from a virtual machine (VM) so I can analyze the data for anomalies.
+# CustomerIntent: As an Azure administrator, I need to log the network traffic to and from a virtual network so I can analyze the data for anomalies.
 ---
 
-# Tutorial: Log network traffic to and from a virtual machine using the Azure portal
+# Tutorial: Log network traffic to and from a virtual network using the Azure portal
 
 Virtual network flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through an Azure virtual network. For more information about virtual network flow logging, see [Virtual network flow logs](vnet-flow-logs-overview.md).
 
