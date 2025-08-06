@@ -50,13 +50,13 @@ Within the service itself, Queue Storage handles transient faults automatically 
 
 Queue Storage client libraries include built-in retry policies that automatically handle common transient failures such as network timeouts, temporary service unavailability (HTTP 503), and throttling responses (HTTP 429). When your application encounters these transient conditions, the client libraries automatically retry operations by using exponential backoff strategies.
 
-To manage transient faults effectively by using Queue Storage, take the following steps:
+To manage transient faults effectively by using Queue Storage, you can take the following actions:
 
 - **Configure appropriate timeouts** in your Queue Storage client to balance responsiveness with resilience to temporary slowdowns. The default timeouts in Storage client libraries are typically suitable for most scenarios.
 
-- **Implement circuit breaker patterns** in your application when it processes messages from queues to prevent cascading failures when downstream services experience problems.
+- **Implement circuit breaker patterns** in your application when it processes messages from queues. Circuit breaker patters prevent cascading failures when downstream services experience problems.
 
-- **Use visibility timeouts appropriately** when your application receives messages to ensure that messages become available for retry if your application encounters failures during processing.
+- **Use visibility timeouts appropriately** when your application receives messages. Visibility timeouts ensure that messages become available for retry if your application encounters failures during processing.
 
 To learn more about the Azure Table Storage architecture and how to design resilient and high-scale applications, see [Performance and scalability checklist for Queue Storage](/azure/storage/queues/storage-performance-checklist).
 
@@ -64,7 +64,7 @@ To learn more about the Azure Table Storage architecture and how to design resil
 
 [!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
 
-Queue Storage is zone-redundant when deployed with ZRS configuration, so the service spreads replicas of your queue data synchronously across all of the availability zones in the region. This configuration ensures that your queues remain accessible even if an entire availability zone becomes unavailable. All write operations must be acknowledged across multiple zones before they complete, which provides strong consistency guarantees.
+Queue Storage is zone-redundant when deployed with ZRS configuration. The service spreads replicas of your queue data synchronously across all of the availability zones in the region. This configuration ensures that your queues remain accessible even if an entire availability zone becomes unavailable. All write operations must be acknowledged across multiple zones before they complete, which provides strong consistency guarantees.
 
 Zone redundancy is enabled at the storage account level and applies to all Queue Storage resources within that account. You can't configure individual queues for different redundancy levels. The setting applies to the entire storage account. When an availability zone experiences an outage, Storage automatically routes requests to healthy zones without requiring any intervention from your application.
 
@@ -102,11 +102,11 @@ This section describes what to expect when a queue storage account is configured
 
 ### Zone-down experience
 
-When an availability zone becomes unavailable, Queue Storage automatically handles the failover process by taking the following steps.
+When an availability zone becomes unavailable, Queue Storage automatically handles the failover process by taking the following actions.
 
 [!INCLUDE [Storage - Zone down experience](includes/storage/reliability-storage-availability-zone-down-experience-include.md)]
 
-- **Traffic rerouting:** Azure automatically reroutes traffic to the remaining healthy availability zones. The service maintains full functionality by using the surviving zones with no customer intervention required.
+- **Traffic rerouting:** Azure automatically reroutes traffic to the remaining healthy availability zones. The service maintains full functionality in the surviving zones with no customer intervention required.
 
 ### Failback
 
@@ -183,7 +183,7 @@ This approach requires you to manage message distribution, handle data synchroni
 
 ## Backups
 
-Queue Storage doesn't provide traditional backup capabilities, like point-in-time restore (PITR), because queues are designed for transient message storage instead of long-term data persistence. Messages are typically processed and removed from queues during normal application operations.
+Queue Storage doesn't provide traditional backup capabilities, like point-in-time restore (PITR). This is because queues are designed for transient message storage instead of long-term data persistence. Messages are typically processed and removed from queues during normal application operations.
 
 For scenarios that require message durability beyond the built-in redundancy options, consider implementing your own application-level message logging or persistence to a permanent data store, like Blob Storage or Azure SQL Database. This approach allows you to maintain message history while using Queue Storage for its intended purpose of temporary message buffering and processing coordination.
 
