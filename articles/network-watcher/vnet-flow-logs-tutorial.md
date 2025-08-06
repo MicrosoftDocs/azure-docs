@@ -262,9 +262,9 @@ The comma-separated information for **flowTuples** is as follows:
 | 13.107.21.200 | Destination IP address | The destination IP address that the flow was destined to. 13.107.21.200 is the IP address of `www.bing.com`. Since the traffic is destined outside Azure, the security rule **DefaultRule_AllowInternetOutBound** processed the flow. |
 | 49982 | Source port | The source port that the flow originated from. |
 | 443 | Destination port | The destination port that the flow was destined to. |
-| T | Protocol | The protocol of the flow. T: TCP. |
+| 6 | Protocol | The layer 4 protocol of the flow in IANA assigned values: 6: TCP. |
 | O | Direction | The direction of the flow. O: Outbound. |
-| C | Flow State | The state of the flow. C: Continuing for an ongoing flow. |
+| C | Flow state | The state of the flow. C: Continuing for an ongoing flow. |
 | NX | Flow encryption | The connection is unencrypted. |
 | 7 | Packets sent | The total number of TCP packets sent to destination since the last update. |
 | 1158 | Bytes sent | The total number of TCP packet bytes sent from source to destination since the last update. Packet bytes include the packet header and payload. |
