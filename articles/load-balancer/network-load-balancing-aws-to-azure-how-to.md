@@ -18,7 +18,7 @@ author: chasedmicrosoft
 
 # Migrate from Amazon Web Services (AWS) Network Load Balancer to Azure Load Balancer
 
-[Azure Load Balancer](load-balancer-overview.md) provides high-performance, ultra-low-latency Layer 4 load balancing capabilities that enable you to manage TCP and UDP traffic to your applications. If you're currently using AWS Network Load Balancer (NLB) and planning to migrate your workload to Azure, this guide helps you understand the migration process, feature mappings, and best practices. You'll learn how to assess your current environment, plan & prepare the migration, and execute the transition while maintaining application availability and performance.
+If you're currently using AWS Network Load Balancer (NLB) and planning to migrate your workload to Azure, this guide helps you understand the migration process, feature mappings, and best practices. On Azure, [Azure Load Balancer](load-balancer-overview.md) provides high-performance, ultra-low-latency Layer 4 load balancing capabilities that enable you to manage TCP and UDP traffic to your applications.  You'll learn how to assess your current environment, plan & prepare the migration, and execute the transition while maintaining application availability and performance.
 
 ## What you'll accomplish
 
@@ -28,9 +28,9 @@ By following this guide, you'll:
 - Prepare your environments for a successful migration
 - Plan and execute a migration with minimal downtime
 - Validate that your migrated workload meets performance and reliability requirements
-- Optimize your Azure Load Balancer configuration for your specific needs
+- Understand how to iterate on the architecture for future enhancements
 
-This article uses a gaming platform scenario to demonstrate common patterns like multi-protocol load balancing, zone redundancy, and client IP preservation that apply to many high-performance workloads.
+This article uses a gaming platform scenario to demonstrate common patterns like multi-protocol load balancing, zone redundancy, and client IP preservation that apply to many high-performance workloads. 
 
 ## Example scenario: Gaming platform multi-protocol load balancing migration
 
@@ -343,7 +343,7 @@ After successful validation, decommission AWS resources:
 
 In general, the migration is considered successful when all success criteria are met consistently over a 7-day monitoring period with no performance degradation compared to the AWS NLB performance. For some platforms, you may need to extend monitoring to cover peak hours and weekend traffic patterns to ensure consistent user experience.
 
-## Optimization and iterative improvement
+## Iterative improvement
 
 After migration, focus on optimizing the Azure Load Balancer configuration and validating performance, routing accuracy, and high availability. This iterative improvement process ensures that the migrated workload meets all success criteria established during the assessment step following the [Azure Well-Architected Framework service guide for Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer).
 
