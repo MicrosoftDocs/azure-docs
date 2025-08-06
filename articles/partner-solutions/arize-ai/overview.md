@@ -4,33 +4,35 @@ description: Access Azure Native Arize AI Cloud Service via Azure portal to deve
 author: ProfessorKendrick
 ms.author: kkendrick
 ms.topic: overview
-ms.date: 04/21/2025
-ms.custom:
-  - build-2025
+ms.date: 08/06/2025
 ---
 # What is Azure Native Arize AI Cloud Service?
 
-[!INCLUDE [what-is](../includes/what-is.md)]
+## What is it?
 
-Microsoft and Arize AI developed this service and manage it together.
+Azure Native Arize AI Cloud Service is a Software as a Service (SaaS) platform for AI observability and evaluation, jointly developed and managed by Microsoft and Arize AI as an Azure Native Integration. [!INCLUDE [what-is](../includes/what-is.md)]
 
-Azure Native Arize AI Cloud Service from the [Azure portal](https://portal.azure.com).
+## What is it used for?
 
-The Arize platform provides tools for AI Engineers to develop, debug, and improve their AI applications.
-Deliver AI applications with enterprise quality using observability, evaluation, and prompt management and optimization.
+Azure Native Arize AI Cloud Service is used to monitor, debug, and optimize AI models and applications. Typical use cases include:
 
-This offering allows you to manage your Arize AI resource as an integrated native service in Azure. You can set up the resources through a resource provider named `ArizeAi.ObservabilityEval`. You can create and manage the billing, resource creation, and authorization through the Azure portal. Arize AI owns and runs the Software as a Service (SaaS) application including the resources created.
+- Tracking and analyzing AI model performance in production
+- Evaluating model outputs and prompt effectiveness
+- Managing and versioning prompts for generative AI applications
+- Integrating and querying trace data from Azure storage for observability
+- Supporting compliance and troubleshooting for enterprise AI deployments
 
-## Capabilities
+## Key Features
 
-Here are the key capabilities:
-
-- Seamless onboarding and integration of data into the Arize AI platform
-- Integration of cloud data buckets allowing direct query of trace data from Azure bucket
-- Single unified bill integrated into Azure
-- Single-sign on
+- **Seamless Onboarding:** Integrate data into the Arize Ax platform with minimal setup.
+- **Cloud Data Integration:** Directly query trace data from Azure storage buckets.
+- **Unified Billing:** Manage all billing through your Azure subscription.
+- **Single Sign-On:** Access the service using your Azure credentials.
+- **Resource Management:** Provision and manage Arize AI resources from the Azure portal.
 
 ## Subscribe
+
+To subscribe to Azure Native Arize AI Cloud Service:
 
 [!INCLUDE [subscribe](../includes/subscribe.md)] *Arize AI Cloud Service*.
 
