@@ -116,7 +116,7 @@ Outbound traffic from your app is now routed through the integrated virtual netw
 An easy way to verify your configuration is to use the `curl` command from your app's SCM debug console to verify the outbound connection.
 
 1. In a browser, navigate to `https://<app-name>.scm.azurewebsites.net/DebugConsole`.
-1. In the console, run `curl -s <protocol>://<fqdn-address>` with a URL that matches an application rule you configured. The following screenshot is an example to a website that shows a successful response from a API, showing an IP address.
+1. In the console, run `curl -s <protocol>://<fqdn-address>` with a URL that matches an application rule you configured. The following screenshot is an example to a website that shows a successful response from an API, showing an IP address.
 
     :::image type="content" source="./media/network-secure-outbound-traffic-azure-firewall/verify-outbound-traffic-fw-allow-rule.png" alt-text="Screenshot of verifying the success outbound traffic by using curl command in SCM debug console.":::
 

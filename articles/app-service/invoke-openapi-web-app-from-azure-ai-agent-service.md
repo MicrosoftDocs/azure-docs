@@ -31,7 +31,7 @@ In this tutorial, you're using an Azure AI Foundry Agent to invoke an existing A
 
 ## 1. Inspect the sample in GitHub Codespaces
 
-Start by insoecting the sample in GitHub:
+Start by inspecting the sample in GitHub:
 
 1. Sign in to your GitHub account and navigate to [https://github.com/Azure-Samples/ai-agent-openai-web-app/fork](https://github.com/Azure-Samples/ai-agent-openai-web-app/fork).
 1. Select **Create fork**.
@@ -47,7 +47,7 @@ The sample repository has the following content:
 
 ## 2. Deploy the Azure infrastructure and application
 
-To deploy the Azure infrastructure and appliction: 
+To deploy the Azure infrastructure and application: 
 
 1. Sign into your Azure account by using the `azd auth login` command and following the prompt:
 

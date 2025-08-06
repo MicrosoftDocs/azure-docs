@@ -97,7 +97,7 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 # [Azure PowerShell](#tab/powershell)
 
-Run the following [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) command, replacing the `<app-name>` and `<resource-group-name>` with your values. Use the `-FtpsState` parameter set to `FtpsOnly` to enforce FTPS, or `Disabled` to disable both FTP and FTPS..
+Run the following [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) command, replacing the `<app-name>` and `<resource-group-name>` with your values. Use the `-FtpsState` parameter set to `FtpsOnly` to enforce FTPS, or `Disabled` to disable both FTP and FTPS.
 
 ```azurepowershell-interactive
 Set-AzWebApp -Name <app-name> -ResourceGroupName <resource-group-name> -FtpsState FtpsOnly
