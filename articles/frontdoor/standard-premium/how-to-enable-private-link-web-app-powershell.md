@@ -19,7 +19,7 @@ This article guides you through how to configure Azure Front Door Premium tier t
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure PowerShell installed locally or Azure Cloud Shell
 - Azure FrontDoor Premium profile, endpoint, and origin group. For more information on how to create an Azure Front Door profile, see [Create a Front Door - PowerShell](../create-front-door-powershell.md).
-- Azure App Service (WebApp) instance. For more information on how to create an Azure App Service, see [Create an App Service - PowerShell](../create-app-service-plan-powershell.md).
+- Azure App Service (WebApp) instance. For more information on how to create an Azure App Service, see [Create an App Service - PowerShell](../../app-service/quickstart-dotnetcore.md?tabs=net80&pivots=development-environment-ps).
 
 > [!NOTE]
 > Private endpoints requires your App Service plan to meet some requirements. For more information, see [Using Private Endpoints for Azure Web App](../../app-service/networking/private-endpoint.md).

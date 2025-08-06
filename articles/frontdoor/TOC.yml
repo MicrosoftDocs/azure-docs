@@ -178,7 +178,7 @@
       - name: Custom domain
         href: migrate-cdn-to-front-door.md
     - name: AFD/CDN Classic migration FAQ
-      href: afd-cdn-classic-migration-faq.md
+      href: migration-faq.md
     - name: Post migration Dev-Ops experience
       href: post-migration-dev-ops-experience.md
   - name: Upgrades
