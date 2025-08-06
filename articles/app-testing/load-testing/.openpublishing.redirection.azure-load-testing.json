@@ -1,5 +1,10 @@
 {
     "redirections": [
+        { 
+            "source_path_from_root": "/articles/load-testing/index.yml",
+            "redirect_url": "/azure/app-testing/index",
+            "redirect_document_id": false
+        },
         {
             "source_path_from_root": "/articles/load-testing/how-to-update-rerun-test.md",
             "redirect_url": "/azure/app-testing/load-testing/how-to-monitor-server-side-metrics",
