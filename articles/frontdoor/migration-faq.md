@@ -5,7 +5,7 @@ author: jainsabal
 ms.author: jainsabal
 ms.service: azure-frontdoor
 ms.topic: overview
-ms.date: 08-06-2025
+ms.date: 08/06/2025
 
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
 ---
