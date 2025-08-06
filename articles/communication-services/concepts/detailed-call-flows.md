@@ -19,7 +19,7 @@ This article describes Azure Communication Services call flow topologies and det
 
 ### Network concepts
 
-Here are some terms that you'll find throughout the document:
+Here are some terms that are in this article:
 
 A *customer network* contains any network segments that you manage. The customer network might include wired and wireless networks within your office or between offices, datacenters, and internet service providers.
 
