@@ -3,12 +3,14 @@ title: Migrate WordPress to App Service on Linux
 description: Migrate WordPress to App Service on Linux.
 author: msangapu-msft
 ms.service: azure-app-service
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/20/2023
 ms.author: msangapu
 ms.devlang: php
 ms.custom: linux-related-content
+# Customer intent: As a developer, I want to migrate WordPress to App Service on Linux. 
 ---
+
 # Migrate WordPress on App Service on Linux
 
 This article describes two ways to migrate WordPress from App Service on Windows or external hosting providers to App Service on Linux. 
@@ -19,8 +21,8 @@ This article describes two ways to migrate WordPress from App Service on Windows
 
  You can migrate your site to WordPress on Azure App Service in two ways:
 
- 1. WordPress plugin: All-In-One WP Migration
- 2. Manual process of migration
+ - WordPress plugin: All-In-One WP Migration
+ - Manual process of migration
 
 ## Migrate WordPress with All-In-One WP Migration plugin
 
@@ -50,9 +52,9 @@ By default, the file upload size for WordPress on Linux App Services is limited 
 1. Open All-In-One WP Migration plugin
 1. Click on import option on the destination site, and upload the file downloaded in previous section
 1. Empty the caches in W3TC plugin (or any other caches) and validate the content of the site.
-    - Click on the **Performance** option given in the left sidebar of the admin panel to open the W3TC plugin.
-    - Then click on the **Dashboard** option shown below it.
-    - On the dashboard, you will see a button with the label **Empty All Caches**.
+    1. Click on the **Performance** option given in the left sidebar of the admin panel to open the W3TC plugin.
+    1. Then click on the **Dashboard** option shown below it.
+    1. On the dashboard, you will see a button with the label **Empty All Caches**.
 
 ## Manual migration process
 
@@ -117,7 +119,7 @@ It's an optional step, after the site migration it is recommended to validate th
 
 - WP Smush plugin is activated and configured properly for image optimization. See [Image Compression](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/wordpress_image_compression.md) for more information on configuration.
 
-### Recommended WordPress settings
+### Configure recommended WordPress settings
 
 The following WordPress settings are recommended. However, when the users migrate their custom sites, is it up to them to decide whether to use these settings or not.
 
@@ -142,5 +144,6 @@ When you migrate a live site and its DNS domain name to App Service, that DNS na
 
 If your site is configured with SSL certs, then follow [Add and manage TLS/SSL certificates](configure-ssl-certificate.md?tabs=apex%2Cportal) to configure SSL.
 
-Next steps:
-[At-scale assessment of .NET web apps](/training/modules/migrate-app-service-migration-assistant/)
+## Related content
+
+- [At-scale assessment of .NET web apps](/training/modules/migrate-app-service-migration-assistant/)
