@@ -27,7 +27,7 @@ These assets, tags, and events map inbound data from OPC UA servers to friendly 
 
 ## Prerequisites
 
-To configure devices and assets, you need a running instance of Azure IoT Operations.
+To configure devices and assets, you need a running preview instance of Azure IoT Operations.
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
@@ -66,7 +66,7 @@ An Azure IoT Operations deployment can include an optional built-in OPC PLC simu
 
 # [Azure CLI](#tab/cli)
 
-Run the following command:
+Run the following commands:
 
 ```azurecli
 az iot ops ns device create -n opc-ua-connector-cli -g {your resource group name} --instance {your instance name} 
@@ -74,10 +74,7 @@ az iot ops ns device create -n opc-ua-connector-cli -g {your resource group name
 az iot ops ns device endpoint inbound add opcua --device opc-ua-connector-cli -g {your resource group name} -i {your instance name} --name opc-ua-connector-0 --endpoint-address "opc.tcp://opcplc-000000:50000"
 ```
 
-> [!TIP]
-> Use `az connectedk8s list` to list the clusters you have access to.
-
-To learn more, see [az iot ops device](/cli/azure/iot/ops/asset/endpoint).
+To learn more, see [az iot ops ns device](/cli/azure/iot/ops/ns/device).
 
 ---
 
@@ -173,11 +170,13 @@ Now you can define the tags associated with the asset. To add OPC UA tags:
     | ns=3;s=FastUInt10 | Temperature |
     | ns=3;s=FastUInt100 | Humidity |
 
-1. Select **Manage default settings** to configure default settings for messages from the asset. These settings apply to all the OPC UA tags that belong to the asset. You can override these settings for each tag that you add. Default settings include:
+1. To configure default settings for messages from the asset, select **Manage default settings**. These settings apply to all the OPC UA tags that belong to the asset. You can override these settings for each tag that you add. Default settings include:
 
     - **Sampling interval (milliseconds)**: The sampling interval indicates the fastest rate at which the OPC UA server should sample its underlying source for data changes.
     - **Publishing interval (milliseconds)**: The rate at which OPC UA server should publish data.
     - **Queue size**: The depth of the queue to hold the sampling data before publishing it.
+
+1. To configure the MQTT topic to publish the tag data to, select **Manage default dataset**. Enter an MQTT topic name such as `azure-iot-operations/data/thermostat`, then select **Update**.
 
 1. On the **Tags** page, select **Next** to go to the **Add events** page.
 
@@ -187,16 +186,16 @@ Use the following commands to add a "thermostat" namespace asset to your device 
 
 ```azurecli
 # Create the asset
-az iot ops ns asset opcua create --name thermostat --instance {your instance name} -g  {your resource group name} --device opc-ua-connector --endpoint-name opc-ua-connector-0  --description 'A simulated thermostat asset'
+az iot ops ns asset opcua create --name thermostat --instance {your instance name} -g  {your resource group name} --device opc-ua-connector --endpoint opc-ua-connector-0  --description 'A simulated thermostat asset'
 
 # Add the dataset
-az iot ops ns asset opcua dataset add --asset thermostat --instance {your instance name} -g {your resource group name} --name default --data-source "ns=3;s=FastUInt10"
+az iot ops ns asset opcua dataset add --asset thermostat --instance {your instance name} -g {your resource group name} --name default --data-source "ns=3;s=FastUInt10" --dest topic="azure-iot-operations/data/thermostat" retain=Keep qos=Qos1 ttl=3600
 
 # Add the datapoints
 az iot ops ns asset opcua dataset point add --asset thermostat --instance {your instance name} -g {your resource group name} --dataset default --name temperature --data-source "ns=3;s=FastUInt10"
 az iot ops ns asset opcua dataset point add --asset thermostat --instance {your instance name} -g {your resource group name} --dataset default --name humidity --data-source "ns=3;s=FastUInt100"
 
-# Show the datapoints
+# Show the dataset and datapoints
 az iot ops ns asset opcua dataset show --asset thermostat -n default -g {your resource group name} --instance {your instance name}
 ```
 

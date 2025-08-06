@@ -52,7 +52,8 @@ Each API Management [pricing tier](api-management-key-concepts.md#api-management
 | Static IP                                                                                    | No          | Yes       | Yes   | No          |Yes      | No          | Yes     | No |
 | Export API to Power Platform                                                         | Yes          | Yes       | Yes    | Yes       | Yes       | Yes       | Yes     | Yes |
 | Export API to Postman                                                         | Yes          | Yes       | Yes    | Yes       | Yes       | Yes       | Yes     | Yes |
-| Export API to MCP server (preview)                                                        | No          | No       | Yes    | No       | Yes       | No       | Yes     | No |
+| Export API to MCP server (preview)                                                        | No          | No       | Yes    | Yes       | Yes       | Yes       | Yes     | Yes |
+| Expose existing MCP server (preview)                                                      | No          | No       | Yes    | Yes       | Yes       | Yes       | Yes     | Yes |
 
 <sup>1</sup> Enables the use of Microsoft Entra ID (and Azure AD B2C or [Microsoft Entra External ID](/entra/external-id/customers/overview-customers-ciam)) as an identity provider for user sign in on the developer portal.<br/>
 <sup>2</sup> Including related functionality such as users, groups, issues, applications, and email templates and notifications.<br/>
