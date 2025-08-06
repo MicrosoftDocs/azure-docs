@@ -230,7 +230,7 @@ Open the downloaded `PT1H.json` file using a text editor of your choice. The fol
 {
     "time": "2025-08-06T20:39:33.3186341Z",
     "flowLogGUID": "00000000-0000-0000-0000-000000000000",
-    "macAddress": "112233445566",
+    "macAddress": "6045BDD6DD48",
     "category": "FlowLogFlowEvent",
     "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e//RESOURCEGROUPS/NETWORKWATCHERRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKWATCHERS/NETWORKWATCHER_EASTUS/FLOWLOGS/MYVNET-MYRESOURCEGROUP-FLOWLOG",
 	"flowLogVersion": 4,
