@@ -34,7 +34,7 @@ When enforcing a policy, you can determine its [effect](../../governance/policy/
 
 ## Built-in policy definitions
 
-Predetermined policies, referred to as 'built-ins', allow governance over your load testing resources so you don't have to write custom policies in JSON format to enforce commonly used rules associated with best security practices. Even though built-ins are predetermined, certain policies require you to define parameters. For example, by defining the effect of the policy, you can audit the load testing resource before enforcing a deny operation to prevent outages. See [built-in policies for Azure Load Testing](../../governance/policy/samples/built-in-policies.md#azure-load-testing) to view the current built-in policies available for Azure Load Testing. 
+Predetermined policies, referred to as 'built-ins', allow governance over your load testing resources so you don't have to write custom policies in JSON format to enforce commonly used rules associated with best security practices. Even though built-ins are predetermined, certain policies require you to define parameters. For example, by defining the effect of the policy, you can audit the load testing resource before enforcing a deny operation to prevent outages. See [built-in policies for Azure Load Testing](/azure/governance/policy/samples/built-in-policies#azure-load-testing) to view the current built-in policies available for Azure Load Testing. 
 
 ## Enable and manage a load testing policy
 
@@ -65,21 +65,21 @@ Predetermined policies, referred to as 'built-ins', allow governance over your l
   
 1. Select the subscription where you want the policy to be applied.
 
-	- You can choose to restrict the scope to only a single resource group within a subscription.
-	    
-	- If you want to apply the policy to the entire subscription and exclude some resource groups, you can also configure an exclusion list.
-	    
-	- Set the policy enforcement selector to **Enabled** if you want the effect of the policy (audit or deny) to occur or **Disabled** to turn the effect (audit or deny) off. 
+    - You can choose to restrict the scope to only a single resource group within a subscription.
+        
+    - If you want to apply the policy to the entire subscription and exclude some resource groups, you can also configure an exclusion list.
+        
+    - Set the policy enforcement selector to **Enabled** if you want the effect of the policy (audit or deny) to occur or **Disabled** to turn the effect (audit or deny) off. 
 
     ![Screenshot that shows where you can choose to restrict the scope to only a single resource group within a subscription.](media/how-to-use-azure-policy/select-policy-scope.png)
 
 1. To specify the policy effect, select the parameters tab at the top of the screen.
-	
-	1. Uncheck the *Only show parameters that need input or review* option.
-	
-	1. Select **Audit** or **Deny** or **Disabled** for the effect of the policy following the [policy guidance](#types-of-policy-effects-and-guidance).
-	
-	1. Select the **Review + create** button. 
+    
+    1. Uncheck the *Only show parameters that need input or review* option.
+    
+    1. Select **Audit** or **Deny** or **Disabled** for the effect of the policy following the [policy guidance](#types-of-policy-effects-and-guidance).
+    
+    1. Select the **Review + create** button. 
 
     ![Screenshot that shows the Parameters tab where you can specify the policy effect.](media/how-to-use-azure-policy/select-policy-effect.png)
 
@@ -100,5 +100,5 @@ Predetermined policies, referred to as 'built-ins', allow governance over your l
 
 ## Next steps
 
-- Learn more about the [Azure Policy service](../../governance/policy/overview.md)
-- See Key Vault samples: [Azure Load Testing built-in policy definitions](../../governance/policy/samples/built-in-policies.md#azure-load-testing)
+- Learn more about the [Azure Policy service](/azure/governance/policy/overview.md)
+- See Key Vault samples: [Azure Load Testing built-in policy definitions](/azure/governance/policy/samples/built-in-policies#azure-load-testing)
