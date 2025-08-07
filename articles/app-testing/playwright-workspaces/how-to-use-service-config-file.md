@@ -17,12 +17,16 @@ zone_pivot_groups: playwright-workspaces
 
 ::: zone pivot="playwright-test-runner"
 
+### If you're using the **Playwright Test Runner**
+
 This article shows you how to use the options available in the `playwright.service.config.ts` file that was generated for you. 
 If you don't have this file in your code, follow [Quickstart: Run end-to-end tests at scale with Playwright Workspaces](./quickstart-run-end-to-end-tests.md) 
 
 ::: zone-end
 
 ::: zone pivot="nunit-test-runner"
+
+### If you're using the **NUnit Test Runner**
 
 This article shows you how to use the options available in the `PlaywrightServiceSetup.cs` file. 
 If you don't have this file in your code, follow [Quickstart: Run end-to-end tests at scale with Playwright Workspaces](./quickstart-run-end-to-end-tests.md) 
@@ -37,6 +41,8 @@ If you don't have this file in your code, follow [Quickstart: Run end-to-end tes
 * Follow the Quickstart guide and set up a project to run with Playwright Workspaces. See, [Quickstart: Run end-to-end tests at scale with Playwright Workspaces Preview](./quickstart-run-end-to-end-tests.md) 
 
 ::: zone pivot="playwright-test-runner"
+
+### If you're using the **Playwright Test Runner**
 
 Below is a complete example of a `playwright.service.config.ts` file showing all supported configuration options:
 
@@ -124,6 +130,8 @@ export default defineConfig(
 ::: zone-end
 
 ::: zone pivot="nunit-test-runner"
+
+### If you're using the **NUnit Test Runner**
 
 
 Here's version of the setup file with all the available options:

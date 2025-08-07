@@ -26,7 +26,7 @@ After you complete this quickstart, you have a Playwright workspace to run your 
 
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * Your Azure account needs the [Owner](/azure/role-based-access-control/built-in-roles#owner), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or one of the [classic administrator roles](/azure/role-based-access-control/rbac-and-directory-admin-roles#classic-subscription-administrator-roles).
-* A Playwright project. If you don't have project, create one by using the [Playwright getting started documentation](https://playwright.dev/docs/intro) or use our [Playwright Workspaces sample project](https://github.com/microsoft/playwright-testing-service/tree/main/samples/get-started).
+* A Playwright project. If you don't have project, create one by using the [Playwright getting started documentation](https://playwright.dev/docs/intro) or use our [Playwright Workspaces sample project](https://github.com/Azure/playwright-workspaces/blob/main/samples/playwright-tests).
 * Azure CLI. If you don't have Azure CLI, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create a workspace
@@ -70,6 +70,8 @@ To get started with running your Playwright tests on cloud browsers, you first n
 
 ::: zone pivot="playwright-test-runner"
 
+### If you're using the **Playwright Test Runner**
+
 To use the service, install the Playwright Workspaces package. 
 
 ```npm
@@ -83,6 +85,8 @@ If you already have this file, the package asks you to overwrite it.
 ::: zone-end
 
 ::: zone pivot="nunit-test-runner"
+
+### If you're using the **NUnit Test Runner**
 
 To use the service, install the Playwright Workspaces package. 
 
@@ -114,6 +118,8 @@ To get the service endpoint URL, perform the following steps:
 
 ## Set up your environment
 
+### If you're using the **Playwright Test Runner**
+
 To set up your environment, you have to configure the `PLAYWRIGHT_SERVICE_URL` environment variable with the value you obtained in the previous steps.
 
 We recommend that you use the `dotenv` module to manage your environment. With `dotenv`, you define your environment variables in the `.env` file.
@@ -135,7 +141,10 @@ We recommend that you use the `dotenv` module to manage your environment. With `
 ::: zone-end
 
 ::: zone pivot="nunit-test-runner"
+
 ## Set up service configuration 
+
+### If you're using the **NUnit Test Runner**
 
 Create a file `PlaywrightServiceSetup.cs` in your project with the following content. 
 
@@ -192,6 +201,8 @@ You can generate an access token from your Playwright workspace and use it in yo
 ## Run your tests at scale with Playwright Workspaces
 
 ::: zone pivot="playwright-test-runner"
+
+### If you're using the **Playwright Test Runner**
 
 You've now prepared the configuration for running your Playwright tests in the cloud with Playwright Workspaces. You can either use the Playwright CLI to run your tests, or use the [Playwright Test Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright).
 
@@ -323,6 +334,8 @@ To run your Playwright test suite in Visual Studio Code with Playwright Workspac
 
 ::: zone pivot="nunit-test-runner"
 
+### If you're using the **NUnit Test Runner**
+
 Run Playwright tests against browsers managed by the service using the configuration you created above. 
 
 ```bash
@@ -350,10 +363,14 @@ Once your tests are running smoothly with the service, experiment with varying t
 With Playwright Workspaces, you can run with up to 50 parallel workers. Several factors influence the best configuration for your project, such as the CPU, memory, and network resources of your client machine, the target application's load-handling capacity, and the type of actions carried out in your tests.
 
 ::: zone pivot="playwright-test-runner"
+
+### If you're using the **Playwright Test Runner**
 You can specify the number of parallel workers on the Playwright CLI command-line, or configure the `workers` property in the Playwright service configuration file.
 ::: zone-end
 
 ::: zone pivot="nunit-test-runner"
+
+### If you're using the **NUnit Test Runner**
 You can specify the number of parallel workers on the Playwright CLI command-line, or configure the `NumberOfTestWorkers` property in the `.runsettings` file.
 ::: zone-end
 
