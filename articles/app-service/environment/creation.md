@@ -7,7 +7,7 @@ ms.date: 05/07/2025
 ms.author: jordanselig
 ms.custom:
   - build-2025
-# As a developer, I want to crate an App Service Environment so that I can integrate App Service with an Azure virtual network.
+# As a developer, I want to create an App Service Environment so that I can integrate App Service with an Azure virtual network.
 ---
 
 # Quickstart: Create an App Service Environment
