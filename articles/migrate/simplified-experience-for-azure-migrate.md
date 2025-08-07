@@ -32,7 +32,7 @@ The key differences between the Classic and Simplified experience:
 | Deprecation of classic experience | Support for ongoing replications will remain active until March 2026, while support for initiating new replications will end on October 30, 2025 | NA |
 
 ## Action required
-- Classic experience is scheduled for deprecation by **30 March 2026**. We recommend using the **simplified experience** for initiating replication of any new agent-based VMware or physical servers.
+- Classic experience is scheduled for deprecation on **30 March 2026**. We recommend using the **simplified experience** for initiating agent-based replication of any new VMware or physical servers.
   >[!NOTE]
   >Classic experience will not support starting replications on new servers after **October 30, 2025**.
 - Servers currently replicating using the classic experience will be supported until **March 30, 2026**. We recommend completing your migrations before this date.
