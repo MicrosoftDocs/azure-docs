@@ -229,7 +229,7 @@ Now add an [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) s
 
 1. To review the runs and trigger history for your logic app, on your logic app menu, select **Overview**. To view more details about a run, select the row for that run.
 
-   :::image type="content" source="./media/monitor-virtual-machine-changes-logic-app/logic-app-run-history.png" alt-text="Screenshot shows the logic app overview page, showing a successful run selected.":::
+   :::image type="content" source="./media/monitor-virtual-machine-changes-logic-app/logic-app-run-history.png" alt-text="Screenshot shows the logic app overview page, showing a successful run selected." lightbox="./media/monitor-virtual-machine-changes-logic-app/logic-app-run-history.png":::
 
 1. To view the inputs and outputs for each step, expand the step that you want to review. This information can help you diagnose and debug problems in your logic app.
 
