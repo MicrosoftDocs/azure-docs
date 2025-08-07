@@ -97,7 +97,11 @@ If you choose to use your own certificate, you can onboard a certificate from a 
 
 ### Certificate autorotation
 
-For the Azure Front Door managed certificate option, the certificates are managed and auto-rotates within 90 days of expiry time by Azure Front Door. For the Azure Front Door Standard/Premium managed certificate option, the certificates are managed and auto-rotates within 45 days of expiry time by Azure Front Door. If you're using an Azure Front Door managed certificate and see that the certificate expiry date is less than 60 days away or 30 days for the Standard/Premium SKU, file a support ticket. 
+For the Azure Front Door Standard/Premium managed certificate option, the certificates are managed and auto-rotates within 45 days of expiry time by Azure Front Door. For the Azure Front Door Classic and Azure CDN Classic managed certificate option, the certificates are managed and auto-rotates within 90 days of expiry time by Azure Front Door.  If you're using classic SKUs managed certificate and see that the certificate expiry date is less than 60 days away or 30 days for the Standard/Premium SKU, file a support ticket. 
+
+> [!Important]
+> - For Azure Front Door Classic and Azure CDN Classic, managed certifiate will be no longer supported from August 15, 2025. To avoid service disruption, either switch to Bring Your Own Certificate (BYOC) or migrate to AFD Standard and Premium by this date. Existing managed certificates will be auto renewed before August 15, 2025, and remain valid until April 14, 2026. However, it is highly recommended to prioritize switching to Bring Your Own Certificate (BYOC) or migrate to AFD Standard and Premium before August 15, 2025, to avoid unexpected or emergent certification revocation.
+> - The auto rotation for these managed certificates fail if your domains are not directly CNAME pointed to Azure Front Door Classic or Azure CDN Classic endpoints. See [Azure CDN Classic HTTPS for custom domains](https://learn.microsoft.com/en-us/azure/cdn/cdn-custom-ssl?toc=%2Fazure%2Ffrontdoor%2Ftoc.json&tabs=option-1-default-enable-https-with-a-cdn-managed-certificate#tlsssl-certificates), and [Azure Front Door Classic HTTPs for custom domains](https://learn.microsoft.com/en-us/azure/frontdoor/front-door-custom-domain-https?tabs=powershell#option-1-default-use-a-certificate-managed-by-front-door).
 
 For your own custom TLS/SSL certificate:
 
@@ -107,7 +111,7 @@ For your own custom TLS/SSL certificate:
 
     > [!NOTE]
     > Azure Front Door (Standard and Premium) managed certificates are automatically rotated if the domain CNAME record points directly to a Front Door endpoint or points indirectly to a Traffic Manager endpoint. Otherwise, you need to re-validate the domain ownership to rotate the certificates.
-
+ 
     The service principal for Front Door must have access to the key vault. The updated certificate rollout operation by Azure Front Door won't cause any production downtime, as long as the subject name or subject alternate name (SAN) for the certificate hasn't changed.
 
 ## Supported cipher suites
