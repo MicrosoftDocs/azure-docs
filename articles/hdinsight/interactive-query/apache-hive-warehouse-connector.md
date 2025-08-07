@@ -41,7 +41,6 @@ Some of the operations supported by the Hive Warehouse Connector are:
 ## Hive Warehouse Connector setup
 
 > [!IMPORTANT]
-> - The HiveServer2 Interactive instance installed on Spark 2.4 Enterprise Security Package clusters is not supported for use with the Hive Warehouse Connector. Instead, you must configure a separate HiveServer2 Interactive cluster to host your HiveServer2 Interactive workloads. A Hive Warehouse Connector configuration that utilizes a single Spark 2.4 cluster is not supported.
 > - Hive Warehouse Connector (HWC) Library is not supported for use with Interactive Query Clusters where Workload Management (WLM) feature is enabled. <br>
 In a scenario where you only have Spark workloads and want to use HWC Library, ensure Interactive Query cluster doesn't have Workload Management feature enabled (`hive.server2.tez.interactive.queue` configuration is not set in Hive configs). <br>
 For a scenario where both Spark workloads (HWC) and LLAP native workloads exists, You need to create two separate Interactive Query Clusters with shared metastore database. One cluster for native LLAP workloads where WLM feature can be enabled on need basis and other cluster for HWC only workload where WLM feature shouldn't be configured.
@@ -146,7 +145,7 @@ Apart from the configurations mentioned in the previous section, add the followi
         ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
         ```
         
-   * Append tenant domain name (e.g. "abc.contoso.com”) in the last line of /etc/resolv.conf in head and worker nodes of your Spark and Hive clusters.
+   * Append tenant domain name (e.g. "fabrikam.onmicrosoft.com”) in the last line of /etc/resolv.conf in head and worker nodes of your Spark and Hive clusters.
 
 1. Save changes and restart components as needed.
 
