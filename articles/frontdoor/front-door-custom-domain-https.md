@@ -75,7 +75,13 @@ To enable HTTPS on a Front Door (classic) custom domain, you need a TLS/SSL cert
 
 ### Option 1 (default): Use a certificate managed by Front Door
 
-Using a certificate managed by Azure Front Door allows you to enable HTTPS with a few settings changes. Azure Front Door handles all certificate management tasks, including procurement and renewal. If your custom domain is already mapped to the Front Door's default frontend host (`{hostname}.azurefd.net`), no further action is required. Otherwise, you must validate your domain ownership via email.
+Using a certificate managed by Azure Front Door Classic allows you to enable HTTPS with a few settings changes. Azure Front Door Classic handles all certificate management tasks, including procurement and renewal. This is supported for custom domains with direct CNAME to Azure Front Door Classic endpoint.
+> [!IMPORTANT]
+
+> - As of May 8, 2025, DigiCert no longer supports the WHOIS-based domain validation method. Hence, if your domains with indirect CNAME to Azure Front Door Classic endpoint, you must use the Bring your own certificate feature.
+> - Due to the WHOIS-based domain validation, managed certificate issued using WHOIS-based domain validation can't be auto renewed until you have direct CNAME pointed to Azure Front Door Classic.
+> - Managed certificates are not available for root or apex domains. If your Azure Front Door Classic custom domain is a root or apex domain, you must use the Bring your own certificate feature.
+> - Managed certificate autorenewal requires that your custom domain be directly mapped to your Azure Front Door Classic endpoint by a CNAME record.
 
 To enable HTTPS on a custom domain:
 
@@ -178,13 +184,13 @@ Your CNAME record should be in the following format:
 
 For more information about CNAME records, see [Create the CNAME DNS record](../cdn/cdn-map-content-to-custom-domain.md).
 
-If your CNAME record is correct, DigiCert automatically verifies your custom domain and creates a dedicated certificate. The certificate is valid for one year and autorenews before it expires. Continue to [Wait for propagation](#wait-for-propagation).
+If your CNAME record is in the correct format, DigiCert automatically verifies your custom domain name and creates a certificate for your domain. The certificate is valid for one year and will be autorenewed before it expires. Automatic validation typically takes a few hours. If you don't see your domain validated in 24 hours, open a support ticket.
+
+Continue to [Wait for propagation](#wait-for-propagation).
 
 > [!NOTE]
 > If you have a Certificate Authority Authorization (CAA) record with your DNS provider, it must include DigiCert as a valid CA. For more information, see [Manage CAA records](https://support.dnsimple.com/articles/manage-caa-record/).
 
-> [!IMPORTANT]
-> As of May 8, 2025, DigiCert no longer supports the WHOIS-based domain validation method.
 
 ## Wait for propagation
 
