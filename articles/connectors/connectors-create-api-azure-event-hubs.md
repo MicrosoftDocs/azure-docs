@@ -60,7 +60,7 @@ For information about this connector's operations, their parameters, and other t
 
 ## Add an Event Hubs trigger
 
-In Azure Logic Apps, every workflow must start with a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), which fires when a specific condition is met. Each time the trigger fires, Azure Logic Apps creates an instance of your workflow and starts to run the steps in the workflow. For more information, see [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md).
+In Azure Logic Apps, every workflow must start with a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), which fires when a specific condition is met. Each time the trigger fires, Azure Logic Apps creates an instance of your workflow and starts to run the steps in the workflow.
 
 The following steps describe the general way to add an **Event Hubs** trigger such as **When events are available in Event Hub**. This example trigger checks for new events in your event hub and starts a workflow run when new events exist.
 
