@@ -2,7 +2,7 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: probableprime
+author: awang119
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
@@ -400,7 +400,7 @@ Some of the scripts within the linked libraries write files during the build pro
 
 In the Xcode project, under **Build Settings**, set the **User Script Sandboxing** option to **No**. To find the setting, change the filter from **Basic** to **All** or use the search bar.
 
-:::image type="content" source="./media/ios/disable-user-script-sandbox.png" alt-text="Screenshot that shows the Build Settings option to turn off User Script Sandboxing.":::
+:::image type="content" source="../media/ios/disable-user-script-sandbox.png" alt-text="Screenshot that shows the Build Settings option to turn off User Script Sandboxing.":::
 
 ### Run the project
 In Xcode hit the Run button to build and run the project. In the console, you can view the output from the code and the logger output from the ChatClient.
