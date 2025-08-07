@@ -50,8 +50,8 @@ In this step, you are creating a Playwright test suite which is integrated with 
 1. Clone the sample repository and navigate to test folder. 
 
 ```powershell
-git clone https://github.com/microsoft/playwright-testing-service
-cd playwright-testing-service/samples/get-started
+git clone https://github.com/Azure/playwright-workspaces
+cd playwright-workspaces/samples/playwright-tests
 ```
 
 2. Install dependencies.
