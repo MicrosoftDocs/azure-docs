@@ -59,6 +59,8 @@ In Xcode, create a new project.
 
 ### Turn off User Script Sandboxing
 
+Some of the scripts within the linked libraries write files during the build process. To enable file writing, disable the User Script Sandboxing in Xcode.
+
 In the Xcode project, under **Build Settings**, set the **User Script Sandboxing** option to **No**. To find the setting, change the filter from **Basic** to **All** or use the search bar.
 
 :::image type="content" source="../../media/xcode-sandbox-option.png" alt-text="Screenshot that shows the Build Settings option to turn off User Script Sandboxing.":::
