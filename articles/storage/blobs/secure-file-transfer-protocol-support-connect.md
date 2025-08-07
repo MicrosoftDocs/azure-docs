@@ -84,7 +84,7 @@ See the documentation of your SFTP client for guidance about how to connect and 
 The resumable upload feature for Azure Blob Storage SFTP is now generally available. This feature allows users to resume file uploads from the point of failure in the event of partial transfer failures, thereby saving time and reducing network bandwidth usage.
 The SFTP transfer modes that Azure Blob Storage SFTP supports are below. 
 -	Write: This mode lets the client continue an upload by adding data to an existing file from a specific point without creating a new file.
--	Write + Create: This mode allows the client to resume an upload by either adding to an existing file or creating a new one if it doesn't exist, providing flexibility when the file may not be present initially.
+-	Write + Create: This mode allows the client to resume an upload by either adding to an existing file or creating a new one if it doesn't exist, providing flexibility when the file might not be present initially.
 -	Append: This mode adds data to the end of an existing file without overwriting its current contents.
 Previously, this feature only supported append mode in public preview, limiting upload resumption with SFTP clients lacking append mode support. With general availability, we now support write and write + create modes, benefiting users who use SFTP clients without append mode.
 
