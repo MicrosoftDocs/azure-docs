@@ -41,7 +41,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |--|--|
     |**Select a language**|Choose `C#`.|
     |**Select a .NET runtime**|Choose `.NET 8.0 LTS`.|
-    |**Select a template for your project's first function**|Choose `HTTP trigger`.<sup>*</sup>|
+    |**Select a template for your project's first function**|Choose `HTTP trigger`.|
     |**Provide a function name**|Type `HttpExample`.|
     |**Provide a namespace** | Type `My.Functions`. |
     |**Authorization level**|Choose `Anonymous`, which enables anyone to call your function endpoint. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth).|
@@ -59,10 +59,8 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     | **Provide a version** | Choose `1.0-SNAPSHOT`. |
     | **Provide a package name** | Choose `com.function`. |
     | **Provide an app name** | Choose `myFunction-12345`. |
-    |**Select a template for your project's first function**| Choose `HTTP trigger`.<sup>*</sup>|
+    |**Select a template for your project's first function**| Choose `HTTP trigger`.|
     | **Select the build tool for Java project** | Choose `Maven`. |
-    |**Provide a function name**| Enter `HttpExample`.|
-    |**Authorization level**| Choose `Anonymous`, which lets anyone call your function endpoint. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth).|
     |**Select how you would like to open your project**| Choose `Open in current window`.|
 
     ::: zone-end
@@ -72,7 +70,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |--|--|
     |**Select a language**|Choose `JavaScript`.|
     |**Select a JavaScript programming model**|Choose `Model V4`.|
-    |**Select a template for your project's first function**|Choose `HTTP trigger`.<sup>*</sup>|
+    |**Select a template for your project's first function**|Choose `HTTP trigger`.|
     |**Provide a function name**|Type `HttpExample`.|
     |**Authorization level**|Choose `Anonymous`, which enables anyone to call your function endpoint. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth).|
     |**Select how you would like to open your project**|Choose `Open in current window`.|
@@ -84,7 +82,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |--|--|
     |**Select a language**|Choose `TypeScript`.|
     |**Select a JavaScript programming model**|Choose `Model V4`.|
-    |**Select a template for your project's first function**|Choose `HTTP trigger`.<sup>*</sup>|
+    |**Select a template for your project's first function**|Choose `HTTP trigger`.|
     |**Provide a function name**|Type `HttpExample`.|
     |**Authorization level**|Choose `Anonymous`, which enables anyone to call your function endpoint. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth).|
     |**Select how you would like to open your project**|Choose `Open in current window`.|
@@ -96,7 +94,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |--|--|
     |**Select a language**| Choose `Python`.|
     |**Select a Python interpreter to create a virtual environment**| Choose your preferred Python interpreter. If an option isn't shown, type in the full path to your Python binary.|
-    |**Select a template for your project's first function** | Choose `HTTP trigger`.<sup>*</sup> |
+    |**Select a template for your project's first function** | Choose `HTTP trigger`. |
     |**Name of the function you want to create**| Enter `HttpExample`.|
     |**Authorization level**| Choose `ANONYMOUS`, which lets anyone call your function endpoint. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth).|
     |**Select how you would like to open your project** | Choose `Open in current window`.|
@@ -107,16 +105,14 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |Prompt|Selection|
     |--|--|
     |**Select a language for your function project**|Choose `PowerShell`.|
-    |**Select a template for your project's first function**|Choose `HTTP trigger`.<sup>*</sup>|
+    |**Select a template for your project's first function**|Choose `HTTP trigger`.|
     |**Provide a function name**|Type `HttpExample`.|
     |**Authorization level**|Choose `Anonymous`, which enables anyone to call your function endpoint. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth).|
     |**Select how you would like to open your project**|Choose `Open in current window`.|
 
     ::: zone-end
 
-    <sup>*</sup> Depending on your VS Code settings, you may need to use the `Change template filter` option to see the full list of templates.
-
-    Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=javascript#generated-project-files).
+    Using this information, Visual Studio Code generates a code project for Azure Functions with an HTTP trigger function endpoint. You can view the local project files in the Explorer. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md?tabs=javascript#generated-project-files).
  
 ::: zone pivot="programming-language-python"
 4. In the local.settings.json file, update the `AzureWebJobsStorage` setting as in the following example:
@@ -140,21 +136,42 @@ After you verify that the function runs correctly on your local computer, you ca
 ## Use AI to normalize and validate input
 
 This is an example prompt for Copilot Chat that updates the existing function code to retrieve parameters from either the query string or JSON body, apply formatting or type conversions, and return them as JSON in the response: 
-
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 ```copilot-prompt
-Modify the function to accept name, email, and age from the JSON body of the request. If any of these parameters are missing from the query string, read them from the JSON body. Return all three parameters in the JSON response, applying these rules:
+Modify the function to accept name, email, and age from the JSON body of the
+request. If any of these parameters are missing from the query string, read
+them from the JSON body. Return all three parameters in the JSON response, 
+applying these rules:
 Title-case the name
 Lowercase the email
 Convert age to an integer if possible, otherwise return "not provided"
 Use sensible defaults if any parameter is missing
 ```
+::: zone-end  
+::: zone pivot="programming-language-java"  
+```copilot-prompt
+Modify the function to accept name, email, and age from the JSON body of the
+request. If any of these parameters are missing from the query string, read
+them from the JSON body. Return all three parameters in the JSON response, 
+applying these rules:
+Title-case the name
+Lowercase the email
+Convert age to an integer if possible, otherwise return "not provided"
+Use sensible defaults if any parameter is missing
+Update the FunctionTest.java file to test the new logic. 
+```
+::: zone-end 
+
+You can customize your prompt to add specifics as needed, then run the app again locally and verify that it works as expected after the code changes. This time, use a message body like:
+
+```json
+{ "name": "devon torres", "email": "torres.devon@contoso.com", "age": "34" }
+```
 
 > [!TIP]  
-> GitHub Copilot is powered by AI, so surprises and mistakes are possible. For more information, see [Copilot FAQs](https://aka.ms/copilot-general-use-faqs). 
-
-You can customize your prompt to add specifics as needed, then run the app again locally and verify that it works as expected after the code changes. This time, use a message body like `{ "name": "Contoso", "email": "me@contoso.com", "age": "34" }`. 
-
-If you encounter any errors during execution, paste the error message in the chat window and ask Copilot to help resolve the error. When you are satistfied with your app, you can use Visual Studio Code to publish the project directly to Azure.
+> GitHub Copilot is powered by AI, so surprises and mistakes are possible. If you encounter any errors during execution, paste the error message in the chat window, select **Agent** mode, and ask Copilot to help resolve the error. For more information, see [Copilot FAQs](https://aka.ms/copilot-general-use-faqs). 
+ 
+When you are satistfied with your app, you can use Visual Studio Code to publish the project directly to Azure.
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
