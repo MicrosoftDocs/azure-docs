@@ -83,7 +83,7 @@ All of the three endpoints use the same value (10) for the *Weight* parameter.  
 ## Pointing the app's custom domain at the Traffic Manager domain
 The final step necessary is to point the custom domain of the app at the Traffic Manager domain.  For the sample app, point `www.asabuludemo.com` at `scalable-ase-demo.trafficmanager.net`.  Complete this step with the domain registrar that manages the custom domain.  
 
-Using your registrar's domain management tools, a CNAME records needs to be created which points the custom domain at the Traffic Manager domain.  The picture below shows an example of what this CNAME configuration looks like:
+By using your registrar's domain management tools, create a CNAME record needs that points the custom domain at the Traffic Manager domain.  The picture below shows an example of what this CNAME configuration looks like:
 
 :::image type="content" source="./media/app-service-app-service-environment-geo-distributed-scale/cname-custom-domain.png" alt-text="Screenshot of configuring CNAME record on DNS."::: 
 
