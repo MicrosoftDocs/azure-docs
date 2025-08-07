@@ -76,7 +76,7 @@ memtier_benchmark -h {your-cache-name}.{region}.redis.azure.net -p 10000 -a {you
 
 ## Example performance benchmark data
 
-The table below shows optimal operations per second throughput that we observed while testing various sizes of Azure Managed Redis instances with a workload of all read commands and 1KB payload. The workload is same across all SKUs, except for the connection count (that is, different thread and client count as required by memtier_benchmark). The connection count is chosen per SKU to leverage the Azure Managed Redis instance optimally. We used `memtier_benchmark` from an IaaS Azure VM against the Azure Managed Redis endpoint, utilizing the memtier commands shown in the [memtier_benchmark examples](best-practices-performance.md#memtier_benchmark-examples) section. The throughput numbers are only for GET commands. Typically, SET commands have a lower throughput. Real-world performance varies based on Redis configuration and commands. These numbers are provided as a point of reference, not a guarantee.
+The table below shows optimal throughput that we observed while testing various sizes of Azure Managed Redis instances with a workload of all read commands and 1KB payload. The workload is same across all SKUs, except for the connection count (that is, different thread and client count as required by memtier_benchmark). The connection count is chosen per SKU to leverage the Azure Managed Redis instance optimally. We used `memtier_benchmark` from an IaaS Azure VM against the Azure Managed Redis endpoint, utilizing the memtier commands shown in the [memtier_benchmark examples](best-practices-performance.md#memtier_benchmark-examples) section. The throughput numbers are only for GET commands. Typically, SET commands have a lower throughput. Real-world performance varies based on Redis configuration and commands. These numbers are provided as a point of reference, not a guarantee.
 
 >[!CAUTION]
 >These values aren't guaranteed and there's no SLA for these numbers. We strongly recommend that you should [perform your own performance testing](best-practices-performance.md) to determine the right cache size for your application.
@@ -90,7 +90,7 @@ The table below shows optimal operations per second throughput that we observed 
 Azure Managed Redis offers a choice of cluster policy: _Enterprise_ and _OSS_. Enterprise cluster policy is a simpler configuration that doesn't require the client to support clustering. OSS cluster policy, on the other hand, uses the [Redis cluster protocol](https://redis.io/docs/management/scaling) to support higher throughput. We recommend using OSS cluster policy in most cases, especially when you require high performance. For more information, see [Clustering](architecture.md#clustering).
 
 
-| Size in GB | Memory Optimized | Balanced| Compute Optimized| 
+| Size in GB | GET requests per second for Memory Optimized | GET requests per second for Balanced | GET requests per second for Compute Optimized | 
 |--|--|--|--|
 |0.5| - | 120,000| - |
 |1| - | 120,000| - | 
