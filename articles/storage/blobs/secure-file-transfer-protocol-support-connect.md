@@ -89,7 +89,7 @@ The SFTP transfer modes that Azure Blob Storage SFTP supports are below.
 Previously, this feature only supported append mode in public preview, limiting upload resumption with SFTP clients lacking append mode support. With general availability, we now support write and write + create modes, benefiting users who use SFTP clients without append mode.
 
 > [!NOTE]
-> Resumable upload is only supported for blobs created with the SFTP protocol. Resumption of upload is not possible for an already existing blob that was created with a non SFTP protocol such as Rest. 
+> Resumable upload is only supported for blobs created with the SFTP protocol. You can't resume an upload for existing blobs that were created with a protocol other than SFTP such as REST. 
 
 ### Modify the ACL of a file or directory
 
