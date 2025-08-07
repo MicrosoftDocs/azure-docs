@@ -444,6 +444,9 @@
         - name: Developer reference guide
           displayName: python
           href: functions-reference-python.md
+        - name: Updates for Python 3.13+
+          displayName: python
+          href: python-313-changes.md
         - name: Programming models
           displayName: python
           href: functions-reference-python.md#programming-model

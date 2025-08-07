@@ -107,7 +107,7 @@ The following table shows the language versions supported for Python functions.
 
 | Supported version | Support level | Expected end-of-support date |
 | ---- | ---- |--- |
-| Python 3.13 | Preview | October 2028 |
+| Python 3.13 | Preview | October 2029 |
 | Python 3.12 | GA | October 2028 |
 | Python 3.11 | GA | October 2027 |
 | Python 3.10 | GA | October 2026 |

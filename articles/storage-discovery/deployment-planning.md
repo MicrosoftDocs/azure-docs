@@ -9,7 +9,7 @@ ms.date: 08/01/2025
 ms.author: fauhse
 ---
 
-# Planning for an Azure Storage Discovery deployment
+# Planning for an Azure Storage Discovery preview deployment
 
 Before you continue, be sure to get an [overview of the Storage Discovery service](overview.md) and the value it can provide to you.
 
