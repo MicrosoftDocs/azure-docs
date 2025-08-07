@@ -40,9 +40,9 @@ In this tutorial, you:
 
 This tutorial uses the Service Bus integration for Event Grid to streamline the detection of configuration changes. If you don't want your application to continuously poll App Configuration for changes, you can use this integration. The Service Bus SDK provides an API that you can use to register a message handler. You can use that handler to update your configuration when changes are detected in App Configuration.
 
-1. Create a Service Bus namespace, topic, and subscription by following the steps in [Quickstart: Use the Azure portal to create a Service Bus topic and subscription](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md).
+1. Create a Service Bus namespace, topic, and subscription by following the steps in the [Use the Azure portal to create a Service Bus topic and subscriptions to the topic](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md) quickstart.
 
-1. Use the following commands to set up environment variables. These variables are used in the application code to register an event handler for configuration changes.
+1. Use the following commands to set up environment variables. The application code uses these variables to register an event handler for configuration changes.
 
     ### [Windows Command Prompt](#tab/windowscommandprompt)
 
@@ -52,7 +52,7 @@ This tutorial uses the Service Bus integration for Event Grid to streamline the 
     setx ServiceBusSubscription "<Service-Bus-subscription-name>"
     ```
 
-    Close and reopen Command Prompt so that the changes take effect.
+    After you run these commands, close and reopen Command Prompt so that the changes take effect.
 
     ### [PowerShell](#tab/powershell)
 
@@ -118,8 +118,8 @@ This tutorial uses the Service Bus integration for Event Grid to streamline the 
 
 ## Register an event handler to reload data from App Configuration
 
-Go to the folder that contains the .NET app project that you set up in the tutorial listed in [Prerequisites](#prerequisites).
-Open *Program.cs* and replace the existing code with the following code.
+Go to the folder that contains the .NET app project that you used in the tutorial listed in [Prerequisites](#prerequisites).
+Open *Program.cs* and replace the existing code with the following code:
 
 ```csharp
 using Azure.Messaging.EventGrid;
@@ -240,7 +240,7 @@ The `ProcessPushNotification` method takes in a `PushNotification` object that c
     setx AppConfigurationConnectionString "<App-Configuration-store-connection-string>"
     ```
 
-    Close and reopen Command Prompt so that the change takes effect.
+    After you run this command, close and reopen Command Prompt so that the change takes effect.
 
     ### [PowerShell](#tab/powershell)
 
