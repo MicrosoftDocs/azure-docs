@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-virtual-machines
-ms.date: 07/08/2025
+ms.date: 08/07/2025
 ---
 
 # Reliability in Virtual Machines
@@ -15,8 +15,10 @@ Azure Virtual Machines (VMs) provides on-demand, scalable compute resources. As 
 
 This article describes reliability support in [Azure Virtual Machines](/azure/virtual-machines/overview), including support for availability zones, backups, and maintaining reliability during platform maintenance.
 
+[!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
+
 > [!IMPORTANT]
-> When you consider the reliability of a VM, also consider the reliability of your disks, your network infrastructure, and the applications that run on your VMs. Even if you increase the resiliency of a VM, that increase might not be impactful if your other resources and applications aren't also resilient. Depending on your resiliency requirements, you may need to make configuration changes across multiple areas.
+> When you consider the reliability of a VM, you also need to consider the reliability of your disks, your network infrastructure, and the applications that run on your VMs. Even if you increase the resiliency of a VM, that increase might not be impactful if your other resources and applications aren't also resilient. Depending on your resiliency requirements, you may need to make configuration changes across multiple areas.
 
 ## Production deployment recommendations
 
@@ -26,11 +28,9 @@ To learn about how to deploy VMs to support your solution's reliability requirem
 
 VMs are the fundamental compute unit in Azure, whether you provision the VMs yourself or use other Azure compute services that transparently provision and manage them for you.
 
-An individual VM is sometimes called a *single instance VM*, and it runs in one place. VMs run on a *host*, which is a physical server. Most VMs run on shared hosts.
+An individual VM is sometimes called a *single instance VM*. It runs on a specific host, which is a physical server. Most VMs share their host with other VMs.
 
-An individual VM is sometimes called a *single instance VM*. It runs on a specific host - a physical server. Most VMs share their host with other VMs.
-
-Azure gives you control over where your virtual machines (VMs) run by letting you make tradeoffs between reliability, latency, and isolation. These options help you influence how Azure places your VM on that underlying infrastructure:
+When you create your VMs, you can influence where your VMs run in the underlying infrastructure. Generally, you'll make your choices based on your requirements for reliability, latency, and isolation. Azure offers the following configuration options that affect the placement of your VMs:
 
 - **Region:** You can select which [Azure region](./regions-overview.md) your VM should run in. A region is a geographic area that might contain multiple datacenters, each with a large number of hosts.
 
@@ -99,7 +99,7 @@ This section explains how to configure availability zone support for your virtua
 
 This section describes what to expect when virtual machine instances are configured with availability zone support and all availability zones are operational.
 
-- **Traffic routing between zones:** You're responsible for routing traffic between VMs, including VMs that are in different availability zones. Common approaches include Azure Load Balancer and Azure Application Gateway.
+- **Traffic routing between zones:** You're responsible for routing traffic between VMs, including VMs that are in different availability zones. Common approaches include Azure Load Balancer and Azure Application Gateway. For more information on Azure load balancing options, see [Azure Architecture Center - Load balancing options](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 - **Data replication between zones:** You're responsible for any data replication that needs to happen between VMs, including across VMs in different availability zones. Databases and other similar stateful applications that run on VMs often provide capabilities to replicate data.
 
@@ -109,17 +109,17 @@ This section describes what to expect when virtual machine instances are configu
 
 - **Detection and response**: You're responsible for detecting and responding to zone failures that affect your virtual machines.
 
-- **Notification**: Use Azure Resource Health to detect zone failures and trigger failover processes.
+- **Notification**: Use [Azure Resource Health](/azure/service-health/resource-health-overview) to detect zone failures and trigger failover processes.
 
 - **Active requests**: Any active requests or other work happening on the VM during the zone failure are likely to be terminated.
 
 - **Expected data loss**: Zonal VM disks might be unavailable during a zone failure.
 
-    If you use zone-redundant disks and your VM is affected by an outage, ou can [force detach](/rest/api/compute/virtual-machines/attach-detach-data-disks?tabs=HTTP#diskdetachoptiontypes) your ZRS disks from the failed VM, allowing you to then attach the ZRS disks to another VM.
+    If you use zone-redundant disks and your VM is affected by an outage, you can [force detach](/rest/api/compute/virtual-machines/attach-detach-data-disks?tabs=HTTP#diskdetachoptiontypes) your ZRS disks from the failed VM, allowing you to then attach the ZRS disks to another VM.
 
 - **Expected downtime**: VMs remain down until the availability zone recovers.
 
-- **Traffic rerouting**: You're responsible for reroute traffic to other VMs in healthy zones.
+- **Traffic rerouting**: You're responsible for rerouting traffic to other VMs in healthy zones.
 
     If you've configured a zone-resilient load balancer and it performs health checks, the load balancer typically detects failed VMs and can route traffic to other VM instances in healthy zones.
 
@@ -130,6 +130,14 @@ Once the zone is healthy, VMs in the zone restart. You're responsible for any fa
 ### Testing for zone failures
 
 You can use Azure Chaos Studio to simulate the loss of a VM as part of an experiment. Chaos Studio provides [built-in faults for VMs](/azure/chaos-studio/chaos-studio-fault-library#virtual-machines-service-direct), including to shut down a VM. You can use these capabilities to simulate zone failures and test your failover processes.
+
+### Alternative multi-zone approaches
+
+When you deploy multiple VMs into different zones, you're responsible for configuring and managing replication, load balancing, failover, and failback processes.
+
+Some applications provide built-in capabilities that can help when you deploy across multiple VMs. For example, [SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview) provides a set of capabilities to simplify your configuration and management processes across availability zones.
+
+You can consider using [Azure Site Recovery zone-to-zone disaster recovery](/azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery) when your application runs in a single zone at a time, and where you don't require near-instant failover between zones. Zone-to-zone disaster recovery has some important limitations to be aware of, so review your requirements thoroughly.
 
 ## Multi-region support
 
