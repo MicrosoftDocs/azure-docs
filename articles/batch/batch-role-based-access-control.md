@@ -2,7 +2,7 @@
 title: Role-based access control for Azure Batch service
 description: Learn how to use Azure role-based access control for managing individual access to Azure Batch account.
 ms.topic: how-to
-ms.date: 04/02/2025
+ms.date: 08/07/2025
 # Customer intent: As a cloud administrator, I want to manage role-based access to the Azure Batch service, so that I can control user permissions and ensure secure and efficient operation of batch processing tasks.
 ---
 
@@ -161,8 +161,8 @@ Grants permissions to manage Batch pools and jobs but not to modify accounts.
 > | [Microsoft.Authorization](/azure/role-based-access-control/permissions/management-and-governance#microsoftauthorization)/*/read | Read roles and role assignments. |
 > | [Microsoft.Batch](/azure/role-based-access-control/permissions/compute#microsoftbatch)/batchAccounts/read | Lists Batch accounts or gets the properties of a Batch account. |
 > | [Microsoft.Batch](/azure/role-based-access-control/permissions/compute#microsoftbatch)/batchAccounts/applications/* | Create and manage applications and application packages on a Batch account. |
-> | [Microsoft.Batch](/azure/role-based-access-control/permissions/compute#microsoftbatch)/batchAccounts/certificates/* | Create and manage certificates on a Batch account. |
-> | [Microsoft.Batch](/azure/role-based-access-control/permissions/compute#microsoftbatch)/batchAccounts/certificateOperationResults/* | Gets the results of a long running certificate operation on a Batch account. |
+> | [Microsoft.Batch](/azure/role-based-access-control/permissions/compute#microsoftbatch)/batchAccounts/certificates/* | Create and manage certificates on a Batch account. (Warning: [Certificate feature was retired](./batch-certificate-migration-guide#feature-end-of-support)) |
+> | [Microsoft.Batch](/azure/role-based-access-control/permissions/compute#microsoftbatch)/batchAccounts/certificateOperationResults/* | Gets the results of a long running certificate operation on a Batch account. (Warning: [Certificate feature was retired](./batch-certificate-migration-guide#feature-end-of-support)) |
 > | [Microsoft.Batch](/azure/role-based-access-control/permissions/compute#microsoftbatch)/pools/* | Create and manage pools on a Batch account. | 
 > | [Microsoft.Batch](/azure/role-based-access-control/permissions/compute#microsoftbatch)/poolOperationResults/* | Gets the results of a long running pool operation on a Batch account. | 
 > | [Microsoft.Batch](/azure/role-based-access-control/permissions/compute#microsoftbatch)/locations/*/read | Get Batch account operation result/Batch quota/supported VM size at the given location. |
@@ -276,8 +276,8 @@ If Azure Batch built-in roles don't meet your needs, [Azure custom roles](../rol
 - Microsoft.Batch/batchAccounts/jobs/delete
 - Microsoft.Batch/batchAccounts/jobs/read
 - Microsoft.Batch/batchAccounts/certificates/write
-- Microsoft.Batch/batchAccounts/certificates/delete
-- Microsoft.Batch/batchAccounts/certificates/read
+- Microsoft.Batch/batchAccounts/certificates/delete (Warning: [Certificate feature was retired](./batch-certificate-migration-guide#feature-end-of-support))
+- Microsoft.Batch/batchAccounts/certificates/read (Warning: [Certificate feature was retired](./batch-certificate-migration-guide#feature-end-of-support))
 - Microsoft.Batch/batchAccounts/applications/write
 - Microsoft.Batch/batchAccounts/applications/delete
 - Microsoft.Batch/batchAccounts/applications/read
