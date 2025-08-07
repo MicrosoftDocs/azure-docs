@@ -55,23 +55,19 @@ To enable authentication using access tokens:
 
 ::: zone pivot="playwright-test-runner"
 
-### If you're using the **Playwright Test Runner**
+1. While running the tests, enable access token auth in the `playwright.service.config.ts` file in your setup. 
 
-While running the tests, enable access token auth in the `playwright.service.config.ts` file in your setup. 
-
-```typescript
+    ```typescript
     import { getServiceConfig, ServiceAuth } from '@azure/playwright';
     
     /* Learn more about service configuration at https://aka.ms/mpt/config */
-    export default defineConfig(config, getServiceConfig( config {
+    export default defineConfig(config, getServiceConfig( config, {
         serviceAuthType: ServiceAuth.ACCESS_TOKEN
     }));
-```
+    ```
 ::: zone-end
 
 ::: zone pivot="nunit-test-runner"
-
-### If you're using the **NUnit Test Runner**
 
 1. While running the tests, enable access token auth in the setup file. 
 
@@ -109,8 +105,6 @@ While running the tests, enable access token auth in the `playwright.service.con
 
 ## Set up your environment.
 
-### If you're using the **Playwright Test Runner**
-
 To set up your environment, configure the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` environment variable with the value you obtained in the previous steps. Ensure this environment variable is available in your setup where you are running tests.
 
 We recommend that you use the `dotenv` module to manage your environment. With `dotenv`, you define your environment variables in the `.env` file.
@@ -133,8 +127,6 @@ We recommend that you use the `dotenv` module to manage your environment. With `
 
 ::: zone pivot="nunit-test-runner"
 
-### If you're using the **NUnit Test Runner**
-
 To set up your environment, configure the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` environment variable with the value you obtained in the previous steps. Ensure this environment variable is available in your setup where you are running tests.
 
 ::: zone-end
@@ -145,7 +137,6 @@ Run Playwright tests against cloud-hosted browsers and publish the results to th
 
 ::: zone pivot="playwright-test-runner"
 
-### If you're using the **Playwright Test Runner**
 ```typescript
 npx playwright test --config=playwright.service.config.ts --workers=20
 ```
@@ -153,7 +144,6 @@ npx playwright test --config=playwright.service.config.ts --workers=20
 
 ::: zone pivot="nunit-test-runner"
 
-### If you're using the **NUnit Test Runner**
 ```bash
 dotnet test -- NUnit.NumberOfTestWorkers=20
 ```
