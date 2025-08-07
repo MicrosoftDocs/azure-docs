@@ -637,7 +637,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-functions/create-first-function-vs-code-powershell.md",
-            "redirect_url": "/azure/azure-functions/how-to-create-function-vs-code.md?pivot=programming-language-powershell",
+            "redirect_url": "/azure/azure-functions/how-to-create-function-vs-code?pivot=programming-language-powershell",
             "redirect_document_id": false
         },
         {
