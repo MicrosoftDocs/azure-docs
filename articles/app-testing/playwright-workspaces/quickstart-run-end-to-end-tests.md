@@ -157,7 +157,7 @@ public class PlaywrightServiceNUnitSetup  : PlaywrightServiceBrowserNUnit
 ```
 
 > [!NOTE]
-> Make sure your project uses `Microsoft.Playwright.NUnit` version 1.47 or above.
+> Make sure your project uses `Microsoft.Playwright.NUnit` version 1.50 or above.
 
 ::: zone-end
 ## Set up Authentication
