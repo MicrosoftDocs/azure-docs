@@ -639,8 +639,8 @@
             "branch_mapping": {}
         },
         {
-            "path_to_root": "playwright-testing-service",
-            "url": "https://github.com/microsoft/playwright-testing-service",
+            "path_to_root": "playwright-workspaces",
+            "url": "https://github.com/Azure/playwright-workspaces",
             "branch": "main",
             "branch_mapping": {}
         },

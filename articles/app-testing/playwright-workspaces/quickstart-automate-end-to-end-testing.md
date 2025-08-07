@@ -73,11 +73,11 @@ If you don't have Playwright tests configured to run with the service, add a ser
 
 1. Create a new file `playwright.service.config.ts` alongside the `playwright.config.ts` file.
 
-    Optionally, use the `playwright.service.config.ts` file in the [sample repository](https://github.com/microsoft/playwright-testing-service/blob/main/samples/get-started/playwright.service.config.ts).
+    Optionally, use the `playwright.service.config.ts` file in the [sample repository](https://github.com/Azure/playwright-workspaces/blob/main/samples/playwright-tests/playwright.service.config.ts).
 
 2. Add the following content to it:
 
-    :::code language="typescript" source="~/playwright-testing-service/samples/get-started/playwright.service.config.ts":::
+    :::code language="typescript" source="~/playwright-workspaces/samples/playwright-tests/playwright.service.config.ts":::
 
    By default, the service configuration enables you to accelerate build pipelines by running tests in parallel using cloud-hosted browsers.
 
@@ -449,8 +449,6 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
 After you validate that the test runs successfully, you can gradually increase the test load by running more tests with the service.
 
 ::: zone pivot="playwright-test-runner"
-
-### If you're using the **Playwright Test Runner**:
 
 You can run a single test with the service by using the following command-line:
 
