@@ -30,11 +30,14 @@ sections:
       - question: Does Application Gateway for Containers support Kubenet?
         answer: No, Application Gateway for Containers doesn't support Kubenet in favor of [CNI Overlay](/azure/aks/azure-cni-overlay). [Learn more](/azure/aks/upgrade-aks-ipam-and-dataplane) about migrating from Kubenet to CNI Overlay.
 
+      - question: Why does the frontend resolve to an IP address with an ASN location outside the region Application Gateway for Containers is deployed to?
+        answer: Application Gateway for Containers frontends resolve to any anycast IP address. Anycast IP addresses are advertised globally, which may lead to the ASN location being different from Application Gateway for Containers. The resolved location of the IP address is cosmetic and has no bearing on availability or performance in how clients connect.
+
   - name: Performance
     questions:
       - question: How does Application Gateway for Containers support high availability and scalability?
         answer: |
-          Application Gateway for Containers automatically ensures underlying components are spread across availability zones for increased resiliency, if the Azure region supports it.  If the region doesn't support zones, fault domains and update domains be used to help mitigate impact during planned maintainence and unexpected failures. 
+          Application Gateway for Containers automatically ensures underlying components are spread across availability zones for increased resiliency, if the Azure region supports it.  If the region doesn't support zones, fault domains and update domains be used to help mitigate impact during planned maintenance and unexpected failures. 
         
           > [!WARNING] 
           > Ensure the Application Gateway for Containers subnet is a /24 prior to upgrading. Upgrading from CNI to CNI Overlay with a larger subnet (i.e., /23) will lead to an outage and require the Application Gateway for Containers subnet to be recreated with a /24 subnet size.

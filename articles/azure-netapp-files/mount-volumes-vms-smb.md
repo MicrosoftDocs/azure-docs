@@ -6,6 +6,9 @@ ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 03/29/2025
+ms.custom:
+  - build-2025
+# Customer intent: As a system administrator, I want to mount SMB volumes on Windows virtual machines, so that I can enable access to shared storage for applications and improve data management.
 ---
 # Mount SMB volumes for Windows virtual machines
 

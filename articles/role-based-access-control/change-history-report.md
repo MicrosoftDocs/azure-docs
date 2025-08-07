@@ -1,12 +1,12 @@
 ---
 title: View activity logs for Azure RBAC changes
 description: View activity logs for Azure role-based access control (Azure RBAC) changes for the past 90 days.
-author: rolyon
-manager: femila
+author: jenniferf-skc
+manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.date: 03/01/2021
-ms.author: rolyon
+ms.author: jfields
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell, devx-track-azurecli
 ms.devlang: azurecli
 ---

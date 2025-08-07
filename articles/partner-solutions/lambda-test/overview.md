@@ -3,6 +3,8 @@ title: What is LambdaTest - HyperExecute?
 description: Discover LambdaTest - HyperExecute, an AI-powered test execution platform offering seamless integration and management via the Azure portal.
 ms.topic: overview
 ms.date: 04/14/2025
+ms.custom:
+  - build-2025
 ---
 
 # What is LambdaTest - HyperExecute?

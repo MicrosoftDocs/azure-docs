@@ -1,7 +1,7 @@
 ---
 title: Azure Cloud Shell release notes
 description: This article lists the new features and changes released in Azure Cloud Shell.
-ms.date: 04/15/2025
+ms.date: 06/27/2025
 ms.topic: release-notes
 ---
 
@@ -19,6 +19,19 @@ and bug fixes.
 > vulnerability or other critical issue. As with any other tool, if there's a tool you need, you
 > can install them in your Cloud Shell session as long as it doesn't require root access. For
 > installation instructions, consult the documentation for the package you require.
+
+## June 2025
+
+Tool changes
+
+- Updated Azure CLI to v2.74.0
+- Updated Azure PowerShell to v14.1.0
+- Updated .NET to v9.0.3
+- Updated Microsoft.PowerShell.PSResourceGet to v1.1.1. This version includes support for MAR as a
+  PSRepository.
+- Added [Inspektor Gadget][13] and `kubectl-gadget` packages. Inspektor Gadget offers tools for data
+  collection and system inspection on Kubernetes clusters and Linux hosts using eBPF.
+- `msodbcsql18` and `mssql-tools18` were readded to the image.
 
 ## April 2025
 
@@ -71,7 +84,7 @@ New features
   toolbar uses text-based menu items rather than icons, making it easier to find the desired action.
 
   For more information, see
-  [How to use the new user interface for Azure Cloud Shell][14].
+  [How to use the new user interface for Azure Cloud Shell][15].
 
 - Support for ephemeral sessions
 
@@ -91,7 +104,7 @@ require.
 
 - [Batch-Shipyard][09]
 - [blobxfer][10]
-- [Yeoman (yo)][13]
+- [Yeoman (yo)][14]
 - [generator-az-terra module][12]
 - [Azure-functions-cli][08]
 
@@ -110,3 +123,19 @@ require.
 [12]: https://github.com/Azure/generator-az-terra-module
 [13]: https://yeoman.io/
 [14]: new-ui-shell-window.md
+<!-- updated link references -->
+[01]: ./get-started/ephemeral.md?tabs=powershell
+[02]: /azure/azure-functions/functions-core-tools-reference?tabs=v2
+[03]: /azure/service-fabric/service-fabric-cli
+[04]: /cli/azure/release-notes-azure-cli
+[05]: /powershell/azure/release-notes-azureps?view=azps-13.1.0&preserve-view=true
+[06]: https://azure.microsoft.com/blog/redis-license-update-what-you-need-to-know/
+[07]: https://developer.hashicorp.com/packer/docs/intro
+[08]: https://github.com/Azure/azure-functions-core-tools
+[09]: https://github.com/Azure/batch-shipyard
+[10]: https://github.com/Azure/blobxfer
+[11]: https://github.com/Azure/CloudShell/blob/master/docs/package-inclusion-guide.md
+[12]: https://github.com/Azure/generator-az-terra-module
+[13]: https://inspektor-gadget.io/
+[14]: https://yeoman.io/
+[15]: new-ui-shell-window.md

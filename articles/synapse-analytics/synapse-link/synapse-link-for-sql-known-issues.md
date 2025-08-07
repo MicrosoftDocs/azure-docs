@@ -8,6 +8,8 @@ ms.date: 05/07/2025
 ms.service: azure-synapse-analytics
 ms.subservice: synapse-link
 ms.topic: troubleshooting
+ms.custom:
+  - build-2025
 ---
 
 # Limitations and known issues with Azure Synapse Link for SQL

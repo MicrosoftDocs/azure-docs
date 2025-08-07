@@ -46,7 +46,7 @@ If you don't meet these prerequisites, we recommend that you start with one of t
 ## Add the Netherite extension (.NET only)
 
 > [!NOTE]
-> If your app uses [Extension Bundles](../functions-bindings-register.md#extension-bundles), skip this section. Extension Bundles removes the need for manual extension management.
+> If your app uses [Extension Bundles](../extension-bundles.md), skip this section. Extension Bundles removes the need for manual extension management.
 
 First, install the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite) storage provider extension from NuGet. For .NET, you usually include a reference to it in your *.csproj* file and building the project.
 

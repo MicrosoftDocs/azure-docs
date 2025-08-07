@@ -100,7 +100,7 @@ Device Update for IoT Hub offers optimized update deployment and streamlined ope
 * Update management UX integrated with Azure IoT Hub
 * Gradual update rollout through device grouping and update scheduling controls
 * Programmatic APIs to enable automation and custom portal experiences
-* At-a-glance update compliance and status views across heterogenous device fleets
+* At-a-glance update compliance and status views across heterogeneous device fleets
 * Support for resilient device updates (A/B) to deliver seamless rollback
 * Content caching and disconnected device support, including those devices that are in nested configurations, through built-in Microsoft Connected Cache and integration with Azure IoT Edge
 * Subscription and role-based access controls available via the [Azure portal](https://portal.azure.com)

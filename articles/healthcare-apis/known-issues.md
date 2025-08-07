@@ -6,7 +6,7 @@ author: kgaddam10
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 03/13/2024
+ms.date: 05/15/2025
 ms.author: kavitagaddam
 ---
 

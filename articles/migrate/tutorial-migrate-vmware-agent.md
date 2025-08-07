@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 05/12/2025
 ms.custom: vmware-scenario-422, MVC, engagement-fy25
+# Customer intent: As a system administrator, I want to migrate VMware vSphere VMs to Azure using agent-based migration, so that I can leverage cloud capabilities while ensuring minimal downtime and maintaining operational continuity during the transition.
 ---
 
 # Migrate VMware vSphere VMs to Azure (agent-based)
@@ -294,7 +295,7 @@ Select VMs for migration.
 
 ## Simplified experience
 
-Now, the selection experience type is both classic and simplified. The new simplified process follows a streamlined flow that begins with discovery, followed by replication, and finally migration. This is an upgraded agent-based migration stack for physical and VMware environments. For more information, see [Simplified experience](tutorial-migrate-physical-virtual-machines.md#simplified-experience).
+Now, the selection experience type is both classic and simplified. The new simplified process follows a streamlined flow that begins with discovery, followed by replication, and finally migration. This is an upgraded agent-based migration stack for physical and VMware environments. [Learn more](https://github.com/MicrosoftDocs/azure-docs-pr/blob/c7aa974797f544e2f4e1059af2c0b59249271ccd/articles/migrate/tutorial-migrate-physical-virtual-machines.md#simplified-experience-recommended) about simplified experience.
 
 
 ## Track and monitor

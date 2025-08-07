@@ -7,6 +7,8 @@ ms.custom: linux-related-content
 ms.date: 03/07/2025
 ms.topic: how-to
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Manage change tracking and inventory using Azure Monitoring Agent

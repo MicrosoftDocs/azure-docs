@@ -17,6 +17,8 @@ ms.devlang: azurecli
 
 # Create a Network Security Perimeter
 
+[!INCLUDE [Public Preview Disclaimer](../includes/public-preview-include.md)] 
+
 This article provides a comprehensive guide to set up a Network Security Perimeter (NSP) with Azure Communication Services. The NSP ensures that your communication services are secure and protected from unauthorized access.
 
 ## Prerequisites
@@ -65,7 +67,7 @@ Provide the same network security perimeter name used in **Step 3**.
 
 `az network perimeter profile create --name <network-perimeter-profile-name> --resource-group <resource-group-name> --perimeter-name <network-security-perimeter-name>`
 
-### Step 5: Create an inbound access rule with a public IP address [YC2.1] [YC2.2] prefix for the profile created with the following command
+### Step 5: Create an inbound access rule with a public IP address prefix for the profile created with the following command
 
 `az network perimeter profile access-rule create --name <access-rule-name> --profile-name <network-perimeter-profile-name> --perimeter-name <network-security-perimeter-name> --resource-group <resource-group-name> --address-prefixes "[192.0.2.0/24]"`
 
@@ -90,7 +92,7 @@ Provide the same network security perimeter name used in **Step 3**.
    `az network perimeter association create --name <network-perimeter-association-name>  --perimeter-name <network-security-perimeter-name> --resource-group <network-perimeter-resource-group>  --access-mode Enforced --private-link-resource "{id:<ACSArmId>}" --profile "{id:<networkSecurityPerimeterProfileId>}"`
 
 
-### Step 7: Verify the allowlisted IP addresses can send email with NSP enabled [YC3.1] [YC3.2] [NM3.3]
+### Step 7: Verify the allowlisted IP addresses can send email with NSP enabled 
 
 Make sure that the Azure Communication Services resource is connected to a verified email domain. For more information, see [Connect a verified email domain](./email/connect-email-communication-resource.md).
 

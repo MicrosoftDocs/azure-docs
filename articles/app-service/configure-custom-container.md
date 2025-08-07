@@ -581,4 +581,4 @@ The following lists show supported and unsupported Docker Compose configuration 
 Or, see more resources:
 
 - [Environment variables and app settings reference](reference-app-settings.md)
-- [Load certificate in Windows/Linux containers](configure-ssl-certificate-in-code.md#load-certificate-in-linuxwindows-containers)
+- [Load certificates in Windows/Linux containers](configure-ssl-certificate-in-code.md#load-certificates-in-linuxwindows-containers)

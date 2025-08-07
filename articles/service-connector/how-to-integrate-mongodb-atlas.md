@@ -5,7 +5,9 @@ author: qianwens
 ms.author: qianwens
 ms.service: service-connector
 ms.topic: how-to
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - build-2025
 ms.date: 05/08/2025
 ---
 
@@ -116,4 +118,4 @@ Refer to the steps and code below to connect to MongoDB Atlas cluster using a co
 Follow the tutorials listed below to learn more about Service Connector.
 
 > [!div class="nextstepaction"]
-> [Connect apps to MongoDB Atlas (Preview)](./howto-mongodb-atlas-service-connection.md)
+> [Connect apps to MongoDB Atlas](./howto-mongodb-atlas-service-connection.md)

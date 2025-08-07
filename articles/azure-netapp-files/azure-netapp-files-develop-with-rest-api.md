@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 09/30/2024
 ms.author: anfdocs
+# Customer intent: As a developer, I want to use the REST API for Azure NetApp Files so that I can manage resources such as accounts, capacity pools, volumes, and snapshots efficiently through automated HTTP operations.
 ---
 # Develop for Azure NetApp Files with REST API 
 

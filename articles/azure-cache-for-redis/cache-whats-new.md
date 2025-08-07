@@ -2,7 +2,9 @@
 title: What's New in Azure Cache for Redis
 description: Recent updates for Azure Cache for Redis
 
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - build-2025
 
 ms.topic: conceptual
 ms.date: 11/15/2024

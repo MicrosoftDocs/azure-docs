@@ -14,3 +14,5 @@ items:
   items:
   - name: Manage your resource
     href: manage.md
+  - name: Troubleshoot your resource
+    href: /troubleshoot/azure/partner-solutions/welcome-native-integrations

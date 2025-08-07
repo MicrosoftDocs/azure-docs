@@ -5,9 +5,10 @@ ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 05/23/2024
 ms.custom: MVC
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 
+# Customer intent: As an IT administrator, I want to conduct test failovers for on-premises machines to Azure, so that I can validate our disaster recovery strategy and ensure business continuity without data loss.
 ---
 # Run a disaster recovery drill to Azure
 

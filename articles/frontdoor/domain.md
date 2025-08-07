@@ -133,7 +133,7 @@ Sometimes, you might need to provide your own TLS certificates. Common scenarios
 
 To use your certificate with Azure Front Door, it must meet the following requirements:
 
-- **Complete certificate chain:** When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If you use a nonallowed CA, your request is rejected.  The root CA must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If a certificate without complete chain is presented, the requests that involve that certificate aren't guaranteed to work as expected.
+- **Complete certificate chain:** When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT). If you use a nonallowed CA, your request is rejected.  The root CA must be part of the [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT). If a certificate without complete chain is presented, the requests that involve that certificate aren't guaranteed to work as expected.
 - **Common name:** The common name (CN) of the certificate must match the domain configured in Azure Front Door.
 - **Algorithm:** Azure Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms.
 - **File (content) type:** Your certificate must be uploaded to your key vault from a PFX file, which uses the `application/x-pkcs12` content type.
@@ -186,13 +186,14 @@ For most custom domains, Azure Front Door automatically renews (rotates) managed
 However, Azure Front Door won't automatically rotate certificates in the following scenarios:
 
 * The custom domain's CNAME record is pointing to a DNS record other than your Azure Front Door endpoint's domain.
-* The custom domain points to the Azure Front Door endpoint through a chain. For example, if your DNS record points to Azure Traffic Manager, which in turn resolves to Azure Front Door, the CNAME chain is `contoso.com` CNAME in `contoso.trafficmanager.net` CNAME in `contoso.z01.azurefd.net`. Azure Front Door can't verify the whole chain.
+* The custom domain points to the Azure Front Door endpoint through a chain. 
 * The custom domain uses an A record. We recommend you always use a CNAME record to point to Azure Front Door.
 * The custom domain is an [apex domain](apex-domain.md) and uses CNAME flattening.
 
 If one of the scenarios above applies to your custom domain, then 45 days before the managed certificate expire, the domain validation state becomes *Pending Revalidation*. The *Pending Revalidation* state indicates that you need to create a new DNS TXT record to revalidate your domain ownership.
 
 > [!NOTE]
+> An exception to the above is that Azure Front Door (Standard and Premium) managed certificates are automatically rotated even if the domain CNAME record points indirectly to a Traffic Manager endpoint.
 > DNS TXT records expire after seven days. If you previously added a domain validation TXT record to your DNS server, you need to replace it with a new TXT record. Ensure you use the new value, otherwise the domain validation process will fail.
 
 If your domain can't be validated, the domain validation state becomes *Rejected*. This state indicates that the certificate authority has rejected the request for reissuing a managed certificate.

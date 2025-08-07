@@ -199,7 +199,7 @@ Automotive OEMs are undergoing a significant transformation as they shift from p
 This reference architecture allows automotive manufacturers and mobility providers to:
 
 * Use feedback data as part of the **digital engineering** process to drive continuous product improvement, proactively address root causes of problems and create new customer value.
-* Provide new **digital products and services** and digitalize operations with **business integration** with back-end systems like Enterprise Resource Planning (ERP) and Customer Relationship Management (CRM).
+* Provide new **digital products and services** and digitize operations with **business integration** with back-end systems like Enterprise Resource Planning (ERP) and Customer Relationship Management (CRM).
 * Share data securely and addressing country/region-specific requirements for user consent with the broader **smart Mobility ecosystems**.
 * Integrate with back-end systems for vehicle lifecycle management and consent management simplifies and accelerate the deployment and management of connected vehicle solutions using a **Software Defined Vehicle DevOps Toolchain**.
 * Store and provide compute at scale for **vehicle and analytics**.

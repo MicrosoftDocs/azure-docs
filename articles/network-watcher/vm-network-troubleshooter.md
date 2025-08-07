@@ -7,6 +7,9 @@ ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.date: 05/07/2025
+ms.custom:
+  - build-2025
+# Customer intent: "As an Azure user troubleshooting connectivity issues, I want to use the VM network troubleshooter to check if commonly used ports are blocked, so that I can quickly diagnose and resolve network access problems on my virtual machines."
 ---
 
 # VM network troubleshooter (Preview) overview

@@ -19,7 +19,7 @@ By the end of this tutorial, you deploy a web application that you can manage th
 
 ## Prerequisites
 
-- An Azure subscription. [Create one for free.](https://azure.microsoft.com/free/).
+- An Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
 - The `Contributor` or `Owner` permission on the Azure subscription. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml?tabs=current).
 - [A GitHub account](https://github.com/join).
 - [Git](https://git-scm.com/downloads)

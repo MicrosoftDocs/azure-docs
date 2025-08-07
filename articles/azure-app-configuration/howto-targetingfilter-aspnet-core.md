@@ -8,6 +8,8 @@ author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.topic: how-to
 ms.date: 12/02/2024
+ms.custom:
+  - build-2025
 ---
 
 # Roll out features to targeted audiences in an ASP.NET Core application
@@ -17,7 +19,7 @@ In this guide, you'll use the targeting filter to roll out a feature to targeted
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - A feature flag with targeting filter. [Create the feature flag](./howto-targetingfilter.md).
 - [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download).
 

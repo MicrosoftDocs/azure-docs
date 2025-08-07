@@ -9,6 +9,7 @@ ms.date: 03/25/2025
 ms.author: abell 
 ms.custom: template-how-to
 ms.devlang: azurecli
+# Customer intent: "As a network administrator, I want to disable network policies on the Azure Private Link service for a specific subnet, so that I can ensure proper access control while maintaining network security for other resources."
 ---
 
 # Disable network policies for Private Link service source IP

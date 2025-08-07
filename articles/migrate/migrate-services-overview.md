@@ -8,6 +8,7 @@ ms.topic: overview
 ms.service: azure-migrate
 ms.date: 03/20/2025
 ms.custom: mvc, engagement-fy25
+# Customer intent: "As an IT manager, I want to utilize Azure Migrate to assess and execute the migration of our on-premises workloads to Azure, so that I can minimize downtime and ensure a cost-effective and efficient transition to the cloud."
 ---
 
 # What is Azure Migrate?

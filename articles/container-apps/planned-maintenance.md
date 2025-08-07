@@ -6,6 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom:
   - ignite-2024
+  - build-2025
 ms.topic: how-to
 ms.date: 05/02/2025
 ms.author: cshoe
@@ -117,6 +118,10 @@ Use the following steps to review the maintenance history in the Azure portal.
 1. Open your Container Apps environment in the Azure portal.
 
 1. Select **Diagnose and solve problems**.
+
+1. Search for the **Scheduled Maintenance Events** detector. 
+
+:::image type="content" source="media/planned-maintenance/azure-container-apps-planned-maintenance-search.png" alt-text="Screenshot of an Azure Container Apps diagnostics scheduled maintenance search." lightbox="media/planned-maintenance/azure-container-apps-planned-maintenance-search.png":::
 
 In the *Diagnose and solve problems* window, you can view the configured maintenance window and upgrade events that occurred in the last month. As you hover your mouse over the bars in the chart, you can see the start time for each upgrade event.
 

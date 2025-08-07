@@ -7,6 +7,7 @@ ms.service: azure-expressroute
 ms.topic: concept-article
 ms.date: 05/01/2025
 ms.author: duau
+# Customer intent: "As a network administrator, I want to troubleshoot Azure ExpressRoute gateway migration errors, so that I can ensure a smooth and successful migration process while minimizing disruptions to our network services."
 ---
 
 # Azure ExpressRoute gateway migration - Troubleshooting errors and best practices

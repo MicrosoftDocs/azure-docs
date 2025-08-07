@@ -186,6 +186,11 @@ For more information, see:
 - [Introduction to Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
 - [Grant limited access to Azure Storage resources by using shared access signatures](/azure/storage/common/storage-sas-overview)
 
+### Send email to more than 50 recipients
+
+If you want to send emails to more than 50 recipients, make a [support request](../support.md).
+However, sending emails via SMTP to more than 50 recipients is not supported. 
+
 ### Action to take
 
 To increase your email quota, follow the instructions in [Quota increase for email domains](./email/email-quota-increase.md).

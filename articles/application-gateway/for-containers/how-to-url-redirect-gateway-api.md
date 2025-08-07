@@ -7,6 +7,7 @@ ms.service: azure-appgw-for-containers
 ms.topic: how-to
 ms.date: 11/5/2024
 ms.author: mbender
+# Customer intent: "As a cloud administrator, I want to configure URL redirection in an application gateway for containers, so that I can manage traffic effectively between HTTP and HTTPS protocols and ensure users are directed to the appropriate resources based on their requests."
 ---
 
 # URL Redirect for Azure Application Gateway for Containers - Gateway API

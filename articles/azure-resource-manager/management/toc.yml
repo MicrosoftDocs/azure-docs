@@ -308,7 +308,7 @@
   - name: Build your skills with Microsoft Learn training
     href: /training/browse/?products=azure-resource-manager
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=monitoring-management
+    href: https://azure.microsoft.com/updates/?category=monitoring-management
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates
@@ -317,5 +317,3 @@
     href: https://stackoverflow.com/questions/tagged/azure-resource-manager
   - name: Manage personal data
     href: resource-manager-personal-data.md
-  - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager

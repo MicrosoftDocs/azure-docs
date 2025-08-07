@@ -5,6 +5,7 @@ ms.topic: concept-article
 ms.service: azure-vmware
 ms.date: 3/22/2024
 ms.custom: engagement-fy23
+# Customer intent: As a network architect, I want to evaluate different methods for enabling internet connectivity for Azure VMware Solution, so that I can make an informed decision based on security, visibility, and capacity requirements for my organization's cloud infrastructure.
 ---
 
 # Internet connectivity design considerations 

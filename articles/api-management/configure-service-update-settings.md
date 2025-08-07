@@ -15,7 +15,7 @@ ms.author: danlep
 
 This article shows you how to configure *service update* settings (preview) in your API Management instance. Azure periodically applies service updates automatically to API Management instances, using a phased rollout approach. These updates include new features, security enhancements, and reliability improvements. 
 
-You can't control exactly when Azure updates each API Management instance, but in select service tiers you can choose an *update group* for your instance so that it receives updates earlier or later than it usually would during an update rollout. You can also configure a *maintenance window* during the day when you want your instance to receive updates. 
+You can't control exactly when Azure updates each API Management instance, but in select service tiers you can choose an *update group* (also called a *release channel*) for your instance so that it receives updates earlier or later than it usually would during an update rollout. You can also configure a *maintenance window* during the day when you want your instance to receive updates. 
 
 * **Update group** - A set of instances that receive API Management service updates during a production rollout, which can take from several days to several weeks to complete. 
 
@@ -23,7 +23,7 @@ You can't control exactly when Azure updates each API Management instance, but i
     * **Early** - Receive updates early in the rollout, for testing and early access to new features. This option is not recommended for production deployments.
     * **Default** - Receive updates as part of the regular release rollout. This option is recommended for most services, including production deployments.
     * **Late** - Receive updates later than the previous groups, typically weeks after the initial rollout. This option is recommended for mission-critical deployments only.
-    * **AI Gateway Early** (GenAI release) - Get early access to the latest [AI gateway features and updates](genai-gateway-capabilities.md) before they reach other update groups. Receive other service updates as part of the **Late** rollout group.
+    * **AI Gateway Early** (GenAI release channel) - Get early access to the latest [AI gateway features and updates](genai-gateway-capabilities.md) before they reach other update groups. Receive other service updates as part of the **Late** rollout group.
 
     > [!NOTE]
     > Azure deploys all updates using a [safe deployment practices (SDP) framework](https://azure.microsoft.com/blog/advancing-safe-deployment-practices/). Updates released early in a rollout might be less stable and replaced later by stable releases. All instances are eventually updated to the most stable release builds.

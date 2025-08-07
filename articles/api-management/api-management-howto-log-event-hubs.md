@@ -8,7 +8,8 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 09/04/2024
 ms.author: danlep
-
+ms.custom:
+  - build-2025
 ---
 # How to log events to Azure Event Hubs in Azure API Management
 

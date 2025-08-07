@@ -11,6 +11,7 @@ ms.custom:
   - references_regions
   - ignite-2023
   - ignite-2024
+  - build-2025
 ---
 
 # Workload profiles in Azure Container Apps

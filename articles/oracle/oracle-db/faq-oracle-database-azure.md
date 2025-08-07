@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
 ms.custom: engagement-fy24
+# Customer intent: "As a database administrator, I want to understand the features and management options of Oracle Database@Azure, so that I can effectively deploy and maintain my Oracle workloads within Azure while ensuring optimal performance and compliance."
 ---
 
 # FAQ for Oracle Database@Azure
@@ -64,6 +65,11 @@ Various Oracle applications are authorized and supported to run on Azure. For mo
 ### What service-level agreements are available?
 
 For detailed service-level agreements (SLAs), see [Oracle PaaS and IaaS public cloud services pillars](https://www.oracle.com/contracts/docs/paas_iaas_pub_cld_srvs_pillar_4021422.pdf?download=false).
+
+### Is Oracle RAC supported in any way on Azure?
+
+Oracle Database@Azure supports RAC deployments on Exadata.
+
 
 ## Billing and commerce
 
@@ -173,9 +179,9 @@ Automated and managed backups to OCI object storage and self-managed backups by 
 
 Oracle Database@Azure provides customers with dedicated Oracle Exadata compute and storage within the Exadata infrastructure. You also can attach Azure NetApp Files volumes to the VMs on VM clusters.
 
-### Can we use a hardware security module (HSM) in Azure or an external HSM to encrypt databases? How do customer-managed database keys work?
+### How do customer-managed database keys work?
 
-You can manage keys by using Oracle Key Vault. Integration with Microsoft offerings like Azure Dedicated HSM and Microsoft Sentinel are on the roadmap.
+Oracle Transparent Data Encryption (TDE) master encryption keys (MEK) can be managed using Azure Key Vault(AKV). Exadata Database Service on Oracle Database@Azure now supports storing and managing Oracle TDE MEK using all three tiers of AKV services, Standard, Premium and Managed HSM. see [Manage Oracle TDE with Azure Key Vault](/azure/oracle/oracle-db/manage-oracle-transparent-data-encryption-azure-key-vault)
 
 ### What type of storage redundancy options are available?
 

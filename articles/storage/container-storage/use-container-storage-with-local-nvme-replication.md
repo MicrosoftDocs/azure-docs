@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 07/23/2024
 ms.author: kendownie
 ms.custom: references_regions
+# Customer intent: As a Kubernetes administrator, I want to configure Azure Container Storage with local NVMe replication, so that I can optimize storage performance and resilience for my container workloads.
 ---
 
 # Use Azure Container Storage with local NVMe and volume replication

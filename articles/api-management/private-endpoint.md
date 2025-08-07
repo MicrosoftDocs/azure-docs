@@ -6,6 +6,8 @@ author: dlepow
 ms.author: danlep
 ms.topic: how-to
 ms.date: 05/09/2025
+ms.custom:
+  - build-2025
 ---
 
 # Connect privately to API Management using an inbound private endpoint

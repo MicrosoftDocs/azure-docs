@@ -6,13 +6,17 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
 ms.topic: overview
-ms.date: 05/16/2025
+# Resolved conflict: keep the newer ms.date
+ms.date: 08/01/2025
 #CustomerIntent: As a network administrator, I want to understand the different access modes and how to transition to a network security perimeter in Azure.
+# Customer intent: As a network administrator, I want to learn how to configure access modes and transition to a network security perimeter in Azure, so that I can secure my resources while minimizing connectivity disruptions.
 ---
 
 # Transition to a network security perimeter in Azure
 
 In this article, you learn about the different access modes and how to transition to a [network security perimeter](./network-security-perimeter-concepts.md) in Azure. Access modes control resource access and logging behavior, helping you secure your Azure resources.
+
+[!INCLUDE network-security-perimeter-preview-message]
 
 ## Access mode configuration point on resource associations 
 

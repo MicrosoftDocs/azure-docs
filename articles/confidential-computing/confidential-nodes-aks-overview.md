@@ -8,6 +8,7 @@ ms.topic: overview
 ms.date: 07/15/2022
 ms.author: ananyagarg
 ms.subservice: confidential-computing
+# Customer intent: As a cloud architect, I want to deploy confidential computing nodes in AKS using Intel SGX, so that I can run sensitive workloads securely within a trusted execution environment, ensuring data confidentiality and integrity.
 ---
 
 # Application enclave support with Intel SGX based confidential computing nodes on Azure Kubernetes Service
