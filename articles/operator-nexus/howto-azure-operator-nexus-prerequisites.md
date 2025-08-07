@@ -1,11 +1,11 @@
 ---
 title: "Azure Operator Nexus: Before you start Network Fabric Controller and Cluster Manager creation"
 description: Prepare for create the Azure Operator Nexus Network Fabric Controller and Cluster Manager.
-author: JAC0BSMITH
-ms.author: jacobsmith
+author: lb4368
+ms.author: lborgmeyer
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 09/07/2023
+ms.date: 07/21/2025
 ms.custom: template-how-to
 ---
 
@@ -101,7 +101,7 @@ Ensure that the registration state is Registered.
     service-provider side. For an ExpressRoute circuit to be operational,
     Circuit status must be Enabled, and Provider status must be
     Provisioned
-- Set up Azure Key Vault to store encryption and security tokens, service principals,
+- Set up Azure Key Vault to store encryption and security tokens,
   passwords, certificates, and API keys
 - Set up Log Analytics WorkSpace (LAW) to store logs and analytics data for
   Operator Nexus subcomponents (Network Fabric, Cluster, etc.)

@@ -932,8 +932,8 @@ items:
     tocHref: /azure/service-connector/
     topicHref: /azure/service-connector/
   - name: Load Testing
-    tocHref: /azure/load-testing/
-    topicHref: /azure/load-testing/overview-what-is-azure-load-testing
+    tocHref: /azure/app-testing/load-testing/
+    topicHref: /azure/app-testing/load-testing/overview-what-is-azure-load-testing
   - name: Playwright Testing
     tocHref: /azure/playwright-testing/
     topicHref: /azure/playwright-testing/index

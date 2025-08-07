@@ -133,6 +133,8 @@
     items:
     - name: Overview
       href: vnet-flow-logs-overview.md
+    - name: Log network traffic
+      href: vnet-flow-logs-tutorial.md
     - name: Manage VNet flow logs
       href: vnet-flow-logs-manage.md
     - name: Audit and deploy using Azure Policy

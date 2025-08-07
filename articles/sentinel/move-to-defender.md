@@ -279,6 +279,10 @@ To use workbooks with data from Advanced hunting, make sure that you ingest logs
 
 For more information, see [Visualize and monitor your data by using workbooks in Microsoft Sentinel](monitor-your-data.md).
 
+### Similar incidents (Preview) aren't supported in the Defender portal
+
+The Microsoft Sentinel [similar incidents](investigate-cases.md#similar-incidents-preview) feature is in Preview, isn't supported in the Defender portal. This means that when viewing an incident details page in the Defender portal, the **Similar incidents** tab isn't available.
+
 ## Related content
 
 - [The Best of Microsoft Sentinel - now in Microsoft Defender](https://techcommunity.microsoft.com/blog/MicrosoftThreatProtectionBlog/the-best-of-microsoft-sentinel-%E2%80%94-now-in-microsoft-defender/4415822) (blog)

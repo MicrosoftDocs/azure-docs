@@ -721,12 +721,12 @@ productDirectory:
         - devops
       url: /azure/devops/test/
     # Card
-    - title: Azure Load Testing
-      summary: Generate high-scale load and identify performance bottlenecks
+    - title: Azure App Testing
+      summary: Test your app holistically with Azure Load Testing and Playwright Workspaces
       imageSrc: ./media/index/load-testing.svg
       azureCategories:
         - devops
-      url: load-testing/index.yml
+      url: app-testing/index.yml
     # Card
     - title: Microsoft Playwright Testing (Preview)
       summary: Run end-to-end Playwright tests at scale

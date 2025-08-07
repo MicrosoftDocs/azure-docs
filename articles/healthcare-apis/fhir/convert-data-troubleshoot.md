@@ -11,8 +11,6 @@ ms.author: kesheth
 
 # Troubleshoot $convert-data
 
-[!INCLUDE [Converter redirect statement](../includes/converter-redirect-statement.md)]
-
 In this article, learn how to troubleshoot `$convert-data`.
 
 ## Performance

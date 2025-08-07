@@ -1,5 +1,5 @@
 ---
-title: Introduction to Azure Storage Discovery | Microsoft Docs
+title: Azure Storage Discovery Overview
 description: Storage Discovery provides insights on storage capacity, transactions, and configurations - providing visibility into their storage estate at entire organization level and aiding business decisions.
 author: fauhse
 
@@ -9,9 +9,9 @@ ms.date: 08/01/2025
 ms.author: fauhse
 ---
 
-# What is Azure Storage Discovery?
+# What is Azure Storage Discovery (preview)?
 
-**Azure Storage Discovery** is a fully managed service that provides enterprise-wide visibility into your Azure Blob Storage data estate. In a single pane of glass you can understand and analyze how your data estate evolved over time, optimize costs, enhance security, and drive operational efficiency.
+**Azure Storage Discovery** (preview) is a fully managed service that provides enterprise-wide visibility into your Azure Blob Storage data estate. In a single pane of glass you can understand and analyze how your data estate evolved over time, optimize costs, enhance security, and drive operational efficiency.
 
 Azure Storage Discovery integrates with Copilot in Azure, enabling you to unlock insights and accelerate decision-making without utilizing any query language.
 
@@ -23,15 +23,14 @@ From architecture to governance, it delivers fast answers that help you take con
 - Find opportunities to reduce costs by locating infrequently used data.
 - Assess whether storage configurations align with security and compliance best practices.
 
-<!-- Whether you're a cloud architect, storage administrator, or data governance lead, Azure Storage Discovery helps you quickly answer key questions about your enterprise data estate in Azure Blob Storage: -->
-<!-- - How much data do we store across all our storage accounts?
+<!-- Whether you're a cloud architect, storage administrator, or data governance lead, Azure Storage Discovery helps you quickly answer key questions about your enterprise data estate in Azure Blob Storage:
+
+- How much data do we store across all our storage accounts?
 - What are the regions with the highest growth?
 - Can I reduce our costs by finding data that isn't being frequently used?
 - Are our storage configurations aligned with security and compliance best practices? -->
 
 :::image type="content" source="media/overview/overview-copilot-small.png" alt-text="Azure portal sowing a Discovery report and copilot chat window." lightbox="media/overview/overview-copilot-big.png":::
-
-
 
 ## Gain advanced storage insights
 

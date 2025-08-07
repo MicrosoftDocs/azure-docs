@@ -7,9 +7,9 @@ ms.service: azure-storage-discovery
 ms.topic: release-notes
 ms.date: 08/01/2025
 ---
-# Frequently Asked Questions (FAQs) for Azure Storage Discovery
+# Frequently Asked Questions (FAQs) for Azure Storage Discovery preview
 
-In this article, learn about the frequently asked questions and the answers about Azure Storage Discovery.
+In this article, learn about the frequently asked questions and the answers about Azure Storage Discovery preview.
 
 ## I can't find a subscription in the workspace root picker (resource tree) to add it to the workspace root.
 - Verify you are in the correct Tenant and the subscription is selected.

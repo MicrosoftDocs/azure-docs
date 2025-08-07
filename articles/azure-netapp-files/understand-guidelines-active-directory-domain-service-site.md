@@ -203,7 +203,7 @@ To create the subnet object that maps to the Azure NetApp Files delegated subnet
 
 ### Cross-region replication considerations
 
-[Azure NetApp Files cross-region replication](cross-region-replication-introduction.md) enables you to replicate Azure NetApp Files volumes from one region to another region to support business continuance and disaster recovery (BC/DR) requirements.
+[Azure NetApp Files cross-region replication](replication.md) enables you to replicate Azure NetApp Files volumes from one region to another region to support business continuance and disaster recovery (BC/DR) requirements.
 
 Azure NetApp Files SMB, dual-protocol, and NFSv4.1 Kerberos volumes support cross-region replication. Replication of these volumes requires:
 

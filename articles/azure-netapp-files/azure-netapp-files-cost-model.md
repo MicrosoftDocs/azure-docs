@@ -13,7 +13,7 @@ ms.author: anfdocs
 
 Understanding the cost model for Azure NetApp Files helps you manage your expenses from the service. 
 
-For cost model specific to cross-region replication, see [Cost model for cross-region replication](cross-region-replication-introduction.md#cost-model-for-cross-region-replication).
+For cost model specific to cross-region replication, see [Cost model for cross-region replication](replication.md#cost-model-for-cross-region-replication).
 
 ## Calculation of capacity consumption
 
@@ -100,7 +100,7 @@ The following diagram illustrates the concepts.
 * [Azure NetApp Files pricing page](https://azure.microsoft.com/pricing/details/storage/netapp/)
 * [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
-* [Cost model for cross-region replication](cross-region-replication-introduction.md#cost-model-for-cross-region-replication)
+* [Cost model for cross-region replication](replication.md#cost-model-for-cross-region-replication)
 * [Understand volume quota](volume-quota-introduction.md)
 * [Monitor the capacity of a volume](monitor-volume-capacity.md)
 * [Resize the capacity pool or a volume](azure-netapp-files-resize-capacity-pools-or-volumes.md)

@@ -24,9 +24,9 @@ Document score: 100 - 495/0 (words, issues)
 !########################################################
 -->
 
-# Create and manage a storage discovery workspace
+# Create and manage a storage discovery preview workspace
 
-The Azure Storage Discovery workspace is a central resource within the Azure Storage Discovery platform. A discovery workspace is designed to help users manage and visualize storage data across various scopes such as tenants, subscriptions, and resource groups.
+The Azure Storage Discovery workspace is a central resource within the Azure Storage Discovery (preview) platform. A discovery workspace is designed to help users manage and visualize storage data across various scopes such as tenants, subscriptions, and resource groups.
 
 Follow the steps in this article to create an Azure Storage Discovery workspace resource.
 

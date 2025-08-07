@@ -205,4 +205,4 @@ For information about restrictions for diagnostic settings, see [Destination lim
 - [Log queries in Azure Monitor](/azure/azure-monitor/logs/log-query-overview)
 - [Azure App Service quotas and alerts](web-sites-monitor.md)
 - [Troubleshoot an app in Azure App Service by using Visual Studio](troubleshoot-dotnet-visual-studio.md)
-- [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)
+- [Tutorial: Run a load test to identify performance bottlenecks in a web app](../app-testing/load-testing/tutorial-identify-bottlenecks-azure-portal.md)

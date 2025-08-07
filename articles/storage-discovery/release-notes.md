@@ -10,9 +10,9 @@ ms.date: 08/01/2025
 ms.custom: references_regions
 ---
 
-# Release notes for the Azure Storage Discovery service
+# Release notes for the Azure Storage Discovery preview service
 
-Azure Storage Mover is a fully managed Azure service, which continuously introduces new features and improvements. This article provides a summary of key improvements that are released. The article also points out limitations and if possible, workarounds for identified issues.
+Azure Storage Discovery is a fully managed Azure service, which continuously introduces new features and improvements. This article provides a summary of key improvements that are released. The article also points out limitations and if possible, workarounds for identified issues.
 
 ## 2025 August 5
 

@@ -11,17 +11,17 @@ ms.author: anfdocs
 ---
 # Create cross-zone replication relationships for Azure NetApp Files
 
-[Cross-zone replication](cross-zone-replication-introduction.md) enables you to replicate volumes across availability zones within the same region. It enables you to fail over your critical application if a region-wide outage or disaster happens. 
+[Cross-zone replication](replication.md#cross-zone-replication) enables you to replicate volumes across availability zones within the same region. It enables you to fail over your critical application if a region-wide outage or disaster happens. 
 
-For information about availability zones, see [Use availability zone volume placement for application high availability with Azure NetApp Files](use-availability-zones.md) and [Manage availability zone volume placement for Azure NetApp Files](manage-availability-zone-volume-placement.md). 
+For information about availability zones, see [Use availability zone volume placement for application high availability with Azure NetApp Files](replication.md#availability-zones) and [Manage availability zone volume placement for Azure NetApp Files](manage-availability-zone-volume-placement.md). 
 
 ## Requirements
 
-Before you begin, you should review the [requirements and considerations for cross-zone replication](cross-zone-replication-requirements-considerations.md).
+Before you begin, you should review the [requirements and considerations for cross-zone replication](replication-requirements.md).
 
 ## Create the source volume with an availability zone  
 
-This process requires that your account is subscribed to the [availability zone volume placement feature](use-availability-zones.md).
+This process requires that your account is subscribed to the [availability zone volume placement feature](replication.md#availability-zones).
 
 1.	Select **Volumes** from your capacity pool. Then select **+ Add volume** to create a volume.
 

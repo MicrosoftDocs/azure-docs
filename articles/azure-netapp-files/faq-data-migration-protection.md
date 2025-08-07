@@ -39,13 +39,13 @@ The requirements for data migration from on premises to Azure NetApp Files are a
 
 ## Where does Azure NetApp Files store customer data?   
 
-By default, your data stays within the region where you deploy your Azure NetApp Files volumes. However, you can choose to replicate your data on a volume-by-volume basis to available destination regions using [cross-region replication](cross-region-replication-introduction.md).
+By default, your data stays within the region where you deploy your Azure NetApp Files volumes. However, you can choose to replicate your data on a volume-by-volume basis to available destination regions using [cross-region replication](replication.md).
 
 ## How do I create a copy of an Azure NetApp Files volume in another Azure region?
 	
 Azure NetApp Files provides NFS and SMB volumes. Any file based-copy tool can be used to replicate data between Azure regions. 
 
-The [cross-region replication](cross-region-replication-introduction.md) functionality enables you to asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region. Additionally, you can [create a new volume by using a snapshot of an existing volume](snapshots-restore-new-volume.md).
+The [cross-region replication](replication.md) functionality enables you to asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region. Additionally, you can [create a new volume by using a snapshot of an existing volume](snapshots-restore-new-volume.md).
 
 NetApp offers a SaaS based solution, [NetApp Cloud Sync](https://docs.netapp.com/us-en/occm38/concept_cloud_sync.html). The solution enables you to replicate NFS or SMB data to Azure NetApp Files NFS exports or SMB shares. 
 

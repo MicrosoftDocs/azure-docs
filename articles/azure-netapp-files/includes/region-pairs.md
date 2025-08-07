@@ -6,7 +6,7 @@ ms.date: 05/02/2025
 ms.author: anfdocs
 ms.custom: include file, references_regions
 
-# azure-netapp-files/cross-region-replication-introduction.md
+# azure-netapp-files/replication.md
 # azure-netapp-files/cross-zone-region-replication.md
 # Customer intent: As a cloud architect, I want to understand Azure NetApp Files volume replication across different regional pairs, so that I can plan and implement resilient data storage solutions for multi-region applications.
 ---
@@ -67,3 +67,6 @@ Azure NetApp Files volume replication is supported between various [Azure region
 | Sweden/Europe | Sweden Central | West Europe |
 | UK/Europe | UK South | North Europe |
 | US Government | US Gov Arizona | US Gov Virginia |
+
+>[!NOTE]
+>There can be a discrepancy in the size and number of snapshots between source and destination. This discrepancy is expected. Snapshot policies and replication schedules will influence the number of snapshots. Snapshot policies and replication schedules, combined with the amount of data changed between snapshots, will influence the size of snapshots. To learn more about snapshots, refer to [How Azure NetApp Files snapshots work](../snapshots-introduction.md).
