@@ -50,6 +50,7 @@ For export orders, following table shows the supported storage accounts.
 - For General-purpose accounts:
   - For import orders, Data Box doesn't support Queue, Table, and Disk storage types.
   - For export orders, Data Box doesn't support Queue, Table, Disk, and Azure Data Lake Gen2 storage types.
+- For FileStorage Storage accounts, Data Box does not support Provisioned v2 accounts.
 - Data Box doesn't support append blobs for Blob Storage and Block Blob Storage accounts.
 - Data uploaded to page blobs must be 512 bytes aligned such as VHDs.
 - For exports:
