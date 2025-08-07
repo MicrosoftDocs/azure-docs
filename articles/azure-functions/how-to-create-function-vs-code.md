@@ -152,9 +152,9 @@ Use sensible defaults if any parameter is missing
 > [!TIP]  
 > GitHub Copilot is powered by AI, so surprises and mistakes are possible. For more information, see [Copilot FAQs](https://aka.ms/copilot-general-use-faqs). 
 
-You can customize your prompt to add specifics as needed, then run the app again locally and verify that it works as expected after the code changes. Use a message body like `{ "name": "Contoso", "email": "me@contoso.com", "age": "34" }`. 
+You can customize your prompt to add specifics as needed, then run the app again locally and verify that it works as expected after the code changes. This time, use a message body like `{ "name": "Contoso", "email": "me@contoso.com", "age": "34" }`. 
 
-When you are satistfied with your app, you can use Visual Studio Code to publish the project directly to Azure.
+If you encounter any errors during execution, paste the error message in the chat window and ask Copilot to help resolve the error. When you are satistfied with your app, you can use Visual Studio Code to publish the project directly to Azure.
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
