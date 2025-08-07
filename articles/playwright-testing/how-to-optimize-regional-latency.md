@@ -8,6 +8,9 @@ ms.custom: playwright-testing-preview
 
 # Optimize regional latency for a workspace in Microsoft Playwright Testing Preview
 
+> [!NOTE]
+> Playwright Testing is now part of [Azure App Testing](https://aka.ms/AzureAppTesting), a unified service for functional and performance tests. Learn more about how to [get started](https://aka.ms/AzureAppTesting/announcement).
+
 Learn how to minimize the network latency between the client machine and the remote browsers for a Microsoft Playwright Testing Preview workspace.
 
 Microsoft Playwright Testing lets you run your Playwright tests on hosted browsers in the Azure region that's nearest to your client machine. The service collects the test results in the Azure region of the remote browsers, and then transfers the results to the workspace region.
