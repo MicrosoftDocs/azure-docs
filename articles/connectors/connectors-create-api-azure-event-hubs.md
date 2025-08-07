@@ -33,8 +33,6 @@ For information about this connector's operations, their parameters, and other t
 
   1. On the namespace menu, under **Settings**, select **Shared access policies**. In the **Claims** column, check that you have at least **Manage** permissions for that namespace.
 
-     :::image type="content" source="./media/connectors-create-api-azure-event-hubs/event-hubs-namespace.png" alt-text="Screenshot shows Azure portal, Event Hubs namespace, and Claims column with Manage permissions." lightbox="./media/connectors-create-api-azure-event-hubs/event-hubs-namespace.png":::
-
      > [!NOTE]
      >
      > When you later create a connection to your Event Hubs namespace, you're asked to select
