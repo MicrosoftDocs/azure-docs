@@ -9,7 +9,7 @@ ms.subservice: playwright-workspaces
 author: ninallam
 ms.author: ninallam
 ms.custom: playwright-workspaces-preview
-zone_pivot_group_filename: playwright-workspaces/zone-pivots-groups.json
+zone_pivot_group_filename: app-testing/playwright-workspaces/zone-pivots-groups.json
 zone_pivot_groups: playwright-workspaces
 ---
 
@@ -17,16 +17,12 @@ zone_pivot_groups: playwright-workspaces
 
 ::: zone pivot="playwright-test-runner"
 
-### If you're using the **Playwright Test Runner**
-
 This article shows you how to use the options available in the `playwright.service.config.ts` file that was generated for you. 
 If you don't have this file in your code, follow [Quickstart: Run end-to-end tests at scale with Playwright Workspaces](./quickstart-run-end-to-end-tests.md) 
 
 ::: zone-end
 
 ::: zone pivot="nunit-test-runner"
-
-### If you're using the **NUnit Test Runner**
 
 This article shows you how to use the options available in the `PlaywrightServiceSetup.cs` file. 
 If you don't have this file in your code, follow [Quickstart: Run end-to-end tests at scale with Playwright Workspaces](./quickstart-run-end-to-end-tests.md) 
