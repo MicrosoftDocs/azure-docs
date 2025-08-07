@@ -711,3 +711,17 @@ The command provides a link (if using cluster manager storage) or another comman
 
 > [!NOTE]
 > Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer to the [cluster manager storage](#deprecated-method-verify-access-to-the-cluster-manager-storage-account) or the [user managed storage](#send-command-output-to-a-user-specified-storage-account) sections for procedures to verify access.
+
+## Executing a run-data-restricted Command
+
+The `run-data-extracts-restricted`  produces an output file containing the results of the data extract. It differs by having RBAC restrictions enforced on users limiting which actions and commands they can execute. The allowed commands must be added individually in the role definition.
+
+
+```azurecli-interactive
+az networkcloud baremetalmachine run-data-extracts-restricted --name "<machine-name>"  \
+  --resource-group "<cluster_MRG>" \
+  --subscription "<subscription>" \
+  --commands '[{"arguments":["<arg1>","<arg2>"],"command":"<command1>"}]'  \
+  --limit-time-seconds "<timeout>"
+  --output-directory <output_directory>
+```
