@@ -48,7 +48,7 @@ MQTT is a publish-subscribe messaging transport protocol that was designed for c
 	- **Persistent sessions** ensure reliability by preserving the client's subscription information and messages when a client disconnects.
 	- **QoS 0 and 1** provide your clients with control over the efficiency and reliability of the communication.
 	- [MQTT Retain](mqtt-retain.md) ensures that the last published message on a topic is stored by the broker and automatically delivered to any new subscribers. This allows devices to instantly receive the latest known state without waiting for the next update, enabling faster and more reliable state synchronization across IoT systems. 
--  MQTT broker is adding more MQTT v5 and MQTT v3.1.1  features in the future to align more with the MQTT specifications. The following items detail the current differences between features supported by MQTT broker and the MQTT v5 specifications: QoS 2 isn't supported.  
+-  The following items detail the current differences between features supported by MQTT broker and the MQTT v5 specifications: QoS 2 isn't supported.  
  
 [Learn more about the MQTT broker and current limitations.](mqtt-support.md) 
 
@@ -121,7 +121,7 @@ Custom domain names support allows users to assign their own domain names to Eve
 An MQTT retain message is used to store the last known good value of a topic on the broker, ensuring that new subscribers immediately receive the most recent message without waiting for the next publish. This is especially useful in scenarios like device state reporting, control signals, or configuration data where the latest message must always be available to clients on connect. For more information, see [MQTT retain support in Azure Event Grid](mqtt-retain.md).
 
  
-### HTTP Publish(preview) 
+### HTTP Publish (preview) 
 
 HTTP Publish enables applications to publish MQTT messages to Azure Event Grid MQTT Broker over a simple HTTPS POST request, without maintaining an active MQTT session. It’s best suited for scenarios where MQTT clients are not feasible or necessary—such as serverless functions, cloud services, or backend applications—allowing event-driven architectures to inject MQTT messages reliably and securely. Common use cases include publishing device commands, alerts, or control signals from Azure Functions, Logic Apps, or API integrations. For more information, see [HTTP Publish of MQTT messages in Azure Event Grid](mqtt-http-publish.md).
 

@@ -23,7 +23,7 @@ Azure Event Grid now supports publishing MQTT messages via HTTP, enabling backen
 
 This article explains how to publish MQTT messages via HTTP with Azure Event Grid. 
 
-## Get Your Connection Details
+## Get your connection details
 
 - Namespace fully qualified domain name (FQDN). Example: `contoso.westus3-1.ts.eventgrid.azure.net`.
 - Topic. Example: `devices/CXa-23112/prompt`.
@@ -40,7 +40,7 @@ Save this token to use in the `Authorization: Bearer <TOKEN>` header.
 
 ## Publish messages using HTTP
 
-### [cURL](#tab/curl)
+### [Curl](#tab/curl)
 
 Here’s an example cURL command to simulate the HTTP Publish. 
 
@@ -64,7 +64,7 @@ In this sample command:
 
 ### [Bruno](#tab/brno)
 
-## Import to Bruno
+### Import to Bruno
 1. Open Bruno.
 1. Select **Import Collection**, and then select `EventGrid_HTTP_Publish_Postman_Collection.json`. Here's the content for the JSON file:
 
@@ -164,12 +164,12 @@ In this sample command:
 Use MQTTX or any MQTT library (like paho-mqtt Python) to subscribe to the same topic to confirm delivery. 
 
 1. Create a new connection in MQTTX:
-    1. `Host: contoso.westus3-1.ts.eventgrid.azure.net`
-    1. `Port: 8883 (TLS)`
-    1. `Client ID: same as your Entra Object ID` 
-    1. `Username/Password: N/A — use certificate or token auth if configured`   
-- Subscribe to the topic you used in the HTTP POST command.
-- Run the **HTTP Publish** and watch for the message in MQTTX. You should see your payload appear.
+    - `Host: contoso.westus3-1.ts.eventgrid.azure.net`
+    - `Port: 8883 (TLS)`
+    - `Client ID: same as your Entra Object ID` 
+    - `Username/Password: N/A — use certificate or token auth if configured`   
+1. Subscribe to the topic you used in the HTTP POST command.
+1. Run the **HTTP Publish** and watch for the message in MQTTX. You should see your payload appear.
 
 If the publish **succeeds**, you see: 
 

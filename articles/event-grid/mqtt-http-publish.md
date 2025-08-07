@@ -42,7 +42,7 @@ Consider HTTP Publish when:
 1. Event Grid maps HTTP request parts to standard MQTT PUBLISH packet properties.
 1. Messages flow through the Event Grid routing and enrichment pipeline, ensuring delivery guarantees and applying any enrichment or transformation.
 
-## Example: MQTT PUBLISH Equivalent
+## Example: MQTT publish equivalent
 
 ```http
 PUBLISH Topic Name: devices/CXa-23112/prompt  
@@ -55,7 +55,7 @@ User Property: RequestId = 55f4a7ee-b0b4-4d7f-8eb5-2edba2ced5d7
 Payload: Please accept terms of licensing and agreement
 ```
 
-## Example: HTTP Publish Request
+## Example: HTTP publish request
 
 ```http
 POST /mqtt/messages?topic=devices%2FCXa-23112%2Fprompt&api-version=2025-02-15-preview HTTP/1.1  
@@ -75,7 +75,7 @@ Please accept terms of licensing and agreement
 
 
 
-## Request Parameters
+## Request parameters
 
 This table describes how HTTP request parts map to MQTT PUBLISH packet properties. Refer to the original documentation for full details.
 
@@ -108,14 +108,14 @@ This table describes how HTTP request parts map to MQTT PUBLISH packet propertie
 - Step 6: Send the request.
 - Step 7: Confirm delivery via logs and metrics in the Event Grid portal.
 
-## Authentication & Authorization
+## Authentication & authorization
 
 - HTTP Publish uses Microsoft Entra ID for authentication.
 - Add a Bearer token to the Authorization header.
 - The Microsoft Entra Object ID becomes the MQTT clientId.
 - The AuthN/AuthZ model aligns with standard MQTT connections.
 
-## Routing and Observability
+## Routing and observability
 
 - Metrics and logs include:
   - Protocol: http-publish
@@ -124,7 +124,7 @@ This table describes how HTTP request parts map to MQTT PUBLISH packet propertie
   - Source IP
   - Auth principal
 
-## Best Practices
+## Best practices
 
 - Use lowercase header keys where possible. HTTP/2 header keys are case-insensitive.
 - Monitor throughput — HTTP messages tend to be larger than direct MQTT messages.

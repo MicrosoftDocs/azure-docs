@@ -22,7 +22,7 @@ This article provides an overview of how the MQTT Retain feature works, its bill
 ## Billing
 Each retained publish counts as two MQTT operations—one for processing the message, and one for storing it.
 
-## Storage limits: 
+## Storage limits 
 
 - Up to 640 MB or 10,000 retain messages per Throughput Unit (TU). 
 - Maximum size per retain message: 64 KB. 
@@ -31,8 +31,8 @@ For larger needs, contact Azure Support.
 
 ## Message deletion 
 
-**MQTT 3.1.1**: Publish an empty payload to the topic. 
-**MQTT 5.0**: Set expiry or send an empty message to remove it. 
+- **MQTT 3.1.1**: Publish an empty payload to the topic.
+- **MQTT 5.0**: Set expiry or send an empty message to remove it. 
 
 ## Retain management 
 

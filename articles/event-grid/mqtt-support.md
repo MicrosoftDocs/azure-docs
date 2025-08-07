@@ -134,7 +134,7 @@ MQTT v5 ensures in-order message delivery within per topic and per client when u
 
 However, it doesn't guarantee ordering across different topics or when messages are sent with varying QoS levels. To learn more, contact us [askmqtt@microsoft.com](mailto:askmqtt@microsoft.com).
 
-### Assigned Client Identifiers 
+### Assigned client identifiers 
 MQTT v5 introduces support for assigned client identifiers, allowing the broker to generate and return a unique client ID when one isn't provided by the client. MQTT broker supports this feature, ensuring seamless client onboarding and reducing the need for clients to manage their own identifiers. It's especially useful in scenarios where client provisioning is dynamic or when devices have no preconfigured identity. Assigned client IDs can be retrieved from the CONNACK response and reused for future sessions to maintain consistent identification. 
 
 #### Managing client identifier and session limits in MQTT 
@@ -165,7 +165,7 @@ MQTT v5 currently differs from the [MQTT v5 Specification](https://docs.oasis-op
 ### MQTTv3.1.1 current limitations
 
 MQTT v5 currently differs from the [MQTT v3.1.1 Specification](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html) in the following ways:
-- QoS2 isn't supported yet. A publish request with a retain flag or with a QoS2 fails and closes the connection.
+- QoS2 isn't supported. A publish request with a retain flag or with a QoS2 fails and closes the connection.
 - Keep Alive Maximum is 1,160 seconds.
 
 ## Code samples

@@ -201,7 +201,7 @@ Content-Type: application/json
 | expiration                | Expiration date in Unix time format. (Optional when Decision is set to allow) |
 | errorReason               | Error message if decision is set to deny. This error is logged. (Optional when Decision is set to deny) |
 
-### Examples of supported attribute types: 
+### Examples of supported attribute types 
 
 ```json
 "num_attr_pos": 1, 
