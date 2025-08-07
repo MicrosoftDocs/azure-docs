@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 07/18/2025
+ms.date: 08/06/2025
 ms.custom: references_regions
 ms.author: anfdocs
 # Customer intent: As an Azure NetApp Files administrator, I want to configure network features for my volumes, so that I can optimize resource allocation and leverage VNet capabilities based on my workload requirements.
@@ -73,7 +73,6 @@ You can edit the network features option of existing volumes from *Basic* to *St
 Before editing network features on an existing volume, you need to register the feature. Ensure you are using the correct feature name for the change in network features you want to perform.
 
 * To upgrade to Standard network features from Basic, use the feature name `ANFBasicToStdNetworkFeaturesUpgrade`.
-* To revert from Standard network features to Basic, use the feature name `ANFStdToBasicNetworkFeaturesRevert`. 
 
 1.  Register the feature:
 
@@ -91,6 +90,19 @@ Before editing network features on an existing volume, you need to register the 
     ```
 
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+
+
+> [!NOTE]
+> To revert from *Standard* to *Basic* network features, you must also register the feature. 
+> Submit a waitlist request through the **[Azure NetApp Files standard networking features (edit volumes) Request Form](https://aka.ms/anfeditnetworkfeatures)**. The revert capability can take approximately one week to be enabled after you submit the waitlist request. Check the status of the registration with the following command. 
+>
+> ```azurepowershell-interactive
+> Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFStdToBasicNetworkFeaturesRevert   
+>```                                                   
+> 
+> When the `RegistrationState` displays Registered, the feature is approved for use. 
+>
+> If you revert, considerations apply and require careful planning. See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#constraints) for constraints and supported network topologies about Standard and Basic network features. 
 
 ### <a name="edit"></a> Edit network features
 
