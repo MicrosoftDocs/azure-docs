@@ -18,7 +18,7 @@ author: chasedmicrosoft
 
 # Migrate from Amazon Web Services (AWS) Network Load Balancer to Azure Load Balancer
 
-If you're currently using AWS Network Load Balancer (NLB) and planning to migrate your workload to Azure, this guide helps you understand the migration process, feature mappings, and best practices. On Azure, [Azure Load Balancer](load-balancer-overview.md) provides high-performance, ultra-low-latency Layer 4 load balancing capabilities that enable you to manage TCP and UDP traffic to your applications.  You'll learn how to assess your current environment, plan & prepare the migration, and execute the transition while maintaining application availability and performance.
+If you're currently using AWS Network Load Balancer (NLB) and planning to migrate your workload to Azure, this guide helps you understand the migration process, feature mappings, and best practices. On Azure, [Azure Load Balancer](load-balancer-overview.md) provides low-latency Layer 4 load balancing capabilities that enable you to manage TCP and UDP traffic to your applications.  You'll learn how to assess your current environment, plan and prepare the migration, and execute the transition while maintaining application availability and performance.
 
 ## What you'll accomplish
 
@@ -34,7 +34,7 @@ This article uses a gaming platform scenario to demonstrate common patterns like
 
 ## Example scenario: Gaming platform multi-protocol load balancing migration
 
-In this example, a gaming company operates a high-performance multiplayer gaming platform using AWS Network Load Balancer (NLB) to handle both TCP and UDP traffic simultaneously from game clients. The workload's architecture includes session management services running on EC2 instances handling player authentication and lobbies over TCP on port 7777, and real-time game data services deployed on EC2 instances processing low-latency gameplay packets over UDP on port 7778. The AWS NLB provides static IP addresses, cross-zone load balancing, and client IP preservation for game analytics and anti-cheat systems. This setup supports the workload's core gaming function of processing real-time multiplayer gaming with ultra-low latency while maintaining reliability across multiple availability zones.
+In this example, a multi-player gaming platform uses AWS Network Load Balancer (NLB) to handle both TCP and UDP traffic simultaneously from game clients. The workload's architecture includes session management services running on EC2 instances handling player authentication and lobbies over TCP on port 7777, and real-time game data services deployed on EC2 instances processing low-latency gameplay packets over UDP on port 7778. The AWS NLB provides static IP addresses, cross-zone load balancing, and client IP preservation for game analytics and anti-cheat systems. This setup supports the workload's core gaming function of processing real-time multiplayer gaming with ultra-low latency while maintaining reliability across multiple availability zones.
 
 ### Architectural overview
 
@@ -59,7 +59,7 @@ Both architectures provide equivalent capabilities:
 - **Static IP addresses**: Consistent external endpoint addresses for client connections
 - **Cross-zone load balancing**: Even traffic distribution across all availability zones
 - **Client IP preservation**: Original client IP addresses maintained for analytics and anti-cheat systems
-- **Ultra-low latency**: Sub-50ms response times optimized for real-time gaming requirements
+- **Low latency**: Sub-50ms response times optimized for real-time gaming requirements
 - **High throughput**: Support for millions of concurrent connections and requests per second
 - **Advanced health monitoring**: Comprehensive health checks monitoring both TCP and UDP service endpoints
 - **Network security controls**: Security groups/rules controlling traffic flow between network tiers
