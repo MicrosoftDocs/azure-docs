@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 01/23/2025
 ms.author: cherylmc
 
-# Customer intent: "As a network administrator, I want to transition from SSTP to IKEv2 or OpenVPN, so that I can exceed the 128 concurrent connection limit and enhance the performance and flexibility of our VPN gateway connections."
+# Customer intent: "As a network administrator, I want to transition from SSTP to IKEv2 or OpenVPN
 ---
 # Transition to OpenVPN protocol or IKEv2 from SSTP
 
-A point-to-site (P2S) VPN gateway connection lets you create a secure connection to your virtual network from an individual client computer. A P2S connection is established by starting it from the client computer. This article talks about ways to overcome the 128 concurrent connection limit of SSTP by transitioning to OpenVPN protocol or IKEv2.
+A point-to-site (P2S) VPN gateway connection lets you create a secure connection to your virtual network from an individual client computer. A P2S connection is established by starting it from the client computer. This article talks about SSTP retirement and ways to migrate off SSTP by transitioning to OpenVPN protocol or IKEv2.
 
 ## <a name="protocol"></a>What protocol does P2S use?
 
@@ -25,11 +25,16 @@ Point-to-site VPN can use one of the following protocols:
 * IKEv2 VPN, a standards-based IPsec VPN solution. IKEv2 VPN can be used to connect from Mac devices (macOS versions 10.11 and above).
 
 > [!NOTE]
-> The Basic gateway SKU doesn't support IKEv2 or OpenVPN protocols. If you're using the Basic SKU, you'll have to delete and recreate a production SKU virtual network gateway.
+> Basic SKU today supports SSTP protocol only and any new Basic SKU gateways are created with SSTP protocol. Effective Nov 2025, Basic SKU will also support IKEv2, and any new Basic SKU VPN gateway will be created with IKEv2 by default.
 
-## <a name="migrate"></a>Migrating from SSTP to IKEv2 or OpenVPN
+## <a name="migrate"></a>SSTP Retirement: Migrating from SSTP to IKEv2 or OpenVPN
 
-There might be cases when you want to support more than 128 concurrent P2S connections to a VPN gateway, but are using SSTP. In such a case, you need to move to IKEv2 or OpenVPN protocol.
+Due to limited capability and suboptimal performance, we are retiring SSTP protocol. This article expands on the official announcement.
+
+* **Effective Mar 31, 2026: Enabling SSTP protocol on VPN gateway will no longer be supported.
+* **Effective Mar 31, 2027: Existing SSTP-enabled gateways can no longer be used to establish SSTP connections.
+
+The instructions below list out the steps to migrate your SSTP connections to IKEv2 as per the VPN gateway SKU:
 
 ### Option 1 - Add IKEv2 in addition to SSTP on the gateway
 
@@ -46,6 +51,24 @@ Adding IKEv2 to an existing SSTP VPN gateway won't affect existing clients and y
 
 > [!NOTE]
 > When you have both SSTP and IKEv2 enabled on the gateway, the point-to-site address pool will be statically split between the two, so clients using different protocols will be assigned IP addresses from either subrange. Note that the maximum number of SSTP clients is always 128. This applies even if the address range is larger than /24, resulting in a larger amount of addresses available for IKEv2 clients. For smaller ranges, the pool is equally halved. Traffic Selectors used by the gateway might not include the point-to-site address range CIDR, but the two subrange CIDRs.
+
+Migration Steps:
+Portal Experience
+
+1. **Update Tunnel type:** Modify the tunnel type in your VPN gateway’s Point-to-site configuration. **This option will be enabled for Basic SKU gateways starting Nov 2025**
+
+* **From: SSTP (SSL)
+* **To: IKEv2 and SSTP (SSL)
+
+You can choose this from portal as shown below:
+[ TBD: Add image here]
+
+or Powershell
+[ TBD: Add PS command here]
+
+1. **Download updated configuration:** After updating the tunnel type, [download the updated VPN Client](point-to-site-certificate-gateway#profile-files.md) profile configuration package to get latest configuration package
+1. **Distribute Configuration:** Share the updated VPN client configuration with all users who connect via Point-to-Site VPN
+1. **Verify VPN Connectivity:** [Verify the VPN connections](point-to-site-certificate-gateway#clientconfig.md) to ensure all the clients can connect successfully and that the VPN gateway is functioning as expected
 
 ### Option 2 - Remove SSTP and enable OpenVPN on the gateway
 
@@ -77,14 +100,35 @@ The zip file also provides the values of some of the important settings on the A
 > [!NOTE]
 > [!INCLUDE [TLS version changes](../../includes/vpn-gateway-tls-change.md)]
 
+### What happens if I do not migrate my SSTP connections by Mar 31, 2027?
+
+Any existing SSTP connections after Mar 31, 2027, will be suspended and will stop working.
+
+### When will Basic gateway SKU start supporting IKEv2?
+
+Effective Nov 2025, Basic SKU will start supporting IKEv2 protocol
+
+### Will there be downtime while I migrate my SSTP connections to other protocol?
+
+No, there will not be any downtime when you transition your “SSTP” protocol to “IKEv2 and SSTP (SSL)” protocol. However, if you migrate to “IKEv2” only, the gateway will have downtime until the new configuration is applied.
+
+### Will I need to redistribute the new P2S configuration package to all the clients?
+
+Yes, the new config will need to be distributed to the new clients to prevent any impact
+
+### Will I be able to enable SSTP protocol up to the retirement date?
+
+No, you will not be able to enable SSTP protocol after Mar 31, 2026
+
+### Can I go to “IKEv2” protocol directly instead of IKEv2 and SSTP protocol?
+
+Yes, you can. If you choose to go to IKEv2 directly, your gateway will stop working until the new configuration is applied. However, if you choose “IKEv2 and SSTP” protocol, there will be no impact on the gateway.
+
 ### <a name="gwsku"></a>Which gateway SKUs support P2S VPN?
 
 The following table shows gateway SKUs by tunnel, connection, and throughput. For additional tables and more information regarding this table, see the Gateway SKUs section of the [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku) article.
 
 [!INCLUDE [aggregate throughput sku](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
-
-> [!NOTE]
-> The Basic SKU has limitations and doesn't support IKEv2, or RADIUS authentication.
 
 ### <a name="IKE/IPsec policies"></a>What IKE/IPsec policies are configured on VPN gateways for P2S?
 
