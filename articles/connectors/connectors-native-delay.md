@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: deli, azla
 ms.topic: how-to
 ms.date: 08/08/2025
-#custom intent: As an app developer working with Azure Logic Apps, I need to know how to delay an action in a workflow for a specified amount of time or until a specified time to manage when actions take place.
+#custom intent: As an integration developer working with Azure Logic Apps, I need to know how to delay an action in a workflow to manage when actions, for instance, to send status emails during certain times.
 ---
 
 # Delay running the next action in Azure Logic Apps
