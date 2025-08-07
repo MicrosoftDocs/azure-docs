@@ -108,7 +108,7 @@ Use the following guidance to achieve geo-replication in nonpaired regions.
 
 - **For Azure NetApp Files:**
    
-   - You can replicate to a set of nonstandard pairs besides Azure region pairs. For more information, see [Cross-region replication of Azure NetApp Files volumes](/azure/azure-netapp-files/cross-region-replication-introduction).
+   - You can replicate to a set of nonstandard pairs besides Azure region pairs. For more information, see [Reliability in Azure NetApp Files](reliability-netapp-files.md).
 
 - **For Azure Files:**
 
