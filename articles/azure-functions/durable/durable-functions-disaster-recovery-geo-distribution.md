@@ -19,7 +19,7 @@ This article describes example scenarios for configuring disaster recovery and g
 
 In Durable Functions, all state is persisted in Azure Storage by default. A [task hub](durable-functions-task-hubs.md) is a logical container for Azure Storage resources that are used for [orchestrations](durable-functions-types-features-overview.md#orchestrator-functions) and [entities](durable-functions-types-features-overview.md#entity-functions). Orchestrator, activity, and entity functions can interact with each other only when they belong to the same task hub. This article refers to task hubs when describing scenarios for keeping these Azure Storage resources highly available.
 
-Orchestrations and entities can be triggered via [client functions](durable-functions-types-features-overview.md#client-functions) that are themselves triggered via HTTP or one of the other supported Azure Functions trigger types. Orchestrations and entities can also be triggered via [built-in HTTP APIs](durable-functions-http-features.md#built-in-http-apis). For simplicity, this article focuses on scenarios that involve Azure Storage and HTTP-based function triggers, along with options to increase availability and minimize downtime during disaster recovery activities. This article doesn't explicitly cover other trigger types, such as Azure Service Bus or Azure Cosmos DB triggers.
+Orchestrations and entities can be triggered via [client functions](durable-functions-types-features-overview.md#client-functions) that are themselves triggered via HTTP or one of the other supported Azure Functions trigger types. Orchestrations and entities can also be triggered via [built-in HTTP APIs](durable-functions-http-features.md#built-in-http-apis). For simplicity, this article focuses on scenarios that involve Azure Storage and HTTP-based function triggers, along with options to increase availability and minimize downtime during disaster recovery. This article doesn't explicitly cover other trigger types, such as Azure Service Bus or Azure Cosmos DB triggers.
 
 The scenarios in this article are based on active/passive configurations, which best support the usage of Azure Storage. This pattern consists of deploying a backup (passive) function app to a different region. [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) monitors the primary (active) function app for HTTP availability. It fails over to the backup function app when the primary app fails. For more information, see [Priority traffic-routing method](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method).
 
@@ -27,9 +27,7 @@ The scenarios in this article are based on active/passive configurations, which 
 
 Keep these considerations in mind when you're configuring an active/passive failover configuration for Durable Functions:
 
-- The guidance in this article assumes that you're using the default [Azure Storage provider](./durable-functions-azure-storage-provider.md) for storing the Durable Functions runtime state. You can also configure alternate storage providers that store state elsewhere, such as in a SQL Server database.
-
-  Alternate storage providers might require different disaster recovery and geo-distribution strategies. For more information, see [Durable Functions storage providers](durable-functions-storage-providers.md).
+- The guidance in this article assumes that you're using the default [Azure Storage provider](./durable-functions-azure-storage-provider.md) for storing the Durable Functions runtime state. You can also configure alternate storage providers that store state elsewhere, such as in a SQL Server database. Alternate storage providers might require different disaster recovery and geo-distribution strategies. For more information, see [Durable Functions storage providers](durable-functions-storage-providers.md).
 - The proposed active/passive configuration ensures that a client can always trigger new orchestrations via HTTP. However, when two function apps share the same task hub in storage, some background storage transactions can be distributed between the apps. As a result of this distribution, this configuration can result in added egress costs for the secondary function app.
 - The underlying storage account and task hub are both created in the primary region. The function apps share this storage account and task hub.
 - All function apps that are redundantly deployed must share the same function access keys when they're activated via HTTP. The Azure Functions runtime exposes a [management API](https://github.com/Azure/azure-functions-host/wiki/Key-management-API) that you can use to programmatically add, delete, and update function keys. You can also manage keys by using [Azure Resource Manager APIs](https://www.markheath.net/post/managing-azure-functions-keys-2).
@@ -45,7 +43,7 @@ Traffic Manager is configured to detect problems in the primary function app and
 There are several benefits to using this deployment scenario:
 
 - If the compute infrastructure fails, work can resume in the failover region without data loss.
-- Traffic Manager takes care of the automatic failover to the healthy function app automatically.
+- Traffic Manager takes care of the automatic failover to the healthy function app.
 - Traffic Manager automatically re-establishes traffic to the primary function app after the outage ends.
 
 However, if you use this scenario, consider:
@@ -84,14 +82,14 @@ Here are important considerations for this scenario:
 
 To summarize, this scenario preserves latency and minimizes egress costs, but existing orchestrations and entities are unavailable during the downtime. Whether this tradeoff is acceptable depends on the requirements of the application.
 
-## Scenario 3: Load-balanced compute with GRS shared storage
+## Scenario 3: Load-balanced compute with shared GRS
 
 This scenario is a modification of the first scenario (implementing a shared storage account). The main difference is that the storage account is created with geo-replication enabled.
 
-Functionally, this scenario provides the same advantages as the first scenario, but it also enables other data recovery advantages:
+This scenario provides the same functional advantages as the first scenario, but it also enables other data recovery advantages:
 
 - Geo-redundant storage (GRS) and read-access GRS (RA-GRS) maximize availability for your storage account.
-- If there's a regional outage of the Azure Storage service, you can [manually initiate a failover to the secondary replica](../../storage/common/storage-initiate-account-failover.md). In extreme circumstances where a region is lost due to a significant disaster, Microsoft might initiate a regional failover. In this case, you don't need to take any action.
+- If there's a regional outage of the Azure Storage service, you can [manually initiate a failover to the secondary replica](../../storage/common/storage-initiate-account-failover.md). In extreme circumstances where a region is lost due to a disaster, Microsoft might initiate a regional failover. In this case, you don't need to take any action.
 - When a failover happens, the state of the durable functions is preserved up to the last replication of the storage account. The replication typically occurs every few minutes.
 
 As with the other scenarios, there are important considerations:
@@ -103,7 +101,7 @@ As with the other scenarios, there are important considerations:
 ![Diagram that shows function apps in separate regions sharing a storage account, with failover to a replica.](./media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario03.png)
 
 > [!NOTE]
-> As described for the first scenario, we recommend that function apps deployed with this strategy use version 2.3.0 or later of the Durable Functions extension.
+> As described for the first scenario, we recommend that function apps deployed in this strategy use version 2.3.0 or later of the Durable Functions extension.
 
 For more information, see [Azure storage disaster recovery planning and failover](../../storage/common/storage-disaster-recovery-guidance.md).
 
