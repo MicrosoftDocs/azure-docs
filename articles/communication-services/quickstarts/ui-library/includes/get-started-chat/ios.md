@@ -1,6 +1,6 @@
 ---
 author: Leah-Xia-Microsoft
-ms.author: leahxia
+ms.author: awang119
 ms.date: 01/04/2023
 ms.topic: include
 ms.service: azure-communication-services
