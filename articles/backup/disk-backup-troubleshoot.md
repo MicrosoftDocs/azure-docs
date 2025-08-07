@@ -14,6 +14,8 @@ This article provides troubleshooting information on backup and restore issues f
 
 ## Common issues in Azure Disk Backup
 
+This section provides troubleshooting information for common issues encountered while configuring backup Azure Managed Disks.
+
 ### Error Code: UserErrorSnapshotRGSubscriptionMismatch
 
 Error Message: Invalid subscription selected for Snapshot Data store
@@ -55,13 +57,13 @@ Recommended Action: Provide a valid resource group for the snapshot data store. 
 
 Error Message: Unsupported disk type
 
-Recommended Action: Refer to [the support matrix](disk-backup-support-matrix.md) on unsupported scenarios and limitations.
+Recommended Action: See [the support matrix](disk-backup-support-matrix.md) on unsupported scenarios and limitations.
 
 ### Error Code: UserErrorSubscriptionDiskQuotaLimitReached
 
 Error Message: Operation is failed as the maximum limit for disk quota is reached for the subscription.
 
-Recommended Action: Refer to the [Azure subscription and service limits and quota documentation](../azure-resource-manager/management/azure-subscription-service-limits.md) or contact Microsoft Support for further guidance.
+Recommended Action: See the [Azure subscription and service limits and quota documentation](../azure-resource-manager/management/azure-subscription-service-limits.md) or contact Microsoft Support for further guidance.
 
 ### Error Code: BackupAgentPluginHostValidateProtectionError
 
@@ -91,9 +93,11 @@ Recommended Action: Wait until the previous running backup completes.
 
 Error Message: The subscription isn't registered to use namespace Microsoft.Compute
 
-Recommended Action: The required resource provider is not registered for your subscription. Register both the resource providers' namespace (_Microsoft.Compute_ and _Microsoft.Storage_) using the steps in [Solution 3](../azure-resource-manager/templates/error-register-resource-provider.md#solution-3---azure-portal).
+Recommended Action: The required resource provider is not registered for your subscription. Register both the resource providers' namespace (`Microsoft.Compute` and `Microsoft.Storage`) using the steps in [Solution 3](../azure-resource-manager/templates/error-register-resource-provider.md#solution-3---azure-portal).
 
 ## Common issues in Azure Disk restore
+
+This section provides troubleshooting information for common issues encountered while restoring backed-up Azure Managed Disks using Azure Backup.
 
 ### Error Code: UserErrorSameNameDiskAlreadyExists
 
@@ -109,9 +113,9 @@ Recommended Action: Provide a valid resource group to restore. For more informat
 
 ### Error Code: UserErrorNotEnoughPermissionOnTargetRG
 
-Error Message: Azure Backup Service requires additional permissions on the Target Resource Group to do this operation.
+Error Message: Azure Backup Service requires more permissions on the Target Resource Group to do this operation.
 
-Recommended Action: Grant the Backup vault's managed identity the appropriate permissions on the target resource group. The target resource group is the selected location where the disk is to be restored. Refer to the [restore documentation](restore-managed-disks.md) to understand what permissions are to be assigned to the Backup vault's managed identity.
+Recommended Action: Grant the Backup vault's managed identity the appropriate permissions on the target resource group. The target resource group is the selected location where the disk is to be restored. See the [restore documentation](restore-managed-disks.md) to understand what permissions are to be assigned to the Backup vault's managed identity.
 
 ### Error Code: UserErrorDiskSnapshotNotFound
 
@@ -127,11 +131,13 @@ Recommended Action: Consider using another recovery point to restore. For more i
 
 ## Common Key Vault-related issues in Azure Disk protection
 
+This section provides troubleshooting information for common issues encountered while protecting Azure Managed Disks with disk encryption sets (DES) using Azure Key Vault.
+
 ### Error Code: UserErrorDESKeyVaultKeyDisabled
 
 Error Message: The key vault key used for disk encryption set is not in enabled state.
 
-Recommended Action: Enable the key vault key used for disk encryption set. Refer to the limitations in the [support matrix](disk-backup-support-matrix.md).
+Recommended Action: Enable the key vault key used for disk encryption set. Learn about the limitations in the [support matrix](disk-backup-support-matrix.md).
 
 ### Error Code: UserErrorDESKeyVaultKeyNotAvailable
 
@@ -141,47 +147,49 @@ Recommended Action: Ensure that the key vault key used for disk encryption set i
 
 ## Common issues with Azure Disk backup permissions and access control
 
+This section provides troubleshooting information for common issues encountered with permissions and access control while configuring backup or restoring Azure Managed Disks using Azure Backup.
+
 ### Error Code: UserErrorNotEnoughPermissionOnDisk
 
-Error Message: Azure Backup Service requires additional permissions on the Disk to do this operation.
+Error Message: Azure Backup Service requires more permissions on the Disk to do this operation.
 
-Recommended Action: Grant the Backup vault's managed identity the appropriate permissions on the disk. Refer to [the documentation](backup-managed-disks.md) to understand what permissions are needed to be assigned to the Backup Vault managed identity and how to provide it.
+Recommended Action: Grant the Backup vault's managed identity the appropriate permissions on the disk. See [the documentation](backup-managed-disks.md) to understand what permissions are needed to be assigned to the Backup Vault managed identity and how to provide it.
 
 ### Error Code: UserErrorNotEnoughPermissionOnSnapshotRG
 
-Error Message: Azure Backup Service requires additional permissions on the Snapshot Data store Resource Group to do this operation.
+Error Message: Azure Backup Service requires more permissions on the Snapshot Data store Resource Group to do this operation.
 
-Recommended Action: Grant the Backup vault's managed identity the appropriate permissions on the snapshot data store resource group. The snapshot data store resource group is the location where the disk snapshots are stored. Refer to [the documentation](backup-managed-disks.md) to understand what permissions are required by the Backup Vault managed identity over the resource group and how to provide them.
+Recommended Action: Grant the Backup vault's managed identity the appropriate permissions on the snapshot data store resource group. The snapshot data store resource group is the location where the disk snapshots are stored. See [the documentation](backup-managed-disks.md) to understand what permissions are required by the Backup Vault managed identity over the resource group and how to provide them.
 
 ### Error Code: UserErrorDiskBackupDiskOrMSIPermissionsNotPresent
 
-Error Message: Invalid disk or Azure Backup Service requires additional permissions on the Disk to do this operation
+Error Message: Invalid disk or Azure Backup Service requires more permissions on the Disk to do this operation
 
-Recommended Action: The backups are failing as the source disk may be deleted or moved to a different location. Use the existing restore point to restore the disk if it deleted by mistake. If the disk is moved to a different location, configure backup for the disk. If the disk isn't deleted or moved, grant the Backup vault's managed identity the appropriate permissions on the disk. Refer to [the documentation](backup-managed-disks.md) to understand what permissions are to be assigned to the Backup vault's managed identity.
+Recommended Action: The backups are failing as the source disk may be deleted or moved to a different location. Use the existing restore point to restore the disk if it deleted by mistake. If the disk is moved to a different location, configure backup for the disk. If the disk isn't deleted or moved, grant the Backup vault's managed identity the appropriate permissions on the disk. See [the documentation](backup-managed-disks.md) to understand what permissions are to be assigned to the Backup vault's managed identity.
 
 ### Error Code: UserErrorDiskBackupSnapshotRGOrMSIPermissionsNotPresent
 
-Error Message: Could not perform the operation as Snapshot Data store Resource Group no longer exists. Or Azure Backup Service requires additional permissions on the Snapshot Data store Resource Group to do this operation.
+Error Message: Could not perform the operation as Snapshot Data store Resource Group no longer exists. Or Azure Backup Service requires more permissions on the Snapshot Data store Resource Group to do this operation.
 
-Recommended Action: Create a resource group and grant the Backup vault's managed identity the appropriate permissions on the snapshot data store resource group. The snapshot data store resource group is the location where the disk snapshots are stored. Refer to [the  documentation](backup-managed-disks.md) to understand what permissions are to be assigned to the Backup vault's managed identity over the resource group.
+Recommended Action: Create a resource group and grant the Backup vault's managed identity the appropriate permissions on the snapshot data store resource group. The snapshot data store resource group is the location where the disk snapshots are stored. See [the  documentation](backup-managed-disks.md) to understand what permissions are to be assigned to the Backup vault's managed identity over the resource group.
 
 ### Error Code: UserErrorDiskBackupAuthorizationFailed
 
 Error Message: Backup Vault managed identity is missing the necessary permissions to do this operation.
 
-Recommended Action: Grant the Backup vault's managed identity the appropriate permissions on the disk to be backed up and on the snapshot data store resource group where the snapshots are stored. Refer to [the documentation](backup-managed-disks.md) to understand what permissions are to be assigned to the Backup vault's managed identity.
+Recommended Action: Grant the Backup vault's managed identity the appropriate permissions on the disk to be backed up and on the snapshot data store resource group where the snapshots are stored. See [the documentation](backup-managed-disks.md) to understand what permissions are to be assigned to the Backup vault's managed identity.
 
 ### Error Code: UserErrorSnapshotRGOrMSIPermissionsNotPresent
 
-Error Message: Could not perform the operation as Snapshot Data store Resource Group no longer exists. Or, Azure Backup Service requires additional permissions on the Snapshot Data store Resource Group to do this operation.
+Error Message: Could not perform the operation as Snapshot Data store Resource Group no longer exists. Or, Azure Backup Service requires more permissions on the Snapshot Data store Resource Group to do this operation.
 
-Recommended Action: Create the resource group and grant the Backup vault's managed identity the appropriate permissions on the snapshot data store resource group. The snapshot data store resource group is the location where the snapshots are stored. Refer to [the  documentation](backup-managed-disks.md) to understand what permissions are to be assigned to the Backup vault's managed identity over resource group.
+Recommended Action: Create the resource group and grant the Backup vault's managed identity the appropriate permissions on the snapshot data store resource group. The snapshot data store resource group is the location where the snapshots are stored. See [the  documentation](backup-managed-disks.md) to understand what permissions are to be assigned to the Backup vault's managed identity over resource group.
 
 ### Error Code: UserErrorDiskBackupRestoreRGOrMSIPermissionsNotPresent
 
-Error Message: Operation failed as the Target Resource Group doesn't exist. Or Azure Backup Service requires additional permissions on the Target Resource Group to do this operation.
+Error Message: Operation failed as the Target Resource Group doesn't exist. Or Azure Backup Service requires more permissions on the Target Resource Group to do this operation.
 
-Recommended Action: Provide a valid resource group to restore, and grant the Backup vault's managed identity the appropriate permissions on the target resource group. The target resource group is the selected location where the disk is to be restored. Refer to the [restore documentation](restore-managed-disks.md) to understand what permissions are required to be assigned to the Backup vault's managed identity.
+Recommended Action: Provide a valid resource group to restore, and grant the Backup vault's managed identity the appropriate permissions on the target resource group. The target resource group is the selected location where the disk is to be restored. See the [restore documentation](restore-managed-disks.md) to understand what permissions are required to be assigned to the Backup vault's managed identity.
 
 ### Error Code: UserErrorMSIPermissionsNotPresentOnDES
 
