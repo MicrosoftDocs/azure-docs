@@ -5,11 +5,10 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 05/15/2025
+ms.date: 08/07/2025
+ms.custom: build-2025
 
 #Customer intent: As a website owner, I want to enable HTTPS on the custom domain in my Front Door (classic) so that my users can use my custom domain to access their content securely.
-ms.custom:
-  - build-2025
 ---
 
 # Configure HTTPS on an Azure Front Door (classic) custom domain
@@ -76,12 +75,12 @@ To enable HTTPS on a Front Door (classic) custom domain, you need a TLS/SSL cert
 ### Option 1 (default): Use a certificate managed by Front Door
 
 Using a certificate managed by Azure Front Door Classic allows you to enable HTTPS with a few settings changes. Azure Front Door Classic handles all certificate management tasks, including procurement and renewal. This is supported for custom domains with direct CNAME to Azure Front Door Classic endpoint.
-> [!IMPORTANT]
 
-> - As of May 8, 2025, DigiCert no longer supports the WHOIS-based domain validation method. Hence, if your domains with indirect CNAME to Azure Front Door Classic endpoint, you must use the Bring your own certificate feature.
-> - Due to the WHOIS-based domain validation, managed certificate issued using WHOIS-based domain validation can't be auto renewed until you have direct CNAME pointed to Azure Front Door Classic.
-> - Managed certificates are not available for root or apex domains. If your Azure Front Door Classic custom domain is a root or apex domain, you must use the Bring your own certificate feature.
-> - Managed certificate autorenewal requires that your custom domain be directly mapped to your Azure Front Door Classic endpoint by a CNAME record.
+> [!IMPORTANT]
+> - As of May 8, 2025, DigiCert no longer supports the WHOIS-based domain validation method. If your domain uses an indirect CNAME mapping to Azure Front Door Classic endpoint, you must use the **Bring Your Own Certificate (BYOC)** feature.
+> - Due to changes in WHOIS-based domain validation, managed certificates issued using WHOIS-based domain validation can't be autorenewed until you have a direct CNAME pointing to Azure Front Door Classic.
+> - Managed certificates aren't available for root or apex domains (for example, `contoso.com`). If your Azure Front Door Classic custom domain is a root or apex domain, you must use the **Bring Your Own Certificate (BYOC)** feature.
+> - Managed certificate autorenewal requires that your custom domain be directly mapped to your Azure Front Door Classic endpoint using a CNAME record.
 
 To enable HTTPS on a custom domain:
 
@@ -96,7 +95,7 @@ To enable HTTPS on a custom domain:
 1. Proceed to [Validate the domain](#validate-the-domain).
 
 > [!NOTE]
-> - DigiCert’s 64 character limit is enforced for Azure Front Door-managed certificates. Validation will fail if this limit is exceeded.
+> - DigiCert’s 64 character limit is enforced for Azure Front Door-managed certificates. Validation fails if this limit is exceeded.
 > - Enabling HTTPS via Front Door managed certificate isn't supported for apex/root domains (for example, contoso.com). Use your own certificate for this scenario (see Option 2).
 
 ### Option 2: Use your own certificate
