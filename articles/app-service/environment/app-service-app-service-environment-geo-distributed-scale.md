@@ -42,6 +42,7 @@ Before you build out a distributed app footprint, it helps to have a few pieces 
 * **Naming convention for the apps:** Since multiple instances of the app will be deployed, a name is needed for each instance of the deployed app. One little-known but convenient feature of App Service Environments is that the same app name can be used across multiple App Service Environments. Since each App Service Environment has a unique domain suffix, developers can choose to reuse the exact same app name in each environment. For example, a developer could have apps named as follows:  *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*, etc. For the sample app, however, each app instance also has a unique name. The app instance names used are *webfrontend1*, *webfrontend2*, and *webfrontend3*.
 
 ## Setting up the Traffic Manager profile
+
 Once multiple instances of an app are deployed on multiple App Service Environments, the  individual app instances can be registered with Traffic Manager. For the sample app, a Traffic Manager profile is needed for *scalable-ase-demo.trafficmanager.net* that can route customers to any of the following deployed app instances:
 
 * **webfrontend1.fe1ase.p.azurewebsites.net:** An instance of the sample app deployed on the first App Service Environment.
