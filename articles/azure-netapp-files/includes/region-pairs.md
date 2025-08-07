@@ -2,7 +2,7 @@
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: include
-ms.date: 05/02/2025
+ms.date: 08/07/2025
 ms.author: anfdocs
 ms.custom: include file, references_regions
 
@@ -63,6 +63,7 @@ Azure NetApp Files volume replication is supported between various [Azure region
 | North America | South Central US | Central US |
 | North America | West US 2 | East US |
 | North America | West US 2 | West US 3 |
+| North America | Central US | East US |
 | Sweden/Europe | Sweden Central | North Europe |
 | Sweden/Europe | Sweden Central | West Europe |
 | UK/Europe | UK South | North Europe |
