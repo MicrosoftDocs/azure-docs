@@ -33,7 +33,7 @@ Application Gateway for Containers consists of four billable items:
 - Capacity units
 
 > [!NOTE]
-> Currently there is no additional charge to enable Web Application Firewall (WAF) on Application Gateway for Containers beyond the added capacity units required for WAF to process requests. WAF on Application Gateway for Containers is in public preview and we will enable billing at a later date.
+> Web Application Firewall (WAF) on Application Gateway for Containers is currently in public preview. During the preview, there is no additional charge to enable WAF on Application Gateway for Containers beyond the standard capacity units required to process requests.
 
 #### Application Gateway for Containers hour
 
