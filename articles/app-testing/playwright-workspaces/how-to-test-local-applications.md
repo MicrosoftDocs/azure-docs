@@ -9,7 +9,7 @@ ms.subservice: playwright-workspaces
 author: ninallam
 ms.author: ninallam
 ms.custom: playwright-workspaces-preview
-zone_pivot_group_filename: playwright-workspaces/zone-pivots-groups.json
+zone_pivot_group_filename: app-testing/playwright-workspaces/zone-pivots-groups.json
 zone_pivot_groups: playwright-workspaces
 ---
 
@@ -29,8 +29,6 @@ To expose local networks and resources to remote browsers, you can use the `expo
 You can specify one or multiple networks by using a list of rules. For example, to expose test/staging deployments and [localhost](https://en.wikipedia.org/wiki/Localhost): `*.test.internal-domain,*.staging.internal-domain,<loopback>`.
 
 ::: zone pivot="playwright-test-runner"
-
-### If you're using the **Playwright Test Runner**
 
 You can configure the `exposeNetwork` option in `playwright.service.config.ts`. The following example shows how to expose the `localhost` network by using the [`<loopback>`](https://en.wikipedia.org/wiki/Loopback) rule. You can also replace `localhost` with a domain that you want to enable for the service.
 
@@ -59,8 +57,6 @@ npx playwright test --config=playwright.service.config.ts --workers=20
 
 
 ::: zone pivot="nunit-test-runner"
-
-### If you're using the **NUnit Test Runner**
 
 You can configure the `ExposeNetwork` option in the setup file. The following example shows how to expose the `localhost` network by using the [`<loopback>`](https://en.wikipedia.org/wiki/Loopback) rule. You can also replace `localhost` with a domain that you want to enable for the service. 
 

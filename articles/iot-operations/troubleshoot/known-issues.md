@@ -4,7 +4,7 @@ description: Known issues for the MQTT broker, Layered Network Management (previ
 author: dominicbetts
 ms.author: dobett
 ms.topic: troubleshooting-known-issue
-ms.date: 07/30/2025
+ms.date: 08/07/2025
 ---
 
 # Known issues: Azure IoT Operations
@@ -286,22 +286,6 @@ Log signature: N/A
 Data flow custom resources created in your cluster using Kubernetes aren't visible in the operations experience web UI. This result is expected because [managing Azure IoT Operations components using Kubernetes is in preview](../deploy-iot-ops/howto-manage-update-uninstall.md#manage-components-using-kubernetes-deployment-manifests-preview), and synchronizing resources from the edge to the cloud isn't currently supported.
 
 There's currently no workaround for this issue.
-
-### Connection failures with Azure Event Grid
-
----
-
-Issue ID: 8891
-
----
-
-Log signature: N/A
-
----
-
-When you connect multiple IoT Operations instances to the same Event Grid MQTT namespace, connection failures might occur due to client ID conflicts. Client IDs are currently derived from data flow resource names, and when using infrastructure as code patterns for deployment, the generated client IDs might be identical.
-
-To work around this issue, add randomness to the data flow names in your deployment templates.
 
 ### A data flow profile can't exceed 70 data flows
 

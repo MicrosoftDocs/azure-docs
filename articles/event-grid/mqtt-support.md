@@ -6,7 +6,7 @@ ms.custom:
   - ignite-2023
   - build-2024
   - build-2025
-ms.date: 04/30/2025
+ms.date: 07/30/2025
 author: george-guirguis
 ms.author: geguirgu
 ms.subservice: mqtt
@@ -15,7 +15,7 @@ ms.subservice: mqtt
 # MQTT features supported by Azure Event Grid’s MQTT broker feature
 MQTT is a publish-subscribe messaging transport protocol that was designed for constrained environments. It’s efficient, scalable, and reliable, which made it the gold standard for communication in IoT scenarios. MQTT broker supports clients that publish and subscribe to messages over MQTT v3.1.1, MQTT v3.1.1 over WebSockets, MQTT v5, and MQTT v5 over WebSockets. MQTT broker also supports cross MQTT version (MQTT 3.1.1 and MQTT 5) communication.
 
-
+MQTT broker in Azure Event Grid also supports devices and services sending MQTT messages over HTTPS, simplifying integration with non-MQTT clients. Event Grid allows you to send MQTT messages to the cloud for data analysis, storage, and visualizations, among other use cases. This feature is currently in preview.
 
 MQTT v5 introduced many improvements over MQTT v3.1.1 to deliver a more seamless, transparent, and efficient communication. It added:
 - Better error reporting.
@@ -134,7 +134,7 @@ MQTT v5 ensures in-order message delivery within per topic and per client when u
 
 However, it doesn't guarantee ordering across different topics or when messages are sent with varying QoS levels. To learn more, contact us [askmqtt@microsoft.com](mailto:askmqtt@microsoft.com).
 
-### Assigned Client Identifiers (Preview) 
+### Assigned client identifiers 
 MQTT v5 introduces support for assigned client identifiers, allowing the broker to generate and return a unique client ID when one isn't provided by the client. MQTT broker supports this feature, ensuring seamless client onboarding and reducing the need for clients to manage their own identifiers. It's especially useful in scenarios where client provisioning is dynamic or when devices have no preconfigured identity. Assigned client IDs can be retrieved from the CONNACK response and reused for future sessions to maintain consistent identification. 
 
 #### Managing client identifier and session limits in MQTT 
@@ -152,7 +152,6 @@ MQTT broker is adding more MQTT v5 and MQTT v3.1.1 features in the future to ali
 
 MQTT v5 currently differs from the [MQTT v5 Specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html) in the following ways:
 - Shared Subscriptions aren't supported yet.
-- Retain flag isn't supported yet.
 - Maximum Will delay interval is 300.
 - Maximum QoS is 1.
 - Maximum Packet Size is 512 KiB
@@ -166,7 +165,7 @@ MQTT v5 currently differs from the [MQTT v5 Specification](https://docs.oasis-op
 ### MQTTv3.1.1 current limitations
 
 MQTT v5 currently differs from the [MQTT v3.1.1 Specification](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html) in the following ways:
-- QoS2 and Retain Flag aren't supported yet. A publish request with a retain flag or with a QoS2 fails and closes the connection.
+- QoS2 isn't supported. A publish request with a retain flag or with a QoS2 fails and closes the connection.
 - Keep Alive Maximum is 1,160 seconds.
 
 ## Code samples

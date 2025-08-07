@@ -35,7 +35,7 @@ While the service is in preview, the following limits apply on a per-subscriptio
 
 ## Test code limitations
 
-- The service supports Playwright OSS version 1.47 or higher.
+- The service supports Playwright OSS version 1.50 or higher.
 - The service supports the Playwright test runner and the NUnit test runner only.
 
 ## Supported operating systems and browsers

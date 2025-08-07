@@ -122,7 +122,7 @@ Experiment with the number of parallel workers to run your tests. Measure the te
 Notice at which point the test completion time no longer reduces as you add more workers. Move to the next step to further optimize your setup.
 
 > [!NOTE]
-> While the service is in preview, the number of [parallel workers per workspace is limited](./resource-limits-quotas-capacity.md) to 50. You can [request an increase of this limit for your workspace](https://aka.ms/mpt/feedback).
+> While the service is in preview, the number of [parallel workers per workspace is limited](./resource-limits-quotas-capacity.md) to 50. You can [request an increase of this limit for your workspace](https://aka.ms/pww/feedback).
 
 ### 6. Scale the client
 
