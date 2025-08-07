@@ -20,7 +20,7 @@ This article provides guidance on how to best secure your Azure DNS deployment.
 
 Network security for Azure DNS focuses on protecting DNS infrastructure from external threats and ensuring that DNS resolution services remain available and secure. Proper network controls help prevent DNS attacks and maintain service integrity.
 
-* **Use private DNS zones for internal resources**: Deploy Azure Private DNS zones for internal name resolution within virtual networks to prevent exposure of internal DNS records to public DNS servers. This keeps your internal infrastructure hidden from external reconnaissance.
+* **Use private DNS zones for internal resources**: Deploy Azure Private DNS zones for internal name resolution within virtual networks to prevent exposure of internal DNS records to public DNS servers. Private DNS zones keep your internal infrastructure hidden from external reconnaissance.
 
 * **Configure DNS security policies**: Use DNS security policies to control and monitor DNS queries, block access to malicious domains, and implement traffic actions such as allow, block, or alert for specific domain lists. For more information, see [DNS security policy](dns-security-policy.md).
 
@@ -28,7 +28,7 @@ Network security for Azure DNS focuses on protecting DNS infrastructure from ext
 
 ## Privileged access
 
-Privileged access management for Azure DNS ensures that only authorized users can modify DNS zones and records while following the principle of least privilege. Proper access controls prevent unauthorized DNS changes that could redirect traffic or compromise your services.
+Privileged access management for Azure DNS ensures that only authorized users can modify DNS zones and records while following the principle of least privilege. Proper access controls prevent unauthorized DNS changes that redirect traffic or compromise your services.
 
 * **Implement role-based access control**: Use Azure role-based access control (RBAC) to manage access to DNS resources through built-in role assignments. Assign roles to users, groups, service principals, and managed identities based on their specific responsibilities. For more information, see [How to protect DNS zones and records](dns-protect-zones-recordsets.md#azure-role-based-access-control).
 
@@ -40,7 +40,7 @@ Privileged access management for Azure DNS ensures that only authorized users ca
 
 * **Apply least privilege principles**: Grant users only the minimum permissions necessary to perform their DNS management tasks. Use specific DNS roles rather than broad administrative roles to limit potential security exposure.
 
-* **Secure administrative access**: Implement multi-factor authentication and privileged access workstations for all users who have permissions to modify DNS zones and records.
+* **Secure administrative access**: Implement multifactor authentication and privileged access workstations for all users who have permissions to modify DNS zones and records.
 
 * **Regular access reviews**: Conduct periodic reviews of user permissions and access rights to DNS resources to ensure that access remains appropriate and follows the principle of least privilege.
 
@@ -50,15 +50,15 @@ Data protection for Azure DNS focuses on protecting DNS data integrity and preve
 
 * **Use defense-in-depth for zone protection**: Implement both custom roles and resource locks simultaneously as a comprehensive defense-in-depth approach to protect critical DNS zones from accidental or malicious changes.
 
-* **Implement two-step deletion process**: For critical zones, use custom roles that don't include zone delete permissions, requiring administrators to first grant delete permissions and then perform the deletion as a two-step process to prevent accidental zone deletion.
+* **Implement two-step deletion process**: For critical zones, use custom roles that don't include zone delete permissions. Without delete permissions, administrators must first grant delete permissions and then perform the deletion as a two-step process to prevent accidental zone deletion.
 
 * **Protect DNS query integrity**: Monitor DNS query patterns to detect potential DNS tunneling attempts, queries to known malicious domains, or other indicators of compromise that could indicate data exfiltration through DNS channels.
 
 ## Logging and threat detection
 
-Comprehensive logging and monitoring for Azure DNS enables threat detection, security investigation, and compliance requirements while providing visibility into DNS query patterns and potential security events.
+Comprehensive logging and monitoring for Azure DNS provides essential visibility into DNS query patterns and potential security events. Logging and monitoring enables effective threat detection, security investigation, and helps meet compliance requirements.
 
-* **Enable Microsoft Defender for DNS**: Use Azure Defender for DNS to monitor DNS queries and detect suspicious activities without requiring agents on your resources. This provides real-time threat detection for DNS-based attacks. For more information, see [Overview of Microsoft Defender for DNS](/azure/defender-for-cloud/defender-for-dns-introduction).
+* **Enable Microsoft Defender for DNS**: Use Azure Defender for DNS to monitor DNS queries and detect suspicious activities without requiring agents on your resources. Azure Defender for DNS provides real-time threat detection for DNS-based attacks. For more information, see [Overview of Microsoft Defender for DNS](/azure/defender-for-cloud/defender-for-dns-introduction).
 
 * **Configure Azure resource logs**: Enable resource logs for Azure DNS service to capture detailed DNS query information and send them to Log Analytics workspaces, storage accounts, or event hubs for analysis and long-term retention. For more information, see [Azure DNS Metrics and Alerts](dns-alerts-metrics.md).
 
@@ -68,7 +68,7 @@ Comprehensive logging and monitoring for Azure DNS enables threat detection, sec
 
 * **Enable audit logging**: Track all administrative changes to DNS zones and records to maintain a comprehensive audit trail for compliance and security investigation purposes.
 
-* **Monitor for accidental changes**: Set up alerts for unexpected modifications or deletions of DNS zones and records to quickly detect and respond to potential security incidents or operational errors.
+* **Monitor for accidental changes**: Create alerts to detect unexpected DNS zone or record changes and respond quickly to security incidents or errors.
 
 ## Asset management
 
@@ -78,7 +78,7 @@ Asset management for Azure DNS involves implementing governance controls, monito
 
 * **Use Microsoft Defender for Cloud**: Configure Azure Policy through Microsoft Defender for Cloud to audit and enforce configurations of your DNS resources. Create alerts when configuration deviations are detected.
 
-* **Apply configuration enforcement**: Use Azure Policy deny and deploy-if-not-exists effects to enforce secure configurations across Azure DNS resources and prevent non-compliant deployments.
+* **Apply configuration enforcement**: Use Azure Policy deny and deploy-if-not-exists effects to enforce secure configurations across Azure DNS resources and prevent noncompliant deployments.
 
 * **Maintain resource inventory**: Keep detailed records of your DNS zones, record sets, and their configurations to support security assessments and compliance reporting.
 
@@ -86,7 +86,7 @@ Asset management for Azure DNS involves implementing governance controls, monito
 
 * **Monitor configuration compliance**: Regularly review DNS configurations against your organization's security standards and use Azure Policy to automatically detect and remediate configuration drift.
 
-* **Document zone dependencies**: Maintain documentation of DNS zone relationships and dependencies to understand the impact of changes and ensure proper change management processes.
+* **Document zone dependencies**: Maintain documentation of DNS zone relationships and dependencies to understand the effect of changes and ensure proper change management processes.
 
 ## Next steps
 
