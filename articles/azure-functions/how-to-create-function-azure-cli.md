@@ -11,7 +11,9 @@ zone_pivot_groups: programming-languages-set-functions
 
 In this article, you use local command-line tools to create a function that responds to HTTP requests. After verifying your code locally, you deploy it to a serverless Flex Consumption hosting plan in Azure Functions. 
 
-Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account. 
+
+Make sure to select your preferred development language at the top of the article.
 
 ## Prerequisites
 

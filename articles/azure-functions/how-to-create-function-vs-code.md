@@ -1,17 +1,24 @@
 ---
-title: Create a JavaScript function using Visual Studio Code - Azure Functions
-description: Learn how to create a JavaScript function, then publish the local Node.js project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
+title: Create and deploy function code to Azure using Visual Studio Code
+description: Learn how to create a function, then publish the local code project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
 ms.date: 08/01/2025
-ms.custom: mode-api, vscode-azure-extension-update-complete, devx-track-js
+ms.custom: 
+  - mode-api
+  - vscode-azure-extension-update-complete
+  - devx-track-js
+ms.collection: 
+  - ce-skilling-ai-copilot
 zone_pivot_groups: programming-languages-set-functions
 ---
 
-# Quickstart: Create a function in Azure using Visual Studio Code
+# Quickstart: Create and deploy function code to Azure using Visual Studio Code
 
-Use Visual Studio Code to create a function that responds to HTTP requests. Test the code locally, then deploy it to the serverless environment of Azure Functions.
+Use Visual Studio Code to create a function that responds to HTTP requests from a template. Use GitHub Copilot to improve the generated function code, verify code updates locally, and then deploy it to the serverless Flex Consumption hosting plan in Azure Functions.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+
+Make sure to select your preferred development language at the top of the article.
 
 ## Prerequisites
 
@@ -21,7 +28,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 
-In this section, you use Visual Studio Code to create a local Azure Functions project in JavaScript. Later in this article, you publish your function code to Azure.
+In this section, you use Visual Studio Code to create a local Azure Functions project in your preferred language. Later in the article, you update, run, and then publish your function code to Azure.
 
 1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette and search for and run the command `Azure Functions: Create New Project...`.
 
@@ -135,19 +142,19 @@ After you verify that the function runs correctly on your local computer, you ca
 This is an example prompt for Copilot Chat that updates the existing function code to retrieve parameters from either the query string or JSON body, apply formatting or type conversions, and return them as JSON in the response: 
 
 ```copilot-prompt
-Modify the function to accept name, email, and age from either the query parameters or the JSON body of the request, whichever is available. Return all three parameters in the JSON response, applying these rules:
+Modify the function to accept name, email, and age from the JSON body of the request. If any of these parameters are missing from the query string, read them from the JSON body. Return all three parameters in the JSON response, applying these rules:
 Title-case the name
 Lowercase the email
-Convert age to an integer, otherwise return "not provided"
+Convert age to an integer if possible, otherwise return "not provided"
 Use sensible defaults if any parameter is missing
 ```
 
-You can customize your prompt to add specifics as needed. 
-
 > [!TIP]  
-> The rest of the article assumes that you can continue to use a GET command to call your endpoint. Should GitHub Copilot update your app to require data be sent in the message `body`, you must also have a [secure HTTP test tool](functions-develop-local.md#http-test-tools) to submit POST requests with data in the message body when calling the `httpexample` endpoint. 
+> GitHub Copilot is powered by AI, so surprises and mistakes are possible. For more information, see [Copilot FAQs](https://aka.ms/copilot-general-use-faqs). 
 
-GitHub Copilot is powered by AI, so surprises and mistakes are possible. For more information, see [Copilot FAQs](https://aka.ms/copilot-general-use-faqs). When you are satistfied with your app, you can use Visual Studio Code to publish the project directly to Azure.
+You can customize your prompt to add specifics as needed, then run the app again locally and verify that it works as expected after the code changes. Use a message body like `{ "name": "Contoso", "email": "me@contoso.com", "age": "34" }`. 
+
+When you are satistfied with your app, you can use Visual Studio Code to publish the project directly to Azure.
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
@@ -159,7 +166,15 @@ GitHub Copilot is powered by AI, so surprises and mistakes are possible. For mor
 
 [!INCLUDE [functions-deploy-project-vs-code](../../includes/functions-deploy-project-vs-code.md)]
 
-[!INCLUDE [functions-vs-code-run-remote](../../includes/functions-vs-code-run-remote.md)]
+## Run the function in Azure
+
+1. Press <kbd>F1</kbd> to display the command palette, then search for and run the command `Azure Functions:Execute Function Now...`. If prompted, select your subscription.
+
+2.  Select your new function app resource and `HttpExample` as your function.
+
+3. In **Enter request body** type `{ "name": "Contoso", "email": "me@contoso.com", "age": "34" }`, then press Enter to send this request message to your function.
+
+4. When the function executes in Azure, the response is displayed in the notification area. Expand the notification to review the full response.
 
 ## Troubleshooting
 
