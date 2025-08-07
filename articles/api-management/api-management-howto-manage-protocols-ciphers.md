@@ -86,6 +86,9 @@ If you need to disable TLS 1.3 for client-side connections in these instances, c
 
 Enabling backend-side TLS 1.3 is optional. If you enable it, API Management uses TLS 1.3 for connections to your backend services.
 
+> [!WARNING]
+> Enabling TLS 1.3 for backend-side connections will cause connection failures with backend services that rely on client certificate renegotiation between API Management and the backends.
+
 You can enable backend-side TLS 1.3 from the **Protocols + ciphers** page:    
 
 1. On the **Protocols + ciphers** page, in the **Backend protocol** section, enable the **TLS 1.3** setting.
