@@ -9,7 +9,7 @@ author: ninallam
 ms.author: ninallam
 ms.date: 08/07/2025
 ms.custom: playwright-workspaces-preview
-zone_pivot_group_filename: playwright-workspaces/zone-pivots-groups.json
+zone_pivot_group_filename: app-testing/playwright-workspaces/zone-pivots-groups.json
 zone_pivot_groups: playwright-workspaces
 ---
 
