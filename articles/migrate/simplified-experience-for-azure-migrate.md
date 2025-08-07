@@ -2,7 +2,7 @@
 title: Simplified experience for Azure Migrate
 description: Describes the simplified experience an upgraded agent-based migration stack for physical and VMware environments
 author: dhananjayanr98
-ms.author: v-uhabiba
+ms.author: dhananjayanr
 ms.manager: dhananjayanr
 ms.service: azure-migrate
 ms.topic: how-to
@@ -32,11 +32,11 @@ The key differences between the Classic and Simplified experience:
 | Deprecation of classic experience | Support for ongoing replications will remain active until March 2026, while support for initiating new replications will end on October 30, 2025 | NA |
 
 ## Action required
-- We recommend using the **simplified experience** for initiating replication of any new agent-based VMware or physical servers.
+- Classic experience is scheduled for deprecation by **30 March 2026**. We recommend using the **simplified experience** for initiating replication of any new agent-based VMware or physical servers.
   >[!NOTE]
   >Classic experience will not support starting replications on new servers after **October 30, 2025**.
 - Servers currently replicating using the classic experience will be supported until **March 30, 2026**. We recommend completing your migrations before this date.
-- If you have servers discovered through the replication appliance under the classic experience, ensure replication is initiated before **October 30, 2025**, and plan your subsequent migrations before the retirement date **(March 30, 2026)**.
+- If you have servers discovered through the replication appliance under the classic experience, ensure replication is initiated before **October 30, 2025**, and plan your subsequent migrations before the deprecation date **(March 30, 2026)**.
   
 ## Next steps
 
