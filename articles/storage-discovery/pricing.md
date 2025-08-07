@@ -9,7 +9,7 @@ ms.date: 08/01/2025
 ms.author: shaas
 ---
 
-# Azure Storage Discovery pricing
+# Azure Storage Discovery preview pricing
 
 Azure Storage Discovery offers free and paid pricing plans. This article describes the differences and explains what influences the bill when choosing a paid option. 
 
