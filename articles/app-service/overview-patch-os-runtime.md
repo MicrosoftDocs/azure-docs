@@ -70,7 +70,7 @@ az webapp config set --java-version 1.8 --java-container Tomcat --java-container
 
 While critical OS information is locked down from access (see [Operating system functionality on Azure App Service](operating-system-functionality.md)), the [Kudu console](https://github.com/projectkudu/kudu/wiki/Kudu-console) enables you to query your App Service instance regarding the OS version and runtime versions. 
 
-The following table shows how to the versions of Windows and of the language runtime that are running your apps:
+The following table shows how to determine the versions of Windows and of the language runtime that are running your apps:
 
 | Information | Where to find it | 
 |-|-|

@@ -71,7 +71,7 @@ For more information, see:
 
 ### Monitor web endpoint status
 
-If your app in running in the **Standard** pricing tier, App Service lets you monitor two endpoints from three geographic locations.
+If your app is running in the **Standard** pricing tier, App Service lets you monitor two endpoints from three geographic locations.
 
 Endpoint monitoring configures web tests from geo-distributed locations that test response time and uptime of web URLs. The test performs an `HTTP GET` operation on the web URL to determine the response time and uptime from each location. Each configured location runs a test every five minutes.
 
