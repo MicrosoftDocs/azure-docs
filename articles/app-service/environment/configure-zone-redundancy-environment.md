@@ -20,7 +20,7 @@ To learn more details about how App Service Environment supports zone redundancy
 
 - **To create a new App Service Environment with zone redundancy,** follow the steps in [Create an App Service Environment](creation.md). Make sure to select *Enabled* for **Zone redundancy**.
 
-- **To enable or disable zone redundancy** for an existing App Service Environment, you can use Azure CLI or Bicep:
+- **To enable or disable zone redundancy** for an existing App Service Environment, you can use the Azure portal, Azure CLI, or Bicep:
     
     # [Azure portal](#tab/portal)
     
