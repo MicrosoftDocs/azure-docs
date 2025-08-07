@@ -12,8 +12,6 @@ ms.author: kesheth
 
 # $convert-data in the FHIR service
 
-[!INCLUDE [Converter redirect statement](../includes/converter-redirect-statement.md)]
-
 The `$convert-data` operation in the FHIR&reg; service enables you to convert health data from various formats into [FHIR R4](https://www.hl7.org/fhir/R4/index.html) data. The `$convert-data` operation uses [Liquid](https://shopify.github.io/liquid/) templates from the [FHIR Converter](https://github.com/microsoft/FHIR-Converter) project for FHIR data conversion. You can customize these conversion templates as needed. 
 
 The `$convert-data` operation supports four types of data conversion: 
