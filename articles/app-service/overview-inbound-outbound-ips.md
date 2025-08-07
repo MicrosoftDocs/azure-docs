@@ -140,6 +140,8 @@ You can configure the IP mode behavior using the `IPMode` property:
 - **IPv6**: DNS returns IPv6 address only
 - **IPv4AndIPv6**: DNS returns both IPv4 and IPv6 addresses
 
+IPMode is a DNS-only feature. Every App Service site can receive requests via both IPv4 and IPv6 endpoints—regardless of the configured IpMode. IpMode only influences how DNS resolves the endpoint, so it affects clients that rely on DNS resolution (which should be most clients), but it doesn't restrict which protocol endpoints can be reached.
+
 ### Configure IPv6 support
 
 # [Azure portal](#tab/azure-portal)
