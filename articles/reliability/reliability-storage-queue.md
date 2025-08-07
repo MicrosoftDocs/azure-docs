@@ -86,7 +86,7 @@ For detailed pricing information, see [Queue Storage pricing](https://azure.micr
 
 ### Configure availability zone support
 
-- **Create a storage account and queue that has zone redundancy by taking the following steps.**
+- **Create a zone-redundant storage account and queue by taking the following steps.**
 
     1. [Create a storage account](/azure/storage/common/storage-account-create) and select ZRS, GZRS, or read-access geo-zone-redundant storage (RA-GZRS) as the redundancy option during account creation.
 

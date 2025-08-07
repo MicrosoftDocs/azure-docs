@@ -11,7 +11,7 @@
 
 The failback process differs significantly between Microsoft-managed and customer-managed failover scenarios.
 
-- **Customer-managed failover (unplanned):** After an unplanned failover, the storage account is configured with LRS. To fail back, you need to re-establish the GRS relationship and wait for the data to be replicated.
+- **Customer-managed failover (unplanned):** After an unplanned failover, the storage account is configured with locally redundant storage (LRS). To fail back, you need to re-establish the geo-redundant storage (GRS) relationship and wait for the data to be replicated.
 
 - **Customer-managed failover (planned):** After a planned failover, the storage account remains geo-replicated. You can initiate another customer-managed failover to fail back to the original primary region. [The same failover considerations apply](#region-down-experience).
 

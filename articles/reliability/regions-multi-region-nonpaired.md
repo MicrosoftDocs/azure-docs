@@ -51,7 +51,7 @@ You can also use either of the following customer-managed data migration methods
 
 ## Azure Data Factory
 
-For geo-replication in nonpaired regions, Azure Data Factory supports infrastructure as code provisioning of Data Factory pipelines combined with [source control](/azure/reliability/reliability-data-factory#alternative-multi-region-approaches).
+To learn about how to create multi-region solutions by using Azure Data Factory, see [Reliability in Azure Data Factory](./reliability-data-factory.md).
 
 ## Azure Event Grid
 

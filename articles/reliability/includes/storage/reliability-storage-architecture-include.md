@@ -15,4 +15,4 @@
    A blue box represents the primary region. It contains a gray box that represents the datacenter. A dark purple box inside the datacenter box represents LRS. It contains a light purple box that includes the storage account and three icons labeled copy 1, copy 2, and copy 3.
 :::image-end:::
 
-ZRS, GRS, and GZRS provide extra protections. This article describes these options in detail.
+Zone-redundant storage (ZRS), geo-redundant storage (GRS), and geo-zone-redundant storage (GZRS) provide extra protections. This article describes these options in detail.
