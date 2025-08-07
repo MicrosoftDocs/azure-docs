@@ -111,7 +111,7 @@ Zone redundancy is included with Premium tier registries at no extra cost. The P
 
 This section describes what to expect when Container Registry resources are configured for zone redundancy and all availability zones are operational.
 
-<!-- :::image type="content" source="./media/reliability-acr/acr-zone-redundancy-normal-operations.png" alt-text="Diagram showing Container Registry zone redundancy during normal operations with clients connecting to registry endpoint and automatic load balancing across three availability zones with asynchronous replication between zones." lightbox="./media/reliability-acr/acr-zone-redundancy-normal-operations.png" border="false"::: -->
+<!-- :::image type="content" source="./media/reliability-acr/acr-zone-redundancy-normal-operations.png" alt-text="Diagram that shows Container Registry zone redundancy during normal operations." lightbox="./media/reliability-acr/acr-zone-redundancy-normal-operations.png" border="false"::: -->
 
 - **Traffic routing between zones:** Container Registry uses internal routing functionality to automatically distribute data plane operations across all availability zones within a region. The registry service automatically routes requests to healthy zones without requiring external load balancers.
 
@@ -123,7 +123,7 @@ This section describes what to expect when Container Registry resources are conf
 
 When a zone becomes unavailable, Container Registry automatically handles the failover process with minimal impact to registry operations.
 
-<!-- :::image type="content" source="./media/reliability-acr/acr-zone-redundancy-zone-failure.png" alt-text="Diagram that shows Container Registry behavior during zone failure with automatic failover routing to healthy zones while one zone is marked as failed and unavailable." lightbox="./media/reliability-acr/acr-zone-redundancy-zone-failure.png" border="false"::: -->
+<!-- :::image type="content" source="./media/reliability-acr/acr-zone-redundancy-zone-failure.png" alt-text="Diagram that shows Container Registry behavior during zone failure. Automatic failover routes to healthy zones. One zone is marked as unavailable." lightbox="./media/reliability-acr/acr-zone-redundancy-zone-failure.png" border="false"::: -->
 
 - **Detection and response:** The Container Registry platform automatically detects failures in an availability zone and initiates a response. The service automatically routes traffic to the remaining healthy zones. No manual intervention is required to initiate a zone failover.
 
@@ -195,7 +195,7 @@ Geo-replication can be configured during registry creation or added to existing 
 
 This section describes what to expect when a registry is configured for geo-replication and all regions are operational.
 
-<!-- :::image type="content" source="./media/reliability-acr/acr-multi-region-normal-operations.png" alt-text="Diagram showing Container Registry multi-region operations with global clients connecting through Traffic Manager to registry endpoints across multiple regions including East US home region, West Europe, and East Asia, with bidirectional asynchronous replication between all regions." lightbox="./media/reliability-acr/acr-multi-region-normal-operations.png" border="false"::: -->
+<!-- :::image type="content" source="./media/reliability-acr/acr-multi-region-normal-operations.png" alt-text="Diagram showing Container Registry multi-region operations. Global clients connect via Traffic Manager to registry endpoints across multiple regions." lightbox="./media/reliability-acr/acr-multi-region-normal-operations.png" border="false"::: -->
 
 - **Traffic routing between regions:** Container Registry operates in an active-active configuration where each regional endpoint can serve all data plane operations independently, including reads and writes. Data plane operations, such as container push and pull operations, are automatically routed by using Traffic Manager with performance-based criteria to determine the optimal regional endpoint for performance.
 
@@ -209,7 +209,7 @@ This section describes what to expect when a registry is configured for geo-repl
 
 When a region becomes unavailable, container operations can continue to use alternative regional endpoints.
 
-<!-- :::image type="content" source="./media/reliability-acr/acr-multi-region-region-failure.png" alt-text="Diagram showing Container Registry behavior during regional failure with automatic Traffic Manager failover routing clients to healthy regions while West Europe is marked as failed, and continued bidirectional replication between operational regions." lightbox="./media/reliability-acr/acr-multi-region-region-failure.png" border="false"::: -->
+<!-- :::image type="content" source="./media/reliability-acr/acr-multi-region-region-failure.png" alt-text="Diagram that shows Container Registry behavior during regional failure." lightbox="./media/reliability-acr/acr-multi-region-region-failure.png" border="false"::: -->
 
 - **Detection and response:** Container Registry monitors the health of each regional replica and is responsible for redirecting traffic to another region.
 
