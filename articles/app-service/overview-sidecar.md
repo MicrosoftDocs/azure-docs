@@ -52,6 +52,35 @@ Use Azure Monitor, Log Analytics, and the Diagnose & Solve blade in the Azure po
 ### Are there any limitations?
 Persistent Azure storage is not supported for sidecars. App Service Environment (ASE) and national clouds may not be supported yet. Check the latest Azure documentation for updates.
 
+### How do I revert my app from the new sidecar configuration back to the classic custom container setup?
+
+If you’ve already moved your web app to the new sidecar configuration (`sitecontainers`) and want to revert to the classic custom container (`docker`) setup, you can do so using the Azure CLI.
+
+Use the following command:
+
+```bash
+az webapp sitecontainers convert --mode docker --name <YourWebAppName> --resource-group <YourResourceGroup>
+```
+
+This will delete all sidecar configurations and switch your app back to using the `DOCKER|`-style `linuxFxVersion`. You’ll see output confirming the conversion:
+
+```json
+{
+  "mode": "docker",
+  "result": "success"
+}
+```
+
+> **Note:** You must run this command on a web app that is currently using the `sitecontainers` configuration. If your app is not in that mode, the CLI will return an error.
+
+To switch *to* sidecar mode from a classic custom container setup, use:
+
+```bash
+az webapp sitecontainers convert --mode sitecontainers --name <YourWebAppName> --resource-group <YourResourceGroup>
+```
+
+For full details, see the [Azure CLI documentation for `az webapp sitecontainers convert`](https://learn.microsoft.com/en-us/cli/azure/webapp/sitecontainers?view=azure-cli-latest).
+
 ## More resources
 
 - [Interactive guide: sidecars in Azure App Service](https://mslabs.cloudguides.com/guides/Modernize%20existing%20web%20apps%20with%20new%20capabilities%20using%20Sidecar%20patterns)
