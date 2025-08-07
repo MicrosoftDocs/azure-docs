@@ -88,7 +88,7 @@ You can create and test image definition files by using Visual Studio Code. In a
 
 1. Create a dev box (or use an existing dev box) for testing.
 1. On the test dev box, install Visual Studio Code and then install the Dev Box extension.
-1. Download an example YAML image definition file from the samples repository. Open it in Visual Studio Code.
+1. Download an [example YAML image definition file](https://aka.ms/devcenter/preview/imaging/examples) from the samples repository. Open it in Visual Studio Code.
 1. Discover the tasks that are available in the catalog by using the command palette. Select **View** > **Command Palette** > **Dev Box: List Available Tasks For This Dev Box**.
 
    :::image type="content" source="media/how-to-configure-team-customizations/dev-box-command-list-tasks.png" alt-text="Screenshot that shows the Visual Studio Code command palette with the Dev Box: List Available Tasks For This Dev Box option selected.":::
