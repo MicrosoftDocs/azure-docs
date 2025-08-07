@@ -6,10 +6,10 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 03/31/2025
+ms.date: 08/07/2025
 ms.custom: mvc
-#Customer intent: As a website owner, I want to enable HTTPS on the custom domain of my CDN endpoint so that my users can use my custom domain to access my content securely.
 ROBOTS: NOINDEX
+
 # Customer intent: As a website owner, I want to configure HTTPS for my custom domain on a CDN endpoint, so that I can ensure the secure delivery of sensitive data to my users.
 ---
 
@@ -63,12 +63,12 @@ To enable HTTPS on an Azure CDN custom domain, you use a TLS/SSL certificate. Yo
 # [Option 1 (default): Enable HTTPS with a CDN-managed certificate](#tab/option-1-default-enable-https-with-a-cdn-managed-certificate)
 
 Using a certificate managed by Azure CDN allows you to enable HTTPS with a few settings changes. Azure CDN handles all certificate management tasks, including procurement and renewal. This is supported for custom domains with direct CNAME to Azure CDN endpoint.
-> [!IMPORTANT]
 
-> - As of May 8, 2025, DigiCert no longer supports the WHOIS-based domain validation method. Hence, if your domains with indirect CNAME to Azure CDN endpoint, you must use the Bring your own certificate feature.
-> - Due to the WHOIS-based domain validation, managed certificate issued using WHOIS-based domain validation can't be auto renewed until you have direct CNAME pointed to Azure CDN.
-> - CDN-managed certificates are not available for root or apex domains. If your Azure CDN custom domain is a root or apex domain, you must use the Bring your own certificate feature.
-> - Managed certificate autorenewal requires that your custom domain be directly mapped to your CDN endpoint by a CNAME record.
+> [!IMPORTANT]
+> - As of May 8, 2025, DigiCert no longer supports the WHOIS-based domain validation method. If your domain uses an indirect CNAME mapping to Azure Front Door Classic endpoint, you must use the **Bring Your Own Certificate (BYOC)** feature.
+> - Due to changes in WHOIS-based domain validation, managed certificates issued using WHOIS-based domain validation can't be autorenewed until you have a direct CNAME pointing to Azure Front Door Classic.
+> - CDN-managed certificates aren't available for root or apex domains. If your Azure CDN custom domain is a root or apex domain, you must use the **Bring Your Own Certificate (BYOC)** feature.
+> - Managed certificate autorenewal requires that your custom domain be directly mapped to your Azure CDN endpoint using a CNAME record.
 
 To enable HTTPS on a custom domain, follow these steps:
 
@@ -159,6 +159,7 @@ Your CNAME record should be in the following format:
 For more information about CNAME records, see [Create the CNAME DNS record](./cdn-map-content-to-custom-domain.md).
 
 If your CNAME record is in the correct format, DigiCert automatically verifies your custom domain name and creates a certificate for your domain. The certificate is valid for one year and will be autorenewed before it expires. Automatic validation typically takes a few hours. If you don't see your domain validated in 24 hours, open a support ticket.
+
 Continue to [Wait for propagation](#wait-for-propagation).
 
 >[!NOTE]
