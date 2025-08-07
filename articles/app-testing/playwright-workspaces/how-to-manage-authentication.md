@@ -55,6 +55,8 @@ To enable authentication using access tokens:
 
 ::: zone pivot="playwright-test-runner"
 
+### If you're using the **Playwright Test Runner**:
+
 1. While running the tests, enable access token auth in the `playwright.service.config.ts` file in your setup. 
 
     ```typescript
@@ -68,6 +70,8 @@ To enable authentication using access tokens:
 ::: zone-end
 
 ::: zone pivot="nunit-test-runner"
+
+### If you're using the **NUnit Test Runner**:
 
 1. While running the tests, enable access token auth in the setup file. 
 
@@ -103,6 +107,8 @@ To enable authentication using access tokens:
 
 ::: zone pivot="playwright-test-runner"
 
+### If you're using the **Playwright Test Runner**:
+
 3. Set up your environment.
 
     To set up your environment, configure the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` environment variable with the value you obtained in the previous steps. Ensure this environment variable is available in your setup where you are running tests.
@@ -127,6 +133,8 @@ To enable authentication using access tokens:
 
 ::: zone pivot="nunit-test-runner"
 
+### If you're using the **NUnit Test Runner**:
+
 3. Set up your environment.
 
     To set up your environment, configure the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` environment variable with the value you obtained in the previous steps. Ensure this environment variable is available in your setup where you are running tests.
@@ -138,12 +146,16 @@ To enable authentication using access tokens:
 Run Playwright tests against cloud-hosted browsers and publish the results to the service using the configuration you created above.
 
 ::: zone pivot="playwright-test-runner"
+
+### If you're using the **Playwright Test Runner**:
 ```typescript
 npx playwright test --config=playwright.service.config.ts --workers=20
 ```
 ::: zone-end
 
 ::: zone pivot="nunit-test-runner"
+
+### If you're using the **NUnit Test Runner**:
 ```bash
 dotnet test -- NUnit.NumberOfTestWorkers=20
 ```
