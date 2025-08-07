@@ -38,8 +38,6 @@ If you don't have this file in your code, follow [Quickstart: Run end-to-end tes
 
 ::: zone pivot="playwright-test-runner"
 
-### If you're using the **Playwright Test Runner**
-
 Below is a complete example of a `playwright.service.config.ts` file showing all supported configuration options:
 
 ```typescript
@@ -126,8 +124,6 @@ export default defineConfig(
 ::: zone-end
 
 ::: zone pivot="nunit-test-runner"
-
-### If you're using the **NUnit Test Runner**
 
 
 Here's version of the setup file with all the available options:
