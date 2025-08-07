@@ -30,7 +30,7 @@ You can specify one or multiple networks by using a list of rules. For example, 
 
 ::: zone pivot="playwright-test-runner"
 
-### If you're using the **Playwright Test Runner**:
+### If you're using the **Playwright Test Runner**
 
 You can configure the `exposeNetwork` option in `playwright.service.config.ts`. The following example shows how to expose the `localhost` network by using the [`<loopback>`](https://en.wikipedia.org/wiki/Loopback) rule. You can also replace `localhost` with a domain that you want to enable for the service.
 
@@ -60,7 +60,7 @@ npx playwright test --config=playwright.service.config.ts --workers=20
 
 ::: zone pivot="nunit-test-runner"
 
-### If you're using the **NUnit Test Runner**:
+### If you're using the **NUnit Test Runner**
 
 You can configure the `ExposeNetwork` option in the setup file. The following example shows how to expose the `localhost` network by using the [`<loopback>`](https://en.wikipedia.org/wiki/Loopback) rule. You can also replace `localhost` with a domain that you want to enable for the service. 
 

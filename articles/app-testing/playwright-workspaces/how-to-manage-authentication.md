@@ -55,13 +55,13 @@ To enable authentication using access tokens:
 
 ::: zone pivot="playwright-test-runner"
 
-### If you're using the **Playwright Test Runner**:
+### If you're using the **Playwright Test Runner**
 
-1. While running the tests, enable access token auth in the `playwright.service.config.ts` file in your setup. 
+While running the tests, enable access token auth in the `playwright.service.config.ts` file in your setup. 
 
     ```typescript
     import { getServiceConfig, ServiceAuth } from '@azure/playwright';
-
+    
     /* Learn more about service configuration at https://aka.ms/mpt/config */
     export default defineConfig(config, getServiceConfig( config {
         serviceAuthType: ServiceAuth.ACCESS_TOKEN
@@ -71,7 +71,7 @@ To enable authentication using access tokens:
 
 ::: zone pivot="nunit-test-runner"
 
-### If you're using the **NUnit Test Runner**:
+### If you're using the **NUnit Test Runner**
 
 1. While running the tests, enable access token auth in the setup file. 
 
@@ -107,37 +107,35 @@ To enable authentication using access tokens:
 
 ::: zone pivot="playwright-test-runner"
 
-### If you're using the **Playwright Test Runner**:
+## Set up your environment.
 
-3. Set up your environment.
+### If you're using the **Playwright Test Runner**
 
-    To set up your environment, configure the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` environment variable with the value you obtained in the previous steps. Ensure this environment variable is available in your setup where you are running tests.
+To set up your environment, configure the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` environment variable with the value you obtained in the previous steps. Ensure this environment variable is available in your setup where you are running tests.
 
-    We recommend that you use the `dotenv` module to manage your environment. With `dotenv`, you define your environment variables in the `.env` file.
+We recommend that you use the `dotenv` module to manage your environment. With `dotenv`, you define your environment variables in the `.env` file.
 
-    1. Add the `dotenv` module to your project:
+1. Add the `dotenv` module to your project:
 
-        ```shell
-        npm i --save-dev dotenv
-        ```
+    ```shell
+    npm i --save-dev dotenv
+    ```
 
-    2. Create a `.env` file alongside the `playwright.config.ts` file in your Playwright project:
-        
-        ```
-        PLAYWRIGHT_SERVICE_ACCESS_TOKEN={MY-ACCESS-TOKEN}
-        ```
+2. Create a `.env` file alongside the `playwright.config.ts` file in your Playwright project:
+    
+    ```
+    PLAYWRIGHT_SERVICE_ACCESS_TOKEN={MY-ACCESS-TOKEN}
+    ```
 
-        Make sure to replace the `{MY-ACCESS-TOKEN}` text placeholder with the value you copied earlier.
+    Make sure to replace the `{MY-ACCESS-TOKEN}` text placeholder with the value you copied earlier.
 
 ::: zone-end
 
 ::: zone pivot="nunit-test-runner"
 
-### If you're using the **NUnit Test Runner**:
+### If you're using the **NUnit Test Runner**
 
-3. Set up your environment.
-
-    To set up your environment, configure the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` environment variable with the value you obtained in the previous steps. Ensure this environment variable is available in your setup where you are running tests.
+To set up your environment, configure the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` environment variable with the value you obtained in the previous steps. Ensure this environment variable is available in your setup where you are running tests.
 
 ::: zone-end
 
@@ -147,7 +145,7 @@ Run Playwright tests against cloud-hosted browsers and publish the results to th
 
 ::: zone pivot="playwright-test-runner"
 
-### If you're using the **Playwright Test Runner**:
+### If you're using the **Playwright Test Runner**
 ```typescript
 npx playwright test --config=playwright.service.config.ts --workers=20
 ```
@@ -155,7 +153,7 @@ npx playwright test --config=playwright.service.config.ts --workers=20
 
 ::: zone pivot="nunit-test-runner"
 
-### If you're using the **NUnit Test Runner**:
+### If you're using the **NUnit Test Runner**
 ```bash
 dotnet test -- NUnit.NumberOfTestWorkers=20
 ```

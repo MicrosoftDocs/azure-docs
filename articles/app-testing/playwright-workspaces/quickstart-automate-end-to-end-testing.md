@@ -67,7 +67,7 @@ To get the service endpoint URL and store it as a CI workflow secret, perform th
 
 ## Add service configuration file
 
-### If you're using the **Playwright Test Runner**:
+### If you're using the **Playwright Test Runner**
 
 If you don't have Playwright tests configured to run with the service, add a service configuration file to your repository. In the next step, you then specify this service configuration file on the Playwright CLI.
 
@@ -99,7 +99,7 @@ Update the `package.json` file in your repository to add details about Playwrigh
 
 ## Install service package
 
-### If you're using the **NUnit Test Runner**:
+### If you're using the **NUnit Test Runner**
 
 In your project, install Playwright Workspaces package. 
 
@@ -223,7 +223,7 @@ You can generate an access token from your Playwright workspace and use it in yo
 
 ::: zone pivot="playwright-test-runner"
 
-### If you're using the **Playwright Test Runner**:
+### If you're using the **Playwright Test Runner**
 Update the CI workflow definition to run your Playwright tests with the Playwright CLI. Pass the [service configuration file](#add-service-configuration-file) as an input parameter for the Playwright CLI. You configure your environment by specifying environment variables.
 
 1. Open the CI workflow definition.
@@ -324,7 +324,7 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
 
 ::: zone pivot="nunit-test-runner"
 
-### If you're using the **NUnit Test Runner**:
+### If you're using the **NUnit Test Runner**
 
 Update the CI workflow definition to run your Playwright tests with the Playwright NUnit CLI. You configure your environment by specifying environment variables.
 
