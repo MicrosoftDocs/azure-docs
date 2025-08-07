@@ -6,7 +6,7 @@ ms.topic: how-to
 author: abhishjain002
 ms.author: abhishjain
 ms.reviewer: nijelsf
-ms.date: 03/11/2025
+ms.date: 08/08/2025
 ---
 
 # Integrate Apache Spark and Apache Hive with Hive Warehouse Connector in Azure HDInsight
@@ -56,15 +56,13 @@ Hive Warehouse Connector needs separate clusters for Spark and Interactive Query
 
 | HWC Version | Spark Version | InteractiveQuery Version |
 |:---:|:---:|---|
-| v1 | Spark 2.4 \| HDI 4.0 | Interactive Query 3.1 \| HDI 4.0 |
-| v2 | Spark 3.1 \| HDI 5.0 | Interactive Query 3.1 \| HDI 5.0 |
 | v2.1 | Spark 3.3.0 \| HDI 5.1 | Interactive Query 3.1 \| HDI 5.1 |
 
 ### Create clusters
 
-1. Create an HDInsight Spark **4.0** cluster with a storage account and a custom Azure virtual network. For information on creating a cluster in an Azure virtual network, see [Add HDInsight to an existing virtual network](../../hdinsight/hdinsight-plan-virtual-network-deployment.md#existingvnet).
+1. Create an HDInsight Spark **5.1** cluster with a storage account and a custom Azure virtual network. For information on creating a cluster in an Azure virtual network, see [Add HDInsight to an existing virtual network](../../hdinsight/hdinsight-plan-virtual-network-deployment.md#existingvnet).
 
-1. Create an HDInsight Interactive Query (LLAP) **4.0** cluster with the same storage account and Azure virtual network as the Spark cluster.
+1. Create an HDInsight Interactive Query (LLAP) **5.1** cluster with the same storage account and Azure virtual network as the Spark cluster.
 
 ### Configure HWC settings
 
@@ -102,6 +100,20 @@ value. The value may be similar to: `thrift://iqgiro.rekufuk2y2cezcbowjkbwfnyvd.
 
 1. Save changes and restart all affected components.
 
+#### Additonal configurations for Spark and Hive
+
+The following configuration needs to be done for **all** head and worker nodes of your Spark and Hive clusters.
+
+1. Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your Apache Spark and Apache Hive nodes. Edit the command below by replacing CLUSTERNAME with the name of your cluster, and then enter the command:
+
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
+    
+1. Append the file content of /etc/hosts of hive cluster in /etc/hosts file of spark cluster and vice-versa.
+
+1. Once all nodes are updated then, restart both the clusters.
+
 ### Configure HWC for Enterprise Security Package (ESP) clusters
 
 The Enterprise Security Package (ESP) provides enterprise-grade capabilities like Active Directory-based authentication, multi-user support, and role-based access control for Apache Hadoop clusters in Azure HDInsight. For more information on ESP, see [Use Enterprise Security Package in HDInsight](../domain-joined/apache-domain-joined-architecture.md).
@@ -126,7 +138,18 @@ Apart from the configurations mentioned in the previous section, add the followi
 
     * For instance, `hive/hn*.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET`.
     
+1. The following configuration needs to be done for **all** head and worker nodes of your Spark and Hive clusters.
+
+   * Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your Apache Spark and Apache Hive nodes. Edit the command below by replacing CLUSTERNAME with the name of your cluster, and then enter the command:
+
+        ```cmd
+        ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
+        ```
+        
+   * Append tenant domain name (e.g. "abc.contoso.com”) in the last line of /etc/resolv.conf in head and worker nodes of your Spark and Hive clusters.
+
 1. Save changes and restart components as needed.
+
 
 ## Hive Warehouse Connector usage
 
