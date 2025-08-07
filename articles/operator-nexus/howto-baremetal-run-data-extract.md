@@ -685,6 +685,11 @@ The command provides a link (if using cluster manager storage) or another comman
 
 The `run-data-extracts-restricted`  produces an output file containing the results of the data extract. It differs by having RBAC restrictions enforced on users limiting which actions and commands they can execute. The allowed commands must be added individually in the role definition.
 
+`run-data-extracts-restricted` is also limited in the subset of commands that it can perform. The current commands in the allowed restricted list are:
+
+- `cluster-cve-report`
+- `mde-agent-information`
+
 
 ```azurecli-interactive
 az networkcloud baremetalmachine run-data-extracts-restricted --name "<machine-name>"  \
