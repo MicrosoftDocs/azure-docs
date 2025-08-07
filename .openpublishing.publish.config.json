@@ -645,6 +645,12 @@
             "branch_mapping": {}
         },
         {
+            "path_to_root": "playwright-testing-service",
+            "url": "https://github.com/microsoft/playwright-testing-service",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
             "path_to_root": "policy-templates",
             "url": "https://github.com/Azure/azure-policy",
             "branch": "master",
