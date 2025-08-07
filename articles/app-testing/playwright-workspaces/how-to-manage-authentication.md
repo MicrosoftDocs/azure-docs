@@ -87,7 +87,7 @@ To enable authentication using access tokens:
             credential: new DefaultAzureCredential(),
             options: new PlaywrightServiceBrowserClientOptions()
             {
-                
+                ServiceAuth = ServiceAuthType.AccessToken
             }
         )
         {
@@ -131,9 +131,9 @@ To set up your environment, configure the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` envi
 
 ::: zone-end
 
-## Run tests on the service and publish results
+## Run tests on the service
 
-Run Playwright tests against cloud-hosted browsers and publish the results to the service using the configuration you created above.
+Run Playwright tests against cloud-hosted browsers using the configuration you created above.
 
 ::: zone pivot="playwright-test-runner"
 
