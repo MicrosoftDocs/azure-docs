@@ -65,6 +65,8 @@ In this tutorial, you learn how to:
 
    ![Screenshot of Azure portal, showing button to create a logic app resource.](./media/monitor-virtual-machine-changes-logic-app/azure-portal-create-logic-app.png)
 
+1. Select **Consumption** > **Multi-tenant**.
+
 1. Under **Create Logic App**, provide information about your logic app resource:
 
    ![Screenshot of logic apps creation menu, showing details like name, subscription, resource group, and location.](./media/monitor-virtual-machine-changes-logic-app/create-logic-app.png)
@@ -74,34 +76,18 @@ In this tutorial, you learn how to:
    | **Subscription** | Yes | <*Azure-subscription-name*> | Select the same Azure subscription for all the services in this tutorial. |
    | **Resource Group** | Yes | <*Azure-resource-group*> | The Azure resource group name for your logic app, which you can select for all the services in this tutorial. |
    | **Logic App name** | Yes | <*logic-app-name*> | Provide a unique name for your logic app. |
-   | **Publish** | Yes | Workflow | Select the deployment destination for your logic app. For this tutorial, make sure that you select **Workflow**, which deploys to Azure. |
    | **Region** | Yes | <*Azure-region*> | Select the same region for all services in this tutorial. |
-   | **Plan type** | Yes | Consumption | The resource type for your logic app. For this tutorial, make sure that you select **Consumption**. |
    |||||
 
    > [!NOTE]
    > 
-   > If you later want to use the Azure Event Grid operations with a Standard logic app resource instead, 
-   > make sure that you create a *stateful* workflow, not a stateless workflow. This tutorial applies only 
-   > to Consumption logic apps, which follow a different user experience. To add Azure Event Grid operations 
-   > to your workflow in the designer, on the operations picker pane, make sure that you select the **Azure** tab. 
+   > This tutorial applies only 
+   > to Consumption logic apps, which follow a different user experience. 
    > For more information about multitenant versus single-tenant Azure Logic Apps, review [Single-tenant versus multitenant](../logic-apps/single-tenant-overview-compare.md).
 
 1. When you're done, select **Review + create**. On the next pane, confirm the provided information, and select **Create**.
 
 1. After Azure deploys your logic app, select **Go to resource**. 
-
-   The workflow designer shows a page with an introduction video and commonly used triggers.
-   
-1. Scroll past the video window and commonly used triggers section.
-
-1. Under **Templates**, select **Blank Logic App**.
-
-   > [!NOTE]
-   > 
-   > The workflow templates gallery is available only for Consumption logic apps, not Standard logic apps.
-
-   ![Screenshot showing Azure Logic Apps templates with selected "Blank Logic App" template.](./media/monitor-virtual-machine-changes-logic-app/choose-logic-app-template.png)
 
    The workflow designer now shows you the [*triggers*](../logic-apps/logic-apps-overview.md#logic-app-concepts) that you can use to start your logic app. Every workflow must start with a trigger, which fires when a specific event happens or when a specific condition is met. Each time the trigger fires, Azure Logic Apps creates a workflow instance that runs your logic app.
 
@@ -150,7 +136,7 @@ Your logic app is now live and listens to events from Azure Event Grid, but does
 
 If you want to your logic app workflow to run only when a specific event or operation happens, add a condition that checks for the **Microsoft.Compute/virtualMachines/write** operation. When this condition is true, your logic app workflow sends you an email, which has details about the updated virtual machine.
 
-1. In the workflow designer, under the Azure Event Grid trigger, select **New step**.
+1. In Logic app designer, under the Azure Event Grid trigger, select **+** > **Add an action**.
 
    ![Screenshot that shows the workflow designer with "New step" selected.](./media/monitor-virtual-machine-changes-logic-app/choose-new-step-condition.png)
 
@@ -162,17 +148,17 @@ If you want to your logic app workflow to run only when a specific event or oper
 
    ![Screenshot that shows the workflow designer with an empty condition added to the workflow.](./media/monitor-virtual-machine-changes-logic-app/empty-condition.png)
 
-1. Rename the condition title to `If a virtual machine in your resource group has changed`. On the condition's title bar, select the ellipses (**...**) button, and select **Rename**.
+1. To rename the condition, in the title bar, select **Condition**. Rename the condition title to *If a virtual machine in your resource group has changed*.
 
    ![Screenshot that shows the workflow designer with the condition editor's context menu and "Rename" selected.](./media/monitor-virtual-machine-changes-logic-app/rename-condition.png)
 
 1. Create a condition that checks the event `body` for a `data` object where the `operationName` property is equal to the `Microsoft.Compute/virtualMachines/write` operation. Learn more about [Azure Event Grid event schema](../event-grid/event-schema.md).
 
-   1. On the first row under **And**, click inside the left box. In the dynamic content list that appears, select **Expression**.
+   1. On the first row under **And**, click inside the left box. In the dynamic content list that appears, select **Function**.
 
       ![Screenshot that shows the workflow designer with the condition action and dynamic content list open with "Expression" selected.](./media/monitor-virtual-machine-changes-logic-app/condition-choose-expression.png)
 
-   1. In the expression editor, enter this expression, which returns the operation name from the trigger, and select **OK**:
+   1. In the editor, enter this expression, which returns the operation name from the trigger, and select **OK**:
 
       `triggerBody()?['data']['operationName']`
 
@@ -200,7 +186,7 @@ If you want to your logic app workflow to run only when a specific event or oper
 
 Now add an [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) so that you can receive an email when the specified condition is true.
 
-1. In the condition's **If true** box, select **Add an action**.
+1. In the condition's **True** box, select **+** > **Add an action**.
 
    ![Screenshot that shows the workflow designer with the condition's "If true" pane open and "Add an action" selected.](./media/monitor-virtual-machine-changes-logic-app/condition-true-add-action.png)
 
@@ -221,8 +207,6 @@ Now add an [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) s
 1. Rename the send email action to this title: `Send email when virtual machine updated`
 
 1. Provide information about the email as specified in the following table:
-
-   ![Screenshot that shows the workflow designer with dynamic content being added to email subject line for a true condition.](./media/monitor-virtual-machine-changes-logic-app/logic-app-empty-email-action.png)
 
    > [!TIP]
    > To select output from the previous steps in your workflow, click inside an edit box so that the dynamic content list appears, 
