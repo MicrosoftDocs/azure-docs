@@ -44,7 +44,7 @@ az webapp sitecontainers convert \
   --resource-group <resource-group>
 ```
 
-This command removes all sidecar containers and resets your app to use the classic `DOCKER|<image>` style configuration. For full details, see the [Azure CLI documentation for `az webapp sitecontainers convert`](https://learn.microsoft.com/cli/azure/webapp/sitecontainers?view=azure-cli-latest).
+This command removes all sidecar containers and resets your app to use the classic `DOCKER|<image>` style configuration. For full details, see the [Azure CLI documentation for `az webapp sitecontainers convert`](/cli/azure/webapp/sitecontainers).
 
 For more information, see [What are the differences for sidecar-enabled custom containers?](#what-are-the-differences-for-sidecar-enabled-custom-containers)
 
