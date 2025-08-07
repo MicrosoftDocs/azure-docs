@@ -60,7 +60,7 @@ To enable authentication using access tokens:
     ```typescript
     import { getServiceConfig, ServiceAuth } from '@azure/playwright';
     
-    /* Learn more about service configuration at https://aka.ms/mpt/config */
+    /* Learn more about service configuration at https://aka.ms/pww/docs/config */
     export default defineConfig(config, getServiceConfig( config, {
         serviceAuthType: ServiceAuth.ACCESS_TOKEN
     }));
