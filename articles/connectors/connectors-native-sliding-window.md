@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: deli, azla
 ms.topic: how-to
 ms.date: 08/07/2025
-#customer intent: As an app developer using Azure Logic Apps, I want to create recurring task to handle contiguous data.
+#customer intent: As an integration developer using Azure Logic Apps, I want to create a recurring task to handle contiguous data.
 ---
 
 # Schedule and run tasks for contiguous data by using the Sliding Window trigger in Azure Logic Apps
