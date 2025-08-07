@@ -89,6 +89,6 @@ Make sure you have the latest Azure PowerShell Az modules installed (Az.Cdn modu
 
 ## Next step
 
-* For more questions, refer to the [AFD/CDN Classic Migration FAQ](migration-faq.md).
+* For more questions, refer to the [AFD and CDN Classic Migration FAQ](migration-faq.md).
 * Understand the [settings mapping between Azure Front Door tiers](tier-mapping.md).
 

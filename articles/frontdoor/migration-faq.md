@@ -50,7 +50,7 @@ For CDN Classic: You do not need to delete the classic resource. Migration is tr
 
 ### Do I need to update my DevOps pipeline?
 
-Yes. After migration, make sure to update your DevOps pipeline to reflect the new AFD Standard/Premium configuration and endpoints.
+Yes. After migration, make sure to update your DevOps pipeline to reflect the new AFD Standard or Premium configuration and endpoints. [Learn more](post-migration-dev-ops-experience.md).
 
 ## Next step
 
