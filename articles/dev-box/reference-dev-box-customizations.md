@@ -4,7 +4,7 @@ description: Reference for customizing Dev Box environments by using devbox.yaml
 author: RoseHJM  
 ms.service: dev-box  
 ms.topic: reference  
-ms.date: 05/09/2025  
+ms.date: 08/07/2025
 ms.author: rosemalcolm
 ms.custom:
   - build-2025
@@ -64,6 +64,20 @@ You need the dev center `az cli` extension:
 
 ```
 az extension add --name devcenter
+```
+
+### buildProperties
+
+This object collection is made up of build properties that can be used to customize the build process for the image. 
+
+#### networkConnection    
+
+**Optional:** Specifies the network connection used during image creation. The network connection must be attached to the Dev Center and becomes the default for creating pools. If not specified, Microsoft Hosted Network (MHN) is used.
+
+Example:
+```
+buildProperties:
+    networkConnection: "my-westus3"
 ```
 
 ### tasks
