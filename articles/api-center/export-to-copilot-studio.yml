@@ -7,7 +7,7 @@ metadata:
   ms.author: danlep
   ms.service: azure-api-management
   ms.topic: how-to 
-  ms.date: 04/28/2025
+  ms.date: 08/07/2025
   ms.custom: template-how-to
 
   #customer intent: As an API program manager, I want to export an API from my API center inventory as a connector in Microsoft Copilot Studio for use in agents.
@@ -42,9 +42,9 @@ procedureSection:
       - |
         In the left menu, select **Copilot Studio (preview)**.
       - |
-        Select **Create a connector**. The **Create a connector** window opens.
+        Select **Create a connector**. If you're not already licensed to use Copilot Studio, select **Activate account** first instead. 
       - |
-        Select a **Power Platform environment** to export the API to. 
+        In the **Create a connector** window, select a **Power Platform environment** to export the API to. 
       - |
         Enter a **Connector display name**.
       - |
