@@ -10,7 +10,7 @@ ms.custom:
   - ai-gen-description
   - ai-seo-date:04/18/2025
 ms.topic: how-to
-ms.date: 05/09/2025
+ms.date: 08/08/2025
 
 #customer intent: As a Dev Center admin or project admin, I want to create image definition files so that my development teams can create customized dev boxes.
 ---
@@ -84,6 +84,80 @@ For more information about how to add catalogs to projects, see [Add and configu
 
 ## Create an image definition file
 
+
+# [AI-powered workflows](#tab/copilot-agent)
+
+Dev Box supports an agentic workflow using GitHub Copilot agent mode to help generate the team customization file (imagedefinition.yaml) using natural language prompts. GitHub Copilot simplifies setting up your Dev Box environment by letting you describe your needs conversationally instead of manually creating YAML files.
+
+## Supported scenarios
+
+The Dev Box agentic workflow supports the following scenarios:
+
+1. **Mimic your current development environment** - Generate or modify a definition that replicates the configuration of your current machine.
+
+1. **Use repository context** - Create or modify a definition in the context of a specific GitHub repository.
+
+1. **Natural language instructions** - Generate a customization file by describing the development environment you want.
+
+> [!NOTE]
+> The agentic workflow supports only Dev Box primitive tasks, including WinGet, PowerShell, and Git-Clone.
+
+## Prerequisites
+
+Before you start, ensure you install the following software:
+
+- [Visual Studio Code](https://code.visualstudio.com/download) (latest version)
+
+- [GitHub Copilot extension set up in VS Code](https://code.visualstudio.com/docs/copilot/setup)
+
+## Generate the team customization file (imagedefinition.yaml)
+
+1. Open Visual Studio Code.
+
+1. Install the Dev Box extension if it's not already installed.
+
+   Open Extensions (Ctrl+Shift+X), search for **Dev Box**, and install the extension.
+
+   :::image type="content" source="media/how-to-use-copilot-generate-image-definition-file/dev-box-extension.png" alt-text="Screenshot of the Extensions pane in Visual Studio Code, showing the Dev Box extension.":::
+
+1. Make sure agent mode is enabled by setting [chat.agent.enabled](vscode://settings/chat.agent.enabled) in the [Settings editor](https://code.visualstudio.com/docs/getstarted/personalize-vscode#_configure-settings). This setting requires VS Code 1.99 or later.
+
+1. Open Copilot Chat in VS Code.
+
+   - Make sure **Dev Box tools** are preselected under "Select tools."
+
+     :::image type="content" source="media/how-to-use-copilot-generate-image-definition-file/dev-box-extension-tools.png" alt-text="Screenshot of the Copilot Chat pane in Visual Studio Code, showing Dev Box tools preselected.":::
+
+     :::image type="content" source="media/how-to-use-copilot-generate-image-definition-file/dev-box-extension-tools-list.png" alt-text="Screenshot of the Copilot Chat interface in Visual Studio Code.":::
+
+   - Select **Agent Mode**, and choose the model: **Claude 3.5 Sonnet**.
+
+     :::image type="content" source="media/how-to-use-copilot-generate-image-definition-file/dev-box-extension-select-agent.png" alt-text="Screenshot of the Agent Mode selection in Copilot Chat, showing the Claude 3.5 Sonnet model.":::
+
+1. **Provide natural language prompts**, such as:
+
+   - *"I want to configure a dev box with all the tools and packages required to work on this [repo name] repo."*
+
+   - *"I want to preconfigure a dev box with Visual Studio 2022 Enterprise, VS Code, Git, .NET SDK 8, Node.js LTS, Docker Desktop installed, and have the team's repo [URL] cloned onto the dev box."*
+
+   - *"I want to configure a dev box with all the dev tools and packages installed on my current machine."*
+
+   > [!TIP]
+   > Clone and open the specific repo in VS Code if you want to generate the definition in the context of a repository.
+
+1. Follow the prompts to configure packages.
+
+   - When prompted, select **Continue** to proceed with package configuration.
+
+   - Copilot generates the imagedefinition.yaml file.
+
+1. Refine with more prompts.
+
+   - Continue interacting with the agent until the tools and packages you want are reflected in the file.
+
+
+
+# [Visual Studio Code](#tab/vs-code)
 You can create and test image definition files by using Visual Studio Code. In addition to using the built-in tasks, you can use the Dev Box extension in Visual Studio Code to discover the custom tasks that are available through your dev center.
 
 1. Create a dev box (or use an existing dev box) for testing.
@@ -100,14 +174,9 @@ You can create and test image definition files by using Visual Studio Code. In a
 1. The image definition file runs and applies the specified tasks to your test dev box. Inspect the changes and check the Visual Studio Code terminal for any errors or warnings generated during the task execution.
 1. When the image definition file runs successfully, upload it to your catalog.
 
-### System tasks and user tasks
 
-You can use both system and user tasks in your image definition file. The tasks section of the image definition file is divided into the following sections. Both sections share the same parameters based on the task definitions in your catalog.
 
-- **System tasks**: These tasks run as `LocalSystem` during the provisioning stage of the dev box. They're typically used for system-level configurations, such as installing software or configuring system settings that require administrative privileges.
-- **User tasks**: These tasks run as the user after the user's first sign-in to the dev box. They're typically used for user-level configurations, such as installing user-specific applications or configuring user settings under user context. For example, users often prefer to install Python and Visual Studio Code under user context instead of systemwide. Put WinGet tasks in the `userTasks` section for better results when they don't work under tasks.
-
-Standard users who configure user customizations can use only user tasks. They can't use system tasks.
+# [Write image definition files](#tab/write)
 
 ## Customize your dev box by using existing Desired State Configuration files
 
@@ -125,6 +194,19 @@ tasks:
 ```
 
 To learn more, see [WinGet configuration](https://aka.ms/winget-configuration).
+
+---
+
+### System tasks and user tasks
+
+You can use both system and user tasks in your image definition file. The tasks section of the image definition file is divided into the following sections. Both sections share the same parameters based on the task definitions in your catalog.
+
+- **System tasks**: These tasks run as `LocalSystem` during the provisioning stage of the dev box. They're typically used for system-level configurations, such as installing software or configuring system settings that require administrative privileges.
+- **User tasks**: These tasks run as the user after the user's first sign-in to the dev box. They're typically used for user-level configurations, such as installing user-specific applications or configuring user settings under user context. For example, users often prefer to install Python and Visual Studio Code under user context instead of systemwide. Put WinGet tasks in the `userTasks` section for better results when they don't work under tasks.
+
+Standard users who configure user customizations can use only user tasks. They can't use system tasks.
+
+
 
 ## Configure catalog sync settings for the project
 
