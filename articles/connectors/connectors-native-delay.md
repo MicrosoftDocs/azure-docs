@@ -86,7 +86,7 @@ To add a **Delay until** action to your workflow, follow these steps:
 
    | Parameter | JSON name | Required | Type | Description |
    |----------|-----------|----------|------|-------------|
-   | **Timestamp | `timestamp` | Yes | String | The date and time for resuming the workflow using the following format: <br><br>YYYY-MM-DDThh:mm:ssZ <br><br>So for example, if you want September 18, 2025 at 2:00 PM, specify "2025-09-18T14:00:00Z". <br><br>**Note:** This time format must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). Without a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). |
+   | **Timestamp** | `timestamp` | Yes | String | The date and time for resuming the workflow using the following format: <br><br>YYYY-MM-DDThh:mm:ssZ <br><br>So for example, if you want September 18, 2025 at 2:00 PM, specify "2025-09-18T14:00:00Z". <br><br>**Note:** This time format must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). Without a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). |
 
 1. Add any other actions that you want to run in your workflow.
 
