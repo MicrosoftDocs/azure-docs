@@ -78,17 +78,19 @@ To create a backup policy for Azure Disks, follow these steps:
 
 - Once you configure the disk backup, you can’t change the Snapshot Resource Group that’s assigned to a backup instance.
 
-To configure disk backup, follow these steps:
+To configure Azure Disk backup, follow these steps:
 
-1. Go to **Backup center** -> **Overview** and click **+ Backup** to start configuring backup of the disk.
+1. Go to **Business Continuity Center**, and then select **+ Configure protection**.
 
-   :::image type="content" source="./media/backup-managed-disks/start-configuring-backup-of-disk-inline.png" alt-text="Screenshot showing the option to start Azure Disk backup." lightbox="./media/backup-managed-disks/start-configuring-backup-of-disk-expanded.png":::
+1. On the **Configure protection** pane, select **Resource managed by** as **Azure**, **Datasource type** as **Azure Disks**, ****Solution** as **Azure Backup**, and then select **Continue**.
 
-1. Select **Azure Disks** in the **Datasource type** drop-down list, and then click **Continue**.
+   :::image type="content" source="./media/backup-managed-disks/select-azure-disks-as-datasource-type.png" alt-text="Screenshot shows how to select the datasource type as Azure Disks." lightbox="./media/backup-managed-disks/select-azure-disks-as-datasource-type.png":::
 
-   :::image type="content" source="./media/backup-managed-disks/select-azure-disks-as-datasource-type-inline.png" alt-text="Screenshot showing the process to select Azure Disks as Data protection type." lightbox="./media/backup-managed-disks/select-azure-disks-as-datasource-type-expanded.png":::
+1. On the **Configure Backup** pane, on the **Basics** tab, under **Vault**, click **Select vault**.
 
-1. Select a Backup vault and click **Next** to proceed.
+   :::image type="content" source="./media/backup-managed-disks/select-vault.png" alt-text="Screenshot shows the selection of a Backup vault for Azure Disk backup." lightbox="./media/backup-managed-disks/select-vault.png":::
+
+1. On the **Select a Vault** pane,select the Backup vault from the list you created, and then click **Select**.
 
    >[!Note]
    >- Ensure that both the backup vault and the disk to be backed up are in same location.
