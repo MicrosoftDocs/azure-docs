@@ -27,7 +27,9 @@ Azure NetApp Files supports four service levels: *Standard*, *Premium*, *Ultra*,
 
 * <a name="Flexible"></a>Flexible storage (preview):
 
-    The Flexible service level enables you to adjust throughput and size limits independently. This service level is designed for demanding applications such as Oracle or SAP HANA. You can also use the Flexible service level to create high-capacity volumes with (relatively) low throughput requirements or the reverse: low-capacity volumes with high throughput requirements. The minimum throughput to be assigned to a Flexible capacity pool is 128 MiB/second regardless of the pool quota. The first 128 MiB/s of throughput, known as the baseline, is included in the Flexible service level. The maximum throughput is 5 x 128 MiB/second/TiB x the size of the capacity pool in TiB. For more information see [Flexible service level throughput examples](#flexible-examples). You can assign throughput and capacity to volumes that are part of a Flexible capacity pool in the same way you do volumes that are part of a manual QoS capacity pool of any service level. 
+    The Flexible service level enables you to adjust throughput and size limits independently. You can use the Flexible service level to create high-capacity volumes with low throughput requirements or the reverse: low-capacity volumes with high throughput requirements. The Flexible service level is designed for demanding applications such as Oracle or SAP HANA.
+    
+    The minimum throughput you can assign Flexible capacity pool is 128 MiB/second regardless of the pool quota. The maximum throughput is 5 x 128 MiB/second/TiB x the size of the capacity pool in TiB. For more information see [Flexible service level throughput examples](#flexible-examples) and [considerations for the Flexible service level](azure-netapp-files-set-up-capacity-pool.md#considerations).
 
     >[!IMPORTANT]
     >The Flexible service level is only supported for new _manual QoS_ capacity pools.
