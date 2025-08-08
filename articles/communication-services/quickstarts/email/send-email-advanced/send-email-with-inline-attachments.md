@@ -18,29 +18,35 @@ zone_pivot_groups: acs-js-csharp-java-python-azcli-ps
 This article describes how to send email with inline attachments using our Email SDKs.
 
 ::: zone pivot="programming-language-azcli"
+[!INCLUDE [public-preview-notice.md](./includes/public-preview-include-document.md)]
 [!INCLUDE [inline-attachments-azcli](./includes/inline-attachments-azcli.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell"
+[!INCLUDE [public-preview-notice.md](./includes/public-preview-include-document.md)]
 [!INCLUDE [inline-attachments-powershell](./includes/inline-attachments-powershell.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
+[!INCLUDE [public-preview-notice.md](./includes/public-preview-include-document.md)]
 [!INCLUDE [prepend-net](./includes/prepend-net.md)]
 [!INCLUDE [inline-attachments-net](./includes/inline-attachments-net.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
+[!INCLUDE [public-preview-notice.md](./includes/public-preview-include-document.md)]
 [!INCLUDE [prepend-js](./includes/prepend-js.md)]
 [!INCLUDE [inline-attachments-js](./includes/inline-attachments-js.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
+[!INCLUDE [public-preview-notice.md](./includes/public-preview-include-document.md)]
 [!INCLUDE [prepend-java](./includes/prepend-java.md)]
 [!INCLUDE [inline-attachments-java](./includes/inline-attachments-java.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
+[!INCLUDE [public-preview-notice.md](./includes/public-preview-include-document.md)]
 [!INCLUDE [prepend-python](./includes/prepend-python.md)]
 [!INCLUDE [inline-attachments-python](./includes/inline-attachments-python.md)]
 ::: zone-end
