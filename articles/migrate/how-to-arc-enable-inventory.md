@@ -7,6 +7,7 @@ ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 10/14/2024
 
+# Customer intent: As a system administrator tasked with managing on-premises servers, I want to enable Azure Arc on my discovered inventory so that I can achieve unified management and better visibility throughout the migration process.
 ---
 
 # Enable Arc on Migrate inventory 

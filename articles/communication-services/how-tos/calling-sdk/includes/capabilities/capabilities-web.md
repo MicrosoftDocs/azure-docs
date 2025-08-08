@@ -2,7 +2,7 @@
 author: elavarasidc
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 03/24/2023
+ms.date: 06/20/2025
 ms.author: elavarasid
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
@@ -19,7 +19,7 @@ The feature enables you to register for an event listener to listen for capabili
 
 ## Get the capabilities of the local participant
 
-Capabilities object has the capabilities of the local participants and is of type `ParticipantCapabilities`. Properties of Capabilities include:
+The capabilities object has the capabilities of the local participants and is of type `ParticipantCapabilities`. Properties of capabilities include:
 
 - *isPresent* indicates if a capability is present.
 - *reason* indicates capability resolution reason.

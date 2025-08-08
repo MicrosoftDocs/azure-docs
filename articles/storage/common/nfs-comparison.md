@@ -9,6 +9,7 @@ ms.date: 05/20/2025
 ms.author: kendownie
 ms.custom:
   - build-2025
+# Customer intent: As a cloud architect, I want to compare NFS access across Azure Files, Blob Storage, and Azure NetApp Files, so that I can choose the most suitable storage solution for various workloads and access requirements in my organization.
 ---
 
 # Compare access to Azure Files, Blob Storage, and Azure NetApp Files with NFS

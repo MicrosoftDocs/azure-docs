@@ -7,6 +7,7 @@ ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 03/30/2025
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a WAF administrator, I want to create and manage custom rules for the Web Application Firewall on the Application Gateway, so that I can enhance security by controlling traffic based on specific conditions and actions.
 ---
 
 # Custom rules for Web Application Firewall v2 on Azure Application Gateway

@@ -916,7 +916,7 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
   * Apache Tez
   * Apache HBase
   * OMI
-  * Apache Pheonix
+  * Apache Phoenix
 
 :::image type="content" border="true" source="media/hdinsight-release-notes/new-icon-for-updated.png" alt-text="Icon showing update with text.":::
 

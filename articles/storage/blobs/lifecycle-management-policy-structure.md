@@ -9,6 +9,7 @@ ms.date: 06/13/2025
 ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.custom: references_regions, engagement-fy23
+# Customer intent: "As a cloud storage administrator, I want to create and manage lifecycle management policies for blobs, so that I can optimize storage costs by transitioning and deleting blobs based on their usage patterns."
 ---
 
 # Azure Blob Storage lifecycle management policy structure
@@ -123,7 +124,7 @@ When you enable access time tracking, a blob property called `LastAccessTime` is
 
 If you apply the **daysAfterLastAccessTimeGreaterThan** run condition to a policy, then the `LastAccessTime` is used to determine whether that condition is met. 
 
-If you apply the **daysAfterLastAccessTimeGreaterThan** run condition to a policy, but you did not enable access time tracking, then the `LastAccessTime` is not used. The date the lifecycle policy was enabled is used instead. In fact, the date that the lifecycle policy was enabled is used in any situation where the `LastAccessTime` property of the blob is a null value. This can happen even if you've enable access time tracking in cases where a blob hasn't been accessed since tracking was enabled.
+If you apply the **daysAfterLastAccessTimeGreaterThan** run condition to a policy, but you did not enable access time tracking, then the `LastAccessTime` is not used. The date the last access tracking was enabled is used instead. In fact, the date that the last access tracking was enabled is used in any situation where the `LastAccessTime` property of the blob is a null value. This can happen even if you've enable access time tracking in cases where a blob hasn't been accessed since tracking was enabled.
 
 > [!NOTE]
 > To minimize the effect on read access latency, only the first read of the last 24 hours updates the last access time. Subsequent reads in the same 24-hour period don't update the last access time. If a blob is modified between reads, the last access time is the more recent of the two values.

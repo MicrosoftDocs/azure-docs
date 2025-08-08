@@ -7,6 +7,7 @@ ms.topic: concept-article
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-load-balancer
+# Customer intent: As a cloud administrator, I want to monitor the performance and health of my Azure Load Balancer, so that I can ensure efficient traffic distribution and troubleshoot potential issues promptly.
 ---
 
 # Monitor Azure Load Balancer

@@ -9,6 +9,7 @@ ms.date: 03/26/2024
 ms.author: shaas
 ms.custom: mode-ui, devx-track-azurecli
 #Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
+# Customer intent: As an IT admin, I want to deploy Azure Data Box Disk using the Azure portal, so that I can efficiently import large data sets into Azure storage.
 ---
 
 ::: zone target="docs"

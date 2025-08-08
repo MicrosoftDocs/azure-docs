@@ -8,10 +8,11 @@ ms.custom: devx-track-terraform
 ms.topic: how-to
 ms.date: 02/05/2025
 ms.author: anfdocs
+# Customer intent: "As a cloud administrator, I want to configure availability zone volume placement in Azure NetApp Files, so that I can ensure high availability and optimize resource deployment across different geographical locations."
 ---
 # Manage availability zone volume placement for Azure NetApp Files
 
-You can deploy new volumes in the logical availability zone of your choice. You can also populate existing volumes with availability zone information. To better understand availability zones, see [Use availability zone volume placement for high availability](use-availability-zones.md).
+You can deploy new volumes in the logical availability zone of your choice. You can also populate existing volumes with availability zone information. To better understand availability zones, see [Use availability zone volume placement for high availability](replication.md#availability-zones).
 
 ## Requirements and considerations 
 
@@ -44,7 +45,7 @@ You can deploy new volumes in the logical availability zone of your choice. You 
     * [Create an SMB volume](azure-netapp-files-create-volumes-smb.md)      
     * [Create a dual-protocol volume](create-volumes-dual-protocol.md)    
 
-2.	In the **Create a Volume** page, under the **Basic** tab, select the **Availability Zone** pulldown to specify an availability zone where Azure NetApp Files resources are present.   
+2.	In the **Create a Volume** page, under the **Basic** tab, select the **Availability Zone** dropdown to specify an availability zone where Azure NetApp Files resources are present.   
 
     > [!IMPORTANT]
     > Logical availability zones for the subscription without Azure NetApp Files presence are marked `(Unavailable)` and are greyed out.
@@ -141,13 +142,13 @@ If you're using a custom RBAC role or the [built-in Contributor role](../role-ba
     ```
 
 1. Select **Review + update**.
-1. Sign out of your Azure account, then sign back in to confirm permissions effect has taken hold and the options are visible. 
+1. Sign out of your Azure account, then log back in to confirm permissions effect has taken hold and the options are visible. 
 
 ## Next steps  
 
-* [Use availability zone volume placement for application high availability with Azure NetApp Files](use-availability-zones.md)
+* [Use availability zone volume placement for application high availability with Azure NetApp Files](replication.md#availability-zones)
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)   
 * [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md)      
 * [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md)    
-* [Understand cross-zone replication of Azure NetApp Files](cross-zone-replication-introduction.md)
+* [Understand cross-zone replication of Azure NetApp Files](replication.md)
 * [Create cross-zone replication](create-cross-zone-replication.md)

@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.date: 12/01/2023
 ms.author: simranparkhe
 ms.custom: devx-track-azurecli
+# Customer intent: As a cloud administrator, I want to create a confidential virtual machine using the command-line interface, so that I can ensure enhanced security for sensitive data and applications running in the cloud.
 ---
 
 # Quickstart: Create a confidential VM with the Azure CLI

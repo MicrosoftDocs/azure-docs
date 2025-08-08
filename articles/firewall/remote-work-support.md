@@ -24,4 +24,4 @@ Azure Virtual Desktop is a comprehensive desktop and app virtualization service 
 
 ## Next steps
 
-Learn more about [Azure Virtual Desktop](../virtual-desktop/overview.md).
+Learn more about [Azure Virtual Desktop](/azure/virtual-desktop/overview).

@@ -6,6 +6,7 @@ ms.topic: concept-article
 ms.date: 05/30/2025
 ms.author: jsuri
 author: jyothisuri
+# Customer intent: As a cloud architect, I want to configure Azure VM disaster recovery using Site Recovery, so that I can ensure business continuity and data integrity during regional outages.
 ---
 
 # Azure to Azure disaster recovery architecture

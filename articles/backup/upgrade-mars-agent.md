@@ -2,11 +2,12 @@
 title: Upgrade the Microsoft Azure Recovery Services (MARS) agent for Azure Backup
 description: Learn how to upgrade the Microsoft Azure Recovery Services (MARS) agent.
 ms.topic: how-to
-ms.date: 08/27/2023
+ms.date: 07/11/2025
 ms.service: azure-backup
 ms.custom: engagement-fy24
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As an IT administrator managing on-premises backups, I want to upgrade the MARS agent for Azure Backup, so that I can ensure optimal performance and security for data protection in my environment.
 ---
 
 # Upgrade the Microsoft Azure Recovery Services (MARS) agent
@@ -35,7 +36,7 @@ To install the Azure Backup agent and Azure Backup server, follow these steps:
 
 ## Update the MARS agent installation on the server
 
-Once you've identified the servers that need an Azure Backup agent update, perform the following steps for each identified server (using Azure Backup server or the MARS Agent). [Download the latest version of the Azure Backup agent](https://aka.ms/azurebackup_agent) before following the steps below.
+After you identify the servers that require an Azure Backup agent update, ensure you [download the latest version of the agent (Azure Backup Server or MARS Agent)](https://aka.ms/azurebackup_agent). When ready, update the agent on each server by following these steps:
 
 1. Select a row that has the Azure Backup agent lower than 2.0.9083.0 or blank. This will open the server detail screen.
 
@@ -79,7 +80,7 @@ Once you've identified the servers that need an Azure Backup agent update, perfo
 
 ## Upgrade Azure Backup agent for System Center Data Protection Manager
 
-If you've installed the Azure Backup agents on the System Center Data Protection Manager (SC DPM) servers, then you need to follow the steps below to identify whether your DPM servers need an Azure Backup agent update:
+If you've installed the Azure Backup agents on the System Center Data Protection Manager (SC DPM) servers, identify if your DPM servers need an Azure Backup agent update by following these steps:
 
 1. Sign in to your SC DPM server as an Administrator.
 2. Open the DPM Console.

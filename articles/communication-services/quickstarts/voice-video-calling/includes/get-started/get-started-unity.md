@@ -10,6 +10,8 @@ This article describes how to start a call using the Azure Communication Service
 
 You can download the sample app from GitHub at [Calling SDK for .NET](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/Calling).
 
+[!INCLUDE [public-preview-include-document.md](../../../../includes/public-preview-include-document.md)]
+
 ### Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

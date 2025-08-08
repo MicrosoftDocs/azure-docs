@@ -10,6 +10,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.custom:
   - build-2025
+# Customer intent: As a data manager, I want to accurately estimate the costs of archiving data using cloud storage, so that I can make informed decisions about my organization's data management and storage strategies.
 ---
 
 # Estimate the cost of archiving data

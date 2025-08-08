@@ -12,6 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 06/22/2021
 ms.author: oldoll
+# Customer intent: "As an IT administrator managing SAP solutions, I want to configure the Azure VM extension for SAP using PowerShell or Azure CLI, so that I can effectively monitor and collect performance metrics for my SAP applications running on Azure VMs."
 ---
 
 # Standard Version of Azure VM extension for SAP solutions

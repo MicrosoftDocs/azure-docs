@@ -1,9 +1,9 @@
 ---
-author: madsd
+author: seligj95
 ms.service: azure-app-service
 ms.topic: include
 ms.date: 04/08/2022
-ms.author: madsd
+ms.author: jordanselig
 ms.subservice: web-apps
 ---
 

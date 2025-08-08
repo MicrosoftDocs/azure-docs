@@ -9,6 +9,7 @@ ms.date: 03/04/2025
 ms.topic: concept-article
 ms.service: azure-queue-storage
 ms.custom: security-recommendations
+# Customer intent: "As a cloud security administrator, I want to implement security recommendations for Queue Storage, so that I can fulfill my organization's security obligations and protect our data assets effectively."
 ---
 
 # Security recommendations for Queue Storage

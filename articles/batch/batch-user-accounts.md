@@ -6,6 +6,7 @@ ms.date: 02/28/2025
 ms.custom:
 ms.devlang: csharp
 # ms.devlang: csharp, java, python
+# Customer intent: "As an Azure Batch user, I want to configure user accounts for my tasks so that I can control permissions and manage access based on the specific requirements of my workloads."
 ---
 # Run tasks under user accounts in Batch
 

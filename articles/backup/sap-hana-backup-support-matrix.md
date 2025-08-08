@@ -5,13 +5,17 @@ ms.topic: reference
 ms.date: 06/10/2025
 ms.custom: references_regions 
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a database administrator, I want to understand the support matrix for backing up SAP HANA on Azure VMs, so that I can ensure compliance with supported configurations and optimize my backup strategy.
 ---
 
 # Support matrix for backup of SAP HANA databases on Azure VMs
 
 Azure Backup supports the backup of SAP HANA databases to Azure. This article summarizes the scenarios supported and limitations present when you use Azure Backup to back up SAP HANA databases on Azure VMs.
+
+> [!IMPORTANT]
+> Linux distributions listed below shouldn't be in an End-of-Life (EOL) state by their vendors. Make sure it is a current, active and supported release.
 
 > [!NOTE]
 > The frequency of log backup can now be set to a minimum of 15 minutes. Log backups only begin to flow after a successful full backup for the database has completed.

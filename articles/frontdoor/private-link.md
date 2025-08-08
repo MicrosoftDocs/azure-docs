@@ -87,6 +87,9 @@ The Azure Front Door Private Link feature is region agnostic but for the best la
 
 Within a single Azure Front Door profile, if two or more Private Link enabled origins are created with the same set of resource ID, group ID and region, then for all such origins only one private endpoint gets created. Connections to the backend can be enabled using this private endpoint. This setup means you only have to approve the private endpoint once because only one private endpoint gets created. If you create more Private Link enabled origins using the same set of Private Link location, resource ID, and group ID, you don't need to approve any more private endpoints.
 
+> [!WARNING]
+> Avoid configuring multiple private link enabled origins that point to the same resource (with identical resource ID, group ID, and region), if each origin uses a different HTTP or HTTPS port. This setup can lead to routing issues between Front Door and the origin due to a platform limitation.
+
 #### Single private endpoint
 
 For example, a single private endpoint gets created for all the different origins across different origin groups but in the same Azure Front Door profile as shown in the following table:
