@@ -1,5 +1,5 @@
 ---
-title: PostgreSQL least privilege configuration
+title: PostgreSQL assessment rules to detect blockers and compatibility issues
 description: Helps detect migration blockers and compatibility issues when moving PostgreSQL databases to Azure Database for PostgreSQL Flexible Server, ensuring a smooth and successful cloud transition.
 author: habibaum
 ms.author: v-uhabiba
