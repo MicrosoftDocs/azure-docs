@@ -62,7 +62,7 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
     ```
     **Sample Request**
     
-    Consider an Azure Data Manager for Energy resource named `admetest` with a data partition named `dp1`, legal tage named `dp1-RDDMS-Legal-Tag`, valid entitlement group named as `data.default.viewers` and `data.default.owners`. You want to create new data space name `demo/RestWrite`. 
+    Consider an Azure Data Manager for Energy resource named `admetest` with a data partition named `dp1`, legal tag named `dp1-RDDMS-Legal-Tag`, valid entitlement group named as `data.default.viewers` and `data.default.owners`. You want to create new data space name `demo/RestWrite`. 
     
     ```bash
     curl --request GET \
@@ -106,7 +106,7 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
     Encoded dataspace name: "demo%2FRestWrite"
     ```
     
-1. Run the following curl command to add resources using transaction id.
+1. Run the following curl command to add resources using transaction ID.
     ```bash
     curl --request PUT \
       --url 'https://<adme_url>/api/reservoir-ddms/v2/dataspaces/<encoded_dataspace_id>/resources?transactionId=<transaction_id>' \
@@ -214,7 +214,7 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
     ```json
     true
     ```
-1. Run the following curl command to add arrays using transaction id.
+1. Run the following curl command to add arrays using transaction ID.
     ```bash
     curl --request PUT \
       --url 'https://<adme_url>/api/reservoir-ddms/v2/dataspaces/<encoded_dataspace_id>/resources/arrays?transactionId=<transaction_id>' \
