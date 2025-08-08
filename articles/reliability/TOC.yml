@@ -12,7 +12,7 @@
     - name: Azure AI Health Insights
       href: reliability-health-insights.md
     - name: Azure AI Search
-      href: /azure/search/search-reliability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: reliability-ai-search.md
     - name: Azure Bot Service 
       href: reliability-bot.md
     - name: Azure Machine Learning Service
