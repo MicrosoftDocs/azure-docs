@@ -21,7 +21,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * The ability to [transition an existing volume to customer-managed keys](configure-customer-managed-keys.md#transition) is now generally available (GA)
 
-    You can transition existing volumes from platform-managed keys to customer-managed keys seamlessly. This provides you flexibility of encryption key lifecycle (renewals, rotations) and additional security for regulated industry requirements. 
+    You can transition existing volumes from platform-managed keys to customer-managed keys seamlessly. This provides you with flexibility of encryption for the key lifecycle (renewals, rotations) and additional security for regulated industry requirements. 
 
 ## May 2025
 
@@ -309,7 +309,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Customer-managed keys enhancement:](configure-customer-managed-keys.md) automated managed system identity (MSI) support
 
-    Customer-managed keys now supports automated MSI: you no longer need to manually renew certificates.
+    The customer-managed keys feature now supports automated MSI. You no longer need to manually renew certificates.
 
 * The [Standard network features - Edit volumes](configure-network-features.md#edit) feature is now generally available (GA).
 
@@ -350,7 +350,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     This feature is Generally Available in Azure commercial regions and US Gov regions where Azure NetApp Files is available.
 
-* [SMB Continuous Availability (CA)](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) shares now supports MSIX app attach for Azure Virtual Desktop
+* The [SMB Continuous Availability (CA)](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) shares feature now supports MSIX app attach for Azure Virtual Desktop
 
     In addition to Citrix App Layering, FSLogix user profiles including FSLogix ODFC containers, and Microsoft SQL Server, Azure NetApp Files now supports [MSIX app attach](/azure/virtual-desktop/create-netapp-files) with SMB Continuous Availability shares to enhance resiliency during storage service maintenance operations.  Continuous Availability enables SMB transparent failover to eliminate disruptions as a result of service maintenance events and improves reliability and user experience.
 
