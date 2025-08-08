@@ -92,17 +92,7 @@ Version 1.x of the Functions runtime doesn't support running in an isolated work
 ::: zone-end  
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
-
-## Install bundle
-
-To be able to use this binding extension in your app, make sure that the *host.json* file in the root of your project contains this `extensionBundle` reference:
-
-[!INCLUDE [functions-extension-bundles-json-v4](./functions-extension-bundles-json-v4.md)]
-
-When possible, you should use the latest extension bundle major version and allow the runtime to automatically maintain the latest minor version. You can view the contents of the latest bundle on the [extension bundles release page](https://github.com/Azure/azure-functions-extension-bundles/releases/latest). 
-
-If your app requires you to use a previous extension version, you might need to instead specify a previous bundle version. You can [review the bundle releases](https://github.com/Azure/azure-functions-extension-bundles/releases) to locate a bundle that contains a version of this extension that can be used by your app. For more information, see [Azure Functions extension bundles](../articles/azure-functions/extension-bundles.md).
-
+[!INCLUDE [functions-install-extension-bundle](functions-install-extension-bundle.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
@@ -116,7 +106,7 @@ The binding types supported for .NET depend on both the extension version and C#
 An isolated worker process class library compiled C# function runs in a process isolated from the runtime.  
 
 
-# [In-process model](#tab/in-process)
+### [In-process model](#tab/in-process)
 
 An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
  
@@ -152,7 +142,7 @@ Earlier versions of the extension exposed types from the now deprecated [Microso
 
 This version of the extension supports parameter types according to the table below.
 
- Binding scenario | Parameter types |
+|Binding scenario | Parameter types |
 |-|-|
 | Event Hubs trigger (single event) | [Microsoft.Azure.EventHubs.EventData]<br/>JSON serializable types<sup>1</sup><br/>`string`<br/>`byte[]` |
 | Event Hubs trigger (batch of events) | `EventData[]`<br/>`string[]` |

@@ -87,33 +87,7 @@ The Event Grid output binding is only available for Functions 2.x and higher.
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
 
-## Install bundle
-
-The Event Grid extension is part of an [extension bundle], which is specified in your host.json project file. You may need to modify this bundle to change the version of the Event Grid binding, or if bundles aren't already installed. To learn more, see [extension bundle].
-
-When possible, you should install or upgrade to the latest version of the most recent bundle.
-
-### [Bundle v4.x](#tab/bundlev4)
-
-You can add this version of the extension from the extension bundle v3 by adding or replacing the following configuration in your `host.json` file:
-
-[!INCLUDE [functions-extension-bundles-json-v4](../../includes/functions-extension-bundles-json-v4.md)]
-
-To learn more, see [Update your extensions].
-
-### [Bundle v3.x](#tab/bundlev3)
-
-You can add this version of the extension from the extension bundle v3 by adding or replacing the following configuration in your `host.json` file:
-
-[!INCLUDE [functions-extension-bundles-json-v3](../../includes/functions-extension-bundles-json-v3.md)]
-
-To learn more, see [Update your extensions].
-
-### [Bundle v2.x](#tab/bundlev2)
-
-You can install this version of the extension in your function app by registering the [extension bundle], version 2.x. 
-
----
+[!INCLUDE [functions-install-extension-bundle](functions-install-extension-bundle.md)]
 
 Considerations for the Event Grid extension:
 

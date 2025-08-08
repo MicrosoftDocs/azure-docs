@@ -51,11 +51,7 @@ Add the extension to your project by installing this [NuGet package](https://www
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
-
-## Install bundle    
-
-The RabbitMQ extension is part of an [extension bundle], which is specified in your host.json project file. When you create a project, you should already have this bundle installed. To learn more, see [extension bundle].
-
+[!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 ::: zone-end
 
 ### host.json settings
@@ -69,7 +65,7 @@ The RabbitMQ extension is part of an [extension bundle], which is specified in y
         "rabbitMQ": {
             "prefetchCount": 100,
             "queueName": "queue",
-            "connectionString": "amqp://user:password@url:port",
+            "connectionString": "%<MyConnectionAppSetting>%",
             "port": 10
         }
     }
@@ -80,10 +76,10 @@ The RabbitMQ extension is part of an [extension bundle], which is specified in y
 |---------|---------|---------|
 |prefetchCount|30|Gets or sets the number of messages that the message receiver can simultaneously request and is cached.|
 |queueName|n/a| Name of the queue to receive messages from.|
-|connectionString|n/a|The RabbitMQ message queue connection string. The connection string is directly specified here and not through an app setting.|
+|connectionString|n/a|The RabbitMQ message queue connection string. <!---verify this--> The connection string is directly specified here and not through an app setting.|
 |port|0|(ignored if using connectionString) Gets or sets the Port used. Defaults to 0, which points to rabbitmq client's default port setting: 5672.|
 
-## Next steps
+## Related articles
 
 - [Run a function when a RabbitMQ message is created (Trigger)](./functions-bindings-rabbitmq-trigger.md)
 - [Send RabbitMQ messages from Azure Functions (Output binding)](./functions-bindings-rabbitmq-output.md)
