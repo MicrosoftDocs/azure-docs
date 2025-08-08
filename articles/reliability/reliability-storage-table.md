@@ -55,7 +55,7 @@ To learn more about the Azure Table Storage architecture and how to design resil
 
 [!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
 
-Azure Table Storage is zone-redundant when deployed with ZRS configuration. With ZRS, the service spreads replicas of your table data synchronously across all of the availability zones in the region. This configuration ensures that your tables remain accessible even if an entire availability zone becomes unavailable. All write operations must be acknowledged across multiple zones before completing, providing strong consistency guarantees.
+Azure Table Storage is zone-redundant when deployed with ZRS configuration. Unlike LRS, ZRS guarantees that Azure synchronously replicates your table data across multiple availability zones. This configuration ensures that your tables remain accessible even if an entire availability zone becomes unavailable. All write operations must be acknowledged across multiple zones before completing, providing strong consistency guarantees.
 
 Zone redundancy is enabled at the storage account level and applies to all Table Storage resources within that account.  Because the setting applies to the entire storage account, you can't configure individual entities for different redundancy levels. When an availability zone experiences an outage, Azure Storage automatically routes requests to healthy zones without requiring any intervention from you or your application.
 
@@ -97,10 +97,9 @@ When an availability zone becomes unavailable, Azure Table Storage automatically
 
 [!INCLUDE [Storage - Zone down experience](includes/storage/reliability-storage-availability-zone-down-experience-include.md)]
 
-- **Traffic rerouting.** Azure automatically reroutes traffic to the remaining healthy availability zones. The service maintains full functionality using the surviving zones with no customer intervention required.
+- **Traffic rerouting.** If a zone becomes unavailable, Azure undertakes networking updates such as Domain Name System (DNS) repointing, so that requests are directed to the remaining healthy availability zones. The service maintains full functionality using the surviving zones with no customer intervention required.
 
-
-### Failback
+### Zone recovery
 
 [!INCLUDE [Storage - Zone failback](includes/storage/reliability-storage-availability-zone-failback-include.md)]
 
