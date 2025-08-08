@@ -5,6 +5,8 @@ items:
   items:
   - name: What is Azure Native Pure Storage Cloud?
     href: overview.md 
+  - name: FAQ
+    href: faq.md
 - name: Quickstart
   expanded: true
   items:
@@ -20,8 +22,6 @@ items:
     href: /troubleshoot/azure/partner-solutions/welcome-native-integrations
 - name: Tools
   items:
-  - name: Resources and tools
-    href: tools.md
   - name: GO SDK
     href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/purestorageblock/armpurestorageblock
   - name: Java SDK
