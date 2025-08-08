@@ -70,7 +70,7 @@ In this tutorial, you learn how to:
    :::image type="content" source="./media/monitor-virtual-machine-changes-logic-app/create-logic-app.png" alt-text="Screenshot shows the logic apps creation menu, showing details like name, subscription, resource group, and location.":::
 
    | Parameter | Required | Value | Description |
-   |----------|----------|-------|-------------|
+   |-----------|----------|-------|-------------|
    | **Subscription** | Yes | <*Azure-subscription-name*> | Select the same Azure subscription for all the services in this tutorial. |
    | **Resource Group** | Yes | <*Azure-resource-group*> | The Azure resource group name for your logic app, which you can select for all the services in this tutorial. |
    | **Logic App name** | Yes | <*logic-app-name*> | Provide a unique name for your logic app. |
@@ -85,61 +85,72 @@ In this tutorial, you learn how to:
 
 ## Add an Azure Event Grid trigger
 
-Add the Azure Event Grid trigger, which you use to monitor the resource group for your virtual machine.
+Tp add the Azure Event Grid trigger so you can monitor the resource group for your virtual machine, follow these steps:
 
-1. In the Azure portal, open your logic app resource.
+1. In the Azure portal, open your Consumption logic app resource.
 
-1. For the Consumption logic app resource in this example, under **Development Tools**, select the designer to open your workflow.
+1. From the resource sidebar, under **Development Tools**, select the designer to open your workflow.
 
-1. On the designer, follow these [general steps](../logic-apps/add-trigger-action-workflow.md#add-a-trigger-to-start-your-workflow) to add the **When a resource event occurs** trigger to your workflow.
+1. On the designer, follow these [general steps](../logic-apps/add-trigger-action-workflow.md?tabs=consumption#add-a-trigger-to-start-your-workflow) to add the Azure Event Grid trigger named **When a resource event occurs**to your workflow.
 
-1. When prompted, sign in to Azure Event Grid with your Azure account credentials. The **Tenant** list shows the Microsoft Entra tenant for your Azure subscription. Check that the correct tenant appears:
+1. On the **Create connection** pane, provide the following information:
 
-   :::image type="content" source="./media/monitor-virtual-machine-changes-logic-app/sign-in.png" alt-text="Screenshot shows the workflow designer with the Azure sign-in prompt to connect to Azure Event Grid.":::
+   | Parameter | Required | Description |
+   |-----------|----------|-------------| 
+   | **Authentication** | Yes | Select the authentication type to require for the connection. Your selection determines other parameter values that this connection requires. |
+
+   For example, with **OAuth** authentication, the **Tenant ID** list appears and shows the Microsoft Entra tenant for your Azure subscription. Confirm that the correct tenant appears:
+
+
+   :::image type="content" source="./media/monitor-virtual-machine-changes-logic-app/sign-in.png" alt-text="Screenshot shows the workflow designer with the sign-in prompt for Azure Event Grid.":::
 
    > [!NOTE]
    > 
    > If you're signed in with a personal Microsoft account, such as @outlook.com or @hotmail.com, the Azure Event Grid trigger might not appear correctly. As a workaround, select [Connect with Service Principal](/entra/identity-platform/howto-create-service-principal-portal) or authenticate as a member of the Microsoft Entra for your Azure subscription. For example, *user-name*@emailoutlook.onmicrosoft.com.
 
-1. Subscribe your logic app to events from the publisher. Provide the details about your event subscription as described in the following table:
+1. When you're done, select **Sign in**.
+
+1. Now, set up your workflow with a subscription to events from the publisher.
+
+   In the trigger pane, provide the following information about your event subscription:
 
    :::image type="content" source="./media/monitor-virtual-machine-changes-logic-app/logic-app-trigger-details.png" alt-text="Screenshot shows the workflow designer with the trigger details editor open.":::
 
-   | Property | Required | Value | Description |
+   | Parameter | Required | Value | Description |
    | -------- | -------- | ----- | ----------- |
+   | **Resource Type** | Yes | <*event-publisher-Azure-resource-type*> | Select the Azure resource type for the event publisher. For more information, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md). For this tutorial, select the **Microsoft.Resources.ResourceGroups** to monitor Azure resource groups. |
    | **Subscription** | Yes | <*event-publisher-Azure-subscription-name*> | Select the name for the Azure subscription for the *event publisher*. For this tutorial, select the Azure subscription name for your virtual machine. |
-   | **Resource Type** | Yes | <*event-publisher-Azure-resource-type*> | Select the Azure resource type for the event publisher. For more information about Azure resource types, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md). For this tutorial, select the `Microsoft.Resources.ResourceGroups` value to monitor Azure resource groups. |
-   | **Resource Name** |  Yes | <*event-publisher-Azure-resource-name*> | Select the Azure resource name for the event publisher. This list varies based on the resource type that you selected. For this tutorial, select the name for the Azure resource group that includes your virtual machine. |
-   | **Event Type Item** |  No | <*event-types*> | Select one or more specific event types to filter and send to Azure Event Grid. For example, you can optionally add these event types to detect when resources are changed or deleted: <p><p>- `Microsoft.Resources.ResourceActionSuccess` <br>- `Microsoft.Resources.ResourceDeleteSuccess` <br>- `Microsoft.Resources.ResourceWriteSuccess` <p>For more information, see: <p><p>- [Azure resource group as an Event Grid source](../event-grid/event-schema-resource-groups.md) <br>- [Understand event filtering](../event-grid/event-filtering.md) <br>- [Filter events for Event Grid](../event-grid/how-to-filter-events.md) |
-   | To add optional properties, select **Add new parameter**, and then select the properties that you want. | No | {see descriptions} | - **Prefix Filter**: For this tutorial, leave this value empty. The default behavior matches all values. However, you can specify a prefix string as a filter, for example, a path and a parameter for a specific resource. <p>- **Suffix Filter**: For this tutorial, leave this value empty. The default behavior matches all values. However, you can specify a suffix string as a filter, for example, a file name extension, when you want only specific file types. <p>- **Subscription Name**: For this tutorial, you can provide a unique name for your event subscription. |
+   | **Resource Name** | Yes | <*event-publisher-Azure-resource-name*> | Select the Azure resource name for the event publisher. This list varies based on the resource type that you selected. For this tutorial, select the name for the Azure resource group that includes your virtual machine. |
+   | **Event Type Item** | No | <*event-types*> | Select one or more specific event types to filter and send to Azure Event Grid. For example, you can optionally add these event types to detect when resources are changed or deleted: <br><br>- **Microsoft.Resources.ResourceActionSuccess** <br>- **Microsoft.Resources.ResourceDeleteSuccess** <br>- **Microsoft.Resources.ResourceWriteSuccess** <br><br>For more information, see: <br><br>- [Azure resource group as an Event Grid source](../event-grid/event-schema-resource-groups.md) <br>- [Understand event filtering](../event-grid/event-filtering.md) <br>- [Filter events for Event Grid](../event-grid/how-to-filter-events.md) |
+   | To add optional parameters, open the **Advanced parameters** list, and then select the parameters that you want. | No | {see descriptions} | - **Prefix Filter**: For this tutorial, leave this value empty. The default behavior matches all values. However, you can specify a prefix string as a filter, for example, a path and a parameter for a specific resource. <br><br>- **Suffix Filter**: For this tutorial, leave this value empty. The default behavior matches all values. However, you can specify a suffix string as a filter, for example, a file name extension, when you want only specific file types. <br><br>- **Subscription Name**: For this tutorial, you can provide a unique name for your event subscription. |
 
-1. Save your logic app workflow. On the designer toolbar, select **Save**. To collapse and hide an action's details in your workflow, select the action's title bar.
+1. Save your workflow. On the designer toolbar, select **Save**.
 
-   When you save your logic app workflow with an Azure Event Grid trigger, Azure creates an event subscription for your logic app to your selected resource. When the resource publishes an event to the Azure Event Grid service, the service pushes the event to your logic app. This event triggers and runs the logic app workflow you define in these next steps.
+   When you save your workflow with an Azure Event Grid trigger, Azure creates an event subscription for your workflow to your selected resource. When the resource publishes an event to the Azure Event Grid service, the service pushes the event to your workflow. This event triggers and runs the workflow that you define in the next section.
 
-Your logic app is now live and listens to events from Azure Event Grid, but doesn't do anything until you add actions to the workflow.
+When you save your workflow, your logic app resource becomes live in the Azure portal and starts listening for events from Azure Event Grid. However, your workflow doesn't do anything else until you add actions to perform tasks.
 
 ## Add a condition
 
-If you want to your logic app workflow to run only when a specific event or operation happens, add a condition that checks for the **Microsoft.Compute/virtualMachines/write** operation. When this condition is true, your logic app workflow sends you an email, which has details about the updated virtual machine.
+To run the actions in your workflow only when a specific event or operation happens, add a condition that checks for that event or operation. This tutorial checks for the **Microsoft.Compute/virtualMachines/write** operation. When this condition is true, another action in your workflow sends you an email that includes information about the updated virtual machine.
 
-1. On the designer, follow these [general steps](../logic-apps/add-trigger-action-workflow.md#add-action) to add the action named **Condition** to your workflow.
+1. On the designer, follow these [general steps](../logic-apps/add-trigger-action-workflow.md#add-action) to add the built-in action named **Condition** to your workflow.
 
-   The workflow designer adds an empty condition to your workflow, including action paths to follow based whether the condition is true or false.
+   The designer adds an empty condition to your workflow, including action paths to follow based whether the condition is true or false.
 
    :::image type="content" source="./media/monitor-virtual-machine-changes-logic-app/empty-condition.png" alt-text="Screenshot shows the workflow designer with an empty condition added to the workflow." lightbox="./media/monitor-virtual-machine-changes-logic-app/empty-condition.png":::
 
-1. To rename the condition, in the title bar, select **Condition**. Rename the condition title to *If a virtual machine in your resource group has changed*.
+1. To rename the condition, on the action pane, in the action title, select **Condition**. Rename the title to **If a virtual machine in your resource group has changed**.
 
-   :::image type="content" source="./media/monitor-virtual-machine-changes-logic-app/rename-condition.png" alt-text="Screenshot shows the workflow designer with the condition editor's context menu and Rename selected.":::
+   :::image type="content" source="./media/monitor-virtual-machine-changes-logic-app/rename-condition.png" alt-text="Screenshot shows the workflow designer and the action title box with the new name.":::
 
-1. Create a condition that checks the event `body` for a `data` object where the `operationName` property is equal to the `Microsoft.Compute/virtualMachines/write` operation. Learn more about [Azure Event Grid event schema](../event-grid/event-schema.md).
+1. Create a condition that checks the event `body` for a `data` object where the `operationName` parameter is equal to the **Microsoft.Compute/virtualMachines/write** operation. For more information, see [Azure Event Grid event schema](../event-grid/event-schema.md).
 
-   1. On the first row under **And**, select inside the left box. In the dynamic content list that appears, select **Function**.
+   1. On the first row under **And**, select inside the left box to show the input options, which are the dynamic content list (lightning icon) and expression editor (function icon). Select the expression editor.
 
-      :::image type="content" source="./media/monitor-virtual-machine-changes-logic-app/condition-choose-expression.png" alt-text="Screenshot shows the workflow designer with the condition action and dynamic content list open with Function selected.":::
+      :::image type="content" source="./media/monitor-virtual-machine-changes-logic-app/condition-choose-expression.png" alt-text="Screenshot shows the workflow designer with the renamed Condition action and expression editor open.":::
 
-   1. In the editor, enter this expression, which returns the operation name from the trigger, and select **Add**:
+   1. In the editor, make **Function** is selected. In the editor box, enter the following expression, which returns the operation name from the trigger, and then select **Add**:
 
       `triggerBody()?['data']['operationName']`
 
@@ -147,7 +158,7 @@ If you want to your logic app workflow to run only when a specific event or oper
 
       :::image type="content" source="./media/monitor-virtual-machine-changes-logic-app/condition-add-data-operation-name.png" alt-text="Screenshot shows workflow designer and condition editor with expression to extract the operation name.":::
 
-   1. In the middle box, keep the operator **is equal to**.
+   1. In the middle box, keep the "is equal to" (**=**) operator.
 
    1. In the right box, enter the operation that you want to monitor, which is the following value for this example:
 
@@ -157,11 +168,11 @@ If you want to your logic app workflow to run only when a specific event or oper
 
    :::image type="content" source="./media/monitor-virtual-machine-changes-logic-app/complete-condition.png" alt-text="Screenshot shows the workflow designer with a condition that compares the operation.":::
 
-   If you switch from design view to code view and back to design view, the expression that you specified in the condition resolves to the **data.operationName** token:
+   If you save your changes, and switch from designer view to code view, and then return to designer view, the expression in the condition resolves to the **data.operationName** token:
 
    :::image type="content" source="./media/monitor-virtual-machine-changes-logic-app/resolved-condition.png" alt-text="Screenshot shows the workflow designer with a condition that resolved tokens.":::
 
-1. Save your logic app.
+1. Save your workflow.
 
 ## Send email notifications
 
