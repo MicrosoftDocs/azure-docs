@@ -10,6 +10,7 @@ ms.date: 02/26/2025
 ms.author: cherylmc
 
 # The note "Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that aren't present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable." is in the vpn-gateway-strongswan-certificates-include file.
+# Customer intent: "As a network administrator, I want to generate and export client certificates using strongSwan on Linux, so that I can establish secure point-to-site VPN connections for remote clients."
 ---
 # Generate and export certificates - Linux (strongSwan)
 

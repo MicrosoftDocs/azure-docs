@@ -8,6 +8,7 @@ ms.date: 01/08/2025
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
+# Customer intent: "As a system administrator, I want to upgrade Basic SKU public IP addresses attached to my VMs to Standard SKU, so that I can ensure compliance with the upcoming retirement of Basic SKUs and enhance the security and performance of my network configurations."
 ---
 
 # Upgrade public IP addresses attached to VM from Basic to Standard
@@ -106,6 +107,11 @@ There is no way to evaluate upgrading a Public IP without completing the action.
 ### Does the script support Zonal Basic SKU Public IPs? 
 
 Yes, the process of upgrading a Zonal Basic SKU Public IP to a Zonal Standard SKU Public IP is identical and works in the script.
+
+### If I specify a NIC associated with a public IP targeted for migration in the Application Gateway backend pool, will this script remove it from the pool?
+
+Yes, it will be removed. After running the script, you will need to manually reassign the NIC to the Application Gateway backend pool.
+Alternatively, you can avoid this issue by explicitly specifying the private IP address in the backend pool configuration before migration.
 
 ## Use Resource Graph to list VMs with Public IPs requiring upgrade
 

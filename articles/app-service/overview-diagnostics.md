@@ -4,6 +4,7 @@ description: Learn how to troubleshoot problems with your app in Azure App Servi
 keywords: app service, azure app service, diagnostics, support, web app, troubleshooting, self-help
 ms.topic: conceptual
 ms.date: 04/23/2025
+ms.update-cycle: 1095-days
 ms.author: msangapu
 author: msangapu-msft
 ms.custom: UpdateFrequency3
@@ -140,4 +141,4 @@ Post your questions or feedback at [Share your ideas](https://feedback.azure.com
 
 ## Related content
 
-- [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)
+- [Tutorial: Run a load test to identify performance bottlenecks in a web app](../app-testing/load-testing/tutorial-identify-bottlenecks-azure-portal.md)

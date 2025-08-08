@@ -6,6 +6,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.date: 06/21/2024
 ms.topic: how-to
+# Customer intent: "As an IT administrator, I want to view and manage pending updates for my environment, so that I can ensure all machines are up-to-date and secure from vulnerabilities."
 ---
 
 # Deploy and manage updates using the Update view

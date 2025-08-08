@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 05/06/2024
 ms.author: kendownie
+# Customer intent: As a storage administrator, I want to configure cloud tiering policies in Azure File Sync so that I can optimize local storage usage and manage costs while ensuring efficient access to frequently used files.
 ---
 
 # Choose cloud tiering policies

@@ -10,6 +10,7 @@ ms.author: duau
 ms.custom:
   - devx-track-azurepowershell
   - build-2025
+# Customer intent: As a network administrator, I want to configure custom DNS servers and enable DNS proxy for Azure Firewall, so that I can ensure consistent DNS resolution and manage name queries effectively for my virtual network.
 ---
 
 # Azure Firewall DNS settings

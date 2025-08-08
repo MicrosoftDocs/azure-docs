@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 01/21/2025
 ms.author: abell
 
+# Customer intent: As a cloud administrator, I want to configure and enable session recording for Bastion, so that I can ensure all remote sessions are captured for auditing and compliance purposes.
 ---
 
 # Configure Bastion session recording

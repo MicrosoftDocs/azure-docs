@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 05/01/2025
 ms.author: kendownie
+# Customer intent: "As an IT administrator, I want to configure Azure File Sync to use system-assigned managed identities, so that I can enhance security by eliminating the need for shared keys and streamline authentication to Azure file shares."
 ---
 
 # How to use managed identities with Azure File Sync

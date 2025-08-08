@@ -1,10 +1,10 @@
 ---
 title: View MITRE coverage for your organization from Microsoft Sentinel | Microsoft Docs
 description: Learn how to view coverage indicator in Microsoft Sentinel for MITRE tactics that are currently covered, and available to configure, for your organization.
-author: austinmccollum
+author: mberdugo 
 ms.topic: how-to
 ms.date: 06/16/2025
-ms.author: austinmc
+ms.author: monaberdugo 
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal

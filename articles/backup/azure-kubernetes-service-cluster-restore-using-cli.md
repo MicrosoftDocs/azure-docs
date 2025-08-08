@@ -8,8 +8,9 @@ ms.custom:
   - devx-track-azurecli
   - ignite-2023
   - ignite-2024
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a DevOps engineer, I want to restore my Azure Kubernetes Service cluster using command-line tools, so that I can efficiently recover my applications and data from backup without manual intervention."
 ---
 
 # Restore Azure Kubernetes Service using Azure CLI 

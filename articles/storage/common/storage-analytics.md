@@ -9,6 +9,7 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: storage-common-concepts
 ms.custom: monitoring
+# Customer intent: As a storage administrator, I want to enable and utilize Storage Analytics for my storage account, so that I can monitor logs, analyze usage trends, and diagnose issues effectively.
 ---
 
 # Storage Analytics

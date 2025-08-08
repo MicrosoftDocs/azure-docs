@@ -5,7 +5,7 @@ author: KennyDay
 ms.service: cost-management-billing
 ms.subservice: microsoft-customer-agreement
 ms.topic: conceptual
-ms.date: 05/22/2025
+ms.date: 08/05/2025
 ms.author: kenday
 ms.reviewer: clionabolger
 ---
@@ -264,7 +264,7 @@ For more information, see the following articles:
 The following points help you plan for your migration from EA to MCA:
 
 - Migrating from EA to MCA redirects your charges from your EA enrollment to your MCA billing account after you complete the subscription migration. The change goes into effect immediately. Any charges incurred up to the point of migration are invoiced to the EA and must be settled on that enrollment. There's no effect on your services and no downtime.
-- You can continue to see your historic charges in the Azure portal under your EA enrollment billing scope. Historical charges are visible in cost analysis when migration completes if you're an Account Owner or Enterprise Administrator for the enrollment.
+- You can continue to see your historic charges in the Azure portal under your EA enrollment billing scope. Historical charges are visible in cost analysis when migration completes if you're the Department Administrator or Enterprise Administrator for the enrollment.
 - Subscription ownership doesn't provide access to historical data since there's no access to the EA Billing Scope. We recommend that you [download your cost and usage data and invoices](../understand/download-azure-daily-usage.md) before you transfer subscriptions.
 - Depending on the timing of your migration, you might receive two invoices, one EA and one MCA, in the transition month. The MCA invoice covers usage for a calendar month and is generated from the fifth to the seventh day of the month following the usage.
 - To ensure your MCA invoice gets received by the right person or group, you must add an accounts payable email address as an invoice recipient's contact to the MCA. For more information, see [share your billing profiles invoice](../understand/download-azure-invoice.md#share-your-billing-profiles-invoice).

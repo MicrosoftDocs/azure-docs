@@ -5,8 +5,8 @@ services: logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 03/12/2025
+ms.topic: concept-article
+ms.date: 07/18/2025
 ---
 
 # Differences between Standard single-tenant logic apps versus Consumption multitenant logic apps

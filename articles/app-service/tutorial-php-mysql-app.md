@@ -7,6 +7,7 @@ ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.devlang: php
 ms.topic: tutorial
 ms.date: 04/17/2025
+ms.update-cycle: 180-days
 ms.custom:
   - mvc
   - cli-validate
@@ -238,7 +239,7 @@ The creation wizard generated the connectivity variables for you already as [app
         A **Create connection** dialog is opened on top of the edit dialog.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-5.png" alt-text="A screenshot showing how to edit a service connector with a key vault connection." lightbox="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-5.png":::
+        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-5.png" alt-text="A screenshot that shows how to edit a service connector with a key vault connection." lightbox="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-5.png":::
     :::column-end:::
 :::row-end:::
 :::row:::

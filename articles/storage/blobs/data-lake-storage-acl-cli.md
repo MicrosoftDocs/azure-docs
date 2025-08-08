@@ -12,6 +12,7 @@ ms.author: normesta
 ms.reviewer: prishet
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
+# Customer intent: As a data engineer managing file access, I want to use command-line tools to set and update ACLs in Azure Data Lake Storage, so that I can effectively control access to data across multiple directories and files without manual configuration for each item.
 ---
 
 # Use Azure CLI to manage ACLs in Azure Data Lake Storage

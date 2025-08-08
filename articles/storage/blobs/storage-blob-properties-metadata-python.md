@@ -3,14 +3,15 @@ title: Manage properties and metadata for a blob with Python
 titleSuffix: Azure Storage
 description: Learn how to set and retrieve system properties and store custom metadata on blobs in your Azure Storage account using the Python client library.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.date: 08/05/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
+# Customer intent: As a Python developer, I want to manage system properties and user-defined metadata for blobs in Azure Storage, so that I can enhance data organization and retrieval based on my application's specific needs.
 ---
 
 # Manage blob properties and metadata with Python

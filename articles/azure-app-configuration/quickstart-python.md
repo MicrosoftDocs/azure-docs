@@ -22,7 +22,7 @@ This document shows examples of how to use the [Azure SDK for Python](https://gi
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - Python 3.8 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
-- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 
 ## Create a key-value
 

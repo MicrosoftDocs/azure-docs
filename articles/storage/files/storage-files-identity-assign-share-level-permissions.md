@@ -9,14 +9,12 @@ ms.author: kendownie
 ms.custom: devx-track-azurepowershell, subject-rbac-steps, devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
 recommendations: false
+# Customer intent: As a cloud administrator, I want to assign share-level permissions for Azure File shares, so that I can control user access to shared files and ensure secure and effective file management within my organization.
 ---
 
 # Assign share-level permissions for Azure file shares
 
 Once you've enabled an Active Directory (AD) source for your storage account, you must configure share-level permissions in order to get access to your file share. There are two ways you can assign share-level permissions. You can assign them to [specific Microsoft Entra users/groups](#share-level-permissions-for-specific-azure-ad-users-or-groups), and you can assign them to all authenticated identities as a [default share-level permission](#share-level-permissions-for-all-authenticated-identities).
-
-> [!IMPORTANT]
-> Full administrative control of a file share, including the ability to take ownership of a file, requires using the storage account key. Full administrative control isn't supported with identity-based authentication.
 
 ## Applies to
 | Management model | Billing model | Media tier | Redundancy | SMB | NFS |

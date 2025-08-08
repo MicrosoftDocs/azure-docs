@@ -7,6 +7,7 @@ ms.service: azure-load-balancer
 ms.topic: concept-article
 ms.date: 06/26/2024
 ms.author: mbender
+# Customer intent: "As a network engineer, I want to utilize the load balancer insights and metrics dashboard, so that I can effectively monitor performance, diagnose faults, and make informed configuration decisions for my cloud infrastructure."
 ---
 
 # Using Insights to monitor and configure your Azure Load Balancer

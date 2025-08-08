@@ -8,6 +8,7 @@ ms.service: azure-blob-storage
 ms.topic: reference
 ms.date: 01/27/2025
 ms.author: normesta
+# Customer intent: "As an SFTP user, I want to verify valid host keys for Azure Blob Storage, so that I can securely connect my SFTP client without risks of man-in-the-middle attacks."
 ---
 
 # Host keys for SSH File Transfer Protocol (SFTP) support for Azure Blob Storage

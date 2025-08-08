@@ -7,6 +7,7 @@ ms.service: azure-traffic-manager
 ms.topic: concept-article
 ms.date: 06/27/2024
 ms.author: allensu
+# Customer intent: "As a network administrator, I want to understand the different types of endpoints supported by traffic management solutions, so that I can effectively configure and optimize traffic distribution for my applications across various environments."
 ---
 
 # Traffic Manager endpoints

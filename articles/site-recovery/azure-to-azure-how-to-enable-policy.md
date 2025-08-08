@@ -9,6 +9,7 @@ ms.date: 03/13/2024
 ms.service: azure-site-recovery
 ms.custom: template-how-to
 
+# Customer intent: "As an IT administrator, I want to enable Azure Site Recovery for my virtual machines using Azure Policy, so that I can efficiently manage disaster recovery at scale and ensure continuous application availability during outages."
 ---
 
 # Use Azure Policy to set up Azure Site Recovery

@@ -10,6 +10,7 @@ ms.date: 03/18/2025
 ms.author: mattmcinnes
 ms.reviewer: mattmcinnes
 #Customer intent: I want to improve the security and performance of my Azure virtual machines
+# Customer intent: "As a cloud architect, I want to implement Azure Boost for my virtual machines, so that I can enhance their performance and security while optimizing resource usage."
 ---
 
 # Microsoft Azure Boost
@@ -56,6 +57,7 @@ Azure Boost delivers industry leading throughput performance at up to 14GBps thr
 
 :::image type="content" source="./media/boost-storage-nvme-vs-scsi.png" alt-text="Diagram showing the difference between managed SCSI storage and Azure Boost's managed NVMe storage.":::
 
+### Azure Boost SSD 
 With Azure Boost SSD architecture, we deliver local, and cached disk performance improvements at up to 36GBps throughput and 6.6M IOPS depending on the VM size of your choice. Azure Boost SSDs are designed to provide high performance optimized encryption at rest, and minimal jitter to NVMe local disks for Azure VMs with local disks.
 
 :::image type="content" source="./media/boost-storage-ssd-comparison.png" alt-text="Diagram showing the difference between local SCSI SSDs and Azure Boost's local NVMe SSDs.":::

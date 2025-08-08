@@ -8,8 +8,9 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.topic: overview
-ms.date: 05/20/2025
+ms.date: 06/20/2025
 ms.author: anfdocs
+# Customer intent: As a cloud administrator, I want to learn about the latest enhancements in Azure NetApp Files, so that I can effectively utilize new features for improved data security, resilience, and operational efficiency in my organization's cloud storage solutions.
 ---
 
 # What's new in Azure NetApp Files
@@ -19,6 +20,12 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Flexible service level](manage-cool-access.md#register-the-feature) now supports storage with cool access (Preview)
 
     Azure NetApp Files storage with cool access provides the ability to configure a capacity pool with cool access, which moves cold (infrequently accessed) data transparently to Azure storage account to help you reduce the total cost of storage. You must be registered for the [Flexible service level](azure-netapp-files-set-up-capacity-pool.md) preview before enrolling in [the preview for the Flexible service level with cool access](manage-cool-access.md#register-the-feature). 
+    
+## June 2025
+
+* The ability to [transition an existing volume to customer-managed keys](configure-customer-managed-keys.md#transition) is now generally available (GA)
+
+    You can transition existing volumes from platform-managed keys to customer-managed keys seamlessly. This provides you flexibility of encryption key lifecycle (renewals, rotations) and additional security for regulated industry requirements. 
 
 ## May 2025
 
@@ -30,13 +37,13 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Application volume group for Oracle](configure-application-volume-oracle-api.md#replication) now supports cross-zone and cross-region replication (preview)
 
-    [Application volume group for Oracle](application-volume-group-oracle-introduction.md) now supports [cross-region](cross-region-replication-introduction.md) and [cross-zone replication](cross-zone-replication-introduction.md) to improve the resilience and data protection of your Oracle deployments. With cross-zone and cross-region replication, Azure NetApp Files only replicates changed blocks across regions or zones, enabling a lower restore point objective. To understand more of the benefits of each option, see [Understand data protection and disaster recovery options in Azure NetApp Files](data-protection-disaster-recovery-options.md).
+    [Application volume group for Oracle](application-volume-group-oracle-introduction.md) now supports [cross-region](replication.md) and [cross-zone replication](replication.md) to improve the resilience and data protection of your Oracle deployments. With cross-zone and cross-region replication, Azure NetApp Files only replicates changed blocks across regions or zones, enabling a lower restore point objective. To understand more of the benefits of each option, see [Understand data protection and disaster recovery options in Azure NetApp Files](data-protection-disaster-recovery-options.md).
 
     Cross-zone and cross-region replication for application volume group for Oracle is currently only supported in the REST API. This feature is in preview. 
 
 * [Cross-zone-region replication](cross-zone-region-replication-configure.md) (preview)
 
-    [Cross-zone-region replication](cross-zone-region-replication.md) is an extension to cross-region and cross-zone replication. With cross-zone-region replication, you can configure two protection volumes in any combination of cross-region and cross-zone replication for the same source volume. Replication is now also supported across subscriptions under the same tenant. This feature is in preview.
+    [Cross-zone-region replication](replication.md#cross-zone-region-replication) is an extension to cross-region and cross-zone replication. With cross-zone-region replication, you can configure two protection volumes in any combination of cross-region and cross-zone replication for the same source volume. Replication is now also supported across subscriptions under the same tenant. This feature is in preview.
 
 * [Support for one Active Directory connection per NetApp account](create-active-directory-connections.md#multi-ad) is now generally available (GA)
 
@@ -57,7 +64,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Cross-subscription replication](cross-region-replication-create-peering.md)
 
-    Azure NetApp Files cross-subscription replication enables replication across different subscriptions under the same tenant. This feature enhances disaster recovery and operational agility by leveraging NetApp SnapMirror technology, which ensures efficient data transfer by sending only changed blocks in a compressed format. The feature is supported with both [cross-zone replication](cross-zone-replication-introduction.md) in all Azure NetApp Files regions with [availability zones](../reliability/regions-list.md) and [cross-region replication](cross-region-replication-introduction.md) in all supported regions.
+    Azure NetApp Files cross-subscription replication enables replication across different subscriptions under the same tenant. This feature enhances disaster recovery and operational agility by leveraging NetApp SnapMirror technology, which ensures efficient data transfer by sending only changed blocks in a compressed format. The feature is supported with both [cross-zone replication](replication.md) in all Azure NetApp Files regions with [availability zones](../reliability/regions-list.md) and [cross-region replication](replication.md) in all supported regions.
     
     You must [register the feature](cross-region-replication-create-peering.md#register-for-cross-subscription-replication) before using it for the first time. 
 
@@ -199,7 +206,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * Availability zone volume placement enhancement - [**Populate existing volumes**](manage-availability-zone-volume-placement.md#populate-an-existing-volume-with-availability-zone-information) is now generally available (GA).
 
-* [Cross-zone replication](cross-zone-replication-introduction.md) is now generally available (GA).
+* [Cross-zone replication](replication.md) is now generally available (GA).
 
     Cross-zone replication allows you to replicate your Azure NetApp Files volumes asynchronously from one Azure availability zone (AZ) to another within the same region. Using technology similar to the cross-region replication feature and Azure NetApp Files availability zone volume placement feature, cross-zone replication replicates data in-region across different zones; only changed blocks are sent over the network in a compressed, efficient format. It helps you protect your data from unforeseeable zone failures without the need for host-based data replication. This feature minimizes the amount of data required to replicate across the zones, limiting data transfers required and shortens the replication time so you can achieve a smaller Restore Point Objective (RPO). Cross-zone replication doesn’t involve any network transfer costs and is highly cost-effective. 
     
@@ -234,12 +241,12 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Application volume group for SAP HANA extension 1](application-volume-group-introduction.md) (Preview)
 
     Extension 1 of application volume group for SAP HANA improves your volume group deployment experience for SAP HANA with:
-    - The use of [availability zone volume placement](use-availability-zones.md), eliminating the need for manual AVSet pinning with proximity placement groups.
+    - The use of [availability zone volume placement](replication.md#availability-zones), eliminating the need for manual AVSet pinning with proximity placement groups.
     - Support for [Standard network features](azure-netapp-files-network-topologies.md) for SAP HANA volumes. 
 
 ## May 2024
 
-* [Large volumes](large-volumes-requirements-considerations.md) are now generally available (GA) with support for [cross-zone replication](cross-zone-replication-requirements-considerations.md) and [cross-region replication](cross-region-replication-requirements-considerations.md).
+* [Large volumes](large-volumes-requirements-considerations.md) are now generally available (GA) with support for [cross-zone replication](replication-requirements.md) and [cross-region replication](replication-requirements.md).
 
     Azure NetApp Files large volumes feature support the creation of new volumes between 50 TiB to 500 TiB in size. Regular Azure NetApp Files volumes are limited to 100 TiB in size. Large volumes enable a variety of use cases and workloads that require larger volumes with a single namespace such as High-Performance Computing (HPC) in the EDA and O&G space.
     
@@ -349,7 +356,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [SMB Continuous Availability (CA)](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) shares now supports MSIX app attach for Azure Virtual Desktop
 
-    In addition to Citrix App Layering, FSLogix user profiles including FSLogix ODFC containers, and Microsoft SQL Server, Azure NetApp Files now supports [MSIX app attach](../virtual-desktop/create-netapp-files.md) with SMB Continuous Availability shares to enhance resiliency during storage service maintenance operations.  Continuous Availability enables SMB transparent failover to eliminate disruptions as a result of service maintenance events and improves reliability and user experience.
+    In addition to Citrix App Layering, FSLogix user profiles including FSLogix ODFC containers, and Microsoft SQL Server, Azure NetApp Files now supports [MSIX app attach](/azure/virtual-desktop/create-netapp-files) with SMB Continuous Availability shares to enhance resiliency during storage service maintenance operations.  Continuous Availability enables SMB transparent failover to eliminate disruptions as a result of service maintenance events and improves reliability and user experience.
 
 * [Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md#supported-regions) in US Gov regions
 
@@ -423,7 +430,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## May 2023
 
-* Azure NetApp Files now supports [customer-managed keys](configure-customer-managed-keys.md) on both source and data replication volumes with [cross-region replication](cross-region-replication-requirements-considerations.md)  or [cross-zone replication](cross-zone-replication-requirements-considerations.md) relationships.
+* Azure NetApp Files now supports [customer-managed keys](configure-customer-managed-keys.md) on both source and data replication volumes with [cross-region replication](replication-requirements.md)  or [cross-zone replication](replication-requirements.md) relationships.
 
 * [Standard network features - Edit volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes) (Preview)
 
@@ -536,7 +543,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Cross-zone replication](create-cross-zone-replication.md) (Preview)
 
-    With Azure’s push towards the use of availability zones (AZs), the need for storage-based data replication is equally increasing. Azure NetApp Files now supports [cross-zone replication](cross-zone-replication-introduction.md). With this new in-region replication capability - by combining it with the new availability zone volume placement feature - you can replicate your Azure NetApp Files volumes asynchronously from one Azure availability zone to another in a fast and cost-effective way.
+    With Azure’s push towards the use of availability zones (AZs), the need for storage-based data replication is equally increasing. Azure NetApp Files now supports [cross-zone replication](replication.md). With this new in-region replication capability - by combining it with the new availability zone volume placement feature - you can replicate your Azure NetApp Files volumes asynchronously from one Azure availability zone to another in a fast and cost-effective way.
 
     Cross-zone replication helps you protect your data from unforeseeable zone failures without the need for host-based data replication. Cross-zone replication minimizes the amount of data required to replicate across the zones, therefore limiting data transfers required and also shortens the replication time, so you can achieve a smaller Restore Point Objective (RPO). Cross-zone replication doesn’t involve any network transfer costs, hence it's highly cost-effective.
 
@@ -676,7 +683,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## October 2021
 
-* [Azure NetApp Files cross-region replication](cross-region-replication-introduction.md) now generally available (GA)
+* [Azure NetApp Files cross-region replication](replication.md) now generally available (GA)
 
     The cross-region replication feature is now generally available. You no longer need to register the feature before using it.
 
@@ -814,7 +821,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     SMB Transparent Failover enables maintenance operations on the Azure NetApp Files service without interrupting connectivity to server applications storing and accessing data on SMB volumes. To support SMB Transparent Failover, Azure NetApp Files now supports the SMB Continuous Availability shares option for use with SQL Server applications over SMB running on Azure VMs. This feature is currently supported on Windows SQL Server. Azure NetApp Files doesn't currently support Linux SQL Server. This feature provides significant performance improvements for SQL Server. It also provides scale and cost benefits for [Single Instance, Always-On Failover Cluster Instance and Always-On Availability Group deployments](azure-netapp-files-solution-architectures.md#sql-server). See [Benefits of using Azure NetApp Files for SQL Server deployment](solutions-benefits-azure-netapp-files-sql-server.md).
 
-* [Automatic resizing of a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
+* [Automatic resizing of a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-replication-destination-volume)
 
     In a cross-region replication relationship, a destination volume is automatically resized based on the size of the source volume. As such, you don’t need to resize the destination volume separately. This automatic resizing behavior applies when the volumes are in an active replication relationship. It also applies when replication peering is broken with the resync operation. For this feature to work, you need to ensure sufficient headroom in the capacity pools for both the source and the destination volumes.
 
@@ -840,7 +847,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## September 2020
 
-* [Azure NetApp Files cross-region replication](cross-region-replication-introduction.md) (Preview)
+* [Azure NetApp Files cross-region replication](replication.md) (Preview)
 
   Azure NetApp Files now supports cross-region replication. With this new disaster recovery capability, you can replicate your Azure NetApp Files volumes from one Azure region to another in a fast and cost-effective way. It helps you protect your data from unforeseeable regional failures. Azure NetApp Files cross-region replication uses NetApp SnapMirror technology; only changed blocks are sent over the network in a compressed, efficient format. This proprietary technology minimizes the amount of data required to replicate across the regions, therefore saving data transfer costs. It also shortens the replication time, so you can achieve a smaller Restore Point Objective (RPO).
 

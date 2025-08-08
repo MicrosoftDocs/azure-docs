@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/04/2025
+ms.date: 07/11/2025
 ms.author: jianleishen
 ---
 
@@ -17,7 +17,7 @@ ms.author: jianleishen
 This article outlines how to use the copy activity in Azure Data Factory to copy data from and to an Oracle database. It builds on the [copy activity overview](copy-activity-overview.md).
 
 > [!IMPORTANT]
-> The Oracle connector version 2.0 provides improved native Oracle support. If you are using Oracle connector version 1.0 in your solution, please [upgrade the Oracle connector](#upgrade-the-oracle-connector) before **July 31, 2025**. Refer to this [section](#differences-between-oracle-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
+> The Oracle connector version 2.0 provides improved native Oracle support. If you are using Oracle connector version 1.0 in your solution, please [upgrade the Oracle connector](#upgrade-the-oracle-connector) before **October 31, 2025**. Refer to this [section](#differences-between-oracle-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
 
 ## Supported capabilities
 
@@ -36,7 +36,9 @@ For a list of data stores that are supported as sources or sinks by the copy act
 Specifically, this Oracle connector supports:
 
 - The following versions of an Oracle database for version 2.0:
-    - Oracle Database 19c or later
+    - Oracle Database 19c and higher
+    - Oracle Database 18c and higher
+    - Oracle Database 12c and higher
 - The following versions of an Oracle database for version 1.0:
     - Oracle 19c R1 (19.1) and higher
     - Oracle 18c R1 (18.1) and higher

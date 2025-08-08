@@ -7,7 +7,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 03/26/2025
+ms.date: 07/08/2025
 ---
 
 # Reservation recommendations

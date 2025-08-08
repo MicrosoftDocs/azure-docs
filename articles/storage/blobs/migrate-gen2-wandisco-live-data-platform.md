@@ -10,6 +10,7 @@ ms.reviewer: b-pauls
 ms.date: 03/09/2022
 ms.service: azure-data-lake-storage
 ms.custom: references_regions
+# Customer intent: As a data engineer, I want to migrate on-premises Hadoop data to Azure Data Lake Storage without downtime, so that I can ensure continuous operations and maintain data consistency during the migration process.
 ---
 
 # Migrate on-premises Hadoop data to Azure Data Lake Storage with WANdisco LiveData Platform for Azure
