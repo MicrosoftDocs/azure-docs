@@ -83,4 +83,7 @@ Access policies also apply to the "Try this API" capability for APIs in the API 
 
 ## Related content
 
+* [Set up the API Center portal](set-up-api-center-portal.md)
 * [Enable and view Azure API Center portal in Visual Studio Code](enable-api-center-portal-vs-code-extension.md)
+* [Self-host the API Center portal](self-host-api-center-portal.md)
+

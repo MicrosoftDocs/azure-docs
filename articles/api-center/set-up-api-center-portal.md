@@ -8,7 +8,7 @@ ms.date: 08/05/2025
 ms.update-cycle: 180-days
 ms.author: danlep 
 ms.custom: 
-ms.collection: ce-skilling-ai-copilot
+ms.collection: 
 # Customer intent: As an API program manager, I want to enable an Azure-managed portal for developers and other API stakeholders in my organization to discover the APIs in my organization's API center.
 ---
 
@@ -33,7 +33,7 @@ This article shows you how to set up the *API Center portal* (preview), an Azure
 
 ## Configure and publish the API Center portal
 
-After creating the API Center portal app registration, you can configure settings for your API Center portal. Complete the following steps in the Azure portal.
+After creating the API Center portal app registration, you can [customize settings](customize-api-center-portal.md) and publish your API Center portal. Complete the following steps in the Azure portal.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API center.
 1. In the left menu, under **API Center portal**, select **Settings**.
@@ -44,12 +44,12 @@ After creating the API Center portal app registration, you can configure setting
     1. On the **Manual** tab, in **Client ID**, enter the **Application (client) ID** from the app registration you created in the previous section.
     1. Confirm that the **Redirect URI** is the value you configured in the app registration. 
     1. Select **Save + publish**.
-1. On the remaining tabs, optionally customize the settings for your API Center portal. For information on the settings, see Customize your API Center portal](customize-api-center-portal.md). 
+1. On the remaining tabs, optionally customize the settings for your API Center portal. For information on the settings, see [Customize your API Center portal](customize-api-center-portal.md). 
 1. Select **Save + publish**.
 
 ## Access the portal
 
-After publishing, you can now access the API Center portal in your browser.
+After publishing, you can access the API Center portal in your browser.
 
 * On the portal's **Settings** page, select **View API Center portal** to open the portal in a new tab. 
 * Or, enter the following URL in your browser, replacing `<service-name>` and `<location>` with the name of your API center and the location where it's deployed:<br/>
@@ -66,7 +66,7 @@ By default, the portal home page is reachable publicly but requires sign-in to a
 
 The API Center portal supports and streamlines the work of developers who use and create APIs within your organization. Signed-in users can:
 
-* **Search for APIs** by name or using [AI-assisted semantic search](#search-with-ai) 
+* **Search for APIs** by name or using [AI-assisted semantic search](customize-api-center-portal.md#semantic-search)
 
 * **Filter APIs** by type or lifecycle stage
 
@@ -76,9 +76,10 @@ The API Center portal supports and streamlines the work of developers who use an
 
 * **Try out APIs** that support API key authentication or OAuth 2.0 authorization
 
-
+[!INCLUDE [api-center-portal-compare-apim-dev-portal](includes/api-center-portal-compare-apim-dev-portal.md)]
 
 ## Related content
 
-* [Enable and view Azure API Center portal in Visual Studio Code](enable-api-center-portal-vs-code-extension.md)
 * [Customize your API Center portal](customize-api-center-portal.md)
+* [Enable and view Azure API Center portal in Visual Studio Code](enable-api-center-portal-vs-code-extension.md)
+* [Self-host the API Center portal](self-host-api-center-portal.md)

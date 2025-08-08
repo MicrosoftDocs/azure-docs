@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-center
 ms.topic: include
-ms.date: 05/28/2025
+ms.date: 08/08/2025
 ms.author: danlep
 ms.custom: Include file
 ---
@@ -23,6 +23,8 @@ To set up the app registration automatically, follow these steps:
 1. In the left-hand menu, select **API Center portal** > **Settings**.
 1. On the **Identity provider** tab, select **Start set up**.
 1. On the **Quick setup** tab, select **Save + publish**.
+
+If you need to access the app registration later, you can find it in the portal under **App registrations**. The application is named with the following format: **\<api-center-name>-apic-aad**. 
 
 #### Set up the app registration manually
 
