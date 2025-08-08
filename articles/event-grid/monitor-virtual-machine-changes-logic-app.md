@@ -1,21 +1,22 @@
 ---
-title: "Tutorial: Monitor Virtual Machine Changes with Azure Event Grid"
-description: Learn how to monitor for changes in virtual machines by using Azure Event Grid and Azure Logic Apps.
+title: Monitor Virtual Machine Changes with Event Grid
+description: Learn how to monitor changes in virtual machines by using Azure Event Grid and Azure Logic Apps.
 ms.service: azure-logic-apps
+services: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: estfan, azla
 ms.topic: tutorial
 ms.date: 08/08/2025
-#customer intent: As an IT professional, I want to use Azure Event Grid and Azure Logic Apps to monitor virtual machines for changes so that the responsible person can be notified automatically.
+#Customer intent: As an IT professional, I want to use Azure Event Grid and Azure Logic Apps to monitor virtual machines for changes and to automatically notify the person responsible.
 ---
 
 # Tutorial: Monitor virtual machine changes by using Azure Event Grid and Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
-You can monitor and respond to specific events that happen in Azure resources or external resources by using Azure Event Grid and Azure Logic Apps. You can create an automated consumption logic app workflow with minimal code using Azure Logic Apps. You can have these resources publish events to Azure Event Grid. In turn, Azure Event Grid pushes those events to subscribers that have queues, webhooks, or event hubs as endpoints. As a subscriber, your workflow waits for these events to arrive in Azure Event Grid before running the steps to process the events.
+To monitor and respond to specific events that happen in Azure resources or external resources, you can use Azure Event Grid and Azure Logic Apps. You can create an automated Consumption logic app workflow with minimal code using Azure Logic Apps. You can have these resources publish events to Azure Event Grid. In turn, Azure Event Grid pushes those events to subscribers that have queues, webhooks, or event hubs as endpoints. As a subscriber, your workflow waits for these events to arrive in Azure Event Grid before running the steps to process the events.
 
 Here are some events that publishers can send to subscribers through Azure Event Grid:
 
