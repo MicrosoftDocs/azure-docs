@@ -19,7 +19,7 @@ To request a limit increase, create a support request from the Azure portal. For
 | ---------| ----------- | ----------- | ----------- |
 | Maximum number of scale units | 10 | 10 | 30 |
 | Maximum cache size per service instance  | 250 MB | 1 GB | 5 GB |
-| Maximum number of APIs per service instance | 150 | 500 | 2,500 |
+| Maximum number of APIs per service instance (including versions and revisions) | 150 | 500 | 2,500 |
 | Maximum number of API operations per service instance | 3,000 | 10,000 | 20,000 |
 | Maximum number of subscriptions per service instance | 500 | 2,000 | 4,000 |
 | Maximum number of products per service instance | 50 | 200 | 400 |

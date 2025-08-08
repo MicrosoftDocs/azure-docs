@@ -32,7 +32,7 @@ To request a limit increase, create a support request from the Azure portal. For
 | Custom gateway domains | N/A | 20 | N/A | N/A | 20 |
 | CA certificates | N/A | 10 | 10 | 10 | 10 |
 | Client certificates | 50 | 100 | 100 | 100 | 100 |
-| APIs (including revisions) | 150 | 150 | 150 | 500 | 2,500 |
+| APIs (including versions and revisions) | 150 | 150 | 150 | 500 | 2,500 |
 | API releases | 100 | 100 | 100 | 100 | 100 |
 | API operations | 3,000 | 3,000 | 3,000 | 10,000 | 20,000 |
 | API operations per API | 100 | 100 | 100 | 100 | 100 |
