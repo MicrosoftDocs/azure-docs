@@ -366,7 +366,7 @@ The validation process involves creating a patient resource in the FHIR service,
 
 For steps to obtain the proper access to the FHIR service, see [Access the FHIR service using REST Client](using-rest-client.md).
 
-When you follow the steps in the [Get the FHIR patient data](using-rest-client#get-fhir-patient-data) section, the request returns an empty response because the FHIR service is new and doesn't have any patient resources.
+When you follow the steps in the [Get the FHIR patient data](using-rest-client.md#get-fhir-patient-data) section, the request returns an empty response because the FHIR service is new and doesn't have any patient resources.
 
 #### Create a patient resource in the FHIR service
 
