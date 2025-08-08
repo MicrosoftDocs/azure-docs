@@ -9,7 +9,6 @@ ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.devlang: csharp azurecli
 ms.custom: azureday1
-ms.subservice: web-apps
 ---
 
 ## Clean up resources

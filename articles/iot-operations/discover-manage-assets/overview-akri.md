@@ -17,13 +17,13 @@ ms.date: 07/08/2025
 The Azure IoT Operations southbound connectors use Akri services to:
 
 - Discover physical devices and devices connected to your cluster.
-- Enable connectivity to the physical assets and devices by using protocols such as OPC UA, ONVIF, and REST/HTTP.
+- Enable connectivity to the physical assets and devices by using protocols such as ONVIF and REST/HTTP.
 - Configure namespace assets and devices as custom resources in your Kubernetes cluster.
 - Integrate with Azure Device Registry to project device and namespace assets to the cloud as Azure Resource Manager resources, reducing the amount of manual configuration required.
 
 The Akri services provide an extensible framework for all device connectivity protocols. The following types of southbound connector all use Akri services:
 
-- Built-in connectors such as the **connector for OPC UA** and **connector for REST/HTTP (preview)**.
+- Built-in connectors such as the **connector for ONVIF**, **media connector**, and **connector for REST/HTTP (preview)**.
 - Partner-provided connectors.
 - Custom connectors.
 
@@ -67,34 +67,9 @@ The Akri services use standard Kubernetes primitives that let you apply your exi
 
 - Security and authentication use standard Kubernetes secrets and TLS practices, which makes it easy to secure your device connections regardless of the connectivity protocol.
 
-## Supported connectors
-
-The following table shows the connectors currently available in Azure IoT Operations and their asset and device discovery capabilities:
-
-| Connector              | Device discovery | Asset discovery |
-|------------------------|:----------------:|:---------------:|
-| Connector for OPC UA   |       Yes        |      Yes        |
-| Connector for ONVIF    |        Yes (for Media inbound endpoints)        |      Yes  (events and management groups)      |
-| Media connector        |       No        |       No        |
-| REST/HTTP connector         |        No        |       No        |
-
-The media connector supports discovery of cameras and other media devices that use the ONVIF protocol.
-
-To learn more about the discovery capabilities of the connectors, see:
-
-- [Automatically discover and configure OPC UA devices and assets](howto-autodetect-opc-ua-assets-use-akri.md)
-- [Configure the connector for ONVIF (preview)](howto-use-onvif-connector.md)
-
 ### Feature support
 
 The Akri services support the following features:
-
-| [CNCF Akri Features](https://docs.akri.sh/) | Supported |
-| ------------------------------------------- | :-------: |
-| Dynamic discovery of devices at the edge (supported protocols: OPC UA, ONVIF, udev)              |   Yes    |
-| Schedule devices with minimal latency using Akri's information on node affinity on the cluster  |   Yes    |
-| Secrets and credentials management  |   Yes    |
-| M:N device to broker ratio through configuration-level resource support                       |   Yes    |
 
 | Akri services features   | Supported |
 |--------------------------|:---------:|
@@ -111,6 +86,7 @@ The Akri services support the following features:
 To learn more about OPC UA automatic asset discovery with Akri services, see [Discover OPC UA data sources using the Akri services](howto-autodetect-opc-ua-assets-use-akri.md)
 
 To learn more about using Akri with ONVIF, Media, or REST/HTTP, see:
+
 - [Understand the connector for media](./overview-media-connector.md)
 - [Understand the connector for ONVIF](./overview-onvif-connector.md)
 - [Understand the connector for REST/HTTP](overview-http-connector.md)

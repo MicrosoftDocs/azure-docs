@@ -105,7 +105,7 @@ To achieve geo-replication in nonpaired regions:
 
 - **For object storage:** To learn about how to create multi-region solutions using Azure Blob Storage, see [Reliability in Azure Blob Storage](./reliability-storage-blob.md).
 
-- **For Azure NetApp Files (ANF)**, you can replicate to a set of nonstandard pairs besides Azure region pairs. See [Azure NetApp Files (ANF) cross-region replication](/azure/azure-netapp-files/cross-region-replication-introduction).
+- **For Azure NetApp Files**, you can replicate to a set of nonstandard pairs besides Azure region pairs. To learn more, see [Reliability in Azure NetApp Files](reliability-netapp-files.md).
 
 - **For Azure Files:**
 
