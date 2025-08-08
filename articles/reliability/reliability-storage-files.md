@@ -7,6 +7,7 @@ ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-file-storage
 ms.date: 07/23/2025
+ai-usage: ai-assisted
 ---
 
 # Reliability in Azure Files
