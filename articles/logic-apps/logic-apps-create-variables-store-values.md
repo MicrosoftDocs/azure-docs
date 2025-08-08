@@ -53,9 +53,9 @@ You can create a variable and declare its data type and initial value by using a
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), open your workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your workflow in the logic app designer.
 
-1. In the designer, [follow these general steps to add an action named **Initialize variable**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
+1. In the designer, [follow these general steps to add an action named **Initialize variables**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
 1. Provide the following information about your variable:
 
@@ -335,7 +335,7 @@ Variables are commonly used for counting the number of times that a loop runs. T
 
 1. To iterate through each attachment, [follow these general steps to add an action called a **For each** loop](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-1. In the loop, select inside the box named **Select an output from previous steps**. After the dynamic content list appears, under **When a new email arrives**, select **Attachments**.
+1. In the loop, select inside the box named **Select an output from previous steps**. Select the lightning icon to view dynamic content. After the dynamic content list appears, under **When a new email arrives**, select **Attachments**.
 
    [![Screenshot shows Consumption workflow, For each loop, opened dynamic content list, and selected Attachments output.](./media/logic-apps-create-variables-store-values/select-attachments-consumption.png)](./media/logic-apps-create-variables-store-values/select-attachments-consumption.png#lightbox)
 
