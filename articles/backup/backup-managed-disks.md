@@ -2,7 +2,7 @@
 title: Back up Azure Managed Disks
 description: Learn how to back up Azure Managed Disks from the Azure portal.
 ms.topic: how-to
-ms.date: 06/11/2025
+ms.date: 08/08/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -22,56 +22,49 @@ Learn about the [Azure Disk backup region availability, supported scenarios and 
 
 A Backup vault is a storage entity in Azure that holds backup data for various newer workloads that Azure Backup supports, such as Azure Database for PostgreSQL servers and Azure Disks. Backup vaults make it easy to organize your backup data, while minimizing management overhead. Backup vaults are based on the Azure Resource Manager model of Azure, which provides enhanced capabilities to help secure backup data.
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
-1. Type **Backup center** in the search box.
-1. Under **Services**, select **Backup center**.
-1. In the **Backup center** page, select **Vault**.
-
-   ![Select Vault in Backup center](./media/backup-managed-disks/backup-center.png)
-
-1. In the **Initiate: Create Vault** screen, select **Backup vault**, and **Proceed**.
-
-   ![Initiate: Create vault](./media/backup-managed-disks/initiate-create-vault.png)
-
-1. In the **Basics** tab, provide subscription, resource group, backup vault name, region, and backup storage redundancy. Continue by selecting **Review + create**. Learn more about [creating a Backup vault](./create-manage-backup-vault.md#create-a-backup-vault).
-
-   ![Review and create vault](./media/backup-managed-disks/review-and-create.png)
+Learn how to [create a Backup vault](create-manage-backup-vault.md#create-a-backup-vault).
 
 ## Create Backup policy
 
-1. In the *DemoVault* **Backup vault** created in the previous step, go to **Backup policies** and select **Add**.
+To create a backup policy for Azure Disks, follow these steps:
 
-   ![Add backup policy](./media/backup-managed-disks/backup-policies.png)
+1. Go to **Business Continuity Center**, and then select **Manage** > **Protection policies**.
 
-1. In the **Basics** tab, provide policy name, select **Datasource type** as **Azure Disk**. The vault is already prepopulated and the selected vault properties are presented.
+   :::image type="content" source="./media/backup-managed-disks/create-policy.png" alt-text="Screenshot shows how to start creating a backup policy." lightbox="./media/backup-managed-disks/create-policy.png":::
+
+1. On the **Protection policies** pane, select **+ Create policy** > **Create backup policy**.
+
+1. On the **Start: Create Policy** pane, select the **Datasource type** as **Azure Disks**, and then select **Continue**.
+
+   :::image type="content" source="./media/backup-managed-disks/start-create-policy.png" alt-text="Screenshot shows how to select the datasource type to create a backup policy.":::
+
+1. On the **Create Backup Policy** pane, on the **Basics** tab, enter a **Policy name**, and then under **Vault**, click **Select**.
 
    >[!NOTE]
    > Although the selected vault may have the global-redundancy setting, currently Azure Disk Backup supports snapshot datastore only. All backups are stored in a resource group in your subscription and aren't copied to backup vault storage.
 
-   ![Select datasource type](./media/backup-managed-disks/datasource-type.png)
+   :::image type="content" source="./media/backup-managed-disks/basic-policy-details.png" alt-text="Screenshot shows how to enter a policy name and select a vault.":::
 
-1. In the **Backup policy** tab, select the backup schedule frequency.
+1. On the **Select a Vault** pane, select the vault from the list that you created, and then click **Select**.
 
-   ![Select backup schedule frequency](./media/backup-managed-disks/backup-schedule-frequency.png)
+1. On the **Create Backup Policy** pane, on the **Schedule + retention** tab, under **Backup schedule**,select the backup frequency.
+
+   :::image type="content" source="./media/backup-managed-disks/backup-schedule-retention-details.png" alt-text="Screenshot shows the selection of backup schedule." lightbox="./media/backup-managed-disks/backup-schedule-retention-details.png":::
 
    Azure Disk Backup offers multiple backups per day. If you require more frequent backups, choose the **Hourly** backup frequency with the ability to take backups with intervals of every *1*, *2*, *4*, *6*, *8*, or *12* hours. The backups are scheduled based on the **Time** interval selected. For example, if you select **Every 4 hours**, then the backups are taken at approximately in the interval of every 4 hours so the backups are distributed equally across the day. If a once a day backup is sufficient, then choose the **Daily** backup frequency. In the daily backup frequency, you can specify the time of the day when your backups are taken. It's important to note that the time of the day indicates the backup start time and not the time when the backup completes. The time required for completing the backup operation is dependent on various factors including size of the disk, and churn rate between consecutive backups. However, Azure Disk backup is an agentless backup that uses [incremental snapshots](/azure/virtual-machines/disks-incremental-snapshots), which doesn't impact the production application performance.
 
-1. In the **Backup policy** tab, select retention settings that meet the recovery point objective (RPO) requirement.
+1. Under **Retention rules**, select retention settings that meet the recovery point objective (RPO) requirement.
 
    The default retention rule applies if no other retention rule is specified. The default retention rule can be modified to change the retention duration, but it cannot be deleted. You can add a new retention rule by selecting **Add retention rule**.
 
-   ![Add a retention rule](./media/backup-managed-disks/add-retention-rule.png)
-
    You can pick **first successful backup** taken daily or weekly, and provide the retention duration that the specific backups are to be retained before they're deleted. This option is useful to retain specific backups of the day or week for a longer duration of time. All other frequent backups can be retained for a shorter duration.
-
-   ![Retention settings](./media/backup-managed-disks/retention-settings.png) 
 
    >[!NOTE]
    >Azure Backup for Managed Disks uses incremental snapshots which are limited to 500 snapshots per disk. At a point in time you can have 500 snapshots for a disk. Thus, to prevent backup failure the retention duration is limited by the snapshot limit. To allow you to take on-demand backups aside from scheduled backups, backup policy limits the total backups to 450. Learn more about [incremental snapshots](/azure/virtual-machines/disks-incremental-snapshots#restrictions) for managed disk.
 
    You can either set a maximum retention limit of 1 year or 450 disk snapshots, whichever reaches first. For example, if you have opted for a backup frequency of 12 hours, then you can retain each recovery point for maximum 225 days as the snapshot limit will be breached beyond that. 
 
-1. Complete the backup policy creation by selecting **Review + create**.
+1. On the **Review + create** tab,select **Create** to complete the backup policy creation.
 
 >[!Note]
 >- For Azure Disks belonging to Standard HDD, Standard SSD, and Premium SSD SKUs, you can define the backup schedule with *Hourly* frequency (of 1, 2, 4, 6, 8, or 12 hours) and *Daily* frequency. 
