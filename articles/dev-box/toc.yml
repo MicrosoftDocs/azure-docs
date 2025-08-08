@@ -193,6 +193,8 @@ items:
         displayName: diagnostic, logs
   - name: Resources
     items:
+      - name: Microsoft Dev Center Landing Zone Accelerator
+        href: https://github.com/Azure/DevBoxAccelerator/tree/main
       - name: Azure updates
         href: https://azure.microsoft.com/updates/?filters=%5B%22Microsoft+Dev+Box%22%5D
       - name: Azure regions supported by Dev Box
