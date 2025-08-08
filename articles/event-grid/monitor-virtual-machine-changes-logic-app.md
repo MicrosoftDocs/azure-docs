@@ -85,7 +85,7 @@ In this tutorial, you learn how to:
 
 ## Add an Azure Event Grid trigger
 
-Tp add the Azure Event Grid trigger so you can monitor the resource group for your virtual machine, follow these steps:
+To add the Azure Event Grid trigger so you can monitor the resource group for your virtual machine, follow these steps:
 
 1. In the Azure portal, open your Consumption logic app resource.
 
