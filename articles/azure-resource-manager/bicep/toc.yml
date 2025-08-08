@@ -549,6 +549,9 @@ items:
       - name: Use recent API versions
         displayName: linter
         href: linter-rule-use-recent-api-versions.md
+      - name: Use recent AZ PowerShell version
+        displayName: linter
+        href: linter-rule-use-recent-az-powershell-version.md
       - name: Use recent module versions
         displayName: linter
         href: linter-rule-use-recent-module-versions.md

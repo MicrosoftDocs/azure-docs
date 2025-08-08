@@ -21,7 +21,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * The ability to [transition an existing volume to customer-managed keys](configure-customer-managed-keys.md#transition) is now generally available (GA)
 
-    You can transition existing volumes from platform-managed keys to customer-managed keys seamlessly. This provides you flexibility of encryption key lifecycle (renewals, rotations) and additional security for regulated industry requirements. 
+    You can transition existing volumes from platform-managed keys to customer-managed keys seamlessly. This provides you with flexibility of encryption for the key lifecycle (renewals, rotations) and additional security for regulated industry requirements. 
 
 ## May 2025
 
@@ -246,7 +246,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Azure NetApp Files large volumes feature support the creation of new volumes between 50 TiB to 500 TiB in size. Regular Azure NetApp Files volumes are limited to 100 TiB in size. Large volumes enable a variety of use cases and workloads that require larger volumes with a single namespace such as High-Performance Computing (HPC) in the EDA and O&G space.
     
-    Azure NetApp Files large volumes is now also supported with cross-zone and cross-region replication. This capability is particularly beneficial for HPC, AI/ML, and large file content repositories, ensuring data resilience and business continuity across various scenarios.
+    Azure NetApp Files' large volumes feature is now also supported with cross-zone and cross-region replication. This capability is particularly beneficial for HPC, AI/ML, and large file content repositories, ensuring data resilience and business continuity across various scenarios.
     
     For HPC workloads, which are essential for simulating processes and electronic design automation, this feature enhances data protection and availability, crucial for maintaining uninterrupted operations. AI/ML workloads, especially those involving large datasets for training complex models, will benefit from the added security and recovery options, ensuring data integrity for critical applications. Content repositories with large files, which often remain unchanged for extended periods but require immediate access, can now leverage the benefits of cross-zone and cross-region replication to safeguard against data loss while optimizing for cost and scale. By integrating these replication features, you can achieve a new level of data security and operational stability.
 
@@ -309,9 +309,9 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Customer-managed keys enhancement:](configure-customer-managed-keys.md) automated managed system identity (MSI) support
 
-    Customer-managed keys now supports automated MSI: you no longer need to manually renew certificates.
+    The customer-managed keys feature now supports automated MSI. You no longer need to manually renew certificates.
 
-* The [Standard network features - Edit volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes) feature is now generally available (GA).
+* The [Standard network features - Edit volumes](configure-network-features.md#edit) feature is now generally available (GA).
 
     You still must register the feature before using it for the first time.
 
@@ -350,7 +350,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     This feature is Generally Available in Azure commercial regions and US Gov regions where Azure NetApp Files is available.
 
-* [SMB Continuous Availability (CA)](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) shares now supports MSIX app attach for Azure Virtual Desktop
+* The [SMB Continuous Availability (CA)](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) shares feature now supports MSIX app attach for Azure Virtual Desktop
 
     In addition to Citrix App Layering, FSLogix user profiles including FSLogix ODFC containers, and Microsoft SQL Server, Azure NetApp Files now supports [MSIX app attach](/azure/virtual-desktop/create-netapp-files) with SMB Continuous Availability shares to enhance resiliency during storage service maintenance operations.  Continuous Availability enables SMB transparent failover to eliminate disruptions as a result of service maintenance events and improves reliability and user experience.
 
@@ -428,7 +428,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * Azure NetApp Files now supports [customer-managed keys](configure-customer-managed-keys.md) on both source and data replication volumes with [cross-region replication](replication-requirements.md)  or [cross-zone replication](replication-requirements.md) relationships.
 
-* [Standard network features - Edit volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes) (Preview)
+* [Standard network features - Edit volumes](configure-network-features.md#edit) (Preview)
 
     Azure NetApp Files volumes have been supported with Standard network features since [October 2021](#october-2021), but only for newly created volumes. This new *edit volumes* capability lets you change *existing* volumes that were configured with Basic network features to use Standard network features. This capability provides an enhanced, more standard, Microsoft Azure Virtual Network experience through various security and connectivity features that are available on Virtual Networks to Azure services. When you edit existing volumes to use Standard network features, you can start taking advantage of networking capabilities, such as (but not limited to):
     * Increased number of client IPs in a virtual network (including immediately peered Virtual Networks) accessing Azure NetApp Files volumes - the [same as Azure VMs](azure-netapp-files-resource-limits.md#resource-limits)

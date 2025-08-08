@@ -190,7 +190,7 @@ resource privateDeploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-
         }
       ]
     }
-    azPowerShellVersion: '9.0'
+    azPowerShellVersion: '14.0'
     retentionInterval: 'P1D'
     scriptContent: 'Write-Host "Hello World!"'
   }
