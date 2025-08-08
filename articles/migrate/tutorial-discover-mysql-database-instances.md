@@ -66,7 +66,7 @@ The following table lists the regions that support MySQL Discovery and Assessmen
    >  GRANT PROCESS ON *.* TO 'username@ip';
    >  GRANT SELECT (User, Host, Super_priv, File_priv, Create_tablespace_priv, Shutdown_priv) ON mysql.user TO 'username@ip';
    >  GRANT SELECT ON information_schema.* TO 'username@ip';
-   >  GRANT SELECT ON performance_schema.* TO username@ip';  
+   >  GRANT SELECT ON performance_schema.* TO 'username@ip';  
 
 You can review the discovered MySQL databases after around 24 hours of discovery initiation, through the **Discovered servers** view.
 
