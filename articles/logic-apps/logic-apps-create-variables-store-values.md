@@ -36,7 +36,7 @@ Variables exist and are global only within the workflow instance that creates th
 
 * A logic app workflow where you want to create the variable and a trigger that starts the workflow.
 
-  Before you can add actions for creating and working with variables, your workflow must start with a trigger as the first step in your workflow. For more information, see [Build a workflow with a trigger or action](create-workflow-with-trigger-or-action.md).
+  Before you can add actions for creating and working with variables, your workflow must start with a trigger as the first step in your workflow. For more information, see [Add a trigger or action to build a workflow](create-workflow-with-trigger-or-action.md).
 
 The following steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use the following tools to build logic app workflows:
 
@@ -115,7 +115,7 @@ If you switch from the designer to code view, the following example shows how th
 
 > [!NOTE]
 >
-> Although the **Initialize variable** action has a `"variables"` object that's structured as an array, the action 
+> Although the **Initialize variable** action has a `"variables"` object with the structure of an array, the action 
 > can create only one variable at a time. Each new variable requires an individual **Initialize variable** action.
 
 The following examples show other variable types:
@@ -251,7 +251,7 @@ The following examples show other variable types:
 
 To retrieve or reference a variable's contents, you can use the [`variables()` function](expression-functions-reference.md#variables) in the workflow designer and the code view editor. When you reference a variable, use the variable's name as the token, not the action's name, which is the usual way to reference an action's outputs.
 
-For example, the following expression gets the items from the array variable [that's created in this guide](#append-value) by using the `variables()` function. The `string()` function returns the variable's contents in string format: `"1, 2, 3, red"`
+For example, the following expression gets the items from the array variable [that you create in this guide](#append-value) by using the `variables()` function. The `string()` function returns the variable's contents in string format: `"1, 2, 3, red"`
 
 ```json
 @{string(variables('myArrayVariable'))}
