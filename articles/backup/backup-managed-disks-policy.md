@@ -2,7 +2,7 @@
 title: Audit and enforce backup for Managed Disks using Azure Policy 
 description: 'An article describing how to use Azure Policy to audit and enforce backup for all Disks created in a given scope'
 ms.topic: how-to
-ms.date: 08/26/2024
+ms.date: 12/03/2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
