@@ -17,6 +17,9 @@ Limits in the following table are being introduced starting July 2025.
 
 To request a limit increase, create a support request from the Azure portal. For more information, see [Azure support plans](https://azure.microsoft.com/support/options/).
 
+[!INCLUDE [api-management-service-limits-mitigation](api-management-service-limits-mitigation.md)]
+
+
 | Resource | Consumption | Developer | Basic | Standard | Premium |
 | ---------| ----------- | ----------- | ----------- | ----------- | ------------ |
 | Scale units | N/A (automatic scaling) | 1 | 2 | 4 | 31 per region |
