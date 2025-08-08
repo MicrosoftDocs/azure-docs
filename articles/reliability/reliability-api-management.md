@@ -17,7 +17,7 @@ API Management provides several reliability features designed to ensure high ava
 
 This article describes reliability in [API Management](/azure/api-management/api-management-key-concepts), including intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/reliability/overview).
 
-Resiliency is a shared responsibility between you and Microsoft, so this article also covers ways for you to create a resilient solution that meets your needs.
+[!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
 ## Reliability architecture overview
 
