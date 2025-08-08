@@ -91,7 +91,17 @@ The Event Grid output binding is only available for Functions 2.x and higher.
 
 The Event Grid extension is part of an [extension bundle], which is specified in your host.json project file. You may need to modify this bundle to change the version of the Event Grid binding, or if bundles aren't already installed. To learn more, see [extension bundle].
 
-# [Bundle v3.x](#tab/extensionv3)
+When possible, you should install or upgrade to the latest version of the most recent bundle.
+
+### [Bundle v4.x](#tab/bundlev4)
+
+You can add this version of the extension from the extension bundle v3 by adding or replacing the following configuration in your `host.json` file:
+
+[!INCLUDE [functions-extension-bundles-json-v4](../../includes/functions-extension-bundles-json-v4.md)]
+
+To learn more, see [Update your extensions].
+
+### [Bundle v3.x](#tab/bundlev3)
 
 You can add this version of the extension from the extension bundle v3 by adding or replacing the following configuration in your `host.json` file:
 
@@ -99,15 +109,16 @@ You can add this version of the extension from the extension bundle v3 by adding
 
 To learn more, see [Update your extensions].
 
-# [Bundle v2.x](#tab/extensionv2)
+### [Bundle v2.x](#tab/bundlev2)
 
-You can install this version of the extension in your function app by registering the [extension bundle], version 2.x. Event Grid extension versions earlier than 3.x don't support [CloudEvents schema](../event-grid/cloudevents-schema.md#azure-functions). To consume this schema, instead use an HTTP trigger.
-
-# [Functions 1.x](#tab/functionsv1)
-
-The Event Grid output binding is only available for Functions 2.x and higher. Event Grid extension versions earlier than 3.x don't support [CloudEvents schema](../event-grid/cloudevents-schema.md#azure-functions). To consume this schema, instead use an HTTP trigger.
+You can install this version of the extension in your function app by registering the [extension bundle], version 2.x. 
 
 ---
+
+Considerations for the Event Grid extension:
+
++ Event Grid extension versions earlier than 3.x don't support [CloudEvents schema](../event-grid/cloudevents-schema.md#azure-functions). To consume this schema, instead use an HTTP trigger.
++ The Event Grid output binding is only available for Functions 2.x and higher. 
 
 ::: zone-end
 

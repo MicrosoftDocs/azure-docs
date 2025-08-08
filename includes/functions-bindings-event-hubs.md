@@ -95,37 +95,13 @@ Version 1.x of the Functions runtime doesn't support running in an isolated work
 
 ## Install bundle
 
-The Event Hubs extension is part of an [extension bundle], which is specified in your host.json project file. You may need to modify this bundle to change the version of the binding, or if bundles aren't already installed. To learn more, see [extension bundle].
-
-# [Bundle v4.x](#tab/extensionv6)
-
-[!INCLUDE [functions-bindings-supports-identity-connections-note](functions-bindings-supports-identity-connections-note.md)]
-
-You can add this version of the extension from the extension bundle v4 by adding or replacing the following code in your `host.json` file:
+To be able to use this binding extension in your app, make sure that the *host.json* file in the root of your project contains this `extensionBundle` reference:
 
 [!INCLUDE [functions-extension-bundles-json-v4](./functions-extension-bundles-json-v4.md)]
 
-To learn more, see [Update your extensions].
+When possible, you should use the latest extension bundle major version and allow the runtime to automatically maintain the latest minor version. You can view the contents of the latest bundle on the [extension bundles release page](https://github.com/Azure/azure-functions-extension-bundles/releases/latest). 
 
-# [Bundle v3.x](#tab/extensionv5)
-
-[!INCLUDE [functions-bindings-supports-identity-connections-note](functions-bindings-supports-identity-connections-note.md)]
-
-You can add this version of the extension from the extension bundle v3 by adding or replacing the following code in your `host.json` file:
-
-[!INCLUDE [functions-extension-bundles-json-v3](./functions-extension-bundles-json-v3.md)]
-
-To learn more, see [Update your extensions].
-
-# [Bundle v2.x](#tab/extensionv3)
-
-You can install this version of the extension in your function app by registering the [extension bundle], version 2.x.
-
-# [Functions v1.x](#tab/functionsv1)
-
-Version 1.x of the Functions runtime doesn't require extension bundles. 
-
----
+If your app requires you to use a previous extension version, you might need to instead specify a previous bundle version. You can [review the bundle releases](https://github.com/Azure/azure-functions-extension-bundles/releases) to locate a bundle that contains a version of this extension that can be used by your app. For more information, see [Azure Functions extension bundles](../articles/azure-functions/extension-bundles.md).
 
 ::: zone-end
 
