@@ -41,7 +41,7 @@ The following key features are available for Azure Native Pure Storage Cloud:
 
 ## Azure Native Pure Storage Cloud links
 
-For more information, see [Pure Storage Cloud documentation](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Azure_Native_Pure_Storage_Cloud/topics/c_azure_native_pure_storage_cloud.html).
+For more information, see [Pure Storage Cloud documentation](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud.html).
 
 ## Next step
 
