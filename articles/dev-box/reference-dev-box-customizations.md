@@ -72,7 +72,7 @@ This object collection is made up of build properties that can be used to custom
 
 #### networkConnection    
 
-**Optional:** Specifies the network connection used during image creation. The network connection must be attached to the Dev Center and becomes the default for creating pools. If not specified, Microsoft Hosted Network (MHN) is used.
+**Optional:** Specifies the network connection used during image creation. This connection lets customization tasks access resources available from that network, like storage accounts. The network connection must be attached to the Dev Center.
 
 Example:
 ```
