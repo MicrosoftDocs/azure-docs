@@ -72,7 +72,7 @@ This object collection is made up of build properties that can be used to custom
 
 #### networkConnection    
 
-**Optional:** Specifies the network connection used during image creation. This connection lets customization tasks access resources available from that network, like storage accounts. The network connection must be attached to the Dev Center.
+**Optional:** Specifies the network connection to use during image creation. This network connection allows customization tasks to access resources, like storage accounts or repositories, that are accessible from the specified network. The network connection must be attached to the Dev Center before it can be used for image creation.
 
 Example:
 ```
