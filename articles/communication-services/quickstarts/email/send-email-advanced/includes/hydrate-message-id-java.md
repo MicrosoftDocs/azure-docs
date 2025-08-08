@@ -14,82 +14,55 @@ ms.service: azure-communication-services
 
 Use the Azure Communication Services Email SDK for Java. Add the following dependency to your `pom.xml` file:
 
-```xml
-### Install the package
 
-Open the `pom.xml` file in your text editor. Add the following dependency element to the group of dependencies.
-
-
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-communication-email</artifactId>
-    <version>1.0.0-beta.2</version>
-</dependency>
-```
+### Create an email message
 
 ```java
-package com.communication.email;
-import java.time.Duration;
+// Create an email message with both plain text and HTML content
+EmailMessage message = new EmailMessage()
+        .setSenderAddress(senderAddress)
+        .setToRecipients(recipientAddress)
+        .setSubject("Test email from Java Sample")
+        .setBodyPlainText("This is plaintext body of test email.")
+        .setBodyHtml("<html><h1>This is the html body of test email.</h1></html>");
+```
 
-import com.azure.communication.email.EmailClientBuilder;
-import com.azure.communication.email.EmailClient;
-import com.azure.communication.email.models.EmailSendResult;
-import com.azure.communication.email.models.EmailSendStatus;
-import com.azure.communication.email.models.EmailMessage;
-import com.azure.core.util.polling.SyncPoller;
-import com.azure.core.util.polling.LongRunningOperationStatus;
-import com.azure.core.util.polling.PollResponse;
+### Send email and capture operation ID
 
+```java
+// STEP 1: Send the email and get the initial poller
+// This starts the email send operation and returns a poller to monitor progress
+SyncPoller<EmailSendResult, EmailSendResult> poller = client.beginSend(message);
 
-public class App
-{
-    public static final Duration POLLER_WAIT_TIME = Duration.ofSeconds(10);
+// Poll once to get the initial response and extract the operation ID
+PollResponse<EmailSendResult> response = poller.poll();
+String operationId = response.getValue().getId();
+System.out.printf("Sent email send request from first poller (operation id: %s)\n", operationId);
+```
 
-    public static void main( String[] args )
-    {
-        // Replace these placeholders with your actual values
-        String connectionString = "<ACS_CONNECTION_STRING>";
-        String senderAddress = "<SENDER_EMAIL_ADDRESS>";
-        String recipientAddress = "<RECIPIENT_EMAIL_ADDRESS>";
+The `operationId` is the key identifier that allows you to rehydrate the poller later. In real applications, you would typically store this ID in a database for future reference.
 
-        // Create the EmailClient using the connection string
-        EmailClient client = new EmailClientBuilder()
-                .connectionString(connectionString)
-                .buildClient();
+### Rehydrate the poller using operation ID
 
-        // Create an email message with both plain text and HTML content
-        EmailMessage message = new EmailMessage()
-                .setSenderAddress(senderAddress)
-                .setToRecipients(recipientAddress)
-                .setSubject("Test email from Java Sample")
-                .setBodyPlainText("This is plaintext body of test email.")
-                .setBodyHtml("<html><h1>This is the html body of test email.</h1></html>");
+```java
+// STEP 2: Demonstrate rehydration using the operation ID
+// In a real scenario, you might store this operationId in a database
+// and retrieve it later to continue monitoring the operation
+System.out.print("Started polling from second poller\n");
 
-        // STEP 1: Send the email and get the initial poller
-        // This starts the email send operation and returns a poller to monitor progress
-        SyncPoller<EmailSendResult, EmailSendResult> poller = client.beginSend(message);
-        
-        // Poll once to get the initial response and extract the operation ID
-        PollResponse<EmailSendResult> response = poller.poll();
-        String operationId = response.getValue().getId();
-        System.out.printf("Sent email send request from first poller (operation id: %s)\n", operationId);
+// REHYDRATION: Create a new poller using the existing operationId
+// This is the key concept - you can recreate a poller from just the operationId
+SyncPoller<EmailSendResult, EmailSendResult> poller2 = client.beginSend(operationId);
+```
 
-        // STEP 2: Demonstrate rehydration using the operation ID
-        // In a real scenario, you might store this operationId in a database
-        // and retrieve it later to continue monitoring the operation
-        System.out.print("Started polling from second poller\n");
-        
-        // REHYDRATION: Create a new poller using the existing operationId
-        // This is the key concept - you can recreate a poller from just the operationId
-        SyncPoller<EmailSendResult, EmailSendResult> poller2 = client.beginSend(operationId);
-        
-        // Wait for the email operation to complete using the rehydrated poller
-        PollResponse<EmailSendResult> response2 = poller2.waitForCompletion();
+### Poll for completion and get results
 
-        // Display the final result
-        System.out.printf("Successfully sent the email (operation id: %s)\n", poller2.getFinalResult().getId());
-    }
-}
+```java
+// Wait for the email operation to complete using the rehydrated poller
+PollResponse<EmailSendResult> response2 = poller2.waitForCompletion();
+
+// Display the final result
+System.out.printf("Successfully sent the email (operation id: %s)\n", poller2.getFinalResult().getId());
 ```
 
 ### Sample code
