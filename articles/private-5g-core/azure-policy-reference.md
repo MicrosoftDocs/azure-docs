@@ -10,7 +10,7 @@ ms.date: 03/20/2024
 ---
 # Azure Policy policy definitions for Azure Private 5G Core
 
-This page lists the [Azure Policy](../governance/policy/overview.md) policy definitions for Azure Private 5G Core. For the full list of Azure Policy definitions across Azure services, see [Azure Policy built-in definitions](../governance/policy/samples/built-in-policies.md).
+This page lists the [Azure Policy](../governance/policy/overview.md) policy definitions for Azure Private 5G Core. For the full list of Azure Policy definitions across Azure services, see [Azure Policy built-in definitions](/azure/governance/policy/samples/built-in-policies).
 
 The name of each policy definition links to the policy definition in the Azure portal. Use the link in the **Version** column to view the source on the [Azure Policy GitHub repo](https://github.com/Azure/azure-policy).
 
