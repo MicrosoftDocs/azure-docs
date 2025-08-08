@@ -4,7 +4,7 @@ description: Learn different agent actions are billed in Azure SRE Agent.
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: tutorial
-ms.date: 06/24/2025
+ms.date: 08/08/2025
 ms.service: azure
 ---
 
@@ -44,7 +44,7 @@ AAUs continuously accumulate under the *always-on flow* for as long as your agen
 
 To illustrate, consider an instance where the agent detected and fixed an "application down" scenario for you. The constant monitoring is billed at the *always-on* rate. Any action the agent takes to fix the problem, ask you questions, seek approval, and provide status reports are all billed at the *active flow* rate.
 
-<!-- For more information on current AAU pricing for your region, see the Azure pricing calculator. -->
+Billing for Azure SRE Agent begins on September 1st, 2025. For more information on current AAU pricing for your region, see the Azure [pricing calculator](https://azure.microsoft.com/pricing/details/sre-agent/).
 
 ## Related content
 
