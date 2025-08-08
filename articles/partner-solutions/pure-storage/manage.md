@@ -81,7 +81,8 @@ To connect a storage pool to an Azure VMware Solution resource, select the **Con
 
 :::image type="content" source="media/manage/connect-vm.png" alt-text="A screenshot of a Storage Pool resource inside Azure portal with the Connect Azure VMware Solution button emphasized":::
 
-Once you've connected, see the [Pure Storage Resource Guide](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Azure_Native_Pure_Storage_Cloud/management/c_psc_management.html) to learn how to manage your datastores and volumes.
+>[!IMPORTANT]
+> Once you've connected, see the [Pure Storage Resource Guide](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Azure_Native_Pure_Storage_Cloud/management/c_psc_management.html) to learn how to manage your datastores and volumes.
 
 ## Get support
 
@@ -91,4 +92,4 @@ See the [Pure Storage troubleshooting documentation](https://support.purestorage
 
 ## Related content
 
-[Resources and tools for Pure Storage Cloud on Azure](tools.md)
+[FAQ: Pure Storage Cloud](faq.yml)
