@@ -105,8 +105,158 @@ For more information, see PostgreSQL documentation for supported native data typ
 
 **Category**: Issue
 
-**Description**: Azure Database for PostgreSQL Flexible Server supports only predefined casts. Custom casts can't be created or modified in the target environment.
+**Description**: Azure Database for PostgreSQL – Flexible Server supports only predefined casts. Custom casts can't be created or modified in the target environment.
 
-**Recommendation**: Azure Database for PostgreSQL Flexible Server doesn't support custom cast creation. Remove or replace custom casts before migration. Use explicit conversion functions or update application code to handle data type conversions.
+**Recommendation**: Azure Database for PostgreSQL – Flexible Server doesn't support custom cast creation. Remove or replace custom casts before migration. Use explicit conversion functions or update application code to handle data type conversions.
 
 For more information, see the PostgreSQL documentation for details on supported type conversions.
+
+**Full Text Search (FTS) and FTS Templates {#fts-templates}**
+
+**Title**: Creating FTS configurations requires superuser privileges.
+
+**Category**: Issue
+
+**Description**: Creating full-text search (FTS) configurations,such as dictionaries, templates, and parsers, requires superuser privileges. Only the default FTS configurations are supported. Custom FTS dictionaries and templates can't be created.
+
+**Recommendation**: Azure Database for PostgreSQL – Flexible Server doesn't support creating or modifying full-text search (FTS) configurations. Use the default FTS configurations, or consider using Azure Cognitive Search for advanced search capabilities.
+
+For more information, see PostgreSQL full-text search documentation.
+
+**TLS/SSL versions {#tls-ssl-versions}**
+
+**Title**: Source PostgreSQL instance uses TLS/SSL versions outside the supported range.
+
+**Category**: Warning
+
+**Description**: Azure Database for PostgreSQL – Flexible Server supports only TLS 1.2 and TLS 1.3. Connections that use versions earlier than TLS 1.2 or later than TLS 1.3 will fail. 
+
+**Recommendation**: Azure Database for PostgreSQL – Flexible Server doesn't support TLS versions earlier than 1.2 or later than 1.3. Update your client configurations to use TLS 1.2 or TLS 1.3, and test all applications to ensure compatibility with the supported TLS versions.
+
+For more information, see []
+
+**Superuser Privileges {#superuser-privileges}**
+
+**Title**: PostgreSQL objects and their associated privileges are owned by a superuser.
+
+**Category**: Warning
+
+**Description**: PostgreSQL objects and their associated privileges are owned by a superuser or granted by one. Actions that require superuser privileges can't be performed. Applications that depend on superuser access will fail.
+
+**Recommendation**: Azure Database for PostgreSQL – Flexible Server doesn't support superuser privileges. Before migration, change the ownership of objects and update privileges to use a non-superuser role. Use Azure's built-in management features to perform administrative tasks.
+
+For more information, see []
+
+**File Read/Write Privileges {#file-privileges}**
+
+**Title**: Source database uses functions or extensions that directly access the file system.
+
+**Category**: Warning
+
+**Description**: Azure Database for PostgreSQL – Flexible Server doesn't allow access to the underlying or external file system. Applications that rely on file system access will fail.
+
+**Recommendation**: Azure Database for PostgreSQL – Flexible Server doesn't support reading from or writing to external or VM-level files. Update your application logic to use alternative approaches, such as storing files in Azure Blob Storage or using database tables instead of file system access.
+
+For more information, see []
+
+**IPv6 Address {#ipv6-address}**
+
+**Title**: Use of IPv6 for database connections.
+
+**Category**: Issue
+
+**Description**: Azure Database for PostgreSQL, Flexible Server doesn't support IPv6. Connections that use IPv6 will fail.
+
+**Recommendation**: Azure Database for PostgreSQL – Flexible Server supports only port 5432 for PostgreSQL and port 6432 for PgBouncer. Update your client configurations, firewalls, and application connection strings to use one of the supported ports.
+
+For more information, see []
+
+**Port Usage {#port-usage}**
+
+**Title**: Database connections use ports other than 5432 or 6432.
+
+**Category**: Warning
+
+**Description**: Azure Database for PostgreSQL – Flexible Server supports only ports 5432 (PostgreSQL) and 6432 (PgBouncer). Connections that use unsupported ports will fail.
+
+**Recommendation**: Azure Database for PostgreSQL – Flexible Server supports only port 5432 for PostgreSQL and port 6432 for PgBouncer. Update your client configurations, firewalls, and application connection strings to use one of the supported ports.
+
+For more information, see []
+
+**OID Usage {#oid-usage}**
+
+**Title**: WITH OIDS clause in CREATE TABLE is not supported.
+
+**Category**: Issue
+
+**Description**: The WITH OIDS clause in CREATE TABLE isn't supported in PostgreSQL 12 and later, which Azure Database for PostgreSQL – Flexible Server is based on. Use of WITH OIDS is deprecated and will cause migration errors. Tables that include WITH OIDS can't be created.
+
+**Recommendation**: Remove the WITH OIDS clause from all table definitions. If you need object identifiers, consider using UUID or SERIAL columns instead. Update any application code that references the OID column to reflect these changes.
+
+For more information, see []
+
+**Tablespaces {#tablespaces}**
+
+**Title**: Use of custom tablespaces detected in the source PostgreSQL instance.
+
+**Category**: Warning
+
+**Description**: Azure Database for PostgreSQL – Flexible Server supports only the default tablespaces. Custom tablespaces aren't supported and won't be migrated.
+
+**Recommendation**: Azure Database for PostgreSQL – Flexible Server supports only default tablespaces. After migration, objects that used custom tablespaces will be placed in the default tablespace. Remove all references to custom tablespaces before migration to avoid errors.
+
+For more information, see []
+
+**PostgreSQL Version < 9.5 {#postgresql-version-95}**
+
+**Title**: PostgreSQL version of source PostgreSQL instance is less than 9.5.
+
+**Category**: Issue
+
+**Description**: Azure Database for PostgreSQL – Flexible Server requires PostgreSQL version 9.5 or later for migration and supports version 11 and later for deployment. Migration from versions earlier than PostgreSQL 9.5 isn't supported.
+
+**Recommendation**: Upgrade the source PostgreSQL database to version 9.5 or later before migrating to Azure Database for PostgreSQL – Flexible Server. While migration utilities support PostgreSQL version 9.5 and later, the target Flexible Server supports PostgreSQL version 11 and later for deployment.
+
+For more information, see []
+
+**Read Replicas Count {#read-replicas}**
+
+**Title**: Use of read replicas detected in the source PostgreSQL instance.
+
+**Category**: Warning
+
+**Description**: Azure Database for PostgreSQL – Flexible Server supports a maximum of five read replicas. Connections beyond this limit aren't supported and will fail.
+
+**Recommendation**: If you need more than five read replicas, redesign your application architecture to work within this limitation. Consider using caching layers or distributing read workloads across multiple services to reduce dependency on read replicas.
+
+For more information, see []
+
+**Encodings {#encodings}**  
+
+**Title**: Custom database encodings aren't supported in Azure Database for PostgreSQL – Flexible Server.
+
+**Category**: Issue
+
+**Description**: Encodings used in the source PostgreSQL database aren't supported in Azure Database for PostgreSQL – Flexible Server. Databases that use unsupported encodings can't be migrated.
+
+**Recommendation**: Convert affected databases to a supported encoding before migration. Encoding conversion may require data transformation and could result in data loss if characters can't be properly mapped. Test thoroughly in a non-production environment to validate the conversion.
+
+For more information, see PostgreSQL encoding documentation.
+
+**Region Availability {#region-availability}**
+
+**Title**: Target deployment region isn't supported in Azure Database for PostgreSQL – Flexible Server.
+
+**Category**: Issue
+
+**Description**: Azure Database for PostgreSQL – Flexible Server is available only in select Azure regions. The region specified in the assessment settings isn't supported for deployment.
+
+**Recommendation**: Change the target region in the assessment settings to a supported Azure region. Review the latest regional availability for Azure Database for PostgreSQL – Flexible Server in the Azure documentation. Consider data residency and compliance requirements when selecting a region.
+
+For more information, see []
+
+
+
+
+
+
