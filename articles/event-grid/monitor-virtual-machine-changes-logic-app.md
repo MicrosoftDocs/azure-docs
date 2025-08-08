@@ -7,7 +7,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: estfan, azla
 ms.topic: tutorial
-ms.date: 08/07/2025
+ms.date: 08/08/2025
 #customer intent: As an IT professional, I want to use Azure Event Grid and Azure Logic Apps to monitor virtual machines for changes so that the responsible person can be notified automatically.
 ---
 
@@ -68,7 +68,7 @@ In this tutorial, you learn how to:
 
    :::image type="content" source="./media/monitor-virtual-machine-changes-logic-app/create-logic-app.png" alt-text="Screenshot shows the logic apps creation menu, showing details like name, subscription, resource group, and location.":::
 
-   | Property | Required | Value | Description |
+   | Parameter | Required | Value | Description |
    |----------|----------|-------|-------------|
    | **Subscription** | Yes | <*Azure-subscription-name*> | Select the same Azure subscription for all the services in this tutorial. |
    | **Resource Group** | Yes | <*Azure-resource-group*> | The Azure resource group name for your logic app, which you can select for all the services in this tutorial. |
@@ -110,7 +110,7 @@ Add the Azure Event Grid trigger, which you use to monitor the resource group fo
    | **Resource Type** | Yes | <*event-publisher-Azure-resource-type*> | Select the Azure resource type for the event publisher. For more information about Azure resource types, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md). For this tutorial, select the `Microsoft.Resources.ResourceGroups` value to monitor Azure resource groups. |
    | **Resource Name** |  Yes | <*event-publisher-Azure-resource-name*> | Select the Azure resource name for the event publisher. This list varies based on the resource type that you selected. For this tutorial, select the name for the Azure resource group that includes your virtual machine. |
    | **Event Type Item** |  No | <*event-types*> | Select one or more specific event types to filter and send to Azure Event Grid. For example, you can optionally add these event types to detect when resources are changed or deleted: <p><p>- `Microsoft.Resources.ResourceActionSuccess` <br>- `Microsoft.Resources.ResourceDeleteSuccess` <br>- `Microsoft.Resources.ResourceWriteSuccess` <p>For more information, see: <p><p>- [Azure resource group as an Event Grid source](../event-grid/event-schema-resource-groups.md) <br>- [Understand event filtering](../event-grid/event-filtering.md) <br>- [Filter events for Event Grid](../event-grid/how-to-filter-events.md) |
-   | To add optional properties, select **Add new parameter**, and then select the properties that you want. | No | {see descriptions} | - **Prefix Filter**: For this tutorial, leave this property empty. The default behavior matches all values. However, you can specify a prefix string as a filter, for example, a path and a parameter for a specific resource. <p>- **Suffix Filter**: For this tutorial, leave this property empty. The default behavior matches all values. However, you can specify a suffix string as a filter, for example, a file name extension, when you want only specific file types. <p>- **Subscription Name**: For this tutorial, you can provide a unique name for your event subscription. |
+   | To add optional properties, select **Add new parameter**, and then select the properties that you want. | No | {see descriptions} | - **Prefix Filter**: For this tutorial, leave this value empty. The default behavior matches all values. However, you can specify a prefix string as a filter, for example, a path and a parameter for a specific resource. <p>- **Suffix Filter**: For this tutorial, leave this value empty. The default behavior matches all values. However, you can specify a suffix string as a filter, for example, a file name extension, when you want only specific file types. <p>- **Subscription Name**: For this tutorial, you can provide a unique name for your event subscription. |
 
 1. Save your logic app workflow. On the designer toolbar, select **Save**. To collapse and hide an action's details in your workflow, select the action's title bar.
 
@@ -187,7 +187,7 @@ Now add an [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) s
    > [!TIP]
    > To select output from the previous steps in your workflow, select inside an edit box so that the dynamic content list appears, or select **Add dynamic content**. For more results, select **See more** for each section in the list. To close the dynamic content list, select **Add dynamic content** again.
 
-   | Property | Required | Value | Description |
+   | Parameter | Required | Value | Description |
    | -------- | -------- | ----- | ----------- |
    | **To** | Yes | <*recipient\@domain*> | Enter the recipient's email address. For testing purposes, you can use your own email address. |
    | **Subject** | Yes | `Resource updated:` **Subject** | Enter the content for the email's subject. For this tutorial, enter the specified text, and select the event's **Subject** field. Here, your email subject includes the name for the updated resource (virtual machine). |
