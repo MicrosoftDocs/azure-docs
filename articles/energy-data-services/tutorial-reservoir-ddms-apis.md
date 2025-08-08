@@ -314,7 +314,7 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
     ```bash
     curl --request GET \
       --url https://admetest.energy.azure.com/api/reservoir-ddms/v2/dataspaces/demo%2FVolve/resources \
-      --header 'Authorization: Bearer ey.......' \
+      --header 'Authorization: Bearer ey......' \
       --header 'data-partition-id: dp1'
     ```
     
@@ -484,7 +484,7 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
     ```bash
     curl --request GET \
       --url https://admetest.energy.azure.com/api/reservoir-ddms/v2/dataspaces/demo%2FVolve/resources/resqml20.obj_Grid2dRepresentation/07cb9ebb-299f-469b-9792-e76633a72b89 \
-      --header 'Authorization: Bearer ey.......' \
+      --header 'Authorization: Bearer ey.....' \
       --header 'data-partition-id: dp1'
     ```
     **Sample Response**
@@ -586,7 +586,7 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
     ```bash
     curl --request GET \
       --url https://admetest.energy.azure.com/api/reservoir-ddms/v2/dataspaces/demo%2FVolve/resources/resqml20.obj_Grid2dRepresentation/07cb9ebb-299f-469b-9792-e76633a72b89/arrays \
-      --header 'Authorization: Bearer ey......' \
+      --header 'Authorization: Bearer ey........' \
       --header 'data-partition-id: dp1'
     ```
     **Sample Response**
@@ -623,7 +623,7 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
     ```bash
     curl --request GET \
       --url https://admetest.energy.azure.com/api/reservoir-ddms/v2/dataspaces/demo%2FVolve/resources/resqml20.obj_Grid2dRepresentation/07cb9ebb-299f-469b-9792-e76633a72b89/arrays/RESQML%2F07cb9ebb-299f-469b-9792-e76633a72b89%2Fpoints_patch0 \
-      --header 'Authorization: Bearer ey......' \
+      --header 'Authorization: Bearer ey........' \
       --header 'data-partition-id: dp1'
     ```
     **Sample Response**
@@ -667,7 +667,7 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
     ```bash
     curl --request GET \
       --url https://admetest.energy.azure.com/api/reservoir-ddms/v2/dataspaces/demo%2FVolve/resources/resqml20.obj_Grid2dRepresentation/07cb9ebb-299f-469b-9792-e76633a72b89/sources \
-      --header 'Authorization: Bearer ey.......' \
+      --header 'Authorization: Bearer ey........' \
       --header 'data-partition-id: dp1'
     ```
     **Sample Response**
@@ -715,7 +715,7 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
     ```bash
     curl --request GET \
       --url https://admetest.energy.azure.com/api/reservoir-ddms/v2/dataspaces/demo%2FVolve/resources/resqml20.obj_Grid2dRepresentation/07cb9ebb-299f-469b-9792-e76633a72b89/targets \
-      --header 'Authorization: Bearer ey.......' \
+      --header 'Authorization: Bearer ey........' \
       --header 'data-partition-id: dp1'
     ```
     **Sample Response**
