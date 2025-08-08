@@ -48,6 +48,16 @@ The following limits apply to MQTT in Azure Event Grid namespace resource.
 | Inbound MQTT bandwidth per session        | 1 MB per second                                                                   |
 | Inbound in-flight MQTT messages*        | 1000 messages                                                                   |
 | Inbound in-flight MQTT bandwidth*         | 64 KB                                                             |
+| Inbound HTTP publishing requests per Event Grid namespace | 500 messages per second per TU |
+| Inbound HTTP bandwidth per Event Grid namespace           | 512 KB per second per TU       |
+| Inbound HTTP publishing requests per session              | 500 messages per second        |
+| Inbound HTTP bandwidth per session                        | 512 KB per second              |
+| Inbound in-flight HTTP messages*                          | 500 messages                   |
+| Maximum Retain Message Size**                               | 64 KB                          |
+| Maximum Retain Messages per Throughput Unit (TU)          | 10,000 messages or 640 MB (whichever is reached first) |
+| Total Retain Storage per TU                               | 640 MB                         |
+| Retain Message Expiry (MQTT 3.1.1)                        | 365 days (default)             |
+| Retain Message Expiry (MQTT 5.0)                          | Configurable using Message Expiry Interval, range: 0 to 31,536,000 seconds (365 days) |
 | Outbound MQTT publishing requests per Event Grid namespace | 1,000 messages per second per TU                                                         |
 | Outbound MQTT bandwidth per Event Grid namespace        | 1 MB per second per TU                                                            |
 | Outbound MQTT publishing requests per session| 100 messages per second                                                           |
@@ -79,7 +89,10 @@ The following limits apply to MQTT in Azure Event Grid namespace resource.
 | Topic templates                              | 10 per topic space                                                                |
 | Permission bindings                          | 100                                                                               |
 
+
 \* For MQTTv5, learn more about [flow control support](../mqtt-support.md#flow-control).
+
+\** Retain messages count against the total MQTT storage quota for the namespace. When the quota is reached, publishing new retain messages will fail until existing messages are expired or deleted (e.g., via empty payload publish).
 
 ## Events limits in Event Grid namespace
 
