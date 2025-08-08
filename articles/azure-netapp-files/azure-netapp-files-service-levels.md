@@ -38,6 +38,9 @@ Azure NetApp Files supports four service levels: *Standard*, *Premium*, *Ultra*,
 * Storage with cool access:      
     [Cool access storage](manage-cool-access.md#register-the-feature) is available with the Standard, Premium, Ultra, and Flexible service levels. The throughput experience for any of these service levels with cool access is the same for cool access as it is for data in the hot tier. Throughput experience differ when data that resides in the cool tier is accessed. For more information, see [Azure NetApp Files storage with cool access](cool-access-introduction.md) and [Performance considerations for storage with cool access](performance-considerations-cool-access.md). 
 
+    >[!NOTE]
+    >NCool access pricing is calculated in the same manner for all service levels (Standard, Premium, Ultra, and Flexible).
+
 ## Throughput limits
 
 The throughput limit for a volume is determined by the combination of the following factors:
@@ -95,7 +98,7 @@ As illustrated in the diagram, the SAP HANA backup volume received the 128MiB/s 
 | 1,024 | 128 | 5 * 128 * 1,024 = 655,360 |
 
 >[!NOTE]
->A baseline throughput of 128 MiB/s is provided for every pool at no additional cost.
+>Azure NetApp Files ensures a consistent baseline throughput regardless of capacity pool size. For example, both a 1-TiB capacity pool and a 10-TiB capacity pool receive the same complimentary baseline throughput of 128 MiB/s.
 
 ## Next steps
 

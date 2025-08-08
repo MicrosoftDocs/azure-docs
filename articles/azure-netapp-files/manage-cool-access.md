@@ -34,6 +34,7 @@ There are several considerations to be aware of when using cool access.
 * Files moved to the cool tier remains there after you disable cool access on a volume. You must perform an I/O operation on _each_ file to return it to the warm tier. 
 * For the maximum number of volumes supported for cool access per subscription per region, see [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits).
 * Cool access is supported with large volumes. Confirm that you're [registered to use large volumes](large-volumes-requirements-considerations.md#register-the-feature) before creating a cool-access-enabled large volume. 
+* Flexible service level capacity pools with cool access maintain the user-configured throughput limits. Unlike Premium or Ultra pools, performance isn't reduced when cool access is enabled.
 
 ### Considerations for cool access-enabled capacity pools 
 
@@ -45,9 +46,13 @@ There are several considerations to be aware of when using cool access.
 #### Considerations for moving volumes to another capacity pool
 
 * For the **Standard**, **Premium**, and **Ultra** service levels, volumes enabled for cool access can be moved between capacity pools only if those capacity pools are enabled for cool access. When a volume is enabled for cool access, it can only reside in a cool access-enabled capacity pool even if cool access has been disabled on the volume. 
-* For the **Flexible** service level, moving volumes into or out of cool access-enabled capacity pools is not supported. 
 * If you [move a cool access volume to another capacity pool (service level change)](dynamic-change-volume-service-level.md), you must also enable that pool for cool access.
 * If you disable cool access and turn off tiering on a cool access volume (that is, the volume no longer uses cool access), you can't move it to a non-cool-access capacity pool. In a cool access capacity pool, you can move all volumes, *whether they're enabled for cool access or not*, only to another cool access capacity pool.  
+* For the **Flexible** service level, moving volumes into or out of cool access-enabled capacity pools is only supported if both capacity pools are enabled for cool access and both capacity pools use he Flexible service level. Consider the following example scenarios for more information:
+ 
+    | ❌ Not supported | ✅ Supported |
+    | - | - |
+    | `Vol1` is created in `FlexPool1` with cool access enabled. `Vol2` is created in `StandardPool1`, also with cool access enabled. You can't move `Vol1` to `StandardPool1` or `Vol2` to `FlexPool1`.| `Vol3` is created in `FlexPool2`, which is enabled for cool access. Since both `FlexPool1` and `FlexPool2` use the Flexible service level and enabled for cool access, `Vol1` and `Vol3` can be moved between these pools. |
 
 ### Considerations for throughput in Premium and Ultra service level volumes with cool access
 
