@@ -127,7 +127,7 @@ This section explains how to configure availability zone support for your API Ma
 
 ### Capacity planning and management
 
-In a zone-down scenario, there's no guarantee that requests for more capacity in another availability zone will succeed. The backfilling of lost units occurs on a best-effort basis. If you need guaranteed capacity when an availability zone fails, you should create and configure your API Management instance to account for losing a zone by taking all of the following steps:
+In a zone-down scenario, there's no guarantee that requests for more capacity in another availability zone will succeed. The backfilling of lost units occurs on a best-effort basis. If you need guaranteed capacity when an availability zone fails, you should create and configure your API Management instance to account for losing a zone by taking all of the following actions:
 
 - Over-provision the units of your API Management instance.
 
