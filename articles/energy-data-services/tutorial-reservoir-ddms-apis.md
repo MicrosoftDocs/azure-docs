@@ -52,10 +52,33 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
         "DataspaceId": "<dataspace_name>",
         "Path": "<dataspace_name>",
         "CustomData": {
-          "legaltags": ["<legal_tag_name>"],
-           "otherRelevantDataCountries": ["<country_code1>","country_code2"],
-            "viewers": [ "data.default.viewers@<data-partition-id>.dataservices.energy" ],
-            "owners": [  "data.default.owners@<data-partition-id>.dataservices.energy"]
+            "legaltags": ["<legal_tag_name>"],
+            "otherRelevantDataCountries": ["<country_code1>","country_code2"],
+            "viewers": [ "<valid_entitlement_group1>@<data-partition-id>.dataservices.energy" ],
+            "owners": [  "<valid_entitlement_group2>@<data-partition-id>.dataservices.energy"]
+        }
+      }
+    ]'
+    ```
+    **Sample Request**
+    
+    Consider an Azure Data Manager for Energy resource named `admetest` with a data partition named `dp1`, legal tage named `dp1-RDDMS-Legal-Tag`, valid entitlement group named as `data.default.viewers` and `data.default.owners`. You want to create new data space name `demo/RestWrite`. 
+    
+    ```bash
+    curl --request GET \
+      --url https://admetest.energy.azure.com/api/reservoir-ddms/v2/dataspaces/demo%2FVolve/resources \
+      --header 'Authorization: Bearer ey.......' \
+      --header 'Content-Type: application/json' \
+      --header 'data-partition-id: dp1' \
+      --data '[
+      {
+        "DataspaceId": "demo/RestWrite",
+        "Path": "demo/RestWrite",
+        "CustomData": {
+            "legaltags": ["dp1-RDDMS-Legal-Tag"],
+            "otherRelevantDataCountries": ["US"],
+            "viewers": [ "data.default.viewers@dp1.dataservices.energy" ],
+            "owners": [  "data.default.owners@dp1.dataservices.energy"]
         }
       }
     ]'
@@ -63,7 +86,7 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
      **Sample Response:**
     ```json
     [
-        "eml:///dataspace('<dataspace_name>')"
+        "eml:///dataspace('demo/RestWrite')"
     ]
     ```
 1. Run the following curl command to start a transaction.
@@ -291,7 +314,7 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
     ```bash
     curl --request GET \
       --url https://admetest.energy.azure.com/api/reservoir-ddms/v2/dataspaces/demo%2FVolve/resources \
-      --header 'Authorization: Bearer <access-token>' \
+      --header 'Authorization: Bearer ey.......' \
       --header 'data-partition-id: dp1'
     ```
     
@@ -410,7 +433,7 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
     ```bash
     curl --request GET \
       --url https://admetest.energy.azure.com/api/reservoir-ddms/v2/dataspaces/demo%2FVolve/resources/resqml20.obj_Grid2dRepresentation \
-      --header 'Authorization: Bearer <access-token>' \
+      --header 'Authorization: Bearer ey........' \
       --header 'data-partition-id: dp1'
     ```
     **Sample Response**
@@ -461,7 +484,7 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
     ```bash
     curl --request GET \
       --url https://admetest.energy.azure.com/api/reservoir-ddms/v2/dataspaces/demo%2FVolve/resources/resqml20.obj_Grid2dRepresentation/07cb9ebb-299f-469b-9792-e76633a72b89 \
-      --header 'Authorization: Bearer <access-token>' \
+      --header 'Authorization: Bearer ey.......' \
       --header 'data-partition-id: dp1'
     ```
     **Sample Response**
@@ -563,7 +586,7 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
     ```bash
     curl --request GET \
       --url https://admetest.energy.azure.com/api/reservoir-ddms/v2/dataspaces/demo%2FVolve/resources/resqml20.obj_Grid2dRepresentation/07cb9ebb-299f-469b-9792-e76633a72b89/arrays \
-      --header 'Authorization: Bearer <access-token>' \
+      --header 'Authorization: Bearer ey......' \
       --header 'data-partition-id: dp1'
     ```
     **Sample Response**
@@ -600,7 +623,7 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
     ```bash
     curl --request GET \
       --url https://admetest.energy.azure.com/api/reservoir-ddms/v2/dataspaces/demo%2FVolve/resources/resqml20.obj_Grid2dRepresentation/07cb9ebb-299f-469b-9792-e76633a72b89/arrays/RESQML%2F07cb9ebb-299f-469b-9792-e76633a72b89%2Fpoints_patch0 \
-      --header 'Authorization: Bearer <access-token>' \
+      --header 'Authorization: Bearer ey......' \
       --header 'data-partition-id: dp1'
     ```
     **Sample Response**
@@ -644,7 +667,7 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
     ```bash
     curl --request GET \
       --url https://admetest.energy.azure.com/api/reservoir-ddms/v2/dataspaces/demo%2FVolve/resources/resqml20.obj_Grid2dRepresentation/07cb9ebb-299f-469b-9792-e76633a72b89/sources \
-      --header 'Authorization: Bearer <access-token>' \
+      --header 'Authorization: Bearer ey.......' \
       --header 'data-partition-id: dp1'
     ```
     **Sample Response**
@@ -692,7 +715,7 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
     ```bash
     curl --request GET \
       --url https://admetest.energy.azure.com/api/reservoir-ddms/v2/dataspaces/demo%2FVolve/resources/resqml20.obj_Grid2dRepresentation/07cb9ebb-299f-469b-9792-e76633a72b89/targets \
-      --header 'Authorization: Bearer <access-token>' \
+      --header 'Authorization: Bearer ey.......' \
       --header 'data-partition-id: dp1'
     ```
     **Sample Response**
