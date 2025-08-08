@@ -14,152 +14,155 @@ ms.author: Mahesh
 
 Healthcare organizations can use [Microsoft Entra External ID](https://learn.microsoft.com/en-us/entra/external-id/external-identities-overview) with the FHIR&reg; service in Azure Health Data Services to grant access to their applications and users. 
 
-
-## Create an Microsoft Entra External ID tenant for the FHIR service
+## Create an Entra External ID tenant for the FHIR service
 
 Creating an Entra External ID tenant for the FHIR service sets up a secure infrastructure for managing user identities in your healthcare applications. 
 
-If you already created an Entra External id, you can skip to [Deploy the FHIR service with Entra External ID](#deploy-the-fhir-service-by-using-an-arm-template).
+If you already created an Entra External ID tenant, you can skip to 
+[Deploy the FHIR service with Entra External ID](#deploy-the-fhir-service-with-entra-external-id-as-the-identity-provider).
 
-## Prerequisites
+#### Deploy an Entra External ID tenant by using an ARM template
 
-- An Azure subscription.
+Use PowerShell or Azure CLI to deploy the [ARM template](https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/main/samples/fhir-aad-entra-external/entra-external-arm-template.json) programmatically to an Azure subscription. For more information about syntax, properties, and usage of the template, see [Deploy an instance of Entra External ID](/azure/templates/microsoft.azureactivedirectory/ciamdirectories?pivots=deployment-language-arm-template). 
 
-- An Azure account that's been assigned at least the [**Tenant Creator**](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#tenant-creator) role, scoped to the subscription or to a resource group within the subscription.
+Run the code in Azure Cloud Shell or in PowerShell locally in Visual Studio Code to deploy the FHIR service to the Entra External ID tenant.
 
+#### [PowerShell](#tab/powershell)
 
+1. Use `Connect-AzAccount` to sign in to Azure. After you sign in, use `Get-AzContext` to verify the subscription and tenant you want to use. Change the subscription and tenant if needed.
 
-### Create a new external tenant with external configurations
+1. Create a new resource group (or use an existing one) by skipping the "create resource group" step, or commenting out the line starting with `New-AzResourceGroup`.
 
-Creating a Microsoft Entra External ID tenant provisions a new external tenant, which enables external users to access healthcare applications securely. for more information [Use your Azure subscription to create an external tenant](https://learn.microsoft.com/en-us/entra/external-id/customers/quickstart-tenant-setup)
+```PowerShell
+### variables
+$tenantid="your tenant id"
+$subscriptionid="your subscription id"
+$resourceGroupName="your resource group name"
+$location="your desired location"
+$directoryName="your entra external id tenant name(don't include .onmicrosoft.com)"
 
-1. Sign in to your organization's [Microsoft Entra admin center ](https://entra.microsoft.com).
+### login to azure
+Connect-AzAccount -Tenant $tenantid -SubscriptionId $subscriptionid 
 
+# create the resource group
+New-AzResourceGroup -Name $resourceGroupName -Location $location
 
+# deploy the resource
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/samples/fhir-aad-entra-external/entra-external-arm-template.json -directoryName $directoryName
+```
+---
 
-2. Browse to **Entra ID > Overview > Manage tenants.** 
+#### [Azure CLI](#tab/command-line)
 
-3. Select **Create**.
+1. Use `Connect-AzAccount` to sign in to Azure. After you sign in, use `az account show --output table` to verify the subscription and tenant you want to use. Change the subscription and tenant if needed.
 
-![Create tenant screenshot](https://learn.microsoft.com/en-us/entra/external-id/customers/media/how-to-create-external-tenant-portal/create-tenant.png)
+1. Create a new resource group (or use an existing one) by skipping the "create resource group" step or commenting out the line starting with `az group create`.
 
-4. Select **External**, and then **Continue.**
+```bash
+# variables
+tenantid="your tenant id"
+subscriptionid="your subscription id"
+resourceGroupName="your resource group name"
+region="your desired region"
+directoryName="your directory name"
 
-![Screenshot showing the selection of tenant type in Microsoft Entra External ID.](https://learn.microsoft.com/en-us/entra/external-id/customers/media/how-to-create-external-tenant-portal/select-tenant-type.png)
+# login to azure
+az login
+az account show --output table
+az account set --subscription $subscriptionid
 
-5. On the **Basics** page of the **Create a tenant** page,enter the following information:
+# create resource group
+az group create --name $resourceGroupName --location $region
 
-   - Type your desired **Tenant Name** (for example Contoso Customers)..
+# deploy the resource
+az deployment group create --resource-group $resourceGroupName --template-uri https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/samples/fhir-aad-entra-external/entra-external-arm-template.json  --parameters directoryName=$directoryName
+```
 
-   - Type your desired Domain Name (for example Contosocustomers)..
+#### Add a test user to the Microsoft Entra External ID tenant
 
-   - Select your desired **Location**. This selection can't be changed later.
-
-![Screenshot showing the Basics page in the Create a tenant pane.](https://learn.microsoft.com/en-us/entra/external-id/customers/media/how-to-create-external-tenant-portal/add-basics-to-external-tenant.png)
-
-
-6. Select **Next:** **Add a Subscription**.
-- On the Add a subscription tab, enter the following information:
-   - Next to Subscription, select your subscription from the menu.
-   - Next to Resource group, select a resource group from the menu. If there are no available resource groups, select Create new, type a Name, and then select OK.
-   - If Resource group location appears, select the geographic location of the resource group from the menu.
-
-![ subscription section during Microsoft Entra External ID tenant creation.](https://learn.microsoft.com/en-us/entra/external-id/customers/media/how-to-create-external-tenant-portal/add-subscription.png)
-
-7. Select **Next: Review + create**.  If the information that you entered is correct, select Create. The tenant creation process can take up to 30 minutes. You can monitor the progress of the tenant creation process in the Notifications pane. Once the external tenant is created, you can access it in both the Microsoft Entra admin center and the Azure portal.
-
-![the confirmation message after a Microsoft Entra External ID tenant is successfully created.](https://learn.microsoft.com/en-us/entra/external-id/customers/media/how-to-create-external-tenant-portal/tenant-successfully-created.png)
-
-11. After selecting the link, you're redirected to the **Multi-Factor Authentication (MFA)** setup page.
-
-12. Complete the MFA setup process as prompted.
-
-13. After successful MFA configuration, you're automatically redirected to the newly created Microsoft Entra External ID tenant.
-
-### Add a test user to the Microsoft Entra External ID tenant
+>[!Note] 
+>You will be asked to set up MFA when logging in for the first time.
 
 You need a test user in your Microsoft Entra External ID tenant to associate with a specific patient resource in the FHIR service and to verify that the authentication flow works as expected.
 
 
-1. In the [Microsoft Entra admin center](https://entra.microsoft.com), go to your **External ID** tenant. Select **Overview**, then choose **Manage tenants** to open your External ID tenant.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). 
 
-2. In the **Users** section of the Microsoft Entra admin center, select **+ New user**, then choose **Create new user**.
+1. If you have access to multiple tenants, use the **Settings** icon ![Admin center settings icon.](media/azure-entra-external-id-setup/admin-center-settings-icon.png) in the top menu to switch to your external tenant from the **Directories + subscriptions** menu.
 
+1. In the **Users** section of the Microsoft Entra admin center, select **+ New user**, then choose **Create new user**.
 
-![Screenshot showing the test user creation page in Microsoft Entra External ID.](media/azure-entra-external-setup/entra-external-test-user-page.png.jpeg)
+   ![Screenshot showing the test user creation page in Microsoft Entra External ID.](media/azure-entra-external-id-setup/entra-external-user.png)
 
+1. On the **Basics** page, enter the **User principal name** and **Display name**, then select **Review + create**.
 
-3. On the **Basics** page, enter the **User principal name** and **Display name**, then select **Review + create**.
+   ![Screenshot showing the Create new user pane in Microsoft Entra External ID.](media/azure-entra-external-id-setup/entra-external-user-create.png)
 
+1. Review the information you entered to validate the input, then select **Create** to create the user.
 
-![Screenshot showing the Create new user pane in Microsoft Entra External ID.](media/azure-entra-external-setup/entra-external-create-new-user.png)
+#### Link an Entra External ID user with the `fhirUser` custom user attribute
 
-4. Review the information you entered to validate the input, then select **Create** to create the user.
-
-### Create `fhirUser` custom attribute and User Flow
-
-### Link an Entra External ID user with the `fhirUser` custom user attribute
-
-The `fhirUser` custom user attribute is used to link a user in Microsoft Entra External ID with a corresponding patient resource in the FHIR service.
-
-In this example, a user named **Test Patient1** is created in the Entra External ID tenant. In a later step, a [patient](https://www.hl7.org/fhir/patient.html) resource is created in the FHIR service. The **Test Patient1** user is associated with the patient resource by setting the `fhirUser` attribute to the patient's FHIR resource identifier.For more information about custom attributes in Microsoft Entra External ID, see  
-[Custom user attributes and claims in user flows](https://learn.microsoft.com/en-us/entra/external-id/customers/how-to-define-custom-attributes#create-custom-user-attributes).
+The `fhirUser` custom user attribute is used to link a user in Microsoft Entra External ID with a corresponding patient resource in the FHIR service. In this example, a user named **Test Patient1** is created in the Entra External ID tenant. In a later step, a [patient](https://www.hl7.org/fhir/patient.html) resource is created in the FHIR service. The **Test Patient1** user is associated with the patient resource by setting the `fhirUser` attribute to the patient's FHIR resource identifier.For more information about custom attributes in Microsoft Entra External ID, see  
+[User flow custom attributes in Entra External ID.](https://learn.microsoft.com/en-us/entra/external-id/customers/how-to-define-custom-attributes#create-custom-user-attributes).
 
 1. Search for **External Identities** 
 
-2. Navigate to **Custom user attributes**, 
+1. Navigate to **Custom user attributes**, 
 
-3. Choose **+ Add.**
+1. Choose **+ Add.**
 
-4. In the **Add custom attribute** pane:
+1. In the **Add custom attribute** pane:
 
-   - In the Name field, Enter `fhirUser`(case-sensitive)
+   - In the **Name** field, Enter **fhirUser** (case-sensitive)
 
-   - From the Data Type dropdown list, select String.
-   - Choose **Create**.
-
+   - From the **Data Type** dropdown list, select **String**.
    
-![Screenshot showing the creation of fhirUser custom attribute in Microsoft Entra External ID.](media/azure-entra-external-setup/entra-external-create-fhir-user.png)
+   - In the **Description** field, enter a description for the custom attribute. For example, "The fully qualified FHIR resource Id associated with the user. (e.g. Patient Resource)"
+   
+   - Choose **Create**.
+   
+   ![Screenshot showing the creation of fhirUser custom attribute in Microsoft Entra External ID.](media/azure-entra-external-id-setup/entra-external-custom-user-attributes.png)
 
 
- ### Create a new user flow in Microsoft Entra External ID
+#### Create a new user flow in Microsoft Entra External ID
 
-User flows define the sequence of steps users must follow to sign in. In this example, a user flow is defined so that when a user signs in and the access token provided includes the fhirUser claim.For more information, see [Create user flows and custom policies in Microsoft Entra External ID](https://learn.microsoft.com/en-us/entra/external-id/customers/how-to-user-flow-sign-up-sign-in-customers#create-and-customize-a-user-flow).
+User flows define the sequence of steps users must follow to sign in. In this example, a user flow is defined so that when a user signs in and the access token provided includes the `fhirUser` claim. For more information, see [Create user flows and custom policies in Microsoft Entra External ID](https://learn.microsoft.com/en-us/entra/external-id/customers/how-to-user-flow-sign-up-sign-in-customers#create-and-customize-a-user-flow).
 
-1. In the [Microsoft Entra admin center](https://entra.microsoft.com), Navigate to **User flows** under **External Identities**
+1. On the **External Identities** page in the left pane, choose **User flows**.
 
-2. Choose **+ New user flow.**
+1. Choose **+ New user flow.**
 
-![Screenshot showing the creation of a new user flow in Microsoft Entra External ID.](media/azure-entra-external-setup/entra-external-user-flow.png)
+   ![Screenshot showing the creation of a new user flow in Microsoft Entra External ID.](media/azure-entra-external-id-setup/entra-external-user-flow.png)
 
-3. Give the user flow a name unique to the Microsoft Entra External ID tenant. The name doesn't have to be globally unique. In this example, the name of the user flow is `USER_FLOW_1`. Make note of the name.
+1. Give the user flow a name unique to the Microsoft Entra External ID tenant. The name doesn't have to be globally unique. In this example, the name of the user flow is **USER_FLOW_1**. Make note of the name.
+
+1. Under **Identity providers**, keep **Email with password** selected (default).
+
+   ![Screenshot showing Entra External ID user flow configuration.](media/azure-entra-external-id-setup/entra-external-user-flow-config-1.png)
+
+1. On the Create a user flow page Select **Show more** to view additional attributes. 
+
+1. Under **Collect attribute**, 
+
+1. Select the **fhirUser** claim.
+
+1. Choose Ok.
+
+1. Choose Create.
+   ![Screenshot showing user flow configuration and selection of fhirUser attribute in Microsoft Entra External ID.](media/azure-entra-external-id-setup/entra-external-user-flow-config-2.png)
 
 
-4. Make sure **Email sign-in** is enabled for local accounts in **Microsoft Entra External ID**, so that the test user can sign in and obtain an access token for the FHIR service.
+#### Create an Entra External Resource Application
 
-5. Under **Identity providers**, keep **Email with password** selected (default).
+The Microsoft Entra External ID resource application handles authentication requests from your healthcare application to Microsoft Entra External ID.
 
-6. On the Create a user flow page Select **Show more** to view additional attributes. 
+1. In the **Microsoft Entra admin** center, navigate to **Applications** > **App registrations**.
 
-7. Under **Collect attribute**, 
+1. Choose **+ New registration**.
 
-8. Select the fhirUser claim.
+   ![Screenshot showing Entra External ID new application.](media/azure-entra-external-id-setup/entra-external-new-app-registration.png)
 
-9. Choose Ok.
-
-10. Choose Create.
-![Screenshot showing user flow configuration and selection of fhirUser attribute in Microsoft Entra External ID.](media/azure-entra-external-setup/entra-external-identity-provider-pages.png)
-
-
-### Create a Resource Application
-
-The Microsoft Entra External ID **resource application** handles authentication requests from your healthcare application to Microsoft Entra External ID.
-
-1. In the Microsoft Entra admin center, navigate to **Applications** > **App registrations**.
-
-2. Choose **+ New registration**.
-
-3. In the **Register an application** pane:
+1. In the **Register an application** pane:
 
    - Enter a display name. This example uses **FHIR Service.**
 
@@ -167,75 +170,80 @@ The Microsoft Entra External ID **resource application** handles authentication 
 
   - Choose **Register**. Wait for the application registration to complete. The browser automatically navigates to the application Overview page.
 
+    ![Screenshot showing the application registration page in Microsoft Entra External ID.](media/azure-entra-external-id-setup/entra-external-application-register.png)
 
-![Screenshot showing the application registration page in Microsoft Entra External ID.](media/azure-entra-external-setup/external-entra-application-registration-pages.png)
-
- ### Configure API permissions for the app
+#### Configure API permissions for the app
 1. On the **App registrations page** in the left pane, choose **Manifest**.
 
-2. Scroll until you find the `oauth2PermissionScopes` array in `Microsoft Graph App Manifest (New) tab`. Replace the array with one or more values in the [`oauth2Permissions.json`](https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/main/samples/fhir-aad-b2c/oauth2Permissions.json) file. Copy the entire array or individual permissions.
+1. Scroll until you find the `oauth2PermissionScopes` array in `Microsoft Graph App Manifest (New)` tab. Replace the array with one or more values in the [`oauth2Permissions.json`](https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/main/samples/fhir-aad-b2c/oauth2Permissions.json) file. Copy the entire array or individual permissions.
 
-If you add a permission to the list, any user in the **Microsoft Entra External ID** tenant can obtain an access token with that API permission. 
-If a permission level isn't appropriate for all users, **do not** include it in the permission array. Microsoft Entra External ID does not support scoping permissions to specific subsets of users.
+   If you add a permission to the list, any user in the **Microsoft Entra External ID** tenant can obtain an access token with that API permission. 
+   If a permission level isn't appropriate for all users, **do not** include it in the permission array.
 
-3. After the **oauth2PermissionScopes** array is populated, choose **Save**.
+1. After the **oauth2PermissionScopes** array is populated
 
-![Screenshot showing the oauth2PermissionScopes array being edited in the app manifest.](media/azure-entra-external-setup/entra-external-oauth2-permissions-pages.png)
+1. In the same manifest, set the `acceptMappedClaims` property to `true`. This enables the app to receive custom claims, like `fhirUser` in the token.
 
- ### Expose the web API and assign an application ID URI
+1. choose **Save**.
+
+   ![Screenshot showing the oauth2PermissionScopes array being edited in the app manifest.](media/azure-entra-external-id-setup/entra-external-application-manifest.png)
+
+#### Expose the web API and assign an application ID URI
 
 1. On the **App registrations** page in the left pane, choose **Expose an API**.
 
-2. Choose **Add**.
+1. Choose **Add**.
 
-3. By default, the **Application ID** URI field is populated with the application (client) ID. Change the value if desired.
+1. By default, the **Application ID** URI field is populated with the application (client) ID. Change the value if desired.
 
-4. Choose **Save**..
+1. Choose **Save**.
 
-![Screenshot showing the Application ID URI being set in Microsoft Entra External ID.](media/azure-entra-external-setup/entra-external-application-URI-pages.png)
+   ![Screenshot showing the Application ID URI being set in Microsoft Entra External ID.](media/azure-entra-external-id-setup/entra-external-application-api.png)
 
+1. On the **App registrations** page in the left pane, choose **API permissions**.
 
-5. On the **App registrations** page in the left pane, choose **API permissions**.
+1. Choose **+ Add a permission**.
 
-6. Choose + **Add a permission**.
-
-7. On the **Request API permissions** pane, select **APIs my organization** uses.
-
-8. Select the resource application from the list.
+   ![Screenshot showing Entra External ID API permission.](media/azure-entra-external-id-setup/entra-external-api-permission-1.png)
 
 
+1. On the **Request API permissions** pane, select **APIs my organization** uses.
 
-![Screenshot showing API permissions selection for the FHIR service in Microsoft Entra External ID.](media/azure-entra-external-setup/entra-external-apis-permission-pages.png)
+1. Select the resource application from the list.
 
-
-9. On the Request API permissions pane in the Patient section, select at least one permission. In this example, the permission `patient.all.read` is selected, which means a user that requests an access token with the scope `patient.all.read` has Read privileges (patient.all.read) for all FHIR resources (patient.all.read) in the Patient compartment (patient.all.read) For more information, see Patient compartment.
-
-10. Choose Add permissions.
-
-![Screenshot showing selection of permissions for the FHIR service in Microsoft Entra External ID.](media/azure-entra-external-setup/entra-external-select-permission-pages.png)
-
-11. On the **API permissions** page in the **Configured permissions** section, choose **Grant admin consent**.
+   ![Screenshot showing Entra External ID API permissions with APIs used.](media/azure-entra-external-id-setup/entra-external-api-permission-2.png)
 
 
-![Screenshot showing admin consent being granted in Microsoft Entra External ID.](media/azure-entra-external-setup/entra-external-grant-admin-consent-pages.png)
+1. On the **Request API permissions** pane in the **Patient** section, select at least one permission. In this example, the permission `patient.all.read` is selected, which means a user that requests an access token with the scope `patient.all.read` has Read privileges (patient.all.**read**) for all FHIR resources (patient.**all**.read) in the Patient compartment (**patient**.all.read) For more information, see [Patient compartment](https://build.fhir.org/compartmentdefinition-patient.html).
 
-12. Navigate to **Applications** > **Enterprise applications**.
+1. Choose **Add permissions**.
 
-13. Select your registered application from the list.
+   ![Screenshot showing Entra External ID API permissions with permissions added.](media/azure-entra-external-id-setup/entra-external-api-permission-3.png)
 
-![Screenshot showing the Enterprise applications page in Microsoft Entra External ID.](media/azure-entra-external-setup/entra-external-enterprise-application-pages.png)
+1. On the **API permissions** page in the **Configured permissions** section, choose **Grant admin consent**.
 
-14. In your application’s pane, under **Manage**, select **Single sign-on (Preview)**.
 
-15. Select **Edit** to configure the single sign-on settings.
+   ![Screenshot showing Entra External ID API permissions for admin consent.](media/azure-entra-external-id-setup/entra-external-api-permission-4.png)
 
-![Screenshot showing the Single sign-on (Preview) configuration page in Microsoft Entra External ID.](media/azure-entra-external-setup/entra-external-fhir-singlesignon-pages.png)
+#### Configure Single sign-on (Preview) for the app
 
-16. Under **User Attributes & Claims**, select **+ Add new claim**.
+1. On the **Enterprise apps** page in the left pane, choose **All applications**.
 
-![Screenshot showing the Add new claim page in Microsoft Entra External ID.](media/azure-entra-external-setup/entra-external-attributes-claims-pages.png)
+1. Select your registered application from the list.
 
-17. Configure the new claim:
+   ![Screenshot showing the Enterprise applications page in Microsoft Entra External ID.](media/azure-entra-external-id-setup/entra-external-enterprise-apps-1.png)
+
+1. In your application’s pane, under **Manage**, select **Single sign-on (Preview)**.
+
+1. Select **Edit** to configure the single sign-on settings.
+
+   ![Screenshot showing the Single sign-on (Preview) configuration page in Microsoft Entra External ID.](media/azure-entra-external-id-setup/entra-external-enterprise-apps-2.png)
+
+1. Under **Attributes & Claims**, select **+ Add new claim**.
+
+   ![Screenshot showing the Add new claim page in Microsoft Entra External ID.](media/azure-entra-external-id-setup/entra-external-enterprise-apps-3.png)
+
+1. Configure the new claim:
 
    - **Name**: `fhirUser`
 
@@ -243,76 +251,129 @@ If a permission level isn't appropriate for all users, **do not** include it in 
 
    - **Source attribute**: Select **b2c-extensions-app**
 
-![Screenshot showing the configuration Microsoft Entra External ID.](media/azure-entra-external-setup/entra-external-extension-attribute-pages.png)
+   ![Screenshot showing the manage claim configuration Microsoft Entra External ID.](media/azure-entra-external-id-setup/entra-external-enterprise-apps-4.png)
 
-18. Click **Select**. This opens the **Add Extension Attributes** window.
+1. Click **Select**. This opens the **Add Extension Attributes** window.
 
-19. In the list, select the **user.fhirUser** attribute.
+   ![Screenshot showing the select application configuration Microsoft Entra External ID.](media/azure-entra-external-id-setup/entra-external-enterprise-apps-5.png)
 
-20. Click **Add** to include the attribute in the claim.
+1. In the list, select the **user.fhirUser** attribute.
 
-![Screenshot showing selection of the user.fhirUser attribute during claim configuration in Microsoft Entra External ID.](media/azure-entra-external-setup/entra-external-apply-extension-attribute.png)
+1. Click **Add** to include the attribute in the claim.
 
-![Screenshot showing the saved fhirUser claim in the directory extension schema.](media/azure-entra-external-setup/entra-external-directory-extension-schema.png)
+   ![Screenshot showing selection of the user.fhirUser attribute during claim configuration in Microsoft Entra External ID.](media/azure-entra-external-id-setup/entra-external-enterprise-apps-6.png)
 
-21. select **save**
+1. select **save**
 
-### Deploy the FHIR service by using an ARM Template
- Use an ARM template to simplify deploying the FHIR service. Use PowerShell or Azure CLI to deploy the ARM template to an Azure subscription..
+   ![Screenshot showing the saved fhirUser claim in the directory extension schema.](media/azure-entra-external-id-setup/entra-external-enterprise-apps-7.png)
+
+## Deploy the FHIR service with Entra External ID as the identity provider
+
+Deploying the FHIR service with Entra External ID as the identity provider allows the FHIR service to authenticate users based on their Entra External ID credentials, ensuring that only authorized users can access sensitive patient information
+
+#### Obtain the Entra External ID authority and client ID 
+
+Use the **authority** and **client ID** (or application ID) parameters to configure the FHIR service to use an Entra External ID tenant as an identity provider.
+
+1. Create the authority string by using the name of the Entra External ID tenant and the name of the user flow.
+
+   ```http
+   https://<YOUR_EXTERNAL_ID_TENANT_NAME>.ciamlogin.com/<YOUR_EXTERNAL_ID_TENANT_ID>/v2.0
+   ```
+
+1. Test the authority string by making a request to the `.well-known/openid-configuration` endpoint. Enter the string into a browser to confirm it navigates to the OpenId Configuration JSON file. If the OpenId Configuration JSON fails to load, make sure the Entra External ID tenant name and Entra External ID tenant id are correct.
+  
+   ```http
+   https://<YOUR_EXTERNAL_ID_TENANT_NAME>.ciamlogin.com/<YOUR_EXTERNAL_ID_TENANT_ID>/v2.0/.well-known/openid-configuration
+   ```
+
+1. Retrieve the client ID from the resource application overview page.
+
+   ![Screenshot showing the Application (client) ID overview page.](media/azure-entra-external-id-setup/entra-external-client-id.png)
+
+#### Deploy the FHIR service by using ARM Template
+
+Use an [ARM template](https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/main/samples/fhir-aad-b2c/fhir-service-arm-template.json) to simplify deploying the FHIR service. Use PowerShell or Azure CLI to deploy the ARM template to an Azure subscription..
 
 Run the code in **Azure Cloud Shell** or in **PowerShell locally using Visual Studio Code** to deploy the FHIR service with Microsoft Entra External ID as the identity provider.
 
 ### [PowerShell](#tab/powershell)
 
-```PowerShell
-### Set variables
-$tenantid = "<your-tenant-id>"
-$subscriptionid = "<your-subscription-id>"
-$resourcegroupname = "<your-resource-group-name>"
-$region = "<your-region>"
-$workspacename = "<your-workspace-name>"
-$fhirServiceName = "<your-fhir-service-name>"
-$smartAuthorityUrl = "https://<your-external-id-tenant-name>.ciamlogin.com/<your-external-id-tenant-id>"
-$smartClientId = "<your-app-registration-client-id>"
+1. Use `Connect-AzAccount` to sign in to Azure. Use `Get-AzContext` to verify the subscription and tenant you want to use. Change the subscription and tenant if needed.
 
-### Sign in to Azure
+1. Create a new resource group (or use an existing one) by skipping the "create resource group" step, or commenting out the line starting with `New-AzResourceGroup`.
+
+```PowerShell
+### variables
+$tenantid="your tenant id"
+$subscriptionid="your subscription id"
+$resourcegroupname="your resource group name"
+$region="your desired region"
+$workspacename="your workspace name"
+$fhirServiceName="your fhir service name"
+$smartAuthorityUrl="your authority (from previous step)"
+$smartClientId="your client id (from previous step)"
+
+### Login to Azure
 Connect-AzAccount
+
+#Connect-AzAccount SubscriptionId $subscriptionid
 Set-AzContext -Subscription $subscriptionid
 Connect-AzAccount -Tenant $tenantid -SubscriptionId $subscriptionid
-# Get-AzContext  # Optional: verify your current Azure context
+# Get-AzContext  
 
-### Create resource group (optional)
+### create resource group
 New-AzResourceGroup -Name $resourcegroupname -Location $region
 
-### Deploy the FHIR service
-New-AzResourceGroupDeployment `
-  -ResourceGroupName $resourcegroupname `
-  -TemplateUri "https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/main/samples/fhir-aad-b2c/fhir-service-arm-template.json" `
-  -tenantid $tenantid `
-  -region $region `
-  -workspaceName $workspacename `
-  -fhirServiceName $fhirServiceName `
-  -smartAuthorityUrl $smartAuthorityUrl `
-  -smartClientId $smartClientId
+### deploy the resource
+New-AzResourceGroupDeployment -ResourceGroupName $resourcegroupname -TemplateUri https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/main/samples/fhir-aad-b2c/fhir-service-arm-template.json -tenantid $tenantid -region $region -workspaceName $workspacename -fhirServiceName $fhirservicename -smartAuthorityUrl $smartAuthorityUrl -smartClientId $smartClientId
 ```
----
 
- ###  Validate Microsoft Entra External ID Users Can Access FHIR Resources
+#### [Azure CLI](#tab/command-line)
+
+1. Use `az login` to sign in to Azure. Use `az account show --output table` to verify the subscription and tenant you want to use. Change the subscription and tenant if needed.
+
+1. Create a new resource group (or use an existing one) by skipping the "create resource group" step, or commenting out the line starting with `az group create`.
+
+```bash
+### variables
+tenantid=your tenant id
+subscriptionid=your subscription id
+resourcegroupname=your resource group name
+region=your desired region
+workspacename=your workspace name
+fhirServiceName=your fhir service name
+smartAuthorityUrl=your authority (from previous step)
+smartClientId=your client id (from previous step)
+
+### login to azure
+az login
+az account show --output table
+az account set --subscription $subscriptionid
+
+### create resource group
+az group create --name $resourcegroupname --location $region
+
+### deploy the resource
+az deployment group create --resource-group $resourcegroupname --template-uri https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/main/samples/fhir-aad-b2c/fhir-service-arm-template.json --parameters tenantid=$tenantid region=$region workspaceName=$workspacename fhirServiceName=$fhirservicename smartAuthorityUrl=$smartAuthorityUrl storageAccountConfirm=$smartClientId
+```
+
+##  Validate Microsoft Entra External ID Users are able to access FHIR Resources
 
 The validation process involves creating a patient resource in the FHIR service, linking the patient resource to the Microsoft Entra External ID user, and configuring REST Client to get an access token for External ID users. After the validation process is complete, you can fetch the patient resource by using the External ID test user.
 
-### Use REST Client to get an access token
+#### Use REST Client to get an access token
 
-For steps to obtain the proper access to the FHIR service, see [Access the FHIR service using REST Client](https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/using-rest-client).
+For steps to obtain the proper access to the FHIR service, see [Access the FHIR service using REST Client](using-rest-client).
 
-When you follow the steps in the [Get the FHIR patient](https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/using-rest-client#get-fhir-patient-data) data section, the request returns an empty response because the FHIR service is new and doesn't have any patient resources.
+When you follow the steps in the [Get the FHIR patient data](using-rest-client#get-fhir-patient-data) section, the request returns an empty response because the FHIR service is new and doesn't have any patient resources.
 
-### Create a patient resource in the FHIR service
+#### Create a patient resource in the FHIR service
 
 It's important to note that users in the Microsoft Entra External ID tenant aren't able to read any resources until the user (such as a patient or practitioner) is linked to a FHIR resource. A user with the `FhirDataWriter` or `FhirDataContributor` role in the Microsoft Entra ID where the FHIR service is tenanted must perform this step.
 
 1. Create a patient with a specific identifier by changing the method to `PUT` and executing a request to `{{fhirurl}}/Patient/1` with this body:
----
+
   ```json
   {
       "resourceType": "Patient",
@@ -325,57 +386,65 @@ It's important to note that users in the Microsoft Entra External ID tenant aren
               ]
           }
       ]
-  }
-```
----
+  } 
+  ```
 
 2. Verify the patient is created by changing the method back to `GET` and verifying that a request to `{{fhirurl}}/Patient` returns the newly created patient.
 
 
-### Link the patient resource to Microsoft Entra External ID User. 
+#### Link the patient resource to Microsoft Entra External ID User. 
 
-Create an explicit link between the test user in the **Microsoft Entra External ID** tenant and the resource in the FHIR service. Use **extension attributes** in Microsoft Graph to define this link. For more information, see [Custom user attributes and claims in user flows](https://learn.microsoft.com/azure/active-directory-b2c/user-flow-custom-attributes).
+Create an explicit link between the test user in the **Microsoft Entra External ID** tenant and the resource in the FHIR service. Use **extension attributes** in Microsoft Graph to define this link. For more information, see [Create custom user attributes in Entra External ID](https://learn.microsoft.com/en-us/entra/external-id/customers/how-to-define-custom-attributes#create-custom-user-attributes).
 
-### Link Entra External ID User with FHIR Resource
+1. Go to the Entra External ID tenant. On the left pane, choose **App registrations**.
 
-1. Go to **App registrations**
+1. Select **All applications**.
 
-2. select **b2c-extensions-app**. 
+1. Select the application with the prefix **b2c-extensions-app**. 
 
-3. Note the Application (client) ID value..
+   ![Screenshot showing Entra External ID app list.](media/azure-entra-external-id-setup/entra-external-app-list.png)
 
-4. Under **Users > All users**, select **Test Patient1** and note the **Object ID**.
+1. Note the Application (client) ID value.
 
-5. Open [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) Sign in with a user assigned to the Global Administrator role for the Microsoft Entra External ID tenant. (It's a good idea to create a new admin user in the Microsoft Entra tenant to manage users.)
+   ![Screenshot showing Entra External ID extensions app.](media/azure-entra-external-id-setup/b2c-extensions-app.png)
 
-6. Select the avatar for the user
+1. Navigate back to the Entra External ID tenant home page, on the left pane select **Users**.
 
-7. choose `Consent` to permissions.
+1. Under **Users > All users**, select **Test Patient1**.
 
+   ![Screenshot showing Entra External ID user list.](media/azure-entra-external-id-setup/entra-external-user-list.png)
 
-8. Scroll to `User`. Consent to `User.ReadWrite.All`. This permission allows you to update the Test Patient1 user with the fhirUser claim value.
+1. Note the **Object ID**.
 
-9. After the consent process completes, update the user. You need the b2c-extensions-app application (client) ID and the user Object ID.
+   ![Screenshot showing Entra External ID user ID.](media/azure-entra-external-id-setup/entra-external-user-id.png)
 
-Perform the following steps:
+1. Open [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) Sign in with a user assigned to the Global Administrator role for the Microsoft Entra External ID tenant. (It's a good idea to create a new admin user in the Microsoft Entra tenant to manage users.)
 
-- Change the method to PATCH.
+   ![Screenshot showing Graph login.](media/azure-entra-external-id-setup/graph-login.png)
 
-- Change the URL to
-[https://graph.microsoft.com/v1.0/users/{USER_OBJECT_ID}](https://graph.microsoft.com/v1.0/users/{USER_OBJECT_ID})
-     
-- Create the `PATCH` body.
+1. Select the avatar for the user, and then choose **Consent to permissions**.
 
-- A `PATCH` body is a single key-value-pair, where the key format is `extension_{B2C_EXTENSION_APP_ID_NO_HYPHENS}_fhirUser`
- - And the value is the fully qualified FHIR resource ID for the patient 
-`https://{YOUR_FHIR_SERVICE}.azurehealthcareapis.com/Patient/1"`.
+   ![Screenshot showing Graph consent for test user.](media/azure-entra-external-id-setup/graph-consent-1.png)
 
-For more information, see [Manage extension attributes through Microsoft Graph](https://learn.microsoft.com/en-us/azure/active-directory-b2c/user-flow-custom-attributes?pivots=b2c-user-flow).
+1. Scroll to **User**. Consent to `User.ReadWrite.All`. This permission allows you to update the **Test Patient1** user with the `fhirUser` claim value.
 
-After the request is formatted choose Run query. Wait for a successful response that confirms the user in the Entra External Id is linked to the patient resource in the FHIR service.
+   ![Screenshot showing Graph consent for fhirUser claim.](media/azure-entra-external-id-setup/graph-consent-2.png)
 
+1. After the consent process completes, update the user. You need the b2c-extensions-app application (client) ID and the user Object ID.
 
-### Configuration to obtain an access token for Microsoft Entra External ID users
+   - Change the method to `PATCH`.
+      
+   - Change the URL to [https://graph.microsoft.com/v1.0/users/{USER_OBJECT_ID}](#link-the-patient-resource-to-microsoft-entra-external-id-user).
+   
+   - Create the `PATCH` body. A `PATCH` body is a single key-value-pair, where the key format is `extension_{B2C_EXTENSION_APP_ID_NO_HYPHENS}_fhirUser` and the value is the fully qualified FHIR resource ID for the patient `https://{YOUR_FHIR_SERVICE}.azurehealthcareapis.com/Patient/1"`.
+
+   For more information, see [Manage extension attributes through Microsoft Graph](https://learn.microsoft.com/en-us/entra/external-id/customers/how-to-define-custom-attributes#create-custom-user-attributes).
+
+1. After the request is formatted, choose **Run query**. Wait for a successful response that confirms the user in the Entra External Id tenant is linked to the patient resource in the FHIR service.
+
+   ![Screenshot showing Graph patch.](media/azure-entra-external-id-setup/graph-patch.png)
+
+#### Configuration to obtain an access token for Entra External ID users
 
 Obtain an access token to test the authentication flow.
 
@@ -391,60 +460,59 @@ Obtain an access token to test the authentication flow.
 
 1. Enter the following values.
 
-   - **Callback URL**. This value is configured when the B2C resource application is created.
+   - **Callback URL**. This value is configured when the Entra External ID resource application is created.
 
-   - **Auth URL**. This value can be created using the name of the B2C tenant and the name of the user flow.
+   - **Auth URL**. This value can be created using the name of the Entra External ID tenant and the Entra External ID tenant id.
 
-   ```http
+      ```http
       https://{YOUR_EXTERNAL_ID_TENANT_NAME}.ciamlogin.com/{YOUR_EXTERNAL_ID_TENANT_ID}/oauth2/v2.0/authorize
       ```
 
-   - **Access Token URL**. This value can be created using the name of the B2C tenant and the name of the user flow.
+   - **Access Token URL**. This value can be created using the name of the Entra External ID tenant and the Entra External ID tenant id.
 
-    ```http
-      https://{YOUR_EXTERNAL_ID_TENANT_NAME}.ciamlogin.com{YOUR_EXTERNAL_ID_TENANT_ID}/oauth2/v2.0/token
+      ```http
+      https://{YOUR_EXTERNAL_ID_TENANT_NAME}.ciamlogin.com/{YOUR_EXTERNAL_ID_TENANT_ID}/oauth2/v2.0/token
       ```
-    - **Client ID**. This value is the application (client) ID of the B2C resource application.
+   - **Client ID**: This value is the application (client) ID of the  Entra External resource application.
 
       ```
       {YOUR_APPLICATION_ID}
       ```
 
-    - **Scope**. This value is defined in the B2C resource application in the **Expose an API** section. The scope granted permission is `patient.all.read`. The scope request must be a fully qualified URL, for example, `https://testb2c.onmicrosoft.com/fhir/patient.all.read`. 
+   - **Scope**. This value is defined in the Entra External ID resource application in the **Expose an API** section. The scope granted permission is `patient.all.read`. The scope request must be a fully qualified URL, for example, `https://testentraexternal.onmicrosoft.com/fhir/patient.all.read`. 
      
+   - Copy the fully qualified scope from the **Expose an API** section of the Entra External resource application.
+   Example:
 
-     - Copy the fully qualified scope from the **Expose an API** section of the B2C resource application.
-     Example:
-
-     ```
+      ```
       {YOUR_APPLICATION_ID_URI}/patient.all.read
       ```
 
-  ### Fetch the patient resource by using the Microsoft Entra External ID user
+#### Fetch the patient resource by using the Microsoft Entra External ID user
 
    Verify that Microsoft Entra External ID users can access FHIR resources.
 
-1. When the authorization configuration is set up to launch the Microsoft Entra External ID user flow, choose **Get New Access Token** to acquire an access token.
+1. When the authorization configuration is set up to launch the Microsoft Entra External ID user flow, choose **Get New Access Token** to get an access token.
 
-2. Use the **Test Patient** credentials to sign in.
+1. Use the **Test Patient** credentials to sign in.
 
-3. Copy the access token and use it to fetch the Patient data.
+1. Copy the access token and use it in fetching the Patient data.
 
 Follow the steps in the [Get the FHIR patient data](using-rest-client.md#get-fhir-patient-data) guide to fetch the patient resource:
 
 1. Set the HTTP method to `GET`, enter the fully qualified FHIR service URL, and append the path `/Patient`.
 
-2. Use the fetched token in the authorization header.
+1. Use the fetched token in the authorization header.
 
-3. Choose **Send Request**.
+1. Choose **Send Request**.
 
-4. Verify that the response contains the single patient resource.
+1. Verify that the response contains the single patient resource.
 
 ## Next steps
 
 [Configure multiple identity providers](configure-identity-providers.md)
  
- [Troubleshoot identity provider configuration](https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/troubleshoot-identity-provider-configuration)
+[Troubleshoot identity provider configuration](https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/troubleshoot-identity-provider-configuration)
 
- [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
+[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
        
