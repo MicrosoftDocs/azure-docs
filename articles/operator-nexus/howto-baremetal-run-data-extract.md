@@ -681,15 +681,18 @@ The command provides a link (if using cluster manager storage) or another comman
 > [!NOTE]
 > Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer to the [cluster manager storage](#deprecated-method-verify-access-to-the-cluster-manager-storage-account) or the [user managed storage](#send-command-output-to-a-user-specified-storage-account) sections for procedures to verify access.
 
-## Executing a run-data-restricted Command
+## Executing a run-data-extracts-restricted Command
 
-The `run-data-extracts-restricted`  produces an output file containing the results of the data extract. It differs by having RBAC restrictions enforced on users limiting which actions and commands they can execute. The allowed commands must be added individually in the role definition.
+The `run-data-extracts-restricted` command is a duplicate of the standard run-data-extracts command, created to support fine-grained access control via RBAC (Role-Based Access Control). It allows customers to run sensitive data extraction operations on BareMetalMachines with elevated privileges.
 
-`run-data-extracts-restricted` is also limited in the subset of commands that it can perform. The current commands in the allowed restricted list are:
+It is implemented as a separate API action (runDataExtractsRestricted) and is designed to mirror the behavior of the original command but with restricted access to specific sub-commands.The following list contains the allowed sub commands for `run-data-extracts-restricted`:
 
 - `cluster-cve-report`
 - `mde-agent-information`
 
+Command execution can be performed using `az networkcloud baremetalmachine run-data-extracts-restricted` and it accepts arguments similarly to the `run-data-extract`.
+
+**Example**
 
 ```azurecli-interactive
 az networkcloud baremetalmachine run-data-extracts-restricted --name "<machine-name>"  \
@@ -699,3 +702,7 @@ az networkcloud baremetalmachine run-data-extracts-restricted --name "<machine-n
   --limit-time-seconds "<timeout>"
   --output-directory <output_directory>
 ```
+
+### Storage and Output
+Output is stored in a blob container specified by the `commandOutputSettings`. By default the `run-data-extract` command uses the same commandOutputSettings however for security purposes `run-data-extracts-restricted` stores outputs in a seperate blob container. For how to specify the commandOutputSettings override for runcommand [please follow this guide]().
+This will require a separate blob container also be configured prior to usage. To setup the storage blob container (please look here)[]
