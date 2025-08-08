@@ -180,48 +180,52 @@ Now add an [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) s
 
 1. In the condition's **True** box, select **+** > **Add an action**.
 
-   :::image type="content" source="./media/monitor-virtual-machine-changes-logic-app/condition-true-add-action.png" alt-text="Screenshot shows the workflow designer with the condition's If true pane open and Add an action selected.":::
+   :::image type="content" source="./media/monitor-virtual-machine-changes-logic-app/condition-true-add-action.png" alt-text="Screenshot shows the workflow designer with the condition's True pane open and selected option for Add an action.":::
 
-1. Under **Choose an action**, in the search box, enter *send an email*. Based on your email provider, find and select the matching connector. Then select the "send email" action for your connector. For example:
+1. In the **Add an action** pane search box, enter *send an email*. Based on your email provider, find the corresponding connector type. Select the "send email" action for your connector. For example:
 
-   - For an Azure work or school account, select the Office 365 Outlook connector.
-   - For personal Microsoft accounts, select the Outlook.com connector.
-   - For Gmail accounts, select the Gmail connector.
+   - For an Azure work or school account, select the Office 365 Outlook connector action named **Send an email (V2)**.
+   - For personal Microsoft accounts, select the Outlook.com connector action named **Send an email (V2)**.
+   - For Gmail accounts, select the Gmail connector action named **Send email (V2)**.
 
-   This tutorial continues with the Office 365 Outlook connector. If you use a different provider, the steps remain the same, but might appear slightly different.
+   This tutorial continues with the Office 365 Outlook connector action. If you use a different provider, the steps remain the same, but the UI might appear slightly different.
 
-1. If you don't already have a connection for your email provider, sign in to your email account when you're asked for authentication.
+1. If you don't already have a connection for your email provider, sign in to your email account when you're asked to authenticate your identity.
 
-1. Rename the send email action to this title: *Send email when virtual machine updated*.
+1. Rename the send email action to the following title: **Send email when virtual machine updated**.
 
-1. Provide information about the email as specified in the following table:
+1. In the action pane, provide the following information about the email to send:
 
    > [!TIP]
-   > To select output from the previous steps in your workflow, select inside an edit box so that the dynamic content list appears, or select **Add dynamic content**. For more results, select **See more** for each section in the list. To close the dynamic content list, select **Add dynamic content** again.
+   >
+   > To select output from preceding operations (trigger and actions) in your workflow, follow these steps:
+   >
+   > 1. Select inside an edit box to show the input options, which are the dynamic content list (lightning icon) and the expression editor (function icon). Select the dynamic content list.
+   > 2. Find and select the outputs that you want to include. For more results, select **See more** for each section in the list.
 
    | Parameter | Required | Value | Description |
    | -------- | -------- | ----- | ----------- |
    | **To** | Yes | <*recipient\@domain*> | Enter the recipient's email address. For testing purposes, you can use your own email address. |
-   | **Subject** | Yes | `Resource updated:` **Subject** | Enter the content for the email's subject. For this tutorial, enter the specified text, and select the event's **Subject** field. Here, your email subject includes the name for the updated resource (virtual machine). |
-   | **Body** | Yes | `Resource:` **Topic** <p>`Event type:` **Event Type**<p>`Event ID:` **ID**<p>`Time:` **Event Time** | Enter the content for the email's body. For this tutorial, enter the specified text and select the event's **Topic**, **Event Type**, **ID**, and **Event Time** fields so that your email includes the resource that fired the event, event type, event timestamp, and event ID for the update. For this tutorial, the resource is the Azure resource group selected in the trigger. <p>To add blank lines in your content, press **Shift** + **Enter**. |
+   | **Subject** | Yes | **Resource updated:** **[Subject]** | Enter the content for the email's subject. For this tutorial, enter the specified text, and select the event's **Subject** field. Here, your email subject includes the name for the updated resource (virtual machine). |
+   | **Body** | Yes | **Resource:** **[Topic]** <br><br>**Event type:** **[Event Type]**<br><br>**Event ID:** **[ID]**<br><br>**Time:** **[Event Time]** | Enter the content for the email's body. For this tutorial, enter the specified text and select the event's **Topic**, **Event Type**, **ID**, and **Event Time** outputs so that your email includes the resource that fired the event, event type, event timestamp, and event ID for the update. For this tutorial, the resource is the Azure resource group selected in the trigger. <br><br>To add blank lines in your content, press **Shift** + **Enter**. |
 
    > [!NOTE]
    > If you select a field that represents an array, the designer automatically adds a **For each** loop around 
-   > the action that references the array. That way, your logic app workflow performs that action on each array item.
+   > the action that references the array. That way, your workflow performs that action on each array item.
 
    Your email action might look like this example:
 
    :::image type="content" source="./media/monitor-virtual-machine-changes-logic-app/logic-app-send-email-details.png" alt-text="Screenshot shows the workflow designer with selected outputs to send in email when the virtual machine is updated.":::
 
-   Your finished logic app workflow might look like the following example:
+   Your finished workflow now looks like the following example:
 
    :::image type="content" source="./media/monitor-virtual-machine-changes-logic-app/logic-app-completed.png" alt-text="Screenshot shows designer with complete workflow and details for trigger and actions." lightbox="./media/monitor-virtual-machine-changes-logic-app/logic-app-completed.png":::
 
-1. Save your logic app. To collapse and hide each action's details in your logic app, select the title bar of the action.
+1. Save your workflow.
 
-   Your logic app is now live. It waits for changes to your virtual machine before doing anything. To test your workflow now, continue to the next section.
+   Your workflow updates are now live. The workflow trigger waits for changes to your virtual machine before doing anything. To test your workflow now, continue to the next section.
 
-## Test your logic app workflow
+## Test your workflow
 
 1. To check that your workflow is getting the specified events, update your virtual machine.
 
@@ -229,19 +233,23 @@ Now add an [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) s
 
    After a few moments, you should get an email. For example:
 
-1. To review the runs and trigger history for your logic app, on your logic app menu, select **Overview**. To view more details about a run, select the row for that run.
+1. To review the run history or trigger history for your workflow, on your resource sidebar, select **Overview**.
 
-   :::image type="content" source="./media/monitor-virtual-machine-changes-logic-app/logic-app-run-history.png" alt-text="Screenshot shows the logic app overview page, showing a successful run selected." lightbox="./media/monitor-virtual-machine-changes-logic-app/logic-app-run-history.png":::
+1. On the **Overview** page, select **Run history**. To view more details about a workflow run, select that run.
 
-1. To view the inputs and outputs for each step, expand the step that you want to review. This information can help you diagnose and debug problems in your logic app.
+   :::image type="content" source="./media/monitor-virtual-machine-changes-logic-app/logic-app-run-history.png" alt-text="Screenshot shows the logic app overview page with a successful run selected." lightbox="./media/monitor-virtual-machine-changes-logic-app/logic-app-run-history.png":::
 
-   :::image type="content" source="./media/monitor-virtual-machine-changes-logic-app/logic-app-run-history-details.png" alt-text="Screenshot shows the logic app runs history, showing details for each run." lightbox="./media/monitor-virtual-machine-changes-logic-app/logic-app-run-history-details.png":::
+1. To view the inputs and outputs for each operation, select that operation.
 
-Congratulations! You created and ran a logic app workflow that monitors resource events through Azure Event Grid and emails you when those events happen. You also learned how easily you can create workflows that automate processes and integrate systems and cloud services.
+   This information can help you diagnose and debug problems in your workflow.
 
-You can monitor other configuration changes with event grids and logic apps, for example:
+   :::image type="content" source="./media/monitor-virtual-machine-changes-logic-app/logic-app-run-history-details.png" alt-text="Screenshot shows the workflow run history with details about each run." lightbox="./media/monitor-virtual-machine-changes-logic-app/logic-app-run-history-details.png":::
 
-- A virtual machine gets Azure role-based access control (Azure RBAC) rights.
+Congratulations! You created and ran a workflow that monitors resource events in Azure Event Grid and emails you when those events happen. You also learned how easily you can create workflows that automate processes and integrate systems and cloud services.
+
+You can monitor other configuration changes with event grids and workflows, for example:
+
+- A virtual machine gets Azure role-based access control (Azure RBAC) permissions.
 - Changes are made to a network security group (NSG) on a network interface (NIC).
 - Disks for a virtual machine are added or removed.
 - A public IP address is assigned to a virtual machine NIC.
@@ -250,20 +258,20 @@ You can monitor other configuration changes with event grids and logic apps, for
 
 This tutorial uses resources and performs actions that incur charges on your Azure subscription. When you're done with the tutorial and testing, disable or delete any resources where you don't want to incur charges.
 
-- To stop running your workflow without deleting your work, disable your app. On your logic app menu, select **Overview**. On the toolbar, select **Disable**.
+- To stop running your workflow without deleting your work, disable your app. On the logic app sidebar, select **Overview**. On the toolbar, select **Disable**.
 
-  :::image type="content" source="./media/monitor-virtual-machine-changes-logic-app/turn-off-disable-logic-app.png" alt-text="Screenshot shows logic app overview, showing Disable button selected to disable the logic app.":::
+  :::image type="content" source="./media/monitor-virtual-machine-changes-logic-app/turn-off-disable-logic-app.png" alt-text="Screenshot shows logic app Overview page with Disable button selected.":::
 
   > [!TIP]
-  > If you don't see the logic app menu, try returning to the Azure portal home, and reopen your logic app.
+  > If you don't see the logic app sidebar, try returning to the Azure portal home, and reopen your logic app resource.
 
-- To permanently delete your logic app, on the logic app menu, select **Overview**. On the toolbar, select **Delete**. Confirm that you want to delete your logic app, and select **Delete**.
+- To permanently delete your logic app, on the sidebar menu, select **Overview**. On the toolbar, select **Delete**. Confirm that you want to delete your logic app and select **Delete**.
 
 ## Related content
 
 - [Route custom events to web endpoint with Azure CLI and Event Grid](../event-grid/custom-event-quickstart.md)
 
-See the following samples to learn about publishing events to and consuming events from Azure Event Grid using different programming languages. 
+For examples about publishing events and consuming events with Azure Event Grid by using different programming languages, see the following samples:
 
 - [Azure Event Grid samples for .NET](/samples/azure/azure-sdk-for-net/azure-event-grid-sdk-samples/)
 - [Azure Event Grid samples for Java](/samples/azure/azure-sdk-for-java/eventgrid-samples/)
