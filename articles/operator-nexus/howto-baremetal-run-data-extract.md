@@ -685,10 +685,17 @@ The command provides a link (if using cluster manager storage) or another comman
 
 The `run-data-extracts-restricted` command is a duplicate of the standard run-data-extracts command, created to support fine-grained access control via RBAC (Role-Based Access Control). It allows customers to run sensitive data extraction operations on BareMetalMachines with elevated privileges.
 
-It is implemented as a separate API action (runDataExtractsRestricted) and is designed to mirror the behavior of the original command but with restricted access to specific sub-commands.The following list contains the allowed sub commands for `run-data-extracts-restricted`:
+The `run-data-extracts-restricted` is implemented as a new and separate API action. The action is to be introduced in the `v20250701preview` and `v20250901` GA API, and is designed to mirror the behavior of the original command but with restricted access to specific sub-commands.The following list contains the allowed sub commands for`run-data-extracts-restricted`:
 
 - `cluster-cve-report`
 - `mde-agent-information`
+
+## Prerequisites
+* minimum supported API of v20250701preview` or `v20250901` and above
+* Storage Blob Container has been configured
+* The target bare metal machine is on and ready.
+* The syntax for these commands is based on the <TODO: need to confirm az networkcloud cli version>+ version of the az networkcloud CLI.
+* Get the Cluster Managed Resource group name (cluster_MRG) that you created for Cluster resource.
 
 Command execution can be performed using `az networkcloud baremetalmachine run-data-extracts-restricted` and it accepts arguments similarly to the `run-data-extract`.
 
@@ -697,11 +704,15 @@ Command execution can be performed using `az networkcloud baremetalmachine run-d
 ```azurecli-interactive
 az networkcloud baremetalmachine run-data-extracts-restricted --name "<machine-name>"  \
   --resource-group "<cluster_MRG>" \
-  --subscription "<subscription>" \
-  --commands '[{"arguments":["<arg1>","<arg2>"],"command":"<command1>"}]'  \
-  --limit-time-seconds "<timeout>"
-  --output-directory <output_directory>
+  --subscription "<subscriptionID>" \
+  --commands '[{"arguments":["--min-severity=8"],"command":"cluster-cve-report"}]'  \
+  --limit-time-seconds "600"
+  --output-directory ~/path/to/my/output/directory
 ```
+
+
+[{"arguments":["--min-severity=8"],"command":"cluster-cve-report"}]' --output-directory ~/tmp
+
 
 ### Storage and Output
 Output is stored in a blob container specified by the `commandOutputSettings`. By default the `run-data-extract` command uses the same commandOutputSettings however for security purposes `run-data-extracts-restricted` stores outputs in a seperate blob container. For how to specify the commandOutputSettings override for runcommand [please follow this guide]().
