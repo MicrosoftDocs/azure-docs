@@ -1,5 +1,5 @@
 ---
-title: Secure your Azure Application Gateway
+title: Secure Your Azure Application Gateway
 description: Learn how to secure your Azure Application Gateway deployment with network controls, proper configuration, and monitoring best practices.
 author: mbender-ms
 ms.author: mbender
