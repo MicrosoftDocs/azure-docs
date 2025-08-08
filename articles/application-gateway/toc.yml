@@ -83,6 +83,8 @@
   items:
   - name: Security baseline
     href: /security/benchmark/azure/baselines/application-gateway-security-baseline?toc=/azure/application-gateway/toc.json
+  - name: Secure your Application Gateway
+    href: secure-application-gateway.md
   - name: Private Deployment
     href: application-gateway-private-deployment.md
   - name: Private Link
