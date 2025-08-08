@@ -218,7 +218,7 @@ if __name__ == '__main__':
 ```
 ---
 
-#### Importing the script into a runbook
+#### Import the script into a runbook
 For information on importing the runbook, see [Import a runbook from the Azure portal](manage-runbooks.md#import-a-runbook-from-the-azure-portal). Copy the file from GitHub to storage that the portal can access before you run the import.
 
 
@@ -227,7 +227,7 @@ The **Import a runbook** page defaults the runbook name to match the name of the
 
 :::image type="content" source="media/python-3-packages/import-python-3-package.png" alt-text="Screenshot shows the Python 3 runbook import page.":::
 
-#### Executing the runbook to import the package and dependencies
+#### Execute the runbook to import the package and dependencies
 
 After creating and publishing the runbook, run it to import the package. See [Start a runbook in Azure Automation](start-runbooks.md) for details on executing the runbook.
 
