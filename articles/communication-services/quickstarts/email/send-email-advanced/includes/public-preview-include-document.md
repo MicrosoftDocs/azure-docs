@@ -1,7 +1,7 @@
 ---
-title: include file
-description: public preview include document
-author: fanruisun-msft
+title: Include file
+description: Public preview include document
+author: fanruisun
 manager: koagbakp
 services: azure-communication-services
 ms.author: fanruisun
