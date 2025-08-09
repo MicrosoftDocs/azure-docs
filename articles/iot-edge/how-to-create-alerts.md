@@ -1,9 +1,9 @@
 ---
 title: Get notified about issues using alerts - Azure IoT Edge
 description: Use Azure Monitor alert rules to monitor at scale
-author: patricka
+author: PatAltimore
 
-ms.author: PatAltimore
+ms.author: patricka
 ms.date: 08/08/2025
 ms.topic: concept-article
 ms.reviewer: sonialopez
