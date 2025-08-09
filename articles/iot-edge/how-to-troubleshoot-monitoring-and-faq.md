@@ -1,9 +1,9 @@
 ---
 title: Monitoring troubleshooting and FAQ - Azure IoT Edge
 description: Troubleshooting Azure Monitor integration and FAQ
-author: veyalla
+author: PatAltimore
 
-ms.author: PatAltimore
+ms.author: patricka
 ms.date: 08/08/2025
 ms.topic: concept-article
 ms.reviewer: sonialopez
