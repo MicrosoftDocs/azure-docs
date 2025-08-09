@@ -2,7 +2,7 @@
 title: Hydrating messageId using EmailClient
 titleSuffix: An Azure Communication Services Quickstart
 description: This article describes how to hydrate messageId using EmailClient with Azure Communication Services.
-author: fanruisun-msft
+author: fanruisun
 manager: koagbakp
 services: azure-communication-services
 ms.author: fanruisun

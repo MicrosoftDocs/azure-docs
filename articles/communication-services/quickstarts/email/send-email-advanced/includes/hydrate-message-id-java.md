@@ -1,7 +1,7 @@
 ---
 title: include file
 description: Hydrate messageId using using EmailClient for Java
-author: fanruisun-msft
+author: fanruisun
 manager: koagbakp
 services: azure-communication-services
 ms.author: fanruisun

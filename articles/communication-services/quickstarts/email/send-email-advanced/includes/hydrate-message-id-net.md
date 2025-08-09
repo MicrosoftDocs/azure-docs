@@ -1,7 +1,7 @@
 ---
 title: include file
 description: Hydrating messageId using using EmailClient for .NET SDK
-author: fanruisun-msft
+author: fanruisun
 manager: koagbakp
 services: azure-communication-services
 ms.author: fanruisun
