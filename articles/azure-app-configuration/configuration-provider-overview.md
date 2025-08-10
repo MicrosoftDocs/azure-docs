@@ -59,8 +59,8 @@ Key Vault References | [GA](./reference-dotnet-provider.md#key-vault-reference) 
 Key Vault Secret Refresh | [GA](./reference-dotnet-provider.md#key-vault-secret-refresh) | WIP | GA | WIP | WIP | GA
 Custom Key Vault Secret Resolution | [GA](./reference-dotnet-provider.md#key-vault-reference) | GA | GA | GA | [GA](./reference-javascript-provider.md#key-vault-reference) | GA
 Parallel Secret Resolution | WIP | WIP | WIP | WIP | [GA](./reference-javascript-provider.md#parallel-secret-resolution) | GA
-Feature Flags | [GA](./reference-dotnet-provider.md#feature-flag) | GA | GA | GA | [GA](./reference-javascript-provider.md#feature-flag) | WIP
-Variant Feature Flags | [GA](./reference-dotnet-provider.md#feature-flag) | GA | GA | GA | [GA](./reference-javascript-provider.md#feature-flag) | WIP
+Feature Flags | [GA](./reference-dotnet-provider.md#feature-flag) | GA | GA | GA | [GA](./reference-javascript-provider.md#feature-flag) | GA
+Variant Feature Flags | [GA](./reference-dotnet-provider.md#feature-flag) | GA | GA | GA | [GA](./reference-javascript-provider.md#feature-flag) | GA
 Feature Flag Telemetry | GA | GA | WIP | GA | GA | WIP
 Key Prefix Trim | [GA](./reference-dotnet-provider.md#trim-prefix-from-keys) | GA | GA | GA | [GA](./reference-javascript-provider.md#trim-prefix-from-keys) | GA
 Configurable Startup Time-out | [GA](./reference-dotnet-provider.md#startup-retry) | WIP | N/A | WIP | [GA](./reference-javascript-provider.md#startup-retry) | WIP

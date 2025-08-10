@@ -2,9 +2,9 @@
 title: "Quickstart: Azure Blob Storage library - C++"
 titleSuffix: Azure Storage
 description: In this quickstart, you learn how to use the Azure Blob Storage client library for C++ to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.date: 08/30/2023
 ms.service: azure-blob-storage
 ms.topic: quickstart
@@ -298,3 +298,4 @@ To see a C++ Blob Storage sample, continue to:
 
 > [!div class="nextstepaction"]
 > [Azure Blob Storage client library for C++ samples](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage/azure-storage-blobs/samples)
+

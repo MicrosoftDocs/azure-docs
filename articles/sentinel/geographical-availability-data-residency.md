@@ -65,10 +65,14 @@ Regions supported for Microsoft Sentinel raw data, and for processed and configu
 
 ### Regions supported for Microsoft Sentinel data lake
 
+> [!NOTE]
+> The Microsoft Sentinel data lake is currently in preview. During this time onboarding may be temporarily unavailable in some regions. When onboarding is available in your region, a onboarding banner appears on the Microsoft Defender portal home page to guide you through the process.
+
+
 | Continent              | Country/Region   | Azure Region                          |
 |------------------------|------------------|---------------------------------------|
 | North America          | Canada           | Canada Central                        |
-| North America                       | United States    | Central US<br>East US<br>East US 2<br>East US 2 EUAP<br>South Central US<br>West US2 |
+| North America          | United States    | Central US<br>East US<br>East US 2<br>South Central US<br>West US2 |
 | Asia and Middle East   |       -          | Southeast Asia                        |
 |  Asia and Middle East  | India            | Central India                         |
 |  Asia and Middle East  | Israel           | Israel Central                        |
@@ -77,7 +81,7 @@ Regions supported for Microsoft Sentinel raw data, and for processed and configu
 | Europe                 | France           | France Central                        |
 |  Europe                | Switzerland      | Switzerland North                     |
 |  Europe                | UK               | UK South                              |
-| Australia              | Australia        | Australia Central                     |
+| Australia              | Australia        | Australia East                       |
 
 
 ## Data retention
