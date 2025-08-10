@@ -24,7 +24,12 @@ Microsoft Sentinel is integrated with a modern data lake that offers affordable,
 
 ## Onboard Microsoft Sentinel to the Microsoft Defender portal and integrate with Microsoft Defender XDR
 
-Consider onboarding Microsoft Sentinel to the Microsoft Defender portal to unify capabilities with Microsoft Defender XDR like incident management and advanced hunting. 
+Consider onboarding Microsoft Sentinel to the Microsoft Defender portal to unify capabilities with Microsoft Defender XDR like incident management and advanced hunting.
+
+If you don't onboard Microsoft Sentinel to the Microsoft Defender portal, note that:
+
+- By July 2026, you will be redirected to the Defender portal when you select **Microsoft Sentinel** in the Azure portal.
+- Until this redirection occurs, you can use the Defender XDR data connector to include Microsoft Defender XDR capabilities in Microsoft Sentinel.
 
 The following illustration shows how Microsoft's XDR solution seamlessly integrates with Microsoft Sentinel.
 
