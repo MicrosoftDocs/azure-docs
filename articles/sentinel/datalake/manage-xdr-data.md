@@ -10,40 +10,38 @@ ms.date: 07/15/2025
 ms.author: edbaynash  
 
 ms.collection: ms-security  
+
+
+# Customer intent: As a security administrator, I want to manage XDR data in Microsoft Sentinel, so that I can ensure relevant data is available for investigation and analysis.
 ---  
  
 
 
-## Manage XDR Data in Microsoft Sentinel
+# Manage XDR Data in Microsoft Sentinel
 
-By default, Extended Detection and Response (XDR) data isn't ingested to the analytics tier or the data lake tier in Microsoft Sentinel. XDR data is only available for query through Advanced hunting for a maximum of 30 days. To manage XDR data in Microsoft Sentinel and enable ingestion into the analytics and the data lake tiers, configure the retention settings in **Tables** page in the Microsoft Defender portal.
+Extended Detection and Response (XDR) data isn't ingested by default into the analytics tier or the data lake tier in Microsoft Sentinel. XDR data is only available for query through Advanced hunting for a maximum of 30 days. To enable ingestion into the analytics and the data lake tiers and manage XDR data in Microsoft Sentinel, configure the retention settings in the Microsoft Defender portal. Retention settings are found in  **Microsoft Sentinel** > **Configuration** > **Tables** in the Microsoft Defender portal.
 
 ## Supported tables
 
-Not all XDR tables are supported for ingestion into the analytics tier or the data lake tier. To see which tables are supported:
+Not all XDR tables are supported for ingestion into the analytics tier or the data lake tier. To see which tables are supported, navigate to the **Tables** page in the Defender portal. Select the **Tier** filter and choose **XDR default**.
 
-1. Navigate to **Microsoft Sentinel** > **Configuration** > **Tables** in the Microsoft Defender portal.
-1. Select the **Tier** filter and choose **XDR default**.
-
-The list shows all the tables that originated in XDR. In the **Table type** column, there are two values:
-+ Sentinel: These tables can be ingested into the analytics tier and mirrored to the data lake tier.
-+ XDR: These tables can't be ingested into the analytics or data lake tiers. They're only available for query through Advanced hunting for a maximum of 30 days.
+The list shows all tables produced by XDR. There are two values in the **Table type** column:
++ **Sentinel**: Tables that can be ingested into the analytics tier and mirrored to the data lake tier.
++ **XDR**: Tables that can't be ingested into the analytics or data lake tiers. These tables are available for query through Advanced hunting with a retention period of 30 days.
 
 :::image type="content" source="./media/manage-xdr-data/tables-page.png" lightbox="./media/manage-xdr-data/tables-page.png" alt-text="A screenshot showing the Tables management page in the Defender portal.":::
 
 ## Manage ingestion using retention settings
 
-To manage ingestion of XDR data into the analytics tier and the data lake tier, configure the retention settings for the tables in the **Tables** page in the Microsoft Defender portal. The retention settings determine how long data is retained in the analytics tier and mirrored to the data lake tier.
+To manage ingestion of XDR data into the analytics tier and the data lake tier, configure the retention settings for the Sentinel type tables in the **Tables** page in the Defender portal. 
 
-If the Microsoft Sentinel XDR connector is enabled, the events tables are automatically ingested into analytics tier and mirrored the data lake tier. The default retention is 30 days, which can be extended for up to 12 years. For a list of tables see [Microsoft Defender XDR integration with Microsoft Sentinel](../connect-microsoft-365-defender.md?tabs=MDE#connect-events). Other XDR tables can be ingested into the analytics tier and mirrored to the data lake tier by configuring the retention settings to more than 30 days.
+If the Microsoft Sentinel XDR connector is enabled, the XDR events tables are automatically ingested into analytics tier and mirrored the data lake tier. The default retention is 30 days, which can be extended for up to 12 years. For a list of tables see [Microsoft Defender XDR integration with Microsoft Sentinel](../connect-microsoft-365-defender.md?tabs=MDE#connect-events). Other XDR tables can be ingested into the analytics tier and mirrored to the data lake tier by configuring the retention settings to more than 30 days.
 
-If the Microsoft Sentinel XDR connector isn't enabled, XDR tables aren't automatically ingested. To ingest XDR data into the analytics tier, configure the retention settings for greater than 30 days for either analytics or total retention. The data is automatically mirrored to the data lake tier.
+If the Microsoft Sentinel XDR connector isn't enabled, XDR tables aren't automatically ingested. To ingest XDR data into the analytics tier, configure the retention settings for a period greater than 30 days for either analytics or total retention. The data is automatically mirrored to the data lake tier.  For more information on retention settings, see [Configure table settings in Microsoft Sentinel (preview)](../manage-table-tiers-retention.md).
 
-For more information on retention settings, see [Configure table settings in Microsoft Sentinel (preview)](../manage-table-tiers-retention.md).
+To see which tables are currently being ingested, navigate to the **Tables** page and filter for the **XDR default** tier. Tables with more than 30 days of retention in either tier are currently binging ingested into the analytics tier and mirrored to the data lake tier. Note that when the Microsoft Sentinel XDR connector is enabled, XDR events tables are ingested even if the retention is 30 days.
 
-To see which tables are being ingested look for any, on the **Tables** page, filter for the **XDR default** tier and look for tables with more than 30 days of retention in the 
-
-To stop ingesting data into the analytics tier, reset analytics tier retention and total retention to the default 30 days.
+To stop ingesting data into the analytics tier, reset the analytics tier retention and total retention to the default 30 days.
 
 ## Retention and cost overview
 
