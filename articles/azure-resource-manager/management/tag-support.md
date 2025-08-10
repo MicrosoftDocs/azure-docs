@@ -2970,125 +2970,50 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | applicationGateways | Yes | Yes |
-> | applicationGatewayWebApplicationFirewallPolicies | Yes | Yes |
 > | applicationSecurityGroups | Yes | Yes |
-> | azureFirewallFqdnTags | No | No |
-> | azureFirewalls | Yes | No |
-> | azureWebCategories | No | No |
-> | bastionHosts | Yes | Yes |
-> | bgpServiceCommunities | No | No |
+> | cloudServiceNetworkInterfaces | No | No |
+> | cloudServicePublicIPAddresses | No | No |
 > | cloudServiceSlots | No | No |
-> | connections | Yes | Yes |
 > | customIpPrefixes | Yes | Yes |
 > | ddosCustomPolicies | Yes | Yes |
 > | ddosProtectionPlans | Yes | Yes |
-> | dnsForwardingRulesets | Yes | Yes |
-> | dnsForwardingRulesets / forwardingRules | No | No |
-> | dnsForwardingRulesets / virtualNetworkLinks | No | No |
-> | dnsResolvers | Yes | Yes |
-> | dnsResolvers / inboundEndpoints | Yes | Yes |
-> | dnsResolvers / outboundEndpoints | Yes | Yes |
-> | dnszones | Yes | Yes |
-> | dnszones / A | No | No |
-> | dnszones / AAAA | No | No |
-> | dnszones / all | No | No |
-> | dnszones / CAA | No | No |
-> | dnszones / CNAME | No | No |
-> | dnszones / MX | No | No |
-> | dnszones / NS | No | No |
-> | dnszones / PTR | No | No |
-> | dnszones / recordsets | No | No |
-> | dnszones / SOA | No | No |
-> | dnszones / SRV | No | No |
-> | dnszones / TXT | No | No |
 > | dscpConfigurations | Yes | Yes |
-> | expressRouteCircuits | Yes | Yes |
-> | expressRouteCrossConnections | Yes | Yes |
-> | expressRouteGateways | Yes | Yes |
-> | expressRoutePorts | Yes | Yes |
-> | expressRouteProviderPorts | No | No |
-> | expressRouteServiceProviders | No | No |
-> | firewallPolicies | Yes, see [note below](#network-limitations) | Yes |
-> | firewallPolicies / ruleCollectionGroups | No | No |
-> | frontdoors | Yes, but limited (see [note below](#network-limitations)) | Yes |
-> | frontdoors / frontendEndpoints | Yes, but limited (see [note below](#network-limitations)) | No |
-> | frontdoors / frontendEndpoints / customHttpsConfiguration | Yes, but limited (see [note below](#network-limitations)) | No |
-> | frontdoorWebApplicationFirewallManagedRuleSets | Yes, but limited (see [note below](#network-limitations)) | No |
-> | frontdoorWebApplicationFirewallPolicies | Yes, but limited (see [note below](#network-limitations)) | Yes |
-> | getDnsResourceReference | No | No |
-> | internalNotify | No | No |
+> | gatewayLoadBalancerAliases | Yes | Yes |
 > | internalPublicIpAddresses | No | No |
-> | ipGroups | Yes | Yes |
 > | loadBalancers | Yes | Yes |
-> | loadBalancers / backendAddressPools | No | No |
-> | localNetworkGateways | Yes | Yes |
 > | natGateways | Yes | Yes |
-> | networkExperimentProfiles | Yes | Yes |
 > | networkIntentPolicies | Yes | Yes |
 > | networkInterfaces | Yes | Yes |
-> | networkManagerConnections | No | No |
 > | networkManagers | Yes | No |
 > | networkProfiles | Yes | Yes |
 > | networkSecurityGroups | Yes | Yes |
-> | networkSecurityGroups / securityRules | No | No |
-> | networkSecurityPerimeters | Yes | Yes |
-> | networkVirtualAppliances | Yes | Yes |
-> | networkWatchers | No | No |
-> | networkWatchers / connectionMonitors | No | No |
-> | networkWatchers / flowLogs | No | No |
-> | networkWatchers / lenses | No | No |
-> | networkWatchers / pingMeshes | No | No |
-> | p2sVpnGateways | Yes | Yes |
-> | privateDnsZones | Yes | Yes |
-> | privateDnsZones / A | No | No |
-> | privateDnsZones / AAAA | No | No |
-> | privateDnsZones / all | No | No |
-> | privateDnsZones / CNAME | No | No |
-> | privateDnsZones / MX | No | No |
-> | privateDnsZones / PTR | No | No |
-> | privateDnsZones / SOA | No | No |
-> | privateDnsZones / SRV | No | No |
-> | privateDnsZones / TXT | No | No |
-> | privateDnsZones / virtualNetworkLinks | Yes | Yes |
-> | privateDnsZonesInternal | No | No |
+> | networkWatchers | Yes | Yes |
+> | networkWatchers / connectionMonitors | Yes | No |
+> | networkWatchers / flowLogs | Yes | Yes |
+> | networkWatchers / lenses | Yes | No |
+> | networkWatchers / pingMeshes | Yes | No |
 > | privateEndpointRedirectMaps | Yes | Yes |
 > | privateEndpoints | Yes | Yes |
 > | privateEndpoints / privateLinkServiceProxies | No | No |
 > | privateLinkServices | Yes | Yes |
 > | publicIPAddresses | Yes | Yes |
 > | publicIPPrefixes | Yes | Yes |
-> | routeFilters | Yes | Yes |
 > | routeTables | Yes | Yes |
-> | routeTables / routes | No | No |
-> | securityPartnerProviders | Yes | Yes |
 > | serviceEndpointPolicies | Yes | Yes |
-> | trafficManagerGeographicHierarchies | No | No |
-> | trafficmanagerprofiles | Yes, see [note below](#network-limitations) | Yes |
-> | trafficmanagerprofiles / azureendpoints | No | No |
-> | trafficmanagerprofiles / externalendpoints | No | No |
-> | trafficmanagerprofiles / heatMaps | No | No |
-> | trafficmanagerprofiles / nestedendpoints | No | No |
-> | trafficManagerUserMetricsKeys | No | No |
-> | virtualHubs | Yes | Yes |
-> | virtualNetworkGateways | Yes | Yes |
+> | serviceGateways | Yes | Yes |
 > | virtualNetworks | Yes | Yes |
-> | virtualNetworks / privateDnsZoneLinks | No | No |
-> | virtualNetworks / subnets | No | No |
 > | virtualNetworks / taggedTrafficConsumers | No | No |
 > | virtualNetworkTaps | Yes | Yes |
-> | virtualRouters | Yes | Yes |
-> | virtualWans | Yes | Yes |
-> | vpnGateways | Yes | Yes |
-> | vpnServerConfigurations | Yes | Yes |
-> | vpnSites | Yes | Yes |
 
 <a id="network-limitations"></a>
 
 > [!NOTE]
-> Azure DNS zones and Traffic Manager doesn't support the use of spaces in the tag or a tag that starts with a number. Azure DNS and Traffic Manager tag names do not support special and unicode characters. The value can contain all characters.
+> For Azure Front Door Service, you can apply tags when creating the resource, but updating or adding tags is not currently supported. Front Door doesn't support the use of # or : in the tag name.
+> 
+> Azure DNS zones and Traffic Manager doesn't support the use of spaces in the tag or a tag that starts with a number. Azure DNS tag names do not support special and unicode characters. The value can contain all characters.
 > 
 > Azure IP Groups and Azure Firewall Policies don't support PATCH operations, which means they don't support updating tags through the portal. Instead, use the update commands for those resources. For example, you can update tags for an IP group with the [az network ip-group update](/cli/azure/network/ip-group#az-network-ip-group-update) command.
+
 
 ## Microsoft.NetworkCloud
 
