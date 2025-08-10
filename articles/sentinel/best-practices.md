@@ -29,7 +29,7 @@ Consider onboarding Microsoft Sentinel to the Microsoft Defender portal to unify
 If you don't onboard Microsoft Sentinel to the Microsoft Defender portal, note that:
 
 - By July 2026, all Microsoft Sentinel customers using the Azure portal will be redirected to the Defender portal.
-- Until then, you can use the Defender XDR data connector to integrate Microsoft Defender service data with Microsoft Sentinel in the Azure portal.
+- Until then, you can use the [Defender XDR data connector](connect-microsoft-365-defender.md) to integrate Microsoft Defender service data with Microsoft Sentinel in the Azure portal.
 
 The following illustration shows how Microsoft's XDR solution seamlessly integrates with Microsoft Sentinel.
 
