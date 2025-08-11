@@ -90,7 +90,7 @@ You can view preview functionality on the [Azure Functions SQL Extensions releas
 ::: zone pivot="programming-language-java"  
 ## Update packages
 
-Add the Java library for SQL bindings to your functions project with an update to the `pom.xml` file in your Java Azure Functions project as seen in the following snippet:
+Add the [Azure Functions Java SQL Types package](https://mvnrepository.com/artifact/com.microsoft.azure.functions/azure-functions-java-library-sql) to your functions project with an update to the `pom.xml` file in your project, as in this example:
 
 ```xml
 <dependency>
@@ -100,7 +100,7 @@ Add the Java library for SQL bindings to your functions project with an update t
 </dependency>
 ```
 
-If your app is using the preview extension bundle, make sure to instead set `2.1.0-preview` as the version in your `pom.xml` file.
+If your app is using the preview extension bundle, make sure to instead set `2.1.0-preview` as the dependency version in your `pom.xml` file.
 ::: zone-end
 
 ## SQL connection string
