@@ -180,7 +180,7 @@ For cross-region backup requirements, consider using **Azure Backup for Blobs**,
 
 [!INCLUDE [Storage - SLA](includes/storage/reliability-storage-sla-include.md)]
 
-### Related content
+## Related content
 
 - [Azure Blob Storage overview](/azure/storage/blobs/storage-blobs-overview)
 - [Azure Storage redundancy](/azure/storage/common/storage-redundancy)
