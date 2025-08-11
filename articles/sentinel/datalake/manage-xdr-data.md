@@ -60,13 +60,15 @@ The following table summarizes the retention and cost implications for the diffe
 
 The following table summarizes the retention settings and their implications for ingestion and costs in Microsoft Sentinel.
 
-|XDR Advanced Hunting| Analytics tier retention | Total retention |  Analytics tier ingestion costs| Analytics tier storage costs | Data lake tier costs |
-|---|---|---|---|---|---|
-| Default Retention (30 Days Included in XDR License) | Analytics Retention: 30 days, only if Microsoft Sentinel XDR connector is enabled | N/A | No additional costs | No additional costs. | N/A |
-| N/A | 90 days | 90 days | Costs apply for analytics tier ingestion. | No additional costs. 90 days included free. | No additional costs. Total retention matches analytics tier retention.|
-| N/A | 90 days | 180 days | Costs apply for analytics tier ingestion. | No additional costs. 90 days included free. | Costs apply for 90 days of additional data lake retention (180 - 90 days). |
-| N/A | 30 days | 180 days | Costs apply for analytics tier ingestion. | No additional costs 90 days included free. | Costs apply for 150 days of additional data lake retention (180 - 30 days).|
-| N/A | 180 days | 1 year | Costs apply for analytics tier ingestion. | Costs apply for 90 days of additional analytics tier retention | Costs apply for 185 days of additional data lake retention (365 - 180 days). |
+In all examples, XDR data is available through Advanced hunting for a minimum of 30 days, regardless of the retention settings in the analytics or data lake tiers.
+
+ Analytics tier retention | Total retention |  Analytics tier ingestion costs| Analytics tier storage costs | Data lake tier costs |
+|---|---|---|---|---|
+| 30 days, if Microsoft Sentinel XDR connector is enabled | N/A | No additional costs | No additional costs. | N/A |
+| 90 days | 90 days | Costs apply for analytics tier ingestion. | No additional costs. 90 days included free. | No additional costs. Total retention matches analytics tier retention.|
+| 90 days | 180 days | Costs apply for analytics tier ingestion. | No additional costs. 90 days included free. | Costs apply for 90 days of additional data lake retention (180 - 90 days). |
+| 30 days | 180 days | Costs apply for analytics tier ingestion. | No additional costs 90 days included free. | Costs apply for 150 days of additional data lake retention (180 - 30 days).|
+| 180 days | 1 year | Costs apply for analytics tier ingestion. | Costs apply for 90 days of additional analytics tier retention | Costs apply for 185 days of additional data lake retention (365 - 180 days). |
 
 ## Related topics    
 
