@@ -54,9 +54,9 @@ Upgrading from GPv1 to GPv2 enables modern features such as [accesss/access-tier
 
 ### Model your costs before upgrading
 1. Capture a baseline of monthly operations by type (**read, write, list/metadata**) and any **egress**.
-1. Use the [Azure Pricing Page](../blobs/pricing.md) page to compare **per-GB** and **per-operation** rates for your region, redundancy (LRS/ZRS/GRS/GZRS), and intended access tier (hot/cool/cold/archive).
+1. Use the [Azure Pricing Page](https://azure.microsoft.com/pricing/details/storage/blobs/) page to compare **per-GB** and **per-operation** rates for your region, redundancy (LRS/ZRS/GRS/GZRS), and intended access tier (hot/cool/cold/archive).
 1. Map data to the right tiers and include **early-deletion** minimums for cool/cold/archive.
-1. Plan [lifecycle policies](../blobs/lifecycle.md) (for example, move from hot → cool after 30 days of no access, then archive later) and factor in their transaction effects.
+1. Plan [lifecycle policies](../blobs/lifecycle-management-overview.md) (for example, move from hot → cool after 30 days of no access, then archive later) and factor in their transaction effects.
 1. Compare your current GPv1 bill to the modeled GPv2 bill (with tiers and lifecycle rules).
 
 >[!TIP]
@@ -65,7 +65,7 @@ Upgrading from GPv1 to GPv2 enables modern features such as [accesss/access-tier
 ### Upgrade facts
 - The upgrade is **in-place** and requires **no downtime**; it changes the account kind in Azure Resource Manager.
 - Upgrading to GPv2 is **permanent**.
-- Set your **default access tier** (hot or cool) during the upgrade to avoid unintended charges. For details, see [storage-account-upgrade.md](../blobs/storage-account-upgrade.md).
+- Set your **default access tier** (hot or cool) during the upgrade to avoid unintended charges. For details, see [storage-account-upgrade.md](storage-account-upgrade.md).
 - The upgrade is **non-disruptive**; your data and endpoints remain the same.
 
 ## How should I prepare?
