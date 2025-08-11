@@ -31,7 +31,7 @@ Azure SRE Agent is made up from the following key features:
 
 * **Continuous, proactive monitoring**: The agent continuously evaluates activity in your environments to monitor active resources. The agent maintains a knowledge graph of your Azure infrastructure maintaining relationships between resources and dependencies.
 
-* **Source code integration**: When you connect your source code to an Azure resource through SRE Agent, the agent is able to help pin-point root causes in your code base. If you connect a resource to a GitHub repository, the agent can delegate fixes to GitHub Copilot.
+* **Source code integration**: When you connect your Azure resources to Azure DevOps or GitHub repositories through SRE Agent, the agent is able to help pin-point root causes in your code base. Additionally, if you connect a resource to a GitHub repository, the agent can delegate fixes to GitHub Copilot.
 
 ## How do I use Azure SRE Agent?
 
