@@ -117,9 +117,6 @@ The following table shows the language versions supported for Python functions.
 | Python 3.10 | GA | October 2026 |
 | Python 3.9 | GA | October 2025 |
 
-> [!IMPORTANT]  
-> Python 3.13 is currently supported on the Flex Consumption, Premium, and Dedicated plans. Python 3.13 support on the Consumption plan is pending.
-
 For more information, see [Azure Functions Python developer guide](../articles/azure-functions/functions-reference-python.md).
 ::: zone-end
 
