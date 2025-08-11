@@ -1315,7 +1315,20 @@ Before a generally available release, a .NET version might be released in a _Pre
 
 While it might be possible to target a given release from a local Functions project, function apps hosted in Azure might not have that release available. Azure Functions can only be used with Preview or Go-live releases noted in this section.
 
-Azure Functions doesn't currently work with any "Preview" or "Go-live" .NET releases. See [Supported versions][supported-versions] for a list of generally available releases that you can use.
+<!-- Azure Functions doesn't currently work with any "Preview" or "Go-live" .NET releases. See [Supported versions][supported-versions] for a list of generally available releases that you can use. -->
+
+Azure Functions currently can be used with the following "Preview" or "Go-live" .NET releases:
+
+| Operating system | .NET preview version          |
+|------------------|-------------------------------|
+| Linux            | .NET 10 Preview 5<sup>1,2</sup> |
+| Windows          | .NET 10 Preview 5<sup>1</sup> |
+
+<sup>1</sup> Visual Studio doesn't yet support Azure Functions with .NET 10.
+
+<sup>2</sup> Linux Consumption apps do not yet .NET 10.
+
+See [Supported versions][supported-versions] for a list of generally available releases that you can use.
 
 ### Using a preview .NET SDK
 
@@ -1358,7 +1371,7 @@ Keep these considerations in mind when using Functions with preview versions of 
 + During a preview period, your development environment might have a more recent version of the .NET preview than the hosted service. This can cause your function app to fail when deployed. To address this, you can specify the version of the SDK to use in [`global.json`](/dotnet/core/tools/global-json). 
 
     1. Run the `dotnet --list-sdks` command and note the preview version you're currently using during local development. 
-    1. Run the `dotnet new globaljson --sdk-version <SDK_VERSION> --force` command, where `<SDK_VERSION>` is the version you're using locally. For example, `dotnet new globaljson --sdk-version dotnet-sdk-8.0.100-preview.7.23376.3 --force` causes the system to use the .NET 8 Preview 7 SDK when building your project.
+    1. Run the `dotnet new globaljson --sdk-version <SDK_VERSION> --force` command, where `<SDK_VERSION>` is the version you're using locally. For example, `dotnet new globaljson --sdk-version dotnet-sdk-10.0.100-preview.5.25277.114 --force` causes the system to use the .NET 10 Preview 5 SDK when building your project.
 
 > [!NOTE] 
 > Because of the just-in-time loading of preview frameworks, function apps running on Windows can experience increased cold start times when compared against earlier GA versions.
