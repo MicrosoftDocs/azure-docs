@@ -4,7 +4,7 @@ description: Learn which Azure services offer availability zone support.
 ms.service: azure
 ms.subservice: azure-reliability
 ms.topic: conceptual
-ms.date: 03/26/2025
+ms.date: 08/11/2025
 ms.author: anaharris
 author: anaharris-ms
 ms.custom: subject-reliability
@@ -28,7 +28,7 @@ Some Azure services are *nonregional*, which means that you don't deploy the ser
 
 | **Product**   | **Zone-redundant**  | **Zonal** | 
 | --- | --- |---|
-| [Azure AI Search](/azure/search/search-reliability#availability-zones) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
+| [Azure AI Search](reliability-ai-search.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |
 | [Azure API Center](../api-center/overview.md)|:::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false":::  | |
 | [Azure API Management](./reliability-api-management.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false":::  | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: |
 | [Azure App Configuration](../azure-app-configuration/faq.yml#how-does-app-configuration-ensure-high-data-availability) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | |

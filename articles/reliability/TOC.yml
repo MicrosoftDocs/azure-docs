@@ -302,7 +302,7 @@
   - name: Web
     items:
     - name: Azure AI Search
-      href: /azure/search/search-reliability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: reliability-ai-search.md
     - name: Azure API Management
       href: reliability-api-management.md
     - name: Azure App Service
@@ -338,7 +338,7 @@
     - name: Migration guides by service
       items:
       - name: Azure AI Search
-        href: migrate-search-service.md
+        href: reliability-ai-search.md#configure-availability-zone-support
       - name: Azure API Management
         href: migrate-api-mgt.md
       - name: Azure App Configuration
