@@ -260,6 +260,11 @@ Those network resources are connected to your virtual network created in the pre
 > [!IMPORTANT]
 > The resource groups are fully managed by the Azure Spring Apps service. Do not manually delete or modify any resource inside.
 
+> If your organization uses Azure Policy assignments that enforce rules on resource groups, you may need to create policy exclusions for the Azure Spring Apps managed resource groups (`ap-svc-rt_*` and `ap-app_*`). These groups are controlled by the Azure Spring Apps service, and policy restrictions might prevent the service from working properly.
+> Also, check if any resource locks are applied to these groups. Locks can stop the service from creating or updating resources.
+> You can review the Activity Log for these resource groups to find failed operations or access denied events. These issues may be caused by policy settings or resource locks.
+> Before deployment, contact your Azure administrator to make sure the correct policy exclusions are in place and that no resource locks are blocking normal operations.
+
 ## Using smaller subnet ranges
 
 This table shows the maximum number of app instances Azure Spring Apps supports using smaller subnet ranges.
