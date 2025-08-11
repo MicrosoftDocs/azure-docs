@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.service: azure
 ms.subservice: azure-reliability
 ms.topic: conceptual
-ms.date: 01/15/2025
+ms.date: 08/12/2025
 ms.author: anaharris
 ms.custom:
   - subject-reliability
@@ -15,6 +15,10 @@ ms.custom:
 # Multi-region solutions in nonpaired regions
 
 While some Azure services support geo-redundancy and geo-replication by using paired regions, you can create solutions that support multiple regions [even when those regions aren't paired](./regions-paired.md). This article lists some of the services and possible configurations for multi-region solutions, without requiring paired regions. To learn more about each Azure service and how it supports reliability, see the [Azure service reliability guides](./overview-reliability-guidance.md).
+
+## Azure AI Search
+
+To learn about how to create multi-region solutions using Azure AI Search, see [Reliability in Azure AI Search](./reliability-ai-search.md).
 
 ## Azure API Management
 
