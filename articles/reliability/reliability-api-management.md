@@ -52,7 +52,7 @@ When you use Azure API Management in front of an API, you might need to retry re
 [!INCLUDE[introduction to AZ](includes/reliability-availability-zone-description-include.md)]
 
 Azure API Management offers two types of availability zone support when you deploy a Premium (classic) API Management instance in a supported region:
-	
+
 - *Automatic*. Azure API Management offers automatic availability zone support when you don't specify which availability zones to use. 
     
 - *Manual*. Azure API Management offers manual availability zone support when you explicitly specify which availability zones to use. 
@@ -63,9 +63,13 @@ With availability zone support, Azure API Management replicates service componen
 
 With automatic availability zone support, you can choose either a single unit or multi-unit instance configuration to achieve zone-redundancy:
 
-- *Multi-unit configuration (Recommended)* If your instance has two or more units, Azure API Management makes a best effort attempt to spread your instance's units among the region's availability zones. There's no way to determine which availability zones your units are placed into. For maximum benefit of availability zones, we recommend that you deploy a minimum of three units, which can be distributed across all available zones in a region. 
+- *Multi-unit configuration (Recommended)* If your instance has two or more units, Azure API Management makes a best effort attempt to spread your instance's units among the region's availability zones. There's no way to determine which availability zones your units are placed into. For maximum benefit of availability zones, we recommend that you deploy a minimum of three units, which can be distributed across all available zones in a region.
+    
+    :::image type="content" source="./media/reliability-api-management/zone-redundant-automatic-multi-unit.png" alt-text="Diagram that shows an API Management instance using automatic availability zone support, with three units configured." border="false" :::
 
 - *Single unit configuration*. If your instance has a single unit, the unit's underlying VMs are distributed to two availability zones. There's no way to determine which availability zones the unit's VMs are placed into.
+
+    :::image type="content" source="./media/reliability-api-management/automatic-single-unit.png" alt-text="Diagram that shows an API Management instance using automatic availability zone support, with one unit configured." border="false" :::
 
 ### Manual availability zone support
 
@@ -73,7 +77,11 @@ If you want to explicitly select the availability zones to use, you can choose b
 
 - *Zone-redundant*: Manually configure zone redundancy for an API Management instance in a supported region to provide redundancy for service components. When you select two or more availability zones to use, Azure automatically replicates the service components across the selected zones.
 
+    :::image type="content" source="./media/reliability-api-management/zone-redundant-automatic-multi-unit.png" alt-text="Diagram that shows an API Management instance using manual availability zone support, configured for zone redundancy, with three units configured." border="false" :::
+
 - *Zonal*: The API Management service components are deployed in a single zone that you select within an Azure region. All of the units are placed into the same availability zone.
+
+    :::image type="content" source="./media/reliability-api-management/zonal.png" alt-text="Diagram that shows an API Management instance using manual availability zone support, configured for a zonal deployment into zone 1, with two units configured." border="false" :::
 
     > [!IMPORTANT]
     > Pinning to a single availability zone is only recommended when [cross-zone latency](./availability-zones-overview.md#inter-zone-latency) is too high for your needs, and when you have verified that the latency doesn't meet your requirements. By itself, a zonal instance doesn’t provide resiliency to an availability zone outage. To improve the resiliency of a zonal API Management deployment, you need to explicitly deploy separate instances into multiple availability zones and configure traffic routing and failover.
