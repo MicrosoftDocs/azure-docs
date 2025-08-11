@@ -51,8 +51,8 @@ To complete the steps in this tutorial, you must have the following resources an
 ## Create the DCR and add resources
 
 To create the DCR and add resources, follow the steps in these articles:
-- [Create the data collection rule](/azure-monitor/vm/data-collection#create-a-data-collection-rule)
-- [Add resources](/azure-monitor/vm/data-collection#add-resources)
+- [Create the data collection rule](/azure/azure-monitor/vm/data-collection#create-a-data-collection-rule)
+- [Add resources](/azure/azure-monitor/vm/data-collection#add-resources)
 
 [!INCLUDE [configure-syslog-ama](~/reusable-content/ce-skilling/azure/includes/azure-monitor/agents/configure-syslog-ama.md)]
 
