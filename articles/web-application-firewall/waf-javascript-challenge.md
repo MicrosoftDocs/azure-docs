@@ -23,7 +23,7 @@ The JavaScript challenge is an invisible web challenge used to distinguish betwe
 
 ## How it works
 
-When the JS Challenge is active on Azure WAF and a client's HTTP(s) request matches a specific rule, the client is shown a Microsoft JS challenge page. The user sees this page for a few seconds while the user’s browser computes the challenge. If the user's browser successfully computes the challenge it will send a response back to an Azure endpoint that gets exposed if you have WAF configured. Requests sent to this endpoint are not forwarded to the backend and do not count towards rate limiting features. If the browser's call to this endpoint contains the correct values indicating a successful computation the user passes the challenge.
+When the JS Challenge is active on Azure WAF and a client's HTTP(s) request matches a specific rule, the client is shown a Microsoft JS challenge page. The user sees this page for a few seconds while the user’s browser computes the challenge. If the user's browser successfully computes the challenge it will send a response back to an Azure endpoint that gets exposed if you have WAF configured. This endpoint is exposed to the public, however, requests sent to this endpoint are not forwarded to the backend and do not count towards rate limiting features. If the browser's call to this endpoint contains the correct values indicating a successful computation the user passes the challenge.
 
 The client's browser must successfully compute a JavaScript challenge on this page to receive validation from Azure WAF. When the computation succeeds, WAF validates the request as a nonbot client and runs the rest of the WAF rules. Requests that fail to successfully compute the challenge are blocked.
 
