@@ -44,7 +44,7 @@ HDInsight bundles open-source components and HDInsight platform into a package t
 |-|-|-|-|
 |[Basic and Standard A-series VMs Retirement](https://azure.microsoft.com/updates/basic-and-standard-aseries-vms-on-hdinsight-will-retire-on-31-august-2024/) |August 31, 2024 |[Av1-series retirement - Azure Virtual Machines](/azure/virtual-machines/sizes/migration-guides/av1-series-retirement) |Y|
 |[Azure Monitor experience (preview)](https://azure.microsoft.com/updates/v2/hdinsight-azure-monitor-experience-retirement/) | February 01, 2025 |[Azure Monitor Agent (AMA) migration guide for Azure HDInsight clusters](./azure-monitor-agent.md) |Y|
-|[Enterprise Security Package](https://azure.microsoft.com/en-us/updates?id=497263) | July 31, 2026 | Migrate to alternative Azure offerings such as Microsoft Fabric |N/A|
+|[Enterprise Security Package](https://azure.microsoft.com/updates?id=497263) | July 31, 2026 | Migrate to alternative Azure offerings such as Microsoft Fabric |N/A|
 
 
 ## Next steps
