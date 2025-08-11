@@ -18,6 +18,24 @@ In Azure IoT Operations, the connector for REST/HTTP (preview) enables access to
 
 [!INCLUDE [iot-operations-device-definition](../includes/iot-operations-device-definition.md)]
 
+The connector for REST/HTTP supports the following features:
+
+- Automatic retries when sampling failures occur. Reports a failed status for errors that can't be retried.
+- Integration with OpenTelemetry.
+- Use of _device endpoints_ and _namespace assets_.
+- Device endpoint and asset definition validation for REST compatibility.
+- Multiple authentication methods:
+  - Username/password basic HTTP authentication
+  - x509 client certificates
+  - Anonymous access for testing purposes
+  - Certificate trust bundle to specify additional certificate authorities
+
+For each configured dataset, the connector for REST/HTTP:
+
+- Performs a GET request to the address specified in the device endpoint and appends the dataset's data source from the namespace asset.
+- Generates a message schema for each dataset based on the data it receives, and registers it with Schema Registry and Azure Device Registry.
+- Forwards the data to the specified destination.
+
 This article explains how to use the connector for REST/HTTP to perform tasks such as:
 
 - Define the devices that connect HTTP sources to your Azure IoT Operations instance.

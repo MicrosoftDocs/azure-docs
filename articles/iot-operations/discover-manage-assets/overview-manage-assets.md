@@ -12,6 +12,32 @@ ai-usage: ai-assisted
 
 # What is asset and device management in Azure IoT Operations?
 
+---
+
+## Proposed outline for this article
+
+- AIO architecture diagram
+- Physical assets and devices
+- Logical namespace assets and devices
+- Southbound and northbound connectivity
+- Services
+  - ADR
+    - Namespaces
+    - Assets
+    - Devices
+    - Schemas
+    - Resource synchronization
+  - Akri
+    - Connectivity
+    - Discovery
+    - Monitoring
+  - DOE
+  - Azure portal
+
+*Reuse content below as much as possible*
+
+---
+
 > [!IMPORTANT]
 > Devices (preview) are new in version 1.2.x of Azure IoT Operations. To view the asset endpoint documentation, see [Asset management overview](/previous-versions/azure/iot-operations/discover-manage-assets/overview-manage-assets) on the previous versions site.
 

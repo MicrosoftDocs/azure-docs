@@ -11,6 +11,22 @@ ms.date: 07/15/2025
 
 # Use the operations experience to manage resources such as assets, devices, and data flows
 
+---
+
+## Proposed outline for this article
+
+- Sites
+- Instances
+- Certificates
+- Secrets
+- Notifications
+- Activity logs
+- Links to details for connectors and data flows
+
+*Reuse content below as much as possible*
+
+---
+
 The *operations experience* lets OT users manage resources such as their assets, devices, and data flows. The operations experience is a web-based user interface that provides a consistent way to manage assets and devices across different Azure IoT Operations sites and instances.
 
 A _site_ is a collection of Azure IoT Operations instances. Sites typically group instances by physical location and make it easier for OT users to locate and manage assets. Your IT administrator creates sites and assigns Azure IoT Operations instances to them. To learn more, see [What is Azure Arc site manager (preview)?](/azure/azure-arc/site-manager/overview).
@@ -84,7 +100,7 @@ To view activity logs as the resource level, select the resource that you want t
 ## Related content
 
 - [Connector for OPC UA overview](overview-opc-ua-connector.md)
-- [Connector for ONVIF overview](overview-onvif-connector.md)
-- [Media connector overview](overview-media-connector.md)
-- [Connector for REST/HTTP overview](overview-http-connector.md)
+- [Connector for ONVIF overview](howto-use-onvif-connector.md)
+- [Media connector overview](howto-use-media-connector.md)
+- [Connector for REST/HTTP overview](howto-use-http-connector.md)
 - [Process and route data with data flows](../connect-to-cloud/overview-dataflow.md)

@@ -76,7 +76,7 @@ To create a device with an OPC UA endpoint that has discovery enabled:
 
 1. Select the **Run asset discovery** option for the endpoint:
 
-    :::image type="content" source="media/howto-autodetect-opc-ua-assets-use-akri/enable-asset-detection.png" alt-text="Screenshot that shows how to create a device endpoint with discovery enabled.":::
+    :::image type="content" source="media/howto-detect-opc-ua-assets/enable-asset-detection.png" alt-text="Screenshot that shows how to create a device endpoint with discovery enabled.":::
 
 1. Finish creating the device.
 
@@ -86,7 +86,7 @@ Azure IoT Operations uses the device to connect to the OPC UA server and scan fo
 
 1. Go to the **Discovery** page for your instance in the operations experience and then go to the **Discovered assets** tab:
 
-    :::image type="content" source="media/howto-autodetect-opc-ua-assets-use-akri/discovered-assets-list.png" alt-text="Screenshot that shows how to view discovered assets.":::
+    :::image type="content" source="media/howto-detect-opc-ua-assets/discovered-assets-list.png" alt-text="Screenshot that shows how to view discovered assets.":::
 
 1. You can filter the list by the device name, or by keyword. The list shows the discovered assets and their status.
 
@@ -98,15 +98,15 @@ From the list of discovered assets, you can import an asset into your Azure IoT 
 
 1. The site takes you to the **Asset details** page for a namespace asset, where you can review the asset details and make any changes. Enter a name and description for the discovered asset:
 
-    :::image type="content" source="media/howto-autodetect-opc-ua-assets-use-akri/add-asset-details.png" alt-text="Screenshot that shows an asset created from a discovered asset.":::
+    :::image type="content" source="media/howto-detect-opc-ua-assets/add-asset-details.png" alt-text="Screenshot that shows an asset created from a discovered asset.":::
 
 1. Step through the rest of the **Create asset** pages and select the imported tags and events that you want to use:
 
-    :::image type="content" source="media/howto-autodetect-opc-ua-assets-use-akri/add-imported-tags.png" alt-text="Screenshot that shows how to modify the tags of an imported asset.":::
+    :::image type="content" source="media/howto-detect-opc-ua-assets/add-imported-tags.png" alt-text="Screenshot that shows how to modify the tags of an imported asset.":::
 
 1. The imported namespace asset is created in your Azure IoT Operations instance. You can view the asset in the **Assets** page of the operations experience:
 
-    :::image type="content" source="media/howto-autodetect-opc-ua-assets-use-akri/provisioned-asset.png" alt-text="Screenshot that shows how to view the imported asset.":::
+    :::image type="content" source="media/howto-detect-opc-ua-assets/provisioned-asset.png" alt-text="Screenshot that shows how to view the imported asset.":::
 
 To learn more about managing asset configurations, see [Manage asset configurations](howto-manage-assets-devices.md).
 
@@ -114,7 +114,7 @@ To learn more about managing asset configurations, see [Manage asset configurati
 
 Both the discovered asset and the imported asset are visible in your resource group in the Azure portal:
 
-:::image type="content" source="media/howto-autodetect-opc-ua-assets-use-akri/portal-assets.png" alt-text="Screenshot that shows how to view the discovered and imported asset in the Azure portal.":::
+:::image type="content" source="media/howto-detect-opc-ua-assets/portal-assets.png" alt-text="Screenshot that shows how to view the discovered and imported asset in the Azure portal.":::
 
 ## Review the custom resource definitions in your cluster (optional)
 

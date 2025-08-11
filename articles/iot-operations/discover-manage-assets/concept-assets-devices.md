@@ -10,7 +10,24 @@ ms.date: 06/24/2025
 # CustomerIntent: As an industrial edge IT or operations user, I want to understand the types of Azure resources that are created by Azure Device Registry to manage assets.
 ---
 
-# Define assets and devices
+# Understand namespace assets and devices
+
+---
+
+## Proposed outline for this article
+
+- Devices/endpoints/Akri connectors
+- Namespace asset types
+- Tags/datasets
+- Data points
+- Events/event groups
+- Actions/management groups
+- Streams/task types
+- Destinations (northbound)
+
+*Reuse content below as much as possible*
+
+---
 
 > [!IMPORTANT]
 > Devices (preview) are new in version 1.2.x of Azure IoT Operations. To view the asset endpoint documentation, see [Asset management overview](/previous-versions/azure/iot-operations/discover-manage-assets/overview-manage-assets) on the previous versions site.

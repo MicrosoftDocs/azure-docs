@@ -14,6 +14,38 @@ ms.date: 07/08/2025
 
 # What are Akri services (preview)?
 
+---
+
+## Proposed outline for this article
+
+- Overview
+  - Connect (southbound and northbound)
+  - Discover
+  - Monitor
+- Akri architecture diagram
+- Akri framework
+- Akri operator
+  - Deployment summary
+  - Links to deployment steps in how-to articles
+- Akri diagnostics service
+- Akri ADR service
+  - Akri and namespace assets and devices
+- Discovery handlers
+- Connectors - 1st party, 3rd party
+  - List available connectors
+    - OPC UA
+    - Media
+    - ONVIF
+    - REST/HTTP
+- Akri SDKs
+  - Link to SDKs
+  - Examples
+- OSS Akri
+
+*Reuse content below as much as possible*
+
+---
+
 The Azure IoT Operations southbound connectors use Akri services to:
 
 - Discover physical devices and devices connected to your cluster.
@@ -83,13 +115,13 @@ The Akri services support the following features:
 
 ## Related content
 
-To learn more about OPC UA automatic asset discovery with Akri services, see [Discover OPC UA data sources using the Akri services](howto-autodetect-opc-ua-assets-use-akri.md)
+To learn more about OPC UA automatic asset discovery with Akri services, see [Discover OPC UA data sources using the Akri services](howto-detect-opc-ua-assets.md)
 
 To learn more about using Akri with ONVIF, Media, or REST/HTTP, see:
 
-- [Understand the connector for media](./overview-media-connector.md)
-- [Understand the connector for ONVIF](./overview-onvif-connector.md)
-- [Understand the connector for REST/HTTP](overview-http-connector.md)
+- [Understand the connector for media](./howto-use-media-connector.md)
+- [Understand the connector for ONVIF](./howto-use-onvif-connector.md)
+- [Understand the connector for REST/HTTP](howto-use-http-connector.md)
 
 To learn more about the open-source CNCF Akri, see the following resources:
 
