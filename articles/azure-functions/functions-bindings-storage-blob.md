@@ -118,7 +118,7 @@ Functions version 1.x doesn't support isolated worker process.
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
 
-[!INCLUDE [functions-install-extension-bundle](functions-install-extension-bundle.md)]
+[!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 
 ::: zone-end
 

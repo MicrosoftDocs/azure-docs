@@ -58,7 +58,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Dapr
 
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
 
-[!INCLUDE [functions-install-extension-bundle](functions-install-extension-bundle.md)]
+[!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 
 ::: zone-end
 

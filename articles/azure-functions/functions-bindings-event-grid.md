@@ -87,7 +87,7 @@ The Event Grid output binding is only available for Functions 2.x and higher.
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
 
-[!INCLUDE [functions-install-extension-bundle](functions-install-extension-bundle.md)]
+[!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 
 Considerations for the Event Grid extension:
 

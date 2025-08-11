@@ -45,7 +45,7 @@ Add the extension to your project by installing this [NuGet package].
 
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"
 
-[!INCLUDE [functions-install-extension-bundle](functions-install-extension-bundle.md)]
+[!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
