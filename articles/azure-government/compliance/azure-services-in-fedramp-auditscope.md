@@ -7,7 +7,7 @@ ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
 recommendations: false
-ms.date: 04/11/2025
+ms.date: 08/11/2025
 ---
 
 # Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
@@ -51,7 +51,7 @@ For current Azure Government regions and available services, see [Products avail
 This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and Power Platform cloud services in scope for FedRAMP High, DoD IL2, DoD IL4, DoD IL5, and DoD IL6 authorizations across Azure, Azure Government, and Azure Government Secret cloud environments. For other authorization details in Azure Government Secret and Azure Government Top Secret, contact your Microsoft account representative.
 
 ## Azure public services by audit scope
-*Last updated: January 2025*
+*Last updated: August 2025*
 
 ### Terminology used
 
@@ -119,6 +119,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Blueprints](../../governance/blueprints/index.yml) | &#x2705; | &#x2705; |
 | [Bot Service](/azure/bot-service/) | &#x2705; | &#x2705; |
 | [Cloud Services](../../cloud-services/index.yml) | &#x2705; | &#x2705; |
+| [Cloud Services Extended Support](../../cloud-services-extended-support/index.yml) | &#x2705; | &#x2705; |
 | [Cloud Shell](../../cloud-shell/overview.md) | &#x2705; | &#x2705; |
 | [Azure AI Health Bot](/healthbot/) | &#x2705; | &#x2705; |
 | [Azure AI Search](/azure/search/) (formerly Azure Cognitive Search) | &#x2705; | &#x2705; |
@@ -158,8 +159,10 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Dynamics 365 Finance](/dynamics365/finance/)| &#x2705; | &#x2705; |
 | [Dynamics 365 Fraud Protection](/dynamics365/fraud-protection/)| &#x2705; | &#x2705; |
 | [Dynamics 365 Guides](/dynamics365/mixed-reality/guides/)| &#x2705; | &#x2705; |
+| [Dynamics 365 Human Resources](/dynamics365/human-resources/)| &#x2705; | &#x2705; |
 | [Dynamics 365 Sales](/dynamics365/sales/help-hub) | &#x2705; | &#x2705; |
 | [Dynamics 365 Intelligent Order Management](/dynamics365/intelligent-order-management/) | &#x2705; | &#x2705; |
+| [Dynamics 365 Project Operations](/dynamics365/project-operations/)| &#x2705; | &#x2705; |
 | [Dynamics 365 Sales Professional](/dynamics365/sales/overview#dynamics-365-sales-professional) | &#x2705; | &#x2705; |
 | [Dynamics 365 Supply Chain Management](/dynamics365/supply-chain/)| &#x2705; | &#x2705; |
 | [Event Grid](../../event-grid/index.yml) | &#x2705; | &#x2705; |
@@ -205,6 +208,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Microsoft Pin Reset Service](/windows/security/identity-protection/hello-for-business/pin-reset) | &#x2705; | &#x2705; |
 | [Microsoft Purview](../../purview/index.yml) (incl. Data Map, Data Estate Insights, and governance portal) | &#x2705; | &#x2705; |
 | [Microsoft Secure Score](/defender-xdr/microsoft-secure-score/) | &#x2705; | &#x2705; |
+| [Microsoft Security Copilot](/copilot/security/) | &#x2705; | &#x2705; |
 | [Microsoft Sentinel](../../sentinel/index.yml) (formerly Azure Sentinel) | &#x2705; | &#x2705; |
 | [Microsoft Stream](/stream/) | &#x2705; | &#x2705; |
 | [Microsoft Threat Experts](/microsoft-365/security/defender-endpoint/microsoft-threat-experts) | &#x2705; | &#x2705; |
