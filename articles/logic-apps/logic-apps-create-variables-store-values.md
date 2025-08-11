@@ -285,7 +285,7 @@ Variables are commonly used for counting the number of times that a loop runs. T
 
 1. Add the [**Initialize variables** action](#create-variable) to create an integer variable named **Count** that has a start value set to **`0`**.
 
-1. To iterate through each attachment, [follow these general steps](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action) to add an action called a **For each** loop.
+1. In the workflow designer, follow these general steps for [Consumption](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action) or [Standard](create-workflow-with-trigger-or-action.md?tabs=standard#add-action) Logic Apps to add an action called a **For each** loop.
 
 1. In the loop, select inside the box named **Select an Output from Previous Steps**. Select the lightning icon to view dynamic content. After the dynamic content list appears, under **When a new email arrives**, select **Attachments**.
 
