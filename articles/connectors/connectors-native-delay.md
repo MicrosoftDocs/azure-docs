@@ -11,7 +11,7 @@ ms.date: 08/08/2025
 
 # Pause workflow execution to delay the next action in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includeslogic-apps-sku-consumption-standard.md)]
 
 To pause workflow execution and delay the next action, you can set up your workflow to wait an amount of time before the next action runs by using the built-in action named **Delay**. To pause the workflow until a specific date and time, add the built-in action named **Delay until**.
 
