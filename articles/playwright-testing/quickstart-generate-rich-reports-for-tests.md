@@ -10,6 +10,9 @@ zone_pivot_groups: microsoft-playwright-testing
 
 # Quickstart: Troubleshoot tests with Microsoft Playwright Testing Preview
 
+> [!NOTE]
+> Playwright Testing is now part of [Azure App Testing](https://aka.ms/AzureAppTesting), a unified service for functional and performance tests. Learn more about how to [get started](https://aka.ms/AzureAppTesting/announcement).
+
 In this quickstart, you learn how to troubleshoot your Playwright tests easily using reports and artifacts published on Microsoft Playwright Testing Preview. Additionally, this guide demonstrates how to utilize the reporting feature, regardless of whether you're running tests on the cloud-hosted browsers provided by the service.
 
 After you complete this quickstart, you'll have a Microsoft Playwright Testing workspace to view test results and artifacts in the service portal.

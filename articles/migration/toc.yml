@@ -74,4 +74,5 @@ items:
         href: /azure/sentinel/migration
       - name: Google Cloud Platform IAM connector for Microsoft Sentinel
         href: /azure/sentinel/connect-google-cloud-platform
-        
+  - name: Migrate from on-premises
+    href: ./migrate-from-on-premises.yml        

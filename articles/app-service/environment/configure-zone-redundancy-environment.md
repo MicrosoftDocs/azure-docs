@@ -20,11 +20,15 @@ For more information about zone redundancy, see [Reliability in an App Service E
 
 - **To create a new zone-redundant App Service Environment**, follow the steps to [create an App Service Environment](creation.md). Make sure to select **Enabled** for **Zone redundancy**.
 
-- **To enable or disable zone redundancy** for an existing App Service Environment, use the Azure CLI or Bicep.
+- **To enable or disable zone redundancy** for an existing App Service Environment, you can use the Azure portal, Azure CLI, or Bicep:
     
     # [Azure portal](#tab/portal)
     
-    The Azure portal doesn't support this operation. Use the Azure CLI or Bicep instead.
+    1. In the [Azure portal](https://portal.azure.com), go to your App Service Environment.
+    1. Select **Settings > Configuration** in the left navigation pane.
+    1. Select **Zone redundant** if you wish to enable zone redundancy. Deselect if you wish to disable it.
+     
+    :::image type="content" source="./media/configure-zone-redundancy/app-service-environment-enable-zone-redundancy.png" alt-text="Screenshot of zone redundancy property for an App Service Environment in the Azure portal.":::    
     
     # [Azure CLI](#tab/azurecli)
     
@@ -64,6 +68,57 @@ For more information about zone redundancy, see [Reliability in an App Service E
     
     > [!NOTE]
     > A zone redundancy status change in an App Service Environment takes 12 to 24 hours to complete. During the upgrade process, no downtime or performance problems occur.
+
+### Check for zone redundancy support for an App Service Environment
+
+To see whether an existing App Service Environment supports zone redundancy:
+
+1. Get the maximum number of availability zones that the App Service Environment can use by using the Azure portal, Azure CLI, or Bicep/Resource Manager:
+
+    # [Azure portal](#tab/portal)
+
+    1. In the [Azure portal](https://portal.azure.com), navigate to your App Service Environment.
+    
+    1. Select **Settings > Configuration** in the left navigation pane.
+    
+        The maximum number of zones that your App Service Environment can use is shown in **Maximum available zones**. 
+    
+        :::image type="content" source="./media/configure-zone-redundancy/app-service-environment-maximum-zones.png" alt-text="Screenshot of maximum available zones property in the Configuration blade in the Azure portal for an App Service Environment.":::
+
+    # [Azure CLI](#tab/azurecli)
+
+    Query the environment's `maximumNumberOfZones` property:
+
+    ```azurecli
+    az appservice ase show \
+        -n <app-service-environment-name> \
+        -g <resource-group-name> \
+        --query maximumNumberOfZones
+    ```
+
+    # [Bicep](#tab/bicep)
+
+    Query the environment's `maximumNumberOfZones` property:
+
+    ```bicep
+    resource appServiceEnvironment 'Microsoft.Web/hostingEnvironments@2024-11-01' existing = {
+        name: '<app-service-environment-name>'
+    }
+
+    #disable-next-line BCP053
+    output maximumNumberOfZones bool = appServiceEnvironment.properties.maximumNumberOfZones
+    ```
+
+    ---
+
+1. Compare the number with the following table to determine whether your plan supports zone redundancy:
+    
+    | Maximum Number of Zones  | Zone redundancy support |
+    | ------------------------ | ----------------------- |
+    | Greater than 1           | Supported               |
+    | Equal to 1               | Not supported*          |
+
+    \* If you're on a plan or a stamp that doesn't support availability zones, you must create a new App Service Environment in a new resource group so that you land on the App Service footprint that supports zones.
 
 ## Configure Isolated v2 App Service plans with zone redundancy
 
