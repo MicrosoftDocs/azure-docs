@@ -319,10 +319,7 @@ The following table explains the binding configuration properties that you set i
 
 See the [Example section](#example) for complete examples.
 
-## Usage
-
-[!INCLUDE [functions-rabbitmq-managed-identity-note](../../includes/functions-rabbitmq-managed-identity-note.md)]
-
+## Usage  
 ::: zone pivot="programming-language-csharp"  
 The parameter type supported by the RabbitMQ trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
 
