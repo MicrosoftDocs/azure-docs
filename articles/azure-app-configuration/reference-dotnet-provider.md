@@ -673,6 +673,22 @@ builder.Services.AddOpenTelemetry()
 
 For more information about OpenTelemetry in .NET, see the [OpenTelemetry .NET documentation](https://github.com/open-telemetry/opentelemetry-dotnet).
 
+## Health check
+
+The Azure App Configuration .NET provider has integration for [.NET app health check](/dotnet/core/diagnostics/diagnostic-health-checks). To enable health check for .NET provider, you can call `AddAzureAppConfiguration()` method on `IHealthChecksBuilder`, which will add an `IHealthCheck` with default registration name of `"Microsoft.Extensions.Configuration.AzureAppConfiguration"`.
+
+```C#
+builder.Configuration.AddAzureAppConfiguration(options => 
+    options.Connect(new Uri(appConfigEndpoint), new DefaultAzureCredential())});
+
+builder.Services.AddHealthChecks()
+    .AddAzureAppConfiguration();
+```
+
+The .NET provider will be considered as unhealthy when the last load or refresh attempt failed after the last success.
+
+For more information about health check in .NET, see the [.NET health monitoring documentation](/dotnet/architecture/microservices/implement-resilient-applications/monitor-app-health).
+
 ## Next steps
 
 To learn how to use the .NET configuration provider, continue to the following tutorial.
