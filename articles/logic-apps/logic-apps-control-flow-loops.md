@@ -16,7 +16,7 @@ To repeat actions in a logic app workflow, Azure Logic Apps supports adding loop
 
 > [!NOTE]
 >
-> Looking for Power Automate documentation about loops? See [Using loops](/power-automate/desktop-flows/use-loops).
+> Looking for Power Automate documentation about loops? See [Use loops](/power-automate/desktop-flows/use-loops).
 
 Based on your use case, you can choose from the following types of loop actions:
 
@@ -72,7 +72,7 @@ Based on whether you have a Consumption or Standard workflow, follow the corresp
 
 1. Now build the loop:
 
-   1. Select inside the **Select an output from previous steps** box so that the dynamic content list opens.
+   1. In the **For each** item, select inside the **Select an output from previous steps** box, then select the lightning bolt icon.
 
    1. In the **Add dynamic content** list, from the **When a feed item is published** section, select **Feed links**, which is an array output from the RSS trigger.
 
