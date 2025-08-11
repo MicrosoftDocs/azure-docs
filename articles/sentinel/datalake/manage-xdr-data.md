@@ -70,7 +70,7 @@ In all examples, XDR data is available through Advanced hunting for a minimum of
 | 30 days | 180 days | Costs apply for analytics tier ingestion. | No additional costs 90 days included free. | Costs apply for 150 days of additional data lake retention (180 - 30 days).|
 | 180 days | 1 year | Costs apply for analytics tier ingestion. | Costs apply for 90 days of additional analytics tier retention | Costs apply for 185 days of additional data lake retention (365 - 180 days). |
 
-## Related topics    
+## Related content    
 
 - [Manage data tiers and retention in Microsoft Sentinel (preview)](../manage-data-overview.md)
 - [Configure table settings in Microsoft Sentinel (preview)](../manage-table-tiers-retention.md)
