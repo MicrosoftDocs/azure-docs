@@ -2,8 +2,8 @@
 title: Use Chat SDK with React Native
 titleSuffix: An Azure Communication Services quickstart
 description: This article describes how to use the Azure Communication Services Chat SDK with React Native.
-author: ashwinder
-ms.author: askaur
+author: awang119
+ms.author: anniewang
 ms.date: 11/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
