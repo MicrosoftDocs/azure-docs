@@ -407,10 +407,10 @@ This feature is currently not supported in Java.
 ---
 
 > [!NOTE]
-> 1. Orchestrator functions also natively support the server-side polling consumer pattern, as described in [Async operation tracking](#async-operation-tracking). This support means that orchestrations in one function app can easily coordinate the orchestrator functions in other function apps. This is similar to the [sub-orchestration](durable-functions-sub-orchestrations.md) concept, but with support for cross-app communication. This support is particularly useful for microservice-style app development.
-> 2. The built-in HTTP polling pattern is currently available only in the .NET host.
-> 3. The polling pattern is enabled by default in .NET in-process but disabled by default in .NET Isolated. If you want to enable it in .NET Isolated, refer to the sample code and set the asynchronousPatternEnabled argument to true.
-> 4. HTTP automatic polling pattern is supported in Durable Functions .NET Isolated starting from version [v1.5.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/1.5.0) or later.
+> - Orchestrator functions also natively support the server-side polling consumer pattern, as described in [Async operation tracking](#async-operation-tracking). This support means that orchestrations in one function app can easily coordinate the orchestrator functions in other function apps. This is similar to the [sub-orchestration](durable-functions-sub-orchestrations.md) concept, but with support for cross-app communication. This support is particularly useful for microservice-style app development.
+> - The built-in HTTP polling pattern is currently available only in the .NET host.
+> - The polling pattern is enabled by default in .NET in-process but disabled by default in .NET Isolated. If you want to enable it in .NET Isolated, refer to the sample code and set the asynchronousPatternEnabled argument to true.
+> - HTTP automatic polling pattern is supported in Durable Functions .NET Isolated starting from version [v1.5.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/1.5.0) or later.
 
 ### Managed identities
 
