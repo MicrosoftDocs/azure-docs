@@ -5,7 +5,7 @@ description: Provides an overview of factors to consider and steps to follow to 
 
 author: karauten
 ms.author: karauten
-ms.date: 03/15/2021
+ms.date: 08/11/2025
 ms.topic: concept-article
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
