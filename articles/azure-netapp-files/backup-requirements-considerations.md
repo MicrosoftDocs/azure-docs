@@ -41,7 +41,7 @@ Azure NetApp Files backup in a region can only protect an Azure NetApp Files vol
 
 * You can't apply a backup policy to a volume while a manual backup is in progress. Wait for the manual backup to complete before applying the policy. 
 
-* With [cross-region replication](cross-region-replication-introduction.md) or [cross-zone replication](cross-zone-replication-introduction.md), Azure NetApp Files backup can be configured on a source volume. 
+* With [cross-region or cross-zone replication](replication.md), Azure NetApp Files backup can be configured on a source volume. 
 
     Backups on a destination volume are only supported for manually created snapshots. To take backups of a destination volume, create a snapshot on the source volume then wait for the snapshot to be replicated to the destination volume. From the destination volume, you select the snapshot for backup. Scheduled backups on a destination volume aren't supported.
 

@@ -7,50 +7,13 @@ ms.date: 07/25/2025
 ms.author: dobett
 ---
 
-Before you can use the preview connectors (ONVIF, media, and REST/HTTP) in the operations experience web UI, an administrator must:
+When you deploy the preview version of Azure IoT Operations, the deployment includes the three preview connectors. You can verify that you have a preview instance of Azure IoT Operations by checking in the Azure portal that preview features are enabled for your instance:
 
-1. Enable them in your Azure IoT Operations instance.
-1. Add connector template instances to your Azure IoT Operations instance.
+:::image type="content" source="media/deploy-preview-media-connectors/portal-enable-preview-connectors.png" alt-text="Screenshot of Azure portal that shows that preview features are enabled." lightbox="media/deploy-preview-media-connectors/portal-enable-preview-connectors.png":::
 
-To enable the preview connectors, you can either enable them when you deploy your Azure IoT Operations instance or enable them after you deploy your instance.
+Before you can use the preview connectors (ONVIF, media, and REST/HTTP) in the operations experience web UI, an administrator must add connector template instances to your Azure IoT Operations instance.
 
-To enable the preview connectors when you deploy your Azure IoT Operations instance:
-
-# [Azure portal](#tab/portal)
-
-Select **ONVIF Connector and Media Connector (Preview)** in the **Connectors** section of the **Install Azure IoT Operations > Basics** page:
-
-:::image type="content" source="media/deploy-preview-media-connectors/portal-deploy-preview-connectors.png" alt-text="Screenshot of Azure portal that shows how to select the preview connectors." lightbox="media/deploy-preview-media-connectors/portal-deploy-preview-connectors.png":::
-
-# [Azure CLI](#tab/cli)
-
-Include the `--feature connectors.settings.preview=Enabled` parameter when you run the `az iot ops create` command.
-
----
-
-To enable the preview connectors after you deploy your Azure IoT Operations instance:
-
-# [Azure portal](#tab/portal)
-
-1. Go to your Azure IoT Operations instance in the Azure portal.
-
-1. Enable the preview connectors:
-
-  :::image type="content" source="media/deploy-preview-media-connectors/portal-enable-preview-connectors.png" alt-text="Screenshot of Azure portal that shows how to enable the preview connectors." lightbox="media/deploy-preview-media-connectors/portal-enable-preview-connectors.png":::
-
-# [Azure CLI](#tab/cli)
-
-Run the following command to enable the preview connectors:
-
-```azcli
-az iot ops update -n <your-instance> -g <your-resource-group> --feature connectors.settings.preview=Enabled
-```
-
----
-
-All three preview connectors can publish captured data to the MQTT broker and save captured data to storage.
-
-Azure IoT Operations uses [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview) to transfer the captured data to cloud storage destinations such as Azure Blob Storage. When you configure a connector template instance, you specify a _persistent volume claim_ and path for the connector to use to save captured data. To learn how to create a suitable persistent volume claim, see [Cloud Ingest Edge Volumes configuration](/azure/azure-arc/container-storage/cloud-ingest-edge-volume-configuration).
+All three preview connectors can publish captured data to the MQTT broker. The media connector can also save captured data to storage. Azure IoT Operations uses [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview) to transfer the captured data to cloud storage destinations such as Azure Blob Storage. When you configure a connector template instance, you specify a _persistent volume claim_ and _mount path_ for the connector to use to save captured data. To learn how to create a suitable persistent volume claim, see [Cloud Ingest Edge Volumes configuration](/azure/azure-arc/container-storage/cloud-ingest-edge-volume-configuration).
 
 To add a connector template instance to your Azure IoT Operations instance:
 
