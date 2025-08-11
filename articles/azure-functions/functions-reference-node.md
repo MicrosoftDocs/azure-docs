@@ -1866,7 +1866,7 @@ az functionapp config appsettings set  --settings WEBSITE_NODE_DEFAULT_VERSION=~
  --name <FUNCTION_APP_NAME> --resource-group <RESOURCE_GROUP_NAME>
 ```
 
-This sets the [`WEBSITE_NODE_DEFAULT_VERSION` application setting](./functions-app-settings.md#website_node_default_version) the supported LTS version of `~20`.
+This sets the [`WEBSITE_NODE_DEFAULT_VERSION` application setting](./functions-app-settings.md#website_node_default_version) the supported LTS version of `~22`.
 
 # [Azure portal](#tab/azure-portal/windows)
 
