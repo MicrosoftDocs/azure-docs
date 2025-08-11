@@ -224,12 +224,12 @@ The following account types are retired or scheduled for retirement. They aren�
 
 > [!IMPORTANT]
 > Azure Storage accounts that use the **classic deployment model (ASM)** were **retired on August 31, 2024**. Migrate to the Azure Resource Manager (ARM) deployment model.  
-> For migration guidance, see classic-account-migration-overview.md.
+> For migration guidance, see [classic account migration overview](./classic-account-migration-overview.md). For more information see [Update on classic storage account retirement](https://techcommunity.microsoft.com/blog/azurestorageblog/update-on-classic-storage-account-retirement-and-upcoming-changes-for-classic-st/4282217).
 
 | Retired account type | Supported services | Redundancy options | Deployment model | Guidance |
 | --- | --- | --- | --- | --- |
 | **Standard general-purpose v1** | Blob, Queue, Table, Azure Files | LRS/GRS/RA-GRS | Resource Manager, classic¹ | Upgrade existing General Purpose v1 accounts to General-Purpose v2 to access modern features and cost-optimization capabilities. Before upgrading, model capacity and operations costs—see [General Purpose v1 account migration](./general-purpose-version-1-account-migration-overview.md). For the in-place upgrade, see [storage account upgrade](./storage-account-upgrade.md). |
-| **Blob Storage** | Block blobs and append blobs | LRS/GRS/RA-GRS | Resource Manager | Upgrade existing BlobStorage accounts to GPv2 to use access tiers and lifecycle management. See [Blob-Only account migration overview](./blob-only-account-migration-overview.md) and [access tiers overview](../blobs/access-tiers-overview.md). |
+| **Blob Storage** | Block blobs and append blobs | LRS/GRS/RA-GRS | Resource Manager | Upgrade existing Blob-Only Storage accounts to GPv2 to use access tiers and lifecycle management. See [Blob-Only account migration overview](./blob-only-account-migration-overview.md) and [access tiers overview](../blobs/access-tiers-overview.md). |
 | **Classic (ASM) storage accounts** | Blob, Queue, Table, Azure Files | LRS/GRS/RA-GRS | classic | Retired. Migrate to the Resource Manager deployment model. See [classic account migration overview](./classic-account-migration-overview.md). |
 
 ¹ “classic” denotes the Azure Service Management (ASM) deployment model.
