@@ -1866,7 +1866,7 @@ az functionapp config appsettings set  --settings WEBSITE_NODE_DEFAULT_VERSION=~
  --name <FUNCTION_APP_NAME> --resource-group <RESOURCE_GROUP_NAME>
 ```
 
-This sets the [`WEBSITE_NODE_DEFAULT_VERSION` application setting](./functions-app-settings.md#website_node_default_version) the supported LTS version of `~20`.
+This sets the [`WEBSITE_NODE_DEFAULT_VERSION` application setting](./functions-app-settings.md#website_node_default_version) the supported LTS version of `~22`.
 
 # [Azure portal](#tab/azure-portal/windows)
 
@@ -1879,7 +1879,7 @@ Use the following steps to change the Node.js version:
 Run the Azure CLI [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the Node.js version for your function app running on Linux:
 
 ```azurecli-interactive
-az functionapp config set --linux-fx-version "node|20" --name "<FUNCTION_APP_NAME>" \
+az functionapp config set --linux-fx-version "node|22" --name "<FUNCTION_APP_NAME>" \
  --resource-group "<RESOURCE_GROUP_NAME>"
 ```
 
