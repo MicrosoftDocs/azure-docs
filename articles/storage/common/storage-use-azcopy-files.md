@@ -4,7 +4,7 @@ description: Transfer data with AzCopy and file storage. AzCopy is a command-lin
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 12/15/2023
+ms.date: 08/11/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 # Customer intent: As a user of a cloud file storage service, I want to transfer files to and from storage accounts using a command-line tool, so that I can efficiently manage and synchronize large amounts of data between my local environment and the cloud.
