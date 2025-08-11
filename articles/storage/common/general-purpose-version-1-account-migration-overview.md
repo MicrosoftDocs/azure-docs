@@ -33,7 +33,7 @@ Retirement of GPv1 storage accounts means:
 - Existing GPv1 accounts must be upgraded to GPv2 before the retirement deadline.
 - GPv1 account types will be fully decommissioned, and data access will be blocked after the retirement date.
 
-The retirement will take effect globally across all Azure regions.
+The retirement takes effect globally across all Azure regions.
 
 ## Key differences between GPv1 and GPv2
 
@@ -60,7 +60,7 @@ Upgrading from GPv1 to GPv2 enables modern features such as [accesss/access-tier
 1. Compare your current GPv1 bill to the modeled GPv2 bill (with tiers and lifecycle rules).
 
 >[!TIP]
->If your workload is **write- or list-heavy**, reduce transaction counts by batching operations, writing larger blocks, and scoping list operations. Ensure cold data is not left in the hot tier.
+>If your workload is **write- or list-heavy**, reduce transaction counts by batching operations, writing larger blocks, and scoping list operations. Ensure cold data isn't left in the hot tier.
 
 ### Upgrade facts
 - The upgrade is **in-place** and requires **no downtime**; it changes the account kind in Azure Resource Manager.
@@ -74,7 +74,7 @@ To minimize risk and ensure a smooth migration:
 
 - **Inventory your accounts**: Use Azure Resource Graph, CLI, or the Portal to identify all GPv1 accounts.
 - **Evaluate workloads**: Review applications using GPv1 and verify compatibility with GPv2.
-- **Upgrade accounts**: Use the Azure Portal, CLI, or automation tools to upgrade from GPv1 to GPv2.
+- **Upgrade accounts**: Use the Azure portal, CLI, or automation tools to upgrade from GPv1 to GPv2.
 - **Validate behavior**: Confirm that workloads continue functioning and that billing reflects expected changes post-upgrade.
 
 >[!TIP]
