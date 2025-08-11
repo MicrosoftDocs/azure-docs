@@ -265,7 +265,7 @@ Establish validation criteria based on the original AWS NLB capabilities identif
 ##### Reliability criteria
 
 - **Session continuity**: Sessions maintain connectivity during zone failures and scaling events
-- **High availability**: 99.9% uptime SLA with automatic failover within seconds
+- **High availability**: Desired uptime SLA is met, and automatic failover occurs within seconds
 - **Platform-specific SLA**: Meet platform-specific requirements for user experience
 - **Security functionality**: Client IP tracking functions correctly for fraud detection systems
 
