@@ -34,8 +34,8 @@ For a list of data stores that are supported as sources/sinks by the copy activi
 
 Specifically, this Teradata connector supports:
 
-- Teradata **version 17.0, 17.10, 17.20 and 20.0** for version 2.0.
-- Teradata **version 14.10, 15.0, 15.10, 16.0, 16.10, and 16.20** for version 1.0.
+- Teradata Vantage Versions **17.0, 17.10, 17.20 and 20.0** for version 2.0.
+- Teradata Vantage Versions **14.10, 15.0, 15.10, 16.0, 16.10, and 16.20** for version 1.0.
 - Copying data by using **Basic**, **Windows**, or **LDAP** authentication.
 - Parallel copying from a Teradata source. See the [Parallel copy from Teradata](#parallel-copy-from-teradata) section for details.
 
