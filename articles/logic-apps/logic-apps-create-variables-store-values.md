@@ -272,8 +272,6 @@ If you switch from the designer to code view, the following example shows how th
 
 Variables are commonly used for counting the number of times that a loop runs. This example shows how you can create and use variables for this task by creating a loop that counts the attachments in an email.
 
-### [Consumption](#tab/consumption)
-
 1. In the Azure portal, create your Consumption logic app resource with a blank workflow. Add a trigger that checks for new email and any attachments.
 
    This example uses the Office 365 Outlook trigger for **When a new email arrives**. You can set up this trigger to fire only when the email has attachments. However, you can use any connector that checks for new emails with attachments, such as the Outlook.com connector.
