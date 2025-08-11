@@ -6,7 +6,7 @@ items:
   - name: What is Azure Native Pure Storage Cloud?
     href: overview.md 
   - name: FAQ
-    href: faq.md
+    href: faq.yml
 - name: Quickstart
   expanded: true
   items:
