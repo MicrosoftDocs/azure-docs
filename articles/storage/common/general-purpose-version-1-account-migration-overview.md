@@ -94,7 +94,7 @@ To minimize risk and ensure a smooth migration:
  If your applications are using GPv1 storage accounts, you must migrate to GPv2 before the retirement date to avoid service disruption.
 
 >[!Warning]
->If you do not migrate your GPv1 storage account to GPv2 by August 31, 2025, you will no longer be able to use the GPv1 storage account. After this date, you will not be able to access data stored in GPv1 accounts, and any applications relying on these accounts will fail.
+>If you do not migrate your GPv1 storage account to GPv2 by August 31, 2025, all existing GPv1 accounts will be auto migrated over to a GPv2 account, which may result in higher billing costs. Your decision not to migrate an existing GPv1 account will be construed as consent for Microsoft to migrate the account on your behalf.
 
 ## How to get help
 If you have questions, get answers from community experts in Microsoft Q&A.
