@@ -1,11 +1,11 @@
 ---
-title: Azure Functions C# script developer reference
+title: Azure Functions legacy C# script developer reference
 description: Understand how to develop Azure Functions using C# script.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 12/29/2024
 ---
-# Azure Functions C# script (.csx) developer reference
+# Azure Functions legacy C# script (.csx) developer reference
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-dotnet-class-library.md -->
 
@@ -658,7 +658,7 @@ These instructions show you how to convert C# script functions (which run in-pro
    ### [Visual Studio](#tab/vs)
    [Create your first C# function in Azure using Visual Studio](functions-create-your-first-function-visual-studio.md#create-a-function-app-project)
    ### [Visual Studio Code](#tab/vs-code) 
-   [Create your first C# function in Azure using Visual Studio Code](create-first-function-vs-code-csharp.md#create-an-azure-functions-project)
+   [Create your first C# function in Azure using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-csharp#create-an-azure-functions-project)
 
    ---
     

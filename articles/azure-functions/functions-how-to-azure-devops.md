@@ -34,19 +34,19 @@ Choose your task version at the top of the article. YAML pipelines aren't availa
 * An existing function app in Azure that has its source code in a supported repository. If you don't yet have an Azure Functions code project, you can create one by completing the following language-specific article:
     ### [C\#](#tab/csharp)
 
-    [Quickstart: Create a C# function in Azure using Visual Studio Code](create-first-function-vs-code-csharp.md)
+    [Quickstart: Create a C# function in Azure using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-csharp)
 
     ### [JavaScript](#tab/javascript)
 
-    [Quickstart: Create a JavaScript function in Azure using Visual Studio Code](create-first-function-vs-code-node.md)
+    [Quickstart: Create a JavaScript function in Azure using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-javascript)
 
     ### [Python](#tab/python)
 
-    [Quickstart: Create a function in Azure with Python using Visual Studio Code](create-first-function-vs-code-python.md)
+    [Quickstart: Create a function in Azure with Python using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-python)
 
     ### [PowerShell](#tab/powershell)
 
-    [Quickstart: Create a PowerShell function in Azure using Visual Studio Code](create-first-function-vs-code-powershell.md)
+    [Quickstart: Create a PowerShell function in Azure using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-powershell)
 
     ---
     

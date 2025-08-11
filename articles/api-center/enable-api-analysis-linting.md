@@ -119,7 +119,7 @@ To deploy the Azure Functions app that runs the linting function on API definiti
 1. Clone the [GitHub repository](https://github.com/Azure/APICenter-Analyzer/) and open it in Visual Studio Code.
 1. In the `resources/rulesets` folder, you can find an `oas.yaml` file. This file reflects your current API style guide and can be modified based on your organizational needs and requirements.
 1. Optionally, run the function app locally to test it. For details, see the [README](https://github.com/Azure/APICenter-Analyzer/tree/preview#-configure--run-your-function-locally) file in the repository.
-1. Deploy the function app to Azure. For steps, see [Quickstart: Create a function in Azure with TypeScript using Visual Studio Code](../azure-functions/create-first-function-vs-code-typescript.md#sign-in-to-azure).
+1. Deploy the function app to Azure. For steps, see [Quickstart: Create a function in Azure with TypeScript using Visual Studio Code](../azure-functions/how-to-create-function-vs-code.md?pivot=programming-language-typescript#sign-in-to-azure).
 
     > [!NOTE]
     > Deploying the function app might take a few minutes.

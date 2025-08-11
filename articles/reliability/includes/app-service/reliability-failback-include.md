@@ -1,6 +1,4 @@
 ---
- title: include file
- description: include file
  author: anaharris-ms
  ms.service: azure
  ms.topic: include

@@ -20,22 +20,22 @@ In Azure Functions, all functions share some core technical concepts and compone
 This article assumes that you've already read the [Azure Functions overview](functions-overview.md).
 
 ::: zone pivot="programming-language-csharp"
-If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio](./functions-create-your-first-function-visual-studio.md), [Visual Studio Code](./create-first-function-vs-code-csharp.md), or from the [command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-csharp).
+If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio](./functions-create-your-first-function-visual-studio.md), [Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-csharp), or from the [command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-csharp).
 ::: zone-end
 ::: zone pivot="programming-language-java"
-If you prefer to jump right in, you can complete a quickstart tutorial using [Maven](how-to-create-function-azure-cli.md?pivots=programming-language-java) (command line), [Eclipse](functions-create-maven-eclipse.md), [IntelliJ IDEA](functions-create-maven-intellij.md), [Gradle](functions-create-first-java-gradle.md), [Quarkus](functions-create-first-quarkus.md), [Spring Cloud](/azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json), or [Visual Studio Code](./create-first-function-vs-code-java.md).
+If you prefer to jump right in, you can complete a quickstart tutorial using [Maven](how-to-create-function-azure-cli.md?pivots=programming-language-java) (command line), [Eclipse](functions-create-maven-eclipse.md), [IntelliJ IDEA](functions-create-maven-intellij.md), [Gradle](functions-create-first-java-gradle.md), [Quarkus](functions-create-first-quarkus.md), [Spring Cloud](/azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json), or [Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-java).
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
-If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio Code](./create-first-function-vs-code-node.md) or from the [command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-javascript).
+If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-javascript) or from the [command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-javascript).
 ::: zone-end
 ::: zone pivot="programming-language-typescript"
-If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio Code](./create-first-function-vs-code-typescript.md) or from the [command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-typescript).
+If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-typescript) or from the [command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-typescript).
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
-If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio Code](./create-first-function-vs-code-powershell.md) or from the [command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-powershell).
+If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-powershell) or from the [command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-powershell).
 ::: zone-end
 ::: zone pivot="programming-language-python"
-If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio Code](./create-first-function-vs-code-python.md) or from the [command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-python).
+If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-python) or from the [command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-python).
 ::: zone-end
 
 ## Code project

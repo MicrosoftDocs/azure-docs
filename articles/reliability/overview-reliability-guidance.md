@@ -4,7 +4,7 @@ description: Reliability guides for Microsoft Azure products and services. View 
 author: anaharris-ms
 ms.service: azure
 ms.topic: reliability-article
-ms.date: 03/31/2025
+ms.date: 08/08/2025
 ms.author: anaharris
 ms.custom: subject-reliability
 ms.subservice: azure-reliability
@@ -35,7 +35,7 @@ This section provides links to reliability guidance for many Azure services. Eac
 | Product| Reliability Guide | Other Reliability Documentation |
 |----------|---------|---------|
 |Azure AI Health Insights| [Reliability in Azure AI Health Insights](reliability-health-insights.md)||
-|Azure AI Search| | [Reliability in Azure AI Search](/azure/search/search-reliability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+|Azure AI Search| [Reliability in Azure AI Search](reliability-ai-search.md) ||
 |Azure API Center| [Reliability in Azure API Center](reliability-api-center.md) ||
 |Azure API Management | [Reliability in Azure API Management](reliability-api-management.md) ||
 |Azure App Configuration||[How does App Configuration ensure high data availability?](../azure-app-configuration/faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-does-app-configuration-ensure-high-data-availability) </p> [Resiliency and disaster recovery](../azure-app-configuration/concept-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&tabs=core2x)|
@@ -43,7 +43,7 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure Application Gateway for Containers| [Reliability in Azure Application Gateway for Containers](reliability-app-gateway-containers.md )    ||
 |Azure API for FHIR®||[Disaster recovery for Azure API for FHIR](../healthcare-apis/azure-api-for-fhir/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure App Service| [Reliability in Azure App Service](reliability-app-service.md)||
-|Azure App Service Environment| [Reliability in Azure App Service Environment](reliability-app-service-environment.md)||
+|App Service Environment| [Reliability in App Service Environment](reliability-app-service-environment.md)||
 |Azure Backup| [Reliability in Azure Backup](reliability-backup.md)||
 |Azure Batch| [Reliability in Azure Batch](reliability-batch.md)||
 |Azure Bastion| [Reliability in Azure Bastion](reliability-bastion.md)||
@@ -109,7 +109,7 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure SQL Database||[Azure SQL Database - High availability](/azure/azure-sql/database/high-availability-sla?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) </p> [Disaster recovery guidance - Azure SQL Database](/azure/azure-sql/database/disaster-recovery-guidance) |
 |Azure SQL Managed Instance|| [Failover groups overview & best practices - Azure SQL Managed Instance](/azure/azure-sql/managed-instance/failover-group-sql-mi?view=azuresql&preserve-view=true) |
 |Azure Storage Actions| [Reliability in Azure Storage Actions](reliability-storage-actions.md)||
-|Azure Storage - Blob Storage||[Choose the right redundancy option](/azure/storage/common/storage-disaster-recovery-guidance?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#choose-the-right-redundancy-option)</p>[Azure storage disaster recovery planning and failover](/azure/storage/common/storage-disaster-recovery-guidance?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+|Azure Storage - Blob Storage| [Reliability in Azure Blob Storage](reliability-storage-blob.md) ||
 |Azure Storage Mover| [Reliability in Azure Storage Mover](reliability-azure-storage-mover.md)||
 |Azure Stream Analytics|| [Achieve geo-redundancy for Azure Stream Analytics jobs](../stream-analytics/geo-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure Traffic Manager| [Reliability in Azure Traffic Manager](reliability-traffic-manager.md)||

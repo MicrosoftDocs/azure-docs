@@ -178,7 +178,7 @@
   - name: Data protection and resiliency
     items:
     - name: Reliability in Azure NetApp Files 
-      href: ../reliability/reliability-netapp-files.md?toc=azure/azure-netapp-files/toc.json&bc=/azure/azure-netapp-files/breadcrumb/toc.yml
+      href: ../reliability/reliability-netapp-files.md?toc=azure/azure-netapp-files/toc.json&bc=/azure/azure-netapp-files/breadcrumb/toc.json
     - name: Understand data protection and disaster recovery options
       href: data-protection-disaster-recovery-options.md
     - name: How Azure NetApp Files snapshots work

@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 
 ## Clean up resources
 
-To clean up and remove a Communication Services subscription, delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You can find out more about how to [clean up Azure Communication Services resources](../quickstarts/create-communication-resource.md#clean-up-resources) and [clean up Azure Functions resources](../../azure-functions/create-first-function-vs-code-csharp.md#clean-up-resources).
+To clean up and remove a Communication Services subscription, delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You can find out more about how to [clean up Azure Communication Services resources](../quickstarts/create-communication-resource.md#clean-up-resources) and [clean up Azure Functions resources](../../azure-functions/how-to-create-function-vs-code.md?pivot=programming-language-csharp#clean-up-resources).
 
 ## Related content
 
