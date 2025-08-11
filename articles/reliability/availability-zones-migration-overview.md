@@ -22,7 +22,7 @@ To improve the reliability of your solution, it's a good practice to enable avai
 - [Azure App Configuration](migrate-app-configuration.md)
 - [Azure App Service](reliability-app-service.md#configure-availability-zone-support)
 - [Azure App Service Environment](reliability-app-service-environment.md#configure-availability-zone-support)
-- [Azure Application Gateway (V2)](migrate-app-gateway-v2.md)
+- [Azure Application Gateway v2](./reliability-application-gateway-v2.md#configure-availability-zone-support)
 - [Azure Backup and Azure Site Recovery](migrate-recovery-services-vault.md)
 - [Azure Batch](reliability-batch.md#availability-zone-migration)
 - [Azure Cache for Redis](migrate-cache-redis.md)
@@ -32,6 +32,7 @@ To improve the reliability of your solution, it's a good practice to enable avai
 - [Azure Cosmos DB](./reliability-cosmos-db-nosql.md#migrate-to-availability-zone-support)
 - [Azure Database for MySQL - Flexible Server](migrate-database-mysql-flex.md)
 - [Azure Database for PostgreSQL](./reliability-postgresql-flexible-server.md#availability-zone-redeployment-and-migration)
+- [Azure Disk Storage](migrate-vm.md)
 - [Azure Elastic SAN](reliability-elastic-san.md#availability-zone-migration)
 - [Azure ExpressRoute](/azure/expressroute/expressroute-howto-gateway-migration-portal)
 - [Azure Functions](reliability-functions.md#availability-zone-migration)
@@ -44,11 +45,8 @@ To improve the reliability of your solution, it's a good practice to enable avai
 - [Azure Service Fabric](migrate-service-fabric.md)
 - [Azure SQL Database](/azure/azure-sql/database/enable-zone-redundancy?view=azuresql-db&preserve-view=true&toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)
 - [Azure SQL Managed Instance](./reliability-sql-managed-instance.md#configure-availability-zone-support)
-- [Azure Storage account: Blob Storage, Azure Data Lake Storage, Files Storage](migrate-storage.md)
-- [Azure Storage: Managed Disks](migrate-vm.md)
+- [Azure Storage: Azure Blob Storage, Azure Data Lake Storage Gen2, Azure Files](/azure/storage/common/redundancy-migration)
 - [Azure Virtual Machines and Azure Virtual Machine Scale Sets](migrate-vm.md)
-
-
 
 
 ## Related resources
