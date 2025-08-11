@@ -48,6 +48,29 @@ The retirement will take effect globally across all Azure regions.
 
 GPv2 supports all capabilities of GPv1 and adds several enhancements, including cost optimization and richer management tools.
 
+## Plan for pricing changes when upgrading GPv1 → GPv2
+
+Upgrading from GPv1 to GPv2 enables modern features (access tiers, lifecycle management, broader redundancy options) and can reduce **storage per‑GB** costs. However, **transaction pricing differs** on GPv2, so workloads with high read/write or list activity may see **higher operations charges** unless they also adopt the GPv2 cost‑optimization features.
+
+### Model your costs before upgrading
+1. Capture a baseline of monthly operations by type (**read, write, list/metadata**) and any **egress**.
+2. Use the **Azure Blob Storage pricing** page to compare **per‑GB** and **per‑operation** rates for your region, redundancy (LRS/ZRS/GRS/GZRS), and intended access tier (hot/cool/cold/archive).  
+   - **Pricing:** https://azure.microsoft.com/pricing/details/storage/blobs/  
+3. Map data to the right tiers and include **early‑deletion** minimums for cool/cold/archive.  
+   - **Access tiers overview:** https://learn.microsoft.com/azure/storage/blobs/access-tiers-overview
+4. Plan **lifecycle policies** (for example, move from hot → cool after 30 days of no access, then archive later) and factor in their transaction effects.  
+   - **Lifecycle management:** https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview
+5. Compare your current GPv1 bill to the modeled GPv2 bill (with tiers + lifecycle rules).
+
+>[!TIP]
+>If your workload is **write‑ or list‑heavy**, consider techniques that lower transaction counts (batch operations, larger writes, avoiding broad unscoped listings) and ensure cold data is not left in the hot tier.
+
+### Upgrade facts
+- The upgrade is **in‑place** and **no‑downtime**; it changes the account kind in Azure Resource Manager.  
+- Upgrading to GPv2 is **permanent**.  
+- Set your **default access tier** (hot or cool) during the upgrade to avoid unintended charges.  
+  - **Upgrade guide:** https://learn.microsoft.com/azure/storage/common/storage-account-upgrade
+
 ## How should I prepare?
 
 To minimize risk and ensure a smooth migration:
