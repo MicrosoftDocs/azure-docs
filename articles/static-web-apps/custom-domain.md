@@ -77,7 +77,7 @@ The slice your resource is placed in can be determined by inspecting the default
 
 `<random-prefix>.<slice>.azurestaticapps.net`
 
-eg. a Static Web App site withe the default URL of `orange-pond-0a04b7203.2.azurestaticapps.net` has been placed in slice number 2. 
+eg. a Static Web App site with the default URL of `orange-pond-0a04b7203.2.azurestaticapps.net` has been placed in slice number 2. 
 
 If the static app you're migrating the domain from and to are both in the same slice you must either:
 
