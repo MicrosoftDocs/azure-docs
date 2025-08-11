@@ -6,7 +6,7 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 10/03/2024
+ms.date: 08/01/2025
 ms.subservice: orchestration
 ---
 
@@ -20,12 +20,12 @@ Using the script activity, you can execute common operations with Data Manipulat
 
 You can use the Script activity to invoke a SQL script in one of the following data stores in your enterprise or on an Azure virtual machine (VM): 
 
+- Azure Database for PostgreSQL (Version 2.0)
 - Azure SQL Database 
-- Azure Synapse Analytics 
-- SQL Server Database. If you're using SQL Server, install Self-hosted integration runtime on the same machine that hosts the database or on a separate machine that has access to the database. Self-Hosted integration runtime is a component that connects data sources on-premises/on Azure VM with cloud services in a secure and managed way. See the [Self-hosted integration runtime](create-self-hosted-integration-runtime.md) article for details. 
+- Azure Synapse Analytics
+- SQL Server Database. If you're using SQL Server, install Self-hosted integration runtime on the same machine that hosts the database or on a separate machine that has access to the database. Self-Hosted integration runtime is a component that connects data sources on-premises/on Azure VM with cloud services in a secure and managed way. See the [Self-hosted integration runtime](create-self-hosted-integration-runtime.md) article for details.
 - Oracle
 - Snowflake
-- Azure Database for PostgreSQL
 
 The script can contain either a single SQL statement or multiple SQL statements that run sequentially. You can use the Script task for the following purposes:
 
