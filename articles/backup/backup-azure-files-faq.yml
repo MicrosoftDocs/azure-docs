@@ -109,9 +109,9 @@ sections:
           If you are restoring from snapshot backup, for Original Location Recovery (OLR) the total restore time depends on number of files and directories in the share. When you restore to alternate location, the restore time depends on number of files and directories in the share to be restored and  available IOPS on source and target storage account.
 
       - question: |
-          Is it possible that the recovery point selected during the restore will be deleted after the retention period before the restore job is completed?
+          Will the retention policy delete a recovery point selected for restore  before the restore operation completes?
         answer: |
-          No. Azure Backup takes a lease on the Recovery Point during the restore operation. This ensures that the RP will not be deleted until the restore job completes. 
+          No. Azure Backup takes a lease on the recovery point during restore, ensuring it isn't deleted before completion.
 
 
   - name: Manage backup
