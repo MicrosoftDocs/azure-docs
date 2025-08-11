@@ -97,13 +97,6 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
 
-## Install bundle
-
-
-
-
-
-  
 [!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 ::: zone-end
 ::: zone pivot="programming-language-java"   

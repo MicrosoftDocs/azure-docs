@@ -68,45 +68,23 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis
 ```
 
 ---
-::: zone-end
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
+[!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]  
+::: zone-end  
+::: zone pivot="programming-language-java"  
+## Update packages
 
-## Install bundle
+Add the [Azure Functions Java Redis Annotations package](https://mvnrepository.com/artifact/com.microsoft.azure.functions/azure-functions-java-library-redis) to your project by updating the `pom.xml` file to add this dependency:
 
-::: zone pivot="programming-language-java"
-
-1. Create a Java function project. You could use Maven:
-   `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DjavaVersion=8`
-
-1. Add the extension bundle by adding or replacing the following code in your _host.json_ file:
-
-   ```json
-   {
-     "version": "2.0",
-     "extensionBundle": {
-       "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-       "version": "[4.11.*, 5.0.0)"
-     }
-   }
-   ```
-
-   >[!WARNING]
-   >The Redis extension is currently only available in a preview bundle release.
-   >
-
-1. Add the Java library for Redis bindings to the `pom.xml` file:
-
-    ```xml
-    <dependency>
-      <groupId>com.microsoft.azure.functions</groupId>
-      <artifactId>azure-functions-java-library-redis</artifactId>
-      <version>${azure.functions.java.library.redis.version}</version>
-    </dependency>
-    ```
-
-::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"
-[!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
-::: zone-end
+```xml
+<dependency>
+  <groupId>com.microsoft.azure.functions</groupId>
+  <artifactId>azure-functions-java-library-redis</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```
+::: zone-end  
 
 ## Redis connection string
 
