@@ -41,3 +41,5 @@ This FAQ addresses common questions about migrating from Blob-Only accounts to G
 | Will the migration require downtime? | No. The migration process can be planned to avoid downtime. You can access data and services continuously during the transition. |
 | Will there be any data loss? | No. The migration process is safe and doesn't delete or move your data unexpectedly. All blobs, containers, and metadata remain intact. |
 | Will my existing application continue to work seamlessly after the migration? | In most cases, yes. API endpoints remain unchanged. However, review any hardcoded pricing assumptions or tier-unaware logic to ensure compatibility with GPv2 features. |
+| What if I need help with the upgrade process? | Microsoft provides various resources to assist with the upgrade, including documentation, support forums, and direct support channels. |
+| What happens if I don't upgrade by the deadline? | If you don't upgrade by the deadline, your GPv1 account will be automatically upgraded to GPv2. |
