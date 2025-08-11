@@ -429,7 +429,7 @@ To ensure your application always uses the most current secret values, configure
 
 This mechanism works even when no changes are detected in your App Configuration store, ensuring your application stays in sync with rotated secrets.
 
-```csharp
+```typescript
 const credential = new DefaultAzureCredential();
 const appConfig = await load(endpoint, credential, {
     keyVaultOptions: {
