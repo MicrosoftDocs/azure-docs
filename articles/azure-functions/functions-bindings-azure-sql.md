@@ -100,7 +100,6 @@ Add the [Azure Functions Java SQL Types package](https://mvnrepository.com/artif
 </dependency>
 ```
 
-If your app is using the preview extension bundle, make sure to instead set `2.1.0-preview` as the dependency version in your `pom.xml` file.
 ::: zone-end
 
 ## SQL connection string
