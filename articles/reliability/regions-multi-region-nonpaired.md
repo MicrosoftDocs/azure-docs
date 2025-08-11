@@ -24,6 +24,10 @@ To learn about how to create multi-region solutions using Azure API Management, 
 
 To learn about how to create multi-region solutions using Azure App Service, see [Reliability in Azure App Service](./reliability-app-service.md).
 
+## Azure Blob Storage
+
+To learn about how to create multi-region solutions using Azure Blob Storage, see [Reliability in Azure Blob Storage](./reliability-storage-blob.md).
+
 ## Azure Cache for Redis
 
 Azure Cache for Redis provide two distinct cross-region replication options that are [active geo-replication](/azure/azure-cache-for-redis/cache-how-to-active-geo-replication) and [passive geo-replication](/azure/azure-cache-for-redis/cache-how-to-geo-replication). In both cases, there's no explicit dependency on region pairs.
@@ -97,16 +101,9 @@ For geo-replication in nonpaired regions with Azure SQL Managed Instance, you ca
 
 ## Azure Storage
 
-To achieve geo-replication in nonpaired regions: 
+To achieve geo-replication in nonpaired regions:
 
-- **For object storage:**
-
-    - For general-purpose v2 storage accounts and premium block blob accounts, you can use [Azure Storage Object Replication](../storage/blobs/object-replication-overview.md).
-
-      > [!NOTE]
-      > Object replication isn't supported for [Azure Data Lake Storage](../storage/blobs/data-lake-storage-best-practices.md).
-   
-    - For premium page blob accounts and Azure Data Lake Storage Gen2 accounts, you can use tools such as [AzCopy](../storage/common/storage-use-azcopy-blobs-copy.md) or [Azure Data Factory](/azure/data-factory/connector-azure-blob-storage?tabs=data-factory.md).
+- **For object storage:** To learn about how to create multi-region solutions using Azure Blob Storage, see [Reliability in Azure Blob Storage](./reliability-storage-blob.md).
 
 - **For Azure NetApp Files**, you can replicate to a set of nonstandard pairs besides Azure region pairs. To learn more, see [Reliability in Azure NetApp Files](reliability-netapp-files.md).
 
