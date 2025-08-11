@@ -96,15 +96,15 @@ To configure Azure Disk backup, follow these steps:
    >- Ensure that both the backup vault and the disk to be backed up are in same location.
    >- Azure Backup uses [_incremental snapshots_](/azure/virtual-machines/disks-incremental-snapshots#restrictions) of managed disks, which store only the delta changes to the disk as the last snapshot on Standard HDD storage, regardless of the storage type of the parent disk. For additional reliability, incremental snapshots are stored on Zone Redundant Storage (ZRS) by default in the ZRS supported regions. Currently, Azure Disk Backup supports operational backup of managed disks that doesn't copy backups to the Backup vault storage. So, the backup storage redundancy setting of the Backup vault doesn’t apply to the recovery points.
 
-   :::image type="content" source="./media/backup-managed-disks/select-backup-vault-inline.png" alt-text="Screenshot showing the process to select a Backup vault." lightbox="./media/backup-managed-disks/select-backup-vault-expanded.png":::
+   :::image type="content" source="./media/backup-managed-disks/select-backup-vault.png" alt-text="Screenshot shows how to select a Backup vault." lightbox="./media/backup-managed-disks/select-backup-vault.png":::
 
-1. On the **Backup Policy** tab, choose a Backup policy.
+1. On the **Backup policy** tab, choose a Backup policy.
 
-   :::image type="content" source="./media/backup-managed-disks/choose-backup-policy-inline.png" alt-text="Screenshot showing the process to choose a Backup policy." lightbox="./media/backup-managed-disks/choose-backup-policy-expanded.png":::
+   :::image type="content" source="./media/backup-managed-disks/choose-backup-policy.png" alt-text="Screenshot shows how to choose a Backup policy." lightbox="./media/backup-managed-disks/choose-backup-policy.png":::
 
-1. On the **Datasources** tab, click **+ Add/Edit** to choose one or more Azure Managed Disks for which you want to configure backup.
+1. On the **Datasources** tab, select **+ Add/Edit** to choose one or more Azure Managed Disks for which you want to configure backup.
 
-   :::image type="content" source="./media/backup-managed-disks/choose-azure-managed-disks-inline.png" alt-text="Screenshot showing the process to choose Azure Managed Disks." lightbox="./media/backup-managed-disks/choose-azure-managed-disks-expanded.png":::
+   :::image type="content" source="./media/backup-managed-disks/choose-azure-managed-disks.png" alt-text="Screenshot shows how to choose Azure Managed Disks." lightbox="./media/backup-managed-disks/choose-azure-managed-disks.png":::
 
    >[!Note]
    >While the portal allows you to select multiple disks and configure backup, each disk is an individual backup instance. Currently, Azure Disk Backup only supports backup of individual disks. Point-in-time backup of multiple disks attached to a virtual machine isn't supported.
@@ -113,7 +113,7 @@ To configure Azure Disk backup, follow these steps:
    >
    >See the [support matrix](./disk-backup-support-matrix.md) for more information on the Azure Disk backup region availability, supported scenarios, and limitations.
 
-1. Select **Snapshot resource group** and click **Validate** to initiate prerequisites checks.
+1. Select **Snapshot resource group** and then select **Validate** to initiate prerequisites checks.
 
    Choosing resource group for storing and managing snapshots:
 
@@ -127,8 +127,6 @@ To configure Azure Disk backup, follow these steps:
 
    - Once you configure the backup of a disk, you can’t change the Snapshot Resource Group that’s assigned to a backup instance.   
 
-   :::image type="content" source="./media/backup-managed-disks/validate-snapshot-resource-group-inline.png" alt-text="Screenshot showing the process to initiate prerequisites checks." lightbox="./media/backup-managed-disks/validate-snapshot-resource-group-expanded.png":::
-
 1. Once the validation is complete, check if there are any errors reported in the Backup readiness column.
 
    >[!Note]
@@ -139,7 +137,7 @@ To configure Azure Disk backup, follow these steps:
 
    If the _Role assignment not done_ error message displays in the **Backup readiness** column, the Backup vault managed identity needs role permissions on the selected disk(s) and/or   on the Snapshot resource group. 
 
-   :::image type="content" source="./media/backup-managed-disks/role-assignment-not-done-error-inline.png" alt-text="Screenshot showing the Role assignment not done error message." lightbox="./media/backup-managed-disks/role-assignment-not-done-error-expanded.png":::
+   :::image type="content" source="./media/backup-managed-disks/role-assignment-not-done-error.png" alt-text="Screenshot shows the Role assignment not done error message." lightbox="./media/backup-managed-disks/role-assignment-not-done-error.png":::
 
    To configure backup of managed disks, the following prerequisites are required:
 
