@@ -31,6 +31,8 @@ items:
     href: how-to-use-azure-migrate-with-private-endpoints.md
   - name: Support Matrix
     href: migrate-support-matrix.md
+  - name: Assessment rules for PostgreSQL
+    href: assessment-rules-postgresql.md
 - name: Discover inventory
   items:
   - name: Discovery methods
