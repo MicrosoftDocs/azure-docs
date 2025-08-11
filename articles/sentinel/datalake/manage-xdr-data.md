@@ -6,7 +6,7 @@ author: EdB-MSFT
 ms.service: microsoft-sentinel  
 ms.topic: how-to
 ms.subservice: sentinel-graph
-ms.date: 07/15/2025
+ms.date: 08/11/2025
 ms.author: edbaynash  
 
 ms.collection: ms-security  
@@ -17,7 +17,7 @@ ms.collection: ms-security
  
 
 
-# Manage XDR Data in Microsoft Sentinel
+# Manage XDR data in Microsoft Sentinel
 
 Extended Detection and Response (XDR) data isn't ingested by default into the analytics tier or the data lake tier in Microsoft Sentinel. XDR data is only available for query through Advanced hunting for a maximum of 30 days. To enable ingestion into the analytics and the data lake tiers and manage XDR data in Microsoft Sentinel, configure the retention settings in the Microsoft Defender portal. Retention settings are found in  **Microsoft Sentinel** > **Configuration** > **Tables** in the Microsoft Defender portal.
 
@@ -71,7 +71,6 @@ In all examples, XDR data is available through Advanced hunting for a minimum of
 | 180 days | 1 year | Costs apply for analytics tier ingestion. | Costs apply for 90 days of additional analytics tier retention | Costs apply for 185 days of additional data lake retention (365 - 180 days). |
 
 ## Related topics    
-
 
 - [Manage data tiers and retention in Microsoft Sentinel (preview)](../manage-data-overview.md)
 - [Configure table settings in Microsoft Sentinel (preview)](../manage-table-tiers-retention.md)
