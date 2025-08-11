@@ -31,7 +31,7 @@ Use the following links for detailed instructions on how to create HDInsight clu
 
 * [Using Portal](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2-portal.md)
 * [Using Azure CLI](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2-azure-cli.md)
-* [Using PowerShell](../powershell/module/az.hdinsight/new-azhdinsightcluster?view=azps-14.2.0#example-8-create-an-azure-hdinsight-cluster-with-azure-data-lake-gen2-storage.md)
+* [Using PowerShell](/powershell/module/az.hdinsight/new-azhdinsightcluster#example-8-create-an-azure-hdinsight-cluster-with-azure-data-lake-gen2-storage)
 
 ## Access control for Data Lake Storage Gen2 in HDInsight
 
