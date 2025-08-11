@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/07/2025
+ms.date: 08/11/2025
 ---
 
 # Copy data from ServiceNow V2 using Azure Data Factory or Synapse Analytics
