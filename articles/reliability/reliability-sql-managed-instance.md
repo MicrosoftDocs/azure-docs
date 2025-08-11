@@ -62,9 +62,9 @@ By default, Azure SQL Managed Instance achieves redundancy by spreading compute 
 - Small-scale network or power failures.
 - Issues and datacenter outages that involve the following components:
     - *Rack* where the machines that power your service are running.
-    - *Physical machine* that hosts the VM that runs the SQL database engine.
-    - *Virtual machine* that runs the SQL database engine.
-- Problems with the SQL database engine.
+    - *Physical machine* that hosts the VM that runs the SQL Database Engine.
+    - *Virtual machine* that runs the SQL Database Engine.
+- Problems with the SQL Database Engine.
 - Potential unplanned localized outages.
 
 To learn more about how Azure SQL Managed Instance provides redundancy, see [Availability through local and zone redundancy - Azure SQL Managed Instance](/azure/azure-sql/managed-instance/high-availability-sla-local-zone-redundancy).
@@ -73,7 +73,7 @@ To learn more about how Azure SQL Managed Instance provides redundancy, see [Ava
 
 [!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
 
-SQL Managed Instance automatically handles critical servicing tasks, such as patching, backups, Windows and SQL database engine upgrades, and unplanned events such as underlying hardware, software, or network failures. SQL Managed Instance can quickly recover even in the most critical circumstances, ensuring that your data is always available. Most users don't notice that upgrades are performed continuously.
+SQL Managed Instance automatically handles critical servicing tasks, such as patching, backups, Windows and SQL Database Engine upgrades, and unplanned events such as underlying hardware, software, or network failures. SQL Managed Instance can quickly recover even in the most critical circumstances, ensuring that your data is always available. Most users don't notice that upgrades are performed continuously.
 
 When an instance is patched or fails over, the downtime isn't usually impactful if you [employ retry logic](/azure/azure-sql/database/develop-overview#resiliency) in your application. You can test your application's resiliency to transient faults by following the guidance in [Test application fault resiliency](/azure/azure-sql/managed-instance/high-availability-sla-local-zone-redundancy#testing-application-fault-resiliency).
 
@@ -88,7 +88,7 @@ When you enable a [zone-redundant](./availability-zones-overview.md#types-of-ava
 
 ::: zone pivot="general-purpose"
 
-Azure SQL Managed Instance achieves zone redundancy by placing stateless compute nodes in different availability zones, and relies on stateful zone-redundant storage (ZRS) that's attached to whichever node currently contains the active SQL database engine process. In the event of an outage, the SQL database engine process becomes active on one of the stateless compute nodes, which then accesses the data in the stateful storage.
+Azure SQL Managed Instance achieves zone redundancy by placing stateless compute nodes in different availability zones, and relies on stateful zone-redundant storage (ZRS) that's attached to whichever node currently contains the active SQL Database Engine process. In the event of an outage, the SQL Database Engine process becomes active on one of the stateless compute nodes, which then accesses the data in the stateful storage.
 
 ::: zone-end
 
@@ -240,7 +240,7 @@ This section describes what to expect when SQL managed instances are configured 
 
   Failover groups also provide a separate read-only listener endpoint. During normal operations, this endpoint connects to the secondary instance to route read-only traffic specified in the connection string.
 
-  To learn more about how failover groups send traffic to each instance, and configuration you can apply to override the default behavior, see [Failover groups overview & best practices - Azure SQL Managed Instance](/azure/azure-sql/managed-instance/failover-group-sql-mi).
+  To learn more about how failover groups send traffic to each instance, and how you can direct traffic to a read-only listener endpoint, see [Failover groups overview & best practices - Azure SQL Managed Instance](/azure/azure-sql/managed-instance/failover-group-sql-mi).
 
 - **Data replication between regions:** By default, data is replicated asynchronously from the primary instance to the secondary SQL managed instance. Because geo-replication is asynchronous, it's possible to have data loss when a failover occurs.
 
