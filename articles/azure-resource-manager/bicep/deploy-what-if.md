@@ -54,6 +54,8 @@ The what-if operation in Bicep deployments may encounter "short-circuiting," a s
 
 ## Running the what-if operation
 
+Using a recent version of the Az PowerShell module (13.1.0 or later) or the Azure CLI (2.76.0 or later) will provide diagnostics when what-if cannot analyze part of the deployment. Earlier versions of these tools behave the same way, but they do not display the diagnostics. For example, if you use CLI version 2.75.0, the issue still occurs—it just happens silently.
+
 ### What-if commands
 
 # [Azure CLI](#tab/azure-cli)
@@ -467,6 +469,54 @@ The following results show the two different output formats:
 
   Resource changes: 1 to deploy.
   ```
+
+### Unevaluated expressions
+
+If an unevaluated expression appears in the output, it means what-if cannot evaluate it outside the context of a deployment. The expression is shown as-is to indicate the information that will be filled in when the deployment is executed.
+
+```bicep
+param now string = utcNow()
+
+resource sa 'Microsoft.Storage/storageAccounts@2025-01-01' = {
+  name: 'acct'
+  location: resourceGroup().location
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'StorageV2'
+  tags: {
+    lastDeployedOn: now
+    lastDeployedBy: deployer().userPrincipalName
+  }
+}
+```
+
+In the preceding example, the `now` parameter uses the `utcNow()` function to get the current date and time. When you run what-if, these expressions are shown as-is because they can't be evaluated outside the context of a deployment. The what-if output will look similar to:
+
+```console
+Note: The result may contain false positive predictions (noise).
+You can help us improve the accuracy of the result by opening an issue here: https://aka.ms/WhatIfIssues
+
+Resource and property changes are indicated with this symbol:
+  ~ Modify
+
+The deployment will update the following scope:
+
+Scope: /subscriptions/a1bfa635-f2bf-42f1-86b5-848c674fc321/resourceGroups/jgaotest
+
+  ~ Microsoft.Storage/storageAccounts/acct0808 [2025-01-01]
+    ~ tags.lastDeployedOn: "20250808T200145Z" => "[utcNow()]"
+
+Resource changes: 1 to modify.
+```
+
+The following expressions are not evaluated during what-if:
+
+- Non-deterministic functions, such as [newGuid()](./bicep-functions-string.md#newguid) and [utcNow()](./bicep-functions-date.md#utcnow)
+- Any reference to a [secure parameter value](./parameters.md#secure-parameters).
+- References to resources that are not deployed in the same template.
+- References to resource properties that are not defined in the same template.
+- Any resource function, such as [listKeys()](./bicep-functions-resource.md#listkeys).
 
 ## Clean up resources
 

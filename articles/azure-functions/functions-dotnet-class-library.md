@@ -1,5 +1,5 @@
 ---
-title: Develop C# class library functions using Azure Functions
+title: Develop legacy C# class library functions using Azure Functions
 description: Understand how to use C# to develop and publish code as class libraries that run in-process with the Azure Functions runtime.
 
 ms.topic: conceptual
@@ -7,7 +7,7 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
 ms.date: 05/06/2025
 ---
-# Develop C# class library functions using Azure Functions
+# Develop legacy C# class library functions using Azure Functions
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-reference-csharp.md -->
 

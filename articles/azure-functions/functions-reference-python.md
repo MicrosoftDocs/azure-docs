@@ -2,7 +2,7 @@
 title: Python developer reference for Azure Functions
 description: Understand how to develop, validate, and deploy your Python code projects to Azure Functions using the Python library for Azure Functions.
 ms.topic: article
-ms.date: 12/29/2024
+ms.date: 07/31/2025
 ms.devlang: python
 ms.custom:
   - devx-track-python
@@ -20,7 +20,7 @@ This guide is an introduction to developing Azure Functions by using Python. The
 > This article supports both the v1 and v2 programming model for Python in Azure Functions.
 > The Python v1 model uses a *functions.json* file to define functions, and the new v2 model lets you instead use a decorator-based approach. This new approach results in a simpler file structure, and it's more code-centric. Choose the **v2** selector at the top of the article to learn about this new programming model. 
 
-As a Python developer, you might also be interested in these topics:
+As a Python developer, you might also be interested in these articles:
 
 ## [Get started](#tab/get-started)
 
@@ -536,7 +536,7 @@ For select triggers and bindings, you can work with data types implemented by th
 
 ## HTTP streams
 
-HTTP streams lets you accept and return data from your HTTP endpoints using FastAPI request and response APIs enabled in your functions. These APIs lets the host process large data in HTTP messages as chunks instead of reading an entire message into memory. 
+HTTP streams is a feature that lets you accept and return data from your HTTP endpoints using FastAPI request and response APIs enabled in your functions. These APIs lets the host process large data in HTTP messages as chunks instead of reading an entire message into memory. 
 
 This feature makes it possible to handle large data stream, OpenAI integrations, deliver dynamic content, and support other core HTTP scenarios requiring real-time interactions over HTTP. You can also use FastAPI response types with HTTP streams. Without HTTP streams, the size of your HTTP requests and responses are limited by memory restrictions that can be encountered when processing entire message payloads all in memory. 
 
@@ -1077,13 +1077,18 @@ For local development, application settings are [maintained in the *local.settin
 
 Azure Functions supports the following Python versions:
 
-| Functions version | Python\* versions |
-| ----- | :-----: |
-| 4.x | 3.13 (Preview)<br/>3.12<br/>3.11<br/>3.10<br/>|
-> [!IMPORTANT]  
-> Python 3.13 is currently supported on the Flex Consumption, Premium, and Dedicated plans. Python 3.13 support on the Consumption plan is pending.
+| Python<sup>1</sup> versions | Support level |
+| ----- | ----- |
+| 3.13 | Preview<sup>2</sup> |
+| 3.12 | Generally available (GA) |
+| 3.11 | GA | 
+| 3.10 | GA |
 
-\* Official Python distributions
+1. Official Python distributions
+2. Python 3.13 support is in preview and currently isn't supported by the [Consumption plan](./consumption-plan.md). 
+
+> [!IMPORTANT]  
+> Python 3.13 support introduces some improvements and a few breaking changes. For more information, see [Python 3.13+ in Azure Functions](./python-313-changes.md).
 
 To request a specific Python version when you create your function app in Azure, use the `--runtime-version` option of the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command. The Functions runtime version is set by the `--functions-version` option. The Python version is set when the function app is created, and it can't be changed for apps running in a Consumption plan.
 
@@ -1362,7 +1367,7 @@ def http_trigger(req: func.HttpRequest) -> func.HttpResponse:
 print(http_trigger(None))
 ```
 
-Note that with this approach, no additional package or setup is required. The function can be tested by calling `python function_app.py`, and it results in `Hello, World!` output in the terminal.
+With this approach, extra packages and configuration isn't required. The function can be tested by calling `python function_app.py`, and it results in `Hello, World!` output in the terminal.
 
 > [!NOTE]
 > Durable Functions require special syntax for unit testing. For more information, refer to [Unit Testing Durable Functions in Python](durable/durable-functions-unit-testing-python.md)
@@ -1374,7 +1379,7 @@ Note that with this approach, no additional package or setup is required. The fu
 The `tempfile.gettempdir()` method returns a temporary folder, which on Linux is */tmp*. Your application can use this directory to store temporary files that are generated and used by your functions when they're running.
 
 > [!IMPORTANT]
-> Files written to the temporary directory aren't guaranteed to persist across invocations. During scale out, temporary files aren't shared between instances.
+> Files written to the temporary directory aren't guaranteed to persist across invocations. During scale-out, temporary files aren't shared between instances.
 
 The following example creates a named temporary file in the temporary directory (*/tmp*):
 
@@ -1418,13 +1423,13 @@ The Azure Functions Python worker requires a specific set of libraries. You can 
 > If your function app's *requirements.txt* file contains an `azure-functions-worker` entry, remove it. The functions worker is automatically managed by the Azure Functions platform, and we regularly update it with new features and bug fixes. Manually installing an old version of worker in the *requirements.txt* file might cause unexpected issues.
 
 > [!NOTE]
->  If your package contains certain libraries that might collide with worker's dependencies (for example, protobuf, tensorflow, or grpcio), configure [`PYTHON_ISOLATE_WORKER_DEPENDENCIES`](functions-app-settings.md#python_isolate_worker_dependencies) to `1` in app settings to prevent your application from referring to worker's dependencies.
+>  If your package contains certain libraries that might collide with worker's dependencies (for example, protobuf, TensorFlow, or grpcio), configure [`PYTHON_ISOLATE_WORKER_DEPENDENCIES`](functions-app-settings.md#python_isolate_worker_dependencies) to `1` in app settings to prevent your application from referring to worker's dependencies.
 
 ### The Azure Functions Python library
 
 Every Python worker update includes a new version of the [Azure Functions Python library (azure.functions)](https://github.com/Azure/azure-functions-python-library). This approach makes it easier to continuously update your Python function apps, because each update is backwards-compatible. For a list of releases of this library, go to [azure-functions PyPi](https://pypi.org/project/azure-functions/#history).
 
-The runtime library version is fixed by Azure, and it can't be overridden by *requirements.txt*. The `azure-functions` entry in *requirements.txt* is only for linting and customer awareness.
+The runtime library version is set by Azure, and it can't be overridden by *requirements.txt*. The `azure-functions` entry in *requirements.txt* is only for linting and customer awareness.
 
 Use the following code to track the actual version of the Python functions library in your runtime:
 
@@ -1468,7 +1473,7 @@ You can use a Python worker extension library in your Python functions by doing 
 1. Configure the extension instance, if needed. Configuration requirements should be called out in the extension's documentation. 
 
 > [!IMPORTANT]
-> Third-party Python worker extension libraries aren't supported or warrantied by Microsoft. You must make sure that any extensions that you use in your function app is trustworthy, and you bear the full risk of using a malicious or poorly written extension. 
+> Third-party Python worker extension libraries aren't supported or warranted by Microsoft. You must make sure that any extensions that you use in your function app is trustworthy, and you bear the full risk of using a malicious or poorly written extension. 
 
 Third-parties should provide specific documentation on how to install and consume their extensions in your function app. For a basic example of how to consume an extension, see [Consuming your extension](develop-python-worker-extensions.md#consume-your-extension-locally). 
 
