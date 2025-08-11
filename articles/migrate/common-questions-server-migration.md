@@ -156,7 +156,7 @@ The **Migration and modernization** tool migrates all the UEFI-based machines to
 > [!NOTE]
 > If a major version of an operating system is supported in agentless migration, all minor versions and kernels are automatically supported.
 
-[!CAUTION]
+> [!CAUTION]
 > This article references Windows Server versions that have reached End of Support (EOS).Microsoft has officially ended support for the following operating systems:
 > - Windows Server 2003
 > - Windows Server 2008 (including SP2 and R2 SP1)
