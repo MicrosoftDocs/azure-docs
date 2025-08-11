@@ -5,7 +5,7 @@ ms.topic: reference
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 03/04/2022
+ms.date: 05/11/2025
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -75,7 +75,7 @@ We don't currently have an example for using the SendGrid binding in a function 
 
 # [In-process model](#tab/in-process)    
 
-The following examples shows a [C# function](functions-dotnet-class-library.md) that uses a Service Bus queue trigger and a SendGrid output binding.
+The following examples show a [C# function](functions-dotnet-class-library.md) that uses a Service Bus queue trigger and a SendGrid output binding.
 
 The following example is a synchronous execution:
 
@@ -359,7 +359,7 @@ The following table lists the binding configuration properties available in the 
 |--------------------------|---------------------|
 | **type** | Must be set to `sendGrid`.| 
 | **direction** | Must be set to `out`.| 
-| **name** | The variable name used in function code for the request or request body. This value is `$return` when there is only one return value. | 
+| **name** | The variable name used in function code for the request or request body. This value is `$return` when there's only one return value. | 
 | **apiKey** |  The name of an app setting that contains your API key. If not set, the default app setting name is *AzureWebJobsSendGridApiKey*.|
 | **to**| (Optional) The recipient's email address. | 
 | **from**| (Optional) The sender's email address. |  
