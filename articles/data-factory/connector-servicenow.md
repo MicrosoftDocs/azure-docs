@@ -38,6 +38,8 @@ The service provides a built-in driver to enable connectivity. Therefore you don
 
 To use this connector, you need to have a role with at least read access to *sys_db_object* and *sys_dictionary* tables in ServiceNow.
 
+To access views in ServiceNow, you need to have a role with at least read access to *sys_db_view_table* and *sys_db_view_table_field* tables.
+
 ## Getting started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
@@ -261,17 +263,9 @@ Here is an example of the source JSON using the expression parameter:
 ]
 ```
 
-The following column cannot be obtained due to ServiceNow API limitations.
-
-- `sys_id`
-- `u_id`
-- `sys_updated_by`
-- `sys_created_on`
-- `sys_mod_count`
-- `sys_updated_on`
-- `sys_tags`
-- `sys_created_by`
-
+> [!NOTE]
+> The columns `sys_id`, `u_id`, `sys_updated_by`, `sys_created_on`, `sys_mod_count`, `sys_updated_on`, `sys_tags`, and `sys_created_by` cannot be obtained due to ServiceNow API limitations.
+    
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
