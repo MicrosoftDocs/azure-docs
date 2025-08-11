@@ -4,7 +4,7 @@ description: Reliability guides for Microsoft Azure products and services. View 
 author: anaharris-ms
 ms.service: azure
 ms.topic: reliability-article
-ms.date: 03/31/2025
+ms.date: 08/08/2025
 ms.author: anaharris
 ms.custom: subject-reliability
 ms.subservice: azure-reliability
@@ -35,7 +35,7 @@ This section provides links to reliability guidance for many Azure services. Eac
 | Product| Reliability Guide | Other Reliability Documentation |
 |----------|---------|---------|
 |Azure AI Health Insights| [Reliability in Azure AI Health Insights](reliability-health-insights.md)||
-|Azure AI Search| | [Reliability in Azure AI Search](/azure/search/search-reliability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+|Azure AI Search| [Reliability in Azure AI Search](reliability-ai-search.md) ||
 |Azure API Center| [Reliability in Azure API Center](reliability-api-center.md) ||
 |Azure API Management | [Reliability in Azure API Management](reliability-api-management.md) ||
 |Azure App Configuration||[How does App Configuration ensure high data availability?](../azure-app-configuration/faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-does-app-configuration-ensure-high-data-availability) </p> [Resiliency and disaster recovery](../azure-app-configuration/concept-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&tabs=core2x)|
