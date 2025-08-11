@@ -407,6 +407,9 @@
   - name: Manage tables, tiers, and retention
     href: manage-table-tiers-retention.md
     displayName: table management, tiers, retention, tables  
+  - name: Manage XDR data
+    href: manage-xdr-data.md
+    displayName: XDR, data lake, table management, tiers, retention, tables  
 - name: Integrate threat intelligence
   items:
   - name: Overview
