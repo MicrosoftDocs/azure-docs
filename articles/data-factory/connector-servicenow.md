@@ -261,6 +261,17 @@ Here is an example of the source JSON using the expression parameter:
 ]
 ```
 
+The following column cannot be obtained due to ServiceNow API limitations.
+
+- `sys_id`
+- `u_id`
+- `sys_updated_by`
+- `sys_created_on`
+- `sys_mod_count`
+- `sys_updated_on`
+- `sys_tags`
+- `sys_created_by`
+
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
