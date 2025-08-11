@@ -1,7 +1,12 @@
 ---
+title: Storage Assessment
+description: Storage migration Assessment guide describes basic guidance for storage migration Assessment
 author: bapic
+ms.author: bapic
+ms.topic: concept-article 
 ms.date: 08/11/2025
-title: Assessment
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ---
 
 # Assessment

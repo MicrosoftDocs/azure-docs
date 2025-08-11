@@ -1,7 +1,12 @@
 ---
-title: Select migration Tools
+title: Azure Storage migration tools selection guide
+description: Azure Storage migration tools selection guide describes basic guidance for storage migration tools selection
 author: bapic
+ms.author: bapic
+ms.topic: concept-article 
 ms.date: 08/11/2025
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ---
 # Select migration Tools 
 

@@ -1,7 +1,12 @@
 ---
-title: Plan the migration strategy
+title: Storage migration strategy
+description: Storage migration strategy guide describes basic guidance for storage migration strategies
 author: bapic
+ms.author: bapic
+ms.topic: concept-article 
 ms.date: 08/11/2025
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ---
 # Plan the migration strategy
 

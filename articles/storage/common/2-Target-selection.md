@@ -1,7 +1,12 @@
 ---
-title: Target selection
+title: Storage Target Selection
+description: Storage migration target selection guide describes basic guidance for storage migration target selection
 author: bapic
+ms.author: bapic
+ms.topic: concept-article 
 ms.date: 08/11/2025
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ---
 
 # Target selection

@@ -1,7 +1,12 @@
 ---
-title: Execute the migration
+title: Azure Storage migration execution guide
+description: Azure Storage migration execution guide describes basic guidance for storage migration execution stages
 author: bapic
+ms.author: bapic
+ms.topic: concept-article 
 ms.date: 08/11/2025
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ---
 # Execute the migration
 
