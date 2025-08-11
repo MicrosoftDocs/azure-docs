@@ -326,16 +326,16 @@ Variables are commonly used for counting the number of times that a loop runs. T
 
 1. In the trigger, to check for attachments and pass those attachments into your workflow, select **Yes** for the following properties:
 
-   * **Only with Attachment**
+   * **Only With Attachment**
    * **Include Attachments**
 
    :::image type="content" source="./media/logic-apps-create-variables-store-values/check-include-attachments-consumption.png" alt-text="Screenshot shows Azure portal, Consumption workflow, and properties selected to check for and include attachments." lightbox="./media/logic-apps-create-variables-store-values/check-include-attachments-consumption.png":::
 
 1. Add the [**Initialize variables** action](#create-variable) to create an integer variable named **Count** that has a start value set to **`0`**.
 
-1. To iterate through each attachment, [follow these general steps to add an action called a **For each** loop](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
+1. To iterate through each attachment, [follow these general steps](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action) to add an action called a **For each** loop.
 
-1. In the loop, select inside the box named **Select an output from previous steps**. Select the lightning icon to view dynamic content. After the dynamic content list appears, under **When a new email arrives**, select **Attachments**.
+1. In the loop, select inside the box named **Select an Output from Previous Steps**. Select the lightning icon to view dynamic content. After the dynamic content list appears, under **When a new email arrives**, select **Attachments**.
 
    :::image type="content" source="./media/logic-apps-create-variables-store-values/select-attachments-consumption.png" alt-text="Screenshot shows Consumption workflow, For each loop, opened dynamic content list, and selected Attachments output." lightbox="./media/logic-apps-create-variables-store-values/select-attachments-consumption.png":::
 
@@ -367,7 +367,7 @@ Variables are commonly used for counting the number of times that a loop runs. T
 
 1. In the trigger, to check for attachments and pass those attachments into your workflow, select **Yes** for the following properties:
 
-   - **Only with Attachment**
+   - **Only With Attachment**
    - **Include Attachments**
 
    If these properties don't already appear in the trigger, add them from the **Add new parameters** list.
@@ -378,7 +378,7 @@ Variables are commonly used for counting the number of times that a loop runs. T
 
 1. To iterate through each attachment, [follow these general steps](create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to add an action called a **For each** loop.
 
-1. In the loop, select inside the box named **Select an output from previous steps**. After the dynamic content list appears, under **When a new email arrives**, select **Attachments**.
+1. In the loop, select inside the box named **Select an Output from Previous Steps**. After the dynamic content list appears, under **When a new email arrives**, select **Attachments**.
 
    > [!TIP]
    >
@@ -420,7 +420,7 @@ Variables are commonly used for counting the number of times that a loop runs. T
 
    **Standard workflow**
 
-   On the workflow menu, on the toolbar, select **Run** > **Run**.
+   On the workflow, on the toolbar, select **Run** > **Run**.
 
 1. Send an email with one or more attachments to the email account you used in this example.
 
@@ -505,7 +505,7 @@ The following table describes the information for the **Set variable** action:
 >
 > 1. Select your loop to view its contents, then select **Settings**.
 >
-> 1. for **General** >  **Concurrency control**, change the setting from **Off** to **On**.
+> 1. For **General** >  **Concurrency control**, change the setting from **Off** to **On**.
 >
 > 1. Drag the **Degree of parallelism** slider to **1**.
 
