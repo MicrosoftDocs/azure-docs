@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: build-2023, devx-track-azurecli
 ms.topic: conceptual
-ms.date: 12/19/2024
+ms.date: 06/30/2025
 ms.author: cshoe
 ---
 
@@ -345,6 +345,8 @@ To create an event-driven job using the Azure portal, search for *Container App 
 ---
 
 For a complete tutorial, see [Deploy an event-driven job](tutorial-event-driven-jobs.md).
+
+For more information about scaling apps and scaling jobs, see (./scale-app.md#scaling-apps-and-scaling-jobs).
 
 ## Start a job execution on demand
 
