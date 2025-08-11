@@ -23,7 +23,7 @@ The connection string for a namespace looks like:
 Endpoint=sb://<NamespaceName>.servicebus.windows.net/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>
 ```
 
-The connection string for an event hub has an extra component in it, i.e, `EntityPath=<EventHubName>`. 
+The connection string for an event hub has an extra component in it, i.e., `EntityPath=<EventHubName>`. 
 
 ```bash
 Endpoint=sb://<NamespaceName>.servicebus.windows.net/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>;EntityPath=<EventHubName>
