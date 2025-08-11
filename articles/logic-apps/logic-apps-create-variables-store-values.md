@@ -313,15 +313,7 @@ Variables are commonly used for counting the number of times that a loop runs. T
 
 ### Test your workflow
 
-1. To manually trigger your workflow, follow the corresponding step:
-
-   **Consumption workflow**
-
-   On the designer workflow toolbar, select **Run** > **Run** to manually run your workflow.
-
-   **Standard workflow**
-
-   On the workflow, on the toolbar, select **Run** > **Run**.
+1. To manually trigger your workflow, on the designer workflow toolbar, select **Run** > **Run** to manually run your workflow.
 
 1. Send an email with one or more attachments to the email account you used in this example.
 
