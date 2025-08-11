@@ -74,7 +74,7 @@ This command returns the URL of your Functions app. Copy this URL and paste it i
 
 In the Azure portal, select the *Optimize for Azure Functions* option during container app creation to streamline the setup.
 
-<img width="752" height="594" alt="Create via Portal: Option to optimize for Azure Functions" src="https://github.com/user-attachments/assets/fe7e3287-27fa-48c2-81a4-70e7ed9f250f" />
+:::image type="content" source="media/functions-overview/fnonacaportal.png.png" alt-text="Screenshot of the Azure portal when you create a container app pre-configured for Azure Functions.":::
 
 All standard deployment methods are supported, including:
 - [Azure CLI](../container-apps/functions-usage.md?pivots=azure-cli)
