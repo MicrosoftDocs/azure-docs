@@ -150,7 +150,7 @@ To run the actions in your workflow only when a specific event or operation happ
 
       :::image type="content" source="./media/monitor-virtual-machine-changes-logic-app/condition-choose-expression.png" alt-text="Screenshot shows the workflow designer with the renamed Condition action and expression editor open.":::
 
-   1. In the editor, make **Function** is selected. In the editor box, enter the following expression, which returns the operation name from the trigger, and then select **Add**:
+   1. In the editor, make sure **Function** is selected. In the editor box, enter the following expression, which returns the operation name from the trigger, and then select **Add**:
 
       `triggerBody()?['data']['operationName']`
 
