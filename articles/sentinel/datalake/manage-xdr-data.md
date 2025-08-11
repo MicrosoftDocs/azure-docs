@@ -56,7 +56,7 @@ The following table summarizes the retention and cost implications for the diffe
 
 
 
-## Retention Configuration Examples
+## Retention configuration examples
 
 The following table summarizes the retention settings and their implications for ingestion and costs in Microsoft Sentinel.
 
