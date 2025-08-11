@@ -78,7 +78,7 @@ GPv2 supports all blob features available in BlobStorage accounts—and more—w
 
 ## What happens if I don’t migrate?
 
-After **August 31, 2026**, you will no longer be able to manage BlobStorage accounts. After **September 2026**, data access will be blocked and applications relying on these accounts will fail.
+After **August 31, 2026**, you'll no longer be able to manage BlobStorage accounts. After **September 2026**, data access will be blocked and applications relying on these accounts will fail.
 
 ## Need help?
 For assistance with migration or to learn more about GPv2 features, refer to the following resources:
