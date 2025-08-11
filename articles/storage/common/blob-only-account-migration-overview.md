@@ -65,9 +65,13 @@ GPv2 supports all blob features available in BlobStorage accounts—and more—w
    - Use tools like AzCopy, Azure Data Factory, or Storage Explorer to move your data.
 4. **Validate workloads** post-migration to ensure functionality and billing accuracy.
 
-[!Tip]
-Most blob-only workloads can migrate from BlobStorage to GPv2 without code changes. Review any hardcoded pricing assumptions or tier-unaware logic to ensure compatibility with GPv2 features.
-GPv2 enables per-blob tiering and lifecycle rules, offering better cost optimization and automation.
+>[!NOTE]
+>GPv2 uses a different transaction pricing model than legacy accounts. Review cost considerations before migrating.  
+>See [general-purpose-version-1-account-migration-overview.md#plan-for-pricing-changes-when-upgrading-gpv1--gpv2](general-purpose-version-1-account-migration-overview.md#plan-for-pricing-changes-when-upgrading-gpv1--gpv2).
+
+>[!Tip]
+>Most blob-only workloads can migrate from BlobStorage to GPv2 without code changes. Review any hardcoded pricing assumptions or tier-unaware logic to ensure compatibility with GPv2 features.
+>GPv2 enables per-blob tiering and lifecycle rules, offering better cost optimization and automation.
 
 ## What happens if I don’t migrate?
 
