@@ -43,26 +43,33 @@ Please note, limitations tagged with **[Temporary]** will be resolved at GA.
 - Virtual network TAP only supports virtual machine's (VM) network interface as a mirroring source.
 - [Temporary] v6 VM SKU aren't supported as a source. 
 - [Temporary] Before adding a VM as a source, you must **first deploy a virtual network TAP resource** and **then STOP (deallocate) and START the source VM**. This is required only once for any VM that will be added as a source. **If not done, you will get an erorr stating the NIC is not on fastpath**.
-
-### Other Limitations
-- Virtual network TAP supports Load Balancer or VM's network interface as a destination resource for mirrored traffic.
 - [Temporary] Virtual network doesn't support Live Migration. Live Migration will be disabled for VMs set as a source.
-- [Temporary] VMs behind a Standard Load Balancer with Floating IP enabled can't be set as a mirroring source. 
-- VMs behind Basic Load Balancer can't be set as a mirroring source. Basic Load Balancer is being deprecated.
-- Virtual network doesn't support mirroring of inbound Private Link Service traffic.
-- VMs in a virtual network with encryption enabled can't be set as mirroring source.
-- Virtual network TAP doesn't support IPv6.
+- [Temporary] VMs behind a Standard Load Balancer with Floating IP enabled can't be set as a mirroring source.
 - [Temporary] When a VM is added or removed as a source, the VM might experience network downtime (up to 60 seconds).
+- VMs in a virtual network with encryption enabled can't be set as mirroring source.
+- VMs behind Basic Load Balancer can't be set as a mirroring source. Basic Load Balancer is being deprecated.
+  
+### Mirrored traffic destination
+- Virtual network TAP supports Load Balancer or VM's network interface as a destination resource for mirrored traffic.
+- Traffic destination must be in the same region as the virtual network TAP resource
+- VNET peering must be enabled if mirrored traffic destination is on a seperate VNET from the source VM
+ - [Temporary] Peering through vWAN is not supported.
+   
+### Other limitations
+- Virtual network doesn't support mirroring of inbound Private Link Service traffic.
+- Virtual network TAP doesn't support IPv6.
 
 ## Supported Regions
-
-- Asia East
-- US West Central
+-	UK South
+-	Asia East
+-	US East
+-	US West Central
+-	India Central
+-	Germany West Central
 
 ### Coming soon
-
-- UK South
-- US East
+- US Central
+- EU West
 
 ## Virtual network TAP partner solutions
 
@@ -91,6 +98,7 @@ Please note, limitations tagged with **[Temporary]** will be resolved at GA.
 |**LinkShadow**|[LinkShadow NDR](https://www.linkshadow.com/products/network-detection-and-response)|
 |**AttackFence**|[AttackFence NDR](https://www.attackfence.com/products/ndr)|
 |**Arista Networks**|[Arista NDR](https://www.arista.com/en/products/network-detection-and-response)|
+|**Progress**|[Flowmon](https://www.progress.com/blogs/azure-vtap)|
 
 ## Next Steps
 
