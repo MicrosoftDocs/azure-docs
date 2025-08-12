@@ -7,6 +7,7 @@ ms.topic: article
 ms.date: 02/14/2025
 author: msangapu-msft
 ms.author: msangapu
+ms.service: azure-app-service
 ---
 # Configure Traffic Manager for your Azure App Service domain
 

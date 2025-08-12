@@ -6,6 +6,7 @@ ms.date: 03/01/2022
 ms.custom: AppServiceIdentity
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
 ---
 
 # Configure your App Service or Azure Functions app to use GitHub login

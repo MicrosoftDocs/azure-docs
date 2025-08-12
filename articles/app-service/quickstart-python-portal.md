@@ -8,6 +8,7 @@ ms.date: 04/01/2021
 ms.devlang: python
 ms.custom: devx-track-python, mode-ui, linux-related-content
 ROBOTS: noindex
+ms.service: azure-app-service
 ---
 
 # Quickstart: Create a Python app using Azure App Service on Linux (Azure portal)

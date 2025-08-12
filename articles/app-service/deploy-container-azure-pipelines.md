@@ -5,6 +5,7 @@ ms.topic: article
 ms.date: 6/10/2024
 author: jefmarti
 ms.author: jefmarti
+ms.service: azure-app-service
 ---
 
 # Deploy a custom container to App Service using Azure Pipelines

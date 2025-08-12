@@ -5,6 +5,7 @@ ms.topic: overview
 ms.date: 07/14/2025
 ms.author: cephalin
 author: cephalin
+ms.service: azure-app-service
 ---
 
 # Sidecars in Azure App Service

@@ -9,6 +9,7 @@ zone_pivot_groups: app-service-platform-windows-linux
 ms.author: msangapu
 author: msangapu-msft
 #customer intent: As an app developer who uses PHP, I want to understand how to configure my PHP web apps in Azure App Service.
+ms.service: azure-app-service
 ---
 
 # Configure a PHP app in Azure App Service

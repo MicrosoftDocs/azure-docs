@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 05/09/2025
 ms.author: glenga
 #Customer intent: As an Azure App Service developer, I want use the WebJobs SDK to run event-driven code in Azure.
+ms.service: azure-app-service
 ---
 
 # Use the Azure WebJobs SDK for event-driven background processing

@@ -6,6 +6,7 @@ ms.date: 06/18/2025
 ms.author: cephalin
 author: cephalin
 keywords: azure app service, web app, linux, windows, docker, container, sidecar
+ms.service: azure-app-service
 ---
 
 # Tutorial: Configure a sidecar container for a custom container app

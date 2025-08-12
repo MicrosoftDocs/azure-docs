@@ -10,6 +10,7 @@ zone_pivot_groups: app-service-java-hosting
 adobe-target: true
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
 ---
 
 # Configure APM platforms for Tomcat, JBoss, or Java SE apps in Azure App Service

@@ -9,6 +9,7 @@ ms.devlang: azurecli
 author: cephalin
 ms.author: cephalin
 zone_pivot_groups:  app-service-containers-github-actions
+ms.service: azure-app-service
 ---
 
 # Deploy a custom container to App Service using GitHub Actions

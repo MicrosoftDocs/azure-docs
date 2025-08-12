@@ -6,6 +6,7 @@ ms.date: 07/15/2021
 ms.custom: AppServiceIdentity
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
 ---
 
 # File-based configuration in Azure App Service authentication

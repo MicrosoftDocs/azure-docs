@@ -8,6 +8,7 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/26/2025
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli, devx-track-dotnet, AppServiceConnectivity
+ms.service: azure-app-service
 ---
 # Tutorial: Use managed identity to connect an Azure web app to an Azure SQL database without secrets
 

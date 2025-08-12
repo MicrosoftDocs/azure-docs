@@ -8,6 +8,7 @@ ms.date: 10/26/2021
 ms.reviewer: jordanselig
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
 ---
 
 # Tutorial: Isolate back-end communication in Azure App Service with Virtual Network integration

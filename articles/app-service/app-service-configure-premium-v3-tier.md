@@ -9,6 +9,7 @@ ms.author: msangapu
 author: msangapu-msft
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 #customer intent: As a deployment engineer, I want to understand the process and the benefits of scaling up apps to the Premium V3 pricing tier in Azure App Service.
+ms.service: azure-app-service
 ---
 
 # Configure Premium V3 tier for Azure App Service

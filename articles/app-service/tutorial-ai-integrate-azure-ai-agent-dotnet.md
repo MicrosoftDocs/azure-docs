@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.custom:
   - devx-track-dotnet
 ms.collection: ce-skilling-ai-copilot
+ms.service: azure-app-service
 ---
 
 # Add an App Service app as a tool in Azure AI Foundry Agent Service (.NET)

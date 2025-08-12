@@ -2,7 +2,7 @@
 title: Enhancements to Support Retirement of Basic Load Balancers and Basic SKU Public IP addresses in Azure
 description: Learn how retirement of Basic Load Balancer and Basic SKU Public IP address in Azure will impact VMs provisioned in Azure DevTest Labs.
 ms.topic: how-to
-ms.author: anishtrakru
+ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/20/2025
 ms.custom: UpdateFrequency2

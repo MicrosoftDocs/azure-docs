@@ -9,6 +9,7 @@ zone_pivot_groups: app-service-platform-windows-linux
 author: cephalin
 ms.author: cephalin
 #customer intent: As an app designer, I want to learn how to configure my ASP.NET Core app to use Azure App Service.
+ms.service: azure-app-service
 ---
 
 # Configure an ASP.NET Core app for Azure App Service

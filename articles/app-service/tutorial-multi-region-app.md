@@ -10,6 +10,7 @@ ms.custom:
   - build-2025
 ms.date: 2/8/2023
 ms.author: jordanselig
+ms.service: azure-app-service
 ---
 
 # Tutorial: Create a highly available multi-region app in Azure App Service

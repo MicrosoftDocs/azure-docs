@@ -12,6 +12,7 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-arm-template-uiex
+ms.service: azure-app-service
 ---
 
 # Quickstart: Create App Service app using an ARM template

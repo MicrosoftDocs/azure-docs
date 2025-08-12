@@ -7,6 +7,7 @@ ms.custom: devx-track-arm-template
 ms.date: 05/06/2024
 ms.author: jordanselig
 zone_pivot_groups: app-service-environment-portal-arm
+ms.service: azure-app-service
 ---
 
 # Custom domain suffix for App Service Environments

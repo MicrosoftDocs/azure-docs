@@ -7,6 +7,7 @@ ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 01/15/2025
 ROBOTS: NOINDEX
+ms.service: azure-app-service
 ---
 # Set up an Azure Arc-enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)
 

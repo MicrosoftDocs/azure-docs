@@ -10,6 +10,7 @@ ms.custom:
   - subject-terraform
   - devx-track-terraform
   - build-2025
+ms.service: azure-app-service
 ---
 
 # Quickstart: Create an App Service app by using a Terraform template

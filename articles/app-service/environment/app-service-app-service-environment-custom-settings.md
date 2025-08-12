@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.date: 03/06/2024
 ms.author: jordanselig
 ms.custom: mvc, devx-track-arm-template
+ms.service: azure-app-service
 ---
 
 # Custom configuration settings for App Service Environments

@@ -6,7 +6,7 @@ ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
 ms.custom: references_regions, subject-rbac-steps
-ms.date: 07/28/2023
+ms.date: 08/12/2025
 ms.author: kesheth
 ---
 

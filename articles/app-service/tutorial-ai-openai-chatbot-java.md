@@ -11,6 +11,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.collection: ce-skilling-ai-copilot
+ms.service: azure-app-service
 ---
 
 # Tutorial: Build a chatbot with Azure App Service and Azure OpenAI (Spring Boot)

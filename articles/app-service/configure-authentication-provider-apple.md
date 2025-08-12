@@ -7,6 +7,7 @@ ms.reviewer: mikarmar
 ms.custom: AppServiceIdentity
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
 ---
 
 # Configure your App Service or Azure Functions app to sign in using a Sign in with Apple provider (Preview)

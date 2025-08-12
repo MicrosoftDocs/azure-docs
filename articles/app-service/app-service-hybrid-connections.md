@@ -11,6 +11,7 @@ ms.custom:
   - "UpdateFrequency3, fasttrack-edit"
   - build-2025
 #customer intent: As an app developer, I want to understand the usage of Hybrid Connections to provide access to apps in Azure App Service.
+ms.service: azure-app-service
 ---
 
 # Azure App Service Hybrid Connections

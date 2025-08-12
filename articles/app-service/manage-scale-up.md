@@ -8,6 +8,7 @@ ms.author: msangapu
 author: msangapu-msft
 ms.custom:
   - build-2025
+ms.service: azure-app-service
 ---
 # Scale up an app in Azure App Service
 

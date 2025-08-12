@@ -6,6 +6,7 @@ ms.author: jordanselig
 ms.date: 10/4/2023
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
+ms.service: azure-app-service
 ---
 
 # Restore a deleted App Service app

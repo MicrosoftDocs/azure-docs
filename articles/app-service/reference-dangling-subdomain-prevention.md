@@ -7,6 +7,7 @@ ms.update-cycle: 1095-days
 ms.author: msangapu
 ms.custom: UpdateFrequency3
 author: msangapu-msft
+ms.service: azure-app-service
 ---
 
 # Mitigating subdomain takeovers in Azure App Service

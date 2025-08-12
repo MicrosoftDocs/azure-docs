@@ -10,6 +10,7 @@ ms.date: 01/28/2025
 ms.author: msangapu
 ms.custom: devx-track-azurecli, linux-related-content
 zone_pivot_groups: app-service-containers-windows-linux
+ms.service: azure-app-service
 ---
 # Open an SSH session to a container in Azure App Service
 

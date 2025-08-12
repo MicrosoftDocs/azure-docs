@@ -5,6 +5,7 @@ author: seligj95
 ms.author: jordanselig
 ms.topic: how-to
 ms.date: 10/20/2021
+ms.service: azure-app-service
 ---
 
 # Manage Azure App Service virtual network integration routing

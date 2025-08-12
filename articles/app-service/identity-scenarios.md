@@ -7,6 +7,7 @@ ms.author: ryanwi
 ms.topic: conceptual
 ms.date: 03/14/2024
 ms.custom: AppServiceIdentity
+ms.service: azure-app-service
 ---
 # Authentication scenarios and recommendations
 

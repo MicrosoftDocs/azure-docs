@@ -6,6 +6,7 @@ ms.custom: devx-track-azurecli
 ms.date: 03/06/2020
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
 ---
 
 # Encryption at rest using customer-managed keys

@@ -4,6 +4,7 @@ ms.author: cephalin
 ms.topic: include
 ms.custom: devx-track-azurecli
 ms.date: 01/16/2025
+ms.service: azure-app-service
 ---
 
 To deploy with OpenID Connect by using the managed identity you configured, use the `azure/login@v2` action with the `client-id`, `tenant-id`, and `subscription-id` keys. Reference the GitHub secrets that you created earlier.

@@ -9,6 +9,7 @@ ms.author: cephalin
 ms.custom: devx-track-csharp, devx-track-azurepowershell, devx-track-azurecli, AppServiceConnectivity, ai-video-demo
 ai-usage: ai-assisted
 #customer intent: As an App developer, I want to understand how to manager system-assigned and user-assigned identities for apps in Azure App Service.
+ms.service: azure-app-service
 ---
 
 # Use managed identities for App Service and Azure Functions

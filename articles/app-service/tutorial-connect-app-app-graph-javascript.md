@@ -10,6 +10,7 @@ ms.date: 3/13/2023
 ms.custom: devx-track-js, engagement-fy23, AppServiceConnectivity
 zone_pivot_groups: app-service-platform-windows-linux
 # Requires non-internal subscription - internal subscriptions doesn't provide permission to correctly configure Microsoft Entra apps
+ms.service: azure-app-service
 ---
 
 # Tutorial: Flow authentication from App Service through back-end API to Microsoft Graph

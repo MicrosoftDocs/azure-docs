@@ -9,6 +9,7 @@ ms.date: 09/13/2024
 author: msangapu-msft
 ms.author: msangapu
 zone_pivot_groups: app-service-platform-windows-linux
+ms.service: azure-app-service
 ---
 
 # Configure a Node.js app for Azure App Service

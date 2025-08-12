@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp, mode-other, devdivchpfy22, linux-related-content
 zone_pivot_groups: app-service-containers-windows-linux-portal-ps-cli
 #customer intent: As an app developer who uses Azure App Service, I want to use a container to deploy and manage an app.
+ms.service: azure-app-service
 ---
 
 # Quickstart: Run a custom container in Azure

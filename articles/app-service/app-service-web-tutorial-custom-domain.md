@@ -9,6 +9,7 @@ ms.date: 02/14/2025
 ms.custom: mvc
 ms.author: msangapu
 author: msangapu-msft
+ms.service: azure-app-service
 ---
 
 # Set up an existing custom domain in Azure App Service

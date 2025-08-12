@@ -12,6 +12,7 @@ ms.author: msangapu
 author: msangapu-msft
 ai-usage: ai-assisted
 ms.collection: ce-skilling-ai-copilot
+ms.service: azure-app-service
 ---
 # Local cache in Azure App Service
 

@@ -5,6 +5,7 @@ ms.topic: article
 ms.date: 03/04/2024
 author: btardif
 ms.author: byvinyal
+ms.service: azure-app-service
 ---
 
 # Recommended services (preview)

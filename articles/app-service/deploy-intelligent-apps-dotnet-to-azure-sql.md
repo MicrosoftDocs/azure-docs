@@ -11,6 +11,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.collection: ce-skilling-ai-copilot
+ms.service: azure-app-service
 ---
 
 # Deploy a .NET Blazor app connected to Azure SQL and Azure OpenAI on Azure App Service

@@ -6,6 +6,7 @@ ms.date: 07/09/2023
 ms.custom: devx-track-azurecli, AppServiceIdentity
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
 ---
 
 # Manage the API and runtime versions of App Service authentication

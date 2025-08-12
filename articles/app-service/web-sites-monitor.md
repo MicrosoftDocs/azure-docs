@@ -7,6 +7,7 @@ ms.date: 03/31/2025
 ms.author: msangapu
 author: msangapu-msft
 #customer intent: As a app developer, I need to use quotas and metrics to support my team's web apps in Azure App Service.
+ms.service: azure-app-service
 ---
 # Azure App Service quotas and metrics
 

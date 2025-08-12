@@ -9,6 +9,7 @@ author: msangapu-msft
 ms.custom: devx-track-csharp, ai-video-demo, linux-related-content
 ai-usage: ai-assisted
 #customer intent: As an app developer, I want to understand troubleshooting in Azure App Service to fix issues with my app and make improvements.
+ms.service: azure-app-service
 ---
 
 # Enable diagnostic logging for apps in Azure App Service

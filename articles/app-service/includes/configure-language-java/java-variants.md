@@ -3,6 +3,7 @@ author: cephalin
 ms.author: cephalin
 ms.topic: include
 ms.date: 03/27/2025
+ms.service: azure-app-service
 ---
 
 Azure App Service runs Java web applications on a fully managed service in three variants:

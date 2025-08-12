@@ -8,6 +8,7 @@ ms.date: 08/29/2016
 ms.custom: devx-track-csharp, devx-track-dotnet
 ms.author: cephalin
 author: cephalin
+ms.service: azure-app-service
 ---
 # Troubleshoot an app in Azure App Service using Visual Studio
 

@@ -6,6 +6,7 @@ ms.date: 09/30/2024
 author: cephalin
 ms.author: cephalin
 
+ms.service: azure-app-service
 ---
 
 # Run your app in Azure App Service directly from a ZIP package

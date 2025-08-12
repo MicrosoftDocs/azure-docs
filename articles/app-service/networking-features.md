@@ -9,6 +9,7 @@ ms.update-cycle: 1095-days
 ms.author: jordanselig
 ms.custom: UpdateFrequency3
 #customer intent: As a deployment engineer, I want to understand the options for deploying apps in Azure App Services to control network traffic.
+ms.service: azure-app-service
 ---
 # App Service networking features
 

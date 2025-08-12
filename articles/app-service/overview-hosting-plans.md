@@ -10,6 +10,7 @@ ms.author: msangapu
 author: msangapu-msft
 ms.custom: UpdateFrequency3
 #customer intent: As an app developer, I want to understand which service plan is right for apps in my organization in Azure App Service.
+ms.service: azure-app-service
 ---
 # What are Azure App Service plans?
 

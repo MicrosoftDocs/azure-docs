@@ -3,6 +3,7 @@ author: DavidCBerry13
 ms.author: daberry
 ms.topic: include
 ms.date: 07/26/2023
+ms.service: azure-app-service
 ---
 On the **Create Web App** page, fill out the form as follows.
 

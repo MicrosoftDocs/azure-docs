@@ -11,6 +11,7 @@ ms.author: msangapu
 author: msangapu-msft
 ms.custom:
   - build-2025
+ms.service: azure-app-service
 ---
 # Troubleshoot slow app performance issues in Azure App Service
 

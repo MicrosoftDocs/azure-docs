@@ -9,6 +9,7 @@ ms.devlang: python
 ms.custom: cli-validate, devx-track-python, mode-other, linux-related-content
 zone_pivot_groups: python-frameworks-01
 ROBOTS: noindex
+ms.service: azure-app-service
 ---
 
 # Quickstart: Create a Python app in Azure App Service on Linux

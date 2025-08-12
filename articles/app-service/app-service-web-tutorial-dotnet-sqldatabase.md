@@ -8,6 +8,7 @@ ms.date: 06/26/2025
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, AppServiceConnectivity
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
 ---
 
 # Tutorial: Deploy an ASP.NET app with Azure SQL database to Azure

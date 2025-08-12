@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.date: 06/20/2025
 ms.author: jordanselig
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.service: azure-app-service
 ---
 # Migrate from gateway-based to regional virtual network integration
 

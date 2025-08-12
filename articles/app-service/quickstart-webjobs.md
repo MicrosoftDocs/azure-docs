@@ -7,6 +7,7 @@ author: msangapu-msft
 ms.author: msangapu
 ms.reviewer: glenga
 #Customer intent: As a web developer, I want to quickly run a background script that prints the current time.
+ms.service: azure-app-service
 ---
 
 # Quickstart: Create a scheduled WebJob
