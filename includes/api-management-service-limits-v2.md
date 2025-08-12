@@ -36,10 +36,10 @@ ms.custom: Include file
 | Maximum number of schemas per service instance | 100 | 100 | 100 |
 | Maximum number of schemas per API | 100 | 100 | 100 |
 | Maximum number of tags per service instance | 100 | 100 | 100 |
-| Maximum number of tags per API | 100 | 100 | 100 |
+| Maximum number of tags per API | 500 | 500 | 500 |
 | Maximum number of version sets per service instance | 100 | 100 | 100 |
 | Maximum number of releases per API | 100 | 100 | 100 |
-| Maximum number of operations per API | 100 | 100 | 100 |
+| Maximum number of operations per API | 500 | 500 | 500 |
 | Maximum number of GraphQL resolvers per service instance | 100 | 100 | 100 |
 | Maximum number of GraphQL resolvers per API | 100 | 100 | 100 |
 | Maximum number of APIs per product | 100 | 100 | 100 |
