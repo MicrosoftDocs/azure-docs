@@ -12,7 +12,7 @@ ms.date: 08/12/2025
 
 # What is Azure IoT Operations?
 
-_Azure IoT Operations_ is a unified data plane for the edge, offering modular and scalable data services on Azure Arc-enabled Kubernetes clusters like [AKS Edge Essentials](#supported-environments). This article explores its features, benefits, and use cases.
+_Azure IoT Operations_ is a unified data plane for the edge, offering modular and scalable data services on Azure Arc-enabled Kubernetes clusters like AKS Edge Essentials. This article explores its features, benefits, and use cases.
 
 Azure IoT Operations:
 
@@ -20,7 +20,9 @@ Azure IoT Operations:
 * Is part of the Microsoft [adaptive cloud approach](/azure/adaptive-cloud/) that unifies siloed teams, distributed sites, and disparate systems into a single operations, security, application, and data model.
 * Includes an industrial grade, edge-native MQTT broker that powers event-driven architectures.
 * Is highly extensible, scalable, resilient, and secure.
+* Can operate offline for a maximum of 72 hours. Degradation might occur during this period. However, Azure IoT Operations resumes full functionality when it reconnects.
 * Lets you manage edge services and resources from the cloud by using [Azure Arc](/azure/azure-arc/overview).
+* Enables secure management of devices in [layered networks](manage-layered-network/overview-layered-network.md) using open, industry-recognized software, and Kubernetes-based configuration.
 * Can integrate customer workloads into the platform to create a unified solution.
 * Natively integrates with [Azure Event Hubs](../event-hubs/azure-event-hubs-apache-kafka-overview.md), [Azure Event Grid's MQTT broker](../event-grid/mqtt-overview.md), and [Microsoft Fabric](/fabric/) in the cloud.
 
@@ -33,7 +35,7 @@ Use Azure IoT Operations to:
 
 ## Example use cases
 
-Use Azure IoT Operations to address scenarios such as:
+Use Azure IoT Operations to address use cases such as:
 
 ### Anomaly detection
 
@@ -58,32 +60,22 @@ With Azure IoT Operations, you can use data collected from assets and equipment 
 Azure IoT Operations architecture has two core elements:
 
 * **Azure IoT Operations**: A set of data services that run on Azure Arc-enabled edge Kubernetes clusters. These services include:
-  * The _MQTT broker_ powers event-driven architectures as an edge-native MQTT broker.
-  * The _connector for OPC UA_ simplifies OPC UA communication with servers and other leaf devices.
-  * _Data flows_ transform and contextualize data, letting you route messages to various locations, including cloud endpoints.
-* The _operations experience_ is a web UI that lets operational technology (OT) users manage assets and data flows in an Azure IoT Operations deployment. IT administrators can use [Azure Arc site manager (preview)](/azure/azure-arc/site-manager/overview) to group Azure IoT Operations instances by physical location, making it easier for OT users to find instances.
-
-## Deploy
-
-Azure IoT Operations runs on Arc-enabled Kubernetes clusters on the edge. Deploy Azure IoT Operations by using the Azure portal or the Azure CLI.
+  * _MQTT broker_ to power event-driven architectures as an edge-native MQTT broker.
+  * _Akri connectors_, like the _connector for OPC UA_, to simplify communication with servers and leaf devices.
+  * _Data flows_ to transform and contextualize data, letting you route messages to various locations, including cloud endpoints.
+* **Operations experience**: A web UI that lets operational technology (OT) users manage assets and data flows in an Azure IoT Operations deployment.
 
 ## Manage devices and assets
 
-Azure IoT Operations connects to various industrial devices and assets. Use the [operations experience](discover-manage-assets/howto-configure-opc-ua.md) or the [Azure CLI](discover-manage-assets/howto-configure-opc-ua.md) to manage the devices and assets you want to connect to.
+Azure IoT Operations connects to various industrial devices and assets. Use the operations experience or the Azure CLI to [manage the devices and assets](discover-manage-assets/overview-manage-assets.md) you want to connect to.
 
-The [connector for OPC UA](discover-manage-assets/overview-opc-ua-connector.md) manages connections to OPC UA servers and other leaf devices. It publishes data from OPC UA servers to MQTT broker topics.
-
-Azure IoT Operations uses the Azure Device Registry to store information about local assets in the cloud. The service lets you [manage assets on the edge from the Azure portal or the Azure CLI](discover-manage-assets/howto-secure-assets.md). The Azure Device Registry uses _namespaces (preview)_ to organize assets and devices. Each Azure IoT Operations instance uses a single namespace for its assets and devices. Multiple instances can share a single namespace.
+Azure IoT Operations uses the Azure Device Registry to store information about local assets in the cloud. The service lets you manage assets on the edge from the Azure portal or the Azure CLI. The Azure Device Registry uses _namespaces (preview)_ to organize assets and devices. Each Azure IoT Operations instance uses a single namespace for its assets and devices. Multiple instances can share a single namespace.
 
 The Azure Device Registry includes a schema registry for assets. Data flows use these schemas to deserialize and serialize messages.
 
-## Automatic asset discovery
+## Discover devices and assets
 
-Automatic asset discovery with Akri services, Azure Device Registry, the connector for OPC UA, the connection for ONVIF (preview), and the media connector (preview) is available in the current version of Azure IoT Operations. Currently, no user-configurable scenarios exist for Akri services in the operations experience web UI for automatic asset discovery.
-
-To learn more, see the [release notes](https://github.com/Azure/azure-iot-operations/releases) for the current version.
-
-If you use a previous preview version of Azure IoT Operations, find the Akri services documentation on the [previous versions site](/previous-versions/azure/iot-operations/discover-manage-assets/overview-akri).
+The Akri services can discover devices and assets automatically, reducing the configuration overhead for OT users. OT users can use the operations experience web UI to view and manage discovered devices and assets.
 
 ## Publish and subscribe with MQTT
 
@@ -94,9 +86,13 @@ Examples of how components in Azure IoT Operations use the MQTT broker include:
 * The connector for OPC UA publishes data from OPC UA servers and leaf devices to MQTT topics.
 * Data flows subscribe to MQTT topics to retrieve messages, process them, and send them to cloud endpoints.
 
+## Process data
+
+[Data flows](connect-to-cloud/overview-dataflow.md) provide data transformation and contextualization capabilities within Azure IoT Operations. OT users can use the operations experience web UI to create and manage data flows.
+
 ## Connect to the cloud
 
-To connect to the cloud from Azure IoT Operations, you can use the following data flow destination endpoints:
+To connect to the cloud from Azure IoT Operations, you can use data flow destination endpoints like:
 
 * [Azure Event Grid and other cloud-based MQTT brokers](connect-to-cloud/howto-configure-mqtt-endpoint.md)
 * [Azure Event Hubs or Kafka](connect-to-cloud/howto-configure-kafka-endpoint.md)
@@ -104,63 +100,12 @@ To connect to the cloud from Azure IoT Operations, you can use the following dat
 * [Microsoft Fabric OneLake](connect-to-cloud/howto-configure-fabric-endpoint.md)
 * [Azure Data Explorer](connect-to-cloud/howto-configure-adx-endpoint.md)
 
-## Offline support
-
-Azure IoT Operations supports a maximum offline time of 72 hours. Degradation might occur during this period. However, Azure IoT Operations resumes full functionality when it reconnects.
-
-## Process data
-
-[Data flows](connect-to-cloud/overview-dataflow.md) enhance data transformation and contextualization capabilities within Azure IoT Operations. Data flows use schemas in the schema registry to deserialize and serialize messages.
-
 ## Visualize and analyze sensor data
 
 To visualize and analyze sensor data and messages from your devices and assets, use cloud services like:
 
 * [Microsoft Fabric](/fabric/get-started/fabric-trial)
 * [Power BI](https://powerbi.microsoft.com/)
-
-## Secure communication
-
-Secure communication between devices and the cloud by using isolated network environments based on the ISA-95/Purdue network architecture. Use the Azure IoT layered network management (preview) component.
-
-## Supported versions
-
-[!INCLUDE [supported-versions](includes/supported-versions.md)]
-
-## Supported environments
-
-[!INCLUDE [supported-environments-table](includes/supported-environments-table.md)]
-
-## Supported regions
-
-Azure IoT Operations supports Arc-enabled clusters in the following regions:
-
-| Region       | CLI value   |
-|--------------|-------------|
-| East US      | eastus      |
-| East US 2    | eastus2     |
-| West US      | westus      |
-| West US 2    | westus2     |
-| West US 3    | westus3     |
-| West Europe  | westeurope  |
-| North Europe | northeurope |
-|Germany West Central | germanywestcentral |
-
-This list applies only to the region you use when connecting your cluster to Azure Arc. It doesn't restrict you from using your preferred Azure region for cloud resources. Azure IoT Operations components and other resources deployed to clusters in these regions can connect to cloud resources in different regions.
-
-## Dependencies
-
-Azure IoT Operations depends on these support services and features:
-
-* [Azure Device Registry](./discover-manage-assets/overview-manage-assets.md#store-assets-as-azure-resources-in-a-centralized-registry)
-* [Schema registry](./connect-to-cloud/concept-schema-registry.md)
-* [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview)
-* [Azure Key Vault Secret Store extension](/azure/azure-arc/kubernetes/secret-store-extension)
-* [Azure Monitor pipeline](/azure/azure-monitor/essentials/edge-pipeline-configure)
-* Workload identity federation in Azure Arc-enabled Kubernetes
-
->[!NOTE]
->These features and services used as dependencies by internal Azure IoT Operations systems inherit general availability status from the Azure IoT Operations product license. For more information about the licensing model, see [Microsoft Online Subscription Agreement](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/MOSA).
 
 ## Next step
 
