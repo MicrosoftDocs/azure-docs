@@ -108,7 +108,7 @@ In generic HTTP scenarios, you can split up large content downloads and uploads 
 
 If an endpoint enables chunking for downloads or uploads, the HTTP actions in your logic app automatically chunk large messages. Otherwise, you must set up chunking support on the endpoint. If you don't own or control the endpoint or connector, you might not be able to set up chunking.
 
-Also, if an HTTP action doesn't already enable chunking, you must also set up chunking in the action's `runTimeConfiguration` property. You can set this property inside the action. Set it up directly in the code view editor, as described later, or in the workflow designer as described here:
+If an HTTP action doesn't already enable chunking, you must also set up chunking in the action's `runTimeConfiguration` property. You can set this property inside the action. Set it up directly in the code view editor, as described later, or in the workflow designer as described here:
 
 1. In the HTTP action, select **Settings**.
 
