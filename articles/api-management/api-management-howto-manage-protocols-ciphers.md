@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 08/05/2025
+ms.date: 08/12/2025
 ms.author: danlep
 ---
 
@@ -60,9 +60,9 @@ TLS 1.3 is a major revision of the TLS protocol that provides improved security 
 
 ### Optionally enable TLS 1.3 when clients require certificate renegotiation
 
-TLS 1.3 doesn't support certificate renegotiation. Because of this, client-side TLS 1.3 is disabled by default on classic tier instances that handled requests with certificate renegotiation in the past 30 days. Certificate renegotiation in TLS allows client and server to renegotiate connection parameters mid-session for authentication without terminating the connection.
+TLS 1.3 doesn't support certificate renegotiation. Certificate renegotiation in TLS allows client and server to renegotiate connection parameters mid-session for authentication without terminating the connection.
 
-In these instances, you can review recent API requests that used certificate renegotiation and choose whether to enable TLS 1.3 for client-side connections.
+Services that we identified as reliant on client certificate renegotiation do not have TLS 1.3 enabled by default. In these instances, you can review recent API requests that used certificate renegotiation and choose whether to enable TLS 1.3 for client-side connections.
 
 > [!WARNING]
 > If your APIs are accessed by TLS-compliant clients that rely on certificate renegotiation, enabling TLS 1.3 for client-side connections will cause those clients to fail to connect. 
