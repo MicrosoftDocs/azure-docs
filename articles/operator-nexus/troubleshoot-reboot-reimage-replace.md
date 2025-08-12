@@ -180,7 +180,7 @@ Servers contain many physical components that can fail over time. It's important
 A hardware validation process is invoked to ensure the integrity of the physical host in advance of deploying the OS image. Like the reimage action, the Tenant data isn't modified during replacement.
 
 > [!IMPORTANT]
-> When run with default options, the RAID controller is reset during BMM replace, wiping all data from the server's virtual disks. Baseboard Management Controller (BMC) virtual disk alerts triggered during BMM replace can be ignored unless there are other physical disk and/or RAID controllers alerts. Starting with the 2025-07-01 preview version of the NetworkCloud API, and generally available with the 2025-09-01 GA version, use `replace` with `storage-policy="Preserve"` to retain virtual disk data.
+> When run with default options, the RAID controller is reset during BMM replace, wiping all data from the server's virtual disks. Baseboard Management Controller (BMC) virtual disk alerts triggered during BMM replace can be ignored unless there are other physical disk and/or RAID controllers alerts. Starting with the `2025-07-01-preview` version of the NetworkCloud API, and generally available with the `2025-09-01` GA version, use `replace` with `storage-policy="Preserve"` to retain virtual disk data.
 
 ### Replace workflow
 

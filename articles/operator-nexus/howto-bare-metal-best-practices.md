@@ -67,7 +67,7 @@ See related articles:
 - [How to monitor interface In and Out packet rate for network fabric devices]
 - [How to configure diagnostic settings and monitor configuration differences in Nexus Network Fabric].
 
-Evaluate for any Bare Metal Machine warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems.
+Evaluate for any Bare Metal Machine warnings or degraded conditions that could indicate the need to resolve hardware, network, or server configuration problems.
 For more information, see [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status].
 
 #### Determine if firmware update jobs are running
@@ -88,7 +88,7 @@ az networkcloud baremetalmachine run-read-command \
   --output-directory .
 ```
 
-Here's an example output from the `racadm jobqueue view` command which shows `Firmware Update`.
+Here's an example output from the `racadm jobqueue view` command that shows `Firmware Update`.
 
 ```
 [Job ID=JID_833540920066]
@@ -127,15 +127,15 @@ Percent Complete=[100]
 
 #### Monitor status in Bare Metal Machine JSON properties
 
-In version 2509.1 and above, you can view the status of any recent or in progress actions in the `JSON View` of the corresponding Bare Metal Machine (Operator Nexus) resource. This shows the following information in the Bare Metal Machine JSON properties, when using API Version `2025-07-01-preview` or higher.
+In version 2509.1 and above, you can view the status of any recent or in progress actions in the `JSON View` of the corresponding Bare Metal Machine (Operator Nexus) resource. This view shows the following information in the Bare Metal Machine JSON properties, when using API Version `2025-07-01-preview` or higher.
 
 - Start and end time of the action.
-- Status of the action (e.g., `Succeeded`, `Failed`, `InProgress`).
-- Any additional context or error message associated with the status.
+- Status of the action (`Succeeded`, `Failed`, or `InProgress`).
+- Any extra context or error message associated with the status.
 - The Correlation ID for the original action request, as shown in the Azure Activity Log for the resource.
-- The detailed steps included in the action, such as `Hardware Validation`, `Deprovisioning`, `Provisioning` and `Cloud Init` for a BMM Replace action.
+- The detailed steps included in the action, such as `Hardware Validation`, `Deprovisioning`, `Provisioning`, and `Cloud Init` for a BMM Replace action.
 
-The most recent (or currently in progress) occurrence of each action type is shown (Replace, Reimage, Restart etc).
+The most recent occurrence of each action type is shown, including any currently in-progress action.
 
 Example output for a Replace action:
 
@@ -202,7 +202,7 @@ Before initiating any `reimage` operation, ensure the following preconditions ar
 
 - Make sure the Bare Metal Machine's workloads are drained using the [`cordon`](./howto-baremetal-functions.md#make-a-bare-metal-machine-unschedulable-cordon) command with the parameter `evacuate` set to `True`.
 - Perform high level checks covered in the article [Troubleshoot Bare Metal Machine Provisioning].
-- Evaluate any Bare Metal Machine warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems before a `reimage` operation.
+- Evaluate any Bare Metal Machine warnings or degraded conditions that could indicate the need to resolve hardware, network, or server configuration problems before a `reimage` operation.
   For more information, read [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status].
 - If the Bare Metal Machine reports a failed state with the reason of hardware validation (seen in the Bare Metal Machine `Detailed Status` and `Detailed Status Message` fields), then the Bare Metal Machine needs a `replace` instead.
   See the [Best Practices for a Bare Metal Machine Replace](#best-practices-for-a-bare-metal-machine-replace).
@@ -230,7 +230,7 @@ Before initiating any `replace` operation, ensure the following preconditions ar
 
 - Make sure the Bare Metal Machine's workloads are drained using the [`cordon`](./howto-baremetal-functions.md#make-a-bare-metal-machine-unschedulable-cordon) command with the parameter `evacuate` set to `True`.
 - Perform high level checks covered in the article [Troubleshoot Bare Metal Machine Provisioning].
-- Evaluate any Bare Metal Machine warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems before a `replace` operation.
+- Evaluate any Bare Metal Machine warnings or degraded conditions that could indicate the need to resolve hardware, network, or server configuration problems before a `replace` operation.
   For more information, see [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status].
 - Validate Bare Metal Machine is powered on.
 - Validate that there are no running firmware upgrade jobs.

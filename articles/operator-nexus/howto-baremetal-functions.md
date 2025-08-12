@@ -85,7 +85,7 @@ Existing workloads continue to run on the Bare Metal Machine unless the workload
 
 ### Drain Bare Metal Machine workloads
 
-The cordon command supports the `evacuate` parameter which its default value `False` means that the `cordon` command prevents scheduling new workloads.
+The cordon command supports the `evacuate` parameter, for which its default value `False` means that the `cordon` command prevents scheduling new workloads.
 To drain workloads with the `cordon` command, the `evacuate` parameter must be set to `True`.
 The workloads running on the Bare Metal Machine are `stopped` and the Bare Metal Machine is set to `pending` state.
 
@@ -176,7 +176,7 @@ az networkcloud baremetalmachine replace \
 
 If the `replace` action fails due to a hardware validation failure, the specific error or test failure is shown in the `replace` response, as shown in the following examples.
 This information can also be found in the Activity Log for the Bare Metal Machine (Operator Nexus).
-The error code and error message are included the JSON properties of the corresponding `BareMetalMachines_Replace` operation.
+The error code and error message are also included in the JSON properties of the corresponding `BareMetalMachines_Replace` operation.
 
 **Example 1: Hardware validation fails due to invalid Key Vault URI for Baseboard Management Controller (BMC) credentials**
 
