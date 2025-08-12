@@ -34,7 +34,7 @@ The following table shows each version of the Node.js programming model along wi
 
 | [Programming Model Version](https://www.npmjs.com/package/@azure/functions?activeTab=versions) | Support Level | [Functions Runtime Version](./functions-versions.md) | [Node.js Version](https://github.com/nodejs/release#release-schedule) | Description                                                                                                   |
 |------------------------------------------------------------------------------------------------|---------------|------------------------------------------------------|-----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
-| 4.x                                                                                            | GA            | 4.25+                                                | 20.x, 18.x                                                            | Supports a flexible file structure and code-centric approach to triggers and bindings.                        |
+| 4.x                                                                                            | GA            | 4.25+                                                | 22.x 20.x, 18.x                                                            | Supports a flexible file structure and code-centric approach to triggers and bindings.                        |
 | 3.x                                                                                            | GA            | 4.x                                                  | 20.x, 18.x, 16.x, 14.x                                                | Requires a specific file structure with your triggers and bindings declared in a "function.json" file         |
 | 2.x                                                                                            | n/a           | 3.x                                                  | 14.x, 12.x, 10.x                                                      | Reached end of support on December 13, 2022. See [Functions Versions](./functions-versions.md) for more info. |
 | 1.x                                                                                            | n/a           | 2.x                                                  | 10.x, 8.x                                                             | Reached end of support on December 13, 2022. See [Functions Versions](./functions-versions.md) for more info. |
@@ -1866,7 +1866,7 @@ az functionapp config appsettings set  --settings WEBSITE_NODE_DEFAULT_VERSION=~
  --name <FUNCTION_APP_NAME> --resource-group <RESOURCE_GROUP_NAME>
 ```
 
-This sets the [`WEBSITE_NODE_DEFAULT_VERSION` application setting](./functions-app-settings.md#website_node_default_version) the supported LTS version of `~20`.
+This sets the [`WEBSITE_NODE_DEFAULT_VERSION` application setting](./functions-app-settings.md#website_node_default_version) the supported LTS version of `~22`.
 
 # [Azure portal](#tab/azure-portal/windows)
 
@@ -1879,7 +1879,7 @@ Use the following steps to change the Node.js version:
 Run the Azure CLI [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the Node.js version for your function app running on Linux:
 
 ```azurecli-interactive
-az functionapp config set --linux-fx-version "node|20" --name "<FUNCTION_APP_NAME>" \
+az functionapp config set --linux-fx-version "node|22" --name "<FUNCTION_APP_NAME>" \
  --resource-group "<RESOURCE_GROUP_NAME>"
 ```
 
