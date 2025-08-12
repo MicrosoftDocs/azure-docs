@@ -35,7 +35,7 @@ ms.custom: Include file
 | Maximum number of loggers per service instance | 100 | 100 | 100 |
 | Maximum number of schemas per service instance | 100 | 100 | 100 |
 | Maximum number of schemas per API | 100 | 100 | 100 |
-| Maximum number of tags per service instance | 100 | 100 | 100 |
+| Maximum number of tags per service instance | 500 | 500 | 500 |
 | Maximum number of tags per API | 500 | 500 | 500 |
 | Maximum number of version sets per service instance | 100 | 100 | 100 |
 | Maximum number of releases per API | 100 | 100 | 100 |
