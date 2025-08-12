@@ -27,5 +27,5 @@ items:
       href: billing.md
 - name: Reference
   items:
-    - name: Incident management tools
-      href: incident-management-tools.md
+    - name: Starter prompts
+      href: prompts.md

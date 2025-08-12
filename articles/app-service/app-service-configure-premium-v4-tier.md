@@ -160,4 +160,4 @@ New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
 ## Related content
 
 - [Scale up an app in Azure App Service](manage-scale-up.md)
-- [Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)
+- [Run a load test to identify performance bottlenecks in a web app](../app-testing/load-testing/tutorial-identify-bottlenecks-azure-portal.md)

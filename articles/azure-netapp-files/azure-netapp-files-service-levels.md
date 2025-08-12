@@ -93,7 +93,7 @@ As illustrated in the diagram, the SAP HANA backup volume received the 128MiB/s 
 | 1,024 | 128 | 5 * 128 * 1,024 = 655,360 |
 
 >[!NOTE]
->A baseline throughput of 128 MiB/s is provided for every pool, at no additional cost.
+>A baseline throughput of 128 MiB/s is provided for every pool at no additional cost.
 
 ## Next steps
 
@@ -102,4 +102,4 @@ As illustrated in the diagram, the SAP HANA backup volume received the 128MiB/s 
 - [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
 - [Service Level Agreement (SLA) for Azure NetApp Files](https://azure.microsoft.com/support/legal/sla/netapp/)
 - [Dynamically change the service level of a volume](dynamic-change-volume-service-level.md) 
-- [Service-level objectives for cross-region replication](cross-region-replication-introduction.md#service-level-objectives)
+- [Service-level objectives](../reliability/reliability-netapp-files.md#region-down-experience)
