@@ -179,7 +179,7 @@ You can configure daily maintenance windows, allowing you to align upgrade sched
 
 ## Service-level agreement
 
-[!INCLUDE [SLA description](includes/reliability-sla-include.md)]
+[!INCLUDE [SLA description](includes/reliability-service-level-agreement-include.md)]
 
 Azure Firewall offers a higher availability SLA for firewalls that are deployed across two or more availability zones.
 
