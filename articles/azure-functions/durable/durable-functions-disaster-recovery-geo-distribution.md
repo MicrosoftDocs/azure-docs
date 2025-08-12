@@ -61,19 +61,19 @@ However, if you use this scenario, consider:
 >
 > All apps that require geo-distribution for disaster recovery should use version 2.3.0 or later of the Durable Functions extension.
 
-## Scenario 2: Load-balanced compute with regional storage or a regional Durable Task Scheduler
+## Scenario 2: Load-balanced compute with regional storage or a regional durable task scheduler
 
-The preceding scenario covers only failures limited to the compute infrastructure. An outage of the function app can also occur when either the storage service or the Durable Task Scheduler fails.
+The preceding scenario covers only failures limited to the compute infrastructure. An outage of the function app can also occur when either the storage service or the durable task scheduler fails.
 
-To ensure continuous operation of durable functions, the second scenario deploys a dedicated storage account or a Durable Task Scheduler in each region where function apps are hosted. We currently recommend this disaster recovery approach when you're using a Durable Task Scheduler.
+To ensure continuous operation of Durable Functions, the second scenario deploys a dedicated storage account or a durable task scheduler in each region where function apps are hosted. We currently recommend this disaster recovery approach when you're using a durable task scheduler.
 
 ![Diagram that shows function apps in separate regions with separate Azure Storage accounts.](./media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario02.png)
 
 This approach adds improvements to the previous scenario:
 
-- **Regional state isolation**: Each function app is linked to its own regional storage account or Durable Task Scheduler. If the function app fails, Traffic Manager redirects traffic to the secondary region. Because the function app in each region uses its local storage or Durable Task Scheduler, durable functions can continue processing by using the local state.
-- **No added latency on failover**: During a failover, a function app and state provider (storage account or Durable Task Scheduler) are colocated, so there's no added latency in the failover region.
-- **Resilience to state backing failures**: If the storage account or Durable Task Scheduler in one region fails, the durable functions in that region fail. The failure of durable functions triggers redirection to the secondary region. Because both compute and app state are isolated per region, the failover region's durable functions remain operational.
+- **Regional state isolation**: Each function app is linked to its own regional storage account or durable task scheduler. If the function app fails, Traffic Manager redirects traffic to the secondary region. Because the function app in each region uses its local storage or durable task scheduler, Durable Functions can continue processing by using the local state.
+- **No added latency on failover**: During a failover, a function app and state provider (storage account or durable task scheduler) are colocated, so there's no added latency in the failover region.
+- **Resilience to state backing failures**: If the storage account or durable task scheduler in one region fails, Durable Functions fails in that region. The failure of Durable Functions triggers redirection to the secondary region. Because both compute and app state are isolated per region, Durable Functions in the failover region remains operational.
 
 Here are important considerations for this scenario:
 
@@ -90,7 +90,7 @@ This scenario provides the same functional advantages as the first scenario, but
 
 - Geo-redundant storage (GRS) and read-access GRS (RA-GRS) maximize availability for your storage account.
 - If there's a regional outage of the Azure Storage service, you can [manually initiate a failover to the secondary replica](../../storage/common/storage-initiate-account-failover.md). In extreme circumstances where a region is lost due to a disaster, Microsoft might initiate a regional failover. In this case, you don't need to take any action.
-- When a failover happens, the state of the durable functions is preserved up to the last replication of the storage account. The replication typically occurs every few minutes.
+- When a failover happens, the state of Durable Functions is preserved up to the last replication of the storage account. The replication typically occurs every few minutes.
 
 As with the other scenarios, there are important considerations:
 
