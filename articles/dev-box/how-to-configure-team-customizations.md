@@ -32,21 +32,10 @@ You can use customizations in Dev Box in two ways. *Team customizations* create 
 
 ## Prerequisites
 
-- Set up a [dev center with a dev box pool and a dev box project](./quickstart-configure-dev-box-service.md) so you can create a dev box.
-- Join the Dev Box Users security group for at least one project.
-- Attach a catalog to the dev center with tasks you can use in your image definition file. If you don't have a catalog, see [Add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md).
-
-- [Visual Studio Code](https://code.visualstudio.com/download) (latest version)
-
-## Permissions required to configure customizations
-
-| Action                                                   | Permission/Role                                                                 |
-|----------------------------------------------------------|---------------------------------------------------------------------------------|
-| Enable project-level catalogs for a dev center.          | Platform engineer with write access on the subscription.                        |
-| Enable catalog sync settings for a project.              | Platform engineer with write access on the subscription.                        |
-| Attach a catalog to a project.                           | Dev Center Project Admin or Contributor permissions on the project.                        |
-| Create an image definition file.                         | None specified. Anyone can create an image definition file.                     |
-| Add tasks to a catalog.                                  | Permission to add to the repository that hosts the catalog.                     |
+| Product | Requirements |
+|---------|--------------|
+| Microsoft Dev Box  | - Set up a [dev center with a dev box pool and a dev box project](./quickstart-configure-dev-box-service.md) so you can create a dev box. </br> - Attach a catalog to the dev center with tasks you can use in your image definition file. If you don't have a catalog, see [Add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md). </br> **- Permissions** </br> - *To create a dev box:* Join the Dev Box Users security group for at least one project. </br> - *To enable project-level catalogs for a dev center:* Platform engineer with write access on the subscription. </br> - *To enable catalog sync settings for a project:* Platform engineer with write access on the subscription. </br> - *To attach a catalog to a project:* Dev Center Project Admin or Contributor permissions on the project. |
+| Visual Studio Code | Latest version |
 
 ## Choose a source for customization tasks
 
@@ -169,10 +158,6 @@ Create and test image definition files by using Visual Studio Code. In addition 
 
 1. The image definition file runs and applies the specified tasks to your test dev box. Inspect the changes and check the Visual Studio Code terminal for any errors or warnings generated during the task execution.
 1. When the image definition file runs successfully, upload it to your catalog.
-
-
-
-# [Write image definition files](#tab/write)
 
 ## Customize your dev box by using existing Desired State Configuration files
 
