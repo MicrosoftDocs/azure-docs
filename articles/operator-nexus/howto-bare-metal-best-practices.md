@@ -127,17 +127,17 @@ Percent Complete=[100]
 
 #### Monitor status in Bare Metal Machine JSON properties
 
-In version 2509.1 and above, you can view the status of any recent or in progress actions in the `JSON View` of the corresponding Bare Metal Machine (Operator Nexus) resource. This view shows the following information in the Bare Metal Machine JSON properties, when using API Version `2025-07-01-preview` or higher.
+In version 2509.1 and above, you can view the status of any recent or in progress actions in the `JSON View` of the corresponding Bare Metal Machine (Operator Nexus) resource. This information is visible in the `actionStates` field of the Bare Metal Machine JSON properties, when using API Version `2025-07-01-preview` or higher. The following information is available.
 
 - Start and end time of the action.
 - Status of the action (`Succeeded`, `Failed`, or `InProgress`).
 - Any extra context or error message associated with the status.
-- The Correlation ID for the original action request, as shown in the Azure Activity Log for the resource.
-- The detailed steps included in the action, such as `Hardware Validation`, `Deprovisioning`, `Provisioning`, and `Cloud Init` for a BMM Replace action.
+- The Correlation ID for the original operation, as shown in the Azure Activity log.
+- An ordered list of steps and their status - such as `Hardware Validation`, `Deprovisioning`, `Provisioning`, and `Cloud Init` for a BMM Replace action.
 
 The most recent occurrence of each action type is shown, including any currently in-progress action.
 
-Example output for a Replace action:
+Example `actionStates` output for a Bare Metal Machine Replace action:
 
 ```json
 {
