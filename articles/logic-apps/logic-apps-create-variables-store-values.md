@@ -65,7 +65,7 @@ You can create a variable and declare its data type and initial value by using a
 
    The following example shows the initial values for this sample variable:
 
-   :::image type="content" source="./media/logic-apps-create-variables-store-values/initialize-variable-consumption.png" alt-text="Screenshot shows Azure portal, Consumer workflow, and action named Initialize variables." lightbox="./media/logic-apps-create-variables-store-values/initialize-variable-consumption.png":::
+   :::image type="content" source="./media/logic-apps-create-variables-store-values/initialize-variable.png" alt-text="Screenshot shows a workflow in the Azure portal with an action named Initialize variables." lightbox="./media/logic-apps-create-variables-store-values/initialize-variable.png":::
 
 1. Continue to add the actions you want for your scenario. When you're done, on the designer toolbar, select **Save**.
 
@@ -249,7 +249,7 @@ To increase or *increment* a variable by a specific constant value, add the **In
 
    The following example shows the sample values for this action:
 
-   :::image type="content" source="./media/logic-apps-create-variables-store-values/increment-variable-action-consumption.png" alt-text="Screenshot shows Azure portal, Consumption workflow, and action named Increment variable." lightbox="./media/logic-apps-create-variables-store-values/increment-variable-action-consumption.png":::
+   :::image type="content" source="./media/logic-apps-create-variables-store-values/increment-variable-action.png" alt-text="Screenshot shows a workflow in the Azure portal with an action named Increment variable." lightbox="./media/logic-apps-create-variables-store-values/increment-variable-action.png":::
 
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
@@ -281,7 +281,7 @@ Variables are commonly used for counting the number of times that a loop runs. T
    - **Only With Attachment**
    - **Include Attachments**
 
-   :::image type="content" source="./media/logic-apps-create-variables-store-values/check-include-attachments-consumption.png" alt-text="Screenshot shows Azure portal, Consumption workflow, and properties selected to check for and include attachments." lightbox="./media/logic-apps-create-variables-store-values/check-include-attachments-consumption.png":::
+   :::image type="content" source="./media/logic-apps-create-variables-store-values/check-include-attachments.png" alt-text="Screenshot shows a workflow in the Azure portal with properties selected to check for and include attachments." lightbox="./media/logic-apps-create-variables-store-values/check-include-attachments.png":::
 
 1. Add the [**Initialize variables** action](#create-variable) to create an integer variable named **Count** that has a start value set to **`0`**.
 
@@ -289,7 +289,7 @@ Variables are commonly used for counting the number of times that a loop runs. T
 
 1. In the loop, select inside the box named **Select an Output from Previous Steps**. Select the lightning icon to view dynamic content. After the dynamic content list appears, under **When a new email arrives**, select **Attachments**.
 
-   :::image type="content" source="./media/logic-apps-create-variables-store-values/select-attachments-consumption.png" alt-text="Screenshot shows Consumption workflow, For each loop, opened dynamic content list, and selected Attachments output." lightbox="./media/logic-apps-create-variables-store-values/select-attachments-consumption.png":::
+   :::image type="content" source="./media/logic-apps-create-variables-store-values/select-attachments.png" alt-text="Screenshot shows a workflow in the Azure portal with a For each loop, opened dynamic content list, and selected Attachments output." lightbox="./media/logic-apps-create-variables-store-values/select-attachments.png":::
 
    The **Attachments** property passes an array that contains the email attachments from the trigger's output into the loop for your workflow to iterate over.
 
@@ -303,11 +303,11 @@ Variables are commonly used for counting the number of times that a loop runs. T
 
 1. In the **Increment variable** action, from the **Name** list, select the **Count** variable. Set the **Value** property to **1**.
 
-   :::image type="content" source="./media/logic-apps-create-variables-store-values/add-increment-variable-loop-consumption.png" alt-text="Screenshot shows Consumption workflow with selected variable named Count." lightbox="./media/logic-apps-create-variables-store-values/add-increment-variable-loop-consumption.png":::
+   :::image type="content" source="./media/logic-apps-create-variables-store-values/add-increment-variable-loop.png" alt-text="Screenshot shows a workflow in the Azure portal with a selected variable named Count." lightbox="./media/logic-apps-create-variables-store-values/add-increment-variable-loop.png":::
 
 1. Under the loop, add any action that sends you the number of attachments. In your action, include the value from the **Count** variable, for example:
 
-   :::image type="content" source="./media/logic-apps-create-variables-store-values/send-email-results-consumption.png" alt-text="Screenshot shows Consumption workflow and an action that sends results." lightbox="./media/logic-apps-create-variables-store-values/send-email-results-consumption.png":::
+   :::image type="content" source="./media/logic-apps-create-variables-store-values/send-email-results.png" alt-text="Screenshot shows a workflow in the Azure portal with an action that sends results." lightbox="./media/logic-apps-create-variables-store-values/send-email-results.png":::
 
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
