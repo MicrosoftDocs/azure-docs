@@ -32,7 +32,7 @@ items:
   - name: Support Matrix
     href: migrate-support-matrix.md
   - name: Assessment rules for PostgreSQL
-    href: assessment-rules-postgresql.md
+    href: assessment-rules-for-postgresql.md
 - name: Discover inventory
   items:
   - name: Discovery methods
