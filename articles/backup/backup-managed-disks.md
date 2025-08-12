@@ -9,9 +9,9 @@ ms.author: v-mallicka
 # Customer intent: "As an IT administrator, I want to back up Azure Managed Disks from the Azure portal, so that I can ensure data protection and recovery for critical workloads in my cloud environment."
 ---
 
-# Back up Azure Managed Disks
+# Back up Azure Disks using Azure portal
 
-This article explains how to back up [Azure Managed Disk](/azure/virtual-machines/managed-disks-overview) from the Azure portal. You can also use REST API to [create a Backup policy](backup-azure-dataprotection-use-rest-api-create-update-disk-policy.md) and [configure backup](backup-azure-dataprotection-use-rest-api-backup-disks.md) for Azure Managed Disk.
+This article describes how to back up [Azure Disk](/azure/virtual-machines/managed-disks-overview) using the Azure portal. You can also use REST API to [create a Backup policy](backup-azure-dataprotection-use-rest-api-create-update-disk-policy.md) and [configure backup](backup-azure-dataprotection-use-rest-api-backup-disks.md) for Azure Managed Disk.
 
 Learn about the [Azure Disk backup region availability, supported scenarios and limitations](disk-backup-support-matrix.md).
 
