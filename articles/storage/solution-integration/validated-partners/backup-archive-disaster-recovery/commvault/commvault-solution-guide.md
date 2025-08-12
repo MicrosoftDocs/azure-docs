@@ -109,7 +109,7 @@ When you use Azure as a backup target, you make use of [Azure Blob storage](../.
 
 Pay-per-use can be daunting to customers who are new to the cloud. While you pay for only the capacity used, you're also charged for read or write transactions. You might also be billed for [egress for data](https://azure.microsoft.com/pricing/details/bandwidth/) read back to your on-premises environment when [Azure Express Route direct local or Express Route unlimited data plan](https://azure.microsoft.com/pricing/details/expressroute/) are in use where data egress from Azure is included.
 
-You can use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to perform "what if" analysis. You can base the analysis on list pricing or on [Azure Storage Reserved Capacity pricing](../../../../../cost-management-billing/reservations/save-compute-costs-reservations.md), which can deliver up to 38% savings.
+You can use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to perform "what if" analysis. The analysis can based on list pricing or on [Azure Storage Reserved Capacity pricing](../../../../../cost-management-billing/reservations/save-compute-costs-reservations.md), which can deliver up to 38% savings.
 
 The following example pricing exercise models the monthly cost of backing up to Azure. This exercise is only an example. *Your pricing might vary due to activities not captured here.*
 
