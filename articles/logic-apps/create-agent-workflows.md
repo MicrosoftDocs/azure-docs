@@ -70,7 +70,7 @@ This guide shows how to create an example Standard logic app workflow with the *
   >
   > Although agent workflows don't incur extra charges in Azure Logic Apps, 
   > model usage incurs charges. For more information, see the Azure 
-  > [Pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/).
+  > [Pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 - The authentication details to use when you create a new connection between an agent and your deployed model.
 
@@ -303,7 +303,7 @@ To get the best results, make sure that your system instructions are prescriptiv
 
       :::image type="content" source="media/create-agent-workflows/agent-only-test.png" alt-text="Screenshot shows monitoring view, operation status, and agent log." lightbox="media/create-agent-workflows/agent-only-test.png":::
 
-      However, the agent doesn't have any tools to use at this time, which means that the agent can't actually take any specific actions, such as send email to a subscriber list, until you create tools that the agent needs to complete their tasks. You might event get an email that your message was rejected by your email server.
+      However, the agent doesn't have any tools to use at this time, which means that the agent can't actually take any specific actions, such as send email to a subscriber list, until you create tools that the agent needs to complete their tasks. You might even get an email that your message was rejected by your email server.
 
 1. Return to the designer. On the monitoring view toolbar, select **Edit**.
 
