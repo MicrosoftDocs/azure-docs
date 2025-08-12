@@ -24,7 +24,7 @@ Advanced network features enhance the virtual networking experience, offering im
 
 * Australia East
 * Australia Southeast
-* Brazil south
+* Brazil South
 * Canada Central
 * Central India
 * Central US 
