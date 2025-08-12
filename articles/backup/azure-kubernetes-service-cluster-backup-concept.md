@@ -5,7 +5,7 @@ ms.topic: overview
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
-ms.date: 01/30/2025
+ms.date: 08/12/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to understand the prerequisites for backing up Azure Kubernetes Service clusters, so that I can successfully implement backup and restore operations using Azure Backup and ensure data protection for my containerized workloads.
