@@ -237,7 +237,7 @@ PUT {{FHIR_URL}}/SearchParameter/{{SearchParameter_ID}}
 
 The result of the above request will be an updated `SearchParameter` resource. 
 
-If you need to avoid disruption and reindexing of an existing custom search parameter, consider creating a new custom search parameter instead. Ensure the base, code, and url values associated with the new parameter are unique. Duplicating these fields may lead to indeterminate behavior during reindexing.
+To avoid disruption with reindexing of an existing custom search parameter, consider creating a new custom search parameter instead. Ensure the base, code, and url values associated with the new search parameter are unique. Duplicating these fields may lead to indeterminate behavior during reindexing.
 
 > [!Warning]
 > Be careful when updating search parameters. Changing an existing search parameter can impact expected behavior. We recommend running a reindex job immediately.
