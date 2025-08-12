@@ -24,7 +24,7 @@ Azure Migrate provides a simplified migration, modernization, and optimization s
 
 Watch this video to learn about the Azure Migrate migration journey, including the key phases: Decide, Plan, and Execute.
 
-> [!VIDEO hhttps://youtu.be/SAQwYb9F-_c?list=PL9OazFObUOiq3TuQy4PEhGlTbLzD9zZaD]
+> [!VIDEO https://youtu.be/SAQwYb9F-_c?list=PL9OazFObUOiq3TuQy4PEhGlTbLzD9zZaD]
 
 A general migration journey includes the following phases. Azure Migrate provides support at each phase.
 
