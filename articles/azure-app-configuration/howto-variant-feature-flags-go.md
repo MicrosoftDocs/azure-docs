@@ -28,8 +28,6 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
 
 ## Set up a Go Gin web application
 
-If you already have a Go Gin web application, you can skip to the [Use the variant feature flag](#use-the-variant-feature-flag) section.
-
 1. Create a new directory for your Go project and navigate into it:
 
     ```console
