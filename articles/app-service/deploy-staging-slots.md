@@ -9,6 +9,7 @@ ms.author: cephalin
 ms.custom: fasttrack-edit, devx-track-azurepowershell, devx-track-azurecli, ai-video-demo
 ai-usage: ai-assisted
 #customer intent: As a web app developer, I want to understand deployment slots and how to swap and automatically swap into production in Azure App Service.
+ms.service: azure-app-service
 ---
 
 # Set up staging environments in Azure App Service

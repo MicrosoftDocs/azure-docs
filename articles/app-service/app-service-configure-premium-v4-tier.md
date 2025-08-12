@@ -12,6 +12,7 @@ ms.custom:
   - devx-track-azurepowershell
   - build-2025
 #customer intent: As a deployment engineer, I want to understand the process and the benefits of scaling up apps to the Premium V4 pricing tier in Azure App Service.
+ms.service: azure-app-service
 ---
 
 # Configure Premium V4 tier for Azure App Service

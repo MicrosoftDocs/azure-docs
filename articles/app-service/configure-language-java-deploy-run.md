@@ -15,6 +15,7 @@ zone_pivot_groups: app-service-java-hosting
 adobe-target: true
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
 ---
 
 # Deploy and configure a Java SE, Tomcat, or JBoss EAP app in Azure App Service

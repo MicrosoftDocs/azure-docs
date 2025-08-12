@@ -8,6 +8,7 @@ ms.date: 06/29/2023
 ms.author: msangapu
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
+ms.service: azure-app-service
 ---
 # At-scale assessment of .NET web apps
 

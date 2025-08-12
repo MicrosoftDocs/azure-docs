@@ -8,6 +8,7 @@ ms.topic: article
 ms.date: 11/18/2021
 ms.author: jordanselig
 ms.custom: references_regions, devx-track-azurepowershell
+ms.service: azure-app-service
 ---
 # Geo Distributed Scale with App Service Environments
 ## Overview

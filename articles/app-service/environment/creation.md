@@ -7,6 +7,7 @@ ms.date: 05/07/2025
 ms.author: jordanselig
 ms.custom:
   - build-2025
+ms.service: azure-app-service
 ---
 
 # Create an App Service Environment

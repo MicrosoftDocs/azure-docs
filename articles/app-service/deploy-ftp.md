@@ -7,6 +7,7 @@ ms.topic: article
 ms.date: 06/16/2025
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
 ---
 
 # Deploy your app to Azure App Service using FTP/S

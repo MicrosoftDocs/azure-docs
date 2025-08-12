@@ -6,6 +6,7 @@ ms.date: 07/01/2025
 ms.custom: AppServiceIdentity
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
 ---
 
 # Manage OAuth tokens in Azure App Service
