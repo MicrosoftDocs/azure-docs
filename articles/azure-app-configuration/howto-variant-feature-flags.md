@@ -84,3 +84,6 @@ Continue to the following instructions to use the variant feature flag in your a
 
 > [!div class="nextstepaction"]
 > [JavaScript](./howto-variant-feature-flags-javascript.md)
+
+> [!div class="nextstepaction"]
+> [Go Gin](./howto-variant-feature-flags-go.md)

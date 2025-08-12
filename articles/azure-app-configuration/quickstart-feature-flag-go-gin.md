@@ -24,7 +24,7 @@ The feature management support extends the dynamic configuration feature in App 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - Go 1.21 or later. For information on installing Go, see the [Go downloads page](https://golang.org/dl/).
-- [Azure App Configuration Go provider](https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration) v1.1.0-beta.1 or later.
+- [Azure App Configuration Go provider](https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration) v1.1.0 or later.
 
 ## Create a feature flag
 

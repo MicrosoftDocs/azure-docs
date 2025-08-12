@@ -1,45 +1,46 @@
 ---
-title: Roll out features to targeted audiences in a Go Gin web app
+title: Use variant feature flags in a Go Gin web application
 titleSuffix: Azure App Configuration
-description: Learn how to enable staged rollout of features for targeted audiences in a Go Gin web application.
+description: In this tutorial, you learn how to use variant feature flags in a Go Gin web application to manage experiences for different user segments.
 services: azure-app-configuration
 author: linglingye
 ms.service: azure-app-configuration
 ms.devlang: golang
 ms.custom: devx-track-go, mode-other
-ms.topic: how-to
-ms.date: 07/23/2025
+ms.topic: tutorial
+ms.date: 08/12/2025
 ms.author: linglingye
-#Customer intent: As a Go developer, I want to use targeting filters to control feature rollout to specific users and groups in my Gin web application.
+#Customer intent: As a Go developer, I want to use variant feature flags to provide different experiences to different user segments in my Gin web application.
 ---
 
-# Roll out features to targeted audiences in a Go Gin web application
+# Tutorial: Use variant feature flags in a Go Gin web application
 
-In this guide, you'll use the targeting filter to roll out a feature to targeted audiences for your Go Gin web application. For more information about the targeting filter, see [Roll out features to targeted audiences](./howto-targetingfilter.md).
+In this tutorial, you use a variant feature flag to manage experiences for different user segments in an example application, *Quote of the Day*. You utilize the variant feature flag created in [Use variant feature flags](./howto-variant-feature-flags.md). Before proceeding, ensure you create the variant feature flag named *Greeting* in your App Configuration store.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
-- A feature flag with targeting filter. [Create the feature flag](./howto-targetingfilter.md).
 - Go 1.21 or later. For information on installing Go, see the [Go downloads page](https://golang.org/dl/).
 - [Azure App Configuration Go provider](https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration) v1.1.0 or later.
+- [Feature Management Go library](https://pkg.go.dev/github.com/microsoft/Featuremanagement-Go/featuremanagement) v1.1.0 or later.
+- Follow the [Use variant feature flags](./howto-variant-feature-flags.md) tutorial and create the variant feature flag named *Greeting*.
 
-## Create a web application with a feature flag
+## Set up a Go Gin web application
 
-In this section, you create a web application that allows users to sign in and use the *Beta* feature flag you created before.
+If you already have a Go Gin web application, you can skip to the [Use the variant feature flag](#use-the-variant-feature-flag) section.
 
 1. Create a new directory for your Go project and navigate into it:
 
     ```console
-    mkdir gin-targeting-quickstart
-    cd gin-targeting-quickstart
+    mkdir quote-of-the-day
+    cd quote-of-the-day
     ```
 
 1. Initialize a new Go module:
 
     ```console
-    go mod init gin-targeting-quickstart
+    go mod init quote-of-the-day
     ```
 
 1. Install the required Go packages:
@@ -58,6 +59,8 @@ In this section, you create a web application that allows users to sign in and u
     mkdir templates
     ```
 
+## Create a Go Gin web app
+
 1. Create an HTML template for the home page. Add the following content to `templates/index.html`:
 
     ```html
@@ -68,26 +71,80 @@ In this section, you create a web application that allows users to sign in and u
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{{.title}}</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                color: #333;
+            }
+
+            .quote-container {
+                background-color: #fff;
+                margin: 2em auto;
+                padding: 2em;
+                border-radius: 8px;
+                max-width: 750px;
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+                display: flex;
+                justify-content: space-between;
+                align-items: start;
+                position: relative;
+            }
+
+            .vote-container {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                display: flex;
+                gap: 0em;
+            }
+
+            .vote-container .btn {
+                background-color: #ffffff;
+                border-color: #ffffff;
+                color: #333
+            }
+
+            .vote-container .btn:focus {
+                outline: none;
+                box-shadow: none;
+            }
+
+            .vote-container .btn:hover {
+                background-color: #F0F0F0;
+            }
+
+            .greeting-content {
+                font-family: 'Georgia', serif;
+            }
+
+            .quote-content p.quote {
+                font-size: 2em;
+                font-family: 'Georgia', serif;
+                font-style: italic;
+                color: #4EC2F7;
+            }
+
+            .navbar-brand {
+                font-weight: bold;
+            }
+        </style>
     </head>
     <body>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" href="/">TestFeatureFlags</a>
+                <a class="navbar-brand" href="/">Quote of the Day</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                </button>            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="/">Home</a>
                         </li>
-                        {{if .betaEnabled}}
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/beta">Beta</a>
-                        </li>
-                        {{end}}
-                    </ul>
-                    <ul class="navbar-nav">
+                    </ul>                <ul class="navbar-nav">
                         {{if .user}}
                         <li class="nav-item">
                             <span class="navbar-text me-3">Welcome, {{.user}}!</span>
@@ -103,57 +160,59 @@ In this section, you create a web application that allows users to sign in and u
                     </ul>
                 </div>
             </div>
-        </nav>    <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8 text-center">
-                    <h1>Welcome</h1>
+        </nav>
+
+        <div class="container">        {{if .user}}
+            <div class="quote-container">
+                <div class="quote-content">
+                    {{if .greetingMessage}}
+                    <h3 class="greeting-content">{{.greetingMessage}}</h3>
+                    <br />
+                    {{end}}
+                    {{if .quote}}
+                    <p class="quote">"{{.quote.Message}}"</p>
+                    <p>- <b>{{.quote.Author}}</b></p>
+                    {{else}}
+                    <p class="quote">"Quote not found"</p>
+                    <p>- <b>Unknown</b></p>
+                    {{end}}
+                </div>
+
+                <div class="vote-container">
+                    <button class="btn btn-primary" onclick="heartClicked(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
             </div>
+            {{else}}
+            <div class="quote-container">
+                <div class="quote-content">
+                    {{if .quote}}
+                    <p class="quote">"{{.quote.Message}}"</p>
+                    <p>- <b>{{.quote.Author}}</b></p>
+                    {{else}}
+                    <p class="quote">"Quote not found"</p>
+                    <p>- <b>Unknown</b></p>
+                    {{end}}
+                </div>
+
+                <div class="vote-container">
+                    <button class="btn btn-primary" onclick="heartClicked(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+            {{end}}
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
-    </html>
-    ```
-
-1. Create an HTML template for the beta page. Add the following content to `templates/beta.html`:
-
-    ```html
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{.title}}</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    </head>
-    <body>    <!-- Navigation -->    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" href="/">TestFeatureFlags</a>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/beta">Beta</a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/logout">Logout</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>    <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8 text-center">
-                    <h1>This is the beta website.</h1>
-                </div>
-            </div>
-        </div>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            function heartClicked(button) {
+                var icon = button.querySelector('i');
+                icon.classList.toggle('far');
+                icon.classList.toggle('fas');
+            }
+        </script>
     </body>
     </html>
     ```
@@ -172,7 +231,7 @@ In this section, you create a web application that allows users to sign in and u
     <body>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" href="/">TestFeatureFlags</a>
+                <a class="navbar-brand" href="/">Quote of the Day</a>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
@@ -196,11 +255,12 @@ In this section, you create a web application that allows users to sign in and u
                                 {{.error}}
                             </div>
                             {{end}}
-                            
+
                             <form method="post" action="/login">
                                 <div class="mb-3">
-                                    <input type="text" class="form-control" id="username" name="username" required 
-                                        placeholder="Enter you email">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email" name="email" required 
+                                        placeholder="Enter your email address">
                                 </div>
                                 <div class="d-grid">
                                     <button type="submit" class="btn btn-primary">Login</button>
@@ -217,9 +277,7 @@ In this section, you create a web application that allows users to sign in and u
     </html>
     ```
 
-## Connect to App Configuration
-
-Create a file named `appconfig.go` with the following content. You can connect to your App Configuration store using Microsoft Entra ID (recommended) or a connection string.
+1. Create a file named `appconfig.go` with the following content. You can connect to your App Configuration store using Microsoft Entra ID (recommended) or a connection string.
 
 ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
@@ -321,9 +379,9 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
 
 ---
 
-## Use targeting with feature flags 
+## Use the variant feature flag
 
-1. Create a file named `main.go` with the following content.
+1. Create a file named `main.go` with the following content:
 
     ```golang
     package main
@@ -335,6 +393,7 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
         "net/http"
         "strings"
 
+        "github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
         "github.com/gin-contrib/sessions"
         "github.com/gin-contrib/sessions/cookie"
         "github.com/gin-gonic/gin"
@@ -342,9 +401,15 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
         "github.com/microsoft/Featuremanagement-Go/featuremanagement/providers/azappconfig"
     )
 
+    type Quote struct {
+        Message string `json:"message"`
+        Author  string `json:"author"`
+    }
+
     type WebApp struct {
         featureManager *featuremanagement.FeatureManager
         appConfig      *azureappconfiguration.AzureAppConfiguration
+        quotes         []Quote
     }
 
     func main() {
@@ -366,10 +431,19 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
             log.Fatalf("Error creating feature manager: %v", err)
         }
 
+        // Initialize quotes
+        quotes := []Quote{
+            {
+                Message: "You cannot change what you are, only what you do.",
+                Author:  "Philip Pullman",
+            },
+        }
+
         // Create web app
         app := &WebApp{
             featureManager: featureManager,
             appConfig:      appConfig,
+            quotes:         quotes,
         }
 
         // Setup Gin with default middleware (Logger and Recovery)
@@ -380,7 +454,7 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
             log.Fatalf("Failed to start server: %v", err)
         }
 
-        fmt.Println("Starting server on http://localhost:8080")
+        fmt.Println("Starting Quote of the Day server on http://localhost:8080")
         fmt.Println("Open http://localhost:8080 in your browser")
         fmt.Println()
     }
@@ -402,49 +476,6 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
             c.Next()
         }
     }
-
-    func (app *WebApp) featureMiddleware() gin.HandlerFunc {
-        return func(c *gin.Context) {
-            // Get current user from session
-            session := sessions.Default(c)
-            username := session.Get("username")
-
-            var betaEnabled bool
-            var targetingContext featuremanagement.TargetingContext
-            if username != nil {
-                // Evaluate Beta feature with targeting context
-                var err error
-                targetingContext = createTargetingContext(username.(string))
-                betaEnabled, err = app.featureManager.IsEnabledWithAppContext("Beta", targetingContext)
-                if err != nil {
-                    log.Printf("Error checking Beta feature with targeting: %v", err)
-                }
-            }
-
-            c.Set("betaEnabled", betaEnabled)
-            c.Set("user", username)
-            c.Set("targetingContext", targetingContext)
-            c.Next()
-        }
-    }
-
-    // Helper function to create TargetingContext
-    func createTargetingContext(userID string) featuremanagement.TargetingContext {
-        targetingContext := featuremanagement.TargetingContext{
-            UserID: userID,
-            Groups: []string{},
-        }
-
-        if strings.Contains(userID, "@") {
-            parts := strings.Split(userID, "@")
-            if len(parts) == 2 {
-                targetingContext.Groups = append(targetingContext.Groups, parts[1]) // Add domain as group
-            }
-        }
-
-        return targetingContext
-    }
-
     // The rest of existing code
     //... ...
     ```
@@ -465,16 +496,12 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
         })
         r.Use(sessions.Sessions("session", store))
 
-        
         r.Use(app.refreshMiddleware())
-        r.Use(app.featureMiddleware())
 
         // Load HTML templates
         r.LoadHTMLGlob("templates/*.html")
-
         // Routes
         r.GET("/", app.homeHandler)
-        r.GET("/beta", app.betaHandler)
         r.GET("/login", app.loginPageHandler)
         r.POST("/login", app.loginHandler)
         r.GET("/logout", app.logoutHandler)
@@ -482,60 +509,97 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
 
     // Home page handler
     func (app *WebApp) homeHandler(c *gin.Context) {
-        betaEnabled := c.GetBool("betaEnabled")
-        user := c.GetString("user")
+        session := sessions.Default(c)
+        username := session.Get("username")
+        quote := app.quotes[0]
 
-        c.HTML(http.StatusOK, "index.html", gin.H{
-            "title":       "TestFeatureFlags",
-            "betaEnabled": betaEnabled,
-            "user":        user,
-        })
-    }
+        var greetingMessage string
+        var targetingContext featuremanagement.TargetingContext
+        if username != nil {
+            // Create targeting context for the user
+            targetingContext = createTargetingContext(username.(string))
 
-    // Beta page handler
-    func (app *WebApp) betaHandler(c *gin.Context) {
-        betaEnabled := c.GetBool("betaEnabled")
-        if !betaEnabled {
-            return
+            // Get the Greeting variant for the current user
+            if variant, err := app.featureManager.GetVariant("Greeting", targetingContext); err != nil {
+                log.Printf("Error getting Greeting variant: %v", err)
+            } else if variant.ConfigurationValue != nil {
+                // Extract the greeting message from the variant configuration
+                if configValue, ok := variant.ConfigurationValue.(string); ok {
+                    greetingMessage = configValue
+                }
+            }
         }
 
-        c.HTML(http.StatusOK, "beta.html", gin.H{
-            "title": "Beta Page",
+        c.HTML(http.StatusOK, "index.html", gin.H{
+            "title":           "Quote of the Day",
+            "user":            username,
+            "greetingMessage": greetingMessage,
+            "quote":           quote,
         })
     }
 
     func (app *WebApp) loginPageHandler(c *gin.Context) {
         c.HTML(http.StatusOK, "login.html", gin.H{
-            "title": "Login",
+            "title": "Login - Quote of the Day",
         })
     }
 
     func (app *WebApp) loginHandler(c *gin.Context) {
-        username := c.PostForm("username")
+        email := strings.TrimSpace(c.PostForm("email"))
 
-        // Basic validation - ensure username is not empty
-        if strings.TrimSpace(username) == "" {
+        // Basic validation
+        if email == "" {
             c.HTML(http.StatusOK, "login.html", gin.H{
-                "title": "Login",
-                "error": "Username cannot be empty",
+                "title": "Login - Quote of the Day",
+                "error": "Email cannot be empty",
             })
             return
         }
 
-        // Store username in session - any valid username is accepted
+        if !strings.Contains(email, "@") {
+            c.HTML(http.StatusOK, "login.html", gin.H{
+                "title": "Login - Quote of the Day",
+                "error": "Please enter a valid email address",
+            })
+            return
+        }
+
+        // Store email in session
         session := sessions.Default(c)
-        session.Set("username", username)
-        session.Save()
+        session.Set("username", email)
+        if err := session.Save(); err != nil {
+            log.Printf("Error saving session: %v", err)
+        }
+
         c.Redirect(http.StatusFound, "/")
     }
 
     func (app *WebApp) logoutHandler(c *gin.Context) {
         session := sessions.Default(c)
         session.Clear()
-        session.Save()
+        if err := session.Save(); err != nil {
+            log.Printf("Error saving session: %v", err)
+        }
         c.Redirect(http.StatusFound, "/")
     }
 
+    // Helper function to create TargetingContext
+    func createTargetingContext(userID string) featuremanagement.TargetingContext {
+        targetingContext := featuremanagement.TargetingContext{
+            UserID: userID,
+            Groups: []string{},
+        }
+
+        if strings.Contains(userID, "@") {
+            parts := strings.Split(userID, "@")
+            if len(parts) == 2 {
+                domain := parts[1]
+                targetingContext.Groups = append(targetingContext.Groups, domain) // Add domain as group
+            }
+        }
+
+        return targetingContext
+    }
     // The rest of existing code
     //... ...
     ```
@@ -557,7 +621,6 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
     // The rest of existing code
     // ... ...
     ```
-
 1. After completing the previous steps, your `main.go` file should now contain the complete implementation as shown below:
 
     ```golang
@@ -568,8 +631,10 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
         "fmt"
         "log"
         "net/http"
+        "os"
         "strings"
 
+        "github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
         "github.com/gin-contrib/sessions"
         "github.com/gin-contrib/sessions/cookie"
         "github.com/gin-gonic/gin"
@@ -577,143 +642,15 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
         "github.com/microsoft/Featuremanagement-Go/featuremanagement/providers/azappconfig"
     )
 
+    type Quote struct {
+        Message string `json:"message"`
+        Author  string `json:"author"`
+    }
+
     type WebApp struct {
         featureManager *featuremanagement.FeatureManager
         appConfig      *azureappconfiguration.AzureAppConfiguration
-    }
-
-    func (app *WebApp) refreshMiddleware() gin.HandlerFunc {
-        return func(c *gin.Context) {
-            go func() {
-                if err := app.appConfig.Refresh(context.Background()); err != nil {
-                    log.Printf("Error refreshing configuration: %v", err)
-                }
-            }()
-            c.Next()
-        }
-    }
-
-    func (app *WebApp) featureMiddleware() gin.HandlerFunc {
-        return func(c *gin.Context) {
-            // Get current user from session
-            session := sessions.Default(c)
-            username := session.Get("username")
-
-            var betaEnabled bool
-            var targetingContext featuremanagement.TargetingContext
-            if username != nil {
-                // Evaluate Beta feature with targeting context
-                var err error
-                targetingContext = createTargetingContext(username.(string))
-                betaEnabled, err = app.featureManager.IsEnabledWithAppContext("Beta", targetingContext)
-                if err != nil {
-                    log.Printf("Error checking Beta feature with targeting: %v", err)
-                }
-            }
-
-            c.Set("betaEnabled", betaEnabled)
-            c.Set("user", username)
-            c.Set("targetingContext", targetingContext)
-            c.Next()
-        }
-    }
-
-    // Helper function to create TargetingContext
-    func createTargetingContext(userID string) featuremanagement.TargetingContext {
-        targetingContext := featuremanagement.TargetingContext{
-            UserID: userID,
-            Groups: []string{},
-        }
-
-        if strings.Contains(userID, "@") {
-            parts := strings.Split(userID, "@")
-            if len(parts) == 2 {
-                targetingContext.Groups = append(targetingContext.Groups, parts[1]) // Add domain as group
-            }
-        }
-
-        return targetingContext
-    }
-
-    func (app *WebApp) setupRoutes(r *gin.Engine) {
-        // Setup sessions
-        store := cookie.NewStore([]byte("secret-key-change-in-production"))
-        store.Options(sessions.Options{
-            MaxAge:   3600, // 1 hour
-            HttpOnly: true,
-            Secure:   false, // Set to true in production with HTTPS
-        })
-        r.Use(sessions.Sessions("session", store))
-
-        
-        r.Use(app.refreshMiddleware())
-        r.Use(app.featureMiddleware())
-
-        // Load HTML templates
-        r.LoadHTMLGlob("templates/*.html")
-
-        // Routes
-        r.GET("/", app.homeHandler)
-        r.GET("/beta", app.betaHandler)
-        r.GET("/login", app.loginPageHandler)
-        r.POST("/login", app.loginHandler)
-        r.GET("/logout", app.logoutHandler)
-    }
-
-    // Home page handler
-    func (app *WebApp) homeHandler(c *gin.Context) {
-        betaEnabled := c.GetBool("betaEnabled")
-        user := c.GetString("user")
-
-        c.HTML(http.StatusOK, "index.html", gin.H{
-            "title":       "TestFeatureFlags",
-            "betaEnabled": betaEnabled,
-            "user":        user,
-        })
-    }
-
-    // Beta page handler
-    func (app *WebApp) betaHandler(c *gin.Context) {
-        betaEnabled := c.GetBool("betaEnabled")
-        if !betaEnabled {
-            return
-        }
-
-        c.HTML(http.StatusOK, "beta.html", gin.H{
-            "title": "Beta Page",
-        })
-    }
-
-    func (app *WebApp) loginPageHandler(c *gin.Context) {
-        c.HTML(http.StatusOK, "login.html", gin.H{
-            "title": "Login",
-        })
-    }
-
-    func (app *WebApp) loginHandler(c *gin.Context) {
-        username := c.PostForm("username")
-
-        // Basic validation - ensure username is not empty
-        if strings.TrimSpace(username) == "" {
-            c.HTML(http.StatusOK, "login.html", gin.H{
-                "title": "Login",
-                "error": "Username cannot be empty",
-            })
-            return
-        }
-
-        // Store username in session - any valid username is accepted
-        session := sessions.Default(c)
-        session.Set("username", username)
-        session.Save()
-        c.Redirect(http.StatusFound, "/")
-    }
-
-    func (app *WebApp) logoutHandler(c *gin.Context) {
-        session := sessions.Default(c)
-        session.Clear()
-        session.Save()
-        c.Redirect(http.StatusFound, "/")
+        quotes         []Quote
     }
 
     func main() {
@@ -735,10 +672,19 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
             log.Fatalf("Error creating feature manager: %v", err)
         }
 
+        // Initialize quotes
+        quotes := []Quote{
+            {
+                Message: "You cannot change what you are, only what you do.",
+                Author:  "Philip Pullman",
+            },
+        }
+
         // Create web app
         app := &WebApp{
             featureManager: featureManager,
             appConfig:      appConfig,
+            quotes:         quotes,
         }
 
         // Setup Gin with default middleware (Logger and Recovery)
@@ -752,13 +698,140 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
             log.Fatalf("Failed to start server: %v", err)
         }
 
-        fmt.Println("Starting server on http://localhost:8080")
+        fmt.Println("Starting Quote of the Day server on http://localhost:8080")
         fmt.Println("Open http://localhost:8080 in your browser")
         fmt.Println()
+
+    }
+
+    func (app *WebApp) refreshMiddleware() gin.HandlerFunc {
+        return func(c *gin.Context) {
+            go func() {
+                if err := app.appConfig.Refresh(context.Background()); err != nil {
+                    log.Printf("Error refreshing configuration: %v", err)
+                }
+            }()
+            c.Next()
+        }
+    }
+
+    func (app *WebApp) setupRoutes(r *gin.Engine) {
+        // Setup sessions
+        store := cookie.NewStore([]byte("secret-key-change-in-production"))
+        store.Options(sessions.Options{
+            MaxAge:   3600, // 1 hour
+            HttpOnly: true,
+            Secure:   false, // Set to true in production with HTTPS
+        })
+        r.Use(sessions.Sessions("session", store))
+
+        r.Use(app.refreshMiddleware())
+
+        // Load HTML templates
+        r.LoadHTMLGlob("templates/*.html")
+        // Routes
+        r.GET("/", app.homeHandler)
+        r.GET("/login", app.loginPageHandler)
+        r.POST("/login", app.loginHandler)
+        r.GET("/logout", app.logoutHandler)
+    }
+
+    // Home page handler
+    func (app *WebApp) homeHandler(c *gin.Context) {
+        session := sessions.Default(c)
+        username := session.Get("username")
+        quote := app.quotes[0]
+
+        var greetingMessage string
+        var targetingContext featuremanagement.TargetingContext
+        if username != nil {
+            // Create targeting context for the user
+            targetingContext = createTargetingContext(username.(string))
+
+            // Get the Greeting variant for the current user
+            if variant, err := app.featureManager.GetVariant("Greeting", targetingContext); err != nil {
+                log.Printf("Error getting Greeting variant: %v", err)
+            } else if variant.ConfigurationValue != nil {
+                // Extract the greeting message from the variant configuration
+                if configValue, ok := variant.ConfigurationValue.(string); ok {
+                    greetingMessage = configValue
+                }
+            }
+        }
+
+        c.HTML(http.StatusOK, "index.html", gin.H{
+            "title":           "Quote of the Day",
+            "user":            username,
+            "greetingMessage": greetingMessage,
+            "quote":           quote,
+        })
+    }
+
+    func (app *WebApp) loginPageHandler(c *gin.Context) {
+        c.HTML(http.StatusOK, "login.html", gin.H{
+            "title": "Login - Quote of the Day",
+        })
+    }
+
+    func (app *WebApp) loginHandler(c *gin.Context) {
+        email := strings.TrimSpace(c.PostForm("email"))
+
+        // Basic validation
+        if email == "" {
+            c.HTML(http.StatusOK, "login.html", gin.H{
+                "title": "Login - Quote of the Day",
+                "error": "Email cannot be empty",
+            })
+            return
+        }
+
+        if !strings.Contains(email, "@") {
+            c.HTML(http.StatusOK, "login.html", gin.H{
+                "title": "Login - Quote of the Day",
+                "error": "Please enter a valid email address",
+            })
+            return
+        }
+
+        // Store email in session
+        session := sessions.Default(c)
+        session.Set("username", email)
+        if err := session.Save(); err != nil {
+            log.Printf("Error saving session: %v", err)
+        }
+
+        c.Redirect(http.StatusFound, "/")
+    }
+
+    func (app *WebApp) logoutHandler(c *gin.Context) {
+        session := sessions.Default(c)
+        session.Clear()
+        if err := session.Save(); err != nil {
+            log.Printf("Error saving session: %v", err)
+        }
+        c.Redirect(http.StatusFound, "/")
+    }
+
+    // Helper function to create TargetingContext
+    func createTargetingContext(userID string) featuremanagement.TargetingContext {
+        targetingContext := featuremanagement.TargetingContext{
+            UserID: userID,
+            Groups: []string{},
+        }
+
+        if strings.Contains(userID, "@") {
+            parts := strings.Split(userID, "@")
+            if len(parts) == 2 {
+                domain := parts[1]
+                targetingContext.Groups = append(targetingContext.Groups, domain) // Add domain as group
+            }
+        }
+
+        return targetingContext
     }
     ```
 
-## Targeting filter in action
+## Build and run the app
 
 1. [Set the environment variable for authentication](./quickstart-go-web-app.md#run-the-web-application) and run the application:
 
@@ -767,29 +840,30 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
     go run .
     ```
 
-1. Open a browser window, and go to `http://localhost:8080`. Initially, the **Beta** item doesn't appear on the toolbar, because the *Default percentage* option is set to 0.
+1. Open your browser and navigate to `http://localhost:8080`. Select **Login** at the top right to sign in as **usera@contoso.com**.
 
-    :::image type="content" source="./media/feature-filters/beta-not-targeted-by-default-go.png" alt-text="Screenshot of Gin web app before user login showing no beta access.":::
+    :::image type="content" source="./media/feature-filters/variant-home-go.png" alt-text="Screenshot of Gin web app before user login.":::
 
-1. Click the **Login** link in the upper right corner. Try logging in with `test@contoso.com`.
+1. Once logged in, you see a long greeting message for **usera@contoso.com**.
 
-1. After logging in as `test@contoso.com`, the **Beta** item now appears on the toolbar, because `test@contoso.com` is specified as a targeted user.
+    :::image type="content" source="./media/feature-filters/variant-long-go.png" alt-text="Screenshot of Gin web app, showing a long message for the user.":::
 
-    :::image type="content" source="./media/feature-filters/beta-targeted-by-user-go.png" alt-text="Screenshot of Gin web app after targeted user login showing beta access.":::
+1. Click *Logout* and login as **userb@contoso.com**, you see the simple greeting message.
 
-1. Now logout and login as `testuser@contoso.com`. The **Beta** item doesn't appear on the toolbar, because `testuser@contoso.com` is specified as an excluded user.
+    :::image type="content" source="./media/feature-filters/variant-simple-go.png" alt-text="Screenshot of Gin web app, showing a long message for the user.":::
+
+    > [!NOTE]
+    > It's important for the purpose of this tutorial to use these names exactly. As long as the feature has been configured as expected, the two users should see different variants.
 
 ## Next steps
 
-To learn more about the feature filters, continue to the following documents.
-
-> [!div class="nextstepaction"]
-> [Enable conditional features with feature filters](./howto-feature-filters.md)
-
-> [!div class="nextstepaction"]
-> [Enable features on a schedule](./howto-timewindow-filter-aspnet-core.md)
-
-For more information about the Go Feature Management library, continue to the following document:
+To learn more about feature management in Go, continue to the following documents:
 
 > [!div class="nextstepaction"]
 > [Go Feature Management reference](https://pkg.go.dev/github.com/microsoft/Featuremanagement-Go/featuremanagement)
+
+> [!div class="nextstepaction"]
+> [Roll out features to targeted audiences](./howto-targetingfilter-go.md)
+
+> [!div class="nextstepaction"]
+> [Enable conditional features with feature filters](./howto-feature-filters-go.md)
