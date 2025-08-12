@@ -3,7 +3,7 @@ title: Bicep deployment what-if
 description: Determine what changes will happen to your resources before deploying a Bicep file.
 ms.topic: conceptual
 ms.custom: devx-track-bicep, devx-track-azurecli, devx-track-azurepowershell
-ms.date: 08/04/2025
+ms.date: 08/12/2025
 ---
 
 # Bicep deployment what-if operation
@@ -50,7 +50,7 @@ When one of the limits is reached, the remaining resources' [change type](#chang
 
 ### Short-circuiting
 
-The what-if operation in Bicep deployments may encounter "short-circuiting," a scenario where the service cannot fully analyze a module or resource due to the deployment's structure or dependencies on external state. Short-circuiting of an individual resource occurs when its resource ID or API version cannot be calculated outside the deployment context, often due to unresolved expressions or external dependencies. While rare, short-circuiting of modules or nested deployment resources can also happen, resulting in all resources within the module being excluded from the what-if analysis results. In such cases, the API response includes a diagnostic message to indicate the issue.
+The what-if operation in Bicep deployments may encounter "short-circuiting," a scenario where the service cannot fully analyze a module or resource due to the deployment's structure or dependencies on external state. Short-circuiting of an individual resource occurs when its resource ID or API version cannot be calculated outside the deployment context, often due to unresolved expressions or external dependencies. For more information, see [Unevaluated expressions](#unevaluated-expressions). While rare, short-circuiting of modules or nested deployment resources can also happen, resulting in all resources within the module being excluded from the what-if analysis results. In such cases, the API response includes a diagnostic message to indicate the issue.
 
 ## Running the what-if operation
 
@@ -302,7 +302,7 @@ Resource and property changes are indicated with these symbols:
 
 The deployment will update the following scope:
 
-Scope: /subscriptions/a1bfa635-f2bf-42f1-86b5-848c674fc321/resourceGroups/ExampleGroup
+Scope: /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ExampleGroup
 
   ~ Microsoft.Network/virtualNetworks/vnet-001 [2024-07-01]
     - properties.privateEndpointVNetPolicies: "Disabled"
@@ -502,7 +502,7 @@ Resource and property changes are indicated with this symbol:
 
 The deployment will update the following scope:
 
-Scope: /subscriptions/a1bfa635-f2bf-42f1-86b5-848c674fc321/resourceGroups/jgaotest
+Scope: /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/jgaotest
 
   ~ Microsoft.Storage/storageAccounts/acct0808 [2025-01-01]
     ~ tags.lastDeployedOn: "20250808T200145Z" => "[utcNow()]"
