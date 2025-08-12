@@ -23,23 +23,15 @@ Extended Detection and Response (XDR) data isn't ingested by default into the an
 
 ## Supported tables
 
-Not all XDR tables are supported for ingestion into the analytics or data lake tiers. To quickly identify supported tables, go to the **Tables** page in the Defender portal. Use the **Tier** filter and select **XDR default** to view the list of XDR tables.
-
-The list shows all tables created by XDR, with one of two values in the **Table type** column:
-+ **Sentinel**: Tables that can be ingested into the analytics tier and mirrored to the data lake tier.
-+ **XDR**: Tables that can't be ingested into the analytics or data lake tiers. These tables are available for querying through Advanced hunting and are retained for 30 days.
-
-:::image type="content" source="./media/manage-xdr-data/tables-page.png" lightbox="./media/manage-xdr-data/tables-page.png" alt-text="Screenshot of the Tables management page in the Defender portal.":::
+Not all XDR tables are supported for ingestion into the analytics or data lake tiers. Tables with table type **XDR** aren't supported for ingestion.
 
 ## Manage ingestion using retention settings
 
-Manage XDR data ingestion into the analytics and data lake tiers by setting up the retention settings for the Sentinel-type tables on the **Tables** page in the Defender portal. 
+Manage XDR data ingestion into the analytics and data lake tiers by setting up the retention settings for the Sentinel-type tables on the **Tables** page in the Defender portal. To enable ingestion, configure the retention settings for a period greater than 30 days.
 
-If the Microsoft Sentinel XDR connector is enabled, the XDR events tables are automatically ingested into the analytics tier and mirrored to the data lake tier. The default retention is 30 days, and you can extend it up to 12 years. For a list of tables see [Microsoft Defender XDR integration with Microsoft Sentinel](connect-microsoft-365-defender.md?tabs=MDE#connect-events). Other XDR tables can be ingested into the analytics tier and mirrored to the data lake tier by configuring the retention settings to more than 30 days.
+If the Microsoft Sentinel XDR connector is enabled, the tables you selected when setting up the connector are automatically ingested into the analytics tier and mirrored to the data lake tier. The default retention is 30 days, and you can extend it up to 12 years. For a list of tables see [Microsoft Defender XDR integration with Microsoft Sentinel](connect-microsoft-365-defender.md?tabs=MDE#connect-events). Other XDR tables can be ingested into the analytics tier and mirrored to the data lake tier by configuring the retention settings to more than 30 days.
 
-If the Microsoft Sentinel XDR connector isn't enabled, XDR tables aren't automatically ingested. To ingest XDR data into the analytics tier, configure the retention settings for a period greater than 30 days for either analytics or total retention. The data is automatically mirrored to the data lake tier.  For more information on retention settings, see [Configure table settings in Microsoft Sentinel (preview)](manage-table-tiers-retention.md).
-
-To see which tables are currently being ingested, navigate to the **Tables** page and filter for the **XDR default** tier. Tables with more than 30 days of retention in either tier are currently being ingested into the analytics tier and mirrored to the data lake tier. When the Microsoft Sentinel XDR connector is enabled, XDR events tables are ingested even if the retention is 30 days.
+If the Microsoft Sentinel XDR connector isn't enabled, XDR tables aren't automatically ingested but can still be ingested by setting retention for more than 30 days. The data is automatically mirrored to the data lake tier.  For more information on retention settings, see [Configure table settings in Microsoft Sentinel (preview)](manage-table-tiers-retention.md).
 
 Stop ingesting data into the analytics tier by resetting the analytics tier retention and total retention to the default 30 days.
 
