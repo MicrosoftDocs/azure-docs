@@ -104,7 +104,7 @@ To enable remote build on Linux Consumption, Elastic Premium, and App Service pl
 + [`ENABLE_ORYX_BUILD=true`](functions-app-settings.md#enable_oryx_build)
 + [`SCM_DO_BUILD_DURING_DEPLOYMENT=true`](functions-app-settings.md#scm_do_build_during_deployment)
 
-By default, both [Azure Functions Core Tools](functions-run-local.md) and the [Azure Functions Extension for Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) perform remote builds when deploying to Linux. Because of this, both tools automatically create these settings for you in Azure.
+By default, both [Azure Functions Core Tools](functions-run-local.md) and the [Azure Functions Extension for Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-csharp#deploy-the-project-to-azure) perform remote builds when deploying to Linux. Because of this, both tools automatically create these settings for you in Azure.
 
 When apps are built remotely on Linux, they [run from the deployment package](run-functions-from-deployment-package.md).
 
@@ -220,7 +220,7 @@ In the portal-based editor, you can directly edit the files that are in your fun
 
 >__When to use it:__ The portal is a good way to get started with Azure Functions. Because of [development limitations in the Azure portal](functions-how-to-use-azure-function-app-settings.md#development-limitations-in-the-azure-portal), you should use one of the following client tools more advanced development work:
 >
->+ [Visual Studio Code](./create-first-function-vs-code-csharp.md)
+>+ [Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-csharp)
 >+ [Azure Functions Core Tools (command line)](functions-run-local.md)
 >+ [Visual Studio](functions-create-your-first-function-visual-studio.md)
 
