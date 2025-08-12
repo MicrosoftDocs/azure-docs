@@ -77,23 +77,21 @@ The following example workflow sends a daily summary for a website RSS feed. The
       >
       > If the **Feed links** output doesn't appear, next to the trigger section label, select **See more**. From the dynamic content list, you can select *only* outputs from previous steps.
 
-      :::image type="content" source="media/logic-apps-control-flow-loops/for-each-select-feed-links-consumption.png" alt-text="Screenshot shows the Azure portal workflow designer with an action named For each and opened dynamic content list.":::
+      :::image type="content" source="media/logic-apps-control-flow-loops/for-each-select-feed-link.png" alt-text="Screenshot shows the Azure portal workflow designer with an action named For each and opened dynamic content list." lightbox="media/logic-apps-control-flow-loops/for-each-select-feed-link.png":::
 
       When you're done, the selected array output appears as in the following example:
 
-      :::image type="content" source="media/logic-apps-control-flow-loops/for-each-selected-array-consumption.png" alt-text="Screenshot shows a workflow with an action named For each, and selected array output.":::
+      :::image type="content" source="media/logic-apps-control-flow-loops/for-each-selected-array.png" alt-text="Screenshot shows a workflow with an action named For each, and selected array output.":::
 
    1. To run an existing action on each array item, drag the **Send an email** action into the **For each** loop.
 
       Now, your workflow looks like the following example:
 
-      :::image type="content" source="media/logic-apps-control-flow-loops/for-each-with-last-action-consumption.png" alt-text="Screenshot shows a workflow with an action named For each and Send an email, now inside For each loop.":::
+      :::image type="content" source="media/logic-apps-control-flow-loops/for-each-with-last-action.png" alt-text="Screenshot shows a workflow with an action named For each and Send an email, now inside For each loop.":::
 
 1. When you're done, save your workflow.
 
 1. To manually test your workflow, on the designer toolbar, select **Run** > **Run**.
-
----
 
 <a name="for-each-json"></a>
 
@@ -143,7 +141,7 @@ By default, the iterations in a **For each** loop run at the same time in parall
 
 1. Move the **Degree of parallelism** slider to **1**.
 
-   :::image type="content" source="media/logic-apps-control-flow-loops/for-each-sequential-consumption.png" alt-text="Screenshot shows a concurrency control setting turned on and degree of parallelism slider set to 1.":::
+   :::image type="content" source="media/logic-apps-control-flow-loops/for-each-sequential.png" alt-text="Screenshot shows a concurrency control setting turned on and degree of parallelism slider set to 1.":::
 
 ## For each action definition (JSON): Run sequentially
 
@@ -227,9 +225,7 @@ In the following example workflow, starting at 8:00 AM each day, the **Until** a
 
    When you're done, the **Recurrence** trigger looks like the following example:
 
-   :::image type="content" source="./media/logic-apps-control-flow-loops/do-until-trigger-complete-consumption.png" alt-text="Screenshot shows the Azure portal with a workflow and Recurrence trigger parameters set up.":::
-
-TODO: INTEGRATE:
+   :::image type="content" source="./media/logic-apps-control-flow-loops/do-until-trigger-complete.png" alt-text="Screenshot shows the Azure portal with a workflow and Recurrence trigger parameters set up.":::
 
 1. Under the trigger, follow these general steps to add the **Variables** built-in action named **Initialize variable** to your workflow for a [Consumption](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action) or [Standard](create-workflow-with-trigger-or-action.md?tabs=standard#add-action) logic app.
 
@@ -241,7 +237,7 @@ TODO: INTEGRATE:
    | **Type** | **Integer** | Your variable's data type |
    | **Value** | **0** | Your variable's starting value |
 
-   :::image type="content" source="./media/logic-apps-control-flow-loops/do-until-loop-variable-properties-consumption.png" alt-text="Screenshot shows the Azure portal with a Consumption workflow and parameters for built-in action named Initialize variable.":::
+   :::image type="content" source="./media/logic-apps-control-flow-loops/do-until-loop-variable-property.png" alt-text="Screenshot shows the Azure portal with a Consumption workflow and parameters for built-in action named Initialize variable." lightbox="./media/logic-apps-control-flow-loops/do-until-loop-variable-property.png":::
 
 1. Under the **Initialize variable** action, follow these general steps to add the **Control** built-in action named **Until** to your workflow for a [Consumption](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action) or [Standard](create-workflow-with-trigger-or-action.md?tabs=standard#add-action) logic app.
 
@@ -253,7 +249,7 @@ TODO: INTEGRATE:
 
    1. Under **Count**, enter **10** as the comparison value.
 
-   :::image type="content" source="./media/logic-apps-control-flow-loops/do-until-loop-settings-consumption.png" alt-text="Screenshot shows a workflow and built-in action named Until with finished stop condition.":::
+   :::image type="content" source="./media/logic-apps-control-flow-loops/do-until-loop-setting.png" alt-text="Screenshot shows a workflow and built-in action named Until with finished stop condition." lightbox="./media/logic-apps-control-flow-loops/do-until-loop-setting.png":::
 
 1. Inside the **Until** action, select **+** > **Add an action**.
 
@@ -266,7 +262,7 @@ TODO: INTEGRATE:
    | **Name** | Select the **Limit** variable. |
    | **Value** | **1** |
 
-   :::image type="content" source="./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-consumption.png" alt-text="Screenshot shows a workflow and built-in action named Until with Name set to the Limit variable and Value set to 1.":::
+   :::image type="content" source="./media/logic-apps-control-flow-loops/do-until-loop-increment-variable.png" alt-text="Screenshot shows a workflow and built-in action named Until with Name set to the Limit variable and Value set to 1." lightbox="./media/logic-apps-control-flow-loops/do-until-loop-increment-variable.png":::
 
 1. Outside and under the **Until** action, follow these general steps to add an action that sends email in your [Consumption](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action) or [Standard](create-workflow-with-trigger-or-action.md?tabs=standard#add-action) logic app. 
 
@@ -282,7 +278,7 @@ TODO: INTEGRATE:
 
    When you're done, your email action looks similar to the following example:
 
-   :::image type="content" source="./media/logic-apps-control-flow-loops/do-until-loop-send-email-consumption.png" alt-text="Screenshot shows a workflow and action named Send an email with property values.":::
+   :::image type="content" source="./media/logic-apps-control-flow-loops/do-until-loop-send-email.png" alt-text="Screenshot shows a workflow and action named Send an email with property values." lightbox="./media/logic-apps-control-flow-loops/do-until-loop-send-email.png":::
 
 1. Save your workflow.
 
@@ -290,9 +286,7 @@ TODO: INTEGRATE:
 
 To manually test your logic app workflow:
 
-On the designer toolbar, select **Run** > **Run**.
-
----
+- On the designer toolbar, select **Run** > **Run**.
 
 After your workflow starts running, you get an email with the content that you specified:
 
