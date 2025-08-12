@@ -202,21 +202,24 @@ To run an on-demand backup for Azure Disks, follow these steps:
 
    :::image type="content" source="./media/backup-managed-disks/initiate-backup.png" alt-text="Screemshot shows how to start the backup operation." lightbox="./media/backup-managed-disks/initiate-backup.png":::
 
-## Track a backup operation
+## Track Azure Disk backup operations
 
-The Azure Backup service creates a job for scheduled backups or if you trigger on-demand backup operation for tracking. To view the backup job status:
+The Azure Backup service creates a job for scheduled backups or if you trigger on-demand backup operation for tracking. To view the backup job status and details, follow these steps:
 
-1. Go to the **Backup instance** screen. It shows the jobs dashboard with operation and status for the past seven days.
+1. Go to the **Backup vault**, and select **Backup instances**.
+1. On the **Backup instances** pane, select an Azure Disk backup instance from the list.
 
-   ![Jobs dashboard](./media/backup-managed-disks/jobs-dashboard.png)
+   :::image type="content" source="./media/backup-managed-disks/jobs-dashboard.png" alt-text="Screenshot shows the list of backup instances." lightbox="./media/backup-managed-disks/jobs-dashboard.png":::
 
-1. To view the status of the backup operation, select **View all** to show ongoing and past jobs of this backup instance.
+1. On the selected **Backup instance** pane, the jobs dashboard shows operation and status for the past seven days.
 
-   ![Select view all](./media/backup-managed-disks/view-all.png)
+   To view the status of the backup operation, select **View all** to show ongoing and past jobs of this backup instance.
+
+   :::image type="content" source="./media/backup-managed-disks/view-all.png" alt-text="Screenshot shows how to view all jobs of a selected backup instance." lightbox="./media/backup-managed-disks/view-all.png":::
 
 1. Review the list of backup and restore jobs and their status. Select a job from the list of jobs to view job details.
 
-   ![Select job to see details](./media/backup-managed-disks/select-job.png)
+   :::image type="content" source="./media/backup-managed-disks/select-job.png" alt-text="Screenshot shows how to view the job details." lightbox="./media/backup-managed-disks/select-job.png":::
 
 ## Next steps
 
