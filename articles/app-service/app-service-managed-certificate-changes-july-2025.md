@@ -29,18 +29,118 @@ For a detailed explanation of the underlying changes at DigiCert, refer to [chan
 
 ## Impacted scenarios
 
-You can't create or renew ASMCs if:
-- Your app is not publicly accessible.
-- You use Azure Traffic Manager with nested or external endpoints.
-- You rely on `*.trafficmanager.net` domains.
+You can't create or renew ASMCs if your:
+- Site is not publicly accessible:
+   - Public accessibility to your app is required. If your app is only accessible through private configurations, such as requiring a client certificate, disabling public network access, using private endpoints, or applying IP restrictions, you can't create or renew a managed certificate.
+   - Other configurations that restrict public access, such as firewalls, authentication gateways, or custom access policies, may also affect eligibility for managed certificate issuance or renewal.
 
-Existing certificates remain valid until expiration (up to 6 months), but will not renew automatically if your configuration is unsupported.
+- Site is an Azure Traffic Manager "nested" or "external" endpoint:
+   - Only "Azure Endpoints" on Traffic Manager is supported for certificate creation and renewal.
+   - "Nested endpoints" and "External endpoints" is not supported.
+- Site relies on _*.trafficmanager.net_ domains:
+   - Certificates for _*.trafficmanager.net_ domains is not supported for creation or renewal.
+
+Existing certificates remain valid until expiration (up to six months), but will not renew automatically if your configuration is unsupported.
+
+## Identify impacted resources
+You can use [Azure Resource Graph (ARG)](https://portal.azure.com/?feature.customPortal=false#view/HubsExtension/ArgQueryBlade) queries to help identify resources that may be affected under each scenario. These queries are provided as a starting point and may not capture every configuration. Review your environment for any unique setups or custom configurations. 
+
+### Scenario 1: Site is not publicly accessible
+This ARG query retrieves a list of sites that either have the public network access property disabled or are configured to use client certificates. It then filters for sites that are using App Service Managed Certificates (ASMC) for their custom hostname SSL bindings. These certificates are the ones that could be affected by the upcoming changes. However, this query does not provide complete coverage, as there may be other configurations impacting public access to your app that are not included here. Ultimately, this query serves as a helpful guide for users, but a thorough review of your environment is recommended. You can copy this query, paste it into [ARG Explorer](https://portal.azure.com/?feature.customPortal=false#view/HubsExtension/ArgQueryBlade), and then click "Run query" to view the results for your environment. 
+
+```kql
+// ARG Query: Identify App Service sites that commonly restrict public access and use ASMC for custom hostname SSL bindings 
+resources 
+| where type == "microsoft.web/sites" 
+// Extract relevant properties for public access and client certificate settings 
+| extend  
+    publicNetworkAccess = tolower(tostring(properties.publicNetworkAccess)), 
+    clientCertEnabled = tolower(tostring(properties.clientCertEnabled)) 
+// Filter for sites that either have public network access disabled  
+// or have client certificates enabled (both can restrict public access) 
+| where publicNetworkAccess == "disabled"  
+    or clientCertEnabled != "false" 
+// Expand the list of SSL bindings for each site 
+| mv-expand hostNameSslState = properties.hostNameSslStates 
+| extend  
+    hostName = tostring(hostNameSslState.name), 
+    thumbprint = tostring(hostNameSslState.thumbprint) 
+// Only consider custom domains (exclude default *.azurewebsites.net) and sites with an SSL certificate bound 
+| where tolower(hostName) !endswith "azurewebsites.net" and isnotempty(thumbprint) 
+// Select key site properties for output 
+| project siteName = name, siteId = id, siteResourceGroup = resourceGroup, thumbprint, publicNetworkAccess, clientCertEnabled 
+// Join with certificates to find only those using App Service Managed Certificates (ASMC) 
+// ASMCs are identified by the presence of the "canonicalName" property 
+| join kind=inner ( 
+    resources 
+    | where type == "microsoft.web/certificates" 
+    | extend  
+        certThumbprint = tostring(properties.thumbprint), 
+        canonicalName = tostring(properties.canonicalName) // Only ASMC uses the "canonicalName" property 
+    | where isnotempty(canonicalName) 
+    | project certName = name, certId = id, certResourceGroup = tostring(properties.resourceGroup), certExpiration = properties.expirationDate, certThumbprint, canonicalName 
+) on $left.thumbprint == $right.certThumbprint 
+// Final output: sites with restricted public access and using ASMC for custom hostname SSL bindings 
+| project siteName, siteId, siteResourceGroup, publicNetworkAccess, clientCertEnabled, thumbprint, certName, certId, certResourceGroup, certExpiration, canonicalName
+```
+
+
+### Scenario 2: Site is an Azure Traffic Manager "nested" or "external" endpoint
+If your App Service uses custom domains routed through **Azure Traffic Manager**, you may be impacted if your profile includes **external** or **nested endpoints**. These endpoint types are not supported for certificate issuance or renewal under the new validation.
+
+To help identify affected Traffic Manager profiles across your subscriptions, we recommend using [this PowerShell script](https://github.com/nimccoll/NonAzureTrafficManagerEndpoints) developed by the Microsoft team. It scans for profiles with non-Azure endpoints and outputs a list of potentially impacted resources.
+
+> [!NOTE]
+> You need at least Reader access to all subscriptions to run the script successfully.
+> 
+
+To run the script:
+1. Download the [PowerShell script from GitHub](https://github.com/nimccoll/NonAzureTrafficManagerEndpoints).
+1. Open PowerShell and navigate to the script location.
+1. Run the script.
+   ```
+   .\TrafficManagerNonAzureEndpoints.ps1
+   ```
+
+### Scenario 3: Site relies on _*.trafficmanager.net_ domains
+This ARG query helps you identify App Service Managed Certificates (ASMC) that were issued to _*.trafficmanager.net domains_. In addition, it also checks whether any web apps are currently using those certificates for custom domain SSL bindings. You can copy this query, paste it into [ARG Explorer](https://portal.azure.com/?feature.customPortal=false#view/HubsExtension/ArgQueryBlade), and then click "Run query" to view the results for your environment. 
+
+```kql
+// ARG Query: Identify App Service Managed Certificates (ASMC) issued to *.trafficmanager.net domains 
+// Also checks if any web apps are currently using those certificates for custom domain SSL bindings 
+resources 
+| where type == "microsoft.web/certificates" 
+// Extract the certificate thumbprint and canonicalName (ASMCs have a canonicalName property) 
+| extend  
+    certThumbprint = tostring(properties.thumbprint), 
+    canonicalName = tostring(properties.canonicalName) // Only ASMC uses the "canonicalName" property 
+// Filter for certificates issued to *.trafficmanager.net domains 
+| where canonicalName endswith "trafficmanager.net" 
+// Select key certificate properties for output 
+| project certName = name, certId = id, certResourceGroup = tostring(properties.resourceGroup), certExpiration = properties.expirationDate, certThumbprint, canonicalName 
+// Join with web apps to see if any are using these certificates for SSL bindings 
+| join kind=leftouter ( 
+    resources 
+    | where type == "microsoft.web/sites" 
+    // Expand the list of SSL bindings for each site 
+    | mv-expand hostNameSslState = properties.hostNameSslStates 
+    | extend  
+        hostName = tostring(hostNameSslState.name), 
+        thumbprint = tostring(hostNameSslState.thumbprint) 
+    // Only consider bindings for *.trafficmanager.net custom domains with a certificate bound 
+    | where tolower(hostName) endswith "trafficmanager.net" and isnotempty(thumbprint) 
+    // Select key site properties for output 
+    | project siteName = name, siteId = id, siteResourceGroup = resourceGroup, thumbprint 
+) on $left.certThumbprint == $right.thumbprint 
+// Final output: ASMCs for *.trafficmanager.net domains and any web apps using them 
+| project certName, certId, certResourceGroup, certExpiration, canonicalName, siteName, siteId, siteResourceGroup
+```
 
 ## Mitigation guidance
 
 ### Scenario 1: Site is not publicly accessible
 
-Apps that are not accessible from the public internet will not be able to create or renew ASMCs. This includes restrictions via private endpoints, firewalls, IP restrictions, client certificates, authentication gateways, or custom access policies.
+Apps that are not accessible from the public internet cannot create or renew ASMCs. These configurations may include restrictions enforced through private endpoints, firewalls, IP filtering, client certificates, authentication gateways, or custom access policies.
 
 We recognize that making applications publicly accessible may conflict with customer security policies or introduce risk. The recommended mitigation is to replace ASMC with a custom certificate and update the TLS/SSL binding for your custom domain.
 
@@ -79,9 +179,9 @@ We recognize that making applications publicly accessible may conflict with cust
    - [CLI: Delete certificate](/cli/azure/webapp/config/ssl#az-webapp-config-ssl-delete)
 
 **Temporary mitigation: DigiCert IP allowlisting**  
-Some customers may choose to allowlist [DigiCert’s domain validation IPs](https://knowledge.digicert.com/alerts/ip-address-domain-validation) as a short-term workaround. This can help buy time to move away from using ASMC for websites that aren’t publicly accessible, especially given the short notice of the change.
+Some customers may choose to allowlist [DigiCert’s domain validation IPs](https://knowledge.digicert.com/alerts/ip-address-domain-validation) as a short-term workaround. This may help maintain certificate issuance while transitioning away from using ASMC for websites that aren’t publicly accessible.
 > [!NOTE]
-> Allowlisting DigiCert's IP isn’t an official or supported long-term solution. Microsoft’s stance remains that **public access is required** to avoid potential service disruptions. Consider the following:
+> Allowlisting DigiCert's IP isn’t an official or supported long-term solution. Microsoft’s stance remains that **public access is required** to avoid potential service disruptions. Keep in mind:
 >
 > - DigiCert manages its own IPs and may change them without notice.
 > - Microsoft doesn’t control DigiCert’s infrastructure and can’t guarantee the documentation stay up to date.
@@ -91,9 +191,9 @@ Some customers may choose to allowlist [DigiCert’s domain validation IPs](http
 For guidance on configuring access restrictions, refer to [set up Azure App Service access restrictions](app-service-ip-restrictions.md).
 
 
-### Scenario 2: Azure Traffic Manager with nested or external endpoints
+### Scenario 2: Site is an Azure Traffic Manager "nested" or "external" endpoint
 
-Only “Azure Endpoints” are supported. “Nested” and “External” endpoints are not supported for ASMC validation.
+Only "Azure Endpoints" are supported. "Nested" and "External" endpoints are not supported for ASMC validation.
 
 **Recommended mitigation:**
 
@@ -101,7 +201,7 @@ Only “Azure Endpoints” are supported. “Nested” and “External” endpoi
 - For guidance on using App Service as an Azure Traffic Manager endpoint, refer to [App Service and Traffic Manager Profiles](web-sites-traffic-manager.md#app-service-and-traffic-manager-profiles).
 
 
-### Scenario 3: Use of trafficmanager.net domains
+### Scenario 3: Site relies on _*.trafficmanager.net_ domains
 
 Certificates for `*.trafficmanager.net` domains are not supported. If your app relies on this domain and uses ASMC, you need to remove that dependency and secure your app using a custom domain and certificate.
 
