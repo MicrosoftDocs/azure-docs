@@ -39,7 +39,7 @@ Module | Platform | Sample | Release Notes
 
 ## Feature Development Status
 
-This is an overview of each feature and its current status for different frameworks or programming languages.  
+This is an overview of each feature and its current status for different frameworks or programming languages. 
 
 - **GA (General Availability)**: The feature is fully released, considered stable, and ready for production use.  
 - **Preview**: The feature is available for early testing and feedback, but not yet fully stable or recommended for production use.  

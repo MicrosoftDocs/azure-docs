@@ -150,6 +150,14 @@
       items:
       - name: .NET
         href: reload-key-vault-secrets-dotnet.md
+  - name: Local emulator
+    items:
+    - name: Overview
+      href: emulator-overview.md
+    - name: Use emulator in your application
+      items:
+      - name: .NET
+        href: use-emulator-dotnet.md
   - name: Snapshots
     items:
     - name: Overview
