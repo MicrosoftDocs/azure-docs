@@ -50,7 +50,8 @@ GPv2 supports all capabilities of GPv1 and adds several enhancements, including 
 
 ## Plan for pricing changes when upgrading GPv1 → GPv2
 
-Upgrading from GPv1 to GPv2 enables modern features such as [accesss/access-tiers-overview.md, ../blobs/lifecycle-management-overview.md, and broader redundancy options. These features can reduce **storage per-GB** costs, but **transaction pricing differs** on GPv2. Workloads with high read, write, or list activity may see **higher operations charges** unless cost-optimization features are used.
+>[!NOTE]
+>Upgrading from GPv1 to GPv2 enables modern features such as [access tiers](../blobs/access-tiers-overview.md), and broader redundancy options. These features can reduce **storage per-GB** costs, but **transaction pricing differs** on GPv2. Workloads with high read, write, or list activity may see **higher operations charges** unless cost-optimization features are used.
 
 ### Model your costs before upgrading
 1. Capture a baseline of monthly operations by type (**read, write, list/metadata**) and any **egress**.
@@ -60,7 +61,7 @@ Upgrading from GPv1 to GPv2 enables modern features such as [accesss/access-tier
 1. Compare your current GPv1 bill to the modeled GPv2 bill (with tiers and lifecycle rules).
 
 >[!TIP]
->If your workload is **write- or list-heavy**, reduce transaction counts by batching operations, writing larger blocks, and scoping list operations. Ensure cold data isn't left in the hot tier.
+>If your workload is **write or list heavy**, reduce transaction counts by batching operations, writing larger blocks, and scoping list operations. GPv2 also provides better tools for optimizing costs, but allowing the tiering of data. Ensure cold data isn't left in the hot tier.
 
 ### Upgrade facts
 - The upgrade is **in-place** and requires **no downtime**; it changes the account kind in Azure Resource Manager.
@@ -89,10 +90,6 @@ To minimize risk and ensure a smooth migration:
 | September 2026 | Full retirement; GPv1 accounts decommissioned |
 
 ## What happens if I don't migrate my accounts?
- Starting on September 1, 2025, customers will no longer be able to manage GPv1  storage accounts. Any data still contained in these accounts will be preserved.
-
- If your applications are using GPv1 storage accounts, you must migrate to GPv2 before the retirement date to avoid service disruption.
-
 >[!Warning]
 >If you do not migrate your GPv1 storage account to GPv2 by August 31, 2025, all existing GPv1 accounts will be auto migrated over to a GPv2 account, which may result in higher billing costs. Your decision not to migrate an existing GPv1 account will be construed as consent for Microsoft to migrate the account on your behalf.
 

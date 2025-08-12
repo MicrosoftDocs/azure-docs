@@ -26,7 +26,7 @@ This FAQ addresses common questions about upgrading from general-purpose v1 (GPv
 ## General-purpose v1 to General-purpose v2 FAQs
 | Question | Answer |
 |----------|--------|
-| What is a General-purpose v1 storage account? | A GPv1 account is the original “general-purpose” Azure Storage account type. It supports all four core storage services (Blobs, Files, Queues, Tables) and the classic redundancy SKUs (LRS, GRS, RA-GRS). It predates Blob tiering and many newer management features. |
+| What is a General-purpose v1 (GPv1) storage account? | A GPv1 account is the original “general-purpose” Azure Storage account type. It supports all four core storage services (Blobs, Files, Queues, Tables) and the classic redundancy SKUs (LRS, GRS, RA-GRS). It predates Blob tiering and many newer management features. |
 | Can I still create a new GPv1 account? | From the retirement date onwards all new account creation will be blocked. |
 | Which redundancy options are available on GPv2 accounts? | Local redundant storage (LRS), Geo-redundant storage (GRS), Zone-redundant storage (ZRS), Read-access geo-redundant storage (RA-GZRS), and Read-access geo-redundant storage (RA-GRS) are supported. |
 | Does General-purpose v1 support Hot, Cool, or Archive blob tiers or lifecycle management policies? | No. |
@@ -42,3 +42,4 @@ This FAQ addresses common questions about upgrading from general-purpose v1 (GPv
 | Will my existing application continue to work seamlessly after the upgrade? | In most cases, yes. API endpoints remain unchanged. However, review any hardcoded pricing assumptions or tier-unaware logic to ensure compatibility with General-purpose v2 features. |
 | What if I need help with the upgrade process? | Microsoft provides various resources to assist with the upgrade, including documentation, support forums, and direct support channels. |
 | What happens if I don't upgrade by the deadline? | If you do not migrate your General-purpose v1 storage account to General-purpose v2 by the deadline, all existing General-purpose v1 accounts will be auto migrated over to a GPv2 account, which may result in higher billing costs. Your decision not to migrate an existing General-purpose v1 account will be construed as consent for Microsoft to migrate the account on your behalf. |
+| Why is GPv2 more expensive than GPv1? | GPv2 introduces new features and pricing models that may result in higher costs for certain workloads. However, it also offers improved performance, scalability, and management capabilities that can lead to cost savings in the long run. It's essential to evaluate your specific use case and workload patterns to understand the potential impact on your billing. |
