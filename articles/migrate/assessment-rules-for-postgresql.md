@@ -49,7 +49,7 @@ The asessment rules help identify compatibility issues and migration blockers wh
 
 **Recommendation**: Review all extensions installed in your source PostgreSQL instance. Compare them with the list of supported extensions in the Azure Database for PostgreSQL Flexible Server documentation. Remove or disable any unsupported extensions before migration. If an unsupported extension is critical, explore alternative approaches or supported extensions that offer similar functionality.
 
-For more information, see []
+For more information, see [PostgreSQL extensions in Azure Database for PostgreSQL](/azure/postgresql/extensions/concepts-extensions-versions)
 
 **Collations {#collations}**
 
@@ -133,7 +133,7 @@ For more information, see PostgreSQL full-text search documentation.
 
 **Recommendation**: Azure Database for PostgreSQL – Flexible Server doesn't support TLS versions earlier than 1.2 or later than 1.3. Update your client configurations to use TLS 1.2 or TLS 1.3, and test all applications to ensure compatibility with the supported TLS versions.
 
-For more information, see []
+For more information, see [SSL/TLS connectivity in Azure Database for PostgreSQL](/azure/postgresql/flexible-server/concepts-networking-ssl-tls)
 
 **Superuser Privileges {#superuser-privileges}**
 
@@ -145,7 +145,7 @@ For more information, see []
 
 **Recommendation**: Azure Database for PostgreSQL – Flexible Server doesn't support superuser privileges. Before migration, change the ownership of objects and update privileges to use a non-superuser role. Use Azure's built-in management features to perform administrative tasks.
 
-For more information, see []
+For more information, see [Server concepts in Azure Database for PostgreSQL](/azure/postgresql/flexible-server/concepts-servers).
 
 **File Read/Write Privileges {#file-privileges}**
 
@@ -157,7 +157,7 @@ For more information, see []
 
 **Recommendation**: Azure Database for PostgreSQL – Flexible Server doesn't support reading from or writing to external or VM-level files. Update your application logic to use alternative approaches, such as storing files in Azure Blob Storage or using database tables instead of file system access.
 
-For more information, see []
+For more information, see [Using pg_azure_storage extension](/azure/postgresql/flexible-server/concepts-storage-extension?tabs=portal-01%2Cportal-02%2Cportal-03%2Cportal-04%2Cportal-05).
 
 **IPv6 Address {#ipv6-address}**
 
@@ -169,7 +169,7 @@ For more information, see []
 
 **Recommendation**: Azure Database for PostgreSQL – Flexible Server supports only port 5432 for PostgreSQL and port 6432 for PgBouncer. Update your client configurations, firewalls, and application connection strings to use one of the supported ports.
 
-For more information, see []
+For more information, see [Firewall rules in Azure Database for PostgreSQL](/azure/postgresql/flexible-server/concepts-firewall-rules)
 
 **Port Usage {#port-usage}**
 
@@ -181,7 +181,7 @@ For more information, see []
 
 **Recommendation**: Azure Database for PostgreSQL – Flexible Server supports only port 5432 for PostgreSQL and port 6432 for PgBouncer. Update your client configurations, firewalls, and application connection strings to use one of the supported ports.
 
-For more information, see []
+For more information, see [Connection settings in Azure Database for PostgreSQL](/azure/postgresql/flexible-server/server-parameters-table-connections-and-authentication-connection-settings?pivots=postgresql-17).
 
 **OID Usage {#oid-usage}**
 
@@ -193,7 +193,7 @@ For more information, see []
 
 **Recommendation**: Remove the WITH OIDS clause from all table definitions. If you need object identifiers, consider using UUID or SERIAL columns instead. Update any application code that references the OID column to reflect these changes.
 
-For more information, see []
+For more information, see [PostgreSQL 12.0 release notes](https://www.postgresql.org/docs/release/12.0/).
 
 **Tablespaces {#tablespaces}**
 
@@ -205,7 +205,7 @@ For more information, see []
 
 **Recommendation**: Azure Database for PostgreSQL – Flexible Server supports only default tablespaces. After migration, objects that used custom tablespaces will be placed in the default tablespace. Remove all references to custom tablespaces before migration to avoid errors.
 
-For more information, see []
+For more information, see [Known issues in migration service](/azure/postgresql/migrate/migration-service/concepts-known-issues-migration-service).
 
 **PostgreSQL Version < 9.5 {#postgresql-version-95}**
 
@@ -217,7 +217,7 @@ For more information, see []
 
 **Recommendation**: Upgrade the source PostgreSQL database to version 9.5 or later before migrating to Azure Database for PostgreSQL – Flexible Server. While migration utilities support PostgreSQL version 9.5 and later, the target Flexible Server supports PostgreSQL version 11 and later for deployment.
 
-For more information, see []
+For more information, see [PostgreSQL migration service overview](/azure/postgresql/migrate/migration-service/overview-migration-service-postgresql).
 
 **Read Replicas Count {#read-replicas}**
 
@@ -229,7 +229,7 @@ For more information, see []
 
 **Recommendation**: If you need more than five read replicas, redesign your application architecture to work within this limitation. Consider using caching layers or distributing read workloads across multiple services to reduce dependency on read replicas.
 
-For more information, see []
+For more information, see [Read replicas in Azure Database for PostgreSQL](/azure/postgresql/flexible-server/concepts-read-replicas)
 
 **Encodings {#encodings}**  
 
@@ -253,7 +253,7 @@ For more information, see PostgreSQL encoding documentation.
 
 **Recommendation**: Change the target region in the assessment settings to a supported Azure region. Review the latest regional availability for Azure Database for PostgreSQL – Flexible Server in the Azure documentation. Consider data residency and compliance requirements when selecting a region.
 
-For more information, see []
+For more information, see [Azure regions for PostgreSQL flexible server](/azure/postgresql/flexible-server/overview#azure-regions).
 
 
 
