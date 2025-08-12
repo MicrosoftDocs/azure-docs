@@ -26,6 +26,9 @@ The time required to complete each of these actions is similar. Restarting is th
   - Name of the BMM that requires a lifecycle management operation
   - Subscription ID
 
+> [!TIP]
+> In Operator Nexus version 2509.1+ and with API version 2025-07-01-preview or newer, you can monitor recent or in-progress BMM actions (Replace, Reimage, Restart) in the Azure portal JSON view under `properties.actionStates` (status, start/end times, stepStates, and correlationId). See [Monitor status in Bare Metal Machine JSON properties](./howto-bare-metal-best-practices.md#monitor-status-in-bare-metal-machine-json-properties).
+
 > [!IMPORTANT]
 > Disruptive command requests against a Kubernetes Control Plane (KCP) node are rejected if there's another disruptive action command already running against another KCP node or if the full KCP isn't available.
 >
@@ -45,12 +48,12 @@ When troubleshooting a BMM for failures and determining the most appropriate cor
 
 Follow this escalation path when troubleshooting BMM issues:
 
-| Problem | First action | If problem persists | If still unresolved |
-|---------|-------------|-------------------|-------------------|
-| Unresponsive VMs or services | Restart | Reimage | Replace |
-| Software/OS corruption | Reimage | Replace | Contact support |
-| Known hardware failure | Replace | N/A | Contact support |
-| Security compromise | Reimage | Replace | Contact support |
+| Problem                      | First action | If problem persists | If still unresolved |
+| ---------------------------- | ------------ | ------------------- | ------------------- |
+| Unresponsive VMs or services | Restart      | Reimage             | Replace             |
+| Software/OS corruption       | Reimage      | Replace             | Contact support     |
+| Known hardware failure       | Replace      | N/A                 | Contact support     |
+| Security compromise          | Reimage      | Replace             | Contact support     |
 
 The recommended approach is to start with the least invasive solution (restart) and escalate to more complex measures only if necessary. Always validate that the issue is resolved after each corrective action.
 
@@ -210,7 +213,7 @@ When you're performing the following physical repairs, we recommend a replace ac
 - Transceiver
 - Ethernet or fiber cable replacement
 
-When you're performing the following physical repairs, a replace action ***is required*** to bring the BMM back into service:
+When you're performing the following physical repairs, a replace action **_is required_** to bring the BMM back into service:
 
 - Backplane
 - System board
@@ -220,7 +223,7 @@ When you're performing the following physical repairs, a replace action ***is re
 - Broadcom embedded NIC
 
 After physical repairs are completed, perform a replace action.
-  
+
 **The following Azure CLI command will `replace` the specified bareMetalMachineName.**
 
 ```azurecli
@@ -249,11 +252,11 @@ az networkcloud baremetalmachine uncordon \
 
 Restarting, reimaging, and replacing are effective troubleshooting methods for addressing Azure Operator Nexus server problems. Here's a quick reference guide:
 
-| Action | When to use | Impact | Requirements |
-|--------|------------|--------|-------------|
-| **Restart** | Temporary glitches, unresponsive VMs | Brief downtime | None, fastest option |
-| **Reimage** | OS corruption, security concerns | Longer downtime, preserves data | Workload evacuation recommended |
-| **Replace** | Hardware component failures | Longest downtime, preserves data | Hardware component replacement, specific parameters needed |
+| Action      | When to use                          | Impact                           | Requirements                                               |
+| ----------- | ------------------------------------ | -------------------------------- | ---------------------------------------------------------- |
+| **Restart** | Temporary glitches, unresponsive VMs | Brief downtime                   | None, fastest option                                       |
+| **Reimage** | OS corruption, security concerns     | Longer downtime, preserves data  | Workload evacuation recommended                            |
+| **Replace** | Hardware component failures          | Longest downtime, preserves data | Hardware component replacement, specific parameters needed |
 
 ### Best practices
 

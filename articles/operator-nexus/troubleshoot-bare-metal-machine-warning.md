@@ -92,6 +92,9 @@ Review the `lastTransitionTime` and `message` fields for more information about 
 }
 ```
 
+> [!TIP]
+> If you start any BMM lifecycle action to mitigate a warning condition (all action types, for example Replace, Reimage, Restart), monitor the action’s progress in the Azure portal JSON view under `properties.actionStates` (Operator Nexus 2509.1+ and API 2025-07-01-preview+). See [Monitor status in Bare Metal Machine JSON properties](./howto-bare-metal-best-practices.md#monitor-status-in-bare-metal-machine-json-properties).
+
 ## `Warning: PXE port is unhealthy`
 
 This message in the BMM _Detailed status message_ field indicates a problem with network connectivity on the Preboot Execution Environment (PXE) Ethernet port on the underlying compute host.

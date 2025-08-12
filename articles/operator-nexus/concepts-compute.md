@@ -45,7 +45,7 @@ Huge page usage in workloads refers to the utilization of large memory pages, ty
 
 Workloads that involve large data sets or intensive memory operations such as network packet processing, can benefit from huge page usage because it enhances memory performance and reduces memory-related bottlenecks. As a result, users see improved throughput and reduced latency.
 
-All virtual machines created on Azure Operator Nexus are backed by 1GiB(1G) hugepages for the requested memory.  The kernel running inside the VM can manage these available memory anyway it likes, including the allocation of memory to support hugepages (2M or 1G).
+All virtual machines created on Azure Operator Nexus are backed by 1GiB(1G) hugepages for the requested memory. The kernel running inside the VM can manage these available memory anyway it likes, including the allocation of memory to support hugepages (2M or 1G).
 
 ### Dual-stack support
 
@@ -88,7 +88,7 @@ The following properties reflect the operational state of a BMM:
   - `Control plane`: These BMM runs the Kubernetes control plane agents for Nexus platform cluster.
   - `Management plane`: The BMM runs the Nexus platform agents including controllers and extensions.
   - `Compute plane`: The BMM responsible for running actual tenant workloads including Nexus Kubernetes Clusters and Virtual Machines.
-  
+
   Refer this [link](reference-near-edge-baremetal-machine-roles.md) for more details on Machine Roles.
 
 ## BMM operations
@@ -109,6 +109,9 @@ The following properties reflect the operational state of a BMM:
 
 > [!NOTE]
 > Customers can't create or delete BMMs directly. These machines are created only as the realization of the cluster lifecycle. Implementation blocks creation or deletion requests from any user, and it allows only internal/application-driven creation or deletion operations.
+
+> [!TIP]
+> For recent or in-progress lifecycle actions (Replace, Reimage, Restart), the Azure portal JSON view shows `properties.actionStates` with action status, times, stepStates, and correlationId (requires Operator Nexus 2509.1+ and API 2025-07-01-preview+). See [Monitor status in Bare Metal Machine JSON properties](./howto-bare-metal-best-practices.md#monitor-status-in-bare-metal-machine-json-properties).
 
 ## Form-factor-specific information
 
