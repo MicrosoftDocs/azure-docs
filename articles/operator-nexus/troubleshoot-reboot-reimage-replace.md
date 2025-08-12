@@ -34,7 +34,7 @@ The time required to complete each of these actions is similar. Restarting is th
 > This check is done to maintain the integrity of the Nexus instance and ensure multiple KCP nodes don't go down at once due to simultaneous disruptive actions. If multiple nodes go down, it breaks the healthy quorum threshold of the Kubernetes Control Plane.
 
 > [!TIP]
-> In Operator Nexus version 2509.1+ and with API version 2025-07-01-preview or newer, you can monitor recent or in-progress BMM actions (Replace, Reimage, Restart) in the Azure portal JSON view under `properties.actionStates` (status, start/end times, stepStates, and correlationId). See [Monitor status in Bare Metal Machine JSON properties](./howto-bare-metal-best-practices.md#monitor-status-in-bare-metal-machine-json-properties).
+> In version 2509.1 and above, you can monitor recent or in-progress BMM actions in the Azure portal. For more information, see [Monitor status in Bare Metal Machine JSON properties](./howto-bare-metal-best-practices.md#monitor-status-in-bare-metal-machine-json-properties).
 
 ## Identify the corrective action
 

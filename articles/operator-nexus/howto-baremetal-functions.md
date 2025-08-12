@@ -33,7 +33,7 @@ The Cordon action without the `evacuate` parameter isn't considered disruptive w
 [!INCLUDE [important-donot-disrupt-kcpnodes](./includes/baremetal-machines/important-donot-disrupt-kcpnodes.md)]
 
 > [!TIP]
-> In Operator Nexus version 2509.1+ and with API version 2025-07-01-preview or newer, you can monitor recent or in-progress BMM actions in the Azure portal JSON view under `properties.actionStates`. See [Monitor status in Bare Metal Machine JSON properties](./howto-bare-metal-best-practices.md#monitor-status-in-bare-metal-machine-json-properties).
+> In version 2509.1 and above, you can monitor recent or in-progress BMM actions in the Azure portal. For more information, see [Monitor status in Bare Metal Machine JSON properties](./howto-bare-metal-best-practices.md#monitor-status-in-bare-metal-machine-json-properties).
 
 [!INCLUDE [prerequisites-azure-cli-bare-metal-machine-actions](./includes/baremetal-machines/prerequisites-azure-cli-bare-metal-machine-actions.md)]
 

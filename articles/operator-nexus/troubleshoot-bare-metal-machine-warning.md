@@ -92,7 +92,7 @@ Review the `lastTransitionTime` and `message` fields for more information about 
 }
 ```
 
-You can also check for any potentially related recent lifecycle actions (such as Restart or Power off actions) as described in [Monitor status in Bare Metal Machine JSON properties](./howto-bare-metal-best-practices.md#monitor-status-in-bare-metal-machine-json-properties). If available, this information is also visible in the output from the previous `run-read-command` in the `actionStates` status field.
+You can also check for any potentially related recent lifecycle actions (such as Restart or Power off actions) in the Azure portal. See [Monitor status in Bare Metal Machine JSON properties](./howto-bare-metal-best-practices.md#monitor-status-in-bare-metal-machine-json-properties). If available, this information is also visible in the output of the above `run-read-command` in the `actionStates` status field.
 
 ## `Warning: PXE port is unhealthy`
 
