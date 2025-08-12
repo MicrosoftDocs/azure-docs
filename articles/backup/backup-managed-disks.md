@@ -24,7 +24,7 @@ A Backup vault is a storage entity in Azure that holds backup data for various n
 
 Learn how to [create a Backup vault](create-manage-backup-vault.md#create-a-backup-vault).
 
-## Create Backup policy
+## Create Backup Policy for Azure Disks
 
 To create a backup policy for Azure Disks, follow these steps:
 
@@ -70,7 +70,7 @@ To create a backup policy for Azure Disks, follow these steps:
 >- For Azure Disks belonging to Standard HDD, Standard SSD, and Premium SSD SKUs, you can define the backup schedule with *Hourly* frequency (of 1, 2, 4, 6, 8, or 12 hours) and *Daily* frequency. 
 >- For Azure Disks belonging to Premium V2 and Ultra Disk SKUs, you can define the backup schedule with *Hourly* frequency of only 12 hours and *Daily* frequency.
 
-## Configure backup
+## Configure Azure Disk backup
 
 - Azure Disk backup supports only the operational tier backup. Copying of backups to the vault storage tier is currently not supported. The Backup vault storage redundancy setting (LRS/GRS) doesn’t apply to the backups stored in the operational tier.              <br>         Incremental snapshots are stored in a Standard HDD storage, irrespective of the selected storage type of the parent disk. For additional reliability, incremental snapshots are stored on [Zone Redundant Storage (ZRS)](/azure/storage/common/storage-redundancy#zone-redundant-storage) by default in ZRS supported regions.
 
