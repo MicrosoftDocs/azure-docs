@@ -92,8 +92,7 @@ Review the `lastTransitionTime` and `message` fields for more information about 
 }
 ```
 
-> [!TIP]
-> If you start any BMM lifecycle action to mitigate a warning condition (all action types, for example Replace, Reimage, Restart), monitor the action’s progress in the Azure portal JSON view under `properties.actionStates` (Operator Nexus 2509.1+ and API 2025-07-01-preview+). See [Monitor status in Bare Metal Machine JSON properties](./howto-bare-metal-best-practices.md#monitor-status-in-bare-metal-machine-json-properties).
+You can also check for any potentially related recent lifecycle actions (such as Restart or Power off actions) as described in [Monitor status in Bare Metal Machine JSON properties](./howto-bare-metal-best-practices.md#monitor-status-in-bare-metal-machine-json-properties). If available, this information is also visible in the output from the previous `run-read-command` in the `actionStates` status field.
 
 ## `Warning: PXE port is unhealthy`
 
@@ -146,6 +145,7 @@ This message can indicate an issue with the underlying compute host or baseboard
 To troubleshoot this issue:
 
 - review the `conditions` status of the kubernetes `bmm` object, as described in the [Troubleshooting](#troubleshooting) section
+- review the `actionStates` status field of the kubernetes `bmm` object for any recently initiated lifecycle actions (e.g. Restart or Power off) as described in the [Troubleshooting](#troubleshooting) section
 - this information should identify the approximate time of the issue and any other available details
 - check the power feed, power cables, and physical hardware for the specified BMM
 - check whether any other BMMs are also reporting an unexpected power state Warning, which might indicate a broader issue with the underlying infrastructure

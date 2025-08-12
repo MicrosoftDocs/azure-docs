@@ -47,9 +47,6 @@ az networkcloud baremetalmachine list \
   --query "[].{name:name,powerState:powerState,provisioningState:provisioningState,readyState:readyState,cordonStatus:cordonStatus,detailedStatus:detailedStatus,detailedStatusMessage:detailedStatusMessage}"
 ```
 
-> [!NOTE]
-> If you trigger a corrective action such as Reimage or Replace, you can monitor its status in the Azure portal JSON view under `properties.actionStates` (requires Operator Nexus 2509.1+ and API 2025-07-01-preview+). See [Monitor status in Bare Metal Machine JSON properties](./howto-bare-metal-best-practices.md#monitor-status-in-bare-metal-machine-json-properties).
-
 **Example Azure CLI output**
 
 This example shows a deployment with two currently degraded BMMs (`compute01` and `compute04`), and two cordoned BMMs (`compute02` and `compute04`).

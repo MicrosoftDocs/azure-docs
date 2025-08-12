@@ -42,16 +42,16 @@ BMM_NAME      CLUSTER_MRG                    STATUS            STATUS_MSG
 
 The `STATUS` process goes through the phases that are defined in the following table in the Bare Metal Machine provisioning process (see [Bare Metal Machine status in Azure Operator Nexus compute concepts](concepts-compute.md)):
 
-| Phase            | Actions                                                                                                                                              |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Registering`    | Verifies the BMC connectivity/BMC credentials and adds the Bare Metal Machine to the provisioning service.                                           |
-| `Preparing`      | Reboots the Bare Metal Machine, resets the BMC, and verifies the power state.                                                                        |
-| `Inspecting`     | Updates firmware, applies BIOS settings, and configures storage.                                                                                     |
-| `Available`      | Indicates that the Bare Metal Machine is ready to install the OS.                                                                                    |
-| `Provisioning`   | Indicates that the OS image is installing on the Bare Metal Machine. After the OS is installed, the Bare Metal Machine attempts to join the cluster. |
-| `Provisioned`    | Indicates that the Bare Metal Machine is successfully provisioned and joined to the cluster.                                                         |
-| `Deprovisioning` | Indicates that Bare Metal Machine provisioning failed. The provisioning service cleans up the resource for retry.                                    |
-| `Failed`         | Indicates that Bare Metal Machine provisioning failed and manual recovery is required. All retries are exhausted.                                    |
+| Phase | Actions |
+| --- | --- |
+| `Registering` | Verifies the BMC connectivity/BMC credentials and adds the Bare Metal Machine to the provisioning service. |
+| `Preparing` | Reboots the Bare Metal Machine, resets the BMC, and verifies the power state. |
+| `Inspecting` | Updates firmware, applies BIOS settings, and configures storage. |
+| `Available` | Indicates that the Bare Metal Machine is ready to install the OS. |
+| `Provisioning` | Indicates that the OS image is installing on the Bare Metal Machine. After the OS is installed, the Bare Metal Machine attempts to join the cluster. |
+| `Provisioned` | Indicates that the Bare Metal Machine is successfully provisioned and joined to the cluster. |
+| `Deprovisioning` | Indicates that Bare Metal Machine provisioning failed. The provisioning service cleans up the resource for retry. |
+| `Failed` | Indicates that Bare Metal Machine provisioning failed and manual recovery is required. All retries are exhausted. |
 
 During any phase, the Bare Metal Machine detailed status is set to `Failed`. The phase is blocked if any of the following disruptions occur:
 
@@ -78,16 +78,16 @@ BMM_NAME        RSTATE        PROV_STATE           STATUS            STATUS_MSG 
 
 The following table lists where the output is defined.
 
-| Output        | Definition                                                                                                                                |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `BMM_NAME`    | Bare Metal Machine name.                                                                                                                  |
-| `RSTATE`      | Cluster participation status (`True`,`False`).                                                                                            |
-| `PROV_STATE`  | Provisioning state (`Succeeded`,`Failed`).                                                                                                |
-| `STATUS`      | Provisioning detailed status (`Registering`,`Preparing`,`Inspecting`,`Available`,`Provisioning`,`Provisioned`,`Deprovisioning`,`Failed`). |
-| `STATUS_MSG`  | Detailed provisioning status message.                                                                                                     |
-| `POWER_STATE` | Power state of Bare Metal Machine (`On`,`Off`).                                                                                           |
-| `BMM_ROLE`    | Bare Metal Machine cluster role (`control-plane`,`management-plane`,`compute-plane`).                                                     |
-| `CREATE_DATE` | Bare Metal Machine creation date.                                                                                                         |
+| Output | Definition |
+| --- | --- |
+| `BMM_NAME` | Bare Metal Machine name. |
+| `RSTATE` | Cluster participation status (`True`,`False`). |
+| `PROV_STATE` | Provisioning state (`Succeeded`,`Failed`). |
+| `STATUS` | Provisioning detailed status (`Registering`,`Preparing`,`Inspecting`,`Available`,`Provisioning`,`Provisioned`,`Deprovisioning`,`Failed`). |
+| `STATUS_MSG` | Detailed provisioning status message. |
+| `POWER_STATE` | Power state of Bare Metal Machine (`On`,`Off`). |
+| `BMM_ROLE` | Bare Metal Machine cluster role (`control-plane`,`management-plane`,`compute-plane`). |
+| `CREATE_DATE` | Bare Metal Machine creation date. |
 
 For example:
 
@@ -118,17 +118,17 @@ az networkcloud baremetalmachine show \
 
 The following conditions can cause provisioning failures.
 
-| Error type                                       | Resolution                                                                                                                                                                                                                          |
-| ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| BMC shows `Backplane Comm` critical error.       | 1. Run Bare Metal Machine remote flea drain.<br/> 2. Perform Bare Metal Machine physical flea drain.<br/> 3. Run Bare Metal Machine `replace` action.                                                                               |
-| Boot (PXE) network data response empty from BMC. | 1. Reset port on fabric device.<br/> 2. Run Bare Metal Machine remote flea drain.<br/> 3. Perform Bare Metal Machine physical flea drain.<br/> 4. Run Bare Metal Machine `replace` action.                                          |
-| Boot (PXE) MAC address mismatch.                 | 1. Validate Bare Metal Machine MAC address data against BMC data.<br/> 2. Run Bare Metal Machine remote flea drain.<br/> 3. Perform Bare Metal Machine physical flea drain.<br/> 4. Run Bare Metal Machine `replace` action.        |
-| BMC MAC address mismatch.                        | 1. Validate Bare Metal Machine MAC address data against BMC data.<br/> 2. Run Bare Metal Machine remote flea drain.<br/> 3. Perform Bare Metal Machine physical flea drain.<br/> 4. Run Bare Metal Machine `replace` action.        |
-| Disk data response empty from BMC.               | 1. Remove or replace disk.<br/> 2. Remove or replace storage controller.<br/> 3. Run Bare Metal Machine remote flea drain.<br/> 4. Perform Bare Metal Machine physical flea drain.<br/> 5. Run Bare Metal Machine `replace` action. |
-| BMC unreachable.                                 | 1. Reset port on fabric device.<br/> 2. Remove or replace cable.<br/> 3. Run Bare Metal Machine remote flea drain.<br/> 4. Perform Bare Metal Machine physical flea drain.<br/> 5. Run Bare Metal Machine `replace` action.         |
-| BMC fails sign-in.                               | 1. Update credentials on BMC.<br/> 2. Run Bare Metal Machine `replace` action.                                                                                                                                                      |
-| Memory, CPU, OEM critical errors on BMC.         | 1. Resolve hardware issue with remove or replace.<br/> 2. Run Bare Metal Machine remote flea drain.<br/> 3. Perform Bare Metal Machine physical flea drain.<br/> 4. Run Bare Metal Machine `replace` action.                        |
-| Console stuck at boot loader (GRUB) menu.        | 1. Run NVRAM reset.<br/> 2. Run Bare Metal Machine `replace` action.                                                                                                                                                                |
+| Error type | Resolution |
+| ---------- | ---------- |
+| BMC shows `Backplane Comm` critical error. | 1. Run Bare Metal Machine remote flea drain.<br/> 2. Perform Bare Metal Machine physical flea drain.<br/> 3. Run Bare Metal Machine `replace` action. |
+| Boot (PXE) network data response empty from BMC. | 1. Reset port on fabric device.<br/> 2. Run Bare Metal Machine remote flea drain.<br/> 3. Perform Bare Metal Machine physical flea drain.<br/> 4. Run Bare Metal Machine `replace` action. |
+| Boot (PXE) MAC address mismatch. | 1. Validate Bare Metal Machine MAC address data against BMC data.<br/> 2. Run Bare Metal Machine remote flea drain.<br/> 3. Perform Bare Metal Machine physical flea drain.<br/> 4. Run Bare Metal Machine `replace` action. |
+| BMC MAC address mismatch. | 1. Validate Bare Metal Machine MAC address data against BMC data.<br/> 2. Run Bare Metal Machine remote flea drain.<br/> 3. Perform Bare Metal Machine physical flea drain.<br/> 4. Run Bare Metal Machine `replace` action. |
+| Disk data response empty from BMC. | 1. Remove or replace disk.<br/> 2. Remove or replace storage controller.<br/> 3. Run Bare Metal Machine remote flea drain.<br/> 4. Perform Bare Metal Machine physical flea drain.<br/> 5. Run Bare Metal Machine `replace` action. |
+| BMC unreachable. | 1. Reset port on fabric device.<br/> 2. Remove or replace cable.<br/> 3. Run Bare Metal Machine remote flea drain.<br/> 4. Perform Bare Metal Machine physical flea drain.<br/> 5. Run Bare Metal Machine `replace` action. |
+| BMC fails sign-in. | 1. Update credentials on BMC.<br/> 2. Run Bare Metal Machine `replace` action. |
+| Memory, CPU, OEM critical errors on BMC. | 1. Resolve hardware issue with remove or replace.<br/> 2. Run Bare Metal Machine remote flea drain.<br/> 3. Perform Bare Metal Machine physical flea drain.<br/> 4. Run Bare Metal Machine `replace` action. |
+| Console stuck at boot loader (GRUB) menu. | 1. Run NVRAM reset.<br/> 2. Run Bare Metal Machine `replace` action. |
 
 ### Azure Bare Metal Machine activity log
 

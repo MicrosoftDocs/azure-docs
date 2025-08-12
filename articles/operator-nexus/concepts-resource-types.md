@@ -43,7 +43,7 @@ You can manage the lifecycle of a Network Fabric via Azure using any of the supp
 
 ### Network racks
 
-Network Rack resource is a representation of your on-premises racks from the networking perspective. The number of network racks in an Operator Nexus instance depends on the Network Fabric SKU that was chosen during creation.
+Network Rack resource is a representation of your on-premises racks from the networking perspective. The number of network racks in an Operator Nexus instance depends on the Network Fabric SKU that was chosen during creation. 
 
 Each network rack consists of Network Devices that are part of that rack. For example - Customer Edge (CE) routers, Top of Rack (ToR) Switches, Management Switches, and Network Packet Brokers (NPB).
 
@@ -63,7 +63,7 @@ The lifecycle of the Network Device resources depends on the network rack resour
 
 ### Isolation domains
 
-Isolation Domains enable east-west or north-south connectivity across Operator Nexus instance. They provide the required network connectivity between infrastructure components and also workload components. In principle, there are two types of networks that are established by isolation domains - management network and workload or tenant network.
+Isolation Domains enable east-west or north-south connectivity across Operator Nexus instance. They provide the required network connectivity between infrastructure components and also workload components. In principle, there are two types of networks that are established by isolation domains - management network and workload or tenant network. 
 
 A management network provides private connectivity that enables communication between the Network Fabric instance that is deployed on-premises and Azure Virtual Network. You can create workload or tenant networks to enable communication between the workloads that are deployed across the Operator Nexus instance.
 
@@ -71,8 +71,8 @@ Each isolation domain is associated with a specific Network Fabric resource and 
 
 Primarily, there are two types of isolation domains:
 
-- Layer 2 or L2 Isolation Domains
-- Layer 3 or L3 Isolation Domains
+* Layer 2 or L2 Isolation Domains
+* Layer 3 or L3 Isolation Domains
 
 Layer 2 isolation domains enable your infrastructure and workloads communicate with each other within or across racks over a Layer 2 network. Layer 2 networks enable east-west communication within your Operator Nexus instance. You can configure an L2 isolation domain with a desired Vlan ID and MTU size, see [Nexus Limits and Quotas](./reference-limits-and-quotas.md) for MTU limits.
 
@@ -80,8 +80,8 @@ Layer 3 isolation domains enable your infrastructure and workloads communicate w
 
 There are two types of Layer 3 networks that you can create:
 
-- Internal Network
-- External Network
+* Internal Network
+* External Network
 
 Internal networks enable layer 3 east-west connectivity across racks within the Operator Nexus instance and external networks enable layer 3 north-south connectivity from the Operator Nexus instance to networks outside the instance. A Layer 3 isolation domain must be configured with at least one internal network; external networks are optional.
 
@@ -110,17 +110,14 @@ Storage Appliances represent storage arrays used for persistent data storage in 
 Bare Metal Machines represent the physical servers in a rack. They are lifecycle managed by the Cluster Manager.
 Bare Metal Machines are used by workloads to host Virtual Machines and Kubernetes clusters.
 
-> [!NOTE]
-> Recent or in-progress lifecycle actions for a Bare Metal Machine (for example, Replace, Reimage, Restart) appear in the Azure portal JSON view under `properties.actionStates` (Operator Nexus 2509.1+ and API 2025-07-01-preview+). See [Monitor status in Bare Metal Machine JSON properties](./howto-bare-metal-best-practices.md#monitor-status-in-bare-metal-machine-json-properties).
-
 ## Workload components
 
 Workload components are resources that you use in hosting your workloads.
 
 ### Network resources
 
-The Network resources represent the virtual networking in support of your workloads hosted on VMs or Kubernetes clusters.
-There are four Network resource types that represent a network attachment to an underlying isolation-domain.
+The Network resources represent the virtual networking in support of your workloads hosted on VMs or Kubernetes clusters. 
+There are four Network resource types that represent a network attachment to an underlying isolation-domain. 
 
 - **Cloud Services Network Resource**: provides VMs/Kubernetes clusters access to cloud services such as DNS, NTP, and user-specified Azure PaaS services. You must create at least one Cloud Services Network (CSN) in each of your Operator Nexus instances. Each CSN can be reused by many VMs and/or tenant clusters.
 
