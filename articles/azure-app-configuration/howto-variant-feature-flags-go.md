@@ -275,7 +275,10 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
     </html>
     ```
 
-1. Create a file named `appconfig.go` with the following content. You can connect to your App Configuration store using Microsoft Entra ID (recommended) or a connection string.
+
+## Connect to App Configuration
+
+Create a file named `appconfig.go` with the following content. You can connect to your App Configuration store using Microsoft Entra ID (recommended) or a connection string.
 
 ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
