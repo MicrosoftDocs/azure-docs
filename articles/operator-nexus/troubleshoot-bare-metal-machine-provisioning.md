@@ -104,9 +104,6 @@ To show details and the status of a single Bare Metal Machine:
 az networkcloud baremetalmachine show -g $CLUSTER_MRG -n $BMM_NAME
 ```
 
-> [!TIP]
-> If you’ve initiated any BMM lifecycle action (all action types, for example Replace, Reimage, Restart), you can monitor the action’s progress in the Azure portal JSON view under `properties.actionStates` (version 2509.1+ and API 2025-07-01-preview+ required). See [Monitor status in Bare Metal Machine JSON properties](./howto-bare-metal-best-practices.md#monitor-status-in-bare-metal-machine-json-properties).
-
 For Bare Metal Machine details specific to troubleshooting:
 
 ```azurecli

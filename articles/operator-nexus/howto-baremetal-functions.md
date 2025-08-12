@@ -16,9 +16,6 @@ These steps should be used for troubleshooting purposes to recover from failures
 
 First, read the advice in the article [Best Practices for Bare Metal Machine Operations](./howto-bare-metal-best-practices.md) before proceeding with operations.
 
-> [!NOTE]
-> In Operator Nexus version 2509.1+ and with API version 2025-07-01-preview or newer, you can monitor recent or in-progress BMM actions (Replace, Reimage, Restart) in the Azure portal JSON view under `properties.actionStates` (status, start/end times, stepStates, and correlationId). See [Monitor status in Bare Metal Machine JSON properties](./howto-bare-metal-best-practices.md#monitor-status-in-bare-metal-machine-json-properties).
-
 The bolded actions listed are considered disruptive (Power off, Restart, Reimage, Replace).
 The Cordon action without the `evacuate` parameter isn't considered disruptive while Cordon with the `evacuate` parameter is considered disruptive.
 
@@ -34,6 +31,9 @@ The Cordon action without the `evacuate` parameter isn't considered disruptive w
 [!INCLUDE [caution-affect-cluster-integrity](./includes/baremetal-machines/caution-affect-cluster-integrity.md)]
 
 [!INCLUDE [important-donot-disrupt-kcpnodes](./includes/baremetal-machines/important-donot-disrupt-kcpnodes.md)]
+
+> [!TIP]
+> In Operator Nexus version 2509.1+ and with API version 2025-07-01-preview or newer, you can monitor recent or in-progress BMM actions in the Azure portal JSON view under `properties.actionStates`. See [Monitor status in Bare Metal Machine JSON properties](./howto-bare-metal-best-practices.md#monitor-status-in-bare-metal-machine-json-properties).
 
 [!INCLUDE [prerequisites-azure-cli-bare-metal-machine-actions](./includes/baremetal-machines/prerequisites-azure-cli-bare-metal-machine-actions.md)]
 

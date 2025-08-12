@@ -110,9 +110,6 @@ The following properties reflect the operational state of a BMM:
 > [!NOTE]
 > Customers can't create or delete BMMs directly. These machines are created only as the realization of the cluster lifecycle. Implementation blocks creation or deletion requests from any user, and it allows only internal/application-driven creation or deletion operations.
 
-> [!TIP]
-> For recent or in-progress lifecycle actions (Replace, Reimage, Restart), the Azure portal JSON view shows `properties.actionStates` with action status, times, stepStates, and correlationId (requires Operator Nexus 2509.1+ and API 2025-07-01-preview+). See [Monitor status in Bare Metal Machine JSON properties](./howto-bare-metal-best-practices.md#monitor-status-in-bare-metal-machine-json-properties).
-
 ## Form-factor-specific information
 
 Azure Operator Nexus offers a group of on-premises cloud solutions that cater to both [near-edge](reference-near-edge-compute.md) and far-edge environments.
