@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 04/26/2025
+ms.date: 07/08/2025
 ms.author: primittal
 # customer intent: As a reservation purchaser, I want learn how to exchange or refund Azure reservations.
 ---
@@ -16,6 +16,8 @@ ms.author: primittal
 Azure Reservations provide flexibility to help meet your evolving needs. Reservation products are interchangeable with each other if they're the same type of reservation. For example, you can exchange multiple compute reservations including Azure Dedicated Host, Azure VMware Solution, and Azure Virtual Machines with each other all at once. You can also exchange multiple SQL database reservation types including SQL Managed Instances and Elastic Pool with each other. However, you can't exchange dissimilar reservations. For example, you can't exchange an Azure Cosmos DB reservation for SQL Database.
 
 You can also exchange a reservation to purchase another reservation of a similar type in a different region. For example, you can exchange a reservation that's in West US 2 region for one that's in West Europe region.
+
+If you have a reservation with multiple quantities, you can choose to exchange fewer quantities than you originally reserved. For example, if you purchase 10 quantity, you can choose to only exchange 5 of that reservation quantity and so on.
 
 ## Reservation exchange policy changes
 
@@ -123,6 +125,10 @@ The original invoice is canceled, and a new invoice is created. The money is ref
 ## Cancel, exchange, and refund policies
 
 Azure has the following policies for cancellations, exchanges, and refunds.
+
+**How is refund calculated**
+
+When a reservation is exchanged or canceled, the refund is calculated based on the number of remaining days in the reservation period. The calculation is done in UTC and uses a consistent formula to ensure fairness and transparency. Taking an example, if you bought an reservation on July 10, 2024, and exchanged it on July 9, 2025, only 1 day remains in the reservation. You’ll receive a small refund for that single day. 
 
 **Exchange policies**
 

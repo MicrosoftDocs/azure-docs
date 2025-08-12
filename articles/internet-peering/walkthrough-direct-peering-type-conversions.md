@@ -7,6 +7,7 @@ ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
 ms.date: 10/23/2024
+# Customer intent: As a network administrator, I want to request a conversion for a direct peering type, so that I can effectively upgrade or modify my connectivity options within the Azure Peering Service while ensuring minimal disruption to my existing services.
 ---
 
 # Create a direct peering type conversion request

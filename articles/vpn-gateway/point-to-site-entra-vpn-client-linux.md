@@ -8,6 +8,7 @@ ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 02/10/2025
 ms.author: cherylmc
+# Customer intent: "As a Linux user, I want to configure the Azure VPN Client with Microsoft Entra ID authentication, so that I can securely connect to my organization's virtual network via a point-to-site VPN."
 ---
 
 # Configure the Azure VPN Client – Microsoft Entra ID authentication – Linux (Preview)

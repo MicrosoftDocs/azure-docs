@@ -5,7 +5,7 @@ services: azure-communication-services
 author: shamkh
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
-ms.date: 12/20/2024
+ms.date: 05/01/2025
 ms.topic: include
 ms.custom: include file
 ms.author: shamkh
@@ -40,7 +40,7 @@ The following classes and interfaces handle some of the major features of the Az
 | [Microsoft.Communication.AdvancedMessageReceived](/azure/event-grid/communication-services-advanced-messaging-events#microsoftcommunicationadvancedmessagereceived-event) | Event Grid event that is published when Advanced Messaging receives a message. |
 
 > [!NOTE]
-> For more information, see the Azure SDK for JavaScript reference [@azure-rest/communication-messages package](/javascript/api/@azure-rest/communication-messages)
+> For more information, see the Azure SDK for JavaScript reference [@Azure-rest/communication-messages package](/javascript/api/@azure-rest/communication-messages)
 
 ## Common configuration
 

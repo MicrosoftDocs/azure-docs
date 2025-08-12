@@ -10,14 +10,14 @@ ms.topic: reference
 This article describes the Neousys Nuvo-5006LP appliance for OT sensors.
 
 > [!NOTE]
-> Neousys Nuvo-5006LP is a legacy appliance, and is supported for Defender for IoT software up to the latest patch for versions [22.2.x](../release-notes.md#versions-222x). We recommend that you replace these appliances with newer certified models, such as the [YS-FIT2](ys-techsystems-ys-fit2.md) or [HPE DL20 (NHP 2LFF)](hpe-proliant-dl20-plus-smb.md).
+> Neousys Nuvo-5006LP is a legacy appliance, and is supported for Defender for IoT software up to the latest patch for versions [22.2.x](../release-notes-ot-monitoring-sensor-archive.md#versions-222x). We recommend that you replace these appliances with newer certified models, such as the [YS-FIT2](ys-techsystems-ys-fit2.md) or [HPE DL20 (NHP 2LFF)](hpe-proliant-dl20-plus-smb.md).
 
 | Appliance characteristic |Details |
 |---------|---------|
 |**Hardware profile** | L100 |
 |**Performance** | Max bandwidth: 30 Mbps<br>Max devices: 400 |
 |**Physical specifications** | Mounting: Mounting kit, Din Rail<br>Ports: 5x RJ45|
-|**Status** | Supported up to the latest Defender for IoT software patch for versions [22.2.x](../release-notes.md#versions-222x)|
+|**Status** | Supported up to the latest Defender for IoT software patch for versions [22.2.x](../release-notes-ot-monitoring-sensor-archive.md#versions-222x)|
 
 :::image type="content" source="../media/ot-system-requirements/cyberx.png" alt-text="Photo of a Neousys Nuvo-5006LP." border="false":::
 

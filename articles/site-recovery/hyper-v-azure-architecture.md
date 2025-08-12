@@ -4,8 +4,9 @@ description: This article provides an overview of components and architecture us
 ms.service: azure-site-recovery
 ms.topic: concept-article
 ms.date: 11/14/2019
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
+# Customer intent: As a system administrator, I want to deploy disaster recovery for on-premises Hyper-V virtual machines to Azure, so that I can ensure business continuity and minimize downtime in case of failures.
 ---
 
 

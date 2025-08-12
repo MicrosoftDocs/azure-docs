@@ -4,9 +4,10 @@ description: Learn about snapshots for Azure Elastic SAN, including how to creat
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/12/2024
 ms.author: rogarana
+# Customer intent: "As a cloud administrator, I want to create and manage snapshots of Azure Elastic SAN volumes, so that I can efficiently back up data and restore volumes as needed for development and testing without incurring extra costs."
 ---
 
 # Snapshot Azure Elastic SAN volumes

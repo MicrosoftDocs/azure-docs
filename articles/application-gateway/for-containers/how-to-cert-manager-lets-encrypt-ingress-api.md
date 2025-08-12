@@ -6,7 +6,8 @@ author: philwelz
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
 ms.date: 3/21/2025
-ms.author: greglin
+ms.author: mbender
+# Customer intent: As a cloud engineer, I want to automate the issuance and renewal of SSL/TLS certificates for my Application Gateway for Containers using cert-manager and Let's Encrypt, so that I can securely manage traffic for my applications without manual intervention.
 ---
 
 # Cert-manager and Let's Encrypt with Application Gateway for Containers - Ingress API
@@ -177,7 +178,7 @@ spec:
   tls:
   - hosts:
     - backend-v1.contoso.com
-    # - backend-v2.contoso.com # You can uncomment this and the host line to add an aditional subject alternate name (SAN) to the certificate
+    # - backend-v2.contoso.com # You can uncomment this and the host line to add an additional subject alternate name (SAN) to the certificate
     secretName: tls-backend
   rules:
     - host: backend-v1.contoso.com
@@ -233,7 +234,7 @@ spec:
   tls:
   - hosts:
     - backend-v1.contoso.com
-    # - backend-v2.contoso.com # You can uncomment this and the host line to add an aditional subject alternate name (SAN) to the certificate
+    # - backend-v2.contoso.com # You can uncomment this and the host line to add an additional subject alternate name (SAN) to the certificate
     secretName: tls-backend
   rules:
     - host: backend-v1.contoso.com

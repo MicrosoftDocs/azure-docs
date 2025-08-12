@@ -1,12 +1,12 @@
 ---
 title: Onboard to the Microsoft Customer Agreement (MCA)
 description: This guide helps customers who buy Microsoft software and services through a Microsoft account manager to set up an MCA contract.
-author: bandersmsft
+author: KennyDay
 ms.service: cost-management-billing
 ms.subservice: microsoft-customer-agreement
 ms.topic: conceptual
-ms.date: 03/28/2025
-ms.author: banders
+ms.date: 08/05/2025
+ms.author: kenday
 ms.reviewer: clionabolger
 ---
 
@@ -234,6 +234,7 @@ This section of the onboarding guide describes the steps you follow to migrate f
 - EA API keys - Azure Enterprise Reporting APIs are retired aren't available on MCA. Instead, you use Microsoft Cost Management APIs. For more information, see [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview](../automate/migrate-ea-reporting-arm-apis-overview.md).
 - Automatic purchases - If used under your old EA enrollment, you need to set them up under your new Microsoft Customer Agreement.
 - Management groups – Subscriptions in management groups under a Microsoft Customer Agreement aren’t supported in Cost Management yet. Cost Management + Billing is managed with APIs and Azure portal functionality. For more information, see [Azure RBAC scopes](../costs/understand-work-scopes.md#azure-rbac-scopes).
+- Tax exemption certificates - If your EA account has a tax exemption certificate, you need to create an Azure support request to have a support representative associate your existing tax exempt certificate to your new Microsoft Customer Agreement account. Create a support request in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 Here are some points to consider after migration.
 
@@ -263,7 +264,7 @@ For more information, see the following articles:
 The following points help you plan for your migration from EA to MCA:
 
 - Migrating from EA to MCA redirects your charges from your EA enrollment to your MCA billing account after you complete the subscription migration. The change goes into effect immediately. Any charges incurred up to the point of migration are invoiced to the EA and must be settled on that enrollment. There's no effect on your services and no downtime.
-- You can continue to see your historic charges in the Azure portal under your EA enrollment billing scope. Historical charges are visible in cost analysis when migration completes if you're an Account Owner or Enterprise Administrator for the enrollment.
+- You can continue to see your historic charges in the Azure portal under your EA enrollment billing scope. Historical charges are visible in cost analysis when migration completes if you're the Department Administrator or Enterprise Administrator for the enrollment.
 - Subscription ownership doesn't provide access to historical data since there's no access to the EA Billing Scope. We recommend that you [download your cost and usage data and invoices](../understand/download-azure-daily-usage.md) before you transfer subscriptions.
 - Depending on the timing of your migration, you might receive two invoices, one EA and one MCA, in the transition month. The MCA invoice covers usage for a calendar month and is generated from the fifth to the seventh day of the month following the usage.
 - To ensure your MCA invoice gets received by the right person or group, you must add an accounts payable email address as an invoice recipient's contact to the MCA. For more information, see [share your billing profiles invoice](../understand/download-azure-invoice.md#share-your-billing-profiles-invoice).

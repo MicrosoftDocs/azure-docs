@@ -4,9 +4,10 @@ description: Describes how to track issues and provide resolutions from one tab.
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/17/2025
 monikerRange: migrate
+# Customer intent: As a migration project manager, I want to use a centralized issue tracking system, so that I can efficiently manage and resolve migration-related problems, ensuring a smoother transition to Azure.
 ---
 
 # Use Action Center for Centralized issue tracking and resolution

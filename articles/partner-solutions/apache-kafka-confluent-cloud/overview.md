@@ -17,7 +17,7 @@ Apache Kafka & Apache Flink on Confluent Cloud is an Azure Marketplace offering 
 
 To reduce the burden of cross-platform management, Microsoft partnered with Confluent Cloud to build an integrated provisioning layer from Azure to Confluent Cloud. It provides a consolidated experience for using Confluent Cloud on Azure. You can easily integrate and manage Confluent Cloud with your Azure applications.
 
-Previously, you had to purchase the Confluent Cloud offering in the Marketplace and separately set up the account in Confluent Cloud. To manage configurations and resources, you had to navigate between the portals for Azure and Confluent Cloud.
+Previously, you had to buy the Confluent Cloud offering in the Marketplace and separately set up the account in Confluent Cloud. To manage configurations and resources, you had to navigate between the portals for Azure and Confluent Cloud.
 
 Now, you provision the Confluent Cloud resources through a resource provider named **Microsoft.Confluent**. You create and manage Confluent Cloud organization resources through the [Azure portal](https://portal.azure.com/), [Azure CLI](/cli/azure/), or [Azure SDKs](/azure#languages-and-tools). Confluent Cloud owns and runs the software as a service (SaaS) application, including the environments, clusters, topics, API keys, and managed connectors.
 
@@ -38,7 +38,7 @@ Each Azure subscription can contain multiple Confluent plans. Each Confluent pla
 
 When you provision a Confluent Cloud resource in Azure, you get a Confluent organization ID, default environment, and user account. For more information, see [QuickStart: Get started with Confluent Cloud on Azure](create.md).
 
-Each Confluent Cloud offer purchased in the Marketplace maps to a unique Confluent organization for billing.
+Each Confluent Cloud offer you buy in Azure Marketplace maps to a unique Confluent organization for billing.
 
 ## Single sign-on
 

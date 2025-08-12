@@ -8,6 +8,7 @@ ms.service: azure-data-box-gateway
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.author: shaas
+# Customer intent: "As a data administrator, I want to monitor my Azure Data Box Gateway's performance and metrics, so that I can ensure optimal capacity and transaction management for cloud data operations."
 ---
 # Monitor your Azure Data Box Gateway
 

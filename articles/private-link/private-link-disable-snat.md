@@ -9,6 +9,7 @@ ms.date: 03/11/2025
 
 #customer intent: As a network administrator, I want to disable SNAT requirement for private endpoint traffic through NVA so that I can ensure symmetric routing and comply with internal logging standards.
 
+# Customer intent: As a network administrator, I want to disable SNAT for private endpoint traffic through a network virtual appliance so that I can achieve symmetric routing and maintain compliance with internal logging requirements.
 ---
 
 # How to Guide: Disable SNAT requirement for Azure private endpoint traffic through NVA

@@ -6,6 +6,8 @@
       href: functions-overview.md
     - name: Scenarios
       href: functions-scenarios.md
+    - name: AI-enabled functions
+      href: functions-create-ai-enabled-apps.md
     - name: Getting started
       href: functions-get-started.md
     - name: Durable Functions
@@ -27,10 +29,10 @@
             href: functions-create-your-first-function-visual-studio.md
           - name: Visual Studio Code
             displayName: C#, quickstart, get started
-            href: create-first-function-vs-code-csharp.md
+            href: how-to-create-function-vs-code.md?pivots=programming-language-csharp
           - name: Command line
             displayName: C#, quickstart, get started
-            href: create-first-function-cli-csharp.md
+            href: how-to-create-function-azure-cli.md?pivots=programming-language-csharp
           - name: Azure Developer CLI
             displayName: C#, quickstart, get started, Flex Consumption plan
             href: create-first-function-azure-developer-cli.md?pivots=programming-language-csharp
@@ -47,7 +49,7 @@
             href: functions-create-maven-intellij.md
           - name: Maven
             displayName: Java, quickstart, get started
-            href: create-first-function-cli-java.md
+            href: how-to-create-function-azure-cli.md?pivots=programming-language-java
           - name: Quarkus
             displayName: Java, quickstart, get started
             href: functions-create-first-quarkus.md
@@ -56,7 +58,7 @@
             href: /azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json
           - name: Visual Studio Code
             displayName: Java, quickstart, get started
-            href: create-first-function-vs-code-java.md
+            href: how-to-create-function-vs-code.md?pivots=programming-language-java
           - name: Azure Developer CLI
             displayName: Java, quickstart, get started, Flex Consumption plan
             href: create-first-function-azure-developer-cli.md?pivots=programming-language-java
@@ -64,10 +66,10 @@
           items:
           - name: Visual Studio Code
             displayName: JavaScript, quickstart, get started
-            href: create-first-function-vs-code-node.md
+            href: how-to-create-function-vs-code.md?pivots=programming-language-javascript
           - name: Command line
             displayName: JavaScript, quickstart, get started
-            href: create-first-function-cli-node.md
+            href: how-to-create-function-azure-cli.md?pivots=programming-language-javascript
           - name: Azure Developer CLI
             displayName: JavaScript, quickstart, get started, Flex Consumption plan
             href: create-first-function-azure-developer-cli.md?pivots=programming-language-javascript
@@ -75,10 +77,10 @@
           items:
           - name: Visual Studio Code
             displayName: PowerShell, quickstart, get started
-            href: create-first-function-vs-code-powershell.md
+            href: how-to-create-function-vs-code.md?pivots=programming-language-powershell
           - name: Command line
             displayName: PowerShell, quickstart, get started
-            href: create-first-function-cli-powershell.md
+            href: how-to-create-function-azure-cli.md?pivots=programming-language-powershell
           - name: Azure Developer CLI
             displayName: PowerShell, quickstart, get started, Flex Consumption plan
             href: create-first-function-azure-developer-cli.md?pivots=programming-language-powershell
@@ -86,10 +88,10 @@
           items:
           - name: Visual Studio Code
             displayName: Python, quickstart, get started
-            href: create-first-function-vs-code-python.md
+            href: how-to-create-function-vs-code.md?pivots=programming-language-python
           - name: Command line
             displayName: Python, quickstart, get started
-            href: create-first-function-cli-python.md
+            href: how-to-create-function-azure-cli.md?pivots=programming-language-python
           - name: Azure Developer CLI
             displayName: Python, quickstart, get started, Flex Consumption plan
             href: create-first-function-azure-developer-cli.md?pivots=programming-language-python
@@ -97,10 +99,10 @@
           items:
           - name: Visual Studio Code
             displayName: TypeScript, quickstart, get started
-            href: create-first-function-vs-code-typescript.md
+            href: how-to-create-function-vs-code.md?pivots=programming-language-typescript
           - name: Command line
             displayName: TypeScript, quickstart, get started
-            href: create-first-function-cli-typescript.md
+            href: how-to-create-function-azure-cli.md?pivots=programming-language-typescript
           - name: Azure Developer CLI
             displayName: TypeScript, quickstart, get started, Flex Consumption plan
             href: create-first-function-azure-developer-cli.md?pivots=programming-language-typescript
@@ -115,6 +117,9 @@
           - name: ARM template
             displayName: Resource Manager
             href: functions-create-first-function-resource-manager.md
+          - name: Terraform
+            displayName: Terraform, quickstart, get started
+            href: functions-create-first-function-terraform.md
         - name: Azure Container Apps
           href: functions-deploy-container-apps.md
           displayName: container, Docker, ACA
@@ -370,7 +375,8 @@
           href: functions-triggers-bindings.md
         - name: Register binding extensions
           href: functions-bindings-register.md
-          displayName: bundles, extension bundles
+        - name: Extension bundles
+          href: extension-bundles.md  
         - name: Binding expression patterns
           href: functions-bindings-expressions-patterns.md
         - name: Handle binding errors
@@ -415,12 +421,16 @@
         - name: Isolated worker model
           displayName: .NET isolated
           href: dotnet-isolated-process-guide.md
-        - name: In-process model
-          href: functions-dotnet-class-library.md
-        - name: Script (.csx)
-          href: functions-reference-csharp.md
-        - name: Execution mode comparison
-          href: dotnet-isolated-in-process-differences.md
+        - name: .NET Aspire integration (Preview)
+          href: dotnet-aspire-integration.md
+        - name: Legacy models
+          items:
+            - name: Execution mode comparison
+              href: dotnet-isolated-in-process-differences.md
+            - name: In-process model
+              href: functions-dotnet-class-library.md
+            - name: Script (.csx)
+              href: functions-reference-csharp.md
     - name: JavaScript
       href: functions-reference-node.md?tabs=javascript
     - name: TypeScript
@@ -434,6 +444,9 @@
         - name: Developer reference guide
           displayName: python
           href: functions-reference-python.md
+        - name: Updates for Python 3.13+
+          displayName: python
+          href: python-313-changes.md
         - name: Programming models
           displayName: python
           href: functions-reference-python.md#programming-model
@@ -477,12 +490,23 @@
             - name: Core Tools development
               href: functions-run-local.md
               displayName: local, runtime
+        - name: Create a function app
+          items:
+            - name: Infrastructure as code
+              href: functions-infrastructure-as-code.md
+              displayName: bicep, ARM template, create function app, IaC 
+            - name: Azure portal 
+              href: functions-create-function-app-portal.md
+              displayName: create function app
+            - name: Azure CLI  
+              href: ./scripts/functions-cli-create-serverless.md
+              displayName: create function app
         - name: Create functions
           items:
             - name: HTTP trigger
               items:
                 - name: Azure portal
-                  href: functions-create-function-app-portal.md
+                  href: functions-create-http-endpoint.md
                 - name: Kotlin using IntelliJ
                   href: functions-create-maven-kotlin-intellij.md
                 - name: Consumption plan
@@ -524,7 +548,7 @@
             - name: Debug Event Grid trigger locally
               href: functions-debug-event-grid-trigger-local.md
         - name: Load testing
-          href: ../load-testing/how-to-create-load-test-function-app.md?toc=/azure/azure-functions/toc.json
+          href: ../app-testing/load-testing/how-to-create-load-test-function-app.md?toc=/azure/azure-functions/toc.json
         - name: Dependency injection
           href: functions-dotnet-dependency-injection.md
         - name: Manage connections
@@ -538,7 +562,7 @@
           href: bring-dependency-to-functions.md
         - name: Develop Python worker extensions
           href: develop-python-worker-extensions.md
-    - name: Deploy
+    - name: Deploy 
       items:
         - name: Continuous deployment
           href: functions-continuous-deployment.md
@@ -561,9 +585,6 @@
           href: deployment-zip-push.md
         - name: Run from package
           href: run-functions-from-deployment-package.md
-        - name: Automate resource deployment
-          href: functions-infrastructure-as-code.md
-          displayName: bicep, ARM template
         - name: Deploy using the Jenkins plugin
           href: /azure/developer/jenkins/deploy-to-azure-functions?toc=/azure/azure-functions/toc.json
     - name: Configure
@@ -602,6 +623,7 @@
           displayName: monitoring
         - name: Work with OpenTelemetry
           href: opentelemetry-howto.md
+          displayName: OTel
     - name: Authenticate
       items:
         - name: Configure auth providers
@@ -650,12 +672,6 @@
           items:
             - name: Azure Cosmos DB - portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md
-            - name: Azure Cache for Redis
-              items:
-                - name: Get started with VS Code
-                  href: ../redis/tutorial-functions-getting-started.md?toc=%2fazure%2fazure-functions%2ftoc.json
-                - name: Create a write-behind cache
-                  href: ../redis/tutorial-write-behind.md?toc=%2fazure%2fazure-functions%2ftoc.json
             - name: Storage
               items:
                 - name: Azure portal
@@ -680,20 +696,6 @@
               href: ../azure-web-pubsub/tutorial-serverless-notification.md?toc=/azure/azure-functions/toc.json
             - name: Work with Event Grid
               href: event-grid-how-tos.md
-        - name: Start/Stop VMs
-          items:
-            - name: Overview
-              href: start-stop-vms/overview.md
-            - name: Deploy and configure
-              href: start-stop-vms/deploy.md
-            - name: Manage and monitor
-              href: start-stop-vms/manage.md
-            - name: Remove Start/Stop VMs
-              href: start-stop-vms/remove.md
-            - name: Define pre-actions
-              href: start-stop-vms/pre-actions.md
-            - name: Troubleshoot
-              href: start-stop-vms/troubleshoot.md
         - name: Connect to SQL Database
           href: functions-scenario-database-table-cleanup.md
         - name: Connect to a virtual Network
@@ -733,19 +735,8 @@
 - name: Migration guides
   items:
     - name: Migrate from AWS Lambda
-      items:
-        - name: Overview
-          href: migration/migrate-lambda-workloads-overview.md
-          displayName: AWS Lambda, migration
-        - name: Discover
-          href: migration/discover-lambda-workloads.md
-          displayName: AWS Lambda, migration
-        - name: Assess
-          href: migration/assess-lambda-workloads.md
-          displayName: AWS Lambda, migration
-        - name: Migrate
-          href: migration/migrate-lambda-workloads.md
-          displayName: AWS Lambda, migration   
+      href: migration/migrate-aws-lambda-to-azure-functions.md
+      displayName: AWS Lambda, migration
     - name: Upgrade runtime versions
       items:
         - name: Migrate v3.x to v4.x
@@ -759,6 +750,8 @@
           displayName: upgrade, migrate, language stack
         - name: Migrate Node.js to model v4.x
           href: functions-node-upgrade-v4.md
+    - name: Migrate Consumption plan apps to Flex Consumption
+      href: migration/migrate-plan-consumption-to-flex.md    
     - name: Migrate .NET apps to the isolated model
       href: migrate-dotnet-to-isolated-model.md
     - name: Move resources
@@ -811,27 +804,40 @@
               displayName: Azure Cache for Redis
         - name: Azure Cosmos DB
           items:
-            - name: Functions 1.x
-              href: functions-bindings-cosmosdb.md
-              displayName: Azure Cosmos DB
-            - name: Functions 2.x and higher
-              displayName: Azure Cosmos DB
+            - name: API for NoSQL
               items:
                 - name: Overview
                   href: functions-bindings-cosmosdb-v2.md
-                  displayName: Azure Cosmos DB
+                  displayName: Azure Cosmos DB for NoSQL
                 - name: Trigger
                   href: functions-bindings-cosmosdb-v2-trigger.md
-                  displayName: Azure Cosmos DB
+                  displayName: Azure Cosmos DB for NoSQL
                 - name: Input
                   href: functions-bindings-cosmosdb-v2-input.md
-                  displayName: Azure Cosmos DB
+                  displayName: Azure Cosmos DB for NoSQL
                 - name: Output
                   href: functions-bindings-cosmosdb-v2-output.md
+                  displayName: Azure Cosmos DB for NoSQL
+                - name: Functions 1.x (legacy)
+                  href: functions-bindings-cosmosdb.md
                   displayName: Azure Cosmos DB
-            - name: Migrate version 3.x to 4.x
-              href: migrate-cosmos-db-version-3-version-4.md
-              displayName: Azure Cosmos DB
+                - name: Migrate version 3.x to 4.x
+                  href: migrate-cosmos-db-version-3-version-4.md
+                  displayName: Azure Cosmos DB for NoSQL
+            - name: API for MongoDB (vCore)
+              items:
+                    - name: Overview
+                      href: functions-bindings-mongodb-vcore.md
+                      displayName: Azure Cosmos DB for MongoDB (vCore)
+                    - name: Trigger
+                      href: functions-bindings-mongodb-vcore-trigger.md
+                      displayName: Azure Cosmos DB for MongoDB (vCore)
+                    - name: Input
+                      href: functions-bindings-mongodb-vcore-input.md
+                      displayName: Azure Cosmos DB for MongoDB (vCore)
+                    - name: Output
+                      href: functions-bindings-mongodb-vcore-output.md
+                      displayName: Azure Cosmos DB for MongoDB (vCore)
         - name: Azure Data Explorer
           items:
             - name: Overview
@@ -1008,6 +1014,14 @@
             - name: Output
               href: functions-bindings-kafka-output.md
               displayName: Kafka
+        - name: MCP
+          items:
+            - name: Overview
+              href: functions-bindings-mcp.md
+              displayName: MCP
+            - name: Trigger
+              href: functions-bindings-mcp-trigger.md
+              displayName: MCP tool
         - name: Mobile Apps
           href: functions-bindings-mobile-apps.md
         - name: Notification Hubs
@@ -1150,7 +1164,7 @@
     - name: Architecture guidance
       href: /azure/architecture/serverless-quest/serverless-overview
     - name: Azure Roadmap
-      href: https://azure.microsoft.com/roadmap/?category=compute
+      href: https://azure.microsoft.com/updates/?category=compute
     - name: Pricing details
       href: https://azure.microsoft.com/pricing/details/functions/
     - name: Pricing calculator

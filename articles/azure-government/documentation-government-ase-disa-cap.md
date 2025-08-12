@@ -77,7 +77,7 @@ This template deploys an **ILB ASE** into the Azure Government or DoD regions.
 - [Azure Government compliance](./documentation-government-plan-compliance.md)
 - [Secure Azure computing architecture](./compliance/secure-azure-computing-architecture.md)
 - [Azure Policy overview](../governance/policy/overview.md)
-- [Azure Policy regulatory compliance built-in initiatives](../governance/policy/samples/index.md#regulatory-compliance)
+- [Azure Policy regulatory compliance built-in initiatives](/azure/governance/policy/samples/index#regulatory-compliance)
 - [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope)
 - [Azure Government isolation guidelines for Impact Level 5 workloads](./documentation-government-impact-level-5.md)
 - [Azure Government DoD overview](./documentation-government-overview-dod.md)

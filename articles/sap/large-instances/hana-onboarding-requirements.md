@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 05/14/2021
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
+# Customer intent: As an IT administrator deploying SAP HANA on Azure, I want to understand the onboarding requirements and support contracts for Linux and SAP, so that I can effectively set up and manage the environment without compliance issues.
 ---
 # Onboarding requirements
 

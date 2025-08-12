@@ -6,6 +6,7 @@ ms.service: azure-automanage
 ms.topic: how-to
 ms.date: 9/1/2022
 ms.author: memccror
+# Customer intent: "As a cloud administrator, I want to upgrade my Azure Automanage machines to the latest version, so that I can ensure compliance with new features and maintain support for my deployed services."
 ---
 
 

@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 11/01/2024
+ms.date: 04/28/2025
 ms.author: cshoe
 ---
 
@@ -26,7 +26,7 @@ Container Apps provides these basic metrics.
 | Network In Bytes | Replica, Revision | Network received bytes | `RxBytes` | Bytes |
 | Network Out Bytes | Replica, Revision | Network transmitted bytes | `TxBytes` | Bytes |
 | Replica count | Revision | Number of active replicas | `Replicas` | Count |
-| Replica Restart Count | Replica, Revision | Restarts count of container app replicas | `RestartCount` | Count |
+| Total Replica Restart Count | Replica, Revision | Total number of restarts since the replica came online | `RestartCount` | Count |
 | Requests | Replica, Revision, Status Code, Status Code Category | Requests processed | `Requests` | Count |
 | Reserved Cores | Revision | Number of reserved cores for container app revisions | `CoresQuotaUsed` | Count |
 | Resiliency Connection Timeouts | Revision | Total connection timeouts | `ResiliencyConnectTimeouts` | Count |
@@ -41,9 +41,6 @@ Container Apps provides these basic metrics.
 | Memory Percentage (Preview) | Replica | Percentage of memory limit used, in percentage points | `MemoryPercentage` | Percent |
 
 The metrics namespace is `Microsoft.App/containerapps`.
-
-> [!NOTE]
-> Replica restart count is the aggregate restart count over the specified time range, not the number of restarts that occurred at a point in time.
 
 Container Apps environments provides this basic metric. You can only view this metric in [Azure Monitor metrics](https://ms.portal.azure.com/?feature.allrts=true#view/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/~/metrics). 
 

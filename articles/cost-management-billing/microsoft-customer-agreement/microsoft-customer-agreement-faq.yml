@@ -3,12 +3,12 @@ metadata:
   title: Microsoft Customer Agreement FAQ - Azure
   titleSuffix: Cost Management + Billing
   description: This article provides answers to frequently asked questions about the Microsoft Customer Agreement.
-  author: bandersmsft
+  author: KennyDay
   ms.service: cost-management-billing
   ms.subservice: microsoft-customer-agreement
   ms.topic: faq
   ms.date: 01/07/2025
-  ms.author: banders
+  ms.author: kenday
 title: Microsoft Customer Agreement FAQ - Azure
 summary: |
 sections:

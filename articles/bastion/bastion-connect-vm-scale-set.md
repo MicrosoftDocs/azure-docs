@@ -1,12 +1,13 @@
 ---
 title: 'Connect to a virtual machine scale set using Azure Bastion'
 description: Learn how to connect to an Azure virtual machine scale set using Azure Bastion.
-author: cherylmc
+author: abell
 ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 01/23/2025
-ms.author: cherylmc
+ms.author: abell
 
+# Customer intent: "As an IT administrator, I want to connect to a virtual machine scale set using a secure gateway, so that I can manage instances without needing additional clients or software."
 ---
 
 # Connect to a virtual machine scale set using Azure Bastion

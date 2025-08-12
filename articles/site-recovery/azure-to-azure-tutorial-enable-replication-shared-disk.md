@@ -4,8 +4,9 @@ description: This article describes how set up disaster recovery for shared disk
 ms.topic: how-to
 ms.service: azure-site-recovery
 ms.date: 04/02/2025
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
+# Customer intent: "As a cloud administrator, I want to configure disaster recovery for shared disks using PowerShell, so that I can ensure high availability and quick recovery of virtual machines in case of an outage."
 ---
 
 # Set up disaster recovery for shared disks using PowerShell

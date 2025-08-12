@@ -5,9 +5,10 @@ author: mmccrory
 ms.service: azure-automanage
 ms.custom: linux-related-content
 ms.collection: linux
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/10/2021
 ms.author: memccror
+# Customer intent: As a system administrator managing Linux virtual machines, I want to automate the onboarding and configuration of best practices services, so that I can ensure optimal performance, security, and compliance without manual intervention.
 ---
 
 # Azure Automanage for Machines Best Practices - Linux

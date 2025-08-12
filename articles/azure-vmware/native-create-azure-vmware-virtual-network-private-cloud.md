@@ -8,6 +8,7 @@ ms.service: azure-vmware
 ms.date: 4/21/2025
 ms.custom: engagement-fy25
 #customer intent: As a cloud administrator, I want to create an Azure VMware Solution Generation 2 Private Cloud so that I can leverage Azure's infrastructure and VMware expertise.
+# Customer intent: "As a cloud administrator, I want to create an Azure VMware Solution Generation 2 private cloud so that I can efficiently utilize Azure's infrastructure and VMware capabilities to enhance network performance and security."
 ---
 
 # Create an Azure VMware Solution Generation 2 Private Cloud (preview)
@@ -26,15 +27,7 @@ Before you begin, these items are required to create an Azure VMware Solution Ge
 - Deploy or use an existing Azure Virtual Network with a minimum network address space of a /22 or four /24s.
 - The newly created Azure Virtual Network and your Azure VMware Solution Gen 2 private cloud must be in the same Resource Group.
 - Ensure you have sufficient AV64 quota allocated to your subscription in the desired region before your deployment. 
-- The following Preview feature flags need to be registered under the subscription where your private cloud will reside. These commands can be run using Azure Cloud Shell. 
-
-```bash
-az feature register --namespace "Microsoft.Network" --name "EnablePrivateIpPrefixAllocation"  --subscription "<Subscription ID>"
-```
-
-```bash
-az feature registration create --namespace "Microsoft.AVS" --name "EarlyAccess"  --subscription "<Subscription ID>"
-```
+- Register the following feature flag under the subscription where your private cloud resides. 
 
 ```bash
 az feature registration create --namespace "Microsoft.AVS" --name "FleetGreenfield" --subscription "<Subscription ID>" 

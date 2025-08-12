@@ -4,10 +4,11 @@ description: Learn about using Intel SGX virtual machines (VMs) in Azure confide
 author: ju-shim
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 9/12/2023
 ms.author: jushiman
 ms.custom: devx-track-arm-template
+# Customer intent: As a cloud architect, I want to deploy Intel SGX virtual machines in Azure, so that I can meet compliance and security requirements for sensitive workloads with enhanced isolation and control over my computing environment.
 ---
 
 # Solutions on Azure for Intel SGX

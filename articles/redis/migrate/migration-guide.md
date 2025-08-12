@@ -1,20 +1,19 @@
 ---
-title: Migrate to Azure Managed Redis (preview)
+title: Migrate to Azure Managed Redis
 description: Learn how to migrate your existing cache to Azure Managed Redis
-
-
+ms.date: 05/18/2025
 ms.service: azure-managed-redis
+ms.topic: conceptual
 ms.custom:
   - ignite-2024
-ms.topic: conceptual
-ms.date: 11/15/2024
+  - build-2025
 appliesto:
-  - ✅ Azure Managed Redis
   - ✅ Azure Cache for Redis
+  - ✅ Azure Managed Redis
 ---
-# Migrate to Azure Managed Redis (preview)
+# Migrate to Azure Managed Redis from other caches
 
-This article describes a number of approaches to migrate an existing Redis cache running on-premises or in another cloud service to Azure Managed Redis (preview).
+This article describes a number of approaches to migrate an existing Redis cache running on-premises or in another cloud service to Azure Managed Redis.
 
 ## Migration scenarios
 
@@ -24,7 +23,7 @@ Open-source Redis can run in many compute environments. Common examples include:
 - **Cloud-based VMs** - Redis caches running on Azure VMs, AWS EC2, and so on.
 - **Hosting services** - Managed Redis services such as AWS ElastiCache.
 
-If you have such a cache, you may be able to move it to Azure Managed Redis with minimal interruption or downtime. 
+If you have such a cache, you may be able to move it to Azure Managed Redis with minimal interruption or downtime.
 
 If you're looking to move from one Azure region to another, you [Move Azure Managed Redis instances to different regions](../../azure-cache-for-redis/cache-moving-resources.md).
 
@@ -35,9 +34,9 @@ There are different ways that you can switch from one cache to another. Dependin
    | Option       | Advantages | Disadvantages |
    | ------------ | ---------- | ------------- |
    | Create a new cache | Simplest to implement. | Need to repopulate data to the new cache, which may not work with many applications. |
-   | Export and import data via RDB file | Compatible with any Redis cache generally. | Some data could be lost, if they're written to the existing cache after the RDB file is generated. | 
-   | Dual-write data to two caches | No data loss or downtime. Uninterrupted operations of the existing cache. Easier testing of the new cache. | Needs two caches for an extended period of time. | 
-   | Migrate data programmatically | Full control over how data are moved. | Requires custom code. | 
+   | Export and import data via RDB file | Compatible with any Redis cache generally. | Some data could be lost, if they're written to the existing cache after the RDB file is generated. |
+   | Dual-write data to two caches | No data loss or downtime. Uninterrupted operations of the existing cache. Easier testing of the new cache. | Needs two caches for an extended period of time. |
+   | Migrate data programmatically | Full control over how data are moved. | Requires custom code. |
 
 ### Create a new Azure Managed Redis
 
@@ -47,9 +46,9 @@ General steps to implement this option are:
 
 1. Create a new Azure Managed Redis instance.
 
-2. Update your application to use the new instance.
+1. Update your application to use the new instance.
 
-3. Delete the old Redis instance.
+1. Delete the old Redis instance.
 
 ### Export data to an RDB file and import it into Azure Managed Redis
 
@@ -61,20 +60,19 @@ Open-source Redis defines a standard mechanism for taking a snapshot of a cache'
 
 General steps to implement this option are:
 
-<!-- cawa - remove reference to premium tier -->
-1. Create a new Azure Managed Redis instance in the premium tier that is the same size as (or bigger than) the existing cache.
+1. Create a new Azure Managed Redis instance that is the same size as (or bigger than) the existing cache.
 
-2. Save a snapshot of the existing Redis cache. You can [configure Redis to save snapshots](https://redis.io/topics/persistence) periodically, or run the process manually using the [SAVE](https://redis.io/commands/save) or [BGSAVE](https://redis.io/commands/bgsave) commands. The RDB file is named “dump.rdb” by default and will be located at the path specified in the *redis.conf* configuration file.
+1. Save a snapshot of the existing Redis cache. You can [configure Redis to save snapshots](https://redis.io/topics/persistence) periodically, or run the process manually using the [SAVE](https://redis.io/commands/save) or [BGSAVE](https://redis.io/commands/bgsave) commands. The RDB file is named “dump.rdb” by default and will be located at the path specified in the *redis.conf* configuration file.
 
     > [!NOTE]
     > If you’re migrating data within Azure Managed Redis, see [these instructions on how to export an RDB file](../how-to-import-export-data.md) or use the [PowerShell Export cmdlet](/powershell/module/az.rediscache/export-azrediscache) instead.
     >
 
-3. Copy the RDB file to an Azure storage account in the region where your new cache is located. You can use AzCopy for this task.
+1. Copy the RDB file to an Azure storage account in the region where your new cache is located. You can use AzCopy for this task.
 
-4. Import the RDB file into the new cache using these [import instructions](../how-to-import-export-data.md) or the [PowerShell Import cmdlet](/powershell/module/az.rediscache/import-azrediscache).
+1. Import the RDB file into the new cache using these [import instructions](../how-to-import-export-data.md) or the [PowerShell Import cmdlet](/powershell/module/az.rediscache/import-azrediscache).
 
-5. Update your application to use the new cache instance.
+1. Update your application to use the new cache instance.
 
 ### Write to two Redis caches simultaneously during migration period
 
@@ -82,15 +80,15 @@ Rather than moving data directly between caches, you may use your application to
 
 General steps to implement this option are:
 
-1. Create a new Azure Managed Redis instance in the premium tier that is the same size as (or bigger than) the existing cache.
+1. Create a new Azure Managed Redis instance that is the same size as (or bigger than) the existing cache.
 
-2. Modify application code to write to both the new and the original instances.
+1. Modify application code to write to both the new and the original instances.
 
-3. Continue reading data from the original instance until the new instance is sufficiently populated with data.
+1. Continue reading data from the original instance until the new instance is sufficiently populated with data.
 
-4. Update the application code to reading and writing from the new instance only.
+1. Update the application code to reading and writing from the new instance only.
 
-5. Delete the original instance.
+1. Delete the original instance.
 
 ### Migrate programmatically
 
@@ -104,15 +102,15 @@ General steps to implement this option are:
 
 1. Create a VM in the region where the existing cache is located. If your dataset is large, choose a relatively powerful VM to reduce copying time.
 
-2. Create a new Azure Managed Redis instance.
+1. Create a new Azure Managed Redis instance.
 
-3. Flush data from the new cache to ensure that it's empty. This step is required because the copy tool itself doesn't overwrite any existing key in the target cache.
+1. Flush data from the new cache to ensure that it's empty. This step is required because the copy tool itself doesn't overwrite any existing key in the target cache.
 
     > [!IMPORTANT]
     > Make sure to NOT flush from the source cache.
     >
 
-4. Use an application such as the open-source tool above to automate the copying of data from the source cache to the target. Remember that the copy process could take a while to complete depending on the size of your dataset.
+1. Use an application such as the open-source tool above to automate the copying of data from the source cache to the target. Remember that the copy process could take a while to complete depending on the size of your dataset.
 
 ## Related content
 

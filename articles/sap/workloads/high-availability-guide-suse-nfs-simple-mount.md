@@ -10,6 +10,7 @@ ms.topic: tutorial
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ms.date: 11/19/2024
 ms.author: radeltch
+# Customer intent: "As an IT administrator, I want to deploy a high-availability SAP NetWeaver system on Azure using NFS for shared storage, so that I can ensure continuous service and reliability for my applications running on SUSE Linux Enterprise Server."
 ---
 
 # High-availability SAP NetWeaver with simple mount and NFS on SLES for SAP Applications VMs
@@ -737,7 +738,7 @@ The instructions in this section are applicable only if you're using Azure NetAp
     #### [ENSA2](#tab/ensa2)
 
     > [!NOTE]
-    > If you have a two-node cluster running ENSA2, you have the option to configure priority-fencing-delay cluster property. This property introduces additional delay in fencing a node that has higher total resoure priority when a split-brain scenario occurs. For more information, see [SUSE Linux Enteprise Server high availability extension administration guide](https://documentation.suse.com/sle-ha/15-SP3/single-html/SLE-HA-administration/#pro-ha-storage-protect-fencing).
+    > If you have a two-node cluster running ENSA2, you have the option to configure priority-fencing-delay cluster property. This property introduces additional delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For more information, see [SUSE Linux Enteprise Server high availability extension administration guide](https://documentation.suse.com/sle-ha/15-SP3/single-html/SLE-HA-administration/#pro-ha-storage-protect-fencing).
     >
     > The property priority-fencing-delay is only applicable for ENSA2 running on two-node cluster. For more information, see [Enqueue Replication 2 High Availability cluster with simple mount](https://documentation.suse.com/sbp/sap-15/html/SAP-S4HA10-setupguide-sle15/index.html#multicluster)
 

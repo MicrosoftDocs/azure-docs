@@ -5,9 +5,10 @@ author: kalyaninamuduri
 ms.author: kanamudu 
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/03/2023
 ms.custom: template-concept 
+# Customer intent: As an SAP system administrator, I want to manage access to SAP workloads using role-based access control, so that I can ensure effective permission management and security for deploying and managing SAP systems in Azure.
 ---
 
 # Management of Azure Center for SAP solutions resources with Azure RBAC 

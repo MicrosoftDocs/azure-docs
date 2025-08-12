@@ -15,6 +15,8 @@ ms.service: azure-iot-operations
 
 You can deploy Azure IoT Operations in a layered network environment by using the Azure IoT Layered Network Management (preview) service. This service enables Azure IoT Operations to function in industrial network environments that have multiple isolated network layers.
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
 ## Industrial scenario for Azure IoT Operations
 
 In the basic architecture described in [Azure IoT Operations Architecture Overview](../overview-iot-operations.md#architecture-overview), all the Azure IoT Operations components are deployed to a single internet-connected cluster. In this type of environment, component-to-component and component-to-Azure connections are enabled by default.

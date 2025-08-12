@@ -8,6 +8,8 @@ ms.custom: linux-related-content
 ms.date: 10/22/2024
 ms.topic: how-to
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # How to remove a configuration and node from Automation State Configuration

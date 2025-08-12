@@ -57,18 +57,20 @@ sections:
       - question: What if Organization identity validation fails?
         answer: | 
           - Currently, an organization that has a year-founded date of less than three years can't be onboarded, and identity validation fails. 
+          - An organization based out of US or Canada cannot be onboarded.
           - If your organization has a year-founded date of more than three years, ensure that you didn't miss an email verification link that was sent to the primary email address you entered when you created your identity validation request. The link expires after seven days. If you overlooked the email or if you didn't select the link in the email within seven days, create a new identity validation request.   
           - If identity validation fails, but not because of a missed email verification, the Microsoft validation team wasn't able to make a determination about your request based on the information that you provided. Even if you provide more documentation when we request it, if we can't validate the information, we can't onboard you to Trusted Signing. In this scenario, we recommend that you delete your Trusted Signing account so that you aren't billed for unused resources.
           - In cases where additional documents were required, you've exhausted all 3 attempts. Therefore, we cannot proceed further with the onboarding.
       - question: What if I need assistance with identity validation?
         answer: | 
           - For questions about identity validation in Trusted Signing, contact us via Azure Support or by using [Microsoft Q&A](https://learn.microsoft.com/answers/tags/509/trusted-signing) (use the tag **Azure Trusted Signing**).
+          - Note: creating additional identity validation requests for the same entity that is in progress does not help. Identity Validation requests cannot be expedited.
       - question: What if email validation link has expired?
         answer: | 
-          - If you missed to click on the email verification within 7 dyas, you need to start a new identity validation request. A new link cannot be resent on the same request.
+          - If you missed to click on the email verification within 7 days, you need to start a new identity validation request. A new link cannot be resent on the same request.
       - question: What if email validation says "Failed" and you think you never received the email validation link?
         answer: | 
-          - create another identity validation request, ensuring that the email address used meets the criteria and can receive links from external email addresses
+          - Create another identity validation request. Ensure that the email address used is not a distribution list and the email address can receive links from external email addresses.
   - name: Certificate profiles
     questions:
       - question: What if my Trusted Signing subject name is different from the name in my certificate and my MSIX package name is different now? 

@@ -11,8 +11,6 @@ ms.author: kesheth
 
 # Configure settings for $convert-data by using the Azure portal
 
-[!INCLUDE [Converter redirect statement](../includes/converter-redirect-statement.md)]
-
 This article illustrates how to configure settings for `$convert-data` using the Azure portal to convert health data into [FHIR&reg; R4](https://www.hl7.org/fhir/R4/index.html).
 
 ## Default templates

@@ -6,9 +6,10 @@ description: List of Microsoft partner companies that build customer solutions f
 author: beber-msft
 ms.author: beber
 ms.date: 04/21/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
+# Customer intent: "As a business decision maker, I want to explore integrated partner solutions for archive, backup, and disaster recovery with Azure Storage, so that I can optimize data management and ensure compliance while enhancing our organization's resilience against data loss."
 ---
 
 # Azure Storage archive, backup, and disaster recovery partners

@@ -5,7 +5,10 @@ services: azure-app-configuration
 author: junbchen
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-other
+ms.custom:
+  - devx-track-csharp
+  - mode-other
+  - build-2025
 ms.topic: quickstart
 ms.date: 04/24/2024
 ms.author: junbchen
@@ -227,7 +230,7 @@ Add following key-values to the App Configuration store and leave **Label** and 
 
 ### Set up the App Configuration Kubernetes Provider
 
-1. Install the Azure App Configuration Kubernetes Provider on your AKS cluster. You can do this either as an AKS extension or by using a Helm chart. The AKS extension allows for seamless installation and management via the Azure CLI, ARM templates, or Bicep templates. Additionally, using the AKS extension facilitates automatic minor and patch version updates, ensuring your system remains up-to-date.
+1. Install the Azure App Configuration Kubernetes Provider on your AKS cluster. You can do this either as an AKS extension or by using a Helm chart. The AKS extension allows for seamless installation and management via the Azure CLI, ARM templates, or Bicep files. Additionally, using the AKS extension facilitates automatic minor and patch version updates, ensuring your system remains up-to-date.
    
     #### [AKS extension](#tab/extension)
 

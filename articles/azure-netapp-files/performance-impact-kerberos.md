@@ -4,9 +4,10 @@ description: Describes the available security options, the tested performance ve
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/07/2024
 ms.author: anfdocs
+# Customer intent: As a cloud infrastructure administrator, I want to understand the performance impact of different Kerberos security options on NFSv4.1 volumes, so that I can make informed decisions about security and performance trade-offs for my file storage needs.
 ---
 # Performance impact of Kerberos on Azure NetApp Files NFSv4.1 volumes
 

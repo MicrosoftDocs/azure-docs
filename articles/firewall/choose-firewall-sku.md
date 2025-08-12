@@ -7,6 +7,7 @@ ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 03/17/2025
 ms.author: duau
+# Customer intent: As a network security administrator, I want to evaluate the three versions of Azure Firewall, so that I can choose the most suitable option for my organization's application security and performance requirements.
 ---
 
 # Choose the right Azure Firewall version to meet your needs

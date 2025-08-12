@@ -28,7 +28,6 @@ While the Azure Storage Actions service is regional and doesn’t offer SKUs or 
 - **Data plane (task assignment execution) inherits the zonal properties from the parent storage account.** If the storage account is deployed to a failed zone, then the account becomes unavailable and from customer’s perspective, the data plan isn't available. If the storage account is zone redundant, then the account continues to be available, and the service continue to perform operation on the account. 
 
 
-
 ### Zone down experience
 
 In a zone-done scenario, the Storage Action service continues to be available. The progress of tasks depends on the availability zone support of storage accounts against which they are running. If the account is not affected by the downed zone, the tasks continue to make progress. Otherwise, the tasks fail. 
@@ -42,10 +41,7 @@ The Storage Action service isn't zonal, but the storage account is. If the stora
 
 [!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
 
-Storage Action is a regional service, and it runs against accounts in the same region. When a region is down, both the storage account and service are also down.  The service doesn't support disaster recovery across regions. If you trigger a failover of the storage account to a different region, then storage tasks can’t run against the storage account until it fails back to the original region.  So, although you may be able to recover the storage account, the storage task won't be able to run against it. 
-
->[!IMPORTANT]
->If you migrate your storage account from a GRS or GZRS primary region to a secondary region or vice versa, then any storage tasks that target the storage account won't be triggered and any existing task executions might fail.
+[!INCLUDE [Storage Actions continuity after a failover](../../includes/storage-actions-reliability.md)]
 
 ### Outage detection, notification, and management
 

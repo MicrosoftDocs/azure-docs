@@ -19,6 +19,7 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Configure complexity requirements for passwords in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -82,7 +83,7 @@ Allows you to control the different character types used in the password.
 
 - **2 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** ensures the password contains at least two character types. For example, a number and a lowercase character.
 - **3 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** ensures the password contains at least three character types. For example, a number, a lowercase character and an uppercase character.
-- **4 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** ensures the password contains all for character types.
+- **4 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** ensures the password contains all four character types.
 
     > [!NOTE]
     > Requiring **4 of 4** can result in end-user frustration. Some studies have shown that this requirement doesn't improve password entropy. See [NIST Password Guidelines](https://pages.nist.gov/800-63-3/sp800-63b.html#appA)

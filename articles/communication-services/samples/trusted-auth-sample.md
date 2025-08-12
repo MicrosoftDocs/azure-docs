@@ -44,7 +44,7 @@ To be able to run this sample, you need:
 - Update the Server (Web API) application with information from the app registrations.
  
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [NodeJS Auth Hero](./includes/node-auth-hero.md)]
+[!INCLUDE [Node.js Auth Hero](./includes/node-auth-hero.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"

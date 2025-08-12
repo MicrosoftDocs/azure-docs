@@ -1,10 +1,11 @@
 ---
 title: Architecture for Private Clouds and Clusters
 description: Understand the key capabilities of Azure VMware Solution software-defined datacenters and VMware vSphere clusters. 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-vmware
 ms.date: 4/4/2025
 ms.custom: engagement-fy23, references_regions
+# Customer intent: As a cloud architect, I want to understand the capabilities and architecture of private clouds and VMware clusters within Azure, so that I can effectively design and manage scalable deployments aligned with my organization's needs.
 ---
 
 # Azure VMware Solution private cloud and cluster concepts
@@ -145,7 +146,7 @@ Azure VMware Solution continuously monitors the health of both the physical unde
 Now that you learned about Azure VMware Solution private cloud concepts, you might want to read:
 
 - [Azure VMware Solution networking and interconnectivity concepts](architecture-networking.md)
-- [Azure VMware Solution private cloud maintenance best practices](azure-vmware-solution-host-remediation.md)
+- [Azure VMware Solution private cloud maintenance best practices](azure-vmware-solution-private-cloud-maintenance-best-practices.md)
 - [Azure VMware Solution storage concepts](architecture-storage.md)
 - [Enable an Azure VMware Solution resource](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider)
 

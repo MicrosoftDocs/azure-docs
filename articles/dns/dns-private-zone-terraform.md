@@ -5,11 +5,12 @@ ms.topic: quickstart
 ms.date: 2/19/2025
 ms.custom: devx-track-terraform
 ms.service: azure-dns
-author: greg-lindsay
-ms.author: greglin
+author: asudbring
+ms.author: allensu
 #customer intent: As a Terraform user, I want to see how to create a private DNS zone and Windows virtual machines in Azure.
 content_well_notification: 
   - AI-contribution
+# Customer intent: As a Terraform user, I want to create private DNS zones and Windows virtual machines in Azure, so that I can efficiently manage resource configurations and networking within my cloud environment.
 ---
 
 # Quickstart: Use Terraform to configure private DNS zones in Azure

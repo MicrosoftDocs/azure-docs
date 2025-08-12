@@ -18,9 +18,9 @@
     href: quickstarts/create-azure-automation-account-portal.md
   - name: Create Automation account - Terraform
     href: quickstarts/create-azure-automation-account-terraform.md
-  - name: Update runbook from PowerShell 5.1 to PowerShell 7.2
+  - name: Update runbook from PowerShell 7.1 to PowerShell 7.4
     href: quickstart-update-runbook-in-runtime-environment.md
-  - name: Run Azure CLI commands in PowerShell 7.2 runbooks
+  - name: Run Azure CLI commands in PowerShell 7.4 runbooks
     href: quickstart-cli-support-powershell-runbook-runtime-environment.md
   - name: Install Hybrid Worker extension - Azure portal
     href: quickstarts/install-hybrid-worker-extension.md
@@ -315,9 +315,9 @@
 - name: Resources
   items:
   - name: Automation introduction video
-    href: https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/
+    href: /shows/azure-friday/azure-automation
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=management-tools&query=automation
+    href: https://azure.microsoft.com/updates/?filters=%5B%22Automation%22%5D
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-automation.html
   - name: Pricing
@@ -331,4 +331,4 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-automation
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=automation
+    href: /shows/data-exposed/?products=azure-automation

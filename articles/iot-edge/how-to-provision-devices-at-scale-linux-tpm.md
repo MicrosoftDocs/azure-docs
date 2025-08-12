@@ -4,8 +4,8 @@ description: Use a simulated TPM on a Linux device to test the Azure IoT Hub dev
 author: PatAltimore
 manager: lizross
 ms.author: patricka
-ms.date: 04/17/2024
-ms.topic: conceptual
+ms.date: 04/30/2025
+ms.topic: concept-article
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
@@ -301,8 +301,8 @@ You can give access to the TPM by overriding the systemd settings so that the `a
 
    ```input
    # allow aziottpm access to tpm0 and tpmrm0
-   KERNEL=="tpm0", SUBSYSTEM=="tpm", OWNER="aziottpm", MODE="0660"
-   KERNEL=="tpmrm0", SUBSYSTEM=="tpmrm", OWNER="aziottpm", MODE="0660"
+   KERNEL=="tpm0", SUBSYSTEM=="tpm", OWNER="root", GROUP="aziottpm", MODE="0660"
+   KERNEL=="tpmrm0", SUBSYSTEM=="tpmrm", OWNER="root", GROUP="aziottpm", MODE="0660"
    ```
 
 1. Save and exit the file.

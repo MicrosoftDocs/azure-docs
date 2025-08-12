@@ -3,132 +3,115 @@ author: cephalin
 ms.service: azure-app-service
 ms.devlang: java
 ms.topic: include
-ms.date: 04/23/2025
+ms.date: 06/10/2025
 ms.author: cephalin
 ---
 
-In this quickstart, you use the [Maven Plugin for Azure App Service Web Apps](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) to deploy a Java web application with an embedded server to [Azure App Service](/azure/app-service/). App Service provides a highly scalable, self-patching web app hosting service. Use the tabs to switch between Tomcat, JBoss, or embedded server (Java SE) instructions.
+[Azure App Service](/azure/app-service/) provides a highly scalable, self-patching web app hosting service. In this quickstart, you use the [Maven Plugin for Azure App Service Web Apps](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) to deploy a Java web application with an embedded Spring Boot, Quarkus, or Tomcat server to App Service. For more information, see [azure-webapp-maven-plugin](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App).
 
-The quickstart deploys either a Spring Boot app, Quarkus app, or embedded Tomcat using the [azure-webapp-maven-plugin](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App) plugin.
-
-### [Spring Boot](#tab/springboot)
-
-:::image type="content" source="../../media/quickstart-java/springboot-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of Spring Boot Hello World web app running in Azure App Service in introduction.":::
-
-### [Quarkus](#tab/quarkus)
-
-:::image type="content" source="../../media/quickstart-java/quarkus-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of Quarkus Hello World web app running in Azure App Service in introduction.":::
-
-### [Embedded Tomcat](#tab/embeddedtomcat)
-
-:::image type="content" source="../../media/quickstart-java/embedded-tomcat-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of embedded Tomcat Hello World web app running in Azure App Service in introduction.":::
-
------
-
-If Maven isn't your preferred development tool, check out our similar tutorials for Java developers:
-+ [Gradle](../../configure-language-java-deploy-run.md?pivots=platform-linux#gradle)
+If Maven isn't your preferred development tool, check out similar articles for Java developers:
++ [Gradle](../../configure-language-java-deploy-run.md#gradle)
 + [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app)
 + [Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)
 + [Visual Studio Code](https://code.visualstudio.com/docs/java/java-webapp)
 
-[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+## Prerequisites
 
-## 1 - Use Azure Cloud Shell
+- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it-no-header.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it-no-header.md)]
+- Run the commands in this quickstart by using Azure Cloud Shell, an interactive shell that you can use through your browser to work with Azure services. To use Cloud Shell:
 
-## 2 - Get the sample app
+  1. Select the following **Launch Cloud Shell** button or go to https://shell.azure.com to open Cloud Shell in your browser.
+
+     :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
+
+  1. Sign in to Azure if necessary, and make sure you're in the **Bash** environment of Cloud Shell.
+  1. Select **Copy** in a code block, paste the code into Cloud Shell, and run it.
+
+## Get the sample app
+
+Choose the appropriate tab and follow instructions to get the sample Spring Boot, Quarkus, or Embedded Tomcat web app.
 
 ### [Spring Boot](#tab/springboot)
 
-1. Download and extract the [default Spring Boot web application template](https://github.com/rd-1-2022/rest-service). This repository is cloned for you when you run the [Spring CLI](https://docs.spring.io/spring-cli/reference/getting-started.html) command `spring boot new my-webapp`.
+Download and extract the [default Spring Boot web application template](https://github.com/rd-1-2022/rest-service), or clone it by running the following command. Running the [Spring CLI](https://docs.spring.io/spring-cli/reference/getting-started.html) command `spring boot new my-webapp` also clones the web app.
 
-    ```bash
-    git clone https://github.com/rd-1-2022/rest-service my-webapp
-    ```
+```bash
+git clone https://github.com/rd-1-2022/rest-service my-webapp
+```
 
-1. Change your working directory to the project folder:
-
-    ```azurecli-interactive
-    cd my-webapp
-    ```
+Then change your working directory to the project folder by running `cd my-webapp`.
 
 ### [Quarkus](#tab/quarkus)
 
-1. Generate a new Quarkus app named `quarkus-hello-azure` with the following Maven command:
+1. Generate a new Quarkus app named `quarkus-hello-azure` by running the following Maven command:
 
-    ```azurecli-interactive
-    mvn io.quarkus.platform:quarkus-maven-plugin:3.21.3:create \
-        -DprojectGroupId=org.acme \
-        -DprojectArtifactId=quarkus-hello-azure  \
-        -Dextensions='resteasy-reactive'
-    ```
+   ```bash
+   mvn io.quarkus.platform:quarkus-maven-plugin:3.21.3:create \
+       -DprojectGroupId=org.acme \
+       -DprojectArtifactId=quarkus-hello-azure  \
+       -Dextensions='resteasy-reactive'
+   ```
 
-1. Change your working directory to the project folder:
-
-    ```azurecli-interactive
-    cd quarkus-hello-azure
-    ```
+1. Change your working directory to the project folder by running `cd quarkus-hello-azure`.
 
 ### [Embedded Tomcat](#tab/embeddedtomcat)
 
-1. Download and extract the [embeddedTomcatExample](https://github.com/Azure-Samples/java-docs-embedded-tomcat) repository, or clone it locally by running `git clone`:
+1. Download and extract the [embeddedTomcatExample](https://github.com/Azure-Samples/java-docs-embedded-tomcat) repository, or clone it locally by running the following `git clone` command.
 
-    ```bash
-    git clone https://github.com/Azure-Samples/java-docs-embedded-tomcat
-    ```
+   ```bash
+   git clone https://github.com/Azure-Samples/java-docs-embedded-tomcat
+   ```
 
-1. Change your working directory to the project folder:
+1. Change your working directory to the project folder by running `cd java-docs-embedded-tomcat`.
 
-    ```azurecli-interactive
-    cd java-docs-embedded-tomcat
-    ```
-
-    The application is run using the standard [Tomcat](https://tomcat.apache.org/tomcat-9.0-doc/api/org/apache/catalina/startup/Tomcat.html) class (see [Main.java](https://github.com/Azure-Samples/java-docs-embedded-tomcat/blob/main/src/main/java/com/microsoft/azure/appservice/examples/embeddedtomcat/Main.java) in the sample). 
+1. Run the application by using the standard [Tomcat](https://tomcat.apache.org/tomcat-9.0-doc/api/org/apache/catalina/startup/Tomcat.html) class. See [Main.java](https://github.com/Azure-Samples/java-docs-embedded-tomcat/blob/main/src/main/java/com/microsoft/azure/appservice/examples/embeddedtomcat/Main.java) in the sample. 
 
 -----
 
-## 3 - Configure the Maven plugin
+## Configure the Maven plugin
 
-The deployment process to Azure App Service uses your Azure credentials from the Azure CLI automatically. If the Azure CLI isn't installed locally, then the Maven plugin authenticates with OAuth or device sign-in. For more information, see [authentication with Maven plugins](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
+The App Service deployment process uses your Azure credentials from Cloud Shell automatically. The Maven plugin authenticates with OAuth or device sign-in. For more information, see [Authentication](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
-Run the Maven command shown next to configure the deployment. This command helps you to set up the App Service operating system, Java version, and Tomcat version.
+Run the following Maven command to configure the deployment by setting the App Service operating system and Java version.
 
-```azurecli-interactive
+```bash
 mvn com.microsoft.azure:azure-webapp-maven-plugin:2.14.1:config
 ```
 
-1. For **Create new run configuration**, type **Y**, then **Enter**.
-1. For **Define value for OS**, type **2** for Linux, then **Enter**.
-1. For **Define value for javaVersion**, type **1** for Java 21, then **Enter**.
-1. For **Define value for pricingTier**, type **3** for P1v2, then **Enter**.
-1. For **Confirm**, type **Y**, then **Enter**.
+1. For **Create new run configuration**, type **Y** and then press **Enter**.
+1. For **Define value for OS**, type **2** for Linux, and then press **Enter**.
+1. For **Define value for javaVersion**, type **1** for Java 21, and then press **Enter**.
+1. For **Define value for pricingTier**, type **3** for P1v2, and then press **Enter**.
+1. For **Confirm**, type **Y** and then press **Enter**.
 
-    ```
-    Please confirm webapp properties
-    AppName : <generated-app-name>
-    ResourceGroup : <generated-app-name>-rg
-    Region : centralus
-    PricingTier : P1v2
-    OS : Linux
-    Java Version: Java 21
-    Web server stack: Java SE
-    Deploy to slot : false
-    Confirm (Y/N) [Y]: 
-    [INFO] Saving configuration to pom.
-    [INFO] ------------------------------------------------------------------------
-    [INFO] BUILD SUCCESS
-    [INFO] ------------------------------------------------------------------------
-    [INFO] Total time:  47.533 s
-    [INFO] Finished at: 2025-04-23T12:20:08Z
-    [INFO] ------------------------------------------------------------------------
-    ```
+The output should look similar to the following code:
 
-After you confirm your choices, the plugin adds the above plugin element and requisite settings to your project's `pom.xml` file that configure your web app to run in Azure App Service.
+```bash
+Please confirm webapp properties
+AppName : <generated-app-name>
+ResourceGroup : <generated-app-name>-rg
+Region : centralus
+PricingTier : P1v2
+OS : Linux
+Java Version: Java 21
+Web server stack: Java SE
+Deploy to slot : false
+Confirm (Y/N) [Y]: 
+[INFO] Saving configuration to pom.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  47.533 s
+[INFO] Finished at: 2025-04-23T12:20:08Z
+[INFO] ------------------------------------------------------------------------
+```
 
-The relevant portion of the `pom.xml` file should look similar to the following example.
+After you confirm your choices, the plugin adds the plugin element and required settings to your project's *pom.xml* file, which configures your web app to run in App Service.
 
-```xml-interactive
+The relevant portion of the *pom.xml* file should look similar to the following example.
+
+```xml
 <build>
     <plugins>
         <plugin>
@@ -137,113 +120,142 @@ The relevant portion of the `pom.xml` file should look similar to the following 
             <version>x.xx.x</version>
             <configuration>
                 <schemaVersion>v2</schemaVersion>
-                <resourceGroup>your-resourcegroup-name</resourceGroup>
-                <appName>your-app-name</appName>
+                <resourceGroup>generated-app-name-rg</resourceGroup>
+                <appName>generated-app-name</appName>
             ...
             </configuration>
         </plugin>
     </plugins>
-</build>           
+</build>
 ```
 
-You can modify the configurations for App Service directly in your `pom.xml`.
+The values for `<appName>` and `<resourceGroup>` are used later.
+
+You can modify the configurations for App Service directly in your *pom.xml* file.
 
 - For the complete list of configurations, see [Common Configurations](https://github.com/microsoft/azure-maven-plugins/wiki/Common-Configuration).
 - For configurations specific to App Service, see [Azure Web App: Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details).
 
-Be careful about the values of `<appName>` and `<resourceGroup>`. They're used later.
+## Deploy the app
 
-## 4 - Deploy the app
-
-With all the configuration ready in your [pom.xml](https://github.com/Azure-Samples/java-docs-embedded-tomcat/blob/main/pom.xml) file, you can deploy your Java app to Azure with one single command.
-
-1. Build the JAR file using the following command(s):
-
-    ### [Spring Boot](#tab/springboot)
-    
-    ```bash
-    mvn clean package
-    ```
-
-    > [!TIP]
-    > Spring Boot produces two JAR files with `mvn package`, but `azure-webapp-maven-plugin` picks the right JAR file to deploy automatically.
-    
-    ### [Quarkus](#tab/quarkus)
-
-    ```bash
-    echo "%prod.quarkus.http.port=80" >> src/main/resources/application.properties
-    mvn clean package -Dquarkus.package.jar.type=uber-jar
-    ```
-
-    In these commands:
-    - You set the Quarkus port in the *application.properties* file to match the default port that the Linux Java container uses.
-    - `quarkus.package.jar.type=uber-jar` tells Maven to [generate an Uber-Jar](https://quarkus.io/guides/maven-tooling#uber-jar-maven), which includes all dependencies in the JAR file.
-
-    > [!TIP]
-    > Quarkus produces two JAR files with `mvn package`, but `azure-webapp-maven-plugin` picks the right JAR file to deploy automatically.
-    
-    ### [Embedded Tomcat](#tab/embeddedtomcat)
-    
-    ```bash
-    mvn clean package
-    ```
-
-    To make the application it deployable using [azure-webapp-maven-plugin](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App), and running on Azure App Service, the sample configures the `package` goal as follows:
-    
-    - Build a single uber JAR file, which contains everything the application needs to run.
-    - Create an [executable JAR](https://en.wikipedia.org/wiki/JAR_(file_format)#Executable_JAR_files) by specifying the Tomcat class as the start-up class.
-    - Replace the original artifact with the uber JAR to ensure that the deploy step deploys the right file.
-
-    -----
-
-2. Deploy to Azure by using the following command:
-
-   ```bash
-   mvn azure-webapp:deploy
-   ```
-
-    Once you select from a list of available subscriptions, Maven deploys to Azure App Service. When the deployment completes, you see the following output:
-
-    ```output
-    [INFO] Successfully deployed the artifact to https://<app-name>.azurewebsites.net
-    [INFO] ------------------------------------------------------------------------
-    [INFO] BUILD SUCCESS
-    [INFO] ------------------------------------------------------------------------
-    [INFO] Total time:  02:20 min
-    [INFO] Finished at: 2023-07-26T12:47:50Z
-    [INFO] ------------------------------------------------------------------------
-    ```
-
-    Your application is ready at `http://<appName>.azurewebsites.net/`. 
+With all the configuration ready in your [pom.xml](https://github.com/Azure-Samples/java-docs-embedded-tomcat/blob/main/pom.xml) file, you can deploy your Java app to Azure.
 
 ### [Spring Boot](#tab/springboot)
 
-Open the URL `http://<appName>.azurewebsites.net/greeting` with your local web browser (note the `/greeting` path), and you should see:
-
-:::image type="content" source="../../media/quickstart-java/springboot-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of Spring Boot Hello World web app running in Azure App Service.":::
+1. Build the JAR file using the following command.
+   
+   ```bash
+    mvn clean package
+   ```
+   
+   > [!TIP]
+   > Spring Boot produces two JAR files with `mvn package`, but the `azure-webapp-maven-plugin` picks the right JAR file to deploy automatically.
+   
+1. Deploy the app to Azure by using the following command:
+   
+   ```bash
+   mvn azure-webapp:deploy
+   ```
+   
+   Once you select from a list of available subscriptions, Maven deploys to Azure App Service. When deployment completes, your application is ready, and you see the following output:
+   
+   ```output
+   [INFO] Successfully deployed the artifact to <URL>
+   [INFO] ------------------------------------------------------------------------
+   [INFO] BUILD SUCCESS
+   [INFO] ------------------------------------------------------------------------
+   [INFO] Total time:  02:20 min
+   [INFO] Finished at: 2023-07-26T12:47:50Z
+   [INFO] ------------------------------------------------------------------------
+   ```
+   
+1. Open your app's default domain from the **Overview** page in the Azure portal, and append `/greeting` to the URL. You should see the following app:
+   
+   :::image type="content" source="../../media/quickstart-java/springboot-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of Spring Boot Hello World web app running in Azure App Service.":::
 
 ### [Quarkus](#tab/quarkus)
-
-Open the URL `http://<appName>.azurewebsites.net/hello` with your local web browser (note the `/hello` path), and you should see:
-
-:::image type="content" source="../../media/quickstart-java/quarkus-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of Quarkus web app running in Azure App Service.":::
+   
+1. Build the JAR file using the following command.
+   
+   ```bash
+   echo '%prod.quarkus.http.port=${PORT}' >> src/main/resources/application.properties
+   mvn clean package -Dquarkus.package.jar.type=uber-jar
+   ```
+   
+   Set the Quarkus port in the *application.properties* file to the `PORT` environment variable in the Linux Java container. `Dquarkus.package.jar.type=uber-jar` tells Maven to [generate an Uber-Jar](https://quarkus.io/guides/maven-tooling#uber-jar-maven), which includes all dependencies in the JAR file.
+   
+   > [!TIP]
+   > Quarkus produces two JAR files with `mvn package`, but `azure-webapp-maven-plugin` picks the right JAR file to deploy automatically.
+   
+1. Deploy the app to Azure by using the following command:
+   
+   ```bash
+   mvn azure-webapp:deploy
+   ```
+   
+   Once you select from a list of available subscriptions, Maven deploys to Azure App Service. When deployment completes, your application is ready, and you see the following output:
+   
+   ```output
+   [INFO] Successfully deployed the artifact to <URL>
+   [INFO] ------------------------------------------------------------------------
+   [INFO] BUILD SUCCESS
+   [INFO] ------------------------------------------------------------------------
+   [INFO] Total time:  02:20 min
+   [INFO] Finished at: 2023-07-26T12:47:50Z
+   [INFO] ------------------------------------------------------------------------
+   ```
+   
+1. Open your app's default domain from the **Overview** in the Azure portal, and append `/hello` to the URL. You should see the following app:
+   
+   :::image type="content" source="../../media/quickstart-java/quarkus-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of Quarkus web app running in Azure App Service.":::
 
 ### [Embedded Tomcat](#tab/embeddedtomcat)
-
-Open the URLl with your local web browser, and you should see:
-
-:::image type="content" source="../../media/quickstart-java/embedded-tomcat-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of embedded Tomcat web app running in Azure App Service.":::
+   
+1. Build the JAR file using the following command.
+   
+   ```bash
+   mvn clean package
+   ```
+   
+   To make the application deploy using the [azure-webapp-maven-plugin](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App) and run on Azure App Service, the sample configures the `package` goal as follows:
+   
+   - Builds a single uber JAR file, which contains everything the application needs to run.
+   - Creates an [executable JAR](https://en.wikipedia.org/wiki/JAR_(file_format)#Executable_JAR_files) by specifying the Tomcat class as the startup class.
+   - Replaces the original artifact with the `Uber-Jar` to ensure that the deploy step deploys the right file.
+   
+1. Deploy the app to Azure by using the following command:
+   
+   ```bash
+   mvn azure-webapp:deploy
+   ```
+   
+   Once you select from a list of available subscriptions, Maven deploys to Azure App Service. When deployment completes, your application is ready, and you see the following output:
+   
+   ```output
+   [INFO] Successfully deployed the artifact to <URL>
+   [INFO] ------------------------------------------------------------------------
+   [INFO] BUILD SUCCESS
+   [INFO] ------------------------------------------------------------------------
+   [INFO] Total time:  02:20 min
+   [INFO] Finished at: 2023-07-26T12:47:50Z
+   [INFO] ------------------------------------------------------------------------
+   ```
+   
+1. Open the URL for your app's default domain from the **Overview** in the Azure portal. You should see the following app:
+   
+   :::image type="content" source="../../media/quickstart-java/embedded-tomcat-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of embedded Tomcat web app running in Azure App Service.":::
 
 -----
 
-**Congratulations!** You deployed your first Java app to App Service.
+Congratulations! You deployed a Java app to App Service.
 
-## 5 - Clean up resources
+## Clean up resources
 
-In the preceding steps, you created Azure resources in a resource group. If you don't need the resources in the future, delete the resource group from portal, or by running the following command in the Cloud Shell:
+You created the resources for this tutorial in an Azure resource group. If you no longer need them, you can delete the resource group and all its resources by running the following Azure CLI command in Cloud Shell.
 
-```azurecli-interactive
-az group delete --name <your resource group name; for example: quarkus-hello-azure-1690375364238-rg> --yes
+```azurecli
+az group delete --name <resource group name>  --yes
 ```
 
-This command might take a minute to run.
+For example, run `az group delete --name quarkus-hello-azure-1690375364238-rg --yes`. This command might take a while to run.
+

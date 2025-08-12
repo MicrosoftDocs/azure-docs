@@ -57,7 +57,7 @@ In the `definitions` section of the template, specify the schemas used for valid
 
 ```json
 "definitions": {
-  "<definition-name": {
+  "<definition-name>": {
     "type": "<data-type-of-definition>",
     "allowedValues": [ "<array-of-allowed-values>" ],
     "minValue": <minimum-value-for-int>,
@@ -287,8 +287,8 @@ You define resources with the following structure:
         "<settings-for-the-resource>",
         "copy": [
             {
-                "name": ,
-                "count": ,
+                "name": "<name-of-copy-loop>",
+                "count": <number-of-iterations>,
                 "input": {}
             }
         ]

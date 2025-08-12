@@ -4,12 +4,14 @@ description: Known issues for the MQTT broker, Layered Network Management (previ
 author: dominicbetts
 ms.author: dobett
 ms.topic: troubleshooting-known-issue
-ms.date: 04/16/2025
+ms.date: 08/07/2025
 ---
 
 # Known issues: Azure IoT Operations
 
-This article lists the current known issues for Azure IoT Operations.
+This article lists the current known issues you might encounter when using Azure IoT Operations. The guidance helps you identify these issues and provides workarounds where available.
+
+For general troubleshooting guidance, see [Troubleshoot Azure IoT Operations](troubleshoot.md).
 
 ## Deploy, update, and uninstall issues
 
@@ -45,73 +47,13 @@ Log signature: `"This codespace is currently running in recovery mode due to a c
 
 If you deploy Azure IoT Operations in GitHub Codespaces, shutting down and restarting the Codespace causes a `This codespace is currently running in recovery mode due to a configuration error` issue.
 
-Currently, there's no workaround for the issue. If you need a cluster that supports shutting down and restarting, choose one of the options in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
-
-### Helm package enters a stuck state during update
-
----
-
-Issue ID: 9928
-
----
-
-Log signature: `"Message: Update failed for this resource, as there is a conflicting operation in progress. Please try after sometime."`
-
----
-
-When you update Azure IoT Operations, the Helm package might enter a stuck state, preventing any helm install or upgrade operations from proceeding. This scenario results in the error message `Update failed for this resource, as there is a conflicting operation in progress. Please try after sometime.`, which blocks further updates.
-
-To work around this issue, follow these steps:
-
-1. Identify the stuck components by running the following command:
-
-   ```sh
-   helm list -n azure-iot-operations --pending
-   ```
-
-    In the output, look for the release name of components, `<component-release-name>`, which have a status of `pending-upgrade` or `pending-install`. This issue might affect the following components:
-
-      - `-adr`
-      - `-akri`
-      - `-connectors`
-      - `-mqttbroker`
-      - `-dataflows`
-      - `-schemaregistry`
-
-1. Using the `<component-release-name>` from step 1, retrieve the revision history of the stuck release. You need to run the following command for **each component from step 1**. For example, if components `-adr` and `-mqttbroker` are stuck, you run the following command twice, once for each component:
-
-   ```sh
-   helm history <component-release-name> -n azure-iot-operations
-   ```
-
-    Make sure to replace `<component-release-name>` with the release name of the components that are stuck. In the output, look for the last revision that has a status of `Deployed` or `Superseded` and note the revision number.
-
-1. Using the **revision number from step 2**, roll back the Helm release to the last successful revision. You need to run the following command for each component, `<component-release-name>`, and its revision number, `<revision-number>`, from steps 1 and 2.
-
-    ```sh
-    helm rollback <component-release-name> <revision-number> -n azure-iot-operations
-    ```
-  
-    > [!IMPORTANT]
-    > You need to repeat steps 2 and 3 for each component that is stuck. You reattempt the upgrade only after all components are rolled back to the last successful revision.
-
-1. After the rollback of each component is complete, reattempt the upgrade using the following command:
-
-   ```sh
-   az iot ops update
-   ```
-
-    If you receive a message stating `Nothing to upgrade or upgrade complete`, force the upgrade by appending:
-
-    ```sh
-    az iot ops upgrade ....... --release-train stable 
-    ```
+There's no workaround for this issue. If you need a cluster that supports shutting down and restarting, select one of the options in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
 
 ## MQTT broker issues
 
 This section lists current known issues for the MQTT broker.
 
-### MQTT broker resources aren't visible in Azure portal
+### MQTT broker resources aren't visible in the Azure portal
 
 ---
 
@@ -123,7 +65,7 @@ Log signature: N/A
 
 ---
 
-MQTT broker resources created in your cluster using Kubernetes aren't visible in the Azure portal. This result is expected because [managing Azure IoT Operations components using Kubernetes is in preview](../deploy-iot-ops/howto-manage-update-uninstall.md#preview-manage-components-using-kubernetes-deployment-manifests), and synchronizing resources from the edge to the cloud isn't currently supported.
+MQTT broker resources created in your cluster using Kubernetes aren't visible in the Azure portal. This result is expected because [managing Azure IoT Operations components using Kubernetes is in preview](../deploy-iot-ops/howto-manage-update-uninstall.md#manage-components-using-kubernetes-deployment-manifests-preview), and synchronizing resources from the edge to the cloud isn't currently supported.
 
 There's currently no workaround for this issue.
 
@@ -187,6 +129,28 @@ Log signature: N/A
 
 When you add a new asset with a new asset endpoint profile to the OPC UA broker and trigger a reconfiguration, the deployment of the `opc.tcp` pods changes to accommodate the new secret mounts for username and password. If the new mount fails for some reason, the pod doesn't restart and therefore the old flow for the correctly configured assets stops as well.
 
+### An OPC UA server modeled as a device can only have one inbound endpoint of type "Microsoft.OpcUa"
+
+---
+
+Issue ID: 2411
+
+---
+
+`2025-07-24T13:29:30.280Z aio-opc-supervisor-85b8c78df5-26tn5 - Maintaining the new asset test-opcua-asset | - | 1 is skipped because the endpoint profile test-opcua.opcplc-e2e-anon-000000 is not present`
+
+---
+
+When you create an OPC UA device, you can only have one inbound endpoint of type `Microsoft.OpcUa`. Currently, any other endpoints aren't used.
+
+Workaround: Create multiple devices with a single endpoint each if you want to use namespace assets.
+
+An OPC UA namespaced asset can only have a single dataset. Currently, any other datasets aren't used.
+
+Workaround: Create multiple namespace assets each with a single dataset.
+
+
+
 ### Data spike every 2.5 hours with some OPC UA simulators
 
 ---
@@ -201,82 +165,9 @@ Log signature: Increased message volume every 2.5 hours
 
 Data values spike every 2.5 hours when using particular OPC UA simulators causing CPU and memory spikes. This issue isn't seen with OPC PLC simulator used in the quickstarts. No data is lost, but you can see an increase in the volume of data published from the server to the MQTT broker.
 
-### No message schema generated if selected nodes in a dataset reference the same complex data type definition
-
----
-
-Issue ID: 7369
-
----
-
-Log signature: `An item with the same key has already been added. Key: <element name of the data type>`
-
----
-
-No message schema is generated if selected nodes in a dataset reference the same complex data type definition (a UDT of type struct or enum).
-
-If you select data points (node IDs) for a dataset that share non-OPC UA namespace complex type definitions (struct or enum), then the JSON schema isn't generated. The default open schema is shown when you create a data flow instead. For example, if the data set contains three values of a data type, then whether it works or not is shown in the following table. You can substitute `int` for any OPC UA built in type or primitive type such as `string`, `double`, `float`, or `long`:
-
-| Type of Value 1 | Type of Value 2 | Type of Value 3 | Successfully generates schema |
-|-----------------|-----------------|-----------------|-----------------|
-| `int` | `int` | `int` | Yes |
-| `int` | `int` | `int` | Yes |
-| `int` | `int` | `struct A` | Yes |
-| `int` | `enum A` | `struct A` | Yes |
-| `enum A` | `enum B` | `enum C` | Yes |
-| `struct A` | `struct B` | `struct C` | Yes |
-| `int` | `struct A` | `struct A` | No |
-| `int` | `enum A` | `enum A` | No |
-
-To work around this issue, you can either:
-
-- Split the dataset across two or more assets.
-- Manually upload a schema.
-- Use the default nonschema experience in the data flow designer.
-
 ## Connector for media and connector for ONVIF issues
 
 This section lists current known issues for the connector for media and the connector for ONVIF.
-
-### Cleanup of unused media-connector resources
-
----
-
-Issue ID: 2142
-
----
-
-Log signature: N/A
-
----
-
-If you delete all the `Microsoft.Media` asset endpoint profiles, the deployment for media processing isn't deleted.
-
-To work around this issue, run the following command using the full name of your media connector deployment:
-
-```bash
-kubectl delete deployment aio-opc-media-... -n azure-iot-operations
-```
-
-### Cleanup of unused onvif-connector resources
-
----
-
-Issue ID: 3322
-
----
-
-Log signature: N/A
-
----
-
-If you delete all the `Microsoft.Onvif` asset endpoint profiles, the deployment for media processing isn't deleted.
-
-To work around this issue, run the following command using the full name of your ONVIF connector deployment:
-
-```bash
-kubectl delete deployment aio-opc-onvif-... -n azure-iot-operations
-```
 
 ### AssetType CRD removal process doesn't complete
 
@@ -290,7 +181,7 @@ Log signature: `"Error HelmUninstallUnknown: Helm encountered an error while att
 
 ---
 
-Sometimes, when you attempt to uninstall Azure IoT Operations from the cluster, the system can get to a state where CRD removal job is stuck in pending state and that blocks the cleanup of Azure IoT Operations.
+Sometimes, when you attempt to uninstall Azure IoT Operations from the cluster, the system reaches a state where CRD removal job is stuck in pending state, which blocks the cleanup of Azure IoT Operations.
 
 To work around this issue, complete the following steps to manually delete the CRD and finish the uninstall:
 
@@ -301,6 +192,80 @@ To work around this issue, complete the following steps to manually delete the C
 1. Find the Helm release for the connectors, it's the one with `-connectors` suffix: `helm ls -a -n azure-iot-operations`
 
 1. Uninstall Helm release without running the hook: `helm uninstall aio-<id>-connectors -n azure-iot-operations --no-hooks`
+
+### Media and ONVIF devices with an underscore character in the endpoint name are ignored
+
+---
+
+Issue ID: 5712
+
+---
+
+Log signature: N/A
+
+---
+
+If you create a media or ONVIF device with an endpoint name that contains an underscore ("_") character, the connector for media ignores the device.
+
+To work around this issue, use a hyphen ("-") instead of an underscore in the endpoint name.
+
+### Media connector doesn't use the path in destination configuration
+
+---
+
+Issue ID: 6797
+
+---
+
+Log signature: N/A
+
+---
+
+Media assets with a task type of "snapshot-to-fs" or "clip-to-fs" don't honor the path in the destination configuration. Instead, they use the "Additional configuration" path field.
+
+### Media connector ignores MQTT topic setting in asset
+
+---
+
+Issue ID: 6780
+
+---
+
+Log signature: N/A
+
+---
+
+The media connector ignores the MQTT destination topic setting in the asset. Instead, it uses the default topic: `/azure-iot-operations/data/<asset-name>/snapshot-to-mqtt`.
+
+### Media connector inbound endpoint addresses aren't fully validated
+
+---
+
+Issue ID: 2679
+
+---
+
+Log signature: N/A
+
+---
+
+In the public preview release, the media connector accepts device inbound endpoint addresses with the following schemes: `async`, `cache`, `concat`, `concatf`, `crypto`, `data`, `fd`, `ffrtmpcrypt`, `ffrtmphttp`, `file`, `ftp`, `gopher`, `gophers`, `hls`, `http`, `httpproxy`, `https`, `mmsh`, `mmst`, `pipe`, `rtmp`, `rtmpe`, `rtmps`, `rtmpt`, `rtmpte`, `rtmpts`, `rtp`, `srtp`, `subfile`, `tcp`, `tls`, `udp`, `udplite`, `unix`, `ipfx`, `ipns`.
+
+This enables input data from multiple source types. However, because the output configuration is based on the `streamConfiguration`, the possibilities for using data from these sources are limited.
+
+### Secret sync conflict
+
+---
+
+Issue ID: 0606
+
+---
+
+Log signature: N/A
+
+---
+
+When using secret sync, ensure that secret names are globally unique. If a local secret with the same name exists, connectors might fail to retrieve the intended secret.
 
 ## Data flows issues
 
@@ -318,134 +283,33 @@ Log signature: N/A
 
 ---
 
-Data flow custom resources created in your cluster using Kubernetes aren't visible in the operations experience web UI. This result is expected because [managing Azure IoT Operations components using Kubernetes is in preview](../deploy-iot-ops/howto-manage-update-uninstall.md#preview-manage-components-using-kubernetes-deployment-manifests), and synchronizing resources from the edge to the cloud isn't currently supported.
+Data flow custom resources created in your cluster using Kubernetes aren't visible in the operations experience web UI. This result is expected because [managing Azure IoT Operations components using Kubernetes is in preview](../deploy-iot-ops/howto-manage-update-uninstall.md#manage-components-using-kubernetes-deployment-manifests-preview), and synchronizing resources from the edge to the cloud isn't currently supported.
 
 There's currently no workaround for this issue.
 
-### Unable to configure X.509 authentication for custom Kafka endpoints
+### A data flow profile can't exceed 70 data flows
 
 ---
 
-Issue ID: 8750
-
----
-
-Log signature: N/A
-
----
-
-X.509 authentication for custom Kafka endpoints isn't currently supported.
-
-### Data points aren't validated against a schema
-
----
-
-Issue ID: 8794
-
----
-
-Log signature: N/A
-
----
-
-When you create a data flow, you can specify a schema in the source configuration. However, deserializing and validating messages using a schema isn't supported yet. Specifying a schema in the source configuration only allows the operations experience to display the list of data points, but the data points aren't validated against the schema.
-
-### Connection failures with Azure Event Grid
-
----
-
-Issue ID: 8891
-
----
-
-Log signature: N/A
-
----
-
-When you connect multiple IoT Operations instances to the same Event Grid MQTT namespace, connection failures might occur due to client ID conflicts. Client IDs are currently derived from data flow resource names, and when using infrastructure as code patterns for deployment, the generated client IDs might be identical.
-
-To work around this issue, add randomness to the data flow names in your deployment templates.
-
-### Data flow errors after a network disruption
-
----
-
-Issue ID: 8953
-
----
-
-Log signature: N/A
-
----
-
-When the network connection is disrupted, data flows might encounter errors sending messages because of a mismatched producer ID.
-
-To work around this issue, restart your data flow pods.
-
-### Disconnections from Kafka endpoints
-
----
-
-Issue ID: 9289
-
----
-
-Log signature: N/A
-
----
-
-If you use control characters in Kafka headers, you might encounter disconnections. Control characters in Kafka headers such as `0x01`, `0x02`, `0x03`, `0x04` are UTF-8 compliant but the IoT Operations MQTT broker rejects them. This issue happens during the data flow process when Kafka headers are converted to MQTT properties using a UTF-8 parser. Packets with control characters might be treated as invalid and rejected by the broker and lead to data flow failures.
-
-To work around this issue, avoid using control characters in Kafka headers.
-
-### Data flow deployment doesn't complete
-
----
-
-Issue ID: 9411
+Issue ID: 0313
 
 ---
 
 Log signature:
 
-`"Dataflow pod had error: Bad pod condition: Pod 'aio-dataflow-operator-0' container 'aio-dataflow-operator' stuck in a bad state due to 'CrashLoopBackOff'"`
-
-`"Failed to create webhook cert resources: Failed to update ApiError: Internal error occurred: failed calling webhook "webhook.cert-manager.io" [...]"`
+`exec /bin/main: argument list too long`
 
 ---
 
-When you create a new data flow, it might not finish deployment. The cause is that the `cert-manager` wasn't ready or running.
+If you create more than 70 data flows for a single data flow profile, deployments fail with the error `exec /bin/main: argument list too long`.
 
-To work around this issue, use the following steps to manually delete the data flow operator pod to clear the crash status:
+To work around this issue, create multiple data flow profiles and distribute the data flows across them. Don't exceed 70 data flows per profile.
 
-1. Run `kubectl get pods -n azure-iot-operations`.
-   In the output, Verify _aio-dataflow-operator-0_ is only data flow operator pod running.
-
-1. Run `kubectl logs --namespace azure-iot-operations aio-dataflow-operator-0` to check the logs for the data flow operator pod.
-
-   In the output, check for the final log entry:
-
-   `Dataflow pod had error: Bad pod condition: Pod 'aio-dataflow-operator-0' container 'aio-dataflow-operator' stuck in a bad state due to 'CrashLoopBackOff'`
-
-1. Run the _kubectl logs_ command again with the `--previous` option.
-
-   `kubectl logs --namespace azure-iot-operations --previous aio-dataflow-operator-0`
-
-   In the output, check for the final log entry:
-
-   `Failed to create webhook cert resources: Failed to update ApiError: Internal error occurred: failed calling webhook "webhook.cert-manager.io" [...]`.
-
-   If you see both log entries from the two _kubectl log_ commands, the cert-manager wasn't ready or running.
-
-1. Run `kubectl delete pod aio-dataflow-operator-0 -n azure-iot-operations` to delete the data flow operator pod. Deleting the pod clears the crash status and restarts the pod.
-
-1. Wait for the operator pod to restart and deploy the data flow.
-
-### Data flows error metrics
+### The request persistence flag is not set for MQTT sessions created for data flow graphs (WASM)
 
 ---
 
-Issue ID: 2382
+Issue ID: 6415
 
 ---
 
@@ -453,4 +317,47 @@ Log signature: N/A
 
 ---
 
-Data flows marks message retries and reconnects as errors, and as a result data flows might look unhealthy. This behavior is only seen in previous versions of data flows. Review the logs to determine if the data flow is healthy.
+When you create a data flow graph using the WASM, the MQTT session doesn't have the request persistence flag set. 
+
+To work around this issue, set MQTT broker **Retained messages** mode to `All`. For more information, see [Configure MQTT broker persistence](../manage-mqtt-broker/howto-broker-persistence.md).
+
+### Complex data might be flattened when enriching data in a data flow
+
+---
+
+Issue ID: 7385
+
+---
+
+Log signature: N/A
+
+---
+
+When enriching data using complex object DSS reference data, the output might be moved to the root level instead of preserving the original structure.
+
+For example, if you have a complex object with properties like:
+
+```json
+{
+  "complex_property_1": {
+      "field1": 12,
+      "field2": 13 
+  },
+  "complex_property_2": {
+     "field2": 24
+  }
+}
+```
+
+The output might look like:
+
+```json
+{
+  "property_1": 2,
+  "property_2": 3,
+  "field1": 12,
+  "field2": 24,
+}
+```
+
+The complex properties are flattened to the root, and the original structure is lost. If fields with the same name exist in the complex objects or the root, the values might overwrite the root values. In the example, `field2` from `complex_property_2` overwrites the `field2` from `complex_property_1`.

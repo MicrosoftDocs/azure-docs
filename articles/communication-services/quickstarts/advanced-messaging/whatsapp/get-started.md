@@ -1,7 +1,7 @@
 ---
-title: Add Advanced Messaging to your app
-titleSuffix: An Azure Communication Services Messages quickstart
-description: In this quickstart, you learn to set up the basic functionality of Azure Communication Services Messages.
+title: Send text and media WhatsApp messages
+titleSuffix: An Azure Communication Services Messages article
+description: This article describes how to send text and media WhatsApp messages in Azure Communication Services Messages.
 author: Shamkh
 manager: camilo.ramirez
 services: azure-communication-services
@@ -14,7 +14,7 @@ ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-js-csharp-java-python
 ---
 
-# Send text and media WhatsApp messages using Advanced Messaging
+# Send text and media WhatsApp messages
 
 Azure Communication Services enables you to send and receive WhatsApp messages. This article describes how to integrate your app with Azure Communication Advanced Messages SDK to start sending and receiving WhatsApp messages. Completing this article incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -35,8 +35,6 @@ Azure Communication Services enables you to send and receive WhatsApp messages. 
 ::: zone-end
 
 ## Next steps
-
-This article described the Advanced Messaging for WhatsApp SDK. For more information, see the following articles:
 
 - [Handle Advanced Messaging events](./handle-advanced-messaging-events.md)
 - [Send WhatsApp template messages](../../../quickstarts/advanced-messaging/whatsapp/send-template-messages.md)

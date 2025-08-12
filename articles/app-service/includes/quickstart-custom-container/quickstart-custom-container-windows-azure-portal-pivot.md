@@ -14,7 +14,7 @@ This quickstart shows you how to deploy an ASP.NET app in a Windows image from A
 ## Prerequisites
 
 - An [Azure account](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
-- An [Azure container registry](/azure/container-registry/container-registry-get-started-portal)
+- An [Azure Container Registry](/azure/container-registry/container-registry-get-started-portal)
 - [Azure CLI](/cli/azure/install-azure-cli)
 - [Install Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
 - [Switch Docker to run Windows containers](/virtualization/windowscontainers/quick-start/quick-start-windows-10)
@@ -94,7 +94,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. At the top of the page, select the **Container** tab.
 
-1. In the **Container** tab, for **Image Source**, select **Azure Container Registry** . Under **Azure container registry options**, set the following values:
+1. In the **Container** tab, for **Image Source**, select **Azure Container Registry** . Under **Azure Container Registry options**, set the following values:
 
    - **Registry**: Select your Azure Container Registry.
    - **Image**: Select **dotnetcore-docs-hello-world-linux**.
@@ -137,7 +137,7 @@ The App Service app pulls from the container registry each time it starts. If yo
 - [Secure with custom domain and certificate](../../tutorial-secure-domain-certificate.md)
 - [Integrate your app with an Azure virtual network](../../overview-vnet-integration.md)
 - [Use Private Endpoints for App Service apps](../../networking/private-endpoint.md)
-- [Use Azure container registry with Private Link](/azure/container-registry/container-registry-private-link)
+- [Use Azure Container Registry with Private Link](/azure/container-registry/container-registry-private-link)
 - [Migrate to Windows container in Azure](../../tutorial-custom-container.md)
 - [Deploy a container with Azure Pipelines](../../deploy-container-azure-pipelines.md)
 - [Deploy a container with GitHub Actions](../../deploy-container-github-action.md)

@@ -5,10 +5,11 @@ description: Provides an overview of factors to consider and steps to follow to 
 
 author: karauten
 ms.author: karauten
-ms.date: 03/15/2021
-ms.topic: conceptual
+ms.date: 08/11/2025
+ms.topic: concept-article
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
+# Customer intent: "As an IT administrator, I want to integrate Commvault with Azure Blob storage for backups, so that I can ensure reliable offsite data protection and facilitate quick recovery in case of a disaster."
 ---
 
 # Backup to Azure with Commvault
@@ -104,7 +105,7 @@ When you use Azure as a backup target, you'll make use of [Azure Blob storage](.
 
 #### Sample backup to Azure cost model
 
-With pay-per-use can be daunting to customers who are new to the cloud. While you pay for only the capacity used, you do also pay for transactions (read and or writes) and [egress for data](https://azure.microsoft.com/pricing/details/bandwidth/) read back to your on-premises environment when [Azure Express Route direct local or Express Route unlimited data plan](https://azure.microsoft.com/pricing/details/expressroute/) are in use where data egress from Azure is included. You can use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to perform "what if" analysis. You can base the analysis on list pricing or on [Azure Storage Reserved Capacity pricing](../../../../../cost-management-billing/reservations/save-compute-costs-reservations.md), which can deliver up to 38% savings. Here's an example pricing exercise to model the monthly cost of backing up to Azure. This is only an example. *Your pricing may vary due to activities not captured here.*
+Pay-per-use can be daunting to customers who are new to the cloud. While you pay for only the capacity used, you do also pay for transactions (read and or writes) and [egress for data](https://azure.microsoft.com/pricing/details/bandwidth/) read back to your on-premises environment when [Azure Express Route direct local or Express Route unlimited data plan](https://azure.microsoft.com/pricing/details/expressroute/) are in use where data egress from Azure is included. You can use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to perform "what if" analysis. You can base the analysis on list pricing or on [Azure Storage Reserved Capacity pricing](../../../../../cost-management-billing/reservations/save-compute-costs-reservations.md), which can deliver up to 38% savings. Here's an example pricing exercise to model the monthly cost of backing up to Azure. This is only an example. *Your pricing may vary due to activities not captured here.*
 
 |Cost factor  |Monthly cost  |
 |---------|---------|
@@ -160,15 +161,15 @@ This section provides a brief guide for how to add Azure Storage to an on-premis
 
     1. Configure additional [security best practices](../../../../../storage/blobs/security-recommendations.md).
 
-1. In the Commvault Command Center, navigate to **Manage** -> **Security** -> **Credential Manager**. Choose a **Cloud Account**, **Vendor type** of **Microsoft Azure Storage**, select the **MediaAgent**, which will transfer data to and from Azure, add the storage account name and access key.
+8. In the Commvault Command Center, navigate to **Manage** -> **Security** -> **Credential vault** and use option **Add**. Choose a **Cloud Account**, **Vendor type** of **Microsoft Azure**, select the **Authentication Type**, next provide all details as the storage account name, storage account access key or IAM *Entra ID* Application details depends on selected authentication type.
 
     ![Shows adding credentials in Commvault Command Center.](../media/commvault-credential.png)
 
-9. Next, navigate to **Storage** -> **Cloud** in Commvault Command Center. Choose to **Add**. Enter a friendly name for the storage account and then select **Microsoft Azure Storage** from the **Type** list. Select a Media Agent server to be used to transfer backups to Azure Storage. Add the container you created, choose the storage tier to use within the Azure storage account, and select the credentials created in Step #8. Finally, choose whether or not to transfer deduplicated backups or not and a location for the deduplication database.
+9. Next, navigate to **Storage** -> **Cloud** in Commvault Command Center. Choose to **Add**. Enter a friendly name for the storage account and then select **Microsoft Azure Storage** from the **Type** list. Select a Media Agent server to be used to transfer backups to Azure Storage. Add the container you created, choose the storage tier to use within the Azure storage account, select region and the credentials created in Step #8. Finally, choose whether or not to transfer deduplicated backups or not and a location for the deduplication database.
 
      ![Screenshot of Commvault's Add cloud user interface. In the Archive drop-down menu, **Archive** is selected.](../media/commvault-add-storage.png)
 
-10. Finally, add your new Azure Storage resource to an existing or new plan in Commvault Command Center via **Manage** -> **Plans** as a backup destination.
+10. Finally, add your new Azure Storage resource to an existing or new plan in Commvault Command Center via **Manage** -> **Plans** under Storage policies copies.
 
     ![Screenshot of the Commvault Command Center user interface. In the left navigation, under **Manage**, **Plans** is selected.](../media/commvault-plan.png)
 

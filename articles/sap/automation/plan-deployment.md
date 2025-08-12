@@ -5,9 +5,10 @@ author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 12/14/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+# Customer intent: "As an IT architect planning an SAP deployment on Azure, I want to utilize the SAP Deployment Automation Framework, so that I can streamline the setup process by managing subscriptions, credentials, and network configurations effectively."
 ---
 
 # Plan your deployment of the SAP automation framework

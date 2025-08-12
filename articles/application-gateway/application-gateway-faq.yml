@@ -3,11 +3,11 @@ metadata:
   title: Frequently asked questions about Application Gateway
   description: Find answers to frequently asked questions about Azure Application Gateway.
   services: application-gateway
-  author: greg-lindsay
+  author: mbender-ms
   ms.service: azure-application-gateway
   ms.topic: faq
-  ms.date: 07/15/2024
-  ms.author: greglin
+  ms.date: 4/30/2025
+  ms.author: mbender
   ms.custom: references_regions, devx-track-azurepowershell
 title: Frequently asked questions about Application Gateway
 summary: |
@@ -599,6 +599,10 @@ sections:
           
       - question: Can I control which version of AGIC is deployed with the add-on?
         answer: No. The AGIC add-on is a managed service, which means Microsoft automatically updates the add-on to the latest stable version.
+
+      - question: Can I upgrade a cluster running Kubenet or Azure CNI to Azure CNI Overlay with AGIC installed?
+        answer: Yes, upgrade of the AKS cluster from Kubenet or CNI to CNI Overlay is automatically detected by Application Gateway Ingress Controller. It's recommended to schedule the upgrade during a maintenance window as traffic disruption can occur. The controller may take a few minutes post-cluster upgrade to detect and configure support for CNI Overlay.
+
 
   - name: 'Configuration: Mutual authentication'
     questions:
