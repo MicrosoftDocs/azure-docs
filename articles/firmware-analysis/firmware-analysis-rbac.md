@@ -65,7 +65,7 @@ The following table summarizes what roles you need to perform certain actions. T
 
 **Action** | **Role required**
 :---|:---
-Upload and analyze firmware | Owner, Contributor, Security Admin, Firmware Analysis Admin, Firmware Analysis User
+Upload and analyze firmware | Owner, Contributor, Security Admin, Firmware Analysis Admin, Firmware Analysis User 
 Invite third party users to see firmware analysis results | Owner
 Invite users to the Subscription | Owner at the **Subscription** level (Owner at the Resource Group level **cannot** invite users to the Subscription)
 View firmware analysis results | Owner, Contributor, Security Admin, Firmware Analysis Admin, Firmware Analysis User, Firmware Analysis Reader
