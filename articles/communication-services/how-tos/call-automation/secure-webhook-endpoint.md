@@ -27,8 +27,6 @@ Azure Communication Services relies on Azure Event Grid subscriptions to deliver
 
 [Call Automation events](../../concepts/call-automation/call-automation.md#call-automation-webhook-events) are sent to the webhook callback URI specified when you answer a call or place a new outbound call. Your callback URI must be a public endpoint with a valid HTTPS certificate, Domain Name System name, and IP address with the correct firewall ports open to enable Call Automation to reach it. This anonymous public web server could create a security risk if you don't take the necessary steps to secure it from unauthorized access.
 
-A common way that you can improve this security is by implementing an API key mechanism. Your web server can generate the key at runtime and provide it in the callback URI as a query parameter when you answer or create a call. Your web server can verify the key in the webhook callback from Call Automation before it allows access. Some customers require more security measures. In these cases, a perimeter network device might verify the inbound webhook, separate from the web server or application itself. The API key mechanism alone might not be sufficient.
-
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Secure webhook endpoint with .NET](./includes/secure-webhook-endpoint-csharp.md)]
 ::: zone-end
@@ -44,6 +42,9 @@ A common way that you can improve this security is by implementing an API key me
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Secure webhook endpoint with Python](./includes/secure-webhook-endpoint-python.md)]
 ::: zone-end
+
+> [!IMPORTANT]
+> Our service uses the default token standard described above. We do not support custom tokens or modified token formats.
 
 ## Call Automation WebSocket events
 
