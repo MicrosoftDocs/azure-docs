@@ -80,6 +80,11 @@ Perform one of the following options for your Windows Server 2012 R2 servers pri
 The following release notes are for Azure File Sync version 21.2.0.0 (released July 08, 2025). This release contains improvements for the Azure File Sync service and agent. 
 
 ### Improvements and issues that are fixed
+
+**Azure File Sync Agent Now Available via Arc Extension**
+
+Windows servers connected through Azure arc can now install Azure File Sync agent using a new extension called, Azure File Sync Agent for Windows. The new extension is published by Microsoft and can be managed using the Azure Portal, PowerShell or Azure CLI. To learn more, see the [Azure File Sync agent extension documentation.](/file-sync-extension?tabs=azure-portal)
+
 **Generally Available: Azure File Sync in Italy North**
 
 The expansion into Italy North brings the service closer to organizations in these regions, offering lower latency, better performance, and support for local data residency requirements.  

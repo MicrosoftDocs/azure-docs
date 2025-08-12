@@ -4,8 +4,8 @@ description: Learn how to use Azure Policy to autoenable backup for all VMs crea
 ms.topic: how-to
 ms.date: 06/09/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
 # Customer intent: As a Backup Admin, I want to automatically enable backup for all newly created virtual machines using Azure Policy, so that I can ensure business-critical data is protected without manual intervention.
 ---

@@ -4,8 +4,8 @@ description: Learn about the components of offline backup. They include offline 
 ms.topic: overview
 ms.date: 07/02/2025
 ms.custom: references_regions 
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a backup administrator, I want to understand the options for offline backup solutions, so that I can choose the best method for transferring large amounts of data without consuming network bandwidth.
 ---
 

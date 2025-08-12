@@ -42,11 +42,11 @@ Get-AzPolicyDefinition -Name 'b2982f36-99f2-4db5-8eff-283140c09693' | Select-Obj
 
 ## Export to CSV with Resource Graph in Azure portal
 
-Azure Resource Graph gives the ability to query at scale with complex filtering, grouping and sorting. Azure Resource Graph supports the policy resources table, which contains policy resources such as definitions, assignments and exemptions. Review our [sample queries.](../samples/resource-graph-samples.md#azure-policy). The Resource Graph explorer portal experience allows downloads of query results to CSV using the ["Download to CSV"](../../resource-graph/first-query-portal.md#download-query-results-as-a-csv-file) toolbar option.
+Azure Resource Graph gives the ability to query at scale with complex filtering, grouping and sorting. Azure Resource Graph supports the policy resources table, which contains policy resources such as definitions, assignments and exemptions. Review our [sample queries.](/azure/governance/policy/samples/resource-graph-samples#azure-policy). The Resource Graph explorer portal experience allows downloads of query results to CSV using the ["Download to CSV"](../../resource-graph/first-query-portal.md#download-query-results-as-a-csv-file) toolbar option.
 
 ## Next steps
 
-- Review examples at [Azure Policy samples](../samples/index.md).
+- Review examples at [Azure Policy samples](/azure/governance/policy/samples/index).
 - Review the [Azure Policy definition structure](../concepts/definition-structure-basics.md).
 - Review [Understanding policy effects](../concepts/effect-basics.md).
 - Understand how to [programmatically create policies](programmatically-create.md).

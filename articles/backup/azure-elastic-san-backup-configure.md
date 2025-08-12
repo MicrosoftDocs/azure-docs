@@ -2,9 +2,9 @@
 title: Configure Azure Elastic SAN backup using Azure portal (preview)
 description: Learn how to configure Azure Elastic SAN backup (preview) using Azure portal.
 ms.topic: how-to
-ms.date: 06/20/2025
-author: jyothisuri
-ms.author: jsuri
+ms.date: 07/15/2025
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As an IT administrator, I want to configure backup for Azure Elastic SAN using the Azure portal, so that I can ensure data protection and recovery for my storage resources."
 ---
 
@@ -39,7 +39,7 @@ To create a backup policy for Elastic SAN from Azure Business Continuity Center,
 1. On the **Schedule + retention** tab, under the **Backup schedule** section, set the schedule for creating recovery points for backups.
 
    >[!Note]
-   >Azure Backup currently supports **Daily** backup frequency only, which is selected by default.
+   >Azure Backup currently supports **Daily** and **Weekly**backup frequency. **Daily** backup is selected by default.
 
    :::image type="content" source="./media/azure-elastic-storage-area-network-backup-configure/set-backup-schedule.png" alt-text="Screenshot shows how to configure the backup schedule." lightbox="./media/azure-elastic-storage-area-network-backup-configure/set-backup-schedule.png":::
 

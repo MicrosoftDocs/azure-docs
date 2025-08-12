@@ -4,8 +4,8 @@ description: Learn how to use a script to disable soft delete for file shares in
 ms.topic: sample
 ms.date: 10/20/2024
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a cloud administrator, I want to disable soft delete for file shares in a storage account using a script, so that I can manage storage costs and configuration based on my organization's data retention policies."
 ---
 

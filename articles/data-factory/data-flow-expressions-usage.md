@@ -6,8 +6,8 @@ author: kromerm
 ms.author: makromer
 ms.subservice: data-flows
 ms.custom: synapse
-ms.topic: conceptual
-ms.date: 09/25/2024
+ms.topic: concept-article
+ms.date: 07/25/2025
 ---
 
 # Data transformation expression usage in mapping data flows
@@ -1776,7 +1776,7 @@ ___
 
 ### <code>nTile</code>
 <code><b>nTile([<i>&lt;value1&gt;</i> : integer]) => integer</b></code><br/><br/>
-The ```NTile``` function divides the rows for each window partition into `n` buckets ranging from 1 to at most `n`. Bucket values will differ by at most 1. If the number of rows in the partition doesn't divide evenly into the number of buckets, then the remainder values are distributed one per bucket, starting with the first bucket. The ```NTile``` function is useful for the calculation of ```tertiles```, quartiles, deciles, and other common summary statistics. The function calculates two variables during initialization: The size of a regular bucket will have one extra row added to it. Both variables are based on the size of the current partition. During the calculation process the function keeps track of the current row number, the current bucket number, and the row number at which the bucket will change (bucketThreshold). When the current row number reaches bucket threshold, the bucket value is increased by one and the threshold is increased by the bucket size (plus one extra if the current bucket is padded). 
+The ```NTile``` function divides the rows for each window partition into `n` buckets ranging from 1 to at most `n`. Bucket values differs by, at most, 1. If the number of rows in the partition doesn't divide evenly into the number of buckets, then the remainder values are distributed one per bucket, starting with the first bucket. The ```NTile``` function is useful for the calculation of ```tertiles```, quartiles, deciles, and other common summary statistics. The function calculates two variables during initialization: The size of a regular bucket has one extra row added to it. Both variables are based on the size of the current partition. During the calculation process, the function keeps track of the current row number, the current bucket number, and the row number at which the bucket changes (bucketThreshold). When the current row number reaches bucket threshold, the bucket value is increased by one and the threshold is increased by the bucket size (plus one extra if the current bucket is padded). 
 * ``nTile()``  
 * ``nTile(numOfBuckets)``  
 ___
@@ -1874,8 +1874,8 @@ ___
 <a name="random" ></a>
 
 ### <code>random</code>
-<code><b>random(<i>&lt;value1&gt;</i> : integral) => long</b></code><br/><br/>
-Returns a random number given an optional seed within a partition. The seed should be a fixed value and is used with the partitionId to produce random values  
+<code><b>random(<i>&lt;value1&gt;</i> : integral) => double</b></code><br/><br/>
+Returns a random number given a seed within a partition. The seed should be a fixed value and is used with the partitionId to produce random values in range (0.0-1.0).
 * ``random(1) == 1 -> false``
 ___
 
@@ -2502,7 +2502,7 @@ Converts a primitive datatype to a string. For numbers and date a format can be 
 
 ### <code>toTimestamp</code>
 <code><b>toTimestamp(<i>&lt;string&gt;</i> : any, [<i>&lt;timestamp format&gt;</i> : string], [<i>&lt;time zone&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Converts a string to a timestamp given an optional timestamp format. If the timestamp is omitted the default pattern yyyy-[M]M-[d]d hh:mm:ss[.f...] is used. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. Timestamp supports up to millisecond accuracy with value of 999. Refer to Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html. 
+Converts a string to a timestamp given an optional timestamp format. If the timestamp is omitted, the default pattern yyyy-[M]M-[d]d hh:mm:ss[.f...] is used. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. Timestamp supports up to millisecond accuracy with value of 999. Refer to Java's `SimpleDateFormat` class for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html. 
 * ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')``  
 * ``toTimestamp('2016-12-31T00:12:00', 'yyyy-MM-dd\'T\'HH:mm:ss', 'PST') -> toTimestamp('2016-12-31 00:12:00')``  
 * ``toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss') -> toTimestamp('2016-12-31 00:12:00')``  
@@ -2554,7 +2554,7 @@ ___
 
 ### <code>typeMatch</code>
 <code><b>typeMatch(<i>&lt;type&gt;</i> : string, <i>&lt;base type&gt;</i> : string) => boolean</b></code><br/><br/>
-Matches the type of the column. Can only be used in pattern expressions. Number matches short, integer, long, double, float or decimal, integral matches short, integer, long, fractional matches double, float, decimal and datetime matches date or timestamp type. 
+Matches the type of the column. Can only be used in pattern expressions. Number matches short, integer, long, double, float or decimal, integral matches short, integer, long, fractional matches double, float, decimal, and datetime matches date or timestamp type. 
 * ``typeMatch(type, 'number')``  
 * ``typeMatch('date', 'datetime')``  
 ___

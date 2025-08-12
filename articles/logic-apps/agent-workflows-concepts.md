@@ -5,7 +5,7 @@ author: ecfan
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, divswa, karansin, krmitta, kewear, azla
-ms.topic: conceptual
+ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.date: 05/21/2025
 ms.update-cycle: 180-days

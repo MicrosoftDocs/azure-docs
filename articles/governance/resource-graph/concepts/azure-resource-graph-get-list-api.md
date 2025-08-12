@@ -19,6 +19,8 @@ ARG GET/LIST provides a default quota of 4k per minute, user, and subscription, 
 > [!NOTE]
 > Keep in mind that the Azure Resource Manager quota applies to these calls. Read about the [Azure Resource Manager limits](../../../azure-resource-manager/management/request-limits-and-throttling.md#azure-resource-graph-throttling), which are the new limits that Azure Resource Manager follows for Azure Public cloud.  
 
+> [!VIDEO https://www.youtube.com/embed/h6ieZqCO_90]
+
 ## Using the ARG GET/LIST API 
 
 To use the [ARG GET/LIST API](./guidance-for-throttled-requests.md#arg-getlist-api), first identify whether or not your scenario matches the conditions mentioned in the guidance for throttled requests. You can then append the flag `&useResourceGraph=true` to your applicable GET/LIST API calls, which routes the request to this ARG backend for response.

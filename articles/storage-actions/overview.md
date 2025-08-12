@@ -20,7 +20,7 @@ Azure Storage Actions is a fully managed platform designed to automate data mana
 You can use Azure Storage Actions to automate tasks such as moving data to more cost-effective tiers, manage the retention of versions, snapshots or sensitive data sets, rehydrating data from archive storage so that it is available for immediate use, or manage blob index tags and metadata for better organization and data retrieval.
 
 > [!IMPORTANT]
-> Azure Storage Actions is generally available in these [regions](#supported-regions). Some regions remain in PREVIEW. For a list, see [Regions supported at the preview level](#regions-supported-at-the-preview-level).
+> Azure Storage Actions is generally available in these [regions](#supported-regions).
 
 ## Terms and definitions
 
@@ -62,7 +62,7 @@ See these articles to learn how to assign a storage task:
 - [Azure roles for storage task assignments](storage-tasks/storage-task-authorization-roles.md)
 
 > [!NOTE]
-> Storage task assignment can't target general-purpose v1 accounts because those accounts don't support the latest features. If you have a general-purpose v1 account, we recommend you to upgrade to [general-purpose v2 accounts](/azure/well-architected/service-guides/storage-accounts/operational-excellence#design-considerations) to use all the latest features.
+> Storage task assignment can't target general-purpose v1 and legacy Blob Storage accounts because those accounts don't support the latest features. If you have a general-purpose v1 or legacy Blob Storage account, we recommend you to upgrade to [general-purpose v2 accounts](/azure/well-architected/service-guides/storage-accounts/operational-excellence#design-considerations) to use all the latest features.
 
 ## Events
 
@@ -80,58 +80,17 @@ At the end of your billing cycle, the charges for each meter are summed. Your bi
 
 ## Supported Regions
 
-Azure Storage tasks are generally available in the following public regions:
-
-- West US 3
-
-- West Central US
-
-- UK West
-
-- UK South
-
-- UAE North
-
-- Sweden Central
-
-- Spain Central
-
-- South India
-
-- South Africa North
-
-- Norway East
-
-- Korea South
-
-- Korea Central
-
-- Jio India Central
-
-- Japan West
-
-- Japan East
-
-- Italy North
-
-- Israel Central
-
-- East US 2
+Azure Storage Actions is generally available in the following public cloud regions:
 
 - Australia Central
-
-## Regions supported at the preview level
-
-Azure Storage Actions is currently in PREVIEW and is available in the following region.
-See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-This list is temporary and will change over time as GA support continues to expand.
 
 - Australia East
 
 - Australia Southeast
 
-- Brazil south
+- Brazil South
+
+- Brazil Southeast
 
 - Canada Central
 
@@ -139,25 +98,71 @@ This list is temporary and will change over time as GA support continues to expa
 
 - Central US
 
+- East US 2
+
 - France Central
 
+- Germany North
+
 - Germany West Central
+
+- Israel Central
+
+- Italy North
+
+- Japan East
+
+- Japan West
+
+- Jio India Central
+
+- Korea Central
+
+- Korea South
 
 - North Central US
 
 - North Europe
 
-- South Central Us
+- Norway East
 
-- Southeast Asia
+- Norway West
+
+- South Africa North
+
+- South Africa West
+
+- South Central US
+
+- South India
+
+- Spain Central
+
+- Sweden Central
+
+- Sweden South
 
 - Switzerland North
+
+- Switzerland West
+
+- UAE Central
+
+- UAE North
+
+- UK South
+
+- UK West
+
+- West Central US
 
 - West Europe
 
 - West US
 
 - West US 2
+
+- West US 3
 
 ## Next steps
 

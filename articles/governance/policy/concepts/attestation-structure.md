@@ -75,4 +75,4 @@ Because attestations are a separate resource from policy assignments, they have 
 
 - [Azure Policy definitions effect basics](effect-basics.md).
 - [Azure Policy initiative definition structure](./initiative-definition-structure.md).
-- [Azure Policy samples](../samples/index.md).
+- [Azure Policy samples](/azure/governance/policy/samples/index).
