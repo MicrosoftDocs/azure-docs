@@ -98,7 +98,8 @@ To configure Azure Disk backup, follow these steps:
 
    :::image type="content" source="./media/backup-managed-disks/select-backup-vault.png" alt-text="Screenshot shows how to select a Backup vault." lightbox="./media/backup-managed-disks/select-backup-vault.png":::
 
-1. On the **Backup policy** tab, choose a Backup policy.
+1. On the **Configure Backup** pane, on the **Basics** tab, select **Next**.
+1. On the **Backup policy** tab, choose a Backup policy, and then select **Next**.
 
    :::image type="content" source="./media/backup-managed-disks/choose-backup-policy.png" alt-text="Screenshot shows how to choose a Backup policy." lightbox="./media/backup-managed-disks/choose-backup-policy.png":::
 
@@ -165,27 +166,27 @@ To configure Azure Disk backup, follow these steps:
    >[!Tip]
    >If you plan to configure backup for other disks in the same resource group/subscription in future, you can choose to provide permission at the scope of resource group or subscription.
 
-   :::image type="content" source="./media/backup-managed-disks/permission-deployment-in-progress-inline.png" alt-text="Screenshot showing the permission deployment." lightbox="./media/backup-managed-disks/permission-deployment-in-progress-expanded.png":::
-
-   :::image type="content" source="./media/backup-managed-disks/permission-waiting-to-propagate-inline.png" alt-text="Screenshot showing the permission waiting to propagate to the resource group." lightbox="./media/backup-managed-disks/permission-waiting-to-propagate-expanded.png":::
-
-   :::image type="content" source="./media/backup-managed-disks/revalidating-permission-propagation-inline.png" alt-text="Screenshot showing the attempts to revalidate permission propagate for failed scenarios." lightbox="./media/backup-managed-disks/revalidating-permission-propagation-expanded.png":::
-
    >[!Note]
    >- In some cases, it can take up to 30 minutes for the role assignments to propagate, causing revalidation failure. In this scenario, retry after some time.
    >- If the **Add missing roles** action fails  to assign permissions with the error ‘Insufficient permission for role assignment’ in Backup readiness column, it indicates that you don’t have the privilege to assign role permissions. Choose Download role assignment template to download role assignments as scripts and seek support from your IT Administrator to run the scripts to complete the prerequisites. 
 
-   :::image type="content" source="./media/backup-managed-disks/permission-propagation-taking-long-time-inline.png" alt-text="Screenshot showing the permission propagate instances taking longer time, upto 30 seconds." lightbox="./media/backup-managed-disks/permission-propagation-taking-long-time-expanded.png":::
+   :::image type="content" source="./media/backup-managed-disks/permission-propagation-taking-long-time.png" alt-text="Screenshot shows the permission propagate instances taking longer time, upto 30 seconds." lightbox="./media/backup-managed-disks/permission-propagation-taking-long-time.png":::
 
-1. After a successful validation, click **Next** to move to the **Review and configure** tab, and then click **Configure backup** to configure backup of selected disks.
+1. After a successful validation, select **Next**.
 
-   :::image type="content" source="./media/backup-managed-disks/configure-backup-of-selected-disks-inline.png" alt-text="Screenshot showing the process to configure backup of selected disks." lightbox="./media/backup-managed-disks/configure-backup-of-selected-disks-expanded.png":::
+1. On the **Review and configure** tab, select **Configure backup** to complete the backup configuration of selected disks.
 
-## Run an on-demand backup
+   :::image type="content" source="./media/backup-managed-disks/configure-backup-of-selected-disks.png" alt-text="Screenshot shows how to configure backup of selected disks." lightbox="./media/backup-managed-disks/configure-backup-of-selected-disks.png":::
+
+## Run an on-demand backup for Azure Disks
+
+You can run an on-demand backup for Azure Disks at any time. This is useful if you want to create a backup outside of the scheduled backup times defined in the backup policy.
+
+To run an on-demand backup for Azure Disks, follow these steps:
 
 1. In the *DemoVault* **Backup vault** created in the previous step, go to **Backup instances** and select a backup instance.
 
-   ![Select backup instance](./media/backup-managed-disks/select-backup-instance.png)
+   :::image type="content" source="./media/backup-managed-disks/select-backup-instance.png" alt-text="Screenshot shows the selection of backup instance." lightbox="./media/backup-managed-disks/select-backup-instance.png":::
 
 1. In the **Backup instances** screen, you'll find:
 
@@ -195,11 +196,11 @@ To configure Azure Disk backup, follow these steps:
 
 1. Select **Backup** to initiate an on-demand backup.
 
-   ![Select Backup Now](./media/backup-managed-disks/backup-now.png)
+   :::image type="content" source="./media/backup-managed-disks/backup-now.png" alt-text="Screenshot shows how to select Backup Now." lightbox="./media/backup-managed-disks/backup-now.png":::
 
 1. Select one of the retention rules associated with the backup policy. This retention rule will determine the retention duration of this on-demand  backup. Select **Backup now** to start the backup.
 
-   ![Initiate backup](./media/backup-managed-disks/initiate-backup.png)
+   :::image type="content" source="./media/backup-managed-disks/initiate-backup.png" alt-text="Screemshot shows how to start the backup operation." lightbox="./media/backup-managed-disks/initiate-backup.png":::
 
 ## Track a backup operation
 
