@@ -847,11 +847,11 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
 
 1. Once logged in, you see a long greeting message for **usera@contoso.com**.
 
-    :::image type="content" source="./media/feature-filters/variant-long-go.jpg" alt-text="Screenshot of Gin web app, showing a long message for the user.":::
+    :::image type="content" source="./media/feature-filters/variant-long-go.png" alt-text="Screenshot of Gin web app, showing a long message for the user.":::
 
 1. Click *Logout* and login as **userb@contoso.com**, you see the simple greeting message.
 
-    :::image type="content" source="./media/feature-filters/variant-simple-go.jpg" alt-text="Screenshot of Gin web app, showing a simple message for the user.":::
+    :::image type="content" source="./media/feature-filters/variant-simple-go.png" alt-text="Screenshot of Gin web app, showing a simple message for the user.":::
 
     > [!NOTE]
     > It's important for the purpose of this tutorial to use these names exactly. As long as the feature has been configured as expected, the two users should see different variants.
