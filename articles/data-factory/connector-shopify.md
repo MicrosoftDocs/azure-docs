@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 11/05/2024
+ms.date: 08/12/2025
 ---
 
 # Copy data from Shopify using Azure Data Factory or Synapse Analytics (Preview)
@@ -17,6 +17,9 @@ This article outlines how to use the Copy Activity in an Azure Data Factory or S
 
 > [!IMPORTANT]
 > This connector is currently in preview. You can try it out and give us feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
+
+> [!IMPORTANT]
+> The Shopify connector version 2.0 (Preview) provides improved native Shopify support. If you are using Shopify connector version 1.0 in your solution, please [upgrade the Shopify connector](#upgrade-the-shopify-connector-from-version-10-to-version-20) before **August 31, 2025**. Refer to this [section](#shopify-connector-lifecycle-and-upgrade) for details on the difference between version 2.0 (Preview) and version 1.0.
 
 ## Supported capabilities
 
@@ -70,7 +73,44 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The following properties are supported for Shopify linked service:
+The Shopify connector now supports version 2.0 (Preview). Refer to this [section](#upgrade-the-shopify-connector) to upgrade your Shopify connector version from version 1.0. For the property details, see the corresponding sections.
+
+- [Version 2.0 (Preview)](#version-20)
+- [Version 1.0](#version-10)
+
+### <a name="version-20"></a>Version 2.0 (Preview)
+
+The Shopify linked service supports the following properties when apply version 2.0 (Preview):
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property must be set to: **Shopify** | Yes |
+| version | The version that you specify. The value is `2.0`.  | Yes |
+| host | The endpoint of the Shopify server. (that is, mystore.myshopify.com)  | Yes |
+| accessToken | The API access token that can be used to access Shopify’s data. The token does not expire if it is offline mode. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+
+**Example:**
+
+```json
+{
+    "name": "ShopifyLinkedService",
+    "properties": {
+        "type": "Shopify",
+        "version": "2.0",
+        "typeProperties": {
+            "host" : "mystore.myshopify.com",
+            "accessToken": {
+                 "type": "SecureString",
+                 "value": "<accessToken>"
+            }
+        }
+    }
+}
+```
+
+### Version 1.0 
+
+The Shopify linked service supports the following properties when apply version 1.0:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -138,7 +178,7 @@ To copy data from Shopify, set the source type in the copy activity to **Shopify
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **ShopifySource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | No (if "tableName" in dataset is specified) |
+| query | Use the custom SQL query to read data. For example: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. <br><br>Apply only to version 1.0. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 
@@ -172,9 +212,43 @@ To copy data from Shopify, set the source type in the copy activity to **Shopify
 ]
 ```
 
+## Data type mapping for Shopify
+
+When you copy data from Shopify, the following mappings apply from Shopify's data types to the internal data types used by the service. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
+
+| Shopify data type | Interim service data type (for version 2.0) | Interim service data type (for version 1.0) |
+|------------------|----------------------------------|----------------------|
+| Boolean          | Boolean                          | Boolean              |
+| Int              | Int                              | Int                  |
+| UnsignedInt64    | UInt64                           | UInt64               |
+| Decimal          | Decimal                          | Decimal              |
+| Float            | Double                           | Double               |
+| String           | String                           | String               |
+| Date             | Date                             | Date                 |
+| DateTime         | DateTime                         | DateTime             |
+| ID               | String                           | String               |
+| URL              | String                           | String               |
+| CountryCode      | String                           | String               |
+| Other custom datatypes | String                     | String               |
+
+
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+## Shopify connector lifecycle and upgrade
+
+The following table shows the release stage and change logs for different versions of the Shopify connector:
+
+| Version  | Release stage | Change log |  
+| :----------- | :------- |:------- |
+| Version 1.0 | End of support announced | / |  
+| Version 2.0 | Public Preview | • `query` is not supported. <br><br> • `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported. |
+
+### <a name="upgrade-the-shopify-connector-from-version-10-to-version-20"></a> Upgrade the Shopify connector from version 1.0 to version 2.0 (Preview)
+
+1. In **Edit linked service** page, select 2.0 (Preview) for version. For more information, see [linked service version 2.0 (Preview) properties](#version-20).
+1. `query` is not supported in version 2.0 (Preview).
 
 
 ## Related content
