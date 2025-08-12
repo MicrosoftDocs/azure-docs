@@ -421,7 +421,7 @@ Enterprise administrators and department administrators are listed as invoice se
     - Understand how management group scope affects cost views. EA-based views are not supported in MCA. To work around this, rebuild views using billing profile and invoice section scopes.
     - Reconfigure the Export API using Azure Commerce Toolbox or PowerShell scripts to recreate export jobs with MCA-compatible APIs.
     - Confirm that your MCA billing scope aligns with the MCA framework. Refer to [Understand and work with scopes](../costs/understand-work-scopes.md) to learn more about the required agreement types, scopes and roles.
-    - To learn more about Exports data types and supported scopes, refer to [Understand export data types](../costs/tutorial-improved-exports#understand-export-data-types.md).
+    - To learn more about Exports data types and supported scopes, refer to the Understand export data types section in [this article](../costs/tutorial-improved-exports.md).
 - **Tax exemption certificates** - If your EA account has a tax exemption certificate, you need to create an Azure support request to have a support representative associate your existing tax exempt certificate to your new Microsoft Customer Agreement account. Create a support request in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 Here are some points to consider after migration.
