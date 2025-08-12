@@ -62,6 +62,8 @@ See the tables below for the permissions available for each role on the [sensor]
 
 ## Role-based permissions for OT network sensors
 
+To view role-based permissions, see [Access per privileged user](#access-per-privileged-user).
+
 | Permission | Read Only | Security Analyst | Admin |
 |--|--|--|--|
 | **View the dashboard** | ✔ | ✔ |✔ |
