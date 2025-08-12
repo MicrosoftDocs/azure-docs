@@ -9,4 +9,4 @@
  ms.custom: include file
 ---
 
-When the failed availability zone recovers, Storage automatically restores normal operations across all of the availability zones. During failback, the service automatically ensures data consistency by synchronizing any operations that occurred during the outage period.
+When the failed availability zone recovers, Storage automatically restores normal operations across all of the availability zones. The service automatically ensures data consistency by synchronizing any operations that occurred during the outage period.

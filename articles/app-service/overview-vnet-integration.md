@@ -3,13 +3,14 @@ title: Integrate your app with an Azure virtual network
 description: Integrate your app in Azure App Service with Azure virtual networks.
 author: seligj95
 ms.topic: conceptual
-ms.date: 03/14/2025
+ms.date: 08/11/2025
 ms.update-cycle: 1095-days
 ms.author: jordanselig
 ms.custom:
   - UpdateFrequency3
   - build-2025
 
+ms.service: azure-app-service
 ---
 # <a name="regional-virtual-network-integration"></a>Integrate your app with an Azure virtual network
 
@@ -215,12 +216,13 @@ There are some limitations with using virtual network integration:
 
 * The feature requires an unused subnet that's an IPv4 `/28` block or larger in an Azure Resource Manager virtual network. MPSJ requires a `/26` block or larger.
 * The app and the virtual network must be in the same region.
-* The integration virtual network can't have IPv6 address spaces defined.
 * The integration subnet can't have [service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) enabled.
 * You can't delete a virtual network with an integrated app. Remove the integration before you delete the virtual network.
 * You can't have more than two virtual network integrations per App Service plan. Multiple apps in the same App Service plan can use the same virtual network integration.
 * You can't change the subscription of an app or a plan while there's an app that's using virtual network integration.
 * App Service Logs to private storage accounts is currently not supported. We recommend using Diagnostics Logging and allowing Trusted Services for the storage account.
+* Connectivity to public Azure Storage accounts might fail for VNet-integrated apps when VNet Route All is enabled and the app does not use service endpoints, private endpoints, or User-Defined Routes (UDRs). Traffic is expected to route via the default route (Internet). This scenario is common when the storage account is in a different region than the virtual network.
+  * To restore or ensure connectivity, enable service endpoints for the storage account, configure private endpoints, or move the storage account to the same region as the virtual network. 
 
 ## Access on-premises resources
 
