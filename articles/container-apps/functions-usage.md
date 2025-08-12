@@ -48,7 +48,7 @@ The following steps show you how to use a sample container image to create your 
 
 1. Next to *Optimize for Azure Functions* check the checkbox.
 
-:::image type="content" source="media/functions-overview/functions-create-container-app.png" alt-text="Screenshot of the Azure portal when you create a container app pre-configured for Azure Functions.":::
+    :::image type="content" source="media/functions-overview/functions-create-container-app.png" alt-text="Screenshot of the Azure portal when you create a container app pre-configured for Azure Functions.":::
  
 1. Under *Container Apps environment* enter:
 
