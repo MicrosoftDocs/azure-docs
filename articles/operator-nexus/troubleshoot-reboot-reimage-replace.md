@@ -4,7 +4,7 @@ description: Troubleshoot cluster bare metal machines with Restart, Reimage, Rep
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
-ms.date: 04/03/2025
+ms.date: 08/12/2025
 author: eak13
 ms.author: ekarandjeff
 ---

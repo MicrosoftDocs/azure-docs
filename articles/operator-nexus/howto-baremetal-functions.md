@@ -5,7 +5,7 @@ author: eak13
 ms.author: ekarandjeff
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 04/02/2025
+ms.date: 08/12/2025
 ms.custom: template-how-to, devx-track-azurecli
 ---
 

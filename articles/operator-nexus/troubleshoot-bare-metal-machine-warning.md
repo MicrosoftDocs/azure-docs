@@ -4,7 +4,7 @@ description: Troubleshooting guide for Bare Metal Machines Warning status messag
 ms.service: azure-operator-nexus
 ms.custom: azure-operator-nexus
 ms.topic: troubleshooting
-ms.date: 04/17/2025
+ms.date: 08/12/2025
 author: robertstarling
 ms.author: robstarling
 ms.reviewer: ekarandjeff
