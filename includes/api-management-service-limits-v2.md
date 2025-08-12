@@ -6,14 +6,14 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: include
-ms.date: 10/15/2024
+ms.date: 08/12/2025
 ms.author: danlep
 ms.custom: Include file
 ---
 
 <!-- Limits - API Management v2 tiers  -->
+[!INCLUDE [api-management-service-limits-mitigation](api-management-service-limits-mitigation.md)]
 
-To request a limit increase, create a support request from the Azure portal. For more information, see [Azure support plans](https://azure.microsoft.com/support/options/).
 
 | Resource | Basic v2 | Standard v2 | Premium v2 |
 | ---------| ----------- | ----------- | ----------- |

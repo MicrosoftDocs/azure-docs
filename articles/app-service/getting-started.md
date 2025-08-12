@@ -7,6 +7,7 @@ ms.topic: overview
 ms.custom: devx-track-extended-java, devx-track-python, devx-track-js
 ms.date: 02/05/2025
 zone_pivot_groups: app-service-getting-started-stacks
+ms.service: azure-app-service
 ---
 
 # Getting started with Azure App Service
