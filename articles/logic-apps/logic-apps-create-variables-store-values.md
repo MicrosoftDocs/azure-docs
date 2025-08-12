@@ -43,7 +43,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 - Consumption workflows: [Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
 - Standard workflows: [Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md)
 
-Based on whether you have a Consumption or Standard workflow, follow the corresponding steps.
+Some steps differ slightly based on whether you have a Consumption or Standard workflow.
 
 <a name="create-variable"></a>
 
@@ -226,7 +226,7 @@ The following examples show other variable types:
 
 To retrieve or reference a variable's contents, you can use the [`variables()` function](expression-functions-reference.md#variables) in the workflow designer and the code view editor. When you reference a variable, use the variable's name as the token, not the action's name, which is the usual way to reference an action's outputs.
 
-For example, the following expression gets the items from the array variable [that you create in this guide](#append-value) by using the `variables()` function. The `string()` function returns the variable's contents in string format: `"1, 2, 3, red"`
+For example, the following expression gets the items from the array variable [that you create in this guide](#append-value) by using the `variables()` function. The `string()` function returns the variable's contents in string format: `"1, 2, 3, red"`.
 
 ```json
 @{string(variables('myArrayVariable'))}
@@ -272,7 +272,7 @@ If you switch from the designer to code view, the following example shows how th
 
 Variables are commonly used for counting the number of times that a loop runs. This example shows how you can create and use variables for this task by creating a loop that counts the attachments in an email.
 
-1. In the Azure portal, create your Consumption logic app resource with a blank workflow. Add a trigger that checks for new email and any attachments.
+1. In the Azure portal, create your logic app resource with a blank workflow. Add a trigger that checks for new email and any attachments.
 
    This example uses the Office 365 Outlook trigger for **When a new email arrives**. You can set up this trigger to fire only when the email has attachments. However, you can use any connector that checks for new emails with attachments, such as the Outlook.com connector.
 
@@ -455,7 +455,7 @@ The following table describes the information for the **Append to...** actions:
 
 If you switch from the designer to code view, the following example shows how the **Append to array variable** action appears in your workflow definition, which is in JSON format.
 
-The following example creates an array variable, and adds another value as the last item in the array. Your result is an updated variable that contains this array: `[1,2,3,"red"]`
+The following example creates an array variable, and adds another value as the last item in the array. Your result is an updated variable that contains this array: `[1,2,3,"red"]`.
 
 ```json
 "actions": {
