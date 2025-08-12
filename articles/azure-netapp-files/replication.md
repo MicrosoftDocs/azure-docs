@@ -45,7 +45,7 @@ In many cases, you can achieve resiliency across availability zones by implement
 
 Similarly to Azure NetApp Files [cross-region replication](#cross-region-replication), cross-zone replication provides data protection between volumes in different availability zones. You can asynchronously replicate data from an Azure NetApp Files volume (the source) in one availability zone to another Azure NetApp Files volume (the destination) in another availability zone. This capability enables you to fail over your critical application if a zone-wide outage or disaster happens.
 
-Cross-zone replication is available in all [availability zone-enabled regions](../reliability/regions-list.md) that have [Azure NetApp Files](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
+Cross-zone replication is available in all [availability zone-enabled regions](../reliability/regions-list.md) that support [Azure NetApp Files](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
 
 For more information about service-level objectives (SLOs), see [Azure NetApp Files reliability](../reliability/reliability-netapp-files.md#region-down-experience).
 
