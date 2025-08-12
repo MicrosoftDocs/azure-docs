@@ -4,7 +4,7 @@ description: Learn about the shared responsibility model for reliability on the 
 ms.service: azure
 ms.subservice: azure-reliability
 ms.topic: conceptual
-ms.date: 08/07/2025
+ms.date: 08/13/2025
 ms.author: anaharris
 author: anaharris-ms
 ms.custom: subject-reliability
