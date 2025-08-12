@@ -248,7 +248,7 @@ Commvault makes it easy to deploy their solution in Azure to protect Azure Virtu
 
 - [Deploy Commvault via Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/commvault.commvault?tab=Overview)
 - [Commvault for Azure datasheet](https://www.commvault.com/resources/microsoft-azure-cloud-platform-datasheet)
-- [How to use Commvault to protect SAP HANA in Azure](https://azure.microsoft.com/resources/protecting-sap-hana-in-azure/)
+- [How to use Commvault to protect SAP High-Performance ANalytic Appliance (HANA) in Azure](https://azure.microsoft.com/resources/protecting-sap-hana-in-azure/)
 
 ## Next steps
 
