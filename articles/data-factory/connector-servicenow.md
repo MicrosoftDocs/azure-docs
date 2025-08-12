@@ -36,7 +36,7 @@ The service provides a built-in driver to enable connectivity. Therefore you don
 
 ## Prerequisite
 
-To use this connector, you need to have a role with at least read access to *sys_db_object* and *sys_dictionary* tables in ServiceNow.
+To use this connector, you need to have a role with at least read access to *sys_db_object*, *sys_db_view* and *sys_dictionary* tables in ServiceNow.
 
 To access views in ServiceNow, you need to have a role with at least read access to *sys_db_view_table* and *sys_db_view_table_field* tables.
 
@@ -264,7 +264,7 @@ Here is an example of the source JSON using the expression parameter:
 ```
 
 > [!NOTE]
-> The columns `sys_id`, `u_id`, `sys_updated_by`, `sys_created_on`, `sys_mod_count`, `sys_updated_on`, `sys_tags`, and `sys_created_by` cannot be obtained due to ServiceNow API limitations.
+> The columns `sys_tags` and other related columns cannot be obtained due to ServiceNow API limitations.
     
 ## Lookup activity properties
 
