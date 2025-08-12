@@ -82,7 +82,7 @@ This list will be updated as more regions become available. The following region
 
 ## Supported SKUs
 
-This feature is supported on all SKUs supported by [Accelerated Networking](../virtual-network/accelerated-networking-overview.md) except the Dv5 VM family, which isn't yet supported during limited GA.
+This feature is supported on all SKUs supported by [Accelerated Networking](../virtual-network/accelerated-networking-overview.md) up to the v5 VM series.
 
 ## Supported enablement methods
 
