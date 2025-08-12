@@ -1,14 +1,14 @@
 ---
-title: Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud
-description: This article provides information about troubleshooting and frequently asked questions (FAQ) for Confluent Cloud on Azure.
-# customerIntent: As a developer I want to troubleshoot an error or get an answer to questions I have about using Apache Kafka & Apache Flink on Confluent Cloud.
+title: Troubleshoot Apache Kafka & Apache Flink on Confluent Cloud
+description: Learn how to troubleshoot and get answers to frequently asked questions for Confluent Cloud on Azure.
 ms.topic: conceptual
 ms.date: 1/31/2024
+# customerIntent: As a developer I want to troubleshoot an error or get an answer to questions I have about using Apache Kafka & Apache Flink on Confluent Cloud.
 ---
 
 # Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions
 
-This document contains information about troubleshooting your solutions that use Apache Kafka® & Apache Flink® on Confluent Cloud™ - An Azure Native ISV Service.
+This article describes how to troubleshoot your solutions that use Apache Kafka® & Apache Flink® on Confluent Cloud™ - An Azure Native ISV Service.
 
 If you don't find an answer or can't fix a problem, [create a request through the Azure portal](get-support.md) or contact [Confluent support](https://support.confluent.io).
 
@@ -52,13 +52,13 @@ If the deployment fails and Confluent Cloud resource has a status of `Failed`, d
 
 This error could be an intermittent problem with the Azure portal. Try to deploy the offer again.
 
-## Unable to delete
+## Can't delete a resource
 
-If you're unable to delete Confluent resources, check that you have permissions to delete the resource. You must be allowed to take Microsoft.Confluent/*/Delete actions. For information about viewing permissions, see [List Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-list-portal.yml).
+If you can't delete a Confluent resource, check that you have permissions to delete the resource. You must be allowed to take Microsoft.Confluent/*/Delete actions. For information about viewing permissions, see [List Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-list-portal.yml).
 
 If you have the correct permissions but still can't delete the resource, contact [Confluent support](https://support.confluent.io). This condition might be related to Confluent's retention policy. Confluent support can delete the organization and email address for you.
 
-## Unable to use single sign-on
+## Can't use single sign-on
 
 If SSO isn't working for the Confluent Cloud SaaS portal, check that you're using the correct Microsoft Entra ID email. You must also have consented to allow access for the Confluent Cloud software as a service (SaaS) portal. 
 

@@ -46,10 +46,10 @@ When you sign in to the Azure portal, your credentials are also used to sign in 
 
 ## Billing
 
-There are two billing options available: pay-as-you-go monthly plan and commitment plan.
+Choose from two billing options:
 
-- With the **pay-as-you-go monthly plan**, you receive the Confluent Cloud consumption charges on your Azure monthly bill.
-- With a **commitment plan**, you sign up for a minimum spend amount and get a discount on your committed usage of Confluent Cloud.
+- **Pay-as-you-go monthly plan**: Your Confluent Cloud consumption charges appear on your Azure monthly bill.
+- **Commitment plan**: You sign up for a minimum spend amount and get a discount on your committed usage of Confluent Cloud.
 
 You decide which billing option to use when you create the service.
 
@@ -59,6 +59,6 @@ You decide which billing option to use when you create the service.
 
 [!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]
 
-## Next steps
+## Related content
 
 - [QuickStart: Get started with Apache Kafka & Apache Flink on Confluent Cloud](create.md)

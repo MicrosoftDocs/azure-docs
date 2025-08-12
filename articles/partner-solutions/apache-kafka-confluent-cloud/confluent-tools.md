@@ -39,7 +39,7 @@ To learn more, see Confluent blog articles about Azure services that integrate w
 * [Search using Azure Cache for Redis and Azure Spring Cloud](https://www.confluent.io/blog/real-time-search-and-analytics-with-confluent-cloud-azure-redis-spring-cloud)
 * [Consume data with Confluent and Azure Databricks](https://www.confluent.io/blog/consume-avro-data-from-kafka-topics-and-secured-schema-registry-with-databricks-confluent-cloud-on-azure)
 
-## Next steps
+## Related content
 
 - For more help with using Apache Airflow on Astro, see the Apache Airflow on Astro documentation.
 - Get started with Apache Airflow on Astro – An Azure Native ISV Service on

@@ -122,7 +122,7 @@ In the **Environments (Preview)** menu, open a cluster, then the topic you want 
 > [!NOTE]
 > Azure only supports deleting topics created in Azure. To delete a topic created in Confluent, use the Confluent UI.
 
-## Next steps
+## Related content
 
 - For help with troubleshooting, see [Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions](troubleshoot.md).
 - Get started with Apache Kafka & Apache Flink on Confluent Cloud - An Azure Native ISV Service on

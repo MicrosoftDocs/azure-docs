@@ -5,7 +5,7 @@ ms.date: 02/18/2025
 ms.author: kkendrick
 ---
 
-If the review finds no errors, the **Create** button is enabled. Select it.
+If the review finds no errors, the **Create** button becomes active. Select **Create**.
 
 If the review identifies errors, a red dot appears next to each section where errors exist. To fix errors:
 

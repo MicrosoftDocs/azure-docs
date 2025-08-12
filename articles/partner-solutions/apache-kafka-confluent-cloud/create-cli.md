@@ -1,21 +1,20 @@
 ---
-title: 'Create Apache Kafka & Apache Flink on Confluent Cloud through Azure CLI'
-description: This quickstart describes how to use the Azure CLI to create an instance of Apache Kafka & Apache Flink on Confluent Cloud.
-# customerIntent: As a developer I want to create a new instance of Apache Kafka & Apache Flink on Confluent Cloud using the Azure CLI.
+title: 'Create Apache Kafka & Apache Flink on Confluent Cloud - Azure CLI'
+description: Complete the steps to use the Azure CLI to create an instance of Apache Kafka & Apache Flink on Confluent Cloud.
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
 ms.date: 1/31/2024
-
+# customerIntent: As a developer I want to create a new instance of Apache Kafka & Apache Flink on Confluent Cloud by using the Azure CLI.
 ---
 
-# QuickStart: Get started with Apache Kafka & Apache Flink on Confluent Cloud - Azure CLI
+# Quickstart: Get started with Apache Kafka & Apache Flink on Confluent Cloud - Azure CLI
 
-In this quickstart, you'll use the Azure Marketplace and Azure CLI to create an instance of Apache Kafka® & Apache Flink® on Confluent Cloud™ - An Azure Native ISV Service.
+In this quickstart, you use the Azure Marketplace and the Azure CLI to create an instance of Apache Kafka® & Apache Flink® on Confluent Cloud™ - An Azure Native ISV Service.
 
 ## Prerequisites
 
 - An Azure account. If you don't have an active Azure subscription, create a [free account](https://azure.microsoft.com/free/).
-- You must have the _Owner_ or _Contributor_ role for your Azure subscription. The integration between Azure and Confluent can only be set up by users with _Owner_ or _Contributor_ access. Before getting started, [confirm that you have the appropriate access](../../role-based-access-control/check-access.md).
+- You must have the Owner or Contributor role for your Azure subscription. The integration between Azure and Confluent can only be set up by users with Owner or Contributor access. Before you get started, [verify that you have the appropriate access](../../role-based-access-control/check-access.md).
 
 ## Find offer
 
@@ -94,9 +93,9 @@ Or, view the organization by resource ID:
 az confluent organization show --ids "/subscriptions/{SubID}/resourceGroups/{myResourceGroup}/providers/Microsoft.Confluent/organizations/{myOrganization}"
 ```
 
-If you get an error, see [Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions](troubleshoot.md).
+If you get an error, see [Troubleshoot Apache Kafka & Apache Flink on Confluent Cloud solutions](troubleshoot.md).
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Manage the Confluent Cloud resource](manage.md)

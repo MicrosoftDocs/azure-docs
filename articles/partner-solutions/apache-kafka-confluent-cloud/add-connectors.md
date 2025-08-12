@@ -100,6 +100,6 @@ Select a connection's checkbox and explore the following options:
 * Select **Edit** to edit connection details.
 * Select **Delete** to remove a connection.
 
-## Next step
+## Related content
 
 For help with troubleshooting, see [Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions](troubleshoot.md).

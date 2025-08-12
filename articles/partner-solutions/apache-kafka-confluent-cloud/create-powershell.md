@@ -8,7 +8,7 @@ ms.date: 1/31/2024
 
 ---
 
-# QuickStart: Get started with Apache Kafka & Apache Flink on Confluent Cloud - Azure PowerShell
+# Quickstart: Get started with Apache Kafka & Apache Flink on Confluent Cloud - Azure PowerShell
 
 In this quickstart, you'll use the Azure Marketplace and Azure PowerShell to create an instance of Apache Kafka® & Apache Flink® on Confluent Cloud™ - An Azure Native ISV Service.
 
@@ -102,7 +102,7 @@ Get-AzConfluentOrganization -Name myOrganization -ResourceGroupName myResourceGr
 
 If you get an error, see [Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions](troubleshoot.md).
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Manage the Confluent Cloud resource](manage.md)

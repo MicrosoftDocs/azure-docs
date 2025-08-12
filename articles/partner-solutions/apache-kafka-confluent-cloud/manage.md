@@ -47,6 +47,6 @@ Below the essentials, you can navigate to other details about your resource by s
 > - The cluster and all data in the cluster are permanently deleted. If your contract includes a data retention clause, Confluent keeps your data for the time period that is specified in the [Terms of Service](https://www.confluent.io/confluent-cloud-tos).
 > - You're billed for prorated usage up to the time of cluster deletion. After your cluster is permanently deleted, Confluent sends you an email confirmation.
 
-## Next steps
+## Related content
 
 [Troubleshoot Confluent Cloud](troubleshoot.md)

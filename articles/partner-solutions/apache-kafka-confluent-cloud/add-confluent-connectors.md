@@ -13,36 +13,36 @@ author: maud-lv
 Confluent Cloud offers a solution designed to help developers connect their Confluent clusters to popular data sources and sinks. This solution is available in Azure using the Confluent Connectors feature.
 
 > [!NOTE]
-> Currently, Apache Kafka® & Apache Flink® on Confluent Cloud™ - An Azure Native ISV Service only supports Confluent Connectors for Azure Blob Storage, including source and sink connectors.
+> Currently, Apache Kafka® & Apache Flink® on Confluent Cloud, an Azure Native ISV Service, supports only Confluent Connectors for Azure Blob Storage, including source and sink connectors.
 
-In this guide, you learn how to connect an instance of Apache Kafka & Apache Flink on Confluent Cloud to Azure Blob Storage.
+In this article, you learn how to connect an instance of Apache Kafka & Apache Flink on Confluent Cloud to Azure Blob Storage.
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 * An [Azure Blob Storage](/azure/storage/blobs/storage-quickstart-blobs-portal) resource.
-* A [Confluent organization](./create.md) created on Azure Native ISV Services
-* The Azure subscription Owner or subscription Contributor role is required. If necessary, contact your subscription administrator to assign you one of these roles.  
-* A [configured environment, cluster, and topic](https://docs.confluent.io/cloud/current/get-started/index.html) inside the confluent organization. If you don't have one already, go to Confluent to create these constructs.
+* A [Confluent organization](./create.md) created on Azure Native ISV Services.
+* The Azure subscription Owner or subscription Contributor role. If necessary, ask your subscription administrator to assign you one of these roles.  
+* A [configured environment, cluster, and topic](https://docs.confluent.io/cloud/current/get-started/index.html) inside the Confluent organization. If you don't have one already, go to Confluent to create these components.
 
 ## Create a Confluent sink Connector for Azure Blob Storage (preview)
 
-Follow these steps to create a sink connector for Azure Blob Storage.
+To create a sink connector for Azure Blob Storage:
 
-1. Open your Confluent organization and select **Confluent** > **Confluent Connectors (Preview)** from the left menu.
+1. In your Confluent organization, in the left menu, select **Confluent** > **Confluent Connectors (Preview)**.
 
-   :::image type="content" source="./media/confluent-connectors/create-new-connector.png" alt-text="Screenshot from the Azure portal showing the Confluent Connectors menu.":::
+   :::image type="content" source="./media/confluent-connectors/create-new-connector.png" alt-text="Screenshot from the Azure portal that shows the Confluent Connectors menu.":::
 
-2. Select **Create new connector**. A connector pane opens up on the right hand side. Select or enter the following information under **Create a new connector**.
+2. Select **Create new connector**. In the connector pane, **Create a new connector**, enter or select the information described in the following sections.
 
 ### Basics
 
-Set the basic settings below, then select **Next**.
+Set the following basic settings, and then select **Next**.
 
 | Setting             | Example value             | Description                                                                                                                                                                                                   |
 |---------------------|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Connector Type**  | *Sink*                    | A sink connector pulls data from Kafka topics and pushes it into an external database or system for storage or further processing.                                                                            |
-| **Connector Class** | *Azure Blob Storage Sink* | Select the Azure service you want to connect. Azure Blob Storage is currently the only available option.                                                                                                      |
+| **Connector Class** | *Azure Blob Storage Sink* | Select the Azure service you want to connect. Currently, Azure Blob Storage is the only available option.                                                                                                      |
 | **Connector name**  | *blob-sink-connector*     | Enter a name for your connector.                                                                                                                                                                              |
 | **Environment**     | *env1*                    | Select the environment where you would like to create this connector.                                                                                                                                         |
 | **Cluster**         | *cluster1*                | Select the cluster where you would like to create this connector.                                                                                                                                             |
@@ -141,7 +141,7 @@ A notification is displayed on the top right, calling out the status of the depl
 
     To learn more about a connector, select the connector tile, which opens the Confluent UI. On this page, you can see the connector health, throughput and other stats, edit, and delete the connector.
 
-## Next steps
+## Related content
 
 - For help with troubleshooting, see [Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions](troubleshoot.md).
 - Get started with Apache Kafka & Apache Flink on Confluent Cloud - An Azure Native ISV Service on

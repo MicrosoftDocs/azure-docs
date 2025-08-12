@@ -13,7 +13,8 @@ In this quickstart, you use the Azure portal to create an instance of Apache Kaf
 ## Prerequisites
 
 [!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
-- You must [subscribe to Confluent Cloud](overview.md#subscribe-to-confluent-cloud)
+
+- You must [subscribe to Confluent Cloud](overview.md#subscribe-to-confluent-cloud).
 
 ## Create a Confluent resource
 
@@ -21,44 +22,44 @@ In this quickstart, you use the Azure portal to create an instance of Apache Kaf
 
 ## Basics tab
 
-The *Basics* tab has three sections:
+The **Basics** tab has three sections:
 
-- Project details
-- Azure resource details
-- Confluent organization details
+- **Project details**
+- **Azure resource details**
+- **Confluent organization details**
 
-:::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Create a Confluent organization options inside of the Azure portal's working pane with the Basics tab displayed.":::
+:::image type="content" source="media/create/basics-tab.png" alt-text="Screenshot that shows the Create a Confluent organization options in the Azure portal on the Basics tab.":::
 
 There are required fields (identified with a red asterisk) in each section that you need to fill out.
 
-1. Enter the values for each required setting under *Project details*.
+1. Under **Project details**, enter or select values for these required settings:
 
     | Field               | Action                                                    |
     |---------------------|-----------------------------------------------------------|
-    | Subscription        | Select a subscription from your existing subscriptions.   |
-    | Resource group      | Use an existing resource group or create a new one.       |
+    | **Subscription**        | Select an existing subscription.   |
+    | **Resource group**      | Select an existing resource group, or create a new one.       |
 
-1. Enter the values for each required setting under *Azure Resource details*.
+1. Under **Azure Resource details**, enter or select values for these required settings:
 
     | Field              | Action                                    |
     |--------------------|-------------------------------------------|
-    | Resource name      | Specify a unique name for the resource.   |
-    | Region             | Select a region to deploy your resource.  |
+    | **Resource name**      | Enter a unique name for the resource.   |
+    | **Region**             | Select an Azure region for the resource deployment.  |
 
-1. Enter the values for each required setting under *Confluent organization details*.
+1. Under **Confluent organization details**, enter or select values for these required settings:
 
     | Field             | Action                                                                                           |
     |-------------------|--------------------------------------------------------------------------------------------------|
-    | Organization      | Choose to create a new organization, or associate your resource with an existing organization.   |
+    | **Organization**      | Select an existing organization, or create a new one.   |
 
     > [!NOTE]
-    > If you choose to associate your resource with an existing organization, the resource is billed to that organization's plan. 
+    > If you select an existing organization, the resource is billed to that organization's billing plan.
 
-    Select the **Change plan** link to change your [billing plan](overview.md#billing).
+    To change your [billing plan](overview.md#billing), select **Change plan**.
 
-    The remaining fields update to reflect the details of the plan you selected for this new organization.
+    If you create a new organizaton, the remaining fields update to reflect the details of the plan you select for the new organization.
 
-1. Select the **Next** button at the bottom of the page.
+1. Select **Next**.
 
 ### Tags tab (optional)
 
@@ -68,6 +69,6 @@ There are required fields (identified with a red asterisk) in each section that 
 
 [!INCLUDE [review-create](../includes/review-create.md)]
 
-## Next steps
+## Related content
 
 - [Manage a Confluent Cloud resource](manage.md)

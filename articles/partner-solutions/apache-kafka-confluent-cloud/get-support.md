@@ -35,7 +35,7 @@ To submit a request from your resource, follow these steps:
 
     :::image type="content" source="media/support-request.png" alt-text="Create a support request from instance.":::
 
-## Next steps
+## Related content
 
 - For help with troubleshooting, see [Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions](troubleshoot.md).
 - Get started with Apache Kafka & Apache Flink on Confluent Cloud - An Azure Native ISV Service on
