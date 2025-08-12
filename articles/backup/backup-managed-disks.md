@@ -127,7 +127,7 @@ To configure Azure Disk backup, follow these steps:
 
    - Once you configure the backup of a disk, you can’t change the Snapshot Resource Group that’s assigned to a backup instance.   
 
-1. Once the validation is complete, check if there are any errors reported in the Backup readiness column.
+1. When the validation is complete, check if there are any errors reported in the Backup readiness column.
 
    >[!Note]
    >Validation might take few minutes to complete. Validation may fail if:
@@ -152,15 +152,15 @@ To configure Azure Disk backup, follow these steps:
    >[!Note]
    >The Configure Backup flow using Azure portal helps you in granting required role permissions to the above resources. 
 
-1. Select the checkbox next to each row with the _Role assignment not done_ error message status in the Backup readiness column and click **Add missing roles** to automatically grant required role permissions for the Backup vault managed identity on selected resources.
+1. Select the checkbox next to each row with the _Role assignment not done_ error message status in the Backup readiness column and select **Add missing roles** to automatically grant required role permissions for the Backup vault managed identity on selected resources.
 
-   :::image type="content" source="./media/backup-managed-disks/add-missing-roles-inline.png" alt-text="Screenshot showing the process to add missing roles." lightbox="./media/backup-managed-disks/add-missing-roles-expanded.png":::
+   :::image type="content" source="./media/backup-managed-disks/add-missing-roles.png" alt-text="Screenshot shows how to add missing roles." lightbox="./media/backup-managed-disks/add-missing-roles.png":::
 
-1. Click **Confirm** to provide consent. Azure Backup will automatically propagate role assignment changes on your behalf and try to revalidate.
+1. Select **Confirm** to provide consent. Azure Backup will automatically propagate role assignment changes on your behalf and try to revalidate.
 
    If you want to grand permission for the Backup vault managed identity to the selected disk(s) and snapshot resource group, select **Resource** in the **Scope** drop-down list. 
 
-   :::image type="content" source="./media/backup-managed-disks/confirm-role-propagation-inline.png" alt-text="Screenshot showing the option to provide consent to Azure Backup for automatic role assignment." lightbox="./media/backup-managed-disks/confirm-role-propagation-expanded.png":::
+   :::image type="content" source="./media/backup-managed-disks/confirm-role-propagation.png" alt-text="Screenshot shows the option to provide consent to Azure Backup for automatic role assignment." lightbox="./media/backup-managed-disks/confirm-role-propagation.png":::
 
    >[!Tip]
    >If you plan to configure backup for other disks in the same resource group/subscription in future, you can choose to provide permission at the scope of resource group or subscription.
