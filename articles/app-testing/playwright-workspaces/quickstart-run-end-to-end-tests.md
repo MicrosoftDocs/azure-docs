@@ -124,6 +124,12 @@ We recommend that you use the `dotenv` module to manage your environment. With `
     npm i --save-dev dotenv
     ```
 
+1. Add the following code snippet in playwright.service.config.ts:
+
+    ```js
+    require('dotenv').config();
+    ```
+    
 1. Create a `.env` file alongside the `playwright.config.ts` file in your Playwright project:
 
     ```

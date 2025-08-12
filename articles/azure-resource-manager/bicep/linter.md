@@ -51,6 +51,7 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 | <a id='simplify-json-null' />[simplify-json-null](./linter-rule-simplify-json-null.md) | warning |
 | <a id='use-parent-property' />[use-parent-property](./linter-rule-use-parent-property.md) | warning |
 | <a id='use-recent-api-versions' />[use-recent-api-versions](./linter-rule-use-recent-api-versions.md) | off |
+| <a id='use-recent-az-powershell-version' />[use-recent-az-powershell-version](./linter-rule-use-recent-az-powershell-version.md) | warning |
 | <a id='use-recent-module-versions' />[use-recent-module-versions](./linter-rule-use-recent-module-versions.md) | off |
 | <a id='use-resource-id-functions' />[use-resource-id-functions](./linter-rule-use-resource-id-functions.md) | off |
 | <a id='use-resource-symbol-reference' />[use-resource-symbol-reference](./linter-rule-use-resource-symbol-reference.md) | warning |
