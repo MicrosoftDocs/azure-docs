@@ -31,6 +31,7 @@ Use the following migration guides as examples to help structure your migration 
 | Scenario | Key services | Description |
 |--|--|--|
 | [Connect AWS and Azure using a BGP-enabled VPN gateway](/azure/vpn-gateway/vpn-gateway-howto-aws-bgp) |  AWS virtual private gateway to Azure VPN gateway | Demonstrates how to set up a BGP-enabled connection between Azure and Amazon Web Services (AWS). |
+| [Migrate Network Load Balancing from AWS to Azure](/azure/load-balancer/network-load-balancing-aws-to-azure-how-to) | AWS Network Load Balancer to Azure Load Balancer | Demonstrates how to migrate an AWS Network Load Balancer (NLB) to an Azure Load Balancer, including TCP and UDP protocols. |
 
 ## Related workload components
 
