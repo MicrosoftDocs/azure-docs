@@ -9,6 +9,7 @@ ms.author: msangapu
 author: msangapu-msft
 ms.custom: UpdateFrequency3
 #customer intent: As an app developer, I want to understand the diagnostic tools that I can use with Azure App Service.
+ms.service: azure-app-service
 ---
 # Diagnostics in Azure App Service
 

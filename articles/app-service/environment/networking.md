@@ -5,6 +5,7 @@ author: seligj95
 ms.topic: overview
 ms.date: 08/06/2024
 ms.author: jordanselig
+ms.service: azure-app-service
 ---
 
 # App Service Environment networking

@@ -9,6 +9,7 @@ ms.author: jordanselig
 ms.custom:
   - "UpdateFrequency3, references_regions"
   - build-2025
+ms.service: azure-app-service
 ---
 
 # App Service Environment overview

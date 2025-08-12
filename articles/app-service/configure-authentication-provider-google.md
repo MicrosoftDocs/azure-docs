@@ -7,6 +7,7 @@ ms.date: 03/29/2021
 ms.custom: fasttrack-edit, AppServiceIdentity
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
 ---
 
 # Configure your App Service or Azure Functions app to use Google authentication
