@@ -49,9 +49,13 @@ The retirement takes effect globally across all Azure regions.
 GPv2 supports all capabilities of GPv1 and adds several enhancements, including cost optimization and richer management tools.
 
 ## Plan for pricing changes when upgrading GPv1 → GPv2
+> [!WARNING]
+> Upgrading from General-purpose v1 (GPv1) to General-purpose v2 (GPv2) introduces a new pricing model that may increase costs for certain workloads—especially those with high read, write, or list operations.
+>
+> However, GPv2 also unlocks modern features such as [access tiers](../blobs/access-tiers-overview.md) and expanded redundancy options, which can reduce **per-GB storage costs** and improve **performance, scalability, and manageability**.
+>
+> Be aware that **transaction pricing differs** in GPv2. Workloads with frequent operations may incur **higher charges** unless cost-optimization strategies are applied.
 
->[!NOTE]
->Upgrading from GPv1 to GPv2 enables modern features such as [access tiers](../blobs/access-tiers-overview.md), and broader redundancy options. These features can reduce **storage per-GB** costs, but **transaction pricing differs** on GPv2. Workloads with high read, write, or list activity may see **higher operations charges** unless cost-optimization features are used.
 
 ### Model your costs before upgrading
 1. Capture a baseline of monthly operations by type (**read, write, list/metadata**) and any **egress**.

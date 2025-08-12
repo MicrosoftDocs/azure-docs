@@ -68,10 +68,6 @@ GPv2 supports all blob features available in BlobStorage accounts—and more—w
 >[!Warning]
 >If you do not migrate your Blob-Only storage account to GPv2 by August 31, 2025, all existing Blob-Only accounts will be auto migrated over to a GPv2 account, which may result in higher billing costs. Your decision not to migrate an existing Blob-Only account will be construed as consent for Microsoft to migrate the account on your behalf.
 
->[!NOTE]
->GPv2 uses a different transaction pricing model than legacy accounts. Review cost considerations before migrating.  
->See [plan for pricing changes when upgrading GPv1 to GPv2](general-purpose-version-1-account-migration-overview.md#plan-for-pricing-changes-when-upgrading-gpv1--gpv2).
-
 >[!Tip]
 >Most blob-only workloads can migrate from Blob-Only Storage to GPv2 without code changes. Review any hardcoded pricing assumptions or tier-unaware logic to ensure compatibility with GPv2 features.
 >GPv2 enables per-blob tiering and lifecycle rules, offering better cost optimization and automation.
