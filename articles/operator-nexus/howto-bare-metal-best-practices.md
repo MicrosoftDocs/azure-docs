@@ -125,58 +125,60 @@ Message=[SYS043: Successfully exported Server Configuration Profile]
 Percent Complete=[100]
 ```
 
-#### Monitor progress using `run-read-command`
+#### Monitor status in Bare Metal Machine JSON properties
 
-In version 2506.2 and above, you can monitor the progress of long running Bare Metal Machine actions using a `run-read-command`.
+In version 2509.1 and above, you can view the status of any recent or in progress actions in the `JSON View` of the corresponding Bare Metal Machine (Operator Nexus) resource. This shows the following information in the Bare Metal Machine JSON properties, when using API Version `2025-07-01-preview` or higher.
 
-- Some long running actions such as `Replace` or `Reimage` are composed of multiple steps, for example, `Hardware Validation`, `Deprovisioning`, or `Provisioning`.
-- The following `run-read-command` shows how to view the different steps in each action, and the progress or status of each step including any potential errors.
-- This information is available on the BareMetalMachine kubernetes resource during or after the action is completed.
-- For more information about the `run-read-command` feature, see [BareMetal Run-Read Execution](./howto-baremetal-run-read.md).
+- Start and end time of the action.
+- Status of the action (e.g., `Succeeded`, `Failed`, `InProgress`).
+- Any additional context or error message associated with the status.
+- The Correlation ID for the original action request, as shown in the Azure Activity Log for the resource.
+- The detailed steps included in the action, such as `Hardware Validation`, `Deprovisioning`, `Provisioning` and `Cloud Init` for a BMM Replace action.
 
-Example `run-read-command` to view action progress on Bare Metal Machine `rack2compute08`:
-
-```azurecli
-az networkcloud baremetalmachine run-read-command \
-  -g <ResourceGroup_Name> \
-  -n <Control Node BMM Name> \
-  --limit-time-seconds 60 \
-  --commands "[{command:'kubectl get',arguments:[-n,nc-system,bmm,rack2compute08,-o,json]}]" \
-  --output-directory .
-```
+The most recent (or currently in progress) occurrence of each action type is shown (Replace, Reimage, Restart etc).
 
 Example output for a Replace action:
 
 ```json
-[
-  {
-    "correlationId": "961a6154-4342-4831-9693-27314671e6a7",
-    "endTime": "2025-05-15T21:20:44Z",
-    "startTime": "2025-05-15T20:16:19Z",
-    "status": "Completed",
-    "stepStates": [
+{
+  "properties": {
+    "actionStates": [
       {
-        "endTime": "2025-05-15T20:25:51Z",
-        "name": "Hardware Validation",
-        "startTime": "2025-05-15T20:16:19Z",
-        "status": "Completed"
-      },
-      {
-        "endTime": "2025-05-15T20:26:21Z",
-        "name": "Deprovisioning",
-        "startTime": "2025-05-15T20:25:51Z",
-        "status": "Completed"
-      },
-      {
-        "endTime": "2025-05-15T21:20:44Z",
-        "name": "Provisioning",
-        "startTime": "2025-05-15T20:26:21Z",
-        "status": "Completed"
+        "actionType": "Microsoft.NetworkCloud/bareMetalMachines/replace",
+        "correlationId": "25d678cb-353c-41f4-8231-1135064ae582",
+        "endTime": "2025-08-12T17:00:58Z",
+        "startTime": "2025-08-12T15:32:12Z",
+        "status": "Completed",
+        "stepStates": [
+          {
+            "endTime": "2025-08-12T15:41:22Z",
+            "startTime": "2025-08-12T15:32:12Z",
+            "status": "Completed",
+            "stepName": "Hardware Validation"
+          },
+          {
+            "endTime": "2025-08-12T16:25:39Z",
+            "startTime": "2025-08-12T15:41:22Z",
+            "status": "Completed",
+            "stepName": "Deprovisioning"
+          },
+          {
+            "endTime": "2025-08-12T16:48:27Z",
+            "startTime": "2025-08-12T16:25:39Z",
+            "status": "Completed",
+            "stepName": "Provisioning"
+          },
+          {
+            "endTime": "2025-08-12T17:00:58Z",
+            "startTime": "2025-08-12T16:48:27Z",
+            "status": "Completed",
+            "stepName": "Cloud Init"
+          }
+        ]
       }
-    ],
-    "type": "Microsoft.NetworkCloud/bareMetalMachines/replace"
+    ]
   }
-]
+}
 ```
 
 ## Best practices for a Bare Metal Machine reimage
