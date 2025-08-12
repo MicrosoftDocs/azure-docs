@@ -14,7 +14,7 @@ ms.custom:
 
 # Multi-region solutions in nonpaired regions
 
-While some Azure services support geo-redundancy and geo-replication by using paired regions, you can create solutions that support multiple regions [even when those regions aren't paired](./regions-paired.md). This article lists some of the services and possible configurations for multi-region solutions, without requiring paired regions. To learn more about each Azure service and how it supports reliability, see the [Azure service reliability guides](./overview-reliability-guidance.md).
+Some Azure services support geo-redundancy and geo-replication by using paired regions, but you can create solutions that support multiple regions [even when those regions aren't paired](./regions-paired.md). This article lists some of the services and possible configurations for multi-region solutions, without requiring paired regions. To learn more about each Azure service and how it supports reliability, see the [Azure service reliability guides](./overview-reliability-guidance.md).
 
 ## Azure AI Search
 
@@ -93,7 +93,7 @@ Azure Service Bus can provide regional resiliency, without a dependency on regio
 
 For geo-replication in nonpaired regions with Azure SQL Database, you can use:
 
-- [Failover group feature](/azure/azure-sql/database/failover-group-sql-db?view=azuresql&preserve-view=true) that replicates across any combination of Azure regions without any dependency on underlying storage GRS.
+- [Failover group feature](/azure/azure-sql/database/failover-group-sql-db?view=azuresql&preserve-view=true) that replicates across any combination of Azure regions without any dependency on underlying geo-redundant storage (GRS).
 
 - [Active geo-replication feature](/azure/azure-sql/database/active-geo-replication-overview?view=azuresql&preserve-view=true) to create a continuously synchronized readable secondary database for a primary database. The readable secondary database might be in the same Azure region as the primary or, more commonly, in a different region. This kind of readable secondary database is also known as a *geo-secondary* or *geo-replica*.
 
@@ -101,7 +101,7 @@ For geo-replication in nonpaired regions with Azure SQL Database, you can use:
 
 For geo-replication in nonpaired regions with Azure SQL Managed Instance, you can use:
 
-- [Failover group feature](/azure/azure-sql/managed-instance/failover-group-sql-mi?view=azuresql&preserve-view=true) that replicates across any combination of Azure regions without any dependency on underlying storage GRS.
+- [Failover group feature](/azure/azure-sql/managed-instance/failover-group-sql-mi?view=azuresql&preserve-view=true) that replicates across any combination of Azure regions without any dependency on underlying GRS.
 
 ## Azure Storage
 
@@ -109,7 +109,7 @@ To achieve geo-replication in nonpaired regions:
 
 - **For object storage:** To learn about how to create multi-region solutions using Azure Blob Storage, see [Reliability in Azure Blob Storage](./reliability-storage-blob.md).
 
-- **For Azure NetApp Files**, you can replicate to a set of nonstandard pairs besides Azure region pairs. To learn more, see [Reliability in Azure NetApp Files](reliability-netapp-files.md).
+- **For Azure NetApp Files**, you can replicate to a set of nonstandard pairs besides Azure region pairs. For more information, see [Reliability in Azure NetApp Files](reliability-netapp-files.md).
 
 - **For Azure Files:**
 
