@@ -3,7 +3,7 @@ title: Use Customer-Managed Keys to Encrypt Configuration Data
 description: Find out how to use a customer-managed key to encrypt your configuration data so you can rotate the key on demand and revoke access to the key if needed.
 author: maud-lv
 ms.author: malev
-ms.date: 02/20/2024
+ms.date: 08/12/2025
 ms.custom: devdivchpfy22, devx-track-azurecli
 ms.topic: conceptual
 ms.service: azure-app-configuration
@@ -20,7 +20,7 @@ App Configuration encrypts sensitive information at rest by using a 256-bit Adva
 When you use a customer-managed key in App Configuration, the following events take place:
 
 * App Configuration uses a managed identity assigned to the App Configuration store to authenticate with Microsoft Entra ID.
-* The managed identity calls Azure Key Vault and wraps the encryption key of the App Configuration store.
+* The managed identity calls Key Vault and wraps the encryption key of the App Configuration store.
 * The wrapped encryption key is stored.
 * The unwrapped encryption key is cached within App Configuration for one hour.
 * Every hour, App Configuration refreshes the unwrapped version of the encryption key of the App Configuration store.
@@ -38,17 +38,17 @@ This process ensures availability under normal operating conditions.
 
 ## Requirements
 
-This article shows you how to set up the following components, which are required to successfully enable the customer-managed key capability for Azure App Configuration:
+The following components are required to successfully enable the customer-managed key capability for App Configuration. This article shows you how to set up these components.
 
-* A Standard-tier or Premium-tier Azure App Configuration store.
-* An instance of Azure Key Vault that has the soft-delete and purge-protection features enabled.
+* A Standard-tier or Premium-tier App Configuration store.
+* An instance of Key Vault that has the soft-delete and purge-protection features enabled.
 * A key in the key vault that meets the following requirements:
-  * It uses use Rivest-Shamir-Adleman (RSA) encryption or RSA encryption that uses a hardware security module (RSA-HSM).
-  * It's not expired.
+  * It uses Rivest-Shamir-Adleman (RSA) encryption or RSA encryption that uses a hardware security module (RSA-HSM).
+  * It isn't expired.
   * It's enabled.
   * It has wrap and unwrap capabilities enabled.
 
-After showing you how to configure these resources, the article walks you through the following steps so your App Configuration store can use the Key Vault key:
+After this article shows you how to configure these resources, it walks you through the following steps so your App Configuration store can use the Key Vault key:
 
 1. Assign a managed identity to the App Configuration store.
 1. Grant permissions to the identity so it can access the Key Vault key:
@@ -63,7 +63,7 @@ To use customer-managed key encryption, take the steps in the following sections
 
 1. Create an App Configuration store in the Standard or Premium tier if you don't have one. For instructions, see [Quickstart: Create an Azure App Configuration store](./quickstart-azure-app-configuration-create.md).
 
-1. Run the following Azure CLI command to create an instance of Azure Key Vault that has purge protection enabled. Soft delete is enabled by default. Replace `<vault-name>` and `<resource-group-name>` with your own unique values.
+1. Run the following Azure CLI command to create an instance of Key Vault that has purge protection enabled. Soft delete is enabled by default. Replace `<vault-name>` and `<resource-group-name>` with your own unique values.
 
     ```azurecli
     az keyvault create --name <vault-name> --resource-group <resource-group-name> --enable-purge-protection
@@ -82,33 +82,34 @@ To use customer-managed key encryption, take the steps in the following sections
 
     * Use the `az ad user show --id <user-principal-name>` command in the Azure CLI, where `<user-principal-name>` is your user principal name (UPN).
 
-    * Use the Azure portal:
+    * Use the [Azure portal](https://portal.azure.com):
       1. Select **Microsoft Entra ID**, and then select **Manage** > **Users**.
-      1. Enter your name in the search box, and then select your user in the results.
+      1. Enter your name in the search box, and then select your username in the results.
       1. Copy the **Object ID** value.
+
+    Assign yourself access by running the command that's appropriate for the authorization system of your key vault:
 
     ### [Azure RBAC](#tab/azurerbac)
 
     Replace the placeholders with the following values:
 
     * For `<user-object-ID>`, use the object ID you just found.
-    * For `<role>`, use a role like **Key Vault Crypto Officer** or **Key Vault Administrator** that gives you the access you need to create a key.
-    * For `<vault-resource-ID>`, use the key vault ID from the previous step.
+    * For `<role>`, use a role such as **Key Vault Crypto Officer** that gives you the access you need to create a key. Enclose the role in quotation marks.
+    * For `<vault-resource-ID>`, use the key vault resource ID from the previous step.
 
     ```azurecli
     az role assignment create --assignee <user-object-ID> --role <role> --scope <vault-resource-ID>
     ```
 
-    ### [Access Policy](#tab/accesspolicy)
+    ### [Access policy](#tab/accesspolicy)
 
     Replace the placeholders with the following values:
 
-    * For `<vault-name>`, use the name of the key vault you created in step 2.
-    * For `<resource-group-name>`, use the name of the resource group you used in step 2.
+    * For `<vault-name>`, use the name of the key vault from step 2.
     * For `<user-object-ID>`, use the object ID you just found.
 
     ```azurecli
-    az keyvault set-policy -n <vault-name> --resource-group <resource-group-name> --object-id <user-object-ID> --key-permissions create
+    az keyvault set-policy -n <vault-name> --object-id <user-object-ID> --key-permissions create
     ```
 
     ---
@@ -119,7 +120,7 @@ To use customer-managed key encryption, take the steps in the following sections
     * For `<key-type>`:
       * Use `RSA` for RSA encryption.
       * Use `RSA-HSM` for RSA-HSM encryption. RSA-HSM encryption is only available in the Premium tier.
-    * For `<vault-name>`, use the name of the key vault you created in step 2.
+    * For `<vault-name>`, use the name of the key vault from step 2.
 
     ```azurecli
     az keyvault key create --name <key-name> --kty <key-type> --vault-name <vault-name>
@@ -129,7 +130,7 @@ To use customer-managed key encryption, take the steps in the following sections
 
     `https://<vault-name>.vault.azure.net/keys/<key-name>/<key-version>`
 
-    The key ID consists of three components:
+    The key ID contains the following components:
     
     * The key vault URI: `https://<vault-name>.vault.azure.net`
     * The key vault key name: `<key-name>`
@@ -140,7 +141,7 @@ To use customer-managed key encryption, take the steps in the following sections
     * To create a user-assigned managed identity, follow the steps in [Adding a user-assigned identity](./overview-managed-identity.md#adding-a-user-assigned-identity). Note the values of the `clientId` and `principalId` properties of the identity.
 
     * To create a system-assigned managed identity, use the following Azure CLI command. Replace the placeholders with the following values:
-      * For `<App-Configuration-store-name>`, use the name of the App Configuration store you created in step 1.
+      * For `<App-Configuration-store-name>`, use the name of the App Configuration store from step 1.
       * For `<resource-group-name>`, use the name of the resource group that contains your App Configuration store.
 
     ```azurecli
@@ -163,13 +164,13 @@ To use customer-managed key encryption, take the steps in the following sections
 The managed identity of your App Configuration store needs access to the key to perform key validation, encryption, and decryption. Specifically, the managed identity needs access to the `GET`, `WRAP`, and `UNWRAP` actions for keys.
 
 * For key vaults that use Azure RBAC, you can grant these permissions by assigning the **Key Vault Crypto Service Encryption User** role to the managed identity.
-* For key vaults that use access policy authorization, you can set a policy for the these key permissions.
+* For key vaults that use access policy authorization, you can set a policy for these key permissions.
 
 1. Grant the managed identity access to the managed key by using the command that's appropriate for the authorization system of your key vault. For both systems, replace `<managed-identity-principal-ID>` with the principal ID from the previous step.
 
     ### [Azure RBAC](#tab/azurerbac)
 
-    Replace `<key-vault-resource-id>` with the resource ID of the key vault you created in step 2 of [Create resources](#create-resources).
+    Replace `<key-vault-resource-id>` with the resource ID of the key vault from step 2 of [Create resources](#create-resources).
 
     ```azurecli
     az role assignment create --assignee <managed-identity-principal-ID> --role "Key Vault Crypto Service Encryption User" --scope <key-vault-resource-id>
@@ -177,15 +178,15 @@ The managed identity of your App Configuration store needs access to the key to 
 
     ### [Access policy](#tab/accesspolicy)
 
-    Replace `<vault-name>` and `<resource-group-name>` with the names of the key vault and resource group from step 2 of [Create resources](#create-resources).
+    Replace `<vault-name>` with the name of the key vault from step 2 of [Create resources](#create-resources).
 
     ```azurecli
-    az keyvault set-policy -n <vault-name> --resource-group <resource-group-name> --object-id <managed-identity-principal-ID> --key-permissions get wrapKey unwrapKey
+    az keyvault set-policy -n <vault-name> --object-id <managed-identity-principal-ID> --key-permissions get wrapKey unwrapKey
     ```
 
     ---
 
-1. Enable the customer-managed key capability in the service by running the following one of the following Azure CLI commands. Replace the placeholders with the following values:
+1. Enable the customer-managed key capability in the service by running one of the following Azure CLI commands. Replace the placeholders with the following values:
 
     * For `<resource-group-name>`, use the name of the resource group that contains your App Configuration store.
     * For `<App-Configuration-store-name>`, use the name of your App Configuration store.
@@ -205,11 +206,16 @@ The managed identity of your App Configuration store needs access to the key to 
       az appconfig update -g <resource-group-name> -n <App-Configuration-store-name> --encryption-key-name <key-name> --encryption-key-vault <key-vault-URI> --identity-client-id <user-assigned-managed-identity-client-ID>
       ```
 
-Your Azure App Configuration store is now configured to use a customer-managed key stored in Key Vault.
+Your App Configuration store is now configured to use a customer-managed key stored in Key Vault.
 
 ## Disable customer-managed key encryption
 
-1. Ensure the current customer-managed key is valid and operational. Before reverting to Microsoft-managed keys, App Configuration uses the current key to decrypt all existing data. If the current key is expired or access to it is revoked, you must first restore access to that key.
+When you disable customer-managed key encryption, your App Configuration store reverts to using Microsoft-managed keys. But before reverting to Microsoft-managed keys, App Configuration uses the current key to decrypt all existing data. If the current key is expired or access to it is revoked, you must first restore access to that key.
+
+> [!NOTE]
+> Before you configure your App Configuration store to use a Microsoft-managed key instead of a customer-managed key for encryption, ensure that this change aligns with your organization's security policies and compliance requirements.
+
+1. Ensure the current customer-managed key is valid and operational.
 
 1. Use the following Azure CLI command to update your App Configuration store by removing the customer-managed key configuration. Replace `<resource-group-name>` and `<App-Configuration-store-name>` with the values in your environment.
 
@@ -217,7 +223,7 @@ Your Azure App Configuration store is now configured to use a customer-managed k
     az appconfig update -g <resource-group-name> -n <App-Configuration-store-name> --encryption-key-name ""
     ```
 
-1. Check the properties of your App Configuration store to verify that the customer-managed key configuration is disabled.
+1. To verify that the customer-managed key configuration is disabled, check the properties of your App Configuration store.
 
     ```azurecli
     az appconfig show -g <resource-group-name> -n <App-Configuration-store-name> --query "encryption"
@@ -225,10 +231,7 @@ Your Azure App Configuration store is now configured to use a customer-managed k
 
     In the output of this command, the `encryption.keyVaultProperties` property should have a value of `null`.
 
-Your Azure App Configuration store is now configured to use Microsoft-managed keys for encryption.
-
-> [!NOTE]
-> If you disable customer-managed key encryption, your App Configuration store reverts to using Microsoft-managed keys. Ensure that this change aligns with your organization's security policies and compliance requirements.
+Your App Configuration store is now configured to use Microsoft-managed keys for encryption.
 
 ## Access revocation
 
@@ -236,14 +239,14 @@ When you enable the customer-managed key capability on your App Configuration st
 
 You can revoke your App Configuration store's access to your managed key by changing your key vault access policy. When you revoke this access, App Configuration loses the ability to decrypt user data within one hour. At this point, the App Configuration store forbids all access attempts.
 
-This situation is recoverable by granting the service access to the managed key again. Within one hour, App Configuration is able to decrypt user data and operate under normal conditions.
+This situation is recoverable by granting the App Configuration service access to the managed key again. Within one hour, App Configuration is able to decrypt user data and operate under normal conditions.
 
 > [!NOTE]
-> All App Configuration data is stored for up to 24 hours in an isolated backup. This data includes the unwrapped encryption key. This data isn't immediately available to the service or service team. In the event of an emergency restore, App Configuration revokes itself again from the managed key data.
+> All App Configuration data is stored for up to 24 hours in an isolated backup. This data includes the unwrapped encryption key. This data isn't immediately available to the service or service team. During an emergency restore, App Configuration revokes itself again from the managed key data.
 
 ## Key rotation
 
-When you configure a customer-managed key on an App Configuration store, you need to periodically rotate the managed key so that it doesn't expire. For a successful key rotation, the current key must be valid and operational. If the current key is expired or App Configuration access to it is revoked, the App Configuration store can't decrypt data, and rotation is impossible.
+When you configure a customer-managed key on an App Configuration store, you need to periodically rotate the managed key so that it doesn't expire. For a successful key rotation, the current key must be valid and operational. If the current key is expired, or if App Configuration access to it is revoked, the App Configuration store can't decrypt data, and rotation fails.
 
 ### Automatic rotation
 
@@ -253,16 +256,16 @@ A best practice is to configure [automatic rotation](/azure/key-vault/keys/how-t
 
 Another best practice for automatic rotation in customer-managed key encryption is to omit the version of the key vault key. When you don't configure a specific key version, App Configuration can move to the latest version of the key when it's automatically rotated. As a result, your App Configuration store avoids losing access when a managed key version expires that's currently in use.
 
-When you set up customer-managed key encryption, you provide the identifier of a key in your key vault. A key vault key identifier can use the following formats:
+When you set up customer-managed key encryption, you provide the identifier of a key in your key vault. A key vault key identifier can have the following formats:
 
 * Versionless key identifier: `https://<vault-name>.vault.azure.net/keys/<key-name>`
 * Versioned key identifier (not recommended): `https://<vault-name>.vault.azure.net/keys/<key-name>/<key-version>`
 
 To configure a versionless key, use the identifier format that omits the version.
 
-## Next Steps
+## Next step
 
 In this article, you configured your App Configuration store to use a customer-managed key for encryption. To find out more about how to integrate your app service with Azure managed identities, continue to the next step.
 
 > [!div class="nextstepaction"]
-> [Integrate your service with Azure Managed Identities](./howto-integrate-azure-managed-service-identity.md)
+> [Use managed identities to access App Configuration](./howto-integrate-azure-managed-service-identity.md)
