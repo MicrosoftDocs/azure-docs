@@ -9,7 +9,7 @@ ms.subservice: playwright-workspaces
 author: ninallam
 ms.author: ninallam
 ms.custom: playwright-workspaces-preview
-zone_pivot_group_filename: playwright-workspaces/zone-pivots-groups.json
+zone_pivot_group_filename: app-testing/playwright-workspaces/zone-pivots-groups.json
 zone_pivot_groups: playwright-workspaces
 ---
 
@@ -64,17 +64,18 @@ To get the service endpoint URL and store it as a CI workflow secret, perform th
     | *PLAYWRIGHT_SERVICE_URL* | Paste the endpoint URL you copied previously. |
 
 ::: zone pivot="playwright-test-runner"
+
 ## Add service configuration file
 
 If you don't have Playwright tests configured to run with the service, add a service configuration file to your repository. In the next step, you then specify this service configuration file on the Playwright CLI.
 
 1. Create a new file `playwright.service.config.ts` alongside the `playwright.config.ts` file.
 
-    Optionally, use the `playwright.service.config.ts` file in the [sample repository](https://github.com/microsoft/playwright-testing-service/blob/main/samples/get-started/playwright.service.config.ts).
+    Optionally, use the `playwright.service.config.ts` file in the [sample repository](https://github.com/Azure/playwright-workspaces/blob/main/samples/playwright-tests/playwright.service.config.ts).
 
 2. Add the following content to it:
 
-    :::code language="typescript" source="~/playwright-testing-service/samples/get-started/playwright.service.config.ts":::
+    :::code language="typescript" source="~/playwright-workspaces/samples/playwright-tests/playwright.service.config.ts":::
 
    By default, the service configuration enables you to accelerate build pipelines by running tests in parallel using cloud-hosted browsers.
 
@@ -106,7 +107,7 @@ This command updates your project's `csproj` file by adding the service package 
 
 ```xml
   <ItemGroup>
-    <PackageReference Include="Azure.Developer.Playwright.NUnit" Version="1.0.0-beta.1" />
+    <PackageReference Include="Azure.Developer.Playwright.NUnit" Version="1.0.0-beta.2" />
   </ItemGroup>
 ```
 
@@ -217,6 +218,7 @@ You can generate an access token from your Playwright workspace and use it in yo
 ## Update the workflow definition
 
 ::: zone pivot="playwright-test-runner"
+
 Update the CI workflow definition to run your Playwright tests with the Playwright CLI. Pass the [service configuration file](#add-service-configuration-file) as an input parameter for the Playwright CLI. You configure your environment by specifying environment variables.
 
 1. Open the CI workflow definition.

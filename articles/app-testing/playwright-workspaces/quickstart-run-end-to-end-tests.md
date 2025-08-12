@@ -9,7 +9,7 @@ ms.subservice: playwright-workspaces
 author: ninallam
 ms.author: ninallam
 ms.custom: playwright-workspaces-preview
-zone_pivot_group_filename: playwright-workspaces/zone-pivots-groups.json
+zone_pivot_group_filename: app-testing/playwright-workspaces/zone-pivots-groups.json
 zone_pivot_groups: playwright-workspaces
 ---
 
@@ -26,7 +26,7 @@ After you complete this quickstart, you have a Playwright workspace to run your 
 
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * Your Azure account needs the [Owner](/azure/role-based-access-control/built-in-roles#owner), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or one of the [classic administrator roles](/azure/role-based-access-control/rbac-and-directory-admin-roles#classic-subscription-administrator-roles).
-* A Playwright project. If you don't have project, create one by using the [Playwright getting started documentation](https://playwright.dev/docs/intro) or use our [Playwright Workspaces sample project](https://github.com/microsoft/playwright-testing-service/tree/main/samples/get-started).
+* A Playwright project. If you don't have project, create one by using the [Playwright getting started documentation](https://playwright.dev/docs/intro) or use our [Playwright Workspaces sample project](https://github.com/Azure/playwright-workspaces/blob/main/samples/playwright-tests).
 * Azure CLI. If you don't have Azure CLI, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create a workspace
@@ -124,6 +124,12 @@ We recommend that you use the `dotenv` module to manage your environment. With `
     npm i --save-dev dotenv
     ```
 
+1. Add the following code snippet in playwright.service.config.ts:
+
+    ```js
+    require('dotenv').config();
+    ```
+    
 1. Create a `.env` file alongside the `playwright.config.ts` file in your Playwright project:
 
     ```
@@ -135,7 +141,8 @@ We recommend that you use the `dotenv` module to manage your environment. With `
 ::: zone-end
 
 ::: zone pivot="nunit-test-runner"
-## Set up service configuration 
+
+## Set up service configuration
 
 Create a file `PlaywrightServiceSetup.cs` in your project with the following content. 
 
@@ -156,7 +163,7 @@ public class PlaywrightServiceNUnitSetup  : PlaywrightServiceBrowserNUnit
 ```
 
 > [!NOTE]
-> Make sure your project uses `Microsoft.Playwright.NUnit` version 1.47 or above.
+> Make sure your project uses `Microsoft.Playwright.NUnit` version 1.50 or above.
 
 ::: zone-end
 ## Set up Authentication
@@ -350,10 +357,12 @@ Once your tests are running smoothly with the service, experiment with varying t
 With Playwright Workspaces, you can run with up to 50 parallel workers. Several factors influence the best configuration for your project, such as the CPU, memory, and network resources of your client machine, the target application's load-handling capacity, and the type of actions carried out in your tests.
 
 ::: zone pivot="playwright-test-runner"
+
 You can specify the number of parallel workers on the Playwright CLI command-line, or configure the `workers` property in the Playwright service configuration file.
 ::: zone-end
 
 ::: zone pivot="nunit-test-runner"
+
 You can specify the number of parallel workers on the Playwright CLI command-line, or configure the `NumberOfTestWorkers` property in the `.runsettings` file.
 ::: zone-end
 
