@@ -21,9 +21,10 @@ We strongly recommend that you read [Planning for an Azure Files deployment](../
 
 # [Portal](#tab/azure-portal)
 
-1. An **Azure file share** in the same region that you want to deploy Azure File Sync. For more information, see:
+1. An **Azure file share** in the same region that you want to deploy Azure File Sync. We recommend provisioned v2 file shares for all new deployments. For more information, see:
     - [Region availability](file-sync-planning.md#azure-file-sync-region-availability) for Azure File Sync.
     - [Create a file share](../files/storage-how-to-create-file-share.md?toc=/azure/storage/filesync/toc.json) for a step-by-step description of how to create a file share.
+    - [Understanding the provisioned v2 billing model](../files/understanding-billing.md#provisioned-v2-model) for information on how to use the provisioned v2 model.
 2. The following **storage account** settings must be enabled to allow Azure File Sync access to the storage account:  
     -  **SMB security settings** must allow **SMB 3.1.1** protocol version, **NTLM v2** authentication and **AES-128-GCM** encryption. To check the SMB security settings on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
     -  **Allow storage account key access** must be **Enabled**. To check this setting, navigate to your storage account and select Configuration under the Settings section. 
@@ -50,9 +51,10 @@ We strongly recommend that you read [Planning for an Azure Files deployment](../
 
 # [PowerShell](#tab/azure-powershell)
 
-1. An **Azure file share** in the same region that you want to deploy Azure File Sync. For more information, see:
+1. An **Azure file share** in the same region that you want to deploy Azure File Sync. We recommend provisioned v2 file shares for all new deployments. For more information, see:
     - [Region availability](file-sync-planning.md#azure-file-sync-region-availability) for Azure File Sync.
     - [Create a file share](../files/storage-how-to-create-file-share.md?toc=/azure/storage/filesync/toc.json) for a step-by-step description of how to create a file share.
+    - [Understanding the provisioned v2 billing model](../files/understanding-billing.md#provisioned-v2-model) for information on how to use the provisioned v2 model.
 2. The following **storage account** settings must be enabled to allow Azure File Sync access to the storage account:  
     -  **SMB security settings** must allow **SMB 3.1.1** protocol version, **NTLM v2** authentication and **AES-128-GCM** encryption. To check the SMB security settings on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
     -  **Allow storage account key access** must be **Enabled**. To check this setting, navigate to your storage account and select **Configuration** under the **Settings** section.
@@ -92,9 +94,10 @@ We strongly recommend that you read [Planning for an Azure Files deployment](../
 
 # [Azure CLI](#tab/azure-cli)
 
-1. An **Azure file share** in the same region that you want to deploy Azure File Sync. For more information, see:
+1. An **Azure file share** in the same region that you want to deploy Azure File Sync. We recommend provisioned v2 file shares for all new deployments. For more information, see:
     - [Region availability](file-sync-planning.md#azure-file-sync-region-availability) for Azure File Sync.
     - [Create a file share](../files/storage-how-to-create-file-share.md?toc=/azure/storage/filesync/toc.json) for a step-by-step description of how to create a file share.
+    - [Understanding the provisioned v2 billing model](../files/understanding-billing.md#provisioned-v2-model) for information on how to use the provisioned v2 model.
 2. The following **storage account** settings must be enabled to allow Azure File Sync access to the storage account:  
     -  **SMB security settings** must allow **SMB 3.1.1** protocol version, **NTLM v2** authentication and **AES-128-GCM** encryption. To check the SMB security settings on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
     -  **Allow storage account key access** must be **Enabled**. To check this setting, navigate to your storage account and select Configuration under the Settings section.

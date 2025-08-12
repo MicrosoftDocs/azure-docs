@@ -5,7 +5,7 @@ ms.topic: overview
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
-ms.date: 01/30/2025
+ms.date: 08/12/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to understand the prerequisites for backing up Azure Kubernetes Service clusters, so that I can successfully implement backup and restore operations using Azure Backup and ensure data protection for my containerized workloads.
@@ -36,7 +36,16 @@ Azure Backup now allows you to back up AKS clusters (cluster resources and persi
   >[!Note]
   >Both of these core components are deployed with aggressive hard limits on CPU and memory, with CPU *less than 0.5% of a core* and memory limit ranging from *50-200 MB*. So, the *COGS impact* of these components is very low. Because they are core platform components, there is no workaround available to remove them once installed in the cluster.
 
-- If Storage Account, to be provided as input for Extension installation, is under Virtual Network/Firewall, then BackupVault needs to be added as trusted access in Storage Account Network Settings. [Learn how to grant access to trusted Azure service](../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-to-trusted-azure-services), which helps to store backups in the Vault datastore
+- If the storage account you provide as an input for the extension installation uses any network restrictions (private endpoints or the Azure Storage firewall), then grant the backup vault specific access to the storage account by following these steps:
+
+    1. [Grant access to a resource instance](../storage/common/storage-network-security-resource-instances.md). Use these settings:
+
+          - **Resource type**: `Microsoft.DataProtection/BackupVaults`           
+          - **Instance name**: Instance name of managed identity.
+
+    1. Enable *Allow Azure services on the trusted service list to access this storage account.* 
+
+        For more information about Azure Storage network security, see [Azure Storage firewall rules](../storage/common/storage-network-security.md).
 
 - The blob container provided in input during extension installation should not contain any files unrelated to backup.   
 
@@ -77,7 +86,7 @@ To enable backup for an AKS cluster, see the following prerequisites: .
 
 - If you have any previous installation of *Velero* in the AKS cluster, you need to delete it before installing Backup Extension.
 
-[!NOTE]
+>[!NOTE]
 >
 >The Velero CRDs installed in the cluster are shared between AKS Backup and the customer’s own Velero installation. However, the versions used by each installation may differ, potentially leading to failures due to contractmismatches.
 >

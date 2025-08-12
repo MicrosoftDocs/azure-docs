@@ -71,7 +71,7 @@ ms.custom: include file, references_regions
 > | Jio India West | ✓ | ✓ | ✓ | ✓ |
 > | Korea Central | ✓ | ✓ | ✓ | ✓ |
 > | Korea South | ✓ | ✓ | ✓ | ✓ |
-> | New Zealand North | ✓ | ✓ | ✓ |  |
+> | New Zealand North | ✓ | ✓ | ✓ | ✓ |
 > | South India | ✓ | ✓ | ✓ | ✓ |
 > | Southeast Asia | ✓ | ✓ | ✓ | ✓ |
 > | Taiwan North | ✓ | ✓ | ✓ |  |
