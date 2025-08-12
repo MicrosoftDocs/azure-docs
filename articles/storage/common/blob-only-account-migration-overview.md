@@ -70,15 +70,15 @@ GPv2 supports all blob features available in BlobStorage accounts—and more—w
 
 >[!NOTE]
 >GPv2 uses a different transaction pricing model than legacy accounts. Review cost considerations before migrating.  
->See [general-purpose version-1 account migration overview plan for pricing changes when upgrading GPv1 to GPv2](general-purpose-version-1-account-migration-overview.md#plan-for-pricing-changes-when-upgrading-gpv1--gpv2).
+>See [plan for pricing changes when upgrading GPv1 to GPv2](general-purpose-version-1-account-migration-overview.md#plan-for-pricing-changes-when-upgrading-gpv1--gpv2).
 
 >[!Tip]
->Most blob-only workloads can migrate from BlobStorage to GPv2 without code changes. Review any hardcoded pricing assumptions or tier-unaware logic to ensure compatibility with GPv2 features.
+>Most blob-only workloads can migrate from Blob-Only Storage to GPv2 without code changes. Review any hardcoded pricing assumptions or tier-unaware logic to ensure compatibility with GPv2 features.
 >GPv2 enables per-blob tiering and lifecycle rules, offering better cost optimization and automation.
 
 ## What happens if I don’t migrate?
 
-After **August 31, 2026**, you'll no longer be able to manage BlobStorage accounts. After **September 2026**, if you don't migrate your Blob-Only storage account to General-purpose v2, all existing Blob-Only accounts are auto migrated over to a General-purpose v2 account, which may result in higher billing costs. Your decision not to migrate an existing Blob-Only account will be construed as consent for Microsoft to migrate the account on your behalf.
+After **August 31, 2026**, you'll no longer be able to manage Blob-Only Storage accounts. After **September 2026**, if you don't migrate your Blob-Only storage account to General-purpose v2, all existing Blob-Only accounts are auto migrated over to a General-purpose v2 account, which may result in higher billing costs. Your decision not to migrate an existing Blob-Only account will be construed as consent for Microsoft to migrate the account on your behalf.
 
 ## Need help?
 For assistance with migration or to learn more about GPv2 features, refer to the following resources:
