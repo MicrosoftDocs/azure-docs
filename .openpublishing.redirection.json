@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path": "articles/storsimple/index.yml",
+      "redirect_url": "/previous-versions/azure/storsimple/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storsimple/storsimple-overview.md",
+      "redirect_url": "/previous-versions/azure/storsimple/storsimple-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/expressroute/expressroute-troubleshooting-arp-classic.md",
       "redirect_url": "/previous-versions/azure/expressroute/expressroute-troubleshooting-arp-classic",
       "redirect_document_id": false
@@ -6998,11 +7008,15 @@
       "source_path": "articles/reliability/migrate-sql-database.md",
       "redirect_url": "/azure/azure-sql/database/enable-zone-redundancy",
       "redirect_document_id": false
-    },
+    },    
     {
       "source_path": "articles/reliability/migrate-app-gateway-v2.md",
       "redirect_url": "/azure/reliability/reliability-application-gateway-v2",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/migrate-storage.md",
+      "redirect_url": "/azure/storage/common/redundancy-migration",
     }
   ]
 }
