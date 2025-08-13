@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 02/14/2025
 ms.author: msangapu
 author: msangapu-msft
+ms.service: azure-app-service
 ---
 # Buy and manage an App Service domain
 

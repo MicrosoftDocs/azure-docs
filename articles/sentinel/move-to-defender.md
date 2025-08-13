@@ -4,7 +4,7 @@ description: Move Microsoft Sentinel operations from the Azure portal to the Mic
 author: batamig
 ms.author: bagol
 ms.topic: how-to #Required; leave this attribute/value as-is
-ms.date: 07/16/2025
+ms.date: 07/29/2025
 ms.collection: usx-security
 
 #Customer intent: As a security operations team member, I want to understand the process involved in moving our Microsoft Sentinel experience from the Azure portal to the Defender portal so that I can benefit from unified security operations across my entire environment.
@@ -64,6 +64,12 @@ For more information, see:
 - [Geographical availability and data residency in Microsoft Sentinel](geographical-availability-data-residency.md)
 - [Data security and retention in Microsoft Defender XDR](/defender-xdr/data-privacy)
 
+### Onboarding to the Defender portal with customer-managed keys (CMK)
+
+If you onboard your Microsoft Sentinel-enabled workspace to the Defender portal, ingested workspace data/logs remain encrypted with CMK. Other data isn't encrypted with CMK and uses a Microsoft-managed key.
+
+For more information, see [Set up Microsoft Sentinel customer-managed key](customer-managed-keys.md).
+
 ### Configure multi-workspace and multitenant management
 
 Defender supports one or more workspaces across multiple tenants through the [multitenant portal](https://mto.security.microsoft.com), which serves as a central place to manage incidents and alerts, hunt for threats across tenants, and lets Managed Security Service Partners (MSSPs) see across customers.
@@ -88,9 +94,11 @@ For more information, see:
 
 When Microsoft Sentinel is integrated with Microsoft Defender, the fundamental architecture of data collection and telemetry flow remains intact. Existing connectors that were configured in Microsoft Sentinel, whether for Microsoft Defender products or other data sources, continue operating without interruption.
 
-Alerts related to Defender products are streamed directly from the Microsoft Defender XDR data connector to ensure consistency. Make sure that you have incidents and alerts from this connector turned on in your workspace. For more information, see [Connect data from Microsoft Defender XDR to Microsoft Sentinel](connect-microsoft-365-defender.md).
-
 From a Log Analytics perspective, Microsoft Sentinel’s integration into Microsoft Defender introduces no change to the underlying ingestion pipeline or data schema. Despite the front-end unification, the Microsoft Sentinel backend remains fully integrated with Log Analytics for data storage, search, and correlation.
+
+Alerts related to Defender products are streamed directly from the [Microsoft Defender XDR connector](/azure/sentinel/connect-microsoft-365-defender) to ensure consistency. Make sure that you have incidents and alerts from this connector turned on in your workspace. Once you have this data connector configured in your workspace, [offboarding the workspace from Microsoft Defender](/unified-secops/microsoft-sentinel-onboard#offboard-microsoft-sentinel) also disconnects the Microsoft Defender XDR connector.
+
+For more information, see [Connect data from Microsoft Defender XDR to Microsoft Sentinel](connect-microsoft-365-defender.md).
 
 #### Integrate with Microsoft Defender for Cloud
 
@@ -272,6 +280,10 @@ Azure workbooks continue to be the primary tool for data visualization and inter
 To use workbooks with data from Advanced hunting, make sure that you ingest logs into Microsoft Sentinel. While workbooks themselves keep you in the Defender portal, buttons or links that are programmed to open pages or resources in the Azure portal continue to open a separate tab for the Azure portal.
 
 For more information, see [Visualize and monitor your data by using workbooks in Microsoft Sentinel](monitor-your-data.md).
+
+### Similar incidents (Preview) aren't supported in the Defender portal
+
+The Microsoft Sentinel [similar incidents](investigate-cases.md#similar-incidents-preview) feature is in Preview, isn't supported in the Defender portal. This means that when viewing an incident details page in the Defender portal, the **Similar incidents** tab isn't available.
 
 ## Related content
 

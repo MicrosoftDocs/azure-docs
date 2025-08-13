@@ -11,7 +11,7 @@
 ---
 
 > [!IMPORTANT]
-> Azure Virtual Network Manager's high scale private endpoint connected group feature is in preview. It's available in the following regions during preview:
+> Azure Virtual Network Manager's high scale connected group feature is in preview. It's available in the following regions during preview:
 >
 > - East US 2 EUAP
 > - Central US EUAP

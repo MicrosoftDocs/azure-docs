@@ -12,6 +12,7 @@ ms.custom:
   - devx-track-azurepowershell
   - build-2025
 #customer intent: As a deployment engineer, I want to understand the process and the benefits of scaling up apps to the Premium V4 pricing tier in Azure App Service.
+ms.service: azure-app-service
 ---
 
 # Configure Premium V4 tier for Azure App Service
@@ -160,4 +161,4 @@ New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
 ## Related content
 
 - [Scale up an app in Azure App Service](manage-scale-up.md)
-- [Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)
+- [Run a load test to identify performance bottlenecks in a web app](../app-testing/load-testing/tutorial-identify-bottlenecks-azure-portal.md)
