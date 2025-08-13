@@ -49,7 +49,7 @@ Azure Functions on Container Apps are ideal for a wide range of use cases, espec
 - **Migration and modernization:** Migration of on-premises legacy and/or monolith applications to cloud native microservices on containers.
 - **Event-driven processing:** Handle events from Event Grid, Service Bus, Event Hubs, and other event sources with ease of Functions programming model.
 - **AI & GPU workloads:** Serverless workload processing of videos, images, transcripts, or any other processing intensive tasks that required  GPU compute resources. For more information, see [Using serverless GPUs in Azure Container Apps](../container-apps/gpu-serverless-overview.md).
-- **Microservices:** Integrate Functions with other Container Apps hosted services.
+- **Microservices:** Integrate Azure Functions with other Container Apps hosted services.
 - **Custom containers:** Package Functions with custom runtimes or sidecars.
 - **Private apps:** Secure internal-only Functions using VNet and internal ingress.
 - **.NET Aspire:** The integration of .NET Aspire with Azure Functions enables you to develop, debug, and orchestrate an Azure Functions .NET project as part of the .NET Aspire app host. Read more on [Azure Functions with .NET Aspire](../azure-functions/dotnet-aspire-integration.md)
