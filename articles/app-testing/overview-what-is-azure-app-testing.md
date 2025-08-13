@@ -56,6 +56,18 @@ Here are some of the key features of Azure App Testing:
 
 - **Security and access control**: Support for managed identities, private link access, and RBAC (role-based access control) ensures secure and controlled access to workspace resources.
 
+## In-region data residency & data at rest
+
+### Azure Load Testing
+
+Azure Load Testing doesn't store or process customer data outside the region you deploy the service instance in.
+
+### Playwright Workspaces
+
+Playwright Workspaces doesn't store or process customer data outside the region you deploy the workspace in. When you use the regional affinity feature, the metadata is transferred from the cloud hosted browser region to the workspace region in a secure and compliant manner.
+
+Playwright Workspaces automatically encrypts all data stored in your workspace with keys managed by Microsoft (service-managed keys). For example, this data includes workspace details, Playwright test run metadata like test start and end time, test minutes, who ran the test, and test results which are published to the service.
+
 ## Getting started
 
 - [Run end-to-end tests with Playwright Workspaces](playwright-workspaces\quickstart-run-end-to-end-tests.md)

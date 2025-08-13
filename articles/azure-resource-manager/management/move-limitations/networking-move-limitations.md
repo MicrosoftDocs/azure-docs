@@ -45,6 +45,7 @@ The following [private-link resources](../../../private-link/private-endpoint-ov
 * Microsoft.StorageSync/storageSyncServices
 * Microsoft.Synapse/workspaces
 * Microsoft.Synapse/privateLinkHubs
+* Microsoft.Hybridcompute/privatelinkscopes
 
 All other private-link resources don't support move.
 

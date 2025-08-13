@@ -4,7 +4,7 @@ description: Troubleshoot cluster bare metal machines with Restart, Reimage, Rep
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
-ms.date: 04/03/2025
+ms.date: 08/12/2025
 author: eak13
 ms.author: ekarandjeff
 ---
@@ -33,6 +33,9 @@ The time required to complete each of these actions is similar. Restarting is th
 >
 > This check is done to maintain the integrity of the Nexus instance and ensure multiple KCP nodes don't go down at once due to simultaneous disruptive actions. If multiple nodes go down, it breaks the healthy quorum threshold of the Kubernetes Control Plane.
 
+> [!TIP]
+> In version 2509.1 and above, you can monitor recent or in-progress BMM actions in the Azure portal. For more information, see [Monitor status in Bare Metal Machine JSON properties](./howto-bare-metal-best-practices.md#monitor-status-in-bare-metal-machine-json-properties).
+
 ## Identify the corrective action
 
 When troubleshooting a BMM for failures and determining the most appropriate corrective action, it's essential to understand the available options. This article provides a systematic approach to troubleshoot Azure Operator Nexus server problems using these three methods:
@@ -45,12 +48,12 @@ When troubleshooting a BMM for failures and determining the most appropriate cor
 
 Follow this escalation path when troubleshooting BMM issues:
 
-| Problem | First action | If problem persists | If still unresolved |
-|---------|-------------|-------------------|-------------------|
-| Unresponsive VMs or services | Restart | Reimage | Replace |
-| Software/OS corruption | Reimage | Replace | Contact support |
-| Known hardware failure | Replace | N/A | Contact support |
-| Security compromise | Reimage | Replace | Contact support |
+| Problem                      | First action | If problem persists | If still unresolved |
+| ---------------------------- | ------------ | ------------------- | ------------------- |
+| Unresponsive VMs or services | Restart      | Reimage             | Replace             |
+| Software/OS corruption       | Reimage      | Replace             | Contact support     |
+| Known hardware failure       | Replace      | N/A                 | Contact support     |
+| Security compromise          | Reimage      | Replace             | Contact support     |
 
 The recommended approach is to start with the least invasive solution (restart) and escalate to more complex measures only if necessary. Always validate that the issue is resolved after each corrective action.
 
@@ -177,7 +180,7 @@ Servers contain many physical components that can fail over time. It's important
 A hardware validation process is invoked to ensure the integrity of the physical host in advance of deploying the OS image. Like the reimage action, the Tenant data isn't modified during replacement.
 
 > [!IMPORTANT]
-> When run with default options, the RAID controller is reset during BMM replace, wiping all data from the server's virtual disks. Baseboard Management Controller (BMC) virtual disk alerts triggered during BMM replace can be ignored unless there are other physical disk and/or RAID controllers alerts. Starting with the 2025-07-01 preview version of the NetworkCloud API, and generally available with the 2025-09-01 GA version, use `replace` with `storage-policy="Preserve"` to retain virtual disk data.
+> When run with default options, the RAID controller is reset during BMM replace, wiping all data from the server's virtual disks. Baseboard Management Controller (BMC) virtual disk alerts triggered during BMM replace can be ignored unless there are other physical disk and/or RAID controllers alerts. Starting with the `2025-07-01-preview` version of the NetworkCloud API, and generally available with the `2025-09-01` GA version, use `replace` with `storage-policy="Preserve"` to retain virtual disk data.
 
 ### Replace workflow
 
@@ -210,7 +213,7 @@ When you're performing the following physical repairs, we recommend a replace ac
 - Transceiver
 - Ethernet or fiber cable replacement
 
-When you're performing the following physical repairs, a replace action ***is required*** to bring the BMM back into service:
+When you're performing the following physical repairs, a replace action **_is required_** to bring the BMM back into service:
 
 - Backplane
 - System board
@@ -220,7 +223,7 @@ When you're performing the following physical repairs, a replace action ***is re
 - Broadcom embedded NIC
 
 After physical repairs are completed, perform a replace action.
-  
+
 **The following Azure CLI command will `replace` the specified bareMetalMachineName.**
 
 ```azurecli
@@ -249,11 +252,11 @@ az networkcloud baremetalmachine uncordon \
 
 Restarting, reimaging, and replacing are effective troubleshooting methods for addressing Azure Operator Nexus server problems. Here's a quick reference guide:
 
-| Action | When to use | Impact | Requirements |
-|--------|------------|--------|-------------|
-| **Restart** | Temporary glitches, unresponsive VMs | Brief downtime | None, fastest option |
-| **Reimage** | OS corruption, security concerns | Longer downtime, preserves data | Workload evacuation recommended |
-| **Replace** | Hardware component failures | Longest downtime, preserves data | Hardware component replacement, specific parameters needed |
+| Action      | When to use                          | Impact                           | Requirements                                               |
+| ----------- | ------------------------------------ | -------------------------------- | ---------------------------------------------------------- |
+| **Restart** | Temporary glitches, unresponsive VMs | Brief downtime                   | None, fastest option                                       |
+| **Reimage** | OS corruption, security concerns     | Longer downtime, preserves data  | Workload evacuation recommended                            |
+| **Replace** | Hardware component failures          | Longest downtime, preserves data | Hardware component replacement, specific parameters needed |
 
 ### Best practices
 

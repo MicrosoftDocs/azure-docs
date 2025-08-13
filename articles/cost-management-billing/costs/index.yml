@@ -74,7 +74,7 @@ landingContent:
       - text: Pricing calculator
         url: https://azure.microsoft.com/pricing/calculator
       - text: TCO calculator
-        url: https://azure.microsoft.com/pricing/tco/calculator/
+        url: https://aka.ms/tco-blog
       - text: Azure Migrate
         url: ../../migrate/index.yml
 
