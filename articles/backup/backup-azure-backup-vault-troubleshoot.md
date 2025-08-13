@@ -27,6 +27,15 @@ This article provides troubleshooting steps that help you resolve Azure Backup V
 
 **Resolution:** To resolve this error, assign the same or alternate User Identity to the Backup Vault and update the Backup Instance to use the new identity in latter case. Otherwise, enable the System Identity of the Backup Vault, update the Backup Instance and assign all the necessary roles to it. 
 
+#### Error code: UserErrorStorageAccountKeyAccessDisallowed
+
+**Possible Cause:** The associated storage account has "Allow storage account key access" configuration disabled, and the Azure Backup service currently supports only key-based authentication with storage accounts.
+
+**Resolution:** Enable "Allow storage account key access" in the associated storage account by navigating to Storage Account > Settings > Configuration, updating the setting to Enabled, and saving the changes.
+
+<img width="1583" height="546" alt="image" src="https://github.com/user-attachments/assets/3fa478d0-40d7-4c04-915a-888e5dacc125" />
+
+
 ## Related content
 
 - [About Azure Backup Vault](create-manage-backup-vault.md).
