@@ -64,7 +64,7 @@ To use the Azure portal to configure the Azure Resource Manager authentication m
     :::image type="content" border="true" source="./media/quickstarts/deployment/select-passthrough-authentication-mode.png" alt-text="Screenshot of the Azure Resource Manager Authentication Mode section on the Access settings page. Pass-through is selected as the authentication mode." lightbox="./media/quickstarts/deployment/select-passthrough-authentication-mode.png":::
 
 > [!NOTE]
-> Local authentication mode is provided for backward compatibility. There are several limitations to this mode:
+> The **Local** authentication mode is provided for backward compatibility. There are several limitations to this mode:
 > 
 > - Proper auditing for accessing data in deployment isn't supported.
 > - Key-value data access inside an ARM template, Bicep, and Terraform is disabled if [access key authentication is disabled](./howto-disable-access-key-authentication.md).
@@ -76,13 +76,13 @@ When the Azure Resource Manager authentication mode of your App Configuration re
 
 App Configuration data plane permissions include the following actions:
 
-- `Microsoft.AppConfiguration/configurationStores/\*/read`
-- `Microsoft.AppConfiguration/configurationStores/\*/write`
+- `Microsoft.AppConfiguration/configurationStores/*/read`
+- `Microsoft.AppConfiguration/configurationStores/*/write`
 
 Built-in roles that allow data plane actions include the following roles:
 
-- **App Configuration Data Owner**: Allows `Microsoft.AppConfiguration/configurationStores/\*/read` and `Microsoft.AppConfiguration/configurationStores/\*/write` actions, among others
-- **App Configuration Data Reader**: Allows `Microsoft.AppConfiguration/configurationStores/\*/read` actions
+- **App Configuration Data Owner**: Allows `Microsoft.AppConfiguration/configurationStores/*/read` and `Microsoft.AppConfiguration/configurationStores/*/write` actions, among others
+- **App Configuration Data Reader**: Allows `Microsoft.AppConfiguration/configurationStores/*/read` actions
 
 For more information about Azure RBAC and Microsoft Entra ID, see [Access Azure App Configuration using Microsoft Entra ID](./concept-enable-rbac.md).
 
