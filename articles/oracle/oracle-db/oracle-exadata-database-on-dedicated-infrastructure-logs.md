@@ -46,8 +46,8 @@ the Azure portal provides a broad range of benefits, including:
 
 ## 1. Centralized Monitoring and Management
 
-- **Unified view** of logs from various Azure services (e.g., VMs, App
-  Services, AKS and Oracle Databases@Azure).
+- **Unified view** of logs from various Azure services (for example, VMs, App
+  Services, AKS, and Oracle Databases@Azure).
 
 - Simplifies troubleshooting by correlating logs across services in one
   place.
@@ -61,7 +61,7 @@ the Azure portal provides a broad range of benefits, including:
   time.
 
 - Set up **alerts** based on log queries to proactively detect issues
-  (e.g., failed deployments, performance bottlenecks).
+  (for example, failed deployments, performance bottlenecks).
 
 ## 3. Advanced Querying with Kusto Query Language (KQL)
 
@@ -77,13 +77,13 @@ the Azure portal provides a broad range of benefits, including:
   - **Azure Security Center** for threat detection.
 
   - **Azure Sentinel** for Security Information Event Management (SIEM)
-    and security orchestration, automation and response (SOAR)
+    and security orchestration, automation, and response (SOAR)
 
 ## 5. Automation and Remediation
 
 - Trigger **Azure Logic Apps** or **Functions** based on log events.
 
-- Automate responses to incidents (e.g., restart a service when a
+- Automate responses to incidents (for example, restart a service when a
   failure is logged).
 
 ## 6. Compliance and Auditing
@@ -109,7 +109,7 @@ the Azure portal provides a broad range of benefits, including:
 
 - Oracle Database@Azure provisioned: Deploy an Exadata virtual machine
   (VM) cluster in a delegated subnet in an Azure virtual network. First,
-  we need to create a Exadata Infrastructure.
+  we need to create an Exadata Infrastructure.
 
 <!-- -->
 
@@ -128,9 +128,8 @@ the Azure portal provides a broad range of benefits, including:
   event management) and SOAR (security orchestration automated response)
   solution that helps organizations collect, analyze, and respond to
   security threats across their hybrid cloud environments. Microsoft
-  Sentinel leverages the power of artificial intelligence (AI) and
-  machine learning (ML) to automate Security threat detection and
-  response, reducing false positives, and improving security operations
+  Sentinel applies the power of artificial intelligence (AI) and
+  machine learning (ML) to automate Security threat detection and response, reduce false positives, and improve security operations
   efficiency.
 
 - **Azure subscription and permissions**: Ensure that you have
@@ -142,11 +141,10 @@ the Azure portal provides a broad range of benefits, including:
 
 ## Step 1: Create and configure a diagnostic setting
 
-1. Navigate to the Azure portal and select the either Oracle Exadata VM
+1. Navigate to the Azure portal and select either Oracle Exadata VM
   cluster or Oracle Exadata Infrastructure you want to monitor.
 
-1. Go to the "Diagnostic settings" section and click on "Add diagnostic
-  setting".
+1. Go to the **Diagnostic settings** section and select **Add diagnostic setting**.
 
 1. Choose the logs you want to send to Azure destinations using the
   below check box options:
