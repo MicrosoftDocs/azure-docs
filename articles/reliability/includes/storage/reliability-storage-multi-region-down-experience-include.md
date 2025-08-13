@@ -16,6 +16,7 @@ This section describes what to expect when a storage account is configured for g
     - **Detection and response:** In the unlikely event that your storage account is unavailable in your primary region, you can consider initiating a customer-managed unplanned failover. To make this decision, consider the following factors:
 
       - Whether [Azure Resource Health](/azure/service-health/resource-health-overview) shows problems accessing the storage account in your primary region.
+      
       - Whether Microsoft has advised you to perform failover to another region.
 
       > [!WARNING]

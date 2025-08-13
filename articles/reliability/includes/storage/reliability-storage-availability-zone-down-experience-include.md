@@ -9,7 +9,8 @@
  ms.custom: include file
 ---
 
-- **Detection and response:** Microsoft automatically detects zone failures and initiates recovery processes. No customer action is required for zone-redundant storage accounts.
+- **Detection and response:** Microsoft automatically detects zone failures and initiates failover processes. No customer action is required for zone-redundant storage (ZRS) accounts.
+- **Detection and response:** Microsoft automatically detects zone failures and initiates recovery processes. No customer action is required for zone-redundant storage (ZRS) accounts.
 
     If a zone becomes unavailable, Azure undertakes networking updates such as Domain Name System (DNS) repointing.
 
