@@ -45,7 +45,7 @@ For a complete comparison of the Functions on Container Apps against Flex Consum
 
 Azure Functions on Container Apps are ideal for a wide range of use cases, especially when you need event-driven execution, container flexibility, or secure integration with other services:
 
-- **Line-of-business APIs:** Package custom libraries, packages, and APIs with Functions for line-of-business applications.
+- **Line-of-business APIs:** Package custom libraries, packages, and APIs with Azure Functions for line-of-business applications.
 - **Migration and modernization:** Migration of on-premises legacy and/or monolith applications to cloud native microservices on containers.
 - **Event-driven processing:** Handle events from Event Grid, Service Bus, Event Hubs, and other event sources with ease of Functions programming model.
 - **AI & GPU workloads:** Serverless workload processing of videos, images, transcripts, or any other processing intensive tasks that required  GPU compute resources. For more information, see [Using serverless GPUs in Azure Container Apps](../container-apps/gpu-serverless-overview.md).
