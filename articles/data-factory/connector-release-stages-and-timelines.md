@@ -81,7 +81,7 @@ For comprehensive details on support levels and recommended usage at each stage,
 | [Shopify (Preview)](connector-shopify.md)                        | version 2.0    | Public Preview                    | /                   |
 |                                    | version 1.0    | End of support announced                                | August 31, 2025     | September 30, 2025                    |
 | [Salesforce V2](connector-salesforce.md)                   | /              | 
-| [Snowflake V2](connector-snowflake.md)                     | version 1.1    | Public Preview                    | /                   | /                   |
+| [Snowflake V2](connector-snowflake.md)                     | version 1.1    | GA                                | /                   | /                   |
 |                                    | version 1.0    | GA                                | /                   | /                   |
 | [Snowflake V1](connector-snowflake-legacy.md)              | /              | End of support        | June 30, 2025         | September 30, 2025    |
 | [Spark](connector-spark.md)                               | version 2.0    | GA                 | /                   | /                   |

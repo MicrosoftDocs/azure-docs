@@ -6,6 +6,7 @@ ms.author: kamils
 
 ms.topic: article
 ms.date: 09/10/2024
+ms.service: azure-app-service
 ---
 
 # Routine maintenance for Azure App Service, restarts, and downtime
