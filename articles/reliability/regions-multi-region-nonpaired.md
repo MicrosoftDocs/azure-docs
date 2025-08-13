@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.service: azure
 ms.subservice: azure-reliability
 ms.topic: conceptual
-ms.date: 01/15/2025
+ms.date: 08/12/2025
 ms.author: anaharris
 ms.custom:
   - subject-reliability
@@ -16,6 +16,10 @@ ms.custom:
 
 Although some Azure services support geo-redundancy and geo-replication by using paired regions, you can create solutions that support multiple regions [even when those regions aren't paired](./regions-paired.md). This article lists some of the services and possible configurations for multi-region solutions that don't require paired regions. To learn more about each Azure service and how it supports reliability, see the [Azure service reliability guides](./overview-reliability-guidance.md).
 
+## Azure AI Search
+
+To learn about how to create multi-region solutions using Azure AI Search, see [Reliability in Azure AI Search](./reliability-ai-search.md).
+
 ## Azure API Management
 
 To learn about how to create multi-region solutions by using Azure API Management, see [Reliability in API Management](./reliability-api-management.md).
@@ -23,6 +27,10 @@ To learn about how to create multi-region solutions by using Azure API Managemen
 ## Azure App Service
 
 To learn about how to create multi-region solutions by using Azure App Service, see [Reliability in App Service](./reliability-app-service.md).
+
+## Azure Blob Storage
+
+To learn about how to create multi-region solutions using Azure Blob Storage, see [Reliability in Azure Blob Storage](./reliability-storage-blob.md).
 
 ## Azure Cache for Redis
 
@@ -95,16 +103,9 @@ For geo-replication in nonpaired regions with Azure SQL Managed Instance, you ca
 
 ## Azure Storage
 
-Use the following guidance to achieve geo-replication in nonpaired regions.
+To achieve geo-replication in nonpaired regions:
 
-- **For object storage:**
-
-    - For general-purpose v2 storage accounts and premium block blob accounts, you can use [object replication](../storage/blobs/object-replication-overview.md).
-
-      > [!NOTE]
-      > Object replication isn't supported for [Azure Data Lake Storage](../storage/blobs/data-lake-storage-best-practices.md).
-   
-    - For premium page blob accounts and Azure Data Lake Storage Gen2 accounts, you can use tools like [AzCopy](../storage/common/storage-use-azcopy-blobs-copy.md) or [Data Factory](/azure/data-factory/connector-azure-blob-storage?tabs=data-factory.md).
+- **For object storage:** To learn about how to create multi-region solutions using Azure Blob Storage, see [Reliability in Azure Blob Storage](./reliability-storage-blob.md).
 
 - **For Azure NetApp Files:**
    

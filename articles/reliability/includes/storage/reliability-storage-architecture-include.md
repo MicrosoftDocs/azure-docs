@@ -9,7 +9,7 @@
  ms.custom: include file
 ---
 
-[Locally redundant storage (LRS)](/azure/storage/common/storage-redundancy?#locally-redundant-storage), the lowest-cost redundancy option, automatically stores and replicates three copies of your data within a single datacenter. Although LRS protects your data against server rack and drive failures, it doesn't account for disasters such as fire or flooding within a datacenter. In the face of such disasters, all replicas of a storage account configured to use LRS might be lost or unrecoverable.
+[Locally redundant storage (LRS)](/azure/storage/common/storage-redundancy?#locally-redundant-storage) replicates the data within your storage accounts to one or more Azure availability zones located in the primary region of your choice. Although there's no option to choose your preferred availability zone, Azure may move or expand LRS accounts across zones to improve load balancing. There's no guarantee that your data will be spread across zones. LRS provides at least 99.999999999 (11 nines) durability of objects over a given year. For more information about availability zones, see [What are Availability Zones?](../../availability-zones-overview.md).
 
 :::image type="complex" source="../../media/reliability-storage/locally-redundant-storage.png" alt-text="Diagram that shows how data is replicated in availability zones by using LRS." lightbox="../../media/reliability-storage/locally-redundant-storage.png" border="false":::
    A blue box represents the primary region. It contains a gray box that represents the datacenter. A dark purple box inside the datacenter box represents LRS. It contains a light purple box that includes the storage account and three icons labeled copy 1, copy 2, and copy 3.

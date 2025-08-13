@@ -9,6 +9,7 @@ ms.custom: UpdateFrequency3
 ms.author: msangapu
 author: msangapu-msft
 
+ms.service: azure-app-service
 ---
 
 # How to prepare for an inbound IP address change
