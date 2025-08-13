@@ -7,7 +7,7 @@ ms.suite: integration
 ms.reviewer: estfan, divswa, krmitta, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 08/15/2025
+ms.date: 08/22/2025
 ms.update-cycle: 180-days
 # Customer intent: As an integration developer, I want to automate workflows that complete tasks with AI agents and other AI capabilities for my integration scenarios by using Azure Logic Apps.
 ms.custom:
@@ -72,11 +72,11 @@ This guide shows how to create an example Standard logic app workflow with the *
   > model usage incurs charges. For more information, see the Azure 
   > [Pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
-- The authentication details to use when you create a new connection between an agent and your deployed model.
+- The authentication to use when you create a new connection between an agent and your deployed model.
 
   > [!NOTE]
   >
-  > Azure AI Foundry projects support only managed identity authentication.
+  > For Azure AI Foundry projects, you must use managed identity authentication.
 
   - Managed identity authentication
 
@@ -146,7 +146,7 @@ The following table describes the current limitations and any known issues in th
 | Limitation | Description |
 |------------|-------------|
 | Supported workflow types | To create an autonomous agent workflow, you must select the **Autonomous Agents** workflow type. You can't start with the **Stateful** or **Stateless** workflow type, and then add an agent. |
-| Authentication | For managed identity authentication, you can use only the system-assigned managed identity at this time. Support is currently unavailable for the user-assigned managed identity. <br><br>**Note**: Azure AI Foundry projects support only managed identity authentication. |
+| Authentication | For managed identity authentication, you can use only the system-assigned managed identity at this time. Support is currently unavailable for the user-assigned managed identity. <br><br>**Note**: For Azure AI Foundry projects, you must use managed identity authentication. |
 | Agent tools | - To create tools, you can use only actions, not triggers. <br><br>- A tool starts with action and always contains at least one action. <br><br>- A tool works only inside the agent where that tool exists. |
 | General limits | For general information about the limits in Azure OpenAI Service, Azure AI Foundry, and Azure Logic Apps, see the following articles: <br><br>- [Azure OpenAI Service quotas and limits](/azure/ai-services/openai/quotas-limits) <br>- [Azure OpenAI in Azure AI Foundry Models quotas and limits](/azure/ai-foundry/openai/quotas-limits) <br>- [Azure Logic Apps limits and configuration](/azure/logic-apps/logic-apps-limits-and-config) |
 
@@ -213,14 +213,14 @@ Now, create a connection between the agent and your deployed model by following 
 
    | Parameter | Required | Value | Description |
    |-----------|----------|-------|-------------|
-   | **Connection Name** | Yes | <*connection-name*> | The name to use for the connection to your deployed model. <br><br>This example uses **fabrikam-ai-connection**. |
+   | **Connection Name** | Yes | <*connection-name*> | The name to use for the connection to your deployed model. <br><br>This example uses **fabrikam-azure-ai-connection**. |
    | **Agent Model Source** | Yes | - **Azure OpenAI** <br>- **Foundry Agent Service** | The source for the deployed model. |
-   | **Authentication Type** | Yes | <br><br>- **URL and key-based authentication** <br><br>- **Managed identity** | The authentication to use for validating and authorizing an identity's access to your deployed model. <br><br>**Note**: For Azure AI Foundry projects, you must use managed identity authentication. <br><br>- The **URL and key-based authentication** type requires the endpoint URL and API key for your deployed model. These values automatically appear when you select your model source. <br><br>- The **Managed identity** type requires that your Standard logic app have a managed identity enabled and set up with the required roles for role-based access. For more information, see [Prerequisites](#prerequisites). <br><br>**Important**: For the examples and exploration only, you can use **URL and key-based authentication**. For production scenarios, use **Managed identity**. |
+   | **Authentication Type** | Yes | - **Managed identity** <br><br>- **URL and key-based authentication** | The authentication type to use for validating and authorizing an identity's access to your deployed model. <br><br>**Note**: For Azure AI Foundry projects, you must use managed identity authentication. <br><br>- **Managed identity** requires that your Standard logic app have a managed identity enabled and set up with the required roles for role-based access. For more information, see [Prerequisites](#prerequisites). <br><br>- **URL and key-based authentication** requires the endpoint URL and API key for your deployed model. These values automatically appear when you select your model source. <br><br>**Important**: For the examples and exploration only, you can use **URL and key-based authentication**. For production scenarios, use **Managed identity**. |
    | **Subscription** | Yes | <*Azure-subscripton*> | Select the Azure subscription associated with your Azure OpenAI Service resource. |
    | **Azure OpenAI Resource** | Yes | <*Azure-OpenAI-Service-resource-name*> | Select your Azure OpenAI Service resource. |
-   | **Project** | Yes, but only for **Foundry Agent Service** | <*Azure-AI-Foundry-project-name*> | Select your project in Azure AI Foundry. <br><br>**Note**: If the message appears that If you recently assigned the necessary role on your project, you might experience a delay before role permissions take effect. |
+   | **Project** | Yes, only for **Foundry Agent Service** | <*Azure-AI-Foundry-project-name*> | Select your project in Azure AI Foundry. <br><br>**Note**: If you recently assigned the necessary role on your project, you might experience a delay before role permissions take effect. Meanwhile, an error message appears that you don't have correct permissions on the project. |
    | **API Endpoint** | Yes | Automatically populated | The endpoint URL for your deployed model in Azure OpenAI Service. <br><br>This example uses **`https://fabrikam-azureopenai.openai.azure.com/`**. |
-   | **API Key** | Yes, but only for **URL and key-based authentication** | Automatically populated | The API key for your deployed model in Azure OpenAI Service. |
+   | **API Key** | Yes, only for **URL and key-based authentication** | Automatically populated | The API key for your deployed model in Azure OpenAI Service. |
 
    For example, if you select **Azure OpenAI** as your model source and **Managed identity** for authentication, your connection information looks like the following sample:
 
@@ -267,12 +267,12 @@ To get the best results, make sure that your system instructions are prescriptiv
 
    > [!NOTE]
    >
-   > Autonomous agents don't accept additional input through the chat interface at runtime. 
-   > Instead, you'll later learn how to provide inputs by using the **User Instructions** section.
+   > Autonomous agents don't accept additional input through the chat interface at runtime. Instead, 
+   > you later learn how to provide inputs by using the **User Instructions** section or through tools.
 
    For this example, the weather agent example uses the following sample instructions where you later provide a subscriber list with your own email address for testing:
 
-   **You're an AI agent that generates a weather report for Seattle, which you send in email to each subscriber on a list. This list includes each subscriber's name, location, and email address to use.**
+   **You're an AI agent that generates a weather report, which you send in email to each subscriber on a list. This list includes each subscriber's name, location, and email address to use.**
 
    **Format the weather report with bullet lists where appropriate. Make your response concise and useful, but use a conversational and friendly tone. You can include suggestions like "Carry an umbrella" or "Dress in layers".**
 
