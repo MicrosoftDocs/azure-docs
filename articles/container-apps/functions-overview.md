@@ -19,7 +19,7 @@ As an integrated feature on Azure Container Apps,  you can  deploy Azure Functio
 
 ## Key benefits
 The Container Apps hosting model builds on the flexibility of containerized workloads and the event-driven nature of Azure Functions. It offers the following key advantages:
-- **Run Functions as containers** with custom dependencies and language stacks.
+- **Run Azure Functions as containers** with custom dependencies and language stacks.
 - **Scale in to zero and scale out to 1000 instances** using KEDA.
 - **[Secure networking](../container-apps/networking.md)** with full [VNet integration](../container-apps/custom-virtual-networks.md).
 - **Advanced [Container App features](../container-apps/overview.md#features)** like multi-revisions, traffic splitting, [Dapr integration](../container-apps/dapr-overview.md), and [observability components](../container-apps/observability.md).
