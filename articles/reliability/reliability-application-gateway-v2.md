@@ -87,7 +87,7 @@ Application Gateway supports availability zones for the Standard_v2 and WAF_v2 t
 
 ### Considerations
 
-Zone-redundant gateways are spread across two or more availability zones in the region. For example, in a region that has three availability zones, a zone-redundant Application Gateway v2 deployment has instances in at least two of those zones. Depending on regional capacity and platform decisions, availability might be limited to two zones or extended across all three zones.
+Zone-redundant gateways are spread across two or more availability zones in the region. For example, in a region that has three availability zones, a zone-redundant Application Gateway v2 deployment has instances in at least two of those zones. Depending on regional capacity and platform decisions, instances might be spread across two zones or three zones.
 
 ### Cost
 
@@ -97,7 +97,7 @@ Availability zone support for Application Gateway v2 doesn't incur extra charges
 
 This section explains how to configure availability zone support for your gateways.
 
-- **Create a new Application Gateway v2 instance with availability zone support.** The approach that you use to configure availability zones depends on whether you want to create a zone-redundant or zonal gateway.
+- **Create a new gateway with availability zone support.** The approach that you use to configure availability zones depends on whether you want to create a zone-redundant or zonal gateway.
 
   - *Zone-redundant:* New gateways are created as zone-redundant by default. Instances are spread across multiple availability zones and might use two or more zones in the region.
 
@@ -135,7 +135,7 @@ To manage capacity effectively, take the following actions:
 
   If you use manual scaling, to prepare for availability zone failure, consider *over-provisioning* the number of instances in your gateway. Over-provisioning allows the solution to tolerate some degree of capacity loss, while continuing to function without degraded performance. For more information, see [Manage capacity with over-provisioning](/azure/reliability/concept-redundancy-replication-backup#manage-capacity-with-over-provisioning).
 
-- **Monitor capacity metrics.** Monitor capacity metrics and adjust scaling parameters based on your traffic patterns and performance requirements.
+- **Respond to changes in traffic patterns.** Monitor capacity metrics and adjust scaling parameters based on your traffic patterns and performance requirements.
 
 ### Normal operations
 
@@ -201,11 +201,11 @@ The options for testing for zone failures depend on the availability zone config
 
 - *Zone-redundant:* The Application Gateway platform fully manages traffic routing, failover, and failback for zone-redundant gateways. Because Microsoft manages this feature, you don't need to initiate or validate availability zone failure processes. The platform handles all zone failure scenarios transparently.
 
-- *Zonal:* You can simulate some aspects of the failure of an availability zone by explicitly stopping a gateway. By stopping the Application Gateway instance, you can test how other systems and load balancers handle an outage in the gateway. For more information, see [How to stop and start Application Gateway](/azure/application-gateway/application-gateway-faq#how-can-i-stop-and-start-application-gateway).
+- *Zonal:* You can simulate some aspects of the failure of an availability zone by explicitly stopping a gateway. By stopping the gateway, you can test how other systems and load balancers handle an outage in the gateway. For more information, see [How to stop and start Application Gateway](/azure/application-gateway/application-gateway-faq#how-can-i-stop-and-start-application-gateway).
 
 ## Multi-region support
 
-Application Gateway v2 is a single-region service. If the region becomes unavailable, your Application Gateway instance is also unavailable.
+Application Gateway v2 is a single-region service. If the region becomes unavailable, your gateway is also unavailable.
 
 ### Alternative multi-region approaches
 
@@ -213,7 +213,7 @@ To achieve multi-region resilience by using Application Gateway v2, you need to 
 
 - Configure consistent Application Gateway rules and policies across regions. You can define infrastructure as code (IaC) by using tools like Bicep or Terraform to simplify your deployments and configurations across regions.
 
-- Deploy a global load balancing solution that can send traffic between your regional gateways. The global load balancing services in Azure are Azure Traffic Manager and Azure Front Door. Each service routes traffic based on health checks, geographic proximity, or performance metrics. Azure Front Door also provides a range of other capabilities, including distributed denial-of-service protection, WAF capabilities, and advanced rules and routing features.
+- Deploy a global load balancing solution that can send traffic between your regional gateways. The global load balancing services in Azure are Azure Traffic Manager and Azure Front Door. Each service routes traffic based on health checks, geographic proximity, or performance metrics. Azure Front Door also provides a range of other capabilities, including distributed denial-of-service (DDoS) attack protection, WAF capabilities, and advanced rules and routing features.
 
 - Beyond the gateway, consider replicating back-end applications and data across regions. Consult the reliability guides for each Azure service to understand multi-region deployment approaches.
 
@@ -240,7 +240,7 @@ For most solutions, you shouldn't rely exclusively on backups. Instead, use the 
 
 ## Service-level agreement
 
-The service-level agreement (SLA) for Application Gateway describes the expected availability of the service. It also describes the conditions that must be met to achieve that availability expectation. To understand those conditions, it's important that you review [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+[!INCLUDE [SLA description](includes/reliability-service-level-agreement-include.md)]
 
 ## Related content
 
