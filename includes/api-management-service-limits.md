@@ -27,7 +27,7 @@ ms.custom: Include file
 | Custom gateway domains | N/A | 20 | N/A | N/A | 20 |
 | CA certificates<sup>5</sup> | N/A | 10 | 10 | 10 | 10 |
 | Client certificates<sup>6</sup> | 50 | 100 | 100 | 100 | 100 |
-| APIs (including revisions)<sup>6</sup> | 150 | 150 | 150 | 500 | 2,500 |
+| APIs (including versions and revisions)<sup>6</sup> | 150 | 150 | 150 | 500 | 2,500 |
 | API releases<sup>6</sup> | 100 | 100 | 100 | 100 | 100 |
 | API operations<sup>6</sup> | 3,000 | 3,000 | 3,000 | 10,000 | 20,000 |
 | API operations per API<sup>6</sup> | 100 | 100 | 100 | 100 | 100 |
