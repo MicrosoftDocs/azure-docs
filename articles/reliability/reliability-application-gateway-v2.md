@@ -21,7 +21,7 @@ This article describes Azure Application Gateway v2 reliability support, coverin
 [!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
 > [!IMPORTANT]
-> The reliability of your overall solution depends on the configuration of the back-end servers that Application Gateway routes traffic to. Depending on your solution, these might be Azure VMs, Virtual Machine Scale Sets, Azure App Services, or external endpoints.
+> The reliability of your overall solution depends on the configuration of the back-end servers that Application Gateway routes traffic to. Depending on your solution, these might be Azure virtual machines (VMs), Azure virtual machine scale sets, Azure App Services, or external endpoints.
 >
 > Your back-end servers aren't in scope for this article, but their availability configurations directly affect your application's resilience. Review the reliability guides for all of the Azure services in your solution to understand how each service supports your reliability requirements. By ensuring that your back-end servers are also configured for high availability and zone redundancy, you can achieve end-to-end reliability for your application.
 
