@@ -35,7 +35,7 @@ You can use customizations in Dev Box in two ways. *Team customizations* create 
 | Product | Requirements |
 |---------|--------------|
 | Microsoft Dev Box  | - Set up a [dev center with a dev box pool and a dev box project](./quickstart-configure-dev-box-service.md) so you can create a dev box. </br> - Attach a catalog to the dev center with tasks you can use in your image definition file. If you don't have a catalog, see [Add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md). </br> **- Permissions** </br> - *To create a dev box:* Join the Dev Box Users security group for at least one project. </br> - *To enable project-level catalogs for a dev center:* Platform engineer with write access on the subscription. </br> - *To enable catalog sync settings for a project:* Platform engineer with write access on the subscription. </br> - *To attach a catalog to a project:* Dev Center Project Admin or Contributor permissions on the project. |
-| Visual Studio Code | Latest version |
+| Visual Studio Code | - Install the latest version |
 
 ## Choose a source for customization tasks
 
@@ -54,11 +54,6 @@ Source Dev Box tasks from tasks built in to the platform, or use custom tasks st
 ## Create image definitions at the project level
 
 Projects help you manage Dev Box resources efficiently. Assign each developer team its own project to organize resources effectively. Create multiple image definitions in your catalog repository, each in its own folder to target different developer teams under your project.
-
-### Assign permissions for project admins
-
-To attach a catalog to a project, you need Project Admin or Contributor permission for the project.
-To learn how to assign Project Admin permission, see [Grant administrative access to Dev Box projects](how-to-project-admin.md).
 
 ### Enable project-level catalogs
 
