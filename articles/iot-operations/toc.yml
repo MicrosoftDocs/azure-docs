@@ -285,7 +285,7 @@ items:
             href: develop-edge-apps/reference-state-store-protocol.md
             displayName: MQTT, client app, developer
           - name: SDKS reference documentation
-            href: https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/README.md
+            href: https://github.com/Azure/iot-operations-sdks/blob/main/doc/components.md
             displayName: MQTT, client app, developer
           - name: Dapr apps
             items:

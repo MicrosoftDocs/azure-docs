@@ -66,14 +66,15 @@ The SDKs provide many components available for simplicity and ease of use:
 
 * A **Protocol Compiler (codegen)**, that allows clients and servers to communicate via a schema contract. First describe the communication (using **Telemetry** and **Commands**) with DTDL, then generate a set of client libraries and server library stubs across the supported programming languages.
 
-Read further about the underlying terminology and different components of the SDKs:
+Read further about the components of the SDKs:
 
-* [Terminology](https://github.com/Azure/iot-operations-sdks/blob/main/doc/terminology.md) - Understand the different terms used to describe the concepts and construction of the SDKs.
 * [Components](https://github.com/Azure/iot-operations-sdks/blob/main/doc/components.md) - An outline of each component and their function.
 
 ## Applications types
 
 The SDKs supports the following application types:
+
+// ASK: Akri connector should go to the mslearn page by Dominic directly. 
 
 | Application type | Description |
 |-|-|
@@ -88,10 +89,6 @@ The SDKs supports the following application types:
 Review the [samples](https://github.com/Azure/iot-operations-sdks/tree/main/samples) directory for samples about creating applications for Azure IoT Operation on the supported languages.
 
 To deploy a fully functional application to a cluster and see the SDKs in action, follow the [Tutorial: Build an event-driven app](https://github.com/Azure/iot-operations-sdks/blob/main/samples/event_driven_app/README.md).
-
-## SDKs reference documentation
-
-For documentation related to the implementation of the SDKs, it's fundamentals primitives and protocols as well as the underlying topic and payload structure used for communication over MQTT, see [Azure IoT Operations SDKs reference documentation](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/README.md).
 
 ## Next step
 
