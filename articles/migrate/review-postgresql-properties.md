@@ -16,7 +16,7 @@ This article describes the key components of a PostgreSQL assessment and shows y
 
 ## View an assessment 
 
-Follow these steps to view the assessment that you created. 
+To view the assessment you creat, follow these steps: 
 
 1. Go to the **Assessment** and select **View all reports** under **Overview**, or select **Assessments** under the **Decide and plan**.
 1. Select the assessment you want to view, for example, azmigrate-demo.
@@ -35,7 +35,7 @@ This section provides a summary of the assessment, including the following metri
 - **Out of support**: Number of instances running unsupported PostgreSQL versions
 - **Discovery success**: Percentage of successful discovery operations
 
-## Plan Migration
+## PostgreSQL migration
 
 This indicates the different migration strategies that you can consider for your PostgreSQL deployments. You can review the readiness for target deployment types and the cost estimates for PostgreSQL instances that are marked ready or ready with conditions.
 
@@ -71,7 +71,7 @@ The **Supportability** section shows the support status of the PostgreSQL versio
     - Recommended actions to help secure workloads
 1. To view the remaining support duration (in months) for each PostgreSQL version:
     - Select **Columns** > **Support ends in** > **Submit**.
-    - The **Support ends** in column displays the number of months remaining for support.
+    - The **Support ends** in column shows the number of months remaining for support.
 1. Support status categories: 
     - **Mainstream support**: The PostgreSQL version is actively supported and receives regular updates.
     - **Out of support**: The PostgreSQL version no longer receives updates and should be upgraded to a supported version.
@@ -85,7 +85,7 @@ Assess the migration readiness of your PostgreSQL instances, identify potential 
 
 :::image type="content" source="./media/review-postgresql-properties/review-readiness-for-diff-migrations.png" alt-text="Screenshot shows how to review the readiness for different migrations" lightbox="./media/review-postgresql-properties/review-readiness-for-diff-migrations.png":::
 
-To review readiness reports for different migration strategies:
+To review readiness reports for different migration strategies, follwo these steps:
 
 1. Select the **Readiness report** for the desired migration strategy.
 1. Review the readiness columns in the selected report to assess migration preparedness.
