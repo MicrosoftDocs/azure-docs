@@ -154,7 +154,7 @@ Azure Functions on Container Apps integrate seamlessly with Azure’s observabil
 
 Keep these other considerations in mind when using Azure Functions on Azure Container Apps:
 
-- **Ingress Requirement for Auto-Scaling**: To enable automatic scaling based on events, [ingress must be enabled](../container-apps/ingress-how-to.md)—either publicly or within the Container Apps environment.
+- **Ingress Requirement for Auto-Scaling**: To enable automatic scaling based on events, [ingress must be enabled](../container-apps/ingress-how-to.md)—either publicly or within the Container Apps internal environment.
 - **Mandatory Storage Account**: Every Functions app deployed on Container Apps must be linked to a storage account. This is required for managing triggers, logs, and state. Review the [storage account guidance](../azure-functions/storage-considerations.md) for best practices.
 - **Multi-revision storage**: When deploying with multiple active revisions, assign a dedicated storage account to each revision. Using a dedicated storage account helps prevent conflicts and ensures proper isolation. Alternatively, if you do not require concurrent revisions, consider using the default single revision mode for simplified management.
 - **Cold start latency**: When your container app scales in to zero during idle periods, the first request after inactivity experiences a cold start. Learn more about [reducing cold start times](../container-apps/cold-start.md).
