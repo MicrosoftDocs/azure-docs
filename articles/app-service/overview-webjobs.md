@@ -10,6 +10,7 @@ ms.author: msangapu
 ms.reviewer: ggailey
 ms.collection: ce-skilling-ai-copilot
 #Customer intent: I want to understand what WebJobs are, how they work with Azure App Service, and whether they’re the right solution for running background tasks in my app. I'm looking for guidance on supported platforms, types of jobs, deployment options, and how to get started or go deeper based on my use case.
+ms.service: azure-app-service
 ---
 
 # App Service WebJobs overview

@@ -8,6 +8,7 @@ ms.date: 02/14/2025
 ms.reviewer: yutlin
 ms.author: msangapu
 author: msangapu-msft
+ms.service: azure-app-service
 ---
 
 # Use TLS/SSL certificates in your application code
