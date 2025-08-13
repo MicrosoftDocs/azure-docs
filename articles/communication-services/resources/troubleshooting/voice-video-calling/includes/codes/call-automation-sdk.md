@@ -258,4 +258,65 @@ A 6xx code represents a global error.
 | 9998 | Fatal Error |
 | 9999 | Unknown |
 
+## SIP and Q.850 Diagnostic Codes in Callback Events
+
+Call Automation callback events now support **low-level diagnostic data** via `SipDetails` and `Q850Details` fields, added to the existing `ResultInformation` object.  
+These diagnostics surface protocol-level insights from the **telecom signaling layer**, helping troubleshoot issues such as call drops, unreachable destinations, or unexpected rejections in PSTN and SIP/VoIP scenarios.
+
+---
+
+### Availability
+
+> **Note:** The presence of `SipDetails` and `Q850Details` is **entirely dependent** on whether the involved SBC or telecom carrier provides this information.  
+> If the SBC/carrier returns relevant diagnostics after a corresponding call automation signaling request, the resulting event will include `SipDiagnosticInfo` within `ResultInformation`.
+
+---
+
+### Affected Events
+
+The following events may include `SipDiagnosticInfo` in their `ResultInformation`:
+
+- `RemoveParticipantsFailed`
+- `AddParticipantsFailed`
+- `CreateCallFailed`
+- `AnswerFailed`
+- `CallDisconnected`
+- `TransferFailed`
+- `CanAddParticipantFailed`
+
+> In practice, **any callback event containing `ResultInformation`** can carry these diagnostics when provided by the SBC/carrier.
+
+---
+
+### Structure
+
+Each diagnostic is represented as an object:
+
+| Property  | Type    | Description                                   |
+|-----------|---------|-----------------------------------------------|
+| `Code`    | Integer | SIP or Q.850 code (e.g., `486`, `16`)         |
+| `Message` | String  | Human-readable reason (e.g., "Busy Here")     |
+
+These fields are optional and appear only when supplied by the SBC/carrier.
+
+---
+
+### Example
+
+```json
+{
+  "ResultInformation": {
+    "Code": 500,
+    "SubCode": 560503,
+    "Message": "Unexpected server error",
+    "SipDetails": {
+      "Code": 486,
+      "Message": "Busy Here"
+    },
+    "Q850Details": {
+      "Code": 17,
+      "Message": "User busy"
+    }
+  }
+}
 
