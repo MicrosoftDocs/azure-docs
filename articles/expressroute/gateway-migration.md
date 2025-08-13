@@ -130,8 +130,12 @@ Once the change has been committed, it can no longer be rolled back.
 
 During the migration process, traffic is rerouted seamlessly. There is no expected packet loss or routing disruption under normal conditions.
 
+
+
 ## Next Steps
 
 - Troubleshoot migration  issues with [Troubleshooting Gateway Migration](gateway-migration-error-messaging.md).
 - Learn how to [migrate using the Azure portal](expressroute-howto-gateway-migration-portal.md).
 - Learn how to [migrate using PowerShell](expressroute-howto-gateway-migration-powershell.md).
+
+
