@@ -10,14 +10,14 @@ ms.service: azure
 
 # Approval and permission flow for Azure SRE Agent (preview)
 
-As Azure SRE Agent works within your environment, there are two questions at the heart of every action the agent takes:
+As Azure SRE Agent works within your environment, there are two questions at the core of every write action the agent takes:
 
 | Question | Request type |
 |---|---|
-| Should the agent take action on a generated plan? | Approval |
+| Should the agent take action on a generated plan that includes a write operation? | Approval |
 | When the agent doesn't have the required permissions to take action, can it get temporary access to the user's credentials? | Permission |
 
-These questions surround the issues of having *approval* for taking action and then having the appropriate *permissions* to take a given action.
+These questions surround the issues of having *approval* for taking action and then having the appropriate *permissions* to perform a wite action.
 
 The first question surrounds whether or not a given action is the right choice. The second question concerns with the security context surrounding the agent action.
 
