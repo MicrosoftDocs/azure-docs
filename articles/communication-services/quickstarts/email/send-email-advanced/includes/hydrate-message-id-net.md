@@ -57,18 +57,14 @@ Console.WriteLine($"Email operation id = {operationId}");
 
 The `operationId` is the key identifier that allows you to rehydrate the operation later. In real applications, you would typically store this ID for future reference.
 
-### Use the operation ID for rehydration
+### Rehydrate operation ID and poll for completion
 
 ```csharp
 // Do a bunch of other things here...
 
 // Poll for the status of the email send operation using the previous operationId
 await PollForEmailSendOperationStatusWithExistingOperationId(emailClient, operationId);
-```
 
-### Polling for email status with existing operation ID
-
-```csharp
 private static async Task PollForEmailSendOperationStatusWithExistingOperationId(EmailClient emailClient, string operationId)
 {
     // Rehydrate a new EmailSendOperation object using the given operationId
@@ -76,11 +72,7 @@ private static async Task PollForEmailSendOperationStatusWithExistingOperationId
     // This is necessary in case you want to continue monitoring the status of the email manually, when you don't have 
     // the original EmailSendOperation object from the initial request.
     EmailSendOperation rehydratedEmailSendOperation = new EmailSendOperation(operationId, emailClient);
-```
 
-### Poll for completion
-
-```csharp
     // Call UpdateStatus on the rehydrated email send operation to poll for the status manually.
     try
     {
