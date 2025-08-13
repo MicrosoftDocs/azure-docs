@@ -65,7 +65,7 @@ The **Supportability** section shows the support status of the PostgreSQL versio
 
 1. To view the list of assessed PostgreSQL instances, select the graph in the **Supportability**
 1. The **Database instance version support status** column indicates whether the PostgreSQL version is in mainstream support or out of support.
-1. To view detailed support information, select the support status. A pane opens on the right and displays the following:
+1. To view detailed support information, select the support status. A pane opens on the right and shows the following details:
     - Type of support status (Mainstream or Out of support)
     - Remaining support duration
     - Recommended actions to help secure workloads
