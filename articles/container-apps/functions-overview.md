@@ -100,7 +100,7 @@ For detailed billing mechanics and examples, refer to the [Billing in Azure Cont
 
 Azure Functions on Container Apps support all major [language runtimes available in Azure Functions](../azure-functions/supported-languages.md), including: C#, JavaScript / TypeScript (Node.js), Python, Java, PowerShell, Custom containers (bring your own image).
 
-Azure Functions running on Azure Container Apps **automatically configure scaling rules** based on the event source, eliminating the need for manual KEDA scale rule definitions. However, you can still define minimum and maximum replica counts to establish scaling boundaries and maintain control over resource allocation.
+Azure Functions running on Azure Container Apps **automatically configure scaling rules** based on the event source, eliminating the need for manual KEDA scale rule definitions. That’s why the "Add scale rules" button on the Azure portal is disabled for Functions on Container Apps. However, you can still define minimum and maximum replica counts to establish scaling boundaries and maintain control over resource allocation.
 
 **All standard Azure Functions triggers and bindings are supported** in Container Apps with following **exceptions**:
 - Blob Storage Trigger auto scaling: Only works when using Event Grid as the source. Learn more about [Triggering Azure Functions on blob containers using an event subscription](../azure-functions/functions-event-grid-blob-trigger.md)
@@ -167,6 +167,7 @@ Keep these other considerations in mind when using Azure Functions on Azure Cont
     - [Use Azure API Management (APIM) to authenticate requests](../azure-functions/security-concepts.md#use-azure-api-management-apim-to-authenticate-requests)
     - [Deploy your function app to a virtual network](../container-apps/custom-virtual-networks.md?tabs=workload-profiles-env)
 - **Quota and resource limits**: Container Apps environments have default limits on memory, CPU, and instance counts per region. For more information, see the [environment limits](../container-apps/environment.md#limits-and-quotas) and [default quotas](../container-apps/quotas.md). If your workload requires more resources, you can [request a quota increase](../container-apps/quota-requests.md).
+- **Manual scale rule configuration**: The "Add scale rules" button on the Azure portal is disabled for Azure Functions hosted on Container Apps because scaling rules are automatically configured based on the event source. Manual KEDA rule definitions are not required in this setup.
 
 ## Submit Feedback
 
