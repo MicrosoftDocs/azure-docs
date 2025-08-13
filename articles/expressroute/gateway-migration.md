@@ -130,8 +130,11 @@ During the migration process, traffic is rerouted seamlessly. There is no expect
 ### What should I do if the Prepare step fails due to a cross-region connection on a Basic SKU circuit during gateway migration?
 
 If the Prepare step fails because your Basic SKU circuit has a cross-region connection, **abort** the gateway migration and **upgrade** the circuit SKU before trying again. This configuration is unsupported, and migration will continue to fail until the circuit SKU is upgraded.
+
 ## Next Steps
 
 - Troubleshoot migration  issues with [Troubleshooting Gateway Migration](gateway-migration-error-messaging.md).
 - Learn how to [migrate using the Azure portal](expressroute-howto-gateway-migration-portal.md).
 - Learn how to [migrate using PowerShell](expressroute-howto-gateway-migration-powershell.md).
+
+
