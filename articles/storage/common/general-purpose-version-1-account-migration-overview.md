@@ -50,7 +50,7 @@ GPv2 supports all capabilities of GPv1 and adds several enhancements, including 
 
 ## Plan for pricing changes when upgrading GPv1 → GPv2
 > [!WARNING]
-> Upgrading from General-purpose v1 (GPv1) to General-purpose v2 (GPv2) introduces a new pricing model that may increase costs for certain workloads—especially those with high read, write, or list operations.
+> Upgrading from General-purpose v1 (GPv1) to General-purpose v2 (GPv2) introduces a new pricing model that may increase costs for certain workloads especially those with high read, write, or list operations.
 >
 > However, GPv2 also unlocks modern features such as [access tiers](../blobs/access-tiers-overview.md) and expanded redundancy options, which can reduce **per-GB storage costs** and improve **performance, scalability, and manageability**.
 >
