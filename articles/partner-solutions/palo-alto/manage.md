@@ -64,18 +64,18 @@ You can view and change settings by selecting one of the following settings cate
 ## Properties 
 
 1. Select **Properties** under **Settings** in the left pane.
-1. On the **Properties** page, you can view various properties of the firewall, including essentials like the ID, name, and location, the network profile, associated rulestack, DNS settings, and plan data. 
+1. On the **Properties** page, you can view various properties of the firewall, including essentials like the ID, name, and location, the network profile, the associated rulestack, DNS settings, and plan data. 
 
 ## Locks
 
 1. Select **Locks** under **Settings** in the left pane.
 1. On the **Locks** page, you can view a list of locks. 
 1. To edit a lock, select the **Edit** button next to the lock. You can also delete a lock. 
-1. To add a lock, select **Add** and then enter a **Lock name**, **Lock type**, and, optionally **Notes**. 
+1. To add a lock, select **Add** and then enter a **Lock name**, **Lock type**, and, optionally, **Notes**. 
 
 ## Change plan
 
-To change the Cloud NGFW's billing plan, go to **Overview** and select **Change Plan**.
+To change the Cloud NGFW's billing plan, select **Overview** in the left pane and then select **Change Plan**.
 
 ## Delete a resource
 
