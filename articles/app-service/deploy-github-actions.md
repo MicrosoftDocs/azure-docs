@@ -10,6 +10,7 @@ ms.custom: github-actions-azure, devx-track-azurecli
 
 #customer intent: As a build developer, I want to learn how to automate my deployment of web apps by using Azure App Service and GitHub.
 
+ms.service: azure-app-service
 ---
 
 # Deploy to Azure App Service by using GitHub Actions

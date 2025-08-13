@@ -9,6 +9,7 @@ ms.update-cycle: 1095-days
 ms.custom: UpdateFrequency3, linux-related-content
 ms.author: msangapu
 author: msangapu-msft
+ms.service: azure-app-service
 ---
 
 # App Service overview

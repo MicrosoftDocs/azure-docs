@@ -24,16 +24,24 @@ Advanced network features enhance the virtual networking experience, offering im
 
 * Australia East
 * Australia Southeast
+* Brazil South
 * Canada Central
+* Central India
 * Central US 
 * East US 
 * East US2
 * France Central
-* Germany West Central 
+* Germany North
+* Germany West Central
+* Italy North 
+* Japan East
+* North Europe
 * South Central US
 * Southeast Asia
 * Sweden Central
-* US West  
+* US West
+* US West 2
+* US West 3 
 * UK South 
 * UK West
 
