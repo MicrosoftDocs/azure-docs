@@ -104,8 +104,8 @@ az networkcloud cluster scan-runtime \
 > In this case set the `Enforcement Level` to a value different from `Disabled` to enable the MDE service.
 
 > [!TIP]
-> In version 2509.1 and above, you can view the status of the most recent `scan-runtime` request in the Azure portal `JSON View`, under `properties.actionStates` with action type `scanRuntime`.
-> This view also includes any available error information for troubleshooting purposes.
+> In version 2509.1 and above, you can view the status of the most recent `scan-runtime` request in the Azure portal `JSON View`.
+> This information is available under `properties.actionStates` with action type `scanRuntime` and includes any available error information for troubleshooting, if applicable.
 > For more information, see the example in [Upgrade Cluster runtime using CLI](./howto-cluster-runtime-upgrade.md#upgrade-cluster-runtime-using-cli).
 
 ## Retrieve MDE scan information from each node
