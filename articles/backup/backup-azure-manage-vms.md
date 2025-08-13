@@ -2,7 +2,7 @@
 title: Manage and monitor Azure VM backups
 description: Learn how to manage and monitor Azure VM backups by using the Azure Backup service.
 ms.topic: how-to
-ms.date: 09/11/2024
+ms.date: 08/13/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -194,11 +194,11 @@ To protect your data, Azure Backup includes the soft delete feature. With soft d
 * These backup items remain active in the system adhering to the backup and retention policy set by the user. The backed-up data for these Azure VMs will be retained according to the retention policy. The expired recovery points (except the most recent recovery point) are cleaned according to the retention range set in the backup policy.
 * To avoid any additional cost, we recommend deleting the backup items where the primary data source no longer exists. This is in a scenario where the backup item/data for the deleted resources is no longer required, since the most recent recovery point is retained forever and you're charged according to the applicable backup pricing.
 
-## Uninstall and re-install the VMSnapshot extension on Windows operating system
+## Re-install the VMSnapshot backup extension for Azure VM protection
 
-If you 're experiencing Azure VM backup or extension failure issues, uninstall and reinstall the `VMSnapshot` extension on a Windows VM. This extension is responsible for enabling application-consistent snapshots during backup operations. Since it’s a hidden extension, the process involves manually cleaning up registry entries and plugin folders, followed by restarting the Azure Guest Agent. After the registry is cleaned, the extension automatically reinstalls during the next backup job.
+VMSnapshot backup extension enables application-consistent snapshots during backup operations. You can uninstall and reinstall the `VMSnapshot` extension on a Windows VM. Since it’s a hidden extension, the process involves manually cleaning up registry entries and plugin folders, followed by restarting the Azure Guest Agent. After the registry is cleaned, the extension automatically reinstalls during the next backup job.
 
-To uninstall and re-install the VMSnapshot extension on Windows operating system for the backup operation, follow these steps:
+To re-install the VMSnapshot extension on Windows operating system for the backup operation, follow these steps:
 
 1. Uninstall the `VMSnapshot` extension by running the following cmdlet:
 
