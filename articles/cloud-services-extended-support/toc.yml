@@ -70,14 +70,14 @@ items:
       href: in-place-migration-common-errors.md
   - name: Migrate from Azure Cloud Services (extended support)
     items:
- - name: Frequently asked questions (FAQ)
-href: ./service-fabric/service-fabric-cloud-services-migration-faq.md?toc=/azure/cloud-services-extended-support/toc.json
-- name: Migrate to Service Fabric
-href: ./service-fabric/service-fabric-cloud-services-migration-worker-role-stateless-service.md?toc=/azure/cloud-services-extended-support/toc.json
-- name: Compare Cloud Services (extended support) with Service Fabric
-href: ./service-fabric/service-fabric-cloud-services-migration-differences.md?toc=/azure/cloud-services-extended-support/toc.json
-  - name: Feature Support for CSES
-    href: feature-support-analysis.md
+    - name: Frequently asked questions (FAQ)
+      href: https://learn.microsoft.com/azure/service-fabric/service-fabric-cloud-services-migration-faq?toc=/azure/cloud-services-extended-support/toc.json
+    - name: Migrate to Service Fabric
+      href: https://learn.microsoft.com/azure/service-fabric/service-fabric-cloud-services-migration-worker-role-stateless-service?toc=/azure/cloud-services-extended-support/toc.json
+    - name: Compare Cloud Services (extended support) with Service Fabric
+      href: https://learn.microsoft.com/azure/service-fabric/service-fabric-cloud-services-migration-differences?toc=/azure/cloud-services-extended-support/toc.json
+    - name: Feature Support for CSES
+      href: feature-support-analysis.md
 - name: How To
   items:
   - name: Apply extensions
