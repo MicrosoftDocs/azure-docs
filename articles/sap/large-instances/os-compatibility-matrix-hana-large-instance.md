@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 05/18/2021
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
+# Customer intent: As an IT administrator, I want to reference the operating system compatibility matrix for HANA Large Instances, so that I can ensure the correct OS versions are deployed with the appropriate hardware types for optimal performance.
 ---
 # Compatible operating systems for HANA Large Instances
 

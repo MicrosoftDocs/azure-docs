@@ -17,8 +17,7 @@ You can group resources, across subscriptions, by creating Azure Service Groups.
 For more information on service groups, see [Getting started with Service Groups](overview.md).
 
 > [!IMPORTANT]
-> Azure Service Groups is currently in PREVIEW. 
-> For more information about participating in the preview, see [Azure Service Groups Preview](https://aka.ms/ServiceGroups/PreviewSignup).
+> Azure Service Groups is currently in public preview. 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 

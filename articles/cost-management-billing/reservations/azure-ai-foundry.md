@@ -86,6 +86,15 @@ To buy an Azure AI Foundry Provisioned Throughput reservation, follow these step
 
 You can exchange or cancel reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md).
 
+When you exchange an Azure AI Foundry Provisioned Throughput reservation, you can change the following attributes:
+- **Region**: Exchange a reservation from one Azure region to another
+- **Deployment type**: Exchange between Global, Data Zone, or Regional deployment types
+- **Term**: Change from one-month to one-year term, or from one-year to one-month term
+- **Payment option**: Change between upfront and monthly payment options
+
+>[!NOTE]
+>When exchanging for a different region, deployment type, term, or payment option, the term is reset for the new reservation.
+
 If you want to exchange your Azure AI Foundry Provisioned Throughput reservation, you can do so by following these steps:
 
 1. Sign in to the Azure portal and go to the Reservations page.

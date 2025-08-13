@@ -10,6 +10,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-automation
 title: set_secrets.sh
 description: Sets the SPN Secrets in Azure Key vault using a shell script.
+# Customer intent: As a cloud engineer, I want to use a shell script to set service principal secrets in Azure Key Vault, so that I can automate the deployment of resources securely and efficiently.
 ---
 
 # set_secrets.sh

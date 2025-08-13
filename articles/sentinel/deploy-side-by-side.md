@@ -1,10 +1,10 @@
 ---
 title: Deploying Microsoft Sentinel side-by-side to an existing SIEM.
 description: Learn how to deploy Microsoft Sentinel side-by-side to an existing SIEM.
-author: cwatson-cat
+author: EdB-MSFT
 ms.topic: conceptual
 ms.date: 07/24/2024
-ms.author: cwatson
+ms.author: edbaynash
 
 
 #Customer intent: As a SOC manager, I want to understand supported methods for deploying Microsoft Sentinel alongside my existing, on-premises SIEM, so that I can transition to a more flexible and cost-effective security solution without disrupting current operations.
