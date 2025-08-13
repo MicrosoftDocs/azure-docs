@@ -12,7 +12,7 @@ ms.author: duau
 
 # Troubleshoot site-to-site connections with digital certificate authentication
 
-This article helps you troubleshoot Azure Site-to-Site VPN Gateway connections that use **digital certificate authentication**. It lists common error codes, explains their causes, and provides recommended actions to resolve connectivity issues. Use this guide to maintain **stable VPN operations** and minimize disruptions for users.
+This article helps you troubleshoot Azure Site-to-Site VPN Gateway connections that use digital certificate authentication**. It lists common error codes, explains their causes, and provides recommended actions to resolve connectivity issues. Use this guide to maintain stable VPN operations and minimize disruptions for users.
 
 | Error code | Error message | Recommended action |
 |--|--|--|
