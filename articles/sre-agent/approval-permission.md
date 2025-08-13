@@ -31,48 +31,49 @@ Rather than being able to work autonomously in any context, you can only enable 
 
 When the agent is working in *review* mode, it works on your behalf to create an execution plan based on your prompts. Once generated, then the agent requests approval on the plan. If you approve the proposed action, then the agent might need to prompt for access to elevated credentials.
 
-The following diagram depicts the decision flow of how an agent gets both approval and permission to take action on your behalf.
+The following diagram depicts the decision flow of how an agent gets both approval and permission in review mode.
 
 :::image type="content" source="media/approval-permission/azure-sre-agent-approval-permission-flow-review-mode.png" alt-text="Diagram showing how the approval and permission request flow works in review mode for Azure SRE Agent.":::
 
 | Step | Description | Example scenario |
 |---|---|---|
-| 1 | **Agent generates an execution plan**<br><br>The agent maps out a course of action and is now ready to take action. | The agent recognizes that a VM isn't responding and decides that the best plan is to restart the VM. |
-| 2 | **Action requires your approval to proceed**<br><br>The agent prompts the user to approve the generated plan. If approved, then the agent attempts to execute the plan.<br><br>If denied, processing stops and the agent takes no action. | The agent asks you if you want to restart the VM. |
-| 3 | **Agent attempts to take action**<br><br>The agent has approval to act on the generated execution plan and attempts to take action. If the agent has the needed credentials, then it executes the action. If the agent doesn't have the appropriate credentials, then it needs to get them from the user. | The agent faces a security challenge because it doesn't have sufficient permissions as it tries to restart the VM. |
-| 4 | **Agent prompts for credentials**<br><br>The agent prompts the user for temporary access to their credentials. If approved, the credentials are provided using [Microsoft Entra OBO flow](/entra/identity-platform/v2-oauth2-on-behalf-of-flow).<br><br>If you denied, processing stops and the agent takes no action. | The agent is granted the appropriate credentials via the Microsoft Entra OBO flow and is now ready to restart the VM.<br><br>Alternatively, if the request is denied, or the user don't have the appropriate credentials, then the flow stops after this step. |
-| 5 | **Agent executes the plan**<br><br>The agent carries out the actions against the generated plan and returns a response to the user.  | Agent restarts the VM. |
-| 6 | **Processing ends**<br><br>Either the requested operation completes, or processing is terminated because the agent was denied permission to execute the plan. Execution could also stop if the user doesn't have the right credentials to provide to the agent.  | The VM is restarted. |
+| 1 | **Agent generates an execution plan**<br>The agent maps out a plan and is now ready to take action. | The agent recognizes that a VM isn't responding and decides that the best plan is to restart the VM. |
+| 2 | **Action requires your approval to proceed**<br>The agent prompts the user to approve the generated plan.<br><br>If approved, then the agent attempts to execute the plan.<br><br>If denied, processing stops and the agent takes no action. | The agent asks you if you want to restart the VM. |
+| 3 | **Agent attempts to take action**<br>The agent has approval to act on the generated execution plan and attempts to take action.<br><br>If the agent has the needed credentials, then it executes the action.<br><br>If the agent doesn't have the appropriate credentials, then it needs to get them from the user. | The agent faces a security challenge because it doesn't have sufficient permissions as it tries to restart the VM. |
+| 4 | **Agent prompts for credentials**<br>The agent prompts the user for temporary access to their credentials.<br><br>If approved, the credentials are provided using [Microsoft Entra OBO flow](/entra/identity-platform/v2-oauth2-on-behalf-of-flow).<br><br>If you denied, processing stops and the agent takes no action. | The agent is granted the appropriate credentials via the Microsoft Entra OBO flow and is now ready to restart the VM.<br><br>Alternatively, if the request is denied, or the user doesn't have the appropriate credentials, then the flow stops after this step. |
+| 5 | **Agent executes the plan**<br>The agent carries out the actions against the generated plan and returns a response to the user.  | Agent restarts the VM. |
+| 6 | **Processing ends**<br>Either the requested operation completes, or processing is terminated because the agent was denied permission to execute the plan.<br><br>Execution could also stop if the user doesn't have the right credentials to provide to the agent.  | The VM is restarted. |
 
 Consider the following key takeaways when working in review mode:
 
 * If you deny approval for the agent's execution plan, it takes no action on your behalf.
 * If you deny access to your credentials, the agent takes no action on your behalf.
 * The agent first attempts to take action. If the agent is met with a security challenge, then it requests temporary access to your credentials.
-* Any access to user credentials are terminated once the action is complete.
+* Any access to user credentials are revoked once the action is complete.
 
 ### Autonomous mode
 
 When the agent is working in *autonomous* mode inside an incident resolution workflow, it has implicit approval to work on your behalf against execution plans. If the agent doesn't have the appropriate permissions, the then it requests temporary access to your credentials.
 
-The following diagram depicts the decision flow of how an agent gets permission to take action on your behalf.
+The following diagram depicts the decision flow of how an agent gets permission in autonomous mode.
 
 :::image type="content" source="media/approval-permission/azure-sre-agent-approval-permission-flow-autonomous-mode.png" alt-text="Diagram showing how the approval and permission request flow works in autonomous mode in Azure SRE Agent.":::
 
 | Step | Description | Example scenario |
 |---|---|---|
-| 1 | **Agent generates an execution plan**<br><br>The agent maps out a course of action and is now ready to take action. | The agent recognizes that a VM isn't responding and decides the best plan is to restart the VM. |
-| 2 | **Agent attempts to take action**<br><br>The agent has approval to act on the generated execution plan and attempts to take action. If the agent has the needed credentials, then it executes the action. If the agent doesn't have the appropriate credentials, then it needs to get them from the user. | The agent faces a security challenge because it doesn't have sufficient permissions as it tries to restart the VM. |
-| 3 | **Agent prompts for credentials**<br><br>The agent prompts the user for temporary access to their credentials. If approved, the credentials are provided using [Microsoft Entra OBO flow](/entra/identity-platform/v2-oauth2-on-behalf-of-flow).<br><br>If you denied, processing stops and the agent takes no action. | The agent is granted the appropriate credentials via the Microsoft Entra OBO flow and is now ready to restart the VM.<br><br>Alternatively, if the request is denied, or the user don't have the appropriate credentials, then the flow stops after this step. |
-| 4 | **Agent executes the plan**<br><br>The agent carries out the actions against the generated plan and returns a response to the user. | Agent restarts the VM. |
-| 5 | **Processing ends**<br><br>Either the requested operation completes, or processing is terminated because the agent was denied permission to execute the plan. Execution could also stop if the user doesn't have the right credentials to provide to the agent. | The VM is restarted. |
+| 1 | **Agent generates an execution plan**<br>The agent maps out plan and is now ready to take action. | The agent recognizes that a VM isn't responding and decides the best plan is to restart the VM. |
+| 2 | **Agent attempts to take action**<br>The agent has approval to act on the generated execution plan and attempts to take action.<br><br>If the agent has the needed credentials, then it executes the action.<br><br>If the agent doesn't have the appropriate credentials, then it needs to get them from the user. | The agent faces a security challenge because it doesn't have sufficient permissions as it tries to restart the VM. |
+| 3 | **Agent prompts for credentials**<br>The agent prompts the user for temporary access to their credentials.<br><br>If approved, the credentials are provided using [Microsoft Entra OBO flow](/entra/identity-platform/v2-oauth2-on-behalf-of-flow).<br><br>If you denied, processing stops and the agent takes no action. | The agent is granted the appropriate credentials via the Microsoft Entra OBO flow and is now ready to restart the VM.<br><br>Alternatively, if the request is denied, or the user doesn't have the appropriate credentials, then the flow stops after this step. |
+| 4 | **Agent executes the plan**<br>The agent carries out the actions against the generated plan and returns a response to the user. | Agent restarts the VM. |
+| 5 | **Processing ends**<br>Either the requested operation completes, or processing is terminated because the agent was denied permission to execute the plan.<br><br>Execution could also stop if the user doesn't have the right credentials to provide to the agent. | The VM is restarted. |
 
 Consider the following key takeaways when working in an autonomous incident resolution workflow:
 
 * If you deny access to your credentials, the agent takes no action on your behalf.
 * The agent first attempts to take action. If the agent is met with a security challenge, then it requests temporary access to your credentials.
-* Any access to user credentials are terminated once the action is complete.
+* Any access to user credentials are revoked once the action is complete.
 
 ## Related content
 
 * [Incident management](incident-management.md)
+* [Security context](security-context.md)
