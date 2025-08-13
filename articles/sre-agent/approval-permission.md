@@ -8,7 +8,7 @@ ms.date: 08/13/2025
 ms.service: azure
 ---
 
-## Approval and permission flow for Azure SRE Agent (preview)
+# Approval and permission flow for Azure SRE Agent (preview)
 
 As Azure SRE Agent works within your environment, there are two questions at the heart of every action the agent takes:
 
@@ -42,7 +42,7 @@ The following diagram depicts the decision flow of how an agent gets both approv
 | 3 | **Agent attempts to take action**<br><br>The agent has approval to act on the generated execution plan and attempts to take action. If the agent has the needed credentials, then it executes the action. If the agent doesn't have the appropriate credentials, then it needs to get them from the user. | The agent faces a security challenge because it doesn't have sufficient permissions as it tries to restart the VM. |
 | 4 | **Agent prompts for credentials**<br><br>The agent prompts the user for temporary access to their credentials. If approved, the credentials are provided using [Microsoft Entra OBO flow](/entra/identity-platform/v2-oauth2-on-behalf-of-flow).<br><br>If you denied, processing stops and the agent takes no action. | The agent is granted the appropriate credentials via the Microsoft Entra OBO flow and is now ready to restart the VM.<br><br>Alternatively, if the request is denied, or the user don't have the appropriate credentials, then the flow stops after this step. |
 | 5 | **Agent executes the plan**<br><br>The agent carries out the actions against the generated plan and returns a response to the user.  | Agent restarts the VM. |
-| 6 | **Processing ends** | Either the requested operation completes, or processing is terminated because the agent was denied permission to execute the plan. Execution could also stop if the user doesn't have the right credentials to provide to the agent.  | The VM is restarted. |
+| 6 | **Processing ends**<br><br>Either the requested operation completes, or processing is terminated because the agent was denied permission to execute the plan. Execution could also stop if the user doesn't have the right credentials to provide to the agent.  | The VM is restarted. |
 
 Consider the following key takeaways when working in review mode:
 
@@ -65,7 +65,7 @@ The following diagram depicts the decision flow of how an agent gets permission 
 | 2 | **Agent attempts to take action**<br><br>The agent has approval to act on the generated execution plan and attempts to take action. If the agent has the needed credentials, then it executes the action. If the agent doesn't have the appropriate credentials, then it needs to get them from the user. | The agent faces a security challenge because it doesn't have sufficient permissions as it tries to restart the VM. |
 | 3 | **Agent prompts for credentials**<br><br>The agent prompts the user for temporary access to their credentials. If approved, the credentials are provided using [Microsoft Entra OBO flow](/entra/identity-platform/v2-oauth2-on-behalf-of-flow).<br><br>If you denied, processing stops and the agent takes no action. | The agent is granted the appropriate credentials via the Microsoft Entra OBO flow and is now ready to restart the VM.<br><br>Alternatively, if the request is denied, or the user don't have the appropriate credentials, then the flow stops after this step. |
 | 4 | **Agent executes the plan**<br><br>The agent carries out the actions against the generated plan and returns a response to the user. | Agent restarts the VM. |
-| 5 | **Processing ends** | Either the requested operation completes, or processing is terminated because the agent was denied permission to execute the plan. Execution could also stop if the user doesn't have the right credentials to provide to the agent. | The VM is restarted. |
+| 5 | **Processing ends**<br><br>Either the requested operation completes, or processing is terminated because the agent was denied permission to execute the plan. Execution could also stop if the user doesn't have the right credentials to provide to the agent. | The VM is restarted. |
 
 Consider the following key takeaways when working in an autonomous incident resolution workflow:
 
