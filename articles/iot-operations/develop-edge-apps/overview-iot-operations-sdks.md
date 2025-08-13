@@ -77,7 +77,7 @@ The SDKs supports the following application types:
 | Application type | Description |
 |-|-|
 | [Edge application](https://github.com/Azure/iot-operations-sdks/blob/main/doc/edge_application/README.md) | A generic edge application that needs to interface with various Azure IoT Operations services such as the MQTT broker and state store. The SDKs provides convenient clients to simplify the development experience. </br></br>*An Edge Application is a customer managed artifact, including deployment to the cluster and monitoring execution.* |
-| [Akri connector](https://github.com/Azure/iot-operations-sdks/blob/main/doc/akri_connector/README.md)</br>*(in development)*| A specialized edge application deployed by the Akri Operator and designed to interface with on-premises devices. The Akri connector is responsible for discovering assets available via the endpoint, and relaying information to and from those assets. </br></br>*The Akri connector's deployment is managed automatically by the Akri Operator.* |
+| [Akri connector](../discover-manage-assets/overview-akri.md#connector-deployment-and-lifecycle-management)</br>*(in development)*| A specialized edge application deployed by the Akri Operator and designed to interface with on-premises devices. The Akri connector is responsible for discovering assets available via the endpoint, and relaying information to and from those assets. </br></br>*The Akri connector's deployment is managed automatically by the Akri Operator.* |
 
 > [!NOTE]
 > The Akri connector is part of the [Akri services (preview)](../discover-manage-assets/overview-akri.md), which is under active development and will be available soon.
