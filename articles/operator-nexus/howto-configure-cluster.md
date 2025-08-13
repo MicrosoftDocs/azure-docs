@@ -85,7 +85,7 @@ az networkcloud cluster create --name "<CLUSTER_NAME>" --location "<LOCATION>" \
 
 ### Create the Cluster using Azure CLI - multiple storage appliances:
 
-"<AGGR_RACK_SKU>" must be set to a value which supports two storage appliances. See [Operator Nexus Network Cloud SKUs](./reference-operator-nexus-skus.md) to pick an appropriate SKU. The cluster creation command also sets the default storage appliance for volume creation. The default appliance is the appliance with `"rackSlot":1` in its configuration data.
+"<AGGR_RACK_SKU>" must be set to a value that supports two storage appliances. See [Operator Nexus Network Cloud SKUs](./reference-operator-nexus-skus.md) to pick an appropriate SKU. The cluster creation command also sets the default storage appliance for volume creation. The default appliance is the appliance with `"rackSlot":1` in its configuration data.
 
 ```azurecli
 az networkcloud cluster create --name "<CLUSTER_NAME>" --location "<LOCATION>" \
@@ -178,20 +178,20 @@ You can find examples for an 8-Rack 2M16C SKU Cluster using these two files:
 [cluster.parameters.jsonc](./cluster-parameters-jsonc-example.md)
 
 > [!NOTE]
-> To get the correct formatting, copy the raw code file. The values within the cluster.parameters.jsonc file are customer specific and may not be a complete list. Update the value fields for your specific environment.
+> To get the correct formatting, copy the raw code file. The values within the cluster.parameters.jsonc file are customer specific and might not be a complete list. Update the value fields for your specific environment.
 
 1. Navigate to [Azure portal](https://portal.azure.com/) in a web browser and sign in.
 1. Search for 'Deploy a custom template' in the Azure portal search bar, and then select it from the available services.
-1. Click on Build your own template in the editor.
-1. Click on Load file. Locate your cluster.jsonc template file and upload it.
-1. Click Save.
-1. Click Edit parameters.
-1. Click Load file. Locate your cluster.parameters.jsonc parameters file and upload it.
-1. Click Save.
+1. Select Build your own template in the editor.
+1. Select Load file. Locate your cluster.jsonc template file and upload it.
+1. Select Save.
+1. Select Edit parameters.
+1. Select Load file. Locate your cluster.parameters.jsonc parameters file and upload it.
+1. Select Save.
 1. Select the correct Subscription.
 1. Search for the Resource group to see if it already exists. If not, create a new Resource group.
 1. Make sure all Instance Details are correct.
-1. Click Review + create.
+1. Select Review + create.
 
 ### Cluster validation
 
@@ -449,8 +449,8 @@ metal machines that failed the hardware validation (for example, `COMP0_SVR0_SER
 
 > [!TIP]
 > In version 2509.1 and above, you can also view the status and final result of the `cluster deploy` action in Azure portal in the `JSON View` of the Cluster (Operator Nexus) resource as described in [Monitor status in Cluster JSON properties](#monitor-status-in-cluster-json-properties).
-> This includes a detailed breakdown of the steps taken and the status of each step in the deployment process.
-> This can help to identify which specific step failed and why.
+> This status includes a detailed breakdown of the steps taken and the status of each step in the deployment process.
+> This information can help to identify which specific step failed and why.
 
 See the article [Tracking Asynchronous Operations Using Azure CLI](./howto-track-async-operations-cli.md) for another example.
 For more information on specific machine validation or deployment failures, see [Troubleshoot Bare Metal Machine (BMM) provisioning](./troubleshoot-bare-metal-machine-provisioning.md).
