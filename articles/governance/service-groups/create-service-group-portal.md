@@ -27,8 +27,7 @@ Azure Service Groups offer a flexible way to organize and manage resources acros
 ## Create in Azure portal
 
 1. Log into the [Azure portal](https://preview.portal.azure.com/#view/Microsoft_Azure_Resources/ServiceGroupsBrowse.ReactView).
-2. Select **All services** > **Management + governance**.
-3. Select **Service Groups**.
+3. Search **Service Groups**.
 4. Select **+ Add Service Group**.
     
 :::image type="content" source="./media/create-service-group.png" alt-text="Screenshot of new Service Group screen." Lightbox = "./media/create-service-group.png" :::
