@@ -19,6 +19,8 @@ items:
   items:
     - name: Security context
       href: security-context.md
+    - name: Approval vs permission
+      href: approval-permission.md
     - name: Incident management
       href: incident-management.md
     - name: Troubleshooting
