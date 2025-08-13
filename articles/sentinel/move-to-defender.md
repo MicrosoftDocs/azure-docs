@@ -94,9 +94,11 @@ For more information, see:
 
 When Microsoft Sentinel is integrated with Microsoft Defender, the fundamental architecture of data collection and telemetry flow remains intact. Existing connectors that were configured in Microsoft Sentinel, whether for Microsoft Defender products or other data sources, continue operating without interruption.
 
-Alerts related to Defender products are streamed directly from the [Microsoft Defender XDR connector](/azure/sentinel/connect-microsoft-365-defender) to ensure consistency. Make sure that you have incidents and alerts from this connector turned on in your workspace. Once you have this data connector configured in your workspace, [offboarding the workspace from Microsoft Defender](/unified-secops/microsoft-sentinel-onboard#offboard-microsoft-sentinel) also disconnects the Microsoft Defender XDR connector. For more information, see [Connect data from Microsoft Defender XDR to Microsoft Sentinel](connect-microsoft-365-defender.md).
-
 From a Log Analytics perspective, Microsoft Sentinel’s integration into Microsoft Defender introduces no change to the underlying ingestion pipeline or data schema. Despite the front-end unification, the Microsoft Sentinel backend remains fully integrated with Log Analytics for data storage, search, and correlation.
+
+Alerts related to Defender products are streamed directly from the [Microsoft Defender XDR connector](/azure/sentinel/connect-microsoft-365-defender) to ensure consistency. Make sure that you have incidents and alerts from this connector turned on in your workspace. Once you have this data connector configured in your workspace, [offboarding the workspace from Microsoft Defender](/unified-secops/microsoft-sentinel-onboard#offboard-microsoft-sentinel) also disconnects the Microsoft Defender XDR connector.
+
+For more information, see [Connect data from Microsoft Defender XDR to Microsoft Sentinel](connect-microsoft-365-defender.md).
 
 #### Integrate with Microsoft Defender for Cloud
 
