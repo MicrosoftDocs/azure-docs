@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 You can deploy [Azure Files](storage-files-introduction.md) in two main ways: by directly mounting the serverless Azure file shares or by caching Azure file shares on-premises using Azure File Sync. Deployment considerations differ based on which option you choose.
 
-- **Direct mount of an Azure file share**: Because Azure Files provides either Server Message Block (SMB) or Network File System (NFS) access, you can mount Azure file shares on-premises or in the cloud using the standard SMB or NFS clients available in your OS. Because Azure file shares are serverless, deploying for production scenarios doesn't require managing a file server or NAS device. This means you don't have to apply software patches or swap out physical disks. You can either choose to use file share (Classic) or Microsoft.FileShares are you management model. Learn more about these two offerings down below.
+- **Direct mount of an Azure file share**: Because Azure Files provides either Server Message Block (SMB) or Network File System (NFS) access, you can mount Azure file shares on-premises or in the cloud using the standard SMB or NFS clients available in your OS. Because Azure file shares are serverless, deploying for production scenarios doesn't require managing a file server or NAS device. This means you don't have to apply software patches or swap out physical disks. You can either choose to use classic file share or Microsoft.FileShares are you management model. Learn more about these two offerings down below.
 
 - **Cache Azure file share on-premises with Azure File Sync**: [Azure File Sync](../file-sync/file-sync-introduction.md) enables you to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms an on-premises (or cloud) Windows Server into a quick cache of your SMB Azure file share.
 
@@ -58,21 +58,24 @@ With both SMB and NFS file shares, Azure Files offers enterprise-grade file shar
 | Server service                                             | Not supported                                                                                                                                | N/A                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | File system transactions (TxF)                             | Not supported                                                                                                                                | N/A                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
-## What is file share (Classic)?
+## What is classic file share?
 
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
 
-## What is Microsoft.FileShares?
+To learn more, see [How to create classic file share](./files-create-classic-file-share.md).
 
-Microsoft.FileShares is a brand new management experience on Azure File share, where we elevated the file share to be a first-class, top-level tracked Azure resource, managed by the new Microsoft.FileShares resource provider. This means you can now deploy an Azure file share directly from the Azure Portal — no storage account required. Currently Microsoft.FileShares is in public preview status.
-This new model improves upon the classic Azure Files experience with:
+## What is Microsoft.FileShares (Public Preview)?
+
+![image for comparsion between mfs and classic](./media/storage-files-planning/filesharecomparsion.png)
+
+Traditionally, deploying an Azure file share required first creating a storage account; an extra step that introduced complexity and limitations. With Microsoft.FileShares, you can deploy file shares directly from Azure Portal. This new model simplifies the deployment experience and unlocks a host of new capabilities:
 
 - Simplified onboarding: A more intuitive experience aligned with on-premises deployments.
-- Dedicated resources: No more resource contention, each file share has its own IOPS, throughput, and storage allocation.
-- Granular control: Security, networking, and billing are now managed at the file share level.
-- Faster deployment: Up to 3x faster for single file share creation and 2x faster for parallel deployment of 10 file shares.
-- Less confusion: No more navigating complex storage account settings.
-- Cost-efficient and flexible: Microsoft.FileShares uses the latest provisioned v2 SSD billing model, providing the best customization and cost efficiency for each file share.
+- Dedicated resources: Each file share has its own IOPS, throughput, and storage allocation. No more resource contention with each other. Ideal for teams managing hundreds of file shares in CI/CD pipelines. No more naming collisions, quota limits, or IOPS and bandwidth competition.
+- Granular control: Security, networking, and billing are now managed at the file share level. Perfect for managing workloads per department or customer.
+- No more storage account level settings configuration: Say goodbye to navigating complex storage account settings that do not apply to file share service.
+- Cost-efficient and flexible: Built on the latest provisioned v2 SSD model for optimal customization and cost efficiency.
+- Faster deployment: Up to 3x faster for single file share creation.
 
 As the current public preview phase, Microsoft.FileShares supports on:
 
@@ -95,28 +98,55 @@ We’re actively working on expanding capabilities, including:
 - SMB protocol support
 - More regions are coming up
 
-On the Azure portal, file share (Classic) will remain using the blue icon, while Microsoft.FileShares will use the new purple icon.
-If you require all the feature that Azure File currently offer, we recommend you use File Shares (Classic) instead.
-To learn more, see [How to create Microsoft.FileShares](./storage-files-quick-create-use-linux.md).
+On the Azure portal, classic file share will remain using the blue icon, while Microsoft.FileShares will use the purple icon.
+If you require all the feature that Azure File currently offer, we recommend you use classic file share instead.
+To learn more, see [How to create Microsoft.FileShares](./files-create-file-share.md).
 
-## Comparsion between file share (Classic) and Microsoft.FileShares
+### Region Availability
 
-| Feature                                   | file share (Classic)                | Microsoft.FileShares ![mfsicon](./media/storage-files-planning/mfs_icon.png) |
-| ----------------------------------------- | ----------------------------------- | ---------------------------------------------------------------------------- |
-| SMB protocol                              | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png)                                            |
-| NFS protocol                              | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)                                          |
-| File Sync support                         | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png)                                            |
-| Require storage accout                    | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png)                                            |
-| Pay as you go billing model               | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png)                                            |
-| Provisioned v1 billing model              | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png)                                            |
-| Provisiond v2 billing model               | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)                                          |
-| HDD supportability                        | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png)                                            |
-| SSD supportability                        | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)                                          |
-| LRS                                       | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)                                          |
-| ZRS                                       | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)                                          |
-| GRS                                       | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png)                                            |
-| GZRS                                      | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png)                                            |
-| Per share level billing, networking setup | ![No](../media/icons/no-icon.png)   | ![Yes](../media/icons/yes-icon.png)                                          |
+Currently, Microsoft.FileShares are available in the following regions:
+
+- North Europe
+- South East Asia
+- East Asia
+- Australia East
+- Australia Southeast
+- Japan West
+- Germany North
+- South Africa West
+- East US
+- South India
+- UAE Central
+- Korea Central
+- Korea South
+- Australia Central
+- Italy North
+- France Central
+- Sweden Central
+- Norway East
+
+## Comparsion between classic file share and Microsoft.FileShares
+
+| Feature                                                          | classic file share ![fileshareclassicicon](./media/storage-files-planning/10400-icon-service-Azure-Fileshares.svg) | File Shares ![mfsicon](./media/storage-files-planning/03549-icon-service-Managed-File-Shares.svg) |
+| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
+| Support guarentee                                                | General available                                                                                                  | Public preview                                                                                    |
+| Top level resource for the service                               | Storage account ![fileshareclassicicon](./media/storage-files-planning/10086-icon-service-Storage-Accounts.svg)    | File Shares ![mfsicon](./media/storage-files-planning/03549-icon-service-Managed-File-Shares.svg) |
+| SMB protocol                                                     | ![Yes](../media/icons/yes-icon.png)                                                                                | ![No](../media/icons/no-icon.png)                                                                 |
+| NFS protocol                                                     | ![Yes](../media/icons/yes-icon.png)                                                                                | ![Yes](../media/icons/yes-icon.png)                                                               |
+| File Sync support                                                | ![Yes](../media/icons/yes-icon.png)                                                                                | ![No](../media/icons/no-icon.png)                                                                 |
+| Require storage accout                                           | ![Yes](../media/icons/yes-icon.png)                                                                                | ![No](../media/icons/no-icon.png)                                                                 |
+| Pay as you go billing model                                      | ![Yes](../media/icons/yes-icon.png)                                                                                | ![No](../media/icons/no-icon.png)                                                                 |
+| Provisioned v1 billing model                                     | ![Yes](../media/icons/yes-icon.png)                                                                                | ![No](../media/icons/no-icon.png)                                                                 |
+| Provisiond v2 billing model                                      | ![Yes](../media/icons/yes-icon.png)                                                                                | ![Yes](../media/icons/yes-icon.png)                                                               |
+| HDD supportability                                               | ![Yes](../media/icons/yes-icon.png)                                                                                | ![No](../media/icons/no-icon.png)                                                                 |
+| SSD supportability                                               | ![Yes](../media/icons/yes-icon.png)                                                                                | ![Yes](../media/icons/yes-icon.png)                                                               |
+| LRS                                                              | ![Yes](../media/icons/yes-icon.png)                                                                                | ![Yes](../media/icons/yes-icon.png)                                                               |
+| ZRS                                                              | ![Yes](../media/icons/yes-icon.png)                                                                                | ![Yes](../media/icons/yes-icon.png)                                                               |
+| GRS                                                              | ![Yes](../media/icons/yes-icon.png)                                                                                | ![No](../media/icons/no-icon.png)                                                                 |
+| GZRS                                                             | ![Yes](../media/icons/yes-icon.png)                                                                                | ![No](../media/icons/no-icon.png)                                                                 |
+| Per share level billing, networking, and security configurations | ![No](../media/icons/no-icon.png)                                                                                  | ![Yes](../media/icons/yes-icon.png)                                                               |
+| Single vnet configurations for a file share                      | ![No](../media/icons/no-icon.png)                                                                                  | ![Yes](../media/icons/yes-icon.png)                                                               |
+| Single vnet configuration for multiple file shares               | ![Yes](../media/icons/yes-icon.png)                                                                                | ![No](../media/icons/no-icon.png)                                                                 |
 
 ## Identity
 

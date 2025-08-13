@@ -1,6 +1,18 @@
 {
   "redirections": [
     {
+      "source_path": "articles/storage/files/storage-how-to-create-file-share.md",
+      "redirect_url": "/azure/storage/files/files-create-classic-file-share",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path": "articles/storage/files/storage-file-quick-create-use-linux.md",
+      "redirect_url": "/azure/storage/files/files-create-file-share",
+      "redirect_document_id": false
+    },
+
+    {
       "source_path": "articles/expressroute/expressroute-troubleshooting-arp-classic.md",
       "redirect_url": "/previous-versions/azure/expressroute/expressroute-troubleshooting-arp-classic",
       "redirect_document_id": false
@@ -2478,7 +2490,7 @@
       "source_path_from_root": "/articles/app-service/app-service-configure-premium-tier.md",
       "redirect_url": "/azure/app-service/app-service-configure-premium-v4-tier",
       "redirect_document_id": false
-    },           
+    },
     {
       "source_path_from_root": "/articles/public-multi-access-edge-compute-mec/tutorial-create-vm-using-python-sdk.md",
       "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/tutorial-create-vm-using-python-sdk",
@@ -6985,9 +6997,9 @@
       "redirect_document_id": true
     },
     {
-       "source_path": "articles/private-5g-core/disconnected-mode.md",
-       "redirect_url": "/azure/private-5g-core/azure-stack-edge-disconnects",
-       "redirect_document_id": true
+      "source_path": "articles/private-5g-core/disconnected-mode.md",
+      "redirect_url": "/azure/private-5g-core/azure-stack-edge-disconnects",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/signups/startup-programs.md",
@@ -7006,4 +7018,3 @@
     }
   ]
 }
-

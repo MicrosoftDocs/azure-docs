@@ -1,7 +1,7 @@
 ---
-title: Create an Azure file share (Classic)
+title: Create an Azure classic file share
 titleSuffix: Azure Files
-description: How to create and delete an Azure file share (Classic) by using the Azure portal, Azure PowerShell, or Azure CLI.
+description: How to create and delete an Azure classic file share by using the Azure portal, Azure PowerShell, or Azure CLI.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
@@ -11,14 +11,14 @@ ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
 # Customer intent: "As a cloud administrator, I want to create and manage Azure file shares classic using the portal, PowerShell, or CLI, so that I can efficiently store and access data with configurable performance and redundancy options. This doc consist of both SMB and NFS protocol support"
 ---
 
-# Create an Azure file share (Classic)
+# Create an Azure classic file share
 
-Before you create an Azure file share (Classic), you need to answer two questions about how you want to use it:
+Before you create an Azure classic file share, you need to answer two questions about how you want to use it:
 
-- **What are the performance requirements for your Azure file share (Classic)?**  
+- **What are the performance requirements for your Azure classic file share?**  
    Azure Files (classic) offers two different media tiers of storage, SSD (premium) and HDD (standard), which enable you to tailor your file shares to the performance and price requirements of your scenario. SSD file shares provide consistent high performance and low latency, within single-digit milliseconds for most IO operations. HDD file shares provide cost-effective storage for general purpose use.
 
-- **What are the redundancy requirements for your Azure file share (Classic)?**  
+- **What are the redundancy requirements for your Azure classic file share?**  
    Azure Files offers Local (LRS), Zone (ZRS), Geo (GRS), and GeoZone (GZRS) redundancy options for standard SMB file shares. SSD file shares are only available for the Local and Zone redundancy types. See [Azure Files redundancy](./files-redundancy.md) for more information.
 
 For more information on these choices, see [Planning for an Azure Files deployment](storage-files-planning.md).
@@ -302,16 +302,16 @@ az storage account create \
 
 ---
 
-## Create a file share (Classic)
+## Create a classic file share
 
-After you create a storage account, you can create a file share (Classic). This process is different depending on whether you created a provisioned v2, provisioned v1, or pay-as-you-go storage account.
+After you create a storage account, you can create a classic file share. This process is different depending on whether you created a provisioned v2, provisioned v1, or pay-as-you-go storage account.
 
 > [!NOTE]
 > The name of your file share must be all lower-case letters, numbers, and single hyphens, and must begin and end with a lower-case letter or number. The name can't contain two consecutive hyphens. For details about naming file shares and files, see [Naming and referencing shares, directories, files, and metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
-### Create a provisioned v2 file share (Classic)
+### Create a provisioned v2 classic file share
 
-When you create a file share (Classic) using the provisioned v2 billing model, you specify how much storage, IOPS, and throughput your file share needs. The amount of each quantity that you provision determines your total bill. By default, when you create a new file share using the provisioned v2 model, we provide a recommendation for how many IOPS and how much throughput you need based on the amount of provisioned storage you specify. Depending on your individual file share requirements, you might find that you require more or less IOPS or throughput than our recommendations, and can optionally override these recommendations with your own values as desired. To learn more about the provisioned v2 model, see [Understanding the provisioned v2 billing model](./understanding-billing.md#provisioned-v2-model).
+When you create a classic file share using the provisioned v2 billing model, you specify how much storage, IOPS, and throughput your file share needs. The amount of each quantity that you provision determines your total bill. By default, when you create a new file share using the provisioned v2 model, we provide a recommendation for how many IOPS and how much throughput you need based on the amount of provisioned storage you specify. Depending on your individual file share requirements, you might find that you require more or less IOPS or throughput than our recommendations, and can optionally override these recommendations with your own values as desired. To learn more about the provisioned v2 model, see [Understanding the provisioned v2 billing model](./understanding-billing.md#provisioned-v2-model).
 
 # [Portal](#tab/azure-portal)
 
@@ -386,9 +386,9 @@ az storage share-rm create --resource-group $resourceGroupName --name $shareName
 
 ---
 
-### Create an SSD provisioned v1 file share (Classic)
+### Create an SSD provisioned v1 classic file share
 
-When you create a file share (Classic) using the provisioned v1 billing model, you specify how much storage your share needs, and IOPS and throughput capacity are computed for you based on how much storage provisioned. Depending on your individual file share requirements, you may find that you require more IOPS or throughput than our recommendations. In this case, you need to provision more storage to get the required IOPS or throughput. To learn more about the provisioned v1 model, see [Understanding the provisioned v1 billing model](./understanding-billing.md#provisioned-v1-model).
+When you create a classic file share using the provisioned v1 billing model, you specify how much storage your share needs, and IOPS and throughput capacity are computed for you based on how much storage provisioned. Depending on your individual file share requirements, you may find that you require more IOPS or throughput than our recommendations. In this case, you need to provision more storage to get the required IOPS or throughput. To learn more about the provisioned v1 model, see [Understanding the provisioned v1 billing model](./understanding-billing.md#provisioned-v1-model).
 
 # [Portal](#tab/azure-portal)
 
@@ -466,7 +466,7 @@ az storage share-rm create \
 
 ---
 
-### Create an HDD pay-as-you-go file share (Classic)
+### Create an HDD pay-as-you-go classic file share
 
 HDD pay-as-you-go file shares have a property called access tier. All three access tiers are stored on the exact same storage hardware. The main difference for these three access tiers is their data at-rest storage prices, which are lower in cooler tiers, and the transaction prices, which are higher in the cooler tiers. To learn more about the differences between tiers, see [differences in access tiers](./understanding-billing.md#differences-in-access-tiers).
 
@@ -534,304 +534,65 @@ az storage share-rm create \
     --output none
 ```
 
----
+## Set up a virtual machine
 
-## Change the cost and performance characteristics of a file share (Classic)
+SMB protocol file share are able to mount to a Linux, Windows virtual machine, while NFS protocol file share are only able to use Linux virtual machine.
+To learn more about how to create a virtual machine for your file share, see [How to create Linux virtual machine](xxxxxxxx) for more information.
 
-After creating your file share, you might need to adjust the provisioning (provisioned models) or access tier (pay-as-you-go model) of the share. The following sections show you how to adjust the relevant properties for your share.
+## Set up networking configurations
 
-### Change the cost and performance characteristics of a provisioned v2 file share (Classic)
+NFS file shares can only be accessed from trusted networks. Currently, the only way to secure the data in your storage account is by using a virtual network and other network security settings. Any other tools used to secure data, including account key authorization, Microsoft Entra security, and access control lists (ACLs) can't be used to authorize an NFSv4.1 request. SMB protocol file share does not require network level configuration.
 
-After creating your provisioned v2 file share, you can change one or all three of the provisioned quantities of your file share.
+> [!IMPORTANT]
+> The NFSv4.1 protocol runs on port 2049. If you're connecting from an on-premises network, make sure that your client allows outgoing communication through port 2049. If you grant access to specific VNets, make sure that any network security groups associated with those VNets don't contain security rules that block incoming communication through port 2049.
 
-# [Portal](#tab/azure-portal)
+### Set up a private endpoint or service endpoint
 
-Follow these instructions to update the provisioning for your file share.
+NFS protocol file share requires network-level security configurations. Currently there are two options for establishing networking-level security configuations. Private endpoint and service endpoint. Private endpoint gives your file share a private, static IP address within your virtual network, preventing connectivity interruptions from dynamic IP address changes. Traffic to your file share stays within peered virtual networks, including those in other regions and on premises. Standard [data processing rates](https://azure.microsoft.com/pricing/details/private-link/) for private endpoints apply. See [What is a private endpoint](../../private-link/private-endpoint-overview.md) to learn more about private endpoint. If you don't require a static IP address, you can enable a service endpoint for Azure Files within the virtual network. A service endpoint configures file share to allow access only from specific subnets. The allowed subnets can belong to a virtual network in the same subscription or a different subscription, including those that belong to a different Microsoft Entra tenant. There's no extra charge for using service endpoints. See [Azure virtual netowrk service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) to learn more.
 
-1. Go to your storage account. From the service menu, under **Data storage**, select **File shares**.
+1. Select the NFS file share you created. You should see a dialog that says _Connect to this NFS share from Linux_. Under **Network configuration**, select **Review options**
 
-2. In the file share listing, select the file share for which you desire to change the provisioning.
+   :::image type="content" source="media/storage-files-quick-create-use-linux/connect-from-linux.png" alt-text="Screenshot showing how to configure network settings to connect to the N F S share from Linux." lightbox="media/storage-files-quick-create-use-linux/connect-from-linux.png" border="true":::
 
-3. In the file share overview, select **Change size and performance**.
+1. Next, select **Setup a private endpoint**.
 
-   ![A screenshot of the "Change size and performance" button in the file share overview.](./media/storage-how-to-create-file-share/change-provisioned-v2-0.png)
+   :::image type="content" source="media/storage-files-quick-create-use-linux/configure-network-security.png" alt-text="Screenshot showing network-level security configurations." lightbox="media/storage-files-quick-create-use-linux/configure-network-security.png" border="true":::
 
-4. The **Size and performance** pop out dialog has the following options:
+1. Select **+ Private endpoint**.
 
-   ![A screenshot of the "Size and performance" pop out dialog.](./media/storage-how-to-create-file-share/change-provisioned-v2-1.png)
+   :::image type="content" source="media/storage-files-quick-create-use-linux/create-private-endpoint.png" alt-text="Screenshot showing how to select + private endpoint to create a new private endpoint.":::
 
-   - **Provisioned storage (GiB)**: The amount of storage provisioned on the share.
+1. Leave **Subscription** and **Resource group** the same. Under **Instance**, provide a name and select a region for the new private endpoint. Your private endpoint must be in the same region as your virtual network, so use the same region as you specified when creating the VM. When all the fields are complete, select **Next: Resource**.
 
-   - **Provisioned IOPS and throughput**: A radio button group that lets you select between _Recommended provisioning_ and _Manually specify IOPS and throughput_. If your share is at the recommended IOPS and throughput level for the amount of storage provisioned, _Recommended provisioning_ will be selected; otherwise, _Manually specify IOPS and throughput_ will be selected. You can toggle between these two options depending on your desire to change share provisioning.
+   :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-basics.png" alt-text="Screenshot showing how to provide the project and instance details for a new private endpoint." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-basics.png" border="true":::
 
-     - **IOPS**: If you select _Manually specify IOPS and throughput_, this textbox enables you to change the amount of IOPS provisioned on this file share.
+1. Confirm that the **Subscription**, **Resource type** and **Resource** are correct, and select **File** from the **Target sub-resource** drop-down. Then select **Next: Virtual Network**.
 
-     - **Throughput (MiB/sec)**: If you select _Manually specify IOPS and throughput_, this textbox enables you to change the amount of throughput provisioned on this file share.
+   :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-resource.png" alt-text="Screenshot showing how to select the resources that a new private endpoint should connect to." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-resource.png" border="true":::
 
-5. Select **Save** to save provisioning changes. Storage, IOPS, and throughput changes are effective within a few minutes after a provisioning change.
+1. Under **Networking**, select the virtual network associated with your VM and leave the default subnet. Under **Private IP configuration**, leave **Dynamically allocate IP address** selected. Select **Next: DNS**.
 
-# [PowerShell](#tab/azure-powershell)
+   :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-virtual-network.png" alt-text="Screenshot showing how to add virtual networking and private IP configuration to a new private endpoint." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-virtual-network.png" border="true":::
 
-You can modify a provisioned v2 file share with the `Update-AzRmStorageShare` cmdlet. Remember to replace the values for the variables `$resourceGroupName`, `$storageAccountName`, `$shareName`, `$provisionedMibps`, `$provisionedIops`, and `$provisionedStorageGib` with the desired values for your file share.
+1. Select **Yes** for **Integrate with private DNS zone**. Make sure the correct subscription and resource group are selected, and then select **Next: Tags**.
 
-```powershell
-# The path to the file share resource to be modified.
-$resourceGroupName = "<my-resource-group>"
-$storageAccountName = "<my-storage-account-name>"
-$shareName = "<name-of-the-file-share>"
+   :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-dns.png" alt-text="Screenshot showing how to integrate your private endpoint with a private DNS zone." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-dns.png" border="true":::
 
-# The provisioning desired on the file share. Delete the parameters if no
-# change is desired.
-$provisionedStorageGib = 10240
-$provisionedIops = 10000
-$provisionedThroughputMibPerSec = 2048
+1. You can optionally apply tags to categorize your resources, such as applying the name **Environment** and the value **Test** to all testing resources. Enter name/value pairs if desired, and then select **Next: Review + create**.
 
-# Update the file share provisioning.
-Update-AzRmStorageShare `
-        -ResourceGroupName $resourceGroupName `
-        -AccountName $storageAccountName `
-        -ShareName $shareName `
-        -QuotaGiB $provisionedStorageGib `
-        -ProvisionedIops $provisionedIops `
-        -ProvisionedBandwidthMibps $provisionedThroughputMibPerSec
+   :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-tags.png" alt-text="Screenshot showing how to add tags to resources in order to categorize them." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-tags.png" border="true":::
 
-$f = Get-AzRmStorageShare -ResourceGroupName $resourceGroupName -AccountName $storageAccountName -ShareName $shareName
-$f | fl
-```
+1. Azure will attempt to validate the private endpoint. When validation is complete, select **Create**. You'll see a notification that deployment is in progress. After a few minutes, you should see a notification that deployment is complete.
 
-# [Azure CLI](#tab/azure-cli)
+### Enable hybrid access through VPN or ExpressRoute (optional)
 
-You can modify a provisioned v2 file share with the `az storage share-rm update` command. Remember to replace the values for the variables `resourceGroupName`, `storageAccountName`, `fileShareName`, `provisionedStorageGib`, `provisionedIops`, and `provisionedThroughputMibPerSec` with the desired values for your file share.
+To enable hybrid access to an NFS Azure file share, use one of the following networking solutions:
 
-```bash
-# The path to the file share resource to be modified.
-resourceGroupName="<resource-group>"
-storageAccountName="<storage-account>"
-fileShareName="<file-share>"
+- [Configure a Point-to-Site (P2S) VPN](storage-files-configure-p2s-vpn-linux.md).
+- [Configure a Site-to-Site (S2S) VPN](storage-files-configure-s2s-vpn.md).
+- Configure [ExpressRoute](../../expressroute/expressroute-introduction.md).
 
-# The provisioning desired on the file share. Delete the parameters if no
-# change is desired.
-provisionedStorageGib=10240
-provisionedIops=10000
-provisionedThroughputMibPerSec=2048
-
-# Update the file share provisioning.
-az storage share-rm update \
-        --resource-group $resourceGroupName \
-        --name $shareName \
-        --storage-account $storageAccountName \
-        --quota $provisionedStorageGib \
-        --provisioned-iops $provisionedIops \
-        --provisioned-bandwidth-mibps $provisionedThroughputMibPerSec
-```
-
----
-
-### Change the cost and performance characteristics of a provisioned v1 file share (Classic)
-
-After creating your provisioned v1 file share, you can change the provisioned storage size of the file share. Changing the provisioned storage of the share will also change the amount of provisioned IOPS and provisioned throughput. For more information, see [provisioned v1 provisioning detail](./understanding-billing.md#provisioned-v1-provisioning-detail).
-
-# [Portal](#tab/azure-portal)
-
-Follow these instructions to update the provisioning for your file share.
-
-1. Go to your storage account. From the service menu, under **Data storage**, select **File shares**.
-
-2. In the file share listing, select the file share for which you desire to change the provisioning.
-
-3. In the file share overview select **Change size and performance**.
-
-   ![A screenshot of the "Change size and performance" button in the file share overview.](./media/storage-how-to-create-file-share/change-provisioned-v2-0.png)
-
-4. The **Size and performance** pop out dialog has a single option, **Provisioned storage (GiB)**. If you require more IOPS or throughput than the given amount of provisioned storage provides, you can increase your provisioned storage capacity to get additional IOPS and throughput.
-
-   ![A screenshot of the "Size and performance" dialog for provisioned v1 file shares.](./media/storage-how-to-create-file-share/change-provisioned-v1-0.png)
-
-5. Select **Save** to save provisioning changes. Storage, IOPS, and throughput changes are effective within a few minutes after a provisioning change.
-
-> [!NOTE]
-> You can use PowerShell and CLI to enable/disable paid bursting if desired. Paid bursting is an advanced feature of the provisioned v1 billing model. Consult [provisioned v1 paid bursting](./understanding-billing.md#provisioned-v1-paid-bursting) before enabling paid bursting.
-
-# [PowerShell](#tab/azure-powershell)
-
-You can modify a provisioned v1 file share with the `Update-AzRmStorageShare` cmdlet. Remember to replace the values for the variables `$resourceGroupName`, `$storageAccountName`, and `$fileShareName` with the desired values for your file share. Set `$provisionedStorageGib`, `$paidBurstingEnabled`, `$paidBurstingMaxIops`, and `$paidBurstingMaxThroughputMibPerSec` to non-null (`$null`) values to set on the file share. Paid bursting is an advanced feature of the provisioned v1 model. Consult [provisioned v1 paid bursting](./understanding-billing.md#provisioned-v1-paid-bursting) before enabling.
-
-```PowerShell
-# The path to the file share resource to be modified.
-$resourceGroupName = "<resource-group>"
-$storageAccountName = "<storage-account>"
-$fileShareName = "<file-share>"
-
-# The provisioning desired on the file share. Set to $null to keep at the
-# current level of provisioning.
-$provisionedStorageGib = 10240
-
-# Paid bursting settings.
-$paidBurstingEnabled = $null # Set to $true or $false.
-$paidBurstingMaxIops = $null # Set to an integer value.
-$paidBurstingMaxThroughputMibPerSec = $null # Set to an integer value.
-
-# Configure parameter object for splatting.
-$params = @{
-    ResourceGroupName = $resourceGroupName;
-    StorageAccountName = $storageAccountName;
-    Name = $fileShareName;
-}
-
-if ($null -ne $provisionedStorageGib) {
-    $params += @{ QuotaGiB = $provisionedStorageGib }
-}
-
-if ($null -ne $paidBurstingEnabled) {
-    $params += @{ PaidBurstingEnabled = $paidBurstingEnabled }
-}
-
-if ($null -ne $paidBurstingMaxIops) {
-    $params += @{ PaidBurstingMaxIops = $paidBurstingMaxIops }
-}
-
-if ($null -ne $paidBurstingMaxThroughputMibPerSec) {
-    $params += @{
-        PaidBurstingMaxBandwidthMibps = $paidBurstingMaxThroughputMibPerSec
-    }
-}
-
-# Update the file share provisioning.
-Update-AzRmStorageShare @params
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-You can modify a provisioned v1 file share with the `az storage share-rm update` command. Remember to replace the values for the variables `resourceGroupName`, `storageAccountName`, `fileShareName`, and `provisionedStorageGib` with the desired values for your file share.
-
-```bash
-# The path to the file share resource to be modified.
-resourceGroupName="<resource-group>"
-storageAccountName="<storage-account>"
-fileShareName="<file-share>"
-
-# The provisioning desired on the file share.
-provisionedStorageGib=10240
-
-# Update the file share provisioning.
-az storage share-rm update \
-        --resource-group $resourceGroupName \
-        --storage-account $storageAccountName \
-        --name $fileShareName \
-        --quota $provisionedStorageGib
-```
-
-To toggle paid bursting, use the `--paid-bursting-enabled` parameter. Paid bursting is an advanced feature of the provisioned v1 model. Consult [provisioned v1 paid bursting](./understanding-billing.md#provisioned-v1-paid-bursting) before enabling. You can optionally use the `--paid-bursting-max-iops` and `--paid-bursting-max-bandwidth-mibps` flags to set a restriction on the upper amount of paid bursting allowed for cost control purposes. Remember to replace the values for the variables `resourceGroupName`, `storageAccountName`, and `fileShareName` with the desired values for your file share.
-
-```bash
-resourceGroupName="<resource-group>"
-storageAccountName="<storage-account>"
-fileShareName="<file-share>"
-
-az storage share-rm update \
-        --resource-group $resourceGroupName \
-        --storage-account $storageAccountName \
-        --name $fileShareName \
-        --paid-bursting-enabled true
-```
-
----
-
-### Change the cost and performance characteristics of a pay-as-you-go file share (Classic)
-
-After you've created your pay-as-you-go file share, there are two properties you might want to change:
-
-- **Access tier**: The access tier of the file share dictates to the ratio of storage to IOPS/throughput costs (in the form of transactions). There are three access tiers: _transaction optimized_, _hot_, and _cool_. Changing the tier of the Azure file share results in transaction costs for the movement to the new access tier. For more information, see [switching between access tiers](./understanding-billing.md#switching-between-access-tiers).
-
-- **Quota**: Quota is a limit on the size of the file share. The quota property is used in the provisioned v2 and provisioned v1 models to mean "provisioned storage capacity", however, in the pay-as-you-go model, quota has no direct impact on bill. The two primary reasons you might want to modify this are if you use quota to limit the growth of your file share to keep control of the used storage/transaction costs in the pay-as-you-go model, or if you have a storage account predating the introduction of the large file share feature, which enabled file shares to grow beyond 5 TiB. The maximum file share size for a pay-as-you-go file share is 100 TiB.
-
-# [Portal](#tab/azure-portal)
-
-Follow these instructions to update the access tier of your file share.
-
-1. Go to your storage account. From the service menu, under **Data storage**, select **File shares**.
-
-2. In the file share listing, select the file share for which you desire to change the access tier.
-
-3. In the file share overview, select **Change tier**.
-
-4. Select the desired **Access tier** from the provided drop-down list.
-
-5. Select **Apply** to save the access tier change.
-
-For these instructions to update the quota of your file share.
-
-1. Go to your storage account. From the service menu, under **Data storage**, select **File shares**.
-
-2. In the file share listing, select the file share for which you desire to change the quota.
-
-3. In the file share overview, select **Edit quota**.
-
-4. In the edit quota pop-out, enter the desired maximum size of the share or select **Set to maximum**. There is no cost implication of setting the share to the maximum size.
-
-5. Select **OK** to save quota changes. The new quota is effective within a few minutes.
-
-# [PowerShell](#tab/azure-powershell)
-
-You can modify the access tier and quota settings of a pay-as-you-go file share with the `Update-AzRmStorageShare` cmdlet. Remember to replace the values for the variables `$resourceGroupName`, `$storageAccountName`, `$fileShareName`, `$accessTier`, and `$quotaGib` with the desired values for your file share.
-
-```PowerShell
-# The path to the file share resource to be modified.
-$resourceGroupName = "<resource-group>"
-$storageAccountName = "<storage-account>"
-$fileShareName = "<file-share>"
-
-# The settings to be changed on the file share. Set to $null to skip setting.
-$accessTier = "Cool"
-$quotaGib = $null
-
-# Construct a parameters hash table for cmdlet splatting.
-$updateParams = @{
-    ResourceGroupName = $resourceGroupName
-    StorageAccountName = $storageAccountName
-    Name = $fileShareName
-}
-
-if ($null -ne $accessTier) { $updateParams += @{ AccessTier = $accessTier } }
-if ($null -ne $quotaGib) { $updateParams += @{ QuotaGiB = $quotaGib } }
-
-# Update the file share
-Update-AzRmStorageShare @updateParams
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-You can modify the access tier and quota settings of a pay-as-you-go file share with the `az storage share-rm update` command. Remember to replace the values for the variables `resourceGroupName`, `storageAccountName`, `fileShareName`, `accessTier`, and `quotaGib` with the desired values for your file share.
-
-```bash
-# The path to the file share resource to be modified.
-resourceGroupName="<resource-group>"
-storageAccountName="<storage-account>"
-fileShareName="<file-share>"
-
-# The settings to be changed on the file share. Set to the empty string to skip
-# setting.
-accessTier="Cool"
-quotaGib=""
-
-command="az storage share-rm update --resource-group $resourceGroupName"
-command="$command --storage-account $storageAccountName --name $fileShareName"
-
-if [ ! -z "${accessTier}" ]; then
-    command="$command --access-tier $accessTier"
-fi
-
-if [ ! -z "${quotaGib}" ]; then
-    command="$command --quota $quotaGib"
-fi
-
-# Update file share (command is in variable)
-$command
-```
-
----
-
-## Use a file share (Classic)
+## Use a classic file share
 
 After you create a file share, you can create directories on the share and use it to store files.
 
@@ -996,58 +757,8 @@ az storage file download \
 
 ---
 
-## Delete a file share (Classic)
-
-Depending on your workflow, you might wish to delete unused or outdated file shares. You can use the following instructions to delete file shares. File shares in storage accounts with [soft delete enabled](storage-files-prevent-file-share-deletion.md) can be recovered within the retention period.
-
-# [Portal](#tab/azure-portal)
-
-Follow these instructions to delete a file share.
-
-1. Go to your storage account. From the service menu, under **Data storage**, select **File shares**.
-
-2. In the file share list, select the **...** for the file share you desire to delete.
-
-3. Select **Delete share** from the context menu.
-
-4. The **Delete** pop-out contains a survey about why you're deleting the file share. You can skip this, but we appreciate any feedback you have on Azure Files, particularly if something isn't working properly for you.
-
-5. Enter the file share name to confirm deletion and select **Delete**.
-
-# [PowerShell](#tab/azure-powershell)
-
-You can delete a file share using the `Remove-AzRmStorageShare` cmdlet. Remember to replace the values for the variables `$resourceGroupName`, `$storageAccountName`, and `$fileShareName` with the desired values for your file share.
-
-```PowerShell
-# The path to the file share resource to be deleted.
-$resourceGroupName = "<resource-group>"
-$storageAccountName = "<storage-account>"
-$fileShareName = "<file-share>"
-
-# Remove the file share
-Remove-AzRmStorageShare `
-        -ResourceGroupName $resourceGroupName `
-        -StorageAccountName $storageAccountName `
-        -Name $fileShareName
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-You can delete a file share using the `az storage share-rm delete` command. Remember to replace the values for the variables `resourceGroupName`, `storageAccountName`, and `fileShareName` with the desired values for your file share.
-
-```bash
-resourceGroupName="<resource-group>"
-storageAccountName="<storage-account>"
-fileShareName="<file-share>"
-
-az storage share-rm delete \
-    --resource-group $resourceGroupName \
-    --storage-account $storageAccountName \
-    --name $fileShareName
-```
-
----
-
 ## Next step
 
 - Mount an SMB file share on [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), or [Linux](storage-how-to-use-files-linux.md).
+- Mount an NFS file share on [Linux](storage-files-how-to-mount-nfs-shares.md)
+- Learn how to [change size, preformance and delete on a file share](files-how-to-modify-file-share.md).

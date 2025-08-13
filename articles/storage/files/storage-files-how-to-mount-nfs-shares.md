@@ -35,49 +35,14 @@ Azure file shares can be mounted in Linux distributions using either the Server 
 
 [!INCLUDE [files-nfs-limitations](../../../includes/files-nfs-limitations.md)]
 
-## Deploy an Azure VM running Linux
+## Prerequisite: Configure network security
 
-First, create an Azure VM running Linux to represent the on-premises server. When you create the VM, a virtual network will be created for you. The NFS protocol can only be used from a machine inside of a virtual network.
-
-1. Select **Home**, and then select **Virtual machines** under **Azure services**.
-
-1. Select **+ Create** and then **Azure virtual machine**.
-
-1. In the **Basics** tab, under **Project details**, make sure the correct subscription and resource group are selected. Under **Instance details**, type _myVM_ for the **Virtual machine name**, and select the same region as your storage account.
-
-1. Under **Availability options**, select _No infrastructure redundancy required_. Under **Security type**, select _Standard_.
-
-1. Choose your Linux distribution for your **Image**. Leave the other defaults. The default size and pricing is only shown as an example. Size availability and pricing are dependent on your region and subscription.
-
-   :::image type="content" source="media/storage-files-quick-create-use-linux/vm-project-instance-details.png" alt-text="Screenshot showing how to enter the project and instance details to create a new V M." lightbox="media/storage-files-quick-create-use-linux/vm-project-instance-details.png" border="true":::
-
-1. Under **Administrator account**, select **SSH public key**. Leave the rest of the defaults.
-
-   :::image type="content" source="media/storage-files-quick-create-use-linux/vm-admin-account.png" alt-text="Screenshot showing how to configure the administrator account and create an S S H key pair for a new V M." lightbox="media/storage-files-quick-create-use-linux/vm-admin-account.png" border="true":::
-
-1. Under **Inbound port rules > Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** and **HTTP (80)** from the drop-down.
-
-   :::image type="content" source="media/storage-files-quick-create-use-linux/create-vm-inbound-port-rules.png" alt-text="Screenshot showing how to configure the inbound port rules for a new V M." lightbox="media/storage-files-quick-create-use-linux/create-vm-inbound-port-rules.png" border="true":::
-
-   > [!IMPORTANT]
-   > Setting SSH port(s) open to the internet is only recommended for testing. If you want to change this setting later, go back to the **Basics** tab.
-
-1. Select the **Review + create** button at the bottom of the page.
-
-1. On the **Create a virtual machine** page, you can see the details about the VM you're about to create. Under **Networking**, note the name of the virtual network. When you're ready, select **Create**.
-
-1. When the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will be downloaded as **myVM_key.pem**. Make sure you know where the .pem file was downloaded, because you'll need the path to it to connect to your VM.
-
-You'll see a message that deployment is in progress. Wait a few minutes for deployment to complete.
-
-## Configure network security
+NFS file shares can only be accessed from trusted networks. Currently, the only way to secure the data in your storage account is by using a virtual network and other network security settings. Any other tools used to secure data, including account key authorization, Microsoft Entra security, and access control lists (ACLs) can't be used to authorize an NFSv4.1 request.
 
 > [!IMPORTANT]
 > The NFSv4.1 protocol runs on port 2049. If you're connecting from an on-premises network, make sure that your client allows outgoing communication through port 2049. If you grant access to specific VNets, make sure that any network security groups associated with those VNets don't contain security rules that block incoming communication through port 2049.
 
 ### Create a private endpoint or service endpoint
-
-If you are using Microsoft.FileShares, and have already setup network when you are creating the file share, you may skip this step.
 
 To use NFS Azure file shares, you must either [create a private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint) (recommended) or [restrict access to your public endpoint](storage-files-networking-endpoints.md#restrict-public-endpoint-access).
 
@@ -91,6 +56,8 @@ To enable hybrid access to an NFS Azure file share, use one of the following net
 
 ## Mount an NFS Azure file share
 
+### Instructions for classic NFS file share (Microsoft.Storage)
+
 You can mount the share using the AZNFS mount helper in Azure portal, or you can use the native NFS mount commands in CLI. You can also create a record in the **/etc/fstab** file to automatically mount the share every time the Linux server or VM boots.
 
 You can use the `nconnect` Linux mount option to improve performance for NFS Azure file shares at scale. For more information, see [Improve NFS Azure file share performance](nfs-performance.md#nfs-nconnect).
@@ -100,7 +67,7 @@ You can use the `nconnect` Linux mount option to improve performance for NFS Azu
 1. Once the file share is created, select the share and then select **Connect from Linux**.
 1. Enter the mount path you'd like to use, then copy the script and run it on your client. Azure portal offers a step-by-step, ready-to-use installation script tailored to your selected Linux distribution for installing the AZNFS mount helper package and to securely mount the share using [Encyption in Transit](encryption-in-transit-for-nfs-shares.md). Only the required mount options are included in the script, but you can add other [recommended mount options](#mount-options).
 
-   :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/mount-file-share.png" alt-text="Screenshot showing how to connect to an N F S file share from Linux using a provided mounting script." lightbox="media/storage-files-how-to-mount-nfs-shares/mount-file-share.png" border="true":::
+:::image type="content" source="./media/storage-files-how-to-mount-nfs-shares/mount-file-share.png" alt-text="Screenshot showing how to connect to an NFS file share from Linux using a provided mounting script." lightbox="./media/storage-files-how-to-mount-nfs-shares/mount-file-share.png" border="true":::
 
 The NFS file share should now be mounted. If the mount fails, ensure that the _Secure transfer required_ setting is [enabled on the storage account](encryption-in-transit-for-nfs-shares.md?tabs=azure-portal%2CUbuntu#enforce-encryption-in-transit).
 
@@ -146,6 +113,70 @@ sudo mount -t nfs <YourStorageAccountName>.core.windows.net:/<YourStorageAccount
 
 ---
 
+### Instructions for NFS file share (Microsoft.FileShares)
+
+You can mount the share in Azure portal, or you can use the native NFS mount commands in CLI. You can also create a record in the **/etc/fstab** file to automatically mount the share every time the Linux server or VM boots.
+
+You can use the `nconnect` Linux mount option to improve performance for NFS Azure file shares at scale. For more information, see [Improve NFS Azure file share performance](nfs-performance.md#nfs-nconnect).
+
+### Mount an NFS share using the Azure portal (Recommended)
+
+1. Once the file share is created, select the share and then select **Connect from Linux**.
+1. Enter the mount path you'd like to use, then copy the script and run it on your client. Azure portal offers a step-by-step, ready-to-use installation script tailored to your selected Linux distribution. Only the required mount options are included in the script, but you can add other [recommended mount options](#mount-options).
+   ![image for mount mfs](./media/storage-files-how-to-mount-nfs-shares/mount-mfs.png)
+
+### Mount an NFS share using the NFS client mount in command line
+
+Alternatively, you can also mount the Azure file share using NFS client mount in command line. Select the tab below for your Linux distribution to see the commands you need to run.
+
+# [Azure Cli](#tab/Azure Cli)
+
+```bash
+# Customize these placeholders:
+# - `<your-subscription-id>` → Your Azure subscription ID.
+# - `<your-resource-group>` → The resource group containing the file share.
+# - `<your-file-share-name>` → The name of your file share.
+
+hostName=$(az resource show \
+  --ids "/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/providers/Microsoft.FileShares/fileShares/<your-file-share-name>" \
+  --query "properties.hostName" \
+  --output tsv)
+echo $hostName
+
+prefix=$(echo "$hostName" | sed 's/\.file\.storage\.azure\.net.*//')
+shortName=$(echo "$prefix" | sed 's/\.[^.]*$//')
+echo $shortName
+```
+
+# [Ubuntu/Debian](#tab/Ubuntu)
+
+```bash
+sudo apt-get -y update
+sudo apt-get install nfs-common
+sudo mkdir -p /mount/<your-file-share-name>
+sudo mount -t nfs $hostName:/$shortName/<your-file-share-name> /mount/<your-file-share-name> -o vers=4,minorversion=1,sec=sys
+```
+
+# [RHEL/CentOS](#tab/RHEL)
+
+```bash
+sudo yum update
+sudo yum install nfs-utils
+sudo mkdir -p /mount/<your-file-share-name>
+sudo mount -t nfs $hostName:/$shortName/<your-file-share-name> /mount/<your-file-share-name> -o vers=4,minorversion=1,sec=sys
+```
+
+### [SUSE](#tab/SUSE)
+
+```bash
+sudo zypper update
+sudo zypper -n install nfs-client
+sudo mkdir -p /mount/<your-file-share-name>
+sudo mount -t nfs $hostName:/$shortName/<your-file-share-name> /mount/<your-file-share-name> -o vers=4,minorversion=1,sec=sys
+```
+
+---
+
 ### Mount an NFS share using /etc/fstab
 
 If you want the NFS file share to automatically mount every time the Linux server or VM boots, create a record in the **/etc/fstab** file for your Azure file share. The record will differ depending on whether or not you're using the AZNFS Mount Helper or the native NFS mount commands.
@@ -165,7 +196,11 @@ Remember to replace `<YourStorageAccountName>` and `<FileShareName>` with your o
 The record in **/etc/fstab** should look like this if you're using the AZNFS Mount Helper and want to mount the share using encryption in transit.
 
 ```bash
+# Microsoft.Storage
 <YourStorageAccountName>.file.core.windows.net:/<YourStorageAccountName>/<FileShareName> /media/<YourStorageAccountName>/<FileShareName> aznfs defaults,sec=sys,vers=4.1,nolock,proto=tcp,nofail,_netdev   0 2
+
+# Microsoft.FileShares
+$hostName:/$shortName/<FileShareName> /media/$shortName/<FileShareName> aznfs defaults,sec=sys,vers=4.1,nolock,proto=tcp,nofail,_netdev   0 2
 ```
 
 If the mount fails, ensure that the _Secure transfer required_ setting is [enabled on the storage account](encryption-in-transit-for-nfs-shares.md?tabs=azure-portal%2CUbuntu#enforce-encryption-in-transit).
@@ -175,7 +210,11 @@ If the mount fails, ensure that the _Secure transfer required_ setting is [enabl
 If you're using the AZNFS Mount Helper but don't want to use encryption in transit, the record in **/etc/fstab** should look like this:
 
 ```bash
+# Microsoft.Storage
 <YourStorageAccountName>.file.core.windows.net:/<YourStorageAccountName>/<FileShareName> /media/<YourStorageAccountName>/<FileShareName> aznfs defaults,sec=sys,vers=4.1,nolock,proto=tcp,nofail,_netdev,notls   0 2
+
+# Microsoft.FileShares
+$hostName:/$shortName/<FileShareName> /media/$shortName/<FileShareName> aznfs defaults,sec=sys,vers=4.1,nolock,proto=tcp,nofail,_netdev,notls   0 2
 ```
 
 #### Mount using native NFS mount commands
@@ -183,7 +222,11 @@ If you're using the AZNFS Mount Helper but don't want to use encryption in trans
 If you're using the native NFS mount without AZNFS, the record in **/etc/fstab** should look like this:
 
 ```bash
+# Microsoft.Storage
 <YourStorageAccountName>.file.core.windows.net:/<YourStorageAccountName>/<FileShareName> /media/<YourStorageAccountName>/<FileShareName> nfs vers=4,minorversion=1,_netdev,nofail,sec=sys 0 0
+
+#Microsfot.FileShares
+$hostName:/$shortName/<FileShareName> /media/$shortName/<FileShareName> nfs vers=4,minorversion=1,_netdev,nofail,sec=sys 0 0
 ```
 
 ### Mount options
