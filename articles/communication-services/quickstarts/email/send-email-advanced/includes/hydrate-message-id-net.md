@@ -60,8 +60,6 @@ The `operationId` is the key identifier that allows you to rehydrate the operati
 ### Rehydrate operation ID and poll for completion
 
 ```csharp
-// Do a bunch of other things here...
-
 // Poll for the status of the email send operation using the previous operationId
 await PollForEmailSendOperationStatusWithExistingOperationId(emailClient, operationId);
 
