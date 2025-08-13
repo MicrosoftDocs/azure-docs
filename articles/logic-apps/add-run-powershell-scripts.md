@@ -64,11 +64,19 @@ This guide shows how to add the action in your workflow and add the PowerShell c
 
 You can change the PowerShell version in your logic app resource by editing the application settings. However, before you upgrade your app, review the following considerations:
 
-- A version upgrade might introduce breaking changes to your Standard logic app, which is designed as an extension of Azure Functions. Before you upgrade, review the following migration guide: [Upgrading your Azure Azure Functions Apps to run on PowerShell 7.4](https://github.com/Azure/azure-functions-powershell-worker/wiki/Upgrading-your-Azure-Function-Apps-to-run-on-PowerShell-7.4).
+- A version upgrade might introduce breaking changes to your Standard logic app, which uses a runtime that's hosted as an extension on the Azure Functions runtime. Before you upgrade, review the following migration guide: [Upgrading your Azure Functions apps to run on PowerShell 7.4](https://github.com/Azure/azure-functions-powershell-worker/wiki/Upgrading-your-Azure-Function-Apps-to-run-on-PowerShell-7.4).
 
-- Make sure that your logic app is running on the latest version of the Azure Functions runtime in Azure, which is version 4.x. For more information, see [View the current runtime version](../azure-functions/set-runtime-version.md?tabs=azure-portal#view-the-current-runtime-version).
+- Make sure that your logic app uses the latest runtime version for Azure Functions runtime in Azure, which is version 4.x. For more information, see [View the current runtime version](../azure-functions/set-runtime-version.md?tabs=azure-portal#view-the-current-runtime-version).
+
+> [!NOTE]
+>
+> By default, if you don't specify a PowerShell version, Azure Logic Apps uses the same default 
+> version as Azure Functions. Currently, PowerShell 7.4 is generally available. For more information 
+> about available versions, see the [Azure Functions PowerShell developer guide](../azure-functions/functions-reference-powershell.md#powershell-versions).
 
 To update the PowerShell version, follow these steps:
+
+### [Portal](#tab/portal)
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -82,6 +90,33 @@ To update the PowerShell version, follow these steps:
    | --------- | ------| ----------- |
    | **Name** | **`LOGIC_APPS_POWERSHELL_VERSION`** | The app setting name. |
    | **Value** | <*powershell-version*> | The PowerShell version, currently **7.4**. |
+
+1. When you're done, select **Apply**. When the restart warning appears, select **Continue**.
+
+   Your logic app restarts with the updated version.
+
+### [Visual Studio Code](#visual-studio-code)
+
+To update the PowerShell version in your logic app project, follow these steps:
+
+1. In Visual Studio Code, open the workspace for your logic app project.
+
+1. From your logic app root project folder, open the *local.settings.json* file.
+
+1. In the *local.settings.json* file, add the **LOGIC_APPS_POWERSHELL_VERSION** setting and value, for example:
+
+   ```json
+   {
+       "IsEncrypted": false,
+       "Values": {
+           "AzureWebJobsStorage": "<*storage-account*>",
+           <...>
+           "LOGIC_APPS_POWERSHELL_VERSION": "<powershell-version>" // For example, "7.4"
+       }
+   }
+   ```
+
+---
 
 ## Add the Execute PowerShell Code action
 
