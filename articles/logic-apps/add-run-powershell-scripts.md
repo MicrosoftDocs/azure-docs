@@ -5,8 +5,8 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, swghimire, shahparth, azla
 ms.topic: how-to
-ms.date: 06/25/2025
-# Customer intent: As a logic app workflow developer, I want to write and run PowerShell code so that I can perform custom integration tasks in Standard workflows for Azure Logic Apps.
+ms.date: 08/13/2025
+# Customer intent: As an integration developer, I want to write and run PowerShell code so that I can perform custom integration tasks in Standard workflows for Azure Logic Apps.
 ---
 
 # Add and run PowerShell scripts in Standard workflows for Azure Logic Apps (Preview)
@@ -59,6 +59,29 @@ This guide shows how to add the action in your workflow and add the PowerShell c
 |------|-------|-------|
 | Script run duration | 10 minutes | If you have scenarios that need longer durations, use the product feedback option to provide more information about your needs. |
 | Output size | 100 MB | Output size depends on the output size limit for actions, which is generally 100 MB. |
+
+## Update the PowerShell version
+
+You can change the PowerShell version in your logic app resource by editing the application settings. However, before you upgrade your app, review the following considerations:
+
+- A version upgrade might introduce breaking changes to your Standard logic app, which is designed as an extension of Azure Functions. Before you upgrade, review the following migration guide: [Upgrading your Azure Azure Functions Apps to run on PowerShell 7.4](https://github.com/Azure/azure-functions-powershell-worker/wiki/Upgrading-your-Azure-Function-Apps-to-run-on-PowerShell-7.4).
+
+- Make sure that your logic app is running on the latest version of the Azure Functions runtime in Azure, which is version 4.x. For more information, see [View the current runtime version](../azure-functions/set-runtime-version.md?tabs=azure-portal#view-the-current-runtime-version).
+
+To update the PowerShell version, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
+
+1. On the resource sidebar, under **Settings**, select **Environment variables**.
+
+1. On the **App settings** tab, select **+ Add**.
+
+1. On the **Add/Edit application setting** pane, add the following new app setting:
+
+   | Parameter | Value | Description |
+   | --------- | ------| ----------- |
+   | **Name** | **`LOGIC_APPS_POWERSHELL_VERSION`** | The app setting name. |
+   | **Value** | <*powershell-version*> | The PowerShell version, currently **7.4**. |
 
 ## Add the Execute PowerShell Code action
 
