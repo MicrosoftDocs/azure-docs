@@ -12,7 +12,9 @@ ms.custom: engagement-fy24
 
 # Assess PostgreSQL Workloads for Migration Using Azure Migrate
 
-As you plan your migration to Azure, it's important to assess your on-premises PostgreSQL workloads to determine cloud readiness, identify potential risks, and estimate migration costs and complexity. This article guides you through assessing discovered PostgreSQL instances and databases using the Azure Migrate: Discovery and assessment tool, helping you prepare for migration to Azure Database for PostgreSQL flexible server.
+This article guides you through assessing discovered PostgreSQL instances and databases using the Azure Migrate: Discovery and assessment tool, helping you prepare for migration to Azure Database for PostgreSQL flexible server.
+
+As you plan your migration to Azure, it's important to assess your on-premises PostgreSQL workloads to determine cloud readiness, identify potential risks, and estimate migration costs and complexity. 
 
 In this tutorial, you'll learn how to:
 
@@ -21,8 +23,9 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-Ensure you have an Azure subscription and discover your on-premises PostgreSQL instances using Azure Migrate.
+Before you begin, ensure that you've following:
 
+- Ensure you've an Azure subscription and discover your on-premises PostgreSQL instances using Azure Migrate.
 - If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 - Before you assess your PostgreSQL instances for migration to Azure Database for PostgreSQL flexible server, make sure you discover the instances using the Azure Migrate appliance. For guidance, follow the [discovery tutorial](tutorial-discover-vmware.md).
 - If you use an existing Azure Migrate project, ensure you complete all [prerequisites](how-to-discover-applications.md) outlined in this article.
@@ -34,13 +37,15 @@ For the public preview, Azure Migrate supports configuration-based sizing criter
 
 | Assessment   | Details | Recommendation |
 |--------------| -----------|----------------|
-| As on-premises  | Assess based on PostgreSQL configuration data/metadata. | Recommended Azure Database for PostgreSQL flexible server configuration is based on the on-premises PostgreSQL configuration, which includes server parameters (`postgresql.conf`), allocated memory and connection settings, and database sizes. This assessment type is ideal for understanding configuration compatibility and planning migrations where performance baselines aren't yet available or when workload characteristics require a longer duration to capture comprehensive performance metrics. |
+| As on-premises  | Assess based on PostgreSQL configuration data/metadata. | The recommended Azure Database for PostgreSQL flexible server configuration is based on the on-premises PostgreSQL configuration, which includes server parameters (`postgresql.conf`), allocated memory and connection settings, and database sizes. This assessment type is ideal for understanding configuration compatibility and planning migrations where performance baselines aren't yet available or when workload characteristics require a longer duration to capture comprehensive performance metrics. |
 
 ## Run an assessment
 
-Run an assessment as follows:
+Start an assessment to evaluate your PostgreSQL workloads. 
 
-1.	In the overview page, select **Create Assessment**
+To run an assessment, follow these steps:
+
+1.	In the overview pane, select **Create Assessment**
 
     :::image type="content" source="./media/tutorial-assess-postgresql/create-assessment.png" alt-text="Screenshot shows how to create assessment" lightbox="./media/tutorial-assess-postgresql/create-assessment.png":::
 
@@ -90,7 +95,7 @@ Run an assessment as follows:
 
     :::image type="content" source="./media/tutorial-assess-postgresql/review-create-assessment.png" alt-text="Screenshot shows to create and run the assessment." lightbox="./media/tutorial-assess-postgresql/review-create-assessment.png":::
 
-1. After creating the assessment, go to the **Overview** page and select **View** all reports, or under **Decide and plan**, and then select **Assessments** to view the report.
+1. After creating the assessment, go to the **Overview** pane and select **View** all reports, or under **Decide and plan**, and then select **Assessments** to view the report.
 
     :::image type="content" source="./media/tutorial-assess-postgresql/assessments.png" alt-text="Screenshot shows to decide and plan the assessment." lightbox="./media/tutorial-assess-postgresql/assessments.png":::
 
@@ -99,7 +104,7 @@ Run an assessment as follows:
     :::image type="content" source="./media/tutorial-assess-postgresql/assessments-two.png" alt-text="Screenshot shows to select the required assessment." lightbox="./media/tutorial-assess-postgresql/assessments-two.png":::
 
 > [!NOTE]
-> This is a configuration-based assessment that analyzes your PostgreSQL setup for compatibility with Azure Database for PostgreSQL flexible server.
+> This is a configuration-based assessment that analyses your PostgreSQL setup for compatibility with Azure Database for PostgreSQL Flexible server.
 
 ## Next steps
 
