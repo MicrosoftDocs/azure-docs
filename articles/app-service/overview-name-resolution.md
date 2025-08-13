@@ -6,6 +6,7 @@ ms.topic: conceptual
 ms.custom: devx-track-azurecli
 ms.date: 04/03/2023
 ms.author: jordanselig
+ms.service: azure-app-service
 ---
 
 # Name resolution (DNS) in App Service

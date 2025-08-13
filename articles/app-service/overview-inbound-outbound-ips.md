@@ -4,11 +4,12 @@ description: Learn how inbound and outbound IP addresses are used in Azure App S
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: article
-ms.date: 08/05/2025
+ms.date: 08/07/2025
 ms.update-cycle: 1095-days
 ms.custom:
   - UpdateFrequency3
   - build-2025
+ms.service: azure-app-service
 ---
 
 # Inbound and outbound IP addresses in Azure App Service
@@ -138,6 +139,8 @@ You can configure the IP mode behavior using the `IPMode` property:
 - **IPv4** (default): DNS returns IPv4 address only
 - **IPv6**: DNS returns IPv6 address only
 - **IPv4AndIPv6**: DNS returns both IPv4 and IPv6 addresses
+
+IPMode is a DNS-only feature. Every App Service site can receive requests via both IPv4 and IPv6 endpoints—regardless of the configured IpMode. IpMode only influences how DNS resolves the endpoint, so it affects clients that rely on DNS resolution (which should be most clients), but it doesn't restrict which protocol endpoints can be reached.
 
 ### Configure IPv6 support
 

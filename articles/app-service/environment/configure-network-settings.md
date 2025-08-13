@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.custom: devx-track-arm-template, devx-track-azurecli
 ms.date: 03/29/2022
 ms.author: jordanselig
+ms.service: azure-app-service
 ---
 
 # Network configuration settings

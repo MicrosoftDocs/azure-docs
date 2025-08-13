@@ -27,7 +27,24 @@ In the Azure portal, you may receive a warning message on the landing page for t
 Disabling local authentication doesn't take effect immediately. Allow a few minutes for the service to block future authentication requests.
 
 >[!NOTE]
-> - Currently, PowerShell support for the new API version (2021-06-22) or the flag – `DisableLocalAuth` is not available. However, you can use the Rest-API with this API version to update the flag.
+> - Currently, PowerShell support for the new API version (2021-06-22) or the flag – `DisableLocalAuth` is not available. However, you can use the REST API with this API version to update the flag. Here is how to do it with the [`Invoke-AzRestMethod`](/powershell/azure/manage-azure-resources-invoke-azrestmethod) cmdlet.
+>
+> ```azurepowershell-interactive
+> $SubscriptionId = "your-subscription-id"
+> $ResourceGroupName = "your-resource-group-name"
+> $AutomationAccountName = "your-automation-account-name"
+> $RequestUri = "https://management.azure.com/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Automation/automationAccounts/$($AutomationAccountName)?api-version=2023-11-01"
+> $Payload = @{
+>     properties = @{
+>         disableLocalAuth = $true
+>     }
+> } | ConvertTo-Json
+> Invoke-AzRest -Method Patch -Uri $RequestUri -Payload $Payload
+>
+> # Verify
+> $AutomationAccount = (Invoke-AzRest -Method Get -Uri $RequestUri).Content | ConvertFrom-Json
+> "disableLocalAuth = $($AutomationAccount.properties.disableLocalAuth)"
+> ```
 
 ## Re-enable local authentication
 

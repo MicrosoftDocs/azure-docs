@@ -8,6 +8,9 @@ ms.custom: playwright-testing-preview
 
 # Try Microsoft Playwright Testing Preview for free
 
+> [!NOTE]
+> Playwright Testing is now part of [Azure App Testing](https://aka.ms/AzureAppTesting), a unified service for functional and performance tests. Learn more about how to [get started](https://aka.ms/AzureAppTesting/announcement).
+
 Microsoft Playwright Testing Preview is a fully managed service for end-to-end testing built on top of Playwright. With the free trial, you can try Microsoft Playwright Testing for free for 30 days, 100 test minutes, and 1,000 test results. In this article, you learn about the limits of the free trial, how to get started, and how to track your free trial usage.
 
 > [!IMPORTANT]

@@ -10,6 +10,7 @@ ms.custom:
   - devx-track-dotnet
   - build-2025
 ms.collection: ce-skilling-ai-copilot
+ms.service: azure-app-service
 ---
 
 # Invoke an App Service web app from Azure AI Foundry Agent Service
