@@ -66,7 +66,7 @@ The SDKs provide many components available for simplicity and ease of use:
 
 * A **Protocol Compiler (codegen)**, that allows clients and servers to communicate via a schema contract. First describe the communication (using **Telemetry** and **Commands**) with DTDL, then generate a set of client libraries and server library stubs across the supported programming languages.
 
-Read further about the components of the SDKs:
+Read further about the underlying terminology and different components of the SDKs:
 
 * [Components](https://github.com/Azure/iot-operations-sdks/blob/main/doc/components.md) - An outline of each component and their function.
 
@@ -74,21 +74,23 @@ Read further about the components of the SDKs:
 
 The SDKs supports the following application types:
 
-// ASK: Akri connector should go to the mslearn page by Dominic directly. 
-
 | Application type | Description |
 |-|-|
 | [Edge application](https://github.com/Azure/iot-operations-sdks/blob/main/doc/edge_application/README.md) | A generic edge application that needs to interface with various Azure IoT Operations services such as the MQTT broker and state store. The SDKs provides convenient clients to simplify the development experience. </br></br>*An Edge Application is a customer managed artifact, including deployment to the cluster and monitoring execution.* |
 | [Akri connector](https://github.com/Azure/iot-operations-sdks/blob/main/doc/akri_connector/README.md)</br>*(in development)*| A specialized edge application deployed by the Akri Operator and designed to interface with on-premises devices. The Akri connector is responsible for discovering assets available via the endpoint, and relaying information to and from those assets. </br></br>*The Akri connector's deployment is managed automatically by the Akri Operator.* |
 
 > [!NOTE]
-> The Akri connector is part of the Akri services (preview), which is under active development and will be available soon.
+> The Akri connector is part of the [Akri services (preview)](../discover-manage-assets/overview-akri.md), which is under active development and will be available soon.
 
 ## Samples and tutorials
 
 Review the [samples](https://github.com/Azure/iot-operations-sdks/tree/main/samples) directory for samples about creating applications for Azure IoT Operation on the supported languages.
 
 To deploy a fully functional application to a cluster and see the SDKs in action, follow the [Tutorial: Build an event-driven app](https://github.com/Azure/iot-operations-sdks/blob/main/samples/event_driven_app/README.md).
+
+## SDKs reference documentation
+
+For documentation related to the implementation of the SDKs, it's fundamentals primitives and protocols as well as the underlying topic and payload structure used for communication over MQTT, see [Azure IoT Operations SDKs GitHub documentation](https://github.com/Azure/iot-operations-sdks/tree/main/doc).
 
 ## Next step
 
