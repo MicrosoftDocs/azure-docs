@@ -11,19 +11,19 @@ Microsoft supports three generally available (GA) versions of Azure IoT Operatio
 
 Currently, there are two supported minor GA versions. [Azure support](https://azure.microsoft.com/support/plans) is available for the following GA versions:
 
-| Version | Patch release | CLI version | Release notes |
+| Version | Patch release (YYMM) | CLI version | Release notes |
 |---------|---------------|-------------|---------------|
-| 1.0.x   | 1.0.9 (2411)<br/>1.0.15 (2502)<br/>1.0.34 (2503)  | 1.0.0<br/>1.2.0<br/>1.3.0       | [Release notes](https://github.com/Azure/azure-iot-operations/releases/tag/v1.0.9)<br/>[Release notes](https://github.com/Azure/azure-iot-operations/releases/tag/v1.0.15)<br/>[Release notes](https://github.com/Azure/azure-iot-operations/releases/tag/v1.0.34) |
-| 1.1.x   | 1.1.19 (2504)<br/>1.1.59 (2506) | 1.4.0, 1.5.0<br/>1.7.0     | [Release notes](https://github.com/Azure/azure-iot-operations/releases/tag/v1.1.19)</br>[Release notes](https://github.com/Azure/azure-iot-operations/releases/tag/v1.1.59) |
+| 1.1.x   | 1.1.59 (2506)<br/>1.1.19 (2504) | [1.7.0](https://github.com/Azure/azure-iot-ops-cli-extension/releases/tag/v1.7.0)<br/>[1.4.0](https://github.com/Azure/azure-iot-ops-cli-extension/releases/tag/v1.4.0), [1.5.0](https://github.com/Azure/azure-iot-ops-cli-extension/releases/tag/v1.5.0)     | [Release notes](https://github.com/Azure/azure-iot-operations/releases/tag/v1.1.59)</br>[Release notes](https://github.com/Azure/azure-iot-operations/releases/tag/v1.1.19) |
+| 1.0.x   | 1.0.34 (2503)<br/>1.0.15 (2502)<br/>1.0.9 (2411)  | [1.3.0](https://github.com/Azure/azure-iot-ops-cli-extension/releases/tag/v1.3.0)<br/>[1.2.0](https://github.com/Azure/azure-iot-ops-cli-extension/releases/tag/v1.2.0)<br/>[1.0.0](https://github.com/Azure/azure-iot-ops-cli-extension/releases/tag/v1.0.0)       | [Release notes](https://github.com/Azure/azure-iot-operations/releases/tag/v1.0.34)<br/>[Release notes](https://github.com/Azure/azure-iot-operations/releases/tag/v1.0.15)<br/>[Release notes](https://github.com/Azure/azure-iot-operations/releases/tag/v1.0.9) |
 
 > [!IMPORTANT]
 > Previous minor versions don't receive security patches. Upgrade to the latest version to get the latest security updates and features.
 
 Currently, there's only one supported preview version. [Azure support](https://azure.microsoft.com/support/plans) is  available for the following preview version:
 
-| Version         | Patch release | CLI version         | Release notes |
+| Version         | Patch release (YYMM) | CLI version         | Release notes |
 |-----------------|---------------|---------------------|---------------|
-| 1.2.x-preview   | 1.2.36 (2507) | 2.0.0b2 (preview)   | [Release notes](https://github.com/Azure/azure-iot-operations/releases/tag/v1.2.36) |
+| 1.2.x-preview   | 1.2.36 (2507) | [2.0.0b2 (preview)](https://github.com/Azure/azure-iot-ops-cli-extension/releases/tag/v2.0.0b2)   | [Release notes](https://github.com/Azure/azure-iot-operations/releases/tag/v1.2.36) |
 
 > [!WARNING]
 > Don't use preview versions in production environments.
