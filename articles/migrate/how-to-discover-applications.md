@@ -90,20 +90,19 @@ Once connected, the appliance gathers configuration and performance data of SQL 
     > Appliance can connect to only those MySQL Server instances to which it has network line of sight, whereas software inventory by itself may not need network line of sight.
 
 - PostgreSQL authentication requirements: To connect to a source PostgreSQL Server instance, the sign-in must meet the following requirements:
-    - The user must have at least the `CONNECT` privilege on the target databases.
-    - The user must be assigned the `pg_read_all_settings role` or have equivalent permissions to read server configuration settings.
+    - You must have at least the `CONNECT` privilege on the target databases.
+    - You must be assigned the `pg_read_all_settings role` or have equivalent permissions to read server configuration settings.
 
-- After connected, the appliance gathers configuration data of PostgreSQL instances and databases. The PostgreSQL configuration data is updated once every 24 hours.   
+- After the connection, the appliance collects configuration data from PostgreSQL instances and databases. It updates the PostgreSQL configuration data every 24 hours.   
 - The appliance collects detailed configuration data from the PostgreSQL Server, including server parameters from `postgresql.conf,` database properties and sizes, installed extensions, replication settings, and user and role configurations.
 - Configuration data is refreshed every 24 hours. As a result, changes to the PostgreSQL Server instance—such as updates to database status, server parameters, or newly installed extensions—may take up to 24 hours to appear in the portal.
 
-
 > [!IMPORTANT]
 > - Ensure your PostgreSQL instances are set up to accept connections from the appliance IP address.
-> - The default PostgreSQL port 5432 must be accessible, or the custom port if one is configured.
+> - The default PostgreSQL port 5432 or the custom port is accessible if one is configured.
 > - The listen_addresses parameter in postgresql.conf must include the network interface that the appliance can access.
 
-[Learn more](https://www.postgresql.org/docs/current/auth-pg-hba-conf.html) on PostgreSQL configuration.
+Learn more on [PostgreSQL configuration](https://www.postgresql.org/docs/current/auth-pg-hba-conf.html).
 
 ## Discover MySQL Server instances and databases (preview)
 
