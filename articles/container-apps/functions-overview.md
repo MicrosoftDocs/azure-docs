@@ -152,7 +152,7 @@ Azure Functions on Container Apps integrate seamlessly with Azure’s observabil
 
 ## Considerations
 
-Keep these other considerations in mind when using Functions on Container Apps:
+Keep these other considerations in mind when using Azure Functions on Azure Container Apps:
 
 - **Ingress Requirement for Auto-Scaling**: To enable automatic scaling based on events, [ingress must be enabled](../container-apps/ingress-how-to.md)—either publicly or within the Container Apps environment.
 - **Mandatory Storage Account**: Every Functions app deployed on Container Apps must be linked to a storage account. This is required for managing triggers, logs, and state. Review the [storage account guidance](../azure-functions/storage-considerations.md) for best practices.
