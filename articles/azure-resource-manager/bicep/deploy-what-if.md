@@ -54,7 +54,7 @@ The what-if operation in Bicep deployments may encounter "short-circuiting," a s
 
 ## Running the what-if operation
 
-Using a recent version of the Az PowerShell module (13.1.0 or later) or the Azure CLI (2.76.0 or later) will provide diagnostics when what-if cannot analyze part of the deployment. Earlier versions of these tools behave the same way, but they do not display the diagnostics. For example, if you use CLI version 2.75.0, the issue still occurs—it just happens silently.
+Using a recent version of the Az PowerShell module (13.1.0 or later) or the Azure CLI (2.75.0 or later) will provide diagnostics when what-if cannot analyze part of the deployment. Earlier versions of these tools behave the same way, but they do not display the diagnostics. For example, if you use CLI version 2.74.0, the issue still occurs—it just happens silently.
 
 ### What-if commands
 
