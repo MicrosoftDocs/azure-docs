@@ -13,7 +13,7 @@ ms.date: 05/06/2024
 # Customer intent: "As a network administrator, I want to configure multiple address prefixes on a subnet in my virtual network so that I can efficiently manage address space and scale my applications without downtime."
 ---
 
-# Create multiple prefixes for a subnet in an Azure Virtual Network - Preview
+# Create/Update multiple prefixes for a subnet in an Azure Virtual Network - Preview
 
 Large deployments of multiple scale apps within a virtual network are at risk of subnet address space exhaustion. Subnets in your virtual networks can host many applications that need the ability to scale out. This feature `AllowMultipleAddressPrefixesOnSubnet` allows you to scale your virtual machines and Azure Virtual Machine Scale Sets in subnets with ease. The feature eliminates the need to remove all resources from a subnet as a prerequisite for modifying its address prefixes. 
 
@@ -153,3 +153,26 @@ In this section, you create a subnet with multiple prefixes.
         --address-prefixes 10.0.0.0/24 10.0.1.0/24
     ```
 ---
+
+## Update a subnet with multiple prefixes
+
+In this section, you update a subnet with multiple prefixes.
+
+# [PowerShell](#tab/powershell)
+
+1. Update existing Virtual Network Subnet with additional prefixes
+
+    ```azurecli
+    az network vnet subnet update \
+        --name subnet-1 \
+        --vnet-name vnet-1 \
+        --resource-group test-rg \
+        --address-prefixes 10.0.0.0/24 10.0.1.0/24
+    ```
+1. List subnets with address prefixes
+
+    ```azurecli
+    az network vnet subnet list
+        --vnet-name East-vnet1 \
+        --resource-group spoke-vnets \
+    ```
