@@ -2,9 +2,9 @@
 title: Automate budget creation
 titleSuffix: Microsoft Cost Management
 description: This article helps you create budgets with the Budget API and a budget template.
-author: jojopm
+author: jojohpm
 ms.author: jojoh
-ms.date: 01/07/2025
+ms.date: 06/26/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management

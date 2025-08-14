@@ -18,9 +18,9 @@
     href: quickstarts/create-azure-automation-account-portal.md
   - name: Create Automation account - Terraform
     href: quickstarts/create-azure-automation-account-terraform.md
-  - name: Update runbook from PowerShell 5.1 to PowerShell 7.2
+  - name: Update runbook from PowerShell 7.1 to PowerShell 7.4
     href: quickstart-update-runbook-in-runtime-environment.md
-  - name: Run Azure CLI commands in PowerShell 7.2 runbooks
+  - name: Run Azure CLI commands in PowerShell 7.4 runbooks
     href: quickstart-cli-support-powershell-runbook-runtime-environment.md
   - name: Install Hybrid Worker extension - Azure portal
     href: quickstarts/install-hybrid-worker-extension.md

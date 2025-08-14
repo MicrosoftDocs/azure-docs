@@ -2,8 +2,8 @@
 title: Manage custom content with repository connections
 titleSuffix: Microsoft Sentinel
 description: This article explains custom Sentinel content like GitHub or Azure DevOps repositories that can utilize source control features. 
-author: austinmccollum
-ms.author: austinmc
+author: mberdugo 
+ms.author: monaberdugo 
 ms.service: microsoft-sentinel
 ms.topic: conceptual
 ms.date: 12/31/2024
@@ -69,6 +69,10 @@ The following Microsoft Sentinel content types can be deployed through a reposit
 - Parsers
 - Playbooks
 - Workbooks
+
+> [!IMPORTANT]
+> Analytic rules deployed using The Microsoft Sentinel **Repositories** feature can use cross-workspace queries only if the destination workspace is in the same Resource Group as the workspace connected to the repository.
+>
 
 > [!TIP]
 > This article does *not* describe how to create these types of content from scratch. For more information, see the relevant [Microsoft Sentinel GitHub wiki](https://github.com/Azure/Azure-Sentinel/wiki#get-started) for each content type.

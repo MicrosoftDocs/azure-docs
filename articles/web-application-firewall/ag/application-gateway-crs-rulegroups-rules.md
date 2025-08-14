@@ -6,9 +6,10 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 03/06/2025
-ms.custom:
-  - build-2025
+ms.date: 08/11/2025
+ms.custom: build-2025
+
+# Customer intent: "As a web application security administrator, I want to manage DRS and CRS rule sets in the web application firewall, so that I can customize security settings and protect against a broad range of vulnerabilities effectively."
 ---
 
 # Web Application Firewall DRS and CRS rule groups and rules
@@ -69,12 +70,15 @@ Use the following guidance to tune WAF while you get started with DRS 2.1 on App
 
 ## Core rule set 3.2
 
-The recommended managed rule set is the Default Rule Set 2.1, which is baselined off the Open Web Application Security Project (OWASP) Core Rule Set (CRS) 3.3.2 and includes additional proprietary protections rules developed by Microsoft Threat Intelligence team and updates to signatures to reduce false positives. As an alternative to DRS 2.1, you can use CRS 3.2 which is based off OWASP CRS 3.2.0 version.
+The recommended managed rule set is the Default Rule Set 2.1, which is baselined off the Open Web Application Security Project (OWASP) Core Rule Set (CRS) 3.3.2 and includes additional proprietary protections rules developed by Microsoft Threat Intelligence team and updates to signatures to reduce false positives. As an alternative to DRS 2.1, you can use CRS 3.2 that is based off OWASP CRS 3.2.0 version.
 
 CRS 3.2 includes 14 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled. 
 
 > [!NOTE]
-> CRS 3.2 is only available on the WAF_v2 SKU. Because CRS 3.2 runs on the new Azure WAF engine, you can't downgrade to CRS 3.1 or earlier. If you need to downgrade, [contact Azure Support](https://aka.ms/azuresupportrequest).
+> CRS 3.2 is only available on the WAF_v2 SKU. You can't downgrade to CRS 3.1 or earlier because CRS 3.2 runs on the new Azure WAF engine. If you need to downgrade, [contact Azure Support](https://aka.ms/azuresupportrequest).
+
+> [!NOTE]
+> Web Application Firewall (WAF) running on Application Gateway for Containers doesn't support the Core Ruleset (CRS).
 
 |Rule group name|Threat Type|
 |---|---|
@@ -95,11 +99,11 @@ CRS 3.2 includes 14 rule groups, as shown in the following table. Each group con
 
 ## Tuning of Managed rule sets
 
-Both DRS and CRS are enabled by default in Detection mode in your WAF policies. You can disable or enable individual rules within the Managed Rule Set to meet your application requirements. You can also set specific actions per rule. The DRS/CRS supports block, log and anomaly score actions. The Bot Manager ruleset supports the allow, block, and log actions.
+Both DRS and CRS are enabled by default in Detection mode in your WAF policies. You can disable or enable individual rules within the Managed Rule Set to meet your application requirements. You can also set specific actions per rule. The DRS/CRS supports block, log, and anomaly score actions. The Bot Manager ruleset supports the allow, block, and log actions.
 
 Sometimes you might need to omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens that are used for authentication. You can configure exclusions to apply when specific WAF rules are evaluated, or to apply globally to the evaluation of all WAF rules. Exclusion rules apply to your whole web application. For more information, see [Web Application Firewall (WAF) with Application Gateway exclusion lists](application-gateway-waf-configuration.md).
 
-By default, DRS version 2.1 / CRS version 3.2 and above uses anomaly scoring when a request matches a rule. CRS 3.1 and below blocks matching requests by default. Additionally, custom rules can be configured in the same WAF policy if you want to bypass any of the preconfigured rules in the Core Rule Set.
+By default, Azure WAF uses anomaly scoring when a request matches a rule. Additionally, you can configure custom rules in the same WAF policy if you want to bypass any of the preconfigured rules in the Core Rule Set.
 
 Custom rules are always applied before rules in the Core Rule Set are evaluated. If a request matches a custom rule, the corresponding rule action is applied. The request is either blocked or passed through to the back-end. No other custom rules or the rules in the Core Rule Set are processed. 
 
@@ -120,7 +124,7 @@ For example, a single *Critical* rule match is enough for the WAF to block a req
 
 ## Paranoia level
 
-Each rule is asigned in a specific Paranoia Level (PL). Rules configured in Paranoia Level 1 (PL1) are less aggressive and hardly ever trigger a false positive. They provide baseline security with minimal need for fine tuning. Rules in PL2 detect more attacks, but they are expected to trigger false positives which should be fine-tuned.
+Each rule is asigned in a specific Paranoia Level (PL). Rules configured in Paranoia Level 1 (PL1) are less aggressive and hardly ever trigger a false positive. They provide baseline security with minimal need for fine tuning. Rules in PL2 detect more attacks, but they're expected to trigger false positives that should be fine-tuned.
 
 By default, DRS 2.1 and CRS 3.2 rule versions are pre-configured in Paranoia Level 2, including rules assigned in both PL1 and in PL2.
 If you want to use WAF exclusively with PL1, you can disable any or all PL2 rules or change their action to 'log'. PL3 and PL4 are currently not supported in Azure WAF.
@@ -141,6 +145,9 @@ CRS 3.1 includes 14 rule groups, as shown in the following table. Each group con
 
 > [!NOTE]
 > CRS 3.1 is only available on the WAF_v2 SKU.
+
+> [!NOTE]
+> Web Application Firewall (WAF) running on Application Gateway for Containers doesn't support the Core Ruleset (CRS).
 
 |Rule group name|Description|
 |---|---|
@@ -864,6 +871,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941100|XSS Attack Detected via libinjection|
 |941101|XSS Attack Detected via libinjection.<br />This rule detects requests with a *Referer* header|
 |941110|XSS Filter - Category 1 = Script Tag Vector|
+|941120|XSS Filter - Category 2 = Event Handler Vector|
 |941130|XSS Filter - Category 3 = Attribute Vector|
 |941140|XSS Filter - Category 4 = JavaScript URI Vector|
 |941150|XSS Filter - Category 5 = Disallowed HTML Attributes|
@@ -950,9 +958,14 @@ The following rule groups and rules are available when using Web Application Fir
 
 |RuleId|Description|
 |---|---|
+|944100|Remote Command Execution: Apache Struts, Oracle WebLogic|
+|944110|Detects potential payload execution|
 |944120|Possible payload execution and remote command execution|
 |944130|Suspicious Java classes|
 |944200|Exploitation of Java deserialization Apache Commons|
+|944210|Possible use of Java serialization|
+|944240|Remote Command Execution: Java serialization and Log4j vulnerability ([CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046))|
+|944250|Remote Command Execution: Suspicious Java method detected|
 
 # [Bot Manager 1.0](#tab/bot)
 
@@ -1216,7 +1229,7 @@ The following rulesets - CRS 3.0 and CRS 2.2.9  groups and rules are no longer s
 |942260|Detects basic SQL authentication bypass attempts 2/3|
 |942270|Looking for basic sql injection. Common attack string for mysql oracle and others|
 |942290|Finds basic MongoDB SQL injection attempts|
-|942300|Detects MySQL comments, conditions and ch(a)r injections|
+|942300|Detects MySQL comments, conditions, and ch(a)r injections|
 |942310|Detects chained SQL injection attempts 2/2|
 |942320|Detects MySQL and PostgreSQL stored procedure/function injections|
 |942330|Detects classic SQL injection probings 1/2|

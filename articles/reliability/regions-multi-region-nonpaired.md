@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.service: azure
 ms.subservice: azure-reliability
 ms.topic: conceptual
-ms.date: 01/15/2025
+ms.date: 08/12/2025
 ms.author: anaharris
 ms.custom:
   - subject-reliability
@@ -16,15 +16,21 @@ ms.custom:
 
 While some Azure services support geo-redundancy and geo-replication by using paired regions, you can create solutions that support multiple regions [even when those regions aren't paired](./regions-paired.md). This article lists some of the services and possible configurations for multi-region solutions, without requiring paired regions. To learn more about each Azure service and how it supports reliability, see the [Azure service reliability guides](./overview-reliability-guidance.md).
 
+## Azure AI Search
+
+To learn about how to create multi-region solutions using Azure AI Search, see [Reliability in Azure AI Search](./reliability-ai-search.md).
+
 ## Azure API Management
 
-Azure API Management supports [multi-region deployments](/azure/api-management/api-management-howto-deploy-multi-region), which add more instances of the gateway component into one or more regions. There's no dependency on region pairings for this feature.
-
-You can also use the [backup and restore feature](/azure/api-management/api-management-howto-disaster-recovery-backup-restore) to export the configuration of an API Management service instance in one region and import it into another region. As long as the storage account used for the backup is accessible from the target region, there's no paired region dependency. An operational guidance is provided in [this article](/azure/api-management/api-management-howto-migrate).
+To learn about how to create multi-region solutions using Azure API Management, see [Reliability in Azure API Management](./reliability-api-management.md).
 
 ## Azure App Service
 
 To learn about how to create multi-region solutions using Azure App Service, see [Reliability in Azure App Service](./reliability-app-service.md).
+
+## Azure Blob Storage
+
+To learn about how to create multi-region solutions using Azure Blob Storage, see [Reliability in Azure Blob Storage](./reliability-storage-blob.md).
 
 ## Azure Cache for Redis
 
@@ -32,7 +38,7 @@ Azure Cache for Redis provide two distinct cross-region replication options that
 
 ## Azure Container Registry
 
-Geo-replication enables an Azure container registry to function as a single registry, serving multiple regions with multi-primary regional registries. There's no restrictions dictated by region pairs for this feature. For more information, see [Geo-replication in Azure Container Registry](/azure/container-registry/container-registry-geo-replication).
+To learn about how to create multi-region solutions using Azure Container Registry, see [Reliability in Azure Container Registry](./reliability-container-registry.md).
 
 ## Azure Cosmos DB
 
@@ -75,6 +81,10 @@ To learn about how to create multi-region solutions using Azure Kubernetes Servi
 Log Analytics workspaces in Azure Monitor Logs don't use paired regions. To ensure business continuity and protect against data loss, enable cross-region workspace replication.
 For more information, see [Enhance resilience by replicating your Log Analytics workspace across regions](/azure/azure-monitor/logs/workspace-replication).
 
+## Azure Queue Storage
+
+To learn about how to create multi-region solutions using Azure Queue Storage, see [Reliability in Azure Queue Storage](./reliability-storage-queue.md).
+
 ## Azure Service Bus 
 
 Azure Service Bus can provide regional resiliency, without a dependency on region pairs, by using either [Geo Replication](/azure/service-bus-messaging/service-bus-geo-replication) or [Geo-Disaster Recovery](/azure/service-bus-messaging/service-bus-geo-replication) features.
@@ -95,18 +105,11 @@ For geo-replication in nonpaired regions with Azure SQL Managed Instance, you ca
 
 ## Azure Storage
 
-To achieve geo-replication in nonpaired regions: 
+To achieve geo-replication in nonpaired regions:
 
-- **For object storage:**
+- **For object storage:** To learn about how to create multi-region solutions using Azure Blob Storage, see [Reliability in Azure Blob Storage](./reliability-storage-blob.md).
 
-    - For general-purpose v2 storage accounts and premium block blob accounts, you can use [Azure Storage Object Replication](../storage/blobs/object-replication-overview.md).
-
-      > [!NOTE]
-      > Object replication isn't supported for [Azure Data Lake Storage](../storage/blobs/data-lake-storage-best-practices.md).
-   
-    - For premium page blob accounts and Azure Data Lake Storage Gen2 accounts, you can use tools such as [AzCopy](../storage/common/storage-use-azcopy-blobs-copy.md) or [Azure Data Factory](/azure/data-factory/connector-azure-blob-storage?tabs=data-factory.md).
-
-- **For Azure NetApp Files (ANF)**, you can replicate to a set of nonstandard pairs besides Azure region pairs. See [Azure NetApp Files (ANF) cross-region replication](/azure/azure-netapp-files/cross-region-replication-introduction).
+- **For Azure NetApp Files**, you can replicate to a set of nonstandard pairs besides Azure region pairs. To learn more, see [Reliability in Azure NetApp Files](reliability-netapp-files.md).
 
 - **For Azure Files:**
 
@@ -123,6 +126,8 @@ To achieve geo-replication in nonpaired regions:
    > [!IMPORTANT]
    > You must disable cloud tiering to ensure that all data is present locally, and provision enough storage on the Azure Virtual Machine to hold the entire dataset. To ensure changes replicate quickly to the secondary region, files should only be accessed and modified on the server endpoint rather than in Azure.
 
+- **For Azure Queue Storage:** To learn about how to create multi-region solutions using Azure Queue Storage, see [Reliability in Azure Queue Storage](./reliability-storage-queue.md).
+
 ## Azure Virtual Desktop
 
 For geo-replication in nonpaired regions for Azure Virtual Desktop, you need to consider session host virtual machines and storage for user profiles, applications, and data. Microsoft manages the Azure Virtual Desktop control plane, which is globally distributed and highly available.
@@ -131,7 +136,7 @@ For geo-replication in nonpaired regions for Azure Virtual Desktop, you need to 
 
 - For storage, see [Azure Storage](#azure-storage).
 
-For more information, see [Multiregion Business Continuity and Disaster Recovery (BCDR) for Azure Virtual Desktop](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr#active-active-vs-active-passive) and [Azure Virtual Desktop service architecture and resilience](../virtual-desktop/service-architecture-resilience.md).
+For more information, see [Multiregion Business Continuity and Disaster Recovery (BCDR) for Azure Virtual Desktop](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr#active-active-vs-active-passive) and [Azure Virtual Desktop service architecture and resilience](/azure/virtual-desktop/service-architecture-resilience).
 
 ## Azure Virtual Machines
 

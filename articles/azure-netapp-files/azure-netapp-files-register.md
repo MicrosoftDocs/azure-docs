@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 10/15/2024
 ms.author: anfdocs
+# Customer intent: As an Azure cloud user, I want to register the NetApp Resource Provider so that I can enable the use of Azure NetApp Files in my subscription.
 ---
 # Register for NetApp Resource Provider
 

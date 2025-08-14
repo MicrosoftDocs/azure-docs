@@ -4,12 +4,14 @@ description: Get started connecting Azure SQL to your OpenAI app
 author: jeffwmartinez
 ms.author: jefmarti
 ms.date: 04/17/2025
+ms.update-cycle: 180-days
 ms.topic: article
 ms.custom:
   - devx-track-dotnet
   - linux-related-content
   - build-2025
 ms.collection: ce-skilling-ai-copilot
+ms.service: azure-app-service
 ---
 
 # Deploy a .NET Blazor app connected to Azure SQL and Azure OpenAI on Azure App Service

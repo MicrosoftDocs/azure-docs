@@ -4,11 +4,13 @@ description: "An overview of Azure WebJobs, covering its types, supported platfo
 keywords: "Azure WebJobs, App Service, background processing, triggered jobs, continuous jobs, NCRONTAB, deployment, Azure, technical overview"
 ms.topic: overview
 ms.date: 5/2/2025
+ms.update-cycle: 180-days
 author: msangapu-msft
 ms.author: msangapu
 ms.reviewer: ggailey
 ms.collection: ce-skilling-ai-copilot
 #Customer intent: I want to understand what WebJobs are, how they work with Azure App Service, and whether they’re the right solution for running background tasks in my app. I'm looking for guidance on supported platforms, types of jobs, deployment options, and how to get started or go deeper based on my use case.
+ms.service: azure-app-service
 ---
 
 # App Service WebJobs overview
@@ -41,27 +43,9 @@ WebJobs come in three main types:
 - **Scheduled WebJobs**: A specialized type of triggered WebJob that runs on a defined schedule using a `settings.job` file with [NCRONTAB expressions](webjobs-create.md#ncrontab-expressions).
 - **Continuous WebJobs**: Run persistently in the background while your App Service app is running. Ideal for queue polling or background monitoring tasks.
 
-
 :::image type="content" border="false" source="media/overview-webjobs/webjob-types-app-service.png" alt-text="Diagram overview of WebJobs in Azure App Service, showing job types.":::
 
-## Supported platforms and file types
-
-WebJobs are supported on the following App Service hosting options:
-
-- Windows code
-- Windows containers
-- Linux code
-- Linux containers
-
-Supported file/script types include:
-
-- Windows executables and scripts: `.exe`, `.cmd`, `.bat`
-- PowerShell scripts: `.ps1`
-- Bash scripts: `.sh`
-- Scripting languages: Python (`.py`), Node.js (`.js`), PHP (`.php`), F# (`.fsx`)
-- Any language runtime included in your container app
-
-This versatility enables you to integrate WebJobs into a wide range of application architectures using the tools and languages you're already comfortable with.
+[!INCLUDE [webjobs supported platforms and file types](./includes/webjobs-create/webjobs-supported-platforms.md)]
 
 ## Deployment options
 
@@ -76,7 +60,7 @@ WebJobs also provide **built-in logging** via Kudu and integration with App Serv
 
 ## Scaling considerations
 
-WebJobs scale together with your App Service plan. If your app is configured to scale out to multiple instances, your WebJobs will run on each instance as appropriate:
+WebJobs scale together with your App Service plan. If your app is configured to scale out to multiple instances, your WebJobs run on each instance as appropriate:
 - **Triggered WebJobs** will run on a single instance by default.
 - **Continuous WebJobs** can be configured to run on all instances or a single one using the `WEBJOBS_RUN_ONCE` setting.
 
@@ -84,7 +68,7 @@ If you need independently scalable or event-driven execution, [Azure Functions](
 
 ## Best practices
 
-- Use **triggered** WebJobs for ad hoc or scheduled operations.
+- Use **triggered** WebJobs for improvised or scheduled operations.
 - Use **continuous** WebJobs only when the task needs to run constantly (e.g., polling a queue).
 - Implement **retry logic and error handling** within your scripts.
 - Use **application logging** and **Kudu logs** to monitor job behavior.
@@ -102,8 +86,8 @@ If you need independently scalable or event-driven execution, [Azure Functions](
 
 ## <a name="NextSteps"></a> Next steps
 
-- [Background jobs best practices – Azure Architecture Center](/azure/architecture/best-practices/background-jobs)
+- [Review background jobs best practices – Azure Architecture Center](/azure/architecture/best-practices/background-jobs)
 - [Develop WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md)
 - [Get started with the WebJobs SDK](webjobs-sdk-get-started.md)
 - [Use the WebJobs SDK to build advanced jobs](webjobs-sdk-how-to.md)
-- [Kudu WebJobs reference on GitHub](https://github.com/projectkudu/kudu/wiki/WebJobs)
+- [Review Kudu WebJobs reference on GitHub](https://github.com/projectkudu/kudu/wiki/WebJobs)

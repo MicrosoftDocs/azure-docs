@@ -8,6 +8,7 @@ ms.subservice: azure-confidential-computing
 ms.topic: how-to
 ms.date: 03/24/2021
 ms.author: jushiman
+# Customer intent: "As a cloud administrator, I want to configure and run applications using Fortanix Confidential Computing Manager, so that I can securely handle sensitive data in a containerized environment on Azure's infrastructure."
 ---
 
 # Run an application by using Fortanix Confidential Computing Manager

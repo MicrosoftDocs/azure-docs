@@ -324,6 +324,9 @@ When pointed to a COG file, `rio-stac` automatically extracts and organizes esse
 
 This automation significantly reduces the manual work needed to create valid STAC Items and ensures consistency in metadata 
 
+> [!NOTE]
+> GeoCatalog has limitations on characters that can be used in STAC Item IDs and Asset keys. Ensure that your IDs don't contain the following characters: `-`, `_`, `+`, `(`, `)`, and `.`. You may need to modify the `item_id` generation logic to replace or remove these characters from your filenames.
+
 ```python
 from rio_stac import create_stac_item
 from rasterio.io import MemoryFile

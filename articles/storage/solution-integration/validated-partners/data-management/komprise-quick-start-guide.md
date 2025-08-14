@@ -7,6 +7,7 @@ ms.author: beber
 ms.date: 06/01/2023
 ms.service: azure-storage
 ms.topic: quickstart
+# Customer intent: "As a data manager, I want to analyze my file infrastructure and migrate data to Azure storage services, so that I can optimize storage costs and enhance data accessibility while minimizing disruption to end users."
 ---
 
 # Quickstart analyze and migrate to Azure with Komprise

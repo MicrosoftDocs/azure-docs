@@ -2,14 +2,15 @@
 title: Copy a blob from a source object URL with JavaScript
 titleSuffix: Azure Storage
 description: Learn how to copy a blob from a source object URL in Azure Storage by using the JavaScript client library.
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.date: 10/28/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
+# Customer intent: As a developer, I want to copy blobs from a source object URL using JavaScript, so that I can manage and transfer data within my Azure Storage efficiently.
 ---
 
 # Copy a blob from a source object URL with JavaScript
@@ -93,3 +94,4 @@ The Azure SDK for JavaScript contains libraries that build on top of the Azure R
 [!INCLUDE [storage-dev-guide-resources-javascript](../../../includes/storage-dev-guides/storage-dev-guide-resources-javascript.md)]
 
 [!INCLUDE [storage-dev-guide-next-steps-javascript](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-javascript.md)]
+

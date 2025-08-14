@@ -34,6 +34,7 @@ Content is available in the Microsoft Sentinel **Content hub**, and includes the
 | **[Playbooks and Azure Logic Apps custom connectors](automate-responses-with-playbooks.md)** | Automate investigation, remediation, and response scenarios in Microsoft Sentinel. |
 | **[Watchlists](watchlists.md)** | Ingest specific data for better threat detection and less alert fatigue. |
 | **[Workbooks](get-visibility.md)** | Monitor, visualize, and interact with data in Microsoft Sentinel to see meaningful insights. |
+| **[Summary rule templates](summary-rules.md#deploy-pre-built-summary-rule-templates)** | Deploy tested, prebuilt rules that optimize costs and improve query performance by aggregating insights from incoming verbose logs. |
 
 The **Content hub** delivers these content types as *solutions* and *standalone* items. *Solutions* are packages of Microsoft Sentinel content or Microsoft Sentinel API integrations that support an end-to-end product, domain, or industry vertical scenario in Microsoft Sentinel.
 
@@ -58,7 +59,7 @@ The Microsoft Sentinel **Content hub** lets you find content in the product, dep
 
 ### Why use Microsoft Sentinel solutions?
 
-Microsoft Sentinel solutions are packaged integrations that deliver end-to-end product value for one or more domain or vertical scenario in the **Content hub**.
+Microsoft Sentinel solutions are packaged integrations that deliver end-to-end product value for one or more domains or vertical scenarios in the **Content hub**.
 
 The solutions experience, powered by [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace), helps you find and deploy the content you want. For more information about authoring and publishing solutions in the Azure Marketplace, see the [Microsoft Sentinel Solutions Build Guide](https://aka.ms/sentinelsolutionsbuildguide).
 

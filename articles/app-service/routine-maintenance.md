@@ -6,10 +6,12 @@ tags: app-service
 
 ms.topic: article
 ms.date: 05/19/2025
+ms.update-cycle: 180-days
 ms.author: msangapu
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2025
+ms.service: azure-app-service
 ---
 
 # Routine planned maintenance for Azure App Service

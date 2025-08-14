@@ -8,6 +8,7 @@ ms.service: azure-data-box-disk
 ms.topic: concept-article
 ms.date: 03/10/2024
 ms.author: shaas
+# Customer intent: As a cloud administrator, I want to understand the limits and requirements for deploying Azure Data Box Disk, so that I can ensure compliance and optimize data transfer to Azure storage.
 ---
 # Azure Data Box Disk limits
 

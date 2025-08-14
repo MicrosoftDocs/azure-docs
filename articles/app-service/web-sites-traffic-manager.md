@@ -7,6 +7,7 @@ ms.topic: article
 ms.date: 02/25/2016
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
 ---
 # Controlling Azure App Service traffic with Azure Traffic Manager
 > [!NOTE]
