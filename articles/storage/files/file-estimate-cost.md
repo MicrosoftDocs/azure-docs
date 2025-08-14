@@ -1,5 +1,5 @@
 ---
-title: How to Estimate the cost of Azure Files
+title: How to Estimate the Cost of Azure Files
 description: Learn how to estimate the cost of Azure Files usage across different billing models.
 ms.date: 08/14/2025
 ms.custom: horz-monitor
@@ -14,7 +14,7 @@ ms.service: azure-file-storage
 In this article, you learn how to estimate the cost difference between the Provisioned v1 and Provisioned v2 SSD billing models for Azure Files in three scenarios.
 
 > [!IMPORTANT]
-> These prices are meant only as examples and shouldn't be used to calculate your costs. For official prices, see the [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/). For more information about how to choose the correct billing model, see [Understand Azure Files billing](understanding-billing.md). We also encourage you to use [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/) to perform the actual calculations.
+> **These prices are meant only as examples and shouldn't be used to calculate your costs**. For official prices, see the [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/). For more information about how to choose the correct billing model, see [Understand Azure Files billing](understanding-billing.md). We also encourage you to use [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/) to perform the actual calculations.
 > For the following examples, we use pricing based on East US and LRS redundancy support. The Provisioned v1 billing model is billed hourly in a monthly rate, where provisioned storage costs $0.16 per GiB. Provisioned v2 is billed hourly in an hourly rate. Provisioned storage costs $0.000137 per GiB per hour, provisioned IOPS costs $0.000037 per IOPS per hour, and provisioned throughput costs $0.000054 per MiB per sec per hour. For the ease of calculations, we assume all months have 730 hours. To calculate the exact price, replace the hours with 24 × days in the specific month.
 
 ### Comparison using default IOPS and throughput
