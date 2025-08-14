@@ -30,7 +30,7 @@ The following diagram shows the relationship between container groups, container
 
 Additionally, Container Instances provides the following abstractions that manage container groups for you:
 
-- **[NGroups](/azure/container-instances/container-instance-ngroups/container-instances-about-ngroups) (preview)**, which provide a set of capabilities to manage multiple related container groups. When you create an NGroup, you define the number of container groups to create. Container Instances provides capabilities like automated upgrade rollouts and spreading container groups across availablity zones.
+- **[NGroups](/azure/container-instances/container-instance-ngroups/container-instances-about-ngroups) (preview)**, which provide a set of capabilities to manage multiple related container groups. When you create an NGroup, you define the number of container groups to create. Container Instances provides capabilities like automated upgrade rollouts and spreading container groups across availability zones.
 
 - **[Standby pools](/azure/container-instances/container-instances-standby-pool-overview)**, which create a pool of pre-provisioned container groups that can be used in response to incoming traffic. 
 
