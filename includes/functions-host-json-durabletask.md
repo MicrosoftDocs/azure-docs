@@ -40,6 +40,7 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
       "useLegacyPartitionManagement": false,
       "useTablePartitionManagement": true,
       "workItemQueueVisibilityTimeout": "00:05:00",
+      "QueueClientMessageEncoding": "UTF8"
     },
     "tracing": {
       "traceInputsAndOutputs": false,
