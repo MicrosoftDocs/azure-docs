@@ -871,6 +871,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941100|XSS Attack Detected via libinjection|
 |941101|XSS Attack Detected via libinjection.<br />This rule detects requests with a *Referer* header|
 |941110|XSS Filter - Category 1 = Script Tag Vector|
+|941120|XSS Filter - Category 2 = Event Handler Vector|
 |941130|XSS Filter - Category 3 = Attribute Vector|
 |941140|XSS Filter - Category 4 = JavaScript URI Vector|
 |941150|XSS Filter - Category 5 = Disallowed HTML Attributes|
@@ -957,9 +958,14 @@ The following rule groups and rules are available when using Web Application Fir
 
 |RuleId|Description|
 |---|---|
+|944100|Remote Command Execution: Apache Struts, Oracle WebLogic|
+|944110|Detects potential payload execution|
 |944120|Possible payload execution and remote command execution|
 |944130|Suspicious Java classes|
 |944200|Exploitation of Java deserialization Apache Commons|
+|944210|Possible use of Java serialization|
+|944240|Remote Command Execution: Java serialization and Log4j vulnerability ([CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046))|
+|944250|Remote Command Execution: Suspicious Java method detected|
 
 # [Bot Manager 1.0](#tab/bot)
 
