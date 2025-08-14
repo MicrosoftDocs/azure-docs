@@ -26,6 +26,13 @@ You can use this capability to:
 - Analyse configuration compatibility including server parameters, extensions, and authentication methods.
 - Review migration blockers and receive remediation guidance for seamless migration.
 
+  Key features include:
+
+    - **Configuration-based assessment**: Analyses PostgreSQL configuration metadata to provide migration recommendations
+    - **Comprehensive discovery**: Identifies PostgreSQL instances across VMware, Hyper-V, physical servers, and other cloud environments
+    - **Cost estimation**: Provides detailed monthly cost breakdowns for compute and storage in Azure
+    - **Migration readiness**: Categorizes instances as Ready, Ready with conditions, Not ready, or Unknown with detailed remediation steps
+
 [Learn more](tutorial-assess-postgresql.md).
 
 
