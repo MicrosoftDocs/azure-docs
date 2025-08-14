@@ -95,7 +95,7 @@ To update the PowerShell version, follow these steps:
 
    Your logic app restarts with the updated version.
 
-### [Visual Studio Code](#visual-studio-code)
+### [Visual Studio Code](#tab/visual-studio-code)
 
 To update the PowerShell version in your logic app project, follow these steps:
 
