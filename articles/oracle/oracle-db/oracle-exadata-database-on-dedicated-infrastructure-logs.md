@@ -212,7 +212,7 @@ Below are the destinations you can send the logs to
 1. Navigate to above created Storage account once any events are
     generated and logs are to be verified. You can find it by searching for the Storage account name or by navigating through the resource group where it's located.
 
-1. In the Storage account, navigate to the Containers section. Here you'll find containers that store the logs. The container names     typically reflect the nature of the operation, such as creation
+1. In the Storage account, navigate to the Containers section. Here you find containers that store the logs. The container names     typically reflect the nature of the operation, such as creation
     events, deletion events, or update events.
 
 1. Open the relevant container to browse the logs. The logs are usually organized by date, making it easier to find the specific logs you're looking for.
@@ -329,11 +329,9 @@ create a new one.
 
     :::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/microsoft-sentinel-choose-workspace.png" alt-text="Screenshot of choosing a workspace while enabling Microsoft Sentinel." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/microsoft-sentinel-choose-workspace.png":::
 
-- The default workspaces created by Microsoft Defender for Cloud aren't shown in the list. You can't install Microsoft Sentinel on these workspaces.
+    - The default workspaces created by Microsoft Defender for Cloud aren't shown in the list. You can't install Microsoft Sentinel on these workspaces.
 
-- Once deployed on a workspace, Microsoft Sentinel doesn't
-  support moving that workspace to another resource group or
-  subscription.
+    - Once deployed on a workspace, Microsoft Sentinel doesn't   support moving that workspace to another resource group or   subscription.
 
 1. Select **Add**.
 
