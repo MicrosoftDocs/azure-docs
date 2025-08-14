@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 08/12/2025
-# As an integration solution developer, I want to know how to create and work with variables in my workflows using Azure Logic Apps.
+# Customer intent: As an integration solution developer, I want to know how to create and work with variables in my workflows using Azure Logic Apps.
 ---
 
 # Create variables to store and manage values in Azure Logic Apps
@@ -51,9 +51,9 @@ Some steps differ slightly based on whether you have a Consumption or Standard w
 
 You can create a variable and declare its data type and initial value by using a single action in your workflow. You can only declare variables at the global level, not within scopes, conditions, and loops.
 
-1. In the [Azure portal](https://portal.azure.com), open your workflow in the logic app designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-1. In the designer, follow these general steps for [Consumption](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action) or [Standard](create-workflow-with-trigger-or-action.md?tabs=standard#add-action) Logic Apps to add an action named **Initialize variables**.
+1. In the designer, follow these general steps for [Consumption](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action) or [Standard](create-workflow-with-trigger-or-action.md?tabs=standard#add-action)  workflows to add an action named **Initialize variables**.
 
 1. Provide the following information about your variable:
 
@@ -65,7 +65,7 @@ You can create a variable and declare its data type and initial value by using a
 
    The following example shows the initial values for this sample variable:
 
-   :::image type="content" source="./media/logic-apps-create-variables-store-values/initialize-variable.png" alt-text="Screenshot shows a workflow in the Azure portal with an action named Initialize variables." lightbox="./media/logic-apps-create-variables-store-values/initialize-variable.png":::
+   :::image type="content" source="./media/logic-apps-create-variables-store-values/initialize-variable.png" alt-text="Screenshot shows Azure portal and a logic app workflow with an action named Initialize variables." lightbox="./media/logic-apps-create-variables-store-values/initialize-variable.png":::
 
 1. Continue to add the actions you want for your scenario. When you're done, on the designer toolbar, select **Save**.
 
@@ -238,7 +238,7 @@ For example, the following expression gets the items from the array variable [th
 
 To increase or *increment* a variable by a specific constant value, add the **Increment variable** action to your workflow. This action works only with integer and float variables.
 
-1. In the workflow designer, follow these general steps for [Consumption](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action) or [Standard](create-workflow-with-trigger-or-action.md?tabs=standard#add-action) Logic Apps to add an action named **Increment variable**.
+1. In the designer, follow these general steps for [Consumption](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action) or [Standard](create-workflow-with-trigger-or-action.md?tabs=standard#add-action) workflows to add an action named **Increment variable**.
 
 1. Provide the following information for this action:
 
@@ -249,7 +249,7 @@ To increase or *increment* a variable by a specific constant value, add the **In
 
    The following example shows the sample values for this action:
 
-   :::image type="content" source="./media/logic-apps-create-variables-store-values/increment-variable-action.png" alt-text="Screenshot shows a workflow in the Azure portal with an action named Increment variable." lightbox="./media/logic-apps-create-variables-store-values/increment-variable-action.png":::
+   :::image type="content" source="./media/logic-apps-create-variables-store-values/increment-variable-action.png" alt-text="Screenshot shows Azure portal and a logic app workflow with an action named Increment variable." lightbox="./media/logic-apps-create-variables-store-values/increment-variable-action.png":::
 
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
@@ -281,39 +281,40 @@ Variables are commonly used for counting the number of times that a loop runs. T
    - **Only With Attachment**
    - **Include Attachments**
 
-   :::image type="content" source="./media/logic-apps-create-variables-store-values/check-include-attachments.png" alt-text="Screenshot shows a workflow in the Azure portal with properties selected to check for and include attachments." lightbox="./media/logic-apps-create-variables-store-values/check-include-attachments.png":::
+   :::image type="content" source="./media/logic-apps-create-variables-store-values/check-include-attachments.png" alt-text="Screenshot shows  Azure portal and logic app workflow with Office 365 Outlook trigger properties selected to check for and include attachments." lightbox="./media/logic-apps-create-variables-store-values/check-include-attachments.png":::
 
-1. Add the [**Initialize variables** action](#create-variable) to create an integer variable named **Count** that has a start value set to **`0`**.
+1. Add the [**Initialize variables** action](#create-variable) to create an integer variable named **Count** that has a start value set to **0**.
 
-1. In the workflow designer, follow these general steps for [Consumption](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action) or [Standard](create-workflow-with-trigger-or-action.md?tabs=standard#add-action) Logic Apps to add an action called a **For each** loop.
+1. In the designer, follow these general steps for [Consumption](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action) or [Standard](create-workflow-with-trigger-or-action.md?tabs=standard#add-action) workflows to add an action called a **For each** loop.
 
-1. In the loop, select inside the box named **Select an Output from Previous Steps**. Select the lightning icon to view dynamic content. After the dynamic content list appears, under **When a new email arrives**, select **Attachments**.
+1. In the loop, select inside the box named **Select an Output from Previous Steps** to view the input options. Select the lightning icon to view the dynamic content list. From the list, under **When a new email arrives**, select **Attachments**.
 
-   :::image type="content" source="./media/logic-apps-create-variables-store-values/select-attachments.png" alt-text="Screenshot shows a workflow in the Azure portal with a For each loop, opened dynamic content list, and selected Attachments output." lightbox="./media/logic-apps-create-variables-store-values/select-attachments.png":::
+   :::image type="content" source="./media/logic-apps-create-variables-store-values/select-attachments.png" alt-text="Screenshot shows Azure portal and logic app workflow with a For each loop, opened dynamic content list, and selected Attachments output." lightbox="./media/logic-apps-create-variables-store-values/select-attachments.png":::
 
    The **Attachments** property passes an array that contains the email attachments from the trigger's output into the loop for your workflow to iterate over.
 
 1. In the **For each** loop, select **Add an action**. 
 
-1. Follow these general steps for [Consumption](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action) or [Standard](create-workflow-with-trigger-or-action.md?tabs=standard#add-action) Logic Apps to add an action called a **Increment variable** to the loop.
+1. Follow these general steps for [Consumption](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action) or [Standard](create-workflow-with-trigger-or-action.md?tabs=standard#add-action) workflow to add an action called a **Increment variable** to the loop.
 
    > [!NOTE]
+   >
    > Make sure that the **Increment variable** action appears inside the loop. 
    > If the action appears outside the loop, drag the action into the loop.
 
 1. In the **Increment variable** action, from the **Name** list, select the **Count** variable. Set the **Value** property to **1**.
 
-   :::image type="content" source="./media/logic-apps-create-variables-store-values/add-increment-variable-loop.png" alt-text="Screenshot shows a workflow in the Azure portal with a selected variable named Count." lightbox="./media/logic-apps-create-variables-store-values/add-increment-variable-loop.png":::
+   :::image type="content" source="./media/logic-apps-create-variables-store-values/add-increment-variable-loop.png" alt-text="Screenshot Azure portal and logic app workflow with a selected variable named Count." lightbox="./media/logic-apps-create-variables-store-values/add-increment-variable-loop.png":::
 
 1. Under the loop, add any action that sends you the number of attachments. In your action, include the value from the **Count** variable, for example:
 
-   :::image type="content" source="./media/logic-apps-create-variables-store-values/send-email-results.png" alt-text="Screenshot shows a workflow in the Azure portal with an action that sends results." lightbox="./media/logic-apps-create-variables-store-values/send-email-results.png":::
+   :::image type="content" source="./media/logic-apps-create-variables-store-values/send-email-results.png" alt-text="Screenshot shows Azure portal and logic app workflow with an action that sends results." lightbox="./media/logic-apps-create-variables-store-values/send-email-results.png":::
 
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
 ### Test your workflow
 
-1. To manually trigger your workflow, on the designer workflow toolbar, select **Run** > **Run** to manually run your workflow.
+1. To manually trigger your workflow, on the designer toolbar, select **Run** > **Run** to manually run your workflow.
 
 1. Send an email with one or more attachments to the email account you used in this example.
 
@@ -396,9 +397,9 @@ The following table describes the information for the **Set variable** action:
 > when you want to reference the variable value inside the loop and expect same value 
 > at the start and end of that loop instance, follow these steps to change how the loop runs: 
 >
-> 1. Select your loop to view its contents, then select **Settings**.
+> 1. Select your loop to view the information pane, and then select **Settings**.
 >
-> 1. For **General** >  **Concurrency control**, change the setting from **Off** to **On**.
+> 1. In the **General** section, under **Concurrency control**, change the setting from **Off** to **On**.
 >
 > 1. Drag the **Degree of parallelism** slider to **1**.
 
