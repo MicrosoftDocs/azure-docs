@@ -181,7 +181,7 @@ To copy data from Shopify, set the source type in the copy activity to **Shopify
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **ShopifySource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. <br><br>Only Apply to version 1.0. | No (if "tableName" in dataset is specified) |
+| query | Use the custom SQL query to read data. For example: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. <br><br>Only apply to version 1.0. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 
