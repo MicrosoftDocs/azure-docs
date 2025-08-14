@@ -9,7 +9,7 @@
  ms.custom: include file
 ---
 
-The cross-region failover capabilities of Storage might be unsuitable because of the following reasons:
+The cross-region failover capabilities of Azure Storage might be unsuitable because of the following reasons:
 
 - Your storage account is in a nonpaired region.
 
@@ -19,4 +19,4 @@ The cross-region failover capabilities of Storage might be unsuitable because of
 
 - You need an active/active configuration across regions.
 
-Instead, you can design a cross-region failover solution that meets your needs. A complete treatment of deployment topologies for Storage is outside the scope of this article, but you can consider a multi-region deployment model.
+Instead, you can design a cross-region failover solution that meets your needs. A complete treatment of deployment topologies for Azure Storage is outside the scope of this article, but you can consider a multi-region deployment model.

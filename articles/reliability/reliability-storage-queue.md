@@ -19,10 +19,10 @@ Resiliency is a shared responsibility between you and Microsoft, so this article
 
 [Queue Storage](/azure/storage/queues/storage-queues-introduction) is a service for storing and distributing large numbers of messages. Queue Storage is commonly used to create a backlog of work to process asynchronously. It provides reliable message delivery for loosely coupled application architectures. A queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account.
 
-Queue Storage provides several reliability features through the underlying Azure Storage platform. As part of Storage, Queue Storage inherits the same redundancy options, availability zone support, and geo-replication capabilities that ensure high availability and durability for your message queues. 
+Queue Storage provides several reliability features through the underlying Azure Storage platform. As part of Azure Storage, Queue Storage inherits the same redundancy options, availability zone support, and geo-replication capabilities that ensure high availability and durability for your message queues. 
 
 > [!NOTE]
-> Queue Storage is part of the Storage platform. Some of the capabilities of Queue Storage are common across many Storage services. In this article, we use *Azure Storage* or *Storage* to indicate these common capabilities.
+> Queue Storage is part of the Azure Storage platform. Some of the capabilities of Queue Storage are common across many Azure Storage services.
 
 ## Production deployment recommendations
 
@@ -32,11 +32,11 @@ For production environments:
 
 - If you need resilience to region outages and your storage account's primary region is paired, consider enabling geo-redundant storage (GRS). GRS replicates data asynchronously to the paired region. In supported regions, you can combine geo-redundancy with zone redundancy by using geo-zone-redundant storage (GZRS).
 
-For advanced messaging requirements, consider using Azure Service Bus. To learn about the differences between Queue Storage and Service Bus, see [Compare Storage queues and Service Bus queues](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
+For advanced messaging requirements, consider using Azure Service Bus. To learn about the differences between Queue Storage and Service Bus, see [Compare Azure Storage queues and Service Bus queues](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
 
 ## Reliability architecture overview
 
-Queue Storage operates as a distributed messaging service within the Storage platform infrastructure. The service provides redundancy through multiple copies of your queue and message data. The specific redundancy model depends on your storage account configuration.
+Queue Storage operates as a distributed messaging service within the Azure Storage platform infrastructure. The service provides redundancy through multiple copies of your queue and message data. The specific redundancy model depends on your storage account configuration.
 
 [!INCLUDE [Storage - Reliability architecture overview](includes/storage/reliability-storage-architecture-include.md)]
 
@@ -46,13 +46,13 @@ Queue Storage operates as a distributed messaging service within the Storage pla
 
 Queue Storage is commonly used in applications to help them handle transient faults in other components. By using asynchronous messaging with a service like Queue Storage, applications can recover from transient faults by reprocessing messages at a later time. To learn more, see [Asynchronous Messaging Primer](/previous-versions/msp-n-p/dn589781(v=pandp.10)).
 
-Within the service itself, Queue Storage handles transient faults automatically by using several mechanisms that the Storage platform and client libraries provide. The service is designed to provide resilient message queuing capabilities even during temporary infrastructure problems.
+Within the service itself, Queue Storage handles transient faults automatically by using several mechanisms that the Azure Storage platform and client libraries provide. The service is designed to provide resilient message queuing capabilities even during temporary infrastructure problems.
 
 Queue Storage client libraries include built-in retry policies that automatically handle common transient failures such as network timeouts, temporary service unavailability (HTTP 503), and throttling responses (HTTP 429). When your application encounters these transient conditions, the client libraries automatically retry operations by using exponential backoff strategies.
 
 To manage transient faults effectively by using Queue Storage, you can take the following actions:
 
-- **Configure appropriate timeouts** in your Queue Storage client to balance responsiveness with resilience to temporary slowdowns. The default timeouts in Storage client libraries are typically suitable for most scenarios.
+- **Configure appropriate timeouts** in your Queue Storage client to balance responsiveness with resilience to temporary slowdowns. The default timeouts in Azure Storage client libraries are typically suitable for most scenarios.
 
 - **Implement circuit breaker patterns** in your application when it processes messages from queues. Circuit breaker patters prevent cascading failures when downstream services experience problems.
 
@@ -66,7 +66,7 @@ To learn more about the Azure Table Storage architecture and how to design resil
 
 Queue Storage is zone-redundant when deployed with ZRS configuration. The service spreads replicas of your queue data synchronously across all of the availability zones in the region. This configuration ensures that your queues remain accessible even if an entire availability zone becomes unavailable. All write operations must be acknowledged across multiple zones before they complete, which provides strong consistency guarantees.
 
-Zone redundancy is enabled at the storage account level and applies to all Queue Storage resources within that account. You can't configure individual queues for different redundancy levels. The setting applies to the entire storage account. When an availability zone experiences an outage, Storage automatically routes requests to healthy zones without requiring any intervention from your application.
+Zone redundancy is enabled at the storage account level and applies to all Queue Storage resources within that account. You can't configure individual queues for different redundancy levels. The setting applies to the entire storage account. When an availability zone experiences an outage, Azure Storage automatically routes requests to healthy zones without requiring any intervention from your application.
 
 [!INCLUDE [Storage - Availability zone support](includes/storage/reliability-storage-availability-zone-support-include.md)]
 
@@ -194,8 +194,8 @@ For scenarios that require message durability beyond the built-in redundancy opt
 ## Related content
 
 - [What is Queue Storage?](/azure/storage/queues/storage-queues-introduction)
-- [Storage redundancy](/azure/storage/common/storage-redundancy)
-- [Azure storage disaster recovery planning and failover](/azure/storage/common/storage-disaster-recovery-guidance)
+- [Azure Storage redundancy](/azure/storage/common/storage-redundancy)
+- [Azure Storage disaster recovery planning and failover](/azure/storage/common/storage-disaster-recovery-guidance)
 - [What are availability zones?](/azure/reliability/availability-zones-overview)
 - [Azure reliability](/azure/reliability/overview)
 - [Recommendations for handling transient faults](/azure/well-architected/reliability/handle-transient-faults)

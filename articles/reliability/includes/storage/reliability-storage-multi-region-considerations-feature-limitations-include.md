@@ -9,4 +9,4 @@
  ms.custom: include file
 ---
 
-- **Feature limitations:** Some Storage features aren't supported or have limitations when you use geo-redundant storage (GRS) or customer-managed failover. Review [feature compatibility](/azure/storage/common/storage-disaster-recovery-guidance#unsupported-features-and-services) before you implement geo-redundancy.
+- **Feature limitations:** Some Azure Storage features aren't supported or have limitations when you use geo-redundant storage (GRS) or customer-managed failover. Review [feature compatibility](/azure/storage/common/storage-disaster-recovery-guidance#unsupported-features-and-services) before you implement geo-redundancy.

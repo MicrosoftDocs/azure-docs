@@ -11,7 +11,7 @@
 
 ### Failover types
 
-Storage supports three types of failover for different scenarios.
+Azure Storage supports three types of failover for different scenarios.
 
 - **Customer-managed unplanned failover:** You're responsible for initiating recovery if there's a region-wide storage failure in your primary region.
 

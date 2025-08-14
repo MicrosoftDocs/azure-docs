@@ -9,4 +9,4 @@
  ms.custom: include file
 ---
 
-Geo-redundant storage (GRS) and customer-initiated failover and failback are available in all [Azure paired regions](../../regions-paired.md) that support general-purpose v2 Storage accounts.
+Geo-redundant storage (GRS) and customer-initiated failover and failback are available in all [Azure paired regions](../../regions-paired.md) that support general-purpose v2 Azure Storage accounts.

@@ -18,7 +18,7 @@ Although some Azure services support geo-redundancy and geo-replication by using
 
 ## Azure AI Search
 
-To learn about how to create multi-region solutions using Azure AI Search, see [Reliability in Azure AI Search](./reliability-ai-search.md).
+To learn about how to create multi-region solutions using Azure AI Search, see [Reliability in AI Search](./reliability-ai-search.md).
 
 ## Azure API Management
 
@@ -30,7 +30,7 @@ To learn about how to create multi-region solutions by using Azure App Service, 
 
 ## Azure Blob Storage
 
-To learn about how to create multi-region solutions using Azure Blob Storage, see [Reliability in Azure Blob Storage](./reliability-storage-blob.md).
+To learn about how to create multi-region solutions using Azure Blob Storage, see [Reliability in Blob Storage](./reliability-storage-blob.md).
 
 ## Azure Cache for Redis
 
@@ -105,7 +105,7 @@ For geo-replication in nonpaired regions with Azure SQL Managed Instance, you ca
 
 To achieve geo-replication in nonpaired regions:
 
-- **For object storage:** To learn about how to create multi-region solutions using Azure Blob Storage, see [Reliability in Azure Blob Storage](./reliability-storage-blob.md).
+- **For object storage:** To learn about how to create multi-region solutions by using Blob Storage, see [Reliability in Blob Storage](./reliability-storage-blob.md).
 
 - **For Azure NetApp Files:**
    
