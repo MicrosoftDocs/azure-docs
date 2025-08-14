@@ -5,6 +5,7 @@ author: cephalin
 ms.author: cephalin
 ms.topic: article
 ms.date: 01/13/2022
+ms.service: azure-app-service
 ---
 
 # Control outbound traffic with Azure Firewall

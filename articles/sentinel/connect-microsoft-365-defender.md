@@ -19,7 +19,7 @@ ms.collection: usx-security
 
 The Microsoft Defender XDR connector for Microsoft Sentinel allows you to stream all Microsoft Defender XDR incidents, alerts, and advanced hunting events into Microsoft Sentinel. This connector keeps the incidents synchronized between both portals. Microsoft Defender XDR incidents include alerts, entities, and other relevant information from all the Microsoft Defender products and services. For more information, see [Microsoft Defender XDR integration with Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md).
 
-The Defender XDR connector, especially its incident integration feature, is the foundation of unified security operations in the Microsoft Defender portal. The Defender XDR data connector is automatically connected when you onboard Microsoft Sentinel to the Defender portal.
+The Defender XDR connector, especially its incident integration feature, is the foundation of unified security operations in the Microsoft Defender portal. The Defender XDR data connector is automatically connected when you onboard Microsoft Sentinel to the Defender portal. If you [offboard Microsoft Sentinel from the Defender portal](/unified-secops/microsoft-sentinel-onboard#offboard-microsoft-sentinel), the Defender XDR connector is automatically disconnected.
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
