@@ -19,12 +19,12 @@ This article describes how to hydrate messageId using EmailClient with our Email
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prepend-net](./includes/prepend-net.md)]
-[!INCLUDE [hydrate-message-id-net](./includes/hydrate-message-id-net.md)]
+[!INCLUDE [hydrate-message-id-net](./includes/hydrate-emailclient-w-message-id-dotnet.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
 [!INCLUDE [prepend-java](./includes/prepend-java.md)]
-[!INCLUDE [hydrate-message-id-java](./includes/hydrate-message-id-java.md)]
+[!INCLUDE [hydrate-message-id-java](./includes/hydrate-emailclient-w-message-id-java.md)]
 ::: zone-end
 
 ### Email Delivery
