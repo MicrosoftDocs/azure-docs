@@ -1,23 +1,25 @@
 ---
-title: Accidental Delete Protection for Azure file shares 
-description: Learn how to soft delete can protect your Azure File Shares from accidental deletion. 
+title: Accidental Delete Protection for Azure Files 
+description: Learn how to soft delete can protect your Azure Files from accidental deletion. 
 ms.topic: how-to
-ms.date: 09/11/2024
+ms.date: 08/14/2025
 ms.custom: references_regions 
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: As a storage administrator, I want to enable soft delete for file shares using Azure Backup, so that I can protect my data from accidental deletion or cyberattacks and ensure I can recover it within the retention period.
 ---
 
-# Accidental delete protection for Azure file shares using Azure Backup
+# Protect Azure Files from accidental deletion using Azure Backup
 
-To provide protection against cyberattacks or accidental deletion, [soft delete](../storage/files/storage-files-prevent-file-share-deletion.md) is enabled for all file shares in a storage account when you configure backup for any file share in the respective storage account. With soft delete, even if a malicious actor deletes the file share, the file share’s contents and recovery points (snapshots) are retained for a minimum of 14 additional days, allowing the recovery of file shares with no data loss.  Soft delete is supported for standard and premium storage accounts and the setting is enabled by Azure Backup for all the storage accounts hosting backed up file shares.
+Azure Backup automatically enables [soft delete](../storage/files/storage-files-prevent-file-share-deletion.md) for all file shares in a storage account when you configure backup for any file share. With soft delete, deleted file shares and their recovery points (snapshots) are retained for at least 14 days in soft-deleted state, helping you restore data in case of accidental deletion or cyberattacks. This protection applies to both standard and premium storage accounts and is managed by Azure Backup for all storage accounts containing protected file shares.
 
-The following flow chart shows the different steps and states of a backup item when soft delete is enabled for file shares in a storage account:
+The following flow diagram shows the process and different states a file share experiences when soft delete is enabled in a storage account. It visually explains how backup items are protected and can be recovered after accidental deletion.
 
- ![Soft delete flow chart](./media/soft-delete-afs/soft-delete-flow-chart.png)
+:::image type="content" source="./media/soft-delete-afs/soft-delete-flow-chart.png" alt-text="Diagram shows the journey of deleted data when Soft delete is in enabled state on a vault.":::
 
-## Frequently asked questions
+## Frequently asked questions: Azure Backup Soft Delete for Azure Files
+
+This section answers some common questions about Soft Delete for Azure Files when using Azure Backup.
 
 ### When will soft delete be enabled for file shares in my storage account?
 
@@ -59,4 +61,4 @@ At the time of unregistration, Azure Backup checks the retention period setting 
 
 ## Next steps
 
-Learn how to [Backup Azure File Shares from the Azure portal](backup-afs.md)
+Learn how to [Backup Azure Files from the Azure portal](backup-afs.md).
