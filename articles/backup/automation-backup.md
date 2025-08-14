@@ -6,11 +6,11 @@ ms.date: 08/14/2025
 ms.service: azure-backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS
-ms.author: v-mallickalicka
+ms.author: v-mallicka
 # Customer intent: As a backup administrator, I want to automate backup configuration and monitoring tasks, so that I can efficiently manage and protect a large and diverse set of workloads while minimizing human error.
 ---
 
-## Automate Azure Backup operations for efficient datasource protection
+# Automate Azure Backup operations for efficient datasource protection
 
 Efficient automation is essential as the Azure environment grows to include a wide range of workloads. Automating key backup tasks, such as configuring protection for new resources, monitoring backup health, and responding to issues, help you consistently meet your backup objectives while minimizing manual effort and errors.
 
