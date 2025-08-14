@@ -96,19 +96,30 @@ items:
     items:
     - name: Storage migration overview
       href: ../common/storage-migration-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      items:
+      - name: 1-Assesment
+        href: ../common/1-Assessment-stage.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: 2-Target selection
+        href: ../common/2-Target-selection.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: 3-Planning migration strategy
+        href: ../common/3-Planning-migration-strategy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: 4-Select migration tools
+        href: ../common/4-Select-migration-tools.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: 5-Migration execution
+        href: ../common/5-Migration-execution.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Tape migration overview
       href: ../common/tape-migration-guide.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: Compare data transfer solutions
-      href: ../common/storage-choose-data-transfer-solution.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      items:
-      - name: Large dataset, low network bandwidth
-        href: ../common/storage-solution-large-dataset-low-network.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Large dataset, moderate to high network bandwidth
-        href: ../common/storage-solution-large-dataset-moderate-high-network.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Small dataset, low to moderate network bandwidth
-        href: ../common/storage-solution-small-dataset-low-moderate-network.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Periodic data transfer
-        href: ../common/storage-solution-periodic-data-transfer.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+    # - name: Compare data transfer solutions
+    #  href: ../common/storage-choose-data-transfer-solution.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+    #  items:
+    #  - name: Large dataset, low network bandwidth
+    #    href: ../common/storage-solution-large-dataset-low-network.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+    #  - name: Large dataset, moderate to high network bandwidth
+    #    href: ../common/storage-solution-large-dataset-moderate-high-network.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+    #  - name: Small dataset, low to moderate network bandwidth
+    #    href: ../common/storage-solution-small-dataset-low-moderate-network.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+    #  - name: Periodic data transfer
+    #    href: ../common/storage-solution-periodic-data-transfer.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: AzCopy
       items:
       - name: Get started
