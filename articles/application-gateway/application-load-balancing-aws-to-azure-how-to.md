@@ -3,7 +3,7 @@ title: Migrate from AWS Application Load Balancer to Azure Application Gateway
 description: Learn to migrate from AWS Application Load Balancer to Azure Application Gateway with step-by-step guidance, feature mapping, and validation strategies for enterprise workloads.
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 07/17/2025
+ms.date: 08/14/2025
 ms.custom:
   - ai-gen-docs-bap
   - ai-gen-description
