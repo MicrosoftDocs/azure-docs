@@ -149,15 +149,15 @@ the Azure portal provides a broad range of benefits, including:
 1. Choose the logs you want to send to Azure destinations using the
   below check box options:
 
-    :::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/diagnostic-settings-log-category-checkboxes.png" alt-text="Screenshot of diagnostic settings log category check boxes." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/diagnostic-settings-log-category-checkboxes.png":::
+  :::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/diagnostic-settings-log-category-checkboxes.png" alt-text="Screenshot of diagnostic settings log category check boxes." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/diagnostic-settings-log-category-checkboxes.png":::
 
 1. **Choose the destinations**:
 
-Below are the destinations you can send the logs to
+  Below are the destinations you can send the logs to
 
-    :::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/diagnostic-settings-destination-options.png" alt-text="Screenshot of diagnostic settings destination options." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/diagnostic-settings-destination-options.png":::
+  :::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/diagnostic-settings-destination-options.png" alt-text="Screenshot of diagnostic settings destination options." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/diagnostic-settings-destination-options.png":::
 
-**A Few Things to Know**
+### A few things to know
 
 - Logs may be delayed. After enabling diagnostic settings, it can take
   up to an hour for logs and events to start showing up in Azure Monitor
@@ -321,7 +321,7 @@ create a new one.
 
     :::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/azure-portal-search-microsoft-sentinel.png" alt-text="Screenshot of searching for Microsoft Sentinel in the Azure portal." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/azure-portal-search-microsoft-sentinel.png":::
 
-1. Select Create.
+1. Select **Create**.
 
 1. Select the workspace you want to use or create a new one. You can
     run Microsoft Sentinel on more than one workspace, but data is
