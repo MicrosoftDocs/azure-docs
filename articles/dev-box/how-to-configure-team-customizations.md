@@ -103,7 +103,7 @@ The Dev Box agentic workflow supports these scenarios:
    Open Extensions (Ctrl+Shift+X), search for **Dev Box**, and install the extension.
 
    
-   :::image type="content" source="media/how-to-use-copilot-generate-image-definition-file/dev-box-extension.png" alt-text="Screenshot of the Extensions pane in Visual Studio Code, showing the Dev Box extension.":::
+   :::image type="content" source="media/how-to-configure-team-customizations/dev-box-extension.png" alt-text="Screenshot of the Extensions pane in Visual Studio Code, showing the Dev Box extension.":::
    
 
 1. Install the [GitHub Copilot extension set up in VS Code](https://code.visualstudio.com/docs/copilot/setup).
@@ -115,15 +115,15 @@ The Dev Box agentic workflow supports these scenarios:
    - Make sure **Dev Box tools** are preselected under "Select tools."
 
      
-   :::image type="content" source="media/how-to-use-copilot-generate-image-definition-file/dev-box-extension-tools.png" alt-text="Screenshot of the Copilot Chat pane in Visual Studio Code, showing Dev Box tools preselected.":::
+   :::image type="content" source="media/how-to-configure-team-customizations/dev-box-extension-tools.png" alt-text="Screenshot of the Copilot Chat pane in Visual Studio Code, showing Dev Box tools preselected.":::
      
 
-   :::image type="content" source="media/how-to-use-copilot-generate-image-definition-file/dev-box-extension-tools-list.png" alt-text="Screenshot of the Copilot Chat interface in Visual Studio Code.":::
+   :::image type="content" source="media/how-to-configure-team-customizations/dev-box-extension-tools-list.png" alt-text="Screenshot of the Copilot Chat interface in Visual Studio Code.":::
 
    - Select **Agent Mode**, and choose the model: **Claude 3.5 Sonnet**.
 
      
-   :::image type="content" source="media/how-to-use-copilot-generate-image-definition-file/dev-box-extension-select-agent.png" alt-text="Screenshot of the Agent Mode selection in Copilot Chat, showing the Claude 3.5 Sonnet model.":::
+   :::image type="content" source="media/how-to-configure-team-customizations/dev-box-extension-select-agent.png" alt-text="Screenshot of the Agent Mode selection in Copilot Chat, showing the Claude 3.5 Sonnet model.":::
      
 
 1. **Provide natural language prompts**, such as:
