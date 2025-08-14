@@ -4,8 +4,8 @@ description: Provides an overview of the architecture, components, and processes
 ms.topic: overview
 ms.date: 07/17/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
 # Customer intent: "As a system administrator, I want to understand the architecture and features of the cloud backup solution, so that I can effectively manage data protection and recovery for both on-premises and Azure virtual machines."
 ---

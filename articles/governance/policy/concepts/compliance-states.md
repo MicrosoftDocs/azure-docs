@@ -143,4 +143,4 @@ In the image shown, there are 20 distinct resources that are applicable and only
 
 - Learn how to [get compliance data](../how-to/get-compliance-data.md)
 - Learn how to [determine causes of non-compliance](../how-to/determine-non-compliance.md)
-- Get compliance data through [Azure Resource Graph sample queries for Azure Policy](../samples/resource-graph-samples.md)
+- Get compliance data through [Azure Resource Graph sample queries for Azure Policy](/azure/governance/policy/samples/resource-graph-samples)

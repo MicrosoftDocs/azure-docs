@@ -11,6 +11,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.date: 11/12/2021
 ms.author: stmuelle
+# Customer intent: As a system administrator managing SAP deployments, I want to configure Windows DFS-N for flexible share creation, so that I can overcome SAPMNT naming limitations and enhance the management of SMB-based file shares in Azure.
 ---
 
 # Using Windows DFS-N to support flexible SAPMNT share creation for SMB-based file share

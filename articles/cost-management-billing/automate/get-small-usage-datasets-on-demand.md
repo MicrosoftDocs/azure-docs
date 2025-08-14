@@ -30,9 +30,9 @@ To use the Cost Details API, you need read only permissions for supported featur
 
 For more information, see: 
 
-- [Azure RBAC scopes - role permissions for feature behavior](../costs/understand-work-scopes.md#feature-behavior-for-each-role)
-- [Enterprise Agreement scopes - role permissions for feature behavior](../costs/understand-work-scopes.md#feature-behavior-for-each-role-1)
-- [Microsoft Customer Agreement scopes - role permissions for feature behavior](../costs/understand-work-scopes.md#feature-behavior-for-each-role-2)
+- [Azure RBAC scopes - role permissions for feature behavior](../costs/understand-work-scopes.md#feature-behavior-for-each-role-in-rbac-scopes)
+- [Enterprise Agreement scopes - role permissions for feature behavior](../costs/understand-work-scopes.md#roles-used-in-cost-management-on-enterprise-agreement-scopes)
+- [Microsoft Customer Agreement scopes - role permissions for feature behavior](../costs/understand-work-scopes.md#feature-behavior-per-role-in-mca-billing-account-scope)
 
 ## Cost Details API best practices
 
@@ -95,7 +95,7 @@ Here's an example request for an ActualCost dataset for a specified date range.
 
 ```
 
-Available *{scope}* options to build the proper URI are documented at [Identify the resource ID for a scope](../costs/understand-work-scopes.md#identify-the-resource-id-for-a-scope).
+Available *{scope}* options to build the proper URI are documented at [Identify the resource ID for a scope](../costs/understand-work-scopes.md#using-scopes-with-cost-management-apis).
 
 Here are the available fields you can provide in the report request body.
 

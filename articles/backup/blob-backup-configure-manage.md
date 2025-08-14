@@ -4,8 +4,8 @@ description: Learn how to configure and manage operational and vaulted backups f
 ms.topic: how-to
 ms.date: 07/11/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a cloud administrator, I want to configure and manage backup for Azure Blobs across multiple storage accounts, so that I can ensure data protection and recovery options are available in case of accidental deletion or data loss."
 ---
 

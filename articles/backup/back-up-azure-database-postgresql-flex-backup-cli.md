@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 02/28/2025
 ms.custom: devx-track-azurecli, ignite-2024
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a database administrator, I want to back up Azure Database for PostgreSQL - Flexible Server using Azure CLI, so that I can ensure data protection and recovery options for my database workloads."
 ---
 

@@ -2,11 +2,11 @@
 title: Use PowerShell to back up Windows Server to Azure
 description: In this article, learn how to use PowerShell to set up Azure Backup on Windows Server or a Windows client, and manage backup and recovery.
 ms.topic: how-to
-ms.date: 02/28/2025
+ms.date: 07/29/2025
 ms.service: azure-backup
 ms.custom: devx-track-azurepowershell, no-azure-ad-ps-ref, engagement-fy24
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a system administrator, I want to implement Azure Backup using PowerShell for Windows Server, so that I can automate the backup and recovery processes efficiently and ensure data protection in the cloud."
 ---
 
@@ -33,7 +33,7 @@ The following steps lead you through creating a Recovery Services vault. A Recov
 2. The Recovery Services vault is an Azure Resource Manager resource, so you need to place it within a Resource Group. You can use an existing resource group, or create a new one. When creating a new resource group, specify the name and location for the resource group.
 
     ```powershell
-    New-AzResourceGroup -Name "test-rg" –Location "WestUS"
+    New-AzResourceGroup -Name "test-rg" -Location "WestUS"
     ```
 
 3. Use the **New-AzRecoveryServicesVault** cmdlet to create the new vault. Be sure to specify the same location for the vault as was used for the resource group.

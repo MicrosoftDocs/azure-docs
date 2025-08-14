@@ -4,8 +4,8 @@ description: Get an overview of the Azure Database for PostgreSQL backup solutio
 ms.topic: overview
 ms.date: 04/16/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a database administrator, I want to implement long-term backup solutions for Azure Database for PostgreSQL, so that I can ensure data compliance and recoverability over an extended period."
 ---
 

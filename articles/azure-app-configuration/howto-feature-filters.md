@@ -72,6 +72,7 @@ You can create custom feature filters that turn on features based on specific cr
    - [ASP.NET Core](./howto-feature-filters-aspnet-core.md)
    - [Node.js](./howto-feature-filters-javascript.md)
    - [Python](./howto-feature-filters-python.md)
+   - [Go Gin](./howto-feature-filters-go.md)
 
 ## Next steps
 

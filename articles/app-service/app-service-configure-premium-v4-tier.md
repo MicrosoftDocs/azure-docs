@@ -3,7 +3,7 @@ title: Configure Premium V4 tier
 description: Learn how to better performance for your web, mobile, and API app in Azure App Service by scaling to the new Premium V4 pricing tier.
 keywords: app service, azure app service, scale, scalable, app service plan, app service cost
 ms.topic: article
-ms.date: 06/18/2025
+ms.date: 07/17/2025
 ms.author: msangapu
 author: msangapu-msft
 ms.custom:
@@ -12,6 +12,7 @@ ms.custom:
   - devx-track-azurepowershell
   - build-2025
 #customer intent: As a deployment engineer, I want to understand the process and the benefits of scaling up apps to the Premium V4 pricing tier in Azure App Service.
+ms.service: azure-app-service
 ---
 
 # Configure Premium V4 tier for Azure App Service
@@ -102,9 +103,11 @@ Premium V4 is available in the following regions:
 - East US
 - East US 2
 - France Central
+- Japan East
 - North Central US
 - North Europe
 - Norway East
+- Poland Central
 - Southeast Asia
 - Sweden Central
 - Switzerland North
@@ -158,4 +161,4 @@ New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
 ## Related content
 
 - [Scale up an app in Azure App Service](manage-scale-up.md)
-- [Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)
+- [Run a load test to identify performance bottlenecks in a web app](../app-testing/load-testing/tutorial-identify-bottlenecks-azure-portal.md)

@@ -25,10 +25,10 @@ landingContent:
         links:
           - text: What is Microsoft Dev Box?
             url: overview-what-is-microsoft-dev-box.md
-          - text: Architecture overview
-            url: concept-dev-box-architecture.md
           - text: Microsoft Dev Box concepts
             url: concept-dev-box-concepts.md
+          - text: Architecture overview
+            url: concept-dev-box-architecture.md
           - text: Microsoft Dev Box Roadmap
             url: dev-box-roadmap.md
       - linkListType: learn
@@ -121,6 +121,8 @@ landingContent:
             url: how-to-get-help.md
         - linkListType: reference
           links:
+          - text: Microsoft Dev Center Landing Zone Accelerator
+            url: https://github.com/Azure/DevBoxAccelerator/tree/main
           - text: Azure CLI
             url: https://learn.microsoft.com/en-us/azure/dev-box/cli-reference-subset
           - text: REST API

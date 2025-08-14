@@ -1,7 +1,7 @@
 ---
 title: Create a function in Azure from the command line
 description: Learn how to use command line tools, such as Azure Functions Core Tools, to create a function code project, create Azure resources, and publish function code to run in Azure Functions.
-ms.date: 07/11/2025
+ms.date: 07/22/2025
 ms.topic: quickstart
 ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, mode-other, devx-track-dotnet
 zone_pivot_groups: programming-languages-set-functions
@@ -11,13 +11,17 @@ zone_pivot_groups: programming-languages-set-functions
 
 In this article, you use local command-line tools to create a function that responds to HTTP requests. After verifying your code locally, you deploy it to a serverless Flex Consumption hosting plan in Azure Functions. 
 
-Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account. 
+
+Make sure to select your preferred development language at the top of the article.
 
 ## Prerequisites
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 [!INCLUDE [functions-requirements-azure-cli](../../includes/functions-requirements-azure-cli.md)]
+
++ [Azure CLI](/cli/azure/install-azure-cli)
 
 + The [`jq` command line JSON processor](https://jqlang.org/download/), used to parse JSON output, and is also available in Azure Cloud Shell.
 
@@ -317,6 +321,4 @@ When you navigate to this URL, the browser should display similar output as when
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Connect to Azure Cosmos DB](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-csharp&tabs=isolated-process)
-> [!div class="nextstepaction"]
-> [Connect to Azure Queue Storage](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-csharp&tabs=isolated-process)
+> [Connect to Azure Queue Storage](functions-add-output-binding-storage-queue-cli.md)

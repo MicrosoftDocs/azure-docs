@@ -3,8 +3,8 @@ title: Using Pre-Backup and Post-Backup Scripts
 description: This article contains the procedure to specify pre-backup and post-backup scripts. Azure Backup Server (MABS).
 ms.topic: how-to
 ms.date: 07/16/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a system administrator, I want to configure pre-backup and post-backup scripts in the backup environment, so that I can automate data preparation and post-processing tasks for better backup efficiency and data management.
 ---
 

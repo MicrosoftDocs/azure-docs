@@ -7,8 +7,8 @@ ms.custom:
   - devx-track-azurecli
   - build-2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a database administrator, I want to back up PostgreSQL databases in Azure using the command line, so that I can automate the backup process and ensure data protection in a reliable and efficient manner."
 ---
 

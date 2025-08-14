@@ -9,6 +9,7 @@ ms.update-cycle: 1095-days
 ms.custom: "UpdateFrequency3, devx-track-csharp, mvc, devcenter, devx-track-azurecli"
 ms.author: msangapu
 author: msangapu-msft
+ms.service: azure-app-service
 ---
 
 # Tutorial: Host a RESTful API with CORS in Azure App Service
