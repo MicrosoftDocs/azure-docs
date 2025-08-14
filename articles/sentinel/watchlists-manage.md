@@ -1,8 +1,8 @@
 ---
 title: Edit watchlists - Microsoft Sentinel
 description: Learn how to edit and add more items to Microsoft Sentinel watchlists to them to keep them up-to-date.
-author: cwatson-cat
-ms.author: cwatson
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: how-to
 ms.date: 3/14/2024
 appliesto:

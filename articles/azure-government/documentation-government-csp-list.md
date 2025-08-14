@@ -530,7 +530,6 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Charles IT](https://www.charlesit.com)|
 |[CloudFit Software LLC](https://cloudfitsoftware.com/)|
 |[Compunet Inc.](https://vanasolutions.com/)|
-|[Conquest Cyber](https://conquestcyber.com/)|
 |[CyberSheath](https://cybersheath.com)|
 |[Daymark Solutions, Inc.](https://www.daymarksi.com/)|
 |[Dox Electornics Inc.](https://www.doxnet.com)|

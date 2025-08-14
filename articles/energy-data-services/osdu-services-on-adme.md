@@ -1,16 +1,16 @@
 ---
 title: OSDU Services Available on Azure Data Manager for Energy
 description: This article provides an overview of the OSDU services available on Azure Data Manager for Energy and the OSDU services that are exclusively available in the community version.
-author: bananibrahim
+author: marielherz
 ms.service: azure-data-manager-energy
-ms.author: bananibrahim
+ms.author: marielherzog
 ms.topic: conceptual
-ms.date: 08/30/2024
+ms.date: 08/05/2025
 ms.custom: template-concept
 ---
 
-# OSDU&reg; M23 services available on Azure Data Manager for Energy 
-Azure Data Manager for Energy is currently compliant with the M23 OSDU® milestone release. Below you'll find an overview of the OSDU&reg; services that are currently available on Azure Data Manager for Energy. This page will be regularly updated as service versions and availability evolve. 
+# OSDU&reg; M25 services available on Azure Data Manager for Energy 
+Azure Data Manager for Energy is currently compliant with the M25 OSDU® milestone release. Below you'll find an overview of the OSDU&reg; services that are currently available on Azure Data Manager for Energy. This page will be regularly updated as service versions and availability evolve. 
 ### Core and helper services
 - **CRS Catalog**: Provides API endpoints to work with geodetic reference data, allowing developers to retrieve CRS definitions, select appropriate CRSs for data ingestion, and search for CRSs based on various constraints. 
 - **CRS Conversion**: Enables the conversion of coordinates from one coordinate reference system (CRS) to another.
@@ -28,37 +28,39 @@ Azure Data Manager for Energy is currently compliant with the M23 OSDU® milesto
 - **Secret (Preview)**: Facilitates the storage and retrieval of various types of secrets in a specified repository(ies) so that secrets can be secure, separated from the secrets in the infrastructure repository, and be managed easily by interfacing applications.
 - **Seismic File Metadata**: Manages metadata associated with seismic data. It annotates dimensions, value channels, and generic key/value pairs.
 - **Storage**: Provides a set of APIs to manage the entire metadata life-cycle such as ingestion (persistence), modification, deletion, versioning, and data schema.
+  > **New in M25:** The CRS-Conversion endpoint has been updated to version 3.
+
 - **Unit**: Provides dimension/measurement and unit definitions.
 
 ### Domain data management services (DDMS)
 - **Seismic DDMS**: Enables secure access and efficient handling of seismic datasets.
 - **Wellbore DDMS**: Enables secure access and handling of wellbore-related data.
 - **Well Delivery DDMS**: Enables secure access, storage, and interaction of Well Delivery (planning and execution) data.
+- **Reservoir DDMS [[Preview]](how-to-enable-reservoir-ddms.md)**: Provides storage associated with seismic and well interpretation, structural modeling, geological modeling, and reservoir modeling including reservoir simulation input.
 
 ### Ingestion services
 - **EDS DMS [[Preview]](how-to-enable-external-data-sources.md)**: Pulls specified data (metadata) from OSDU-compliant data sources via scheduled jobs while leaving associated dataset files (LAS, SEG-Y, etc.) stored at the external source for retrieval on demand.
-  - **EDS Fetch & Ingest DAG**: Facilitates fetching data from external providers and ingesting it into the OSDU platform. It involves steps like registering with providers, creating data jobs, and triggering ingestion. With the M23 release, EDS Fetch and Ingest DAG includes new features like Parent and Reference data mapping.
+  - **EDS Fetch & Ingest DAG**: Facilitates fetching data from external providers and ingesting it into the OSDU platform. It involves steps like registering with providers, creating data jobs, and triggering ingestion.
   - **EDS Scheduler DAG**: Automates data fetching based on predefined schedules and sends emails to recipients as needed. It ensures data remains current without manual intervention
+  - **EDS Naturalization DAG**: Converts external dataset references into internal ones by fetching and storing actual data files into the OSDU platform, enabling full integration and alignment with internal schemas.
 -  **Ingestion Workflow**: Initiates business processes within the system. During the prototype phase, it facilitates CRUD operations on workflow metadata and triggers workflows in Apache Airflow. Additionally, the service manages process startup records, acting as a wrapper around Airflow functions.
 - **Manifest Ingestion DAG**: Used for ingesting single or multiple metadata artifacts about datasets in Azure Data Manager for Energy instance. Learn more about [Manifest-based ingestion](concepts-manifest-ingestion.md).
-- **CSV Parser DAG**: Helps in parsing CSV files into a format for ingestion and processing. 
+- **CSV Parser DAG**: Helps in parsing CSV files into a format for ingestion and processing. Learn more about [CSV Parser Ingestion](concepts-csv-parser-ingestion.md).
 - **osdu-airflow-lib**: A library that enables user context ingestion within the Airflow workflows.
 - **osdu-ingestion-lib**: A library that supports user context ingestion and includes various fixes related to Python versioning and authority replacement.
 - **SegY-to-oVDS DAG**: Converts SegY file formats to oVDS.
 - **SegY-to-oZGY DAG**: Converts SrgY file formats to ZGY.
+- **Wellbore-DDMS Worker**: Used internally by the Wellbore DDMS Service & handles high‑volume, bulk wellbore data access through an internal API.
 
 ## OSDU&reg; services unavailable on Azure Data Manager for Energy
 Note: The following OSDU&reg; services are currently unavailable on Azure Data Manager for Energy.
-- **Reservoir DDMS**
-- **EDS Naturalization DAG**
-- **Manifest Ingestion by Reference DAG**
-- **Seismic DDMS v4 APIs**
-- **Rock and Fluid Sample DDMS**
-- **Production DDMS - Historian**
-- **WITSML Parser DAG**
+- **Geospatial Consumption Zone** Users can alternatively [deploy the Geospatial Consumption Zone](how-to-deploy-gcz.md) service integrated with ADME.
+- **Partition** Operations can still be performed using the available data partition APIs or through Azure portal.
+- **Schema Upgrade** Users can alternatively [deploy the Schema Upgrade Tool](https://github.com/EirikHaughom/ADME/tree/main/Guides/Schema%20Upgrade%20Tool) integrated with ADME.
+- **Rock and Fluid Sample DDMS** Users can deploy the sample [Rock and Fluid Sample DDMS](https://github.com/EirikHaughom/ADME/tree/main/Guides/Connected%20Rock%20and%20Fluid%20DDMS) connected to their ADME instance.
+- **Production DDMS (Historian or Core)** Users can alternatively [deploy the Production DDMS](https://github.com/EirikHaughom/ADME/tree/main/Guides/Connected%20Production%20DDMS) to test functionality standalone.
 - **Energistcs Parser DAG (WITSML Parser v2, Resqml Parser, ProdML Parser)**
-- **Geospatial Consumption Zone**
-- **Partition** Note: Operations can still be performed using the available data partition APIs or through Azure portal.
+- **Manifest Ingestion by Reference DAG**
 - **Policy Service**
-- **Schema Upgrade**
-- **Wellbore Domain Services Worker**
+- **Seismic DDMS v4 APIs**
+- **WITSML Parser DAG**

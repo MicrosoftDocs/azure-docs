@@ -93,6 +93,6 @@ The following code is an example of added results from a `summarize` call:
 ## Next steps
 
 - See the [initiative definition structure](./initiative-definition-structure.md)
-- Review examples at [Azure Policy samples](../samples/index.md).
+- Review examples at [Azure Policy samples](/azure/governance/policy/samples/index).
 - Review [Understanding policy effects](./effect-basics.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).

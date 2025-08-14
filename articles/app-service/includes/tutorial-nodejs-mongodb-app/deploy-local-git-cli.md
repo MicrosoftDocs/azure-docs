@@ -3,6 +3,7 @@ author: DavidCBerry13
 ms.author: daberry
 ms.topic: include
 ms.date: 01/30/2022
+ms.service: azure-app-service
 ---
 First, configure the deployment source for your web app to be local Git using the [az webapp deployment](/cli/azure/webapp/deployment) command.  
 

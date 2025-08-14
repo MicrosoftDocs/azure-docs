@@ -30,8 +30,8 @@ items:
     items:
     - name: Data residency and user privacy
       href: concepts/privacy.md
-    - name: Create a Network Security Perimeter (NSP)
-      href: quickstarts/network-security-perimeter.md
+#   - name: Create a Network Security Perimeter (NSP)
+#     href: quickstarts/network-security-perimeter.md
     - name: European Union Data Boundary
       href: concepts/european-union-data-boundary.md
     - name: Azure Government
@@ -44,6 +44,8 @@ items:
     href: concepts/identity-model.md
   - name: Access tokens for end users
     href: quickstarts/identity/access-tokens.md
+  - name: Authenticate Microsoft Entra ID users
+    href: quickstarts/identity/microsoft-entra-id-authentication-integration.md
   - name: Sign an HTTP Request using HMAC
     href: tutorials/hmac-header-tutorial.md
   - name: Authenticate services
@@ -304,6 +306,8 @@ items:
     href: concepts/sms/concepts.md
   - name: Pricing
     href: concepts/sms-pricing.md
+  - name: Messaging Connect
+    href: concepts/sms/messaging-connect.md
   - name: SMS SDK overview
     href: concepts/sms/sdk-features.md
   - name: SMS FAQ
@@ -388,6 +392,8 @@ items:
     href: concepts/advanced-messaging/whatsapp/whatsapp-terms-of-service.md
   - name: Messaging policy
     href: concepts/sms/messaging-policy.md
+  - name: WhatsApp channel prerequisites
+    href: concepts/advanced-messaging/whatsapp/whatsapp-channel-prerequisites.md
   - name: WhatsApp business account FAQ
     href: quickstarts/advanced-messaging/whatsapp/whatsapp-business-account-faq.md
   - name: Logging and analytics
@@ -536,6 +542,9 @@ items:
     - name: Enable video background effects
       href: quickstarts/voice-video-calling/get-started-video-effects.md
       displayName: background blur, background replace, background replacement, frosted glass
+    - name: Enable volume indicator controls
+      href: quickstarts/voice-video-calling/get-started-volume-indicator.md
+      displayName: volume, audio level, microphone sensitivity, taling indicator, volume input, sound intensity, volume display  
     - name: Pass user-to-user information (UUI) data in a header
       href: how-tos/calling-sdk/call-context.md
     - name: Data channel
@@ -1218,6 +1227,8 @@ items:
       href: quickstarts/tpe/teams-phone-extensibility-answer-teams-calls.md
     - name: Access Teams Phone without going through the Teams client
       href: quickstarts/tpe/teams-phone-extensibility-access-teams-phone.md
+    - name: Teams Extension User Authentication Sample
+      href: https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/tpe-token-and-access-management
     - name: REST API for Teams Phone extensibility
       href: quickstarts/tpe/teams-phone-extensiblity-rest-api.md
 - name: Job Router

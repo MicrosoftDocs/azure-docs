@@ -243,7 +243,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
         betaEnabled := c.GetBool("betaEnabled")
 
         c.HTML(http.StatusOK, "index.html", gin.H{
-            "title":       "Feature Management Demo",
+            "title":       "Feature Management Example App",
             "betaEnabled": betaEnabled,
         })
     }
@@ -311,7 +311,8 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 1. [Set the environment variable for authentication](./quickstart-go-web-app.md#run-the-web-application) and run the application.
 
     ```console
-    go run main.go
+    go mod tidy
+    go run .
     ```
 
 1. Open a browser window, and go to `http://localhost:8080`. Your browser should display a page similar to the image below.
