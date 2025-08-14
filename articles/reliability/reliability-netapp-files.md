@@ -157,7 +157,7 @@ For other considerations related to cross-region replication in Azure NetApp Fil
 
 ### Cost
 
-Cross-region replication is charged based on the mount of data you replicate. For more details and some example scenarios, see [Cost model for cross-region replication](../azure-netapp-files/replication.md#cost-model-for-cross-region-replication).
+Cross-region replication is charged based on the amount of data you replicate. For more details and some example scenarios, see [Cost model for cross-region replication](../azure-netapp-files/replication.md#cost-model-for-cross-region-replication).
 
 ### Configure multi-region support
 

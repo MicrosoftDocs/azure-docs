@@ -247,6 +247,8 @@
     href: storage-files-scale-targets.md
   - name: Understanding billing
     href: understanding-billing.md
+  - name: Cost estimation examples
+    href: file-estimate-cost.md
   - name: Optimize costs with storage reservations
     href: files-reserve-capacity.md
 - name: Monitor metrics and logs
