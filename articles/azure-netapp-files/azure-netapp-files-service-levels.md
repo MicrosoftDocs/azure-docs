@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 03/25/2025
+ms.date: 08/14/2025
 ms.author: anfdocs
 # Customer intent: "As a cloud storage administrator, I want to understand the throughput capabilities of different service levels in Azure NetApp Files, so that I can choose the right configuration to meet my application's performance requirements."
 ---
@@ -30,7 +30,7 @@ Azure NetApp Files supports four service levels: *Standard*, *Premium*, *Ultra*,
 
     The Flexible service level enables you to adjust throughput and size limits independently. You can use the Flexible service level to create high-capacity volumes with low throughput requirements or the reverse: low-capacity volumes with high throughput requirements. The Flexible service level is designed for demanding applications such as Oracle or SAP HANA.
     
-    The minimum throughput you can assign Flexible capacity pool is 128 MiB/second regardless of the pool quota. The maximum throughput is 5 x 128 MiB/second/TiB x the size of the capacity pool in TiB. For more information see [Flexible service level throughput examples](#flexible-examples) and [considerations for the Flexible service level](azure-netapp-files-set-up-capacity-pool.md#considerations).
+    The minimum throughput you can assign a Flexible capacity pool is 128 MiB/second regardless of the pool quota. The maximum throughput is 5 x 128 MiB/second/TiB x the size of the capacity pool in TiB. For more information see [Flexible service level throughput examples](#flexible-examples) and [considerations for the Flexible service level](azure-netapp-files-set-up-capacity-pool.md#considerations).
 
     >[!IMPORTANT]
     >The Flexible service level is only supported for new _manual QoS_ capacity pools.
@@ -60,7 +60,7 @@ The following diagram shows throughput limit examples of volumes in an auto QoS 
 
 ### Throughput limit examples of volumes in a manual QoS capacity pool 
 
-If you use a manual QoS capacity pool, you can assign the capacity and throughput for a volume independently. When you create a volume in a manual QoS capacity pool, you can specify the throughput (MiB/S) value. The total throughput assigned to volumes in a manual QoS capacity pool depends on the size of the pool and the service level. Throughput limits for the Standard, Premium, and Ultra service levels are capped by a formula: capacity pool size in TiB x service level throughput/TiB. For instance, a 10-TiB capacity pool with the Ultra service level has a total throughput capacity of 1,280 MiB/s (10 TiB x 128 MiB/s/TiB) available for the volumes. For the Flexible service level, the formula is 5 x capacity pool size in TiB x minimum service level throughput (128 MiB/s/TiB). For examples, see [Flexible service level throughput examples](#flexible-examples). 
+If you use a manual QoS capacity pool, you can assign the capacity and throughput for a volume independently. When you create a volume in a manual QoS capacity pool, you can specify the throughput (MiB/S) value. The total throughput assigned to volumes in a manual QoS capacity pool depends on the size of the pool and the service level. Throughput limits for the Standard, Premium, and Ultra service levels are capped by a formula: capacity pool size in TiB x service level throughput/TiB. For instance, a 10-TiB capacity pool with the Ultra service level has a total throughput capacity of 1,280 MiB/s (10 TiB x 128 MiB/s/TiB) available for the volumes. For the Flexible service level, the formula is 5 x capacity pool size in TiB x minimum service level throughput (128 MiB/s/TiB). For example, see [Flexible service level throughput examples](#flexible-examples). 
 
 For example, for an SAP HANA system, this capacity pool can be used to create the following volumes. Each volume provides the individual size and throughput to meet your application requirements:
 
@@ -84,7 +84,7 @@ The example extends to the Flexible service level as well. A Flexible service le
 - SAP HANA shared volume: Size 1 TiB with up to 64 MiB/s
 - SAP HANA backup volume: Size 4.5 TiB with up to 384 MiB/s
 
-As illustrated in the diagram, the SAP HANA backup volume received the 128MiB/s additional baseline throughput.
+As illustrated in the diagram, the SAP HANA backup volume receives additional baseline throughput of 128 MiB/s .
  
 #### <a name="flexible-examples">Flexible service level throughput examples:</a>
 

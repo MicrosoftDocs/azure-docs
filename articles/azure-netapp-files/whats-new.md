@@ -8,7 +8,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.topic: overview
-ms.date: 06/20/2025
+ms.date: 08/14/2025
 ms.author: anfdocs
 # Customer intent: As a cloud administrator, I want to learn about the latest enhancements in Azure NetApp Files, so that I can effectively utilize new features for improved data security, resilience, and operational efficiency in my organization's cloud storage solutions.
 ---
@@ -16,6 +16,8 @@ ms.author: anfdocs
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
+
+## August 2025
 
 * [Flexible service level](manage-cool-access.md#register-the-feature) now supports storage with cool access (Preview)
 

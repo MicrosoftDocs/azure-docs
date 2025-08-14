@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 07/22/2025
+ms.date: 08/14/2025
 ms.author: anfdocs
 ms.custom:
   - build-2025
@@ -38,10 +38,10 @@ There are several considerations to be aware of when using cool access.
 
 ### Considerations for cool access-enabled capacity pools 
 
-* You can convert an existing capacity pool into a cool-access capacity pool to create cool access volumes. After the capacity pool is enabled for cool access, you can't convert it back to a non-cool-access capacity pool.  
+* You can convert an existing capacity pool into a cool-access capacity pool to create cool access volumes. After a capacity pool is enabled for cool access, you can't convert it back to a non-cool-access capacity pool.  
     * When you enable cool access, data that satisfies the conditions set by the coolness period moves to the cool tier. For example, if the coolness period is set to 30 days, any data that has been cool for at least 30 days moves to the cool tier _when_ you enable cool access. Once the coolness period is reached, background jobs can take up to 48 hours to initiate the data transfer to the cool tier. 
 * A cool-access capacity pool can contain both volumes with cool access enabled and volumes with cool access disabled.
-* After the capacity pool is configured with the option to support cool access volumes, the setting can't be disabled at the _capacity pool_ level. You can turn on or turn off the cool access setting at the _volume_ level anytime. Turning off the cool access setting at the volume level stops further tiering of data.  
+* After the capacity pool is configured with the option to support cool access volumes, the setting can't be disabled at the _capacity pool_ level. You can turn on or turn off the cool access setting at the _volume_ level anytime. Turning off the cool access setting at the volume level stops further data tiering.  
 
 #### Considerations for moving volumes to another capacity pool
 
@@ -140,9 +140,6 @@ No registration is required to use cool access at the Standard service level.
 
 Cool access with the Flexible service level is currently in preview. You must be registered to use the [Flexible service](azure-netapp-files-set-up-capacity-pool.md#flexible) before requesting cool access with the Flexible service level. Once you confirm your registration in the Flexible service level preview, register to use cool access with the Flexible service level. 
 
->[!NOTE]
->Volumes created in cool-access enabled capacity pools cannot be moved to another capacity pool.
-
 1. Register the feature: 
 
     ```azurepowershell-interactive
@@ -151,7 +148,7 @@ Cool access with the Flexible service level is currently in preview. You must be
 
 2. Check the status of the feature registration: 
     > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
+    > The **RegistrationState** can remain in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
 
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessFlexible

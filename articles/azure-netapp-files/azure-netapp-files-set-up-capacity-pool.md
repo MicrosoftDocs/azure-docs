@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 05/14/2025
+ms.date: 08/14/2025
 ms.author: anfdocs
 ms.custom:
   - build-2025
@@ -98,7 +98,7 @@ Creating a capacity pool enables you to create volumes within it.
         > [!IMPORTANT] 
         > Azure NetApp Files double encryption at rest supports [Standard network features](azure-netapp-files-network-topologies.md#configurable-network-features), but not Basic network features. See [considerations](double-encryption-at-rest.md#considerations) for using Azure NetApp Files double encryption at rest.  
         >
-        > After the capacity pool is created, you can’t modify the setting (switching between `single` or `double`) for the encryption type.  
+        > After the capacity pool is created, you can’t modify the encryption type.   
 
     :::image type="content" source="./media/azure-netapp-files-set-up-capacity-pool/flexible-service.png" alt-text="Screenshot showing the New Capacity Pool window.":::
 
