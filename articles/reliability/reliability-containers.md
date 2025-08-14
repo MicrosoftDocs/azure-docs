@@ -135,7 +135,7 @@ You can optionally deploy separate container groups in multiple regions. You're 
 
 ## Service-level agreement (SLA)
 
-[!INCLUDE [SLA description](includes/reliability-sla-include.md)]
+[!INCLUDE [SLA description](includes/reliability-service-level-agreement-include.md)]
 
 ## Next steps
 
