@@ -241,7 +241,7 @@ items:
       - name: Use email object model for payload
         href: quickstarts/email/send-email-advanced/use-email-object-model-for-payload.md
       - name: Hydrating messageId using EmailClient
-        href: quickstarts/email/send-email-advanced/hydrate-emailclient-using-message-id.md
+        href: quickstarts/email/send-email-advanced/hydrate-email-client-using-message-id.md
   - name: Manage sender reputation
     items:
     - name: Understand sender reputation
