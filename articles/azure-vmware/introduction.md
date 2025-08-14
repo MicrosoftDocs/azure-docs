@@ -3,7 +3,7 @@ title: Introduction
 description: Learn the features and benefits of Azure VMware Solution to deploy and manage VMware-based workloads in Azure.
 ms.topic: overview
 ms.service: azure-vmware
-ms.date: 4/24/2025
+ms.date: 8/14/2025
 ms.custom: engagement-fy23
 # Customer intent: As a cloud architect, I want to deploy and manage VMware-based workloads in Azure using a dedicated private cloud solution, so that I can leverage Azure's infrastructure while maintaining VMware compatibility and maximizing operational efficiency.
 ---
