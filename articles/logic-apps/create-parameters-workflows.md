@@ -1,13 +1,14 @@
 ---
 title: Create parameters for workflow inputs
-description: Define cross-environment parameters to use for workflow inputs in Azure Logic Apps.
+description: Define cross-environment parameters to use for workflow inputs in Azure Logic Apps. Also, learn how to manage environment variables.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/06/2024
+ms.date: 08/14/2025
 ms.custom:
   - build-2025
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want to use parameters and application settings as values across workflows.
 ---
 
 # Create cross-environment parameters for workflow inputs in Azure Logic Apps
@@ -16,7 +17,7 @@ ms.custom:
 
 In Azure Logic Apps, you can abstract values that might change in workflows across development, test, and production environments by defining *parameters*. When you use parameters rather than environment-specific variables, you can initially focus more on designing your workflows, and insert your environment-specific variables later.
 
-This article introduces how to create, use, and edit parameters for multitenant Consumption logic app workflows and for single-tenant Standard logic app workflows. You'll also learn how to manage environment variables.
+This article introduces how to create, use, and edit parameters for multitenant Consumption logic app workflows and for single-tenant Standard logic app workflows. You also learn how to manage environment variables.
 
 For more information about multitenant and single-tenant Azure Logic Apps, review [Single-tenant versus multitenant in Azure Logic Apps](single-tenant-overview-compare.md).
 
@@ -38,7 +39,7 @@ For more information about multitenant and single-tenant Azure Logic Apps, revie
 
 For both Consumption and Standard logic app workflows, you can define parameters using the designer. After you define the parameter, you can reference that parameter from any workflow or connection that's in the *same* logic app resource.
 
-In multitenant Consumption logic app workflows, after you create and use parameters in the designer, you define and set the environment variables in your Azure Resource Manager template (ARM template) and template parameters files. In this scenario, you have to define and set the parameters *at deployment*, which means that even if you only have to change one variable, you have to redeploy your logic app's ARM template.
+In multitenant Consumption logic app workflows you create and use parameters in the designer. Then you define and set the environment variables in your Azure Resource Manager template (ARM template) and template parameters files. In this scenario, you have to define and set the parameters *at deployment*. This requirement means that even if you only have to change one variable, you have to redeploy your logic app's ARM template.
 
 In single-tenant Standard logic app workflows, you can work with environment variables both at runtime and deployment by using parameters *and* app settings. App settings contain global configuration options for *all the workflows* in the same logic app resource. For more information, review [Edit host and app settings for single-tenant based logic apps](edit-app-settings-host-settings.md).
 
@@ -78,61 +79,17 @@ For example, if you use Visual Studio Code as your local development tool to run
 
 ## Define, use, and edit parameters
 
-### [Consumption](#tab/consumption)
-
-### Azure portal
-
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow. Under **Workflows**, select and open your workflow in the designer.
-
-1. From the designer toolbar, select **Parameters**.
-
-   ![Screenshot showing Azure portal, designer for Consumption workflow, and "Parameters" on designer toolbar selected.](./media/create-parameters-workflows/select-parameters-consumption.png)
-
-1. On the **Parameters** pane, select **Add parameter**.
-
-1. Provide the following information about the parameter to create:
-
-   | Property | Required | Description |
-   |----------|----------|-------------|
-   | **Name** | Yes | The name for the parameter to create. |
-   | **Type** | Yes | The data type for the parameter, such as **Array**, **Bool**, **Float**, **Int**, **Object**, **Secure Object**, **Secure String**, and **String**. |
-   | **Default Value** | Yes | The default value for the parameter. You have to specify the default parameter value because the workflow logic, connection information, and parameter values don't exist in a single location. The designer must be able to resolve the parameter values before loading. <br><br>**Important**: For the **Secure Object** and **Secure String** data types, avoid setting a default value because the value is stored as plain text.|
-   | **Actual Value** | No | The actual value for the parameter. |
-   ||||
-
-   The following example shows a definition for a string parameter:
-
-   ![Screenshot showing Azure portal, designer for Consumption workflow, and the "Parameters" pane with an example parameter definition.](./media/create-parameters-workflows/define-parameter-consumption.png)
-
-1. If you have more parameters to add, select **Add Parameter**. Otherwise, close the parameters pane, but make sure to save your workflow to save your new parameter definition.
-
-1. To reference the parameter from a trigger or action that's in the same workflow, follow these steps:
-
-   1. In the designer, open the workflow that you want, and expand the trigger or action.
-
-   1. In the property where you want to use the parameter, click inside that property's edit box.
-
-   1. From the dynamic content list that opens, under **Parameters**, select your previously created parameter, for example:
-
-      ![Screenshot showing designer for Consumption workflow and example action with the cursor in property edit box, expanded dynamic content list, and previously created parameter selected.](./media/create-parameters-workflows/reference-parameter-consumption.png)
-
-1. To view or edit the parameters in a logic app workflow, follow these steps:
-
-   1. Open the logic app workflow in the designer. On the designer toolbar, select **Parameters**.
-
-      The **Parameters** pane opens and displays all the parameters that you defined for that workflow.
-
-   1. Make your edits, close the parameters pane, and save your logic app workflow.
-
-### [Standard](#tab/standard)
-
 #### Azure portal
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app resource. Under **Workflows**, open your workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
+
+1. For Standard logic apps, select **Workflows** > **Workflows**, then open your workflow in the designer.
+
+   For Consumption logic apps, select **Development Tools** > **Logic app designer**.
 
 1. From the designer toolbar, select **Parameters**.
 
-   ![Screenshot showing Azure portal, designer for Standard workflow, and "Parameters" on designer toolbar selected.](./media/create-parameters-workflows/select-parameters-standard.png)
+   ![Screenshot showing Azure portal, designer for Standard workflow, and "Parameters" on designer toolbar selected.](./media/create-parameters-workflows/select-parameter.png)
 
 1. On the **Parameters** pane, select **Create parameter**.
 
@@ -142,11 +99,13 @@ For example, if you use Visual Studio Code as your local development tool to run
    |----------|----------|-------------|
    | **Name** | Yes | The name for the parameter to create. |
    | **Type** | Yes | The data type for the parameter, such as **Array**, **Bool**, **Float**, **Int**, **Object**, and **String**. <br><br>**Note**: In Standard logic app workflows, secure data types, such as `securestring` and `secureobject`, aren't supported. |
-   | **Value** | Yes | The value for the parameter. <br><br>In Standard logic app workflows, you have to specify the parameter value because the workflow logic, connection information, and parameter values don't exist in a single location. The designer must be able to resolve the parameter values before loading. |
+   | **Value** (Standard) | Yes | The value for the parameter. <br><br>In Standard logic app workflows, specify the parameter value. The workflow logic, connection information, and parameter values don't exist in a single location. The designer must be able to resolve the parameter values before loading. |
+   | **Default Value** (Consumption) | Yes | The default value for the parameter. You have to specify the default parameter value. The workflow logic, connection information, and parameter values don't exist in a single location. The designer must be able to resolve the parameter values before loading. <br><br>**Important**: For the **Secure Object** and **Secure String** data types, avoid setting a default value because the value is stored as plain text. |
+   | **Actual Value** (Consumption) | No | The actual value for the parameter. |
 
    The following example shows a definition for a string parameter:
 
-   ![Screenshot showing Azure portal, designer for Standard workflow, and the "Parameters" pane with an example parameter definition.](./media/create-parameters-workflows/define-parameter-standard.png)
+   ![Screenshot showing Azure portal, designer for Standard workflow, and the "Parameters" pane with an example parameter definition.](./media/create-parameters-workflows/define-parameter.png)
 
 1. When you're done, close the **Parameters** pane, but make sure to save your workflow to save your new parameter definition.
 
@@ -154,19 +113,19 @@ For example, if you use Visual Studio Code as your local development tool to run
 
    1. In the designer, open the workflow that you want, and expand the trigger or action.
 
-   1. In the property where you want to use the parameter, click inside that property's edit box.
+   1. In the property where you want to use the parameter, select inside that property's edit box. Select the lightning icon to open the dynamic content list.
 
-   1. From the dynamic content list that opens, under **Parameters**, select your previously created parameter, for example:
+   1. From that list, under **Parameters**, select your previously created parameter, for example:
 
-      ![Screenshot showing example action with the cursor in property edit box, expanded dynamic content list, and previously created parameter selected.](./media/create-parameters-workflows/reference-parameter-standard.png)
+      ![Screenshot showing example action with the cursor in property edit box, expanded dynamic content list, and previously created parameter selected.](./media/create-parameters-workflows/reference-parameter.png)
 
-1. To view or edit parameters in the same logic app, follow either step:
+1. To view or edit parameters in the same logic app:
 
    * Open any workflow in that logic app. On the workflow menu, select **Designer**. On the designer toolbar, select **Parameters**.
 
      The **Parameters** pane opens and displays all the parameters that you defined from workflows in that logic app.
 
-   * To view or edit in bulk JSON, on your logic app's main menu, select **Parameters**.
+   * (Standard workflows only) To view or edit in bulk JSON, on your logic app's main menu, select **Parameters**.
 
      The **Parameters** JSON view opens and displays all the parameters that you defined from workflows in that logic app.
 
@@ -209,11 +168,11 @@ To parameterize your **connections.json** file, replace the values for literals,
 > [!IMPORTANT]
 >
 > If you parameterize the **connections.json** file during development, the designer experience becomes restricted, 
-> both locally and in the Azure portal. If you need to use the designer for development, use a non-parameterized 
+> both locally and in the Azure portal. If you need to use the designer for development, use a nonparameterized 
 > **connections.json** file instead. Then, in your deployment pipelines, replace with the parameterized file. 
 > The runtime still works with parameterization. Designer improvements are in development.
 
-The following example shows a parameterized **connections.json** file that uses both app settings and parameters. Although you want to use parameters where possible, this scenario is an exception or edge case where you'd use app settings over parameters because app settings are generated during deployment and are easier to dynamically populate in a development pipeline. This sample file uses a parameter for the complex `blob_auth` authentication object and app settings for the other values. In this case, you can use a parameter for the authentication object as you're unlikely to reference the parameter in your workflow:
+The following example shows a parameterized **connections.json** file that uses both app settings and parameters. You want to use parameters where possible. Because app settings are generated during deployment and are easier to dynamically populate in a development pipeline, you should use app settings over parameters in this scenario. This sample file uses a parameter for the complex `blob_auth` authentication object and app settings for the other values. In this case, you can use a parameter for the authentication object as you're unlikely to reference the parameter in your workflow:
 
 ```json
 {
@@ -274,7 +233,7 @@ If you have a NuGet-based logic app project, you have to update your project fil
 ```
 
 > [!NOTE]
-> Currently, the capability to dynamically replace parameters files is not yet available in the Azure portal or the workflow designer.
+> Currently, the capability to dynamically replace parameters files isn't yet available in the Azure portal or the workflow designer.
 
 For more information about setting up your logic apps for DevOps deployments, review the following documentation:
 
@@ -293,25 +252,23 @@ To review the app settings for your logic app resource in the Azure portal, foll
 
 1. In the [Azure portal](https://portal.azure.com/), open your logic app resource.
 
-1. On your logic app menu, under **Settings**, select **Configuration**.
+1. On your logic app menu, under **Settings**, select **Environment variables**.
 
-1. On the **Configuration** page, on the **Application settings** tab, review the app settings for your logic app.
+1. On the **Environment variables** page, on the **App settings** tab, review the app settings for your logic app.
 
 1. To view all values, select **Show Values**. Or, to view a single value, select that value.
 
 To add a new setting, follow these steps:
 
-1. On the **Application settings** tab, under **Application settings**, select **New application setting**.
+1. Under **Application settings**, select **+ Add**.
 
 1. For **Name**, enter the *key* or name for your new setting.
 
 1. For **Value**, enter the value for your new setting.
 
-1. When you're ready to create your new *key-value* pair, select **OK**.
+1. If necessary, select **Deployment slot setting**. 
 
-   ![Screenshot showing the Azure portal and the configuration pane with the app settings and values for a Standard logic app.](./media/create-parameters-workflows/app-settings-values-standard.png)
-
-1. When you're done, on the **Configuration** toolbar, select **Save**.
+1. When you're ready to create your new *key-value* pair, select **Apply**.
 
 #### Azure CLI
 
@@ -346,8 +303,6 @@ This example shows file settings for either ARM templates or Bicep files:
     <...>
 ], 
 ```
-
----
 
 ## Related content
 
