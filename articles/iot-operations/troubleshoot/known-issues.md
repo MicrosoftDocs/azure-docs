@@ -321,6 +321,49 @@ When you create a data flow graph using the WASM, the MQTT session doesn't have 
 
 To work around this issue, set MQTT broker **Retained messages** mode to `All`. For more information, see [Configure MQTT broker persistence](../manage-mqtt-broker/howto-broker-persistence.md).
 
+### Anonymous authentication fails to pull data flow graph definitions with incorrect media type
+
+---
+
+Issue ID: 0623
+
+---
+
+Log signature: N/A
+
+---
+
+When using anonymous authentication for registry endpoints, pulling data flow graph definitions (YAML files) fails unless the uploaded graph YAML media type is set specifically to `application/vnd.wasm.config.v1+json`.
+
+To work around this issue, ensure that when you upload data flow graph definitions to your container registry, you set the correct media type. For more information about graph definitions, see [Configure WebAssembly graph definitions](../connect-to-cloud/howto-configure-wasm-graph-definitions.md). For example, when using the `oras` CLI tool to push the graph YAML file, use the following command:
+
+```bash
+oras push --config config.json:application/vnd.wasm.config.v1+json <registry>/<repository>:<tag> graph.yaml:application/vnd.wasm.content.layer.v1+wasm
+```
+
+And the artifact manifest should look like this:
+
+```json
+{
+  "schemaVersion": 2,
+  "config": {
+    "mediaType": "application/vnd.wasm.config.v1+json",
+    "digest": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "size": 2
+  },
+  "layers": [
+    {
+      "mediaType": "application/vnd.wasm.content.layer.v1+wasm",
+      "digest": "sha256:cfa3ece7317a0c2598165bd67a9241bb6a2f48706023d0983078f0c2a8b5b8c0",
+      "size": 556,
+      "annotations": {
+        "org.opencontainers.image.title": "graph.yaml"
+      }
+    }
+  ]
+}
+```
+
 ### Complex data might be flattened when enriching data in a data flow
 
 ---
