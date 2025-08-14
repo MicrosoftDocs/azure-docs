@@ -4,7 +4,7 @@ description: Known issues for the MQTT broker, Layered Network Management (previ
 author: dominicbetts
 ms.author: dobett
 ms.topic: troubleshooting-known-issue
-ms.date: 08/07/2025
+ms.date: 08/14/2025
 ---
 
 # Known issues: Azure IoT Operations
@@ -363,6 +363,27 @@ And the artifact manifest should look like this:
   ]
 }
 ```
+
+### Data flow graphs only support specific endpoint types
+
+---
+
+Issue ID: 5693
+
+---
+
+Log signature: N/A
+
+---
+
+Data flow graphs (WASM) currently only support MQTT, Kafka, and OpenTelemetry (OTel) data flow endpoints. OpenTelemetry endpoints can only be used as destinations in data flow graphs. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage are not supported for data flow graphs.
+
+To work around this issue, use one of the supported endpoint types:
+- [MQTT endpoints](../connect-to-cloud/howto-configure-mqtt-endpoint.md) for bi-directional messaging with MQTT brokers
+- [Kafka endpoints](../connect-to-cloud/howto-configure-kafka-endpoint.md) for bi-directional messaging with Kafka brokers, including Azure Event Hubs
+- [OpenTelemetry endpoints](../connect-to-cloud/howto-configure-opentelemetry-endpoint.md) for sending metrics and logs to observability platforms (destination only)
+
+For more information about data flow graphs, see [Use WebAssembly (WASM) with data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md).
 
 ### Complex data might be flattened when enriching data in a data flow
 
