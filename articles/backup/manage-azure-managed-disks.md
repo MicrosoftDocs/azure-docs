@@ -2,7 +2,7 @@
 title: Manage Azure Managed Disks
 description: Learn about managing Azure Managed Disk from the Azure portal.
 ms.topic: how-to
-ms.date: 04/16/2025
+ms.date: 08/14/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.service: azure-backup
@@ -19,11 +19,17 @@ This article explains how to manage Azure Managed Disk from the Azure portal.
 
 You can change the associated policy with a backup instance.
 
-1. Select the **Backup Instance** -> **Change Policy**.
+To change the backup policy for Azure Disk, follow these steps:
+
+1. Go to the **Backup vault**, and then select **Manage** > **Backup instances**.
+
+1. On the **Backup instances** pane, select the Azure Disk backup instance > **More icon** > **Edit backup instance**.
+
+1. On the **Edit backup instance** pane, under **Policy**, select a new backup policy from the drop-down list, and then select **Validate**.
 
    :::image type="content" source="./media/manage-azure-database-postgresql/change-policy.png" alt-text="Screenshot showing the option to change policy.":::
    
-1. Select the new policy that you wish to apply to the database.
+1. After a successful validation, select **Apply**.
 
    :::image type="content" source="./media/manage-azure-database-postgresql/reassign-policy.png" alt-text="Screenshot showing the option to reassign policy.":::
 
