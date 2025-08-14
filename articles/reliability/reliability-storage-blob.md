@@ -68,7 +68,7 @@ For more information, see [Blob Storage pricing](https://azure.microsoft.com/pri
 
 ### Configure availability zone support
 
-- **Create a blob storage account with zone redundancy:** To create a new storage account with ZRS, see [Create a storage account](/azure/storage/common/storage-account-create) and select **ZRS**, **geo-zone-redundant storage (GZRS)** or **read-access geo-redundant storage (RA-GZRS)** as the redundancy option during account creation.
+- **Create a blob storage account with zone redundancy:** To create a new storage account with ZRS, see [Create a storage account](/azure/storage/common/storage-account-create) and select **ZRS**, **geo-zone-redundant storage (GZRS)**, or **read-access geo-redundant storage (RA-GZRS)** as the redundancy option during account creation.
 
 [!INCLUDE [Storage - Configure availability zone support](includes/storage/reliability-storage-availability-zone-configure-include.md)]
 
