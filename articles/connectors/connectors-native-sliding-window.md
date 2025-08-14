@@ -57,9 +57,9 @@ For more information about the **Schedule** built-in triggers and actions, inclu
 
       1. On the designer, select **Add a trigger**.
 
-1. Follow the [general steps](../logic-apps/add-trigger-or-action-workflow.md#add-trigger) to add the **Schedule** trigger named **Sliding Window** to your workflow.
+1. Follow the [general steps](../logic-apps/add-trigger-action-workflow.md#add-trigger) to add the **Schedule** trigger named **Sliding Window** to your workflow.
 
-   :::image type="content" source="./media/connectors-native-sliding-window/add-sliding-window-trigger.png" alt-text="Screenshot shows the Logic app designer with adding a trigger called Sliding Window.":::
+   :::image type="content" source="./media/connectors-native-sliding-window/add-sliding-window-trigger.png" alt-text="Screenshot shows the Logic app designer with a newly added trigger called Sliding Window.":::
 
 1. In the **How often do you want to check for items?** section, enter the interval and frequency for the recurrence. For this example, set these parameters to run your workflow every week.
 
