@@ -7,6 +7,7 @@ ms.date: 12/30/2022
 ms.custom: MVC, engagement-fy23
 ms.author: jsuri
 author: jyothisuri
+# Customer intent: As a system administrator, I want to migrate my on-premises Windows Server 2008 machines to Azure using a structured migration process, so that I can ensure a smooth transition and maintain operational continuity during the migration.
 ---
 
 

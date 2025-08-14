@@ -1,6 +1,6 @@
 ---
-author: Leah-Xia-Microsoft
-ms.author: leahxia
+author: awang119
+ms.author: awang119
 ms.date: 01/04/2023
 ms.topic: include
 ms.service: azure-communication-services
@@ -49,7 +49,7 @@ In Xcode, create a new project.
     
     target 'UILibraryQuickStart' do
         use_frameworks!
-        pod 'AzureCommunicationUIChat', '1.0.0-beta.4'
+        pod 'AzureCommunicationUIChat', '1.0.0-beta.5'
     end
     ```
 
@@ -57,11 +57,13 @@ In Xcode, create a new project.
 
 1. In Xcode, open the generated *xcworkspace* file.
 
-### Turn off Bitcode
+### Turn off User Script Sandboxing
 
-In the Xcode project, under **Build Settings**, set the **Enable Bitcode** option to **No**. To find the setting, change the filter from **Basic** to **All** or use the search bar.
+Some of the scripts within the linked libraries write files during the build process. To enable file writing, disable the User Script Sandboxing in Xcode.
 
-:::image type="content" source="../../media/xcode-bitcode-option.png" alt-text="Screenshot that shows the Build Settings option to turn off Bitcode.":::
+In the Xcode project, under **Build Settings**, set the **User Script Sandboxing** option to **No**. To find the setting, change the filter from **Basic** to **All** or use the search bar.
+
+:::image type="content" source="../../media/xcode-sandbox-option.png" alt-text="Screenshot that shows the Build Settings option to turn off User Script Sandboxing.":::
 
 ## Initialize the composite
 
@@ -83,9 +85,11 @@ To initialize the composite:
             super.viewDidLoad()
     
             let button = UIButton()
-            button.contentEdgeInsets = UIEdgeInsets(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0)
+            var configuration = UIButton.Configuration.filled()
+            configuration.contentInsets = NSDirectionalEdgeInsets(top: 10.0, leading: 20.0, bottom: 10.0, trailing: 20.0)
+            configuration.baseBackgroundColor = .systemBlue
+            button.configuration = configuration
             button.layer.cornerRadius = 10
-            button.backgroundColor = .systemBlue
             button.setTitle("Start Experience", for: .normal)
             button.addTarget(self, action: #selector(startChatComposite), for: .touchUpInside)
     

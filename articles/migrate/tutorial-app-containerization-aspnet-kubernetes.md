@@ -7,6 +7,7 @@ ms.custom: subject-rbac-steps, engagement-fy24
 ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 02/06/2025
+# Customer intent: As a cloud architect, I want to containerize and migrate ASP.NET applications to Azure Kubernetes Service, so that I can modernize application deployment and improve resource utilization without rewriting existing code.
 ---
 # ASP.NET app containerization and migration to Azure Kubernetes Service
 

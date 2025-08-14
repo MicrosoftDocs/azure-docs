@@ -7,6 +7,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 01/19/2024
+# Customer intent: "As a security analyst, I want to create analytic rules in a SIEM solution that integrate with a Web Application Firewall, so that I can automate the detection and response to web application attack threats such as Code Injection and Path Traversal."
 ---
 
 # Detect new threats using Microsoft Sentinel with Azure Web Application Firewall

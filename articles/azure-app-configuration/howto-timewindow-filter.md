@@ -7,7 +7,7 @@ ms.devlang: csharp
 author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.topic: how-to
-ms.date: 10/31/2024
+ms.date: 07/08/2025
 #customer intent: As an application developer, I want to enable a recurring time window filter in a feature flag so that I can enable or disable features on a schedule.
 ---
 
@@ -58,6 +58,8 @@ In this article, you learn how to add and configure a time window filter for you
 
     - [ASP.NET Core](./howto-timewindow-filter-aspnet-core.md)
     - [JavaScript](./howto-timewindow-filter-javascript.md)
+    - [Go Gin](./howto-timewindow-filter-go.md)
+    - [Python](./howto-time-window-filter-python.md)
 
 ## Next steps
 

@@ -7,6 +7,7 @@ author: akashdubey-ms
 ms.author: akashdubey
 ms.topic: overview
 ms.date: 05/27/2021
+# Customer intent: "As a developer, I want to store and retrieve structured NoSQL data in the cloud, so that I can efficiently manage flexible datasets for my applications without the constraints of a traditional database schema."
 ---
 
 # What is Azure Table storage?

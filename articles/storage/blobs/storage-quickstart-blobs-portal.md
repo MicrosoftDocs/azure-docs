@@ -9,6 +9,7 @@ ms.topic: quickstart
 ms.date: 05/22/2025
 ms.author: shaas
 ms.custom: mode-ui, akash-accuracy-may-2025
+# Customer intent: "As a cloud user, I want to upload, download, and manage blobs in object storage, so that I can efficiently handle my data storage needs using a web portal."
 ---
 
 # Quickstart: Upload, download, and list blobs with the Azure portal

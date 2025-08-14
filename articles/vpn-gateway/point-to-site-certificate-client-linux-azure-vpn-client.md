@@ -10,6 +10,7 @@ ms.date: 02/26/2025
 ms.author: cherylmc
 
 # This disclaimer is in the "vpn-gateway-vwan-azure-vpn-client-certificate-linux" include file, so it doesn't need to be repeated in the article. "Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that aren't present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable."
+# Customer intent: As a Linux user, I want to configure the Azure VPN Client for certificate authentication, so that I can securely connect to my Azure virtual network using a point-to-site connection.
 ---
 
 # Configure Azure VPN Client – Certificate authentication OpenVPN – Linux (Preview)

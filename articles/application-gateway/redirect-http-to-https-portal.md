@@ -9,6 +9,7 @@ ms.date: 05/19/2023
 ms.author: mbender 
 ms.custom: devx-track-azurepowershell
 
+# Customer intent: "As a cloud architect, I want to configure an application gateway for HTTP to HTTPS redirection, so that I can ensure secure communication for users accessing my web applications."
 ---
 # Create an application gateway with HTTP to HTTPS redirection using the Azure portal
 

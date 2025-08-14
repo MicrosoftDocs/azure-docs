@@ -89,7 +89,7 @@ If you don't mind the workarounds, Azure Automation is the easier way to deploy 
 
 ### Developer tools
 
-We highly recommend local development through [Visual Studio Code](https://code.visualstudio.com/), for both [Functions](../azure-functions/create-first-function-vs-code-powershell.md) and [Stream Analytics](./quick-create-visual-studio-code.md). Using a local development environment allows you to use source control and helps you easily repeat deployments. But for the sake of brevity, this article illustrates the process in the [Azure portal](https://portal.azure.com).
+We highly recommend local development through [Visual Studio Code](https://code.visualstudio.com/), for both [Functions](../azure-functions/how-to-create-function-vs-code.md?pivot=programming-language-powershell) and [Stream Analytics](./quick-create-visual-studio-code.md). Using a local development environment allows you to use source control and helps you easily repeat deployments. But for the sake of brevity, this article illustrates the process in the [Azure portal](https://portal.azure.com).
 
 ## Writing the PowerShell script locally
 

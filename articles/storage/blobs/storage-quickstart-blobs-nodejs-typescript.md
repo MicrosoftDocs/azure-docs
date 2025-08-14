@@ -8,6 +8,7 @@ ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: typescript
 ms.custom: devx-track-js, mode-api, passwordless-js, devx-track-extended-azdevcli, devx-track-ts
+# Customer intent: As a developer learning to manage Azure Blob Storage with TypeScript, I want to install and utilize the Blob Storage client library so that I can create containers, upload and download blobs, and effectively manage my data in the cloud.
 ---
 
 # Quickstart: Azure Blob Storage client library for Node.js with TypeScript

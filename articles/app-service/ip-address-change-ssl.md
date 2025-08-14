@@ -4,10 +4,12 @@ description: If your TLS/SSL IP address is going to be changed, learn what to do
 
 ms.topic: article
 ms.date: 06/28/2018
+ms.update-cycle: 1095-days
 ms.custom: UpdateFrequency3
 ms.author: msangapu
 author: msangapu-msft
 
+ms.service: azure-app-service
 ---
 
 # How to prepare for a TLS/SSL IP address change

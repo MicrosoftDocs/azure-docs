@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.custom: references_regions
 ms.date: 06/06/2022
 ms.author: shaas
+# Customer intent: As a logistics coordinator, I want to manage shipping for Azure Data Box devices using the self-managed option, so that I can streamline the process of ordering, picking up, and returning data storage solutions efficiently.
 ---
 
 # Use self-managed shipping for Azure Data Box in the Azure portal

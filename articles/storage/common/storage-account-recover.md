@@ -10,6 +10,7 @@ ms.topic: concept-article
 ms.date: 01/25/2023
 ms.author: akashdubey
 ms.subservice: storage-common-concepts
+# Customer intent: As a cloud administrator, I want to recover a deleted storage account from the Azure portal, so that I can restore essential data and resources within the specified recovery window.
 ---
 
 # Recover a deleted storage account

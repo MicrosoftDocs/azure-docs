@@ -8,6 +8,7 @@ ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 12/02/2024
 ms.author: cherylmc
+# Customer intent: "As a network administrator, I want to create a site-to-site VPN connection using shared key authentication and Azure CLI, so that I can securely connect my on-premises network to a virtual network in Azure."
 ---
 # Create a site-to-site VPN connection - Azure CLI
 

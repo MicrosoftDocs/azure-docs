@@ -7,6 +7,7 @@ ms.date: 01/15/2025
 author: apwestgarth
 ms.author: msangapu
 ROBOTS: NOINDEX
+ms.service: azure-app-service
 ---
 
 # App Service, Functions, and Logic Apps on Azure Arc (Preview)

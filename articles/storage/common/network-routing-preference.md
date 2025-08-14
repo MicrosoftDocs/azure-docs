@@ -11,6 +11,7 @@ ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: storage-common-concepts
 ms.custom: references_regions, engagement-fy23
+# Customer intent: As a cloud architect, I want to configure network routing preferences for Azure Storage accounts so that I can optimize traffic for performance or cost efficiency based on my organization's needs.
 ---
 
 # Network routing preference for Azure Storage

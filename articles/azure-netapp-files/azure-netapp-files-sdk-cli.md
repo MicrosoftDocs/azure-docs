@@ -8,6 +8,7 @@ ms.custom: devx-track-arm-template, devx-track-azurecli
 ms.topic: concept-article
 ms.date: 09/30/2024
 ms.author: anfdocs
+# Customer intent: "As a developer using Azure NetApp Files, I want to access SDKs and CLI tools, so that I can efficiently manage resources and automate deployments for my applications."
 ---
 # Azure NetApp Files SDKs, CLI tools, and ARM templates
 

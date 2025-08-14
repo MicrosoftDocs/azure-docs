@@ -41,13 +41,16 @@ The following list of capabilities is supported for scenarios where at least one
 | | Terminate the entire call (ending the call for all participants) | ✔️ | ✔️ |
 | | Add an agent to an ongoing call | ✔️ | ✔️ |
 | | Add external phone number from an ongoing call | ✔️  | ✔️ |
+| | Add a Teams user to an ongoing call | ❌ | ❌ |
 | | Cancel an already initiated add participant request, as long as the the target agent / phone number has yet to accept the call invite | ❌ | ✔️ |
 | | Remove a call participant from ongoing call | ✔️ | ✔️  |
 | | Dial out to same phone number multiple times in a call | ❌ | ❌ |
 | | Transfer the end user from ongoing 1:1 call to another agent or external phone number | ✔️ | ✔️ |
 | | Transfer the end user from ongoing group call to another agent or external phone number | ❌ | ✔️ |
+| | Transfer the end user from ongoing 1:1 call to a Teams user | ❌ | ❌ |
+| | Transfer the end user from ongoing group call to a Teams user | ❌ | ❌ |
 | | Retrieve call properties (`GetCall`) | N/A  | ✔️ |
-| | Send custom context as part of call invite  (AddParticipant and Transfer) | ❌ | ✔️ |
+| | Send custom context as part of call invite  (AddParticipant and Transfer) | ✔️ | ✔️ |
 | | Receive custom context as part of call invite (AddParticipant and Transfer) | ✔️ | ✔️ |
 | | Send and receive SIP headers (UUI and X-header) as part of call invite to and from SIP endpoints | N/A | ✔️ |
 | Mid-call actions (media)  | Developer can play audio (from audio file or text/SSML) to target participant (end user or an agent) | N/A | ✔️ |

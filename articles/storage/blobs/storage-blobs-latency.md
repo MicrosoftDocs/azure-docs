@@ -9,6 +9,7 @@ ms.service: azure-blob-storage
 ms.topic: overview
 ms.date: 11/19/2019
 ms.author: akashdubey
+# Customer intent: As a cloud application developer, I want to measure and optimize latency for Blob storage operations, so that I can ensure high performance and responsiveness in my applications handling large data sets or real-time transactions.
 ---
 
 # Latency in Blob storage
