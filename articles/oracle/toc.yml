@@ -25,7 +25,7 @@ items:
     items:
     - name: Manage Oracle TDE with Azure Key Vault
       href: oracle-db/manage-oracle-transparent-data-encryption-azure-key-vault.md
-    - name: Oracle Exadata Database on Dedicated Infrastructure Logs at Azure for Enhanced Observability
+    - name: Oracle Exadata Database on Dedicated Infrastructure Logs on Azure for Enhanced Observability
       href: oracle-db/oracle-exadata-database-on-dedicated-infrastructure-logs.md
   - name: Onboarding
     items:

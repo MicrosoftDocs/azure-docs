@@ -1,5 +1,5 @@
 ---
-title: Oracle Exadata Database on Dedicated Infrastructure Logs at Azure for Enhanced Observability
+title: Oracle Exadata Database on Dedicated Infrastructure Logs on Azure for Enhanced Observability
 description: Learn how to integrate Oracle Exadata Database logs with Azure Monitor and Microsoft Sentinel.
 author: jjaygbay1
 ms.service: oracle-on-azure
@@ -10,7 +10,7 @@ ms.author: jacobjaygbay
 # Customer intent: As a cloud engineer, I want to automate the provisioning and management of Oracle Database resources on Azure using HashiCorp Terraform, enabling efficient, repeatable, and scalable infrastructure deployment and configuration management.
 ---
 
-# Oracle Exadata Database on Dedicated Infrastructure Logs at Azure for Enhanced Observability
+# Oracle Exadata Database on dedicated infrastructure logs on Azure for Enhanced Observability
 
 
 In this article, you learn how to integrate Oracle Exadata Database
