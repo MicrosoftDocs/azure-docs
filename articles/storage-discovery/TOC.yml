@@ -19,7 +19,11 @@ items:
   - name: Deploy
     items:
     - name: Create Storage Discovery Workspace
-      href: create-workspace.md     
+      href: create-workspace.md
+  - name: Explore insights
+    items:
+    - name: Get Started on Storage Discovery Reports
+      href: get-started-reports.md
 - name: Resources
   items:
   - name: Release notes
