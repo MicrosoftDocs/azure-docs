@@ -40,6 +40,9 @@ The connector supports the Windows versions in this [article](create-self-hosted
 
 The billing_on column property was removed from the Recurring_Application_Charges and UsageCharge tables due to Shopify's official deprecation of billing_on field.
 
+> [!Note]
+> For version 2.0 (Preview), column names retain the Shopify GraphQL structure, such as `data.customers.edges.node.xx`. For version 1.0, column names use simplified names.
+
 ## Getting started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
@@ -73,7 +76,7 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The Shopify connector now supports version 2.0 (Preview). Refer to this [section](#upgrade-the-shopify-connector) to upgrade your Shopify connector version from version 1.0. For the property details, see the corresponding sections.
+The Shopify connector now supports version 2.0 (Preview). Refer to this [section](#upgrade-the-shopify-connector-from-version-10-to-version-20) to upgrade your Shopify connector version from version 1.0. For the property details, see the corresponding sections.
 
 - [Version 2.0 (Preview)](#version-20)
 - [Version 1.0](#version-10)
@@ -178,7 +181,7 @@ To copy data from Shopify, set the source type in the copy activity to **Shopify
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **ShopifySource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. <br><br>Apply only to version 1.0. | No (if "tableName" in dataset is specified) |
+| query | Use the custom SQL query to read data. For example: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. <br><br>Only Apply to version 1.0. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 
@@ -243,12 +246,13 @@ The following table shows the release stage and change logs for different versio
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
 | Version 1.0 | End of support announced | / |  
-| Version 2.0 | Public Preview | • `query` is not supported. <br><br> • `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported. |
+| Version 2.0 | Public Preview | • Column names retain the Shopify GraphQL structure, such as `data.customers.edges.node.xx`. <br><br> • `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. <br><br>  • `query` is not supported in Copy activity. |
 
 ### <a name="upgrade-the-shopify-connector-from-version-10-to-version-20"></a> Upgrade the Shopify connector from version 1.0 to version 2.0 (Preview)
 
 1. In **Edit linked service** page, select 2.0 (Preview) for version. For more information, see [linked service version 2.0 (Preview) properties](#version-20).
-1. `query` is not supported in version 2.0 (Preview).
+1. For version 2.0 (Preview), column names retain the Shopify GraphQL structure, such as `data.customers.edges.node.xx`. For version 1.0, column names use simplified names.
+1. `query` is only supported in version 1.0 for Copy activity.
 
 
 ## Related content
