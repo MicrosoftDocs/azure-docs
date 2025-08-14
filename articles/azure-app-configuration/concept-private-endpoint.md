@@ -27,7 +27,7 @@ The availability of private endpoints depends on the App Configuration tier:
 | Free | 0 |
 | Developer | 1 |
 | Standard | 10 |
-| Premium | 100 |
+| Premium | 40 |
 
 For more information about pricing, see [Azure App Configuration pricing](https://azure.microsoft.com/pricing/details/app-configuration/).
 

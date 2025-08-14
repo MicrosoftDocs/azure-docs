@@ -9,6 +9,7 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: devx-track-js
+ms.service: azure-app-service
 ---
 # Best practices and troubleshooting guide for node applications on Azure App Service Windows
 

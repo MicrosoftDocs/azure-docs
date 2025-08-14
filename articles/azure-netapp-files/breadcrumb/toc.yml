@@ -1,0 +1,7 @@
+items:
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Azure NetApp Files
+    tocHref: /azure/reliability

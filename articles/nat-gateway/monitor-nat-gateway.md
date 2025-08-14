@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure NAT Gateway
 description: Start here to learn how to monitor Azure NAT Gateway by using the available Azure Monitor metrics and alerts.
-ms.date: 12/02/2024
+ms.date: 08/12/2025
 ms.custom: horz-monitor
 ms.topic: concept-article
 author: asudbring
@@ -20,9 +20,8 @@ This table describes how you can collect data to monitor your service, and what 
 
 |Data to collect|Description|How to collect and route the data|Where to view the data|Supported data|
 |---------|---------|---------|---------|---------|
-|Metric data|Metrics are numerical values that describe an aspect of a system at a particular point in time. Metrics can be aggregated using algorithms, compared to other metrics, and analyzed for trends over time.|[- Collected automatically at regular intervals.</br> - You can route some platform metrics to a Log Analytics workspace to query with other data. Check the **DS export** setting for each metric to see if you can use a diagnostic setting to route the metric data.]|[Metrics explorer](/azure/azure-monitor/essentials/metrics-getting-started)| [Azure NAT Gateway metrics supported by Azure Monitor](/azure/nat-gateway/monitor-nat-gateway-reference#metrics)|
-|Resource log data|Logs are recorded system events with a timestamp. Logs can contain different types of data, and be structured or free-form text. You can route resource log data to Log Analytics workspaces for querying and analysis.|| [Log Analytics](/azure/azure-monitor/learn/quick-create-workspace)|[Azure NAT Gateway resource log data supported by Azure Monitor](/azure/nat-gateway/monitor-nat-gateway-reference#activity-log)  |
-|Activity log data|The Azure Monitor activity log provides insight into subscription-level events. The activity log includes information like when a resource is modified or a virtual machine is started.|- Collected automatically.</br> - [Create a diagnostic setting](/azure/azure-monitor/essentials/create-diagnostic-settings) to a Log Analytics workspace at no charge.|[Activity log](/azure/azure-monitor/essentials/activity-log)|  |
+|Metric data|Metrics are numerical values that describe an aspect of a system at a particular point in time. Metrics can be aggregated using algorithms, compared to other metrics, and analyzed for trends over time.| You can export metric data using the [Azure Monitor REST API](/azure/azure-monitor/essentials/rest-api-walkthrough). Metrics can be obtained by [data collection rules](/azure/azure-monitor/data-collection/data-collection-metrics?tabs=log-analytics-workspaces). This feature is currently in preview.|[Metrics explorer](/azure/azure-monitor/essentials/metrics-getting-started)| [Azure NAT Gateway metrics supported by Azure Monitor](/azure/nat-gateway/monitor-nat-gateway-reference#metrics)|
+|Activity log data|The Azure Monitor activity log provides insight into subscription-level events. The activity log includes information like when a resource is modified or a virtual machine is started.| You can export activity log data using the [Azure Monitor REST API](/azure/azure-monitor/essentials/rest-api-walkthrough). Activity logs can be obtained by [data collection rules](/azure/azure-monitor/data-collection/data-collection-metrics?tabs=log-analytics-workspaces). This feature is currently in preview.|[Activity log](/azure/azure-monitor/essentials/activity-log)|  |
 
 [!INCLUDE [azmon-horz-supported-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-supported-data.md)]
 

@@ -71,6 +71,11 @@ sections:
           Yes.
 
       - question: |
+          When viewing my Traffic Analytics workbooks, my data doesn't load due to 'low memory error'. How can I fix this to view my data in workbook? 
+        answer: |
+          Traffic Analytics workbooks are powered by Log Analytics queries. If the query exceeds limits for log analytics, the workbook could present low memory errors. To improve performance and reduce low memory errors, users can use Dedicated Log Analytics Clusters.
+
+      - question: |
           Will I lose the data stored in Log Analytics workspace if I delete the storage account used for flow logging?
         answer: |
           No. If you delete the storage account that is used for flow logs, the data stored in Log Analytics workspace won't be affected. You can still view historic data in Log Analytics workspace (some metrics will be impacted) but traffic analytics will no longer process any new flow logs until you update the flow logs to use a different storage account.
