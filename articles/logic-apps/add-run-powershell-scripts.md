@@ -74,7 +74,7 @@ You can change the PowerShell version in your logic app resource by editing the 
 > version as Azure Functions. Currently, PowerShell 7.4 is generally available. For more information 
 > about available versions, see the [Azure Functions PowerShell developer guide](../azure-functions/functions-reference-powershell.md#powershell-versions).
 
-To update the PowerShell version, follow these steps:
+Based on where you want to update the PowerShell version, follow the corresponding steps:
 
 ### [Portal](#tab/portal)
 
@@ -97,11 +97,9 @@ To update the PowerShell version, follow these steps:
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
-To update the PowerShell version in your logic app project, follow these steps:
-
 1. In Visual Studio Code, open the workspace for your logic app project.
 
-1. From your logic app root project folder, open the *local.settings.json* file.
+1. In your logic app project, from the root folder, open the *local.settings.json* file.
 
 1. In the *local.settings.json* file, add the **LOGIC_APPS_POWERSHELL_VERSION** setting and value, for example:
 
