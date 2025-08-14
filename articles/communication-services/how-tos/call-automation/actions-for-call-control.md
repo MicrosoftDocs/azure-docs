@@ -915,6 +915,7 @@ result = call_connection_client.move_participant(
 )
 ```
 -----
+MoveParticipants publishes a MoveParticipantSucceeded or MoveParticipantFailed event to the target call.
 
 ## Remove a participant from a call
 
