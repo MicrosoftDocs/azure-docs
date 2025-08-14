@@ -1,6 +1,6 @@
 ---
-title: Create Image Definition Files for Team Customizations
-description: Set up team customizations for dev boxes with image definition files to enable efficient resource management for developer teams.
+title: Create Dev Box Image Definition Files for Team Customizations
+description: Learn how to create Dev Box image definition files for team customizations to speed setup and governance. Follow step-by-step instructions to test and deploy.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
@@ -17,7 +17,7 @@ ms.date: 08/08/2025
 
 # Configure team customizations
 
-Use the Microsoft Dev Box customizations feature to streamline setting up cloud-based development environments. Starting a new project or joining a new team can be complex and time consuming. With customizations, set up ready-to-code workstations with apps, tools, repositories, code libraries, packages, and build scripts. This article shows you how to create, test, and edit an image definition file for your dev box in Visual Studio Code.
+Use the Microsoft Dev Box customizations feature to streamline setting up cloud-based development environments. Starting a new project or joining a new team can be complex and time consuming. With team customizations, administrators can provide ready-to-code workstations with apps, tools, repositories, code libraries, packages, and build scripts. This article shows you how to create, test, and edit an image definition file for your dev box in Visual Studio Code.
 
 You can use customizations in Dev Box in two ways. *Team customizations* create a shared configuration for a team. *User customizations* create a personal configuration for an individual developer. The following table summarizes the differences between these customization types.
 
@@ -37,9 +37,9 @@ You can use customizations in Dev Box in two ways. *Team customizations* create 
 | Microsoft Dev Box  | - Set up a [dev center with a dev box pool and a dev box project](./quickstart-configure-dev-box-service.md) so you can create a dev box. </br> - Attach a catalog to the dev center with tasks you can use in your image definition file. If you don't have a catalog, see [Add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md). </br> **- Permissions** </br> - *To create a dev box:* Join the Dev Box Users security group for at least one project. </br> - *To enable project-level catalogs for a dev center:* Platform engineer with write access on the subscription. </br> - *To enable catalog sync settings for a project:* Platform engineer with write access on the subscription. </br> - *To attach a catalog to a project:* Dev Center Project Admin or Contributor permissions on the project. |
 | Visual Studio Code | - Install the latest version |
 
-## Choose a source for customization tasks
+## Use built-in tasks or a catalog for custom tasks
 
-Source Dev Box tasks from tasks built in to the platform, or use custom tasks stored in a catalog. Choose the source that best fits your customization needs and project requirements.
+Dev Box provides tasks built in to the platform, known as *primitive tasks*. You can also use custom tasks stored in a catalog. Choose the source that best fits your customization needs and project requirements.
 
 - **Use WinGet and PowerShell built-in tasks.**
    Dev Box dev centers support PowerShell and WinGet tasks out of the box. Get started with these built-in tasks. If your customizations require only PowerShell and WinGet, create your customizations file. For more information, see [Create an image definition file](#create-an-image-definition-file).
@@ -53,7 +53,7 @@ Source Dev Box tasks from tasks built in to the platform, or use custom tasks st
 
 ## Create image definitions at the project level
 
-Projects help you manage Dev Box resources efficiently. Assign each developer team its own project to organize resources effectively. Create multiple image definitions in your catalog repository, each in its own folder to target different developer teams under your project.
+Projects help you manage Dev Box resources efficiently. You can assign each developer team its own project to organize resources effectively. Create multiple image definitions in your catalog repository, each in its own folder to target different developer teams under your project.
 
 ### Enable project-level catalogs
 
@@ -69,9 +69,9 @@ To enable project-level catalogs at the dev center level:
 For more information about how to add catalogs to projects, see [Add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md).
 
 ## Create an image definition file
+To define the tools, packages, and configurations your team needs, create an image definition file in YAML format that lists the required tasks for your dev box environment. 
 
-
-# [AI-powered workflows](#tab/copilot-agent)
+## [AI-powered workflows](#tab/copilot-agent)
 
 Dev Box supports an agentic workflow with GitHub Copilot agent mode. Use natural language prompts to generate the team customization file (*imagedefinition.yaml*). GitHub Copilot makes it easier to set up your Dev Box environment because you describe your needs conversationally instead of manually creating YAML files.
 
@@ -136,8 +136,7 @@ The Dev Box agentic workflow supports these scenarios:
    - Continue interacting with the agent until the tools and packages you want appear in the file.
 
 
-
-# [Visual Studio Code](#tab/vs-code)
+## [Visual Studio Code](#tab/vs-code)
 Create and test image definition files by using Visual Studio Code. In addition to using the built-in tasks, use the Dev Box extension in Visual Studio Code to discover the custom tasks that are available through your dev center.
 
 1. Create a dev box or use an existing dev box for testing.
@@ -172,17 +171,6 @@ tasks:
 Learn more in [WinGet configuration](https://aka.ms/winget-configuration).
 
 ---
-
-### System tasks and user tasks
-
-Use both system and user tasks in your image definition file. The tasks section of the image definition file is divided into these sections. Both sections share the same parameters based on the task definitions in your catalog.
-
-- **System tasks**: These tasks run as `LocalSystem` during the provisioning stage of the dev box. They're typically used for system-level configurations, like installing software or configuring system settings that require administrative privileges.
-- **User tasks**: These tasks run as the user after the user's first sign-in to the dev box. They're typically used for user-level configurations, like installing user-specific applications or configuring user settings under user context. For example, users often prefer to install Python and Visual Studio Code under user context instead of systemwide. Put WinGet tasks in the `userTasks` section for better results when they don't work under tasks.
-
-Standard users who set up user customizations can use only user tasks. They can't use system tasks.
-
-
 
 ## Configure catalog sync settings for the project
 
