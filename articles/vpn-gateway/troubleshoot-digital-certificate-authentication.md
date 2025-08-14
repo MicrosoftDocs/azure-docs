@@ -14,6 +14,8 @@ ms.author: duau
 
 This article helps you troubleshoot Azure Site-to-Site VPN Gateway connections that use digital certificate authentication**. It lists common error codes, explains their causes, and provides recommended actions to resolve connectivity issues. Use this guide to maintain stable VPN operations and minimize disruptions for users.
 
+## Common error codes and recommended actions
+
 | Error code | Error message | Recommended action |
 |--|--|--|
 | CannotSetConnectionAuthenticationForExpressRouteConnectionType | ConnectionAuthentication can't be configured for connection {0} because its type is **ExpressRoute**. | ConnectionAuthentication is only supported for **VPN Gateway connections**, not ExpressRoute. |
