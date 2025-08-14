@@ -21,7 +21,7 @@ To view the assessment, you create, follow these steps:
 1. Go to the **Assessment** and select **View all reports** under **Overview** or select **Assessments** under the **Decide and plan**.
 1. Select the assessment you want to view, for example, azmigrate-demo.
 
-    :::image type="content" source="./media/review-postgresql-properties/select-assessment.png" alt-text="Screenshot shows how to select the assessment" lightbox="./media/review-postgresql-properties/select-assessment.png":::
+    :::image type="content" source="./media/tutorial-review-postgresql-properties/select-assessment.png" alt-text="Screenshot shows how to select the assessment" lightbox="./media/tutorial-review-postgresql-properties/select-assessment.png":::
 
 1. Review the summary of the assessment. You can also edit the assessment settings or recalculate the assessment.
 
@@ -83,7 +83,7 @@ The **Supportability** section shows the support status of the PostgreSQL versio
 
 Assess the migration readiness of your PostgreSQL instances, identify potential issues, and review recommendations to ensure a smooth transition to Azure.
 
-:::image type="content" source="./media/review-postgresql-properties/review-readiness-for-diff-migrations.png" alt-text="Screenshot shows how to review the readiness for different migrations" lightbox="./media/review-postgresql-properties/review-readiness-for-diff-migrations.png":::
+:::image type="content" source="./media/tutorial-review-postgresql-properties/review-readiness-for-diff-migrations.png" alt-text="Screenshot shows how to review the readiness for different migrations" lightbox="./media/tutorial-review-postgresql-properties/review-readiness-for-diff-migrations.png":::
 
 To review readiness reports for different migration strategies, follow these steps:
 
