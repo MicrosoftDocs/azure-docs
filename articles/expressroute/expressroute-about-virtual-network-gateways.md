@@ -78,6 +78,8 @@ The following table shows the features that each gateway type supports and the m
 
 The Auto-Assigned Public IP feature simplifies ExpressRoute gateway deployment by allowing Microsoft to manage the required public IP address on your behalf. For PowerShell/CLI, you are no longer required to create or maintain a separate public IP resource for your gateway. 
 
+:::image type="content" source="media/expressroute-about-virtual-network-gateways/hobo-ip.png" alt-text="Screenshot of the create for virtual network gateway for ExpressRoute.":::
+
 **Key benefits:**
 
 - **Improved security:** The public IP is managed internally by Microsoft and isn't exposed to you, reducing risks associated with open management ports.
@@ -92,10 +94,6 @@ When you create an ExpressRoute gateway, Microsoft automatically provisions and 
 
 Auto-Assigned Public IP is not available for Virtual WAN (vWAN) or Extended Zone deployments.
  
-#### Create a new ExpressRoute gateway with Auto-Assigned Public IP
-
-:::image type="content" source="media/expressroute-introduction/hobo-ip.png" alt-text="Screenshot of the create for virtual gateway." lightbox="media/gateway-migration/gateway-prepare-stage.png":::
-
 ## Connectivity from VNet to VNet and from VNet to virtual WAN
 
 By default, VNet-to-VNet and VNet-to-virtual-WAN connectivity is disabled through an ExpressRoute circuit for all gateway SKUs. To enable this connectivity, you must configure the ExpressRoute virtual network gateway to allow this traffic. For more information, see guidance about [virtual network connectivity over ExpressRoute](virtual-network-connectivity-guidance.md). To enable this traffic, see [Enable VNet-to-VNet or VNet-to-virtual-WAN connectivity through ExpressRoute](expressroute-howto-add-gateway-portal-resource-manager.md#enable-or-disable-vnet-to-vnet-or-vnet-to-virtual-wan-traffic-through-expressroute).

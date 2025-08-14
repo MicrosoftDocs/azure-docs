@@ -8,6 +8,7 @@ ms.devlang: azurecli
 author: msangapu-msft
 ms.author: msangapu
 ROBOTS: NOINDEX
+ms.service: azure-app-service
 ---
 
 # Create an App Service app on Azure Arc (Preview)
