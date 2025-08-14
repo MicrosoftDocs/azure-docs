@@ -2,11 +2,12 @@
 title: Install the Microsoft Azure Recovery Services (MARS) agent
 description: Learn how to install the Microsoft Azure Recovery Services (MARS) agent to back up Windows machines.
 ms.topic: how-to
-ms.date: 02/28/2025
+ms.date: 08/06/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 
+# Customer intent: As an IT administrator, I want to install the Recovery Services agent on my Windows machines, so that I can back up files, folders, and system state data to Azure for data protection and recovery.
 ---
 
 # Install the Azure Backup MARS agent
@@ -64,11 +65,11 @@ To modify the storage replication type, follow these steps:
 > You can't modify the storage replication type after the vault is set up and contains backup items. If you want to do this, you need to re-create the vault.
 >
 
-## Configure Recovery Services vault to save passphrase to Recovery Services vault
+## Configure Recovery Services vault to save passphrase to Azure Key Vault
 
-Azure Backup using the Recovery Services agent (MARS) allows you to back up file or folder and system state data to Azure Recovery Services vault. This data is encrypted using a passphrase provided during the installation and registration of the MARS agent. This passphrase is required to retrieve and restore the backup data and needs to be saved in a secure external location, such as Azure Key Vault.
+Azure Backup using the Recovery Services agent (MARS) allows you to back up file or folder and system state data to Azure Recovery Services vault. This data is encrypted using a passphrase provided during the installation and registration of the MARS agent. This passphrase is required to retrieve and restore the backup data and needs to be saved in a secure external location, such as Key Vault.
 
-We recommend you to create a Key Vault and provide permissions to your Recovery Services vault to save the passphrase to the Key Vault. [Learn more](save-backup-passphrase-securely-in-azure-key-vault.md).
+We recommend you create a key vault and provide permissions to your Recovery Services vault to save the passphrase to the key vault. [Learn more](save-backup-passphrase-securely-in-azure-key-vault.md).
 
 ### Verify internet access
 
@@ -149,6 +150,8 @@ To install and register  the MARRS agent, follow these steps:
 
    >[!Note]
    >We recommend to save your passphrase in an alternate secure location, such as Azure Key Vault. Microsoft can't recover the data without the passphrase. [Learn](save-backup-passphrase-securely-in-azure-key-vault.md) how to store a secret in Key Vault.
+
+You can also [use PowerShell script to install the MARS agent](./scripts/install-latest-microsoft-azure-recovery-services-agent.md).
 
 ## Next step
 

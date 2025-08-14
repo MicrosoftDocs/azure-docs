@@ -8,6 +8,7 @@ ms.custom: AppServiceIdentity
 author: cephalin
 ms.author: cephalin
 #customer intent: As an app developer, I want to use a custom authentication provider that uses the OpenID Connect specification in Azure App Service.
+ms.service: azure-app-service
 ---
 
 # Configure your App Service or Azure Functions app to sign in by using an OpenID Connect provider

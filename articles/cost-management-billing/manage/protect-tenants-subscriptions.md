@@ -2,12 +2,14 @@
 title: Protect tenants and subscriptions from abuse and fraud attacks
 description: Learn how to protect your tenants and subscriptions from abuse and fraud attacks.
 author: kendayMS
-ms.reviewer: macyso
+ms.reviewer: presharm
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 01/22/2025
-ms.author: macyso
+ms.date: 05/14/2025
+ms.author: presharm
+ms.custom:
+- build-2025
 ---
 
 # Protect tenants and subscriptions from abuse and fraud attacks

@@ -7,7 +7,7 @@ manager: camilo.ramirez
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.subservice: advanced-messaging
-ms.date: 12/15/2024
+ms.date: 05/01/2025
 ms.topic: include
 ms.custom: include file
 ms.author: shamkh
@@ -124,14 +124,14 @@ public async Task SendWhatsAppListMessage()
 }
 ```
 
-### Send an Interactive Reply Button message to a WhatsApp user
+### Send an interactive reply button message to a WhatsApp user
 
 To send reply button messages:
 
 - [WhatsApp Channel ID](#set-channel-registration-id).
 - [Recipient Phone Number in E.164 format](#set-recipient-list).
 
-Reply Button Messages can be created using the following properties:
+Create reply button messages using the following properties:
 
    | Action type | Description |
    | --- | --- |
@@ -168,9 +168,9 @@ public async Task SendWhatsAppReplyButtonMessage()
 }
 ```
 
-### Send an Interactive Call-To-Action URL-based message to a WhatsApp user
+### Send an interactive call-to-action URL-based message to a WhatsApp user
 
-To send Click-To-Action or URL-based messages:
+To send click-to-action or URL-based messages:
 
 - [WhatsApp Channel ID](#set-channel-registration-id).
 - [Recipient Phone Number in E.164 format](#set-recipient-list).

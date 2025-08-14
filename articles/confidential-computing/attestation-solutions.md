@@ -1,118 +1,153 @@
 ---
-title: Attestation
-description: Learn what attestation is and how to use it at Microsoft
+title: Attestation Types and Scenarios
+description: Learn what attestation is and how to use it at Microsoft.
 author: jl-pm
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 05/02/2023
 ms.author: joelinscott
+# Customer intent: As a security architect, I want to understand the different types of attestation and their scenarios, so that I can effectively implement trust verification for our computing systems and ensure compliance with regulatory standards.
 ---
 
-# Attestation
-Computing is an essential part of our daily lives, powering everything from our smartphones to critical infrastructure. However, increasing regulatory environments, prevalence of cyberattacks, and growing sophistication of attackers have made it difficult to trust the authenticity and integrity of the computing technologies we depend on. Attestation, a technique to verify the software and hardware components of a system, is a critical process for establishing and ensuring that computing technologies we rely on are trustworthy.
+# Attestation types and scenarios
 
-In this document, we are looking at what attestation is, types of attestation Microsoft offers today, and how customers can utilize these types of attestation scenarios in Microsoft solutions. 
+Computing is an essential part of our daily lives. It powers everything from our smartphones to critical infrastructure. Increasingly strict regulatory environments, the prevalence of cyberattacks, and the growing sophistication of attackers make it difficult to trust the authenticity and integrity of the computing technologies that we depend on. Attestation is a technique to verify the software and hardware components of a system. It's a critical process for establishing and ensuring that the computing technologies we rely on are trustworthy.
 
-## What is Attestation?
-In remote attestation, “one peer (the "Attester") produces believable information about itself ("Evidence") to enable a remote peer (the "Relying Party") to decide whether to consider that Attester a trustworthy peer. Remote attestation procedures are facilitated by an additional vital party (the "Verifier").” In simpler terms, attestation is a way of proving that a computer system is trustworthy. To make better sense of what attestation is and how it works in practice, we compare the process of attestation in computing to real-life examples with passports and background checks. The definition and models we use in this document are outlined in the Internet Engineering Task Force’s (IETF) Remote Attestation procedureS (RATs) Architecture document. To learn more, please see [Internet Engineering Task Force: Remote ATtestation procedureS (RATs) Architecture](https://www.ietf.org/rfc/rfc9334.html).
+In this article, we look at what attestation is, the types of attestation that Microsoft offers today, and how you can use these types of attestation scenarios in Microsoft solutions.
 
-### Passport Model
-#### Passport Model - Immigration Desk
-1. A Citizen wants a passport to travel to a Foreign Country/Region. The Citizen submits evidence requirements to their Host Country/Region. 
-2. Host country/region receives the evidence of policy compliance from the individual and verifies whether the supplied evidence proves that the individual complies with the policies for being issued a passport. 
-	- Birth certificate is valid and hasn't been altered.
-	- Issuer of the birth certificate is trusted
-	- Individual isn't part of a restricted list
-3. If the Host Country/Region decides the evidence meets their policies, the Host Country/Region will issue a passport for a Citizen.
-4. The Citizen travels to a foreign nation, but first must present their passport to the Foreign Country/Region Border Patrol Agent for evaluation.
-5. The Foreign Country/Region Border Patrol Agent checks a series of rules on the passport before trusting it  
-	- Passport is authentic and hasn't been altered.
-	- Passport was produced by a trusted country/region.
-	- Passport isn't expired or revoked.
-	- Passport conforms to policy of a Visa or age requirement.
-6. The Foreign Country/Region Border Patrol Agent approves of the Passport and the Citizen can enter the Foreign Country/Region.
+## What is attestation?
 
-![Diagram of remote attestation with the passport model for an immigration desk.](media/attestation-solutions/passport-model-immigration.png)
+In remote attestation, one peer (the attester) produces believable information about itself (the evidence) to enable a remote peer (the relying party) to decide whether to consider that attester as a trustworthy peer. Another vital party (the verifier) carries out the remote attestation procedures. In simple terms, attestation is a way of proving that a computer system is trustworthy.
 
-#### Passport Model - Computing
-1. A Trusted Execution Environment (TEE), otherwise known as an Attester, wants to retrieve secrets from a Secrets Manager, also known as a Relying Party. To retrieve secrets from the Secrets Manager, the TEE must prove that it’s trustworthy and genuine to the Secrets Manager. The TEE submits its evidence to a Verifier to prove it’s trustworthy and genuine, that includes the hash of its executed code, hash of its build environment, and its certificate generated by its manufacturer. 
-2. The Verifier, an attestation service, evaluates whether the evidence given by the TEE meets the following requirements for being trusted. 
-	- Certificate is valid and has not been altered.
-	- Issuer of the certificate is trusted
-	- TEE evidence isn't part of a restricted list
-3. If the Verifier decides the evidence meets the defined policies, the Verifier will create an Attestation Result and give it to the TEE.
-4. The TEE wants to exchange secrets with the Secrets Manager, but first must present their Attestation Result to the Secrets Manager for evaluation.
-5. The Secrets Manager checks a series of rules on the Attestation Result before trusting it  
-	- Attestation Result is authentic and hasn't been altered.
-	- Attestation Result was produced by a trusted authority.
-	- Attestation Result isn't expired or revoked.
-	- Attestation Result conforms to configured administrator policy.
-6. The Secrets Manager approves of the Attestation Result and exchanges secrets with the TEE.
+To understand what attestation is and how it works in practice, this article compares the process of attestation in computing to real-life examples with passports and background checks.
 
-![Diagram of remote attestation with the passport model for computing.](media/attestation-solutions/passport-model-computing.png)
+The definition and models used in this article are outlined in the Internet Engineering Task Force (IETF) remote attestation procedures (RATs) architecture document. To learn more, see [Internet Engineering Task Force: Remote attestation procedures (RATs) architecture](https://www.ietf.org/rfc/rfc9334.html).
 
-### Background Check Model
-#### Background Check – School Verification
-1. A Person is doing a background check with a potential Employer to obtain a job. The Person submits their education background of the School they attended to the potential Employer. 
-2. The Employer retrieves the education background from the person and forwards this to the respective School to be verified.
-3. The School evaluates whether the education background given by the Person meets the School records.
-4. The School issues an Attestation Result that verifies the Person’s education background matches their records and sends it to the Employer 
-5. The Employer, otherwise known as the Relying Party, may check a series of rules on the Attestation Result before trusting it.  
-	- Attestation Result is authentic, hasn't been altered, and truly comes from the School.
-	- Attestation Result was produced by a trusted School.
-6. The Employer approves of the Attestation Result and hires the Person.
+### Passport model
 
-![Diagram of remote attestation with the background check model for education background.](media/attestation-solutions/background-check-model-school.png)
+Two passport scenarios are presented in this section.
 
-#### Background Check – Computing
-1. A Trusted Execution Environment (TEE), otherwise known as an Attester, wants to retrieve secrets from a Secrets Manager, also known as a Relying Party. To retrieve secrets from the Secrets Manager, the TEE must prove that it’s trustworthy and genuine. The TEE sends its evidence to the Secrets Manager to prove it’s trustworthy and genuine, that includes the hash of its executed code, hash of its build environment, and its certificate generated by its manufacturer. 
-2. The Secrets Manager retrieves the evidence from the TEE and forwards it to the Verifier to be verified.
-3. The Verifier service evaluates whether the evidence given by the TEE meets defined policy requirements for being trusted. 
-	- Certificate is valid and hasn't been altered.
-	- Issuer of the certificate is trusted.
-	- TEE evidence isn't part of a restricted list.
-4. The Verifier creates an Attestation Result for the TEE and sends it to the Secrets Manager.
-5. The Secrets Manager checks a series of rules on the Attestation Result before trusting it.  
-	- Attestation Result is authentic and hasn't been altered.
-	- Attestation Result was produced by a trusted authority.
-	- Attestation Result isn't expired or revoked.
-	- Attestation Result conforms to configured administrator policy.
-6. The Secrets Manager approves of the Attestation Result and exchanges secrets with the TEE.
+#### Passport model: Immigration desk
 
-![Diagram of remote attestation with the background check model for computing.](media/attestation-solutions/background-check-model-computing.png)
+1. A citizen wants a passport to travel to a foreign country/region. The citizen submits evidence requirements to their host country/region.
+1. The host country/region receives the evidence of policy compliance from the individual and verifies whether the supplied evidence proves that the individual complies with the policies for being issued a passport:
 
-## Types of Attestation
-Attestation services can be utilized in two distinct ways that each provide its own benefits. 
+	- The birth certificate is valid and wasn't altered.
+	- The issuer of the birth certificate is trusted.
+	- The individual isn't part of a restricted list.
+1. If the host country/region decides that the evidence meets their policies, the host country/region issues a passport for the citizen.
+1. The citizen travels to a foreign nation, but first must present their passport to the foreign country/region's border patrol agent for evaluation.
+1. The foreign country/region's border patrol agent checks a series of rules on the passport before trusting it:
 
-### Cloud Provider 
-At Microsoft, we provide [Microsoft Azure Attestation (MAA)](https://azure.microsoft.com/products/azure-attestation) as customer-facing service and a framework for attesting Trusted Execution Environments (TEEs) like Intel Software Guard Extensions (SGX) enclaves, virtualization-based security (VBS) enclaves, Trusted Platform Modules (TPMs), Trusted Launch and Confidential Virtual Machines. Benefits from using a cloud provider’s attestation service such as Azure Attestation includes,
-- Freely available 
-- Source code is available for government customers via the Microsoft Code Center Premium Tool 
-- Protects data while in use by operating within an Intel SGX enclave.
-- Attests multiple TEEs in one single solution.
-- Offers a strong Service Level Agreement (SLA)
+	- The passport is authentic and wasn't altered.
+	- A trusted country/region produced the passport.
+	- The passport isn't expired or revoked.
+	- The passport conforms to the policy of a visa or age requirement.
+1. The foreign country/region's border patrol agent approves the passport and the citizen can enter the foreign country/region.
 
-### Build Your Own
-Customers can create their own attestation mechanisms to trust their computing infrastructure from tools provided by cloud and hardware providers. Building your own attestation processes for Microsoft solutions may require the use of [Trusted Hardware Identity Management (THIM)](../security/fundamentals/trusted-hardware-identity-management.md), a solution that handles cache management of certificates for all trusted execution environments (TEE) residing in Azure and provides trusted computing base (TCB) information to enforce a minimum baseline for attestation solutions. Benefits from building and using your own attestation service includes,
-- 100% control over the attestation processes to meet regulatory and compliance requirements
-- Customization of integrations with other computing technologies 
+![Diagram that shows remote attestation with the passport model for an immigration desk.](media/attestation-solutions/passport-model-immigration.png)
 
-## Attestation Scenarios at Microsoft
-There are many attestation scenarios at Microsoft that enable customers to choose between the Cloud Provider and Build Your own attestation service scenarios. For each section, we look at Azure offerings and the attestation scenarios available. 
+#### Passport model: Computing
 
-### VMs with Application Enclaves
-[VMs with Application Enclaves](confidential-computing-enclaves.md) are enabled by Intel SGX, which allows organizations to create enclaves that protect data, and keep data encrypted while the CPU processes the data. Customers can attest Intel SGX enclaves in Azure with MAA and on their own. 
-- [Intel SGX Attestation Home Page](attestation.md)
-- [Cloud Provider: Intel SGX Sample Code Attestation with MAA](/samples/azure-samples/microsoft-azure-attestation/sample-code-for-intel-sgx-attestation-using-microsoft-azure-attestation/)
-- [Build Your Own: Open Enclave Attestation](https://github.com/openenclave/openenclave/blob/master/samples/attestation/README.md) 
-	
-### Confidential Virtual Machines
-[Confidential Virtual Machines](confidential-vm-overview.md) are enabled by AMD SEV-SNP, which allows organizations to have hardware-based isolation between virtual machines, and underlying host management code (including hypervisor). Customers can attest their managed confidential virtual machines in Azure with MAA and on their own. 
-- [Confidential VMs Attestation Home Page](https://github.com/Azure/confidential-computing-cvm-guest-attestation/blob/main/cvm-guest-attestation.md#azure-confidential-vms-attestation-guidance--faq) 
-- [Cloud Provider: What is guest attestation for confidential VMs?](guest-attestation-confidential-vms.md)
-- [Build Your Own: Fetch and verify raw AMD SEV-SNP report on your own](https://github.com/Azure/confidential-computing-cvm-guest-attestation/blob/main/cvm-guest-attestation.md#i-dont-trust-maa-or-the-library-you-are-asking-me-to-install-in-my-vm-but-i-do-trust-the-underlying-hcl-firmware-how-can-i-fetch-and-verify-raw-amd-sev-snp-report-on-my-own)
+1. A Trusted Execution Environment (TEE), which is also known as an attester, wants to retrieve secrets from a secrets manager, also known as a relying party. To retrieve secrets from the secrets manager, the TEE must prove to the secrets manager that it's trustworthy and genuine. The TEE submits its evidence to a verifier to prove that it's trustworthy and genuine. The evidence includes the hash of its executed code, the hash of its build environment, and its certificate generated by its manufacturer.
+1. The verifier, which is an attestation service, evaluates whether the evidence given by the TEE meets the following requirements for being trusted:
+	- The certificate is valid and wasn't altered.
+	- The issuer of the certificate is trusted.
+	- The TEE evidence isn't part of a restricted list.
+1. If the verifier decides that the evidence meets the defined policies, the verifier creates an attestation result and gives it to the TEE.
+1. The TEE wants to exchange secrets with the secrets manager. First it must present its attestation result to the secrets manager for evaluation.
+1. The secrets manager checks a series of rules on the attestation result before trusting it:
+ 
+	- The attestation result is authentic and wasn't altered.
+	- A trusted authority produced the attestation result.
+	- The attestation result isn't expired or revoked.
+	- The attestation result conforms to configured administrator policy.
+1. The secrets manager approves the attestation result and exchanges secrets with the TEE.
 
-### Confidential Containers on Azure Container Instances
-[Confidential Containers on Azure Container Instances](confidential-containers.md) provide a set of features and capabilities to further secure your standard container workloads to achieve higher data security, data privacy and runtime code integrity goals. Confidential containers run in a hardware backed Trusted Execution Environment (TEE) that provides intrinsic capabilities like data integrity, data confidentiality and code integrity.
-- [Cloud Provider: Attestation in Confidential containers on Azure Container Instances](https://aka.ms/caciattestation) 
+![Diagram that shows remote attestation with the passport model for computing.](media/attestation-solutions/passport-model-computing.png)
+
+### Background check model
+
+Two background check scenarios are presented in this section.
+
+#### Background check: School verification
+
+1. A person is doing a background check with a potential employer to obtain a job. The person submits their education background from the school they attended to the potential employer.
+1. The employer retrieves the education background from the person and forwards this information to the respective school to be verified.
+1. The school evaluates whether the education background given by the person meets the school records.
+1. The school issues an attestation result that verifies that the person's education background matches their records and sends it to the employer.
+1. The employer, otherwise known as the relying party, might check a series of rules on the attestation result before trusting it:
+
+	- The attestation result is authentic, wasn't altered, and comes from the school.
+	- A trusted school produced the attestation result.
+1. The employer approves the attestation result and hires the person.
+
+![Diagram that shows remote attestation with the background check model for education background.](media/attestation-solutions/background-check-model-school.png)
+
+#### Background check: Computing
+
+1. A TEE, otherwise known as an attester, wants to retrieve secrets from a secrets manager, also known as a relying party. To retrieve secrets from the secrets manager, the TEE must prove that it's trustworthy and genuine. The TEE sends its evidence to the secrets manager to prove that it's trustworthy and genuine. The evidence includes the hash of its executed code, the hash of its build environment, and its certificate generated by its manufacturer.
+1. The secrets manager retrieves the evidence from the TEE and forwards it to the verifier to be verified.
+1. The verifier service evaluates whether the evidence given by the TEE meets defined policy requirements for being trusted:
+
+	- The certificate is valid and wasn't altered.
+	- The issuer of the certificate is trusted.
+	- The TEE evidence isn't part of a restricted list.
+1. The verifier creates an attestation result for the TEE and sends it to the secrets manager.
+1. The secrets manager checks a series of rules on the attestation result before trusting it:
+ 
+	- The attestation result is authentic and wasn't altered.
+	- A trusted authority produced the attestation result.
+	- The attestation result isn't expired or revoked.
+	- The attestation result conforms to configured administrator policy.
+1. The secrets manager approves the attestation result and exchanges secrets with the TEE.
+
+![Diagram that shows remote attestation with the background check model for computing.](media/attestation-solutions/background-check-model-computing.png)
+
+## Types of attestation
+
+Attestation services are used in two distinct ways. Each method provides its own benefits.
+
+### Cloud provider
+
+[Azure Attestation](https://azure.microsoft.com/products/azure-attestation) is a customer-facing service and a framework for attesting TEEs like Intel Software Guard Extensions (SGX) enclaves, virtualization-based security (VBS) enclaves, Trusted Platform Modules, Trusted Launch, and confidential virtual machines (VMs). Benefits from using a cloud provider's attestation service, such as Azure Attestation, include:
+
+- It's freely available.
+- The source code is available for government customers via the Microsoft Code Center Premium Tool.
+- It protects data while in use by operating within an Intel SGX enclave.
+- It attests multiple TEEs in one single solution.
+- It offers a strong service-level agreement.
+
+### Build your own
+
+You can create your own attestation mechanisms to trust your computing infrastructure from tools provided by cloud and hardware providers. Building your own attestation processes for Microsoft solutions might require the use of [Trusted Hardware Identity Management (THIM)](../security/fundamentals/trusted-hardware-identity-management.md). This solution handles cache management of certificates for all TEEs that reside in Azure. It provides trusted computing base information to enforce a minimum baseline for attestation solutions. Benefits from building and using your own attestation service include:
+
+- 100% control over the attestation processes to meet regulatory and compliance requirements.
+- Customization of integrations with other computing technologies.
+
+## Attestation scenarios at Microsoft
+
+ You can choose between the cloud provider and build-your-own attestation services for many Microsoft attestation scenarios. The following sections introduce Azure offerings and the attestation scenarios that are available.
+
+### VMs with application enclaves
+
+[VMs with application enclaves](confidential-computing-enclaves.md) are enabled by Intel SGX. Organizations can create enclaves that protect data and keep data encrypted while the CPU processes the data. You can attest Intel SGX enclaves in Azure with Azure Attestation and on your own. For more information, see:
+
+- [Intel SGX attestation home page](attestation.md)
+- [Cloud provider: Intel SGX sample code attestation with Azure Attestation](/samples/azure-samples/microsoft-azure-attestation/sample-code-for-intel-sgx-attestation-using-microsoft-azure-attestation/)
+- [Build your own: Open enclave attestation](https://github.com/openenclave/openenclave/blob/master/samples/attestation/README.md)
+
+### Confidential virtual machines
+
+[Confidential VMs](confidential-vm-overview.md) are enabled by AMD SEV-SNP. Organizations can have hardware-based isolation between VMs and underlying host management code (including hypervisor). You can attest your managed confidential VMs in Azure with Azure Attestation and on your own. For more information, see:
+
+- [Confidential VMs attestation home page](https://github.com/Azure/confidential-computing-cvm-guest-attestation/blob/main/cvm-guest-attestation.md#azure-confidential-vms-attestation-guidance--faq)
+- [Cloud provider: What is guest attestation for confidential VMs?](guest-attestation-confidential-vms.md)
+- [Build your own: Fetch and verify raw AMD SEV-SNP report on your own](https://github.com/Azure/confidential-computing-cvm-guest-attestation/blob/main/cvm-guest-attestation.md#i-dont-trust-maa-or-the-library-you-are-asking-me-to-install-in-my-vm-but-i-do-trust-the-underlying-hcl-firmware-how-can-i-fetch-and-verify-raw-amd-sev-snp-report-on-my-own)
+
+### Confidential containers on Azure Container Instances
+
+[Confidential containers on Azure Container Instances](confidential-containers.md) provide a set of features and capabilities to further secure your standard container workloads to achieve higher data security, data privacy, and runtime code integrity goals. Confidential containers run in a hardware-backed TEE that provides intrinsic capabilities like data integrity, data confidentiality, and code integrity. For more information, see:
+
+- [Cloud provider: Attestation in confidential containers on Azure Container Instances](https://aka.ms/caciattestation)

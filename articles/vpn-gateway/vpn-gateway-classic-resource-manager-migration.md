@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 08/21/2024
 ms.author: cherylmc
 
+# Customer intent: As a network administrator, I want to migrate VPN gateways from the classic deployment model to the Resource Manager model, so that I can improve manageability and leverage enhanced features without downtime during the migration process.
 ---
 # VPN Gateway classic to Resource Manager migration
 

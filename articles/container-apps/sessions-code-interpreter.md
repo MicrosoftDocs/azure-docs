@@ -5,7 +5,8 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 04/07/2025
+ms.date: 05/19/2025
+ms.update-cycle: 180-days
 ms.author: cshoe
 ms.custom: references_regions
 ms.collection: ce-skilling-ai-copilot
@@ -156,118 +157,6 @@ The following listing shows a sample of the type of response you can expect from
 ## Security
 
 Code interpreter sessions are designed to run untrusted code in isolated environments, ensuring that your applications and data remain protected.
-
-### Use managed identity
-
-A managed identity from Microsoft Entra ID allows your container session pools and their sessions to access other Microsoft Entra protected resources. Both system-assigned and user-assigned managed identities are supported in a session pool.
-
-For more about managed identities in Microsoft Entra ID, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
-
-There are two ways to use managed identities with custom container session pools:
-
-- **Image pull authentication**: Use the managed identity to authenticate with the container registry to pull the container image.
-
-- **Resource access**: Use the session pool's managed identity in a session to access other Microsoft Entra protected resources. Due to its security implications, this capability is disabled by default.
-
-    > [!IMPORTANT]
-    > If you enable access to managed identity in a session, any code or programs running in the session can create Microsoft Entra tokens for the pool's managed identity. Since sessions typically run untrusted code, use this feature with extreme caution.
-
-# [Azure CLI](#tab/azure-cli)
-
-To enable managed identity for a custom container session pool, use Azure Resource Manager.
-
-# [Azure Resource Manager](#tab/arm)
-
-To enable managed identity for a custom container session pool, you add an `identity` property to the session pool resource.
-
-The `identity` property must have a `type` property with the value `SystemAssigned` or `UserAssigned`. For more information on how to configure this property, see [Configure managed identities](managed-identity.md?tabs=arm%2Cdotnet#configure-managed-identities).
-
-The following example shows an ARM template snippet that enables a user-assigned identity for a custom container session pool and use it for image pull authentication.
-
-Before you send the request, replace the placeholders between the `<>` brackets with the appropriate values for your session pool and session identifier.
-
-```json
-{
-  "type": "Microsoft.App/sessionPools",
-  "apiVersion": "2024-08-02-preview",
-  "name": "my-session-pool",
-  "location": "westus2",
-  "properties": {
-    "environmentId": "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ContainerApps/environments/<ENVIRONMENT_NAME>",
-    "poolManagementType": "Dynamic",
-    "containerType": "CustomContainer",
-    "scaleConfiguration": {
-      "maxConcurrentSessions": 10,
-      "readySessionInstances": 5
-    },
-    "dynamicPoolConfiguration": {
-      "executionType": "Timed",
-      "cooldownPeriodInSeconds": 600
-    },
-    "customContainerTemplate": {
-      "registryCredentials": {
-          "server": "myregistry.azurecr.io",
-          "identity": "<IDENTITY_RESOURCE_ID>"
-      },
-      "containers": [
-        {
-          "image": "myregistry.azurecr.io/my-container-image:1.0",
-          "name": "mycontainer",
-          "resources": {
-            "cpu": 0.25,
-            "memory": "0.5Gi"
-          },
-          "command": [
-            "/bin/sh"
-          ],
-          "args": [
-            "-c",
-            "while true; do echo hello; sleep 10;done"
-          ],
-          "env": [
-            {
-              "name": "key1",
-              "value": "value1"
-            },
-            {
-              "name": "key2",
-              "value": "value2"
-            }
-          ]
-        }
-      ],
-      "ingress": {
-        "targetPort": 80
-      }
-    },
-    "sessionNetworkConfiguration": {
-      "status": "EgressEnabled"
-    },
-    "managedIdentitySettings": [
-      {
-        "identity": "<IDENTITY_RESOURCE_ID>",
-        "lifecycle": "None"
-      }
-    ]
-  },
-  "identity": {
-    "type": "UserAssigned",
-    "userAssignedIdentities": {
-      "<IDENTITY_RESOURCE_ID>": {}
-    }
-  }
-}
-```
-
-This template contains the following settings for managed identity:
-
-| Parameter | Value | Description |
-|---------|-------|-------------|
-| `customContainerTemplate.registryCredentials.identity` | `<IDENTITY_RESOURCE_ID>` | The resource ID of the managed identity to use for image pull authentication. |
-| `managedIdentitySettings.identity` | `<IDENTITY_RESOURCE_ID>` | The resource ID of the managed identity to use in the session. |
-| `managedIdentitySettings.lifecycle` | `None` | The session lifecycle where the managed identity is available.<br><br>- `None` (default): The session can't access the identity. This setting is only used for image pull.<br><br>- `Main`: In addition to image pull, the main session can also access the identity. **Use with caution.** |
-
----
 
 ## LLM framework integrations
 

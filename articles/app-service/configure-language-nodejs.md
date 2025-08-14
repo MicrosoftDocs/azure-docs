@@ -9,6 +9,7 @@ ms.date: 09/13/2024
 author: msangapu-msft
 ms.author: msangapu
 zone_pivot_groups: app-service-platform-windows-linux
+ms.service: azure-app-service
 ---
 
 # Configure a Node.js app for Azure App Service
@@ -27,7 +28,7 @@ To show the current Node.js version, run the following command in the [Cloud She
 az webapp config appsettings list --name <app-name> --resource-group <resource-group-name> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION'].value"
 ```
 
-To show all supported Node.js versions, navigate to `https://<sitename>.scm.azurewebsites.net/api/diagnostics/runtime` or run the following command in the [Cloud Shell](https://shell.azure.com):
+To show all supported Node.js versions, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp list-runtimes --os windows | grep NODE

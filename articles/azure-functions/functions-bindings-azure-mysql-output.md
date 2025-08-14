@@ -10,7 +10,7 @@ ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions
 ---
 
-# Azure Database for MySQL output binding for Azure Functions (preview)
+# Azure Database for MySQL output binding for Azure Functions
 
 You can use the Azure Database for MySQL output binding to write to a database.
 

@@ -1,18 +1,18 @@
 ---
 title: View and download your organization's Azure pricing
 description: Learn how to view and download pricing or estimate costs with your organization's pricing.
-author: bandersmsft
-ms.reviewer: paagraw
+author: mkmsft1
+ms.reviewer: megankairiss
 ms.service: cost-management-billing
-ms.subservice: enterprise
+ms.subservice: cost-management
 ms.topic: conceptual
-ms.date: 01/22/2025
-ms.author: banders
+ms.date: 07/31/2025
+ms.author: megankairiss
 ---
 
 # View and download your organization's Azure pricing
 
-Azure customers with an Azure Enterprise Agreement (EA), Microsoft Customer Agreement (MCA), or Microsoft Partner Agreement (MPA) can view and download their pricing in the Azure portal. [Learn how to check your billing account type](#check-your-billing-account-type).
+Azure customers with an Azure Enterprise Agreement (EA), Microsoft Customer Agreement (MCA), or Microsoft Partner Agreement (MPA) can view and download their pricing in the Azure portal. [Learn how to check your billing account type](#check-your-billing-account-type). Price sheets are available for download covering up to 13 months prior.
 
 ## Download pricing for an Enterprise Agreement
 

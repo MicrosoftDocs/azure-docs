@@ -6,7 +6,7 @@ ms.author: kimiamavon
 ms.service: azure-health-data-services
 ms.subservice: deidentification-service
 ms.topic: quickstart-sdk
-ms.date: 08/05/2024
+ms.date: 06/19/2025
 ---
 
 

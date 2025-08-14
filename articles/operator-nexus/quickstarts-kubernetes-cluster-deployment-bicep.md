@@ -5,7 +5,11 @@ author: dramasamy
 ms.author: dramasamy
 ms.service: azure-operator-nexus
 ms.topic: quickstart-bicep #Required; leave this attribute/value as-is.
-ms.custom: subject-bicepqs, devx-track-azurecli, devx-track-bicep
+ms.custom:
+  - subject-bicepqs
+  - devx-track-azurecli
+  - devx-track-bicep
+  - build-2025
 ms.date: 05/13/2023
 ---
 
@@ -56,7 +60,7 @@ If there isn't enough capacity to deploy requested cluster nodes, an error messa
 [!INCLUDE [quickstart-cluster-connect](./includes/kubernetes-cluster/quickstart-cluster-connect.md)]
 
 ## Add an agent pool
-The cluster created in the previous step has a single node pool. Let's add a second agent pool using the Bicep template. The following example creates an agent pool named ```myNexusK8sCluster-nodepool-2```:
+The cluster created in the previous step has a single node pool. Let's add a second agent pool using the Bicep file. The following example creates an agent pool named ```myNexusK8sCluster-nodepool-2```:
 
 1. Review the template.
 

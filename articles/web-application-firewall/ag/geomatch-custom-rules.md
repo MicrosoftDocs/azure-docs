@@ -5,7 +5,8 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 04/30/2025
+ms.date: 05/12/2025
+# Customer intent: "As a security administrator, I want to implement geo-filtering custom rules for my web applications, so that I can restrict access based on user location and enhance the overall security of my applications."
 ---
 
 # Geomatch custom rules
@@ -21,6 +22,9 @@ To create a geo-filtering custom rule in the Azure portal, select *Geo location*
 > Include the country code **ZZ** whenever you use geo-filtering. The **ZZ** country code (or *Unknown* country/region) captures IP addresses that aren't yet mapped to a country or region in our dataset. This avoids false positives.
 
 ## Country/region codes
+
+> [!NOTE]
+> Geo-filtering custom rules are supported only in the Azure public cloud, Azure China, and Azure Government.
 
 If you're using the *geomatch* operator, the selectors can be any of the following two-digit country/region codes. 
 

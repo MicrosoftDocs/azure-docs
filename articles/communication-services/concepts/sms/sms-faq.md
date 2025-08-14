@@ -1,7 +1,7 @@
 ---
 title: SMS FAQ
 titleSuffix: An Azure Communication Services article
-description: SMS FAQ
+description: Get answers to frequently asked questions about SMS.
 author: prakulka
 manager: sundraman
 services: azure-communication-services
@@ -16,155 +16,174 @@ ms.custom: references_regions
 
 # SMS FAQ
 
-This article answers commonly asked questions about the SMS service. 
+This article answers commonly asked questions about SMS in Azure Communication Services.
 
-## 10DLC (10 Digit Long Code)
+## 10DLC
+
+### What is a 10DLC number?
+
+A 10-digit long code (10DLC) number is a standard 10-digit phone number used for application-to-person (A2P) messaging in the United States. A 10DLC number is designed for businesses to send SMS messages to customers at scale, without the restrictions of traditional long codes.
+
+### Can I use 10DLC numbers in any country?
+
+No. 10DLC is primarily supported in the United States. Availability depends on the subscription billing location and eligibility. For more information about supported countries, see [Phone number management for the United States](../../concepts/numbers/phone-number-management-for-united-states.md).
+
+### I already have a local US number. Can I use it for SMS?
+
+Yes. If you already have a local US number, you can use it for SMS messaging. You need to submit a brand registration and campaign registration before you can enable the SMS capability on it. For more information, see [Apply for 10DLC brand registration and campaign registration](../../quickstarts/sms/apply-for-ten-digit-long-code.md).
+
+### What are the advantages of using 10DLC numbers over short codes?
+
+- **Cost-effectiveness**: 10DLC numbers are more affordable than short codes for A2P messaging.
+- **Wide coverage**: 10DLC numbers can be used for messaging across all major US carriers to provide reliable delivery at scale.
+- **No need for dedicated short codes**: 10DLC numbers don't require more approvals or significant setup costs, unlike short codes.
+
+### Can 10DLC numbers be used for voice calls?
+
+Yes. 10DLC numbers are local numbers that are voice-enabled. When they're registered, they can be used for SMS. 10DLC registration applies only to SMS enablement and isn't required for calling.
+
+### What kinds of messages can be sent from a 10DLC number?
+
+Business can use 10DLC numbers for a wide range of communications, including:
+
+- Customer service notifications.
+- Marketing and promotional messages.
+- Alerts and reminders.
+- Two-factor authentication codes.
+
+However, 10DLC numbers must adhere to messaging guidelines and can't be used for illegal or spam purposes.
+
+### Are 10DLC numbers subject to throughput limits?
+
+Yes, 10DLC numbers are subject to throughput limits. Throughput limits can vary, depending on the carrier and the volume of sent messages.
+
+These limits are higher than for traditional long codes but are lower than for short codes. The actual throughput might change due to factors such as campaign registration and compliance with carrier guidelines.
+
+### Can I port my existing number to a 10DLC number?
+
+Yes, you can port an existing phone number to a 10DLC number. Follow the instructions in [Port a phone number](../../quickstarts/telephony/port-phone-number.md).
+
+### What happens if I send unsolicited messages from a 10DLC number?
+
+Sending unsolicited messages (also known as spam) can lead to penalties, including the suspension of your 10DLC number or carrier blocking. To avoid these issues, you need to comply with applicable laws, including the Telephone Consumer Protection Act (TCPA) and carrier guidelines.
+
+### Can 10DLC numbers be used for international messaging?
+
+10DLC numbers are designed for use within the United States and don't support international messaging.
+
+### How can I monitor the performance of my 10DLC number?
+
+You can monitor the performance of your 10DLC number (such as delivery rates, message throughput, and errors) by using the [SMS insights dashboard](../analytics/insights/sms-insights.md).
+
+### Can I use 10DLC numbers for high-volume messaging?
+
+10DLC numbers are suitable for high-volume messaging, but they're subject to carrier rate limiting and compliance guidelines. To ensure optimal performance, it's important to work with your provider to manage message volume and adhere to best practices for A2P messaging.
 
 ### What is brand registration, and why is it required for 10DLC messaging?
 
-Brand registration is the process of registering your business as a recognized brand with carriers to send SMS messages using 10DLC (10-digit long codes). Carriers require brand registration to ensure compliance with messaging regulations and to prevent spam.
+Brand registration is the process of registering your business as a recognized brand with carriers to send SMS messages by using 10DLC. Carriers require brand registration to ensure compliance with messaging regulations and to prevent spam.
 
-### How do I complete brand registration with ACS?
+### How do I complete brand registration with Azure Communication Services?
 
-To register a brand, you need to provide information such as your business’s name, tax ID, address, industry, and other identifying information. You can complete brand registration through the Azure Communication Services portal as described in [Apply for 10 digit long code (10DLC) brand registration and campaign registration](../../quickstarts/sms/apply-for-ten-digit-long-code.md).
+To register a brand, you need to provide information such as your business's name, tax ID, address, industry, and other identifying information. You can complete brand registration through the Azure portal, as described in [Apply for 10DLC brand registration and campaign registration](../../quickstarts/sms/apply-for-ten-digit-long-code.md).
 
 ### What types of information are required for brand registration?
 
 You need to provide:
+
 - Legal business name
 - Business address
-- Tax ID or Employer Identification Number (EIN)
+- Tax ID or employer identification number (EIN)
 - Industry type
 - Contact information
 - Business website (if applicable)
 
 ### Can I update my brand information after registration?
 
-This feature is currently not available.
+This feature is currently not available. We advise you to [email the Microsoft team for Azure Communication Services telephone number services](mailto:acstns@microsoft.com) for further guidance.
 
 ### Is there a fee for brand registration?
 
-Yes, there's a fee. Refer to the [pricing page](../sms-pricing.md) for details on fees.
+Yes, there's a fee. For details on fees, refer to [SMS pricing](../sms-pricing.md).
 
 ### What is vetting, and when is it required?
 
-Vetting is a review process to evaluate your brand’s trustworthiness and assign it a score, which influences messaging throughput limits. Vetting is required if your brand’s use case involves high-volume messaging or falls into certain categories needing more carrier review.
+Vetting is a review process to evaluate your brand's trustworthiness and assign it a score, which influences messaging throughput limits. Vetting is required if your brand's use case involves high-volume messaging or falls into certain categories that need more carrier review.
 
 ### How is the vetting score determined?
 
-The vetting score is based on the information provided during brand registration and includes factors like industry reputation, message content, and business type. Scores range from 1-100, with higher scores resulting in higher messaging throughput limits.
+The vetting score is based on the information that you provide during brand registration. It includes factors like industry reputation, message content, and business type. Scores range from 1 to 100. Higher scores result in higher limits for messaging throughput.
 
-### What type of campaigns are supported?
+### What types of brands are supported?
 
-Currently, ACS supports **Standard campaigns** only. These campaigns are used for general business messaging, such as customer service notifications, account updates, and other informational messages that don't fall under special categories (for example, political or emergency services).
+- **Standard**: For most businesses and organizations that have an EIN. Supports multiple campaigns and higher throughput.
+- **Sole Proprietor**: For individuals or small businesses that don't have an EIN. Limited to one campaign and low message volume. Requires alternative identity verification, like a mobile phone bill.
+
+### What types of campaigns are supported?
+
+Currently, Azure Communication Services supports:
+
+- **Standard**: The most common campaign type for general A2P messaging, such as two-factor authentication, alerts, marketing, or customer care.
+- **Low Volume**: For limited or test messaging with low daily traffic. Ideal for small businesses or developers.
+- **UCaaS (Low Volume)**: A subtype of **Low Volume** for approved unified communications as a service (UCaaS) applications. UCaaS applications use it when each phone number is tied to a human (for example, employee texting).
+- **Enhanced**: A higher-throughput campaign type for larger brands or automated communications. Might require vetting.
+- **Emergency**: For public safety alerts from government agencies, schools, or utilities. Strictly regulated.
+- **Franchise**: For businesses with multiple locations or agents/franchisees that send similar but localized content. Requires disclosure of all subentities.
+- **Charity**: For 501(c)(3) nonprofit organizations that send service-related or fundraising messages. Requires proof of tax-exempt status.
+
+Azure Communication Services currently doesn't support the **Political** campaign type.
 
 ### Can I update my campaign information?
 
-This feature is currently not available.
+This feature is currently not available. We advise you to [email the Microsoft team for Azure Communication Services telephone number services](mailto:acstns@microsoft.com) for further guidance.
 
 ### Is there a fee for campaign registration?
 
-Yes, there's a fee. For more information, see the [pricing page](../sms-pricing.md).
-
-## General 10DLC FAQs
-
-### Can I use 10DLC numbers in any country?
-
-No, 10DLC is primarily supported in the United States. Availability depends on the subscription billing location and eligibility. For more information about supported countries, see [Phone number management for the United States](../../concepts/numbers/phone-number-management-for-united-states.md).
-
-### What is a 10DLC number?
-
-A 10DLC (10-Digit Long Code) number is a standard 10-digit phone number used for Application-to-Person (A2P) messaging in the United States. A 10DLC number is designed for businesses to send SMS messages to customers at scale, without the restrictions of traditional long codes.
-
-### I already have a local U.S. number. Can I use it for SMS?
-
-Yes, if you already have a local U.S. number, you can use it for SMS messaging. You need to submit a brand registration and campaign registration before enabling the SMS capability on it. For more information, see [Apply for 10 digit long code (10DLC) brand registration and campaign registration](../../quickstarts/sms/apply-for-ten-digit-long-code.md).
-
-### What are the advantages of using 10DLC numbers over short codes?
-
-- **Cost-effective**: 10DLC numbers are more affordable than short codes for A2P messaging.
-- **Wide coverage**: 10DLC numbers can be used for messaging across all major U.S. carriers, providing reliable delivery at scale.
-- **No need for dedicated short codes**: 10DLCs don't require more approvals or significant setup costs, unlike short codes.
-
-### Can 10DLC numbers be used for voice calls?
-
-Yes, 10DLC numbers are nothing but local numbers that are voice-enabled. When registered, they can be used for SMS. 10DLC registration only applies to SMS enablement and isn't required for calling.
-
-### What kind of messages can be sent from a 10DLC number?
-
-10DLC numbers can be used for a wide range of business communications, including:
-- Customer service notifications
-- Marketing and promotional messages
-- Alerts and reminders
-- Two-factor authentication (2FA) codes
-
-However, 10DLC numbers must adhere to messaging guidelines and can't be used for illegal or spam purposes.
-
-### Are 10DLC numbers subject to throughput limits?
-
-Yes, 10DLC numbers are subject to throughput limits, which can vary depending on the carrier and the volume of messages sent. These limits are higher than for traditional long codes but are lower than for short codes. The actual throughput might change due to factors such as campaign registration and compliance with carrier guidelines.
-
-### Can I port my existing number to a 10DLC number?
-
-Yes, you can port an existing phone number to a 10DLC. Follow the instructions in [Port a phone number](../../quickstarts/telephony/port-phone-number.md).
-
-### What happens if I send unsolicited messages from a 10DLC number?
-
-Sending unsolicited messages, also known as spam, can lead to penalties, including the suspension of your 10DLC number or carrier blocking. You need to comply with applicable laws, including the Telephone Consumer Protection Act (TCPA) and carrier guidelines to avoid these issues.
-
-### Can 10DLC numbers be used for international messaging?
-
- 10DLC numbers are designed for use within the United States and don't support international messaging.
- 
-### How can I monitor the performance of my 10DLC number?
-
-Monitoring the performance of your 10DLC number, such as delivery rates, message throughput, and errors, can typically be done through [SMS insights dashboard](../analytics/insights/sms-insights.md).
-
-### Can I use 10DLC numbers for high-volume messaging?
-
-Yes, 10DLC numbers are suitable for high-volume messaging, but they're subject to carrier rate limiting and compliance guidelines. To ensure optimal performance, it's important to work with your provider to manage message volume and adhere to best practices for A2P messaging.
+Yes, there's a fee. For more information, see [SMS pricing](../sms-pricing.md).
 
 ## Sending and receiving messages
 
-### How can I receive messages using Azure Communication Services?
+### How can I receive messages by using Azure Communication Services?
 
-Azure Communication Services customers can use Azure Event Grid to receive incoming messages. For more information about how to set up your event-grid to receive messages, see [Handle SMS events](../../quickstarts/sms/handle-sms-events.md).
+Azure Communication Services customers can use Azure Event Grid to receive incoming messages. For more information about how to set up Event Grid to receive messages, see [Handle SMS events](../../quickstarts/sms/handle-sms-events.md).
 
 ### Can I receive messages from any country or region on toll-free numbers?
 
-Toll-free numbers aren't capable of sending or receiving messages to or from countries or regions outside of the United States (US), Canada (CA), and Puerto Rico (PR).
+Toll-free numbers can't send messages to, or receive messages from, countries or regions outside the United States, Canada, and Puerto Rico.
 
 ### Can I receive messages from any country or region on short codes?
 
-Short codes are domestic numbers and aren't capable of sending or receiving messages to/from outside of the country or region it was registered for. *For example: US short code can only send and receive messages to and from US recipients.*
+Short codes are domestic numbers and can't send messages to, or receive messages from, a location outside the country or region where it was registered. For example, a US short code can send messages to, and receive messages from, only US recipients.
 
 ### How are messages sent to landline numbers treated?
 
-In the United States, Azure Communication Services doesn't check for landline numbers and attempts to send it to carriers for delivery. Customers are charged for messages sent to landline numbers. 
+In the United States, Azure Communication Services doesn't check for landline numbers and attempts to send the messages to carriers for delivery. Customers are charged for messages sent to landline numbers.
 
 ### Can I send messages to multiple recipients?
 
-Yes, you can make one request with multiple recipients. For more information about how to send messages to multiple recipients, see [Send SMS messages](../../quickstarts/sms/send.md?pivots=programming-language-csharp).
+Yes, you can make one request with multiple recipients. For more information about how to send messages to multiple recipients, see [Send an SMS message](../../quickstarts/sms/send.md?pivots=programming-language-csharp).
 
-### I received an HTTP Status 202 from the Send SMS API but the SMS didn't reach my phone. What do I do now?
+### I received an HTTP 202 status code from the Send SMS API, but the SMS message didn't reach my phone. What should I do now?
 
-The 202 returned by the service means that the message you queued to be sent wasn't delivered. To subscribe to delivery report events and troubleshoot, see [Handle SMS events](../../quickstarts/sms/handle-sms-events.md). Once the events are configured, inspect the `deliveryStatus` field of your delivery report to verify delivery success or failure.
+The 202 status code that the service returned means that the message you queued to be sent wasn't delivered. To subscribe to delivery report events and troubleshoot, see [Handle SMS events](../../quickstarts/sms/handle-sms-events.md). After the events are configured, inspect the `deliveryStatus` field of your delivery report to verify delivery success or failure.
 
-### How to send shortened URLs in messages?
+### How do I send shortened URLs in messages?
 
-Shortened URLs are a good way to keep messages short and readable. However, US carriers prohibit the use of free publicly available URL shortener services. This is because the ‘free-public’ URL shorteners are used by bad-actors to evade detection and get their SPAM messages passed through text messaging platforms. When sending messages in the US, we encourage using custom URL shorteners to create URLs with dedicated domain that belongs to your brand. Many US carriers block SMS traffic if they contain publicly available URL shorteners.
+Shortened URLs are a good way to keep messages short and readable. However, US carriers prohibit the use of free, publicly available URL shortener services. The reason is that bad actors can use these URL shorteners to evade detection and get their spam messages passed through text messaging platforms.
 
-To increase the chances of your messages being delivered, avoid the following list of common URL shorteners:
+When you send messages in the United States, we encourage you to use custom URL shorteners to create URLs with a dedicated domain that belongs to your brand. Many US carriers block SMS traffic if they contain publicly available URL shorteners.
+
+To increase your chances of message delivery, avoid these common URL shorteners:
 
 - bit.ly
 - goo.gl
 - tinyurl.com
-- Tiny.cc
+- tiny.cc
 - lc.chat
 - is.gd
 - soo.gd
 - s2r.co
-- Clicky.me
+- clicky.me
 - budurl.com
 - bc.vc
 
@@ -172,154 +191,168 @@ To increase the chances of your messages being delivered, avoid the following li
 
 ### How does Azure Communication Services handle opt-outs for toll-free numbers?
 
-Opt-outs for US toll-free numbers are mandated and enforced by US carriers and can't be overridden.
+US carriers mandate and enforce the following opt-outs for US toll-free numbers. These opt-outs can't be overridden.
 
-- **STOP** - If a text message recipient wishes to opt out, they can send `STOP` to the toll-free number. The carrier sends the following default response for STOP: *"NETWORK MSG: You replied with the word STOP, which blocks all texts sent from this number. Text back UNSTOP to receive messages again."*
-- **START/UNSTOP** - If the recipient wishes to resubscribe to text messages from a toll-free number, they can send `START` or `UNSTOP` to the toll-free number. The carrier sends the following default response for START/UNSTOP: *`NETWORK MSG: You have replied UNSTOP and will begin receiving messages again from this number.`*
-- Azure Communication Services detects `STOP` messages and blocks all further messages to the recipient. The delivery report indicates a failed delivery with status message as “Sender blocked for given recipient.”
-- The `STOP`, `UNSTOP`, and `START` messages are relayed back to you. Azure Communication Services encourages you to monitor and implement these opt-outs to ensure that no further message send attempts are made to recipients who opt out of your communications.
+- **STOP**: A text message recipient who wants to opt out can send **STOP** to the toll-free number. The carrier sends the following default response for **STOP**: "NETWORK MSG: You replied with the word STOP, which blocks all texts sent from this number. Text back UNSTOP to receive messages again."
+- **START**, **UNSTOP**: A recipient who wants to resubscribe to text messages from a toll-free number can send **START** or **UNSTOP** to the toll-free number. The carrier sends the following default response for **START** or **UNSTOP**: "NETWORK MSG: You have replied UNSTOP and will begin receiving messages again from this number."
+
+Azure Communication Services detects **STOP** messages and blocks all further messages to the recipient. The delivery report indicates a failed delivery with the status message "Sender blocked for given recipient."
+
+The **STOP**, **UNSTOP**, and **START** messages are relayed back to you. Azure Communication Services encourages you to monitor and implement these opt-outs to ensure that no further message-sending attempts are made to recipients who opt out of your communications.
 
 ### How does Azure Communication Services handle opt-outs for short codes?
 
-Azure communication service offers an opt-out management service for short codes that allows customers to configure responses to mandatory keywords `STOP`,`QUIT`,`END`,`REVOKE`,`OPT OUT`,`CANCEL`,`UNSUBSCRIBE`,`START`, and `HELP`. Before provisioning your short code, you're asked for your preference to manage opt-outs. If you chose the Azure Communication Services to handle it, the opt-out management service automatically uses your responses in the program brief for Opt in/ Opt out/ Help keywords in response to STOP/START/HELP keyword.
+Azure Communication Services offers an opt-out management service for short codes. This service allows customers to configure responses to the mandatory keywords **STOP**, **QUIT**, **END**, **REVOKE**, **OPT OUT**, **CANCEL**, **UNSUBSCRIBE**, **START**, and **HELP**.
 
-### How does Azure Communication Services handle opt-outs for short codes in United States?
+Before you provision your short code, you're asked for your preference to manage opt-out. If you chose Azure Communication Services to handle it, the opt-out management service automatically uses your responses in the program brief for opt-in, opt-out, and help keywords in response to the **STOP**, **START**, or **HELP** keyword.
 
-Azure communication service offers an opt-out management service for short codes in US that allows customers to configure responses to mandatory keywords `STOP`,`QUIT`,`END`,`REVOKE`,`OPT OUT`,`CANCEL`,`UNSUBSCRIBE`,`START`, and `HELP`. Before you provision your short code, you're asked for your preference to manage opt-outs. If you chose the Azure Communication Services to handle it, the opt-out management service automatically uses your responses in the program brief for Opt in/ Opt out/ Help keywords in response to `STOP`,`QUIT`,`END`,`REVOKE`,`OPT OUT`,`CANCEL`,`UNSUBSCRIBE`,`START`, and `HELP` keywords. 
+### How does Azure Communication Services handle opt-outs for short codes in the United States?
 
-**For example:**
-- **STOP** - If a text message recipient wishes to opt out, they can send `STOP` to the short code. Azure Communication Services sends your configured response for STOP: *`Contoso Alerts: You opted out and will not receive any more messages.`*
-- **START** - If the recipient wishes to resubscribe to text messages from a short code, they can send `START` to the short code. Azure Communication Service sends your configured response for START: *`Contoso Promo Alerts: 3 msgs/week. Message & Data Rates May Apply. Reply HELP for help. Reply STOP to opt-out.`*
-- **HELP** - If the recipient wishes to get help with your service, they can send `HELP` to the short code. Azure Communication Service sends the response you configured in the program brief for HELP: *`Thanks for texting Contoso! Call 1-800-800-8000 for support.`*
+Azure Communication Services offers an opt-out management service for short codes in the United States. This service allows customers to configure responses to the mandatory keywords **STOP**, **QUIT**, **END**, **REVOKE**, **OPT OUT**, **CANCEL**, **UNSUBSCRIBE**, **START**, and **HELP**.
 
-Azure Communication Services detects `STOP`,`QUIT`,`END`,`REVOKE`,`OPT OUT`,`CANCEL`, or `UNSUBSCRIBE` messages and blocks all further messages to the recipient. The delivery report indicates a failed delivery with status message as “Sender blocked for given recipient.” The `STOP`,`QUIT`,`END`,`REVOKE`,`OPT OUT`,`CANCEL`,`UNSUBSCRIBE`,`UNSTOP`, and `START` messages are relayed back to you. We encourage you to monitor and implement these *opt-outs* to ensure that no further message send attempts are made to recipients who opt out of your communications.
+Before you provision your short code, you're asked for your preference to manage opt-out. If you chose Azure Communication Services to handle it, the opt-out management service automatically uses your responses in the program brief for opt-in, opt-out, and help keywords in response to **STOP**, **QUIT**, **END**, **REVOKE**, **OPT OUT**, **CANCEL**, **UNSUBSCRIBE**, **START**, and **HELP** keywords.
 
-### How does Azure Communication Services handle opt outs for alphanumeric sender ID?
+For example:
 
-An alphanumeric sender ID can't receive inbound messages or `STOP` messages. Azure Communication Services doesn't enforce or manage opt-out lists for alphanumeric sender ID. You must provide customers with instructions to opt out using other channels such as, calling support, providing an opt-out link in the message, or emailing support. For more information, see [messaging policy guidelines](./messaging-policy.md#how-we-handle-opt-out-requests-for-sms).
+- **STOP**: A text message recipient who wants to opt out can send **STOP** to the short code. Azure Communication Services sends your configured response for **STOP**: "Contoso Alerts: You opted out and will not receive any more messages."
+- **START**: A recipient who wants to resubscribe to text messages from a short code can send **START** to the short code. Azure Communication Services sends your configured response for **START**: "Contoso Promo Alerts: 3 msgs/week. Message & Data Rates May Apply. Reply HELP for help. Reply STOP to opt-out."
+- **HELP**: A recipient who wants to get help with your service can send **HELP** to the short code. Azure Communication Services sends the response that you configured in the program brief for **HELP**: "Thanks for texting Contoso! Call 1-800-800-8000 for support."
 
-### How does Azure Communication Services handle opt outs for short codes in Canada and United Kingdom?
+Azure Communication Services detects **STOP**, **QUIT**, **END**, **REVOKE**, **OPT OUT**, **CANCEL**, or **UNSUBSCRIBE** messages and blocks all further messages to the recipient. The delivery report indicates a failed delivery with the status message "Sender blocked for given recipient."
 
-Azure Communication Services doesn't control or implement opt-out mechanisms for short codes within Canada and the United Kingdom. Recipients of text messages have the option to text ‘STOP’ to unsubscribe or ‘START’ to subscribe to the short code. These requests are relayed as incoming messages to your Event Grid. It is your responsibility to act on these messages by resubscribing recipients or ceasing message delivery accordingly.
+The **STOP**, **QUIT**, **END**, **REVOKE**, **OPT OUT**, **CANCEL**, **UNSUBSCRIBE**, **UNSTOP**, and **START** messages are relayed back to you. We encourage you to monitor and implement these opt-outs to ensure that no further message-sending attempts are made to recipients who opt out of your communications.
+
+### How does Azure Communication Services handle opt-outs for an alphanumeric sender ID?
+
+An alphanumeric sender ID can't receive inbound messages or **STOP** messages. Azure Communication Services doesn't enforce or manage opt-out lists for alphanumeric sender IDs. You must provide customers with instructions to opt out by using other channels, such as call support, an opt-out link in the message, or email support. For more information, see the [messaging policy guidelines](./messaging-policy.md#how-we-handle-opt-out-requests-for-sms).
+
+### How does Azure Communication Services handle opt-outs for short codes in Canada and the United Kingdom?
+
+Azure Communication Services doesn't control or implement opt-out mechanisms for short codes within Canada and the United Kingdom. Recipients of text messages have the option to text **STOP** to unsubscribe or **START** to subscribe to the short code. These requests are relayed as incoming messages to your Event Grid instance. It's your responsibility to act on these messages by resubscribing recipients or ceasing message delivery accordingly.
 
 ## Short codes
 
 ### What is the eligibility to apply for a short code?
 
-Short Code availability is restricted to paid Azure subscriptions that have a billing address in the United States. Short Codes can't be acquired on trial accounts or using Azure free credits. For more information, see the [subscription eligibility page](../numbers/sub-eligibility-number-capability.md). 
+The availability of short codes is restricted to paid Azure subscriptions that have a billing address in the United States. Short codes can't be acquired on trial accounts or via Azure free credits. For more information, see the [article about subscription eligibility](../numbers/sub-eligibility-number-capability.md).
 
-### Can you text to a toll-free number from a short code?
+### Can someone text to a toll-free number from a short code?
 
-Azure Communication Services toll-free numbers are enabled to receive messages from short codes. However, short codes aren't typically enabled to send messages to toll-free numbers. If your messages from short codes to Azure Communication Services toll-free numbers are failing, check with your short code provider if the short code is enabled to send messages to toll-free numbers. 
+Azure Communication Services toll-free numbers are enabled to receive messages from short codes. However, short codes aren't typically enabled to send messages to toll-free numbers. If your messages from short codes to Azure Communication Services toll-free numbers are failing, ask your short-code provider if the short code is enabled to send messages to toll-free numbers.
 
 ### How should a short code be formatted?
 
-Short codes don't fall under E.164 formatting guidelines and don't have a country code, or a plus sign (**+**) prefix. In the SMS API request, your short code should be passed as the five (5) to six (6) digit number you see in your short codes page without any prefix. 
+Short codes don't fall under E.164 formatting guidelines. They don't have a country code or a plus sign (+) prefix. In the SMS API request, your short code should be passed as the five-digit or six-digit number that appears on your page for short codes, without any prefix.
 
-### How long does it take to get a short code? What happens after a short code program brief application is submitted?
+### How long does it take to get a short code? What happens after an application for a short-code program brief is submitted?
 
-Once you submit the short code program brief application in the Azure portal, the service desk works with the aggregators to get your application approved by each wireless carrier. This process generally takes eight (8) to twelve (12) weeks. All updates and the status changes for your applications are communicated via the email you provide in the application. For more questions about your submitted application, email [acstnrequest@microsoft.com](mailto:acstnrequest@microsoft.com).
+After you submit the application for a short-code program brief in the Azure portal, the service desk works with the aggregators to get each wireless carrier to approve your application. This process generally takes 8 to 12 weeks. All updates and the status changes for your applications are communicated via the email address that you provided in the application. For more questions about your submitted application, [email the Microsoft team for Azure Communication Services telephone number services](mailto:acstns@microsoft.com).
 
 ## Alphanumeric sender ID
 
 > [!IMPORTANT]
-> Effective **June 30, 2024**, unregistered alphanumeric sender IDs sending messages to UK phone numbers will have its traffic blocked. To prevent this from happening, a [registration application](https://forms.office.com/r/pK8Jhyhtd4) needs to be submitted and be in approved status.
+> Effective *June 30, 2024*, traffic is blocked from unregistered alphanumeric sender IDs that send messages to UK phone numbers. To prevent the blocking of this traffic, submit a [registration application](https://forms.office.com/r/pK8Jhyhtd4) and wait for it to be approved.
+
+> [!IMPORTANT]
+> Effective **July 3, 2025**, unregistered alphanumeric sender IDs sending messages to Ireland phone numbers will have its messages marked as "Spam" for recipients. To prevent this, a [registration application](https://forms.office.com/r/pK8Jhyhtd4) needs to be submitted. If your Sender ID isn't registered by **October 3, 2025**, all traffic from the unregistered Sender IDs will be blocked entirely.
+
 
 ### How should an alphanumeric sender ID be formatted?
 
-**Formatting guidelines**:
-- Must contain at least one letter
-- Upto 11 characters
-- Characters can include: 
- - Upper case letters: A - Z
- - Lower case letters: a - z
- - Numbers: 0 - 9
- - Spaces
+An alphanumeric sender ID:
 
-### Is a number purchase required to use alphanumeric sender ID?
+- Must contain at least one letter.
+- Can have up to 11 characters. Characters can include:
+  - Uppercase letters: A-Z
+  - Lowercase letters: a-z
+  - Numbers: 0-9
+  - Spaces
 
-Using an alphanumeric sender ID doesn't require you to purchase any phone number. You can enable alphanumeric sender ID through the Azure portal. For more information, see [enable alphanumeric sender ID quickstart](../../quickstarts/sms/enable-alphanumeric-sender-id.md).
+### Do I need to purchase a phone number to use an alphanumeric sender ID?
 
+Using an alphanumeric sender ID doesn't require you to purchase any phone number. You can enable an alphanumeric sender ID through the Azure portal. For more information, see the [quickstart for enabling an alphanumeric sender ID](../../quickstarts/sms/enable-alphanumeric-sender-id.md).
 
-### Can I send SMS immediately after enabling alphanumeric sender ID?
+### Can I send an SMS message immediately after I enable an alphanumeric sender ID?
 
-We recommend waiting for 10 minutes before you start sending messages for best results.
+For best results, we recommend that you wait 10 minutes before you start sending messages.
 
-### Why is my alphanumeric sender ID getting replaced by a number?
+### Why is a number replacing my alphanumeric sender ID?
 
-Alphanumeric sender ID replacement with a number may occur when a certain wireless carrier doesn't support alphanumeric sender ID. This is done to ensure high delivery rate. 
+Replacement of an alphanumeric sender ID with a number might occur when a certain wireless carrier doesn't support alphanumeric sender IDs. The replacement helps ensure a high delivery rate.
 
-## Toll-Free Verification
+## Toll-free verification
 
 > [!IMPORTANT]
-> Effective **January 31, 2024**, only fully verified toll-free numbers will be able to send traffic. Unverified toll-free numbers sending messages to US and CA phone numbers have all traffic **blocked**. 
+> Effective *January 31, 2024*, only fully verified toll-free numbers can send traffic. All traffic is blocked from unverified toll-free numbers that send messages to US and Canadian phone numbers.
 
-### What is toll free verification?
+### What is toll-free verification?
 
-The toll-free verification process ensures that your services running on toll-free numbers (TFNs) comply with carrier policies and [industry best practices](./messaging-policy.md). The verification process also provides relevant service information to the downstream carriers, reduces the likelihood of false positive filtering and wrongful spam blocks.
+The toll-free verification process ensures that your services running on toll-free numbers comply with carrier policies and [industry best practices](./messaging-policy.md). The verification process also provides relevant service information to the downstream carriers, which reduces the likelihood of false-positive filtering and wrongful spam blocks.
 
-This verification is **required** for best SMS delivery experience.
+This verification is *required* for the best SMS delivery experience.
 
 ### What happens if I don't verify my toll-free numbers?
 
-#### SMS to US phone numbers
+Effective January 31, 2024, the industry's toll-free aggregator mandates toll-free verification and allows only verified numbers to send SMS messages. The limits are as follows:
 
-Effective January 31, 2024, the industry’s toll-free aggregator is mandating toll-free verification and will only allow verified numbers to send SMS messages.
-
-New limits are as follows:
-
-|Limit type |Verification Status|Current limit| Limit effective January 31, 2024 |
+|Limit type |Verification status|Previous limit| Limit effective January 31, 2024 |
 |------------|-------------------|-------------|-------------------------------|
-|Daily limit |Unverified | 500 |Blocked|
-|Weekly limit| Unverified| 1,000| Blocked|
-|Monthly Limit| Unverified| 2,000| Blocked|
-|Daily limit| Pending Verification| 2,000| Blocked|
-|Weekly limit| Pending Verification| 6,000| Blocked|
-|Monthly Limit| Pending Verification| 10,000| Blocked|
-|Daily limit| Verified | No Limit| No Limit|
-|Weekly limit| Verified| No Limit| No Limit|
-|Monthly Limit| Verified| No Limit| No Limit|
+|Daily|Unverified | 500 |Blocked|
+|Weekly| Unverified| 1,000| Blocked|
+|Monthly| Unverified| 2,000| Blocked|
+|Daily| Pending verification| 2,000| Blocked|
+|Weekly| Pending verification| 6,000| Blocked|
+|Monthly| Pending verification| 10,000| Blocked|
+|Daily| Verified | No limit| No limit|
+|Weekly| Verified| No limit| No limit|
+|Monthly| Verified| No limit| No limit|
 
-The SMS rate limits are still applicable in addition to these limits. For more information, see [rate limits](#are-there-any-limits-on-sending-messages).
+The SMS rate limits are still applicable in addition to these limits. For more information, see [Are there any limits on sending messages?](#are-there-any-limits-on-sending-messages) in this article.
 
 > [!IMPORTANT]
 > Unverified SMS traffic that exceeds the daily limit or is filtered for spam has a [4010 error code](../troubleshooting-codes.md) returned for both scenarios.
 
 ### What happens after I submit the toll-free verification form?
 
-After submission of the form, we coordinate with our downstream peer to get the application verified by the toll-free messaging aggregator. While we're reviewing your application, we may reach out to you for more information.
-- From Application Submitted to Pending = **1-5 business days** 
-- From Pending to Verdict (Verified/Rejected/More info needed) = **4-5 weeks**. The toll-free aggregator is currently facing a high volume of applications, so new applications can take around eight weeks to be approved.
+After you submit the form, we coordinate with our downstream peer to get the toll-free messaging aggregator to verify the application. While we review your application, we might reach out to you for more information. Here are the status timeframes:
 
-The whole toll-free verification process takes about **5-6 weeks**. These timelines are subject to change depending on the volume of applications to the toll-free messaging aggregator and the [quality](#what-is-considered-a-high-quality-toll-free-verification-application) of your application. The toll-free aggregator is currently facing a high volume of applications due to which applications can take around eight weeks to get approved.
+- From **Application Submitted** to **Pending**: One to five business days.
+- From **Pending** to **Verdict** (**Verified**, **Rejected**, or **More info needed**): Four to five weeks.
 
-Updates for changes and the status of your applications are communicated via the regulatory blade in Azure portal.
+The whole toll-free verification process takes about *five to six weeks*. These timelines are subject to change, depending on the volume of applications to the toll-free messaging aggregator and the [quality](#what-is-considered-a-high-quality-toll-free-verification-application) of your application. When the toll-free aggregator has a high volume of applications, new applications can take around eight weeks to be approved.
 
-### How do I submit a toll-free verification?
+Updates for changes and the status of your applications are communicated via the regulatory information in the Azure portal.
 
-To submit a toll-free verification application, navigate to Azure Communication Service resource that your toll-free number is associated with in Azure portal. Navigate to the Phone numbers blade. Select the Toll-Free verification application link displayed as **Submit Application** in the infobox at the top of the phone numbers blade. Complete the form and submit it.
+### How do I submit an application for a toll-free verification?
 
-### What is considered a high quality toll-free verification application?
+To submit an application for a toll-free verification:
 
-The better the quality of your application, the greater the likelihood of it being approved. 
+1. In the Azure portal, go to the Azure Communication Services resource that your toll-free number is associated with.
 
-Pointers to ensure you're submitting a high quality application:
-- Phone numbers listed are Toll-free numbers
-- Complete all required fields
-- Your use case isn't listed on our [Ineligible Use Case](#what-are-the-ineligible-use-cases-for-toll-free-verification) list 
-- Your opt-in process is documented/detailed
-- Your opt-in image URL is provided and publicly accessible 
-- You follow [CTIA guidelines](https://www.ctia.org/the-wireless-industry/industry-commitments/messaging-interoperability-sms-mms)
+1. Go to the **Phone numbers** pane and select the **Submit Application** link.
+
+1. Complete the form and submit it.
+
+### What is considered a high-quality toll-free verification application?
+
+The better the quality of your application, the greater the likelihood of its approval. Here are pointers for submitting a high-quality application:
+
+- Ensure that listed phone numbers are toll-free numbers.
+- Complete all required fields.
+- Ensure that your use case isn't in the [list of ineligible use cases](#what-are-the-ineligible-use-cases-for-toll-free-verification).
+- Describe your opt-in process.
+- Provide a publicly accessible opt-in image URL.
+- Follow [CTIA guidelines](https://www.ctia.org/the-wireless-industry/industry-commitments/messaging-interoperability-sms-mms).
 
 ### What are the ineligible use cases for toll-free verification?
 
-| High-Risk Financial Services | Get Rich Quick Schemes | Debt Forgiveness | Illegal Substances/Activities | General |
+| High-risk financial services | Get-rich-quick schemes | Debt forgiveness | Illegal substances/activities | General |
 | --- | --- | --- | --- | --- |
-| Payday loans | Debt consolidation | Work from home programs | Cannabis | Phishing |
+| Payday loans | Debt consolidation | Work-from-home programs | Cannabis | Phishing |
 | Short-term, high-interest loans | Debt reduction | Risk investment opportunities | Alcohol | Fraud or scams |
 | Auto loans | Credit repair programs | Debt collection or consolidation | Tobacco or vape | Deceptive marketing |
-| Mortgage loans | Deceptive work from home programs | | | Pornography |
-| Student loans | Multi-level marketing | | | Sex-related content |
+| Mortgage loans | Deceptive work-from-home programs | | | Pornography |
+| Student loans | Multilevel marketing | | | Sex-related content |
 | Gambling | | | | Profanity or hate speech |
 | Sweepstakes | | | | Firearms |
 | Stock alerts | | | | |
@@ -327,73 +360,88 @@ Pointers to ensure you're submitting a high quality application:
 
 ### How is my data being used?
 
-Toll-free verification (TFV) involves an integration between Microsoft and the Toll-Free messaging aggregator. The toll-free messaging aggregator is the final reviewer and approver of the TFV application. Microsoft must share the TFV application information with the toll-free messaging aggregator for them to confirm that the program details meet the CTIA guidelines and standards set by carriers. By submitting a TFV form, you agree that Microsoft may share the TFV application details as necessary for provisioning the toll-free number.
- 
+Toll-free verification involves an integration between Microsoft and the toll-free messaging aggregator. The toll-free messaging aggregator is the final reviewer and approver of the verification application. Microsoft must share the application information with the toll-free messaging aggregator so that the aggregator can confirm that the program details meet the CTIA guidelines and standards that carriers set.
+
+By submitting an application for toll-free verification, you agree that Microsoft can share the application details as necessary for provisioning the toll-free number.
+
 ## Character and rate limits
 
 ### What is the SMS character limit?
 
-The size of a single SMS message is 140 bytes. The character limit per single message being sent depends on the message content and encoding used. Azure Communication Services supports both GSM-7 and UCS-2 encoding. 
+The maximum size of a single SMS message is 140 bytes. The character limit for each message that you send depends on the message content and the encoding. Azure Communication Services supports these types of encoding:
 
-- **GSM-7** - A message containing text characters only is encoded using GSM-7
-- **UCS-2** - A message containing unicode (emojis, international languages) is encoded using UCS-2
+- **GSM-7**: For a message that contains text characters only.
+- **UCS-2**: For a message that contains Unicode (emoji or international languages).
 
-This table shows the maximum number of characters that can be sent per SMS segment to carriers:
+This table shows the maximum number of characters that you can send per SMS segment to carriers:
 
 | Message | Type | Characters used in the message | Encoding | Maximum characters in a single segment |
 | --- | ---| --- | --- | --- |
-| Hello world | Text | GSM Standard  |GSM-7 | 16 0|
+| Hello world | Text | GSM standard  |GSM-7 | 160|
 | 你好 | Unicode | Unicode | UCS-2 | 70 |
 
-### Can I send/receive long messages (>2,048 chars)?
+### Can I send or receive long messages (more than 2,048 characters)?
 
-Azure Communication Services supports sending and receiving of long messages over SMS. However, some wireless carriers or devices may act differently when receiving long messages. We recommend keeping SMS messages to a length of 320 characters and reducing the use of accents to ensure maximum delivery. 
+Azure Communication Services supports sending and receiving long messages over SMS. However, some wireless carriers or devices might act differently when they receive long messages. To ensure maximum delivery, we recommend that you keep SMS messages to a length of 320 characters and reduce the use of accents.
 
-*Limitation of US short code - There is a known limit of four (4) segments when sending or receiving a message with Non-ASCII characters. Beyond four segments, the message may not be delivered with the right formatting.
+For US short codes, there's a known limit of four segments when you're sending or receiving a message with non-ASCII characters. Beyond four segments, the message might not be delivered with the right formatting.
 
 ### Are there any limits on sending messages?
 
-To ensure that we continue offering the high quality of service consistent with our SLAs, Azure Communication Services applies rate limits (different for each primitive). Developers who call our APIs beyond the limit receive a 429 HTTP Status Code Response. 
+To ensure that we continue offering the high quality of service that's consistent with our service-level agreements, Azure Communication Services applies rate limits (different for each primitive). Developers who call our APIs beyond the limit receive a 429 HTTP status code in response.
 
-#### Rate Limits for SMS
+#### Rate limits for SMS
 
-|Operation|Number Type |Scope|Timeframe (s)| Limit (request #) | Message units per minute|
+|Operation|Number type |Scope|Timeframe| Limit (request #) | Message units per minute|
 |---------|---|--|-------------|-------------------|-------------------------|
-|Send Message|Toll-Free|Per Number|60|200*|200|
-|Send Message|Short Code |Per Number|60|6000*|6000|
-|Send Message|Alphanumeric Sender ID |Per resource|60|600*|600|
+|Send message|Toll-free|Per number|60|200|200|
+|Send message|Short code |Per number|60|6,000|6,000|
+|Send message|Alphanumeric sender ID |Per resource|60|600|600|
 
-*If your company has requirements that exceed the rate-limits, submit [a request to Azure Support](/azure/azure-portal/supportability/how-to-create-azure-support-request) to enable higher throughput.
+If your company has requirements that exceed the rate limits, submit [a request to Azure support](/azure/azure-portal/supportability/how-to-create-azure-support-request) to enable higher throughput.
 
 #### Rate limits for 10DLC
 
-| **Carrier** | **Message Class / Brand Tier** | **Use Case Type** | **Use Case** | **Vetting Score Requirements** | **Daily Cap (SMS)** |
+| Carrier | Message class or brand tier | Use case type | Use case | Vetting score requirements | Daily cap (SMS) |
 | --- | --- | --- | --- | --- | --- |
-| AT&T | A | Standard | Dedicated Use Case | 75-100 | 4,500 | 
-| AT&T | B | Standard | Mixed / Marketing | 75-100 | 4,500 | 
-| AT&T | C | Standard | Dedicated Use Case | 50-74 | 4,500 | 
-| AT&T | D | Standard | Mixed / Marketing | 50-74 | 4,500 | 
-| AT&T | E | Standard | Dedicated Use Case | 1-49 | 240 | 
-| AT&T | F | Standard | Mixed / Marketing | 1-49 | 240 | 
-| AT&T | T | Standard | Low Volume Mixed | 75 | 50 | 
-| T-Mobile | Top | Standard | All | 75-100 | 200,000 | 
-| T-Mobile | High Mid | Standard | All | 50-74 | 40,000 | 
-| T-Mobile | Low Mid | Standard | All | 25-49 | 10,000 | 
-| T-Mobile | Low | Standard | All | 1-24 | 2,000 | 
-| T-Mobile | Standard | Standard | Low Volume Mixed | | 2,000 | 
+| AT&T | A | Standard | Dedicated use case | 75-100 | 4,500 |
+| AT&T | B | Standard | Mixed/marketing | 75-100 | 4,500 |
+| AT&T | C | Standard | Dedicated use case | 50-74 | 4,500 |
+| AT&T | D | Standard | Mixed/marketing | 50-74 | 4,500 |
+| AT&T | E | Standard | Dedicated use case | 1-49 | 240 |
+| AT&T | F | Standard | Mixed/marketing | 1-49 | 240 |
+| AT&T | T | Standard | Low-volume mixed | 75 | 50 |
+| T-Mobile | Top | Standard | All | 75-100 | 200,000 |
+| T-Mobile | High mid | Standard | All | 50-74 | 40,000 |
+| T-Mobile | Low mid | Standard | All | 25-49 | 10,000 |
+| T-Mobile | Low | Standard | All | 1-24 | 2,000 |
+| T-Mobile | Standard | Standard | Low-volume mixed | Not applicable | 2,000 |
 
-## Carrier Fees
+## Carrier fees
 
 ### What are the carrier fees for SMS?
 
-US and CA carriers charge an added fee for SMS messages sent and/or received from toll-free numbers and short codes. The carrier surcharge is calculated based on the destination of the message for sent messages and based on the sender of the message for received messages. Azure Communication Services charges a standard carrier fee per message segment. Carrier fees are subject to change by mobile carriers. For more information, see [SMS pricing](../sms-pricing.md). 
+US and Canadian carriers charge an added fee for SMS messages sent and/or received from toll-free numbers and short codes. The carrier surcharge is calculated based on the destination of the message for sent messages and based on the sender of the message for received messages.
 
-### When do we come to know of changes to these surcharges?
+Azure Communication Services charges a standard carrier fee per message segment. Carrier fees are subject to change by mobile carriers. For more information, see [SMS pricing](../sms-pricing.md).
 
-As with similar Azure services, customers are notified at least 30 days before the implementation of any price changes. These charges are reflected on our SMS pricing page along with the effective dates. 
+### When will I know about changes to these surcharges?
+
+As with similar Azure services, customers are notified at least 30 days before the implementation of any price changes. These charges are reflected on our SMS pricing page, along with the effective dates.
 
 ## Emergency support
 
 ### Can a customer use Azure Communication Services for emergency purposes?
 
-Azure Communication Services doesn't support text-to-911 functionality in the United States, but it’s possible that you may have an obligation to do so under the rules of the Federal Communications Commission (FCC). You should assess whether the FCC’s text-to-911 rules apply to your service or application. To the extent you're covered by these rules, you're responsible for routing 911 text messages to emergency call centers that request them. You're free to determine your own text-to-911 delivery model, but one approach accepted by the FCC involves automatically launching the native dialer on the user’s mobile device to deliver 911 texts through the underlying mobile carrier.
+Azure Communication Services doesn't support text-to-911 functionality in the United States, but it's possible that you might have an obligation to do so under the rules of the Federal Communications Commission (FCC). You should assess whether the FCC's text-to-911 rules apply to your service or application.
+
+To the extent that these rules affect you, you're responsible for routing 911 text messages to emergency call centers that request them. You're free to determine your own text-to-911 delivery model. One approach that the FCC accepts involves automatically opening the native dialer on the user's mobile device to deliver 911 texts through the underlying mobile carrier.
+
+## Messaging Connect
+
+### How can I send SMS to countries not directly supported by Azure Communication Services?
+
+You can use **Messaging Connect**, a partner-powered solution that enables global SMS delivery through trusted aggregators. It allows you to acquire phone numbers or sender IDs from partner networks and send messages using the same ACS APIs and SDKs you already use—extending your messaging reach while staying fully integrated with Azure.
+
+To learn more, see [Messaging Connect](../sms/messaging-connect.md).
+

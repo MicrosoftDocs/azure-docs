@@ -7,6 +7,7 @@ ms.topic: concept-article
 author: AbdullahBell
 ms.author: abell
 ms.service: azure-ddos-protection
+# Customer intent: "As a security administrator, I want to monitor Azure DDoS Protection metrics and logs so that I can analyze attack patterns and ensure the effectiveness of my DDoS mitigation strategies."
 ---
 
 # Monitor Azure DDoS Protection
@@ -35,7 +36,7 @@ Telemetry for an attack is provided through Azure Monitor in real time. While [m
 
 You can view DDoS telemetry for a protected public IP address through three different resource types: DDoS protection plan, virtual network, and public IP address.
 
-Logging can be further integrated with [Microsoft Sentinel](../sentinel/data-connectors/azure-ddos-protection.md), Splunk (Azure Event Hubs), OMS Log Analytics, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
+Logging can be further integrated with [Microsoft Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection), Splunk (Azure Event Hubs), OMS Log Analytics, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
 
 For more information on metrics, see [Monitoring Azure DDoS Protection](monitor-ddos-protection-reference.md) for details on DDoS Protection monitoring logs.
 

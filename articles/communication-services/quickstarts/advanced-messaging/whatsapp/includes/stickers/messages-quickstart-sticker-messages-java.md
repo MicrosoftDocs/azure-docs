@@ -5,7 +5,7 @@ services: azure-communication-services
 author: arifibrahim4
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
-ms.date: 1/27/2025
+ms.date: 05/01/2025
 ms.topic: include
 ms.custom: include file
 ms.author: armohamed
@@ -94,4 +94,4 @@ for (MessageReceipt messageReceipt : textMessageResult.getReceipts()) {
 
 ## Full sample code
 
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication/azure-communication-messages/src/samples/java/com/azure/communication/messages).
+Find the finalized code sample on GitHub at [Java Messages SDK](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication/azure-communication-messages/src/samples/java/com/azure/communication/messages).

@@ -4,10 +4,12 @@ description: Learn how to troubleshoot problems with your app in Azure App Servi
 keywords: app service, azure app service, diagnostics, support, web app, troubleshooting, self-help
 ms.topic: conceptual
 ms.date: 04/23/2025
+ms.update-cycle: 1095-days
 ms.author: msangapu
 author: msangapu-msft
 ms.custom: UpdateFrequency3
 #customer intent: As an app developer, I want to understand the diagnostic tools that I can use with Azure App Service.
+ms.service: azure-app-service
 ---
 # Diagnostics in Azure App Service
 
@@ -15,7 +17,7 @@ This article explains how to troubleshoot issues with your app in Azure App Serv
 
 Azure App Service diagnostics is an interactive experience to help you troubleshoot your app with no configuration required. App Service diagnostics points out what's wrong and guides you to the right information to more easily and quickly troubleshoot and resolve the problem.
 
-Although this experience is most helpful for problems that occured within the last 24 hours, all the diagnostic graphs are always available for you to analyze.
+Although this experience is most helpful for problems that occurred within the last 24 hours, all the diagnostic graphs are always available for you to analyze.
 
 App Service diagnostics works for not only apps on Windows, but also for apps on built-in or custom containers, [App Service Environments](./environment/intro.md), and [Azure Functions](../azure-functions/functions-overview.md).
 
@@ -140,4 +142,4 @@ Post your questions or feedback at [Share your ideas](https://feedback.azure.com
 
 ## Related content
 
-- [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)
+- [Tutorial: Run a load test to identify performance bottlenecks in a web app](../app-testing/load-testing/tutorial-identify-bottlenecks-azure-portal.md)

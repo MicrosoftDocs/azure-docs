@@ -136,7 +136,7 @@ API Management integrates with many complementary Azure services to create enter
 * **[Azure Monitor](api-management-howto-use-azure-monitor.md)** for logging, reporting, and alerting on management operations, systems events, and API requests​
 * **[Application Insights](api-management-howto-app-insights.md)** for live metrics, end-to-end tracing, and troubleshooting
 * **[Virtual networks](virtual-network-concepts.md)**, **[private endpoints](private-endpoint.md)**, **[Application Gateway](api-management-howto-integrate-internal-vnet-appgateway.md)**, and **[Azure Front Door](front-door-api-management.md)** for network-level protection​
-* **[Azure Defender for APIs](protect-with-defender-for-apis.md)** and **[Azure DDoS Protection](protect-with-ddos-protection.md)** for runtime protection against malicious attacks​
+* **[Microsoft Defender for APIs](protect-with-defender-for-apis.md)** and **[Azure DDoS Protection](protect-with-ddos-protection.md)** for runtime protection against malicious attacks​
 * **Microsoft Entra ID** for [developer authentication](api-management-howto-aad.md) and [request authorization](api-management-howto-protect-backend-with-aad.md)​
 * **[Event Hubs](api-management-howto-log-event-hubs.md)** for streaming events​
 * **[Azure Redis](api-management-howto-cache-external.md)** for caching responses​ with Azure Cache for Redis or Azure Managed Redis​
@@ -163,7 +163,7 @@ Operations in API Management are highly configurable, with control over URL mapp
 
 ### Products
 
-Products are how APIs are surfaced to API consumers such as app developers. Products in API Management have one or more APIs, and can be *open* or *protected*. Protected products require a subscription key, while open products can be consumed freely. 
+Products are how APIs are surfaced to API consumers such as app developers. Products in API Management have one or more APIs and can be *open* or *protected*. Protected products require a subscription key, while open products can be consumed freely.
 
 When a product is ready for use by consumers, it can be published. Once published, it can be viewed or subscribed to by users through the developer portal. Subscription approval is configured at the product level and can either require an administrator's approval or be automatic.
 

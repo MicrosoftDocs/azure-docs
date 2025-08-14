@@ -3,13 +3,14 @@ title: Performance tuning for uploads and downloads with Azure Storage client li
 titleSuffix: Azure Storage
 description: Learn how to tune your uploads and downloads for better performance with Azure Storage client library for Java. 
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/05/2024
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-java, devx-track-extended-java
+# Customer intent: "As a Java developer, I want to tune data transfer options for uploads and downloads using the Azure Storage client library, so that I can optimize performance, speed, and reliability for data transfers in my application."
 ---
 
 # Performance tuning for uploads and downloads with Java
@@ -137,3 +138,4 @@ During a download, the Storage client libraries split a given download request i
 - This article is part of the Blob Storage developer guide for Java. See the full list of developer guide articles at [Build your app](storage-blob-java-get-started.md#build-your-app).
 - To understand more about factors that can influence performance for Azure Storage operations, see [Latency in Blob storage](storage-blobs-latency.md).
 - To see a list of design considerations to optimize performance for apps using Blob storage, see [Performance and scalability checklist for Blob storage](storage-performance-checklist.md).
+

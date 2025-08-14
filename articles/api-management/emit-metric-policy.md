@@ -52,7 +52,7 @@ The `emit-metric` policy sends custom metrics in the specified format to Applica
 | ----------- | --------------------------------------------------------------------------------- | -------- |
 | dimension   | Add one or more of these elements for each dimension included in the custom metric.  | Yes      |
 
-### dimension attributes
+### Dimension attributes
 
 | Attribute | Description                | Required |  Default value  |
 | --------- | -------------------------- |  ------------------ | -------------- |
@@ -63,13 +63,13 @@ The `emit-metric` policy sends custom metrics in the specified format to Applica
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ### Usage notes
 
-* You can configure at most 10 custom dimensions for this policy.
+* You can configure at most 5 custom dimensions for this policy.
 
 ## Example
 

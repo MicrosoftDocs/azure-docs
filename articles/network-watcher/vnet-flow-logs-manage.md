@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 04/17/2025
 
 #CustomerIntent: As an Azure administrator, I want to log my virtual network IP traffic using Network Watcher VNet flow logs so that I can analyze it later.
+# Customer intent: As an Azure administrator, I want to manage virtual network flow logs so that I can log, analyze, and optimize IP traffic in my virtual network.
 ---
 
 # Create, change, enable, disable, or delete virtual network flow logs

@@ -7,6 +7,7 @@ ms.author: mbender
 ms.date: 10/16/2024
 ms.service: azure-virtual-network
 ms.topic: concept-article
+# Customer intent: "As a network administrator, I want to implement dual stack (IPv4/IPv6) connectivity in Azure Virtual Network, so that I can support modern applications and IoT devices while ensuring compatibility with existing IPv4 infrastructure."
 ---
 
 # What is IPv6 for Azure Virtual Network?
@@ -88,8 +89,6 @@ IPv6 for Azure Virtual Network is a foundational feature set that enables custom
 ## Limitations
 
 The current IPv6 for Azure Virtual Network release has the following limitations:
-
-- VPN gateways currently support IPv4 traffic only, but they still can be deployed in a dual-stacked virtual network using Azure PowerShell and Azure CLI commands only.
 
 - The Azure platforms, such as Azure Container Instances and Azure Container Apps, do not support IPv6 communication for containers 
 

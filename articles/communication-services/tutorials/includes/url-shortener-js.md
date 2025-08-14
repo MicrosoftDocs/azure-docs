@@ -20,7 +20,7 @@ You can find the completed code for this tutorial at Azure Samples GitHub [SMS U
 -	An active Azure Communication Services resource. For more information, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md).
 -	An Azure Communication Services phone number. [Get a phone number](../../quickstarts/telephony/get-phone-number.md). You need to [verify your phone number](../../quickstarts/sms/apply-for-toll-free-verification.md) so it can send messages with URLs. 
 -	Deployed [AzUrlShortener](https://github.com/microsoft/AzUrlShortener). Click [Deploy to Azure](https://github.com/microsoft/AzUrlShortener/wiki/How-to-deploy-your-AzUrlShortener) button for quick deploy.
-    - [*Optional*] Deploy the [Admin web app](https://github.com/microsoft/AzUrlShortener/blob/main/src/Cloud5mins.ShortenerTools.TinyBlazorAdmin/README.md) to manage and monitor links in UI.
+    - [*Optional*] Deploy the [Admin web app](https://github.com/microsoft/AzUrlShortener/tree/main/src/TinyBlazorAdmin) to manage and monitor links in UI.
 -	For this tutorial, SMS requests are routed to an Azure Function. You can use an existing service, different framework like express or just run the tutorial as a Node.js console app. To follow this tutorial with an Azure Function, see instructions to set it up at [Azure Function for TypeScript](/azure/azure-functions/create-first-function-vs-code-typescript).
 
 ## Architecture overview

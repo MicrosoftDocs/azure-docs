@@ -8,6 +8,7 @@ ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 10/28/2021
 ms.author: cherylmc
+# Customer intent: As a network administrator, I want to modify the IP address settings of my local network gateway using the command line so that I can efficiently manage network configurations and minimize downtime during adjustments.
 ---
 # Modify local network gateway settings using the Azure CLI
 

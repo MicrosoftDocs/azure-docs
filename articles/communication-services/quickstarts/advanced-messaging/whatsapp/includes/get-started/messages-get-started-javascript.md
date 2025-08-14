@@ -229,4 +229,4 @@ node ./send-messages.js
 
 ## Full sample code
 
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication/communication-messages-rest/samples).
+Find the finalized code on GitHub [Messages Services client library samples for JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication/communication-messages-rest/samples).

@@ -10,6 +10,7 @@ ms.topic: sample
 ms.date: 04/15/2022
 ms.author: msangapu
 ms.custom: mvc, devx-track-azurecli
+ms.service: azure-app-service
 ---
 # Create an App Service app with continuous deployment from an Azure DevOps repository using Azure CLI
 

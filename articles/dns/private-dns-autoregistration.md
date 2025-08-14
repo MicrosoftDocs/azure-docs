@@ -2,11 +2,12 @@
 title: What is autoregistration feature in Azure DNS private zones?
 description: Overview of autoregistration feature in Azure DNS private zones.
 services: dns
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: concept-article
 ms.date: 02/10/2025
-ms.author: greglin
+ms.author: allensu
+# Customer intent: As a network administrator, I want to enable the autoregistration feature for Azure DNS private zones, so that DNS records for virtual machines in my virtual network are automatically created and managed for improved efficiency and reduced manual overhead.
 ---
 
 # What is the autoregistration feature in Azure DNS private zones?

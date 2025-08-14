@@ -9,6 +9,7 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: devx-track-js
+ms.service: azure-app-service
 ---
 # Best practices and troubleshooting guide for node applications on Azure App Service Windows
 
@@ -161,7 +162,7 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-Go to the Debug Console site `https://yoursite.scm.azurewebsites.net/DebugConsole`
+To go to the Debug Console site for your app, select **Development Tools** > **Advanced Tools**, then select **Go**. In Kudu, select **Debug console** for **CMD** or **PowerShell**.
 
 Go into your site/wwwroot directory. You see a command prompt as shown in the following example:
 

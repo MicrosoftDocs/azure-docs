@@ -3,13 +3,14 @@ title: 'Quickstart: Create a public DNS zone and record - Azure portal'
 titleSuffix: Azure DNS
 description: Use this step-by-step quickstart guide to learn how to create an Azure public DNS zone and record using the Azure portal.
 services: dns
-author: greg-lindsay
-ms.author: greglin
+author: asudbring
+ms.author: allensu
 ms.date: 06/07/2024
 ms.topic: quickstart
 ms.service: azure-dns
 ms.custom: mode-ui
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS using the Azure portal so I can use Azure DNS for my public zone.
+# Customer intent: As a system administrator, I want to create a public DNS zone and associated records using the Azure portal, so that I can efficiently manage domain name resolutions for my web services.
 ---
 
 # Quickstart: Create an Azure DNS zone and record using the Azure portal

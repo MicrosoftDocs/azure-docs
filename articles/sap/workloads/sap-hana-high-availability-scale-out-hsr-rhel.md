@@ -8,8 +8,9 @@ ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 05/01/2025
+ms.date: 05/22/2025
 ms.author: radeltch
+# Customer intent: "As an SAP administrator, I want to configure a highly available SAP HANA scale-out system using HANA system replication and Pacemaker on Red Hat Enterprise Linux, so that I can ensure data reliability and automatic failover in my Azure environment."
 ---
 
 # High availability of SAP HANA scale-out system on Red Hat Enterprise Linux
@@ -69,6 +70,7 @@ Some readers will benefit from consulting a variety of SAP notes and resources b
 * Azure-specific RHEL documentation:
   * [Install SAP HANA on Red Hat Enterprise Linux for use in Microsoft Azure](https://access.redhat.com/public-cloud/microsoft-azure).
   * [Red Hat Enterprise Linux Solution for SAP HANA scale-out and system replication](https://access.redhat.com/solutions/4386601).
+  * [What is the fast_stop option for a Filesystem resource in a Pacemaker cluster?](https://access.redhat.com/solutions/4801371).
 * [Azure NetApp Files documentation][anf-azure-doc].
 * [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md).
 * [Azure Files documentation](../../storage/files/storage-files-introduction.md)  
@@ -157,6 +159,9 @@ In the instructions that follow, we assume that you've already created the resou
        az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hana-s2-db3-hsr --accelerated-networking true
        ```
 
+       > [!NOTE]
+       > You don’t have to install the Azure CLI package on your HANA nodes to run `az` command. You can run it from any machine that has the CLI installed, or use Azure Cloud Shell.
+
 6. Start the HANA DB virtual machines.
 
 ### Configure Azure load balancer
@@ -168,7 +173,7 @@ During VM configuration, you have an option to create or select exiting load bal
 > * For HANA scale out, select the NIC for the `client` subnet when adding the virtual machines in the backend pool.
 > * The full set of command in Azure CLI and PowerShell adds the VMs with primary NIC in the backend pool.
 
-#### [Azure Portal](#tab/lb-portal)
+#### [Azure portal](#tab/lb-portal)
 
 [!INCLUDE [Configure Azure standard load balancer using Azure portal](../../../includes/sap-load-balancer-db-portal.md)]
 
@@ -816,12 +821,12 @@ For the next part of this process, you need to create file system resources. Her
        ```bash
        # /hana/shared file system for site 1
        pcs resource create fs_hana_shared_s1 --disabled ocf:heartbeat:Filesystem device=10.23.1.7:/HN1-shared-s1  directory=/hana/shared \
-       fstype=nfs options='defaults,rw,hard,timeo=600,rsize=262144,wsize=262144,proto=tcp,noatime,sec=sys,nfsvers=4.1,lock,_netdev' op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 \
+       fstype=nfs options='defaults,rw,hard,timeo=600,rsize=262144,wsize=262144,proto=tcp,noatime,sec=sys,nfsvers=4.1,lock,_netdev' fast_stop=no op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 \
        op start interval=0 timeout=120 op stop interval=0 timeout=120
        
        # /hana/shared file system for site 2
        pcs resource create fs_hana_shared_s2 --disabled ocf:heartbeat:Filesystem device=10.23.1.7:/HN1-shared-s1 directory=/hana/shared \
-       fstype=nfs options='defaults,rw,hard,timeo=600,rsize=262144,wsize=262144,proto=tcp,noatime,sec=sys,nfsvers=4.1,lock,_netdev' op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 \
+       fstype=nfs options='defaults,rw,hard,timeo=600,rsize=262144,wsize=262144,proto=tcp,noatime,sec=sys,nfsvers=4.1,lock,_netdev' fast_stop=no op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 \
        op start interval=0 timeout=120 op stop interval=0 timeout=120
        
        # clone the /hana/shared file system resources for both site1 and site2
@@ -835,12 +840,12 @@ For the next part of this process, you need to create file system resources. Her
         ```bash
         # /hana/shared file system for site 1
         pcs resource create fs_hana_shared_s1 --disabled ocf:heartbeat:Filesystem device=sapnfsafs.file.core.windows.net:/sapnfsafs/hn1-shared-s1  directory=/hana/shared \
-        fstype=nfs options='defaults,rw,hard,proto=tcp,noatime,nfsvers=4.1,lock' op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 \
+        fstype=nfs options='defaults,rw,hard,proto=tcp,noatime,nfsvers=4.1,lock' fast_stop=no op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 \
         op start interval=0 timeout=120 op stop interval=0 timeout=120
          
         # /hana/shared file system for site 2
         pcs resource create fs_hana_shared_s2 --disabled ocf:heartbeat:Filesystem device=sapnfsafs.file.core.windows.net:/sapnfsafs/hn1-shared-s2 directory=/hana/shared \
-        fstype=nfs options='defaults,rw,hard,proto=tcp,noatime,nfsvers=4.1,lock' op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 \
+        fstype=nfs options='defaults,rw,hard,proto=tcp,noatime,nfsvers=4.1,lock' fast_stop=no op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 \
         op start interval=0 timeout=120 op stop interval=0 timeout=120
         
         # clone the /hana/shared file system resources for both site1 and site2

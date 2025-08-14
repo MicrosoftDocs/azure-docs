@@ -93,7 +93,7 @@ Paste in the content to the `afd-demo.csproj` file. This project uses only the "
 ```
 
 #### Configure app settings
-Create an `appsettings.json` file and paste in the content. The values will be referenced in the `Program.cs` file, which we create in the next step.
+Create an `appsettings.json` file and paste in the content. The values will be referenced in the `Program.cs` file, which we create in the next step. Add a `ClientEndpoint` section in the ConnectionString.
 ```bash
 touch appsettings.json
 ```
@@ -104,10 +104,7 @@ touch appsettings.json
 {
   "Azure": {
     "SignalR": {
-      "ConnectionString": "<the-connection-string-of-your-Azure-SignalR-resource>"
-    },
-    "AFD": {
-      "Endpoint": "<the-endpoint-of-your-Azure-Front-Door-resource>"
+      "ConnectionString": "<the-connection-string-of-your-Azure-SignalR-resource>;ClientEndpoint=<the-endpoint-of-your-Azure-Front-Door-resource>"
     }
   }
 }
@@ -123,21 +120,8 @@ Paste in the code to the `Program.cs` file. The web app defines a SignalR hub an
 using Microsoft.Azure.SignalR;
 var builder = WebApplication.CreateBuilder(args);
 
-// Reads in the configuration from `appsettings.json`
-var azureSignalRConnectionString = builder.Configuration["Azure:SignalR:ConnectionString"];
-var afdEndpoint = builder.Configuration["Azure:AFD:Endpoint"];
-
-builder.Services.AddSignalR().AddAzureSignalR(o =>
-{
-    o.Endpoints = new Microsoft.Azure.SignalR.ServiceEndpoint[1]
-    {
-        new Microsoft.Azure.SignalR.ServiceEndpoint(azureSignalRConnectionString)
-        {   
-            // Instructs SignalR server to return a `ClientEndpoint` to SignalR clients, with which they establish a connection. In our case, it's the endpoint of the Azure Front Door resource you just created.
-            ClientEndpoint = new Uri(afdEndpoint),
-        }
-    };
-});
+// Automatically read in the configuration from `appsettings.json`
+builder.Services.AddSignalR().AddAzureSignalR();
 
 var app = builder.Build();
 app.UseStaticFiles();

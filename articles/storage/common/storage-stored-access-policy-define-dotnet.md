@@ -13,6 +13,7 @@ ms.author: pauljewell
 ms.reviewer: ozgun
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
+# Customer intent: As a developer, I want to create a stored access policy using .NET for Azure Storage, so that I can manage and control shared access signatures with specified permissions and time constraints effectively.
 ---
 
 # Create a stored access policy with .NET

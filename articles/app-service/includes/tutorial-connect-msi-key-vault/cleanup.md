@@ -2,8 +2,9 @@
 ms.topic: include
 ms.date: 10/26/2021
 
-ms.reviewer: madsd 
+ms.reviewer: jordanselig 
 ms.custom: devx-track-azurecli
+ms.service: azure-app-service
 ---
 
 1. Configure the Azure AI services secrets as app settings `CS_ACCOUNT_NAME` and `CS_ACCOUNT_KEY`.

@@ -1,12 +1,12 @@
 ---
 title: What's new in Azure RBAC documentation
 description: Learn about the new features and documentation improvements in Azure role-based access control (RBAC).
-author: rolyon
-manager: femila
+author: jenniferf-skc
+manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: whats-new
-ms.date: 05/06/2025
-ms.author: rolyon
+ms.date: 05/25/2025
+ms.author: jfields
 
 ---
 
@@ -18,6 +18,7 @@ This article provides information about new features and documentation improveme
 
 | Date | Area | Description |
 | --- | --- | --- |
+| May 2025 | Roles and permissions | Updated permissions for several roles and resource providers. See [Azure built-in roles](built-in-roles.md) and [Azure permissions](resource-provider-operations.md). |
 | May 2025 | Roles | Updated role name from Managed Applications Reader to [Managed Application Publisher Operator](./built-in-roles/management-and-governance.md#managed-application-publisher-operator). |
 | April 2025 | Roles and permissions | Updated permissions for several roles and resource providers. See [Azure built-in roles](built-in-roles.md) and [Azure permissions](resource-provider-operations.md). |
 | April 2025 | Roles | Added Azure Container Registry roles.<br/>[Container Registry Cache Rule Administrator](./built-in-roles/containers.md#container-registry-cache-rule-administrator)<br/>[Container Registry Cache Rule Reader](./built-in-roles/containers.md#container-registry-cache-rule-reader)<br/>[Container Registry Credential Set Administrator](./built-in-roles/containers.md#container-registry-credential-set-administrator)<br/>[Container Registry Credential Set Reader](./built-in-roles/containers.md#container-registry-credential-set-reader) |

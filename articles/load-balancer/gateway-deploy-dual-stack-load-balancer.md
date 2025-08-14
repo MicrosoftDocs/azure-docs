@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 09/25/2024
 ms.author: mbender
 ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
+# Customer intent: As a network engineer, I want to deploy a dual-stack Gateway Load Balancer with IPv6 configurations, so that I can ensure my infrastructure supports both IPv4 and IPv6 traffic efficiently.
 ---
 
 # Deploy a dual-stack Azure Gateway Load Balancer

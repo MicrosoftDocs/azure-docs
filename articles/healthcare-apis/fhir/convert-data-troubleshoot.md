@@ -5,13 +5,11 @@ services: healthcare-apis
 author: EXPEkesheth
 ms.service: azure-health-data-services
 ms.topic: troubleshooting
-ms.date: 02/12/2025
+ms.date: 08/12/2025
 ms.author: kesheth
 ---
 
 # Troubleshoot $convert-data
-
-[!INCLUDE [Converter redirect statement](../includes/converter-redirect-statement.md)]
 
 In this article, learn how to troubleshoot `$convert-data`.
 

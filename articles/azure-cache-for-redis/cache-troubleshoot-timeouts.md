@@ -114,10 +114,6 @@ In the following example, `retryTimeoutInMilliseconds` is set to `3000`.
 >
 ```
 
-For more information, see:
-- [ASP.NET Session State Provider for Azure Cache for Redis](/azure/redis/aspnet-session-state-provider)
-- [ASP.NET Output Cache Provider for Azure Cache for Redis](/azure/redis/aspnet-output-cache-provider)
-
 ### TCP settings for Linux based client applications
 
 Client applications hosted on Linux could experience connectivity issues because of optimistic TCP settings in Linux. For more information, see [TCP settings for Linux-hosted client applications](cache-best-practices-connection.md#tcp-settings-for-linux-hosted-client-applications).

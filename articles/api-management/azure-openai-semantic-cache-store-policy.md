@@ -10,6 +10,7 @@ ms.custom:
   - build-2024
 ms.topic: reference
 ms.date: 12/13/2024
+ms.update-cycle: 180-days
 ms.author: danlep
 ---
 
@@ -22,7 +23,6 @@ The `azure-openai-semantic-cache-store` policy caches responses to Azure OpenAI 
 > [!NOTE]
 > * This policy must have a corresponding [Get cached responses to Azure OpenAI API requests](azure-openai-semantic-cache-lookup-policy.md) policy. 
 > * For prerequisites and steps to enable semantic caching, see [Enable semantic caching for Azure OpenAI APIs in Azure API Management](azure-openai-enable-semantic-caching.md).
-> * Currently, this policy is in preview.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -44,7 +44,7 @@ The `azure-openai-semantic-cache-store` policy caches responses to Azure OpenAI 
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) outbound
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) outbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption
 

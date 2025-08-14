@@ -1,12 +1,13 @@
 ---
 title: Troubleshoot Windows upgrade issues
 description: Provides an overview of known issues in the Windows OS upgrade feature
-author: AnuragMehrotra
-ms.author: anuragm
+author: habibaum
+ms.author: v-uhabiba
 ms.service: azure-migrate
 ms.topic: concept-article
-ms.date: 09/07/2023
+ms.date: 05/08/2025
 ms.custom: engagement-fy25
+# Customer intent: "As a cloud administrator, I want to troubleshoot Windows OS upgrade issues during VM migration, so that I can ensure successful OS upgrades without errors and optimize my cloud resource management."
 ---
 
 # Troubleshoot Windows OS upgrade issues  
@@ -44,7 +45,7 @@ Add the target virtual network into the firewall in the storage account that y
 
 1. Go to **Networking** > **Firewall and Virtual Networks** > **Public Network Access – Enabled from selected Virtual Network and IP address** > **Virtual Network** > Add existing Virtual Network and add your target virtual network. Then proceed with the Test Migration/Migration.    
 
-2. Perform the initial replication by following [these](./vmware/migrate-vmware-servers-to-azure-using-private-link.md#replicate-vms) steps.  
+2. Perform the initial replication by following [these](migrate-vmware-servers-to-azure-using-private-link.md#replicate-vms) steps.  
 
 ## Server is migrated without OS upgrade with status "Completed with errors"  
 

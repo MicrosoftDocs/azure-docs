@@ -300,7 +300,7 @@ It takes a few minutes for the _Log Analytics Reader_ to display on the **Azure 
 
 Use your browser's back button to return to the **Identity** and then select **Overview** to return to the alert rule. Select the link to your resource group named _demo-arg-alert-rg_.
 
-Although out of scope for this article, for an Azure Data Explorer cluster add the _Reader_ role to the system-assigned managed identity. For more information, at the end of this article select the link _Role assignments for Azure Data Explorer clusters_.
+Although out of scope for this article, if you're querying an Azure Data Explorer cluster, you must add the _Reader_ role to the system-assigned managed identity. For more information, at the end of this article select the link _Role assignments for Azure Data Explorer clusters_.
 
 # [Azure Resource Graph and Log Analytics](#tab/arg-log-analytics)
 
