@@ -149,15 +149,15 @@ the Azure portal provides a broad range of benefits, including:
 1. Choose the logs you want to send to Azure destinations using the
   below check box options:
 
-:::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/diagnostic-settings-log-category-checkboxes.png" alt-text="Screenshot of diagnostic settings log category check boxes." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/diagnostic-settings-log-category-checkboxes.png":::
+    :::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/diagnostic-settings-log-category-checkboxes.png" alt-text="Screenshot of diagnostic settings log category check boxes." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/diagnostic-settings-log-category-checkboxes.png":::
 
 1. **Choose the destinations**:
 
-> Below are the destinations you can send the logs to
+Below are the destinations you can send the logs to
 
-:::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/diagnostic-settings-destination-options.png" alt-text="Screenshot of diagnostic settings destination options." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/diagnostic-settings-destination-options.png":::
+    :::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/diagnostic-settings-destination-options.png" alt-text="Screenshot of diagnostic settings destination options." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/diagnostic-settings-destination-options.png":::
 
-> **A Few Things to Know**
+**A Few Things to Know**
 
 - Logs may be delayed. After enabling diagnostic settings, it can take
   up to an hour for logs and events to start showing up in Azure Monitor
@@ -199,75 +199,52 @@ the Azure portal provides a broad range of benefits, including:
 1. The result set should show the list of events occurred and
   corresponding meta data generated using the above setup.
 
-:::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/log-analytics-oracleclouddatabase-results.png" alt-text="Screenshot of OracleCloudDatabase table results in Log Analytics." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/log-analytics-oracleclouddatabase-results.png":::
+    :::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/log-analytics-oracleclouddatabase-results.png" alt-text="Screenshot of OracleCloudDatabase table results in Log Analytics." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/log-analytics-oracleclouddatabase-results.png":::
 
 ## Step 3: Archive logs in Storage account
 
 1. Set up a storage account by creating a new Storage account resource
   in Azure portal.
-
-<!-- -->
-
 1. Ensure the Exadata Resource and Storage account resource are under
   the same subscription.
-
-<!-- -->
-
 1. Select the above created Storage account as destination while
   setting up the diagnostic settings on the Exadata Resource.
-
-<!-- -->
-
 1. Navigate to above created Storage account once any events are
-    generated and logs are to be verified. You can find it by searching
-    for the Storage account name or by navigating through the resource
-  group where it's located.
+    generated and logs are to be verified. You can find it by searching for the Storage account name or by navigating through the resource group where it's located.
 
-<!-- -->
-
-1. In the Storage account, navigate to the Containers section. Here you'll find containers that store the logs. The container names
-    typically reflect the nature of the operation, such as creation
+1. In the Storage account, navigate to the Containers section. Here you'll find containers that store the logs. The container names     typically reflect the nature of the operation, such as creation
     events, deletion events, or update events.
 
-1. Open the relevant container to browse the logs. The logs are usually
-    organized by date, making it easier to find the specific logs you're looking for.
+1. Open the relevant container to browse the logs. The logs are usually organized by date, making it easier to find the specific logs you're looking for.
 
-:::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/storage-account-containers-archived-logs.png" alt-text="Screenshot of storage account containers showing archived logs." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/storage-account-containers-archived-logs.png":::
+    :::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/storage-account-containers-archived-logs.png" alt-text="Screenshot of storage account containers showing archived logs." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/storage-account-containers-archived-logs.png":::
 
 ## Step 4: Stream logs to Event Hubs
 
-1. Create Event hub namespace and an Event Hubs instance in Azure portal
-  following the instructions here [Event Hubs - Capture streaming
+1. Create Event hub namespace and an Event Hubs instance in Azure portal following the instructions here [Event Hubs - Capture streaming
   events using Azure portal - Azure Event Hubs \| Microsoft
   Learn](/azure/event-hubs/event-hubs-capture-enable-through-portal)
-
-<!-- -->
 
 1. Ensure that you have configured diagnostic settings for the Exadata
     Resource you want to monitor. This involves selecting the logs you
   want to send and specifying the Event Hub as the destination.
 
-<!-- -->
-
 1. Use the Azure portal to monitor the Event Hub by navigating to Data
     Explorer section of Event Hub namespace. Navigate to the Event Hub
-    namespace and select the specific Event Hub instance as shown below
+    namespace and select the specific Event Hub instance as shown below.
 
-1. Ensure to select the right Event hub instance and consumer group and
-    select on View events to retrieve the list of occurrences and their
-  corresponding meta data.
+1. Ensure to select the right Event hub instance and consumer group and select on View events to retrieve the list of occurrences and their corresponding meta data.
 
 1. The event hub is the category. When event hub isn't provided, then
     the logs are routed to the natural category like creation etc. but
     The customer can select the eventhub while creating the diagnostic
     setting to ensure all the logs are routed to the same eventhub.
 
-:::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/event-hubs-data-explorer-events.png" alt-text="Screenshot of Event Hubs Data Explorer showing events." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/event-hubs-data-explorer-events.png":::
+    :::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/event-hubs-data-explorer-events.png" alt-text="Screenshot of Event Hubs Data Explorer showing events." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/event-hubs-data-explorer-events.png":::
 
 ## Step 5: Send to Partner Solution
 
-1. Create Event hub namespace and an Event Hub instance in Azure portal
-  following the instructions here [Event Hubs - Capture streaming
+1. Create Event hub namespace and an Event Hub instance in Azure portal following the instructions here [Event Hubs - Capture streaming
   events using Azure portal - Azure Event Hubs \| Microsoft
   Learn](/azure/event-hubs/event-hubs-capture-enable-through-portal)
 
@@ -276,26 +253,21 @@ the Azure portal provides a broad range of benefits, including:
   Native Dynatrace Service - Azure Native ISV Services \| Microsoft
   Learn](/azure/partner-solutions/dynatrace/dynatrace-how-to-configure-prereqs).
 
-<!-- -->
-
 1. Ensure that you have configured diagnostic settings for the ExaData
     VM Cluster  you want to monitor. This involves selecting the logs
   you want to send and specifying the Event Hub as the destination.
 
 1. Navigate to above created Dynatrace resource once any events are
-    generated and logs are to be verified. You can find it by searching
-    for the Azure Native Dynatrace service or by navigating through the
-  resource group where it's located.
+    generated and logs are to be verified. You can find it by searching for the Azure Native Dynatrace service or by navigating through the resource group where it's located.
 
 1. Once you are in the Dynatrace instance, navigate to Dynatrace
     environment using the SSO link.
 
-:::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/azure-native-dynatrace-service-interface.png" alt-text="Screenshot of Azure Native Dynatrace service interface." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/azure-native-dynatrace-service-interface.png":::
+    :::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/azure-native-dynatrace-service-interface.png" alt-text="Screenshot of Azure Native Dynatrace service interface." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/azure-native-dynatrace-service-interface.png":::
 
-1. Navigate to Logs explorer section in Dynatrace environment using the
-  side menu.
+1. Navigate to Logs explorer section in Dynatrace environment using the side menu.
 
-:::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/dynatrace-logs-explorer.png" alt-text="Screenshot of Dynatrace Logs explorer." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/dynatrace-logs-explorer.png":::
+    :::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/dynatrace-logs-explorer.png" alt-text="Screenshot of Dynatrace Logs explorer." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/dynatrace-logs-explorer.png":::
 
 1. The established integration pipeline should show the ingested logs
   for various events occurred.
@@ -303,7 +275,7 @@ the Azure portal provides a broad range of benefits, including:
 1. To filter for specific log events, use the following query to
   evaluate the logs:
 
-:::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/dynatrace-log-query-results.png" alt-text="Screenshot of Dynatrace log query and results." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/dynatrace-log-query-results.png":::
+    :::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/dynatrace-log-query-results.png" alt-text="Screenshot of Dynatrace log query and results." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/dynatrace-log-query-results.png":::
 
 1. More columns from the result set can be added by applying
     the Hidden columns on
@@ -311,30 +283,28 @@ the Azure portal provides a broad range of benefits, including:
 ## Step 6: Setup Alerts and Monitoring
 
 1. Go to **Azure Portal** \> **Monitor** \> **Alerts** \> **+ Create**
-    \> **Alert rule**. [Overview of Azure Monitor alerts - Azure Monitor
-  \| Microsoft
-  Learn](/azure/azure-monitor/alerts/alerts-overview)
+    \> **Alert rule**. [Overview of Azure Monitor alerts - Azure Monitor \| Microsoft Learn](/azure/azure-monitor/alerts/alerts-overview)
 
 1. Select the target resource in search tab by typing LA workspace name
 
-:::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/azure-monitor-alerts-select-log-analytics-workspace.png" alt-text="Screenshot of selecting Log Analytics workspace as target resource in Azure Monitor alerts." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/azure-monitor-alerts-select-log-analytics-workspace.png":::
+    :::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/azure-monitor-alerts-select-log-analytics-workspace.png" alt-text="Screenshot of selecting Log Analytics workspace as target resource in Azure Monitor alerts." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/azure-monitor-alerts-select-log-analytics-workspace.png":::
 
 1. Select the condition as **custom log search** and create a query as
     follows:
 
-:::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/azure-monitor-custom-log-search-condition.png" alt-text="Screenshot of custom log search condition in alert rule." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/azure-monitor-custom-log-search-condition.png":::
+    :::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/azure-monitor-custom-log-search-condition.png" alt-text="Screenshot of custom log search condition in alert rule." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/azure-monitor-custom-log-search-condition.png":::
 
 1. Set the Action group
 
-> Create or select an **Action Group**:
-
-- Email
-
-- SMS
-
-- Webhook
-
-- Azure Function
+    > Create or select an **Action Group**:
+    
+    - Email
+    
+    - SMS
+    
+    - Webhook
+    
+    - Azure Function
 
 1. Name the alert rule with severity
 
@@ -342,14 +312,14 @@ the Azure portal provides a broad range of benefits, including:
 
 ## Step 7: Set up Microsoft Sentinel
 
-> To get started, add Microsoft Sentinel to an existing workspace or
-> create a new one.
+To get started, add Microsoft Sentinel to an existing workspace or
+create a new one.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Search for and select Microsoft Sentinel.
 
-:::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/azure-portal-search-microsoft-sentinel.png" alt-text="Screenshot of searching for Microsoft Sentinel in the Azure portal." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/azure-portal-search-microsoft-sentinel.png":::
+    :::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/azure-portal-search-microsoft-sentinel.png" alt-text="Screenshot of searching for Microsoft Sentinel in the Azure portal." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/azure-portal-search-microsoft-sentinel.png":::
 
 1. Select Create.
 
@@ -357,56 +327,49 @@ the Azure portal provides a broad range of benefits, including:
     run Microsoft Sentinel on more than one workspace, but data is
     isolated to a single workspace.
 
-:::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/microsoft-sentinel-choose-workspace.png" alt-text="Screenshot of choosing a workspace while enabling Microsoft Sentinel." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/microsoft-sentinel-choose-workspace.png":::
+    :::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/microsoft-sentinel-choose-workspace.png" alt-text="Screenshot of choosing a workspace while enabling Microsoft Sentinel." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/microsoft-sentinel-choose-workspace.png":::
 
-- The default workspaces created by Microsoft Defender for Cloud aren't
-  shown in the list. You can't install Microsoft Sentinel on these
-  workspaces.
-
-<!-- -->
+- The default workspaces created by Microsoft Defender for Cloud aren't shown in the list. You can't install Microsoft Sentinel on these workspaces.
 
 - Once deployed on a workspace, Microsoft Sentinel doesn't
   support moving that workspace to another resource group or
   subscription.
 
-1. Select Add.
+1. Select **Add**.
 
 1. Check the logs in Microsoft Sentinel by switching to KQL mode. Once
     the ***OracleCloudDatabase*** table is created, Microsoft Sentinel treats it
     like any other table, allowing you to run analytics queries and
     configure incident rules based on your specific requirements.
 
-:::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/microsoft-sentinel-oracleclouddatabase-logs.png" alt-text="Screenshot of Microsoft Sentinel logs showing OracleCloudDatabase data." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/microsoft-sentinel-oracleclouddatabase-logs.png":::
+    :::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/microsoft-sentinel-oracleclouddatabase-logs.png" alt-text="Screenshot of Microsoft Sentinel logs showing OracleCloudDatabase data." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/microsoft-sentinel-oracleclouddatabase-logs.png":::
 
-:::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/microsoft-sentinel-analytics-configuration.png" alt-text="Screenshot of Microsoft Sentinel analytics configuration." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/microsoft-sentinel-analytics-configuration.png":::
+    :::image type="content" source="media/oracle-exadata-database-on-dedicated-infrastructure-logs/microsoft-sentinel-analytics-configuration.png" alt-text="Screenshot of Microsoft Sentinel analytics configuration." lightbox="media/oracle-exadata-database-on-dedicated-infrastructure-logs/microsoft-sentinel-analytics-configuration.png":::
 
 7.  Categories of detection rules supported:
 
-    - Microsoft Sentinel provides **pre-defined detection rules** that are
-  Microsoft proprietary.
+    - Microsoft Sentinel provides **pre-defined detection rules** that are Microsoft proprietary.
 
-    -  Anomaly detection logic of such predefined rules is **not**
+    - Anomaly detection logic of such predefined rules is **not**
   exposed to customers.
 
-8.   Customers can also define their own detection rules called **Custom
-  rules**.
+8. Customers can also define their own detection rules called **Custom rules**.
 
-    - Scheduled analytical Rules  & Near real time (NRT) rules are such
-  customizable rules currently supported by Microsoft Sentinel.
+   - Scheduled analytical Rules  & Near real time (NRT) rules are such customizable rules currently supported by Microsoft Sentinel.
 
-    - In the background, these rules are Kusto queries defined as per
+   - In the background, these rules are Kusto queries defined as per
   the customer requirements and frequency of runs needed.
 
 ## Related content
 
-- [Diagnostic settings in Azure Monitor - Azure Monitor \| Microsoft
+- [Diagnostic settings in Azure Monitor - Azure Monitor Microsoft
   Learn](/azure/azure-monitor/platform/diagnostic-settings?tabs=portal)
 
-- [Azure Monitor Logs - Azure Monitor \| Microsoft
+- [Azure Monitor Logs - Azure Monitor Microsoft
   Learn](/azure/azure-monitor/logs/data-platform-logs)
 
-- [Log Analytics workspace overview - Azure Monitor \| Microsoft
+- [Log Analytics workspace overview - Azure Monitor Microsoft
   Learn](/azure/azure-monitor/logs/log-analytics-workspace-overview)
 
-- [Onboard to Microsoft Sentinel \| Microsoft
+- [Onboard to Microsoft Sentinel Microsoft
   Learn](/azure/sentinel/quickstart-onboard?tabs=defender-portal)
