@@ -21,7 +21,7 @@ To get started using Azure Container Storage, see [Use Azure Container Storage w
 > [!IMPORTANT]
 > This article covers features and capabilities available in Azure Container Storage v2.0.0 and later. For details about earlier versions, see [Azure Container Storage v1 documentation](container-storage-introduction-v1.md).
 
-## Why is Azure Container Storage useful?
+## Why Azure Container Storage is useful
 
 Traditionally, enabling persistent storage for containers meant manually configuring Container Storage Interface (CSI) drivers to connect with storage services designed for virtual machines. This approach often led to increased operational complexity and potential challenges with application availability, scalability, performance, and cost.
 
@@ -45,9 +45,7 @@ You can use Azure Container Storage to:
 
 ## Supported storage types
 
-Azure Container Storage provides a Kubernetes-native orchestration and management layer for persistent volumes, using existing Azure Storage offerings as the underlying data store. You can select from supported backing storage options to define storage classes that best fit your workload requirements, enabling flexible and efficient persistent volume provisioning for your containerized applications.
-
-Azure Container Storage offers persistent volume support to Linux-based Kubernetes clusters. Supported backing storage options include: local NVMe Disks. The following table summarizes the supported storage types, recommended workloads, and provisioning models.
+Azure Container Storage provides a Kubernetes-native orchestration and management layer for persistent volumes on Linux-based Kubernetes clusters. It uses existing Azure Storage offerings as the underlying data store. Currently, Azure Container Storage v2 only supports local NVMe disks for backing storage.
 
 | **Storage type** | **Description** | **Workloads** | **Offerings** | **Provisioning model** |
 |------------------|-----------------|---------------|---------------|------------------------|
@@ -55,7 +53,7 @@ Azure Container Storage offers persistent volume support to Linux-based Kubernet
 
 ### Feature support for different storage types
 
-Feature support depends on which backing storage option you select. The following table lists key features of Azure Container Storage and indicates which storage options support them.
+The following table lists key features of Azure Container Storage and indicates if they are supported on local NVMe disks.
 
 | **Feature** | **Local NVMe** |
 |-------------|----------------|
@@ -65,13 +63,13 @@ Feature support depends on which backing storage option you select. The followin
 | Snapshots | Not supported |
 | Replication | Not supported |
 
-<sup>1</sup> By default, Azure Container Storage uses generic ephemeral volumes for local NVMe disks, meaning data isn't retained after pod deletion. To enable persistent volumes that aren't linked to the lifecycle of the pod, add the appropriate annotation to your PersistentVolumeClaim. For details, see [Create persistent volumes with local NVMe disks](use-container-storage-with-local-disk.md).
+<sup>1</sup> By default, Azure Container Storage uses generic ephemeral volumes for local NVMe disks, meaning data isn't retained after pod deletion. To enable persistent volumes that aren't linked to the lifecycle of the pod, add the appropriate annotation to your Persistent Volume Claim. For details, see [Create persistent volumes with local NVMe disks](use-container-storage-with-local-disk.md).
 
 ## Regional availability
 
 [!INCLUDE [container-storage-regions](../../../includes/container-storage-regions.md)]
 
-## Considerations choosing a major version
+## Considerations for choosing a major version
 
 Azure Container Storage offers two major versions: v1 and v2. Choose the appropriate version based on your underlying storage option.
 
