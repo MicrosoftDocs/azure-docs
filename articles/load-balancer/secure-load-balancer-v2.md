@@ -1,8 +1,8 @@
 ---
 title: Secure your Azure Load Balancer deployment
 description: Learn how to secure Azure Load Balancer, with best practices for protecting your deployment.
-author: 
-ms.author: 
+author: mbender-ms
+ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: conceptual
 ms.custom: horz-security
