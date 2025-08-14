@@ -11,7 +11,7 @@ ms.author: anfdocs
 ---
 # Service levels for Azure NetApp Files
 
-Service levels are an attribute of a capacity pool. Service levels are defined and differentiated by the allowed maximum throughput for a volume in the capacity pool based on the quota that is assigned to the volume. Throughput is a combination of read and write speed. 
+Service levels are an attribute of a capacity pool. Service levels are defined and differentiated by the allowed maximum throughput for a volume in the capacity pool based on the quota assigned to the volume. Throughput is a combination of read and write speed. 
 
 ## Supported service levels
 
@@ -30,7 +30,7 @@ Azure NetApp Files supports four service levels: *Standard*, *Premium*, *Ultra*,
 
     The Flexible service level enables you to adjust throughput and size limits independently. You can use the Flexible service level to create high-capacity volumes with low throughput requirements or the reverse: low-capacity volumes with high throughput requirements. The Flexible service level is designed for demanding applications such as Oracle or SAP HANA.
     
-    The minimum throughput you can assign a Flexible capacity pool is 128 MiB/second regardless of the pool quota. The maximum throughput is 5 x 128 MiB/second/TiB x the size of the capacity pool in TiB. For more information see [Flexible service level throughput examples](#flexible-examples) and [considerations for the Flexible service level](azure-netapp-files-set-up-capacity-pool.md#considerations).
+    The minimum throughput you can assign a Flexible capacity pool is 128 MiB/second regardless of the pool quota. The maximum throughput is 5 x 128 MiB/second/TiB x the size of the capacity pool in TiB. For more information, see [Flexible service level throughput examples](#flexible-examples) and [considerations for the Flexible service level](azure-netapp-files-set-up-capacity-pool.md#considerations).
 
     >[!IMPORTANT]
     >The Flexible service level is only supported for new _manual QoS_ capacity pools.
@@ -56,7 +56,7 @@ The following diagram shows throughput limit examples of volumes in an auto QoS 
 
 * In Example 1, a volume from an auto QoS capacity pool with the Premium storage tier that is assigned 2 TiB of quota will be assigned a throughput limit of 128 MiB/s (2 TiB * 64 MiB/s). This scenario applies regardless of the capacity pool size or the actual volume consumption.
 
-* In Example 2, a volume from an auto QoS capacity pool with the Premium storage tier and 100 GiB of quota is assigned a throughput limit of 6.25 MiB/s (0.09765625 TiB * 64 MiB/s). This scenario applies regardless of the capacity pool size or the actual volume consumption.
+* In Example 2, a volume from an auto QoS capacity pool at the Premium service level with 100 GiB of quota has an assigned throughput limit of 6.25 MiB/s (0.09765625 TiB * 64 MiB/s). This scenario applies regardless of the capacity pool size or the actual volume consumption.
 
 ### Throughput limit examples of volumes in a manual QoS capacity pool 
 
@@ -84,12 +84,12 @@ The example extends to the Flexible service level as well. A Flexible service le
 - SAP HANA shared volume: Size 1 TiB with up to 64 MiB/s
 - SAP HANA backup volume: Size 4.5 TiB with up to 384 MiB/s
 
-As illustrated in the diagram, the SAP HANA backup volume receives additional baseline throughput of 128 MiB/s .
+As illustrated in the diagram, the SAP HANA backup volume receives baseline throughput of 128 MiB/s.
  
 #### <a name="flexible-examples">Flexible service level throughput examples:</a>
 
 | Flexible pool size (TiB) | Allowable throughput minimum (MiB/s) | Allowable throughput maximum (MiB/s) |
-| - | - | -- |
+|-|-|--|
 | 1 | 128 | 5 * 128 * 1 = 640 |
 | 2 | 128 | 5 * 128 * 2 = 1,280 |
 | 10 | 128 | 5 * 128 * 10 = 6,400 |
