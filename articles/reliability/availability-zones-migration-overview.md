@@ -27,7 +27,7 @@ To improve the reliability of your solution, it's a good practice to enable avai
 - [Azure Batch](reliability-batch.md#availability-zone-migration)
 - [Azure Cache for Redis](migrate-cache-redis.md)
 - [Azure Container Apps](reliability-azure-container-apps.md#availability-zone-migration)
-- [Azure Container Instances](./reliability-containers.md#availability-zone-redeployment-and-migration)
+- [Azure Container Instances](./reliability-containers.md#availability-zone-support)
 - [Azure Container Registry](./reliability-container-registry.md#configure-availability-zone-support)
 - [Azure Cosmos DB](./reliability-cosmos-db-nosql.md#migrate-to-availability-zone-support)
 - [Azure Database for MySQL - Flexible Server](migrate-database-mysql-flex.md)
