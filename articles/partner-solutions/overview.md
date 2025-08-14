@@ -20,7 +20,7 @@ Azure Native Integrations provide:
 
 - Integrated onboarding through Azure Resource Manager templates, SDKs, the Azure CLI, and the Azure portal.
 - Automatic resource discovery for monitoring.
-- Log and metrics integration with Azure Monitor.
+- Integration of logs and metrics with Azure Monitor.
 - Centralized management through the Azure portal.
 - Single sign-on (SSO) with Microsoft Entra ID.
 - Consolidated billing through Azure Marketplace.
