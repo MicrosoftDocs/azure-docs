@@ -10,6 +10,8 @@ ms.date: 05/12/2025
 
 After you create your NGINXaaS resource in the Azure portal, you might need to get information about it or change it.
 
+## Resource overview 
+
 [!INCLUDE [manage](../includes/manage.md)]
 
 :::image type="content" source="media/nginx-manage/nginx-resource-overview.png" alt-text="Screenshot of an NGINXaaS resource in the Azure portal with the overview displayed." lightbox="media/nginx-manage/nginx-resource-overview.png":::
@@ -89,6 +91,14 @@ After the account is deleted, logs are no longer sent to NGINXaaS.
 ## GitHub integration
 
 Enable CI/CD deployments by using GitHub Actions integrations.
+
+## Get support
+
+Contact [NGINX](https://my.f5.com/manage/s/) for customer support.
+
+You can also request support in the Azure portal from the [resource overview](#resource-overview).
+
+Select **Support + Troubleshooting** > **New support request** from the service menu, then choose the link to [Raise a support ticket](https://my.f5.com/manage/s/).
 
 ## Next step
 

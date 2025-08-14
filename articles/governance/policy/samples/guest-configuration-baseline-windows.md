@@ -528,6 +528,6 @@ Additional articles about Azure Policy and guest configuration:
 
 - [Azure Policy guest configuration](../concepts/guest-configuration.md).
 - [Regulatory Compliance](../concepts/regulatory-compliance.md) overview.
-- Review other examples at [Azure Policy samples](./index.md).
+- Review other examples at [Azure Policy samples](/azure/governance/policy/samples/index).
 - Review [Understanding policy effects](../concepts/effects.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).

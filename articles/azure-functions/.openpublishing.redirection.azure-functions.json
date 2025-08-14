@@ -634,6 +634,36 @@
             "source_path_from_root": "/articles/azure-functions/functions-geo-disaster-recovery.md",
             "redirect_url": "/azure/reliability/reliability-functions",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/create-first-function-vs-code-powershell.md",
+            "redirect_url": "/azure/azure-functions/how-to-create-function-vs-code?pivots=programming-language-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/create-first-function-vs-code-python.md",
+            "redirect_url": "/azure/azure-functions/how-to-create-function-vs-code?pivots=programming-language-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/create-first-function-vs-code-java.md",
+            "redirect_url": "/azure/azure-functions/how-to-create-function-vs-code?pivots=programming-language-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/create-first-function-vs-code-csharp.md",
+            "redirect_url": "/azure/azure-functions/how-to-create-function-vs-code?pivots=programming-language-csharp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/create-first-function-vs-code-typescript.md",
+            "redirect_url": "/azure/azure-functions/how-to-create-function-vs-code?pivots=programming-language-typescript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/create-first-function-vs-code-node.md",
+            "redirect_url": "/azure/azure-functions/how-to-create-function-vs-code?pivots=programming-language-javascript",
+            "redirect_document_id": false
+        } 
     ]
 }

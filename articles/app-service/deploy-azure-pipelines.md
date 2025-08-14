@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 06/04/2024
 ms.custom: "devops-pipelines-deploy"
 
+ms.service: azure-app-service
 ---
 
 # Deploy to Azure App Service by using Azure Pipelines

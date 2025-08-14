@@ -11,6 +11,7 @@ ms.custom:
   - UpdateFrequency3
   - build-2025
 
+ms.service: azure-app-service
 ---
 # Operating system functionality in Azure App Service
 

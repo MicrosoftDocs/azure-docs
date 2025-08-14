@@ -35,14 +35,13 @@ An ONVIF compliant camera that you can reach from your Azure IoT Operations clus
 
 ## Deploy the connector for ONVIF
 
-[!INCLUDE [deploy-preview-media-connectors](../includes/deploy-preview-media-connectors.md)]
-
-> [!IMPORTANT]
-> If you don't enable preview features, you see the following error message in the `aio-supervisor-...` pod logs when you try to use the media or ONVIF connectors: `No connector configuration present for AssetEndpointProfile: <AssetEndpointProfileName>`.
+[!INCLUDE [deploy-preview-media-connectors-simple](../includes/deploy-preview-media-connectors-simple.md)]
 
 ## Create a device with an ONVIF endpoint
 
-To add a device that defines an ONVIF endpoint for a compliant camera, follow these steps:
+To add a device that includes an ONVIF endpoint for a compliant camera:
+
+# [Operations experience](#tab/portal)
 
 1. In the operations experience web UI, select **Devices** from the left navigation pane:
 
@@ -61,6 +60,20 @@ To add a device that defines an ONVIF endpoint for a compliant camera, follow th
 1. The **Summary** page shows the details of the device. Review the details, and then select **Create** to create the device. After a few minutes, the **Devices** page shows the new device.
 
     :::image type="content" source="media/howto-use-onvif-connector/device-created.png" alt-text="Screenshot that shows the device created in the operations experience." lightbox="media/howto-use-onvif-connector/device-created.png":::
+
+# [Azure CLI](#tab/cli)
+
+Run the following commands:
+
+```azurecli
+az iot ops ns device create -n onvif-connector-cli -g {your resource group name} --instance {your instance name}
+
+az iot ops ns device endpoint inbound add onvif --device onvif-connector-cli -g {your resource group name} -i {your instance name}  --name onvif-connector-cli-0 --endpoint-address http://myonvifcam:2020/onvif/device_service
+```
+
+To learn more, see [az iot ops ns device](/cli/azure/iot/ops/ns/device).
+
+---
 
 ## View the discovered assets and devices
 
