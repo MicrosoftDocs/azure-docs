@@ -191,4 +191,5 @@ For most solutions, you shouldn't rely exclusively on backups. Instead, use the 
 - [Azure Storage redundancy](../storage/common/storage-redundancy.md)
 - [Disaster recovery and storage account failover](../storage/common/storage-disaster-recovery-guidance.md)
 - [Use geo-redundancy to design highly available applications](../storage/common/geo-redundant-design.md)
-- [Change how a storage account is replicated](../storage/common/redundancy-migration)
+- [Change how a storage account is replicated](../storage/common/redundancy-migration.md)
+
