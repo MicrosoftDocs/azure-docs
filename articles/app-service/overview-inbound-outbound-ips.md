@@ -9,6 +9,7 @@ ms.update-cycle: 1095-days
 ms.custom:
   - UpdateFrequency3
   - build-2025
+ms.service: azure-app-service
 ---
 
 # Inbound and outbound IP addresses in Azure App Service
