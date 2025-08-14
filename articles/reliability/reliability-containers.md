@@ -46,216 +46,96 @@ To minimize issues caused by transient faults, we recommend you follow the [depl
 
 An individual container group is a *zonal* resource, which means it can be deployed into a single availability zone that you select. All of the containers within the group are deployed into the same availability zone. If that availability zone has a problem, the container group and all of its containers might experience downtime.
 
+> [!NOTE]
+> To avoid downtime during an availability zone outage, we recommend that you create a minimum of two container groups across two different availability zones. This approach ensures that your application remains running whenever any single zone in the region experiences an outage.
+
 :::image type="content" source="./media/reliability-containers/container-groups-containers-zonal.png" alt-text="Diagram that shows a container group with two containers deployed into a single availability zone." border="false":::
 
 When you deploy an NGroup, you can specify one or more zones to deploy it to. If you deploy it to two or more zones, it's a *zone-redundant* NGroup, and an outage of one availability zone only causes problems for the container groups within the affected zone.
 
 :::image type="content" source="./media/reliability-containers/ngroup-zone-redundant.png" alt-text="Diagram that shows an NGroup with three container groups, deployed into three availability zones." border="false":::
 
-Similarly, when you deploy a standby group, you can specify one or more zones to deploy it to, and can make it zone-redundant by selecting multiple zones.
+When you deploy a standby group, you can specify one or more zones, and the platform requests containers across the zones you select. However, standby pools aren't zone-redundant because there's no guarantee that containers are created in multiple zones.
 
-### Prerequisites
+If you don't specify availability zones when you create a container group, NGroup, or standby group, the resource is *nonzonal* or *regional* and might be placed into any availability zone in the region. If any zone has a problem, your resource could experience downtime.
 
-- Zonal container group deployments are supported in most regions where ACI is available for Linux and Windows Server 2019 container groups. For details, see [Regions and resource availability](/azure/container-instances/container-instances-region-availability).
+### Region support
 
-* If using Azure CLI, ensure version `2.30.0` or later is installed.
-* If using PowerShell, ensure version `2.1.1-preview` or later is installed.
-* If using the Java SDK, ensure version `2.9.0` or later is installed.
-* Availability zone support is only available on ACI API version `09-01-2021` or later.
-* Zonal container group deployments require the Standard SKU. They don't support the Confidential SKU.
+Zonal container group deployments are supported in most regions where ACI is available for Linux and Windows Server 2019 container groups. For details, see [Regions and resource availability](/azure/container-instances/container-instances-region-availability). <!-- Need to confirm this -->
 
-> [!IMPORTANT]
-> Not all features are supported in zonal deployments. For example, Confidential Compute isn't supported, and GPU resource support is zone-dependent, based on hardware availability in specific zones.
+### Requirements
 
-### Availability zone redeployment and migration
+- To select an availability zone, you must use the Standard SKU. Zonal container groups aren't available with the Confidential SKU.
+- When you deploy a container groups that uses GPU resources, you need to select a zone that has the appropriate hardware available. Some zones might not support GPU resources. <!-- Confirm if we should mention given the feature is retired. -->
 
-To change your container group's availability zone, you must delete the container group and create another container group with the new availability zone.
+### Considerations
 
-### Create a resource with availability zone enabled
+[Spot containers](/azure/container-instances/container-instances-spot-containers-overview) don't support availability zones, and are always nonzonal.
 
-To create a Container Instance resource with availability zone enabled, you'll need to deploy a container group using an Azure Resource Manager (ARM) template.
+### Cost
 
->[!NOTE]
->Examples in this article are formatted for the Bash shell. If you prefer another shell, adjust the line continuation characters accordingly.
+There's no additional cost to configuring availability zones for a container group.
 
-**To deploy a container with ARM:**
+### Configure availability zone support
 
-1. Copy-paste the following JSON into a new file named `azuredeploy.json`. This example template deploys a container group with a single container into availability zone 1 in East US.
+- **Create a zonal container group:** TODO
 
-    ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "metadata": {
-            "_generator": {
-                "name": "bicep",
-                "version": "0.4.1.14562",
-                "templateHash": "12367894147709986470"
-            }
-        },
-        "parameters": {
-            "name": {
-                "type": "string",
-                "defaultValue": "acilinuxpublicipcontainergroup",
-                "metadata": {
-                    "description": "Name for the container group"
-                }
-            },
-            "image": {
-                "type": "string",
-                "defaultValue": "mcr.microsoft.com/azuredocs/aci-helloworld",
-                "metadata": {
-                    "description": "Container image to deploy. Should be of the form repoName/imagename:tag for images stored in public Docker Hub, or a fully qualified URI for other registries. Images from private registries require additional registry credentials."
-                }
-            },
-            "port": {
-                "type": "int",
-                "defaultValue": 80,
-                "metadata": {
-                    "description": "Port to open on the container and the public IP address."
-                }
-            },
-            "cpuCores": {
-                "type": "int",
-                "defaultValue": 1,
-                "metadata": {
-                    "description": "The number of CPU cores to allocate to the container."
-                }
-            },
-            "memoryInGb": {
-                "type": "int",
-                "defaultValue": 2,
-                "metadata": {
-                    "description": "The amount of memory to allocate to the container in gigabytes."
-                }
-            },
-            "restartPolicy": {
-                "type": "string",
-                "defaultValue": "Always",
-                "allowedValues": [
-                    "Always",
-                    "Never",
-                    "OnFailure"
-                ],
-                "metadata": {
-                    "description": "The behavior of Azure runtime if container has stopped."
-                }
-            },
-            "location": {
-                "type": "string",
-                "defaultValue": "eastus",
-                "metadata": {
-                    "description": "Location for all resources."
-                }
-            }
-        },
-        "functions": [],
-        "resources": [
-            {
-                "type": "Microsoft.ContainerInstance/containerGroups",
-                "apiVersion": "2021-09-01",
-                "zones": [
-                    "1"
-                ],
-                "name": "[parameters('name')]",
-                "location": "[parameters('location')]",
-                "properties": {
-                    "containers": [
-                        {
-                            "name": "[parameters('name')]",
-                            "properties": {
-                                "image": "[parameters('image')]",
-                                "ports": [
-                                    {
-                                        "port": "[parameters('port')]",
-                                        "protocol": "TCP"
-                                    }
-                                ],
-                                "resources": {
-                                    "requests": {
-                                        "cpu": "[parameters('cpuCores')]",
-                                        "memoryInGB": "[parameters('memoryInGb')]"
-                                    }
-                                }
-                            }
-                        }
-                    ],
-                    "osType": "Linux",
-                    "restartPolicy": "[parameters('restartPolicy')]",
-                    "ipAddress": {
-                        "type": "Public",
-                        "ports": [
-                            {
-                                "port": "[parameters('port')]",
-                                "protocol": "TCP"
-                            }
-                        ]
-                    }
-                }
-            }
-        ],
-        "outputs": {
-            "containerIPv4Address": {
-                "type": "string",
-                "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups', parameters('name'))).ipAddress.ip]"
-            }
-        }
-    }
-    ```
+- **Create a zone-redundant NGroup:** TODO
 
-2. Create a resource group with the [az group create][az-group-create] command:
+- **Create a standby pool that uses availability zones:** TODO
 
-    ```azurecli
-    az group create --name myResourceGroup --location eastus
-    ```
+- **Move container groups between zones or disable availability zone support:** To change your container group's availability zone or disable availability zone support, you must delete the container group and create another container group with the new availability zone.
 
-3. Deploy the template with the [az deployment group create][az-deployment-group-create] command:
+- **Move NGroups between zones:** TODO
 
-    ```azurecli
-    az deployment group create \
-      --resource-group myResourceGroup \
-      --template-file azuredeploy.json
-    ```
+- **Move standby pools between zones:** TODO
 
-4. To verify the container group deployed successfully into an availability zone, view the container group details with the [az container show][az-container-show] command:
+### Normal operations
 
-    ```azurecli
-    az container show --name acilinuxpublicipcontainergroup --resource-group myResourceGroup
-    ```
+This section describes what to expect when Container Instances resources are configured for availability zone support and all availability zones are operational.
 
-### Zonal failover support
+- **Traffic routing between zones:** TODO
 
-A container group of container instances is assigned to a single availability zone. As a result, that group of container instances won't be impacted by an outage that occurs in any other availability zone of the same region
+- **Data replication between zones:** TODO
 
-If, however, an outage occurs in the availability zone of the container group, you can expect downtime for all the container instances within that group.
+### Zone-down experience
 
-To avoid container instance downtime, we recommend that you create a minimum of two container groups across two different availability zones in a given region. This ensures that your container instance resources are up and running whenever any single zone in that region experiences outage.
+This section describes what to expect when Container Instances resources are configured for availability zone support and there's an availability zone outage.
 
-We recommend you use [Azure Monitor](/azure/container-instances/monitor-azure-container-instances), regional status pages, and custom health checks to guide your failover decisions.
+- **Detection and response:**
+    - *Manually created container groups:* TODO
+    - *NGroups:* TODO
+    - *Standby pools:* TODO
 
-## NGroups
+- **Notification:** TODO
 
-[NGroups](/azure/container-instances/container-instance-ngroups/container-instances-about-ngroups) provide advanced capabilities for managing multiple related container groups, which can be used across availability zones.
+- **Active requests:** TODO
 
-NGroups offer zone-redundant deployment support.
+- **Expected data loss:** TODO
 
-## Standby pools
+- **Expected downtime:** TODO
 
-[Standby pools for Azure Container Instances](/azure/container-instances/container-instances-standby-pool-overview) enable you to create a pool of pre-provisioned container groups that can be used in response to incoming traffic. The container groups in the pool are fully provisioned, initialized, and ready to receive work.
+- **Traffic rerouting:** TODO
 
-Standby pools support creating and requesting containers across multiple availability zones. However, standby pool don't support zone-redundancy.
+### Zone recovery
+
+TODO
+
+### Testing for zone failures
+
+TODO
 
 ## Multi-region support
 
-Azure Container Instances is a single-region service. If the region is unavailable, your container instance is also unavailable.
+Azure Container Instances is a single-region service. If the region becomes unavailable, your container groups and its containers are also unavailable.
 
-## Disaster recovery
+### Alternative multi-region approaches
 
-When an entire Azure region or datacenter experiences downtime, your mission-critical code needs to continue processing in a different region. Azure Container Instances deployed with zonal configuration run in a specific zone within a specific region. There's no built-in redundancy available. To avoid loss of execution during region wide outages, you can redundantly deploy the container instances in other regions.
+You can optionally deploy separate container groups in multiple regions. You're responsible for deploying and configuring the container groups in each region. You also need to configure load balancing by using a service like Azure Traffic Manager or Azure Front Door. You're responsible for any data synchronization, failover, and failback.
 
 ## Service-level agreement (SLA)
 
-The service-level agreement (SLA) for Azure Container Instances describes the expected availability of the service, and the conditions that must be met to achieve that availability expectation. For more information, see the [service-level agreement](https://www.azure.cn/support/sla/container-instances/v1_0/index.html).
+[!INCLUDE [SLA description](includes/reliability-sla-include.md)]
 
 ## Next steps
 
