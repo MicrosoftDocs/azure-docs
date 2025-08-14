@@ -10,7 +10,7 @@ monikerRange: migrate
 # Customer intent: As a cloud architect, I want to configure assessment properties for workload migration, so that I can ensure optimal resource allocation, cost management, and security compliance in Azure.
 ---
 
-# General assessment properties in Azure Migrate 
+# General assessment properties in Azure Migrate (preview)
 
 This article explains the assessment properties on the **General** tab that you can use when creating an assessment. These general properties apply to all workloads in an application or for cross-workload assessments. They also apply to individual workload assessments. 
 

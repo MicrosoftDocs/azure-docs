@@ -10,7 +10,7 @@ ms.custom: engagement-fy24
 # Customer intent: Customers want to securely configure Azure Migrate for PostgreSQL discovery by creating custom accounts with minimal permissions. The goal is to avoid using superuser access while ensuring the appliance can collect necessary metadata for assessment.
 ---
 
-# Create a least-privilege PostgreSQL account for Azure Migrate discovery and assessment
+# Create a least-privilege PostgreSQL account for Azure Migrate discovery and assessment (preview)
 
 This article explains how to create a custom PostgreSQL account with the minimum permissions required for Discovery and Assessment in Azure Migrate.
 
@@ -18,9 +18,9 @@ Before starting discovery, configure the Azure Migrate appliance with PostgreSQL
 
 ## Prerequisites
 
-- A running and accessible PostgreSQL server
-- Superuser access to the PostgreSQL instance
-- An Azure Migrate project set up
+- A running and accessible PostgreSQL server.
+- Superuser access to the PostgreSQL instance.
+- An Azure Migrate project set up.
 
 ### Minimum required privileges
 
@@ -123,7 +123,7 @@ The result should show `false` for `usecreatedb`, `usesuper`, and `userepl`.
 
 ### Verify granted role-based privileges
 
-Check that the user has been granted the necessary monitoring roles by running the following queries. This ensures the account has only the required permissions for Azure Migrate operations.
+Check that the user has necessary monitoring roles by running the following queries. This ensures the account has only the required permissions for Azure Migrate operations.
 
 ```sql
 -- Verify the user exists

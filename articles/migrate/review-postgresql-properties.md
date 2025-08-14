@@ -10,15 +10,15 @@ ms.custom: engagement-fy24
 # Customer intent: Customers want to assess on-premises PostgreSQL workloads using Azure Migrate to prepare for migration to Azure Database for PostgreSQL flexible server. They aim to evaluate cloud readiness, risks, and costs through configuration-based assessments.
 ---
 
-# Tutorial: Review PostgreSQL assessment results and Migration recommendations
+# Tutorial: Review PostgreSQL assessment results and Migration recommendations (preview)
 
 This article describes the key components of a PostgreSQL assessment and shows you how to review results, explore migration options, and evaluate cost and readiness for migrating to Azure.
 
 ## View an assessment 
 
-To view the assessment you creat, follow these steps: 
+To view the assessment, you create, follow these steps: 
 
-1. Go to the **Assessment** and select **View all reports** under **Overview**, or select **Assessments** under the **Decide and plan**.
+1. Go to the **Assessment** and select **View all reports** under **Overview** or select **Assessments** under the **Decide and plan**.
 1. Select the assessment you want to view, for example, azmigrate-demo.
 
     :::image type="content" source="./media/review-postgresql-properties/select-assessment.png" alt-text="Screenshot shows how to select the assessment" lightbox="./media/review-postgresql-properties/select-assessment.png":::
@@ -29,11 +29,11 @@ To view the assessment you creat, follow these steps:
 
 This section provides a summary of the assessment, including the following metrics:
 
-- **Servers**: Total number of servers assessed
-- **PostgreSQL instances**: Number of PostgreSQL instances discovered
-- **Databases**: Total number of databases across all instances
-- **Out of support**: Number of instances running unsupported PostgreSQL versions
-- **Discovery success**: Percentage of successful discovery operations
+- **Servers**: Total number of servers assessed.
+- **PostgreSQL instances**: Number of PostgreSQL instances discovered.
+- **Databases**: Total number of databases across all instances.
+- **Out of support**: Number of instances running unsupported PostgreSQL versions.
+- **Discovery success**: Percentage of successful discovery operations.
 
 ## PostgreSQL migration
 
@@ -43,7 +43,7 @@ This indicates the different migration strategies that you can consider for your
 
 Azure Database for PostgreSQL provides the best compatibility and cost-effectiveness for your PostgreSQL instance. Choosing a Microsoft-recommended target reduces migration effort.
 
-The recommended option is both cost-effective and migration-ready. It includes readiness checks and monthly cost estimates for instances marked as **Ready** or **Ready with conditions**.
+The recommended option is both cost-effective and migration ready. It includes readiness checks and monthly cost estimates for instances marked as **Ready** or **Ready with conditions**.
 
 You can view the readiness of PostgreSQL instances for recommended deployment targets, along with monthly cost estimates for instances marked as Ready or Ready with conditions.
 
@@ -63,12 +63,12 @@ Readiness report:
 
 The **Supportability** section shows the support status of the PostgreSQL versions identified during the assessment. The Discovery Details section provides a visual summary of the number of discovered PostgreSQL instances, categorized by version.
 
-1. To view the list of assessed PostgreSQL instances, select the graph in the **Supportability**
+1. To view the list of assessed PostgreSQL instances, select the graph in the **Supportability**.
 1. The **Database instance version support status** column indicates whether the PostgreSQL version is in mainstream support or out of support.
 1. To view detailed support information, select the support status. A pane opens on the right and shows the following details:
     - Type of support status (Mainstream or Out of support)
     - Remaining support duration
-    - Recommended actions to help secure workloads
+    - Recommended actions to help secure workloads.
 1. To view the remaining support duration (in months) for each PostgreSQL version:
     - Select **Columns** > **Support ends in** > **Submit**.
     - The **Support ends** in column shows the number of months remaining for support.
@@ -85,7 +85,7 @@ Assess the migration readiness of your PostgreSQL instances, identify potential 
 
 :::image type="content" source="./media/review-postgresql-properties/review-readiness-for-diff-migrations.png" alt-text="Screenshot shows how to review the readiness for different migrations" lightbox="./media/review-postgresql-properties/review-readiness-for-diff-migrations.png":::
 
-To review readiness reports for different migration strategies, follwo these steps:
+To review readiness reports for different migration strategies, follow these steps:
 
 1. Select the **Readiness report** for the desired migration strategy.
 1. Review the readiness columns in the selected report to assess migration preparedness.
@@ -106,7 +106,7 @@ To review readiness reports for different migration strategies, follwo these ste
     - Number of user databases
     - Instance properties
     - Configuration parameters scoped to the instance
-    - Source database storage details
+    - Source database storage details.
 1. To view the list of user databases and their details, select the number of user databases.
 1. To review migration issues and warnings for a specific target deployment type, select **Review details** in the **Migration issues** column.
 1. Cost distribution by configuration: The assessment shows how costs are distributed across various Azure Database for PostgreSQL flexible server configurations: 

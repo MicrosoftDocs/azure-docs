@@ -10,7 +10,7 @@ ms.custom: engagement-fy24
 # Customer intent: Customers want to assess on-premises PostgreSQL workloads using Azure Migrate to prepare for migration to Azure Database for PostgreSQL flexible server. They aim to evaluate cloud readiness, risks, and costs through configuration-based assessments.
 ---
 
-# Assess PostgreSQL Workloads for Migration Using Azure Migrate
+# Tutorial: Assess PostgreSQL Workloads for Migration Using Azure Migrate (preview)
 
 This article guides you through assessing discovered PostgreSQL instances and databases using the Azure Migrate: Discovery and assessment tool, helping you prepare for migration to Azure Database for PostgreSQL flexible server.
 
@@ -25,7 +25,7 @@ In this tutorial, you'll learn how to:
 
 Before you begin, ensure that you've following:
 
-- Ensure you've an Azure subscription and discover your on-premises PostgreSQL instances using Azure Migrate.
+- Ensure you've an Azure subscription and discover you're on-premises PostgreSQL instances using Azure Migrate.
 - If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 - Before you assess your PostgreSQL instances for migration to Azure Database for PostgreSQL flexible server, make sure you discover the instances using the Azure Migrate appliance. For guidance, follow the [discovery tutorial](tutorial-discover-vmware.md).
 - If you use an existing Azure Migrate project, ensure you complete all [prerequisites](how-to-discover-applications.md) outlined in this article.
@@ -77,7 +77,7 @@ To run an assessment, follow these steps:
     | Assessment criteria | Percentile utilization | Indicate the percentile value you want to use for the performance sample. This setting isn't applicable for PostgreSQL instances as the sizing criteria is "Configuration-based". Performance history is relevant when performance-based assessments are available.  | 
     | Assessment criteria  | Comfort factor | Indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage. |
 
-1. In the **Advanced** tab, selelct **Edit Defaults** to enter PostgreSQL-specific settings.
+1. In the **Advanced** tab, select **Edit Defaults** to enter PostgreSQL-specific settings.
 
     :::image type="content" source="./media/tutorial-assess-postgresql/edit-defaults.png" alt-text="Screenshot shows users to configure PostgreSQL-specific settings by selecting edit defaults" lightbox="./media/tutorial-assess-postgresql/edit-defaults.png":::
 
@@ -108,4 +108,4 @@ To run an assessment, follow these steps:
 
 ## Next steps
 
-- [Review PostgreSQl assessment](review-postgresql-properties.md).
+- [Review PostgreSQL assessment](review-postgresql-properties.md).

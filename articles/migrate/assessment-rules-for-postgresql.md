@@ -10,9 +10,9 @@ ms.custom: engagement-fy24
 # Customer intent: Customers want to ensure a smooth migration of PostgreSQL databases to Azure by identifying blockers, compatibility issues, and required configuration changes.
 ---
 
-# PostgreSQL migration assessment for Azure: Identify compatibility issues and blockers
+# PostgreSQL migration assessment for Azure: Identify compatibility issues and blockers (preview)
 
-The assessment rules help identify compatibility issues and migration blockers when you move PostgreSQL instances to Azure Database for PostgreSQL Flexible Server.  You can evaluate the source environment for resource limits, feature support, security settings, and configuration gaps.This evaluation categorises the findings as Issues (blockers you must fix) or Warnings (items you should address), and recommend changes needed for the database, application, and architecture to ensure a successful migration.
+The assessment rules help identify compatibility issues and migration blockers when you move PostgreSQL instances to Azure Database for PostgreSQL Flexible Server. You can evaluate the source environment for resource limits, feature support, security settings, and configuration gaps. This evaluation categorises the findings as Issues (blockers you must fix) or Warnings (items you should address), and recommend changes needed for the database, application, and architecture to ensure a successful migration.
 
 ## Migration assessment rules summary
 
@@ -50,7 +50,7 @@ These rules help identify issues and warnings when migrating PostgreSQL to Azure
 
 **Recommendation**: Review all extensions installed in your source PostgreSQL instance. Compare them with the list of supported extensions in the Azure Database for PostgreSQL Flexible Server documentation. Remove or disable any unsupported extensions before migration. If an unsupported extension is critical, explore alternative approaches or supported extensions that offer similar functionality.
 
-- See about the available entensions and modules for the [Azure Database for the PostgreSQL service](/azure/postgresql/extensions/concepts-extensions-versions).
+- See about the available extensions and modules for the [Azure Database for the PostgreSQL service](/azure/postgresql/extensions/concepts-extensions-versions).
 
 ### Collations {#collations}
 
@@ -60,7 +60,7 @@ These rules help identify issues and warnings when migrating PostgreSQL to Azure
 
 - **Description**: The source PostgreSQL environment includes collations that aren't supported in Azure Database for PostgreSQL Flexible Server. This includes user-defined and OS-specific collations, which may not be available in the target environment.
 
-**Recommendation**: Identify all custom and OS-specific collations used in your source databases. Remove or replace unsupported collations with supported ones. Azure Database for PostgreSQL Flexible Server does not support user-defined collations. Test your application with the updated collations to ensure sorting and comparison operations behave as expected.
+**Recommendation**: Identify all custom and OS-specific collations used in your source databases. Remove or replace unsupported collations with supported ones. Azure Database for PostgreSQL Flexible Server does not support user-defined collations. Evaluate your application with the updated collations to ensure sorting and comparison operations behave as expected.
 
 - Contact Azure Support for detailed collation compatibility guidance.
 
@@ -72,7 +72,7 @@ These rules help identify issues and warnings when migrating PostgreSQL to Azure
 
 - **Description**: The source PostgreSQL environment includes collations that aren't supported in Azure Database for PostgreSQL Flexible Server. This includes user-defined and OS-specific collations, which may not be available in the target environment.
 
-**Recommendation**: Identify all custom and OS-specific collations used in your source databases. Remove or replace any unsupported collations with supported ones. Azure Database for PostgreSQL Flexible Server doesn't support user-defined collations. Test your application thoroughly with the updated collations to ensure sorting and comparison operations behave as expected.
+**Recommendation**: Identify all custom and OS-specific collations used in your source databases. Remove or replace any unsupported collations with supported ones. Azure Database for PostgreSQL Flexible Server doesn't support user-defined collations. Evaluate your application thoroughly with the updated collations to ensure sorting and comparison operations behave as expected.
 
 - Contact Azure Support for detailed collation compatibility information.
 
@@ -118,9 +118,9 @@ These rules help identify issues and warnings when migrating PostgreSQL to Azure
 
 - **Category**: Issue
 
-- **Description**: Creating full-text search (FTS) configurations,such as dictionaries, templates, and parsers, requires superuser privileges. Only the default FTS configurations are supported. Custom FTS dictionaries and templates can't be created.
+- **Description**: Creating full-text search (FTS) configurations, such as dictionaries, templates, and parsers, requires superuser privileges. Only the default FTS configurations are supported. Custom FTS dictionaries and templates can't be created.
 
-**Recommendation**: Azure Database for PostgreSQL – Flexible Server doesn't support creating or modifying full-text search (FTS) configurations. Use the default FTS configurations, or consider using Azure Cognitive Search for advanced search capabilities.
+**Recommendation**: Azure Database for PostgreSQL – Flexible Server doesn't support creating or modifying full-text search (FTS) configurations. Use the default FTS configurations or consider using Azure Cognitive Search for advanced search capabilities.
 
 - Learn about the PostgreSQL full-text search documentation.
 
@@ -132,7 +132,7 @@ These rules help identify issues and warnings when migrating PostgreSQL to Azure
 
 - **Description**: Azure Database for PostgreSQL – Flexible Server supports only TLS 1.2 and TLS 1.3. Connections that use versions earlier than TLS 1.2 or later than TLS 1.3 will fail. 
 
-**Recommendation**: Azure Database for PostgreSQL – Flexible Server doesn't support TLS versions earlier than 1.2 or later than 1.3. Update your client configurations to use TLS 1.2 or TLS 1.3, and test all applications to ensure compatibility with the supported TLS versions.
+**Recommendation**: Azure Database for PostgreSQL – Flexible Server doesn't support TLS versions earlier than 1.2 or later than 1.3. Update your client configurations to use TLS 1.2 or TLS 1.3 and test all applications to ensure compatibility with the supported TLS versions.
 
 - Learn about [SSL/TLS connectivity in Azure Database for PostgreSQL](/azure/postgresql/flexible-server/concepts-networking-ssl-tls).
 
