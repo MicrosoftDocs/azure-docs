@@ -150,7 +150,7 @@ items:
         - name: Create an Azure Database for PostgreSQL assessment
           href: tutorial-assess-postgresql.md
         - name: Customize assessment properties
-          href: review-postgresql-properties.md
+          href: tutorial-review-postgresql-properties.md
         - name: Review assessment report
           href: review-sql-assessment.md
         - name: PostgreSQL assessment-properties

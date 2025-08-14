@@ -17,8 +17,7 @@ ms.custom: mvc, engagement-fy25
 
 ## Update (August 2025)
 
-Public preview: Azure Migrate now supports discovery and assessment of PostgreSQL Instances.The preview of PostgreSQL discovery and assessment in Azure Migrate introduces key features including configuration-based analysis to generate migration recommendations, comprehensive discovery across VMware, Hyper-V, physical servers, and other cloud environments, detailed cost estimation for Azure compute and storage, and migration readiness classification with actionable remediation guidance.
-
+Public preview: : Azure Migrate now supports discovery and assessment of PostgreSQL instances. 
 You can use this capability to:
 
 - Discover PostgreSQL instances and their attributes within your environment. 

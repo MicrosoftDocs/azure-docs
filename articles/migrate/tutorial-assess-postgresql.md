@@ -108,4 +108,4 @@ To run an assessment, follow these steps:
 
 ## Next steps
 
-- [Review PostgreSQL assessment](review-postgresql-properties.md).
+- [Review PostgreSQL assessment](tutorial-review-postgresql-properties.md).
