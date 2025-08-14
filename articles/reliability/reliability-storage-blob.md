@@ -68,7 +68,7 @@ For more information, see [Blob Storage pricing](https://azure.microsoft.com/pri
 
 ### Configure availability zone support
 
-- **Create a blob storage account with zone redundancy:** To create a new storage account with ZRS, see [Create a storage account](/azure/storage/common/storage-account-create) and select ZRS, geo-zone-redundant storage (GZRS) or read-access geo-redundant storage (RA-GZRS) as the redundancy option during account creation.
+- **Create a blob storage account with zone redundancy:** To create a new storage account with ZRS, see [Create a storage account](/azure/storage/common/storage-account-create) and select **ZRS**, **geo-zone-redundant storage (GZRS)** or **read-access geo-redundant storage (RA-GZRS)** as the redundancy option during account creation.
 
 [!INCLUDE [Storage - Configure availability zone support](includes/storage/reliability-storage-availability-zone-configure-include.md)]
 
@@ -79,7 +79,7 @@ This section describes what to expect when a blob storage account is configured 
 [!INCLUDE [Storage - Normal operations](includes/storage/reliability-storage-availability-zone-normal-operations-include.md)]
 
 > [!IMPORTANT]
-> The data replication approach across zones is usually different to the approach used across regions.
+> The data replication approach across zones is usually different than the approach used across regions.
 
 ### Zone-down experience
 
@@ -87,7 +87,7 @@ This section describes what to expect when a blob storage account is configured 
 
 [!INCLUDE [Storage - Zone down experience](includes/storage/reliability-storage-availability-zone-down-experience-include.md)]
 
-- **Traffic rerouting.** If a zone becomes unavailable, Azure undertakes networking updates such as Domain Name System (DNS) repointing, so that requests are directed to the remaining healthy availability zones. The service maintains full functionality by using the surviving zones with no customer intervention required.
+- **Traffic rerouting.** If an availability zone goes offline, Azure initiates networking changes like Domain Name System (DNS) repointing. These updates ensure that traffic is rerouted to the remaining healthy availability zones. The service maintains full functionality by using the surviving zones with no customer intervention required.
 
 ### Zone recovery
 
@@ -161,7 +161,7 @@ For more information, see [Blob Storage pricing](https://azure.microsoft.com/pri
 
 Object replication can be configured to replicate all blobs within a container, or specific subsets based on blob prefixes and tags. The replication is asynchronous and occurs in the background. You can configure multiple replication policies and even chain replication across multiple storage accounts to create sophisticated multi-region topologies.
 
-Object replication isn't compatible with all storage accounts. For example, it doesn't work with storage accounts that use hierarchical namespaces (also called Azure Data Lake Gen2 accounts).
+Object replication isn't compatible with all storage accounts. For example, it doesn't work with storage accounts that use hierarchical namespaces (also known as *Azure Data Lake Gen2 accounts*).
 
 For more information, see [Object replication for block blobs](/azure/storage/blobs/object-replication-overview) and [Configure object replication](/azure/storage/blobs/object-replication-configure).
 
@@ -173,11 +173,11 @@ Blob Storage provides multiple data protection mechanisms that complement redund
 
 **Blob versioning** automatically maintains previous versions of blobs when they're modified or deleted. Each version is stored as a separate object and can be accessed independently. Versions are stored in the same region as the current blob and follow the same redundancy configuration as the storage account.
 
-**Soft delete** provides a safety net for accidentally deleted blobs and containers by retaining deleted data for a configurable period. Soft-deleted data remains in the same storage account and region, making it immediately available for recovery. For geo-redundant accounts, soft-deleted data is also replicated to the secondary region.
+**Soft delete** provides a safety net for accidentally deleted blobs and containers by retaining deleted data for a configurable period. Soft-deleted data remains in the same storage account and region, which makes it immediately available for recovery. For geo-redundant accounts, soft-deleted data is also replicated to the secondary region.
 
 **Blob snapshots** create read-only, point-in-time copies of blobs that you can use for backup and recovery scenarios. Snapshots are stored in the same storage account and follow the same redundancy and geo-replication settings as the base blob.
 
-For cross-region backup requirements, consider using **Azure Backup for Blobs**, which provides centralized backup management and can store backup data in regions different from the source data. This service offers operational and vaulted backup options with configurable retention policies and restore capabilities. For more information, see [Azure Backup for Blobs overview](/azure/backup/blob-backup-overview).
+For cross-region backup requirements, consider using **Azure Backup for Blobs**, which provides centralized backup management and can store backup data in regions different from the source data. This service provides operational and vaulted backup options with configurable retention policies and restore capabilities. For more information, see [Azure Backup for Blobs overview](/azure/backup/blob-backup-overview).
 
 For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements. However, backups protect against some risks that other approaches don't. For more information, see [Redundancy, replication, and backup](concept-redundancy-replication-backup.md).
 
