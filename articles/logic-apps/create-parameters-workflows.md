@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/15/2025
+ms.date: 08/18/2025
 ms.custom:
   - build-2025
 #Customer intent: As an integration developer who works with Azure Logic Apps, I want to use parameters and application settings as values across workflows.
@@ -39,13 +39,13 @@ For more information about multitenant and single-tenant Azure Logic Apps, see [
 
 For both Consumption and Standard logic app workflows, you can define parameters using the designer. After you define the parameter, you can reference that parameter from any workflow or connection that's in the *same* logic app resource.
 
-In multitenant Consumption logic app workflows you create and use parameters in the designer. Then you define and set the environment variables in your Azure Resource Manager template (ARM template) and template parameters files. In this scenario, you have to define and set the parameters *at deployment*. This requirement means that even if you only have to change one variable, you have to redeploy your logic app's ARM template.
+In multitenant Consumption logic app workflows, you create and use parameters in the designer. Then you define and set the environment variables in your Azure Resource Manager template (ARM template) and template parameters files. In this scenario, you have to define and set the parameters *at deployment*. This requirement means that even if you only have to change one variable, you have to redeploy your logic app's ARM template.
 
-In single-tenant Standard logic app workflows, you can work with environment variables both at runtime and deployment by using parameters *and* app settings. App settings contain global configuration options for *all the workflows* in the same logic app resource. For more information, review [Edit host and app settings for single-tenant based logic apps](edit-app-settings-host-settings.md).
+In single-tenant Standard logic app workflows, you can work with environment variables both at runtime and deployment by using parameters *and* app settings. App settings contain global configuration options for *all the workflows* in the same logic app resource. For more information, see [Edit host and app settings for single-tenant based logic apps](edit-app-settings-host-settings.md).
 
 > [!IMPORTANT]
 >
-> When you have sensitive information, such as connection strings that include usernames and passwords, 
+> When you use sensitive information, such as connection strings that include usernames and passwords, 
 > make sure to use the most secure authentication flow available. For example, in Standard logic app workflows, 
 > secure data types, such as `securestring` and `secureobject`, aren't supported. Microsoft recommends that you 
 > authenticate access to Azure resources with a [managed identity](/entra/identity/managed-identities-azure-resources/overview) 
@@ -61,12 +61,12 @@ In single-tenant Standard logic app workflows, you can work with environment var
 
 App settings have size limits and can't be referenced from certain areas in Azure Logic Apps. Parameters offer a wider range of use cases than app settings, such as support for large value sizes and complex objects.
 
-For example, if you use Visual Studio Code as your development tool to run workflows locally, you can define parameters using the parameters.json file. You can then reference any parameter in this parameters file from any workflow in your project's workflow.json file or from any connection object in your project's connections.json file. The following list describes a couple common use cases:
+For example, if you use Visual Studio Code as your development tool to run workflows locally, you can define parameters using the parameters.json file. You can then reference any parameter in this parameters file from any workflow in your project's workflow.json file or from any connection object in your project's connections.json file. The following list describes common use cases:
 
-- Have a test parameters file that includes all the values that you use during testing. At deployment, you can replace your test parameters file with your production parameters file.
-- Parameterize different parts of your connections.json file. You can then check your connections.json file into source control, and then manage any connections through your parameters.json file.
+- Have a test parameters file that includes all the values that you use during testing. At deployment, replace your test parameters file with your production parameters file.
+- Parameterize different parts of your connections.json file. You can then check your connections.json file into source control and manage any connections through your parameters.json file.
 - Parameterize complex objects, such as the `authentication` JSON object. For example, you can replace the `authentication` object value with a string that holds a single parameters expression, such as `@parameters('api-auth')`.
-- Review and edit the app settings in your project's local.settings.json file. You can then reference these app settings in your parameters.
+- Review and edit the app settings in your project's local.settings.json file. Then reference these app settings in your parameters.
 
 > [!NOTE]
 > In general, consider using parameters as the default way to parameterize values, not app settings. That way, when you need to store secure keys or strings, you can follow the recommendation to reference app settings from your parameters. You can use both options in your solution by using parameters to reference app settings.
@@ -105,25 +105,26 @@ This procedure describes how to work with parameters for either Consumption or S
 
 1. When you're done, close the **Parameters** pane. Make sure to save your workflow to save your new parameter definition.
 
-1. To reference the parameter from a trigger or action that's in any workflow in the same logic app, follow these steps:
 
-   1. In the designer, open the workflow that you want, and expand the trigger or action.
+To reference the parameter from a trigger or action that's in any workflow in the same logic app, follow these steps:
 
-   1. In the property where you want to use the parameter, select inside that property's edit box. Select the lightning icon to open the dynamic content list.
+1. In the designer, open the workflow that you want, and expand the trigger or action.
 
-   1. From that list, under **Parameters**, select your previously created parameter.
+1. In the property where you want to use the parameter, select inside that property's edit box. Select the lightning icon to open the dynamic content list.
 
-      ![Screenshot shows created parameter in the dynamic content list.](./media/create-parameters-workflows/reference-parameter.png)
+1. From that list, under **Parameters**, select your previously created parameter.
 
-1. To view or edit parameters in the same logic app:
+   ![Screenshot shows created parameter in the dynamic content list.](./media/create-parameters-workflows/reference-parameter.png)
 
-   - Open any workflow in that logic app in the workflow designer. On the designer toolbar, select **Parameters**.
+To view or edit parameters in the same logic app:
 
-     The **Parameters** pane opens and displays all the parameters that you defined from workflows in that logic app.
+- Open any workflow in that logic app in the workflow designer. On the designer toolbar, select **Parameters**.
 
-   - (Standard workflows only) To view or edit in bulk JSON, on the resource sidebar, select **Parameters**.
+  The **Parameters** pane opens and displays all the parameters that you defined from workflows in that logic app.
 
-     The **Parameters** JSON view opens and displays all the parameters that you defined from workflows in that logic app.
+- (Standard workflows only) To view or edit in bulk JSON, on the resource sidebar, select **Parameters**.
+
+  The **Parameters** JSON view opens and displays all the parameters that you defined from workflows in that logic app.
 
 ## Visual Studio Code
 
@@ -204,7 +205,7 @@ You want to use parameters where possible. Because app settings are generated du
 
 > [!NOTE]
 > When you have an expression that's inline with plain text, make sure to use the interpolated 
-> format for that expression by enclosing that expression with curly braces ({}). This format helps 
+> format for that expression by enclosing that expression with braces ({}). This format helps 
 > avoid parsing problems.
 >
 > For example, if you have `"<text>/@<function-name>('<parameter-name>')/<text>"`, 
@@ -222,7 +223,7 @@ To dynamically replace parameters files using the Azure CLI, run the following c
 az functionapp deploy --resource-group MyResourceGroup --name MyLogicApp --src-path C:\parameters.json --type static --target-path parameters.json
 ```
 
-If you have a NuGet-based logic app project, you have to update your project file (**&lt;logic-app-name&gt;.csproj**) to include the parameters file in the build output, for example:
+If you have a NuGet-based logic app project, you have to update your project file (&lt;logic-app-name&gt;.csproj) to include the parameters file in the build output, for example:
 
 ```csproj
 <ItemGroup>
