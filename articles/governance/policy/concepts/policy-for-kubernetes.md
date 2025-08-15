@@ -618,7 +618,10 @@ Patch [CVE-2025-22874](https://nvd.nist.gov/vuln/detail/CVE-2025-22874).
 Security improvements.
 - Released July 2025
 - Kubernetes 1.27+
-- Gatekeeper 3.19.1
+- Gatekeeper 3.20.0
+##### Gatekeeper 3.20.0-1
+Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.20.0
+Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.19.1...v3.20.0
 
 #### 1.12.3
 Patch CVEs CVE-2025-22874 and GHSA-vrw8-fxc6-2r93.
