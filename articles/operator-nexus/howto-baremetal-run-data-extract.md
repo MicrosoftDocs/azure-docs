@@ -693,7 +693,7 @@ The command provides a link (if using cluster manager storage) or another comman
 * minimum supported API of v20250701preview` or `v20250901` and above
 * Storage Blob Container has been configured
 * The target bare metal machine is on and ready.
-* The syntax for these commands is based on the <TODO: need to confirm az networkcloud CLI version>+ version of the az networkcloud CLI.
+* Required `az networkcloud` CLI extension version 4.0.0b1+ version .
 * Get the Cluster Managed Resource group name (cluster_MRG) that you created for Cluster resource.
 
 The `run-data-extracts-restricted` command functionality mirrors non-restricted run-data-extracts command and includes fine-grained access control via RBAC (Role-Based Access Control). It allows customers to run sensitive data extraction operations on BareMetalMachines with elevated privileges.
