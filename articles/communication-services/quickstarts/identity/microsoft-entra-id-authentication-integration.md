@@ -49,7 +49,7 @@ The Administrator role has extended permissions in Microsoft Entra ID. Members o
 To enable the Contoso application to access Azure Communication Services Clients application API permissions, the Contoso Administrator must create a service principal for Azure Communication Services Clients application in the Contoso Microsoft Entra ID tenant.
 The Contoso Administrator can create a service principal in Contoso tenant by one of the following methods:
 
-- Use the [Microsoft Graph REST API](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http#request) to run the following request:
+- Use the [Microsoft Graph REST API](/graph/api/serviceprincipal-post-serviceprincipals#request) to run the following request:
 
 ```http
 POST https://graph.microsoft.com/v1.0/servicePrincipals
@@ -62,7 +62,7 @@ Content-Type: application/json
 
   This request can also be executed in [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer/). Make sure to include your full tenant domain in the URL `https://developer.microsoft.com/graph/graph-explorer?tenant={tenant domain}`, sign in, and provide consent for `Application.ReadWrite.All` permission.
 
-- Use the [Azure CLI](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create) to run the following command:
+- Use the [Azure CLI](/cli/azure/ad/sp#az-ad-sp-create) to run the following command:
 
 ```azurecli-interactive
 az ad sp create --id 2a04943b-b6a7-4f65-8786-2bb6131b59f6
