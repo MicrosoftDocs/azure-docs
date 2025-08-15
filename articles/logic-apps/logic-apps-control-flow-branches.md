@@ -1,11 +1,11 @@
 ---
 title: Create or join parallel branches in workflows
-description: Create or merge parallel branches for workflow actions in Azure Logic Apps. Learn how parallel branches behave in your workflows.
+description: Learn how to create and join parallel branches for workflow actions in Azure Logic Apps and how parallel branches behave in your workflows.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/13/2025
+ms.date: 08/15/2025
 #Customer intent: As an integration developer using Azure Logic Apps, I want to use parallel branches to implement different paths for actions in my workflows.
 ---
 
@@ -39,7 +39,21 @@ This guide shows how to create parallel branches in a workflow and rejoin those 
 
 ## Add a parallel branch action
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app and workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app.
+
+1. Based on whether you have a Consumption or Standard logic app, follow the corresponding step:
+
+    - Consumption
+    
+      - On the resource sidebar, under **Development Tools**, select the designer to open the workflow.
+    
+    - Standard
+
+      1. On the resource sidebar, under **Workflows**, select **Workflows**.
+
+      1. On the **Workflows** page, select the a workflow.
+
+      1. On the workflow sidebar, under **Tools**, select the designer to open the workflow.
 
 1. Between the actions where you want to add a parallel branch, hover over the connecting arrow.
 
@@ -111,9 +125,9 @@ In code view, you can define the parallel structure in your logic app workflow's
 
 ## Join parallel branches
 
-To merge parallel branches together, under all the branches, just add another action. This action runs only after all the preceding parallel branches finish running.
+To merge parallel branches under all the branches, add another action. This action runs only after all the preceding parallel branches finish running.
 
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app and workflow with the parallel branches that you want to join in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app and workflow as described in the previous procedure.
 
 1. Under any of the parallel branches that you want to join, select the **plus sign** (**+**), and then select **Add an action**.
 
@@ -127,11 +141,11 @@ To merge parallel branches together, under all the branches, just add another ac
 
 1. On the **Settings** pane, under **Run After**, open the **Select Actions** list. Select the last action in each branch that must finish before the join action runs.
 
-   You're effectively specifying that the join action runs only after all the selected actions finish running.
+   The join action runs only after all the selected actions finish running.
 
    :::image type="content" source="media/logic-apps-control-flow-branches/run-after-actions.png" alt-text="Screenshot shows a workflow, the action that joins preceding parallel branches, and selected actions to first finish running." lightbox="media/logic-apps-control-flow-branches/run-after-actions.png":::
 
-   When you finish, the selected action now appears under the parallel branches that you want to join:
+   When you finish, the selected action appears under the parallel branches that you want to join:
 
    :::image type="content" source="media/logic-apps-control-flow-branches/joined-branches.png" alt-text="Screenshot shows a workflow with the action that joins the preceding parallel branches." lightbox="media/logic-apps-control-flow-branches/joined-branches.png":::
 
