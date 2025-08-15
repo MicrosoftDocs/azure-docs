@@ -27,7 +27,9 @@ You can use customizations in Dev Box in two ways. *Team customizations* create 
 
 To learn more, see [Microsoft Dev Box customizations](concept-what-are-dev-box-customizations.md).
 
-**Team customizations workflow:**
+Configure team customizations by following these steps:
+
+:::image type="content" source="media/how-to-configure-team-customizations/dev-box-team-customizations-workflow.png" alt-text="Diagram showing the five-step workflow for team customizations in Microsoft Dev Box.":::
 
 1. Create an imagedefinition.yaml file.
 1. Enable and sync catalogs for your project.
