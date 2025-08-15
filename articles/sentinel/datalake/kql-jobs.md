@@ -6,7 +6,7 @@ author: EdB-MSFT
 ms.service: microsoft-sentinel  
 ms.topic: conceptual
 ms.subservice: sentinel-graph
-ms.date: 07/15/2025
+ms.date: 08/12/2025
 ms.author: edbaynash  
 
 ms.collection: ms-security  
@@ -118,6 +118,17 @@ You can create and manage jobs from the **Jobs** management page under **Data la
 ## Considerations and limitations
 
 When creating jobs in the Microsoft Sentinel data lake, consider the following limitations and best practices:
+
+## KQL
+
++ All KQL operators are supported except for the following:
+  + `adx()`
+  + `externaldata`
+  + `arg()`
+  + `Ingestion_time()`
+
++ User-defined functions not supported.
+
 
 ## Jobs
 + Job names must be unique for the tenant.

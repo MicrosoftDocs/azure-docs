@@ -147,13 +147,13 @@ Depending on how you pay for your Azure subscription, email reservation notifica
 Notifications are sent to the following users:
 
 - Customers with EA subscriptions
-    - Notifications are sent to the EA notification contacts, EA admin, reservation owners, and the reservation administrator.
+    - Notifications are sent to the EA notification contacts, EA admin, reservation owners, and the reservation contributors and administrators.
 - Customers with Microsoft Customer Agreement (Azure Plan)
-    - Notifications are sent to the reservation owners and the reservation administrator.
+    - Notifications are sent to the reservation owners, the reservation contributors and administrators.
 - Cloud Solution Provider and new commerce partners
     - Notifications are sent to the primary contact partner identified by the partner legal information account settings. For more information about how to update the primary contact email address for partner account settings, see [Verify or update your company profile information](/partner-center/update-your-partner-profile#update-your-legal-business-profile).
 - Individual subscription customers with pay-as-you-go rates
-    - Emails are sent to users who are set up as account administrators, reservation owners, and the reservation administrator.
+    - Emails are sent to users who are set up as account administrators, reservation owners, the reservation contributors and administrators.
 
 
 ## Next steps

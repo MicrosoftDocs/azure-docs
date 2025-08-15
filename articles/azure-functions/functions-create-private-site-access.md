@@ -191,7 +191,7 @@ The next step in this tutorial is to create an HTTP-triggered Azure Function. In
 
 1. Follow one of the following quickstarts to create and deploy your Azure Functions app.
 
-    * [Visual Studio Code](./create-first-function-vs-code-csharp.md)
+    * [Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-csharp)
     * [Visual Studio](./functions-create-your-first-function-visual-studio.md)
     * [Command line](./how-to-create-function-azure-cli.md?pivots=programming-language-csharp)
     * [Maven (Java)](./how-to-create-function-azure-cli.md?pivots=programming-language-java)

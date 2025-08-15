@@ -5,6 +5,7 @@ author: seligj95
 ms.topic: article
 ms.date: 06/26/2024
 ms.author: jordanselig
+ms.service: azure-app-service
 ---
 
 # Use an App Service Environment

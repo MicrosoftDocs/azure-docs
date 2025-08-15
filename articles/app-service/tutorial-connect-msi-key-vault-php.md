@@ -10,6 +10,7 @@ ms.author: cephalin
 
 ms.reviewer: jordanselig 
 ms.custom: devx-track-azurecli, AppServiceConnectivity
+ms.service: azure-app-service
 ---
 
 # Tutorial: Secure Cognitive Service connection from PHP App Service using Key Vault
