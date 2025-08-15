@@ -85,7 +85,7 @@ This procedure describes how to work with parameters for either Consumption or S
 
 1. From the designer toolbar, select **Parameters**.
 
-   ![Screenshot shows the Azure portal with the workflow designer open and Parameters on designer toolbar highlighted.](./media/create-parameters-workflows/select-parameter.png)
+   :::image type="content" source="./media/create-parameters-workflows/select-parameter.png" alt-text="Screenshot shows the Azure portal with the workflow designer open and Parameters on designer toolbar highlighted.":::
 
 1. On the **Parameters** pane, select **Create parameter**.
 
@@ -101,7 +101,7 @@ This procedure describes how to work with parameters for either Consumption or S
 
    The following example shows a definition for a string parameter:
 
-   ![Screenshot shows the Azure portal with the workflow designer and the Parameters pane with an example parameter definition.](./media/create-parameters-workflows/define-parameter.png)
+   :::image type="content" source="./media/create-parameters-workflows/define-parameter.png" alt-text="Screenshot shows the Azure portal with the workflow designer and the Parameters pane with an example parameter definition.":::
 
 1. When you're done, close the **Parameters** pane. Make sure to save your workflow to save your new parameter definition.
 
@@ -114,7 +114,7 @@ To reference the parameter from a trigger or action that's in any workflow in th
 
 1. From that list, under **Parameters**, select your previously created parameter.
 
-   ![Screenshot shows created parameter in the dynamic content list.](./media/create-parameters-workflows/reference-parameter.png)
+   :::image type="content" source="./media/create-parameters-workflows/reference-parameter.png" alt-text="Screenshot shows created parameter in the dynamic content list.":::
 
 To view or edit parameters in the same logic app:
 
