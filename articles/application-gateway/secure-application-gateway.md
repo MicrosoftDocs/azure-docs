@@ -6,7 +6,7 @@ ms.author: mbender
 ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.custom: security
-ms.date: 07/29/2025
+ms.date: 08/15/2025
 ai-usage: ai-assisted
 ---
 
@@ -54,7 +54,7 @@ Proper authentication and authorization controls ensure only authorized users an
 
 Data protection for Application Gateway focuses on securing data in transit and managing certificates and secrets properly.
 
-* **Enable TLS encryption**: Configure TLS termination to encrypt data in transit between clients and your Application Gateway. Use TLS v1.2 or later and disable legacy versions like SSL 3.0 and TLS v1.0 to protect against known vulnerabilities. For more information, see [Overview of TLS termination and end to end TLS with Application Gateway](./ssl-overview.md).
+* **Enable TLS encryption**: Configure TLS termination to encrypt data in transit between clients and your Application Gateway. Ensure you are using the latest version to protect against known vulnerabilities. For more information, see [Overview of TLS termination and end to end TLS with Application Gateway](./ssl-overview.md).
 
 * **Store certificates in Azure Key Vault**: Use Azure Key Vault to securely store and manage your TLS certificates instead of embedding them in configuration files. This enables automatic certificate rotation and centralized management of secrets. For more information, see [TLS termination with Key Vault certificates](./key-vault-certs.md).
 
