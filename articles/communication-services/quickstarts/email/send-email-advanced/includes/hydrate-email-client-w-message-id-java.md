@@ -1,6 +1,6 @@
 ---
 title: include file
-description: Hydrate messageId using using EmailClient for Java
+description: Hydrate messageId using EmailClient for Java
 author: fanruisun
 manager: koagbakp
 services: azure-communication-services
@@ -10,7 +10,7 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-## Hydrate messageId using using EmailClient for Java
+## Hydrate messageId using EmailClient for Java
 
 Use the Azure Communication Services Email SDK for Java. Add the following dependency to your `pom.xml` file:
 
