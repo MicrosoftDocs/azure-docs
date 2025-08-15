@@ -3,8 +3,8 @@ title: Use PowerShell to create a user delegation SAS for a container or blob
 titleSuffix: Azure Storage
 description: Learn how to create a user delegation SAS with Microsoft Entra credentials by using PowerShell.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: normesta
+ms.author: normesta
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/18/2019
