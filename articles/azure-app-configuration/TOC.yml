@@ -413,6 +413,8 @@
     - name: Go
       items:
       - name: Feature reference
+        href: ./reference-go-provider.md
+      - name: API reference
         href: https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration
       - name: Azure SDK for Go
         href: https://go.microsoft.com/fwlink/?linkid=2270866
