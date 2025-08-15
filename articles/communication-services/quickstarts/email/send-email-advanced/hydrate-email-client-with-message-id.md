@@ -19,22 +19,22 @@ This article describes how to hydrate messageId using EmailClient with our Email
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prepend-net](./includes/prepend-net.md)]
-[!INCLUDE [hydrate-message-id-net](./includes/hydrate-email-client-w-message-id-dotnet.md)]
+[!INCLUDE [hydrate-message-id-net](./includes/hydrate-email-client-with-message-id-dotnet.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
 [!INCLUDE [prepend-java](./includes/prepend-java.md)]
-[!INCLUDE [hydrate-message-id-java](./includes/hydrate-email-client-w-message-id-java.md)]
+[!INCLUDE [hydrate-message-id-java](./includes/hydrate-email-client-with-message-id-java.md)]
 ::: zone-end
 
-### Email Delivery
+### Email delivery
 
 To troubleshoot issues related to email delivery, you can [get status of the email delivery](../handle-email-events.md) to capture delivery details.
 
 > [!IMPORTANT]
 > The success result returned by polling for the status of the send operation only validates that the email is sent out for delivery. For more information about the status of the delivery on the recipient end, see [how to handle email events](../handle-email-events.md).
 
-### Email Throttling
+### Email throttling
 
 If your application is hanging, it could be due to email sending being throttled. You can [handle email throttling by logging or by implementing a custom policy](../send-email-advanced/throw-exception-when-tier-limit-reached.md).
 
