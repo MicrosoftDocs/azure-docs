@@ -7,7 +7,11 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 01/15/2025
 ROBOTS: NOINDEX
+ms.service: azure-app-service
+
 # Customer intent: As a developer, I want to set up an Azure Arc-enabled Kubernetes cluster so that I can deploy App Service apps, function apps, and logic apps to it. 
+
+ 
 ---
 
 # Set up an Azure Arc-enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)

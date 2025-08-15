@@ -5,7 +5,10 @@ ms.topic: how-to
 ms.date: 6/10/2024
 author: jefmarti
 ms.author: jefmarti
+ms.service: azure-app-service 
+
 # As a developer, I want to deploy a custom Windows container to App Service from a CI/CD pipeline. 
+
 ---
 
 # Deploy a custom container to App Service using Azure Pipelines

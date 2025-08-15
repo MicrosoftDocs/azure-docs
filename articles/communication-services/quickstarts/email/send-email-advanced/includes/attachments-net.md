@@ -25,8 +25,8 @@ var emailContent = new EmailContent("Welcome to Azure Communication Service Emai
 
 // Create the EmailMessage
 var emailMessage = new EmailMessage(
-    senderAddress: "donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net" // The email address of the domain registered with the Communication Services resource
-    recipientAddress: "emailalias@contoso.com"
+    senderAddress: "donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net", // The email address of the domain registered with the Communication Services resource
+    recipientAddress: "emailalias@contoso.com",
     content: emailContent);
 
 // Create the EmailAttachment

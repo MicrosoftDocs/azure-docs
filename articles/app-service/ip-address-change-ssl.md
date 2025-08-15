@@ -8,7 +8,10 @@ ms.update-cycle: 1095-days
 ms.custom: UpdateFrequency3
 ms.author: msangapu
 author: msangapu-msft
+ms.service: azure-app-service 
+
 # Customer intent: As a developer, I want to learn what to do if my TLS/SSL IP address is going to change so that I can ensure that my app works after the change.
+ 
 ---
 
 # Prepare for a TLS/SSL IP address change

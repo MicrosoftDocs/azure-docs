@@ -11,7 +11,11 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.collection: ce-skilling-ai-copilot
+ms.service: azure-app-service
+
 # Customer intent: As a developer, I want to deploy a .NET Blazor app that's connected to Azure SQL and Azure OpenAI on Azure App Service. 
+
+
 ---
 
 # Tutorial: Deploy a .NET Blazor app connected to Azure SQL and Azure OpenAI on Azure App Service

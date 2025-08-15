@@ -10,7 +10,10 @@ zone_pivot_groups: app-service-java-hosting
 adobe-target: true
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
+
 # customer intent: As a developer, I want to configure security for Tomcat, JBoss, or Java SE apps.
+
 ---
 
 # Configure security for a Tomcat, JBoss, or Java SE app in Azure App Service

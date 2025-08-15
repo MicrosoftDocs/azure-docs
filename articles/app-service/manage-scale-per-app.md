@@ -8,7 +8,10 @@ ms.topic: how-to
 ms.date: 05/02/2025
 ms.author: msangapu
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
+ms.service: azure-app-service 
+
 # Customer intent: As a developer, I want to use per-app scaling to optimize the scaled out instances in my App Service plan. 
+ 
 ---
 
 # Implement per-app scaling for high-density hosting
@@ -141,4 +144,4 @@ Follow these steps to configure high-density hosting for your apps:
 
 - [What are Azure App Service plans?](overview-hosting-plans.md)
 - [App Service Environment overview](environment/overview.md)
-- [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)
+- [Tutorial: Run a load test to identify performance bottlenecks in a web app](../app-testing/load-testing/tutorial-identify-bottlenecks-azure-portal.md)

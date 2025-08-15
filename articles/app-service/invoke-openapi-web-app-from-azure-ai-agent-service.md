@@ -10,7 +10,10 @@ ms.custom:
   - devx-track-dotnet
   - build-2025
 ms.collection: ce-skilling-ai-copilot
+ms.service: azure-app-service 
+
 #Customer intent: As a developer, I want to integrate App Service with AI Foundry Agent Service so that I can create AI agents that are tailored to my needs. 
+ 
 ---
 
 # Tutorial: Invoke an App Service web app from Azure AI Foundry Agent Service

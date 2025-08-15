@@ -5,7 +5,10 @@ ms.topic: how-to
 ms.date: 09/30/2024
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
+
 # Customer intent: As a developer, I want to deploy an app's ZIP package with atomicity so that I can improve the predictability and reliability of my app's behaviour during the ZIP deployment process. 
+ 
 ---
 
 # Run your app in Azure App Service directly from a ZIP package

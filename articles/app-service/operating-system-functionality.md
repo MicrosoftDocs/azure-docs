@@ -10,7 +10,10 @@ ms.update-cycle: 1095-days
 ms.custom:
   - UpdateFrequency3
   - build-2025
+ms.service: azure-app-service
+ 
 # Customer intent: As a developer, I want to learn what types of file, network, and registry access my Windows app gets when it runs in Azure App Service.
+ 
 ---
 
 # Operating system functionality in Azure App Service

@@ -9,7 +9,11 @@ ms.devlang: azurecli
 author: cephalin
 ms.author: cephalin
 zone_pivot_groups:  app-service-containers-github-actions
+ms.service: azure-app-service
+
 # customer intent: As a developer, I want to deploy a custom Linux container to App Service from a CI/CD pipeline so that I can create an automated software development workflow.
+
+ 
 ---
 
 # Deploy a custom container to App Service using GitHub Actions

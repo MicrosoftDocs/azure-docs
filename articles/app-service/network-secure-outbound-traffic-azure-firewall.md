@@ -5,7 +5,10 @@ author: cephalin
 ms.author: cephalin
 ms.topic: how-to
 ms.date: 01/13/2022
+ms.service: azure-app-service
+
 # Customer intent: As a deployment engineer, I want to control outbound App Service traffic by using Azure Firewall so that I can reduce the risk of data exfiltration and malicious program implantation.   
+  
 ---
 
 # Control outbound traffic with Azure Firewall

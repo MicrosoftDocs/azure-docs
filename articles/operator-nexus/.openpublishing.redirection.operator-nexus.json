@@ -84,6 +84,16 @@
       "source_path": "howto-cluster-runtime-upgrade-with-pauserack-strategy.md",
       "redirect_url": "howto-cluster-runtime-upgrade-with-pauseafterrack-strategy",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "howto-service-principal-rotation.md",
+      "redirect_url": "/azure/operator-nexus",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "howto-service-principal.md",
+      "redirect_url": "/azure/operator-nexus",
+      "redirect_document_id": false
     }
   ]
 }

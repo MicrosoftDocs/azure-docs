@@ -22,6 +22,9 @@ Set up your development environment for using Azure Functions with .NET Aspire:
   1. Go to **Tools** > **Options**.
   1. Under **Projects and Solutions**, select **Azure Functions**.
   1. Select **Check for updates** and install updates as prompted.
+  
+> [!NOTE]
+> The Azure Functions integration with .NET Aspire doesn't yet support .NET 10 Preview.
 
 ## Solution structure
 
