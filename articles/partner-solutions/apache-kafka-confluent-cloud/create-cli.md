@@ -14,7 +14,7 @@ In this quickstart, you use Azure Marketplace and the Azure CLI to create a reso
 ## Prerequisites
 
 - An Azure account. If you don't have an active Azure subscription, create a [free account](https://azure.microsoft.com/free/).
-- You must have Owner or Contributor role for your Azure subscription. The integration between Azure and Confluent can be set up only by users who are assigned one of those roles. Before you get started, [verify that you have the appropriate access](../../role-based-access-control/check-access.md).
+- You must have the Owner or Contributor role for your Azure subscription. Only users who are assigned one of these roles can set up integration between Azure and Confluent. Before you get started, [verify that you have the required access](../../role-based-access-control/check-access.md).
 
 ## Find offer
 
@@ -58,7 +58,7 @@ az confluent organization create --name "myOrganization" --resource-group "myRes
 ```
 
 > [!NOTE]
-> If you want the command to return before the create operation completes, add the optional parameter `--no-wait`. The operation continues to run until the Confluent organization is created.
+> If you want the command to return before the `create` operation finishes, add the optional parameter `--no-wait`. The operation continues to run until the Confluent organization is created.
 
 To pause CLI execution until an organization's specific event or condition occurs, use the [`az confluent organization wait`](/cli/azure/confluent/organization#az-confluent-organization-wait) command.
 

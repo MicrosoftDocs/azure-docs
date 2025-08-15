@@ -9,12 +9,12 @@ ms.date: 1/31/2024
 
 # Quickstart: Create a Confluent Cloud resource by using Azure PowerShell
 
-In this quickstart, you use the Azure Marketplace and Azure PowerShell to create a resource in Apache Kafka & Apache Flink on Confluent Cloud, an Azure Native Integrations service.
+In this quickstart, you use Azure Marketplace and Azure PowerShell to create a resource in Apache Kafka & Apache Flink on Confluent Cloud, an Azure Native Integrations service.
 
 ## Prerequisites
 
 - An Azure account. If you don't have an active Azure subscription, create a [free account](https://azure.microsoft.com/free/).
-- You must have Owner or Contributor role for your Azure subscription. The integration between Azure and Confluent can be set up only by users who are assigned one of those roles. Before you get started, [verify that you have the appropriate access](../../role-based-access-control/check-access.md).
+- You must have the Owner or Contributor role for your Azure subscription. Only users who are assigned one of these roles can set up integration between Azure and Confluent. Before you get started, [verify that you have the required access](../../role-based-access-control/check-access.md).
 
 ## Find offer
 
@@ -27,7 +27,7 @@ Use the Azure portal to find the Apache Kafka & Apache Flink on Confluent Cloud 
 1. On the **Marketplace** page, choose from two billing options:
 
    - **Pay-as-you-go monthly plan**: Your Confluent Cloud consumption charges appear on your Azure monthly bill. This plan is publicly available.
-   - **Commitment plan**: You sign up for a minimum spend amount and get a discount on your committed usage of Confluent Cloud. This plan is available to customers who have been approved for a private offer.
+   - **Commitment plan**: You sign up for a minimum spend amount and get a discount on your committed usage of Confluent Cloud. This plan is available to customers who are approved for a private offer.
 
    For **pay-as-you-go** customers, search for and then select the **Apache Kafka & Apache Flink on Confluent Cloud** offer.
 
@@ -42,13 +42,13 @@ Use the Azure portal to find the Apache Kafka & Apache Flink on Confluent Cloud 
    :::image type="content" source="media/select-from-private-offers.png" alt-text="Screenshot that shows the option to select a private plan.":::
 
 ## Create a resource
- 
+
 Start by preparing your environment for Azure PowerShell:
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
 > [!IMPORTANT]
-> While the `Az.Confluent` PowerShell module is in preview, you must install the module separately by using the `Install-Module` cmdlet.
+> Currently, the `Az.Confluent` PowerShell module is in preview. During the preview, you must install the module separately by using the `Install-Module` cmdlet.
 
 ```azurepowershell
 Install-Module -Name Az.Confluent -Scope CurrentUser -Repository PSGallery -Force
@@ -76,7 +76,7 @@ New-AzConfluentOrganization @ConfluentOrgParams
 ```
 
 > [!NOTE]
-> If you want the command to return before the create operation completes, add the optional parameter `-NoWait`. The operation continues to run until the Confluent organization is created.
+> If you want the command to return before the `create` operation finishes, add the optional parameter `-NoWait`. The operation continues to run until the Confluent organization is created.
 
 To see a list of existing organizations, use the [`Get-AzConfluentOrganization`](/powershell/module/az.confluent/get-azconfluentorganization) cmdlet.
 

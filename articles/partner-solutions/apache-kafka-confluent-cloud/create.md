@@ -30,7 +30,7 @@ The **Basics** tab has three sections:
 
 :::image type="content" source="media/create/basics-tab.png" alt-text="Screenshot that shows the Create a Confluent organization options in the Azure portal on the Basics tab.":::
 
-There are required fields (identified with a red asterisk) in each section that you need to fill out.
+There are required fields (identified with a red asterisk) in each section.
 
 1. Under **Project details**, enter or select values for these required settings:
 
@@ -57,7 +57,7 @@ There are required fields (identified with a red asterisk) in each section that 
 
     To change your [billing plan](overview.md#billing), select **Change plan**.
 
-    If you create a new organizaton, the remaining fields update to reflect the details of the plan you select for the new organization.
+    If you create a new organization, the remaining fields update to reflect the details of the plan you select for the new organization.
 
 1. Select **Next**.
 

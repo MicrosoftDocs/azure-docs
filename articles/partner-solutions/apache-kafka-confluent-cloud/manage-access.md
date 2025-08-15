@@ -1,7 +1,7 @@
 ---
-title: Use Confluent Access Management in the Azure portal
+title: Use Confluent Access Management in the Azure Portal
 titlesuffix: partner-solutions
-description: This article describes how to use Confluent Access Management in the Azure portal to add, delete and manage users.
+description: Learn how to use Confluent Access Management in the Azure portal to add, delete and manage users.
 ms.service: partner-services
 subservice: confluent
 ms.topic: how-to
@@ -9,7 +9,7 @@ ms.date: 1/31/2024
 # CustomerIntent: As an organization admin, I want to manage user permissions in Apache Kafka & Apache Flink on Confluent Cloud so that I can add, delete and manage users.
 ---
 
-# How to manage user permissions in a Confluent organization
+# Manage user permissions in a Confluent organization
 
 User access management is a feature that enables the organization admin to add, view and remove users and roles inside a Confluent organization. By managing user permissions, you can ensure that only authorized users can access and perform actions on your Confluent Cloud resources.
 
@@ -89,6 +89,6 @@ Remove a permission assigned to a user in the Confluent organization.
 
 ## Related content
 
-* For help with troubleshooting, see [Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions](troubleshoot.md).
+* Get help with [troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions](troubleshoot.md).
 * If you need to contact support, see [Get support for Confluent Cloud resource](get-support.md).
 * To learn more about managing Confluent Cloud, go to [Manage the Confluent Cloud resource](manage.md).
