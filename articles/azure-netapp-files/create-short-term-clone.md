@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 06/10/2025
+ms.date: 08/15/2025
 ms.author: anfdocs
 ---
 # Create a short-term clone volume in Azure NetApp Files (preview)
@@ -16,22 +16,22 @@ Short-term clone volumes are created from snapshots of existing Azure NetApp Fil
 
 With a short-term clone volume, you can create a clone of your original volume on a different capacity pool to utilize a different QoS level without being restrained by space restrictions in the source capacity pool. Additionally, short-term clones enable you to test a snapshot restore on a different capacity pool before [reverting to the original volume](snapshots-revert-volume.md). 
 
-By default, short-term clones convert to regular volumes after 32 days. While not guaranteed, short-term clones may be converted to regular volumes in most cases.
+By default, short-term clones convert to regular volumes after 32 days.
 
 ## Considerations 
 
 * If the capacity pool hosting the clone doesn't have enough space, the capacity pool automatically resizes to accommodate the clone. Resizing can incur additional charges. 
 * If the capacity pool hosting the short-term clone is set to auto QoS, throughput is calculated based on the quota value you assign when creating the short-term clone. 
-* When you convert a short-term clone to a regular volume, the size of the regular volume is calculated based on inherited size (the shared space between the short-term clone and its parent volume) plus short-term clone quota in bytes. This conversion has an impact on throughput. 
+* When you convert a short-term clone to a regular volume, the size of the regular volume is calculated based on inherited size (the shared space between the short-term clone and its parent volume) and the short-term clone quota in bytes. This conversion has an impact on throughput. 
 * There is no change in behavior for short-term clones in capacity pools with manual QoS.  
-* Short-term clones don't support the all operations as regular volumes. Snapshot policies, backup, replication, short-term clones and default user quota are not avilable short-term clone. If the parent volume has a backup or snapshot policy, the policy isn't applied to the short-term clone.
+* Snapshot policies, backup, replication, and default user quota are not available with short-term clone. If the parent volume has a backup or snapshot policy, the policy isn't applied to the short-term clone.
 * Short-term clones aren't supported on large volumes or volumes enabled for cool access.
 * Short-term clones are supported for volumes in cross-zone and cross-region replication. To create a short-term clone of a disaster recovery (DR) volume, create a snapshot from the source then create the short-term clone from the destination volume. 
 * A short-term clone is automatically converted to a regular volume in its designated capacity pool 32 days after the clone operation completes. To prevent this conversion, manually delete the short-term clone before 32 days have elapsed. 
     * Details about automatic conversion, including necessary capacity pool resizing, are sent to the volume's **Activity Log**. The Activity Log notifies you twice of impending automatic clone operations. The first notification is seven days before the conversion; the second notification occurs one day before the conversion. 
 * You can't delete the parent volume of a short-term clone. You must first delete the clone or convert it to a regular volume, then you can delete the parent volume. 
 * During the clone operation, the parent volume is accessible and you can capture new snapshots of the parent volume. 
-* There's a limit of five short-term clone volumes per regular volume.
+* You can only create five short-term clones per regular volume.
 <!-- AVG qualifications? -->
 
 ## Register the feature
@@ -73,9 +73,8 @@ Short-term clones are currently in preview. To take advantage of the feature, yo
 
     Confirm if the short-term clone is a **Large volume** (greater than 100 TiB).
 
-1. Select **Review and create**. <!-- time expectation -->
+1. Select **Review and create**.
 1. Confirm the short-term clone is created in the **Volume** menu. In the overview menu for the individual clone, you can confirm the volume type under the **Short-term clone volume** field and track the **Split clone volume progress.** You can also monitor activity on a short-term clone in the **Activity Log** for the volume. 
-<!-- change in inheritzed size-->
 
 ## Convert a short-term clone to a volume
 
