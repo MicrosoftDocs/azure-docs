@@ -51,7 +51,7 @@ This guide shows how to create parallel branches in a workflow and rejoin those 
 
       1. On the resource sidebar, under **Workflows**, select **Workflows**.
 
-      1. On the **Workflows** page, select the a workflow.
+      1. On the **Workflows** page, select a workflow.
 
       1. On the workflow sidebar, under **Tools**, select the designer to open the workflow.
 
