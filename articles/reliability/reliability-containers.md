@@ -111,7 +111,25 @@ There's no additional cost to configuring availability zones for a container gro
 
     - *Standby pools:* TODO
 
-- **Move standby pools between zones:** TODO
+- **Verify availability zone support:** The approach you use to verify how your Container Instances resources use availability zones depends on how you create container groups.
+
+    - *Manually created container groups:* TODO
+
+    - *NGroups:* TODO
+
+    - *Standby pools:* TODO
+
+### Container group distribution
+
+<!-- TODO -->
+
+- *NGroups:* During scale-in operations, NGroups randomly deletes instances, which might not maintain a spread across availability zones. Scale-out operations try to rebalance the spread across zones.
+
+### Capacity planning and management
+
+<!-- TODO -->
+
+To prepare for availability zone failure, consider *over-provisioning* the capacity of your NGroup. This approach allows the solution to tolerate some capacity loss and continue to function without degraded performance. For more information, see [Manage capacity by using over-provisioning](./concept-redundancy-replication-backup.md#manage-capacity-with-over-provisioning).
 
 ### Normal operations
 
