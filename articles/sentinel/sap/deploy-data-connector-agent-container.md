@@ -370,6 +370,9 @@ At this stage, the system's **Health** status is **Pending**. If the agent is up
 
 1. Select **Connect**.
 
+> [!IMPORTANT]
+> There may be some wait time on initial connect. Find more details to verify the connector [here](/azure/sentinel/create-codeless-connector#verify-the-codeless-connector).
+
 ## Customize data connector behavior (optional)
 
 If you have an SAP agentless data connector for Microsoft Sentinel, you can use the SAP Integration Suite to customize how the agentless data connector ingests data from your SAP system into Microsoft Sentinel.
