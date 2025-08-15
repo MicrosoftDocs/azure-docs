@@ -2,8 +2,8 @@
 title: Authorize access to blobs using Microsoft Entra ID
 titleSuffix: Azure Storage
 description: Authorize access to Azure blobs using Microsoft Entra ID. Assign Azure roles for access rights. Access data with a Microsoft Entra account.
-author: pauljewellmsft
-ms.author: pauljewell
+author: normesta
+ms.author: normesta
 ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.date: 05/10/2024

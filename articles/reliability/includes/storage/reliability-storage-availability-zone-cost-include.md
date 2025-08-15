@@ -9,4 +9,4 @@
  ms.custom: include file
 ---
 
-When you enable ZRS, you're charged at a different rate than locally redundant storage due to the additional replication and storage overhead.
+When you enable zone-redundant storage (ZRS), you're charged at a different rate than locally redundant storage (LRS) because of the extra replication and storage overhead.

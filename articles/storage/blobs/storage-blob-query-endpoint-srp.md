@@ -3,8 +3,8 @@ title: Query for a Blob Storage endpoint using the Azure Storage management libr
 titleSuffix: Azure Storage
 description: Learn how to query for a Blob Storage endpoint using the Azure Storage management library. Then use the endpoint to create a BlobServiceClient object to connect to Blob Storage data resources.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 
 ms.service: azure-blob-storage
 ms.topic: how-to

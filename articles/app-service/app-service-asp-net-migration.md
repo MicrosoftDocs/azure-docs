@@ -3,7 +3,7 @@ title: Migrate .NET Apps to Azure App Service
 description: Learn about .NET migration resources available to help you assess and migrate web apps to Azure App Service.
 author: msangapu-msft
 
-ms.topic: article
+ms.topic: concept-article
 ms.date: 04/23/2025
 ms.author: msangapu
 ms.devlang: csharp

@@ -9,4 +9,4 @@
  ms.custom: include file
 ---
 
-Multi-region Azure Storage account configurations incur additional costs for cross-region replication and storage in the secondary region. Data transfer between Azure regions is charged based on standard inter-region bandwidth rates.
+Multi-region Azure Storage account configurations incur extra costs for cross-region replication and storage in the secondary region. Data transfer between Azure regions is charged based on standard inter-region bandwidth rates.

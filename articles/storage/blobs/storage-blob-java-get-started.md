@@ -3,9 +3,8 @@ title: Get started with Azure Blob Storage client library for Java
 titleSuffix: Azure Storage
 description: Get started developing a Java application that works with Azure Blob Storage. This article helps you set up a project and authorize access to an Azure Blob Storage endpoint.
 services: storage
-author: pauljewellmsft
-
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 10/18/2024

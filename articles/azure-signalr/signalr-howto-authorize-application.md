@@ -2,7 +2,7 @@
 title: Authorize requests to Azure SignalR Service resources with Microsoft Entra applications
 description: This article provides information about authorizing requests to Azure SignalR Service resources with Microsoft Entra applications.
 author: terencefan
-ms.author: tefa
+ms.author: lianwei
 ms.date: 03/12/2023
 ms.service: azure-signalr-service
 ms.topic: how-to
