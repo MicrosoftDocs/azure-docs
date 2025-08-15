@@ -11,11 +11,10 @@ ms.author: msangapu
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2025
-<<<<<<< HEAD
-# As an App Service user, I want to learn about routine planned maintenance so that I know what to expect.
-=======
 ms.service: azure-app-service
->>>>>>> cf7c30de92ef7556d98cb1a1d192de256763b889
+
+# As an App Service user, I want to learn about routine planned maintenance so that I know what to expect.
+
 ---
 
 # Routine planned maintenance for Azure App Service

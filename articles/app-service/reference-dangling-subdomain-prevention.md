@@ -7,11 +7,10 @@ ms.update-cycle: 1095-days
 ms.author: msangapu
 ms.custom: UpdateFrequency3
 author: msangapu-msft
-<<<<<<< HEAD
-# Customer intent: As an App Service admin, I want to learn options for mitigating subdomain takeovers in Azure App Service so that I can reduce the threat of malicious activity.  
-=======
 ms.service: azure-app-service
->>>>>>> cf7c30de92ef7556d98cb1a1d192de256763b889
+
+# Customer intent: As an App Service admin, I want to learn options for mitigating subdomain takeovers in Azure App Service so that I can reduce the threat of malicious activity.  
+
 ---
 
 # Mitigating subdomain takeovers in Azure App Service

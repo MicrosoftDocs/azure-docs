@@ -6,12 +6,10 @@ ms.author: kamils
 
 ms.topic: concept-article
 ms.date: 09/10/2024
-<<<<<<< HEAD
+ms.service: azure-app-service
 
 # Customer intent: As an App Service user, I want to learn about common reasons for restarts and downtime during routine maintenance so that I can minimize disruptions.
-=======
-ms.service: azure-app-service
->>>>>>> cf7c30de92ef7556d98cb1a1d192de256763b889
+
 ---
 
 # Routine maintenance for Azure App Service, restarts, and downtime

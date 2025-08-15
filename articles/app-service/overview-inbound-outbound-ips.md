@@ -9,11 +9,10 @@ ms.update-cycle: 1095-days
 ms.custom:
   - UpdateFrequency3
   - build-2025
-<<<<<<< HEAD
-# Customer intent: As a developer, I want to learn how inbound and outbound IP addresses are used in Azure App Service, when they change, and how to find the addresses for an app.
-=======
 ms.service: azure-app-service
->>>>>>> cf7c30de92ef7556d98cb1a1d192de256763b889
+
+# Customer intent: As a developer, I want to learn how inbound and outbound IP addresses are used in Azure App Service, when they change, and how to find the addresses for an app.
+
 ---
 
 # Inbound and outbound IP addresses in Azure App Service

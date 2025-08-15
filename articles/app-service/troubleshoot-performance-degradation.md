@@ -11,11 +11,10 @@ ms.author: msangapu
 author: msangapu-msft
 ms.custom:
   - build-2025
-<<<<<<< HEAD
-# Customer intent: As a developer, I want to learn strategies for troubleshooting slow app performance so that I can take steps to mitigate the issue.
-=======
 ms.service: azure-app-service
->>>>>>> cf7c30de92ef7556d98cb1a1d192de256763b889
+
+# Customer intent: As a developer, I want to learn strategies for troubleshooting slow app performance so that I can take steps to mitigate the issue.
+
 ---
 # Troubleshoot slow app performance issues in Azure App Service
 
