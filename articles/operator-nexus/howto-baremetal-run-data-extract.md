@@ -683,12 +683,17 @@ The command provides a link (if using cluster manager storage) or another comman
 
 ## Executing a run-data-extracts-restricted Command
 
-The `run-data-extracts-restricted` command is a duplicate of the standard run-data-extracts command, created to support fine-grained access control via RBAC (Role-Based Access Control). It allows customers to run sensitive data extraction operations on BareMetalMachines with elevated privileges.
+The `run-data-extracts-restricted` command functionality mirrors non-restricted run-data-extracts command and includes fine-grained access control via RBAC (Role-Based Access Control). It allows customers to run sensitive data extraction operations on BareMetalMachines with elevated privileges.
 
 The `run-data-extracts-restricted` is implemented as a new and separate API action. The action is to be introduced in the `v20250701preview` and `v20250901` GA API, and is designed to mirror the behavior of the original command but with restricted access to specific sub-commands.The following list contains the allowed sub commands for`run-data-extracts-restricted`:
 
-- `cluster-cve-report`
-- `mde-agent-information`
+- [Collect Microsoft Defender for Endpoints (MDE) agent information](#collect-mde-agent-information)\
+  Command Name: `mde-agent-information`\
+  Arguments: None
+
+- [Generate Cluster Common Vulnerabilities and Exposures (CVE) Report](#generate-cluster-cve-report)\
+  Command Name: `cluster-cve-report`\
+  Arguments: None
 
 ## Prerequisites
 * minimum supported API of v20250701preview` or `v20250901` and above
@@ -715,5 +720,4 @@ az networkcloud baremetalmachine run-data-extracts-restricted --name "<machine-n
 
 
 ### Storage and Output
-Output is stored in a blob container specified by the `commandOutputSettings`. By default the `run-data-extract` command uses the same commandOutputSettings however for security purposes `run-data-extracts-restricted` stores outputs in a seperate blob container. For how to specify the commandOutputSettings override for runcommand [please follow this guide]().
-This will require a separate blob container also be configured prior to usage. To setup the storage blob container (please look here)[]
+Output from run command executions are by default stored in the blob container defined by the `commandOutputSettings`. Override of the `commandOutputSettings` value is supported per command output type (i.e.BareMetalMachineRunDataExtractsRestricted). For how to specify the commandOutputSettings override for runcommand see [Azure Operator Nexus Cluster support for managed identities and user provided resources](./howto-cluster-managed-identity-user-provided-resources.md).
