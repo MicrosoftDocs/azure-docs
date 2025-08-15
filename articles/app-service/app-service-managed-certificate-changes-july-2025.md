@@ -16,16 +16,16 @@ For a detailed explanation of the underlying changes at DigiCert, refer to [chan
 
 ## What’s changing
 
-- **Validation method update**: ASMC now uses HTTP Token validation for both apex and subdomains. Previously, subdomains were validated using CNAME records, which did not require public access. With HTTP Token, DigiCert must reach a specific endpoint on your app to verify domain ownership.
+**Validation method update**: ASMC now uses HTTP Token validation for both apex and subdomains. Previously, subdomains were validated using CNAME records, which did not require public access. With HTTP Token, DigiCert must reach a specific endpoint on your app to verify domain ownership.
 
-  App Service automatically places the required token at the correct path for validation. This process applies to both initial certificate issuance and renewals, meaning:
+App Service automatically places the required token at the correct path for validation. This process applies to both initial certificate issuance and renewals, meaning:
 
-  - The customer experience for requesting an ASMC or proving domain ownership remains unchanged.
-  - All API and CLI request payloads for ASMC creation or renewal are unaffected.
-  - No customer action is needed to place or manage the token.
+- The customer experience for requesting an ASMC or proving domain ownership remains unchanged.
+- All API and CLI request payloads for ASMC creation or renewal are unaffected.
+- No customer action is needed to place or manage the token.
 
-  > [!IMPORTANT]
-  > While App Service continues to handle token placement automatically during renewals, DigiCert must still reach the validation endpoint on your app. Public access is still required at the time of renewal. If your app is not publicly accessible, renewal fails even if the token is correctly placed.
+> [!IMPORTANT]
+> While App Service continues to handle token placement automatically during renewals, DigiCert must still reach the validation endpoint on your app. Public access is still required at the time of renewal. If your app is not publicly accessible, renewal fails even if the token is correctly placed.
 
 ## Impacted scenarios
 
@@ -41,6 +41,9 @@ You can't create or renew ASMCs if your:
    - Certificates for _*.trafficmanager.net_ domains is not supported for creation or renewal.
 
 Existing certificates remain valid until expiration (up to six months), but will not renew automatically if your configuration is unsupported.
+
+> [!NOTE]
+> In addition to the new changes, all existing ASMC requirements still apply. Refer to [App Service Managed Certificate documentation](https://learn.microsoft.com/azure/app-service/configure-ssl-certificate?tabs=apex%2Crbac%2Cazure-cli#create-a-free-managed-certificate) for more information.
 
 ## Identify impacted resources
 You can use [Azure Resource Graph (ARG)](https://portal.azure.com/?feature.customPortal=false#view/HubsExtension/ArgQueryBlade) queries to help identify resources that may be affected under each scenario. These queries are provided as a starting point and may not capture every configuration. Review your environment for any unique setups or custom configurations. 
