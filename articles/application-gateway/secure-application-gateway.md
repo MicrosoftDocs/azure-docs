@@ -38,9 +38,9 @@ Web Application Firewall provides essential protection against common web vulner
 
 * **Configure custom WAF rules**: Create custom rules to address specific threats targeting your applications, including rate limiting, IP blocking, and geo-filtering. Custom rules provide targeted protection beyond managed rule sets. For more information, see [Create and use v2 custom rules](/azure/web-application-firewall/ag/create-custom-waf-rules).
 
-* **Enable bot protection**: Use the bot protection managed rule set to identify and block malicious bots while allowing legitimate traffic from search engines and monitoring tools. For more information, see [Configure bot protection](/azure/web-application-firewall/ag/bot-protection.md).
+* **Enable bot protection**: Use the bot protection managed rule set to identify and block malicious bots while allowing legitimate traffic from search engines and monitoring tools. For more information, see [Configure bot protection](/azure/web-application-firewall/ag/bot-protection).
 
-* **Implement rate limiting**: Configure rate limiting rules to prevent abuse and DDoS attacks by controlling the number of requests allowed from individual IP addresses within specified time windows. For more information, see [Rate limiting overview](/azure/web-application-firewall/ag/rate-limiting-overview.md).
+* **Implement rate limiting**: Configure rate limiting rules to prevent abuse and DDoS attacks by controlling the number of requests allowed from individual IP addresses within specified time windows. For more information, see [Rate limiting overview](/azure/web-application-firewall/ag/rate-limiting-overview).
 
 ## Identity and access management
 

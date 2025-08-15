@@ -2,7 +2,7 @@
 title: Authorize requests to Azure SignalR Service resources with Microsoft Entra managed identities
 description: This article provides information about authorizing requests to Azure SignalR resources with Managed identities for Azure resources.
 author: terencefan
-ms.author: tefa
+ms.author: lianwei
 ms.date: 03/12/2023
 ms.service: azure-signalr-service
 ms.topic: how-to
