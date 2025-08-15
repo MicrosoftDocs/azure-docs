@@ -763,4 +763,4 @@ az storage file download \
 
 - Mount an SMB file share on [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), or [Linux](storage-how-to-use-files-linux.md).
 - Mount an NFS file share on [Linux](storage-files-how-to-mount-nfs-shares.md)
-- Learn how to [change size, preformance and delete on a file share](files-how-to-modify-file-share.md).
+- Learn how to [change size, preformance and delete on a file share](how-to-modify-file-share.md).

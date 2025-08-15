@@ -14,44 +14,45 @@ ms.author: kendownie
 Azure Files can satisfy performance requirements for most applications and use cases. This article explains the different factors that can affect file share performance and how to optimize the performance of Azure file shares for your workload.
 
 ## Applies to
-| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
-|-|-|-|-|:-:|:-:|
-| Microsoft.Storage | Provisioned v2 | SSD (premium) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Provisioned v2 | SSD (premium) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)|
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
+| Management model  | Billing model  | Media tier     | Redundancy     |                 SMB                 |                 NFS                 |
+| ----------------- | -------------- | -------------- | -------------- | :---------------------------------: | :---------------------------------: |
+| Microsoft.Storage | Provisioned v2 | SSD (premium)  | Local (LRS)    |  ![No](../media/icons/no-icon.png)  | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v2 | SSD (premium)  | Zone (ZRS)     |  ![No](../media/icons/no-icon.png)  | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS)    | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS)     | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS)      | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage | Provisioned v1 | SSD (premium)  | Local (LRS)    | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium)  | Zone (ZRS)     | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Pay-as-you-go  | HDD (standard) | Local (LRS)    | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage | Pay-as-you-go  | HDD (standard) | Zone (ZRS)     | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage | Pay-as-you-go  | HDD (standard) | Geo (GRS)      | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage | Pay-as-you-go  | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
 
 ## Glossary
 
 Before reading this article, it's helpful to understand some key terms relating to storage performance:
 
--   **IO operations per second (IOPS)**
+- **IO operations per second (IOPS)**
 
-    IOPS, or input/output operations per second, measures the number of file system operations per second. The term "IO" is interchangeable with the terms "operation" and "transaction" in the Azure Files documentation.
+  IOPS, or input/output operations per second, measures the number of file system operations per second. The term "IO" is interchangeable with the terms "operation" and "transaction" in the Azure Files documentation.
 
--   **I/O size**
+- **I/O size**
 
-    I/O size, sometimes referred to as block size, is the size of the request that an application uses to perform a single input/output (I/O) operation on storage. Depending on the application, I/O size can range from small sizes such as 4 KiB to larger sizes. I/O size plays a major role in achievable throughput.
+  I/O size, sometimes referred to as block size, is the size of the request that an application uses to perform a single input/output (I/O) operation on storage. Depending on the application, I/O size can range from small sizes such as 4 KiB to larger sizes. I/O size plays a major role in achievable throughput.
 
--  **Throughput**
+- **Throughput**
 
-    Throughput measures the number of bits read from or written to the storage per second, and is measured in mebibytes per second (MiB/s). To calculate throughput, multiply IOPS by I/O size. For example, 10,000 IOPS * 1 MiB I/O size = 10 GiB/s, while 10,000 IOPS * 4 KiB I/O size = 38 MiB/s.
+  Throughput measures the number of bits read from or written to the storage per second, and is measured in mebibytes per second (MiB/s). To calculate throughput, multiply IOPS by I/O size. For example, 10,000 IOPS _ 1 MiB I/O size = 10 GiB/s, while 10,000 IOPS _ 4 KiB I/O size = 38 MiB/s.
 
--  **Latency**
+- **Latency**
 
-    Latency is a synonym for delay and is measured in milliseconds (ms). There are two types of latency: end-to-end latency and service latency. For more information, see [Latency](#latency).
+  Latency is a synonym for delay and is measured in milliseconds (ms). There are two types of latency: end-to-end latency and service latency. For more information, see [Latency](#latency).
 
--  **Queue depth**
+- **Queue depth**
 
-    Queue depth is the number of pending I/O requests that a storage resource can handle at any one time. For more information, see [Queue depth](#queue-depth).
+  Queue depth is the number of pending I/O requests that a storage resource can handle at any one time. For more information, see [Queue depth](#queue-depth).
 
 ## Choosing a media tier based on usage patterns
 
@@ -59,14 +60,14 @@ Azure Files provides a two storage media tiers allow you to balance performance 
 
 When choosing between SSD and HDD file shares, it's important to understand the requirements of the expected usage pattern you're planning to run on Azure Files. If you require large amounts of IOPS, fast data transfer speeds, or low latency, then you should choose SSD file shares.
 
-The following table summarizes the expected performance targets between SSD and HDD file shares. For details, see [Azure Files scalability and performance targets](storage-files-scale-targets.md). 
+The following table summarizes the expected performance targets between SSD and HDD file shares. For details, see [Azure Files scalability and performance targets](storage-files-scale-targets.md).
 
-| **Usage pattern requirements** | **SSD** | **HDD** |
-|-|-|-|
-| Write latency (single-digit milliseconds) | Yes | Yes |
-| Read latency (single-digit milliseconds) | Yes | No |
+| **Usage pattern requirements**            | **SSD** | **HDD** |
+| ----------------------------------------- | ------- | ------- |
+| Write latency (single-digit milliseconds) | Yes     | Yes     |
+| Read latency (single-digit milliseconds)  | Yes     | No      |
 
-SSD file shares offer a provisioning model that guarantees the following performance profile based on share size. For more information, see the [provisioned v1 model](understanding-billing.md#provisioned-v1-model). 
+SSD file shares offer a provisioning model that guarantees the following performance profile based on share size. For more information, see the [provisioned v1 model](understanding-billing.md#provisioned-v1-model).
 
 ### Performance checklist
 
@@ -74,9 +75,9 @@ Whether you're assessing performance requirements for a new or existing workload
 
 - **Latency sensitivity:** Workloads that are sensitive to read latency and have high visibility to end users are more suitable for SSD file shares, which can provide single-millisecond latency for both read and write operations (< 2 ms for small I/O size).
 
-- **IOPS and throughput requirements:** SSD file shares support larger IOPS and throughput limits than HDD file shares. See [file share scale targets](./storage-files-scale-targets.md#azure-file-share-scale-targets) for more information.
+- **IOPS and throughput requirements:** SSD file shares support larger IOPS and throughput limits than HDD file shares. See [file share scale targets](./storage-files-scale-targets.md) for more information.
 
-- **Workload duration and frequency:** Short (minutes) and infrequent (hourly) workloads are less likely to achieve the upper performance limits of HDD file shares compared to long-running, frequently occurring workloads. On SSD file shares, workload duration is helpful when determining the correct performance profile to use based on the provisioned storage, IOPS, and throughput. A common mistake is to run performance tests for only a few minutes, which is often misleading. To get a realistic view of performance, be sure to test at a sufficiently high frequency and duration. 
+- **Workload duration and frequency:** Short (minutes) and infrequent (hourly) workloads are less likely to achieve the upper performance limits of HDD file shares compared to long-running, frequently occurring workloads. On SSD file shares, workload duration is helpful when determining the correct performance profile to use based on the provisioned storage, IOPS, and throughput. A common mistake is to run performance tests for only a few minutes, which is often misleading. To get a realistic view of performance, be sure to test at a sufficiently high frequency and duration.
 
 - **Workload parallelization:** For workloads that perform operations in parallel, such as through multiple threads, processes, or application instances on the same client, SSD file shares provide a clear advantage over HDD file shares: SMB Multichannel. See [Improve SMB Azure file share performance](smb-performance.md) for more information.
 
@@ -105,12 +106,12 @@ Furthermore, as the diagram illustrates, the farther you're away from the servic
 
 Queue depth is the number of outstanding I/O requests that a storage resource can service. As the disks used by storage systems have evolved from HDD spindles (IDE, SATA, SAS) to solid state devices (SSD, NVMe), they've also evolved to support higher queue depth. A workload consisting of a single client that serially interacts with a single file within a large dataset is an example of low queue depth. In contrast, a workload that supports parallelism with multiple threads and multiple files can easily achieve high queue depth. Because Azure Files is a distributed file service that spans thousands of Azure cluster nodes and is designed to run workloads at scale, we recommend building and testing workloads with high queue depth.
 
-High queue depth can be achieved in several different ways in combination with clients, files, and threads. To determine the queue depth for your workload, multiply the number of clients by the number of files by the number of threads (clients * files * threads = queue depth).
+High queue depth can be achieved in several different ways in combination with clients, files, and threads. To determine the queue depth for your workload, multiply the number of clients by the number of files by the number of threads (clients _ files _ threads = queue depth).
 
 The table below illustrates the various combinations you can use to achieve higher queue depth. While you can exceed the optimal queue depth of 64, we don't recommend it. You won't see any more performance gains if you do, and you risk increasing latency due to TCP saturation.
 
 | **Clients** | **Files** | **Threads** | **Queue depth** |
-|-------------|-----------|-------------|-----------------|
+| ----------- | --------- | ----------- | --------------- |
 | 1           | 1         | 1           | 1               |
 | 1           | 1         | 2           | 2               |
 | 1           | 2         | 2           | 4               |
@@ -127,18 +128,18 @@ The table below illustrates the various combinations you can use to achieve high
 
 Azure Files is best suited for multi-threaded applications. The easiest way to understand the performance impact that multi-threading has on a workload is to walk through the scenario by I/O. In the following example, we have a workload that needs to copy 10,000 small files as quickly as possible to or from an Azure file share.
 
-This table breaks down the time needed (in milliseconds) to create a single 16 KiB file on an Azure file share, based on a single-thread application that's writing in 4 KiB block sizes. 
+This table breaks down the time needed (in milliseconds) to create a single 16 KiB file on an Azure file share, based on a single-thread application that's writing in 4 KiB block sizes.
 
 | **I/O operation** | **Create** | **4 KiB write** | **4 KiB write** | **4 KiB write** | **4 KiB write** | **Close** | **Total** |
-|-------------------|------------|-----------------|-----------------|-----------------|-----------------|-----------|-----------|
+| ----------------- | ---------- | --------------- | --------------- | --------------- | --------------- | --------- | --------- |
 | Thread 1          | 3 ms       | 2 ms            | 2 ms            | 2 ms            | 2 ms            | 3 ms      | **14 ms** |
 
-In this example, it would take approximately 14 ms to create a single 16 KiB file from the six operations. If a single-threaded application wants to move 10,000 files to an Azure file share, that translates to 140,000 ms (14 ms * 10,000) or 140 seconds because each file is moved sequentially one at a time. Keep in mind that the time to service each request is primarily determined by how close the compute and storage are located to each other, as discussed in the previous section.
+In this example, it would take approximately 14 ms to create a single 16 KiB file from the six operations. If a single-threaded application wants to move 10,000 files to an Azure file share, that translates to 140,000 ms (14 ms \* 10,000) or 140 seconds because each file is moved sequentially one at a time. Keep in mind that the time to service each request is primarily determined by how close the compute and storage are located to each other, as discussed in the previous section.
 
 By using eight threads instead of one, the above workload can be reduced from 140,000 ms (140 seconds) down to 17,500 ms (17.5 seconds). As the table below shows, when you're moving eight files in parallel instead of one file at a time, you can move the same amount of data in 87.5% less time.
 
 | **I/O operation** | **Create** | **4 KiB write** | **4 KiB write** | **4 KiB write** | **4 KiB write** | **Close** | **Total** |
-|-------------------|------------|-----------------|-----------------|-----------------|-----------------|-----------|-----------|
+| ----------------- | ---------- | --------------- | --------------- | --------------- | --------------- | --------- | --------- |
 | Thread 1          | 3 ms       | 2 ms            | 2 ms            | 2 ms            | 2 ms            | 3 ms      | **14 ms** |
 | Thread 2          | 3 ms       | 2 ms            | 2 ms            | 2 ms            | 2 ms            | 3 ms      | **14 ms** |
 | Thread 3          | 3 ms       | 2 ms            | 2 ms            | 2 ms            | 2 ms            | 3 ms      | **14 ms** |

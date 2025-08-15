@@ -62,7 +62,7 @@ With both SMB and NFS file shares, Azure Files offers enterprise-grade file shar
 
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
 
-To learn more, see [How to create classic file share](./files-create-classic-file-share.md).
+To learn more, see [How to create classic file share](./create-classic-file-share.md).
 
 ## What is Microsoft.FileShares (Public Preview)?
 
@@ -100,7 +100,7 @@ We’re actively working on expanding capabilities, including:
 
 On the Azure portal, classic file share will remain using the blue icon, while Microsoft.FileShares will use the purple icon.
 If you require all the feature that Azure File currently offer, we recommend you use classic file share instead.
-To learn more, see [How to create Microsoft.FileShares](./files-create-file-share.md).
+To learn more, see [How to create Microsoft.FileShares](./create-file-share.md).
 
 ### Region Availability
 
@@ -127,26 +127,26 @@ Currently, Microsoft.FileShares are available in the following regions:
 
 ## Comparsion between classic file share and Microsoft.FileShares
 
-| Feature                                                          | classic file share ![fileshareclassicicon](./media/storage-files-planning/10400-icon-service-Azure-Fileshares.svg) | File Shares ![mfsicon](./media/storage-files-planning/03549-icon-service-Managed-File-Shares.svg) |
-| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
-| Support guarentee                                                | General available                                                                                                  | Public preview                                                                                    |
-| Top level resource for the service                               | Storage account ![fileshareclassicicon](./media/storage-files-planning/10086-icon-service-Storage-Accounts.svg)    | File Shares ![mfsicon](./media/storage-files-planning/03549-icon-service-Managed-File-Shares.svg) |
-| SMB protocol                                                     | ![Yes](../media/icons/yes-icon.png)                                                                                | ![No](../media/icons/no-icon.png)                                                                 |
-| NFS protocol                                                     | ![Yes](../media/icons/yes-icon.png)                                                                                | ![Yes](../media/icons/yes-icon.png)                                                               |
-| File Sync support                                                | ![Yes](../media/icons/yes-icon.png)                                                                                | ![No](../media/icons/no-icon.png)                                                                 |
-| Require storage accout                                           | ![Yes](../media/icons/yes-icon.png)                                                                                | ![No](../media/icons/no-icon.png)                                                                 |
-| Pay as you go billing model                                      | ![Yes](../media/icons/yes-icon.png)                                                                                | ![No](../media/icons/no-icon.png)                                                                 |
-| Provisioned v1 billing model                                     | ![Yes](../media/icons/yes-icon.png)                                                                                | ![No](../media/icons/no-icon.png)                                                                 |
-| Provisiond v2 billing model                                      | ![Yes](../media/icons/yes-icon.png)                                                                                | ![Yes](../media/icons/yes-icon.png)                                                               |
-| HDD supportability                                               | ![Yes](../media/icons/yes-icon.png)                                                                                | ![No](../media/icons/no-icon.png)                                                                 |
-| SSD supportability                                               | ![Yes](../media/icons/yes-icon.png)                                                                                | ![Yes](../media/icons/yes-icon.png)                                                               |
-| LRS                                                              | ![Yes](../media/icons/yes-icon.png)                                                                                | ![Yes](../media/icons/yes-icon.png)                                                               |
-| ZRS                                                              | ![Yes](../media/icons/yes-icon.png)                                                                                | ![Yes](../media/icons/yes-icon.png)                                                               |
-| GRS                                                              | ![Yes](../media/icons/yes-icon.png)                                                                                | ![No](../media/icons/no-icon.png)                                                                 |
-| GZRS                                                             | ![Yes](../media/icons/yes-icon.png)                                                                                | ![No](../media/icons/no-icon.png)                                                                 |
-| Per share level billing, networking, and security configurations | ![No](../media/icons/no-icon.png)                                                                                  | ![Yes](../media/icons/yes-icon.png)                                                               |
-| Single vnet configurations for a file share                      | ![No](../media/icons/no-icon.png)                                                                                  | ![Yes](../media/icons/yes-icon.png)                                                               |
-| Single vnet configuration for multiple file shares               | ![Yes](../media/icons/yes-icon.png)                                                                                | ![No](../media/icons/no-icon.png)                                                                 |
+| Feature                                                          | classic file share ![fileshareclassicicon1](./media/storage-files-planning/10400-icon-service-Azure-Fileshares.svg) | File Shares ![mfsicon](./media/storage-files-planning/03549-icon-service-Managed-File-Shares.svg) |
+| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Support guarentee                                                | General available                                                                                                   | Public preview                                                                                    |
+| Top level resource for the service                               | Storage account ![fileshareclassicicon2](./media/storage-files-planning/10086-icon-service-Storage-Accounts.svg)    | File Shares ![mfsicon](./media/storage-files-planning/03549-icon-service-Managed-File-Shares.svg) |
+| SMB protocol                                                     | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![No](../media/icons/no-icon.png)                                                                 |
+| NFS protocol                                                     | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![Yes](../media/icons/yes-icon.png)                                                               |
+| File Sync support                                                | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![No](../media/icons/no-icon.png)                                                                 |
+| Require storage accout                                           | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![No](../media/icons/no-icon.png)                                                                 |
+| Pay as you go billing model                                      | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![No](../media/icons/no-icon.png)                                                                 |
+| Provisioned v1 billing model                                     | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![No](../media/icons/no-icon.png)                                                                 |
+| Provisiond v2 billing model                                      | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![Yes](../media/icons/yes-icon.png)                                                               |
+| HDD supportability                                               | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![No](../media/icons/no-icon.png)                                                                 |
+| SSD supportability                                               | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![Yes](../media/icons/yes-icon.png)                                                               |
+| LRS                                                              | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![Yes](../media/icons/yes-icon.png)                                                               |
+| ZRS                                                              | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![Yes](../media/icons/yes-icon.png)                                                               |
+| GRS                                                              | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![No](../media/icons/no-icon.png)                                                                 |
+| GZRS                                                             | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![No](../media/icons/no-icon.png)                                                                 |
+| Per share level billing, networking, and security configurations | ![No](../media/icons/no-icon.png)                                                                                   | ![Yes](../media/icons/yes-icon.png)                                                               |
+| Single vnet configurations for a file share                      | ![No](../media/icons/no-icon.png)                                                                                   | ![Yes](../media/icons/yes-icon.png)                                                               |
+| Single vnet configuration for multiple file shares               | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![No](../media/icons/no-icon.png)                                                                 |
 
 ## Identity
 
