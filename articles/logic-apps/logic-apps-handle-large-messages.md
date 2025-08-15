@@ -1,10 +1,10 @@
 ---
 title: Handle large messages in workflows using chunking
-description: Handle large messages using chunking in Azure Logic Apps. Learn what constitutes a large message and about your options.
+description: Learn how to handle large messages using chunking in Azure Logic Apps and what constitutes a large message.
 services: logic-apps
 ms.suite: integration
 ms.topic: how-to
-ms.date: 08/13/2025
+ms.date: 08/15/2025
 #Customer intent: As an integration developer who works with Azure Logic Apps, I need to understand when and how to use chunking to support large messages.
 ---
 
@@ -16,7 +16,7 @@ Azure Logic Apps has different maximum limits on the message content size that t
 
 If you're using built-in HTTP actions or specific managed connector actions with logic apps that work with messages larger than the default limits, you can enable *chunking*. This approach splits a large message into smaller messages. That way, you can still transfer large files under specific conditions.
 
-When you use these built-in HTTP actions or specific managed connector actions, chunking is the only way that Azure Logic Apps can consume large messages. Either the underlying HTTP message exchange between Azure Logic Apps and other services must use chunking, or the connections created by the managed connectors that use must also support chunking.
+When you use these built-in HTTP actions or specific managed connector actions, chunking is the only way that Azure Logic Apps can consume large messages. Either the underlying HTTP message exchange between Azure Logic Apps and other services must use chunking, or the connections created by the managed connectors must also support chunking.
 
 > [!NOTE]
 > Because of the increased overhead from exchanging multiple messages, Azure Logic Apps doesn't support chunking on triggers. Also, Azure Logic Apps implements chunking for HTTP actions using its own protocol, as described in this article. Even if your web site or web service supports chunking, they don't work with HTTP action chunking.
@@ -46,7 +46,7 @@ Otherwise, you get a runtime error when you try to access large content output.
 
 Services that communicate with Azure Logic Apps can have their own message size limits. These limits are often smaller than the Azure Logic Apps limit. For example, if a connector supports chunking, a connector might consider a 30-MB message as large, while Azure Logic Apps doesn't. To comply with this connector's limit, Azure Logic Apps splits any message larger than 30 MB into smaller chunks.
 
-For connectors that support chunking, the underlying chunking protocol is invisible to end users. Not all connectors support chunking. These connectors generate runtime errors when incoming messages exceed the connector size limits.
+For connectors that support chunking, the underlying chunking protocol is invisible to end users. Not all connectors support chunking. Connectors that don't support it generate runtime errors when incoming messages exceed the connector size limits.
 
 For actions that support and are enabled for chunking, you can't use trigger bodies, variables, and expressions such as `triggerBody()?['Content']`. Using any of these inputs prevents the chunking operation from happening. Instead, use the [**Compose** action](../logic-apps/logic-apps-perform-data-operations.md#compose-action). Specifically, create a `body` field by using the **Compose** action to store the data output from the trigger body, variable, expression, and so on, for example:
 
@@ -144,7 +144,7 @@ These steps describe the process that Azure Logic Apps uses for downloading chun
 
     Your logic app sends follow-up GET requests until the entire content is retrieved.
 
-For example, this action definition shows an HTTP GET request that sets the `Range` header. The header *suggests* that the endpoint should respond with chunked content:
+This action definition shows an HTTP GET request that sets the `Range` header. The header *suggests* that the endpoint should respond with chunked content:
 
 ```json
 "getAction": {
