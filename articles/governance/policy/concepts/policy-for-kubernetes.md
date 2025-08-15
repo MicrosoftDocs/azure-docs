@@ -303,7 +303,7 @@ az k8s-extension delete --cluster-type connectedClusters --cluster-name <CLUSTER
 ## Create a policy definition
 
 The Azure Policy language structure for managing Kubernetes follows that of existing policy
-definitions. There are sample definition files available to assign in [Azure Policy's built-in policy library](../samples/built-in-policies.md#kubernetes) that can be used to govern your cluster components.
+definitions. There are sample definition files available to assign in [Azure Policy's built-in policy library](/azure/governance/policy/samples/built-in-policies#kubernetes) that can be used to govern your cluster components.
 
 Azure Policy for Kubernetes also support custom definition creation at the component-level for both Azure Kubernetes Service clusters and Azure Arc-enabled Kubernetes clusters. Constraint template and mutation template samples are available in the [Gatekeeper community library](https://github.com/open-policy-agent/gatekeeper-library/tree/master). [Azure Policy's Visual Studio Code Extension](../how-to/extension-for-vscode.md#create-policy-definition-from-a-constraint-template-or-mutation-template) can be used to help translate an existing constraint template or mutation template to a custom Azure Policy policy definition.
 
@@ -378,7 +378,7 @@ vms_.
 > [!IMPORTANT]
 > Built-in policy definitions are available for Kubernetes clusters in category **Kubernetes**. For
 > a list of built-in policy definitions, see
-> [Kubernetes samples](../samples/built-in-policies.md#kubernetes).
+> [Kubernetes samples](/azure/governance/policy/samples/built-in-policies#kubernetes).
 
 ## Policy evaluation
 
@@ -900,7 +900,7 @@ collected:
 
 ## Next steps
 
-- Review examples at [Azure Policy samples](../samples/index.md).
+- Review examples at [Azure Policy samples](/azure/governance/policy/samples/index).
 - Review the [Policy definition structure](definition-structure-basics.md).
 - Review [Understanding policy effects](effect-basics.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).

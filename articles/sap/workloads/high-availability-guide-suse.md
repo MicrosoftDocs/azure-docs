@@ -10,6 +10,7 @@ ms.topic: article
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ms.date: 11/19/2024
 ms.author: radeltch
+# Customer intent: "As a system administrator, I want to configure high availability for SAP NetWeaver on Azure VMs using SUSE Linux Enterprise Server, so that I can ensure uninterrupted service and robust failover capabilities for our SAP applications."
 ---
 
 # High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP applications

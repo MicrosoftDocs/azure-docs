@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
-ms.date: 10/15/2024
+ms.date: 7/21/2025
 ms.author: mbender
 # Customer intent: "As a cloud architect, I want to understand the components of Application Gateway for Containers, so that I can effectively configure and manage traffic routing to backend services in my cloud deployment."
 ---
@@ -49,6 +49,14 @@ This article provides detailed descriptions and requirements for components of A
 - ALB Controller consists of two running pods.
   - alb-controller pod is responsible for orchestrating customer intent to Application Gateway for Containers load balancing configuration.
   - alb-controller-bootstrap pod is responsible for management of CRDs.
+ 
+### Application Gateway for Containers security policy
+
+- An Application Gateway for Containers security policy defines additional security configurations for the ALB Controller to consume.
+- Multiple security policies can be referred by a single Application Gateway for Containers resource.
+- At this time, the only security policy type offered is `waf` for web application firewall capabilities.
+- The `waf` security policy is a one-to-one mapping between the security policy resource and a Web Application Firewall policy.
+  - Only one web application firewall policy may be referenced in any number of security policies for a defined Application Gateway for Containers resource.
 
 ## Azure / general concepts
 

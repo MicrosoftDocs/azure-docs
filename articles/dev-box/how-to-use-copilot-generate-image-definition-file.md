@@ -41,7 +41,7 @@ Before you start, ensure you install the following software:
 
 - [GitHub Copilot extension set up in VS Code](https://code.visualstudio.com/docs/copilot/setup)
 
-## Steps to generate the team customization file (imagedefinition.yaml)
+## Generate the team customization file (imagedefinition.yaml)
 
 1. Open Visual Studio Code.
 
@@ -132,5 +132,5 @@ This AI-powered workflow streamlines the process of setting up Dev Box customiza
 
 ## Related content
 
-- [Dev Box customizations overview](concept-what-are-team-customizations.md)
-- [Write an image definition file for Dev Box team customizations](how-to-write-image-definition-file.md)
+- [Dev Box customizations overview](concept-what-are-dev-box-customizations.md)
+- [Configure team customizations](how-to-configure-team-customizations.md)

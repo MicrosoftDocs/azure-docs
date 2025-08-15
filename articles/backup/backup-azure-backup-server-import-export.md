@@ -4,8 +4,8 @@ description: With Azure Backup, you can send data off the network by using the A
 ms.topic: how-to
 ms.date: 05/19/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom:
   - build-2025
 # Customer intent: As a backup administrator, I want to perform an offline backup using customer-owned disks, so that I can efficiently transfer large initial backups to Azure without consuming significant network bandwidth.

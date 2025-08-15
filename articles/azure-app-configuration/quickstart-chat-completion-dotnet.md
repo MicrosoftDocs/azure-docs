@@ -17,7 +17,9 @@ ms.collection: ce-skilling-ai-copilot
 
 # Use chat completion configuration in a .NET console app
 
-In this guide, you build an AI chat application and iterate on the prompt using chat completion configuration dynamically loaded from Azure App Configuration.
+In this guide, you build an AI chat application and iterate on the prompt using chat completion configuration dynamically loaded from Azure App Configuration. 
+
+The full sample source code is available in the [Azure App Configuration GitHub repository](https://github.com/Azure/AppConfiguration/tree/main/examples/DotNetCore/ChatApp).
 
 ## Prerequisites
 
@@ -112,10 +114,10 @@ In this guide, you build an AI chat application and iterate on the prompt using 
     });
     ```
 
-1. Define the `ModelConfiguration` class in _Program.cs_ file:
+1. Define the `ChatCompletionConfiguration` class in _Program.cs_ file:
 
     ```csharp
-    internal class ModelConfiguration
+    internal class ChatCompletionConfiguration
     {
         [ConfigurationKeyName("model")]
         public string? Model { get; set; }
@@ -146,10 +148,10 @@ In this guide, you build an AI chat application and iterate on the prompt using 
 1. Update the _Program.cs_ file to add a helper method `GetChatMessages` to process chat messages:
 
     ```csharp
-    // Helper method to convert configuration messages to chat API format
-    static IEnumerable<ChatMessage> GetChatMessages(ModelConfiguration modelConfiguration)
+    // Helper method to convert configuration messages to ChatMessage objects
+    static IEnumerable<ChatMessage> GetChatMessages(ChatCompletionConfiguration chatCompletionConfiguration)
     {
-        return modelConfiguration.Messages.Select<Message, ChatMessage>(message => message.Role switch
+        return chatCompletionConfiguration.Messages.Select<Message, ChatMessage>(message => message.Role switch
         {
             "system" => ChatMessage.CreateSystemMessage(message.Content),
             "user" => ChatMessage.CreateUserMessage(message.Content),
@@ -162,31 +164,50 @@ In this guide, you build an AI chat application and iterate on the prompt using 
 1. Next, update the existing code in the _Program.cs_ file to refresh the configuration from Azure App Configuration, apply the latest AI configuration values to the chat completion settings, and retrieve a response from the AI model.
 
     ```csharp
+    // Initialize chat conversation
+    var chatConversation = new List<ChatMessage>();
+    Console.WriteLine("Chat started! What's on your mind?");
+
     while (true)
     {
+        // Get user input
+        Console.Write("You: ");
+        string? userInput = Console.ReadLine();
+
+        // Exit if user input is empty
+        if (string.IsNullOrEmpty(userInput))
+        {
+            Console.WriteLine("Exiting chat. Goodbye!");
+            break;
+        }
+
+        chatConversation.Add(ChatMessage.CreateUserMessage(userInput));
+
         // Refresh the configuration from Azure App Configuration
         await refresher.RefreshAsync();
 
         // Configure chat completion with AI configuration
-        var modelConfiguration = configuration.GetSection("ChatApp:Model").Get<ModelConfiguration>();
+        var chatCompletionConfiguration = configuration.GetSection("ChatApp:ChatCompletion").Get<ChatCompletionConfiguration>();
+
         var requestOptions = new ChatCompletionOptions()
         {
-            MaxOutputTokenCount = modelConfiguration.MaxTokens,
-            Temperature = modelConfiguration.Temperature,
-            TopP = modelConfiguration.TopP
+            MaxOutputTokenCount = chatCompletionConfiguration.MaxTokens,
+            Temperature = chatCompletionConfiguration.Temperature,
+            TopP = chatCompletionConfiguration.TopP
         };
 
-        foreach (var message in modelConfiguration.Messages)
-        {
-            Console.WriteLine($"{message.Role}: {message.Content}");
-        }
+        // Get latest system message from AI configuration
+        var chatMessages = new List<ChatMessage>(GetChatMessages(chatCompletionConfiguration));
+        chatMessages.AddRange(chatConversation);
 
-        // Get chat response from AI
-        var response = await chatClient.CompleteChatAsync(GetChatMessages(modelConfiguration), requestOptions);
-        Console.WriteLine($"AI response: {response.Value.Content[0].Text}");
+        // Get AI response and add it to chat conversation
+        var response = await chatClient.CompleteChatAsync(chatMessages, requestOptions);
+        string aiResponse = response.Value.Content[0].Text;
 
-        Console.WriteLine("Press Enter to continue...");
-        Console.ReadLine();
+        Console.WriteLine($"AI: {aiResponse}");
+        chatConversation.Add(ChatMessage.CreateAssistantMessage(aiResponse));
+
+        Console.WriteLine();
     }
     ```
 
@@ -231,37 +252,55 @@ In this guide, you build an AI chat application and iterate on the prompt using 
     AzureOpenAIClient azureClient = new(openaiEndpoint, credential);
     ChatClient chatClient = azureClient.GetChatClient(deploymentName);
 
+    // Initialize chat conversation
+    var chatConversation = new List<ChatMessage>();
+    Console.WriteLine("Chat started! What's on your mind?");
+
     while (true)
     {
+        // Get user input
+        Console.Write("You: ");
+        string? userInput = Console.ReadLine();
+
+        // Exit if user input is empty
+        if (string.IsNullOrEmpty(userInput))
+        {
+            Console.WriteLine("Exiting chat. Goodbye!");
+            break;
+        }
+
+        chatConversation.Add(ChatMessage.CreateUserMessage(userInput));
+
         // Refresh the configuration from Azure App Configuration
         await refresher.RefreshAsync();
 
         // Configure chat completion with AI configuration
-        var modelConfiguration = configuration.GetSection("ChatApp:Model").Get<ModelConfiguration>();
+        var chatCompletionConfiguration = configuration.GetSection("ChatApp:ChatCompletion").Get<ChatCompletionConfiguration>();
         var requestOptions = new ChatCompletionOptions()
         {
-            MaxOutputTokenCount = modelConfiguration.MaxTokens,
-            Temperature = modelConfiguration.Temperature,
-            TopP = modelConfiguration.TopP
+            MaxOutputTokenCount = chatCompletionConfiguration.MaxTokens,
+            Temperature = chatCompletionConfiguration.Temperature,
+            TopP = chatCompletionConfiguration.TopP
         };
 
-        foreach (var message in modelConfiguration.Messages)
-        {
-            Console.WriteLine($"{message.Role}: {message.Content}");
-        }
+        // Get latest system message from AI configuration
+        var chatMessages = new List<ChatMessage>(GetChatMessages(chatCompletionConfiguration));
+        chatMessages.AddRange(chatConversation);
 
-        // Get chat response from AI
-        var response = await chatClient.CompleteChatAsync(GetChatMessages(modelConfiguration), requestOptions);
-        Console.WriteLine($"AI response: {response.Value.Content[0].Text}");
+        // Get AI response and add it to chat conversation
+        var response = await chatClient.CompleteChatAsync(chatMessages, requestOptions);
+        string aiResponse = response.Value.Content[0].Text;
 
-        Console.WriteLine("Press Enter to continue...");
-        Console.ReadLine();
-        
+        Console.WriteLine($"AI: {aiResponse}");
+        chatConversation.Add(ChatMessage.CreateAssistantMessage(aiResponse));
+
+        Console.WriteLine();
     }
 
-    static IEnumerable<ChatMessage> GetChatMessages(ModelConfiguration modelConfiguration)
+    // Helper method to convert configuration messages to ChatMessage objects
+    static IEnumerable<ChatMessage> GetChatMessages(ChatCompletionConfiguration chatCompletionConfiguration)
     {
-        return modelConfiguration.Messages.Select<Message, ChatMessage>(message => message.Role switch
+        return chatCompletionConfiguration.Messages.Select<Message, ChatMessage>(message => message.Role switch
         {
             "system" => ChatMessage.CreateSystemMessage(message.Content),
             "user" => ChatMessage.CreateUserMessage(message.Content),
@@ -270,7 +309,7 @@ In this guide, you build an AI chat application and iterate on the prompt using 
         });
     }
 
-    internal class ModelConfiguration
+    internal class ChatCompletionConfiguration
     {
         [ConfigurationKeyName("model")]
         public string? Model { get; set; }
@@ -323,29 +362,29 @@ In this guide, you build an AI chat application and iterate on the prompt using 
     dotnet run
     ```
 
-    You should see the following output:
+
+1. Type the message "What is your name?" when prompted with "You:" and then press the Enter key.
 
     ```Output
-    system: You are a helpful assistant.
-    user: What is the capital of France ?
-    AI response: The capital of France is **Paris**.
-    Press Enter to continue...
-
+    Chat started! What's on your mind?
+    You: What is your name ?
+    AI: I’m your helpful assistant! I don’t have a personal name, but you can call me whatever you’d like. 
+    😊 Do you have a name in mind?
     ```
 
-1. In Azure portal, select the App Configuration store instance that you created. From the **Operations** menu, select **Configuration explorer** and select the **ChatApp:Model** key. Update the value of the Messages property:
+1. In Azure portal, select the App Configuration store instance that you created. From the **Operations** menu, select **Configuration explorer** and select the **ChatApp:ChatCompletion** key. Update the value of the Messages property:
     - Role: **system**
-    - Content: "You are a cheerful tour guide".
+    - Content: "You are a pirate and your name is Eddy."
 
-1. Wait a few moments for the refresh interval to elapse, and then press the Enter key to see the updated AI response in the output.
+1. Type the same message when prompted with "You:". Be sure to wait a few moments for the refresh interval to elapse, and then press the Enter key to see the updated AI response in the output.
 
     ```Output
-    system: You are a cheerful tour guide
-    user: What is the capital of France ?
-    AI response: Oh là là! The capital of France is the magnificent **Paris**!
-    Known as the "City of Light" (*La Ville Lumière*), it's famous for its romantic ambiance,
-    iconic landmarks like the Eiffel Tower, the Louvre Museum, and Notre-Dame Cathedral,
-    as well as its delicious pastries and charming cafés.
-    Have you ever been, or is it on your travel bucket list? 😊✨
-    Press Enter to continue...
+    Chat started! What's on your mind?
+    You: What is your name ?
+    AI: I’m your helpful assistant! I don’t have a personal name, but you can call me whatever you’d like. 
+    😊 Do you have a name in mind?
+
+    You: What is your name ?
+    AI: Arrr, matey! Me name be Eddy, the most fearsome pirate to ever sail the seven seas!
+    What be yer name, landlubber? 
     ```

@@ -47,6 +47,25 @@ You can also find the latest Azure Load Balancer updates and subscribe to the RS
 | Feature| IPv6 support for Azure Load Balancer (generally available) | You can have IPv6 addresses as your frontend for your Azure Load Balancers. Learn how to [create a dual stack application here](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) |April 2020|
 | Feature| TCP Resets on Idle Timeout (generally available)| Use TCP resets to create a more predictable application behavior. [Learn more](load-balancer-tcp-reset.md)| February 2020 |
 
+## Blog posts
+
+Stay informed with the latest insights, tutorials, and deep-dive blogs from the Azure Load Balancer team and community:
+
+| Title | Description | Date |
+|-------|-------------|------|
+| [Accelerate designing, troubleshooting & securing your network with Gen-AI powered tools, now GA](https://techcommunity.microsoft.com/blog/azurenetworkingblog/accelerate-designing-troubleshooting--securing-your-network-with-gen-ai-powered-/4402527) | Learn how to leverage Gen-AI powered tools to accelerate network design, troubleshooting, and security for Azure Load Balancer and other networking services. | June 2025 |
+| [A Guide to Azure Data Transfer Pricing](https://techcommunity.microsoft.com/blog/azurenetworkingblog/a-guide-to-azure-data-transfer-pricing/4374538) | Comprehensive guide to understanding data transfer costs and pricing models for Azure Load Balancer and related networking services. | May 2025 |
+| [Announcing the General Availability of Azure Load Balancer Health Event Logs](https://techcommunity.microsoft.com/blog/azurenetworkingblog/announcing-the-general-availability-of-azure-load-balancer-health-event-logs/4389063) | Deep dive into the new health event logs feature for enhanced monitoring and troubleshooting capabilities. | March 2025 |
+| [How to build highly resilient applications with Azure Load Balancer](https://techcommunity.microsoft.com/blog/azurenetworkingblog/how-to-build-highly-resilient-applications-with-azure-load-balancer/4359370) | Best practices and architectural patterns for building resilient applications using Azure Load Balancer. | December 2024 |
+| [Introducing Copilot in Azure for Networking: Your AI-Powered Azure Networking Assistant](https://techcommunity.microsoft.com/blog/azurenetworkingblog/introducing-copilot-in-azure-for-networking-your-ai-powered-azure-networking-ass/4298663) | Discover how AI-powered assistance can help manage and optimize your Azure Load Balancer configurations. | December 2024 |
+| [Troubleshoot health probe failures with Azure Load Balancer Health Status](https://techcommunity.microsoft.com/blog/azurenetworkingblog/troubleshoot-health-probe-failures-with-azure-load-balancer-health-status/4287244) | Step-by-step guide to diagnosing and resolving health probe issues using the Health Status feature. | October 2024 |
+| [Routing options for VMs from Private Subnets](https://techcommunity.microsoft.com/blog/azurenetworkingblog/routing-options-for-vms-from-private-subnets/4271244) | Explore different routing strategies for VMs in private subnets when using Azure Load Balancer. | October 2024 |
+| [Using Admin State to Control Your Azure Load Balancer Backend Instances](https://techcommunity.microsoft.com/blog/azurenetworkingblog/using-admin-state-to-control-your-azure-load-balancer-backend-instances/4155457) | Practical guide to using the Admin State feature for easier maintenance and instance management. | August 2024 |
+| [Build scalable cross-subscription applications with Azure Load Balancer](https://techcommunity.microsoft.com/blog/azurenetworkingblog/build-scalable-cross-subscription-applications-with-azure-load-balancer/4167505) | Learn how to architect applications that span multiple subscriptions using Azure Load Balancer. | June 2024 |
+
+> [!TIP]
+> Subscribe to the [Azure Networking blog](https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog) to receive notifications about new Load Balancer articles and updates.
+
 ## Retirements
 
 | Name |Description  | Retirement Date  |

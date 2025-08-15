@@ -8,7 +8,7 @@ items:
   - name: Architecture best practices for Azure Firewall
     href: /azure/well-architected/service-guides/azure-firewall?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
   - name: What is Azure network security?
-    href: /azure/networking/security/network-security.md?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
+    href: /azure/networking/security/network-security?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
   - name: SKU comparison
     href: choose-firewall-sku.md
   - name: Preview features
@@ -18,7 +18,7 @@ items:
   expanded: true
 - name: Design & architecture
   items:
-  - name: Policy 
+  - name: Policy
     items:
     - name: Policy rule sets
       href: policy-rule-sets.md
@@ -60,7 +60,8 @@ items:
     items:
     - name: Features
       href: basic-features.md
-    href: deploy-firewall-basic-portal-policy.md
+    - name: Deploy Basic firewall
+      href: deploy-firewall-basic-portal-policy.md
   - name: Firewall Standard
     items:
     - name: Features
@@ -129,8 +130,8 @@ items:
       href: deploy-terraform.md
     - name: ARM template
       href: deploy-template.md
-    - name: Secured hub customer public IP
-      href: secured-hub-customer-public-ip.md
+  - name: Secured hub customer public IP
+    href: secured-hub-customer-public-ip.md
   - name: Azure policy
     items:
     - name: Portal
@@ -173,8 +174,12 @@ items:
     href: sql-fqdn-filtering.md
   - name: SNAT private ranges
     href: snat-private-range.md
+  - name: Customer-controlled maintenance
+    href: customer-controlled-maintenance.md
 - name: Secure
   items:
+  - name: Secure firewall deployment
+    href: secure-firewall.md
   - name: Security baseline
     href: /security/benchmark/azure/baselines/firewall-security-baseline?toc=/azure/firewall/toc.json
   - name: Roles and permissions
@@ -250,7 +255,7 @@ items:
   - name: Author templates
     href: ../azure-resource-manager/templates/syntax.md
   - name: Community templates
-    href: https://azure.microsoft.com/documentation/templates
+    href: https://github.com/Azure/azure-quickstart-templates?tab=readme-ov-file#azure-resource-manager-quickstart-templates
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-firewall/
   - name: Regional availability

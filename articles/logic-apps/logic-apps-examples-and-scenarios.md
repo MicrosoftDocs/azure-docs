@@ -4,8 +4,8 @@ description: Review examples, common scenarios, tutorials, and walkthroughs for 
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 03/21/2025
+ms.topic: concept-article
+ms.date: 07/18/2025
 ---
 
 # Common scenarios, examples, tutorials, and walkthroughs for Azure Logic Apps
@@ -100,7 +100,7 @@ Azure Logic Apps includes rich capabilities for advanced control flow, such as c
 You can access, convert, and transform multiple content types by using the many functions in the Azure Logic Apps [workflow definition language](logic-apps-workflow-definition-language.md). For example, you can convert between a string, JSON, and XML with the `@json()` and `@xml()` workflow expressions. Azure Logic Apps preserves content types to support content transfer in a lossless manner between services.
 
 * [Handle content types in Azure Logic Apps](logic-apps-content-type.md), such as `application/`, `application/octet-stream`, and `multipart/formdata`
-* [Reference guide to using functions in expressions for Azure Logic Apps and Power Automate](workflow-definition-language-functions-reference.md)
+* [Reference guide for expression functions in Azure Logic Apps and Power Automate](expression-functions-reference.md)
 * [Workflow Definition Language schema for Azure Logic Apps](logic-apps-workflow-definition-language.md)
 
 ## Create custom APIs and connectors
@@ -175,7 +175,6 @@ You can fully develop and deploy logic app resources with Azure DevOps or any ot
 
 Azure Logic Apps integrates with many services, such as Azure API Management, Azure App Service, and custom HTTP endpoints, for example, REST and SOAP.
 
-* [Tutorial: Create a streaming customer insights dashboard with Azure Logic Apps and Azure Functions](logic-apps-scenario-social-serverless.md)
 * [Tutorial: Create a function that integrates with Azure Logic Apps and Azure AI services to analyze X post sentiment](../azure-functions/functions-twitter-email.md)
 * [Tutorial: Build an AI-powered social dashboard by using Power BI and Azure Logic Apps](/shows/)
 * [Tutorial: Monitor virtual machine changes by using Azure Event Grid and Logic Apps](../event-grid/monitor-virtual-machine-changes-logic-app.md)

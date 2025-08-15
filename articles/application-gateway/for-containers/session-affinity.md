@@ -79,7 +79,7 @@ EOF
 
 Session affinity can be defined in an [IngressExtension](api-specification-kubernetes.md#alb.networking.azure.io/v1.IngressExtensionSpec) resource. You must specify `sessionAffinity` with an `affinityType` of either `application-cookie` or `managed-cookie`. In this example, we use `application-cookie` as the affinityType and explicitly define a cookie name and lifetime.
 
-Example command to create a new IngressExtension with a defined cookie called `nomnom` with a lifetime of 3,600 seconds (1 hour) targetting a backend service called `echo`.
+Example command to create a new IngressExtension with a defined cookie called `nomnom` with a lifetime of 3,600 seconds (1 hour) targeting a backend service called `echo`.
 
 ```bash
 kubectl apply -f - <<EOF

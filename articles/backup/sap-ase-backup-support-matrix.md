@@ -8,8 +8,8 @@ ms.custom:
   - build-2025
 ms.date: 05/13/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a database administrator, I want to understand the supported backup scenarios and limitations for SAP ASE databases on Azure VMs, so that I can effectively implement and manage an appropriate backup strategy."
 ---
 

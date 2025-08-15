@@ -4,14 +4,18 @@ description: Learn how to integrate SAP Cloud Appliance Library with SAP Deploym
 author: nnoaman
 ms.author: nadeennoaman
 ms.reviewer: kimforss
-ms.date: 10/24/2024
+ms.date: 08/12/2025
 ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+# Customer intent: "As an IT administrator, I want to integrate the SAP Cloud Appliance Library with the SAP Deployment Automation Framework, so that I can streamline the deployment and management of SAP solutions on Azure."
 ---
 # Integrate SAP Cloud Appliance Library with SAP Deployment Automation Framework
 
 The integration between SAP Deployment Automation Framework (SDAF) and [SAP Cloud Appliance Library (CAL)](https://cal.sap.com/catalog#/solutions) offers a seamless experience for customers who want to deploy infrastructure by using SDAF's guided deployment. You can use Azure Pipelines or the provided shell scripts for deployment.
+
+> [!IMPORTANT]
+> The SAP Systems Management API will be deprecated on September 30, 2025, and decommissioned on December 2, 2025. After decommissioning, the SAP Cloud Appliance Library (CAL) integration with the SAP Deployment Automation Framework (SDAF) will no longer be available.
 
 ## Introduction to SAP Cloud Appliance Library
 

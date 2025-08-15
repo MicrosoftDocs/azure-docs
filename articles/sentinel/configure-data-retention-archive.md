@@ -1,10 +1,10 @@
 ---
 title: Configure interactive and long-term data retention in Microsoft Sentinel
 description: Towards the end of your deployment procedure, you set up data retention to suit your organization's needs.
-author: cwatson-cat
+author: EdB-MSFT
 ms.topic: how-to
 ms.date: 07/21/2024
-ms.author: cwatson
+ms.author: edbaynash
 
 
 #Customer intent: As a security architect or SOC manager, I want to configure data retention and archiving policies so that I can ensure long-term storage of important data at a reduced cost.

@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.custom:
+# Customer intent: As an SAP administrator, I want to automate the deployment and monitoring of SAP systems using Azure Monitor and the SAP Deployment Automation Framework, so that I can ensure optimal performance and availability while reducing complexity and costs.
 ---
 # Configure Azure monitor for SAP with SAP Deployment Automation Framework
 

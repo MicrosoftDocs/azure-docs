@@ -1,5 +1,5 @@
 ---
-title: Configure NFSv4.1 Kerberos encryption for Azure NetApp Files | Microsoft Docs
+title: Configure NFSv4.1 Kerberos encryption for Azure NetApp Files 
 description: Describes how to configure NFSv4.1 Kerberos encryption for Azure NetApp Files and the performance impact.
 services: azure-netapp-files
 author: b-hchen
