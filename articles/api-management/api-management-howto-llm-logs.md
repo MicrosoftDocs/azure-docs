@@ -1,7 +1,7 @@
 ---
-title: Set Up LLM Request Logging in Azure
+title: Set Up Logging for AI Gateway
 titleSuffix: Azure API Management
-description: Learn how to log LLM requests and responses from the AI gateway in Azure API Management.
+description: Learn how to log requests to and responses from LLM APIs configured in the AI gateway in Azure API Management.
 #customer intent: As a system administrator, I want to enable logging of LLM request and response messages so that I can track API interactions for billing or auditing purposes.
 author: dlepow
 ms.service: azure-api-management
@@ -9,16 +9,13 @@ ms.topic: how-to
 ms.date: 08/15/2025
 ms.author: danlep
 ai-usage: ai-assisted
-ms.collection: cd-skilling-ai-copilot
+ms.collection: ce-skilling-ai-copilot
 ms.custom:
-  - ai-gen-docs-bap
-  - ai-gen-title
-  - ai-seo-date:08/15/2025
 ---
 
 # Log token usage, prompts, and completions for LLM APIs
 
-In this article, you'll learn how to set up Azure Monitor logging for LLM API requests and responses in Azure API Management. 
+In this article, you learn how to set up Azure Monitor logging for LLM API requests and responses in Azure API Management. 
 
 The API Management administrator can use LLM API request and response logs along with API Management gateway logs for scenarios such as the following:
 
@@ -39,9 +36,9 @@ Learn more about:
 
 ## Enable diagnostic setting for LLM API logs
 
-Enable a diagnostic setting to log requests processed by the gateway for large language model REST APIs. For each request, data is sent to Azure Monitor including token usage (prompt tokens, completion tokens, and total tokens), name of the model used, and optionally the request and response messages (prompt and completion). Large requests and responses are split into multiple log entries with sequence numbers for later reconstruction if needed.
+Enable a diagnostic setting to log requests that the gateway processes for large language model REST APIs. For each request, Azure Monitor receives data about token usage (prompt tokens, completion tokens, and total tokens), the name of the model used, and optionally the request and response messages (prompt and completion). Large requests and responses split into multiple log entries with sequence numbers for later reconstruction if needed.
 
-The following are brief steps to enable a diagnostic setting to direct LLM API logs to a Log Analytics workspace. For details, see [Enable diagnostic setting for Azure Monitor logs](monitor-api-management.md#enable-diagnostic-setting-for-azure-monitor-logs).
+The following steps briefly describe how to enable a diagnostic setting that directs LLM API logs to a Log Analytics workspace. For more information, see [Enable diagnostic setting for Azure Monitor logs](monitor-api-management.md#enable-diagnostic-setting-for-azure-monitor-logs).
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Azure API Management instance.
 1. In the left menu, under **Monitoring**, select **Diagnostic settings** > **+ Add diagnostic setting**.
@@ -55,20 +52,20 @@ The following are brief steps to enable a diagnostic setting to direct LLM API l
 
 ## Enable logging of requests or responses for LLM API
 
-Diagnostic settings can be enabled for all APIs, but you can also customize logging for specific APIs. The following are brief steps to log both LLM requests and response messages for an API. For details, see [Modify API logging settings](monitor-api-management.md#modify-api-logging-settings).
+You can enable diagnostic settings for all APIs or customize logging for specific APIs. The following steps briefly describe how to log both LLM requests and response messages for an API. For more information, see [Modify API logging settings](monitor-api-management.md#modify-api-logging-settings).
 
-1. In the left menu of your API Management instance, select **APIs > APIs**  and then the name of the API.
+1. In the left menu of your API Management instance, select **APIs > APIs** and then select the name of the API.
 1. Select the **Settings** tab from the top bar.
 1. Scroll down to the **Diagnostic Logs** section, and select the **Azure Monitor** tab.
 1. In **Log LLM messages**, select **Enabled**.
-1. Select **Log prompts** and enter a size in bytes. Example: *32768*.
-1. Select **Log completions** and enter a size in bytes. Example: *32768*.
+1. Select **Log prompts** and enter a size in bytes, such as *32768*.
+1. Select **Log completions** and enter a size in bytes, such as *32768*.
 1. Review other settings and make changes if needed. Select **Save**.
 
 :::image type="content" source="media/api-management-howto-llm-logs/enable-llm-api-logging.png" alt-text="Screenshot of enabling LLM logging for an API in the portal.":::
 
 > [!NOTE]
-> LLM request or response messages up to 32 KB in size, if collected, are sent in a single entry. Messages larger than 32 KB are split and logged in 32 KB chunks with sequence numbers for later reconstruction. Request messages and response messages can't exceed 2 MB each.
+> If you enable collection, LLM request or response messages up to 32 KB in size are sent in a single entry. Messages larger than 32 KB are split and logged in 32 KB chunks with sequence numbers for later reconstruction. Request messages and response messages can't exceed 2 MB each.
 
 
 ## Review analytics workbook for LLM APIs
@@ -85,7 +82,7 @@ The Azure Monitor-based **Analytics** dashboard provides insights into LLM API u
 
 Review the [ApiManagementGatewayLlmLog](/azure/azure-monitor/reference/tables/apimanagementgatewayllmlog) log for details about LLM requests and responses, including token consumption, model deployment used, and other details over specific time ranges.
 
-Requests and responses (including chunked messages for large requests and responses) are logged in separate log entries that can be correlated using the `CorrelationId` field. For auditing or purposes you can use a Kusto query similar to the following to join each request and response in a single record.
+Requests and responses (including chunked messages for large requests and responses) appear in separate log entries that you can correlate by using the `CorrelationId` field. For auditing purposes, use a Kusto query similar to the following query to join each request and response in a single record.
 
 ```Kusto
 ApiManagementGatewayLlmLog
