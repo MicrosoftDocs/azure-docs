@@ -68,23 +68,25 @@ To learn more, see [How to create classic file share](./files-create-classic-fil
 
 ![image for comparsion between mfs and classic](./media/storage-files-planning/filesharecomparsion.png)
 
-Traditionally, deploying an Azure file share required first creating a storage account; an extra step that introduced complexity and limitations. With Microsoft.FileShares, you can deploy file shares directly from Azure Portal. This new model simplifies the deployment experience and unlocks a host of new capabilities:
+Delivered by the Microsoft.FileShares resource provider, file shares are now a first class Azure resource, alongside virtual machines, virtual networks, and SQL databases. Instead of creating a storage account and then a file share inside it, you create the file share directly in your resource group, eliminating account complexity without sacrificing performance or cost efficiency. This new model simplifies the deployment experience and unlocks a host of new capabilities:
 
-- Simplified onboarding: A more intuitive experience aligned with on-premises deployments.
-- Dedicated resources: Each file share has its own IOPS, throughput, and storage allocation. No more resource contention with each other. Ideal for teams managing hundreds of file shares in CI/CD pipelines. No more naming collisions, quota limits, or IOPS and bandwidth competition.
-- Granular control: Security, networking, and billing are now managed at the file share level. Perfect for managing workloads per department or customer.
-- No more storage account level settings configuration: Say goodbye to navigating complex storage account settings that do not apply to file share service.
-- Cost-efficient and flexible: Built on the latest provisioned v2 SSD model for optimal customization and cost efficiency.
-- Faster deployment: Up to 3x faster for single file share creation.
+- Simpler onboarding: No more storage accounts to manage. Create file shares directly as top-level Azure resources in the portal. This removes a layer of indirection, reduces learning curve, and eliminates confusion from storage account level settings that do not apply to file shares.
+- Dedicated performance per share: Each share gets its own IOPS, throughput, and capacity so you will not have to worry about resource contention. Making it ideal for environments managing hundreds of shares (e.g., CI/CD pipelines) and for separating departments or customer workloads.
+
+- Predictable, flexible costs: The new management model uses SSD provisioned v2 model allowing you independently set storage, IOPS, and throughput for each share. You can adjust them as needs change. This brings clear, predictable pricing while retaining the agility to scale up or down.
+
+- Granular control at the share level: Apply networking (service or private endpoints), security, and billing per file share. This gives you precise blast-radius control and cleaner cost attribution to teams, apps, or customers.
+
+- Faster deployment time: Provisioning is dramatically quicker than the classic file share, measured around 3.4× faster for single file share creation.
+
+- Higher scale limits: Enjoy increased resource and request quotas with the Microsoft.FileShares resource provider—ideal for large environments managing lots of file shares.
 
 As the current public preview phase, Microsoft.FileShares supports on:
 
 - NFS 4.1 protocol (SSD tier only)
 - Provisioned v2 SSD billing model only
 - Azure Portal experience with support for service endpoints and private endpoints
-- Private packages for PowerShell and Azure CLI
-- Limited regional availability
-- Define unique mount name that differs from the file share name.
+- Full support on NFS EiT (Encryption in transit) on file share.
 
 We’re actively working on expanding capabilities, including:
 
@@ -93,10 +95,8 @@ We’re actively working on expanding capabilities, including:
 - Encryption at rest using customer-managed keys
 - Official PowerShell and CLI modules
 - Azure Monitor integration
-- NFS encryption in transit via TLS tunneling
 - FileREST protocol support for NFS shares
 - SMB protocol support
-- More regions are coming up
 
 On the Azure portal, classic file share will remain using the blue icon, while Microsoft.FileShares will use the purple icon.
 If you require all the feature that Azure File currently offer, we recommend you use classic file share instead.

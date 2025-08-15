@@ -96,8 +96,4 @@ Tags are name/value pairs that enable you to categorize resources and view conso
 
 The final step to create the file share is to select the **Create** button on the **Review + create** tab. This button isn't available until all the required fields for a file share are completed.
 
-# [PowerShell](#tab/azure-powershell)
-
-# [Azure CLI](#tab/azure-cli)
-
 ---
