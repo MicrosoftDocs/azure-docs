@@ -254,7 +254,7 @@ The following table shows the release stage and change logs for different versio
 ### <a name="upgrade-the-shopify-connector-from-version-10-to-version-20"></a> Upgrade the Shopify connector from version 1.0 to version 2.0 (Preview)
 
 1. In **Edit linked service** page, select 2.0 (Preview) for version. For more information, see [linked service version 2.0 (Preview) properties](#version-20).
-1. For version 2.0 (Preview), column names retain the Shopify GraphQL structure, such as `data.customers.edges.node.xx`. For version 1.0, column names use simplified names.
+1. For version 2.0 (Preview), note that column names retain the Shopify GraphQL structure, such as `data.customers.edges.node.xx`. For version 1.0, column names use simplified names.
 1. `query` is only supported in version 1.0. You should use the `tableName` instead of `query` in version 2.0 (Preview).
 
 ## Related content
