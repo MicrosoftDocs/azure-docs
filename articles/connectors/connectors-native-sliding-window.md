@@ -3,9 +3,9 @@ title: Handle Consecutive Data Chunks
 description: Learn how to start a workflow that can handle consecutive or contiguous data chunks in Azure Logic Apps by using the Sliding Window trigger.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, azla
+ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/14/2025
+ms.date: 08/15/2025
 #Customer intent: As an integration developer using Azure Logic Apps, I want to create a recurring workflow that can handle consecutive or contiguous data chunks.
 ---
 
