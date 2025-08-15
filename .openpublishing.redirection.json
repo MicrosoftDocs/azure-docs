@@ -2,13 +2,13 @@
   "redirections": [
     {
       "source_path": "articles/storage/files/storage-how-to-create-file-share.md",
-      "redirect_url": "/azure/storage/files/files-create-classic-file-share",
+      "redirect_url": "/azure/storage/files/create-classic-file-share",
       "redirect_document_id": false
     },
 
     {
       "source_path": "articles/storage/files/storage-file-quick-create-use-linux.md",
-      "redirect_url": "/azure/storage/files/files-create-file-share",
+      "redirect_url": "/azure/storage/files/create-file-share",
       "redirect_document_id": false
     },
 

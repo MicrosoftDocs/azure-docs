@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
 # Customer intent: "As a cloud administrator, I want modify my file share after I create it."
 ---
 
-## Introduction
+# Introduction
 
 This guide walks you through how to adjust the size, cost, and performance characteristics, as well as update or delete both classic file shares and File Share using the Azure portal, Azure PowerShell, and Azure CLI.
 
@@ -321,9 +321,7 @@ $command
 
 ## Change the cost and performance characteristics of a file share
 
-# [Portal](#tab/azure-portal)
-
-Follow these instructions to change the size and performance of a file share using the Azure portal.
+Follow these instructions in the portal to change the size and performance of a file share using the Azure portal.
 
 1. Select the file share you desire to modify.
 2. Select settings from the context menu.
@@ -397,9 +395,7 @@ az storage share-rm delete \
 
 ## Delete a file share
 
-# [Portal](#tab/azure-portal)
-
-Follow these instructions to delete a file share.
+Follow these instructions in the portal to delete a file share.
 
 Go to your file share.
 

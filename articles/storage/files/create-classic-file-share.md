@@ -534,10 +534,12 @@ az storage share-rm create \
     --output none
 ```
 
+---
+
 ## Set up a virtual machine
 
 SMB protocol file share are able to mount to a Linux, Windows virtual machine, while NFS protocol file share are only able to use Linux virtual machine.
-To learn more about how to create a virtual machine for your file share, see [How to create Linux virtual machine](xxxxxxxx) for more information.
+To learn more about how to create a virtual machine for your file share, see [How to create Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu) for more information.
 
 ## Set up networking configurations
 

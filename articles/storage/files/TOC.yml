@@ -20,11 +20,11 @@
 - name: Create file shares
   items:
     - name: Create an classic file share
-      href: files-create-classic-file-share.md
+      href: create-classic-file-share.md
     - name: Create an file share
-      href: files-create-file-share.md
+      href: create-file-share.md
     - name: Modify a file share
-      href: files-how-to-modify-file-share.md
+      href: how-to-modify-file-share.md
 - name: Authentication and authorization
   items:
     - name: Overview of identity-based authentication
