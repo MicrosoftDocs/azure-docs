@@ -8,7 +8,9 @@ ms.date: 03/29/2021
 ms.author: msangapu
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
+ms.service: azure-app-service
 #customer intent: As a deployment engineer, I want to learn about discovery resources and learn the capabilities of discovery so that I can get started with discovery.
+
 ---
 # At-scale discovery of .NET web apps
 

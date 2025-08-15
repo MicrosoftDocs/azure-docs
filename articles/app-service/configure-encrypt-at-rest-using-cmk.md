@@ -6,8 +6,10 @@ ms.custom: devx-track-azurecli
 ms.date: 03/06/2020
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
 # customer intent: As a developer, I want to encrypt my application data in Azure Storage to help protect it from unauthorized access. 
----
+
+ ---
 
 # Encrypt data at rest by using customer-managed keys
 

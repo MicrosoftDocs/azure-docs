@@ -7,7 +7,9 @@ ms.topic: how-to
 ms.date: 02/14/2025
 author: msangapu-msft
 ms.author: msangapu
+ms.service: azure-app-service 
 # As a systems administrator, I want to use Traffic Manager with a custom domain so that I can improve app performance and global availability. 
+  
 ---
 # Configure Traffic Manager for your Azure App Service domain
 

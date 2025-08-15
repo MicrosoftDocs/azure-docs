@@ -9,7 +9,9 @@ ms.topic: best-practice
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: devx-track-js
+ms.service: azure-app-service
 # customer intent: As a developer, I want to learn best practices for Node.js applications that run in App Service so that I can use these apps more effectively.
+
 ---
 # Best practices and troubleshooting guide for node applications on Azure App Service Windows
 

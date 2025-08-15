@@ -6,7 +6,10 @@ ms.date: 07/15/2021
 ms.custom: AppServiceIdentity
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
 # customer intent: As a developer, I want to configure authentication and authorization in App Service by using a configuration file so that I can enable preview capabilities. 
+
+ 
 ---
 
 # Configure authentication in Azure App Service by using a configuration file

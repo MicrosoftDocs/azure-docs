@@ -9,6 +9,7 @@ ms.date: 07/07/2025
 author: cephalin
 ms.author: cephalin
 #customer intent: As an ASP.NET developer, I want to configure an ASP.NET app using Azure App Service to take advantage the Azure features.
+ms.service: azure-app-service
 ---
 
 # Configure an ASP.NET app for Azure App Service

@@ -144,6 +144,8 @@
           href: private-resolver-hybrid-dns.md
 - name: Security
   items:
+    - name: Secure DNS
+      href: secure-dns.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/azure-dns-security-baseline?toc=/azure/dns/TOC.json
     - name: DNS security policy

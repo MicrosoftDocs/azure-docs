@@ -7,7 +7,10 @@ ms.date: 03/29/2021
 ms.custom: fasttrack-edit, AppServiceIdentity
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
+
 # As a developer, I want to configure Facebook authentication so that I can use it as an identity provider for an App Service or Azure Functions app. 
+
 ---
 
 # Configure your App Service or Azure Functions app to use Facebook login

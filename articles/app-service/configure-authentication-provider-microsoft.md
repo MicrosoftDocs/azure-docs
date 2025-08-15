@@ -7,7 +7,9 @@ ms.date: 03/29/2021
 ms.custom: fasttrack-edit, AppServiceIdentity
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
 # customer intent: As a developer, I want to configure Microsoft Account authentication so that I can use it as an identity provider for App Service and Azure Functions apps. 
+  
 ---
 
 # Configure your App Service or Azure Functions app to use Microsoft Account login
