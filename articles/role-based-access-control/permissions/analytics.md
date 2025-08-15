@@ -3,9 +3,9 @@ title: Azure permissions for Analytics - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Analytics category.
 ms.service: role-based-access-control
 ms.topic: generated-reference
-author: rolyon
-manager: femila
-ms.author: rolyon
+author: jenniferf-skc
+manager: pmwongera
+ms.author: jfields
 ms.date: 05/25/2025
 ms.custom: generated
 ---
@@ -424,8 +424,8 @@ Azure service: [HDInsight](/azure/hdinsight/)
 > | MICROSOFT.HDINSIGHT/CLUSTERS/UPGRADES/READ | Read Upgrades |
 > | MICROSOFT.HDINSIGHT/LOCATIONS/CHECKNAMEAVAILABILITY/ACTION | Check Name Availability |
 > | MICROSOFT.HDINSIGHT/LOCATIONS/VALIDATECREATEREQUEST/ACTION | Validate Create Requests |
-> | MICROSOFT.HDINSIGHT/LOCATIONS/AVAILABLECLUSTERPOOLVERSIONS/READ | Get Avaliable versions for HDInsight on AKS Cluster Pool |
-> | MICROSOFT.HDINSIGHT/LOCATIONS/AVAILABLECLUSTERVERSIONS/READ | Get Avaliable versions for HDInsight on AKS Cluster |
+> | MICROSOFT.HDINSIGHT/LOCATIONS/AVAILABLECLUSTERPOOLVERSIONS/READ | Get Available versions for HDInsight on AKS Cluster Pool |
+> | MICROSOFT.HDINSIGHT/LOCATIONS/AVAILABLECLUSTERVERSIONS/READ | Get Available versions for HDInsight on AKS Cluster |
 > | Microsoft.HDInsight/locations/azureasyncoperations/read | Read Async Operations |
 > | MICROSOFT.HDINSIGHT/LOCATIONS/BILLINGSPECS/READ | Get Billing Specs |
 > | Microsoft.HDInsight/locations/capabilities/read | Get Subscription Capabilities |

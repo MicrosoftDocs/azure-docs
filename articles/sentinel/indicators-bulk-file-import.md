@@ -2,11 +2,11 @@
 title: Add threat intelligence in bulk by file
 titleSuffix: Microsoft Sentinel
 description: Learn how to add threat intelligence in bulk from flat files like .csv or .json into Microsoft Sentinel. 
-author: austinmccollum
+author: poliveria  
 ms.service: microsoft-sentinel
 ms.topic: how-to
 ms.date: 3/14/2024
-ms.author: austinmc
+ms.author: pauloliveria 
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal

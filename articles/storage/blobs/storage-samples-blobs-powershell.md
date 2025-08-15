@@ -8,6 +8,7 @@ ms.date: 11/07/2017
 ms.service: azure-blob-storage
 ms.custom: devx-track-azurepowershell
 ms.topic: sample
+# Customer intent: As a cloud administrator, I want to access PowerShell script samples for managing Azure Blob storage, so that I can efficiently create storage accounts, migrate data, and calculate costs for my organization.
 ---
 
 # Azure PowerShell samples for Azure Blob storage

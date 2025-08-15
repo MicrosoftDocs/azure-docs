@@ -3,9 +3,9 @@ title: Transfer Azure product billing ownership to a Microsoft Customer Agreemen
 description: Learn how to transfer billing ownership of Azure subscriptions, reservations, and savings plans.
 ms.topic: how-to
 ms.date: 05/21/2025
-author: kendayMS
-ms.author: macyso
-ms.reviewer: macyso
+author: presharm
+ms.author: presharm
+ms.reviewer: presharm
 ms.service: cost-management-billing
 ms.subservice: billing
 ---
@@ -57,9 +57,9 @@ You can also go along with the following video that outlines each step of the pr
 
 >[!VIDEO https://www.youtube.com/embed/gfiUI2YLsgc]
 
-### Required permission for the transfer requestor
+### Required permission for the transfer requester
 
-The product transfer requestor must have one of the following permissions:
+The product transfer requester must have one of the following permissions:
 
 For a Microsoft Customer Agreement, the person must have an owner or contributor role for the billing account or for the relevant billing profile or invoice section. For more information, see [Billing roles and tasks](understand-mca-roles.md#invoice-section-roles-and-tasks).
 

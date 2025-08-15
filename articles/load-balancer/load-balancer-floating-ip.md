@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 04/16/2025
 ms.author: mbender
 ms.custom: template-how-to, engagement-fy23
+# Customer intent: As a cloud architect, I want to configure Floating IP on an Azure Load Balancer, so that I can enable port reuse for high availability and manage multiple application instances efficiently.
 ---
 
 # Azure Load Balancer Floating IP configuration

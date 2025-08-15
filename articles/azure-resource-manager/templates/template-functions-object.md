@@ -3,7 +3,7 @@ title: Template functions - objects
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with objects.
 ms.topic: reference
 ms.custom: devx-track-arm-template
-ms.date: 02/12/2025
+ms.date: 08/01/2025
 ---
 
 # Object functions for ARM templates
@@ -21,15 +21,15 @@ Resource Manager provides several functions for working with objects in your Azu
 * [union](#union)
 
 > [!TIP]
-> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [object](../bicep/bicep-functions-object.md) functions.
+> [Bicep](../bicep/overview.md) is recommended since it offers the same capabilities as ARM templates, and the syntax is easier to use. To learn more, see [object](../bicep/bicep-functions-object.md) functions.
 
 ## contains
 
 `contains(container, itemToFind)`
 
-Checks whether an array contains a value, an object contains a key, or a string contains a substring. The string comparison is case-sensitive. However, when testing if an object contains a key, the comparison is case-insensitive.
+Checks if an array contains a value, an object contains a key, or a string contains a substring. The string comparison is case-sensitive. However, when testing if an object contains a key, the comparison is case-insensitive.
 
-In Bicep, use the [contains](../bicep/bicep-functions-object.md#contains) function.
+In Bicep, use the [`contains`](../bicep/bicep-functions-object.md#contains) function.
 
 ### Parameters
 
@@ -46,9 +46,60 @@ In Bicep, use the [contains](../bicep/bicep-functions-object.md#contains) functi
 
 The following example shows how to use `contains` with different types:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/contains.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "stringToTest": {
+      "type": "string",
+      "defaultValue": "OneTwoThree"
+    },
+    "objectToTest": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b",
+        "three": "c"
+      }
+    },
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ "one", "two", "three" ]
+    }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "stringTrue": {
+      "type": "bool",
+      "value": "[contains(parameters('stringToTest'), 'e')]"
+    },
+    "stringFalse": {
+      "type": "bool",
+      "value": "[contains(parameters('stringToTest'), 'z')]"
+    },
+    "objectTrue": {
+      "type": "bool",
+      "value": "[contains(parameters('objectToTest'), 'one')]"
+    },
+    "objectFalse": {
+      "type": "bool",
+      "value": "[contains(parameters('objectToTest'), 'a')]"
+    },
+    "arrayTrue": {
+      "type": "bool",
+      "value": "[contains(parameters('arrayToTest'), 'three')]"
+    },
+    "arrayFalse": {
+      "type": "bool",
+      "value": "[contains(parameters('arrayToTest'), 'four')]"
+    }
+  }
+}
+```
 
-The output from the preceding example with the default values is:
+The output of default values from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
@@ -84,9 +135,22 @@ An object with each key and value pair.
 
 ### Example
 
-The following example creates an object from different types of values.
+The following example creates an object from different types of values:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/object/createobject.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+  ],
+  "outputs": {
+    "newObject": {
+      "type": "object",
+      "value": "[createObject('intProp', 1, 'stringProp', 'abc', 'boolProp', true(), 'arrayProp', createArray('a', 'b', 'c'), 'objectProp', createObject('key1', 'value1'))]"
+    }
+  }
+}
+```
 
 The output from the preceding example with the default values is an object named `newObject` with the following value:
 
@@ -106,7 +170,7 @@ The output from the preceding example with the default values is an object named
 
 Determines if an array, object, or string is empty.
 
-In Bicep, use the [empty](../bicep/bicep-functions-object.md#empty) function.
+In Bicep, use the [`empty`](../bicep/bicep-functions-object.md#empty) function.
 
 ### Parameters
 
@@ -120,11 +184,46 @@ Returns **True** if the value is empty; otherwise, **False**.
 
 ### Example
 
-The following example checks whether an array, object, and string are empty.
+The following example checks if an array, object, and string are empty:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/empty.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "testArray": {
+      "type": "array",
+      "defaultValue": []
+    },
+    "testObject": {
+      "type": "object",
+      "defaultValue": {}
+    },
+    "testString": {
+      "type": "string",
+      "defaultValue": ""
+    }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "arrayEmpty": {
+      "type": "bool",
+      "value": "[empty(parameters('testArray'))]"
+    },
+    "objectEmpty": {
+      "type": "bool",
+      "value": "[empty(parameters('testObject'))]"
+    },
+    "stringEmpty": {
+      "type": "bool",
+      "value": "[empty(parameters('testString'))]"
+    }
+  }
+}
+```
 
-The output from the preceding example with the default values is:
+The output of default values from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
@@ -136,9 +235,9 @@ The output from the preceding example with the default values is:
 
 `intersection(arg1, arg2, arg3, ...)`
 
-Returns a single array or object with the common elements from the parameters.
+Returns a single array or object with common elements from the parameters.
 
-In Bicep, use the [intersection](../bicep/bicep-functions-object.md#intersection) function.
+In Bicep, use the [`intersection`](../bicep/bicep-functions-object.md#intersection) function.
 
 ### Parameters
 
@@ -154,11 +253,54 @@ An array or object with the common elements.
 
 ### Example
 
-The following example shows how to use `intersection` with arrays and objects.
+The following example shows how to use `intersection` with arrays and objects:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/intersection.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "firstObject": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b",
+        "three": "c"
+      }
+    },
+    "secondObject": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "z",
+        "three": "c"
+      }
+    },
+    "firstArray": {
+      "type": "array",
+      "defaultValue": [ "one", "two", "three" ]
+    },
+    "secondArray": {
+      "type": "array",
+      "defaultValue": [ "two", "three" ]
+    }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "objectOutput": {
+      "type": "object",
+      "value": "[intersection(parameters('firstObject'), parameters('secondObject'))]"
+    },
+    "arrayOutput": {
+      "type": "array",
+      "value": "[intersection(parameters('firstArray'), parameters('secondArray'))]"
+    }
+  }
+}
+```
 
-The output from the preceding example with the default values is:
+The output of default values from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
@@ -171,7 +313,7 @@ The output from the preceding example with the default values is:
 
 Converts a dictionary object to an array. See [toObject](template-functions-lambda.md#toobject) about converting an array to an object.
 
-In Bicep, use the [items](../bicep/bicep-functions-object.md#items).
+In Bicep, use the [`items`](../bicep/bicep-functions-object.md#items) function.
 
 ### Parameters
 
@@ -185,7 +327,7 @@ An array of objects for the converted dictionary. Each object in the array has a
 
 ### Example
 
-The following example converts a dictionary object to an array. For each object in the array, it creates a new object with modified values.
+The following example converts a dictionary object to an array, creating a new object with modified values for each object in the array:
 
 ```json
 {
@@ -246,7 +388,7 @@ The preceding example returns:
 }
 ```
 
-The following example shows the array that is returned from the items function.
+The following example shows the array that the `items` function returns:
 
 ```json
 {
@@ -313,7 +455,7 @@ The example returns:
 
 Converts a valid JSON string into a JSON data type.
 
-In Bicep, use the [json](../bicep/bicep-functions-object.md#json) function.
+In Bicep, use the [`json`](../bicep/bicep-functions-object.md#json) function.
 
 ### Parameters
 
@@ -327,17 +469,84 @@ The JSON data type from the specified string, or an empty value when **null** is
 
 ### Remarks
 
-If you need to include a parameter value or variable in the JSON object, use the [format](template-functions-string.md#format) function to create the string that you pass to the function.
+If you need to include a parameter value or variable in the JSON object, use the [`format`](template-functions-string.md#format) function to create the string that you pass to the function.
 
-You can also use [null()](#null) to get a null value.
+You can also use [`null()`](#null) to get a null value.
 
 ### Example
 
-The following example shows how to use the `json` function. Notice that you can pass in `null` for an empty object.
+The following example shows how to use the `json` function. Notice that you can pass in `null` for an empty object:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/object/json.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "jsonEmptyObject": {
+      "type": "string",
+      "defaultValue": "null"
+    },
+    "jsonObject": {
+      "type": "string",
+      "defaultValue": "{\"a\": \"b\"}"
+    },
+    "jsonString": {
+      "type": "string",
+      "defaultValue": "\"test\""
+    },
+    "jsonBoolean": {
+      "type": "string",
+      "defaultValue": "true"
+    },
+    "jsonInt": {
+      "type": "string",
+      "defaultValue": "3"
+    },
+    "jsonArray": {
+      "type": "string",
+      "defaultValue": "[[1,2,3 ]"
+    },
+    "concatValue": {
+      "type": "string",
+      "defaultValue": "demo value"
+    }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "emptyObjectOutput": {
+      "type": "bool",
+      "value": "[empty(json(parameters('jsonEmptyObject')))]"
+    },
+    "objectOutput": {
+      "type": "object",
+      "value": "[json(parameters('jsonObject'))]"
+    },
+    "stringOutput": {
+      "type": "string",
+      "value": "[json(parameters('jsonString'))]"
+    },
+    "booleanOutput": {
+      "type": "bool",
+      "value": "[json(parameters('jsonBoolean'))]"
+    },
+    "intOutput": {
+      "type": "int",
+      "value": "[json(parameters('jsonInt'))]"
+    },
+    "arrayOutput": {
+      "type": "array",
+      "value": "[json(parameters('jsonArray'))]"
+    },
+    "concatObjectOutput": {
+      "type": "object",
+      "value": "[json(concat('{\"a\": \"', parameters('concatValue'), '\"}'))]"
+    }
+  }
+}
+```
 
-The output from the preceding example with the default values is:
+The output of default values from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
@@ -355,7 +564,7 @@ The output from the preceding example with the default values is:
 
 Returns the number of elements in an array, characters in a string, or root-level properties in an object.
 
-In Bicep, use the [length](../bicep/bicep-functions-object.md#length) function.
+In Bicep, use the [`length`](../bicep/bicep-functions-object.md#length) function.
 
 ### Parameters
 
@@ -371,9 +580,55 @@ An int.
 
 The following example shows how to use `length` with an array and string:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/length.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [
+        "one",
+        "two",
+        "three"
+      ]
+    },
+    "stringToTest": {
+      "type": "string",
+      "defaultValue": "One Two Three"
+    },
+    "objectToTest": {
+      "type": "object",
+      "defaultValue": {
+        "propA": "one",
+        "propB": "two",
+        "propC": "three",
+        "propD": {
+          "propD-1": "sub",
+          "propD-2": "sub"
+        }
+      }
+    }
+  },
+  "resources": [],
+  "outputs": {
+    "arrayLength": {
+      "type": "int",
+      "value": "[length(parameters('arrayToTest'))]"
+    },
+    "stringLength": {
+      "type": "int",
+      "value": "[length(parameters('stringToTest'))]"
+    },
+    "objectLength": {
+      "type": "int",
+      "value": "[length(parameters('objectToTest'))]"
+    }
+  }
+}
+```
 
-The output from the preceding example with the default values is:
+The output of default values from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
@@ -391,17 +646,29 @@ The `null` function isn't available in Bicep. Use the `null` keyword instead.
 
 ### Parameters
 
-The null function doesn't accept any parameters.
+The `null` function doesn't accept any parameters.
 
 ### Return value
 
-A value that is always null.
+A value that's always null.
 
 ### Example
 
-The following example uses the null function.
+The following example uses the `null` function:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/object/null.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "emptyOutput": {
+      "type": "bool",
+      "value": "[empty(null())]"
+    }
+  }
+}
+```
 
 The output from the preceding example is:
 
@@ -415,7 +682,7 @@ The output from the preceding example is:
 
 Returns the keys from an object, where an object is a collection of key-value pairs.
 
-In Bicep, use the [objectKeys](../templates/template-functions-object.md#objectkeys) function.
+In Bicep, use the [`objectKeys`](../templates/template-functions-object.md#objectkeys) function.
 
 ### Parameters
 
@@ -463,9 +730,9 @@ The output from the preceding example is:
 
 `shallowMerge(inputArray)`
 
-Combines an array of objects, where only the top-level objects are merged. This means that if the objects being merged contain nested objects, those nested object aren't deeply merged; instead, they're replaced entirely by the corresponding property from the merging object.
+Combines an array of objects where only the top-level objects are merged. This means that if the objects being merged contain nested objects, those nested object aren't deeply merged; instead, they're replaced entirely by the corresponding property from the merging object.
 
-In Bicep, use the [shallowMerge](../bicep/bicep-functions-object.md#shallowmerge) function.
+In Bicep, use the [`shallowMerge`](../bicep/bicep-functions-object.md#shallowmerge) function.
 
 ### Parameters
 
@@ -529,7 +796,7 @@ The following example shows how to use `shallowMerge`:
 }
 ```
 
-The output from the preceding example with the default values is:
+The output of default values from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
@@ -540,13 +807,80 @@ The output from the preceding example with the default values is:
 
 **secondOutput** shows the shallow merge doesn't recursively merge these nested objects. Instead, the entire nested object is replaced by the corresponding property from the merging object.
 
+## tryGet
+
+`tryGet(itemToTest, keyOrIndex)`
+
+`tryGet` helps you avoid deployment failures when trying to access a nonexistent property or index in an object or array. If the specified key or index doesn't exist, `tryGet` returns null instead of throwing an error.
+
+In Bicep, use the [safe-dereference](../bicep/operator-safe-dereference.md#safe-dereference) operator.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| itemToTest |Yes |array, object |An object or array to look into. |
+| keyOrIndex |Yes |string, int |A key or index to retrieve from the array or object. A property name for objects or index for arrays.|
+
+### Return value
+
+Returns the value at the key/index if it exists. Returns null if the key/index is missing or out of bounds.
+
+### Example
+
+The following example checks if an array, object, and string are empty:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "2.0",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "users": {
+      "name": "John Doe",
+      "age": 30
+    },
+    "colors": [
+      "red",
+      "green"
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "region": {
+      "type": "string",
+      "nullable": true,
+      "value": "[tryGet(variables('users'), 'region')]"
+    },
+    "name": {
+      "type": "string",
+      "nullable": true,
+      "value": "[tryGet(variables('users'), 'name')]"
+    },
+    "firstColor": {
+      "type": "string",
+      "nullable": true,
+      "value": "[tryGet(variables('colors'), 0)]"
+    }
+  }
+}
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| region | String | (NULL) |
+| name | String | John Doe |
+| firstColor | String | Red |
+
 ## union
 
 `union(arg1, arg2, arg3, ...)`
 
 Returns a single array or object with all elements from the parameters. For arrays, duplicate values are included once. For objects, duplicate property names are only included once.
 
-In Bicep, use the [union](../bicep/bicep-functions-object.md#union) function.
+In Bicep, use the [`union`](../bicep/bicep-functions-object.md#union) function.
 
 ### Parameters
 
@@ -562,21 +896,64 @@ An array or object.
 
 ### Remarks
 
-The union function uses the sequence of the parameters to determine the order and values of the result.
+The `union` function uses the sequence of the parameters to determine the order and values of the result.
 
-For arrays, the function iterates through each element in the first parameter and adds it to the result if it isn't already present. Then, it repeats the process for the second parameter and any additional parameters. If a value is already present, its earlier placement in the array is preserved.
+For arrays, the function iterates through each element in the first parameter and adds it to the result if it isn't already present. Then, it repeats the process for the second parameter and any other parameters. If a value is already present, its earlier placement in the array is preserved.
 
 For objects, property names and values from the first parameter are added to the result. For later parameters, any new names are added to the result. If a later parameter has a property with the same name, that value overwrites the existing value. The order of the properties isn't guaranteed.
 
-The union function merges not only the top-level elements but also recursively merging any nested arrays and objects within them. See the second example in the following section.
+The `union` function not only merges the top-level elements but also recursively merges any nested arrays and objects within them. See the second example in the following section.
 
 ### Example
 
 The following example shows how to use `union` with arrays and objects:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/union.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "firstObject": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b",
+        "three": "c1"
+      }
+    },
+    "secondObject": {
+      "type": "object",
+      "defaultValue": {
+        "three": "c2",
+        "four": "d",
+        "five": "e"
+      }
+    },
+    "firstArray": {
+      "type": "array",
+      "defaultValue": [ "one", "two", "three" ]
+    },
+    "secondArray": {
+      "type": "array",
+      "defaultValue": [ "three", "four" ]
+    }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "objectOutput": {
+      "type": "object",
+      "value": "[union(parameters('firstObject'), parameters('secondObject'))]"
+    },
+    "arrayOutput": {
+      "type": "array",
+      "value": "[union(parameters('firstArray'), parameters('secondArray'))]"
+    }
+  }
+}
+```
 
-The output from the preceding example with the default values is:
+The output of default values from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
@@ -656,4 +1033,4 @@ If nested arrays were merged, then the value of **objectOutput.nestedArray** wou
 
 ## Next steps
 
-* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](./syntax.md).
+For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](./syntax.md).

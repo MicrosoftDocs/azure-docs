@@ -7,6 +7,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/02/2022
 ms.author: akashdubey
+# Customer intent: As a cloud administrator, I want to change the value of a parameter in an encrypted BlobFuse2 configuration file, so that I can ensure optimal settings for my blob storage management.
 ---
 
 # How to use the BlobFuse2 secure set command to change the value of a parameter in an encrypted BlobFuse2 configuration file

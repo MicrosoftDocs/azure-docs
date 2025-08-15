@@ -4,8 +4,9 @@ description: When you access file data using the Azure portal, the portal makes 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 12/16/2024
+ms.date: 06/17/2025
 ms.author: kendownie
+# Customer intent: "As a cloud administrator, I want to configure authorization access for Azure file shares, so that I can securely manage user permissions and control data access through the Azure portal."
 ---
 
 # Choose how to authorize access to file data in the Azure portal
@@ -13,7 +14,7 @@ ms.author: kendownie
 When you access file data using the [Azure portal](https://portal.azure.com?azure-portal=true), the portal makes requests to Azure Files behind the scenes. These requests can be authorized using either your Microsoft Entra account or the storage account access key. The portal indicates which method you're using, and enables you to switch between the two if you have the appropriate permissions.
 
 > [!IMPORTANT]
-> Accessing a file share using storage account keys carries inherent security risks, so authenticate with Microsoft Entra when possible. For information on how to protect and manage your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
+> Accessing a file share using storage account keys carries inherent security risks, so always authenticate with Microsoft Entra when possible. For information on how to protect and manage your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
 
 You can also specify how to authorize an individual file share operation in the Azure portal. By default, the portal uses whichever method you're already using to authorize all file shares, but you have the option to change this setting for individual file shares.
 
@@ -37,7 +38,7 @@ Depending on how you want to authorize access to file data in the Azure portal, 
 
 <a name='use-your-azure-ad-account'></a>
 
-### Use your Microsoft Entra account
+### Use your Microsoft Entra account (recommended)
 
 To access file data from the Azure portal using your Microsoft Entra account, both of the following statements must be true:
 
@@ -57,7 +58,7 @@ For information about the built-in roles that support access to file data, see [
 
 Custom roles can support different combinations of the same permissions provided by the built-in roles. For more information about creating Azure custom roles, see [Azure custom roles](../../role-based-access-control/custom-roles.md) and [Understand role definitions for Azure resources](../../role-based-access-control/role-definitions.md).
 
-### Use the storage account access key
+### Use the storage account access key (not recommended)
 
 To access file data with the storage account access key, you must have an Azure role assigned to you that includes the Azure RBAC action **Microsoft.Storage/storageAccounts/listkeys/action**. This Azure role may be a built-in role or a custom role. Built-in roles that support **Microsoft.Storage/storageAccounts/listkeys/action** include the following, listed in order from least to greatest permissions:
 
@@ -88,7 +89,7 @@ You can change the authentication method for individual file shares. By default,
 
 <a name='authenticate-with-your-azure-ad-account'></a>
 
-### Authenticate with your Microsoft Entra account
+### Authenticate with your Microsoft Entra account (recommended)
 
 To switch to using your Microsoft Entra account, select the link highlighted in the image that says **Switch to Microsoft Entra user account**. If you have the appropriate permissions via the Azure roles that are assigned to you, you'll be able to proceed. However, if you lack the necessary permissions, you'll see an error message that you don't have permissions to list the data using your user account with Microsoft Entra ID.
 
@@ -98,7 +99,7 @@ Two additional RBAC permissions are required to use your Microsoft Entra account
 
 No file shares will appear in the list if your Microsoft Entra account lacks permissions to view them.
 
-### Authenticate with the storage account access key
+### Authenticate with the storage account access key (not recommended)
 
 To switch to using the account access key, select the link that says **Switch to access key.** If you have access to the storage account key, then you'll be able to proceed. However, if you lack access to the account key, you'll see an error message that you don't have permissions to use the access key to list data.
 

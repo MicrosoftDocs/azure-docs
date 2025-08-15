@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 08/08/2024
 ms.author: allensu
 ms.custom: template-how-to, devx-track-azurepowershell
+# Customer intent: "As a cloud administrator, I want to enable resource logging for my Traffic Manager profile, so that I can monitor probe health results and gain insights into the performance and availability of my endpoints."
 ---
 
 # Enable resource logging in Azure Traffic Manager

@@ -8,6 +8,7 @@ ms.date: 10/19/2022
 ms.topic: concept-article
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+# Customer intent: As an SAP automation engineer, I want to configure custom naming conventions for the SAP Deployment Automation Framework, so that I can ensure resource names align with my organization's standards and reduce the likelihood of naming conflicts in Azure.
 ---
 
 # Configure custom naming for the automation framework

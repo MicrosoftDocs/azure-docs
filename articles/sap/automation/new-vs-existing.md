@@ -8,6 +8,7 @@ ms.date: 11/17/2021
 ms.topic: concept-article
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+# Customer intent: As a cloud architect, I want to configure SAP Deployment Automation Framework for both new and existing deployments, so that I can streamline resource management and ensure efficient SAP system provisioning within Azure.
 ---
 
 # Configure new and existing deployments

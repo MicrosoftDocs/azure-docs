@@ -9,6 +9,7 @@ ms.topic: quickstart
 ms.date: 06/26/2023
 ms.author: shaas
 ms.custom: devx-track-azurepowershell, mode-api
+# Customer intent: As a cloud user, I want to upload, download, and manage blobs using PowerShell, so that I can efficiently transfer and organize files in Azure Blob storage.
 ---
 
 # Quickstart: Upload, download, and list blobs with PowerShell

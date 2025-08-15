@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.date: 04/26/2023
 ms.author: allensu
 ms.custom: template-tutorial
+# Customer intent: As a cloud administrator, I want to configure weighted round-robin traffic routing in a load balancer, so that I can distribute traffic across multiple endpoints effectively to optimize resource utilization and improve performance.
 ---
 
 # Tutorial: Configure the weighted traffic routing method in Traffic Manager

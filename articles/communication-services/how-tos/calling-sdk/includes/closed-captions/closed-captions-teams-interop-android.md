@@ -1,17 +1,18 @@
 ---
 title: include file
-description: Android how-to guide for enabling Closed captions during a Teams interop call.
+description: Android article to enable closed captions during a Teams interop call.
 author: Kunaal
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.topic: include
 ms.topic: include file
-ms.date: 07/21/2023
+ms.date: 06/28/2025
 ms.author: kpunjabi
 ---
 
 ## Prerequisites
-- Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
+
+- Azure account with an active subscription, for details see [Create an account for free](https://azure.microsoft.com/free/).
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). Save the connection string for this resource. 
 - An app with voice and video calling, refer to our [Voice](../../../../quickstarts/voice-video-calling/getting-started-with-calling.md) and [Video](../../../../quickstarts/voice-video-calling/get-started-with-video-calling.md) calling quickstarts.
 - [Access tokens](../../../../quickstarts/manage-teams-identity.md) for Microsoft 365 users. 
@@ -19,9 +20,10 @@ ms.author: kpunjabi
 - For Translated captions, you need to have a [Teams premium](/MicrosoftTeams/teams-add-on-licensing/licensing-enhance-teams#meetings) license.  
 
 > [!NOTE]
-> Please note that you will need to have a voice calling app using Azure Communication Services calling SDKs to access the closed captions feature that is described in this guide.
+> You need to have a voice calling app using Azure Communication Services calling SDKs to access the closed captions feature that is described in this guide.
 
 ## Models
+
 | Name                       | Description                                               |
 | -------------------------- | --------------------------------------------------------- |
 | CaptionsCallFeature        | API for captions call feature                             |
@@ -114,7 +116,7 @@ public void addOnActiveCaptionLanguageChangedListener() {
 
 ## Start captions
 
-Once you've set up all your listeners, you can now start adding captions.
+Once you set up all your listeners, you can start adding captions.
 
 ``` java
 public void startCaptions() {
@@ -149,6 +151,7 @@ public void removeOnCaptionsReceivedListener() {
 ## Spoken language support 
 
 ### Get list of supported spoken languages
+
 Get a list of supported spoken languages that your users can select from when enabling closed captions. 
 
 ``` java
@@ -156,7 +159,8 @@ Get a list of supported spoken languages that your users can select from when en
 teamsCaptions.getSupportedSpokenLanguages();
 ```
 
-### Set spoken language 
+### Set spoken language
+
 When the user selects the spoken language, your app can set the spoken language that it expects captions to be generated from. 
 
 ``` java 
@@ -172,7 +176,7 @@ public void setSpokenLanguage() {
 
 ### Get supported caption language 
 
-If your organization has an active Teams premium license, then your Azure Communication Services users can enable translated captions as long as the organizer of the meeting has a Teams premium license. As for users with Microsoft 365 identities this check is done against their own user account if they meeting organizer doesn't have a Teams premium license.
+If your organization has an active Teams premium license, then your Azure Communication Services users can enable translated captions as long as the organizer of the meeting has a Teams premium license. For users with Microsoft 365 identities, this check is done against their own user account if they meeting organizer doesn't have a Teams premium license.
 
 ``` java
 // ISO 639-1 formatted language code

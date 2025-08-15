@@ -7,6 +7,7 @@ ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 09/10/2024
 ms.author: duau
+# Customer intent: As a network administrator, I want to route Internet-bound traffic through an on-premises firewall using forced tunneling, so that I can enhance security and control over outbound traffic processing before it reaches the Internet.
 ---
 
 # Azure Firewall forced tunneling

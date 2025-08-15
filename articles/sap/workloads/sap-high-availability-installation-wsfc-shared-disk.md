@@ -12,6 +12,7 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 11/19/2024
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
+# Customer intent: "As an IT administrator, I want to install and configure SAP NetWeaver HA on a Windows failover cluster in Azure, so that I can ensure high availability for our SAP ASCS/SCS instances."
 ---
 
 # Install SAP NetWeaver HA on a Windows failover cluster and shared disk for an SAP ASCS/SCS instance in Azure

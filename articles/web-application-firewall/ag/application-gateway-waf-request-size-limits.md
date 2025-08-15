@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 07/16/2024
+# Customer intent: "As a security administrator, I want to configure the request and file upload size limits in the Web Application Firewall, so that I can optimize security policies and prevent unauthorized large requests or file uploads affecting application performance."
 ---
 
 # Web Application Firewall request and file upload size limits

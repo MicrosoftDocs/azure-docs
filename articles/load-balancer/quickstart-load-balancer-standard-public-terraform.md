@@ -11,6 +11,7 @@ ms.date: 04/01/2025
 ms.author: mbender
 ms.custom: devx-track-terraform
 #Customer intent: I want to create a load balancer by using Terraform so that I can load balance internet traffic to VMs.
+# Customer intent: As a cloud infrastructure developer, I want to create a public load balancer using Terraform, so that I can efficiently distribute internet traffic to my virtual machines.
 ---
 
 # Quickstart: Create a public load balancer to load balance VMs using Terraform

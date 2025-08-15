@@ -3,6 +3,7 @@ author: cephalin
 ms.author: cephalin
 ms.topic: include
 ms.date: 01/31/2023
+ms.service: azure-app-service
 ---
 
 In the **Application settings** tab of the **Configuration** page, create a `DB_DATABASE` setting:

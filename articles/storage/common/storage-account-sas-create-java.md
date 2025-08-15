@@ -3,16 +3,17 @@ title: Create an account SAS with Java
 titleSuffix: Azure Storage
 description: Learn how to create an account shared access signature (SAS) using the Java client library.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 08/05/2024
-ms.author: pauljewell
+ms.author: shaas
 ms.reviewer: dineshm
 ms.subservice: storage-common-concepts
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
+# Customer intent: "As a Java developer, I want to create an account shared access signature (SAS) for a storage account, so that I can delegate access to service-level operations and manage resources across multiple services in a secure manner."
 ---
 
 # Create an account SAS with Java
@@ -101,3 +102,4 @@ To learn more about creating an account SAS using the Azure Blob Storage client 
 
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md)
 - [Create an account SAS](/rest/api/storageservices/create-account-sas)
+

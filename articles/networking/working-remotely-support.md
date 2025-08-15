@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.date: 04/09/2023
 ms.author: allensu
 
+# Customer intent: As a network architect, I want to implement Azure networking services for remote work, so that I can ensure secure, reliable connectivity and manage increased traffic for a scalable remote workforce.
 ---
 
 # Enable remote work by using Azure networking services
