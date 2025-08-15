@@ -25,12 +25,12 @@ Application Gateway for Containers introduces a new child resource called `Secur
 
 Application Gateway for Containers introduces a new custom resource called `WebApplicationFirewallPolicy`. The custom resource is responsible for defining which Azure Web Application Firewall policy should be used at which scope.
 
-The resource can define the following scopes:
+The WebApplicationFirewallPolicy resource can target the following Kubernetes resources:
 
 * `Gateway`
 * `HTTPRoute`
 
-In addition, the resource can reference the following sections by name for each of the parent resources:
+The WebApplicationFirewallPolicy resource can also reference the following sections by name for further granularity:
 
 * `Gateway`: `Listener`
 
@@ -77,7 +77,7 @@ spec:
     id: /subscriptions/.../Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/waf-policy-0
 ```
 
-#### Scope policy to an HTTPRoute resource
+#### Scope policy across all routes and paths
 
 This example shows how to target a defined HTTPRoute resource to apply the policy to any routing rules and paths within a given HTTPRoute resource.
 
@@ -99,7 +99,7 @@ spec:
 
 #### Scope policy to a particular path
 
-To scope a WAF policy to different paths, you can define two HTTPRoute with a unique path and reference a policy to each HTTPRoute. 
+To use different WAF policies to different paths of the same `Gateway` or Gateway -> Listener sectionName, you can define two HTTPRoute resources, each with a unique path, that each references its applicable WAF policy.
 
 ```yaml
 apiVersion: alb.networking.azure.io/v1
