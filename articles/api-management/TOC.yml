@@ -252,7 +252,7 @@
       href: azure-openai-enable-semantic-caching.md
     - name: Authenticate and authorize to Azure OpenAI
       href: api-management-authenticate-authorize-azure-openai.md
-    - name: Logging of LLM requests and responses
+    - name: Log LLM tokens, requests, and responses
       href: api-management-howto-llm-logs.md
   - name: Manage MCP servers
     items:
