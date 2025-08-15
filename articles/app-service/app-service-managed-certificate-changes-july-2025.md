@@ -43,7 +43,7 @@ You can't create or renew ASMCs if your:
 Existing certificates remain valid until expiration (up to six months), but will not renew automatically if your configuration is unsupported.
 
 > [!NOTE]
-> In addition to the new changes, all existing ASMC requirements still apply. Refer to [App Service Managed Certificate documentation](https://learn.microsoft.com/azure/app-service/configure-ssl-certificate?tabs=apex%2Crbac%2Cazure-cli#create-a-free-managed-certificate) for more information.
+> In addition to the new changes, all existing ASMC requirements still apply. Refer to [App Service Managed Certificate documentation](configure-ssl-certificate?tabs=apex%2Crbac%2Cazure-cli#create-a-free-managed-certificate) for more information.
 
 ## Identify impacted resources
 You can use [Azure Resource Graph (ARG)](https://portal.azure.com/?feature.customPortal=false#view/HubsExtension/ArgQueryBlade) queries to help identify resources that may be affected under each scenario. These queries are provided as a starting point and may not capture every configuration. Review your environment for any unique setups or custom configurations. 
