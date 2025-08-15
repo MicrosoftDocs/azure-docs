@@ -29,6 +29,11 @@ This guide shows how to create parallel branches in a workflow and rejoin those 
 
 - A logic app workflow that starts with a trigger and the actions that you want. Make sure that your workflow includes the actions between where you want to add a parallel branch.
 
+  If you don't have this resource, see the following articles:
+
+  - [Create an example Consumption logic app workflow in Azure Logic Apps](../logic-apps/quickstart-create-example-consumption-workflow.md)
+  - [Create an example Standard logic app workflow in Azure Logic Apps](../logic-apps/create-single-tenant-workflows-azure-portal.md)
+
 ## Considerations for working with parallel branches
 
 - A parallel branch runs only when its `runAfter` property value matches the parent action's completed status. For example, both the branches **branchAction1** and **branchAction2** run only when **parentAction** completes with **Succeeded** status.
