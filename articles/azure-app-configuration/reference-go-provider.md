@@ -15,7 +15,7 @@ ms.date: 08/13/2025
 
 # Go configuration provider
 
-[![pkg.go.dev](https://pkg.go.dev/badge/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration.svg)](https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration)
+<br/><a href="https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"><img src="media/go-provider.png" alt="Go" width="90" height="20"></a>
 
 Azure App Configuration is a managed service that helps developers centralize their application configurations simply and securely. The Go configuration provider library enables loading configuration from an Azure App Configuration store in a managed way. This client library adds additional [functionality](./configuration-provider-overview.md#feature-development-status) on top of the Azure SDK for Go.
 
@@ -488,8 +488,6 @@ options := &azureappconfiguration.Options{
 
 > [!IMPORTANT]
 > If your application loads key-values containing Key Vault references without proper Key Vault configuration, an **error** will be returned during the load operation. Ensure you've properly configured Key Vault access or a secret resolver.
-
-For more information about how to use Key Vault references, go to [Tutorial: Use Key Vault references in Go applications](./use-key-vault-references-go.md).
 
 ### Key Vault secret refresh
 
