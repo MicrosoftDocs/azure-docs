@@ -38,7 +38,7 @@ The WebApplicationFirewallPolicy resource can also reference the following secti
 
 #### Scope a policy to a Gateway resource
 
-Here's an example YAML configuration that shows targeting a a Gateway resource, which would apply to all listeners on a given Application Gateway for Containers' frontend resource.
+Here's an example YAML configuration that shows targeting a Gateway resource, which would apply to all listeners on a given Application Gateway for Containers' frontend resource.
 
 ```yaml
 apiVersion: alb.networking.azure.io/v1
