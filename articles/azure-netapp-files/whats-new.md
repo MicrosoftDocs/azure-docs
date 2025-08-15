@@ -18,8 +18,8 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [File access logs](manage-file-access-logs.md) is now generally available (GA)
 
-    File Access Logs provides detailed logging of file access activities, including user identity, operation type, and timestamps, enhancing security, reliability, and operational insights. It supports SMB, NFSv4.1, and dual-protocol volumes, offering valuable features for monitoring unauthorized access, tracing activity for compliance, resolving incidents, and optimizing data usage patterns. By embedding this capability, you can strengthen your organization's security posture, maintain system reliability, and achieve operational excellence in alignment with the Well-Architected Framework security best practices. Azure NetApp Files file access logs play a critical role in safeguarding sensitive data, detecting anomalies while enabling operational excellence.
-
+    Files access logs provide enterprise-grade visibility into file-level operations across SMB3, NFSv4.1, and dual-protocol volumes, helping organizations monitor access activity, enhance security, and meet compliance requirements.
+    
 ## May 2025
 
 * [Volume encryption with customer-managed keys with managed Hardware Security Module (HSM)](configure-customer-managed-keys-hardware.md) is now generally available (GA)
