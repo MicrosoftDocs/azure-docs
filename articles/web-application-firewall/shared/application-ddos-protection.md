@@ -7,6 +7,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 03/31/2025
+# Customer intent: "As a web application administrator, I want to implement layers of DDoS protection through a Web Application Firewall and Azure services, so that I can ensure my applications remain available and performant against various DDoS attack vectors."
 ---
 
 # Application (Layer 7) DDoS protection

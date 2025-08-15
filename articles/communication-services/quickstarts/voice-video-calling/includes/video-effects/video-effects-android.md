@@ -1,11 +1,11 @@
 ---
-title: Quickstart - Add video effects to your video calls (Android)
-titleSuffix: An Azure Communication Services quickstart
-description: Learn how to add video effects in your video calls using Azure Communication Services.
+title: Enable video background effects
+titleSuffix: An Azure Communication Services article
+description: This article describes how to add video effects in your video calls using Azure Communication Services.
 author: jsaurezlee
 
 ms.author: micahvivion
-ms.date: 04/04/2023
+ms.date: 06/24/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -17,7 +17,7 @@ ms.custom: mode-other
 
 You can use the Video Effects feature to add effects to your video in video calls. Background blur provides users with the mechanism to remove distractions behind a participant so that participants can communicate without disruptive activity or confidential information in the background. This feature is especially useful the context of telehealth, where a provider or patient might want to obscure their surroundings to protect sensitive information or personal data. Background blur can be applied across all virtual appointment scenarios, including telebanking and virtual hearings, to protect user privacy.
 
-This quickstart builds on [Quickstart: Add 1:1 video calling to your app](../../get-started-with-video-calling.md?pivots=platform-android) for Android.
+This article builds on [Add 1:1 video calling to your app](../../get-started-with-video-calling.md?pivots=platform-android) for Android.
 
 ## Using video effects
 
@@ -30,17 +30,17 @@ The `VideoEffectsLocalVideoStreamFeature` object has the following API structure
 
 - `enableEffect`: Enables a Video Effect on the `LocalVideoStream` instance.
 - `disableEffect`: Disables a Video Effect on the `LocalVideoStream` instance.
-- `OnVideoEffectEnabledListener`: Event that is triggered when a Video Effect has been enabled successfully.
-- `OnVideoEffectDisabledListener`: Event that is triggered when a Video Effect has been disabled successfully.
+- `OnVideoEffectEnabledListener`: Event that is triggered when a Video Effect is enabled successfully.
+- `OnVideoEffectDisabledListener`: Event that is triggered when a Video Effect is disabled successfully.
 - `OnVideoEffectErrorListener`: Event that is triggered when a Video Effect operation fails.
 
-The `VideoEffectEnabledEvent`, `VideoEffectDisabledEvent` and `VideoEffectErrorEvent` objects have the following API structure:
+The `VideoEffectEnabledEvent`, `VideoEffectDisabledEvent`, and `VideoEffectErrorEvent` objects have the following API structure:
 
- - `getVideoEffectName`: Gets the name of the Video Effect that triggered the event.
+- `getVideoEffectName`: Gets the name of the Video Effect that triggered the event.
 
 Once you have the `VideoEffectsLocalVideoStreamFeature` object, you can subscribe to the events:
 
-To use Video Effects with the Azure Communication Calling SDK, once you've created a `LocalVideoStream`, you need to get the `VideoEffects` feature API of the `LocalVideoStream` to enable/disable Video Effects:
+To use Video Effects with the Azure Communication Calling SDK, once you create a `LocalVideoStream`, you need to get the `VideoEffects` feature API of the `LocalVideoStream` to enable/disable Video Effects:
 
 ```java
 // Obtain the Video Effects feature from the LocalVideoStream object that is sending the video.
@@ -62,7 +62,7 @@ videoEffectsFeature.addOnVideoEffectDisabledListener(this::handleOnVideoEffectDi
 videoEffectsFeature.addOnVideoEffectErrorListener(this::handleOnVideoEffectError);
 ```
 
-and start using the APIs to enable and disable Video Effects:
+Then start using the APIs to enable and disable Video Effects:
 
 ```java
 videoEffectsFeature.enableEffect( {{VIDEO_EFFECT_TO_DISABLE}} );
@@ -71,7 +71,7 @@ videoEffectsFeature.disableEffect( {{VIDEO_EFFECT_TO_DISABLE}} );
 
 ### Background blur
 
-Background Blur is a Video Effect that allows a person's background to be blurred. In order to use Background Video Effect, you need to obtain a `VideoEffectsLocalVideoStreamFeature` feature from a valid `LocalVideoStream`.
+Background Blur is a Video Effect that enables the application to blue a person's background. In order to use Background Video Effect, you need to obtain a `VideoEffectsLocalVideoStreamFeature` feature from a valid `LocalVideoStream`.
 
 To enable Background Blur Video Effect:
 

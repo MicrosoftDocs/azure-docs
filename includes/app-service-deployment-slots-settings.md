@@ -21,6 +21,7 @@ When you swap slots, these settings are swapped:
 - Service endpoints (currently)
 - Azure Content Delivery Network (currently)
 - Path mappings
+- Virtual network integration
 
 When you swap slots, these settings aren't swapped:
 
@@ -34,7 +35,6 @@ When you swap slots, these settings aren't swapped:
 - Always On
 - Diagnostic settings
 - Cross-origin resource sharing (CORS)
-- Virtual network integration
 - Managed identities and related settings
 - Settings that end with the suffix `_EXTENSION_VERSION`
 - Settings that [Service Connector](../articles/service-connector/overview.md) created

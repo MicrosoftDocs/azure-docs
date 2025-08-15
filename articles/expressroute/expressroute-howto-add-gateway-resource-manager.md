@@ -111,11 +111,12 @@ The steps for this task use a VNet based on the values in the following configur
 
    > [!NOTE]
    > Basic SKU public IP isn't supported with new ExpressRoute virtual network gateway.
+   > Creating a public IP is no longer required, Microsoft will create and manage your public IP.
    
 1. Create the configuration for your gateway. The gateway configuration defines the subnet and the public IP address to use. In this step, you're specifying the configuration that will be used when you create the gateway. Use the following sample to create your gateway configuration.
 
    ```azurepowershell-interactive
-   $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
+   $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet 
    ```
 1. Create the gateway. In this step, the **-GatewayType** is especially important. You must use the value **ExpressRoute**. After running these cmdlets, the gateway can take 45 minutes or more to create.
 

@@ -2,10 +2,10 @@
 title: Use matching analytics to detect threats
 titleSuffix: Microsoft Sentinel
 description: This article explains how to detect threats with Microsoft-generated threat intelligence in Microsoft Sentinel.
-author: austinmccollum
+author: guywi-ms
 ms.topic: how-to
 ms.date: 01/28/2025
-ms.author: austinmc
+ms.author: guywild
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal

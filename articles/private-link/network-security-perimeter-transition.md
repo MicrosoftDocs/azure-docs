@@ -15,6 +15,8 @@ ms.date: 08/15/2025
 
 In this article, you learn about the different access modes and how to transition to a [network security perimeter](./network-security-perimeter-concepts.md) in Azure. Access modes control resource access and logging behavior, helping you secure your Azure resources.
 
+[!INCLUDE network-security-perimeter-preview-message]
+
 ## Access mode configuration point on resource associations 
 
 The **access mode** configuration point is part of a resource association on the perimeter and therefore can be set by the perimeter's administrator. 

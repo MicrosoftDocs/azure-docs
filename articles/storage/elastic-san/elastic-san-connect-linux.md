@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 06/18/2025
 ms.author: rogarana
 ms.custom: references_regions, linux-related-content
+# Customer intent: As a Linux user, I want to connect to an Azure Elastic SAN volume using iSCSI, so that I can ensure optimal performance with multiple sessions for my application.
 ---
 
 # Connect to Elastic SAN volumes - Linux
@@ -47,6 +48,7 @@ defaults {
     failback immediate			# For immediate failback to highest priority path group with active paths
     no_path_retry 3			# To disable I/O queueing after retrying once when all paths are down
     polling_interval 5         # Set path check polling interval to 5 seconds
+    find multipaths yes        # To allow multipath to take control of only those devices that have multiple paths 
 }
 devices {
   device {

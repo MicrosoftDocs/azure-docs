@@ -2,12 +2,13 @@
 title: Actions and attributes for Azure role assignment conditions for Azure Blob Storage
 titleSuffix: Azure Storage
 description: Supported actions and attributes for Azure role assignment conditions and Azure attribute-based access control (Azure ABAC) for Azure Blob Storage. 
-author: pauljewellmsft
-ms.author: pauljewell
+author: normesta
+ms.author: normesta
 ms.service: azure-blob-storage
 ms.topic: concept-article
-ms.date: 04/01/2024
+ms.date: 07/08/2025
 ms.reviewer: nachakra
+# Customer intent: "As a security administrator, I want to configure attribute-based access control for Azure Blob Storage, so that I can enforce granular access permissions based on specific conditions and attributes for different storage operations."
 ---
 
 # Actions and attributes for Azure role assignment conditions for Azure Blob Storage
@@ -444,7 +445,7 @@ The following table summarizes the available attributes by source:
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | Container metadata |
-> | **Description** | Metadata key/value pair associated with a container.<br/>Use when you want to check specific metadata for a container. *Currently in preview.* |
+> | **Description** | Metadata key/value pair associated with a container.<br/>Use when you want to check specific metadata for a container. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/metadata` |
 > | **Attribute source** | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |

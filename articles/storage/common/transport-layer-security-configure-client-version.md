@@ -13,6 +13,7 @@ ms.reviewer: fryu
 ms.subservice: storage-common-concepts
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurepowershell, engagement-fy23
+# Customer intent: "As a developer, I want to configure my client application to use a minimum version of Transport Layer Security (TLS) so that I can ensure secure communication with Azure Storage and avoid request failures."
 ---
 
 # Configure Transport Layer Security (TLS) for a client application

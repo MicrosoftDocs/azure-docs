@@ -7,7 +7,7 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth
 author: expekesheth
-ms.date: 06/06/2022
+ms.date: 08/12/2025
 ---
 
 # CARIN Implementation Guide for Blue Button&#174;

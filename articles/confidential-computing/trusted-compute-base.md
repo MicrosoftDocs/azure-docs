@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 06/09/2023
 ms.custom: template-concept
 ms.subservice: confidential-computing
+# Customer intent: As a cloud security architect, I want to understand the concept of Trusted Computing Base (TCB) in Azure Confidential Computing, so that I can evaluate and implement effective security measures for my workloads and ensure their confidentiality.
 ---
 # Trusted computing base
 

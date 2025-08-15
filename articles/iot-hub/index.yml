@@ -8,7 +8,7 @@ metadata:
   ms.topic: landing-page
   author: SoniaLopezBravo
   ms.author: sonialopez
-  ms.date: 08/14/2024
+  ms.date: 06/16/2025
 
 landingContent:
  - title: Learn about IoT Hub
@@ -21,7 +21,7 @@ landingContent:
       links:
       - text: Compare IoT Hub and Event Hubs
         url: iot-hub-compare-event-hubs.md
-      - text: Choose your IoT Hub tier
+      - text: Choose your IoT Hub tier and size
         url: iot-hub-scaling.md
 
  - title: Collect data from your devices
@@ -77,14 +77,14 @@ landingContent:
      links:
      - text: Security best practices
        url: ../iot/iot-overview-security.md?context=/azure/iot-hub/rc/rc
-     - text: Control access to IoT Hub
+     - text: Control access to IoT Hub by using Microsoft Entra ID
        url: iot-hub-devguide-security.md
 
  - title: Develop with SDKs and tools
    linkLists:
    - linkListType: concept
      links:
-     - text: Learn about Azure IoT SDKs
+     - text: Learn about Azure IoT Hub SDKs
        url: iot-hub-devguide-sdks.md
      - text: Use the Azure IoT Hub extension for VS Code
        url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit

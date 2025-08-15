@@ -11,6 +11,7 @@ ROBOTS: NOINDEX, NOFOLLOW
 ms.author: mbender
 ms.custom: mvc, mode-ui
 #Customer intent: I want to create a internal load balancer so that I can load balance internal traffic to VMs.
+# Customer intent: "As a cloud architect, I want to create a basic internal load balancer using the Azure portal, so that I can effectively manage and distribute internal traffic to virtual machines."
 ---
 
 # Quickstart: Create a basic internal load balancer to load balance VMs using the Azure portal

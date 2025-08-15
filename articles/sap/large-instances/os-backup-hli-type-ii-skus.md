@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 07/12/2019
 ms.author: jaawasth
 ms.custom: H1Hack27Feb2017
+# Customer intent: As a system administrator, I want to implement a file-level backup and restore process for SAP HANA on large Azure instances, so that I can ensure data integrity and recovery in case of operating system corruption.
 ---
 # OS backup and restore for Type II SKUs of Revision 3 stamps
 

@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 05/12/2025
+# Customer intent: "As a security administrator, I want to implement geo-filtering custom rules for my web applications, so that I can restrict access based on user location and enhance the overall security of my applications."
 ---
 
 # Geomatch custom rules

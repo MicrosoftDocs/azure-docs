@@ -7,6 +7,7 @@ ms.custom: mvc, mode-other
 ms.author: jsuri
 author: jyothisuri
 ms.service: azure-site-recovery
+# Customer intent: "As an IT administrator, I want to configure disaster recovery for Azure VMs to a secondary region, so that I can ensure business continuity and reduce downtime during outages."
 ---
 
 # Quickstart: Set up disaster recovery to a secondary Azure region for an Azure VM

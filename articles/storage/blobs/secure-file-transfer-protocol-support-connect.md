@@ -8,6 +8,7 @@ ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.date: 05/18/2024
 ms.author: normesta
+# Customer intent: As a cloud administrator, I want to connect to Azure Blob Storage using an SFTP client, so that I can securely transfer and manage files while modifying access permissions as needed.
 ---
 
 # Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)
