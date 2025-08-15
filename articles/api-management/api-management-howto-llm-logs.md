@@ -28,7 +28,7 @@ Learn more about:
 
 ## Prerequisites
 - An Azure API Management instance.
-- A managed LLM chat completions API integrated with Azure API Management. For example, [Import an Azure AI Foundry API](ai-foundry-api.md).
+- A managed LLM chat completions API integrated with Azure API Management. For example, [Import an Azure AI Foundry API](azure-ai-foundry-api.md).
 - Access to an Azure Log Analytics workspace.
 - Appropriate permissions to configure diagnostic settings and access logs.
 
@@ -52,7 +52,7 @@ For detailed configuration steps, see [Enable diagnostic setting for Azure Monit
 
 Enable Azure Monitor logging for your LLM API. For detailed steps, see [Modify API logging settings](monitor-api-management.md#modify-api-logging-settings). 
 
-The following are brief steps to to log all LLM requests and response messages (up to 32 KB in size) for an API:
+The following are brief steps to log all LLM requests and response messages (up to 32 KB in size) for an API:
 
 1. In the left menu of your API Management instance, select **APIs > APIs**  and then the name of the API.
 1. Select the **Settings** tab from the top bar.
@@ -62,7 +62,7 @@ The following are brief steps to to log all LLM requests and response messages (
 1. Select **Log completions** and enter *32768*.
 1. Review other settings and make changes if needed. Select **Save**.
 
-[Insert image]
+:::image type="content" source="media/api-management-howto-llm-logs/enable-llm-api-logging.png" alt-text="Screenshot of enabling LLM logging for an API in the portal.":::
 
 > [!NOTE]
 > LLM request or response messages up to 32 KB in size, if collected, are sent in a single entry. Messages larger than 32 KB are split and logged in 32 KB chunks with sequence numbers for later reconstruction. Request messages and response messages can't exceed 2 MB each.
