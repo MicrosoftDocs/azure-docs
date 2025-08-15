@@ -11,7 +11,7 @@ ms.service: azure-app-service
 # customer intent: As a developer, I want to configure Sign in with Apple so that I can use it as an identity provider for an App Service or Azure Functions app.  
  
 
- ---
+---
 
 # Configure your App Service or Azure Functions app to sign in using a Sign in with Apple provider (Preview)
 
