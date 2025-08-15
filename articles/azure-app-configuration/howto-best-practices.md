@@ -166,8 +166,10 @@ options := &azureappconfiguration.Options{
     },
     RefreshOptions: azureappconfiguration.KeyValueRefreshOptions{
         Enabled:  true,
-        WatchedSettings: []WatchedSetting{
-				    {Key: "SentinelKey"},
+        WatchedSettings: []azureappconfiguration.WatchedSetting{
+          {
+            Key:   "SentinelKey",
+          },
 			},
     },
 }
