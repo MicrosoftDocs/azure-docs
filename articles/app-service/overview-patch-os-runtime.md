@@ -10,6 +10,7 @@ ms.custom:
   - build-2025
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
 ---
 
 # OS and runtime patching in Azure App Service

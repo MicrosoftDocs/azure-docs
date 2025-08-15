@@ -1,5 +1,5 @@
 ---
-title: Use WebAssembly (WASM) with data flow graphs (preview)
+title: Use WebAssembly With Data Flow Graphs (Preview)
 description: Learn how to deploy and use WebAssembly modules with data flow graphs in Azure IoT Operations to process data at the edge.
 author: PatAltimore
 ms.author: patricka
@@ -22,7 +22,7 @@ Azure IoT Operations data flow graphs support WebAssembly (WASM) modules for cus
 
 ## Prerequisites
 
-- Deploy an Azure IoT Operations instance on an Arc-enabled Kubernetes cluster. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
+- Deploy an Azure IoT Operations instance, version 1.2 preview or later, on an Arc-enabled Kubernetes cluster. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
 - Use Azure Container Registry (ACR) to store WASM modules and graphs.
 - Install the OCI Registry As Storage (ORAS) CLI to push WASM modules to the registry.
 - Develop custom WASM modules by following guidance in [Develop WebAssembly modules for data flow graphs](howto-develop-wasm-modules.md).
@@ -36,7 +36,7 @@ WebAssembly (WASM) modules in Azure IoT Operations data flow graphs let you proc
 The WASM data flow implementation follows this workflow:
 
 1. **Develop WASM modules**: Write custom processing logic in a supported language and compile it to the WebAssembly Component Model format.
-1. **Develop graph definition**: Define how data moves through the modules by using YAML configuration files.
+1. **Develop graph definition**: Define how data moves through the modules by using YAML configuration files. For detailed information, see [Configure WebAssembly graph definitions](howto-configure-wasm-graph-definitions.md).
 1. **Store artifacts in registry**: Push the compiled WASM modules to a container registry by using OCI-compatible tools such as ORAS.
 1. **Configure registry endpoints**: Set up authentication and connection details so Azure IoT Operations can access the container registry.
 1. **Create data flow**: Define data sources, the artifact name, and destinations.
@@ -157,7 +157,7 @@ spec:
 > [!NOTE]
 > You can reuse registry endpoints across multiple data flow graphs and other Azure IoT Operations components, like Akri connectors.
 
-### Get extension name and tenant ID
+### Get extension name
 
 ```azurecli
 # Get extension name
@@ -167,12 +167,9 @@ az k8s-extension list \
   --cluster-type connectedClusters \
   --query "[?extensionType=='microsoft.iotoperations'].name" \
   --output tsv
-
-# Get tenant ID  
-az account show --query tenantId --output tsv
 ```
 
-The first command returns the extension name (for example, `azure-iot-operations-4gh3y`). The second command returns your tenant ID.
+The first command returns the extension name (for example, `azure-iot-operations-4gh3y`).
 
 ### Configure managed identity permissions
 
@@ -220,23 +217,7 @@ The [graph definition](https://github.com/Azure-Samples/explore-iot-operations/b
 2. **Map**: Processes data with the temperature WASM module
 3. **Sink**: Sends converted data back to MQTT
 
-The graph references the temperature module:
-
-```yaml
-operations:
-  - operationType: "map"
-    name: "module-temperature/map" 
-    module: "temperature:1.0.0"
-```
-
-The [temperature module](https://github.com/Azure-Samples/explore-iot-operations/blob/wasm/samples/wasm/operators/temperature/src/lib.rs) converts Fahrenheit to Celsius by using the standard formula `(F - 32) × 5/9 = C`:
-
-```rust
-if measurement.unit == MeasurementTemperatureUnit::Fahrenheit {
-    measurement.value = Some((measurement.value.unwrap() - 32.) * 5. / 9.);
-    measurement.unit = MeasurementTemperatureUnit::Celsius;
-}
-```
+For detailed information about how the simple graph definition works and its structure, see [Example 1: Simple graph definition](howto-configure-wasm-graph-definitions.md#example-1-simple-graph-definition).
 
 Input format:
 ```json
@@ -292,7 +273,7 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
   }
   properties: {
     mode: 'Enabled'
-    requestDiskPersistence: 'Enabled'
+    requestDiskPersistence: 'Disabled'
     nodes: [
       {
         nodeType: 'Source'
@@ -312,8 +293,8 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
           artifact: 'graph-simple:1.0.0'
           configuration: [
             {
-              key: 'conversion'
-              value: 'fahrenheit-to-celsius'
+              key: 'key1'
+              value: 'example-value'
             }
           ]
         }
@@ -360,7 +341,7 @@ metadata:
   name: <GRAPH_NAME>
   namespace: azure-iot-operations
 spec:
-  requestDiskPersistence: Enabled
+  requestDiskPersistence: Disabled
   profileRef: default
 
   nodes:
@@ -377,8 +358,8 @@ spec:
         registryEndpointRef: <REGISTRY_ENDPOINT_NAME>
         artifact: graph-simple:1.0.0
         configuration:
-          - key: conversion
-            value: fahrenheit-to-celsius
+          - key: key1
+            value: example-value
 
     - nodeType: Destination
       name: temperature-destination
@@ -408,13 +389,10 @@ kubectl apply -f dataflow-graph.yaml
 
 ### Test the data flow
 
-To test the data flow, send MQTT messages from within the cluster. First, deploy the MQTT client pod by following the instructions in [Test connectivity to MQTT broker with MQTT clients](../manage-mqtt-broker/howto-test-connection.md). The MQTT client provides the authentication tokens and certificates to connect to the broker.
-
-After you deploy the MQTT client pod, open two terminal sessions, and connect to the pod:
+To test the data flow, send MQTT messages from within the cluster. First, deploy the MQTT client pod by following the instructions in [Test connectivity to MQTT broker with MQTT clients](../manage-mqtt-broker/howto-test-connection.md). The MQTT client provides the authentication tokens and certificates to connect to the broker. To deploy the MQTT client, run the following command:
 
 ```bash
-# Connect to the MQTT client pod
-kubectl exec -it mqtt-client -n azure-iot-operations -- bash
+kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/mqtt-client.yaml
 ```
 
 #### Send temperature messages
@@ -422,6 +400,8 @@ kubectl exec -it mqtt-client -n azure-iot-operations -- bash
 In the first terminal session, create and run a script to send temperature data in Fahrenheit:
 
 ```bash
+# Connect to the MQTT client pod
+kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh -c '
 # Create and run temperature.sh from within the MQTT client pod
 while true; do
   # Generate a random temperature value between 0 and 6000 Fahrenheit
@@ -436,42 +416,43 @@ while true; do
     -t "sensor/temperature/raw" \
     -d \
     --cafile /var/run/certs/ca.crt \
+    -D PUBLISH user-property __ts $(date +%s)000:0:df \
     -D CONNECT authentication-method 'K8S-SAT' \
     -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat)
 
   sleep 1
-done
+done'
 ```
+
+> [!NOTE]
+> The MQTT user property `__ts` is used to add a timestamp to the messages to ensure the timely processing of messages using the Hybrid Logical Clock (HLC). Having the timestamp helps the data flow to decide whether to accept or drop the message. The format of the property is `<timestamp>:<counter>:<nodeid>`. It makes the data flow processing more accurate, but isn't mandatory.
+
+The script publishes random temperature data to the `sensor/temperature/raw` topic every second. It should look like this:
+
+```output
+Publishing temperature: {"temperature":{"value":1234,"unit":"F"}}
+Publishing temperature: {"temperature":{"value":5678,"unit":"F"}}
+```
+
+Leave the script running to continue publishing temperature data.
 
 #### Subscribe to processed messages
 
 In the second terminal session (also connected to the MQTT client pod), subscribe to the output topic to see the converted temperature values:
 
 ```bash
-# Run from within the MQTT client pod
-mosquitto_sub -h aio-broker -p 18883 \
-  -t "sensor/temperature/processed" \
-  -d \
-  --cafile /var/run/certs/ca.crt \
-  -D CONNECT authentication-method 'K8S-SAT' \
-  -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat)
+# Connect to the MQTT client pod
+kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh -c '
+mosquitto_sub -h aio-broker -p 18883 -t "sensor/temperature/processed" --cafile /var/run/certs/ca.crt \
+-D CONNECT authentication-method "K8S-SAT" \
+-D CONNECT authentication-data "$(cat /var/run/secrets/tokens/broker-sat)"'
 ```
 
 You see the temperature data converted from Fahrenheit to Celsius by the WASM module.
 
-#### Adding timestamps
-
-Messages can include a timestamp property `__ts` for ordering. The format is `<timestamp>:<counter>:<nodeid>`.
-
-```bash
-mosquitto_pub -h aio-broker -p 18883 \
-  -m "$payload" \
-  -t "sensor/temperature/raw" \
-  -d \
-  --cafile /var/run/certs/ca.crt \
-  -D CONNECT authentication-method 'K8S-SAT' \
-  -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat) \
-  -D PUBLISH user-property __ts $(date +%s)000:0:df
+```output
+{"temperature":{"value":1292.2222222222222,"count":0,"max":0.0,"min":0.0,"average":0.0,"last":0.0,"unit":"C","overtemp":false}}
+{"temperature":{"value":203.33333333333334,"count":0,"max":0.0,"min":0.0,"average":0.0,"last":0.0,"unit":"C","overtemp":false}}
 ```
 
 ## Example 2: Deploy a complex graph
@@ -486,69 +467,9 @@ The complex graph processes three data streams and combines them into enriched s
 - Humidity processing: Accumulates humidity measurements over time intervals  
 - Image processing: Performs object detection on camera snapshots and formats results
 
-The graph uses specialized modules from the [operators directory](https://github.com/Azure-Samples/explore-iot-operations/tree/wasm/samples/wasm/operators):
+For detailed information about how the complex graph definition works, its structure, and the data flow through multiple processing stages, see [Example 2: Complex graph definition](howto-configure-wasm-graph-definitions.md#example-2-complex-graph-definition).
 
-- Window module: Delays data for time-based processing
-- Temperature modules: Handle conversion, filtering, and statistical analysis
-- Humidity module: Processes environmental data
-- Snapshot modules: Manage image data routing and object detection
-- Format module: Prepares images for processing
-- Collection module: Aggregates multi-sensor data
-- Enrichment module: Adds metadata and overtemperature alerts
-
-The following diagram shows the data flow through the various processing modules:
-
-:::image type="content" source="media/howto-dataflow-graph-wasm/wasm-dataflow-graph-complex.svg" alt-text="Diagram showing a complex data flow graph example with multiple modules." border="false":::
-
-<!-- 
-```mermaid
-graph TD
-  source["source"]
-  delay["module-window/delay"]
-  branch_snapshot["module-snapshot/branch"]
-  branch_temp["module-temperature/branch"]
-  map_temp["module-temperature/map (F -> C)"]
-  filter_temp["module-temperature/filter (valid)"]
-  accumulate_temp["module-temperature/accumulate (max, min, avg, last)"]
-  accumulate_humidity["module-humidity/accumulate (max, min, avg, last)"]
-  map_format["module-format/map (image, snapshot)"]
-  map_snapshot["module-snapshot/map (object detection)"]
-  accumulate_snapshot["module-snapshot/accumulate (collection)"]
-  concatenate["concatenate"]
-  accumulate_collection["module-collection/accumulate"]
-  map_enrichment["module-enrichment/map (overtemp, topic)"]
-  sink["sink"]
-  source - -> delay
-  delay - -> branch_snapshot
-  branch_snapshot - ->|sensor data| branch_temp
-  branch_snapshot - ->|snapshot| map_format
-  map_format - -> map_snapshot
-  map_snapshot - -> accumulate_snapshot
-  accumulate_snapshot - -> concatenate
-  branch_temp - ->|temp| map_temp
-  branch_temp - ->|humidity| accumulate_humidity
-  map_temp - -> filter_temp
-  filter_temp - -> accumulate_temp
-  accumulate_temp - -> concatenate
-  accumulate_humidity - -> concatenate
-  concatenate - -> accumulate_collection
-  accumulate_collection - -> map_enrichment
-  map_enrichment - -> sink
-``` 
--->
-
-As shown in the diagram, data flows from a single source through multiple processing stages:
-
-- The window module delays incoming data for time-based processing
-- Branch operations route data based on content type (sensor data vs. snapshots)
-- Temperature data undergoes conversion, filtering, and statistical accumulation
-- Humidity data gets accumulated with statistical analysis
-- Image data gets formatted and processed through object detection
-- All processed data streams merge at the concatenate operation
-- The collection module aggregates the multi-sensor results
-- The enrichment module adds final metadata and alerts before output
-
-Branch operations enable parallel processing of different sensor inputs, allowing the graph to handle multiple data types efficiently within a single workflow.
+The graph uses specialized modules from the [Rust examples](https://github.com/Azure-Samples/explore-iot-operations/tree/wasm/samples/wasm/rust/examples).
 
 ### Configure the complex data flow graph
 
@@ -586,7 +507,7 @@ resource complexDataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfile
   }
   properties: {
     mode: 'Enabled'
-    requestDiskPersistence: 'Enabled'
+    requestDiskPersistence: 'Disabled'
     nodes: [
       {
         nodeType: 'Source'
@@ -610,6 +531,10 @@ resource complexDataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfile
             {
               key: 'snapshot_topic'
               value: 'sensor/images/raw'
+            }
+            {
+              key: 'key1'
+              value: 'example-value'
             }
           ]
         }
@@ -654,7 +579,7 @@ metadata:
   name: <COMPLEX_GRAPH_NAME>
   namespace: azure-iot-operations
 spec:
-  requestDiskPersistence: Enabled
+  requestDiskPersistence: Disabled
   profileRef: default
 
   nodes:
@@ -675,6 +600,8 @@ spec:
         configuration:
           - key: snapshot_topic
             value: sensor/images/raw
+          - key: key1
+            value: example-value
 
     - nodeType: Destination
       name: analytics-destination
@@ -698,68 +625,113 @@ spec:
 
 ### Test the complex data flow
 
-Use the same MQTT client pod setup from the previous example. Connect to the pod and run the following commands from within it.
+Before we can see the output, we need to get the source data setup.
 
-#### Send humidity messages
+#### Upload RAW image files to the mqtt-client pod
 
-In addition to temperature data, send humidity messages from within the MQTT client pod:
+The image files are for the `snapshot` module to detect objects in the images. They're located in the [images](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/images) folder on GitHub.
+
+First, clone the repository to get access to the image files:
 
 ```bash
-# Run from within the MQTT client pod
-while true; do
+git clone https://github.com/Azure-Samples/explore-iot-operations.git
+cd explore-iot-operations
+```
+
+To upload RAW image files from the `./samples/wasm/images` folder to the `mqtt-client` pod, you can use the following command:
+
+```bash
+kubectl cp ./samples/wasm/images azure-iot-operations/mqtt-client:/tmp
+```
+
+Check the files are uploaded:
+
+```bash
+kubectl exec -it mqtt-client -n azure-iot-operations -- ls /tmp/images
+```
+
+You should see the list of files in the `/tmp/images` folder.
+
+```output
+beaker.raw          laptop.raw          sunny2.raw
+binoculars.raw      lawnmower.raw       sunny4.raw
+broom.raw           milkcan.raw         thimble.raw
+camera.raw          photocopier.raw     tripod.raw
+computer_mouse.raw  radiator.raw        typewriter.raw
+daisy3.raw          screwdriver.raw     vacuum_cleaner.raw
+digital_clock.raw   sewing_machine.raw
+hammer.raw          sliding_door.raw
+```
+
+### Publish simulated temperature, humidity data, and send images
+
+You can combine the commands for publishing temperature, humidity data, and sending images into a single script. Use the following command:
+
+```bash
+# Connect to the MQTT client pod and run the script
+kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh -c '
+while true; do 
+  # Generate a random temperature value between 0 and 6000
+  temp_value=$(shuf -i 0-6000 -n 1)
+  temp_payload="{\"temperature\":{\"value\":$temp_value,\"unit\":\"F\"}}"
+  echo "Publishing temperature: $temp_payload"
+  mosquitto_pub -h aio-broker -p 18883 \
+    -m "$temp_payload" \
+    -t "sensor/temperature/raw" \
+    --cafile /var/run/certs/ca.crt \
+    -D CONNECT authentication-method "K8S-SAT" \
+    -D CONNECT authentication-data "$(cat /var/run/secrets/tokens/broker-sat)" \
+    -D PUBLISH user-property __ts $(date +%s)000:0:df
+
   # Generate a random humidity value between 30 and 90
-  random_value=$(shuf -i 30-90 -n 1)
-  payload="{\"humidity\":{\"value\":$random_value}}"
-
-  echo "Publishing humidity: $payload"
-
+  humidity_value=$(shuf -i 30-90 -n 1)
+  humidity_payload="{\"humidity\":{\"value\":$humidity_value}}"
+  echo "Publishing humidity: $humidity_payload"
   mosquitto_pub -h aio-broker -p 18883 \
-    -m "$payload" \
+    -m "$humidity_payload" \
     -t "sensor/humidity/raw" \
-    -d \
     --cafile /var/run/certs/ca.crt \
-    -D CONNECT authentication-method 'K8S-SAT' \
-    -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat)
+    -D CONNECT authentication-method "K8S-SAT" \
+    -D CONNECT authentication-data "$(cat /var/run/secrets/tokens/broker-sat)" \
+    -D PUBLISH user-property __ts $(date +%s)000:0:df
 
+  # Send an image every 2 seconds
+  if [ $(( $(date +%s) % 2 )) -eq 0 ]; then
+    file=$(ls /tmp/images/*.raw | shuf -n 1)
+    echo "Sending file: $file"
+    mosquitto_pub -h aio-broker -p 18883 \
+      -f $file \
+      -t "sensor/images/raw" \
+      --cafile /var/run/certs/ca.crt \
+      -D CONNECT authentication-method "K8S-SAT" \
+      -D CONNECT authentication-data "$(cat /var/run/secrets/tokens/broker-sat)" \
+      -D PUBLISH user-property __ts $(date +%s)000:0:df
+  fi
+
+  # Wait for 1 second before the next iteration
   sleep 1
-done
+done'
 ```
 
-#### Simulate image data
+### Check the output
 
-<!-- TODO: Link to test images -->
-
-For scenarios involving image processing, first copy test images to the MQTT client pod from your local machine:
+In a new terminal, subscribe to the output topic:
 
 ```bash
-# Copy images to the client pod (replace with your image files)
-kubectl cp ./images azure-iot-operations/mqtt-client:/tmp
+kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh -c '
+mosquitto_sub -h aio-broker -p 18883 -t "analytics/sensor/processed" --cafile /var/run/certs/ca.crt \
+-D CONNECT authentication-method "K8S-SAT" \
+-D CONNECT authentication-data "$(cat /var/run/secrets/tokens/broker-sat)"'
 ```
 
-Then connect to the pod and send image data:
+The output should look like this
 
-```bash
-# Connect to the MQTT client pod and run from within it
-kubectl exec -it mqtt-client -n azure-iot-operations -- bash
-
-# Send image data from within the pod
-while true; do
-  # Select a random image file
-  file=$(ls /tmp/images/*.raw | shuf -n 1)
-
-  echo "Sending file: $file"
-
-  mosquitto_pub -h aio-broker -p 18883 \
-    -f "$file" \
-    -t "sensor/images/raw" \
-    -d \
-    --cafile /var/run/certs/ca.crt \
-    -D CONNECT authentication-method 'K8S-SAT' \
-    -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat)
-
-  sleep 2
-done
+```output
+{"temperature":[{"count":9,"max":2984.4444444444443,"min":248.33333333333337,"average":1849.6296296296296,"last":2612.222222222222,"unit":"C","overtemp":true}],"humidity":[{"count":10,"max":76.0,"min":30.0,"average":49.7,"last":38.0}],"object":[{"result":"milk can; broom; screwdriver; binoculars, field glasses, opera glasses; toy terrier"}]}
+{"temperature":[{"count":10,"max":2490.5555555555557,"min":430.55555555555554,"average":1442.6666666666667,"last":1270.5555555555557,"unit":"C","overtemp":true}],"humidity":[{"count":9,"max":87.0,"min":34.0,"average":57.666666666666664,"last":42.0}],"object":[{"result":"broom; Saint Bernard, St Bernard; radiator"}]}
 ```
+
+Here, the output contains the temperature and humidity data, as well as the detected objects in the images.
 
 ## Develop custom WASM modules
 
@@ -770,9 +742,10 @@ For comprehensive development guidance including:
 - Creating operators in Rust and Python
 - Understanding the data model and interfaces
 - Building and testing your modules
-- Configuring graph definitions with parameters
 
 See [Develop WebAssembly modules for data flow graphs](howto-develop-wasm-modules.md).
+
+For detailed information about creating and configuring the YAML graph definitions that define your data processing workflows, see [Configure WebAssembly graph definitions](howto-configure-wasm-graph-definitions.md).
 
 ## Configuration reference
 
@@ -782,11 +755,11 @@ This section provides detailed information about configuring data flow graphs wi
 
 A data flow graph defines how data flows through WebAssembly modules for processing. Each graph consists of:
 
-- **Mode**: Controls whether the graph is enabled or disabled
-- **Profile reference**: Links to a data flow profile that defines scaling and resource settings
-- **Disk persistence**: Optionally enables persistent storage for graph state
-- **Nodes**: Define the source, processing, and destination components
-- **Node connections**: Specify how data flows between nodes
+- Mode that controls whether the graph is enabled or disabled
+- Profile reference that links to a data flow profile defining scaling and resource settings
+- Disk persistence that optionally enables persistent storage for graph state
+- Nodes that define the source, processing, and destination components
+- Node connections that specify how data flows between nodes
 
 ### Mode configuration
 
@@ -905,9 +878,9 @@ Nodes are the building blocks of a data flow graph. Each node has a unique name 
 
 Source nodes define where data enters the graph. They connect to data flow endpoints that receive data from MQTT brokers, Kafka topics, or other messaging systems. Each source node must specify:
 
-- **Endpoint reference**: Points to a configured data flow endpoint
-- **Data sources**: List of MQTT topics or Kafka topics to subscribe to
-- **Asset reference** (optional): Links to an Azure Device Registry asset for schema inference
+- Endpoint reference that points to a configured data flow endpoint
+- Data sources as a list of MQTT topics or Kafka topics to subscribe to
+- Asset reference (optional) that links to an Azure Device Registry asset for schema inference
 
 The data sources array allows you to subscribe to multiple topics without modifying the endpoint configuration. This flexibility enables endpoint reuse across different data flows.
 
@@ -947,9 +920,9 @@ The data sources array allows you to subscribe to multiple topics without modify
 
 Graph processing nodes contain the WebAssembly modules that transform data. These nodes pull WASM artifacts from container registries and execute them with specified configuration parameters. Each graph node requires:
 
-- **Registry endpoint reference**: Points to a registry endpoint for pulling artifacts
-- **Artifact specification**: Defines the module name and version to pull
-- **Configuration parameters**: Key-value pairs passed to the WASM module
+- Registry endpoint reference that points to a registry endpoint for pulling artifacts
+- Artifact specification that defines the module name and version to pull
+- Configuration parameters as key-value pairs passed to the WASM module
 
 The configuration array allows you to customize module behavior without rebuilding the WASM artifact. Common configuration options include processing parameters, thresholds, conversion settings, and feature flags.
 
@@ -1016,9 +989,9 @@ The configuration key-value pairs are passed to the WASM module at runtime. The 
 
 Destination nodes define where processed data is sent. They connect to data flow endpoints that send data to MQTT brokers, cloud storage, or other systems. Each destination node specifies:
 
-- **Endpoint reference**: Points to a configured data flow endpoint
-- **Data destination**: The specific topic, path, or location for output data
-- **Output schema settings** (optional): Defines serialization format and schema validation
+- Endpoint reference that points to a configured data flow endpoint
+- Data destination as the specific topic, path, or location for output data
+- Output schema settings (optional) that define serialization format and schema validation
 
 For storage destinations like Azure Data Lake or Fabric OneLake, you can specify output schema settings to control how data is serialized and validated.
 
@@ -1149,6 +1122,7 @@ For detailed configuration information, see [Configure registry endpoints](howto
 
 ## Related content
 
+- [Configure WebAssembly graph definitions](howto-configure-wasm-graph-definitions.md)
 - [Develop WebAssembly modules for data flow graphs](howto-develop-wasm-modules.md)
 - [Configure registry endpoints](howto-configure-registry-endpoint.md)
 - [Configure MQTT data flow endpoints](howto-configure-mqtt-endpoint.md)

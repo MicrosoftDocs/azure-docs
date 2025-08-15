@@ -507,13 +507,13 @@ When deploying applications that are subject to regulatory compliance obligation
 
 **Azure Policy regulatory compliance built-in initiatives** map to compliance domains and controls in key standards, including:
 
-- [Australian Government ISM PROTECTED](../governance/policy/samples/australia-ism.md)
-- [Canada Federal PBMM](../governance/policy/samples/canada-federal-pbmm.md)
-- [ISO/IEC 27001](../governance/policy/samples/iso-27001.md)
-- [US Government FedRAMP High](../governance/policy/samples/fedramp-high.md)
+- [Australian Government ISM PROTECTED](/azure/governance/policy/samples/australia-ism)
+- [Canada Federal PBMM](/azure/governance/policy/samples/canada-federal-pbmm)
+- [ISO/IEC 27001](/azure/governance/policy/samples/iso-27001)
+- [US Government FedRAMP High](/azure/governance/policy/samples/fedramp-high)
 - And others
 
-For more regulatory compliance built-in initiatives, see [Azure Policy samples](../governance/policy/samples/index.md#regulatory-compliance).
+For more regulatory compliance built-in initiatives, see [Azure Policy samples](/azure/governance/policy/samples/index#regulatory-compliance).
 
 Regulatory compliance in Azure Policy provides built-in initiative definitions to view a list of the controls and compliance domains based on responsibility – customer, Microsoft, or shared. For Microsoft-responsible controls, we provide extra audit result details based on third-party attestations and our control implementation details to achieve that compliance. Each control is associated with one or more Azure Policy definitions. These policies may help you [assess compliance](../governance/policy/how-to/get-compliance-data.md) with the control; however, compliance in Azure Policy is only a partial view of your overall compliance status. Azure Policy helps to enforce organizational standards and assess compliance at scale. Through its compliance dashboard, it provides an aggregated view to evaluate the overall state of the environment, with the ability to drill down to more granular status.
 
@@ -573,4 +573,4 @@ Learn more about:
 - [Azure guidance for secure isolation](./azure-secure-isolation-guidance.md)
 - [Azure for government - worldwide government](https://azure.microsoft.com/industries/government/)
 - [Enabling data residency and data protection in Microsoft Azure regions](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/)
-- [Azure Policy regulatory compliance samples](../governance/policy/samples/index.md)
+- [Azure Policy regulatory compliance samples](/azure/governance/policy/samples/index)

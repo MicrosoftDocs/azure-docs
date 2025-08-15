@@ -62,16 +62,5 @@ The following functionality is not supported on an Azure Web Application Firewal
 * JavaScript challenge actions
 * Core Rule Set (CRS) 3.2 and earlier rule sets
 
-## Pricing
-
-Azure Web Application Firewall is incrementally billed in addition to Application Gateway for Containers. Two metrics track Azure Web Application Firewall consumption:
-
-* `AGC WAF Hour`
-* `AGC 1M WAF Requests`
-
-An `AGC WAF Hour` rate is incurred for the duration that a security policy references an Azure Web Application Firewall policy.
-
-As Azure Web Application Firewall rules or bot protection processes each request, a consumption rate is billed per 1 million requests.
-
 > [!NOTE]
 > The association of Application Gateway for Containers with Azure Web Application Firewall is in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

@@ -5,7 +5,7 @@ services: security
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: concept-article
-ms.date: 07/31/2025
+ms.date: 08/04/2025
 
 ms.author: sarahlipsey
 author: shlipsey3
@@ -21,7 +21,7 @@ DigiCert is transitioning to a new open-source software (OSS) domain control val
 
 Consequently, these Azure services will be introducing an enhanced domain control validation process, aiming to significantly expedite domain validation and address key vulnerabilities in the user experience.
 
-This change does not impact the standard CNAME DCV process for DigiCert customers, where validation uses a random value in the CNAME record. Only a unique method previously exclusive to Microsoft is being retired.
+This change doesn't impact the standard CNAME DCV process for DigiCert customers, where validation uses a random value in the CNAME record. Only this one workflow for validation previously used by Microsoft is being retired.
 
 ## Frequently asked questions
 
@@ -38,5 +38,5 @@ A: No. The feature is very much supported and in fact is receiving several key u
 
 **Q: Is DigiCert retiring CNAME domain control validation?**
 
-A: No. Only this specific CNAME validation method unique to Azure services is being retired. The CNAME DCV method used by DigiCert customers, such as the one described for DigiCert [OV/EV certificates](https://docs.digicert.com/en/certcentral/manage-certificates/supported-dcv-methods-for-validating-the-domains-on-ov-ev-tls-ssl-certificate-orders/use-the-dns-cname-validation-method-to-verify-domain-control.html) and [DV certificates](https://docs.digicert.com/en/certcentral/manage-certificates/dv-certificate-enrollment/domain-control-validation--dcv--methods/use-the-dns-cname-dcv-method.html) is not impacted. Only Azure is impacted by this change.
+A: No. Only this specific CNAME validation method unique to Azure services is being retired. The CNAME DCV method used by DigiCert customers, such as the one described for DigiCert [OV/EV certificates](https://docs.digicert.com/en/certcentral/manage-certificates/supported-dcv-methods-for-validating-the-domains-on-ov-ev-tls-ssl-certificate-orders/use-the-dns-cname-validation-method-to-verify-domain-control.html) and [DV certificates](https://docs.digicert.com/en/certcentral/manage-certificates/dv-certificate-enrollment/domain-control-validation--dcv--methods/use-the-dns-cname-dcv-method.html) isn't impacted. Only Azure is impacted by this change.
 
