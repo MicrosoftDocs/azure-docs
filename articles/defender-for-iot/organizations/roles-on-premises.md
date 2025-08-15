@@ -42,8 +42,8 @@ The following table describes the access available to each privileged user, incl
 
 |Name  |Connects to  |Permissions  |
 |---------|---------|---------|
-|**admin** | The OT sensor's `configuration shell` |	A powerful administrative account with access to: <br>- All CLI commands <br>- The ability to manage log files <br>- Start and stop services<br>- View the sensor Support page.<br><br>This user has no filesystem access. In legacy software versions, this user is named *support*. |
-|**cyberx**     |    The OT sensor's `terminal (root)`       | Serves as a root user and has unlimited privileges on the appliance. <br><br>Used only for the following tasks:<br>- Change default passwords<br>- Troubleshoot<br>- Filesystem access<br>- View the sensor Support page.      |
+|**admin** | The OT sensor's `configuration shell` |	A powerful administrative account with access to: <br>- All CLI commands <br>- The ability to manage log files <br>- Start and stop services<br>- View the sensor Support page<br><br>This user has no filesystem access. In legacy software versions, this user is named *support*. |
+|**cyberx**     |    The OT sensor's `terminal (root)`       | Serves as a root user and has unlimited privileges on the appliance. <br><br>Used only for the following tasks:<br>- Change default passwords<br>- Troubleshoot<br>- Filesystem access<br>- View the sensor Support page      |
 |**cyberx_host**     | The OT sensor's host OS `terminal (root)`         | Serves as a root user and has unlimited privileges on the appliance host OS.<br><br>Used for: <br>- Network configuration<br>- Application container control <br>- Filesystem access |
 
 ## On-premises user roles
