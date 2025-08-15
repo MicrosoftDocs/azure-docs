@@ -187,7 +187,9 @@ Learn more in [WinGet configuration](https://aka.ms/winget-configuration).
 
 ## Upload the image definition file to a repository
 
-You can use a GitHub or Azure Reposrepository as a catalog to make your image definition file accessible from a dev box project. Each project can have a catalog that stores multiple image definition files, which you can configure on pools to align to your developers teams' needs.
+You can use a GitHub or Azure Repos repository as a catalog to make your image definition file accessible from a dev box project. Each project can have a catalog that stores multiple image definition files, which you can configure on pools to align to your developers teams' needs.
+
+Once you have an image definition file that you want to use, upload it to a catalog. The following sections will show you how to attach your catalog to a project, and make your image definition available for selection when configuring your dev box pools.
 
 ## Configure catalog sync settings for the project
 
