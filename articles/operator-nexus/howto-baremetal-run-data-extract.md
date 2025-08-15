@@ -41,6 +41,9 @@ The current list of supported commands are
   - `TTYLog` - Storage TTYLog data
   - `Debug` - debug logs
 
+> [!WARNING]
+> As of the `v20250701preview` API version and above, this command will no longer be supported by the non-restricted `run-data-extract` command. To run `mde-agent-information`, See [Executing a run-data-extracts-restricted Command](#Executing-a-run-data-extracts-restricted-Command)
+
 - [Collect Microsoft Defender for Endpoints (MDE) agent information](#collect-mde-agent-information)\
   Command Name: `mde-agent-information`\
   Arguments: None
@@ -52,6 +55,9 @@ The current list of supported commands are
 - [Collect Dell Hardware Rollup Status](#hardware-rollup-status)\
   Command Name: `hardware-rollup-status`\
   Arguments: None
+
+> [!WARNING]
+> As of the `v20250701preview` API version and above, this command will no longer be supported by the non-restricted `run-data-extract` command. To run `cluster-cve-report`, See [Executing a run-data-extracts-restricted Command](#Executing-a-run-data-extracts-restricted-Command)
 
 - [Generate Cluster Common Vulnerabilities and Exposures (CVE) Report](#generate-cluster-cve-report)\
   Command Name: `cluster-cve-report`\
@@ -683,6 +689,13 @@ The command provides a link (if using cluster manager storage) or another comman
 
 ## Executing a run-data-extracts-restricted Command
 
+### Prerequisites
+* minimum supported API of v20250701preview` or `v20250901` and above
+* Storage Blob Container has been configured
+* The target bare metal machine is on and ready.
+* The syntax for these commands is based on the <TODO: need to confirm az networkcloud CLI version>+ version of the az networkcloud CLI.
+* Get the Cluster Managed Resource group name (cluster_MRG) that you created for Cluster resource.
+
 The `run-data-extracts-restricted` command functionality mirrors non-restricted run-data-extracts command and includes fine-grained access control via RBAC (Role-Based Access Control). It allows customers to run sensitive data extraction operations on BareMetalMachines with elevated privileges.
 
 The `run-data-extracts-restricted` is implemented as a new and separate API action. The action is to be introduced in the `v20250701preview` and `v20250901` GA API, and is designed to mirror the behavior of the original command but with restricted access to specific sub-commands.The following list contains the allowed sub commands for`run-data-extracts-restricted`:
@@ -694,13 +707,6 @@ The `run-data-extracts-restricted` is implemented as a new and separate API acti
 - [Generate Cluster Common Vulnerabilities and Exposures (CVE) Report](#generate-cluster-cve-report)\
   Command Name: `cluster-cve-report`\
   Arguments: None
-
-## Prerequisites
-* minimum supported API of v20250701preview` or `v20250901` and above
-* Storage Blob Container has been configured
-* The target bare metal machine is on and ready.
-* The syntax for these commands is based on the <TODO: need to confirm az networkcloud cli version>+ version of the az networkcloud CLI.
-* Get the Cluster Managed Resource group name (cluster_MRG) that you created for Cluster resource.
 
 Command execution can be performed using `az networkcloud baremetalmachine run-data-extracts-restricted` and it accepts arguments similarly to the `run-data-extract`.
 
@@ -714,9 +720,6 @@ az networkcloud baremetalmachine run-data-extracts-restricted --name "<machine-n
   --limit-time-seconds "600"
   --output-directory ~/path/to/my/output/directory
 ```
-
-
-[{"arguments":["--min-severity=8"],"command":"cluster-cve-report"}]' --output-directory ~/tmp
 
 
 ### Storage and Output
