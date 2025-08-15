@@ -22,14 +22,15 @@ By default, short-term clones convert to regular volumes after 32 days.
 
 * If the capacity pool hosting the clone doesn't have enough space, the capacity pool automatically resizes to accommodate the clone. Resizing can incur additional charges. 
 * If the capacity pool hosting the short-term clone is set to auto QoS, throughput is calculated based on the quota value you assign when creating the short-term clone. 
-* When you convert a short-term clone to a regular volume, the size of the regular volume is calculated based on inherited size (the shared space between the short-term clone and its parent volume) and the short-term clone quota in bytes. This conversion has an impact on throughput. 
+* When you convert a short-term clone to a regular volume, the size of the regular volume is calculated based on inherited size (the shared space between the short-term clone and its parent volume) and the short-term clone's quota in bytes. This conversion has an impact on throughput. 
 * There is no change in behavior for short-term clones in capacity pools with manual QoS.  
-* Snapshot policies, backup, replication, and default user quota are not available with short-term clone. If the parent volume has a backup or snapshot policy, the policy isn't applied to the short-term clone.
+* Snapshot policies, backup, replication, and default user quota are not available with short-term clone.
+    * If the parent volume has a backup or snapshot policy, the policy isn't applied to the short-term clone.
 * Short-term clones aren't supported on large volumes or volumes enabled for cool access.
 * Short-term clones are supported for volumes in cross-zone and cross-region replication. To create a short-term clone of a disaster recovery (DR) volume, create a snapshot from the source then create the short-term clone from the destination volume. 
 * A short-term clone is automatically converted to a regular volume in its designated capacity pool 32 days after the clone operation completes. To prevent this conversion, manually delete the short-term clone before 32 days have elapsed. 
-    * Details about automatic conversion, including necessary capacity pool resizing, are sent to the volume's **Activity Log**. The Activity Log notifies you twice of impending automatic clone operations. The first notification is seven days before the conversion; the second notification occurs one day before the conversion. 
-* You can't delete the parent volume of a short-term clone. You must first delete the clone or convert it to a regular volume, then you can delete the parent volume. 
+    * Details about automatic conversion, including necessary capacity pool resizing, are sent to the volume's **Activity Log**. The Activity Log notifies you twice of impending conversions:. The first notification is seven days before the conversion; the second notification is one day before the conversion. 
+* If a short-term clone exists on a volume, you can't delete the parent volume. You must first delete the clone or convert it to a regular volume, then you can delete the parent volume. 
 * During the clone operation, the parent volume is accessible and you can capture new snapshots of the parent volume. 
 * You can only create five short-term clones per regular volume.
 <!-- AVG qualifications? -->
@@ -49,14 +50,14 @@ Short-term clones are currently in preview. To take advantage of the feature, yo
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFShortTermClone
     ```
 
-    When the `RegistrationState` field output displays "Registered", you can proceed to create a short-term clone. 
+    When the `RegistrationState` field output displays "Registered", you can create a short-term clone. 
 
-<!-- waitlist? given that it is not automatic -->
+    You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ## Create a short-term clone
 
 >[!NOTE]
->To create a short-term clone on a data replication volume, you must first create a snapshot from the source volume. Once the snapshot has transferred to the destination, you can create the short-term clone _from_ the DR volume. 
+>To create a short-term clone on a data replication (DR) volume, you must first create a snapshot from the source volume. Once the snapshot has transferred to the destination, you can create the short-term clone _from_ the DR volume. 
 
 1. Select **Snapshots**.
 1. Right-click the snapshot you want to clone. Select **Create short-term clone from snapshot**.
@@ -70,8 +71,6 @@ Short-term clones are currently in preview. To take advantage of the feature, yo
     
     >[!NOTE]
     >The quota value is the space for anticipated writes to the short-term clone volume. For example, some database workloads may require a 10 percent change to the existing data files. The minimum quota value is 50 GiB.
-
-    Confirm if the short-term clone is a **Large volume** (greater than 100 TiB).
 
 1. Select **Review and create**.
 1. Confirm the short-term clone is created in the **Volume** menu. In the overview menu for the individual clone, you can confirm the volume type under the **Short-term clone volume** field and track the **Split clone volume progress.** You can also monitor activity on a short-term clone in the **Activity Log** for the volume. 
