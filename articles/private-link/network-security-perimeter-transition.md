@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
 ms.topic: overview
-ms.date: 05/16/2025
+ms.date: 08/15/2025
 #CustomerIntent: As a network administrator, I want to understand the different access modes and how to transition to a network security perimeter in Azure.
 # Customer intent: As a network administrator, I want to learn how to configure access modes and transition to a network security perimeter in Azure, so that I can secure my resources while minimizing connectivity disruptions.
 ---
