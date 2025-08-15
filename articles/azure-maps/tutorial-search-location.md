@@ -150,7 +150,7 @@ The Map Control API is a convenient client library. This API allows you to easil
 
 ## Add search capabilities
 
-This section shows how to use the Maps [Search API] to find a point of interest on your map. It's a RESTful API designed for developers to search for addresses, points of interest, and other geographical information. The Search service assigns a latitude and longitude information to a specified address.
+This section shows how to use the Maps [Search API] to find a point of interest on your map. It's a RESTful API designed for developers to search for addresses, points of interest, and other geographical information. The Search service assigns latitude and longitude information to a specified address.
 
 > [!TIP]
 >
