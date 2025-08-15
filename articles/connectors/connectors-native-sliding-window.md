@@ -39,7 +39,7 @@ For more information about the **Schedule** built-in triggers and actions, inclu
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource, which requires a blank workflow so you can add a trigger.
 
-1. Based on whether you have a Consumption or Standard logic app, follow the corresponding step:
+1. Based on whether you have a Consumption or Standard logic app, follow the corresponding steps:
 
     - Consumption
     
@@ -80,7 +80,7 @@ For more information about the **Schedule** built-in triggers and actions, inclu
    |-----------|----------|-----------|------|-------------|
    | **Delay** | No | `delay` | String | The duration to delay each recurrence using the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Durations) |
    | **Time zone** | No | `timeZone` | String | Applies only when you specify a start time because this trigger doesn't accept [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). Select the time zone that you want to apply. |
-   | **Start time** | No | `startTime` | String | Provide a start date and time in this format: <br>YYYY-MM-DDThh:mm:ss if you select a time zone <br>-or- <br>YYYY-MM-DDThh:mm:ssZ if you don't select a time zone <br>So for example, if you want September 18, 2025 at 2:00 PM, then specify "2025-09-18T14:00:00" and select a time zone such as Pacific Standard Time. Or, specify "2025-09-18T14:00:00Z" without a time zone. <br>**Note:** This start time must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you don't select a time zone, add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). <br>For simple schedules, the start time is the first occurrence, while for advanced recurrences, the trigger doesn't fire any sooner than the start time. See [What are the ways that I can use the start date and time?](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **Start time** | No | `startTime` | String | Provide a start date and time in this format: <br><br>YYYY-MM-DDThh:mm:ss if you select a time zone <br><br>-or- <br><br>YYYY-MM-DDThh:mm:ssZ if you don't select a time zone <br><br>For example, if you want September 18, 2025 at 2:00 PM, specify "2025-09-18T14:00:00", and select a time zone such as Pacific Standard Time. Or, specify "2025-09-18T14:00:00Z" without a time zone.<br><br>**Note:** This start time must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you don't select a time zone, add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). <br><br>For simple schedules, the start time is the first occurrence, while for advanced recurrences, the trigger doesn't fire any sooner than the start time. See [What are the ways that I can use the start date and time?](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
 
 1. Now build your remaining workflow with other actions.
 
