@@ -152,7 +152,7 @@ In this tutorial, the route is rendered using a line layer. The start and end po
 
     Next, a symbol layer is created and attached to the data source. This layer specifies how the start and end points are rendered. Expressions were added to retrieve the icon image and text label information from properties on each point object. To learn more about expressions, see [Data-driven style expressions].
 
-2. Next, set the start point at Microsoft, and the end point at a gas station in Seattle. Start and points are created by appending the following code in the Map control's `ready` event handler:
+2. Next, set the start point at Microsoft, and the end point at a gas station in Seattle. Start and end points are created by appending the following code in the Map control's `ready` event handler:
 
     ```JavaScript
     //Create the GeoJSON objects which represent the start and end points of the route.
