@@ -20,7 +20,7 @@ The current Azure Storage Mover release supports full-fidelity migrations for sp
 |Source protocol        |Target                                                | Comments                                                                                |
 |-----------------------|------------------------------------------------------|-----------------------------------------------------------------------------------------|
 | S3 (Preview)          | Azure blob storage container                         | AWS S3 buckets with Glacier or Glacier Deep Archive storage classes cannot be migrated. |
-| SMB 2.x & 3.x mount   | Azure blob storage container, Azure file share (SMB) | SMB 1.x sources and NFS Azure file shares are currently not supported.                  |
+| SMB 2.x & 3.x mount   | Azure file share (SMB) | SMB 1.x sources and NFS Azure file shares are currently not supported.                  |
 | SMB 2.x and 3.x mount | Azure blob storage container                         | Containers with the Hierarchical Namespace Service (HNS) feature enabled are supported and the ADLS Gen2 REST API set is used for migration. |
 | NFS 3 & 4 mount       | Azure blob storage container                         | Containers with the Hierarchical Namespace Service (HNS) feature enabled are supported and the ADLS Gen2 REST API set is used for migration. |
 

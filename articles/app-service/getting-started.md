@@ -136,4 +136,4 @@ Use the following resources to get started with PHP.
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Learn about App Service](./overview.md)
+> [Deploy an ASP.NET web app](./quickstart-dotnetcore.md)
