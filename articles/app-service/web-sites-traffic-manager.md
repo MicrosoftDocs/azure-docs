@@ -7,7 +7,11 @@ ms.topic: concept-article
 ms.date: 02/25/2016
 author: cephalin
 ms.author: cephalin
+<<<<<<< HEAD
 # Customer intent: As a network engineer, I want to get an overview of how to use Traffic Manager with App Service so that I can control how requests from web clients are distributed to apps in App Service. 
+=======
+ms.service: azure-app-service
+>>>>>>> cf7c30de92ef7556d98cb1a1d192de256763b889
 ---
 # Controlling Azure App Service traffic with Azure Traffic Manager
 > [!NOTE]

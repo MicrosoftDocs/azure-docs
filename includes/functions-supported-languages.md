@@ -34,6 +34,9 @@ Your function code runs in the same process as the Functions host process. Suppo
 
 .NET 6 was previously supported on the in-process model but reached the end of official support on [November 12, 2024][dotnet-policy].
 
+> [!IMPORTANT]
+> .NET 10 is not supported on the in-process model. If you want to update your app to use .NET 10, you must [migrate to the isolated worker model](../articles/azure-functions/migrate-dotnet-to-isolated-model.md).
+
 For more information, see [Develop C# class library functions using Azure Functions](../articles/azure-functions/functions-dotnet-class-library.md) and the [Azure Functions C# script developer reference](../articles/azure-functions/functions-reference-csharp.md).
 
 ### [v1.x](#tab/v1/in-process)
@@ -50,6 +53,7 @@ For more information, see [Develop C# class library functions using Azure Functi
 
 | Supported version | Support level | Expected end-of-support date |
 | ---- | ---- |--- |
+| .NET 10 | Preview | [See policy][dotnet-policy] |
 | .NET 9 | GA | [May 12, 2026][dotnet-policy] |
 | .NET 8 | GA | [November 10, 2026][dotnet-policy] |
 | .NET Framework 4.8.1 | GA | [See policy][dotnet-framework-policy] |
@@ -88,7 +92,7 @@ The following table shows the language versions supported for Node.js functions.
 
 | Supported version | Support level | Expected end-of-support date |
 | ---- | ---- |--- |
-| [Node.js 22](https://endoflife.date/nodejs) | GA (Linux) <br> Preview (Windows) | April 30, 2027 |
+| [Node.js 22](https://endoflife.date/nodejs) | GA | April 30, 2027 |
 | [Node.js 20](https://endoflife.date/nodejs) | GA | April 30, 2026 |
 
 TypeScript is supported through transpiling to JavaScript. For more information, see the [Azure Functions Node.js developer guide](../articles/azure-functions/functions-reference-node.md#supported-versions).
@@ -112,9 +116,6 @@ The following table shows the language versions supported for Python functions.
 | Python 3.11 | GA | October 2027 |
 | Python 3.10 | GA | October 2026 |
 | Python 3.9 | GA | October 2025 |
-
-> [!IMPORTANT]  
-> Python 3.13 is currently supported on the Flex Consumption, Premium, and Dedicated plans. Python 3.13 support on the Consumption plan is pending.
 
 For more information, see [Azure Functions Python developer guide](../articles/azure-functions/functions-reference-python.md).
 ::: zone-end

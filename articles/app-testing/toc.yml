@@ -237,7 +237,7 @@ items:
         - name: Contoso Traders cloud testing demo
           href: https://github.com/microsoft/contosotraders-cloudtesting/
         - name: Examples repository
-          href: https://github.com/microsoft/playwright-testing-service/
+          href: https://github.com/Azure/playwright-workspaces/
     - name: Troubleshoot & debug
       items:
         - name: Troubleshoot test run failures

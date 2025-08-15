@@ -8,7 +8,11 @@ ms.date: 08/29/2016
 ms.custom: devx-track-csharp, devx-track-dotnet
 ms.author: cephalin
 author: cephalin
+<<<<<<< HEAD
 # Customer intent: As a developer, I want to get an overview of Visual Studio tools for debugging apps in App Service so that I can more effectively debug my apps. 
+=======
+ms.service: azure-app-service
+>>>>>>> cf7c30de92ef7556d98cb1a1d192de256763b889
 ---
 # Tutorial: Troubleshoot an app in Azure App Service using Visual Studio
 

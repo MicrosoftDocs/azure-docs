@@ -5,7 +5,11 @@ author: seligj95
 ms.topic: overview
 ms.date: 06/26/2024
 ms.author: jordanselig
+<<<<<<< HEAD
 # Customer intent: As a developer, I want to get an overview of using App Service Environment to host isolated applications. 
+=======
+ms.service: azure-app-service
+>>>>>>> cf7c30de92ef7556d98cb1a1d192de256763b889
 ---
 
 # Use an App Service Environment

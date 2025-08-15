@@ -5,7 +5,11 @@ ms.topic: overview
 ms.date: 03/04/2024
 author: btardif
 ms.author: byvinyal
+<<<<<<< HEAD
 # Customer intent: As a developer, I want to learn about about the Recommended services feature so that I can use proven patterns to help me effectively structure my apps.  
+=======
+ms.service: azure-app-service
+>>>>>>> cf7c30de92ef7556d98cb1a1d192de256763b889
 ---
 
 # What is Recommended services (preview)?

@@ -8,7 +8,10 @@ ms.topic: concept-article
 ms.date: 11/18/2021
 ms.author: jordanselig
 ms.custom: references_regions, devx-track-azurepowershell
+ms.service: azure-app-service
+
 # Customer intent: As a developer, I want to learn how to horizontally scale apps by using geo-distribution with Traffic Manager and App Service Environment.
+
 ---
 # Geo-distributed scale with App Service Environment
 

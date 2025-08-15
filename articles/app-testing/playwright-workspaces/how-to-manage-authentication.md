@@ -9,7 +9,7 @@ author: ninallam
 ms.author: ninallam
 ms.date: 08/07/2025
 ms.custom: playwright-workspaces-preview
-zone_pivot_group_filename: playwright-workspaces/zone-pivots-groups.json
+zone_pivot_group_filename: app-testing/playwright-workspaces/zone-pivots-groups.json
 zone_pivot_groups: playwright-workspaces
 ---
 
@@ -59,9 +59,9 @@ To enable authentication using access tokens:
 
     ```typescript
     import { getServiceConfig, ServiceAuth } from '@azure/playwright';
-
-    /* Learn more about service configuration at https://aka.ms/mpt/config */
-    export default defineConfig(config, getServiceConfig( config {
+    
+    /* Learn more about service configuration at https://aka.ms/pww/docs/config */
+    export default defineConfig(config, getServiceConfig( config, {
         serviceAuthType: ServiceAuth.ACCESS_TOKEN
     }));
     ```
@@ -87,7 +87,7 @@ To enable authentication using access tokens:
             credential: new DefaultAzureCredential(),
             options: new PlaywrightServiceBrowserClientOptions()
             {
-                
+                ServiceAuth = ServiceAuthType.AccessToken
             }
         )
         {
@@ -103,47 +103,47 @@ To enable authentication using access tokens:
 
 ::: zone pivot="playwright-test-runner"
 
-3. Set up your environment.
+## Set up your environment.
 
-    To set up your environment, configure the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` environment variable with the value you obtained in the previous steps. Ensure this environment variable is available in your setup where you are running tests.
+To set up your environment, configure the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` environment variable with the value you obtained in the previous steps. Ensure this environment variable is available in your setup where you are running tests.
 
-    We recommend that you use the `dotenv` module to manage your environment. With `dotenv`, you define your environment variables in the `.env` file.
+We recommend that you use the `dotenv` module to manage your environment. With `dotenv`, you define your environment variables in the `.env` file.
 
-    1. Add the `dotenv` module to your project:
+1. Add the `dotenv` module to your project:
 
-        ```shell
-        npm i --save-dev dotenv
-        ```
+    ```shell
+    npm i --save-dev dotenv
+    ```
 
-    2. Create a `.env` file alongside the `playwright.config.ts` file in your Playwright project:
-        
-        ```
-        PLAYWRIGHT_SERVICE_ACCESS_TOKEN={MY-ACCESS-TOKEN}
-        ```
+2. Create a `.env` file alongside the `playwright.config.ts` file in your Playwright project:
+    
+    ```
+    PLAYWRIGHT_SERVICE_ACCESS_TOKEN={MY-ACCESS-TOKEN}
+    ```
 
-        Make sure to replace the `{MY-ACCESS-TOKEN}` text placeholder with the value you copied earlier.
+    Make sure to replace the `{MY-ACCESS-TOKEN}` text placeholder with the value you copied earlier.
 
 ::: zone-end
 
 ::: zone pivot="nunit-test-runner"
 
-3. Set up your environment.
-
-    To set up your environment, configure the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` environment variable with the value you obtained in the previous steps. Ensure this environment variable is available in your setup where you are running tests.
+To set up your environment, configure the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` environment variable with the value you obtained in the previous steps. Ensure this environment variable is available in your setup where you are running tests.
 
 ::: zone-end
 
-## Run tests on the service and publish results
+## Run tests on the service
 
-Run Playwright tests against cloud-hosted browsers and publish the results to the service using the configuration you created above.
+Run Playwright tests against cloud-hosted browsers using the configuration you created above.
 
 ::: zone pivot="playwright-test-runner"
+
 ```typescript
 npx playwright test --config=playwright.service.config.ts --workers=20
 ```
 ::: zone-end
 
 ::: zone pivot="nunit-test-runner"
+
 ```bash
 dotnet test -- NUnit.NumberOfTestWorkers=20
 ```

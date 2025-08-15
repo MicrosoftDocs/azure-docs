@@ -10,7 +10,11 @@ ms.custom:
   - build-2025
 author: cephalin
 ms.author: cephalin
+<<<<<<< HEAD
 # Customer intent: As an App Service user, I want to learn how Azure App Service updates the OS and runtimes, what runtimes and patch level my apps has, and how I can get update announcements.
+=======
+ms.service: azure-app-service
+>>>>>>> cf7c30de92ef7556d98cb1a1d192de256763b889
 ---
 
 # OS and runtime patching in Azure App Service

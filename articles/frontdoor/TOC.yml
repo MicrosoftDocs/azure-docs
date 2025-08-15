@@ -324,7 +324,7 @@
       - name: Configure HTTPS on a custom domain
         href: front-door-custom-domain-https.md
       - name: Add a root or apex domain
-        href: standard-premium/how-to-add-security-headers.md
+        href: front-door-how-to-onboard-apex-domain.md?pivots=front-door-classic
       - name: Set up a Rules Engine (classic)
         href: front-door-tutorial-rules-engine.md
     - name: CDN (classic) from Microsoft

@@ -7,7 +7,11 @@ ms.assetid: a6a74f17-bb57-40dd-8113-a20b50ba3050
 ms.topic: how-to
 ms.date: 01/07/2025
 ms.author: jordanselig
+<<<<<<< HEAD
 # Customer intent: As a developer, I want to integrate an app in an ILB App Service Environment with an application gateway so that I can benefit from WAF protection, load balancing, and TLS offloading. 
+=======
+ms.service: azure-app-service
+>>>>>>> cf7c30de92ef7556d98cb1a1d192de256763b889
 ---
 # Integrate your ILB App Service Environment with the Azure Application Gateway
 

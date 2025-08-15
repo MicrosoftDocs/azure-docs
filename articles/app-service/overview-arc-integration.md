@@ -7,7 +7,11 @@ ms.date: 01/15/2025
 author: apwestgarth
 ms.author: msangapu
 ROBOTS: NOINDEX
+<<<<<<< HEAD
 # Customer intent: As an Azure operator, I want to learn about App Service integration with Azure Arc so that I can evaluate whether it meets my needs. 
+=======
+ms.service: azure-app-service
+>>>>>>> cf7c30de92ef7556d98cb1a1d192de256763b889
 ---
 
 # App Service, Functions, and Logic Apps on Azure Arc (Preview)

@@ -7,6 +7,7 @@ ms.author: msangapu
 author: msangapu-msft
 ms.devlang: python
 ms.custom: devx-azure-cli, devx-azure-portal, devx-vscode-azure-extension, devdivchpfy22, vscode-azure-extension-update-completed, devx-track-azurecli, devx-track-python
+ms.service: azure-app-service
 ---
 
 # Quickstart: Deploy a Python (Django, Flask, or FastAPI) web app to Azure App Service
