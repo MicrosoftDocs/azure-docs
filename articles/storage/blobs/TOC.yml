@@ -97,16 +97,16 @@ items:
     - name: Storage migration overview
       href: ../common/storage-migration-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       items:
-      - name: 1-Assesment
-        href: ../common/1-Assessment-stage.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: 2-Target selection
-        href: ../common/2-Target-selection.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: 3-Planning migration strategy
-        href: ../common/3-Planning-migration-strategy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: 4-Select migration tools
-        href: ../common/4-Select-migration-tools.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: 5-Migration execution
-        href: ../common/5-Migration-execution.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Phase 1 - Assessment
+        href: ../common/storage-migration-assessment.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Phase 2 - Target selection
+        href: ../common/storage-migration-target-selection.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Phase 3 - Planning migration strategy
+        href: ../common/storage-migration-planning-strategy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Phase 4 - Selecting migration tools
+        href: ../common/storage-migration-tools.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Phase 5 - Migration execution
+        href: ../common/storage-migration-execution.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Tape migration overview
       href: ../common/tape-migration-guide.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     # - name: Compare data transfer solutions

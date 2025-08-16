@@ -3,11 +3,17 @@ author: Bapi Chakraborty
 ms.date: 07/24/2025
 ---
 
+<!--
+Initial score: 68 (770/28)
+-->
+
 # Commvault and Azure Data Box Integration scenarios
 
-**Commvault®** support Microsoft Azure Data Box, enabling enterprise customers to accelerate data movement to and from Azure with optimal security, speed, and control. Whether migrating data to Azure for backup or recovering from it during a disaster scenario, Commvault's tight integration with Azure Data Box delivers unmatched flexibility in bandwidth-constrained or high-volume environments. The below documentation contains details involving Commvault Air Gap Protect which is a fully managed service. Similar details with some changes may apply if you want to bring your own subscription and storage account.
+**Commvault's®** support for Microsoft Azure Data Box enables enterprise customers to accelerate data movement to and from Azure with optimal security, speed, and control. Whether migrating data to Azure for backup or recovering from it during a disaster scenario, Commvault's tight integration with Azure Data Box delivers unmatched flexibility in bandwidth-constrained or high-volume environments. This article contains information about Commvault Air Gap Protect, a fully managed service. This article is also relevant for use cases in which you bring your own subscription and storage account, though some changes might apply.
 
- Here are 3 common scenarios that Commvault and Azure Data Box help you achieve.
+## Common scenarios
+
+There are three common scenarios that Commvault and Azure Data Box help you achieve.
 
 ### Scenario 1: Migrate to Azure with offline seeding using Commvault Air Gap Protect and Azure Data Box
 
@@ -62,13 +68,9 @@ You can read [more details are here](https://documentation.commvault.com/2024e/e
 **Benefits:**
 
 - **Time:** Faster recovery from cloud with no dependency on bandwidth.
-
 - **Performance:** Physical transfer outpaces most WAN download capabilities.
-
 - **Cost:** No need to keep high-performance links idle "just in case."
-
 - **Security:** Data at rest and in transit is fully encrypted.
-
 - **Reliability:** Ideal for Cyber Resiliency planning in disconnected or regulated environments.
 
 ### Use Case 3: Cloud Copy Exit - Retaining Backup Data On-Premises
@@ -92,13 +94,8 @@ You can read [more details are here](https://documentation.commvault.com/2024e/e
 **Benefits:**
 
 - **Time:** Expedites cloud exit timelines.
-
 - **Performance:** Moves TBs of data in days, not weeks.
-
 - **Cost:** Avoids prolonged egress charges and operational downtime.
-
 - **Security:** Maintains compliance with secure physical and digital transfer.
-
 - **Reliability:** Ensures data integrity and usability post-transfer.
-
 **Note:** For complete step by step guide refer to Commvault documentation or contact your Commvault representative.
