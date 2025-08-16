@@ -172,5 +172,5 @@ Each match configuration can trigger one or more actions.
 * Only GRE/VXLAN encapsulation supported for isolation domains.
 
 ## Additional resources 
-[Concepts: Network Packet Broker](./concepts-nexus-network-packet-broker)
+[Concepts: Network Packet Broker](./concepts-nexus-network-packet-broker.md)
 [How to configure Network Packet Broker](./howto-configure-network-packet-broker.md)

@@ -156,7 +156,7 @@ az networkfabric tap update-admin-state \
 
 
 ## Additional resources
-[Concepts: Network Packet Broker](./concepts-nexus-network-packet-broker)
+[Concepts: Network Packet Broker](./concepts-nexus-network-packet-broker.md)
 [Deep Dive: Network TAP Rules](./concepts-nexus-network-tap-rules.md)
-[Configure the Network Fabric](./howto-configure-network-fabric)
-[Network Fabric Services](https://learn.microsoft.com/en-us/azure/operator-nexus/concepts-network-fabric-services)
+[Configure the Network Fabric](./howto-configure-network-fabric.md)
+[Network Fabric Services](./concepts-network-fabric-services.md)
