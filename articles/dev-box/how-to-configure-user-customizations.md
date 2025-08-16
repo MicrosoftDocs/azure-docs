@@ -162,7 +162,7 @@ User customizations are controlled at the project level and are enabled by defau
 
    :::image type="content" source="media/how-to-configure-user-customizations/user-customizations-enabled.png" alt-text="Screenshot of a dev box project showing the user customizations feature enabled in the dev box settings." lightbox="media/how-to-configure-user-customizations/user-customizations-enabled.png":::
 
-1. To disable user customizations, clear the **Enable** checkbox.
+1. To disable user customizations, clear the **Enable** checkbox, and then select **Apply**.
 
 ### Developer experience in the developer portal
 
