@@ -6,6 +6,7 @@ ms.topic: conceptual
 ms.date: 06/24/2025
 ms.author: cherylmc
 author: cherylmc
+ms.custom: portfolio-consolidation-2025
 ---
 
 # What is hybrid connectivity?
