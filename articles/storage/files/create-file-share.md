@@ -82,11 +82,11 @@ The **Networking** tab is optional, and allow you to set up both service and pri
 
 A virtual network is required if you intented to set up networking while create the file share, you may also set up networking configurations after the file share is created.
 
-![A screenshot of the  of service endpoint tab.](./media/storage-how-to-create-microsoft-fileshares/createflow3.1.png)
+![A screenshot of the  of service endpoint tab.](./media/storage-how-to-create-microsoft-fileshares/createflow31.png)
 
 For private endpoint configurations, each file share will have it's own private endpoint. To get started, click on **+ Create private endpoint**. Leave **Subscription** and **Resource group** the same. Choose the same location as the virtual network and desired name for the private endpoint. Chosse FileShare for storage sub-resource. Next, under confugre virtual network section, choose the desired virtual network, and subnet setting. Select **Yes** for **Enable Private DNS zone**. Select **Add** after everything is all setted up.
 
-![A screenshot of the  of the private endpoint tab.](./media/storage-how-to-create-microsoft-fileshares/createflow3.2.png)
+![A screenshot of the  of the private endpoint tab.](./media/storage-how-to-create-microsoft-fileshares/createflow32.png)
 
 ### Tags
 
