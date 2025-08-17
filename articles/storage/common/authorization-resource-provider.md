@@ -2,8 +2,8 @@
 title: Use the Azure Storage resource provider to access management resources
 description: The Azure Storage resource provider is a service that provides access to management resources for Azure Storage. You can use the Azure Storage resource provider to create, update, manage, and delete resources such as storage accounts, private endpoints, and account access keys.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.service: azure-storage
 ms.topic: concept-article
 ms.date: 03/04/2025

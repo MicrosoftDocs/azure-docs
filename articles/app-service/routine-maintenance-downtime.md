@@ -1,11 +1,15 @@
 ---
-title: Routine maintenance, restarts, and downtime
+title: Routine Maintenance, Restarts, and Downtime
 description: Learn about common reasons for restarts and downtime during Routine Maintenance and options to minimize disruptions.
 author: kamilsykora
 ms.author: kamils
 
-ms.topic: article
+ms.topic: concept-article
 ms.date: 09/10/2024
+ms.service: azure-app-service
+
+# Customer intent: As an App Service user, I want to learn about common reasons for restarts and downtime during routine maintenance so that I can minimize disruptions.
+
 ---
 
 # Routine maintenance for Azure App Service, restarts, and downtime

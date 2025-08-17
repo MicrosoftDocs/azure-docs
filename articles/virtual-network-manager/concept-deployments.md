@@ -19,7 +19,7 @@ Learn how configuration deployments in Azure Virtual Network Manager are applied
 When committing a deployment, you select the regions where you want the selected configurations to apply. The time it takes for a deployment to complete depends on how large the configuration is. Once the virtual networks are members of a network group targeted by a configuration, deploying that configuration onto that network group can take a few minutes. This scenario includes adding or removing virtual networks to or from the targeted network group manually or conditionally with Azure Policy. Safe deployment practices recommend gradually rolling out changes on a per-region basis.
 
 > [!IMPORTANT]
-> Only one security admin configuration can be deployed from a single network manager to a region at a time. However, multiple connectivity and routing configurations can exist in a region. To deploy multiple sets of security admin rules to a region, you can create multiple rule collections within a security admin configuration.
+> For security admin and routing configurations, only one of each configuration can be deployed from a single network manager to a region at a time. However, multiple connectivity configurations can exist in a region. To deploy multiple sets of security admin rules or routing rules to a region, you can create multiple rule collections within those respective configurations.
 
 ## Deployment latency and timing
 
