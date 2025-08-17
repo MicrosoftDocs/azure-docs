@@ -6,7 +6,7 @@ author: anaharris-ms
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-table-storage
-ms.date:  07/22/2025
+ms.date:  08/18/2025
 #Customer intent: As an engineer responsible for business continuity, I want to understand the details of how Azure Table Storage works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow during different kinds of situations.
 ---
 
@@ -29,7 +29,7 @@ For production environments:
 
 - If you need resilience to region outages and your storage account's primary region is paired, consider enabling geo-redundant storage, which replicates data asynchronously to the paired region. In supported regions, you can combine geo-redundancy with zone redundancy by using GZRS.
 
-- For high-scale production workloads, or if you have high resiliency requirements, consider using [Azure Cosmos DB for Table](/azure/cosmos-db/table/introduction). Azure Cosmos DB for Table is compatible with applications that are written for Azure Table Storage. It supports low latency read and write operations at high scale, strong global distribution across multiple regions with flexible consistency models, built-in backup, and a range of other capabilities that enhance your resiliency and performance.
+- For high-scale production workloads, or if you have high resiliency requirements, consider using [Azure Cosmos DB for Table](/azure/cosmos-db/table/introduction). Azure Cosmos DB for Table is compatible with applications that are written for Azure Table Storage. It supports low latency read and write operations at high scale, strong global distribution across multiple regions with flexible consistency models, built-in backup, and a range of other capabilities that enhance your application's resiliency and performance.
 
 ## Reliability architecture overview
 
