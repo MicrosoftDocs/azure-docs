@@ -23,8 +23,6 @@ While you can run multiple data connector agents on a single machine, we recomme
 > [!NOTE]
 > This article is relevant only for the data connector agent, and isn't relevant for the [SAP agentless data connector](deployment-overview.md#data-connector) (Limited preview).
 >
-[!INCLUDE [china-21vianet-retirement](../includes/china-21vianet-retirement.md)]
-
 
 ## Prerequisites
 
