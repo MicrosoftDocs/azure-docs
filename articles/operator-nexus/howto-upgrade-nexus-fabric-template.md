@@ -1,10 +1,10 @@
 ---
 title: "Azure Operator Nexus: Fabric runtime upgrade template"
 description: Learn the process for upgrading Fabric for Operator Nexus with step-by-step parameterized template.
-author: bartpinto 
-ms.author: bpinto
+author: jeffreymason 
+ms.author: jeffreymason
 ms.service: azure-operator-nexus
-ms.date: 04/23/2025
+ms.date: 08/04/2025
 ms.topic: how-to
 ms.custom: azure-operator-nexus, template-include
 ---
@@ -110,20 +110,7 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
 <details>
 <summary> Prechecks before starting Fabric upgrade </summary>
 
-1. The following role permissions should be assigned to end users responsible for Fabric create, upgrade, and delete operations.
-
-   These permissions can be granted temporarily, limited to the duration required to perform the upgrade.
-   * Microsoft.NexusIdentity/identitySets/read
-   * Microsoft.NexusIdentity/identitySets/write
-   * Microsoft.NexusIdentity/identitySets/delete
-   * Ensure that `Role Based Access Control Administrator` is successfully activated.
-   * Check in Azure portal from the following path:
-     `Network Fabrics` -> `NF_NAME` -> `Access control (IAM)` -> `View my access`.
-   * In current 'Role assignments', you should see the following two roles:
-     - Nexus Contributor
-     - Role Based Access Control Administrator
-
-2. Validate the provisioning status for the Network Fabric Controller (NFC), Fabric, and Fabric Devices.
+1. Validate the provisioning status for the Network Fabric Controller (NFC), Fabric, and Fabric Devices.
 
    Log in to Azure CLI and select or set the `<CUSTOMER_SUB_ID>`:
    ```
@@ -150,34 +137,16 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
    >[!Note]
    > If `provisioningState` is not `Succeeded`, stop the upgrade until issues are resolved.
 
-3. Check `Microsoft.NexusIdentity` user Resource Provider (RP) is registered on the customer subscription:
-   ```
-   az provider show --namespace Microsoft.NexusIdentity -o table --subscription <CUSTOMER_SUB_ID>
-   Namespace                RegistrationPolicy    RegistrationState
-   -----------------------  --------------------  -------------------
-   Microsoft.NexusIdentity  RegistrationRequired  Registered
-   ```
+2. Minimum available disk space on each device must be more than 3.5 GB for a successful device upgrade.
 
-   If not registered, run the following to register:
+   Verify the available space on each Fabric Device using the following Azure CLI command. 
    ```
-   az provider register --namespace Microsoft.NexusIdentity --wait --subscription <CUSTOMER_SUB_ID>
-
-   az provider show --namespace Microsoft.NexusIdentity -o table
-   Namespace                RegistrationPolicy    RegistrationState
-   -----------------------  --------------------  -------------------
-   Microsoft.NexusIdentity  RegistrationRequired  Registered
-   ```
-
-4. Minimum available disk space on each device must be more than 3.5 GB for a successful device upgrade.
-
-   Verify the available space on each Fabric Devices using the following Azure CLI command. 
-   ```
-   az networkfabric device run-ro --resource-name <NF_DEVICE_NAME> --resource-group <NF_RG> --ro-command "dir flash" --subscription <CUSTOMER_SUB_ID> --debug
+   az networkfabric device run-ro --resource-name <NF_DEVICE_NAME> --resource-group <NF_RG> --ro-command "show file systems" --subscription <CUSTOMER_SUB_ID> --debug
    ```
 
    Contact Microsoft support if there isn't enough space to perform the upgrade. Archived Extensible Operating System (EOS) images and support bundle files can be removed at the direction of support.
 
-5. Check the Fabric's Network Packet Broker (NPB) for any orphaned `Network Taps` in Azure portal.
+3. Check the Fabric's Network Packet Broker (NPB) for any orphaned `Network Taps` in Azure portal.
    * Select `Network Fabrics` under `Azure Services` and then select the <NF_NAME>.
    * Click on the `Resource group` for the Fabric.
    * In the Resources list, filter on `Network Packet Broker`.
@@ -189,13 +158,13 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
    >[!Note]
    > If any Taps show `Not Found`, `Failed`, or `Error` status, stop the upgrade until issues are cleared. Provide this information to Microsoft Support when opening a support ticket for Tap issues.
 
-6. Run and validate the Fabric cable validation report.
+4. Run and validate the Fabric cable validation report.
    Follow [Validate Cables for Nexus Network Fabric](how-to-validate-cables.md) to set up and run the report
 
    >[!Note]
    > Resolve any connection and cable issues before continuing the upgrade.
 
-7. Review Operator Nexus Release notes for required checks and configuration updates not included in this document.
+5. Review Operator Nexus Release notes for required checks and configuration updates not included in this document.
 
 </details>
 
@@ -214,14 +183,14 @@ az networkfabric fabric show -g <NF_RG> --resource-name <NF_NAME> --subscription
 ### Initiate Fabric upgrade
 Start the upgrade with the following command:
 ```Azure CLI
-az networkfabric fabric upgrade -g <NF_RG> --resource-name <NF_NAME> --subscription <CUSTOMER_SUB_ID> --action start --version "5.0.0"
+az networkfabric fabric upgrade -g <NF_RG> --resource-name <NF_NAME> --subscription <CUSTOMER_SUB_ID> --action start --version "6.0.0"
 {}
 ```
 
 >[!Note]
 > Output showing `{}` indicates successful execution of upgrade command.
 
-The Fabric Resource Provider validates if the version upgrade is allowed from the existing Fabric version to the target version. Only N+1 major release upgrades are allowed (for example, 4.0.0->5.0.0).
+The Fabric Resource Provider validates if the version upgrade is allowed from the existing Fabric version to the target version. Only N+1 major release upgrades are allowed (for example, 5.0.0->6.0.0).
 
 On successful completion, the command puts the Fabric status into `Under Maintenance` and prevents any other operation on the Fabric.
 
@@ -249,7 +218,10 @@ Four Rack environments have 17 Devices:
 3. Compute Rack MGMT switches upgrade together in parallel.
 4. Aggregate Rack CEs upgrade one after the other in serial.
    >[!Important]
-   > After each CE upgrade, wait for a duration of five minutes to ensure that the recovery process is complete before proceeding to the next CE
+   >**After each CE upgrade, wait for a duration of five minutes to ensure that the recovery process is complete before proceeding to the next CE.**
+   
+   >[!Important]
+   >**For the remaining Aggregate Rack devices, the order for the device upgrades is not important as long as they are done in a serial manner.**
 5. Aggregate Rack NPBs upgrade one after the other in serial.
 6. Aggregate Rack MGMT switches upgrade one after the other in serial.
 

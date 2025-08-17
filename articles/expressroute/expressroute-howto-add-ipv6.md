@@ -239,7 +239,8 @@ Follow these steps if you have an existing environment of Azure resources that y
 ---
 
 > [!NOTE]
-> If you have an existing gateway that is not zone-redundant (meaning it is Standard, High Performance, or Ultra Performance SKU) and uses a public IP address of Basic SKU, you will need to delete and recreate the gateway using any SKU and a Standard, Static public IP address.
+> If you have an existing gateway that is not zone-redundant (meaning it is Standard, High Performance, or Ultra Performance SKU) and uses a public IP address of Basic SKU, you will need to delete and recreate the gateway using any SKU.
+>  The gateway of type zone-redundant SKU (meaning it is Standard, High Performance, or Ultra Performance) can be deployed only in availability-zone supported regions.
 
 ## Create a connection to a new virtual network
 

@@ -59,10 +59,12 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | -------------- | -------------------|------------------------|------------------ | ---- |-----|-----|----|
 | Central US | US Midwest (Chicago)  | ✓  |   ✓  | ✓ | | | Dual |
 | East US        | US East (Ashburn)          | ✓   | ✓ | ✓ | ✓| Preview available | Dual  |
-| East US 2 | US East (Ashburn) | ✓  |   | | | | Dual |
+| East US 2 | US East (Ashburn) | ✓  | ✓  | | | | Dual |
 | South Central US |Dallas| ✓  | |  | |  | Dual |
 | West US | US West (San Jose)  | ✓  | ✓  | ✓| | Preview available | Single |
-| Canada Central | Canada Southeast (Toronto) | ✓ |  ✓ | | | | Dual  |
+| West US 2 |	US West (Quincy)| ✓  | |  | |  | Single |
+| West US 3 |	US West (Phoenix)| ✓  | |  | |  | Single |
+| Canada Central | Canada Southeast (Toronto) | ✓ |  ✓ | | ✓ | | Dual  |
 
 
 

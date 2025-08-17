@@ -75,13 +75,12 @@ It's recommended that Ambari DB is sized correctly to reap the benefits of autos
 The following table describes the cluster types and versions that are compatible with the Autoscale feature.
 
 | Version | Spark | Hive | Interactive Query | HBase | Kafka |
-|---|---|---|---|---|---|---|
-| HDInsight 4.0 without ESP | Yes | Yes | Yes* | No | No |
-| HDInsight 4.0 with ESP | Yes | Yes | Yes* | No | No |
-| HDInsight 5.0 without ESP | Yes | Yes | Yes* | No | No |
-| HDInsight 5.0 with ESP | Yes | Yes | Yes* | No | No |
+|---|---|---|---|---|---|
+| HDInsight 5.1 without ESP | Yes | Yes | Yes* | No | No |
+| HDInsight 5.1 with ESP | Yes | Yes | Yes* | No | No |
 
-\* Interactive Query clusters can only be configured for schedule-based scaling, not load-based.
+> [!Note]
+> Interactive Query clusters can only be configured for schedule-based scaling. Load-based Autoscale is not supported.
 
 ## Get started
 

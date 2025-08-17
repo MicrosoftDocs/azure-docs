@@ -74,38 +74,6 @@ Unknown means that Resource Health hasn't received information about the resou
 
 Degraded means that Resource Health detected a loss in performance in either one or more private cloud resources, although it's still available for use. Different resources have their own criteria for when they report that they are degraded.
 
-
-
-#### Pre-configured Alarms enabled in Azure Resource Health
-
-
-|Alert Name|Remediation Mode|
-| -------- | -------- |
-|Physical Disk Health Alarm |System Remediation|
-|System Board Health Alarm|System Remediation|
-| Memory Health Alarm|System Remediation|
-|Storage Health Alarm|System Remediation|
-|Temperature Health Alarm |System Remediation|
-|Host Connection State Alarm|System Remediation|
-|High Availability (HA) host Status |System Remediation|
-| Network Connectivity Lost Alarm|System Remediation|
-|Virtual Storage (vSAN) Host Disk Error Alarm|System Remediation|
-|Voltage Health Alarm |System Remediation|
-|Processor Health Alarm| System Remediation|
-|Fan Health Alarm|System Remediation|
-|High pNIC error rate detected|System Remediation|
-|iDRAC critical alerts if there are hardware faults (CPU/DIMM/PCI bus/Voltage issues)|System Remediation|
-|vSphere HA restarted a virtual machine|System Remediation|
-|Virtual Storage (vSAN) High Disk Utilization|Customer Intervention Required|
-|Replacement Start and Stop Notification|System Remediation|
-|Repair Service notification to customers (Host reboot and Restart of Management services) |System Remediation|
-|Notification to customer when a Virtual Machine is configured to use an external device that prevents a maintenance operation|Customer Intervention Required|
-| Customer notification when CD-ROM is mounted on the Virtual Machine and its ISO image isn't accessible and blocks maintenance operation|Customer Intervention Required|
-|Notification to customer when an external Datastore mounted becomes inaccessible and will block maintenance operations|Customer Intervention Required|
-|Notification to customer when connected network adapter becomes inaccessible and blocks any maintenance operations|Customer Intervention Required|
-|VMware Network (NSX –T) alarms (Customer notification about License expiration)|Customer Intervention Required|
-
-
 ## Next Steps
 
 Now that you have configured an alert rule for your Azure VMware Solution private cloud, you can learn more about: 
