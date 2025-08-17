@@ -1,4 +1,21 @@
-# KQL jobs, summary rules, and search jobs
+---  
+title:   Compare KQL jobs, summary rules, and search jobs
+titleSuffix: Microsoft Security  
+description: Compare KQL jobs, summary rules, and search jobs in Microsoft Sentinel to choose the best tool for querying and analyzing security data.
+author: EdB-MSFT  
+ms.service: microsoft-sentinel  
+ms.topic: how-to
+ms.subservice: sentinel-graph
+ms.date: 08/17/2025
+ms.author: edbaynash  
+
+ms.collection: ms-security  
+
+# Customer intent: As a security analyst, I need to choose the right tool for querying and analyzing data in Microsoft Sentinel.
+
+---
+
+# Compare KQL jobs, summary rules, and search jobs
 
 This article compares KQL jobs, summary rules, and search jobs in Microsoft Sentinel. These features let you query and analyze data in Microsoft Sentinel, and each serves different purposes and use cases.
 
@@ -36,3 +53,9 @@ The following table summarizes when to use each feature:
 |**Summary rules**|<br>•	Your tenant is not onboarded to Microsoft Sentinel data lake, and your data may still reside in Auxiliary or Basic tiers.<br>•	You need lookback within 24 hours.<br>•	You need frequent summarization (for example, every 20 minutes)<br>•	You want to use out-of-the-box templates.<br>•	You are using summary rules out-of-the-box templates.
 |**Search jobs**|•	Your Microsoft Sentinel workspace is not connected to Defender portal and your data resides in Analytics or basic tiers.<br>•	You have data in archive tier. Note: If you are onboarded to Microsoft Sentinel data lake, to access data older than your onboarding date, use search jobs. For data from your onboarding date onward, use KQL jobs.<br>•	You need to hydrate large volumes of data from a single table. <br>•	Your use case involves targeted extraction rather than frequent summarization or complex multi-table joins.<br>•	You want to analyze up to 1 year of historical data within a table from any data tiers.
 
+Related articles:
+
+- [KQL and the Microsoft Sentinel data lake (preview)](kql-overview.md)
+- [Jupyter notebooks and the Microsoft Sentinel data lake (preview)](notebooks-overview.md)
+- [Aggregate Microsoft Sentinel data with summary rules](../summary-rules.md)
+- [Search for specific events across large datasets in Microsoft Sentinel](../search-jobs.md)
