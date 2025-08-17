@@ -25,6 +25,9 @@ This article compares KQL jobs, summary rules, and search jobs in Microsoft Sent
 | **Pricing model**    | GB data analyzed                         | Analytics tier: free<br>Basic and auxiliary tier: Data scan Log Analytics pricing model | GB data analyzed                |
 
 
+
+## Usage scenarios
+
 The following table summarizes when to use each feature:
 
 |Feature| Scenario|
