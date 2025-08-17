@@ -130,6 +130,12 @@ To achieve geo-replication in nonpaired regions:
 
    - To learn about how to create multi-region solutions by using Queue Storage, see [Reliability in Queue Storage](./reliability-storage-queue.md).
 
+- **For Azure Table Storage:** To learn about how to create multi-region solutions using Azure Table Storage, see [Reliability in Azure Table Storage](./reliability-storage-table.md).
+
+## Azure Table Storage
+
+To learn about how to create multi-region solutions using Azure Table Storage, see [Reliability in Azure Table Storage](./reliability-storage-table.md).
+
 ## Azure Virtual Desktop
 
 For geo-replication in nonpaired regions for Azure Virtual Desktop, you need to consider session host VMs and storage for user profiles, applications, and data. Microsoft manages the Azure Virtual Desktop control plane, which is globally distributed and highly available.
