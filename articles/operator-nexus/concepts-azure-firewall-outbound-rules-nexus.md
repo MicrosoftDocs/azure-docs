@@ -10,7 +10,11 @@ ms.date: 08/18/2025
 
 # Outbound network and FQDN rules within Azure Firewall for Azure Operator Nexus
 
-Azure Firewall rules must be updated to **remove wildcard entries** from the configuration. This change aligns with the removal of wildcards from the Infra Proxy and CSN allow-lists, which have been identified as potential targets for data exfiltration.
+Azure Operator Nexus deploys and manages outbound firewall rules to ensure that the infrastructure can securely connect to Microsoft services and external package sources.  
+These rules are automatically pushed and maintained by Microsoft as part of the service.  
+Customers **do not need to configure or update these rules manually**.
+
+The following tables provide a reference of how the outbound rules appear within Azure Firewall.
 
 ## Traffic flow
 
@@ -19,30 +23,8 @@ The simplified flow of traffic is as follows:
 - **Infrastructure traffic** → Infra Proxy allow-list → Azure Firewall  
 - **Tenant traffic** → CSN allow-list → Azure Firewall  
 
-## Overview
-
-As part of a broader security hardening initiative, the objective is to:
-
-- Eliminate wildcard entries from:
-  - Azure Firewall rules
-  - Infra Proxy allow-list
-  - CSN default egress allow-list  
-
-## Infrastructure
-
-The following wildcard entries are already identified for removal within the Infra Proxy allow-list:
-
-| Wildcard |
-|----------|
-| `*.servicebus.windows.net` |
-| `*.blob.core.windows.net` |
-| `*.ods.opinsights.azure.com`, `*.oms.opinsights.azure.com` |
-| `*.monitoring.azure.com` |
-| `*.prod.warm.ingest.monitor.core.windows.net`, `*.prod.hot.ingest.monitor.core.windows.net` |
 
 ## Tenant / CSN
-
-There is an effort via **WS-11** to negotiate the removal of wildcard entries from the CSN egress default allow-list.
 
 The following **Network Rules** and **Application Rules** are used to allow-list NFC traffic from version 6.5 onward. These rules will also apply to CM traffic in future releases.
 
@@ -50,28 +32,28 @@ The following **Network Rules** and **Application Rules** are used to allow-list
 
 The following service tags are allowed by network rules:
 
-- AzureActiveDirectory
-- AzureTrafficManager
-- AzureResourceManager
-- AzureArcInfrastructure
-- Storage
-- AzureMonitor
-- AzureContainerRegistry
-- AzureKubernetesService
+| Protocol | Port | Destination (Service Tag) |
+| -------- | ---- | ------------------------- |
+| TCP      | 443  | AzureActiveDirectory      |
+| TCP      | 443  | AzureTrafficManager       |
+| TCP      | 443  | AzureResourceManager      |
+| TCP      | 443  | AzureArcInfrastructure    |
+| TCP      | 443  | Storage                   |
+| TCP      | 443  | AzureMonitor              |
+| TCP      | 443  | AzureContainerRegistry    |
+| TCP      | 443  | AzureKubernetesService    |
+
 
 ### Application rules
 
 The application rules allow the following list of (protocol, port, FQDN) combinations:
 
-| Protocol | Port | FQDNs |
-|----------|------|-------|
-| https | 443 | management.azure.com, login.microsoftonline.com, login.windows.net, mcr.microsoft.com, `*.data.mcr.microsoft.com`, gbl.his.arc.azure.com, `*.his.arc.azure.com`, k8connecthelm.azureedge.net, guestnotificationservice.azure.com, `*.guestnotificationservice.azure.com`, sts.windows.net, k8sconnectcsp.azureedge.net, `*.servicebus.windows.net`, graph.microsoft.com, `*.arc.azure.net`, dl.k8s.io, arcdataservicesrow1.azurecr.io, `*.ods.opinsights.azure.com`, `*.oms.opinsights.azure.com`, `*.monitoring.azure.com`, aka.ms, download.microsoft.com, packages.microsoft.com, pas.windows.net, `*.guestconfiguration.azure.com`, `*.waconazure.com`, `*.blob.core.windows.net`, dc.services.visualstudio.com, www.microsoft.com, msk8s.api.cdp.microsoft.com, msk8s.sb.tlu.dl.delivery.mp.microsoft.com, `*.login.microsoft.com`, `*.dp.prod.appliances.azure.com`, ecpacr.azurecr.io, azurearcfork8s.azurecr.io, adhs.events.data.microsoft.com, v20.events.data.microsoft.com, linuxgeneva-microsoft.azurecr.io, kvamanagementoperator.azurecr.io, gcs.prod.monitoring.core.windows.net, `*.prod.microsoftmetrics.com`, `*.prod.hot.ingest.monitor.core.windows.net`, `*.prod.warm.ingest.monitor.core.windows.net`, `*.dp.kubernetesconfiguration.azure.com`, pypi.org, `*.pypi.org`, pythonhosted.org, `*.pythonhosted.org`, kubernetes.default.svc, acs-mirror.azureedge.net, vault.azure.net, data.policy.core.windows.net, store.policy.core.windows.net, dc.services.visualstudio.com, arcmktplaceprod.azurecr.io, arcmktplaceprod.centralindia.data.azurecr.io, arcmktplaceprod.japaneast.data.azurecr.io, arcmktplaceprod.westus2.data.azurecr.io, arcmktplaceprod.westeurope.data.azurecr.io, arcmktplaceprod.eastus.data.azurecr.io, `*.ingestion.msftcloudes.com`, `*.microsoftmetrics.com`, marketplaceapi.microsoft.com, nvidia.github.io, us.download.nvidia.com, download.docker.com, onegetcdn.azureedge.net, go.microsoft.com, kubernetes.default.svc, crl.microsoft.com, `*.azureedge.net`, pkg-containers.githubusercontent.com, `<region>.dp.kubernetesconfiguration.azure.com`, `<region>.login.microsoft.com`, `aks-service-nfarp-dns-cd3irif8.hcp.<region>.azmk8s.io`, `*.<region>.arcdataservices.com`, `cm-pouahzn9.hcp.<region>.azmk8s.io`, `*.hcp.<region>.azmk8s.io`, `<region>.ingest.monitor.azure.com`, `<region>.handler.control.monitor.azure.com` |
-| https | 8084 | `<region>.obo.arc.azure.com` |
-| https | 123 | time.windows.com, ntp.ubuntu.com |
-| http | 80 | security.ubuntu.com, azure.archive.ubuntu.com, changelogs.ubuntu.com, `*.mp.microsoft.com`, www.msftconnecttest.com, ctldl.windowsupdate.com, crl3.digicert.com, ocsp.digicert.com, `*.digicert.com`, crl.microsoft.com |
+| Protocol | Port | FQDN                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| -------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| HTTPS   | 443  | `*.hcp.<region>.azmk8s.io` <br> `management.azure.com` <br> `login.microsoftonline.com` <br> `mcr.microsoft.com` <br> `packages.microsoft.com` <br> `acs-mirror.azureedge.net` <br> `dc.services.visualstudio.com` <br> `production.diagnostics.monitoring.core.windows.net` <br> `global.handler.control.monitor.azure.com` <br> `gbl.his.arc.azure.com` <br> `gcs.prod.monitoring.core.windows.net` <br> `*.prod.microsoftmetrics.com` <br> `*.prod.warm.ingest.monitor.core.windows.net` <br> `*.prod.hot.ingest.monitor.core.windows.net` <br> `onecollector.cloudapp.aria.microsoft.com` <br> `storeedgefd.dsx.mp.microsoft.com` <br> `*.dp.kubernetesconfiguration.azure.com` |
+| HTTPS   | 123  | `time.windows.com`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| HTTP   | 80   | `archive.ubuntu.com`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 
-> [!NOTE]  
-> `<region>` placeholders should be replaced with the appropriate Azure region for your deployment.
 
 ## References
 
