@@ -6,7 +6,7 @@ author: wchigit
 ms.author: wchi
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 07/28/2025
+ms.date: 08/25/2025
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 #customer intent: As a cloud developer, I want to connect my compute services toAzure OpenAI in Foundry Models using Service Connector.
