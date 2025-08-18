@@ -4,7 +4,7 @@ titleSuffix: Microsoft Sentinel
 description: Understand threat intelligence and how it integrates with features in Microsoft Sentinel to analyze data, detect threats, and enrich alerts.
 author: guywi-ms
 ms.topic: concept-article
-ms.date: 02/27/2025
+ms.date: 08/18/2025
 ms.author: guywild
 ms.reviewer: alsheheb
 appliesto:
