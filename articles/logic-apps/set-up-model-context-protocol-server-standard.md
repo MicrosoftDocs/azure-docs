@@ -1,6 +1,6 @@
 ---
 title: Set up Standard Workflows as MCP Servers
-description: Learn how to set up Standard logic apps as Model Context Protocol (MCP) servers that work with large language models (LLMs), AI agents, and MCP clients.
+description: Learn how to set up Standard logic apps as Model Context Protocol (MCP) servers for large language models (LLMs), AI agents, and MCP clients. Expose workflows as tools to enhance enterprise integration.
 services: logic-apps
 ms.suite: integration
 ms.author: kewear
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.date: 08/29/2025
 ms.update-cycle: 180-days
-#CustomerIntent: I want to set up Standard logic app workflows in Azure Logic Apps as tools in a Model Context Protocol (MCP) server that works with LLMs, AI agents, and MCP clients.
+#Customer intent: I want to set up Standard logic app workflows in Azure Logic Apps as tools in a Model Context Protocol (MCP) server that works with LLMs, AI agents, and MCP clients.
 ---
 
 # Set up Standard logic apps as MCP servers for LLMs, AI agents, and MCP clients (Preview)
@@ -21,11 +21,11 @@ ms.update-cycle: 180-days
 > The following capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Typically, large language models (LLMs) work with AI agents that handle and fulfill requests by using prebuilt *tools* that agents call to complete tasks, such as send an email, query a database, or trigger a workflow. In Azure Logic Apps, you can jumpstart building these tools by reconfiguring Standard logic apps as custom Model Context Protocol (MCP) servers. This capability means that you can expose existing workflows as tools that LLMs, AI agents, and MCP clients can use to interact with enterprise resources and assets.
+Typically, large language models (LLMs) work with AI agents that handle and fulfill requests by using prebuilt *tools* that agents call to complete tasks, like send an email, query a database, or trigger a workflow. In Azure Logic Apps, jumpstart building these tools by reconfiguring a Standard logic app as your own Model Context Protocol (MCP) server. This capability means that you can expose existing workflows as tools that LLMs, AI agents, and MCP clients can use to interact with enterprise resources and assets.
 
-MCP is an open standard that lets LLMs, AI agents, and MCP clients work with external systems and tools in a secure, discoverable, and structured way. This standard defines how to describe, run, and authenticate access to tools so that agents can interact with real-world systems such as databases, APIs, and business workflows. You can think about an MCP server as a bridge between an LLM, AI agent, or MCP client and the tools that the LLM, AI agent, or MCP client can use.
+MCP is an open standard that lets LLMs, AI agents, and MCP clients work with external systems and tools in a secure, discoverable, and structured way. This standard defines how to describe, run, and authenticate access to tools so agents can interact with real-world systems like databases, APIs, and business workflows. Consider an MCP server as a bridge between an LLM, AI agent, or MCP client and the tools they use.
 
-:::image type="content" source="media/set-up-model-context-protocol-server-standard/mcp-arch.png" alt-text="Conceptual diagram that shows an agent and interactions with related components." lightbox="media/set-up-model-context-protocol-server-standard/mcp-arch.png":::
+:::image type="content" source="media/set-up-model-context-protocol-server-standard/mcp-arch.png" alt-text="Diagram that shows agent interactions with related components." lightbox="media/set-up-model-context-protocol-server-standard/mcp-arch.png":::
 
 For more information, see the following articles:
 
@@ -35,15 +35,15 @@ For more information, see the following articles:
 - [MCP client concepts](https://modelcontextprotocol.io/docs/learn/client-concepts)
 - [Introduction - Get started with the Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro)
 
-The following table describes the benefits that you get when you set up Standard logic apps as custom MCP servers:
+The following table describes the benefits that you get when you set up Standard logic apps as your own MCP servers:
 
 | Benefit | Description |
 |---------|-------------|
-| Reusability | You can call existing workflows, connectors, and codeful functions from an AI agent, which gives you the opportunity for extra return on your investments. |
-| Flexibility | Azure Logic Apps provides 1,400+ connectors that provide access and ways to work with enterprise assets and resources whether they in the cloud or on premises. |
-| Access points | Azure Logic Apps supports various connectivity models for running your MCP server. For you can run your server in the cloud, exposed as a private endpoint, or connected to virtual networks and on-premises resources. |
-| Security | When you expose your logic app as an MCP server, make sure that you set up a strong security posture and meet your enterprise security requirements. You can use Microsoft Entra ID with EasyAuth for authentication and authorization and to secure your MCP server and Standard workflows. |
-| Monitoring, governance, and compliance | Azure Logic Apps provides workflow run history and integration with Application Insights or Log Analytics so that you get the data necessary to manage and monitor your MCP server tools and support your needs around diagnostics and troubleshooting, reporting, traceability, and auditing. |
+| Reusability | Call existing workflows, connectors, and codeful functions from an AI agent, which gives you extra return on your investments. |
+| Flexibility | Choose from more than 1,400 connectors that provide access and actions to work with enterprise assets and resources in the cloud or on premises. |
+| Access points | Azure Logic Apps supports different connectivity models for running your MCP server. You can run your server in the cloud, expose your server as a private endpoint, or connect to virtual networks and on-premises resources. |
+| Security | When you expose your logic app as an MCP server, you set up a strong security posture so you can meet your enterprise security requirements. By default, MCP endpoints use [OAuth 2.0](/entra/identity-platform/v2-oauth2-auth-code-flow) for authentication and authorization. For more information, see [What is OAuth](/security/business/security-101/what-is-oauth)? <br><br>You can also use Microsoft Entra ID with *Easy Auth* to secure your MCP server and Standard workflows. Easy Auth is the current name for the native authentication and authorization features in Azure App Service, Azure Functions, and Azure Container Apps. For more information, see [Authentication and authorization in Azure App Service and Azure Functions](../app-service/overview-authentication-authorization.md). |
+| Monitoring, governance, and compliance | Azure Logic Apps provides workflow run history and integration with Application Insights or Log Analytics so you get the data necessary to manage and monitor your MCP server tools and support diagnostics, troubleshooting, reporting, traceability, and auditing. |
 
 ## Prerequisites
 
@@ -54,6 +54,8 @@ The following table describes the benefits that you get when you set up Standard
   - This capability applies only to Standard workflows that use the Workflow Service Plan or App Service Environment v3 option.
 
   - Workflows must start with the **Request** trigger named **When a HTTP request is received** and include the **Response** action.
+
+  - The logic app resource must be running, and workflow must be in an enabled state.
 
   For more information, see the following documentation:
 
@@ -84,9 +86,9 @@ The following table describes the benefits that you get when you set up Standard
 
 ## Considerations for workflows as tools
 
-When you build workflows to use as MCP tools, review the following considerations and best practices:
+When you build workflows to use as MCP tools, review these considerations and best practices:
 
-To help agents or models correctly find and run tools, add the following metadata to the **Request** trigger and request payloads. This metadata improves the agent's reliability and accuracy in using tools.
+To help agents or models find and run tools, add the following metadata to the **Request** trigger and request payloads. This metadata improves the agent's reliability and accuracy when using tools.
 
 > [!TIP]
 >
@@ -94,7 +96,7 @@ To help agents or models correctly find and run tools, add the following metadat
 
 - Trigger description
 
-  Your MCP server uses this metadata when showing tools to end users and when routing requests to the correct tool. To add this description, follow these steps:
+  Your MCP server uses this metadata as the tool description to show end users and to route requests to the correct tool. To add this description, follow these steps:
 
   1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow.
 
@@ -102,7 +104,7 @@ To help agents or models correctly find and run tools, add the following metadat
 
   1. In the designer, select the **Request** trigger.
 
-  1. In the trigger information pane, under the trigger name, add a description about what the trigger and workflow does.
+  1. In the trigger information pane, under the trigger name, describe the purpose for the trigger and workflow.
 
 - Input parameter descriptions
 
@@ -122,7 +124,7 @@ To help agents or models correctly find and run tools, add the following metadat
 
      - For each input parameter, add the `description` attribute and the corresponding description.
 
-     - If your tool requires specific parameters to successfully run, you can include them as required parameters by adding the `required` object and an array with these parameters.
+     - If your tool requires specific parameters to run, include them as required parameters by adding the `required` object and an array with these parameters.
 
      The following example shows sample input parameters, descriptions, and required parameters:
 
@@ -158,10 +160,13 @@ To help agents or models correctly find and run tools, add the following metadat
 
 > [!TIP]
 >
-> If you experience inconsistent results when an agent calls and runs your tool, check whether 
-> you can make the trigger and parameter descriptions more unique. For example, you might try 
-> describing the format for parameter inputs. So, if a parameter expects a base64 encoded string, 
-> including this detail in the parameter description might help.
+> If you get inconsistent results when an agent calls and runs your tool, check whether you can 
+> make the trigger and parameter descriptions more unique. For example, try describing the format 
+> for parameter inputs. If a parameter expects a base64 encoded string, include this detail in the 
+> parameter description.
+>
+> You can also set up error handling and use the `runAfter` property to return the appropriate 
+> error message to the caller. For more information, see [Manage the "run after" behavior](error-exception-handling.md#manage-the-run-after-behavior).
 
 ## Create an app registration
 
@@ -242,7 +247,7 @@ Now set up EasyAuth authentication on the Standard logic app that you want to us
 
    | Property | Required | Description |
    |----------|----------|-------------|
-   | **Client application requirement** | Yes | Choose an option: <br><br>- **Allow requests from specific client applications**: If you know which client applications call your MCP server, you can select these applications from the **Allowed client applications** list. <br><br>For example, if you use Visual Studio Code, you can add the ID for this client application by editing the **Allowed client applications** list. To find this value, under **Enterprise** applications search for Visual Studio Code. <br><br>- **Allow requests from any application (Not recommended)**: Only when you're unsure what applications call your MCP server. |
+   | **Client application requirement** | Yes | Choose an option: <br><br>- **Allow requests from specific client applications**: If you know which client applications call your MCP server, you can select these applications from the **Allowed client applications** list. For example, if you use Visual Studio Code, you can add the ID for this client application by editing the **Allowed client applications** list. To find this value, follow these steps: <br><br>1. In the Azure portal search box, find and select **Enterprise applications**. <br>2. On the **All applications** page search box, find and select the application ID for Visual Studio Code. <br><br>- **Allow requests from any application (Not recommended)**: Only when you're unsure what applications call your MCP server. |
    | **Identity requirement** | Yes | To restrict which users can call your MCP server, select **Allow requests from specific identities**, and then from Microsoft Entra ID, from the **Allowed identities** list, select the object IDs for those identities that you allow to call your MCP server. Otherwise, select **Allow requests from any identity**. |
    | **Tenant requirement** | Yes | To deny calls from outside tenants to your MCP server, select **Allow requests from the issuer tenant**. |
 
@@ -266,7 +271,13 @@ For this task, you need to edit the **host.json** file for your Standard logic a
 
 1. Next to the **host.json** file, select the edit icon (pencil).
 
-1. In the editor window, under the `extensionBundle` JSON object, add the `extensions` JSON object. Make sure that you replace the placeholder values with the following values that you saved earlier:
+1. In the editor window, under the `extensionBundle` JSON object, add the `extensions` JSON object.
+
+   - Replace the placeholder values with the following values that you saved earlier.
+
+   - Confirm that the `extensions.workflow.mcpserverendpoints.enable` property is set to `true`.
+
+     This setting helps you avoid having to change the other information in this file.
 
    - Directory (tenant) ID
    - Logic app name
@@ -278,9 +289,6 @@ For this task, you need to edit the **host.json** file for your Standard logic a
        "version": "[1.*, 2.0.0)"
    },
    "extensions": {
-       "http":{
-           "routePrefix": ""
-       },
        "workflow": {
            "Settings": {
                "Runtime.Backend.EdgeWorkflowRuntimeTriggerListener.AllowCrossWorkerCommunication": true,
@@ -301,6 +309,8 @@ For this task, you need to edit the **host.json** file for your Standard logic a
        }
    }
    ```
+
+1. When you're done, save your **host.json** file.
 
 ## Test your MCP server setup
 
