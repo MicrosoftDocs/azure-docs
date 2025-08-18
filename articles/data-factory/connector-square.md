@@ -288,7 +288,7 @@ The following table shows the release stage and change logs for different versio
 ### <a name="upgrade-the-square-connector-from-version-10-to-version-20"></a> Upgrade the Square connector from version 1.0 to version 2.0 (Preview)
 
 1. In **Edit linked service** page, select 2.0 (Preview) for version. For more information, see [linked service version 2.0 (Preview) properties](#version-20).
-1. The data type mapping for the Teradata linked service version 2.0 is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Teradata](#data-type-mapping-for-square).
+1. The data type mapping for the Square linked service version 2.0 is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Square](#data-type-mapping-for-square).
 1. Self-hosted integration runtime is only supported in version 1.0. You should use the Azure integration runtime instead of self-hosted integration runtime in version 2.0 (Preview).
 1. `query` is only supported in version 1.0. You should use the `tableName` instead of `query` in version 2.0 (Preview).
 
