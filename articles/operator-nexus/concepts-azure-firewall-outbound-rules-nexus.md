@@ -11,8 +11,7 @@ ms.date: 08/18/2025
 # Outbound network and FQDN rules within Azure Firewall for Azure Operator Nexus
 
 Azure Operator Nexus deploys and manages outbound firewall rules to ensure that the infrastructure can securely connect to Microsoft services and external package sources.  
-These rules are automatically pushed and maintained by Microsoft as part of the service.  
-Customers **do not need to configure or update these rules manually**.
+Azure Operator Nexus automatically pushes and maintains these rules as part of the service. Customers **do not need to configure or update these rules manually**.
 
 The following tables provide a reference of how the outbound rules appear within Azure Firewall.
 
@@ -26,7 +25,7 @@ The simplified flow of traffic is as follows:
 
 ## Tenant / CSN
 
-The following **Network Rules** and **Application Rules** are used to allow-list NFC traffic from version 6.5 onward. These rules will also apply to CM traffic in future releases.
+The following **Network Rules** and **Application Rules** are used to allow-list Network Fabric Controller (NFC) traffic from version 6.5 onward. These rules will also apply to Cluster Manager (CM) traffic in future releases.
 
 ### Network rules
 
