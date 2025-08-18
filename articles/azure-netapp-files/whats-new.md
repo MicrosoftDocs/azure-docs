@@ -17,11 +17,11 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## August 2025
+
 * [Restore individual files using single-file restore from backup](restore-single-file-backup.md) (preview)
 
     With Azure NetApp Files single file restore from backup, you can restore individual files from Azure NetApp Files backup vault without needing to restore an entire volume. By restoring only the necessary files, you can save cost and time needed for restoring data. This feature is now in  preview.
-
-## August 2025
 
 * [Flexible service level](manage-cool-access.md?tabs=flexible#register-the-feature) now supports storage with cool access (Preview)
 
