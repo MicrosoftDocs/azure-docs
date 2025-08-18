@@ -67,7 +67,7 @@ For new implementations on SLES for SAP Applications 15, we recommended deployin
 
 To deploy the SAP NetWeaver application layer, you need shared directories like `/sapmnt/SID` and `/usr/sap/trans` in the environment. Additionally, when deploying an HA SAP system, you need to protect and make highly available file systems like `/sapmnt/SID` and `/usr/sap/SID/ASCS`.
 
-Now you can place these file systems on [NFS on Azure Files](../../storage/files/files-nfs-protocol.md). NFS on Azure Files is an HA storage solution. This solution offers synchronous Zone redundant storage (ZRS) and is suitable for SAP ASCS/ERS instances deployed across Availability Zones. You still need a Pacemaker cluster to protect single point of failure components like SAP Netweaver central services(ASCS/SCS).
+Now you can place these file systems on [NFS on Azure Files](../../storage/files/files-nfs-protocol.md). NFS on Azure Files is an HA storage solution. This solution offers synchronous Zone redundant storage (ZRS) and is suitable for SAP ASCS/ERS instances deployed across Availability Zones. You still need a Pacemaker cluster to protect single point of failure components like SAP Netweaver central services (ASCS/SCS).
 
 The example configurations and installation commands use the following instance numbers:
 
@@ -80,7 +80,7 @@ The example configurations and installation commands use the following instance 
 | SAP system identifier               | NW1             |
 
 :::image type="complex" source="./media/high-availability-guide-suse/high-availability-guide-suse-nfs-azure-files.png" alt-text="SAP NetWeaver High Availability with NFS on Azure Files":::
-This diagram shows a typical SAP Netweaver HA architecture. The "sapmnt" and "saptrans" file systems are deployed on NFS shares on Azure Files. The SAP central services are protected by a Pacemaker cluster. The clustered VMs are behind an Azure load balancer. The NFS shares are mounted through private end point.
+This diagram shows a typical SAP Netweaver HA architecture. The "sapmnt" and "saptrans" file systems are deployed on NFS shares on Azure Files. The SAP central services are protected by a Pacemaker cluster. The clustered VMs are behind an Azure load balancer. The NFS shares are mounted through private endpoint.
 :::image-end:::
 
 ## Prepare infrastructure
@@ -121,7 +121,7 @@ During VM configuration, you have an option to create or select exiting load bal
 
 ### Deploy Azure Files storage account and NFS shares
 
-NFS on Azure Files, runs on top of [Azure Files Premium storage][afs-azure-doc]. Before setting up NFS on Azure Files, see [How to create an NFS share](../../storage/files/storage-files-how-to-create-nfs-shares.md?tabs=azure-portal).
+NFS on Azure Files runs on top of [Azure Files Premium storage][afs-azure-doc]. Before setting up NFS on Azure Files, see [How to create an NFS share](../../storage/files/storage-files-how-to-create-nfs-shares.md?tabs=azure-portal).
 
 There are two options for redundancy within an Azure region:
 

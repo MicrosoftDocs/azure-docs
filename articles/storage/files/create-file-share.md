@@ -1,5 +1,5 @@
 ---
-title: Create an file share
+title: Create an Azure file share
 description: This article covers how to use the Azure portal, PowerShell, and Azure CLI to deploy a file share, change it performance and delete.
 author: khdownie
 ms.service: azure-file-storage

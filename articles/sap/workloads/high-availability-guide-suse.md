@@ -164,7 +164,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Update SAP resource agents
 
-   A patch for the resource-agents package is required to use the new configuration that is described in this article. You can check, if the patch is already installed with the following command
+   A patch for the resource-agents package is required to use the new configuration that is described in this article. You can check, if the patch is already installed with the following command:
 
    ```bash
    sudo grep 'parameter name="IS_ERS"' /usr/lib/ocf/resource.d/heartbeat/SAPInstance
@@ -299,14 +299,14 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 1. **[1]** Create a virtual IP resource and health-probe for the ASCS instance
 
    > [!IMPORTANT]
-   > Recent testing revealed situations, where netcat stops responding to requests due to backlog and its limitation of handling only one connection. The netcat resource stops listening to the Azure Load balancer requests and the floating IP becomes unavailable.  
+   > Recent testing revealed situations where netcat stops responding to requests due to backlog and its limitation of handling only one connection. The netcat resource stops listening to the Azure Load Balancer requests, and the floating IP becomes unavailable.  
    > For existing Pacemaker clusters, we recommended in the past replacing netcat with socat. Currently we recommend using azure-lb resource agent, which is part of package resource-agents, with the following package version requirements:
    >
    > - For SLES 12 SP4/SP5, the version must be at least resource-agents-4.3.018.a7fb5035-3.30.1.
    > - For SLES 15/15 SP1, the version must be at least resource-agents-4.3.0184.6ee15eb2-4.13.1.
    >
-   > Note that the change will require brief downtime.  
-   > For existing Pacemaker clusters, if the configuration was already changed to use socat as described in [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), there is no requirement to switch immediately to azure-lb resource agent.
+   > The change will require brief downtime.  
+   > For existing Pacemaker clusters, if the configuration was already changed to use socat as described in [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), there's no requirement to switch immediately to azure-lb resource agent.
 
    ```bash
    sudo crm node standby nw1-cl-1
