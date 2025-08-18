@@ -22,7 +22,7 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
 ## August 2025
 ### FHIR service
 
-**Bulk Delete remove references feature**: The $bulk-delete operation now supports the option to remove references to resources that are being deleted. This means that if you delete a resource that is referenced by another resource, the reference will be removed from the referencing resource. More information [here](https://learn.microsoft.com/azure/healthcare-apis/fhir/fhir-bulk-delete#preview-capabilities-for-the-bulk-delete-operation). 
+**Bulk Delete remove references feature**: The $bulk-delete operation now supports the option to remove references to resources that are being deleted. This means that if you delete a resource that is referenced by another resource, the reference is removed from the referencing resource. More information [here](https://learn.microsoft.com/azure/healthcare-apis/fhir/fhir-bulk-delete#preview-capabilities-for-the-bulk-delete-operation). 
 
 **Patient export improvement**: Improved performance of Patient/$export functionality by splitting patients into smaller groups and processing them in parallel.
 
@@ -30,7 +30,7 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
 
 **Bulk delete and custom search parameter fix**: Previously, there was a bug where after using $bulk-delete to hard delete a custom search parameter, it was not possible to then create the same custom search parameter with the same url or code. This issue has been fixed, and you can now create a custom search parameter after using $bulk-delete to hard delete a custom search parameter with the same url or code.
 
-**Enhanced error message for conditional references**: Previously, a conditional reference that returns multiple results would result in the error message "Given conditional reference does not resolve to a resource." This error message has been updated to be more descriptive, and is now changed to "Given conditional reference resolved to multiple resources."
+**Enhanced error message for conditional references**: Previously, a conditional reference that returns multiple results would result in the error message "Given conditional reference doesn't resolve to a resource." This error message has been updated to be more descriptive, and is now changed to "Given conditional reference resolved to multiple resources."
 
 **Returning correct count**: Not referenced search was counting soft deleted resources when using _summary=count and was not returning correct results when soft deleted resources are present in the database. The fix is implemented to filter correctly.
 

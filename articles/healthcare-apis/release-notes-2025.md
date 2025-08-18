@@ -20,7 +20,7 @@ This article describes features, enhancements, and bug fixes released in 2025 fo
 ## August 2025
 ### FHIR service
 
-**Bulk Delete remove references feature**: The $bulk-delete operation now supports the option to remove references to resources that are being deleted. This means that if you delete a resource that is referenced by another resource, the reference will be removed from the referencing resource. More information [here](https://learn.microsoft.com/azure/healthcare-apis/fhir/fhir-bulk-delete#preview-capabilities-for-the-bulk-delete-operation). 
+**Bulk Delete remove references feature**: The $bulk-delete operation now supports the option to remove references to resources that are being deleted. This means that if you delete a resource that is referenced by another resource, the reference is removed from the referencing resource. More information [here](https://learn.microsoft.com/azure/healthcare-apis/fhir/fhir-bulk-delete#preview-capabilities-for-the-bulk-delete-operation). 
 
 **Patient export improvement**: Improved performance of Patient/$export functionality by splitting patients into smaller groups and processing them in parallel.
 
@@ -28,15 +28,15 @@ This article describes features, enhancements, and bug fixes released in 2025 fo
 
 **Bulk delete and custom search parameter fix**: Previously, there was a bug where after using $bulk-delete to hard delete a custom search parameter, it was not possible to then create the same custom search parameter with the same url or code. This issue has been fixed, and you can now create a custom search parameter after using $bulk-delete to hard delete a custom search parameter with the same url or code. 
 
-**Custom search parameter creation and update issues**: Previously, there was a bug where duplicate custom search parameters could be created, and existing custom search parameters could not be updated. This fixes search parameter creation and update issues in some scenarios, with more fixes to follow soon.
+**Custom search parameter creation and update issues**: Previously, there was a bug where duplicate custom search parameters could be created, and existing custom search parameters couldn't be updated. This fixes search parameter creation and update issues in some scenarios, with more fixes to follow soon.
 
-**Headers for bundles for FHIR servers behind proxy**: Previously, X-Forwarded-Host and X-Forwarded-Prefix headers were not being returned properly for requests within bundles when the FHIR server is behind a proxy. This issue has been fixed, and X-Forwarded-Host and X-Forwarded-Prefix will now be correctly used to return URLs for requests within bundles for FHIR servers behind a proxy.
+**Headers for bundles for FHIR servers behind proxy**: Previously, X-Forwarded-Host and X-Forwarded-Prefix headers weren't being returned properly for requests within bundles when the FHIR server is behind a proxy. This issue has been fixed, and X-Forwarded-Host and X-Forwarded-Prefix will now be correctly used to return URLs for requests within bundles for FHIR servers behind a proxy.
 
 **CHECK Constraint Conflict Error Status Code Fix**: For the issue identified with CHECK constraint conflict error, will be resolved with status code 400.
 
 **Import Data Resource Versioning Conflict Fix**: When importing data with identical last updated times, multiple versions of the same resource can be created, leading to a key conflict during merging. This happens because a conflict wasn’t detected if allowNegativeVersions flag is enabled, allowing duplicate resources into the merge list.
 
-**Enhanced error message for conditional references**: Previously, a conditional reference that returns multiple results would result in the error message "Given conditional reference does not resolve to a resource." This error message has been updated to be more descriptive, and is now changed to "Given conditional reference resolved to multiple resources."
+**Enhanced error message for conditional references**: Previously, a conditional reference that returns multiple results would result in the error message "Given conditional reference doesn't resolve to a resource." This error message has been updated to be more descriptive, and is now changed to "Given conditional reference resolved to multiple resources."
 
 **Returning correct count**: Not referenced search was counting soft deleted resources when using _summary=count and was not returning correct results when soft deleted resources are present in the database. The fix is implemented to filter correctly.
 
