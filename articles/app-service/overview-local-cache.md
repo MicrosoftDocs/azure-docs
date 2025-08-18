@@ -4,8 +4,8 @@ description: Learn how a local cache works in Azure App Service, and how to enab
 tags: optional
 
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
-ms.topic: conceptual
-ms.date: 04/17/2025
+ms.topic: concept-article
+ms.date: 08/25/2025
 ms.update-cycle: 1095-days
 ms.custom: UpdateFrequency3
 ms.author: msangapu
@@ -18,13 +18,13 @@ ms.service: azure-app-service
 
 > [!TIP]
 >
-> You can also ask Microsoft Copilot in Azure these questions:
+> You can also ask Copilot in Azure these questions:
 >
 > - *How does a local cache work in Azure App Service?*
 > - *What are the benefits of using a local cache in Azure App Service?*
 > - *What are the limitations of using a local cache in Azure App Service?*
 >
-> To find Copilot in Azure, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
+> To use Copilot in Azure, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
 
 Azure App Service content is stored in Azure Storage and is exposed as a durable content share. This design works with various apps and has the following attributes:  
 
