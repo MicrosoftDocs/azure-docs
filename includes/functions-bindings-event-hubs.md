@@ -92,41 +92,7 @@ Version 1.x of the Functions runtime doesn't support running in an isolated work
 ::: zone-end  
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
-
-## Install bundle
-
-The Event Hubs extension is part of an [extension bundle], which is specified in your host.json project file. You may need to modify this bundle to change the version of the binding, or if bundles aren't already installed. To learn more, see [extension bundle].
-
-# [Bundle v4.x](#tab/extensionv6)
-
-[!INCLUDE [functions-bindings-supports-identity-connections-note](functions-bindings-supports-identity-connections-note.md)]
-
-You can add this version of the extension from the extension bundle v4 by adding or replacing the following code in your `host.json` file:
-
-[!INCLUDE [functions-extension-bundles-json-v4](./functions-extension-bundles-json-v4.md)]
-
-To learn more, see [Update your extensions].
-
-# [Bundle v3.x](#tab/extensionv5)
-
-[!INCLUDE [functions-bindings-supports-identity-connections-note](functions-bindings-supports-identity-connections-note.md)]
-
-You can add this version of the extension from the extension bundle v3 by adding or replacing the following code in your `host.json` file:
-
-[!INCLUDE [functions-extension-bundles-json-v3](./functions-extension-bundles-json-v3.md)]
-
-To learn more, see [Update your extensions].
-
-# [Bundle v2.x](#tab/extensionv3)
-
-You can install this version of the extension in your function app by registering the [extension bundle], version 2.x.
-
-# [Functions v1.x](#tab/functionsv1)
-
-Version 1.x of the Functions runtime doesn't require extension bundles. 
-
----
-
+[!INCLUDE [functions-install-extension-bundle](functions-install-extension-bundle.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
@@ -140,7 +106,7 @@ The binding types supported for .NET depend on both the extension version and C#
 An isolated worker process class library compiled C# function runs in a process isolated from the runtime.  
 
 
-# [In-process model](#tab/in-process)
+### [In-process model](#tab/in-process)
 
 An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
  
@@ -176,7 +142,7 @@ Earlier versions of the extension exposed types from the now deprecated [Microso
 
 This version of the extension supports parameter types according to the table below.
 
- Binding scenario | Parameter types |
+|Binding scenario | Parameter types |
 |-|-|
 | Event Hubs trigger (single event) | [Microsoft.Azure.EventHubs.EventData]<br/>JSON serializable types<sup>1</sup><br/>`string`<br/>`byte[]` |
 | Event Hubs trigger (batch of events) | `EventData[]`<br/>`string[]` |

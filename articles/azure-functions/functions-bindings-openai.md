@@ -75,21 +75,7 @@ When using a vector database for storing content, you should also install at lea
 ::: zone-end
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
 
-## Install bundle
-
-You can add the preview extension by adding or replacing the following code in your `host.json` file, which specifically targets a preview version of the 4.x bundle that contains the OpenAI extension:
-<!---verify this bundle info-->
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[4.*, 5.0.0)"
-  }
-}
-``` 
-
----
+[!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 
 ::: zone-end
 

@@ -97,44 +97,11 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
 
-## Install bundle
-
-The Azure Cosmos DB bindings extension is part of an [extension bundle], which is specified in your *host.json* project file. You may need to modify this bundle to change the version of the binding, or if bundles aren't already installed. To learn more, see [extension bundle].
-
-::: zone-end  
+[!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
+::: zone-end
 ::: zone pivot="programming-language-java"   
 [!INCLUDE [functions-cosmosdb-extension-java-note](../../includes/functions-cosmosdb-extension-java-note.md)]
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"   
-
-# [Bundle v4.x](#tab/extensionv4)
-
-This version of the bundle contains version 4.x of the Azure Cosmos DB bindings extension that introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md).
-
-You can add this version of the extension from the preview extension bundle v4 by adding or replacing the following code in your `host.json` file:
-
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[4.0.0, 5.0.0)"
-  }
-}
-```
-
-To learn more, see [Update your extensions].
-
-# [Bundle v2.x and v3.x](#tab/functionsv2)
-
-You can install this version of the extension in your function app by registering the [extension bundle], version 2.x or 3.x.
-
-[!INCLUDE [functions-extension-bundles-json-v3](../../includes/functions-extension-bundles-json-v3.md)]
-
----
-
-::: zone-end
-
 ::: zone pivot="programming-language-csharp"
 
 ## Binding types

@@ -4,7 +4,7 @@ author: karengu0
 ms.author: karenguo
 description: Learn about the latest updates for firmware analysis.
 ms.topic: conceptual
-ms.date: 02/07/2025
+ms.date: 07/17/2025
 ms.service: azure
 ---
 
