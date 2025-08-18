@@ -67,7 +67,7 @@ For new implementations on SLES for SAP Applications 15, we recommended deployin
 
 To deploy the SAP NetWeaver application layer, you need shared directories like `/sapmnt/SID` and `/usr/sap/trans` in the environment. Additionally, when deploying an HA SAP system, you need to protect and make highly available file systems like `/sapmnt/SID` and `/usr/sap/SID/ASCS`.
 
-Now you can place these file systems on [NFS on Azure Files](../../storage/files/files-nfs-protocol.md). NFS on Azure Files is an HA storage solution. This solution offers synchronous Zone redundant storage (ZRS) and is suitable for SAP ASCS/ERS instances deployed across Availability Zones. You still need a Pacemaker cluster to protect single point of failure components like SAP Netweaver central services(ASCS/SCS).
+Now you can place these file systems on [NFS on Azure Files](../../storage/files/files-nfs-protocol.md). NFS on Azure Files is an HA storage solution. This solution offers synchronous Zone redundant storage (ZRS) and is suitable for SAP ASCS/ERS instances deployed across Availability Zones. You still need a Pacemaker cluster to protect single point of failure components like SAP Netweaver central services (ASCS/SCS).
 
 The example configurations and installation commands use the following instance numbers:
 
