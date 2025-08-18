@@ -20,7 +20,7 @@ This article outlines how to use the Copy Activity in an Azure Data Factory or S
 
 
 > [!IMPORTANT]
-> The Square connector version 2.0 (Preview) provides improved native Square support. If you are using Square connector version 1.0 in your solution, please [upgrade the Square connector](#upgrade-the-square-connector-from-version-10-to-version-20) before **October 22, 2025**. Refer to this [section](#square-connector-lifecycle-and-upgrade) for details on the difference between version 2.0 (Preview) and version 1.0.
+> The Square connector version 2.0 (Preview) provides improved native Square support. If you are using Square connector version 1.0 in your solution, please [upgrade the Square connector](#upgrade-the-square-connector-from-version-10-to-version-20) before **October 15, 2025**. Refer to this [section](#square-connector-lifecycle-and-upgrade) for details on the difference between version 2.0 (Preview) and version 1.0.
 
 ## Supported capabilities
 
@@ -260,7 +260,7 @@ To copy data from Square, set the source type in the copy activity to **SquareSo
 
 When you copy data from Square, the following mappings apply from Square's data types to the internal data types used by the service. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
-| Square data type | Interim service data type (for version 2.0) | Interim service data type (for version 1.0) |
+| Square data type | Interim service data type (for version 2.0 (Preview)) | Interim service data type (for version 1.0) |
 |------------------|----------------------------------|----------------------|
 | String           | String                           | String               |
 | Integer          | Int32                            | Int32                |
@@ -283,12 +283,12 @@ The following table shows the release stage and change logs for different versio
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
 | Version 1.0 | End of support announced | / |  
-| Version 2.0 | Public Preview | • Date, Timestamp and Timestamp with offset are read as String data type and represented in RFC 3339/ISO 8601 format. <br><br> • Self-hosted integration runtime is not supported. <br><br>• `query` is not supported.  <br><br> • `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service.   |
+| Version 2.0 | Public Preview | • Date, Timestamp and Timestamp with offset are read as String data type and represented in RFC 3339/ISO 8601 format. <br><br> • `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service.   <br><br> • Self-hosted integration runtime is not supported. <br><br>• `query` is not supported.  |
 
 ### <a name="upgrade-the-square-connector-from-version-10-to-version-20"></a> Upgrade the Square connector from version 1.0 to version 2.0 (Preview)
 
 1. In **Edit linked service** page, select 2.0 (Preview) for version. For more information, see [linked service version 2.0 (Preview) properties](#version-20).
-1. The data type mapping for the Teradata linked service version 2.0 is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Teradata](#data-type-mapping-for-teradata).
+1. The data type mapping for the Teradata linked service version 2.0 is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Teradata](#data-type-mapping-for-square).
 1. Self-hosted integration runtime is only supported in version 1.0. You should use the Azure integration runtime instead of self-hosted integration runtime in version 2.0 (Preview).
 1. `query` is only supported in version 1.0. You should use the `tableName` instead of `query` in version 2.0 (Preview).
 
