@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
 
 # Introduction
 
-This guide walks you through how to adjust the size, cost, and performance characteristics, as well as update or delete both classic file shares and File Share using the Azure portal, Azure PowerShell, and Azure CLI.
+This guide walks you through how to adjust the size, cost, and performance characteristics, as well as update or delete both classic file shares and file share using the Azure portal, Azure PowerShell, and Azure CLI.
 
 ## Applies to
 
@@ -326,6 +326,7 @@ Follow these instructions in the portal to change the size and performance of a 
 1. Select the file share you desire to modify.
 2. Select settings from the context menu.
 3. Choose Size + performance
+   ![image on choosing size and performance for mfs](./media/storage-how-to-create-file-share/mfs-change-size1.png)
 4. The Size and performance pop out dialog has the following options:
    Provisioned capcity (GiB): The amount of storage provisioned on the share.
 
@@ -333,9 +334,11 @@ Follow these instructions in the portal to change the size and performance of a 
 
   - **Provisioned IOPS and throughput**: A radio button group that lets you select between _Recommended provisioning_ and _Manually specify IOPS and throughput_. If your share is at the recommended IOPS and throughput level for the amount of storage provisioned, _Recommended provisioning_ will be selected; otherwise, _Manually specify IOPS and throughput_ will be selected. You can toggle between these two options depending on your desire to change share provisioning.
 
-    - **IOPS**: If you select _Manually specify IOPS and throughput_, this textbox enables you to change the amount of IOPS provisioned on this file share.
+        - **IOPS**: If you select _Manually specify IOPS and throughput_, this textbox enables you to change the amount of IOPS provisioned on this file share.
 
-    - **Throughput (MiB/sec)**: If you select _Manually specify IOPS and throughput_, this textbox enables you to change the amount of throughput provisioned on this file share.
+        - **Throughput (MiB/sec)**: If you select _Manually specify IOPS and throughput_, this textbox enables you to change the amount of throughput provisioned on this file share.
+
+    ![image on saving new size for mfs](./media/storage-how-to-create-file-share/mfs-change-performance2.png)
 
 5. Select **Save** to save provisioning changes. Storage, IOPS, and throughput changes are effective within a few minutes after a provisioning change.
 
@@ -394,8 +397,6 @@ az storage share-rm delete \
 ---
 
 ## Delete a file share
-
-Follow these instructions in the portal to delete a file share.
 
 Go to your file share.
 
