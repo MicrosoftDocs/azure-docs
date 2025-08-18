@@ -35,7 +35,7 @@ Azure App Service content is stored in Azure Storage and is exposed as a durable
 
 Although many apps use one or more of these features, some apps need a high-performance, read-only content store that they can run from with high availability. Such apps can benefit from running against a local cache on the VM instance.
 
-The local cache feature in Azure App Service provides a web role view of your content. This content is a write-but-discard cache of your storage content that's created asynchronously at site startup. When the cache is ready, the site switches to run against the cached content.
+The local cache feature in App Service provides a web role view of your content. This content is a write-but-discard cache of your storage content that's created asynchronously at site startup. When the cache is ready, the site switches to run against the cached content.
 
 Apps running with a local cache benefit in these ways:
 
@@ -44,7 +44,7 @@ Apps running with a local cache benefit in these ways:
 - They experience fewer app restarts from changes in the storage share.
 
 > [!NOTE]
-> The local cache feature isn't supported in function apps or containerized App Service apps, such as in [Windows containers](quickstart-custom-container.md?pivots=container-windows) or in built-in or custom Linux containers. A version of the feature that's available for these app types is [App Cache](https://github.com/Azure-App-Service/KuduLite/wiki/App-Cache).
+> The local cache feature isn't supported in function apps or containerized App Service apps, such as in [Windows containers](quickstart-custom-container.md?pivots=container-windows) or in built-in or custom Linux containers. [App Cache](https://github.com/Azure-App-Service/KuduLite/wiki/App-Cache) is a version of the feature that's available for these app types.
 >
 > The local cache feature also isn't supported in the F1 and D1 pricing tiers of App Service.
   
@@ -52,11 +52,11 @@ Apps running with a local cache benefit in these ways:
 
 Configuring a local cache causes these changes:
 
-- `D:\home` now points to the local cache, which is created on the VM instance when the app starts. `D:\local` continues to point to the temporary, VM-specific storage.
+- `D:\home` points to the local cache, which is created on the VM instance when the app starts. `D:\local` continues to point to the temporary, VM-specific storage.
 
 - The local cache contains a one-time copy of the `/site` and `/siteextensions` folders from the shared content store. These folders are located at `D:\home\site` and `D:\home\siteextensions`, respectively. These files are copied to the local cache at app startup.
 
-  The size of these two folders is limited to 1 GB by default, but you can increase it to 2 GB. As the cache size increases, it takes longer to load the cache. If you increase the local cache limit to 2 GB and the copied files exceed this maximum size, App Service silently ignores the local cache and reads from the remote file share.
+  The size of these two folders is limited to 1 GB by default, but you can increase the size to 2 GB. As the cache size increases, it takes longer to load the cache. If you increase the local cache limit to 2 GB and the copied files exceed this maximum size, App Service silently ignores the local cache and reads from the remote file share.
   
   > [!IMPORTANT]
   > When the copied files exceed the defined size limit for the local cache, or when no limit is defined, deployment and swap operations might fail with an error. For details, see the [FAQ about size limits](#what-if-i-exceed-the-size-limit-for-the-local-cache) later in this article.
