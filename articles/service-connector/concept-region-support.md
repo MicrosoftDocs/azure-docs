@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: conceptual
-ms.date: 07/25/2025
+ms.date: 08/18/2025
 ms.custom: references_regions
 #customer intent: As a developer supporting Azure services, I want to know which regions are supported for Service Connector.
 ---
