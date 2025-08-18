@@ -29,13 +29,13 @@ If you don't have an Azure subscription, you can [create an account for free](ht
 
 :::image type="content" source="media/tutorial-firmware-analysis/firmware-analysis-landing.png" alt-text="Screenshot of the 'Getting started' page." lightbox="media/tutorial-firmware-analysis/firmware-analysis-landing.png":::
 
-3. Select **Create a workspace**.
-4. In the **Create a workspace** pane:
+2. Select **Create a workspace**.
+3. In the **Create a workspace** pane:
    - Choose your subscription.
    - Select or create a resource group.
    - Enter a workspace name.
    - Choose a region.
-5. Select **Onboard** to complete the setup.
+4. Select **Onboard** to complete the setup.
 
 :::image type="content" source="media/tutorial-firmware-analysis/completed-onboarding.png" alt-text="Screenshot of the 'Onboard subscription' pane when it's completed." lightbox="media/tutorial-firmware-analysis/completed-onboarding.png":::
 
