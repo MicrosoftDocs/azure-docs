@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 07/25/2025
+ms.date: 08/18/2025
 #customer intent: As a cloud developer, I want to connect my compute services to Azure Service Bus using Service Connector.
 ---
 
