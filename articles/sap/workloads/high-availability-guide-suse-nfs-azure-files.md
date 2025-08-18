@@ -121,7 +121,7 @@ During VM configuration, you have an option to create or select exiting load bal
 
 ### Deploy Azure Files storage account and NFS shares
 
-NFS on Azure Files, runs on top of [Azure Files Premium storage][afs-azure-doc]. Before setting up NFS on Azure Files, see [How to create an NFS share](../../storage/files/storage-files-how-to-create-nfs-shares.md?tabs=azure-portal).
+NFS on Azure Files runs on top of [Azure Files Premium storage][afs-azure-doc]. Before setting up NFS on Azure Files, see [How to create an NFS share](../../storage/files/storage-files-how-to-create-nfs-shares.md?tabs=azure-portal).
 
 There are two options for redundancy within an Azure region:
 
