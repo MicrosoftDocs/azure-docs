@@ -222,7 +222,7 @@ View your threat intelligence from the management interface or using queries:
 
 ### Threat intelligence lifecycle
 
-Microsoft Sentinel stores threat intelligence data in your threat intelligence tables and automatically reingests all data every seven days to optimize query efficiency.
+Microsoft Sentinel stores threat intelligence data in your threat intelligence tables and automatically reingests all data every 12 days to optimize query efficiency.
 
 When an indicator is created, updated, or deleted, Microsoft Sentinel creates a new entry in the tables. Only the most current indicator appears on the management interface. Microsoft Sentinel deduplicates indicators based on the `Id` property (the `IndicatorId` property in the legacy `ThreatIntelligenceIndicator`) and chooses the indicator with the newest `TimeGenerated[UTC]`.
 
