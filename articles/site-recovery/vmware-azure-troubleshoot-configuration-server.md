@@ -7,6 +7,7 @@ ms.topic: troubleshooting
 ms.author: jsuri
 ms.date: 05/27/2021
 
+# Customer intent: As a system administrator, I want to troubleshoot issues with the configuration server during disaster recovery of VMware VMs and physical servers to the cloud, so that I can ensure a successful and reliable disaster recovery process.
 ---
 # Troubleshoot configuration server issues
 

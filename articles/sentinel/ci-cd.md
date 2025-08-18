@@ -30,11 +30,20 @@ When creating custom content, you can manage it from your own Microsoft Sentinel
 Microsoft Sentinel currently supports connections to GitHub and Azure DevOps repositories. Before connecting your Microsoft Sentinel workspace to your source control repository, make sure that you have:
 
 - An **Owner** role in the resource group that contains your Microsoft Sentinel workspace *or* a combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection
-- Collaborator access to your GitHub repository or Project Administrator access to your Azure DevOps repository
-- Actions enabled for GitHub and Pipelines enabled for Azure DevOps
-- Third-party application access via OAuth enabled for Azure DevOps [application connection policies](/azure/devops/organizations/accounts/change-application-access-policies#manage-a-policy).
-- An Azure DevOps connection must be in the same tenant as your Microsoft Sentinel workspace
 - Ensure custom content files you want to deploy to your workspaces are in a supported format. For supported formats, see [Plan your repository content](ci-cd-custom-content.md#plan-your-repository-content).
+
+### [GitHub prerequisites](#tab/github)
+
+- Collaborator access to your GitHub repository 
+- Actions enabled for GitHub and Pipelines enabled for Azure DevOps
+
+### [Azure DevOps prerequisites](#tab/azure-devops)
+
+- Project Administrator access to your Azure DevOps repository
+- Third-party application access via OAuth enabled for Azure DevOps [application connection policies](/azure/devops/organizations/accounts/change-application-access-policies#manage-a-policy).
+- An Azure DevOps connection in the same tenant as your Microsoft Sentinel workspace
+
+---
 
 For more information on deployable content types, see [Validate your content](ci-cd-custom-content.md#validate-your-content).
 

@@ -6,6 +6,7 @@ ms.date: 09/18/2024
 ms.topic: overview
 ms.author: jsuri
 author: jyothisuri
+# Customer intent: As a cloud administrator, I want to understand how Azure Site Recovery monitoring works, so that I can effectively track replication status and ensure the reliability of backups during failover scenarios.
 ---
 # Common questions about Site Recovery monitoring
 

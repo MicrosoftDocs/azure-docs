@@ -3,7 +3,7 @@ title: Azure SRE Agent overview (preview)
 description: Learn how AI-enabled agents help solve problems and support resilient and self-healing systems on your behalf.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 06/18/2025
+ms.date: 07/30/2025
 ms.author: cshoe
 ms.service: azure
 ---
@@ -102,6 +102,40 @@ Further, here are some prompts you can use to help you interact with your agent:
 - Show me a visualization of response times for Container Apps for last week.
 - List [Container Apps/Web Apps/etc.] that you’re managing across all subscriptions.
 - Visualize split of Container Apps vs Web Apps vs AKS clusters managed across all subscriptions as a pie chart.
+
+## Supported services
+
+While Azure SRE Agent can help you manage and report on all Azure services, the agent features specialized tools for managing the following services:
+
+- Azure API Management
+- Azure App Service
+- Azure Cache for Redis
+- Azure Container Apps
+- Azure Cosmos DB
+- Azure Database for PostgreSQL
+- Azure Functions
+- Azure Kubernetes Service
+- Azure SQL
+- Azure Storage
+- Azure Virtual Machines
+
+To get the latest list of services with custom agent tooling, you can submit the following prompt to the agent:
+
+```text
+Which Azure services do you have specialized tooling available for?
+```
+
+### Identifying resource groups
+
+As you create an agent, the resource group picker indicates groups that have instances of services with specialized tooling. From the resource group picker you'll see a checkmark (:::image type="icon" source="media/blue-check.png" border="false":::) next to the group name indicating the group includes services with specialized support.
+
+## Considerations
+
+Keep in mind the following considerations as you use Azure SRE Agent:
+
+* English is the only supported language in the chat interface
+* During preview, you can deploy the agent to the Sweden Central region, but the agent can monitor and remediate issues for services in any region.
+* For more information on how data is managed in Azure SRE Agent, see the [Microsoft privacy policy](https://www.microsoft.com/privacy/privacystatement).
 
 ## Preview access
 

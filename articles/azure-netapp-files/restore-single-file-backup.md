@@ -6,15 +6,16 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 06/16/2025
+ms.date: 08/18/2025
 ms.author: anfdocs
 ---
 # Restore individual files with single-file restore from backups in Azure NetApp Files (preview)
 
-To restore individual files no longer available in an online snapshot [single-file snapshot restore](snapshots-restore-file-single.md), you can rely on your Azure NetApp Files backup to restore individual files. With single-file restore from backup, you can restore a single file to a specific location in a volume or multiple files (up to eight) to a specific directory in the volume.
+You can rely on your Azure NetApp Files backup to restore individual files that aren't available in an online snapshot [single-file snapshot restore](snapshots-restore-file-single.md). With single-file restore from backup, you can restore a single file to a specific location in a volume or up to eight files to a specific directory in the volume.
 
 ## Considerations
 
+* This feature is only available in regions that support [Azure NetApp Files backup](backup-introduction.md#supported-regions).
 * If no destination path is provided during the restore operation, the file is restored in the original file location. If the file already exists at that location, it's overwritten by the restore operation. 
     * The destination path can't be blank. To restore to the original location, enter a slash (/) in the destination path field. 
     * If the file being restored has a multi-level directory depth (for example, `/dir1/dir2/file.txt`), all of the parent directories must be present in the active file system for the restore operation to succeed. The restore operation can't create new directories. 
@@ -26,7 +27,7 @@ To restore individual files no longer available in an online snapshot [single-fi
 
 ## Register the feature
 
-Single-file restore from backup is currently in preview. Before using single file restore from a backup for the first time, you need to register the feature first.
+Single-file restore from backup is currently in preview. You must register for the feature before you can use it. 
 
 1. Register the feature: 
 
@@ -37,7 +38,7 @@ Single-file restore from backup is currently in preview. Before using single fil
 2. Check the status of the feature registration: 
 
     > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
+    > The **RegistrationState** can remain in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
 
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSingleFileBackupRestore
@@ -60,7 +61,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     * **Destination volume**: the volume where the files will be restored. If no value is specified, the files will be restored to the original volume.
 
-    * **Destination path**: the directory where the files will be restored. The destination path must already exist in the destination volume. This field cannot be left blank. Enter a slash ( / ) to restore files to their original path locations.
+    * **Destination path**: the directory where the files will be restored. The destination path must already exist in the destination volume. This field cannot be left blank. Enter a slash (/) to restore files to their original path locations.
 
     >[!IMPORTANT]
     >The file path is case-sensitive. 

@@ -2,13 +2,20 @@
 title: Troubleshooting guide for Azure Service Bus | Microsoft Docs
 description: Learn about troubleshooting tips and recommendations for a few issues that you see when using Azure Service Bus.
 ms.topic: article
-ms.date: 05/15/2025
+ms.date: 07/17/2025
 ms.custom:
   - build-2025
 ---
 
 # Troubleshooting guide for Azure Service Bus
 This article provides troubleshooting tips and recommendations for a few issues that you see when using Azure Service Bus. 
+
+
+## Resource health
+The unhealthy period marked on the **Resource health** page of your Service Bus namespace in the Azure portal might be longer by a few minutes than the actual period. For example, the page might indicate that the namespace is unhealthy for 5-6 minutes, while the actual unhealthy period was only 1-2 minutes. 
+
+This behavior is due to the alert system's evaluation mechanism, which uses a 3-minute evaluation interval combined with a 5-minute lookback window. The lookback window is used to ensure that there are no errors for atleast 5 minutes before considering the namespace healthy. In the above example, the namespace got healthy in a minute or two but the next evaluation happened was atleast 5 minutes (lookback window) after the namespace became healthy. 
+
 
 ## Connectivity issues
 
@@ -105,7 +112,7 @@ When attempting to do a batch receive operation, that is, passing a `maxMessages
 The Service Bus service uses the AMQP protocol, which is stateful. Due to the nature of the protocol, if the link that connects the client and the service is detached after a message is received, but before the message is settled, the message isn't able to be settled on reconnecting the link. Links can be detached due to a short-term transient network failure, a network outage, or due to the service enforced 10-minute idle timeout. The reconnection of the link happens automatically as a part of any operation that requires the link, that is, settling or receiving messages. In this situation, you receive a `ServiceBusException` with `Reason` of `MessageLockLost` or `SessionLockLost` even if the lock expiration time isn't yet passed. 
 
 ### How to browse scheduled or deferred messages
-Scheduled and deferred messages are included when peeking messages. They are identified by the [ServiceBusReceivedMessage.State](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.state) property. Once you have the [SequenceNumber](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.sequencenumber) of a deferred message, you can receive it with a lock via the [ReceiveDeferredMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.receivedeferredmessagesasync) method.
+Scheduled and deferred messages are included when peeking messages. They're identified by the [ServiceBusReceivedMessage.State](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.state) property. Once you have the [SequenceNumber](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.sequencenumber) of a deferred message, you can receive it with a lock via the [ReceiveDeferredMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.receivedeferredmessagesasync) method.
 
 When working with topics, you can't peek scheduled messages on the subscription, as the messages remain in the topic until the scheduled enqueue time. As a workaround, you can construct a [ServiceBusReceiver][ServiceBusReceiver] passing in the topic name in order to peek such messages. No other operations with the receiver work when using a topic name.
 
@@ -181,7 +188,7 @@ The following steps help you with troubleshooting connectivity/certificate/timeo
         </Detail>
     </Error>
     ```
-- Run the following command to check if any port is blocked on the firewall. Ports used are 443 (HTTPS), 5671 and 5672 (AMQP) and 9354 (Net Messaging/SBMP). Depending on the library you use, other ports are also used. Here's the sample command that check whether the 5671 port is blocked. 
+- Run the following command to check if any port is blocked on the firewall. Ports used are 443 (HTTPS), 5671 and 5672 (AMQP) and 9354 (Net Messaging/SBMP). Depending on the library you use, other ports are also used. Here's the sample command that checks whether the 5671 port is blocked. 
 
     ```powershell
     tnc <yournamespacename>.servicebus.windows.net -port 5671

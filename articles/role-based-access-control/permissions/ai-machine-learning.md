@@ -720,7 +720,7 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/indexes:query/action | Search indexes using the specified search query and parameters. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/indexes:querybyimage/action | Performs a image-based search on the specified index. The request accepts either image Url or base64 encoded image string. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/indexes:querybytext/action | Performs a text-based search on the specified index. |
-> | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/indexes:sample/action | Performs a sampling technique on the doucment within an index. The request contains index name and document id . |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/indexes:sample/action | Performs a sampling technique on the document within an index. The request contains index name and document id . |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/documents/read | Get a list of all documents. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/facegroups/read | Get the list of available face groups for a user. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/facegroups/write | Update the properties of a face group. |

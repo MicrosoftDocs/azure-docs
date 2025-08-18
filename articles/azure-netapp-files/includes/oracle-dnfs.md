@@ -10,6 +10,7 @@ ms.custom:
 
 # azure-netapp-files/performance-oracle-single-volumes.md
 # azure-netapp-files/solutions-benefits-azure-netapp-files-oracle-database.md
+# Customer intent: "As an IT administrator responsible for managing Oracle databases, I want to follow the patching guidelines for Oracle dNFS deployment, so that I can ensure optimal performance and reliability of our storage solutions."
 ---
 
 > [!IMPORTANT]

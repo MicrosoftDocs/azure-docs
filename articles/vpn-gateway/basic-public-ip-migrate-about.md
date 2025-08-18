@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.custom: references_regions
 ms.date: 06/23/2025
 ms.author: cherylmc
+# Customer intent: As a network administrator, I want to migrate my VPN Gateway from a Basic SKU public IP address to a Standard SKU, so that I can ensure continued service and optimize performance as Basic SKU is phased out.
 ---
 
 # About migrating a Basic SKU public IP address to Standard SKU

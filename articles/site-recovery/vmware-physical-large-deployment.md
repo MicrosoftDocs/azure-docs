@@ -8,6 +8,7 @@ ms.author: jsuri
 author: jyothisuri
 ms.custom: engagement-fy23
 
+# Customer intent: "As an IT operations manager, I want to implement large-scale disaster recovery for on-premises VMware VMs and physical servers to Azure, so that I can ensure business continuity and minimize downtime during a disaster."
 ---
 # Set up disaster recovery at scale for VMware VMs/physical servers
 

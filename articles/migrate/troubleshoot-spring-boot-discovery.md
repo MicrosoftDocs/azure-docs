@@ -7,6 +7,7 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 10/13/2023
 ms.custom: engagement-fy23
+# Customer intent: As an IT administrator, I want to troubleshoot issues with Azure Migrate's discovery and assessment of Spring Boot applications, so that I can ensure proper configuration and access permissions for the Key Vault and improve my cloud migration process.
 ---
 
 

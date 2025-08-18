@@ -5,10 +5,8 @@ author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 06/24/2025
-ms.author: cherylmc
-
-#customer intent: As an Azure administrator, I want to understand the legacy SKU deprecation timeline so that I can plan for the automatic migration.
-
+ms.author: cherylmc 
+# Customer intent: As a network administrator, I want to manage legacy VPN gateway SKUs so that I can ensure continuity of service and plan for the upcoming deprecation of these SKUs before the migration deadline.
 ---
 # Working with VPN Gateway legacy SKUs
 

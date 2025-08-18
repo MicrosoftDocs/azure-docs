@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 06/18/2025
 ms.author: rogarana
 ms.custom: references_regions, linux-related-content
+# Customer intent: As a Linux user, I want to connect to an Azure Elastic SAN volume using iSCSI, so that I can ensure optimal performance with multiple sessions for my application.
 ---
 
 # Connect to Elastic SAN volumes - Linux

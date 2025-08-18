@@ -597,7 +597,7 @@ Azure service: [Storage](/azure/storage/)
 > | --- | --- |
 > | Microsoft.StorageSync/register/action | Registers the subscription for the Storage Sync Provider |
 > | Microsoft.StorageSync/unregister/action | Unregisters the subscription for the Storage Sync Provider |
-> | Microsoft.StorageSync/deployments/preflight/action | Validate all resources before we deploy the resoruces successfully. |
+> | Microsoft.StorageSync/deployments/preflight/action | Validate all resources before we deploy the resources successfully. |
 > | Microsoft.StorageSync/locations/checkNameAvailability/action | Checks that storage sync service name is valid and is not in use. |
 > | Microsoft.StorageSync/locations/operationresults/read | Gets the result for an asynchronous operation |
 > | Microsoft.StorageSync/locations/operations/read | Gets the status for an azure asynchronous operation |

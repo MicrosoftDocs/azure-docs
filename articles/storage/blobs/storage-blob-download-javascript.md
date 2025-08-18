@@ -3,14 +3,15 @@ title: Download a blob with JavaScript or TypeScript
 titleSuffix: Azure Storage
 description: Learn how to download a blob in Azure Storage by using the JavaScript client library.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.date: 10/28/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
+# Customer intent: As a developer using JavaScript or TypeScript, I want to download blobs from Azure Storage, so that I can handle and utilize storage data effectively in my applications.
 ---
 
 # Download a blob with JavaScript or TypeScript
@@ -100,3 +101,4 @@ The Azure SDK for JavaScript contains libraries that build on top of the Azure R
 [!INCLUDE [storage-dev-guide-resources-javascript](../../../includes/storage-dev-guides/storage-dev-guide-resources-javascript.md)]
 
 [!INCLUDE [storage-dev-guide-next-steps-javascript](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-javascript.md)]
+

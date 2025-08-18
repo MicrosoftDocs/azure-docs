@@ -8,6 +8,7 @@ ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 08/25/2023
 ms.custom: devx-track-azurecli
+# Customer intent: As a cloud security engineer, I want to customize Web Application Firewall rules using the command line interface, so that I can optimize traffic handling and reduce false positives without compromising the security of web applications.
 ---
 
 # Customize Web Application Firewall rules using the Azure CLI

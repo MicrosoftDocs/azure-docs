@@ -7,6 +7,7 @@ ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 09/11/2024
 ms.custom: subject-rbac-steps, engagement-fy23
+# Customer intent: As a cloud service partner, I want to set up and manage VMware disaster recovery for multiple tenants using Azure, so that I can provide efficient disaster recovery solutions tailored to my customers' needs while optimizing resource usage.
 ---
 
 # Set up VMware disaster recovery in a multi-tenancy environment with the Cloud Solution Provider (CSP) program

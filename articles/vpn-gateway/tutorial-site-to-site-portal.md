@@ -6,9 +6,10 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: tutorial
-ms.date: 06/24/2025
+ms.date: 07/09/2025
 
 #customer intent: As a network engineer, I want to create a site-to-site VPN connection between my on-premises location and my Azure virtual network.
+# Customer intent: As a network engineer, I want to create a site-to-site VPN connection between my on-premises network and Azure, so that I can ensure secure and reliable connectivity for my resources in the cloud.
 ---
 
 # Tutorial: Create a site-to-site VPN connection in the Azure portal
@@ -16,6 +17,8 @@ ms.date: 06/24/2025
 In this tutorial, you use the Azure portal to create a site-to-site (S2S) VPN gateway connection between your on-premises network and a virtual network. You can also create this configuration by using [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md) or the [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md). This configuration uses a specified pre-shared key for the connection between the Azure VPN gateway and your on-premises VPN device. You can also configure a site-to-site connection using [certificate authentication](site-to-site-certificate-authentication-gateway-portal.md).
 
 :::image type="content" source="./media/tutorial-site-to-site-portal/diagram.png" alt-text="Diagram that shows site-to-site VPN gateway cross-premises connections." lightbox="./media/tutorial-site-to-site-portal/diagram.png":::
+
+## What you accomplish
 
 In this tutorial, you:
 
@@ -26,6 +29,8 @@ In this tutorial, you:
 > * Create a VPN connection.
 > * Verify the connection.
 > * Connect to a virtual machine.
+
+**Estimated time to complete**: 90-120 minutes (including gateway deployment time)
 
 ## Prerequisites
 
@@ -46,7 +51,7 @@ In this section, you create a virtual network by using the following values:
 * **Region**: (US) East US
 * **IPv4 address space**: 10.1.0.0/16
 * **Subnet name**: FrontEnd
-* **Subnet address space**: 
+* **Subnet address space**: 10.1.0.0/24
 [!INCLUDE [About cross-premises addresses](../../includes/vpn-gateway-cross-premises.md)]
 
 [!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
@@ -115,7 +120,7 @@ Create a local network gateway by using the following values:
 
 Site-to-site connections to an on-premises network require a VPN device. In this step, you configure your VPN device. When you configure your VPN device, you need the following values:
 
-* **Shared key**: This shared key is the same one that you specify when you create your site-to-site VPN connection. In our examples, we use a simple shared key. We recommend that you generate a more complex key to use.
+* **Shared key**: This shared key is the same one that you specify when you create your site-to-site VPN connection. In our examples, we use a simple shared key. We recommend that you generate a more complex key to use, with at least 32 characters, including a mix of uppercase and lowercase letters, numbers, and special characters.
 * **Public IP addresses of your virtual network gateway instances**: Obtain the IP address for each VM instance. If your gateway is in active-active mode, you'll have an IP address for each gateway VM instance. Be sure to configure your device with both IP addresses, one for each active gateway VM. Active-standby mode gateways have only one IP address.
 
 > [!NOTE]

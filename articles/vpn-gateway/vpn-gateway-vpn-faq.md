@@ -6,6 +6,7 @@ ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.date: 05/09/2025
 ms.author: cherylmc
+# Customer intent: As a network administrator, I want to understand the configuration options and limitations of Azure VPN Gateway, so that I can effectively manage cross-premises connections and optimize my organization’s hybrid network architecture.
 ---
 
 # VPN Gateway FAQ
@@ -74,9 +75,9 @@ When configuring the Azure DNS Private Resolver's forwarding rule in the VNet wh
 
 ### Can two VPN clients connected in point-to-site to the same VPN gateway communicate?
 
-No. VPN clients connected in point-to-site to the same VPN gateway can't communicate with each other.
+Yes. VPN clients connected in point-to-site to the same VPN gateway can communicate with each other.
 
-When two VPN clients are connected to the same point-to-site VPN gateway, the gateway can automatically route traffic between them by determining the IP address that each client is assigned from the address pool. However, if the VPN clients are connected to different VPN gateways, routing between the VPN clients isn't possible because each VPN gateway is unaware of the IP address that the other gateway assigned to the client.
+When two VPN clients are connected to the same point-to-site VPN gateway, the gateway can automatically route traffic between them by determining the IP address that each client is assigned from the address pool.
 
 ### Could a potential vulnerability known as "tunnel vision" affect point-to-site VPN connections?
 

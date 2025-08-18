@@ -1,15 +1,19 @@
 ---
-title: Configure security for Tomcat, JBoss, or Java SE apps
+title: Configure Security for Tomcat, JBoss, or Java SE Apps
 description: Learn how to configure security for Tomcat, JBoss, or Java SE apps on Azure App Service, such as authentication, Key Vault references, and Java key store.
 keywords: azure app service, web app, windows, oss, java, tomcat, jboss
 ms.devlang: java
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/17/2024
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java, linux-related-content
 zone_pivot_groups: app-service-java-hosting
 adobe-target: true
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
+
+# customer intent: As a developer, I want to configure security for Tomcat, JBoss, or Java SE apps.
+
 ---
 
 # Configure security for a Tomcat, JBoss, or Java SE app in Azure App Service
@@ -127,7 +131,7 @@ You can load certificates manually to the key store. Create an app setting, `SKI
 
 You can interact or debug the Java Key Tool by [opening an SSH connection](configure-linux-open-ssh-session.md) to your App Service and running the command `keytool`. See the [Key Tool documentation](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) for a list of commands. For more information on the KeyStore API, see [the official documentation](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html).
 
-## Next steps
+## Related content 
 
 Visit the [Azure for Java Developers](/java/azure/) center to find Azure quickstarts, tutorials, and Java reference documentation.
 

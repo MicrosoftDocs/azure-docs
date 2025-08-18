@@ -11,6 +11,7 @@ ms.date: 01/06/2025
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.custom: references_regions
+# Customer intent: As a cloud architect, I want to develop a comprehensive disaster recovery plan for Azure Storage, so that I can ensure high availability and minimize data loss during service outages or regional failures.
 ---
 
 <!--

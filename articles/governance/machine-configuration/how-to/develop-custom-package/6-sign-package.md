@@ -151,7 +151,7 @@ requirement through the machine configuration extension.
 <!-- Reference link definitions -->
 [01]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-push-certificate-windows
 [02]: /azure/virtual-machines/windows/key-vault-setup#use-templates-to-set-up-key-vault
-[03]: ../../../policy/samples/built-in-policies.md#tags
+[03]: /azure/governance/policy/samples/built-in-policies#tags
 [04]: ../create-policy-definition.md
 [05]: ../../../policy/assign-policy-portal.md
 [06]: ../../../policy/how-to/determine-non-compliance.md
