@@ -4,7 +4,7 @@ description: An overview of Azure Container Storage (v1), a service built native
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: overview
-ms.date: 08/14/2025
+ms.date: 08/18/2025
 ms.author: kendownie
 ms.custom:
   - references_regions
@@ -73,7 +73,7 @@ Our latest updates enhance the resiliency and performance of stateful containers
 - Improved persistent volume recovery after a restart of an Azure Kubernetes Service (AKS) cluster.
 - Customize the performance of your local NVMe storage with new performance tier options.
 
-For more information on these features, email the Azure Container Storage team at containerstoragepm@microsoft.com.
+For more information on these features, email the Azure Container Storage team at containerstoragepm@service.microsoft.com.
 
 ## Why Azure Container Storage is useful
 
