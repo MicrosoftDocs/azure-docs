@@ -33,8 +33,8 @@ You can deploy new volumes in the logical availability zone of your choice. You 
 
 * <a name="file-path-uniqueness"></a> For volumes in different availability zones, Azure NetApp Files allows you to create volumes with the same file path (NFS), share name (SMB), or volume path (dual-protocol). 
  
->[!IMPORTANT]
->We don't recommend that you use availability zones for Terraform-managed volumes. If you do, you must [add the zone property to your volume](#populate-availability-zone-for-terraform-managed-volumes).
+> [!IMPORTANT]
+> We don't recommend that you use availability zones for Terraform-managed volumes. If you do, you must [add the zone property to your volume](#populate-availability-zone-for-terraform-managed-volumes).
 
 ## Create a volume with an availability zone 
 

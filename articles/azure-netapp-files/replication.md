@@ -28,12 +28,12 @@ Azure NetApp Files supports cross-zone replication, which relies on availability
 Azure [availability zones](../reliability/availability-zones-overview.md) are physically separate locations within each supporting Azure region that are tolerant to local failures. Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Redundancy and logical isolation of Azure services achieve this tolerance to failures. To ensure resiliency, a minimum of three separate availability zones are present in all [availability zone-enabled regions](../reliability/regions-list.md).
 
 >[!IMPORTANT]
-> Availability zones are called _logical zones_. Each datacenter is assigned to a physical zone. [Physical zones are mapped to logical zones in your Azure subscription](/azure/reliability/availability-zones-overview#physical-and-logical-availability-zones), and the mapping is different with different subscriptions. Azure subscriptions are automatically assigned this mapping when a subscription is created. Azure NetApp Files aligns with the generic logical-to-physical availability zone mapping for all Azure services for the subscription.
+> Availability zones are known as *logical zones*. Each datacenter is assigned to a physical zone. [Physical zones are mapped to logical zones in your Azure subscription](/azure/reliability/availability-zones-overview#physical-and-logical-availability-zones), and the mapping is different with different subscriptions. Azure subscriptions are automatically assigned this mapping when a subscription is created. Azure NetApp Files aligns with the generic logical-to-physical availability zone mapping for all Azure services for the subscription.
 
 To learn more about availability zones in Azure NetApp Files, see [Reliability in Azure NetApp Files](../reliability/reliability-netapp-files.md).
 
->[!IMPORTANT]
->We don't recommend that you use availability zones with Terraform-managed volumes. If you do, you must [add the zone property to your volume](manage-availability-zone-volume-placement.md#populate-availability-zone-for-terraform-managed-volumes).
+> [!IMPORTANT]
+> We don't recommend that you use availability zones with Terraform-managed volumes. If you do, you must [add the zone property to your volume](manage-availability-zone-volume-placement.md#populate-availability-zone-for-terraform-managed-volumes).
 
 #### Azure regions with availability zones
 
@@ -65,11 +65,11 @@ For more information about SLOs, see [Azure NetApp Files reliability](../reliabi
 
 When you use Azure NetApp Files cross-region replication, you pay only for the amount of data that you replicate. There's no setup charge or minimum usage fee. The replication price is based on the replication frequency and the region of the *destination* volume that you choose during the initial replication configuration. For more information, see [Azure NetApp Files pricing](https://azure.microsoft.com/pricing/details/netapp/).
 
-Regular Azure NetApp Files storage capacity charges apply to the replication destination volume, also called the *data protection* volume. 
+Regular Azure NetApp Files storage capacity charges apply to the replication destination volume, also known as the *data protection* volume. 
 
 #### Pricing examples
 
-The cross-region replication amount that's billed in a month is based on the amount of data that's replicated through the cross-region replication feature during that month. The amount of replicated data is measured in GiB. It represents the sum of data that's replicated across two regions during all regular replications from the source volumes to the destination volumes and during all resync replications from the destination volumes to the source volumes. The following prices are for example purposes only.
+The cross-region replication amount that's billed in a month is based on the amount of data that's replicated through the cross-region replication feature during that month. The amount of replicated data is measured in gibibyte (GiB). It represents the sum of data that's replicated across two regions during all regular replications from the source volumes to the destination volumes and during all resync replications from the destination volumes to the source volumes. The following prices are for example purposes only.
 
 ##### Example 1: Month 1 baseline replication and incremental replications
 

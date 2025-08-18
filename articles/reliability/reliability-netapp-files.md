@@ -166,7 +166,7 @@ Cross-region replication charges are based on the amount of data that you replic
 
 - **Enable cross-region replication:** To improve the resiliency of your solution, [configure cross-region replication](../azure-netapp-files/cross-region-replication-create-peering.md).
 
-- **Disable cross-region replication:** You can disable cross-region replication by breaking the replication pairing. For more information, see [Manage disaster recovery using Azure NetApp Files](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume).
+- **Disable cross-region replication:** You can disable cross-region replication by breaking the replication pairing. For more information, see [Manage disaster recovery by using Azure NetApp Files](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume).
 
 ### Normal operations
 
@@ -209,7 +209,7 @@ This section describes what to expect when Azure NetApp Files volumes are config
 
 ### Failback
 
-Failback is a manual process that requires you to perform a resync operation, reestablish the replication, and remount the source volume for the client to access. For more information, see [Manage disaster recovery using Azure NetApp Files](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md).
+Failback is a manual process that requires you to perform a resync operation, reestablish the replication, and remount the source volume for the client to access. For more information, see [Manage disaster recovery by using Azure NetApp Files](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md).
 
 ### Testing for region failures
 
@@ -217,7 +217,7 @@ You can test your cross-region replication configuration safely by using snapsho
 
 ## Backups
 
-[Azure NetApp Files backup](../azure-netapp-files/backup-introduction.md) expands the data protection capabilities of Azure NetApp Files by providing a fully managed backup solution for long-term recovery, archive, and compliance. Backups created by the service are stored in Azure storage, independently of volume snapshots that are available for near-term recovery or cloning. Backups taken by the service can be restored to new Azure NetApp Files volumes within the region. Azure NetApp Files backup supports both policy-based (scheduled) backups and manual (on-demand) backups.
+[Azure NetApp Files backup](../azure-netapp-files/backup-introduction.md) expands the data protection capabilities of Azure NetApp Files by providing a fully managed backup solution for long-term recovery, archive, and compliance. Backups that the service creates are stored in Azure storage, independently of volume snapshots that are available for near-term recovery or cloning. Backups that the service takes can be restored to new Azure NetApp Files volumes within the region. Azure NetApp Files backup supports both policy-based (scheduled) backups and manual (on-demand) backups.
 
 For further security, Azure NetApp Files [snapshots](../azure-netapp-files/data-protection-disaster-recovery-options.md#snapshots) add stability, scalability, and fast recoverability without affecting performance. They provide the foundation for other redundancy solutions, including backup, cross-region replication, and cross-zone replication.
 
@@ -225,7 +225,7 @@ For most solutions, you shouldn't rely exclusively on backups. Instead, use the 
 
 ## Service-level agreement
 
-The service-level agreement (SLA) for Azure NetApp Files describes the expected availability of the service and the conditions that must be met to achieve that availability expectation. For more information, see [SLAs for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+The service-level agreement (SLA) for Azure NetApp Files describes the expected availability of the service and the conditions that must be met to achieve that availability expectation. For more information, see [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 ## Related content
 

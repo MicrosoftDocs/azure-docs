@@ -1,6 +1,6 @@
 ---
 title: Requirements and Considerations for Azure NetApp Files Replication 
-description: Understand the considerations and individual and shared requirements to configure Azure NetApp Files cross-zone and cross-region replication. 
+description: Understand the considerations and individual and shared requirements for configuring Azure NetApp Files cross-zone and cross-region replication. 
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
@@ -11,7 +11,7 @@ ms.custom: references_regions
 ---
 # Requirements and considerations for Azure NetApp Files replication 
 
-Before you configure [cross-zone or cross-region replication](replication.md), understand the requirements for each. 
+Before you configure [cross-zone or cross-region replication](replication.md), make sure that you understand the requirements for each option. 
 
 If you use [cross-zone-region replication](replication.md#cross-zone-region-replication), you must adhere to all the requirements. 
 
@@ -27,7 +27,7 @@ If you use [cross-zone-region replication](replication.md#cross-zone-region-repl
 
 * Consult [resource limits](azure-netapp-files-resource-limits.md) for the maximum number of destination volumes that you can create. You can open a support ticket to [request a limit increase](azure-netapp-files-resource-limits.md#request-limit-increase) in the default quota of replication destination volumes for each subscription in a region.
 
-* Cascading and fan-in topologies aren't supported. To learn about support for fan-out deployments, see [configure cross-zone-region replication](cross-zone-region-replication-configure.md#requirements).
+* Cascading and fan-in topologies aren't supported. To learn about support for fan-out deployments, see [Configure cross-zone-region replication](cross-zone-region-replication-configure.md#requirements).
 
 * Data replication volumes support [customer-managed keys](configure-customer-managed-keys.md).
 
@@ -49,8 +49,8 @@ If you use [cross-zone-region replication](replication.md#cross-zone-region-repl
 
 * The destination volume is read-only until you fail over to the destination zone to enable the destination volume for read and write. For more information about the failover process, see [Fail over to the destination volume](cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume).
 
-    >[!IMPORTANT]
-    >Failover is a manual process. When you need to activate the destination volume (for example, when you want to fail over to the destination region), you first need to break replication peering and then mount the destination volume. For more information, see [Fail over to the destination volume](cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume).
+    > [!IMPORTANT]
+    > Failover is a manual process. When you need to activate the destination volume (like when you want to fail over to the destination region), you first need to break replication peering and then mount the destination volume. For more information, see [Fail over to the destination volume](cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume).
 
 * When you revert a source volume that has an active volume replication relationship, only snapshots dated more recently than the SnapMirror snapshot can be used in the revert operation. For more information, see [Revert a volume by using snapshot revert with Azure NetApp Files](snapshots-revert-volume.md).
 
@@ -62,10 +62,10 @@ If you use [cross-zone-region replication](replication.md#cross-zone-region-repl
 
 * The replication destination volume is read-only until you [fail over to the destination region](cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume) to enable the destination volume for read and write.
 
-    >[!IMPORTANT]
-    >Failover is a manual process. When you need to activate the destination volume (for example, when you want to fail over to the destination region), you need to break replication peering and then mount the destination volume. For more information, see [Fail over to the destination volume](cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume).
+    > [!IMPORTANT]
+    > Failover is a manual process. When you need to activate the destination volume (like when you want to fail over to the destination region), you need to break replication peering and then mount the destination volume. For more information, see [Fail over to the destination volume](cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume).
 
-    >[!IMPORTANT]
+    > [!IMPORTANT]
     > A volume that has an active backup policy enabled can't be the destination volume in a reverse resync operation. You must suspend the backup policy on the volume before you start the reverse resync. You can resume the backup policy when the reverse resync completes.
 
 * You can revert a source or destination volume of a cross-region replication to a snapshot if the snapshot is newer than the most recent SnapMirror snapshot. You can't use snapshots that are older than the SnapMirror snapshot for a volume revert operation. For more information, see [Revert a volume by using snapshot revert](snapshots-revert-volume.md).
@@ -82,7 +82,7 @@ If you use [cross-zone-region replication](replication.md#cross-zone-region-repl
 
 * If you use the cool access feature, understand the considerations in [Manage Azure NetApp Files storage with cool access](manage-cool-access.md#considerations).
 
-* If the volume's size exceeds 95% utilization, there's a risk that replication to the destination volume can fail depending on the rate of data changes. 
+* If the volume's size exceeds 95% utilization, there's a risk that replication to the destination volume can fail, depending on the rate of data changes. 
 
 ### <a name="supported-region-pairs"></a>Supported cross-region replication pairs
 
