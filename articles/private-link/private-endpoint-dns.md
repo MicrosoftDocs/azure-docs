@@ -65,6 +65,9 @@ For Azure services, use the recommended zone names as described in the following
 >| Azure Bot Service (Microsoft.BotService/botServices) | Bot | privatelink.directline.botframework.com | directline.botframework.com |
 >| Azure Bot Service (Microsoft.BotService/botServices) | Token | privatelink.token.botframework.com | token.botframework.com |
 
+> [!Note]
+> Additional DNS forwarders beyond the private link addresses are present and must be included in the configuration. This ensures Azure ML services consistently resolve to private IPs and prevents them from switching between public and private endpoints.* To learn more, see [Configure Private Link](.../machine-learning/how-to-configure-private-link.md?view=azureml-api-2&tabs=cli).
+
 ### Analytics
 
 >[!div class="mx-tdBreakAll"]
