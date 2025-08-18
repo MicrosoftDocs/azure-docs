@@ -29,7 +29,7 @@ The following **Network Rules** and **Application Rules** are used to allow-list
 
 ### Network rules
 
-The following service tags are allowed by network rules:
+Network rules allow the following list of (protocol, port, service tags):
 
 | Protocol | Port | Destination (Service Tag) |
 | -------- | ---- | ------------------------- |
@@ -45,7 +45,7 @@ The following service tags are allowed by network rules:
 
 ### Application rules
 
-The application rules allow the following list of (protocol, port, FQDN) combinations:
+Application rules allow the following list of (protocol, port, FQDN) combinations:
 
 | Protocol | Port | FQDN                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | -------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
