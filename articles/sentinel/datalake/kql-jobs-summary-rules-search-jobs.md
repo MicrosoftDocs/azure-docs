@@ -43,19 +43,38 @@ This article compares KQL jobs, summary rules, and search jobs in Microsoft Sent
 
 
 
-## Usage scenarios
+## Usage scenarios and feature choice
 
-The following table summarizes when to use each feature:
+The following section will help you decide which feature is best for your needs.
 
-|Feature| Scenario|
-|---|---|
-|**KQL jobs**|•	You're onboarded to the Microsoft Sentinel data lake.<br>•	You require lookback greater than 24 hours.<br>•	You want to query historical data (up to 12 years).<br>•	You need to run complex queries involving full KQL operators including joins or unions.<br>•	You need ad-hoc investigation capabilities.<br>•	Data is in default workspace.|
-|**Summary rules**|<br>•	Your tenant isn't onboarded to Microsoft Sentinel data lake, and your data may still reside in Auxiliary or Basic tiers.<br>•	You need lookback within 24 hours.<br>•	You need frequent summarization (for example, every 20 minutes)<br>•	You want to use out-of-the-box templates.`
-|**Search jobs**|•	Your Microsoft Sentinel workspace isn't connected to Defender portal and your data resides in Analytics or basic tiers.<br>•	You have data in archive tier. Note: If you're onboarded to Microsoft Sentinel data lake, to access data older than your onboarding date, use search jobs. For data from your onboarding date onward, use KQL jobs.<br>•	You need to hydrate large volumes of data from a single table. <br>•	Your use case involves targeted extraction rather than frequent summarization or complex multi-table joins.<br>•	You want to analyze up to one year of historical data within a table from any data tiers.
+If you have the following requirements, use KQL jobs.
+
++ You're onboarded to the Microsoft Sentinel data lake.
++ You require lookback greater than 24 hours.
++ You want to query historical data (up to 12 years).
++ You need to run complex queries involving full KQL operators including joins or unions.
++ You need ad-hoc investigation capabilities.
++ Data is in default workspace.
+
+
+Use summary rules if you have the following requirements:
+
++ Your tenant isn't onboarded to Microsoft Sentinel data lake, and your data may still reside in Auxiliary or Basic tiers.
++ You need lookback within 24 hours.
++ You need frequent summarization (for example, every 20 minutes)
++ You want to use out-of-the-box templates.`
+
+If you have the following requirements, use search jobs:
+
++ Your Microsoft Sentinel workspace isn't connected to Defender portal and your data resides in Analytics or basic tiers.
++ You have data in archive tier. Note: If you're onboarded to Microsoft Sentinel data lake, to access data older than your onboarding date, use search jobs. For data from your onboarding date onward, use KQL jobs.
++ You need to hydrate large volumes of data from a single table. 
++ Your use case involves targeted extraction rather than frequent summarization or complex multi-table joins.
++ You want to analyze up to one year of historical data within a table from any data tiers.
 
 Related articles:
 
 - [KQL and the Microsoft Sentinel data lake (preview)](kql-overview.md)
 - [Jupyter notebooks and the Microsoft Sentinel data lake (preview)](notebooks-overview.md)
 - [Aggregate Microsoft Sentinel data with summary rules](../summary-rules.md)
-- [Search for specific events across large datasets in Microsoft Sentinel](../search-jobs.md)
+- [Search for specific events across large datasets in Microsoft Sentinel](../search-jobs.md)  
