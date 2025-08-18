@@ -6,7 +6,7 @@ author: chachachachami
 ms.service: azure-health-data-services
 ms.subservice: medtech-service
 ms.topic: how-to
-ms.date: 08/18/2025
+ms.date: 8/18/2025
 ms.author: chrupa
 ---
 
