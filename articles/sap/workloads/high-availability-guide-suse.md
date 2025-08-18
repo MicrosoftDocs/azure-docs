@@ -164,7 +164,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Update SAP resource agents
 
-   A patch for the resource-agents package is required to use the new configuration that is described in this article. You can check, if the patch is already installed with the following command
+   A patch for the resource-agents package is required to use the new configuration that is described in this article. You can check, if the patch is already installed with the following command:
 
    ```bash
    sudo grep 'parameter name="IS_ERS"' /usr/lib/ocf/resource.d/heartbeat/SAPInstance
