@@ -5,10 +5,11 @@ description: Object replication asynchronously copies block blobs between a sour
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/06/2025
 ms.author: normesta
 ms.custom: engagement-fy23
+# Customer intent: As a cloud storage administrator, I want to implement object replication for block blobs, so that I can improve data availability, reduce read latency, and optimize cost-efficiency across multiple regions.
 ---
 
 # Object replication for block blobs

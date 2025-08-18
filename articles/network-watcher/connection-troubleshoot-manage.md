@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 03/18/2025
 
 #CustomerIntent: As an Azure administrator, I want to learn how to use Connection Troubleshoot to diagnose outbound connectivity issues in Azure using the Azure portal, Powershell, or Azure CLI.
+# Customer intent: As a network administrator, I want to learn how to use the connection troubleshoot feature to diagnose outbound connectivity issues in Azure, so that I can ensure seamless communication between virtual machines and external endpoints.
 ---
 
 # Troubleshoot outbound connections

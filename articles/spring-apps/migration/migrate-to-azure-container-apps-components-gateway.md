@@ -28,7 +28,7 @@ The OSS version of Spring Cloud Gateway mentioned in this page is provided as an
 - An Azure Spring Apps Enterprise plan instance with Spring Cloud Gateway enabled.
 - An Azure Container Apps instance. For more information, see [Quickstart: Deploy your first container app using the Azure portal](../../container-apps/quickstart-portal.md).
 - [Azure CLI](/cli/azure/install-azure-cli)
-- An Azure container registry instance with sufficient permissions to build and push Docker images. For more information, see [Quickstart: Create a private container registry using the Azure CLI](/azure/container-registry/container-registry-get-started-azure-cli).
+- An Azure Container Registry instance with sufficient permissions to build and push Docker images. For more information, see [Quickstart: Create a private container registry using the Azure CLI](/azure/container-registry/container-registry-get-started-azure-cli).
 
 ## Prepare the code of the self-hosted Spring Cloud Gateway application
 

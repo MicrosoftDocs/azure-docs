@@ -58,7 +58,6 @@ Before using Route-maps, take into consideration the following limitations:
   *  65517:12001, 65517:12002, 65517:12003, 65517:12005, 65517:12006, 65518:65518, 65517:65517, 65517:12076, 65518:12076, 65515:10000, 65515:20000
 * You can't apply Route-maps to connections between on-premises and SD-WAN/Firewall NVAs in the virtual hub. You can still apply route-maps to other supported connections when an NVA in the virtual hub is deployed. This doesn't apply to the Azure Firewall, as the routing for Azure Firewall is provided through Virtual WAN [routing intent features](how-to-routing-policies.md).
 * Route-maps only supports 2-byte ASN numbers.
-* The point-to-site (P2S) Multipool feature isn't currently supported with Route-maps.
 * Modifying the *Default* route is only supported when the default route is learned from on-premises or an NVA.
 * A prefix can be modified either by Route-maps, or by NAT, but not both.
 * Route-maps won't be applied to the [hub address space](virtual-wan-site-to-site-portal.md#hub).
@@ -139,7 +138,7 @@ You can apply route-maps on each connection for the inbound, outbound, or both i
 
 * **Inbound direction:** When a route-map is configured on a connection in the inbound direction, all the ingress route advertisements on that connection are processed by the route-map before they're entered into the virtual hub router’s routing table, *defaultRouteTable*.
 
-* **Outbound direction:** When a route-map is configured on a connection in the outbound direction, the route-map processes all the egress route advertisements on that connection before they're advertised by the virtual hub router across the connection.
+* **Outbound direction:** When a route-map is configured on a connection in the outbound direction, the route-map processes all the egress route advertisements on that connection before they're advertised by the virtual hub router across the connection. Outbound route-maps can only modify the routes that are advertised by Virtual WAN to a specific connection and can't be used to select which route or path a connection uses to access a specific prefix. This is because best-path selection via [hub routing preference](about-virtual-hub-routing-preference.md) occurs prior to applying any outbound route-maps. Therefore, outbound routes can't be used to influence best-path selection in Azure.
 
 For steps to apply route-maps to connections, see [How to configure Route-maps](route-maps-how-to.md).
 

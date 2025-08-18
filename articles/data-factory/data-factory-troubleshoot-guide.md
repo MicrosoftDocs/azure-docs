@@ -1189,5 +1189,4 @@ For more troubleshooting help, try these resources:
 * [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 * [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [X information about Data Factory](https://x.com/hashtag/DataFactory)
-* [Azure videos](https://azure.microsoft.com/resources/videos/index/)
 * [Microsoft Q&A question page](/answers/topics/azure-data-factory.html)

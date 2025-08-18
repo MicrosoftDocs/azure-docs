@@ -5,10 +5,11 @@ description: Learn about limitations and known issues of SSH File Transfer Proto
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/03/2024
 ms.author: normesta
 
+# Customer intent: "As a cloud storage administrator, I want to understand the limitations and known issues of SFTP support in Blob Storage, so that I can effectively manage file transfers and ensure compatibility with my existing workflows and clients."
 ---
 
 # Limitations and known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage

@@ -5,8 +5,9 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: troubleshooting
-ms.date: 10/15/2023
+ms.date: 01/15/2025
 ms.author: anfdocs
+# Customer intent: "As a cloud administrator, I want to utilize the diagnostics tool to troubleshoot issues with Azure NetApp Files, so that I can identify and resolve problems efficiently to ensure optimal performance and availability of our file storage systems."
 ---
 
 # Troubleshoot Azure NetApp Files using diagnose and solve problems tool 

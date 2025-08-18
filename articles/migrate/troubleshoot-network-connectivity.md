@@ -6,6 +6,7 @@ ms.service: azure-migrate
 ms.topic: troubleshooting
 ms.date: 09/09/2024
 ms.custom: engagement-fy25
+# Customer intent: "As a cloud operations engineer, I want to troubleshoot network connectivity issues with private endpoints in Azure Migrate, so that I can ensure seamless data migration and application performance."
 ---
 
 # Troubleshoot network connectivity
@@ -259,7 +260,7 @@ If you have enabled the appliance for private endpoint connectivity, use the fol
 |--- | ---|
 |*.disc.privatelink.prod.migration.windowsazure.com | Azure Migrate Discovery service endpoint
 |*.asm.privatelink.prod.migration.windowsazure.com  | Azure Migrate Assessment service endpoint  
-|*.hub.privatelink.prod.migration.windowsazure.com  | Azure Migrate hub endpoint to receive data from other Microsoft or external [independent software vendor (ISV)](./migrate-services-overview.md#isv-integration) offerings
+|*.hub.privatelink.prod.migration.windowsazure.com  | Azure Migrate hub endpoint to receive data from other Microsoft or external offerings
 |*.privatelink.siterecovery.windowsazure.com | Azure Site Recovery service endpoint to orchestrate replications
 |*.vault.azure.net | Key Vault endpoint
 |*.blob.core.windows.net | Storage account endpoint for dependency and performance data  

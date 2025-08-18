@@ -6,11 +6,12 @@ services: storage
 author: stevenmatthew
 
 ms.service: azure-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/15/2025
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.custom: references_regions, engagement
+# Customer intent: "As a cloud architect, I want to evaluate Azure Storage redundancy options, so that I can choose the best replication strategy for my data durability and high availability requirements."
 ---
 
 <!--
@@ -39,7 +40,7 @@ The redundancy setting for a storage account is shared for all storage services 
 
 Data in an Azure Storage account is always replicated three times in the primary region. Azure Storage offers two options for how your data is replicated in the primary region:
 
-- **Locally redundant storage (LRS)** replicates the data within your storage accounts to one or more availability zones located in the primary region of your choice. LRS is the least expensive replication option, but isn't recommended for applications requiring high availability or durability.
+- **Locally redundant storage (LRS)** replicates your data three times within a single physical location (datacenter) in the primary region. It does not replicate across availability zones.
 - **Zone-redundant storage (ZRS)** copies your data synchronously across three Azure availability zones in the primary region. For applications requiring high availability, Microsoft recommends using ZRS in the primary region, and also replicating to a secondary region.
 
 > [!NOTE]  
@@ -99,7 +100,7 @@ Azure Storage offers two options for copying your data to a secondary region:
 > [!NOTE]
 > The primary difference between GRS and GZRS is how data is replicated in the primary region. Within the secondary region, data is always replicated synchronously three times using LRS. LRS in the secondary region protects your data against hardware failures.
 
-When you utilize GRS or GZRS, the data in the secondary region isn't available for read or write access unless there's a failover to the primary region. For read access to the secondary region, configure your storage account to use read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). For more information, see [Read access to data in the secondary region](#read-access-to-data-in-the-secondary-region).
+When you utilize GRS or GZRS, the data in the secondary region isn't available for read or write access unless there's a failover to the secondary region. For read access to the secondary region, configure your storage account to use read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). For more information, see [Read access to data in the secondary region](#read-access-to-data-in-the-secondary-region).
 
 If the primary region becomes unavailable, you can choose to fail over to the secondary region. After the failover operation completes, the secondary region becomes the primary region and you're able to read and write data. For more information on disaster recovery and to learn how to fail over to the secondary region, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
 
@@ -187,13 +188,12 @@ The following table shows the redundancy options supported by each Azure Storage
 | Blob storage <br/>(including Data Lake Storage) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | Queue storage                                   | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | Table storage                                   | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| Azure Files                                     | &#x2705; <sup>1,</sup><sup>2</sup> | &#x2705; <sup>1,</sup><sup>2</sup> | &#x2705; <sup>1</sup> | | &#x2705; <sup>1</sup> | |
-| Azure managed disks                             | &#x2705; | &#x2705; <sup>3</sup> |          |          |          |          |
+| Azure Files                                     | &#x2705; <sup>1</sup> | &#x2705; <sup>1</sup> | &#x2705;  | | &#x2705;  | |
+| Azure managed disks                             | &#x2705; | &#x2705; <sup>2</sup> |          |          |          |          |
 | Azure Elastic SAN                               | &#x2705; | &#x2705; |          |          |          |          |
 
-<sup>1</sup> Standard (HDD) file shares are supported on LRS and ZRS. Standard file shares are supported on GRS and GZRS as long as they're less than or equal to 5 TiB in size.<br/>
-<sup>2</sup> SSD file shares are supported on LRS and ZRS.<br/>
-<sup>3</sup> ZRS managed disks have certain limitations. See the [Limitations](/azure/virtual-machines/disks-redundancy#limitations) section of the redundancy options for managed disks article for details.<br/>
+<sup>1</sup> SSD file shares are supported on LRS and ZRS.<br/>
+<sup>2</sup> ZRS managed disks have certain limitations. See the [Limitations](/azure/virtual-machines/disks-redundancy#limitations) section of the redundancy options for managed disks article for details.<br/>
 
 ### Supported storage account types
 

@@ -2,8 +2,8 @@
 title: 'Quickstart: Secure virtual hub using Azure Firewall Manager - Terraform'
 description: In this quickstart, you learn how to secure your virtual hub using Azure Firewall Manager and Terraform.
 services: firewall-manager
-author: cshea-msft
-ms.author: chashea
+author: duongau
+ms.author: duau
 ms.date: 01/09/2025
 ms.topic: quickstart
 ms.service: azure-firewall-manager

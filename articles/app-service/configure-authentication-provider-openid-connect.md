@@ -8,6 +8,7 @@ ms.custom: AppServiceIdentity
 author: cephalin
 ms.author: cephalin
 #customer intent: As an app developer, I want to use a custom authentication provider that uses the OpenID Connect specification in Azure App Service.
+ms.service: azure-app-service
 ---
 
 # Configure your App Service or Azure Functions app to sign in by using an OpenID Connect provider
@@ -26,6 +27,9 @@ Your provider requires you to register the details of your application with it. 
 > Some providers might require extra steps for their configuration and for using the values that they provide. For example, Apple provides a private key that isn't itself used as the OIDC client secret. You use it to create a JSON Web Token (JWT). You use the web token as the secret that you provide in your app configuration. For more information, see [Creating a client secret](https://developer.apple.com/documentation/sign_in_with_apple/generate_and_validate_tokens).
 
 You need to collect a *client ID* and a *client secret* for your application. The client secret is an important security credential. Don't share this secret with anyone or distribute it in a client application.
+
+> [!NOTE]
+> You only need to provide a client secret to the configuration if you would like to acquire access tokens for the user through interactive login flow using the authorization code flow. If this is not your case, collecting a secret is not required.
 
 You also need the OIDC metadata for the provider. This metadata is often exposed in a [configuration metadata document](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig), which is the provider's issuer URL suffixed with `/.well-known/openid-configuration`. Get this configuration URL.
 
@@ -52,7 +56,7 @@ To add provider information for your OpenID Connect provider, follow these steps
 
    Otherwise, select **Provide endpoints separately**. Put each URL from the identity provider in the appropriate field.
 
-1. Provide the values that you collected earlier for **Client ID** and **Client secret**.
+1. Provide the values that you collected earlier for **Client ID**. If the **Client secret** was also collected, provide it as part of the configuration process.
 
 1. Specify an application setting name for your client secret. Your client secret is stored as an app setting to ensure that secrets are stored in a secure fashion. If you want to manage the secret in Azure Key vault, update that setting later to use [Azure Key Vault references](./app-service-key-vault-references.md).
 
@@ -60,6 +64,8 @@ To add provider information for your OpenID Connect provider, follow these steps
 
 > [!NOTE]
 > The OpenID provider name can't contain a hyphen (-) because an app setting is created based on this name. The app setting doesn't support hyphens. Use an underscore (_) instead.  
+>
+> It also requires that the `aud` scope in your token be the same as the **Client Id** as configured above. It is currently not possible to configure the allowed audiences for this provider at the moment.
 >
 > Azure requires `openid`, `profile`, and `email` scopes. Make sure that you configure your app registration in your ID provider with at least these scopes.
 

@@ -186,6 +186,11 @@ For more information, see:
 - [Introduction to Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)
 - [Grant limited access to Azure Storage resources by using shared access signatures](/azure/storage/common/storage-sas-overview)
 
+### Send email to more than 50 recipients
+
+If you want to send emails to more than 50 recipients, make a [support request](../support.md).
+However, sending emails via SMTP to more than 50 recipients is not supported. 
+
 ### Action to take
 
 To increase your email quota, follow the instructions in [Quota increase for email domains](./email/email-quota-increase.md).
@@ -291,6 +296,19 @@ The following timeouts apply to the Azure Communication Services Calling SDKs:
 | PSTN call establishment timeout. | 115 |
 | Promote a 1:1 call to a group call timeout. | 115 |
 
+### Virtual Rooms 
+The throttling policies of rooms service are determined by grouping requests through **resource id**.
+
+| API | Threshold |
+|--|--|
+| Create Room | 20 req/sec |
+| Update Room | 20 req/sec |
+| Delete Room | 20 req/sec |
+| Get Room    | 40 req/sec |
+| List Rooms  | 10 req/sec |
+| Update participant   | 20 req/sec |
+| List participants    | 40 req/sec |
+
 ### Action to take
 
 For more information about the voice and video calling SDK and service, see [Calling SDK overview](./voice-video-calling/calling-sdk-features.md) or [Known issues in the SDKs and APIs](./known-issues.md). You can also submit a request to [Azure Support](/azure/azure-portal/supportability/how-to-create-azure-support-request) to increase some of the limits. Our vetting team reviews all requests.
@@ -303,7 +321,11 @@ When you send or receive a high volume of requests, you might receive a ```Throt
 
 | Operation | Scope | Time frame (seconds) | Limit (number of requests) | Timeout in seconds |
 | --- | --- | --- | --- | --- |
-| General requests | Per resource | 10 | 1,000 | 10 |
+| General requests | Per resource | 10 | 3,000 | 5 |
+| Get Jobs (Route-Level Throttling) | Per resource | 10 | 332 | 5 |
+| Get Queue Statistics (Route-Level Throttling) | Per resource | 10 | 166 | 5 |
+| Get In-Queue Position (Route-Level Throttling) | Per resource | 10 | 166 | 5 |
+| Get Workers (Route-Level Throttling) | Per resource | 10 | 332 | 5 |
 
 ### Action to take
 

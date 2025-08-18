@@ -9,6 +9,7 @@ ms.date: 03/25/2025
 ms.author: abell
 ms.custom: devx-track-azurepowershell, mode-api, template-quickstart
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint by using Azure PowerShell.
+# Customer intent: As a network administrator new to Azure, I want to create a private endpoint using Azure PowerShell, so that I can ensure secure connections to Azure services within my virtual network.
 ---
 
 # Quickstart: Create a private endpoint by using Azure PowerShell

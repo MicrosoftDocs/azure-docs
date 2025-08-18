@@ -18,7 +18,7 @@ The following table shows the list of features that are available (or not availa
 | Private link | N/A | Yes | Yes | Yes |
 | Customer-managed key <br/>(bring your own key) | N/A | N/A | Yes | Yes |
 | Capture | N/A | Priced separately | Included | Included |
-| Dynamic partition scale-out | N/A | N/A | Yes | Yes |
+| Dynamic partitions scale-out | N/A | N/A | Yes | Yes |
 | Ingress events | Pay per million events | Pay per million events | Included | Included |
 | Runtime audit logs | N/A | N/A | Yes | Yes |
 | Availability zone | Yes | Yes | Yes | Yes |

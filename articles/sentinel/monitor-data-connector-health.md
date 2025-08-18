@@ -6,7 +6,9 @@ ms.author: yelevin
 ms.topic: how-to
 ms.date: 10/17/2024
 ms.service: microsoft-sentinel
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto:
+    - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 
 #Customer intent: As a security analyst, I want to monitor the health and performance of my data connectors so that I can ensure uninterrupted data ingestion and quickly address any issues.
 
@@ -83,7 +85,7 @@ The *SentinelHealth* data table is currently supported only for the following da
 - [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md)
 - [Threat Intelligence - TAXII](connect-threat-intelligence-taxii.md)
 - [Threat Intelligence Platforms](connect-threat-intelligence-tip.md)
-- Any connector based on [Codeless Connector Platform](create-codeless-connector.md)
+- Any connector based on [Codeless Connector Framework](create-codeless-connector.md)
 
 ### Understanding SentinelHealth table events
 

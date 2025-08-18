@@ -11,6 +11,7 @@ ms.date: 03/09/2021
 ms.author: akashdubey
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
+# Customer intent: As a cloud administrator, I want to apply an Azure Resource Manager lock to our storage account, so that I can prevent accidental or malicious deletions and manage access to the account more securely.
 ---
 
 # Apply an Azure Resource Manager lock to a storage account

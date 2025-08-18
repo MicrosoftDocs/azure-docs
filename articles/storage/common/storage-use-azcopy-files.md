@@ -4,9 +4,10 @@ description: Transfer data with AzCopy and file storage. AzCopy is a command-lin
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 12/15/2023
+ms.date: 08/11/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
+# Customer intent: As a user of a cloud file storage service, I want to transfer files to and from storage accounts using a command-line tool, so that I can efficiently manage and synchronize large amounts of data between my local environment and the cloud.
 ---
 
 # Transfer data with AzCopy and file storage
@@ -41,7 +42,7 @@ You can use the [azcopy make](https://github.com/Azure/azure-storage-azcopy/wiki
 #### [Azure Files SMB](#tab/smb-createfileshare)
 
 ```azcopy
-azcopy make 'https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D'
+azcopy make 'https://mystorageaccount.file.core.windows.net/myfileshare?[SAS]'
 ```
 
 #### [Azure Files NFS](#tab/nfs-createfileshare)
@@ -76,9 +77,14 @@ This section contains the following examples:
 >
 > |Scenario|Flag|
 > |---|---|
+<<<<<<< HEAD
 > |Copy access control lists (ACLs) along with the files.|**--preserve-permissions**=\[true\|false\]|
 > |Copy SMB or NFS property information along with the files.|**--preserve-info**=\[true\|false\]|
 > |Manage Azure Files NFS shares|**--nfs**|
+=======
+> |Copy access control lists (ACLs) along with the files.|**--preserve-permissions**=[true\|false]|
+> |Copy SMB property information along with the files.|**--preserve-info**=[true\|false]|
+>>>>>>> upstream/main
 >
 > For a complete list, see [options](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy#options).
 
@@ -94,7 +100,11 @@ This section contains the following examples:
 #### [Azure Files SMB](#tab/smb-uploadfile)
 
 ```azcopy
+<<<<<<< HEAD
 azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D' --preserve-permissions=true --preserve-info=true
+=======
+azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?[SAS]' --preserve-permissions=true --preserve-info=true
+>>>>>>> upstream/main
 ```
 
 You can also upload a file by using a wildcard symbol (*) anywhere in the file path or file name. For example: `'C:\myDirectory\*.txt'`, or `C:\my*\*.txt`.
@@ -123,7 +133,11 @@ This example copies a directory (and all of the files in that directory) to a fi
 #### [Azure Files SMB](#tab/smb-uploaddirectory)
 
 ```azcopy
+<<<<<<< HEAD
 azcopy copy 'C:\myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D' --recursive --preserve-permissions=true --preserve-info=true
+=======
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare?[SAS]' --recursive --preserve-permissions=true --preserve-info=true
+>>>>>>> upstream/main
 ```
 
 #### [Azure Files NFS](#tab/nfs-uploaddirectory)
@@ -141,7 +155,11 @@ To copy to a directory within the file share, just specify the name of that dire
 #### [Azure Files SMB](#tab/smb-uploaddirectorynew)
 
 ```azcopy
+<<<<<<< HEAD
 azcopy copy 'C:\myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D' --recursive --preserve-permissions=true --preserve-info=true
+=======
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?[SAS]' --recursive --preserve-permissions=true --preserve-info=true
+>>>>>>> upstream/main
 ```
 
 #### [Azure Files NFS](#tab/nfs-uploaddirectorynew)
@@ -167,7 +185,11 @@ You can upload the contents of a directory without copying the containing direct
 #### [Azure Files SMB](#tab/smb-uploaddirectorycontents)
 
 ```azcopy
+<<<<<<< HEAD
 azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D' --preserve-permissions=true --preserve-info=true
+=======
+azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?[SAS]' --preserve-permissions=true --preserve-info=true
+>>>>>>> upstream/main
 ```
 
 #### [Azure Files NFS](#tab/nfs-uploaddirectorycontents)
@@ -198,7 +220,11 @@ Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_
 #### [Azure Files SMB](#tab/smb-uploadspecificfiles)
 
 ```azcopy
+<<<<<<< HEAD
 azcopy copy 'C:\myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --include-path 'photos;documents\myFile.txt' --preserve-permissions=true --preserve-info=true
+=======
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare?[SAS]' --include-path 'photos;documents\myFile.txt' --preserve-permissions=true --preserve-info=true
+>>>>>>> upstream/main
 ```
 
 In this example, AzCopy transfers the `C:\myDirectory\photos` directory and the `C:\myDirectory\documents\myFile.txt` file. You need to include the `--recursive` option to transfer all files in the `C:\myDirectory\photos` directory.
@@ -228,7 +254,11 @@ Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_
 #### [Azure Files SMB](#tab/smb-usewildcard)
 
 ```azcopy
+<<<<<<< HEAD
 azcopy copy 'C:\myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --include-pattern 'myFile*.txt;*.pdf*' --preserve-permissions=true --preserve-info=true
+=======
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare?[SAS]' --include-pattern 'myFile*.txt;*.pdf*' --preserve-permissions=true --preserve-info=true
+>>>>>>> upstream/main
 ```
 
 #### [Azure Files NFS](#tab/nfs-usewildcard)
@@ -256,7 +286,11 @@ Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_
 #### [Azure Files SMB](#tab/smb-uploaddatetime)
 
 ```azcopy
+<<<<<<< HEAD
 azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --include-after '2020-08-19T15:04:00Z' --preserve-permissions=true --preserve-info=true
+=======
+azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.file.core.windows.net/myfileshare?[SAS]' --include-after '2020-08-19T15:04:00Z' --preserve-permissions=true --preserve-info=true
+>>>>>>> upstream/main
 ```
 
 #### [Azure Files NFS](#tab/nfs-uploaddatetime)
@@ -292,9 +326,14 @@ This section contains the following examples:
 >
 > |Scenario|Flag|
 > |---|---|
+<<<<<<< HEAD
 > |Copy access control lists (ACLs) along with the files.|**--preserve-permissions**=\[true\|false\]|
 > |Copy SMB or NFS property information along with the files.|**--preserve-info**=\[true\|false\]|
 > |Manage Azure Files NFS shares|**--nfs**|
+=======
+> |Copy access control lists (ACLs) along with the files.|**--preserve-permissions**=[true\|false]|
+> |Copy SMB property information along with the files.|**--preserve-info**=[true\|false]|
+>>>>>>> upstream/main
 > |Automatically decompress files.|**--decompress**|
 >
 > For a complete list, see [options](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy#options).
@@ -311,7 +350,11 @@ This section contains the following examples:
 #### [Azure Files SMB](#tab/smb-downloadfile)
 
 ```azcopy
+<<<<<<< HEAD
 azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D' 'C:\myDirectory\myTextFile.txt' --preserve-permissions=true --preserve-info=true
+=======
+azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?[SAS]' 'C:\myDirectory\myTextFile.txt' --preserve-permissions=true --preserve-info=true
+>>>>>>> upstream/main
 ```
 
 #### [Azure Files NFS](#tab/nfs-downloadfile)
@@ -333,7 +376,11 @@ azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFi
 #### [Azure Files SMB](#tab/smb-downloaddirectory)
 
 ```azcopy
+<<<<<<< HEAD
 azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D' 'C:\myDirectory'  --recursive --preserve-permissions=true --preserve-info=true
+=======
+azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?[SAS]' 'C:\myDirectory'  --recursive --preserve-permissions=true --preserve-info=true
+>>>>>>> upstream/main
 ```
 
 This example results in a directory named `C:\myDirectory\myFileShareDirectory` that contains all of the downloaded files.
@@ -361,7 +408,11 @@ You can download the contents of a directory without copying the containing dire
 #### [Azure Files SMB](#tab/smb-downloaddirectorycontent)
 
 ```azcopy
+<<<<<<< HEAD
 azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory/*?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D' 'C:\myDirectory' --preserve-permissions=true --preserve-info=true
+=======
+azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory/*?[SAS]' 'C:\myDirectory' --preserve-permissions=true --preserve-info=true
+>>>>>>> upstream/main
 ```
 
 #### [Azure Files NFS](#tab/nfs-downloaddirectorycontent)
@@ -392,7 +443,11 @@ Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_
 #### [Azure Files SMB](#tab/smb-downloadspecificfiles)
 
 ```azcopy
+<<<<<<< HEAD
 azcopy copy 'https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'C:\myDirectory'  --include-path 'photos;documents\myFile.txt' --recursive --preserve-permissions=true --preserve-info=true
+=======
+azcopy copy 'https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory?[SAS]' 'C:\myDirectory' --include-path 'photos;documents\myFile.txt' --recursive --preserve-permissions=true --preserve-info=true
+>>>>>>> upstream/main
 ```
 
 #### [Azure Files NFS](#tab/nfs-downloadspecificfiles)
@@ -420,7 +475,11 @@ Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_
 #### [Azure Files SMB](#tab/smb-downloadwildcard)
 
 ```azcopy
+<<<<<<< HEAD
 azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'C:\myDirectory'  --include-pattern 'myFile*.txt;*.pdf*' --preserve-permissions=true --preserve-info=true
+=======
+azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myDirectory?[SAS]' 'C:\myDirectory' --include-pattern 'myFile*.txt;*.pdf*' --preserve-permissions=true --preserve-info=true
+>>>>>>> upstream/main
 ```
 
 #### [Azure Files NFS](#tab/nfs-downloadwildcard)
@@ -448,7 +507,11 @@ Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_
 #### [Azure Files SMB](#tab/smb-downloaddatetime)
 
 ```azcopy
+<<<<<<< HEAD
 azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/*?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'C:\myDirectory' --include-after '2020-08-19T15:04:00Z' --preserve-permissions=true --preserve-info=true
+=======
+azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/*?[SAS]' 'C:\myDirectory' --include-after '2020-08-19T15:04:00Z' --preserve-permissions=true --preserve-info=true
+>>>>>>> upstream/main
 ```
 
 #### [Azure Files NFS](#tab/nfs-downloaddatetime)
@@ -476,7 +539,11 @@ You can download a specific version of a file or directory by referencing the **
 #### [Azure Files SMB](#tab/smb-downloadsnapshotfile)
 
 ```azcopy
+<<<<<<< HEAD
 azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'C:\myDirectory\myTextFile.txt' --preserve-permissions=true --preserve-info=true
+=======
+azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?[SAS]' 'C:\myDirectory\myTextFile.txt' --preserve-permissions=true --preserve-info=true
+>>>>>>> upstream/main
 ```
 
 #### [Azure Files NFS](#tab/nfs-downloadsnapshotfile)
@@ -494,7 +561,11 @@ azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFi
 #### [Azure Files SMB](#tab/smb-downloadsnapshotdirectory)
 
 ```azcopy
+<<<<<<< HEAD
 azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'C:\myDirectory'  --recursive --preserve-permissions=true --preserve-info=true
+=======
+azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?[SAS]' 'C:\myDirectory' --recursive --preserve-permissions=true --preserve-info=true
+>>>>>>> upstream/main
 ```
 
 #### [Azure Files NFS](#tab/nfs-downloadsnapshotdirectory)
@@ -531,9 +602,14 @@ This section contains the following examples:
 >
 > |Scenario|Flag|
 > |---|---|
+<<<<<<< HEAD
 > |Copy access control lists (ACLs) along with the files.|**--preserve-permissions**=\[true\|false\]|
 > |Copy SMB or NFS property information along with the files.|**--preserve-info**=\[true\|false\]|
 > |Manage Azure Files NFS shares|**--nfs**|
+=======
+> |Copy access control lists (ACLs) along with the files.|**--preserve-permissions**=[true\|false]|
+> |Copy SMB property information along with the files.|**--preserve-info**=[true\|false]|
+>>>>>>> upstream/main
 >
 > For a complete list, see [options](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy#options).
 
@@ -548,7 +624,11 @@ This section contains the following examples:
 #### [Azure Files SMB](#tab/smb-copyfiletoaccount)
 
 ```azcopy
+<<<<<<< HEAD
 azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --preserve-permissions=true --preserve-info=true
+=======
+azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer/myTextFile.txt?[SAS]' 'https://mydestinationaccount.file.core.windows.net/mycontainer/myTextFile.txt?[SAS]' --preserve-permissions=true --preserve-info=true
+>>>>>>> upstream/main
 ```
 
 #### [Azure Files NFS](#tab/nfs-copyfiletoaccount)
@@ -566,7 +646,11 @@ azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer/myTextFil
 #### [Azure Files SMB](#tab/smb-copyfilesnapshottoaccount)
 
 ```azcopy
+<<<<<<< HEAD
 azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'https://mydestinationaccount.file.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --preserve-permissions=true --preserve-info=true
+=======
+azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer/myTextFile.txt?[SAS]' 'https://mydestinationaccount.file.core.windows.net/mycontainer/myTextFile.txt?[SAS]' --preserve-permissions=true --preserve-info=true
+>>>>>>> upstream/main
 ```
 #### [Azure Files NFS](#tab/nfs-copyfilesnapshottoaccount)
 
@@ -589,7 +673,11 @@ azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer/myTextFil
 #### [Azure Files SMB](#tab/smb-copydirectorytoaccount)
 
 ```azcopy
+<<<<<<< HEAD
 azcopy copy 'https://mysourceaccount.file.core.windows.net/myFileShare/myFileDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive --preserve-permissions=true --preserve-info=true
+=======
+azcopy copy 'https://mysourceaccount.file.core.windows.net/myFileShare/myFileDirectory?[SAS]' 'https://mydestinationaccount.file.core.windows.net/mycontainer?[SAS]' --recursive --preserve-permissions=true --preserve-info=true
+>>>>>>> upstream/main
 ```
 
 #### [Azure Files NFS](#tab/nfs-copydirectorytoaccount)
@@ -607,7 +695,11 @@ azcopy copy 'https://mysourceaccount.file.core.windows.net/myFileShare/myFileDir
 #### [Azure Files SMB](#tab/smb-copydirectorysharesnapshottoaccount)
 
 ```azcopy
+<<<<<<< HEAD
 azcopy copy 'https://mysourceaccount.file.core.windows.net/myFileShare/myFileDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'https://mydestinationaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive --preserve-permissions=true --preserve-info=true
+=======
+azcopy copy 'https://mysourceaccount.file.core.windows.net/myFileShare/myFileDirectory?[SAS]' 'https://mydestinationaccount.file.core.windows.net/mycontainer?[SAS]' --recursive --preserve-permissions=true --preserve-info=true
+>>>>>>> upstream/main
 ```
 
 #### [Azure Files NFS](#tab/nfs-copydirectorysharesnapshottoaccount)
@@ -631,7 +723,11 @@ azcopy copy 'https://mysourceaccount.file.core.windows.net/myFileShare/myFileDir
 #### [Azure Files SMB](#tab/smb-copysharestoaccount)
 
 ```azcopy
+<<<<<<< HEAD
 azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D --preserve-permissions=true --preserve-info=true
+=======
+azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer?[SAS]' 'https://mydestinationaccount.file.core.windows.net/mycontainer?[SAS]' --preserve-permissions=true --preserve-info=true
+>>>>>>> upstream/main
 ```
 
 #### [Azure Files NFS](#tab/nfs-copysharestoaccount)
@@ -649,7 +745,11 @@ azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer?sv=2018-0
 #### [Azure Files SMB](#tab/smb-copysharesnapshottoaccount)
 
 ```azcopy
+<<<<<<< HEAD
 azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'https://mydestinationaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive --preserve-permissions=true --preserve-info=true
+=======
+azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer?[SAS]' 'https://mydestinationaccount.file.core.windows.net/mycontainer?[SAS]' --recursive --preserve-permissions=true --preserve-info=true
+>>>>>>> upstream/main
 ```
 #### [Azure Files NFS](#tab/nfs-copysharesnapshottoaccount)
 
@@ -672,7 +772,11 @@ azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer?sv=2018-0
 #### [Azure Files SMB](#tab/smb-copyaccounttoaccount)
 
 ```azcopy
+<<<<<<< HEAD
 azcopy copy 'https://mysourceaccount.file.core.windows.net?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive --preserve-permissions=true --preserve-info=true
+=======
+azcopy copy 'https://mysourceaccount.file.core.windows.net?[SAS]' 'https://mydestinationaccount.file.core.windows.net?[SAS]' --recursive --preserve-permissions=true --preserve-info=true
+>>>>>>> upstream/main
 ```
 #### [Azure Files NFS](#tab/nfs-copyaccounttoaccount)
 
@@ -688,7 +792,11 @@ azcopy copy 'https://mysourceaccount.file.core.windows.net?sv=2018-03-28&ss=bfqt
 
 #### [Azure Files SMB](#tab/smb-copyaccountsnapshottoaccount)
 ```azcopy
+<<<<<<< HEAD
 azcopy copy 'https://mysourceaccount.file.core.windows.net?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'https://mydestinationaccount.file.core.windows.net?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive --preserve-permissions=true --preserve-info=true
+=======
+azcopy copy 'https://mysourceaccount.file.core.windows.net?[SAS]' 'https://mydestinationaccount.file.core.windows.net?[SAS]' --recursive --preserve-permissions=true --preserve-info=true
+>>>>>>> upstream/main
 ```
 #### [Azure Files NFS](#tab/nfs-copyaccountsnapshottoaccount)
 ```azcopy
@@ -703,11 +811,8 @@ azcopy copy 'https://mysourceaccount.file.core.windows.net?sv=2018-03-28&ss=bfqt
 
 You can synchronize the contents of a local file system with a file share or synchronize the contents of a file share with another file share. You can also synchronize the contents of a directory in a file share with the contents of a directory that is located in another file share. Synchronization is one way. In other words, you choose which of these two endpoints is the source and which one is the destination. Synchronization also uses server to server APIs.
 
-> [!NOTE]
-> Currently, this scenario is supported for accounts that have enabled hierarchical namespace via the blob endpoint.
-
 > [!Warning]  
-> AzCopy sync is supported but not fully recommended for Azure Files. AzCopy sync doesn't support differential copies at scale, and some file fidelity might be lost. To learn more, see [Migrate to Azure file shares](../files/storage-files-migration-overview.md#file-copy-tools).
+> AzCopy sync is supported but not fully recommended for Azure Files. AzCopy sync supports up to 10 million files per AzCopy job and some file fidelity might be lost as AzCopy uses the Azure Files REST APIs for copying content to your Azure Files share. To learn more, see [Migrate to Azure file shares](../files/storage-files-migration-overview.md#file-copy-tools).
 
 ### Guidelines
 
@@ -718,11 +823,16 @@ You can synchronize the contents of a local file system with a file share or syn
 >
 > |Scenario|Flag|
 > |---|---|
+<<<<<<< HEAD
 > |Copy access control lists (ACLs) along with the files.|**--preserve-permissions**=\[true\|false\]|
 > |Copy SMB or NFS property information along with the files.|**--preserve-info**=\[true\|false\]|
 > |Manage Azure Files NFS shares|**--nfs**|
+=======
+> |Copy access control lists (ACLs) along with the files.|**--preserve-permissions**=[true\|false]|
+> |Copy SMB property information along with the files.|**--preserve-info**=[true\|false]|
+>>>>>>> upstream/main
 > |Exclude files based on a pattern.|**--exclude-path**|
-> |Specify how detailed you want your sync-related log entries to be.|**--log-level**=\[WARNING\|ERROR\|INFO\|NONE\]|
+> |Specify how detailed you want your sync-related log entries to be.|**--log-level**=[WARNING\|ERROR\|INFO\|NONE]|
 >
 > For a complete list, see [options](storage-ref-azcopy-sync.md#options).
 
@@ -743,7 +853,7 @@ In this case, the file share is the destination, and the local file system is th
 
 #### [Azure Files SMB](#tab/smb-synclocaltoaccount)
 ```azcopy
-azcopy sync 'C:\myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileShare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive
+azcopy sync 'C:\myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileShare?[SAS]' --recursive
 ```
 #### [Azure Files NFS](#tab/nfs-synclocaltoaccount)
 ```azcopy
@@ -769,7 +879,7 @@ In this case, the local file system is the destination, and the file share is th
 
 #### [Azure Files SMB](#tab/smb-syncaccounttolocal)
 ```azcopy
-azcopy sync 'https://mystorageaccount.file.core.windows.net/myfileShare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'C:\myDirectory' --recursive
+azcopy sync 'https://mystorageaccount.file.core.windows.net/myfileShare?[SAS]' 'C:\myDirectory' --recursive
 ```
 #### [Azure Files NFS](#tab/nfs-syncaccounttolocal)
 ```azcopy
@@ -792,7 +902,11 @@ The first file share that appears in this command is the source. The second one 
 
 #### [Azure Files SMB](#tab/smb-syncaccounts)
 ```azcopy
+<<<<<<< HEAD
 azcopy sync 'https://mysourceaccount.file.core.windows.net/myfileShare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive --preserve-permissions=true --preserve-info=true
+=======
+azcopy sync 'https://mysourceaccount.file.core.windows.net/myfileShare?[SAS]' 'https://mydestinationaccount.file.core.windows.net/myfileshare?[SAS]' --recursive --preserve-permissions=true --preserve-info=true
+>>>>>>> upstream/main
 ```
 #### [Azure Files NFS](#tab/nfs-syncaccounts)
 ```azcopy
@@ -815,7 +929,11 @@ The first directory that appears in this command is the source. The second one i
 
 #### [Azure Files SMB](#tab/smb-syncdirectory)
 ```azcopy
+<<<<<<< HEAD
 azcopy sync 'https://mysourceaccount.file.core.windows.net/myFileShare/myDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/myFileShare/myDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive --preserve-permissions=true --preserve-info=true
+=======
+azcopy sync 'https://mysourceaccount.file.core.windows.net/myFileShare/myDirectory?[SAS]' 'https://mydestinationaccount.file.core.windows.net/myFileShare/myDirectory?[SAS]' --recursive --preserve-permissions=true --preserve-info=true
+>>>>>>> upstream/main
 ```
 #### [Azure Files NFS](#tab/nfs-syncdirectory)
 ```azcopy
@@ -838,11 +956,15 @@ The first file share that appears in this command is the source. At the end of t
 
 #### [Azure Files SMB](#tab/smb-syncsnapshottoaccount)
 ```azcopy
+<<<<<<< HEAD
 azcopy sync 'https://mysourceaccount.file.core.windows.net/myfileShare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D&sharesnapshot=2020-03-03T20%3A24%3A13.0000000Z' 'https://mydestinationaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive --preserve-permissions=true --preserve-info=true
 ```
 #### [Azure Files NFS](#tab/nfs-syncsnapshottoaccount)
 ```azcopy
 azcopy sync 'https://mysourceaccount.file.core.windows.net/myfileShare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D&sharesnapshot=2020-03-03T20%3A24%3A13.0000000Z' 'https://mydestinationaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive --preserve-permissions=true --preserve-info=true --nfs
+=======
+azcopy sync 'https://mysourceaccount.file.core.windows.net/myfileShare?[SAS]' 'https://mydestinationaccount.file.core.windows.net/myfileshare?[SAS]' --recursive --preserve-permissions=true --preserve-info=true
+>>>>>>> upstream/main
 ```
 
 ---

@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: reference
-ms.date: 01/23/2025
+ms.date: 04/09/2025
 ms.author: cshoe
 ms.custom: build-2023
 ---
@@ -148,7 +148,7 @@ A resource's `properties.configuration` object includes the following properties
 | `secrets` | Defines secret values in your container app. | object |
 | `ingress` | Object that defines public accessibility configuration of a container app. | object |
 | `registries` | Configuration object that references credentials for private container registries. Entries defined with `secretref` reference the secrets configuration object. | object |
-| `dapr` | Configuration object that defines the Dapr settings for the container app. | object  |
+| `dapr` | Configuration object that defines the [Dapr settings for the container app](./enable-dapr.md). | object  |
 
 Changes made to the `configuration` section are [application-scope changes](revisions.md#application-scope-changes), which doesn't trigger a new revision.
 
@@ -253,7 +253,15 @@ The following example ARM template snippet deploys a container app.
         "httpReadBufferSize": 30,
         "httpMaxRequestSize": 10,
         "logLevel": "debug",
-        "enableApiLogging": true
+        "enableApiLogging": true,
+        "appHealth": {
+          "enabled": true,
+          "path": "/health",
+          "probeIntervalSeconds": 3,
+          "probeTimeoutMilliseconds": 1000,
+          "threshold": 3,
+        },
+        "maxConcurrency": 10
       },
       "maxInactiveRevisions": 10,
       "service": {
@@ -448,6 +456,13 @@ properties:
       httpMaxRequestSize: 10
       logLevel: debug
       enableApiLogging: true
+      appHealth: 
+        - enabled: true
+        - path: "/health"
+        - probeIntervalSeconds: 3
+        - probeTimeoutMilliseconds: 1000
+        - threshold: 3
+      maxConcurrency: 10
     maxInactiveRevisions: 10
     service:
       type: redis

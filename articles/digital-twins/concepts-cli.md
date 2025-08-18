@@ -5,7 +5,7 @@ description: Learn about the Azure Digital Twins CLI command set.
 author: baanders
 ms.author: baanders
 ms.date: 04/09/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-digital-twins
 ---
 
@@ -23,8 +23,6 @@ Some of the actions you can do using the command set include:
 * Configuring [security](concepts-security.md) via Azure role-based access control (Azure RBAC)
 
 The command set is called `az dt`, and is part of the [Azure IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension). You can view the full list of commands and their usage as part of the reference documentation for the `az iot` command set: [az dt command reference](/cli/azure/dt).
-
-[!INCLUDE [digital-twins-cli-issue](includes/digital-twins-cli-issue.md)]
 
 ## Uses (deploy and validate)
 

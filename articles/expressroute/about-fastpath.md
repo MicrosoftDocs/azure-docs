@@ -1,6 +1,6 @@
 ---
-title: About Azure ExpressRoute FastPath
-description: Learn about Azure ExpressRoute FastPath to send network traffic by bypassing the gateway.
+title: What is Azure ExpressRoute FastPath? Features, availability, and limitations
+description: Discover Azure ExpressRoute FastPath, its features, availability, IP limits, and how it enhances network performance by bypassing the gateway. Learn configuration steps and supported scenarios.
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 03/20/2025
 ms.author: rmareddy
 ms.custom: template-concept, references_regions, engagement-fy23
+# Customer intent: As a network administrator, I want to configure ExpressRoute FastPath, so that I can enhance data path performance by bypassing the gateway and improve connectivity between my on-premises network and Azure virtual networks.
 ---
 
 # About ExpressRoute FastPath
@@ -24,12 +25,12 @@ ExpressRoute FastPath is available for ExpressRoute Direct and ExpressRoute prov
 
 The following table lists the availability of ExpressRoute FastPath for the different type of ExpressRoute circuit:
 
-| Feature | Availability |
-|--|--|
-| ExpressRoute FastPath to Hub virtual network on ExpressRoute circuits | Available on all ExpressRoute circuits |
-| Virtual network peering over ExpressRoute FastPath | Generally available in all public cloud regions and only for ExpressRoute Direct. |
-| User-Defined Routing (UDR) over ExpressRoute FastPath | Generally available in all public cloud regions and only for ExpressRoute Direct. |
-| Private endpoint and Private Link over ExpressRoute FastPath | Limited general availability and only for ExpressRoute Direct. |
+| Feature | IP address family | Availability |
+|--|--|--|
+| ExpressRoute FastPath to Hub virtual network on ExpressRoute circuits | IPv4 and IPv6*  | IPv4 is available on all ExpressRoute circuits. *IPv6 is supported on ER Direct only |
+| Virtual network peering over ExpressRoute FastPath | IPv4 and IPv6 | Generally available in all public cloud regions and only for ExpressRoute Direct. |
+| User-Defined Routing (UDR) over ExpressRoute FastPath | IPv4 and IPv6 | Generally available in all public cloud regions and only for ExpressRoute Direct. |
+| Private endpoint and Private Link over ExpressRoute FastPath | IPv4 only | Limited general availability and only for ExpressRoute Direct. |
 
 #### IP address limits
 
@@ -112,12 +113,13 @@ The following Azure services are supported:
 > * ExpressRoute FastPath supports a maximum of 100-Gbps connectivity to a single availability zone.
 > * Azure Private Link pricing doesn't apply to traffic sent over ExpressRoute FastPath. For more information about pricing, see the [Private Link pricing page](https://azure.microsoft.com/pricing/details/private-link/).
 > * Enabling ExpressRoute FastPath does not prevent access to Azure services on Private Endpoints: reachability remains guaranteed by routing traffic through the ExpressRoute Virtual Network Gateway.
+> * VNET, Private Endpoint, Private Link Service for cross-region over FastPath is not supported. In such scenario, the Private Link service traffic will fallback to Gateway path and the maximum bandwidth will be limited based on the Gateway sku. 
 
 ## Limitations
 
 While ExpressRoute FastPath supports many configurations, it might not be suitable for all scenarios. The following limitations apply to ExpressRoute FastPath:
 
-- **Azure Internal Load Balancer**: ExpressRoute FastPath doesn't support Azure internal load balancers or Azure PaaS services in spoke virtual networks. Network traffic from your on-premises network to the private IP addresses of these services in the spoke virtual network gets routed through the ExpressRoute virtual network gateway. Internal load balancers within the hub virtual network aren't affected.
+- **Azure Internal Load Balancer**: ExpressRoute FastPath doesn't support Azure internal load balancers or Azure PaaS services in spoke virtual networks. Network traffic from your on-premises network to the private IP addresses of these services in the spoke virtual network gets routed through the ExpressRoute virtual network gateway. Internal load balancers within the hub virtual network aren't affected and traffic goes through FastPath.
 
 - **Virtual network peering**:
     
@@ -128,6 +130,8 @@ While ExpressRoute FastPath supports many configurations, it might not be suitab
 * **Azure DNS Private Resolver**: ExpressRoute FastPath supports DNS Private Resolvers in the hub virtual network. However, it doesn't support DNS Private Resolvers in spoke virtual networks, so traffic flows through the virtual network gateway instead. For more information, see [DNS Private Resolver](../dns/dns-private-resolver-overview.md).
 
 * **Azure NetApp Files**: To use ExpressRoute FastPath, upgrade your Azure NetApp Files volumes from Basic to Standard. For more information, see [Supported Network Topologies](../azure-netapp-files/azure-netapp-files-network-topologies.md#supported-network-topologies).
+  
+* **IPv6**: IPv6 Support for ExpressRoute FastPath is only available on ExpressRoute Direct Circuits.
 
 ## Next steps
 

@@ -13,11 +13,11 @@ In addition to calling activity functions, orchestrator functions can call other
 
 An orchestrator function can call another orchestrator function using the *"call-sub-orchestrator"* API. The [Error Handling & Compensation](durable-functions-error-handling.md#automatic-retry-on-failure) article has more information on automatic retry.
 
-Sub-orchestrator functions behave just like activity functions from the caller's perspective. They can return a value, throw an exception, and can be awaited by the parent orchestrator function. 
+Sub-orchestrator functions behave just like activity functions from the caller's perspective. They can return a value and throw an exception as the parent orchestrator function anticipates them.
 
 > [!NOTE]
-> Sub-orchestrations are not yet supported in PowerShell.
-
+> In PowerShell, sub-orchestrations are supported in the standalone SDK only: [`AzureFunctions.PowerShell.Durable.SDK`](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK). See the difference between the standalone SDK and the legacy built-in SDK along with [migration guide](durable-functions-powershell-v2-sdk-migration-guide.md).
+ 
 [!INCLUDE [functions-nodejs-durable-model-description](../../../includes/functions-nodejs-durable-model-description.md)]
 
 ## Example
@@ -147,11 +147,34 @@ public void deviceProvisioningOrchestration(
 }
 ```
 
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+$deviceId = $Context.Input
+
+# Step 1: Create an installation package in blob storage and return a SAS URL.
+$sasUrl = Invoke-DurableActivity -FunctionName "CreateInstallationPackage" -Input $deviceId
+
+# Step 2: Notify the device that the installation package is ready.
+$deviceInfo = @{
+    id = $deviceId
+    url = $sasUrl
+}
+Invoke-DurableActivity -FunctionName "SendPackageUrlToDevice" -Input $deviceInfo
+
+# Step 3: Wait for the device to acknowledge that it has downloaded the new package.
+Start-DurableExternalEventListener -EventName "DownloadCompletedAck"
+
+# Step 4: ...
+```
+
 ---
 
 This orchestrator function can be used as-is for one-off device provisioning or it can be part of a larger orchestration. In the latter case, the parent orchestrator function can schedule instances of `DeviceProvisioningOrchestration` using the *"call-sub-orchestrator"* API.
 
-Here is an example that shows how to run multiple orchestrator functions in parallel.
+The following example shows how to run multiple orchestrator functions at the same time:
 
 # [C# (InProc)](#tab/csharp-inproc)
 
@@ -294,6 +317,31 @@ public void provisionNewDevices(
 
     // ...
 }
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+$deviceIds = Invoke-DurableActivity -FunctionName "GetNewDeviceIds"
+
+# Run multiple device provisioning flows in parallel
+$provisioningTasks = @()
+for ($i = 0; $i -lt $deviceIds.Count; $i++) {
+    $deviceId = $deviceIds[$i]
+    $childId = "$($Context.InstanceId):$i"
+    $provisionTask = Invoke-DurableSubOrchestrator `
+        -FunctionName "DeviceProvisioningOrchestration" `
+        -Input $deviceId `
+        -InstanceId $childId `
+        -NoWait
+    $provisioningTasks += $provisionTask
+}
+
+Wait-DurableTask -Task $provisioningTasks
+
+# ...
 ```
 
 ---

@@ -4,7 +4,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to set up event routes and event filters to Azure Digital Twins endpoints
 author: baanders
 ms.author: baanders
-ms.date: 1/3/2024
+ms.date: 04/17/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
 ms.custom: devx-track-azurecli
@@ -18,8 +18,8 @@ Routing [event notifications](concepts-event-notifications.md) from Azure Digita
 
 ## Prerequisites
 
-* You'll need an Azure account, which [can be set up for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* You'll need an Azure Digital Twins instance in your Azure subscription. If you don't have an instance already, you can create one using the steps in [Set up an instance and authentication](how-to-set-up-instance-portal.md). Have the following values from setup handy to use later in this article:
+* You need an Azure account, which [can be set up for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* You need an Azure Digital Twins instance in your Azure subscription. If you don't have an instance already, you can create one using the steps in [Set up an instance and authentication](how-to-set-up-instance-portal.md). Have the following values from setup handy to use later in this article:
     - Instance name
     - Resource group
 
@@ -27,24 +27,22 @@ Routing [event notifications](concepts-event-notifications.md) from Azure Digita
     
     :::image type="content" source="media/includes/instance-details.png" alt-text="Screenshot of the Overview page for an Azure Digital Twins instance in the Azure portal. The name and resource group are highlighted." lightbox="media/includes/instance-details.png":::
 
-* Create an endpoint using the instructions in [Create endpoints](how-to-create-endpoints.md). In this article, you'll create a route to send data to that endpoint.
+* Create an endpoint using the instructions in [Create endpoints](how-to-create-endpoints.md). In this article, you create a route to send data to that endpoint.
 
-Next, follow the instructions below if you intend to use the Azure CLI while following this guide.
+Next, perform the following instructions if you intend to use the Azure CLI while following this guide.
 
 [!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
-[!INCLUDE [digital-twins-cli-issue](includes/digital-twins-cli-issue.md)]
-
 ## Create an event route
 
-After [creating an endpoint](how-to-create-endpoints.md), you'll need to define an *event route* to actually send data to the endpoint. These routes let developers wire up event flow, throughout the system and to downstream services. A single route can allow multiple notifications and event types to be selected. Read more about event routes in [Endpoints and event routes](concepts-route-events.md).
+After [creating an endpoint](how-to-create-endpoints.md), you'll need to define an *event route* to actually send data to the endpoint. These routes let developers wire up event flow, throughout the system and to downstream services. A single route can allow multiple notifications and event types to be selected. For more information about event routes, see [Route Azure Digital Twins events](concepts-route-events.md).
 
 >[!NOTE]
-> Make sure you've created at least one endpoint as described in the [Prerequisites](#prerequisites) before you move on to creating a route.
+> Make sure you created at least one endpoint as described in the [Prerequisites](#prerequisites) before you move on to creating a route.
 >
->If you've only recently deployed your endpoints, validate that they're finished deploying before attempting to use them for a new event route. If route deployment fails because the endpoints aren't ready, wait a few minutes and try again.
+>If you only recently deployed your endpoints, validate that they're finished deploying before attempting to use them for a new event route. If route deployment fails because the endpoints aren't ready, wait a few minutes and try again.
 >
-> If you are scripting this flow, you may want to account for this by building in 2-3 minutes of wait time for the endpoint service to finish deploying before moving on to route setup.
+> If you're scripting this flow, you might want to account for deployment by building in 2-3 minutes of wait time for the endpoint service to finish deploying before moving on to route setup.
 
 A route definition can contain these elements:
 * The route name you want to use
@@ -52,17 +50,17 @@ A route definition can contain these elements:
 * A filter that defines which events are sent to the endpoint
     - To disable the route so that no events are sent, use a filter value of `false`
     - To enable a route that has no specific filtering, use a filter value of `true`
-    - For details on any other type of filter, see the [Filter events](#filter-events) section below
+    - For details on any other type of filter, see the [Filter events](#filter-events) section
 
 If there's no route name, no messages are routed outside of Azure Digital Twins. 
 If there's a route name and the filter is `true`, all messages are routed to the endpoint. 
-If there's a route name and a different filter is added, messages will be filtered based on the filter.
+If there's a route name and a different filter is added, messages are filtered based on the filter.
 
-Event routes can be created with the [Azure portal](https://portal.azure.com), [EventRoutes data plane APIs](/rest/api/digital-twins/dataplane/event-routes), or [az dt route CLI commands](/cli/azure/dt/route). The rest of this section walks through the creation process.
+Event routes can be created with the [Azure portal](https://portal.azure.com), [Event Routes data plane APIs](/rest/api/digital-twins/dataplane/event-routes), or [az dt route CLI commands](/cli/azure/dt/route). The rest of this section walks through the creation process.
 
 # [Portal](#tab/portal2)
 
-To create an event route, go to the details page for your Azure Digital Twins instance in the [Azure portal](https://portal.azure.com) (you can find the instance by entering its name into the portal search bar).
+To create an event route, go to the details page for your Azure Digital Twins instance in the [Azure portal](https://portal.azure.com). You can find the instance by entering its name into the portal search bar.
 
 From the instance menu, select **Event routes**. Then from the **Event routes** page that follows, select **+ Create an event route**. 
 
@@ -70,15 +68,13 @@ On the **Create an event route** page that opens up, choose at minimum:
 * A name for your route in the **Name** field
 * The **Endpoint** you want to use to create the route 
 
-For the route to be enabled, you must also **Add an event route filter** of at least `true`. (Leaving the default value of `false` will create the route, but no events will be sent to it.) To do so, toggle the switch for the **Advanced editor** to enable it, and write `true` in the **Filter** box.
+For the route to be enabled, you must also **Add an event route filter** of at least `true`. (Leaving the default value of `false` creates the route, but no events are sent to it.) To do so, toggle the switch for the **Advanced editor** to enable it, and write `true` in the **Filter** box.
 
 :::image type="content" source="media/how-to-create-routes/create-event-route-no-filter.png" alt-text="Screenshot of creating an event route for your instance in the Azure portal." lightbox="media/how-to-create-routes/create-event-route-no-filter.png":::
 
 When finished, select the **Save** button to create your event route.
 
 # [CLI](#tab/cli2)
-
-[!INCLUDE [digital-twins-cli-issue](includes/digital-twins-cli-issue.md)]
 
 Routes can be managed using the [az dt route](/cli/azure/dt/route) commands for the Azure Digital Twins CLI. 
 
@@ -97,7 +93,7 @@ This section shows how to create an event route using the [.NET (C#) SDK](/dotne
 
 ### Event route sample SDK code
 
-The following sample method shows how to create, list, and delete an event route with the C# SDK:
+The following sample method shows how to create, list, and delete an event route with the .NET SDK:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/eventRoute_operations.cs" id="FullEventRouteSample":::
 
@@ -105,9 +101,9 @@ The following sample method shows how to create, list, and delete an event route
 
 ## Filter events
 
-As described above, routes have a filter field. If the filter value on your route is `false`, no events will be sent to your endpoint. 
+As described previously, routes have a filter field. If the filter value on your route is `false`, no events are sent to your endpoint. 
 
-After you've enabled a minimal filter of `true`, endpoints will receive different kinds of events from Azure Digital Twins:
+After you enabled a minimal filter of `true`, endpoints will receive different kinds of events from Azure Digital Twins:
 * [Telemetry fired by digital twins](concepts-event-notifications.md#digital-twin-telemetry-messages) using the Azure Digital Twins service API
 * Twin property change notifications, fired on property changes for any twin in the Azure Digital Twins instance
 * Life-cycle events, fired when twins or relationships are created or deleted
@@ -115,7 +111,7 @@ After you've enabled a minimal filter of `true`, endpoints will receive differen
 You can restrict the types of events being sent by defining a more-specific filter.
 
 >[!NOTE]
-> Filters are case-sensitive and need to match the payload case. For telemetry filters, this means that the casing needs to match the casing in the telemetry sent by the device.
+> Filters are case-sensitive and need to match the payload case. For telemetry filters, the casing in the filter must match the casing in the telemetry sent by the device.
 
 # [Portal](#tab/portal3)
 
@@ -129,7 +125,7 @@ To use the basic filters, expand the **Event types** option and select the check
 
 :::image type="content" source="media/how-to-create-routes/create-event-route-filter-basic-1.png" alt-text="Screenshot of creating an event route with a basic filter in the Azure portal, highlighting the checkboxes of the events." lightbox="media/how-to-create-routes/create-event-route-filter-basic-1-large.png":::
 
-Doing so will autopopulate the filter text box with the text of the filter you've selected:
+Doing so autopopulates the filter text box with the text of the filter you selected:
 
 :::image type="content" source="media/how-to-create-routes/create-event-route-filter-basic-2.png" alt-text="Screenshot of creating an event route with a basic filter in the Azure portal, highlighting the autopopulated filter text after selecting the events." lightbox="media/how-to-create-routes/create-event-route-filter-basic-2-large.png":::
 
@@ -158,16 +154,16 @@ Here are the supported route filters.
 | True / False | Allows creating a route with no filtering, or disabling a route so no events are sent | `<true/false>` | `true` = route is enabled with no filtering <br> `false` = route is disabled |
 | Type | The [type of event](concepts-route-events.md#types-of-event-messages) flowing through your digital twin instance | `type = '<event-type>'` | Here are the possible event type values: <br>`Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
 | Source | Name of Azure Digital Twins instance | `source = '<host-name>'`| Here are the possible host name values: <br><br> For notifications: `<your-Digital-Twins-instance>.api.<your-region>.digitaltwins.azure.net` <br><br> For telemetry: `<your-Digital-Twins-instance>.api.<your-region>.digitaltwins.azure.net/<twin-ID>`|
-| Subject | A description of the event in the context of the event source above | `subject = '<subject>'` | Here are the possible subject values: <br><br>For notifications: The subject is `<twin-ID>` <br> or a URI format for subjects, which are uniquely identified by multiple parts or IDs:<br>`<twin-ID>/relationships/<relationship-ID>`<br><br> For telemetry: The subject is the component path (if the telemetry is emitted from a twin component), such as `comp1.comp2`. If the telemetry isn't emitted from a component, then its subject field is empty. |
+| Subject | A description of the event in the context of the event source | `subject = '<subject>'` | Here are the possible subject values: <br><br>For notifications: The subject is `<twin-ID>` <br> or a URI format for subjects, which are uniquely identified by multiple parts or IDs:<br>`<twin-ID>/relationships/<relationship-ID>`<br><br> For telemetry: The subject is the component path (if the telemetry is emitted from a twin component), such as `comp1.comp2`. If the telemetry isn't emitted from a component, then its subject field is empty. |
 | Data schema | DTDL model ID | `dataschema = '<model-dtmi-ID>'` | For telemetry: The data schema is the model ID of the twin or the component that emits the telemetry. For example, `dtmi:example:com:floor4;2` <br><br>For notifications (create/delete): Data schema can be accessed in the notification body at `$body.$metadata.$model`. <br><br>For notifications (update): Data schema can be accessed in the notification body at `$body.modelId`|
 | Content type | Content type of data value | `datacontenttype = '<content-type>'` | The content type is `application/json` |
 | Spec version | The version of the event schema you're using | `specversion = '<version>'` | The version must be `1.0`. This value indicates the CloudEvents schema version 1.0 |
 | Notification body | Reference any property in the `data` field of a notification | `$body.<property>` | See [Event notifications](concepts-event-notifications.md) for examples of notifications. Any property in the `data` field can be referenced using `$body` |
 
 >[!NOTE]
-> Azure Digital Twins currently doesn't support filtering events based on fields within an array. This includes filtering on properties within a `patch` section of a [digital twin change notification](concepts-event-notifications.md#digital-twin-change-notifications).
+> Azure Digital Twins currently doesn't support filtering events based on fields within an array. This limitation includes filtering on properties within a `patch` section of a [digital twin change notification](concepts-event-notifications.md#digital-twin-change-notifications).
 
-The following data types are supported as values returned by references to the data above:
+The following data types are supported as values returned by references to the previous data:
 
 | Data type | Example |
 |-|-|-|
@@ -192,13 +188,13 @@ The following functions are supported when defining route filters:
 |ENDS_WITH(x,y) | Returns true if the value `x` ends with the string `y`.|`ENDS_WITH($body.$metadata.$model, 'floor;1')`|
 |CONTAINS(x,y)| Returns true if the value `x` contains the string `y`.|`CONTAINS(subject, '<twin-ID>')`|
 
-When you implement or update a filter, the change may take a few minutes to be reflected in the data pipeline.
+When you implement or update a filter, the change might take a few minutes to be reflected in the data pipeline.
 
 ## Monitor event routes
 
 Routing metrics such as count, latency, and failure rate can be viewed in the [Azure portal](https://portal.azure.com/). 
 
-For information about viewing and managing metrics with Azure Monitor, see [Get started with metrics explorer](/azure/azure-monitor/essentials/metrics-getting-started). For a full list of routing metrics available for Azure Digital Twins, see [Azure Digital Twins routing metrics](how-to-monitor.md#routing-metrics).
+For information about viewing and managing metrics with Azure Monitor, see [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/metrics-getting-started). For a full list of routing metrics available for Azure Digital Twins, see [Routing metrics](how-to-monitor.md#routing-metrics).
 
 ## Next steps
 

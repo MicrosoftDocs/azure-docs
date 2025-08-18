@@ -101,7 +101,8 @@ Azure Operator Nexus supports and tests the latest combination of a Purity versi
 
 | PurityOS Version | DFS Version|
 |------------------|------------|
-| 6.5.8            | 2.2.1      |
+| 6.5.8             | 2.2.1     |
+| 6.5.10            | 2.2.2     |
 
 ## FAQ
 

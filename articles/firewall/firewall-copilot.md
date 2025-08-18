@@ -4,13 +4,15 @@ description: Learn about using Microsoft Security Copilot to investigate traffic
 keywords: security copilot, copilot for security, threat intelligence, IDPS, intrusion detection and prevention system, plugin, integration, azure firewall, firewall copilot, open ai, openai, co-pilot
 author: abhinavsriram
 ms.author: asriram
-ms.date: 03/24/2025
+ms.date: 04/25/2025
+ms.update-cycle: 180-days
 ms.topic: concept-article
 ms.service: azure-firewall
 ms.localizationpriority: high
 ms.custom:
   - ignite-2024
 ms.collection: Tier1, ce-skilling-ai-copilot
+# Customer intent: "As a security analyst, I want to use Security Copilot with Azure Firewall to investigate flagged traffic, so that I can enhance my threat detection and response capabilities efficiently."
 ---
 
 # Azure Firewall integration in Microsoft Security Copilot
@@ -55,8 +57,6 @@ To view the list of built-in system capabilities for Azure Firewall, use the fol
 2.	Select **See all system capabilities**. 
 
 3. The **Azure Firewall** section lists all the available capabilities that you can use.
-
-    :::image type="content" source="media/firewall-copilot/copilot-system-capabilities.png" alt-text="Screenshot of the system capabilities for Azure Firewall in Microsoft Security Copilot.":::
 
 ## Enable the Azure Firewall integration in Security Copilot
 

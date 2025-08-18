@@ -1,12 +1,13 @@
 ---
 title: Convert dashboards to Azure Workbooks in Microsoft Sentinel
 description: Learn how to review, planning, and migrate your current dashboards to Azure Workbooks.
-author: cwatson-cat
-ms.author: cwatson
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: how-to
 ms.date: 06/12/2024
 appliesto:
-- Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 

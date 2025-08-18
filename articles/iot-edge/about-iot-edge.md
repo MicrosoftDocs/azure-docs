@@ -23,7 +23,7 @@ Azure IoT Edge is a device-focused runtime that enables you to deploy, run, and 
 
 Analytics drives business value in IoT solutions, but not all analytics need to be in the cloud. Azure IoT Edge helps you bring the analytical power of the cloud closer to your devices to drive better business insights and enable offline decision making. For example, you can run anomaly detection workloads at the edge to respond as quickly as possible to emergencies happening on a production line. If you want to reduce bandwidth costs and avoid transferring terabytes of raw data, you can clean and aggregate the data locally then only send the insights to the cloud for analysis.
 
-Azure IoT Edge is a feature of [Azure IoT Hub](../iot-hub/iot-concepts-and-iot-hub.md) and enables you to scale out and manage an IoT solution from the cloud. By packaging your business logic into standard containers and using optional pre-built IoT Edge module images from partners or the [Microsoft Artifact Registry](https://mcr.microsoft.com/catalog?cat=IoT%20Edge%20Modules&alphaSort=asc&alphaSortKey=Name), you can easily compose, deploy, and maintain your solution.
+Azure IoT Edge brings edge-based capabilities to a cloud-based solution and is a feature of [Azure IoT Hub](../iot-hub/iot-concepts-and-iot-hub.md) that enables you to scale out and manage an IoT solution from the cloud. By packaging your business logic into standard containers and using optional pre-built IoT Edge module images from partners or the [Microsoft Artifact Registry](https://mcr.microsoft.com/catalog?cat=IoT%20Edge%20Modules&alphaSort=asc&alphaSortKey=Name), you can easily compose, deploy, and maintain your solution.
 
 Azure IoT Edge is made up of three components:
 

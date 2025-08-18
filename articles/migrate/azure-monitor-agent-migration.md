@@ -1,8 +1,8 @@
 ---
 title: Migrate to Azure Monitor Agent from Log Analytics agent 
 description: Procedure to migrate to Azure Monitor Agent from MMA
-author: SnehaSudhirG
-ms.author: prijaisw
+author: habibaum
+ms.author: v-uhabiba
 ms.topic: how-to
 ms.date: 09/18/2024
 
@@ -26,7 +26,7 @@ This article describes the impact on agent-based dependency analysis because of 
 > - **OS Support:** Support for new Linux or Windows distros, including service packs, won't be added after the deprecation of the legacy agents.
 
 > [!Note]
->  Starting July 1, 2024, [Standard Log Analytics charges](https://go.microsoft.com/fwlink/?linkid=2278207) are applicable for Agent-based dependency visualization. We suggest moving to [agentless dependency analysis](how-to-create-group-machine-dependencies-agentless.md) for a seamless experience.
+>  Starting July 1, 2024, [Standard Log Analytics charges](https://go.microsoft.com/fwlink/?linkid=2278207) are applicable for Agent-based dependency visualization. We suggest moving to [agentless dependency analysis] for a seamless experience.
 
 > [!Note]
 > The pricing estimation has been covered in [Estimate the price change](#estimate-the-price-change) section.
@@ -51,15 +51,15 @@ As per the pricing change, you'll be billed against the volume of data gathered 
 1. Sign in to the Log analytics workspace. 
 1. Navigate to the **Logs** section and run the following query: 
  
-   ```
-    let AzureMigrateDataTables = dynamic(["ServiceMapProcess_CL","ServiceMapComputer_CL","VMBoundPort","VMConnection","VMComputer","VMProcess","InsightsMetrics"]); Usage  
+```
+let AzureMigrateDataTables = dynamic(["ServiceMapProcess_CL","ServiceMapComputer_CL","VMBoundPort","VMConnection","VMComputer","VMProcess","InsightsMetrics"]); Usage  
 
-    | where StartTime >= startofday(ago(30d)) and StartTime < startofday(now()) 
+| where StartTime >= startofday(ago(30d)) and StartTime < startofday(now()) 
 
-    | where DataType in (AzureMigrateDataTables)  
+| where DataType in (AzureMigrateDataTables)  
 
-    | summarize AzureMigrateGBperMonth=sum(Quantity)/1000 
-    ```
+| summarize AzureMigrateGBperMonth=sum(Quantity)/1000 
+```
 
 ## Support for Azure Monitor agent in Azure Migrate 
 

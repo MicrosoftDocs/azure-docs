@@ -4,9 +4,10 @@ description: Learn about enhancing the performance of HPC and AI workloads on Az
 author: padmalathas
 ms.author: padmalathas
 ms.date: 03/25/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+# Customer intent: As an HPC engineer, I want to utilize Azure's performance optimization tools for virtual machines, so that I can enhance the efficiency and effectiveness of my high-performance computing and AI applications.
 ---
 
 # Optimizing Performance for Azure HPC and AI Virtual Machines

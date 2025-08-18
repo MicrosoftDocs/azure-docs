@@ -78,8 +78,6 @@
       href: https://youtu.be/OxmVds31qL8
     - name: Communicate between multiple apps
       href: connect-apps.md
-    - name: Reduce cold-start times
-      href: cold-start.md
 - name: Develop & deploy
   items:
     - name: Deployment options
@@ -171,6 +169,8 @@
       items:
         - name: With a job
           href: tutorial-event-driven-jobs.md
+    - name: Workflow
+      href: workflows-overview.md
     - name: Troubleshooting
       items:
         - name: Overview
@@ -198,6 +198,14 @@
     - name: Overview
       href: observability.md
       displayName: Observability overview
+    - name: Troubleshoot and resolve issues with an agent
+      items:
+        - name: Overview
+          href: ../sre-agent/overview.md
+        - name: Use an SRE agent
+          href: ../sre-agent/usage.md
+        - name: Fix app issues with an SRE agent
+          href: ../sre-agent/troubleshoot-azure-container-apps.md
     - name: Application logging
       href: logging.md
     - name: Real time data
@@ -225,6 +233,8 @@
       displayName: Scale rules and performance overview
     - name: Scale a container app
       href: tutorial-scaling.md
+    - name: Reduce cold-start times
+      href: cold-start.md
 - name: Domains & certificates
   items:
   - name: Overview
@@ -260,6 +270,9 @@
           href: authentication-openid.md
 - name: Security
   items:
+    - name: Overview
+      href: security.md
+      displayName: Security overview
     - name: Manage secrets
       href: manage-secrets.md
     - name: Token store
@@ -315,7 +328,7 @@
           href: microservices-dapr.md
         - name: Deploy using ARM or Bicep
           href: microservices-dapr-azure-resource-manager.md
-        - name: Enable Dapr on an existing container app
+        - name: Configure Dapr on an existing container app
           href: enable-dapr.md
         - name: Deploy using the Dapr extension for Azure Functions
           href: dapr-functions-extension.md
@@ -343,18 +356,18 @@
           href: microservices-dapr-bindings.md
         - name: Microservices communication using Dapr Service Invocation
           href: microservices-dapr-service-invoke.md
-- name: Networking, ingress, and network security
+- name: Networking and ingress
   items:
-    - name: Architecture overview
+    - name: Overview
       href: networking.md
-    - name: Use a custom virtual network
-      href: vnet-custom.md
     - name: Ingress
       items:
         - name: Overview
           href: ingress-overview.md
           displayName: Ingress overview
-        - name: Configure ingress
+        - name: Environment-level configuration
+          href: ingress-environment-configuration.md
+        - name: Application-level configuration
           href: ingress-how-to.md
         - name: Configure IP restrictions
           href: ip-restrictions.md
@@ -370,14 +383,28 @@
         - name: CORS
           href: cors.md
           displayName: Cross origin resource sharing
-    - name: Security
+    - name: Virtual network configuration
+      href: custom-virtual-networks.md
+    - name: Managing outbound connections with Azure Firewall
+      href: use-azure-firewall.md
+    - name: Private endpoints and DNS
+      href: private-endpoints-with-dns.md
+    - name: Securing a custom VNET with an NSG
+      href: firewall-integration.md
+    - name: Tutorials
       items:
+        - name: Use a custom virtual network
+          href: vnet-custom.md
         - name: Configure WAF Application Gateway
           href: waf-app-gateway.md
         - name: Enable User Defined Routes (UDR)
           href: user-defined-routes.md
-        - name: Securing a custom VNET with an NSG
-          href: firewall-integration.md
+        - name: Rule based routing
+          items:
+          - name: Use rule-based routing
+            href: rule-based-routing.md
+          - name: Use a custom domain with rule-based routing
+            href: rule-based-routing-custom-domain.md
         - name: Use a private endpoint
           href: how-to-use-private-endpoint.md
         - name: Use mTLS
@@ -400,6 +427,9 @@
       - name: Overview
         href: java-overview.md
         displayName: java
+      - name: Introduction to containers
+        href: java-containers-intro.md
+        displayName: java
       - name: Turn on Java features
         href: java-feature-switch.md
         displayName: java
@@ -408,7 +438,7 @@
         displayName: java
       - name: Build environment variables (preview)
         href: java-build-environment-variables.md
-        displayName: java    
+        displayName: java
       - name: Launch your first Java app
         items:
         - name: Dockerfile
@@ -426,14 +456,13 @@
       - name: Artificial intelligence
         items:
         - name: PetClinic AI
-          items: 
+          items:
           - name: Overview
             href: java-petclinic-ai-overview.md
             displayName: java
           - name: Deploy the PetClinic AI sample
             href: java-petclinic-ai-tutorial.md
             displayName: java
-        displayName: java
       - name: Java components
         items:
         - name: Launch your first Java microservice apps with managed Java components
@@ -480,7 +509,7 @@
           href: java-dynamic-log-level.md
           displayName: java
     - name: JavaScript
-      items: 
+      items:
       - name: Overview
         href: javascript-overview.md
         displayName: javascript, typescript, node.js
@@ -490,12 +519,16 @@
       href: billing.md
     - name: Quotas
       href: quotas.md
+    - name: Make quota requests
+      href: quota-requests.md
 - name: Product updates
   items:
     - name: What's new
       href: whats-new.md
 - name: API docs & reference
   items:
+    - name: Azure Container Apps extension release notes
+      href: container-apps-extension-release-notes.md
     - name: ARM & YAML specifications
       href: azure-resource-manager-api-spec.md
     - name: Azure CLI

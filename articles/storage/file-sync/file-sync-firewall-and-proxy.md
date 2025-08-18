@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 05/13/2024
 ms.author: kendownie
+# Customer intent: As an IT admin, I want to configure proxy and firewall settings for Azure File Sync, so that I can ensure secure and reliable connectivity between on-premises servers and Azure cloud services.
 ---
 
 # Azure File Sync proxy and firewall settings

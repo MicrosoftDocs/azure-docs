@@ -1,5 +1,5 @@
 ---
-title: How to use certificate and Service Principal emit log to Azure Event Hubs
+title: Collect Apache Spark Application Logs and Metrics to Azure Event Hubs Using Certificate-Based Service Principal Authentication
 description: Learn to setting up Azure services, particularly focusing on integrating Azure Synapse with Azure Event Hubs and Key Vault.
 author: jejiang
 ms.author: jejiang
@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 03/24/2025
 ---
 
-# How to use certificate and service principal emit log to Azure Event Hubs
+# Collect Apache Spark Application Logs and Metrics to Azure Event Hubs Using Certificate-Based Service Principal Authentication
 
 The Apache Spark diagnostic emitter extension is a library that allows Spark applications to send logs, event logs, and metrics to destinations like Azure Event Hubs, Azure Log Analytics, and Azure Storage.
 

@@ -2,16 +2,19 @@
 title: Restore PostgreSQL Databases by Using the Azure CLI
 description: Learn how to restore Azure Database for PostgreSQL by using the Azure CLI.
 ms.topic: how-to
-ms.date: 07/30/2024
+ms.date: 08/18/2025
 ms.service: azure-backup
-ms.custom: devx-track-azurecli
-author: jyothisuri
-ms.author: jsuri
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a database administrator, I want to restore PostgreSQL databases using the command line, so that I can efficiently manage backup and recovery operations without relying on graphical interfaces.
 ---
 
 # Restore PostgreSQL databases by using the Azure CLI
 
-This article explains how to use the Azure CLI to restore PostgreSQL databases to an [Azure Database for PostgreSQL](/azure/postgresql/overview#azure-database-for-postgresql---single-server) server that you backed up via Azure Backup.
+This article describes how to use the Azure CLI to restore PostgreSQL databases to an [Azure Database for PostgreSQL](/azure/postgresql/overview#azure-database-for-postgresql---single-server) server that you backed up via Azure Backup. You can also restore a PostgreSQL database using [Azure portal](restore-azure-database-postgresql.md), [Azure PowerShell](restore-postgresql-database-ps.md), and [REST API](restore-postgresql-database-use-rest-api.md).
 
 Because a PostgreSQL database is a platform as a service (PaaS) database, the Original-Location Recovery (OLR) option to restore by replacing the existing database (from where the backups were taken) isn't supported. You can restore from a recovery point to create a new database in the same Azure Database for PostgreSQL server or in any other PostgreSQL server. This option is called Alternate-Location Recovery (ALR). ALR helps to keep both the source database and the restored (new) database.
 
@@ -228,4 +231,5 @@ az dataprotection job list-from-resourcegraph --datasource-type AzureDatabaseFor
 
 ## Related content
 
-- [What is Azure Database for PostgreSQL backup?](backup-azure-database-postgresql-overview.md)
+- [What is Azure Database for PostgreSQL backup?](backup-azure-database-postgresql-overview.md).
+- [Manage an Azure Database for PostgreSQL server by using the Azure portal](manage-azure-database-postgresql.md).

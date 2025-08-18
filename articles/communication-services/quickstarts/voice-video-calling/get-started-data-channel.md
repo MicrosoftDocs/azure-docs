@@ -1,11 +1,11 @@
 ---
-ms.author: enricohuang
-title: Quickstart - Add Data Channel messaging to your calling app
-titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to add Data Channel to your existing calling app using Azure Communication Services.
+title: Add data channel messaging to a calling app
+titleSuffix: An Azure Communication Services article
+description: This article describes how to add Data Channel to your existing calling app using Azure Communication Services.
 author: sloanster
+ms.author: enricohuang
 services: azure-communication-services
-ms.date: 05/04/2023
+ms.date: 6/27/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -13,7 +13,7 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 ms.custom: mode-other, devx-track-js
 ---
 
-# Quickstart: Add Data Channel messaging to your calling app
+# Add data channel messaging to a calling app
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Data Channel feature with JavaScript](./includes/data-channel/data-channel-javascript.md)]
@@ -33,7 +33,7 @@ ms.custom: mode-other, devx-track-js
 
 ## Next steps
 
-For more information, see the following articles:
+For more information, see:
 
-- Learn about [Data Channel feature concept document](../../concepts/voice-video-calling/data-channel.md)
-- Learn more about [Calling SDK capabilities](./getting-started-with-calling.md)
+- [Data Channel feature concept document](../../concepts/voice-video-calling/data-channel.md)
+- [Calling SDK capabilities](./getting-started-with-calling.md)

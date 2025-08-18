@@ -1,6 +1,6 @@
 ---
 title: include file
-description: Inline Attachments .NET SDK include file
+description: Inline Attachments .NET SDK
 author: natekimball-msft
 manager: koagbakp
 services: azure-communication-services
@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 
 ## Send an email message with inline attachments
 
-We can add an inline attachment by defining one or more EmailAttachment objects, defining a unique `ContentId` for each, and adding them to our EmailMessage object. Read the attachment file and encode it using Base64.
+We can add an inline attachment by defining one or more `EmailAttachment` objects, defining a unique `ContentId` for each, and adding them to our EmailMessage object. Read the attachment file and encode it using Base64.
 
 ```csharp
 var jpgFilePath = "./inline-attachment.jpg";
@@ -34,7 +34,7 @@ var pngInlineAttachment = new EmailAttachment(
 pngInlineAttachment.ContentId = "my-inline-attachment-2";
 ```
 
-Within the HTML body of the message, we can then embed an image by referencing its `ContentId` within the source of an `<img>` tag.
+Within the HTML body of the message, we can embed an image by referencing its `ContentId` within the source of an `<img>` tag.
 
 ```csharp
 var emailContent = new EmailContent("Welcome to Azure Communication Services Email")
@@ -69,12 +69,12 @@ catch (RequestFailedException ex)
 ```
 
 > [!NOTE]
-> Regular attachments can be combined with inline attachments, as well. Defining a `ContentId` will treat an attachment as inline, while an attachment without a `ContentId` will be treated as a regular attachment.
+> You can combine regular attachments with inline attachments. Defining a `ContentId` treats an attachment as inline, while an attachment without a `ContentId` is treated as a regular attachment.
 
 ### Allowed MIME types
 
-Although most modern clients support inline attachments, the rendering behavior of an inline attachment is largely dependent on the recipient's email client. For this reason, it is suggested to use more common image formats inline whenever possible, such as .png, .jpg, or .gif. For more information on acceptable MIME types for email attachments, see the [allowed MIME types](../../../../concepts/email/email-attachment-allowed-mime-types.md) documentation.
+Although most modern clients support inline attachments, the rendering behavior of an inline attachment is largely dependent on the recipient's email client. For this reason, we recommend using more common image formats inline whenever possible, such as `.png`, `.jpg`, or `.gif`. For more information on acceptable MIME types for email attachments, see the [Supported MIME types](../../../../concepts/email/email-attachment-allowed-mime-types.md) documentation.
 
 ### Sample code
 
-You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmailAdvanced/SendEmailWithInlineAttachments)
+You can download the sample app demonstrating this action from  GitHub Azure Samples [Send email inline attachments using .NET](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmailAdvanced/SendEmailWithInlineAttachments).

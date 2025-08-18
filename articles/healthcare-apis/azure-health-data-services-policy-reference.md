@@ -1,7 +1,7 @@
 ---
 title: Built-in policy definitions for Azure Health Data Services
 description: Explore the index of Azure Policy’s built-in definitions tailored for Azure Health Data Services. Enhance security and compliance through detailed policy descriptions, effects, and GitHub sources.
-ms.date: 04/30/2024
+ms.date: 06/02/2025
 author: expekesheth
 ms.author: kesheth
 ms.service: azure-health-data-services
@@ -12,7 +12,7 @@ ms.custom: subject-policy-reference
 # Azure Policy built-in definitions for Azure Health Data Services
 
 This article provides an index of built-in [Azure Policy](./../../articles/governance/policy/overview.md) definitions for Azure Health Data Services. For more information, see
-[Azure Policy built-in policies](./../../articles/governance/policy/samples/built-in-policies.md).
+[Azure Policy built-in policies](/azure/governance/policy/samples/built-in-policies).
 
 The name of each built-in policy definition links to the policy definition in the Azure portal. Use
 the link in the **GitHub version** column to view the source on the

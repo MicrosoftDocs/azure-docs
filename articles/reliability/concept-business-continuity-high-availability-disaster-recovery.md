@@ -158,7 +158,7 @@ To achieve HA requirements, a workload can include a number of design elements. 
 
 #### Azure services and tiers that support high availability
 
-Many Azure services are designed to be highly available, and can be used to build highly available workloads. Here are some examples:
+Many Azure services are designed to be highly available and can be used to build highly available workloads. Here are some examples:
 
 - [Azure Virtual Machine Scale Sets](/azure/reliability/reliability-virtual-machine-scale-sets) provide high availability for virtual machines (VMs) by automatically creating and managing VM instances and distributing those VM instances to reduce the impact of infrastructure failures.
 - [Azure App Service](/azure/reliability/reliability-app-service) provides high availability through a variety of approaches, including automatically moving workers from an unhealthy node to a healthy node, and by providing capabilities for self-healing from many common fault types.
@@ -314,7 +314,7 @@ Many Azure data and storage services support backups, such as the following:
 
 - [Azure Backup](/azure/reliability/reliability-backup) provides automated backups for virtual machine disks, storage accounts, AKS, and a variety of other sources.
 - Many Azure database services, including [Azure SQL Database](/azure/azure-sql/database/high-availability-sla-local-zone-redundancy) and [Azure Cosmos DB](/azure/reliability/reliability-cosmos-db-nosql), have an automated backup capability for your databases.
-- [Azure Key Vault](/azure/key-vault/general/disaster-recovery-guidance) provides features to back up your secrets, certificates, and keys.
+- [Azure Key Vault](./reliability-key-vault.md) provides features to back up your secrets, certificates, and keys.
 
 #### Automated deployments
 

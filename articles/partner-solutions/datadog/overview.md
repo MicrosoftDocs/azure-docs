@@ -47,8 +47,8 @@ There are three types of logs that you can send from Azure to Datadog.
 The Microsoft Entra admin center gives you access to three activity logs:
 
 - [Sign-in](../../active-directory/reports-monitoring/concept-sign-ins.md) – Information about sign-ins and how your resources are used by your users.
-- [Audit](../../active-directory/reports-monitoring/concept-audit-logs.md) – Information about changes applied to your tenant such as users and group management or updates applied to your tenant's resources.
-- [Provisioning](../../active-directory/reports-monitoring/concept-provisioning-logs.md) – Activities performed by the provisioning service, such as the creation of a group in ServiceNow or a user imported from Workday.
+- [Audit](../../active-directory/reports-monitoring/concept-audit-logs.md) – Information about changes applied to your tenant like users and group management or updates applied to your tenant's resources.
+- [Provisioning](../../active-directory/reports-monitoring/concept-provisioning-logs.md) – Activities performed by the provisioning service, like the creation of a group in ServiceNow or a user imported from Workday.
 
 The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](/azure/azure-monitor/essentials/resource-logs-categories). To filter the set of Azure resources sending logs to Datadog, use Azure resource tags.
 

@@ -15,6 +15,7 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Tutorial: Create user flows and custom policies in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -210,8 +211,8 @@ Next, specify that the application should be treated as a public client:
 1. In the left menu, under **Manage**, select **Authentication**.
 1. Under **Advanced settings**, in the **Allow public client flows** section, set **Enable the following mobile and desktop flows** to **Yes**. 
 1. Select **Save**.
-1. Ensure that **"isFallbackPublicClient": true** is set in the application manifest:
-    1. In the left menu, under **Manage**, select **Manifest** to open application manifest.
+1. Ensure that **"isFallbackPublicClient": true** is set in the Microsoft Graph App Manifest(New):
+    1. In the left menu, under **Manage**, select **Manifest** to open Microsoft Graph App Manifest(New)
     1. Switch from the **Microsoft Graph App Manifest (New)** tab to the **AAD Graph App Manifest (Deprecating Soon)** tab.
     1. Find **isFallbackPublicClient** key and ensure its value is set to **true**.
 

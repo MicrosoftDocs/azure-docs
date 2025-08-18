@@ -1,9 +1,9 @@
 ---
 author: baanders
-description: include file for the access permissions step in Azure Digital Twins setup
+description: Include file for the access permissions step in Azure Digital Twins setup.
 ms.service: azure-digital-twins
 ms.topic: include
-ms.date: 7/17/2020
+ms.date: 4/21/2025
 ms.author: baanders
 ---
 
@@ -12,6 +12,6 @@ Azure Digital Twins uses [Microsoft Entra ID](../../active-directory/fundamental
 For Azure Digital Twins, this role is **Azure Digital Twins Data Owner**. You can read more about roles and security in [Security for Azure Digital Twins solutions](../concepts-security.md).
 
 > [!NOTE]
-> This role is different from the Microsoft Entra ID **Owner** role, which can also be assigned at the scope of the Azure Digital Twins instance. These are two distinct management roles, and Owner does not grant access to data plane features that are granted with **Azure Digital Twins Data Owner**.
+> This role is different from the Microsoft Entra ID **Owner** role, which can also be assigned at the scope of the Azure Digital Twins instance. These are two distinct management roles, and **Owner** doesn't grant access to data plane features that are granted with **Azure Digital Twins Data Owner**.
 
-This section will show you how to create a role assignment for a user in your Azure Digital Twins instance, using that user's email in the Microsoft Entra tenant on your Azure subscription. Depending on your role in your organization, you might set up this permission for yourself, or set it up on behalf of someone else who will be managing the Azure Digital Twins instance.
+This section shows you how to create a role assignment for a user in your Azure Digital Twins instance, using that user's email in the Microsoft Entra tenant on your Azure subscription. Depending on your role in your organization, you might set up this permission for yourself, or set it up on behalf of someone else who manages the Azure Digital Twins instance.

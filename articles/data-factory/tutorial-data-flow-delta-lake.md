@@ -54,13 +54,11 @@ In this step, you create a pipeline that contains a data flow activity.
 1. In the **General** tab for the pipeline, enter **DeltaLake** for **Name** of the pipeline.
 1. In the **Activities** pane, expand the **Move and Transform** accordion. Drag and drop the **Data Flow** activity from the pane to the pipeline canvas.
 
-    :::image type="content" source="media/tutorial-data-flow/activity1.png" alt-text="Screenshot that shows the pipeline canvas where you can drop the Data Flow activity.":::
-1. In the **Adding Data Flow** pop-up, select **Create new Data Flow** and then name your data flow **DeltaLake**. Select Finish when done.
+    :::image type="content" source="media/tutorial-data-flow/activity.png" alt-text="Screenshot that shows the pipeline canvas where you can drop the Data Flow activity.":::
 
-    :::image type="content" source="media/tutorial-data-flow/activity2.png" alt-text="Screenshot that shows where you name your data flow when you create a new data flow.":::
 1. In the top bar of the pipeline canvas, slide the **Data Flow debug** slider on. Debug mode allows for interactive testing of transformation logic against a live Spark cluster. Data Flow clusters take 5-7 minutes to warm up and users are recommended to turn on debug first if they plan to do Data Flow development. For more information, see [Debug Mode](concepts-data-flow-debug-mode.md).
 
-    :::image type="content" source="media/tutorial-data-flow/dataflow1.png" alt-text="Screenshot that shows where is the Data flow debug slider.":::
+    :::image type="content" source="media/tutorial-data-flow/dataflow.png" alt-text="Screenshot that shows where is the Data flow debug slider.":::
 
 ## Build transformation logic in the data flow canvas
 

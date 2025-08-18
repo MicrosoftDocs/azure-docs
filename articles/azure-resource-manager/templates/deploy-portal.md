@@ -2,7 +2,7 @@
 title: Deploy resources with Azure portal
 description: Use Azure portal and Azure Resource Manage to deploy your resources to a resource group in your subscription.
 ms.topic: how-to
-ms.date: 03/20/2024
+ms.date: 04/28/2025
 ---
 
 # Deploy resources with ARM templates and Azure portal
@@ -24,7 +24,7 @@ This article shows both methods.
 
    :::image type="content" source="./media/deploy-portal/select-resource-groups.png" alt-text="Screenshot of selecting resource groups in Azure portal":::
 
-1. Under Resource groups, select **Add**.
+1. Under Resource groups, select **Create**.
 
    :::image type="content" source="./media/deploy-portal/add-resource-group.png" alt-text="Screenshot of adding a resource group in Azure portal":::
 

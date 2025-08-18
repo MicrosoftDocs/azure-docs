@@ -10,6 +10,7 @@ ms.topic: tutorial
 ms.date: 01/04/2022
 ms.author: shaas
 #Customer intent: As an IT admin, I need to be able to order Data Box Heavy to upload on-premises data from my server onto Azure.
+# Customer intent: As an IT admin, I want to order Azure Data Box Heavy to efficiently transfer large volumes of on-premises data to Azure, so that I can ensure a reliable and streamlined data migration process.
 ---
 
 # Tutorial: Order Azure Data Box Heavy

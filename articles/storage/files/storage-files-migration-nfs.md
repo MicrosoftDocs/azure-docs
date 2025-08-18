@@ -7,6 +7,7 @@ ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 01/08/2023
 ms.author: kendownie
+# Customer intent: As a system administrator, I want to migrate data from Linux file servers to NFS Azure file shares using efficient file copy tools, so that I can ensure optimal performance and manage large datasets during the migration process.
 ---
 
 # Migrate to NFS Azure file shares

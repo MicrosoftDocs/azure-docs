@@ -7,6 +7,7 @@ ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 01/29/2025
 ms.author: cherylmc
+# Customer intent: "As a network administrator, I want to configure the OpenVPN Connect 3.x client for certificate authentication, so that I can securely connect to the Azure VPN Gateway from remote locations."
 ---
 
 # Configure OpenVPN Connect 3.x client for P2S certificate authentication connections - Windows

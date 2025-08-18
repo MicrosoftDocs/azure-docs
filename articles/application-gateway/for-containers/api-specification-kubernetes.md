@@ -3,11 +3,12 @@
 title: Application Gateway for Containers API Specification for Kubernetes
 description: This article provides documentation for Application Gateway for Containers' API specification for Kubernetes.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
 ms.date: 9/16/2024
-ms.author: greglin
+ms.author: mbender
+# Customer intent: "As a Kubernetes developer, I want to understand the API specifications for the Application Gateway for Containers, so that I can effectively configure and manage load balancing and traffic routing for my containerized applications."
 ---
 
 # Application Gateway for Containers API specification for Kubernetes

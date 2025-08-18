@@ -3,7 +3,9 @@ title: Learn Azure Policy for Kubernetes
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters running Kubernetes in Azure or on-premises.
 ms.date: 03/04/2025
 ms.topic: conceptual
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 ---
 
 # Understand Azure Policy for Kubernetes clusters
@@ -21,6 +23,8 @@ Azure Policy for Kubernetes supports the following cluster environments:
 > [!IMPORTANT]
 > The Azure Policy Add-on Helm model and the add-on for AKS Engine have been _deprecated_. Follow the instructions to [remove the add-ons](#remove-the-add-on).
 
+> [!IMPORTANT]
+> Installations of Gatekeeper outside of the Azure Policy Add-on aren't supported. Uninstall any components installed by a previous Gatekeeper installation before enabling the Azure Policy Add-on.
 ## Overview
 
 By installing Azure Policy's add-on or extension on your Kubernetes clusters, Azure Policy enacts the following functions:
@@ -299,7 +303,7 @@ az k8s-extension delete --cluster-type connectedClusters --cluster-name <CLUSTER
 ## Create a policy definition
 
 The Azure Policy language structure for managing Kubernetes follows that of existing policy
-definitions. There are sample definition files available to assign in [Azure Policy's built-in policy library](../samples/built-in-policies.md#kubernetes) that can be used to govern your cluster components.
+definitions. There are sample definition files available to assign in [Azure Policy's built-in policy library](/azure/governance/policy/samples/built-in-policies#kubernetes) that can be used to govern your cluster components.
 
 Azure Policy for Kubernetes also support custom definition creation at the component-level for both Azure Kubernetes Service clusters and Azure Arc-enabled Kubernetes clusters. Constraint template and mutation template samples are available in the [Gatekeeper community library](https://github.com/open-policy-agent/gatekeeper-library/tree/master). [Azure Policy's Visual Studio Code Extension](../how-to/extension-for-vscode.md#create-policy-definition-from-a-constraint-template-or-mutation-template) can be used to help translate an existing constraint template or mutation template to a custom Azure Policy policy definition.
 
@@ -374,7 +378,7 @@ vms_.
 > [!IMPORTANT]
 > Built-in policy definitions are available for Kubernetes clusters in category **Kubernetes**. For
 > a list of built-in policy definitions, see
-> [Kubernetes samples](../samples/built-in-policies.md#kubernetes).
+> [Kubernetes samples](/azure/governance/policy/samples/built-in-policies#kubernetes).
 
 ## Policy evaluation
 
@@ -606,6 +610,43 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 
 ### Add-on versions available per each AKS cluster version
 
+#### 1.13.0
+EU Data Boundary now supported by Azure Policy for Kubernetes on AKS. To learn more generally about the EU Data Boundary visit: [Overview of EU Data Boundary](/privacy/eudb/eu-data-boundary-learn).
+
+Patch [CVE-2025-22874](https://nvd.nist.gov/vuln/detail/CVE-2025-22874).
+
+Security improvements.
+- Released July 2025
+- Kubernetes 1.27+
+- Gatekeeper 3.20.0
+##### Gatekeeper 3.20.0-1
+Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.20.0
+Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.19.1...v3.20.0
+
+#### 1.12.3
+Patch CVEs CVE-2025-22874 and GHSA-vrw8-fxc6-2r93.
+- Released July 2025
+- Kubernetes 1.27+
+- Gatekeeper 3.19.1
+
+#### 1.12.2
+Security improvements.
+
+- Released June 2025
+- Kubernetes 1.27+
+- Gatekeeper 3.19.1
+
+#### 1.11.1
+Security improvements.
+
+- Released May 2025
+- Kubernetes 1.27+
+- Gatekeeper 3.19.1
+##### Gatekeeper 3.19.1-1
+Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.19.1
+Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.18.2...v3.19.1
+Patch [CVE-2025-22872](https://nvd.nist.gov/vuln/detail/CVE-2025-22872).
+
 #### 1.10.1
 Update the `policy-kubernetes-addon-prod` and `policy-kubernetes-webhook` images to patch [CVE-2025-30204](https://nvd.nist.gov/vuln/detail/CVE-2025-30204) and [CVE-2025-22870](https://nvd.nist.gov/vuln/detail/CVE-2025-22870).
 - Released April 2025
@@ -785,7 +826,6 @@ aligns with how the add-on was installed:
   - Maximum number of pods supported by the Azure Policy Add-on per cluster: **10,000**
   - Maximum number of Non-compliant records per policy per cluster: **500**
   - Maximum number of Non-compliant records per subscription: **1 million**
-  - Installations of Gatekeeper outside of the Azure Policy Add-on aren't supported. Uninstall any components installed by a previous Gatekeeper installation before enabling the Azure Policy Add-on.
   - [Reasons for non-compliance](../how-to/determine-non-compliance.md#compliance-reasons) aren't available for the Microsoft.Kubernetes.Data [Resource Provider mode](./definition-structure-basics.md#resource-provider-modes). Use [Component details](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
  - Component-level [exemptions](./exemption-structure.md) aren't supported for [Resource Provider modes](./definition-structure-basics.md#resource-provider-modes). Parameters support is available  in Azure Policy definitions to exclude and include particular namespaces.
  - Using the `metadata.gatekeeper.sh/requires-sync-data` annotation in a constraint template to configure the [replication of data](https://open-policy-agent.github.io/gatekeeper/website/docs/sync) from your cluster into the OPA cache is currently only allowed for built-in policies. The reason is because it can dramatically increase the Gatekeeper pods resource usage if not used carefully.
@@ -860,7 +900,7 @@ collected:
 
 ## Next steps
 
-- Review examples at [Azure Policy samples](../samples/index.md).
+- Review examples at [Azure Policy samples](/azure/governance/policy/samples/index).
 - Review the [Policy definition structure](definition-structure-basics.md).
 - Review [Understanding policy effects](effect-basics.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).

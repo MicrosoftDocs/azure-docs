@@ -3,10 +3,11 @@ title: Planning for an Azure File Sync deployment
 description: Plan for a deployment with Azure File Sync, a service that allows you to cache several Azure file shares locally on an on-premises Windows Server or cloud VM.
 author: khdownie
 ms.service: azure-file-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/07/2025
 ms.author: kendownie
 ms.custom: references_regions
+# Customer intent: "As an IT administrator, I want to plan for an Azure File Sync deployment so that I can effectively manage on-premises file caching and ensure seamless integration with cloud file shares."
 ---
 
 # Planning for an Azure File Sync deployment
@@ -53,11 +54,13 @@ A sync group contains one cloud endpoint, or Azure file share, and at least one 
 
 ### Consider the count of Storage Sync Services needed
 
-A previous section discusses the core resource to configure for Azure File Sync: a *Storage Sync Service*. A Windows Server can only be registered to one Storage Sync Service. So it's often best to only deploy a single Storage Sync Service and register all servers on it. 
+A Storage Sync Service is the root ARM resource for Azure File Sync, managing synchronization relationships between your Windows Servers and Azure file shares. Each Storage Sync Service can contain multiple Sync Groups and multiple Registered Servers.
 
-Create multiple Storage Sync Services only if you have:
-* distinct sets of servers that must never exchange data with one another. In this case, you want to design the system to exclude certain sets of servers to sync with an Azure file share that is already in use as a cloud endpoint in a sync group in a different Storage Sync Service. Another way to look at this is that Windows Servers registered to different storage sync service can't sync with the same Azure file share.
-* a need to have more registered servers or sync groups than a single Storage Sync Service can support. Review the [Azure File Sync scale targets](../files/storage-files-scale-targets.md?toc=/azure/storage/filesync/toc.json#azure-file-sync-scale-targets) for more details.
+Each Windows Server can only be registered to one Storage Sync Service. After registration, the server can participate in multiple sync groups within that Storage Sync Service by creating server endpoints on the server using an ARM principal.
+
+When designing Azure File Sync topologies, ensure that you isolate data clearly at the Storage Sync Service level. For example, if your enterprise requires separate Azure File Sync environments for two distinct business units, and you need strict data isolation between these groups, you should create a dedicated Storage Sync Service for each group. Avoid placing sync groups for both business groups within the same Storage Sync Service, as that would not ensure complete isolation.
+
+For additional guidance on data isolation using separate subscriptions or resource groups in Azure, refer to the following Azure documentation: Review the [Azure guidance for secure isolation](/azure/azure-resource-manager/management/resource-providers-and-types#resource-scope-and-lifecycle) for more details.
 
 ## Plan for balanced sync topologies
 
@@ -79,9 +82,7 @@ Azure File Sync is supported with the following versions of Windows Server:
 | Windows Server 2022 | Azure, Datacenter, Essentials, Standard, and IoT | Full and Core |
 | Windows Server 2019 | Datacenter, Essentials, Standard, and IoT | Full and Core |
 | Windows Server 2016 | Datacenter, Essentials, Standard, and Storage Server | Full and Core |
-| Windows Server 2012 R2* | Datacenter, Essentials, Standard, and Storage Server | Full and Core |
 
-*Requires downloading and installing [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). The appropriate package to download and install for Windows Server 2012 R2 is **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**.
 
 > [!IMPORTANT]  
 > We recommend keeping all servers that you use with Azure File Sync up to date with the latest updates from Windows Update. 
@@ -236,7 +237,14 @@ In this case, Azure File Sync would need about 209,500,000 KiB (209.5 GiB) of sp
 **Windows Server 2025, Windows Server 2022, Windows Server 2019, and Windows Server 2016**   
 Data Deduplication is supported irrespective of whether cloud tiering is enabled or disabled on one or more server endpoints on the volume for Windows Server 2016, Windows Server 2019, Windows Server 2022 and Windows Server 2025. Enabling Data Deduplication on a volume with cloud tiering enabled lets you cache more files on-premises without provisioning more storage. 
 
-When Data Deduplication is enabled on a volume with cloud tiering enabled, Dedup optimized files within the server endpoint location will be tiered similar to a normal file based on the cloud tiering policy settings. Once the Dedup optimized files have been tiered, the Data Deduplication garbage collection job will run automatically to reclaim disk space by removing unnecessary chunks that are no longer referenced by other files on the volume.
+When Data Deduplication is enabled on a volume with cloud tiering enabled, Dedup optimized files within the server endpoint location will be tiered similar to a normal file based on the cloud tiering policy settings. Once the Dedup optimized files have been tiered, the Data Deduplication garbage collection job will run automatically to reclaim disk space by removing unnecessary chunks that are no longer referenced by other files on the volume. 
+
+In some cases where Dedup is installed, the available volume space can increase more than expected after dedup garbage collection is triggered. Volume space works as follows:
+1. Let's say that the free space policy for cloud tiering is set to 20%. 
+2. Azure File Sync is notified when there is low free space (let's say when free space is 19%). 
+3. Tiering determines that 1% more space needs to be freed, but as a buffer we'll have 5% extra, so we'll tier up to 25% (for example, 30 GiB).
+4. The files get tiered until it reaches 30 GiB.
+5. As part of interop with Dedup, Azure File Sync initiates Garbage collection at the end of the tiering session.
 
 Note the volume savings only apply to the server; your data in the Azure file share won't be deduped.
 
@@ -307,6 +315,8 @@ To detect changes to the Azure file share, Azure File Sync has a scheduled job c
 For more information, see [Azure File Sync performance metrics](../files/storage-files-scale-targets.md?toc=/azure/storage/filesync/toc.json#azure-file-sync-performance-metrics) and [Azure File Sync scale targets](../files/storage-files-scale-targets.md?toc=/azure/storage/filesync/toc.json#azure-file-sync-scale-targets)
 
 ## Identity
+
+The administrator registering the server and creating the cloud endpoint must be a member of the management roles [Azure File Sync Administrator](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator), Owner or Contributor for the given Storage Sync Service. This can be configured under Access Control (IAM) in the Azure portal for the Storage Sync Service.
 
 Azure File Sync works with your standard AD-based identity without any special setup beyond setting up sync. When you're using Azure File Sync, the general expectation is that most accesses go through the Azure File Sync caching servers, rather than through the Azure file share. Since the server endpoints are located on Windows Server, and Windows Server has supported AD and Windows-style ACLs for a long time, nothing is needed beyond ensuring the Windows file servers registered with the Storage Sync Service are domain joined. Azure File Sync will store ACLs on the files in the Azure file share, and will replicate them to all server endpoints.
 

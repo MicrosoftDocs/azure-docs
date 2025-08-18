@@ -1,6 +1,6 @@
 ---
 title: include file
-description: Multiple recipients JS SDK include file
+description: Multiple recipients JavaScript SDK
 author: natekimball-msft
 manager: koagbakp
 services: azure-communication-services
@@ -68,4 +68,4 @@ const response = await poller.pollUntilDone();
 
 ### Sample code
 
-You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/send-email-advanced/send-email-multiple-recipients)
+You can download the sample app demonstrating this action from GitHub Azure Samples [Send Email for JavaScript](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/send-email-advanced/send-email-multiple-recipients).

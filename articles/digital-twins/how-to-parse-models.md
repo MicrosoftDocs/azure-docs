@@ -4,7 +4,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to use the parser library to parse DTDL models.
 author: baanders
 ms.author: baanders
-ms.date: 06/29/2023
+ms.date: 04/11/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
 ms.custom: devx-track-dotnet
@@ -31,7 +31,7 @@ To use the parser library, you provide it with a set of DTDL documents. Typicall
 Here's the general workflow for using the parser:
 1. Retrieve some or all DTDL documents from the service.
 2. Pass the returned, in-memory DTDL documents to the parser.
-3. The parser will validate the set of documents passed to it, and return detailed error information. This ability is useful in editor scenarios.
+3. The parser validates the set of documents passed to it, and returns detailed error information. This ability is useful in editor scenarios.
 4. Use the parser APIs to continue analyzing the models included in the document set. 
 
 The capabilities of the parser include:
@@ -41,13 +41,13 @@ The capabilities of the parser include:
 * Determine whether a model is assignable from another model.
 
 > [!NOTE]
-> [IoT Plug and Play](../iot/overview-iot-plug-and-play.md) devices use a small syntax variant to describe their functionality. This syntax variant is a semantically compatible subset of the DTDL that is used in Azure Digital Twins. When using the parser library, you do not need to know which syntax variant was used to create the DTDL for your digital twin. The parser will always, by default, return the same model for both IoT Plug and Play and Azure Digital Twins syntax.
+> [IoT Plug and Play](../iot/overview-iot-plug-and-play.md) devices use a small syntax variant to describe their functionality. This syntax variant is a semantically compatible subset of the DTDL that is used in Azure Digital Twins. When using the parser library, you don't need to know which syntax variant was used to create the DTDL for your digital twin. The parser will always, by default, return the same model for both IoT Plug and Play and Azure Digital Twins syntax.
 
 ## Code with the parser library
 
 You can use the parser library directly, for things like validating models in your own application or for generating dynamic, model-driven UI, dashboards, and reports.
 
-To support the parser code example below, consider several models defined in an Azure Digital Twins instance:
+To support the following parser code example, consider several models defined in an Azure Digital Twins instance:
 
 :::code language="json" source="~/digital-twins-docs-samples/models/coffeeMaker-coffeeMakerInterface-coffeeBar.json":::
 
@@ -58,4 +58,4 @@ The following code shows an example of how to use the parser library to reflect 
 ## Next steps
 
 Once you're done writing your models, see how to upload them (and do other management operations) with the Azure Digital Twins Models APIs:
-* [Manage DTDL models](how-to-manage-model.md)
+* [Manage Azure Digital Twins models](how-to-manage-model.md)

@@ -12,6 +12,7 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 06/19/2024
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
+# Customer intent: "As a system administrator, I want to implement a multi-SID high availability setup for SAP ASCS/SCS instances using Windows Server Failover Clustering on Azure, so that I can ensure enhanced reliability and performance for my SAP environment."
 ---
 # SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and shared disk on Azure
 

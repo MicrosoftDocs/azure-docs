@@ -244,7 +244,7 @@
     - name: Automation for partners
       href: ../automate/partner-automation.md
     - name: Automation FAQ
-      href: ../automate/partner-automation.md
+      href: ../automate/automation-faq.md
     - name: Assign API permissions
       items:
       - name: Cost Management API permissions

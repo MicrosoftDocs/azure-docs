@@ -7,8 +7,8 @@ ms.topic: reference
 ms.date: 07/03/2024
 ms.custom: devx-track-extended-java
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 #Customer intent: As an SAP BASIS team member using the legacy systemconfig.ini file, I want to understand the configuration options so that I can properly configure the data collector for SAP applications.
 

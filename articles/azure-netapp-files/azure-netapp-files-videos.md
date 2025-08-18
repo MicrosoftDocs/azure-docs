@@ -4,9 +4,10 @@ description: Provides references to videos that contain discussions about using 
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/01/2024
 ms.author: anfdocs
+# Customer intent: "As a cloud architect, I want to access educational videos about Azure NetApp Files, so that I can understand its features and effectively implement it in my organization's cloud infrastructure."
 ---
 # Azure NetApp Files videos
 This article provides references to videos that contain in-depth discussions about using Azure NetApp Files. 

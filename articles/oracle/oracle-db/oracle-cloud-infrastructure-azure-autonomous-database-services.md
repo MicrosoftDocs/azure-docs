@@ -6,6 +6,7 @@ ms.author: jacobjaygbay
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
+# Customer intent: As a cloud architect, I want to utilize Terraform modules for provisioning Oracle Database on Azure, so that I can streamline deployments while ensuring proper identity and access management within a multicloud environment.
 ---
 
 

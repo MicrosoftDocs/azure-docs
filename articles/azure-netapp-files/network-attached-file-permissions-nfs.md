@@ -4,9 +4,10 @@ description: Learn about mode bits in NFS workloads on Azure NetApp Files.
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
-ms.date: 11/13/2023
+ms.topic: concept-article
+ms.date: 02/13/2025
 ms.author: anfdocs
+# Customer intent: As a systems administrator managing NFS workloads, I want to understand mode bits and permissions in Azure NetApp Files, so that I can effectively control file access and ensure security compliance for my organization's data.
 ---
 
 # Understand mode bits in Azure NetApp Files
