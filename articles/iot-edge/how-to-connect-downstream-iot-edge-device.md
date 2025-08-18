@@ -1021,4 +1021,4 @@ Learn more about the [Defender for IoT micro agent](../defender-for-iot/device-b
 
 [How an IoT Edge device can be used as a gateway](iot-edge-as-gateway.md)
 
-[Configure the API proxy module for your gateway hierarchy scenario.](how-to-configure-api-proxy-module.md)
+[Configure the API proxy module for your gateway hierarchy scenario](how-to-configure-api-proxy-module.md)
