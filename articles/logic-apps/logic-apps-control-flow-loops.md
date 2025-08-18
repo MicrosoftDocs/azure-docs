@@ -1,5 +1,5 @@
 ---
-title: Repeat actions in workflows with loops
+title: Repeat Actions with Loops in Workflows
 description: Learn how to use loops to repeat actions in workflows for Azure Logic Apps. You can repeat actions on the members of an array or until a condition is met.
 services: logic-apps
 ms.suite: integration
