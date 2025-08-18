@@ -115,6 +115,7 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure Storage Actions| [Reliability in Storage Actions](reliability-storage-actions.md)||
 |Azure Storage Mover| [Reliability in Storage Mover](reliability-azure-storage-mover.md)||
 |Azure Stream Analytics|| [Achieve geo-redundancy for Stream Analytics jobs](../stream-analytics/geo-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
+|Azure Table Storage| [Reliability in Azure Table Storage](reliability-storage-table.md)||
 |Azure Traffic Manager| [Reliability in Traffic Manager](reliability-traffic-manager.md)||
 |Azure Virtual Machines| [Reliability in Virtual Machines](reliability-virtual-machines.md)||
 |Azure VM Image Builder| [Reliability in VM Image Builder](reliability-image-builder.md)||
