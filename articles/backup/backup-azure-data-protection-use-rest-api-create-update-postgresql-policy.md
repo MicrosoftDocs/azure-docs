@@ -515,7 +515,7 @@ The backup policy creation or update is a synchronous operation. After the opera
 ## Related content
 
 - [Back up Azure disks by using the Data Protection REST API](backup-azure-dataprotection-use-rest-api-backup-disks.md).
-- [Azure Backup Data Protection REST API](/rest,/api/dataprotection/)
-- [Azure REST API reference](/rest/api/azure/),
+- [Azure Backup Data Protection REST API](/rest/api/dataprotection/).
+- [Azure REST API reference](/rest/api/azure/).
 - [Track backup and restore jobs by using the REST API in Azure Backup](backup-azure-arm-userestapi-managejobs.md).
 - [Manage an Azure Database for PostgreSQL server by using the Azure portal](manage-azure-database-postgresql.md).
