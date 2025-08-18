@@ -34,7 +34,7 @@ If you want to upload files to Azure Blob Storage, then verify that one of these
 - [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
 - [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
 
-If you want to upload files to an Azure file share, then verify that the [Storage File Data Privileged Reader](../../role-based-access-control/built-in-roles.md#storage-file-data-privileged-reader) has been assigned to your security principal.
+If you want to upload files to an Azure file share, then verify that the [Storage File Data Privileged Contributor](../../role-based-access-control/built-in-roles.md#storage-file-data-privileged-contributor) has been assigned to your security principal.
 
 These roles can be assigned to your security principal in any of these scopes:
 
