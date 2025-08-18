@@ -1,6 +1,6 @@
 ---
 title: What Is TLS/SSL in Azure App Service?
-description: Learn how TLS and SSL work in Azure App Service, including TLS version support, certificate management, bindings, and mutual authentication to protect web app traffic.
+description: Learn how TLS and SSL work in App Service, including TLS version support, certificate management, bindings, and mutual authentication to protect web app traffic.
 keywords: Azure App Service, SSL, TLS, HTTPS, certificate management, TLS mutual authentication, secure bindings, SSL certificates, App Service Certificates, SSL in code, TLS versions
 ms.topic: overview
 ms.date: 08/25/2025
@@ -44,7 +44,7 @@ App Service supports the following TLS versions for incoming requests to your we
 
 You can configure the *minimum TLS version* for incoming requests to your web app and its Source Control Manager (SCM) site. By default, the minimum is set to **TLS 1.2**.
 
-You can use Azure Policy to help audit your resources and minimum TLS version. Go to [App Service apps should use the latest TLS version policy definition](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff0e6e85b-9b9f-4a4b-b67b-f730d42f1b0b) and change the values to the minimum TLS version you want your web apps to use. For related policy definitions for other App Service resources, see [List of built-in policy definitions - Azure Policy for App Service](/azure/governance/policy/samples/built-in-policies#app-service).
+Azure Policy can help you audit your resources and minimum TLS version. Go to [App Service apps should use the latest TLS version policy definition](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff0e6e85b-9b9f-4a4b-b67b-f730d42f1b0b) and change the values to the minimum TLS version you want your web apps to use. For related policy definitions for other App Service resources, see [List of built-in policy definitions - Azure Policy for App Service](/azure/governance/policy/samples/built-in-policies#app-service).
 
 ### TLS 1.3
 
@@ -96,7 +96,7 @@ For App Service Environments that have the `FrontEndSSLCipherSuiteOrder` cluster
 - `TLS_AES_256_GCM_SHA384`
 - `TLS_AES_128_GCM_SHA256`
 
-After you update your cluster setting, you must restart your front end for the changes to take effect. Also, you must still include the two required cipher suites described earlier, even when you update to support TLS 1.3. If you already use `FrontEndSSLCipherSuiteOrder`, we don't recommend that you also enable **Minimum TLS Cipher Suite** for your web app. The result might be conflicting configurations. Configure only one of these options to manage cipher suite preferences.
+After you update your cluster setting, you must restart your front end for the changes to take effect. Also, you must still include the two required cipher suites described earlier, even when you update you settings to support TLS 1.3. If you already use `FrontEndSSLCipherSuiteOrder`, we don't recommend that you also enable **Minimum TLS Cipher Suite** for your web app. The result might be conflicting configurations. Configure only one of these options to manage cipher suite preferences.
 
 ## End-to-end TLS encryption
 
@@ -140,7 +140,7 @@ To serve HTTPS traffic, App Service requires a TLS/SSL certificate that's bound 
 - **App Service certificates (ASC)**  
   - Paid certificates issued by GoDaddy.  
   - You own and manage the certificate.  
-  - Stored in the your key vault. Can be exported and used outside of App Service.  
+  - Stored in your key vault. Can be exported and used outside of App Service.  
 
 - **Bring your own certificate (BYOC)**  
   - Upload and manage your own TLS/SSL certificates (PFX format).
@@ -160,7 +160,7 @@ After you upload or create a certificate, you bind it to a custom domain on your
 
 ## Mutual TLS (mTLS) authentication
 
-Azure App Service supports mutual TLS (mTLS) on both Linux and Windows App Service plans, so apps can require client certificates for added security.
+App Service supports mutual TLS (mTLS) on both Linux and Windows App Service plans, so apps can require client certificates for added security.
 
 ### How mTLS works
 
