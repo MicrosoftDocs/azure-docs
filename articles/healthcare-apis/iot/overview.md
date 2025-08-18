@@ -6,14 +6,14 @@ author: chachachachami
 ms.service: azure-health-data-services
 ms.subservice: medtech-service
 ms.topic: overview
-ms.date: 10/19/2023
+ms.date: 10/18/2025
 ms.author: chrupa
 ---
 
 # What is the MedTech service?
 
 > [!IMPORTANT]
-> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
+> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central. This deprecation process began in May 2025 and is ongoing.
 
 The MedTech service is a Platform as a Service (PaaS) within the Azure Health Data Services. The MedTech service enables you to ingest device data, transform it into a unified FHIR&reg; format, and store it in an enterprise-scale, secure, and compliant cloud environment. 
 
