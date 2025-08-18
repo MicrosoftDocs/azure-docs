@@ -12,7 +12,7 @@ ms.service: azure
 
 Azure SRE Agent is an AI-powered service that helps you monitor, manage, and maintain your Azure resources with minimal human intervention. By combining artificial intelligence with Azure and site reliability engineering best practices, the agent proactively identifies issues, provides actionable insights, and even performs remediation tasks  to help you ensure maximum uptime for your critical cloud services.
 
-The agent acts as a virtual team member, the agent continuously monitors your resources, analyzes performance data, and responds to incidents in real-time. Whether you're troubleshooting application issues, deploying new services, or maintaining existing infrastructure, Azure SRE Agent reduces operational toil and lets you focus on higher value work.
+As an automated tool, the agent continuously monitors your resources, analyzes performance data, and responds to incidents in real-time. Whether you're troubleshooting application issues, deploying new services, or maintaining existing infrastructure, Azure SRE Agent reduces operational toil and lets you focus on higher value work.
 
 :::image type="content" source="media/overview/azure-sre-agent-activities-screenshot.png" alt-text="Screenshot of Azure SRE Agent activities window.":::
 
