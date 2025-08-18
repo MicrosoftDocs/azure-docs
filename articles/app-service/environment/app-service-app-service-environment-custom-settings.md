@@ -62,7 +62,7 @@ The App Service Environment operates as a black box system where you cannot see 
 
 You can also enable internal encryption using the Azure portal by going to the **Configuration** page for your App Service Environment.
 
-:::image type="content" source="media/ase-portal-internal-encryption.png" alt-text="Screenshot of the Configuration page in the Azure portal for an App Service Environment showing where to enable internal encryption." border="false":::
+:::image type="content" source="./media/ase-portal-internal-encryption.png" alt-text="Screenshot of the Configuration page in the Azure portal for an App Service Environment showing where to enable internal encryption." border="false":::
 
 Setting InternalEncryption to true encrypts internal network traffic in your App Service Environment between the front ends and workers, encrypts the pagefile and also encrypts the worker disks. After the InternalEncryption clusterSetting is enabled, there can be an impact to your system performance. When you make the change to enable InternalEncryption, your App Service Environment will be in an unstable state until the change is fully propagated. Complete propagation of the change can take a few hours to complete, depending on how many instances you have in your App Service Environment. We highly recommend that you do not enable InternalEncryption on an App Service Environment while it is in use. If you need to enable InternalEncryption on an actively used App Service Environment, we highly recommend that you divert traffic to a backup environment until the operation completes.
 
@@ -85,7 +85,7 @@ The name of the setting says 1.0 but when configured, it disables both TLS 1.0 a
 
 You can also disable TLS 1.0 and TLS 1.1 using the Azure portal by going to the **Configuration** page for your App Service Environment and unchecking the checkbox.
 
-:::image type="content" source="media/ase-portal-disable-tls.png" alt-text="Screenshot of the Configuration page in the Azure portal for an App Service Environment showing where to disable TLS 1.0 and TLS 1.1." border="false":::
+:::image type="content" source="./media/ase-portal-disable-tls.png" alt-text="Screenshot of the Configuration page in the Azure portal for an App Service Environment showing where to disable TLS 1.0 and TLS 1.1." border="false":::
 
 ## Change TLS cipher suite order
 
