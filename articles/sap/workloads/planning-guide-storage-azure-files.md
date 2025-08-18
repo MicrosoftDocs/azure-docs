@@ -8,6 +8,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.date: 04/01/2024
 ms.author: robiro
+# Customer intent: As an SAP administrator, I want to evaluate Azure Premium Files for NFS and SMB configurations, so that I can optimize storage performance and capacity for my SAP workloads while ensuring system stability and compliance with best practices.
 ---
 
 # Using Azure Premium Files NFS and SMB for SAP workload

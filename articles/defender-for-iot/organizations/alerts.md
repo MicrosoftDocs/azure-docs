@@ -1,11 +1,11 @@
 ---
 title: Microsoft Defender for IoT alerts
 description: Learn about Microsoft Defender for IoT alerts across the Azure portal and OT network sensors.
-ms.date: 08/06/2023
+ms.date: 04/06/2025
 ms.topic: how-to
 ms.custom: enterprise-iot
 ---
-<!-- should we reassess the order of this article, does it make sesne? Could the flow be better? -->
+
 # Microsoft Defender for IoT alerts
 
 Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. Alerts are triggered when OT network sensors detect changes or suspicious activity in network traffic that needs your attention.
@@ -34,7 +34,7 @@ While you can view alert details, investigate alert context, and triage and mana
 
 > [!TIP]
 > Any alerts generated from different sensors in the same zone within a 10-minute timeframe, with the same type, status, alert protocol, and associated devices, are listed as a single, unified alert.
-> 
+>
 > - The 10-minute timeframe is based on the alert's *first detection* time. 
 > - The single, unified alert lists all of the sensors that detected the alert. 
 > - Alerts are combined based on the *alert* protocol, and not the device protocol.

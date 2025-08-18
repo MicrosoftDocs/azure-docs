@@ -5,7 +5,7 @@ description: Learn about digital twin ontologies, how they're used in Azure Digi
 author: baanders
 ms.author: baanders
 ms.date: 01/27/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-digital-twins
 ms.custom: engagement-fy23
 ---

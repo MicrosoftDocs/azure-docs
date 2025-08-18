@@ -5,7 +5,7 @@
  author: dominicbetts
  ms.service: azure-iot-central
  ms.topic: include
- ms.date: 05/22/2023
+ ms.date: 04/25/2025
  ms.author: dobett
  ms.custom: include file
 ---
@@ -29,12 +29,12 @@ Now that you have a destination to export your data to, set up data export in yo
 
     | Data type | Description | Data format |
     | :------------- | :---------- | :----------- |
-    |  Telemetry | Export telemetry messages from devices in near-real time. Each exported message contains the full contents of the original device message, normalized.   |  [Telemetry message format](#telemetry-format)   |
-    | Property changes | Export changes to device and cloud properties in near-real time. For read-only device properties, changes to the reported values are exported. For read-write properties, both reported and desired values are exported. | [Property change message format](#property-changes-format) |
-    | Device connectivity | Export device connected and disconnected events. | [Device connectivity message format](#device-connectivity-changes-format) |
-    | Device lifecycle | Export device registered, deleted, provisioned, enabled, disabled, displayNameChanged, and deviceTemplateChanged events. | [Device lifecycle changes message format](#device-lifecycle-changes-format) |
-    | Device template lifecycle | Export published device template changes including created, updated, and deleted. | [Device template lifecycle changes message format](#device-template-lifecycle-changes-format) |
-    | Audit logs | Logs of user-initiated updates to entities in the application. To learn more, see [Use audit logs to track activity in your IoT Central application](../articles/iot-central/core/howto-use-audit-logs.md) | [Audit log message format](#audit-log-format) |
+    |  Telemetry | Export telemetry messages from devices in near-real time. Each exported message contains the full contents of the original device message, normalized.   |  [Telemetry format](#telemetry-format)   |
+    | Property changes | Export changes to device and cloud properties in near-real time. For read-only device properties, changes to the reported values are exported. For read-write properties, both reported and desired values are exported. | [Property changes format](#property-changes-format) |
+    | Device connectivity | Export device connected and disconnected events. | [Device connectivity changes format](#device-connectivity-changes-format) |
+    | Device lifecycle | Export device registered, deleted, provisioned, enabled, disabled, displayNameChanged, and deviceTemplateChanged events. | [Device lifecycle changes format](#device-lifecycle-changes-format) |
+    | Device template lifecycle | Export published device template changes including created, updated, and deleted. | [Device template lifecycle changes format](#device-template-lifecycle-changes-format) |
+    | Audit logs | Logs of user-initiated updates to entities in the application. To learn more, see [Use audit logs to track activity in your IoT Central application](../articles/iot-central/core/howto-use-audit-logs.md) | [Audit log format](#audit-log-format) |
 
 1. Optionally, add filters to reduce the amount of data exported. There are different types of filter available for each data export type:
     <a name="DataExportFilters"></a>

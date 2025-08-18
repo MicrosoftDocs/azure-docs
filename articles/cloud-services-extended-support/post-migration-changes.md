@@ -13,6 +13,9 @@ ms.date: 07/24/2024
  
 # Post-migration changes
 
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
+
 The Cloud Services (classic) deployment is converted to a Cloud Services (extended support) deployment. For more information, see [Cloud Services (extended support) documentation](deploy-prerequisite.md).  
 
 ## Changes to deployment files 

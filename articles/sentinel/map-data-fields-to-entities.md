@@ -7,8 +7,8 @@ ms.date: 04/26/2022
 ms.author: yelevin
 ms.collection: usx-security
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 
 
 #Customer intent: As a security analyst, I want to map data fields to entities in analytics rules so that I can enrich alerts and incidents with essential information for effective investigation and remediation.

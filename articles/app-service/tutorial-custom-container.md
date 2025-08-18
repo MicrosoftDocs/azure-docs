@@ -8,6 +8,7 @@ author: msangapu-msft
 keywords: azure app service, web app, linux, windows, docker, container
 ms.custom: devx-track-csharp, mvc, devx-track-azurecli, devdivchpfy22, linux-related-content
 zone_pivot_groups: app-service-containers-windows-linux
+ms.service: azure-app-service
 ---
 
 # Migrate custom software to Azure App Service using a custom container

@@ -20,6 +20,7 @@ ms.custom: fasttrack-edit
 ---
 
 # Accessing Azure AD B2C audit logs
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-public-preview.md)]
 

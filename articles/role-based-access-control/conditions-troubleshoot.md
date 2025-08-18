@@ -1,14 +1,14 @@
 ---
 title: Troubleshoot Azure role assignment conditions - Azure ABAC
 description: Troubleshoot Azure role assignment conditions
-author: rolyon
-manager: femila
+author: jenniferf-skc
+manager: pmwongera
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.date: 04/15/2024
-ms.author: rolyon
+ms.date: 05/29/2025
+ms.author: jfields
 ---
 
 # Troubleshoot Azure role assignment conditions
@@ -383,6 +383,20 @@ In Bash, if history expansion is enabled, you might see the message `bash: !: ev
 **Solution**
 
 Disable history expansion with the command `set +H`. To re-enable history expansion, use `set -H`.
+
+## Error messages in API
+
+### Symptom - HTTP 403 Forbidden response when deleting a role assignment
+
+Consider a principal that has authorization permissions to modify role assignments and the authorization permissions also include an ABAC condition. If the principal attempts to delete a role assignment that was already deleted or doesn't exist, they receive the `HTTP 403 Forbidden` response instead of the expected `HTTP 204 No Content` response.
+
+**Cause**
+
+When a principal has permissions that include an ABAC condition, the system attempts to read the attribute during condition evaluation. If the attribute does not exist, this can result in an unexpected response instead of the expected outcome.
+
+**Solution**
+
+When handling responses for authorization permissions that also include a condition, you should also handle the `403 Forbidden` response. The `403 Forbidden` response can potentially indicate insufficient permissions, that the role assignment was already deleted, or that the role assignment doesn't exist.
 
 ## Next steps
 

@@ -1,13 +1,15 @@
 ---
 title: Azure Container Apps hosting of Azure Functions 
 description: Learn about how you can use Azure Functions on Azure Container Apps to host and manage containerized function apps in Azure.
-ms.date: 01/05/2025
+ms.date: 04/22/2025
 ms.topic: conceptual
 ms.custom: build-2024, linux-related-content
 # Customer intent: As a cloud developer, I want to learn more about hosting my function apps in Linux containers managed by Azure Container Apps.
 ---
 
 # Azure Container Apps hosting of Azure Functions 
+
+[!INCLUDE [functions-aca-v2-note](../../includes/functions-aca-v2-note.md)]
 
 Azure Functions provides integrated support for developing, deploying, and managing containerized function apps on [Azure Container Apps](../container-apps/overview.md). Use Azure Container Apps to host your function app containers when you need to run your event-driven functions in Azure in the same environment as other microservices, APIs, websites, workflows, or any container hosted programs. Container Apps hosting lets you run your functions in a fully managed, Kubernetes-based environment with built-in support for open-source monitoring, mTLS, Dapr, and Kubernetes Event-driven Autoscaling (KEDA).
 
@@ -19,7 +21,7 @@ For a general overview of container hosting options for Azure Functions, see [Li
 
 ## Hosting and workload profiles
 
-There are two primary hosting plans for Container Apps, a serverless [Consumption plan](../container-apps/plans.md#consumption) and a [Dedicated plan](../container-apps/plans.md#dedicated), which uses workload profiles to better control your deployment resources. A workload profile determines the amount of compute and memory resources available to container apps deployed in an environment. These profiles are configured to fit the different needs of your applications. 
+There are two primary plans for Container Apps: a serverless [Consumption plan](../container-apps/plans.md#consumption) and a [Dedicated plan](../container-apps/plans.md#dedicated). Both can be used in Workload profiles environment types, with workload profiles determining the compute and memory resources available to your apps. A workload profile determines the amount of compute and memory resources available to container apps deployed in an environment. These profiles are configured to fit the different needs of your applications. 
 
 The Consumption workload profile is the default profile added to every Workload profiles environment type. You can add Dedicated workload profiles to your environment as you create an environment or after it's created. To learn more about workload profiles, see [Workload profiles in Azure Container Apps](../container-apps/workload-profiles-overview.md).
 
@@ -83,15 +85,16 @@ When you host your function apps in a Container Apps environment, your functions
 
 All Functions triggers can be used in your containerized function app. However, only these triggers can dynamically scale (from zero instances) based on received events when running in a Container Apps environment:  
 
++ Azure Cosmos DB (KEDA connection)
 + Azure Event Grid 
 + Azure Event Hubs 
-+ Azure Blob Storage (event-based)
++ Azure Blob Storage (Event Grid based)
 + Azure Queue Storage 
 + Azure Service Bus 
 + Durable Functions (MSSQL storage provider)
 + HTTP 
 + Kafka  
-+ Timer 
++ Timer
 
 Azure Functions on Container Apps is designed to configure the scale parameters and rules as per the event target. You don't need to worry about configuring the KEDA scaled objects. You can still set minimum and maximum replica count when creating or modifying your function app. The following Azure CLI command sets the minimum and maximum replica count when creating a new function app in a Container Apps environment from an Azure Container Registry: 
 
@@ -129,10 +132,6 @@ Keep in mind the following considerations when deploying your function app conta
     + The protocol value of `ssl` isn't supported when hosted on Container Apps. Use a [different protocol value](functions-bindings-kafka-trigger.md?pivots=programming-language-csharp#attributes). 
     + For a Kafka trigger to dynamically scale when connected to Event Hubs, the `username` property must resolve to an application setting that contains the actual username value. When the default `$ConnectionString` value is used, the Kafka trigger isn't able to cause the app to scale dynamically.  
 + For the built-in Container Apps [policy definitions](../container-apps/policy-reference.md#policy-definitions), currently only environment-level policies apply to Azure Functions containers.
-+ You can use managed identities for these connections:
-    + [Deployment from an Azure Container Registry](functions-deploy-container-apps.md?tabs=acr#create-and-configure-a-function-app-on-azure-with-the-image)
-    + [Triggers and bindings](functions-reference.md#configure-an-identity-based-connection)
-    + [Required host storage connection](functions-identity-based-connections-tutorial.md) 
 + By default, a containerized function app monitors port 80 for incoming requests. If your app must use a different port, use the [`WEBSITES_PORT` application setting](../app-service/reference-app-settings.md#custom-containers) to change this default port.  
 + You aren't currently able to use built-in continuous deployment features when hosting on Container Apps. You must instead deploy from source code using either [Azure Pipelines](functions-how-to-azure-devops.md?pivots=v1#deploy-a-container) or [GitHub Actions](https://github.com/Azure/azure-functions-on-container-apps/tree/main/samples/GitHubActions).
 + You currently can't move a Container Apps hosted function app deployment between resource groups or between subscriptions. Instead, you would have to recreate the existing containerized app deployment in a new resource group, subscription, or region. 
@@ -143,3 +142,5 @@ Keep in mind the following considerations when deploying your function app conta
 
 + [Hosting and scale](./functions-scale.md)
 + [Create your first containerized functions on Container Apps](./functions-deploy-container-apps.md)
++ [Native Azure Functions Support in Azure Container Apps](../../articles/container-apps/functions-overview.md)
++ [Create your Native Azure Functions on Azure Container Apps](../../articles/container-apps/functions-usage.md)

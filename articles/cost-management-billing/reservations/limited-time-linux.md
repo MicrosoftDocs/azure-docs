@@ -2,11 +2,11 @@
 title: Save on select Linux VMs for a limited time
 description: Learn how to save up to 56% on select Linux VMs with a limited-time offer by purchasing a one-year Azure Reserved Virtual Machine Instance.
 author: pri-mittal
-ms.reviewer: shreyabaheti
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 03/26/2025
+ms.date: 07/08/2025
 ms.author: primittal
 ms.custom: references_regions
 #customer intent: I want to learn how to save money with reservations and buy one.

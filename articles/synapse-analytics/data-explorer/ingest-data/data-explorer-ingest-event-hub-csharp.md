@@ -2,7 +2,7 @@
 title: Use C\# ingestion to ingest data from Event Hubs into Azure Synapse Data Explorer (Preview)
 description: Learn how to use C\# to ingest (load) data into Azure Synapse Data Explorer from Event Hubs.
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 03/24/2025
 author: shsagir
 ms.author: shsagir
 ms.reviewer: tzgitlin
@@ -11,6 +11,8 @@ ms.subservice: data-explorer
 ---
 
 # Create an Event Hubs data connection for Azure Synapse Data Explorer by using C# (Preview)
+
+[!INCLUDE [data-explorer-deprecation-notice](../includes/data-explorer-deprecation-notice.md)]
 
 > [!div class="op_single_selector"]
 > * [Portal](data-explorer-ingest-event-hub-portal.md)

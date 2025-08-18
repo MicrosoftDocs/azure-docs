@@ -21,6 +21,7 @@ ms.subservice: b2c
 ---
 
 # Collect and manipulate user inputs by using Azure Active Directory B2C custom policy
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Azure Active Directory B2C (Azure AD B2C) custom policies allows you to collect user inputs. You can then use inbuilt methods to manipulate the user inputs.  
 

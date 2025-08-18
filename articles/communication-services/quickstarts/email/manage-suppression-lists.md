@@ -1,7 +1,7 @@
 ---
-title: Manage domain suppression lists in Azure Communication Services using the Azure portal
-titleSuffix: An Azure Communication Services quick start guide.
-description: Learn about managing domain suppression lists in Azure Communication Services using the Azure portal
+title: Manage domain suppression lists in the Azure portal
+titleSuffix: An Azure Communication Services article
+description: This article describes how to manage domain suppression lists in Azure Communication Services using the Azure portal
 author: matthohn-msft
 manager: koagbakp
 services: azure-communication-services
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
-# Quickstart: How to manage suppression lists for an Azure Communication Email Domain using the Azure portal
+# Manage domain suppression lists in the Azure portal
 
-In this quick start, you learn how to manage suppression lists for an Azure Communication Email Domain using the Azure portal.
+This article describes how to manage suppression lists for an Azure Communication Email Domain using the Azure portal.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
-- An Azure Email Communication Services Resource ready to provision domains. [Get started creating an Email Communication Resource](./create-email-communication-resource.md).
+- An Azure Email Communication Services Resource ready to provision domains. [Create an Email Communication Resource](./create-email-communication-resource.md).
 - An [Azure Managed Domain](./add-azure-managed-domains.md) or [Custom Domain](./add-custom-verified-domains.md) provisioned and ready to send emails.
 
 Once you have a domain provisioned, you're ready to start configuring your resource.
@@ -30,13 +30,13 @@ Once you have a domain provisioned, you're ready to start configuring your resou
 3. Then navigate to the Suppression Lists configuration page of your domain resource.
 :::image type="content" source="./media/manage-suppression-list-blade.png" alt-text="Screenshot that highlights the Suppression List configuration page on a domains resource.":::
 
-4. Select your desired domain from the dropdown list. You see entry in the dropdown for each sender username that is provisioned for the domains. For more information, see here for more details on [SenderUsername management](add-multiple-senders-mgmt-sdks.md).
+4. Select your desired domain from the dropdown list. You see an entry in the dropdown for each sender username that is provisioned for the domains. For more information, see [SenderUsername management](add-multiple-senders-mgmt-sdks.md).
 :::image type="content" source="./media/manage-suppression-list-select-sender-domain.png" alt-text="Screenshot that highlights the dropdown list of mail from email addresses.":::
 
-5. Once you choose a sender username to create the list for, either select the Add button or the Create new Suppression List button.
+5. Once you choose a sender username to create the list for, either select the **Add** button or the **Create new Suppression List** button.
 :::image type="content" source="./media/manage-suppression-list-add-new-list.png" alt-text="Screenshot that highlights the options to add a new suppression list for a mail from address.":::
 
-6. Once you have a SuppressionList created, you see options to add a new recipient or upload a CSV of contacts.
+6. Once you create a SuppressionList, you see options to add a new recipient or upload a CSV of contacts.
 :::image type="content" source="./media/manage-suppression-list-add-recipients.png" alt-text="Screenshot that highlights the options to add a recipient to a suppression.":::
 
 7. Adding a single user shows the Added Recipient flyout. Here you can enter the recipients email address and some basic contact information.
@@ -59,5 +59,5 @@ Once you have a domain provisioned, you're ready to start configuring your resou
 
 ## Next steps
 
-- [Quickstart: Manage Domain Suppression Lists in Azure Communication Services using the Management Client Libraries](./manage-suppression-list-management-sdks.md)
+- [Manage domain suppression lists with Management SDKs](./manage-suppression-list-management-sdks.md)
 - [Send Mail with Azure Communication Services](./send-email.md)

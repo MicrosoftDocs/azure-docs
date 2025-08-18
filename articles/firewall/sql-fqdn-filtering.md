@@ -8,6 +8,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 10/31/2022
 ms.author: duau
+# Customer intent: "As a network administrator, I want to configure SQL FQDN application rules in Azure Firewall, so that I can control access to specific SQL server instances from my virtual networks."
 ---
 
 # Configure Azure Firewall application rules with SQL FQDNs

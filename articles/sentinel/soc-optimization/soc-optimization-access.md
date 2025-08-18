@@ -1,13 +1,13 @@
 ---
 title: Optimize security operations
 description: Use Microsoft Sentinel SOC optimization recommendations to optimize your security operations center (SOC) team activities.
-ms.author: bagol
-author: batamig
-manager: raynew
+ms.author: abbyweisberg
+author: AbbyMSFT
+manager: orpsod
 ms.collection:
   - usx-security
 ms.topic: how-to
-ms.date: 10/16/2024
+ms.date: 05/06/2025
 appliesto:
   - Microsoft Sentinel in the Microsoft Defender portal
   - Microsoft Sentinel in the Azure portal
@@ -39,20 +39,19 @@ Watch the following video for an overview and demo of SOC optimization in the Mi
 
 ## Access the SOC optimization page
 
-Use one of the following tabs, depending on whether you're working in the Azure portal or Defender portal. When your workspace is onboarded for unified security operations, SOC optimizations include coverage from across Microsoft security services.
-
-
-### [Azure portal](#tab/azure-portal)
-
-In Microsoft Sentinel in the Azure portal, under **Threat management**, select **SOC optimization**.
-
-:::image type="content" source="media/soc-optimization-access/soc-optimization-azure.png" alt-text="Screenshot of the SOC optimization page in the Azure portal.":::
+Use one of the following tabs, depending on whether you're working in the Azure portal or Defender portal. When your workspace is onboarded to the Defender portal, SOC optimizations include coverage from across Microsoft security services.
 
 ### [Defender portal](#tab/defender-portal)
 
 In the Defender portal, select **SOC optimization**.
 
 :::image type="content" source="media/soc-optimization-access/soc-optimization-xdr.png" alt-text="Screenshot of the SOC optimization page in the Defender portal." lightbox="media/soc-optimization-access/soc-optimization-xdr.png":::
+
+### [Azure portal](#tab/azure-portal)
+
+In Microsoft Sentinel in the Azure portal, under **Threat management**, select **SOC optimization**.
+
+:::image type="content" source="media/soc-optimization-access/soc-optimization-azure.png" alt-text="Screenshot of the SOC optimization page in the Azure portal.":::
 
 ---
 
@@ -62,6 +61,15 @@ Optimization metrics shown at the top of the **Overview** tab give you a high le
 
 Supported metrics at the top of the **Overview** tab include:
 
+### [Defender portal](#tab/defender-portal)
+
+|Title  | Description |
+|---------|---------|
+|**Recent optimization value**    | Shows value gained based on recommendations you recently implemented |
+|**Data ingested**     | Shows the total data ingested in your workspace over the last 90 days. |
+|**Threat-based coverage optimizations**     |  Shows one of the following coverage indicators, based on the number of analytics rules found in your workspace, compared with the number of rules recommended by the Microsoft research team: <br>- **High**: Over 75% of recommended rules are activated <br>- **Medium**: 30%-74% of recommended rules are activated <br>- **Low**: 0%-29% of recommended rules are activated. <br><br>Select **View all threat scenarios** to view the full list of relevant threat and risk-based scenarios, active and recommended detections, and coverage levels. Then, select a threat scenario to drill down for more details about the recommendation on a separate, threat scenario details page. |
+|**Optimization status**     | Shows the number of recommended optimizations that are currently active, completed, and dismissed.        |
+
 ### [Azure portal](#tab/azure-portal)
 
 |Title  |Description |
@@ -69,20 +77,17 @@ Supported metrics at the top of the **Overview** tab include:
 | **Ingested data over the last 3 months** | Shows the total data ingested in your workspace over the last three months. |
 |**Optimizations status**    | Shows the number of recommended optimizations that are currently active, completed, and dismissed.        |
 
-Select **See all threat scenarios** to view the full list of relevant threats, percentages of active and recommended analytics rules, and coverage levels.
-
-### [Defender portal](#tab/defender-portal)
-
-|Title  | Description |
-|---------|---------|
-|**Recent optimization value**    | Shows value gained based on recommendations you recently implemented |
-|**Data ingested**     | Shows the total data ingested in your workspace over the last 90 days. |
-|**Threat-based coverage optimizations**     |  Shows one of the following coverage indicators, based on the number of analytics rules found in your workspace, compared with the number of rules recommended by the Microsoft research team: <br>- **High**: Over 75% of recommended rules are activated <br>- **Medium**: 30%-74% of recommended rules are activated <br>- **Low**: 0%-29% of recommended rules are activated. <br><br>Select **View all threat scenarios** to view the full list of relevant threats, active and recommended detections, and coverage levels. Then, select a threat scenario to drill down for more details about the recommendation on a separate, threat scenario details page. |
-|**Optimization status**     | Shows the number of recommended optimizations that are currently active, completed, and dismissed.        |
+Select **See all threat scenarios** to view the full list of relevant threat and risk-based scenarios, percentages of active and recommended analytics rules, and coverage levels.
 
 ---
 
 ## View and manage optimization recommendations
+
+### [Defender portal](#tab/defender-portal)
+
+In the Defender portal, SOC optimization recommendations are listed in the **Your Optimizations** area on the **SOC optimizations** tab. 
+
+:::image type="content" source="media/soc-optimization-access/soc-optimization-overview-defender.png" alt-text="Screenshot of the SOC optimization Overview tab in the Defender portal." lightbox="media/soc-optimization-access/soc-optimization-overview-defender.png":::
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -92,13 +97,6 @@ For example:
 
 :::image type="content" source="media/soc-optimization-access/soc-optimization-overview-azure.png" alt-text="Screenshot of the SOC optimization Overview tab in the Azure portal." lightbox="media/soc-optimization-access/soc-optimization-overview-azure.png":::
 
-
-### [Defender portal](#tab/defender-portal)
-
-In the Defender portal, SOC optimization recommendations are listed in the **Your Optimizations** area on the **SOC optimizations** tab. 
-
-:::image type="content" source="media/soc-optimization-access/soc-optimization-overview-defender.png" alt-text="Screenshot of the SOC optimization Overview tab in the Defender portal." lightbox="media/soc-optimization-access/soc-optimization-overview-defender.png":::
-
 ---
 
 SOC optimization recommendations are calculated every 24 hours. Each optimization card includes the status, title, the date it was created, a high-level description, and the workspace it applies to.
@@ -107,22 +105,15 @@ SOC optimization recommendations are calculated every 24 hours. Each optimizatio
 
 Filter the optimizations based on optimization type, or search for a specific optimization title using the search box on the side. Optimization types include:
 
-- **Coverage**: Includes threat-based recommendations for adding security controls to help close coverage gaps for various types of attacks.
-
+- **Coverage** : Includes recommendations to help you close coverage gaps against specific threats and tighten your ingestion rates against data that doesn't provide security value. Coverage recommendations include:
+    - **Threat-based recommendations** for adding security controls to help close coverage gaps for various types of attacks.
+    - **AI MITRE ATT&CK recommendations** for adding tagging recommendations to help close coverage gaps for various types of attacks, based on the MITRE ATT&CK framework.
+    - **Risk-based recommendations** for adding security controls to help close coverage gaps for various types of business risks.
 - **Data value**: Includes recommendations that suggest ways to improve your data usage for maximizing security value from ingested data, or suggest a better data plan for your organization.
 
 ### View optimization details and take action
 
 Select one of the following tabs, depending on the portal you're using:
-
-### [Azure portal](#tab/azure-portal)
-
-In each optimization card, select **View details** to see a full description of the observation that led to the recommendation, and the value you see in your environment when that recommendation is implemented.
-
-Scroll down to the bottom of the details pane for a link to where you can take the recommended actions. For example:
-
-- If an optimization includes recommendations to add analytics rules, select **Go to Content Hub**.
-- If an optimization includes recommendations to move a table to basic logs, select **Change plan**.
 
 ### [Defender portal](#tab/defender-portal)
 
@@ -140,6 +131,15 @@ Scroll down to the bottom of the details pane for a link to where you can take t
 - For threat-based coverage optimizations, select **View full threat scenario** to see the full list of relevant threats, active and recommended detections, and coverage levels. From there you can jump directly to the **Content hub** to activate any recommended detections, or to the **MITRE ATT&CK** page to view the [full MITRE ATT&CK coverage for the selected scenario](../mitre-coverage.md?tabs=defender-portal#view-current-mitre-coverage). For example:
 
     :::image type="content" source="media/soc-optimization-access/threat-scenario-page.png" alt-text="Screenshot of the SOC optimization threat scenario page." lightbox="media/soc-optimization-access/threat-scenario-page.png":::
+
+### [Azure portal](#tab/azure-portal)
+
+In each optimization card, select **View details** to see a full description of the observation that led to the recommendation, and the value you see in your environment when that recommendation is implemented.
+
+Scroll down to the bottom of the details pane for a link to where you can take the recommended actions. For example:
+
+- If an optimization includes recommendations to add analytics rules, select **Go to Content Hub**.
+- If an optimization includes recommendations to move a table to basic logs, select **Change plan**.
 
 ---
 

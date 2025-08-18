@@ -79,7 +79,7 @@ Alongside the application deployment, you also need to define a [Service](https:
 
 When deploying Spring Cloud components, such as Spring Cloud Config or Spring Cloud Gateway, you would generally use Deployments for stateless services. For backend services that need stable storage or state, you might choose StatefulSets.
 
-The following links provide reference examples of container images and manifest files for Spring Cloud Components:
+The following links provide reference examples on how to set up Java component projects based on Open Source libraries, build container images, and deploy components to AKS:
 
 - [Eureka Server](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/azure-kubernetes-service/docs/02-create-eureka-server.md)
 - [Config Server](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/azure-kubernetes-service/docs/03-create-config-server.md)
@@ -98,4 +98,7 @@ In addition to Azure Monitor and Prometheus, you can also use other monitoring s
 
 ## Tutorial
 
-We provide a tutorial to demonstrate the end-to-end experience of running the ACME Fitness store application on AKS. For more information, see [acme-fitness-store/azure-kubernetes-service](https://github.com/Azure-Samples/acme-fitness-store/tree/Azure/azure-kubernetes-service). This tutorial provides practical guidance and is meant for reference. AKS is highly flexible, so you need to choose configurations and customizations based on your specific requirements.
+We provide the following tutorials to demonstrate the end-to-end experience of running applications on AKS. These tutorials are meant for reference, and because AKS is highly flexible, you need to choose configurations and customizations based on your specific requirements.
+
+- ACME Fitness Store Application: This tutorial offers practical guidance for running the ACME Fitness store application on AKS. For more information, see [acme-fitness-store/azure-kubernetes-service](https://github.com/Azure-Samples/acme-fitness-store/tree/Azure/azure-kubernetes-service).
+- Spring PetClinic Microservices: This tutorial showcases the distributed version of the Spring PetClinic application built with Spring Cloud. For more information, see [spring-petclinic-microservices/azure-kubernetes-service](https://github.com/Azure-Samples/spring-petclinic-microservices/tree/azure/azure-kubernetes-service). 

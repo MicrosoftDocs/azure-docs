@@ -14,8 +14,6 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Add real-time transcription into your application
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
-
 This guide helps you better understand the different ways you can use Azure Communication Services offering of real-time transcription through Call Automation SDKs.
 
 ### Prerequisites
@@ -25,7 +23,7 @@ This guide helps you better understand the different ways you can use Azure Comm
 - Create a [custom subdomain](/azure/ai-services/cognitive-services-custom-subdomains) for your Azure AI services resource.
 - Create a new web service application using the [Call Automation SDK](../../quickstarts/call-automation/quickstart-make-an-outbound-call.md).
 
-## Setup a WebSocket Server 
+## Set up a WebSocket Server 
 Azure Communication Services requires your server application to set up a WebSocket server to stream transcription in real-time. WebSocket is a standardized protocol that provides a full-duplex communication channel over a single TCP connection. You can optionally use Azure services Azure WebApps that allows you to create an application to receive transcripts over a websocket connection. Follow this [quickstart](https://azure.microsoft.com/blog/introduction-to-websockets-on-windows-azure-web-sites/).
 
 ## Establish a call 
@@ -69,7 +67,7 @@ In this tutorial, we're demonstrating option 2 and 3, starting transcription dur
 | TranscriptionFailed | 400 | 8565 | Action failed due to a request to Cognitive Services timing out. Try again later or check for any issues with the service. |
 | TranscriptionFailed | 400 | 8605 | Custom speech recognition model for Transcription is not supported. |
 | TranscriptionFailed | 400 | 8523 | Invalid Request, locale is missing. |
-| TranscriptionFailed | 400 | 8523 | Invalid Request, only locale that contain region information are supported. |
+| TranscriptionFailed | 400 | 8523 | Invalid Request, only locales that contain region information are supported. |
 | TranscriptionFailed | 405 | 8520 | Transcription functionality is not supported at this time. |
 | TranscriptionFailed | 405 | 8520 | UpdateTranscription is not supported for connection created with Connect interface. |
 | TranscriptionFailed | 400 | 8528 | Action is invalid, call already terminated. |

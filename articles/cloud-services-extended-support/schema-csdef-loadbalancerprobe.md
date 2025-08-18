@@ -1,7 +1,7 @@
 ---
 title: Azure Cloud Services (extended support) Def. LoadBalancerProbe Schema | Microsoft Docs
 description: Information related to the load balancer probe schema for Cloud Services (extended support)
-ms.topic: article
+ms.topic: concept-article
 ms.service: azure-cloud-services-extended-support
 ms.date: 07/24/2024
 author: gachandw
@@ -11,6 +11,9 @@ ms.reviewer: mimckitt
 ---
 
 # Azure Cloud Services (extended support) definition LoadBalancerProbe schema
+
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 The load balancer probe is a customer defined health probe of UDP endpoints and endpoints in role instances. The `LoadBalancerProbe` isn't a standalone element; it's combined with the web role or worker role in a service definition file. More than one role can use a `LoadBalancerProbe`.
 

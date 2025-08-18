@@ -10,6 +10,7 @@ ms.author: cherylmc
 
 #customer intent: As a network engineer, I want to create a site-to-site VPN connection between my on-premises location and my Azure virtual network using certificate authentication and Azure Key Vault.
 
+# Customer intent: "As a network engineer, I want to establish a secure site-to-site VPN connection using certificate authentication, so that I can securely connect my on-premises network to my Azure virtual network."
 ---
 # Configure a S2S VPN Gateway certificate authentication connection - Preview
 
@@ -268,7 +269,7 @@ Before moving forward, gather the following information for the required configu
    1. Go to **Key Vaults** and click your key vault. In the left pane, expand **Objects** and select **Certificates**.
    1. Locate and click your certificate to open the certificate page.
    1. Click the line for your certificate version.
-   1. Copy the path next to **Key Identifier**. The path is specific to the certificate.
+   1. Copy the path next to **Certificate Identifier**. The path is specific to the certificate.
 
   Example: `https://s2s-vault1.vault.azure.net/certificates/site-to-site/<certificate-value>`
 

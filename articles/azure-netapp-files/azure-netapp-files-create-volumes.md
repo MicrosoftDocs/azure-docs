@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 12/10/2024
 ms.author: anfdocs
+# Customer intent: As a cloud architect, I want to create an NFS volume in Azure NetApp Files, so that I can support my application’s data management requirements and ensure optimized performance through proper version selection and configuration.
 ---
 # Create an NFS volume for Azure NetApp Files
 
@@ -83,7 +84,9 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
         Specify the subnet that you want to use for the volume.  
         The subnet you specify must be delegated to Azure NetApp Files. 
         
-        If you have not delegated a subnet, you can select **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. In each Virtual Network, only one subnet can be delegated to Azure NetApp Files.   
+        If you have not delegated a subnet, you can click **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. In each VNet, only one subnet can be delegated to Azure NetApp Files.   
+ 
+        :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-new-volume.png" alt-text="Screenshot of create new volume interface." lightbox="../media/azure-netapp-files/azure-netapp-files-new-volume.png":::
     
         ![Create subnet](./media/shared/azure-netapp-files-create-subnet.png)
 

@@ -20,8 +20,6 @@ items:
     - name: Reliability
       tocHref: /azure/azure-resource-manager
     - name: Reliability
-      tocHref: /azure/logic-apps/export-from-ise-to-standard-logic-app
-    - name: Reliability
       tocHref: /powershell/high-performance-computing
     - name: Reliability
       tocHref: /azure/virtual-wan/
@@ -89,6 +87,9 @@ items:
       topicHref: /azure/reliability/index
     - name: Reliability
       tocHref: /azure/cosmos-db/
+      topicHref: /azure/reliability/index
+    - name: Reliability
+      tocHref: /azure/cosmos-db/postgresql/
       topicHref: /azure/reliability/index
     - name: Reliability
       tocHref: /azure/devops/

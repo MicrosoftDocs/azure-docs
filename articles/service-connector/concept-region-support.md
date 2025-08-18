@@ -19,52 +19,52 @@ If your compute service instance is located in one of the regions that Service C
 
 | Region               | App Service, Container Apps, <br>Azure Functions, Azure Spring Apps | AKS |
 |----------------------|:-----------------------------------------------------------------:|:-----:|
-| Australia Central    | Yes                                                             | No  |
-| Australia Central 2  | Yes                                                             | No  |
+| Australia Central    | Yes                                                             | Yes  |
+| Australia Central 2  | Yes                                                             | Yes  |
 | Australia East       | Yes                                                             | Yes |
 | Australia Southeast  | Yes                                                             | Yes |
 | Brazil South         | Yes                                                             | Yes |
-| Brazil Southeast     | Yes                                                             | No  |
+| Brazil Southeast     | Yes                                                             | Yes  |
 | Canada Central       | Yes                                                             | Yes |
 | Canada East          | Yes                                                             | Yes |
 | Central India        | Yes                                                             | Yes |
 | Central US           | Yes                                                             | Yes |
-| Central US EUAP      | Yes                                                             | No  |
+| Central US EUAP      | Yes                                                             | Yes  |
 | East Asia            | Yes                                                             | Yes |
 | East US              | Yes                                                             | Yes |
 | East US 2            | Yes                                                             | Yes |
-| East US 2 EUAP       | Yes                                                             | No  |
+| East US 2 EUAP       | Yes                                                             | Yes  |
 | France Central       | Yes                                                             | Yes |
-| France South         | Yes                                                             | No  |
-| Germany North        | Yes                                                             | No  |
+| France South         | Yes                                                             | Yes  |
+| Germany North        | Yes                                                             | Yes  |
 | Germany West Central | Yes                                                             | Yes |
 | Japan East           | Yes                                                             | Yes |
 | Japan West           | Yes                                                             | Yes |
-| Jio India Central    | Yes                                                             | No  |
-| Jio India West       | Yes                                                             | No  |
+| Jio India Central    | Yes                                                             | Yes  |
+| Jio India West       | Yes                                                             | Yes  |
 | Korea Central        | Yes                                                             | Yes |
-| Korea South          | Yes                                                             | No  |
+| Korea South          | Yes                                                             | Yes  |
 | North Central US     | Yes                                                             | Yes |
 | North Europe         | Yes                                                             | Yes |
 | Norway East          | Yes                                                             | Yes |
-| Norway West          | Yes                                                             | No  |
+| Norway West          | Yes                                                             | Yes  |
 | Qatar Central        | Yes                                                             | No  |
 | South Africa North   | Yes                                                             | Yes |
-| South Africa West    | Yes                                                             | No  |
+| South Africa West    | Yes                                                             | Yes  |
 | South Central US     | Yes                                                             | Yes |
 | Southeast Asia       | Yes                                                             | Yes |
 | South India          | Yes                                                             | Yes |
 | Sweden Central       | Yes                                                             | Yes |
 | Sweden South         | Yes                                                             | No  |
 | Switzerland North    | Yes                                                             | Yes |
-| Switzerland West     | Yes                                                             | No  |
+| Switzerland West     | Yes                                                             | Yes  |
 | UAE Central          | Yes                                                             | No  |
 | UAE North            | Yes                                                             | Yes |
 | UK South             | Yes                                                             | Yes |
 | UK West              | Yes                                                             | Yes |
 | West Central US      | Yes                                                             | Yes |
 | West Europe          | Yes                                                             | Yes |
-| West India           | Yes                                                             | No  |
+| West India           | Yes                                                             | Yes  |
 | West US              | Yes                                                             | Yes |
 | West US 2            | Yes                                                             | Yes |
 | West US 3            | Yes                                                             | Yes |

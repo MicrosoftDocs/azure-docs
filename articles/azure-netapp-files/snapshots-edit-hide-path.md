@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 03/16/2024
 ms.author: anfdocs
+# Customer intent: "As a cloud administrator, I want to modify the visibility setting of snapshot paths for Azure NetApp Files volumes, so that I can manage access and ensure data security according to my organization's requirements."
 ---
 
 # Edit the Hide snapshot path option of Azure NetApp Files

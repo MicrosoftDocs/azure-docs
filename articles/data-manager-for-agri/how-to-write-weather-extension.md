@@ -1,8 +1,8 @@
 ---
 title: Installing weather extension in Azure Data Manager for Agriculture
 description: Provides guidance to use weather extension
-author: lbethapudi
-ms.author: lbethapudi
+author: BlackRider97
+ms.author: ramithar
 ms.service: azure-data-manager-agriculture
 ms.topic: how-to
 ms.date: 02/14/2023

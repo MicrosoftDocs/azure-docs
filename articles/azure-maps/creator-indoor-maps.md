@@ -217,8 +217,8 @@ The following JSON is an example of a default map configuration. See the followi
 #### Additional information
 
 - For more information how to modify styles using the style editor, see [Create custom styles for indoor maps].
-- For more information on style Rest API, see [style] in the Maps Creator Rest API reference.
-- For more information on the map configuration Rest API, see [Creator - map configuration Rest API].
+- For more information on style REST API, see [style] in the Maps Creator REST API reference.
+- For more information on the map configuration REST API, see [Creator - map configuration REST API].
 
 ### Wayfinding (preview)
 
@@ -299,7 +299,7 @@ The following example shows how to update a dataset, create a new tileset, and d
 [Upload a drawing package]: #upload-a-drawing-package
 
 <!-----	REST API Links	------->
-[Creator - map configuration Rest API]: /rest/api/maps-creator/map-configuration?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
+[Creator - map configuration REST API]: /rest/api/maps-creator/map-configuration?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
 [routeset]: /rest/api/maps-creator/routeset?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
 [Style - Create]: /rest/api/maps-creator/style/create?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
 [style]: /rest/api/maps-creator/style?view=rest-maps-creator-2023-03-01-preview&preserve-view=true

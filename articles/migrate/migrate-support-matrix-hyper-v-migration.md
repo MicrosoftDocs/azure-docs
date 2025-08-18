@@ -4,10 +4,11 @@ description: Learn about support for Hyper-V migration with Azure Migrate.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 04/02/2025
 ms.custom: engagement-fy24
+# Customer intent: As a cloud architect, I want to understand the support and limitations for migrating Hyper-V VMs to Azure, so that I can ensure a smooth and compliant migration process for my organization's virtual machines.
 ---
 
 # Support matrix for Hyper-V migration

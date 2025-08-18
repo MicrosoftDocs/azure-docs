@@ -5,10 +5,11 @@ description: Describes the concept of a hierarchical namespace for Azure Data La
 author: normesta
 
 ms.service: azure-data-lake-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/15/2024
 ms.author: normesta
 ms.reviewer: jamesbak
+# Customer intent: As a data engineer, I want to enable a hierarchical namespace in Azure Data Lake Storage, so that I can optimize directory manipulation and improve the efficiency of my analytics workloads while reducing overall total cost of ownership (TCO).
 ---
 
 # Azure Data Lake Storage hierarchical namespace

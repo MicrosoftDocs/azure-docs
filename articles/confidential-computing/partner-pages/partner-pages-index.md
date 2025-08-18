@@ -4,9 +4,10 @@ description: Learn about how Azure confidential computing partners build on the 
 author: ananyagarg
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/29/2023
 ms.author: ananyagarg
+# Customer intent: As a business leader, I want to explore Azure confidential computing partnerships, so that I can identify solutions that enhance data security and privacy for my organization's sensitive workloads in the cloud.
 ---
 
 

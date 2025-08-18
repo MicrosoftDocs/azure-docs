@@ -66,32 +66,15 @@ This tutorial has 7 steps and at the end the app will be able to call a Teams vo
 
 Only use this step if you're creating a new application.
 
-To set up the react App, we use the `create-react-app` command line tool. This tool
-creates an easy to run TypeScript application powered by React.
+To create a react App, we use `vite`. It is a build tool that aims to provide a faster and leaner development experience for modern web projects.
+You can read more about `vite` here [Create a React App from scratch](https://react.dev/learn/build-a-react-app-from-scratch) and [Getting Started with Vite](https://vite.dev/guide/)
+
+Note that the Azure Communication Service UI library only supports up to React 18. Verify that you are on the supported version after creating the react app by checking `package.json`
 
 To make sure that you have Node installed on your machine, run this command in PowerShell or the terminal to see your Node version:
 
 ```bash
 node -v
-```
-
-If you don't have `create-react-app` installed on your machine, run the following command to install it as a global command:
-
-```bash
-npm install -g create-react-app
-```
-After that command is installed, run this next command to create a new react application to build the sample in:
-
-```bash
-# Create an Azure Communication Services App powered by React.
-npx create-react-app ui-library-calling-widget-app --template typescript
-
-# Change to the directory of the newly created App.
-cd ui-library-calling-widget-app
-```
-After these commands complete, you want to open the created project in VS Code. You can open the project with the following command.
-```bash
-code .
 ```
 
 ### 2. Get your dependencies
@@ -703,7 +686,7 @@ Finally we can run the application to make our calls! Run the following commands
 npm install
 
 # run the React app
-npm run start
+npm run dev
 ```
 
 Once the app is running, you can see it on `http://localhost:3000` in your browser. You should see the following splash screen:

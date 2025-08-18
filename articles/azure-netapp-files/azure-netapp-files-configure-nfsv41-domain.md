@@ -1,11 +1,12 @@
 ---
-title: Configure NFSv4.1 ID domain for Azure NetApp Files | Microsoft Docs
+title: Configure NFSv4.1 ID domain for Azure NetApp Files
 description: Learn how to configure NFSv4.1 ID domain for using NFSv4.1 with Azure NetApp Files.
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 07/12/2023
+ms.date: 04/12/2025
 ms.author: anfdocs
+# Customer intent: As a system administrator, I want to configure the NFSv4.1 ID domain on Azure NetApp Files and Linux clients, so that I can ensure proper user and group authentication and prevent access issues across different environments.
 ---
 # Configure NFSv4.1 ID domain for Azure NetApp Files
 
@@ -43,7 +44,7 @@ You can specify a desired NFSv4.1 ID domain for all non-LDAP volumes using the A
 
 Azure NetApp Files supports the ability to set the NFSv4.1 ID domain for all non-LDAP volumes in a subscription using the Azure portal. This feature is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background.
 
-1.  Register the feature
+1.  Register the feature:
 
     ```azurepowershell-interactive
     Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFNFSV4IDDomain
@@ -52,7 +53,7 @@ Azure NetApp Files supports the ability to set the NFSv4.1 ID domain for all non
 2. Check the status of the feature registration: 
 
     > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
+    > The **RegistrationState** can remain in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
 
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFNFSV4IDDomain

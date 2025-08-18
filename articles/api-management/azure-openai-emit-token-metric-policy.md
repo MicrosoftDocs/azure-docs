@@ -6,7 +6,8 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 04/01/2025
+ms.date: 04/18/2025
+ms.update-cycle: 180-days
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
@@ -58,25 +59,25 @@ The `azure-openai-emit-token-metric` policy sends custom metrics to Application 
 | ----------- | --------------------------------------------------------------------------------- | -------- |
 | dimension   | Add one or more of these elements for each dimension included in the metric.  | Yes      |
 
-### dimension attributes
+### Dimension attributes
 
 | Attribute | Description                | Required |  Default value  |
 | --------- | -------------------------- |  ------------------ | -------------- |
 | name      | A string or policy expression. Name of dimension.      | Yes      |  N/A            |
 | value     | A string or policy expression. Value of dimension. Can only be omitted if `name` matches one of the default dimensions. If so, value is provided as per dimension name. | No        | N/A |
 
-[!INCLUDE [api-management-emit-metric-dimensions](../../includes/api-management-emit-metric-dimensions.md)]
+[!INCLUDE [api-management-emit-metric-dimensions-llm](../../includes/api-management-emit-metric-dimensions-llm.md)]
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ### Usage notes
 
 * This policy can be used multiple times per policy definition.
-* You can configure at most 10 custom dimensions for this policy.
+* You can configure at most 5 custom dimensions for this policy.
 * This policy can optionally be configured when adding an API from the Azure OpenAI Service using the portal.
 * Where available, values in the usage section of the response from the Azure OpenAI Service API are used to determine token metrics.
 * Certain Azure OpenAI endpoints support streaming of responses. When `stream` is set to `true` in the API request to enable streaming, token metrics are estimated.

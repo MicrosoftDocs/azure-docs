@@ -58,7 +58,7 @@ All requests from client applications first reach the API gateway, which then fo
 The API gateway:
   
   * Accepts API calls and routes them to configured backends
-  * Verifies API keys, JWT tokens, certificates, and other credentials
+  * Verifies API keys, JWTs, certificates, and other credentials
   * Enforces usage quotas and rate limits
   * Optionally transforms requests and responses as specified in [policy statements](#policies)
   * If configured, caches responses to improve response latency and minimize the load on backend services
@@ -135,7 +135,7 @@ Operations in API Management are highly configurable, with control over URL mapp
 
 ### Products
 
-Products are how APIs are surfaced to developers. Products in API Management have one or more APIs, and can be *open* or *protected*. Protected products require a subscription key, while open products can be consumed freely. 
+Products are how APIs are surfaced to developers. Products in API Management have one or more APIs and can be *open* or *protected*. Protected products require a subscription key, while open products can be consumed freely.
 
 When a product is ready for use by developers, it can be published. Once published, it can be viewed or subscribed to by developers. Subscription approval is configured at the product level and can either require an administrator's approval or be automatic.
 

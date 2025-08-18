@@ -5,13 +5,13 @@ description: Learn about the reasons and strategies behind extending an ontology
 author: baanders
 ms.author: baanders
 ms.date: 01/27/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-digital-twins
 ---
 
 # Extending ontologies 
 
-This article uses the [DTDL-based RealEstateCore ontology for smart buildings](https://github.com/Azure/opendigitaltwins-building) as the basis for examples of extending ontologies with new DTDL properties. The techniques described here are general, however, and can be applied to any part of a DTDL-based ontology with any Azure Digital Twins-compatible DTDL capability (Property, Relationship, Component). 
+This article uses the [DTDL-based RealEstateCore ontology for smart buildings](https://github.com/Azure/opendigitaltwins-building) as the basis for examples of extending ontologies with new DTDL properties. The techniques described here are general and can be applied to any part of a DTDL-based ontology with any Azure Digital Twins-compatible DTDL capability (Property, Relationship, Component).
 
 Microsoft's [industry-standard ontologies](concepts-ontologies-adopt.md), such as the DTDL-based [RealEstateCore](https://www.realestatecore.io/) ontology, are a great way to start building your IoT solution. Industry ontologies provide a rich set of base interfaces that are designed for your domain and engineered to work out of the box in Azure IoT services like Azure Digital Twins. 
 

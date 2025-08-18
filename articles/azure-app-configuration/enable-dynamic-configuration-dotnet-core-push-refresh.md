@@ -17,7 +17,7 @@ ms.author: malev
 
 The App Configuration .NET client library supports updating configuration on demand without causing an application to restart. An application can be configured to detect changes in App Configuration using one or both of the following two approaches.
 
-1. Poll Model: This is the default behavior that uses polling to detect changes in configuration. Once the cached value of a setting expires, the next call to `TryRefreshAsync` or `RefreshAsync` sends a request to the server to check if the configuration has changed, and pulls the updated configuration if needed.
+1. Poll Model: This is the default behavior that uses polling to detect changes in configuration. Once the refresh interval of a setting elapses, the next call to `TryRefreshAsync` or `RefreshAsync` sends a request to the server to check if the configuration has changed, and pulls the updated configuration if needed.
 
 1. Push Model: This uses [App Configuration events](./concept-app-configuration-event.md) to detect changes in configuration. Once App Configuration is set up to send key value change events to Azure Event Grid, the application can use these events to optimize the total number of requests needed to keep the configuration updated. Applications can choose to subscribe to these either directly from Event Grid, or through one of the [supported event handlers](../event-grid/event-handlers.md) such as a webhook, an Azure function, or a Service Bus topic.
 
@@ -108,11 +108,14 @@ namespace TestConsole
                 .AddAzureAppConfiguration(options =>
                 {
                     options.Connect(appConfigurationConnectionString);
+                    // Load the key-value with key "TestApp:Settings:Message" and no label
+                    options.Select("TestApp:Settings:Message");
+                    // Reload configuration if any selected key-values have changed.
                     options.ConfigureRefresh(refresh =>
                         refresh
-                            .Register("TestApp:Settings:Message")
+                            .RegisterAll()
                             // Important: Reduce poll frequency
-                            .SetCacheExpiration(TimeSpan.FromDays(1))  
+                            .SetRefreshInterval(TimeSpan.FromDays(1))  
                     );
 
                     _refresher = options.GetRefresher();
@@ -170,9 +173,9 @@ namespace TestConsole
 }
 ```
 
-The `ProcessPushNotification` method resets the cache expiration to a short random delay. This causes future calls to `RefreshAsync` or `TryRefreshAsync` to re-validate the cached values against App Configuration and update them as necessary. In this example you register to monitor changes to the key: *TestApp:Settings:Message* with a cache expiration of one day. This means no request to App Configuration will be made before a day has passed since the last check. By calling  `ProcessPushNotification` your application will send requests to App Configuration in the next few seconds. Your application will load the new configuration values shortly after changes occur in the `App Configuration` store without the need to constantly poll for updates. In case your application misses the change notification for any reason, it will still check for configuration changes once a day.
+The `ProcessPushNotification` method resets the refresh interval to a short random delay. This causes future calls to `RefreshAsync` or `TryRefreshAsync` to re-validate the cached values against App Configuration and update them as necessary. In this example you register to monitor changes to all selected key-values (*TestApp:Settings:Message*) with a refresh interval of one day. This means no request to App Configuration will be made before a day has passed since the last check. By calling  `ProcessPushNotification` your application will send requests to App Configuration in the next few seconds. Your application will load the new configuration values shortly after changes occur in the `App Configuration` store without the need to constantly poll for updates. In case your application misses the change notification for any reason, it will still check for configuration changes once a day.
 
-The short random delay for cache expiration is helpful if you have many instances of your application or microservices connecting to the same App Configuration store with the push model. Without this delay, all instances of your application could send requests to your App Configuration store simultaneously as soon as they receive a change notification. This can cause the App Configuration Service to throttle your store. Cache expiration delay is set to a random number between 0 and a maximum of 30 seconds by default, but you can change the maximum value through the optional parameter `maxDelay` to the `ProcessPushNotification` method.
+The short random delay for refresh interval is helpful if you have many instances of your application or microservices connecting to the same App Configuration store with the push model. Without this delay, all instances of your application could send requests to your App Configuration store simultaneously as soon as they receive a change notification. This can cause the App Configuration Service to throttle your store. refresh interval delay is set to a random number between 0 and a maximum of 30 seconds by default, but you can change the maximum value through the optional parameter `maxDelay` to the `ProcessPushNotification` method.
 
 The `ProcessPushNotification` method takes in a `PushNotification` object containing information about which change in App Configuration triggered the push notification. This helps ensure all configuration changes up to the triggering event are loaded in the following configuration refresh. The `SetDirty` method does not guarantee the change that triggers the push notification to be loaded in an immediate configuration refresh. If you are using the `SetDirty` method for the push model, we recommend using the `ProcessPushNotification` method instead.
 

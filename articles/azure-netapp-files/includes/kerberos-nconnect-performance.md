@@ -8,6 +8,7 @@ ms.custom: include file
 
 # azure-netapp-files/performance-linux-mount-options.md
 # faq-performance.md
+# Customer intent: As a system administrator managing performance settings for Linux mounts, I want to understand the implications of using `nconnect` and `sec=krb5*` together, so that I can optimize my application's data transmission without causing performance degradation.
 ---
 
 It's not recommended to use `nconnect` and `sec=krb5*` mount options together. Using these options together can cause performance degradation.

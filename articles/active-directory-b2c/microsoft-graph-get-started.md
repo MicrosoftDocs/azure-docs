@@ -19,6 +19,8 @@ ms.subservice: b2c
 
 # Register a Microsoft Graph application
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 [Microsoft Graph][ms-graph] allows you to manage many of the resources within your Azure AD B2C tenant, including customer user accounts and custom policies. By writing scripts or applications that call the [Microsoft Graph API][ms-graph-api], you can automate tenant management tasks like:
 
 * Migrate an existing user store to an Azure AD B2C tenant

@@ -8,6 +8,7 @@ ms.date: 06/13/2017
 ms.service: azure-blob-storage
 ms.topic: sample 
 ms.custom: devx-track-azurecli
+# Customer intent: "As a cloud developer, I want to access Azure CLI scripts for Blob storage management, so that I can efficiently create storage accounts and perform tasks like calculating container sizes and deleting specific containers."
 ---
 
 # Azure CLI samples for Azure Blob storage

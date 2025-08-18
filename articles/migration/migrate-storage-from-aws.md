@@ -6,7 +6,9 @@ ms.author: doveychase
 ms.reviewer: prwilk, chkittel
 ms.date: 03/25/2025
 ms.topic: conceptual
-ms.custom: migration
+ms.collection:
+ - migration
+ - aws-to-azure
 ---
 
 # Migrate storage from Amazon Web Services (AWS) to Azure
@@ -17,7 +19,7 @@ Storage services are foundational components of most enterprise workloads. The m
 
 ## Component comparison
 
-Start the migration process by comparing the AWS storage service that's used in the workload with the closest Azure counterpart. The goal is to identify the most suitable Azure services for your workload. For more information, see [Comparing AWS and Azure storage services](/azure/architecture/.aws-professional/storage).
+Start the migration process by comparing the AWS storage service that's used in the workload with the closest Azure counterpart. The goal is to identify the most suitable Azure services for your workload. For more information, see [Comparing AWS and Azure storage services](/azure/architecture/aws-professional/storage).
 
 > [!NOTE]
 > This comparison isn't an exact representation of the functionality that these services provide in your workload.
@@ -36,7 +38,7 @@ Use the following migration guides as examples to help structure your migration 
 
 Storage makes up only part of your workload. Explore other components that you might migrate:
 
-- [Compute](./migrate-compute-from-aws.md)
-- [Databases and data](./migrate-databases-from-aws.md)
-
-Use the table of contents to explore other articles that relate to your workload's architecture.
+- [Compute](migrate-compute-from-aws.md)
+- [Databases](migrate-databases-from-aws.md)
+- [Networking](migrate-networking-from-aws.md)
+- [Security](migrate-security-from-aws.md)

@@ -7,6 +7,8 @@ ms.service: azure-api-management
 ms.topic: concept-article
 ms.author: tomkerkhove
 ms.date: 01/17/2023
+ms.custom:
+  - build-2025
 ---
 
 # Guidance for running self-hosted gateway on Kubernetes in production
@@ -111,6 +113,14 @@ To learn about name resolution in Kubernetes, see the [Kubernetes website](https
 
 ## External traffic policy
 The YAML file provided in the Azure portal sets `externalTrafficPolicy` field on the [Service](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/) object to `Local`. This preserves caller IP address (accessible in the [request context](api-management-policy-expressions.md#ContextVariables)) and disables cross node load balancing, eliminating network hops caused by it. Be aware, that this setting might cause asymmetric distribution of traffic in deployments with unequal number of gateway pods per node.
+
+## Health Probing
+Use HTTP probes `/status-0123456789abcdef` endpoint for your readiness and liveness probes on your gateway deployments. This helps you only route traffic to gateway deployments that have successfully started up and ready to serve traffic, or are known to be still responsive.
+
+Without health probes, your gateway deployments may start up faster but the configuration may not be fully loaded yet resulting in 503s in your data-plane traffic.
+
+> [!TIP]
+> When installing with Helm, health probes are enabled for you by default.
 
 ## High availability
 The self-hosted gateway is a crucial component in the infrastructure and has to be highly available. However, failure will and can happen.

@@ -1,8 +1,8 @@
 ---
 title: Ingest sensor data in Azure Data Manager for Agriculture
 description: Get step-by-step guidance for ingesting sensor data.
-author: gourdsay
-ms.author: angour
+author: BlackRider97
+ms.author: ramithar
 ms.service: azure-data-manager-agriculture
 ms.topic: conceptual
 ms.date: 06/19/2023

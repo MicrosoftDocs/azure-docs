@@ -8,6 +8,7 @@ ms.date: 08/27/2024
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
+# Customer intent: "As a cloud administrator, I want to upgrade public IP addresses attached to VMs in an Availability Set from Basic to Standard SKU, so that I can ensure compliance with upcoming retirement policies and benefit from enhanced security features."
 ---
 
 # Upgrade all public IP addresses attached to VMs in an Availability Set from Basic to Standard
@@ -83,7 +84,7 @@ If a migration fails due to a transient issue, such as a network outage or clien
 To recover from a failed upgrade, pass the recovery log file path to the script with the `-recoverFromFile` parameter and identify the Availability Set to recover with the `-AvailabilitySetName` parameter, as shown in this example.
 
 ```powershell
-Start-VMPublicIPUpgrade -RecoverFromFile ./AvSetPublicIPUpgrade_Recovery_2020-01-01-00-00.csv -AvailabilitySetName myAvSet -ResourceGroupName rg-myrg
+Start-AzAvSetPublicIPUpgrade -RecoverFromFile ./AvSetPublicIPUpgrade_Recovery_2020-01-01-00-00.csv -AvailabilitySetName myAvSet -ResourceGroupName rg-myrg
 ```
 
 ## Common questions

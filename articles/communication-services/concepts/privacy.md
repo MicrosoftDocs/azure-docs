@@ -78,8 +78,6 @@ Azure Communication Services maintains a directory of phone numbers associated w
 
 Azure Communication Services stores chat threads according to the [data retention policy](/purview/create-retention-policies) in effect when the thread is created. You can update the retention policy if needed during the retention time period you set. After you delete a chat thread (by policy or by a Delete API request), it can't be retrieved.
 
-[!INCLUDE [chat-retention-policy.md](../includes/chat-retention-policy.md)]
-
 You can choose between indefinite thread retention, automatic deletion between 30 and 90 days via the retention policy on the [Create Chat Thread API](/rest/api/communication/chat/chat/create-chat-thread), or immediate deletion using the APIs [Delete Chat Message](/rest/api/communication/chat/chat-thread/delete-chat-message) or [Delete Chat Thread](/rest/api/communication/chat/chat/delete-chat-thread). 
 
 Any thread created before the new retention policy isn't affected unless you specifically change the policy for that thread. If you submit a support request for a deleted chat thread more than 30 days after the retention policy deleted that thread, it can no longer be retrieved and no information about that thread is available. If needed, [open a support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request) as quickly as possible within the 30 day window after you create a thread so we can assist you.
@@ -99,7 +97,9 @@ For customers that use Virtual appointments, refer to our Teams Interoperability
 
 ### SMS
 
-The service temporarily processes sent and received SMS messages and they aren't retained.
+ACS temporarily processes SMS message content and associated metadata (e.g., sender and recipient phone numbers, timestamps) only for the purposes of delivery and troubleshooting. ACS does not retain the contents of SMS messages after successful delivery or failure notification. Messages are held only in transient memory for the duration needed to route and deliver them through our messaging infrastructure. ACS does not store customer message data for retrieval or future use.
+
+The service temporarily processes sent and received SMS messages and they aren't retained. 
 
 ### PSTN voice calling
 

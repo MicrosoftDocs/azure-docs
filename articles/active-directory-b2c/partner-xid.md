@@ -15,6 +15,8 @@ ms.subservice: b2c
 
 # Configure xID with Azure Active Directory B2C for passwordless authentication
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 In this tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) authentication with the xID digital ID solution. The xID app provides users with passwordless, secure, multifactor authentication. The My Number Card, the digital ID card issued by the Japanese government, verifies xID-authenticated user identities. For their users, organizations can get verified Personal Identification Information (customer content) through the xID API. Furthermore, the xID app generates a private key in a secure area in user mobile devices, making them digital signing devices.
 
 ## Prerequisites

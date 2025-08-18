@@ -1,11 +1,11 @@
 ---
  title: include file
- description: include file for selecting between versions of Azure Digital Twins setup article
+ description: Include file for selecting between versions of Azure Digital Twins setup article.
  services: digital-twins
  author: baanders
  ms.service: azure-digital-twins
  ms.topic: include
- ms.date: 03/29/2022
+ ms.date: 4/21/2025
  ms.author: baanders
  ms.custom: include file
 ---

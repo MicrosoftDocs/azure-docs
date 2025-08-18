@@ -16,16 +16,16 @@ ms.custom: mode-ui, vscode-azure-extension-update-completed, devx-track-extended
 This article shows you how to use Visual Studio Code to connect [Azure Cosmos DB](/azure/cosmos-db/introduction) to the function you created in the previous quickstart article. The output binding that you add to this function writes data from the HTTP request to a JSON document stored in an Azure Cosmos DB container. 
 
 ::: zone pivot="programming-language-csharp"  
-Before you begin, you must complete the [quickstart: Create a C# function in Azure using Visual Studio Code](create-first-function-vs-code-csharp.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.
+Before you begin, you must complete the [quickstart: Create a C# function in Azure using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-csharp). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-Before you begin, you must complete the [quickstart: Create a JavaScript function in Azure using Visual Studio Code](create-first-function-vs-code-node.md?pivot=nodejs-model-v3). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
+Before you begin, you must complete the [quickstart: Create a JavaScript function in Azure using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-javascript?pivot=nodejs-model-v3). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
 
 >[!NOTE]
 >This article currently only supports [Node.js v3 for Functions](./functions-reference-node.md?pivots=nodejs-model-v3).   
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-Before you begin, you must complete the [quickstart: Create a Python function in Azure using Visual Studio Code](create-first-function-vs-code-python.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
+Before you begin, you must complete the [quickstart: Create a Python function in Azure using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-python). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
 ::: zone-end  
 
 ## Configure your environment
@@ -45,7 +45,7 @@ Now, you create an Azure Cosmos DB account as a [serverless account type](/azure
     |**Select an Azure Database Server**| Choose **Core (NoSQL)** to create a document database that you can query by using a SQL syntax or a Query Copilot ([Preview](/azure/cosmos-db/nosql/query/how-to-enable-use-copilot)) converting natural language prompts to queries. [Learn more about the Azure Cosmos DB](/azure/cosmos-db/introduction). |
     |**Account name**| Enter a unique name to identify your Azure Cosmos DB account. The account name can use only lowercase letters, numbers, and hyphens (-), and must be between 3 and 31 characters long.|
     |**Select a capacity model**| Select **Serverless** to create an account in [serverless](/azure/cosmos-db/serverless) mode. 
-    |**Select a resource group for new resources**| Choose the resource group where you created your function app in the [previous article](./create-first-function-vs-code-csharp.md). |
+    |**Select a resource group for new resources**| Choose the resource group where you created your function app in the [previous article](./how-to-create-function-vs-code.md?pivot=programming-language-csharp). |
     |**Select a location for new resources**| Select a geographic location to host your Azure Cosmos DB account. Use the location that's closest to you or your users to get the fastest access to your data. |
 
     After your new account is provisioned, a message is displayed in notification area. 
@@ -66,7 +66,7 @@ Now, you create an Azure Cosmos DB account as a [serverless account type](/azure
 
 ## Update your function app settings
 
-In the [previous quickstart article](./create-first-function-vs-code-csharp.md), you created a function app in Azure. In this article, you update your app to write JSON documents to the Azure Cosmos DB container you've created. To connect to your Azure Cosmos DB account, you must add its connection string to your app settings. You then download the new setting to your local.settings.json file so you can connect to your Azure Cosmos DB account when running locally.
+In the [previous quickstart article](./how-to-create-function-vs-code.md?pivot=programming-language-csharp), you created a function app in Azure. In this article, you update your app to write JSON documents to the Azure Cosmos DB container you've created. To connect to your Azure Cosmos DB account, you must add its connection string to your app settings. You then download the new setting to your local.settings.json file so you can connect to your Azure Cosmos DB account when running locally.
 
 1. In Visual Studio Code, right-click (Ctrl+select on macOS) on your new Azure Cosmos DB account, and select **Copy Connection String**.
 
@@ -78,10 +78,10 @@ In the [previous quickstart article](./create-first-function-vs-code-csharp.md),
 
     |Prompt| Selection|
     |--|--|
-    |**Enter new app setting name**| Type `CosmosDbConnectionSetting`.|
-    |**Enter value for "CosmosDbConnectionSetting"**| Paste the connection string of your Azure Cosmos DB account you copied. You can also configure [Microsoft Entra identity](./functions-bindings-cosmosdb-v2-trigger.md#connections) as an alternative.|
+    |**Enter new app setting name**| Type `CosmosDbConnectionString`.|
+    |**Enter value for "CosmosDbConnectionString"**| Paste the connection string of your Azure Cosmos DB account you copied. You can also configure [Microsoft Entra identity](./functions-bindings-cosmosdb-v2-trigger.md#connections) as an alternative.|
 
-    This creates an application setting named connection `CosmosDbConnectionSetting` in your function app in Azure. Now, you can download this setting to your local.settings.json file.
+    This creates an application setting named connection `CosmosDbConnectionString` in your function app in Azure. Now, you can download this setting to your local.settings.json file.
 
 1. Press <kbd>F1</kbd> again to open the command palette, then search for and run the command `Azure Functions: Download Remote Settings...`. 
 
@@ -105,7 +105,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.CosmosDB
 
 ::: zone pivot="programming-language-javascript"  
 
-Your project has been configured to use [extension bundles](functions-bindings-register.md#extension-bundles), which automatically installs a predefined set of extension packages. 
+Your project has been configured to use [extension bundles](extension-bundles.md), which automatically installs a predefined set of extension packages. 
 
 Extension bundles usage is enabled in the *host.json* file at the root of the project, which appears as follows:
 
@@ -115,7 +115,7 @@ Extension bundles usage is enabled in the *host.json* file at the root of the pr
 
 ::: zone pivot="programming-language-python"  
 
-Your project has been configured to use [extension bundles](functions-bindings-register.md#extension-bundles), which automatically installs a predefined set of extension packages. 
+Your project has been configured to use [extension bundles](extension-bundles.md), which automatically installs a predefined set of extension packages. 
 
 Extension bundles usage is enabled in the *host.json* file at the root of the project, which appears as follows:
 
@@ -136,7 +136,7 @@ The `MyDocument` class defines an object that gets written to the database. The 
 
 The `MultiResponse` class allows you to both write to the specified collection in the Azure Cosmos DB and return an HTTP success message. Because you need to return a `MultiResponse` object, you need to also update the method signature.
 
-Specific attributes specify the name of the container and the name of its parent database. The connection string for your Azure Cosmos DB account is set by the `CosmosDbConnectionSetting`.  
+Specific attributes specify the name of the container and the name of its parent database. The connection string for your Azure Cosmos DB account is set by the `CosmosDbConnectionString`.  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 Binding attributes are defined directly in your function code. The [Azure Cosmos DB output configuration](./functions-bindings-cosmosdb-v2-output.md#configuration) describes the fields required for an Azure Cosmos DB output binding.  
@@ -155,10 +155,10 @@ Binding attributes are defined directly in the *function_app.py* file. You use t
 
 ```python
 @app.cosmos_db_output(arg_name="outputDocument", database_name="my-database", 
-    container_name="my-container", connection="CosmosDbConnectionSetting")
+    container_name="my-container", connection="CosmosDbConnectionString")
 ```
 
-In this code, `arg_name` identifies the binding parameter referenced in your code, `database_name` and `container_name` are the database and collection names that the binding writes to, and `connection` is the name of an application setting that contains the connection string for the Azure Cosmos DB account, which is in the `CosmosDbConnectionSetting` setting in the *local.settings.json* file.  
+In this code, `arg_name` identifies the binding parameter referenced in your code, `database_name` and `container_name` are the database and collection names that the binding writes to, and `connection` is the name of an application setting that contains the connection string for the Azure Cosmos DB account, which is in the `CosmosDbConnectionString` setting in the *local.settings.json* file.  
 ::: zone-end  
 
 ## Add code that uses the output binding

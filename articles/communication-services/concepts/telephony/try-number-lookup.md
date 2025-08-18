@@ -14,7 +14,7 @@ ms.subservice: pstn
 
 # Try Number Lookup
 
-Try Number Lookup is a tool in Azure portal to help customers confirm that the phone number they want to communicate with is valid. The tool also retrieves number details to identify the country, carrier, and type. This enables developers to quickly test Azure Communication Services number lookup capabilities, without an existing app or code on their end.
+Try Number Lookup is a tool in Azure portal to help customers confirm that the phone number they want to communicate with is valid. The tool also retrieves number details to identify the country/region, carrier, and type. This enables developers to quickly test Azure Communication Services number lookup capabilities, without an existing app or code on their end.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ Try Number Lookup is a tool in Azure portal to help customers confirm that the p
 
 ## Overview
 
-Open the [Azure portal](https://portal.azure.com/#home) and search for **Number Lookup**. Then enter a phone number that you want to look up or validate. You can either check national and international format for free, or request details about number type, country, and carrier for a fee. The tool also generates the associated code. You can select **Use my connection string** to automatically populate the `connection string` for the resource.
+Open the [Azure portal](https://portal.azure.com/#home) and search for **Number Lookup**. Then enter a phone number that you want to look up or validate. You can either check national and international format for free, or request details about number type, country/region, and carrier for a fee. The tool also generates the associated code. You can select **Use my connection string** to automatically populate the `connection string` for the resource.
 
 ![A screenshot from the Azure portal displaying the new view for the Try Number Lookup option.](../media/try-number-lookup.png)
 

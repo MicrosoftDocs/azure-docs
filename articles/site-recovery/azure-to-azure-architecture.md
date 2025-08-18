@@ -3,9 +3,10 @@ title: Azure to Azure disaster recovery architecture in Azure Site Recovery
 description: Overview of the architecture used when you set up disaster recovery between Azure regions for Azure VMs, using the Azure Site Recovery service.
 ms.service: azure-site-recovery
 ms.topic: concept-article
-ms.date: 03/17/2025
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.date: 05/30/2025
+ms.author: jsuri
+author: jyothisuri
+# Customer intent: As a cloud architect, I want to configure Azure VM disaster recovery using Site Recovery, so that I can ensure business continuity and data integrity during regional outages.
 ---
 
 # Azure to Azure disaster recovery architecture
@@ -22,7 +23,7 @@ The components involved in disaster recovery for Azure VMs are summarized in the
 **VMs in source region** | One of more Azure VMs in a [supported source region](azure-to-azure-support-matrix.md#region-support).<br/><br/> VMs can be running any [supported operating system](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 **Source VM storage** | Azure VMs can be managed, or have nonmanaged disks spread across storage accounts.<br/><br/>[Learn about](azure-to-azure-support-matrix.md#replicated-machines---storage) supported Azure storage.
 **Source VM networks** | VMs can be located in one or more subnets in a virtual network (VNet) in the source region. [Learn more](azure-to-azure-support-matrix.md#replicated-machines---networking) about networking requirements.
-**Cache storage account** | You need a cache storage account in the source network. During replication, VM changes are stored in the cache before being sent to target storage. <br/><br/> Using a cache ensures minimal impact on production applications that are running on a VM.<br/><br/> [Learn more](azure-to-azure-support-matrix.md#cache-storage) about cache storage requirements. 
+**Cache storage account** | You need a cache storage account in the source network. During replication, VM changes are stored in the cache before being sent to target storage. <br/><br/> Using a cache ensures minimal impact on production applications that are running on a VM.<br/><br/> [Learn more](azure-to-azure-support-matrix.md#cache-storage) about cache storage requirements.<br/><br/> **Note**: Virtual machines with Premium SSD v2 disks (preview) require High Churn and uses Premium Storage Account. 
 **Target resources** | Target resources are used during replication, and when a failover occurs. Site Recovery can set up target resource by default, or you can create/customize them.<br/><br/> In the target region, check that you're able to create VMs, and that your subscription has enough resources to support VM sizes that are needed in the target region. 
 
 ![Diagram showing source and target replication.](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)

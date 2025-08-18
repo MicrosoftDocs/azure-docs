@@ -116,6 +116,9 @@ All other Communication Services packages target .NET Standard 2.0, which suppor
   - Xamarin iOS 10.14
   - Xamarin Mac 3.8
 
+> [!NOTE]
+> [Unpackaged app](/windows/apps/package-and-deploy/) is currently not supported
+
 #### SDK package size
 
 | SDK                   |      Compressed size (MB)     |    Uncompressed size (MB)     |

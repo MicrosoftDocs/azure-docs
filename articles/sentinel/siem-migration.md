@@ -2,12 +2,13 @@
 title: Use the SIEM migration experience
 titleSuffix: Microsoft Sentinel
 description: Migrate security monitoring use cases from other Security Information and Event Management (SIEM) systems to Microsoft Sentinel. 
-author: austinmccollum
+author: batamig
 ms.topic: how-to
 ms.date: 9/23/2024
-ms.author: austinmc
-appliesto: 
-- Microsoft Sentinel in the Azure portal
+ms.author: bagol
+appliesto:
+    - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 #Customer intent: As an security operations administrator, I want to use the SIEM migration experience so I can streamline a migration to Microsoft Sentinel to enhance my security monitoring capabilities.
 
 
@@ -62,7 +63,7 @@ Current capabilities:
 
 ## Start the SIEM migration experience
 
-1. Find the SIEM migration experience in Microsoft Sentinel from the [Azure portal](https://portal.azure.com) or the [Defender portal](https://security.microsoft.com/), under **Content management**  > **Content hub**.
+1. Find the SIEM migration experience in Microsoft Sentinel from the [Defender portal](https://security.microsoft.com/) or the [Azure portal](https://portal.azure.com), under **Content management**  > **Content hub**.
 
 1. Select **SIEM Migration**. 
 

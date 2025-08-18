@@ -30,7 +30,7 @@ Use any of the following options to modify or filter the devices shown:
 | **Sort devices** | Select a column header to sort the devices by that column. Select it again to change the sort direction. |
 |**Filter devices shown**    |   Either use the **Search** box to search for specific device details, or select **Add filter** to filter the devices shown. <br><br> In the **Add filter** box, define your filter by column name, operator, and value. Select **Apply** to apply your filter.<br><br> You can apply multiple filters at the same time. Search results and filters aren't saved when you refresh the **Device inventory** page. <br><br> The **Last active time** and **Network location (Preview)** filters are on by default. |
 |**Modify columns shown**     |   Select **Edit columns** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/edit-columns-icon.png" border="false":::. In the **Edit columns** pane:<br><br>        - Select the **+ Add Column** button to add new columns to the grid.<br>        - Drag and drop fields to change the columns order.<br>- To remove a column, select the **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/trashcan-icon.png" border="false"::: icon to the right.<br>- To reset the columns to their default settings, select **Reset** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/reset-icon.png" border="false":::.   <br><br>Select **Save** to save any changes made.  |
-| **Group devices** | From the **Group by** above the gird, select a category, such as **Class**, **Data source**, **Location**, **Purdue level**, **Site**, **Type**, **Vendor**, or **Zone**, to group the devices shown. Inside each group, devices retain the same column sorting. To remove the grouping, select **No grouping**. |
+| **Group devices** | From the **Group by** above the grid, select a category, such as **Class**, **Data source**, **Location**, **Purdue level**, **Site**, **Type**, **Vendor**, or **Zone**, to group the devices shown. Inside each group, devices retain the same column sorting. To remove the grouping, select **No grouping**. |
 
 For more information, see [Device inventory column data](device-inventory.md#device-inventory-column-data).
 
@@ -144,36 +144,6 @@ Delete inactive devices to maintain a correct representation of current network 
 In the **Device inventory** page, select the device you want to delete, and then select **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/delete-device.png" border="false"::: in the toolbar at the top of the page.
 
 At the prompt, select **Yes** to confirm that you want to delete the device from Defender for IoT.
-
-## Merge duplicate devices
-
-You may need to merge duplicate devices if the sensor has discovered separate network entities that are associated with a single, unique device.
-
-Examples of this scenario might include a laptop with both WiFi and a physical network card, a switch with multiple interfaces, an HMI with four network cards, or a single workstation with multiple network cards.
-
-> [!NOTE]
-> Once the devices are merged, they cannot be unmerged. To unmerge devices, you'll need to delete the merged device and wait for it to be rediscovered by the sensors as it was originally.
-
-**To manually merge devices**:
-
-1. In the **Device inventory** page, select two or more devices you would like to merge, and then select **Merge** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/merge-devices-icon.png" border="false"::: in the toolbar at the top of the page.
-You can merge up to 10 devices at a time, if all selected devices are in the same zone or site.
-
-    OT devices can only be merged with other OT devices. Enterprise IoT devices and devices detected by Microsoft Defender for Endpoint agents can be merged with other Enterprise IoT or Defender for Endpoint devices.
-
-1. In the **Merge** pane, select one of the following:
-
-    - Select **Merge** to merge the selected devices and return to the device inventory page.
-
-    - Select **Merge & View** to merge the devices and open the merged device details.
-
-    For example:
-
-    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/merge-devices-pane.png" alt-text="Screenshot of merging devices screen in the device inventory." lightbox="media/how-to-manage-device-inventory-on-the-cloud/merge-devices-pane.png":::
-
-A success message appears at the top right confirming that the devices have been merged into a single, unique device.
-
-The merged device that is now listed in the grid retains the details of the device with the most recent activity or an update to its identifying details.
 
 ## Next steps
 

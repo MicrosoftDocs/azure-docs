@@ -4,9 +4,10 @@ description: Understand the software and hardware requirements for Azure Import/
 author: stevenmatthew
 services: storage
 ms.service: azure-import-export
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/19/2022
 ms.author: shaas
+# Customer intent: "As a data engineer, I want to understand the system requirements for the Azure Import/Export service, so that I can ensure my hardware and software setup is compatible for efficient data transfer to and from Azure storage."
 ---
 # Azure Import/Export system requirements
 

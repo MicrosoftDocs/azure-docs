@@ -10,6 +10,7 @@ ms.date: 03/11/2025
 ms.custom: subject-monitoring
 
 #CustomerIntent: As an Azure administrator, I want to see a visual representation of my Azure network resources so that I can see their detailed network insights.
+# Customer intent: As an Azure administrator, I want to access comprehensive network health insights and metrics, so that I can effectively monitor and troubleshoot all deployed network resources without needing additional configurations.
 ---
 
 # Network insights

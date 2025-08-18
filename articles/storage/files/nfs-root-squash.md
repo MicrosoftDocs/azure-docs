@@ -4,9 +4,10 @@ description: Root squash is a security feature that prevents unauthorized root-l
 author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/13/2024
 ms.author: kendownie
+# Customer intent: As a system administrator managing NFS Azure file shares, I want to configure root squash settings so that I can enhance security by preventing unauthorized root-level access from client machines.
 ---
 
 # Configure root squash for Azure Files

@@ -3,16 +3,17 @@ title: Create an account SAS with Python
 titleSuffix: Azure Storage
 description: Learn how to create an account shared access signature (SAS) using the Python client library.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 08/05/2024
-ms.author: pauljewell
+ms.author: shaas
 ms.reviewer: dineshm
 ms.subservice: storage-common-concepts
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
+# Customer intent: As a developer, I want to create an account shared access signature (SAS) using Python, so that I can delegate access to multiple service-level operations within my Azure Storage account.
 ---
 
 # Create an account SAS with Python
@@ -68,3 +69,4 @@ To learn more about creating an account SAS using the Azure Blob Storage client 
 
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md)
 - [Create an account SAS](/rest/api/storageservices/create-account-sas)
+

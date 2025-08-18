@@ -21,6 +21,7 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Register a SAML application in Azure AD B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In this article, learn how to connect your Security Assertion Markup Language (SAML) applications (service providers) to Azure Active Directory B2C (Azure AD B2C) for authentication.
 

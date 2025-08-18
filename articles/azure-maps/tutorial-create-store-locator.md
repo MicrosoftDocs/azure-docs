@@ -59,7 +59,7 @@ This section lists the Azure Maps features that are demonstrated in the Contoso 
 * A store logo on the header
 * A map that supports panning and zooming
 * A **My Location** button to search over the user's current location.
-* A Page layout that adjusts based on the width of the devices screen
+* A Page layout that adjusts based on the width of the device's screen
 * A search box and a search button
 
 ### Functionality features
@@ -438,7 +438,7 @@ To add the JavaScript:
 
 1. Open *index.js*.
 
-2. Add global options to make settings easier to update. Define the variables for the map, pop up window, data source, icon layer, and HTML marker. Set the HTML marker to indicate the center of a search area. And, define an instance of the Azure Maps search service client.
+2. Add global options to make settings easier to update. Define the variables for the map, pop up window, data source, icon layer, and HTML marker. Set the HTML marker to indicate the center of a search area. And, define an instance of the Azure Maps Search service client.
 
     ```JavaScript
     //The maximum zoom level to cluster data point data on the map.

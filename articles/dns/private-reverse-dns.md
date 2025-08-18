@@ -1,11 +1,12 @@
 ---
 title: Create and manage reverse DNS zones in Azure Private DNS
 description: Learn how to use Azure Private DNS to create reverse DNS lookup zones for your private IP address ranges.
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: how-to
 ms.date: 06/20/2024
-ms.author: greglin
+ms.author: allensu
+# Customer intent: As a network administrator, I want to create and manage reverse DNS zones using Azure Private DNS, so that I can enable proper name resolution for my private IP address ranges.
 ---
 
 # Create and manage reverse DNS zones in Azure Private DNS

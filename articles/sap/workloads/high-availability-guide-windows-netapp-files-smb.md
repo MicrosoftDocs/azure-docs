@@ -11,6 +11,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.date: 11/19/2024
 ms.author: radeltch
+# Customer intent: As an SAP administrator, I want to deploy a highly available SAP NetWeaver system on Azure using Azure NetApp Files for shared storage, so that I can ensure optimal performance and reliability for SAP applications.
 ---
 
 # High availability for SAP NetWeaver on Azure VMs on Windows with Azure NetApp Files(SMB) for SAP applications

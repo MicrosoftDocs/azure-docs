@@ -6,6 +6,8 @@ services: automation
 ms.date: 09/15/2024
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Create an Azure Automation account using a Resource Manager template

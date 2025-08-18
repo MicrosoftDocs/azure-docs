@@ -1,14 +1,14 @@
 ---
 title: Jupyter notebooks with Microsoft Sentinel hunting capabilities
 description: Learn about Jupyter notebooks in Microsoft Sentinel for security hunting.
-author: cwatson-cat
-ms.author: cwatson
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: conceptual
 ms.custom: devx-track-python
 ms.date: 03/07/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 

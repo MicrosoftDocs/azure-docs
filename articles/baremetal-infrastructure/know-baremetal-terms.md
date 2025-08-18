@@ -3,8 +3,9 @@ title: Know the terms of Azure BareMetal Infrastructure
 author: jjaygbay1
 ms.author: jacobjaygbay
 description: Know the terms of Azure BareMetal Infrastructure.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/15/2024
+# Customer intent: "As an IT architect, I want to understand the key terms related to BareMetal Infrastructure, so that I can effectively plan and manage our deployment and utilization of these resources within our cloud architecture."
 ---
 
 # Know the terms for BareMetal Infrastructure

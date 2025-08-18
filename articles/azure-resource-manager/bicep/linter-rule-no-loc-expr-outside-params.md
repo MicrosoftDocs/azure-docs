@@ -3,12 +3,15 @@ title: Linter rule - no location expressions outside of parameter default values
 description: Linter rule - no location expressions outside of parameter default values
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 02/12/2025
+ms.date: 06/19/2025
 ---
 
 # Linter rule - no location expressions outside of parameter default values
 
 This rule finds `resourceGroup().location` or `deployment().location` used outside of a parameter default value.
+
+> [!NOTE]
+> This rule is off by default. Change the level in [bicepconfig.json](./bicep-config-linter.md) to enable it.
 
 ## Linter rule code
 

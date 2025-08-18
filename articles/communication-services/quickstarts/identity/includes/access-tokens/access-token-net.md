@@ -122,6 +122,39 @@ Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
 
 Store the received identity with mapping to your application users (for example, by storing it in your application server database).
 
+## (Preview) Create an identity with an associated customId
+
+> [!IMPORTANT]
+> This feature is available starting with the SDK version `1.4.0-beta1`.
+
+> [!NOTE]
+> This feature is currently in preview.
+
+You can create an identity with an associated `customId` to map your application's user identities with Azure Communication Services identities. If you call the `CreateUser` method again with the same `customId`, it will return the same `user.Id`. This eliminates the need to store the mapping yourself.
+
+```csharp
+Response<CommunicationUserIdentifier> user = await client.CreateUserAsync(customId: "alice@contoso.com");
+Console.WriteLine($"\nCreated an identity with ID: {user.Id}");
+```
+
+## (Preview) Get identity details
+
+> [!IMPORTANT]
+> This feature is available starting with the SDK version `1.4.0-beta1`.
+
+> [!NOTE]
+> This feature is currently in preview.
+
+You can use the `GetUserDetail` method to retrieve information about a user, including the `customId` and the `lastTokenIssuedAt`.
+
+```csharp
+Response<CommunicationUserIdentifier> user = await client.CreateUserAsync(customId: "alice@contoso.com");
+var userDetails = client.GetUserDetail(user);
+Console.WriteLine($"User ID: {userDetails.Id}");
+Console.WriteLine($"Custom ID: {userDetails.CustomId}");
+Console.WriteLine($"Last token issued at: {userDetails.LastTokenIssuedAt}");
+```
+
 ## Issue an access token
 
 After you have a Communication Services identity, use the `GetToken` method to issue an access token for it. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Identity model](../../../../concepts/identity-model.md#access-tokens). You can also construct a new instance of `communicationUser` based on a string representation of an Azure Communication Service identity.
@@ -162,6 +195,29 @@ var identityAndTokenResponse = await client.CreateUserAndTokenAsync(scopes: new[
 var identity = identityAndTokenResponse.Value.User;
 var token = identityAndTokenResponse.Value.AccessToken.Token;
 var expiresOn = identityAndTokenResponse.Value.AccessToken.ExpiresOn;
+Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
+Console.WriteLine($"\nIssued an access token with 'voip' scope that expires at {expiresOn}:");
+Console.WriteLine(token);
+```
+
+### (Preview) Create and identity and issue a token in the same request with a custom ID
+
+> [!IMPORTANT]
+> This feature is available starting with the SDK version `1.4.0-beta1`.
+
+> [!NOTE]
+> This feature is currently in preview.
+
+You can pass your custom ID to the `CreateUserAndTokenAsync` method to create an identity and issue an access token in a single call.
+
+```csharp
+// Issue an identity and an access token with a validity of 24 hours and the "voip" scope for the new identity
+Response<CommunicationUserIdentifierAndToken> identityAndTokenResponse = await client.CreateUserAndTokenAsync(customId: "bob@contoso.com", scopes: new[] { CommunicationTokenScope.VoIP });
+
+// Retrieve the identity, token, and expiration date from the response
+var identity = identityAndTokenResponse.User;
+var token = identityAndTokenResponse.AccessToken.Token;
+var expiresOn = identityAndTokenResponse.AccessToken.ExpiresOn;
 Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
 Console.WriteLine($"\nIssued an access token with 'voip' scope that expires at {expiresOn}:");
 Console.WriteLine(token);

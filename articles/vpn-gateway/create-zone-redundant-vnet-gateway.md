@@ -9,6 +9,7 @@ ms.date: 03/31/2025
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 
+# Customer intent: As a network engineer, I want to deploy zone-redundant VPN and ExpressRoute gateways in Azure, so that I can ensure high availability and resiliency in my virtual network connectivity.
 ---
 # Create a zone-redundant virtual network gateway in availability zones
 
