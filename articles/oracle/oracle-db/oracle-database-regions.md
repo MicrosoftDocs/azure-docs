@@ -52,6 +52,7 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | Sweden Central | 	Sweden Central (Stockholm) | ✓  | | | |  |   Dual    |
 | UK South             | UK South (London)   | ✓   | ✓   | ✓ | ✓| Preview available | Dual|
 | UK West | UK West (Newport)	   | ✓   | ✓  | | ✓| |  Single |
+| UAE North | UAE North (Dubai) | ✓  | | | |  |   Dual    |
 
 
 ## North America (NA)
