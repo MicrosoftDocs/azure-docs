@@ -80,8 +80,6 @@
       href: understanding-pricing.md
 - name: Security
   items:
-    - name: Security baseline
-      href: /security/benchmark/azure/baselines/application-gateway-security-baseline?toc=/azure/application-gateway/toc.json
     - name: Secure your Application Gateway
       href: secure-application-gateway.md
     - name: Private Deployment
@@ -102,6 +100,8 @@
       href: ssl-certificate-management.md
     - name: TLS 1.0 and 1.1 retirement
       href: application-gateway-tls-version-retirement.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/application-gateway-security-baseline?toc=/azure/application-gateway/toc.json
     - name: Network security blog
       href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: Reliability

@@ -111,11 +111,11 @@ external_table("microsoft.entra.id.AADRiskyUsers")
 
 + Calling external data via KQL query against the data lake isn't supported. 
 
-+ All KQL operators are supported except for the following:
++ All KQL operators and functions are supported except for the following:
     + `adx()`
     + `externaldata()`
     + `arg()`
-    + `Ingestion_time()`
+    + `ingestion_time()`
 
 
 [!INCLUDE [Service limits for KQL queries against the data lake](../includes/service-limits-kql-queries.md)]

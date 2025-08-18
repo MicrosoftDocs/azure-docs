@@ -134,13 +134,13 @@ From the project directory:
 
     export default App;
     ```
-    You can import any implementation of the [TokenCredential](https://learn.microsoft.com/javascript/api/%40azure/core-auth/tokencredential) interface from the [Azure Identity SDK for JavaScript](https://www.npmjs.com/package/@azure/identity) to authenticate with Microsoft Entra ID. In this quickstart, we use the `InteractiveBrowserCredential` class, which is suitable for browser basic authentication scenarios. For a full list of the credentials offered, see [Credential Classes](https://learn.microsoft.com/javascript/api/overview/azure/identity-readme#credential-classes).
+    You can import any implementation of the [TokenCredential](/javascript/api/%40azure/core-auth/tokencredential) interface from the [Azure Identity SDK for JavaScript](https://www.npmjs.com/package/@azure/identity) to authenticate with Microsoft Entra ID. In this quickstart, we use the `InteractiveBrowserCredential` class, which is suitable for browser basic authentication scenarios. For a full list of the credentials offered, see [Credential Classes](/javascript/api/overview/azure/identity-readme#credential-classes).
 
 <a name='step-1-obtain-entra-user-token-via-the-identity-library'></a>
 
 ### Step 1: Initialize implementation of TokenCredential from Azure Identity SDK
 
-The first step in obtaining Communication Services access token for Entra ID user is getting  an Entra ID access token for your Entra ID user by using [Azure Identity](https://learn.microsoft.com/javascript/api/overview/azure/identity-readme) SDK. To enable authentication for users across multiple tenants, initialize the `InteractiveBrowserCredential` class with the authority set to `https://login.microsoftonline.com/organizations`. For more information, see [Authority](https://learn.microsoft.com//entra/identity-platform/msal-client-application-configuration#authority).
+The first step in obtaining Communication Services access token for Entra ID user is getting  an Entra ID access token for your Entra ID user by using [Azure Identity](/javascript/api/overview/azure/identity-readme) SDK. To enable authentication for users across multiple tenants, initialize the `InteractiveBrowserCredential` class with the authority set to `https://login.microsoftonline.com/organizations`. For more information, see [Authority](/entra/identity-platform/msal-client-application-configuration#authority).
 
 ```javascript
 // Initialize InteractiveBrowserCredential for use with AzureCommunicationTokenCredential.

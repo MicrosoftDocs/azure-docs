@@ -23,7 +23,7 @@ This quickstart demonstrates how to use the Communication Services Common SDK al
 ## Prerequisites
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active Azure Communication Services resource and endpoint URI. For more information, see [Create an Azure Communication Services resource](../create-communication-resource.md).
-- A Microsoft Entra ID instance.  For more information, see [Microsoft Entra ID overview](https://learn.microsoft.com/entra/fundamentals/whatis?source=docs).
+- A Microsoft Entra ID instance.  For more information, see [Microsoft Entra ID overview](/entra/fundamentals/whatis?source=docs).
 
 ## Introduction
 
@@ -49,7 +49,7 @@ The Administrator role has extended permissions in Microsoft Entra ID. Members o
 To enable the Contoso application to access Azure Communication Services Clients application API permissions, the Contoso Administrator must create a service principal for Azure Communication Services Clients application in the Contoso Microsoft Entra ID tenant.
 The Contoso Administrator can create a service principal in Contoso tenant by one of the following methods:
 
-- Use the [Microsoft Graph REST API](https://learn.microsoft.com/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http#request) to run the following request:
+- Use the [Microsoft Graph REST API](/graph/api/serviceprincipal-post-serviceprincipals#request) to run the following request:
 
 ```http
 POST https://graph.microsoft.com/v1.0/servicePrincipals
@@ -62,7 +62,7 @@ Content-Type: application/json
 
   This request can also be executed in [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer/). Make sure to include your full tenant domain in the URL `https://developer.microsoft.com/graph/graph-explorer?tenant={tenant domain}`, sign in, and provide consent for `Application.ReadWrite.All` permission.
 
-- Use the [Azure CLI](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create) to run the following command:
+- Use the [Azure CLI](/cli/azure/ad/sp#az-ad-sp-create) to run the following command:
 
 ```azurecli-interactive
 az ad sp create --id 2a04943b-b6a7-4f65-8786-2bb6131b59f6
@@ -205,4 +205,4 @@ In this quickstart, you learned how to:
 Learn about the following concepts:
 
 - [Support Microsoft Entra ID users in Azure Communication Services](../../concepts/identity-model.md#microsoft-entra-id-integrating-with-entra-id)
-- [Tenancy in Microsoft Entra ID](https://learn.microsoft.com/entra/identity-platform/single-and-multi-tenant-apps)
+- [Tenancy in Microsoft Entra ID](/entra/identity-platform/single-and-multi-tenant-apps)

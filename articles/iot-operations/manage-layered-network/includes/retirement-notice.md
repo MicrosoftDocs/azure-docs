@@ -1,10 +1,10 @@
 ---
 title: Include file
 description: Layered network management retirement notice
-author: PatAltimore
+author: SoniaLopezBravo
 ms.topic: include
 ms.date: 06/16/2025
-ms.author: patricka
+ms.author: sonialopez
 ---
 
 > [!IMPORTANT]

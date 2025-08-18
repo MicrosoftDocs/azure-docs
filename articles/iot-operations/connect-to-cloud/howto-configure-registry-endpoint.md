@@ -1,8 +1,8 @@
 ---
 title: Configure Registry Endpoints in Azure IoT Operations (Preview)
 description: Learn how to configure registry endpoints for container registries in Azure IoT Operations data flow graphs.
-author: PatAltimore
-ms.author: patricka
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to

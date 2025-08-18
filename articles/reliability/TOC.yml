@@ -296,6 +296,8 @@ items:
       href: /azure/virtual-machines/disks-high-availability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Storage Mover
       href: reliability-azure-storage-mover.md
+    - name: Azure Table Storage
+      href: reliability-storage-table.md
   - name: Web
     items:
     - name: Azure AI Search

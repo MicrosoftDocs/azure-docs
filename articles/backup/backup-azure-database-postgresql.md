@@ -2,7 +2,7 @@
 title: Back Up Azure Database for PostgreSQL by Using the Azure Portal
 description: Learn how to back up Azure Database for PostgreSQL by using the Azure portal.
 ms.topic: how-to
-ms.date: 05/20/2025
+ms.date: 08/18/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -224,5 +224,6 @@ The Azure Backup service creates a job for scheduled backups or if you trigger a
 
 - Restore a PostgreSQL database using [Azure portal](restore-azure-database-postgresql.md).
 - Restore a PostgreSQL database using [Azure PowerShell](restore-postgresql-database-ps.md), [Azure CLI](restore-postgresql-database-cli.md), and [REST API](restore-postgresql-database-use-rest-api.md).
-- [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/)
-- [Troubleshoot PostgreSQL database backup by using Azure Backup](backup-azure-database-postgresql-troubleshoot.md)
+- [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/).
+- [Troubleshoot PostgreSQL database backup by using Azure Backup](backup-azure-database-postgresql-troubleshoot.md).
+- [Manage an Azure Database for PostgreSQL server by using the Azure portal](manage-azure-database-postgresql.md).

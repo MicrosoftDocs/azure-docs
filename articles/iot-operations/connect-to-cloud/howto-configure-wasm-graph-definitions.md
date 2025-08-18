@@ -1,8 +1,8 @@
 ---
 title: Configure WebAssembly Graph Definitions For Data Flow Graphs (Preview)
 description: Learn how to create and configure WebAssembly graph definitions that define data processing workflows for Azure IoT Operations data flow graphs.
-author: PatAltimore
-ms.author: patricka
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to

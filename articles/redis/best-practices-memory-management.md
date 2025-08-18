@@ -2,7 +2,6 @@
 title: Best practices for memory management for Azure Managed Redis
 description: Learn how to manage your Azure Managed Redis memory effectively with Azure Managed Redis.
 ms.date: 05/18/2025
-ms.service: azure-managed-redis
 ms.topic: conceptual
 ms.custom:
   - ignite-2024

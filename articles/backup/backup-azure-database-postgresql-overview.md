@@ -2,7 +2,7 @@
 title: Overview of Azure Database for PostgreSQL Backup
 description: Get an overview of the Azure Database for PostgreSQL backup solution.
 ms.topic: overview
-ms.date: 04/16/2025
+ms.date: 08/18/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -211,3 +211,4 @@ You can add new databases and database users to the server. For database users, 
 - [Create a backup policy for PostgreSQL databases using REST API](backup-azure-data-protection-use-rest-api-create-update-postgresql-policy.md).
 - [Configure backup for PostgreSQL databases using REST API](backup-azure-data-protection-use-rest-api-backup-postgresql.md).
 - [Restore for PostgreSQL databases using REST API](restore-postgresql-database-use-rest-api.md).
+- [Manage an Azure Database for PostgreSQL server by using the Azure portal](manage-azure-database-postgresql.md).

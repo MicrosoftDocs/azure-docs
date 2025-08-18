@@ -1,9 +1,9 @@
 ---
 title: Configure Layered Network Management (preview) to use Azure IoT Operations in an isolated network
 description: Configure Azure IoT Layered Network Management (preview) service to enable Azure IoT Operations in an isolated network.
-author: PatAltimore
+author: SoniaLopezBravo
 ms.subservice: layered-network-management
-ms.author: patricka
+ms.author: sonialopez
 ms.topic: how-to
 ms.custom:
   - ignite-2023

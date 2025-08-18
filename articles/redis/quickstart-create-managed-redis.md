@@ -2,7 +2,6 @@
 title: "Quickstart: Create a Managed Redis cache"
 description: In this quickstart, learn how to create an instance of Azure Managed Redis in use the Managed tier.
 ms.date: 05/18/2025
-ms.service: azure
 ms.topic: quickstart
 ms.custom:
   - mvc

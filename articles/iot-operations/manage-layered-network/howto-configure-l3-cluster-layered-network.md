@@ -1,9 +1,9 @@
 ---
 title: Configure level 3 cluster in an isolated network
 description: Prepare a level 3 cluster and connect it to the Azure IoT Layered Network Management (preview) service
-author: PatAltimore
+author: SoniaLopezBravo
 ms.subservice: layered-network-management
-ms.author: patricka
+ms.author: sonialopez
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
 ms.date: 12/12/2024
