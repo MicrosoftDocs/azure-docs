@@ -5,7 +5,7 @@ author: seligj95
 
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
-ms.date: 03/06/2024
+ms.date: 08/18/2025
 ms.author: jordanselig
 ms.custom: mvc, devx-track-arm-template
 ms.service: azure-app-service
@@ -19,7 +19,7 @@ Because App Service Environments are isolated to a single customer, there are ce
 
 If you do not have an App Service Environment, see [How to Create an App Service Environment v3](./creation.md).
 
-You can store App Service Environment customizations by using an array in the new **clusterSettings** attribute. This attribute is found in the "Properties" dictionary of the *hostingEnvironments* Azure Resource Manager entity.
+You can store App Service Environment customizations by using an array in the **clusterSettings** attribute. This attribute is found in the "Properties" dictionary of the *hostingEnvironments* Azure Resource Manager entity.
 
 The following abbreviated Resource Manager template snippet shows the **clusterSettings** attribute:
 
@@ -43,18 +43,7 @@ The following abbreviated Resource Manager template snippet shows the **clusterS
 }
 ```
 
-The **clusterSettings** attribute can be included in a Resource Manager template to update the App Service Environment.
-
-## Use Azure Resource Explorer to update an App Service Environment
-
-Alternatively, you can update the App Service Environment by using [Azure Resource Explorer](https://resources.azure.com).
-
-1. In Resource Explorer, go to the node for the App Service Environment (**subscriptions** > **{your Subscription}** > **resourceGroups** > **{your Resource Group}** > **providers** > **Microsoft.Web** > **hostingEnvironments**). Then click the specific App Service Environment that you want to update.
-2. In the right pane, click **Read/Write** in the upper toolbar to allow interactive editing in Resource Explorer.  
-3. Click the blue **Edit** button to make the Resource Manager template editable.
-4. Scroll to the bottom of the right pane. The **clusterSettings** attribute is at the very bottom, where you can enter or update its value.
-5. Type (or copy and paste) the array of configuration values you want in the **clusterSettings** attribute.  
-6. Click the green **PUT** button that's located at the top of the right pane to commit the change to the App Service Environment.
+The **clusterSettings** attribute can be included in a Resource Manager template or with the Azure CLI to update the App Service Environment. Certain settings are available in the Azure portal.
 
 However you submit the change, the change is not immediate and it can take up to 24 hours for the change to take full effect. Some settings have specific details on the time and impact of configuring the specific setting.
 
@@ -70,6 +59,10 @@ The App Service Environment operates as a black box system where you cannot see 
     }
 ],
 ```
+
+You can also enable internal encryption using the Azure portal by going to the **Configuration** page for your App Service Environment.
+
+:::image type="content" source="media/ase-portal-internal-encryption.png" alt-text="Screenshot of the Configuration page in the Azure portal for an App Service Environment showing where to enable internal encryption." border="false":::
 
 Setting InternalEncryption to true encrypts internal network traffic in your App Service Environment between the front ends and workers, encrypts the pagefile and also encrypts the worker disks. After the InternalEncryption clusterSetting is enabled, there can be an impact to your system performance. When you make the change to enable InternalEncryption, your App Service Environment will be in an unstable state until the change is fully propagated. Complete propagation of the change can take a few hours to complete, depending on how many instances you have in your App Service Environment. We highly recommend that you do not enable InternalEncryption on an App Service Environment while it is in use. If you need to enable InternalEncryption on an actively used App Service Environment, we highly recommend that you divert traffic to a backup environment until the operation completes.
 
@@ -89,6 +82,10 @@ If you want to disable all inbound TLS 1.0 and TLS 1.1 traffic for all of the ap
 ```
 
 The name of the setting says 1.0 but when configured, it disables both TLS 1.0 and TLS 1.1.
+
+You can also disable TLS 1.0 and TLS 1.1 using the Azure portal by going to the **Configuration** page for your App Service Environment and unchecking the checkbox.
+
+:::image type="content" source="media/ase-portal-disable-tls.png" alt-text="Screenshot of the Configuration page in the Azure portal for an App Service Environment showing where to disable TLS 1.0 and TLS 1.1." border="false":::
 
 ## Change TLS cipher suite order
 
