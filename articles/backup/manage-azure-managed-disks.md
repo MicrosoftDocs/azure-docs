@@ -27,11 +27,10 @@ To change the backup policy for Azure Disk, follow these steps:
 
 1. On the **Edit backup instance** pane, under **Policy**, select a new backup policy from the drop-down list, and then select **Validate**.
 
-   :::image type="content" source="./media/manage-azure-database-postgresql/change-policy.png" alt-text="Screenshot showing the option to change policy.":::
+   :::image type="content" source="./media/manage-azure-managed-disks/edit-backup-policy.png" alt-text="Screenshot shows the option to change the backup policy.":::
    
 1. After a successful validation, select **Apply**.
 
-   :::image type="content" source="./media/manage-azure-database-postgresql/reassign-policy.png" alt-text="Screenshot showing the option to reassign policy.":::
 
 > [!NOTE]
 >
