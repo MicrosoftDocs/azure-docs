@@ -1,16 +1,16 @@
 ---
-title: Handle large messages in workflows using chunking
+title: Handle Large Messages in Workflows Wsing Chunking
 description: Learn how to handle large messages using chunking in Azure Logic Apps and what constitutes a large message.
 services: logic-apps
 ms.suite: integration
 ms.topic: how-to
-ms.date: 08/15/2025
+ms.date: 08/18/2025
 #Customer intent: As an integration developer who works with Azure Logic Apps, I need to understand when and how to use chunking to support large messages.
 ---
 
 # Handle large messages in workflows using chunking in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 Azure Logic Apps has different maximum limits on the message content size that triggers and actions can handle in logic app workflows. The logic app resource type and the environment where that logic app workflow runs affect the limits. These limits help reduce any overhead that results from storing and processing large messages. For more information about message size limits, see [Message limits in Azure Logic Apps](logic-apps-limits-and-config.md#messages).
 
