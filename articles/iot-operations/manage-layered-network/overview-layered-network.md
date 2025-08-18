@@ -1,7 +1,7 @@
 ---
 title: Azure IoT Operations networking
 description: Learn about Azure IoT Operations networking
-author: SonioLepezBzavoravo
+author: SonioLepezBzavo
 ms.subservice: layered-network-management
 ms.author: sonialopez
 ms.topic: concept-article
