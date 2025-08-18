@@ -30,19 +30,19 @@ These are the data sources from which the UEBA engine collects and analyzes data
 | Microsoft Entra ID sign-in logs | Microsoft Entra ID | [SigninLogs](/azure/azure-monitor/reference/tables/signinlogs) | All sign-in events |
 | Microsoft Entra ID audit logs | Microsoft Entra ID | [AuditLogs](/azure/azure-monitor/reference/tables/auditlogs) | ApplicationManagement<br>DirectoryManagement<br>GroupManagement<br>Device<br>RoleManagement<br>UserManagementCategory |
 | Azure activity logs | Azure Activity | [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity) | Authorization<br>AzureActiveDirectory<br>Billing<br>Compute<br>Consumption<br>KeyVault<br>Devices<br>Network<br>Resources<br>Intune<br>Logic<br>Sql<br>Storage |
-| Windows security events | Windows Security Events via AMA<br>Security Events via Legacy Agent<br>Windows Forwarded Events | [WindowsEvent](/azure/azure-monitor/reference/tables/windowsevent)<br>[SecurityEvent](/azure/azure-monitor/reference/tables/securityevent) | **EventID** field:<br>4624: An account was successfully logged on<br>4625: An account failed to log on<br>4648: A logon was attempted using explicit credentials<br>4672: Special privileges assigned to new logon<br>4688: A new process has been created |
+| Windows security events | Windows Security Events via AMA<br>Windows Forwarded Events | [WindowsEvent](/azure/azure-monitor/reference/tables/windowsevent)<br>[SecurityEvent](/azure/azure-monitor/reference/tables/securityevent) | 4624: An account was successfully logged on<br>4625: An account failed to log on<br>4648: A logon was attempted using explicit credentials<br>4672: Special privileges assigned to new logon<br>4688: A new process has been created |
 | Office 365 | Office 365 | [OfficeActivity](/azure/azure-monitor/reference/tables/officeactivity) | All Office 365 activities |
 | Microsoft 365 Defender device file events | Microsoft 365 Defender | [DeviceFileEvents](/azure/azure-monitor/reference/tables/devicefileevents) | All device file events |
 | Microsoft Entra ID managed identity sign-in logs | Microsoft Entra ID | [AADManagedIdentitySignInLogs](/azure/azure-monitor/reference/tables/aadmanagedidentitysigninlogs) | All managed identity sign-in events |
 | Microsoft Entra ID service principal sign-in logs | Microsoft Entra ID | [AADServicePrincipalSignInLogs](/azure/azure-monitor/reference/tables/aadserviceprincipalsigninlogs) | All service principal sign-in events |
 | Microsoft 365 Defender device logon events | Microsoft 365 Defender | [DeviceLogonEvents](/azure/azure-monitor/reference/tables/devicelogonevents) | All device logon events |
 | AWS CloudTrail | AWS CloudTrail<br>AWS S3 | [AWSCloudTrail](/azure/azure-monitor/reference/tables/awscloudtrail) | All AWS CloudTrail events |
-| Okta Single Sign-On | Okta Single Sign-On | [Okta_CL](/azure/azure-monitor/reference/tables/okta_cl) | All Okta SSO events |
+| Okta Single Sign-On | Okta Single Sign-On | Okta_CL | All Okta single sign-on (SSO) events |
 | Google Cloud Platform audit logs | Google Cloud Platform Audit Logs | [GCPAuditLogs](/azure/azure-monitor/reference/tables/gcpauditlogs) | All GCP audit log events |
 
 ## UEBA enrichments
 
-This section describes the enrichments UEBA adds to Microsoft Sentinel entities, along with all their details, that you can use to focus and sharpen your security incident investigations. These enrichments are displayed on [entity pages](entity-pages.md#how-to-use-entity-pages) and can be found in the following Log Analytics tables, the contents and schema of which are listed below:
+This section describes the enrichments UEBA adds to Microsoft Sentinel entities, which you can use to focus and sharpen your security incident investigations. These enrichments are displayed on [entity pages](entity-pages.md#how-to-use-entity-pages) and can be found in the following Log Analytics tables, the contents and schema of which are listed below:
 
 - The **[BehaviorAnalytics](#behavioranalytics-table)** table is where UEBA's output information is stored.
 
