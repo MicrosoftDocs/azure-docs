@@ -78,12 +78,12 @@ If you don't specify availability zones when you create a container group, NGrou
 
 ### Region support
 
-Zonal container group deployments are supported in most regions where ACI is available for Linux and Windows Server 2019 container groups. For details, see [Regions and resource availability](/azure/container-instances/container-instances-region-availability). <!-- Need to confirm this -->
+Zonal container group deployments are supported in [all regions with availability zones](./regions-list.md).
 
 ### Requirements
 
+- Zonal deployments are available for Linux and Windows Server 2019 container groups.
 - To select an availability zone, you must use the Standard SKU. Zonal container groups aren't available with the Confidential SKU.
-- When you deploy a container groups that uses GPU resources, you need to select a zone that has the appropriate hardware available. Some zones might not support GPU resources. <!-- Confirm if we should mention given the feature is retired. -->
 
 ### Considerations
 
