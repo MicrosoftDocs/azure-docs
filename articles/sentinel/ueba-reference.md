@@ -25,12 +25,20 @@ This reference article lists the input data sources for the User and Entity Beha
 
 These are the data sources from which the UEBA engine collects and analyzes data to train its ML models and set behavioral baselines for users, devices, and other entities. UEBA then looks at data from these sources to find anomalies and glean insights.
 
-| Data source | Connector | Log Analytics table | Analyzed data |
-| ----------- | --------- | ----- | ------------- |
-| **Microsoft Entra ID**<br>Sign-in logs | Microsoft Entra ID | [SigninLogs](/azure/azure-monitor/reference/tables/signinlogs) | All sign-in events |
-| **Microsoft Entra ID**<br>Audit logs | Microsoft Entra ID | [AuditLogs](/azure/azure-monitor/reference/tables/auditlogs) | **Category** field:<br>ApplicationManagement<br>DirectoryManagement<br>GroupManagement<br>Device<br>RoleManagement<br>UserManagementCategory |
-| **Azure Activity logs** | Azure Activity | [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity) | **CategoryValue** field:<br>Authorization<br>AzureActiveDirectory<br>Billing<br>Compute<br>Consumption<br>KeyVault<br>Devices<br>Network<br>Resources<br>Intune<br>Logic<br>Sql<br>Storage |
-| **Windows Security events**<br>*WindowsEvent* or<br>*SecurityEvent* | Windows Security Events via AMA<br>Security Events via Legacy Agent | [WindowsEvent](/azure/azure-monitor/reference/tables/windowsevent)<br>[SecurityEvent](/azure/azure-monitor/reference/tables/securityevent) | **EventID** field:<br>4624: An account was successfully logged on<br>4625: An account failed to log on<br>4648: A logon was attempted using explicit credentials<br>4672: Special privileges assigned to new logon<br>4688: A new process has been created |
+| Data source | Connector | Log Analytics table | Analyzed log types |
+| ----------- | --------- | ------------------- | ------------------ |
+| Microsoft Entra ID sign-in logs | Microsoft Entra ID | [SigninLogs](/azure/azure-monitor/reference/tables/signinlogs) | All sign-in events |
+| Microsoft Entra ID audit logs | Microsoft Entra ID | [AuditLogs](/azure/azure-monitor/reference/tables/auditlogs) | ApplicationManagement<br>DirectoryManagement<br>GroupManagement<br>Device<br>RoleManagement<br>UserManagementCategory |
+| Azure activity logs | Azure Activity | [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity) | Authorization<br>AzureActiveDirectory<br>Billing<br>Compute<br>Consumption<br>KeyVault<br>Devices<br>Network<br>Resources<br>Intune<br>Logic<br>Sql<br>Storage |
+| Windows security events | Windows Security Events via AMA<br>Security Events via Legacy Agent<br>Windows Forwarded Events | [WindowsEvent](/azure/azure-monitor/reference/tables/windowsevent)<br>[SecurityEvent](/azure/azure-monitor/reference/tables/securityevent) | **EventID** field:<br>4624: An account was successfully logged on<br>4625: An account failed to log on<br>4648: A logon was attempted using explicit credentials<br>4672: Special privileges assigned to new logon<br>4688: A new process has been created |
+| Office 365 | Office 365 | [OfficeActivity](/azure/azure-monitor/reference/tables/officeactivity) | All Office 365 activities |
+| Microsoft 365 Defender device file events | Microsoft 365 Defender | [DeviceFileEvents](/azure/azure-monitor/reference/tables/devicefileevents) | All device file events |
+| Microsoft Entra ID managed identity sign-in logs | Microsoft Entra ID | [AADManagedIdentitySignInLogs](/azure/azure-monitor/reference/tables/aadmanagedidentitysigninlogs) | All managed identity sign-in events |
+| Microsoft Entra ID service principal sign-in logs | Microsoft Entra ID | [AADServicePrincipalSignInLogs](/azure/azure-monitor/reference/tables/aadserviceprincipalsigninlogs) | All service principal sign-in events |
+| Microsoft 365 Defender device logon events | Microsoft 365 Defender | [DeviceLogonEvents](/azure/azure-monitor/reference/tables/devicelogonevents) | All device logon events |
+| AWS CloudTrail | AWS CloudTrail<br>AWS S3 | [AWSCloudTrail](/azure/azure-monitor/reference/tables/awscloudtrail) | All AWS CloudTrail events |
+| Okta Single Sign-On | Okta Single Sign-On | [Okta_CL](/azure/azure-monitor/reference/tables/okta_cl) | All Okta SSO events |
+| Google Cloud Platform audit logs | Google Cloud Platform Audit Logs | [GCPAuditLogs](/azure/azure-monitor/reference/tables/gcpauditlogs) | All GCP audit log events |
 
 ## UEBA enrichments
 
