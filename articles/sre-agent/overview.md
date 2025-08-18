@@ -49,10 +49,6 @@ Azure SRE Agent serves as a virtual Site Reliability Engineer, helping you maint
 
     :::image type="content" source="media/overview/resources.png" alt-text="Screenshot of an SRE Agent knowledge graph." lightbox="media/overview/resources.png":::
 
-To see Azure SRE Agent in action, watch the following video:
-
-[TODO: demo video]
-
 ## Supported services
 
 While Azure SRE Agent can help monitor, maintain, and manage any Azure service, the agent features specialized tools for managing the following services:
