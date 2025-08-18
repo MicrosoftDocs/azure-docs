@@ -15,23 +15,26 @@ ms.author: radeltch
 
 # High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP applications
 
-[dbms-guide]: dbms-guide-general.md
-[deployment-guide]: deployment-guide.md
-[planning-guide]: planning-guide.md
-[2205917]: https://launchpad.support.sap.com/#/notes/2205917
-[1944799]: https://launchpad.support.sap.com/#/notes/1944799
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[2191498]: https://launchpad.support.sap.com/#/notes/2191498
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
-[1984787]: https://launchpad.support.sap.com/#/notes/1984787
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
-[1410736]: https://launchpad.support.sap.com/#/notes/1410736
-[suse-ha-guide]: https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/
-[suse-ha-12sp3-relnotes]: https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP3/
-[sap-hana-ha]: sap-hana-high-availability.md
-[nfs-ha]: high-availability-guide-suse-nfs.md
+[dbms-guide]:dbms-guide-general.md
+[deployment-guide]:deployment-guide.md
+[planning-guide]:planning-guide.md
+
+[2205917]:https://launchpad.support.sap.com/#/notes/2205917
+[1944799]:https://launchpad.support.sap.com/#/notes/1944799
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1984787]:https://launchpad.support.sap.com/#/notes/1984787
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[1410736]:https://launchpad.support.sap.com/#/notes/1410736
+
+[suse-ha-guide]:https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/
+[suse-ha-12sp3-relnotes]:https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP3/
+
+[sap-hana-ha]:sap-hana-high-availability.md
+[nfs-ha]:high-availability-guide-suse-nfs.md
 
 This article describes how to deploy the virtual machines, configure the virtual machines, install the cluster framework, and install a highly available SAP NetWeaver or SAP ABAP platform based system. In the example configurations, ASCS instance number 00, ERS instance number 02, and SAP System ID NW1 is used.
 
@@ -39,26 +42,26 @@ For new implementations on SLES for SAP Applications 15, we recommended deployin
 
 Read the following SAP Notes and papers first
 
-- SAP Note [1928533][1928533], which has:
-  - List of Azure VM sizes that are supported for the deployment of SAP software
-  - Important capacity information for Azure VM sizes
-  - Supported SAP software, and operating system (OS) and database combinations
-  - Required SAP kernel version for Windows and Linux on Microsoft Azure
-- SAP Note [2015553][2015553] lists prerequisites for SAP-supported SAP software deployments in Azure.
-- SAP Note [2205917][2205917] has recommended OS settings for SUSE Linux Enterprise Server for SAP Applications
-- SAP Note [1944799][1944799] has SAP HANA Guidelines for SUSE Linux Enterprise Server for SAP Applications
-- SAP Note [2178632][2178632] has detailed information about all monitoring metrics reported for SAP in Azure.
-- SAP Note [2191498][2191498] has the required SAP Host Agent version for Linux in Azure.
-- SAP Note [2243692][2243692] has information about SAP licensing on Linux in Azure.
-- SAP Note [1984787][1984787] has general information about SUSE Linux Enterprise Server 12.
-- SAP Note [1999351][1999351] has additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
-- [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
-- [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
-- [Azure Virtual Machines deployment for SAP on Linux][deployment-guide]
-- [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
-- [SUSE SAP HA Best Practice Guides][suse-ha-guide]
+* SAP Note [1928533][1928533], which has:
+  * List of Azure VM sizes that are supported for the deployment of SAP software
+  * Important capacity information for Azure VM sizes
+  * Supported SAP software, and operating system (OS) and database combinations
+  * Required SAP kernel version for Windows and Linux on Microsoft Azure
+* SAP Note [2015553][2015553] lists prerequisites for SAP-supported SAP software deployments in Azure.
+* SAP Note [2205917][2205917] has recommended OS settings for SUSE Linux Enterprise Server for SAP Applications
+* SAP Note [1944799][1944799] has SAP HANA Guidelines for SUSE Linux Enterprise Server for SAP Applications
+* SAP Note [2178632][2178632] has detailed information about all monitoring metrics reported for SAP in Azure.
+* SAP Note [2191498][2191498] has the required SAP Host Agent version for Linux in Azure.
+* SAP Note [2243692][2243692] has information about SAP licensing on Linux in Azure.
+* SAP Note [1984787][1984787] has general information about SUSE Linux Enterprise Server 12.
+* SAP Note [1999351][1999351] has additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
+* [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
+* [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
+* [Azure Virtual Machines deployment for SAP on Linux][deployment-guide]
+* [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
+* [SUSE SAP HA Best Practice Guides][suse-ha-guide]
   The guides contain all required information to set up Netweaver HA and SAP HANA System Replication on-premises. Use these guides as a general baseline. They provide much more detailed information.
-- [SUSE High Availability Extension 12 SP3 Release Notes][suse-ha-12sp3-relnotes]
+* [SUSE High Availability Extension 12 SP3 Release Notes][suse-ha-12sp3-relnotes]
 
 ## Overview
 
@@ -68,10 +71,10 @@ To achieve high availability, SAP NetWeaver requires an NFS server. The NFS serv
 
 The NFS server, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. We recommend using [Standard load balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md). The presented configuration shows a load balancer with:
 
-- Frontend IP address 10.0.0.7 for ASCS
-- Frontend IP address 10.0.0.8 for ERS
-- Probe port 62000 for ASCS
-- Probe port 62101 for ERS
+* Frontend IP address 10.0.0.7 for ASCS
+* Frontend IP address 10.0.0.8 for ERS
+* Probe port 62000 for ASCS
+* Probe port 62101 for ERS
 
 ## Setting up a highly available NFS server
 
@@ -79,9 +82,9 @@ The NFS server, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and th
 > We recommend deploying one of the Azure first-party NFS services: [NFS on Azure Files](../../storage/files/storage-files-quick-create-use-linux.md) or [NFS ANF volumes](../../azure-netapp-files/azure-netapp-files-create-volumes.md) for storing shared data in a highly available SAP system. Be aware that we are de-emphasizing SAP reference architectures, utilizing NFS clusters.  
 > The SAP configuration guides for SAP NW highly available SAP system with native NFS services are:
 >
-> - [High availability SAP NW on Azure VMs with simple mount and NFS on SLES for SAP Applications](./high-availability-guide-suse-nfs-simple-mount.md)
-> - [High availability for SAP NW on Azure VMs with NFS on Azure Files on SLES for SAP Applications](./high-availability-guide-suse-nfs-azure-files.md)
-> - [High availability for SAP NW on Azure VMs with NFS on Azure NetApp Files on SLES for SAP Applications](./high-availability-guide-suse-netapp-files.md)
+> * [High availability SAP NW on Azure VMs with simple mount and NFS on SLES for SAP Applications](./high-availability-guide-suse-nfs-simple-mount.md)
+> * [High availability for SAP NW on Azure VMs with NFS on Azure Files on SLES for SAP Applications](./high-availability-guide-suse-nfs-azure-files.md)
+> * [High availability for SAP NW on Azure VMs with NFS on Azure NetApp Files on SLES for SAP Applications](./high-availability-guide-suse-netapp-files.md)
 
 SAP NetWeaver requires shared storage for the transport and profile directory. Read [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server][nfs-ha] on how to set up an NFS server for SAP NetWeaver.
 
@@ -111,15 +114,15 @@ During VM configuration, you have an option to create or select exiting load bal
 
 [!INCLUDE [Configure Azure standard load balancer using PowerShell](../../../includes/sap-load-balancer-ascs-ers-powershell.md)]
 
----
+--- 
 
 > [!NOTE]
-> When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).
+> When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 > [!IMPORTANT]
 >
-> - Don't enable TCP time stamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set the `net.ipv4.tcp_timestamps` parameter to `0`. For details, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
-> - To prevent saptune from changing the manually set `net.ipv4.tcp_timestamps` value from `0` back to `1`, you should update saptune version to 3.1.1 or higher. For more details, see [saptune 3.1.1 – Do I Need to Update?](https://www.suse.com/c/saptune-3-1-1-do-i-need-to-update/).
+> * Don't enable TCP time stamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set the `net.ipv4.tcp_timestamps` parameter to `0`. For details, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
+> * To prevent saptune from changing the manually set `net.ipv4.tcp_timestamps` value from `0` back to `1`, you should update saptune version to 3.1.1 or higher. For more details, see [saptune 3.1.1 – Do I Need to Update?](https://www.suse.com/c/saptune-3-1-1-do-i-need-to-update/).
 
 ## Setting up (A)SCS
 
@@ -146,7 +149,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    ```bash
    sudo zypper info sap-suse-cluster-connector
-
+   
    Information for package sap-suse-cluster-connector:
    ---------------------------------------------------
    Repository     : SLE-12-SP3-SAP-Updates
@@ -162,7 +165,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    Summary        : SUSE High Availability Setup for SAP Products
    ```
 
-1. **[A]** Update SAP resource agents
+1. **[A]** Update SAP resource agents  
 
    A patch for the resource-agents package is required to use the new configuration that is described in this article. You can check, if the patch is already installed with the following command
 
@@ -192,7 +195,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    ```bash
    sudo vi /etc/hosts
-
+   
    # Insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment
    # IP address of the load balancer frontend configuration for NFS
    10.0.0.4 nw1-nfs
@@ -214,7 +217,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo mkdir -p /usr/sap/NW1/SYS
    sudo mkdir -p /usr/sap/NW1/ASCS00
    sudo mkdir -p /usr/sap/NW1/ERS02
-
+   
    sudo chattr +i /sapmnt/NW1
    sudo chattr +i /usr/sap/trans
    sudo chattr +i /usr/sap/NW1/SYS
@@ -226,7 +229,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    ```bash
    sudo vi /etc/auto.master
-
+   
    # Add the following line to the file, save and exit
    +auto.master
    /- /etc/auto.direct
@@ -236,7 +239,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    ```bash
    sudo vi /etc/auto.direct
-
+   
    # Add the following lines to the file, save and exit
    /sapmnt/NW1 -nfsvers=4,nosymlink,sync nw1-nfs:/NW1/sapmntsid
    /usr/sap/trans -nfsvers=4,nosymlink,sync nw1-nfs:/NW1/trans
@@ -302,27 +305,27 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    > Recent testing revealed situations, where netcat stops responding to requests due to backlog and its limitation of handling only one connection. The netcat resource stops listening to the Azure Load balancer requests and the floating IP becomes unavailable.  
    > For existing Pacemaker clusters, we recommended in the past replacing netcat with socat. Currently we recommend using azure-lb resource agent, which is part of package resource-agents, with the following package version requirements:
    >
-   > - For SLES 12 SP4/SP5, the version must be at least resource-agents-4.3.018.a7fb5035-3.30.1.
-   > - For SLES 15/15 SP1, the version must be at least resource-agents-4.3.0184.6ee15eb2-4.13.1.
+   > * For SLES 12 SP4/SP5, the version must be at least resource-agents-4.3.018.a7fb5035-3.30.1.  
+   > * For SLES 15/15 SP1, the version must be at least resource-agents-4.3.0184.6ee15eb2-4.13.1.  
    >
    > Note that the change will require brief downtime.  
    > For existing Pacemaker clusters, if the configuration was already changed to use socat as described in [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), there is no requirement to switch immediately to azure-lb resource agent.
 
    ```bash
    sudo crm node standby nw1-cl-1
-
+   
    sudo crm configure primitive fs_NW1_ASCS Filesystem device='nw1-nfs:/NW1/ASCS' directory='/usr/sap/NW1/ASCS00' fstype='nfs4' \
      op start timeout=60s interval=0 \
      op stop timeout=60s interval=0 \
      op monitor interval=20s timeout=40s
-
+   
    sudo crm configure primitive vip_NW1_ASCS IPaddr2 \
      params ip=10.0.0.7 \
      op monitor interval=10 timeout=20
-
+   
    sudo crm configure primitive nc_NW1_ASCS azure-lb port=62000 \
      op monitor timeout=20s interval=10
-
+   
    sudo crm configure group g-NW1_ASCS fs_NW1_ASCS nc_NW1_ASCS vip_NW1_ASCS \
       meta resource-stickiness=3000
    ```
@@ -331,12 +334,12 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    ```bash
    sudo crm_mon -r
-
+   
    # Node nw1-cl-1: standby
    # Online: [ nw1-cl-0 ]
-   #
+   # 
    # Full list of resources:
-   #
+   # 
    # stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
    #  Resource Group: g-NW1_ASCS
    #      fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
@@ -344,7 +347,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
    ```
 
-1. **[1]** Install SAP NetWeaver ASCS
+1. **[1]** Install SAP NetWeaver ASCS  
 
    Install SAP NetWeaver ASCS as root on the first node using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ASCS, for example **nw1-ascs**, **10.0.0.7** and the instance number that you used for the probe of the load balancer, for example **00**.
 
@@ -366,19 +369,19 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    ```bash
    sudo crm node online nw1-cl-1
    sudo crm node standby nw1-cl-0
-
+   
    sudo crm configure primitive fs_NW1_ERS Filesystem device='nw1-nfs:/NW1/ASCSERS' directory='/usr/sap/NW1/ERS02' fstype='nfs4' \
      op start timeout=60s interval=0 \
      op stop timeout=60s interval=0 \
      op monitor interval=20s timeout=40s
-
+   
    sudo crm configure primitive vip_NW1_ERS IPaddr2 \
      params ip=10.0.0.8 \
      op monitor interval=10 timeout=20
-
+   
    sudo crm configure primitive nc_NW1_ERS azure-lb port=62102 \
      op monitor timeout=20s interval=10
-
+   
    sudo crm configure group g-NW1_ERS fs_NW1_ERS nc_NW1_ERS vip_NW1_ERS
    ```
 
@@ -386,10 +389,10 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    ```bash
    sudo crm_mon -r
-
+   
    # Node nw1-cl-0: standby
    # Online: [ nw1-cl-1 ]
-   #
+   # 
    # Full list of resources:
    #
    # stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
@@ -425,38 +428,38 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[1]** Adapt the ASCS/SCS and ERS instance profiles
 
-   - ASCS/SCS profile
+   * ASCS/SCS profile
 
      ```bash
      sudo vi /sapmnt/NW1/profile/NW1_ASCS00_nw1-ascs
-
+     
      # Change the restart command to a start command
      #Restart_Program_01 = local $(_EN) pf=$(_PF)
      Start_Program_01 = local $(_EN) pf=$(_PF)
-
+     
      # Add the following lines
      service/halib = $(DIR_EXECUTABLE)/saphascriptco.so
      service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
-
+     
      # Add the keep alive parameter, if using ENSA1
      enque/encni/set_so_keepalive = TRUE
      ```
 
      For both ENSA1 and ENSA2, make sure that the `keepalive` OS parameters are set as described in SAP note [1410736](https://launchpad.support.sap.com/#/notes/1410736).
 
-   - ERS profile
+   * ERS profile
 
      ```bash
      sudo vi /sapmnt/NW1/profile/NW1_ERS02_nw1-aers
-
+     
      # Change the restart command to a start command
      #Restart_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
      Start_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
-
+     
      # Add the following lines
      service/halib = $(DIR_EXECUTABLE)/saphascriptco.so
      service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
-
+     
      # remove Autostart from ERS profile
      # Autostart = 1
      ```
@@ -513,29 +516,29 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    ```bash
    sudo crm configure property maintenance-mode="true"
-
+   
    sudo crm configure primitive rsc_sap_NW1_ASCS00 SAPInstance \
      operations \$id=rsc_sap_NW1_ASCS00-operations \
      op monitor interval=11 timeout=60 on-fail=restart \
      params InstanceName=NW1_ASCS00_nw1-ascs START_PROFILE="/sapmnt/NW1/profile/NW1_ASCS00_nw1-ascs" \
      AUTOMATIC_RECOVER=false \
      meta resource-stickiness=5000 failure-timeout=60 migration-threshold=1 priority=10
-
+   
    sudo crm configure primitive rsc_sap_NW1_ERS02 SAPInstance \
      operations \$id=rsc_sap_NW1_ERS02-operations \
      op monitor interval=11 timeout=60 on-fail=restart \
      params InstanceName=NW1_ERS02_nw1-aers START_PROFILE="/sapmnt/NW1/profile/NW1_ERS02_nw1-aers" AUTOMATIC_RECOVER=false IS_ERS=true \
      meta priority=1000
-
+   
    sudo crm configure modgroup g-NW1_ASCS add rsc_sap_NW1_ASCS00
    sudo crm configure modgroup g-NW1_ERS add rsc_sap_NW1_ERS02
-
+   
    sudo crm configure colocation col_sap_NW1_no_both -5000: g-NW1_ERS g-NW1_ASCS
    sudo crm configure location loc_sap_NW1_failover_to_ers rsc_sap_NW1_ASCS00 rule 2000: runs_ers_NW1 eq 1
    sudo crm configure order ord_sap_NW1_first_start_ascs Optional: rsc_sap_NW1_ASCS00:start rsc_sap_NW1_ERS02:stop symmetrical=false
 
    sudo crm_attribute --delete --name priority-fencing-delay
-
+   
    sudo crm node online nw1-cl-0
    sudo crm configure property maintenance-mode="false"
    ```
@@ -549,32 +552,32 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    ```bash
    sudo crm configure property maintenance-mode="true"
-
+   
    sudo crm configure property priority-fencing-delay=30
-
+   
    sudo crm configure primitive rsc_sap_NW1_ASCS00 SAPInstance \
      operations \$id=rsc_sap_NW1_ASCS00-operations \
      op monitor interval=11 timeout=60 on-fail=restart \
      params InstanceName=NW1_ASCS00_nw1-ascs START_PROFILE="/sapmnt/NW1/profile/NW1_ASCS00_nw1-ascs" \
      AUTOMATIC_RECOVER=false \
      meta resource-stickiness=5000 priority=100
-
+   
    sudo crm configure primitive rsc_sap_NW1_ERS02 SAPInstance \
      operations \$id=rsc_sap_NW1_ERS02-operations \
      op monitor interval=11 timeout=60 on-fail=restart \
-     params InstanceName=NW1_ERS02_nw1-aers START_PROFILE="/sapmnt/NW1/profile/NW1_ERS02_nw1-aers" AUTOMATIC_RECOVER=false IS_ERS=true
-
+     params InstanceName=NW1_ERS02_nw1-aers START_PROFILE="/sapmnt/NW1/profile/NW1_ERS02_nw1-aers" AUTOMATIC_RECOVER=false IS_ERS=true 
+   
    sudo crm configure modgroup g-NW1_ASCS add rsc_sap_NW1_ASCS00
    sudo crm configure modgroup g-NW1_ERS add rsc_sap_NW1_ERS02
-
+   
    sudo crm configure colocation col_sap_NW1_no_both -5000: g-NW1_ERS g-NW1_ASCS
    sudo crm configure order ord_sap_NW1_first_start_ascs Optional: rsc_sap_NW1_ASCS00:start rsc_sap_NW1_ERS02:stop symmetrical=false
-
+   
    sudo crm node online nw1-cl-0
    sudo crm configure property maintenance-mode="false"
    ```
 
-   ***
+    ---
 
 If you're upgrading from an older version and switching to enqueue server 2, see SAP note [2641019](https://launchpad.support.sap.com/#/notes/2641019).
 
@@ -582,7 +585,7 @@ Make sure that the cluster status is ok and that all resources are started. It i
 
 ```bash
 sudo crm_mon -r
-
+ 
 # Online: [ nw1-cl-0 nw1-cl-1 ]
 #
 # Full list of resources:
@@ -612,7 +615,7 @@ The steps below assume that you install the application server on a server diffe
 
    ```bash
    sudo vi /etc/sysctl.conf
-
+   
    # Change/set the following settings
    vm.dirty_bytes = 629145600
    vm.dirty_background_bytes = 314572800
@@ -648,7 +651,7 @@ The steps below assume that you install the application server on a server diffe
    ```bash
    sudo mkdir -p /sapmnt/NW1
    sudo mkdir -p /usr/sap/trans
-
+   
    sudo chattr +i /sapmnt/NW1
    sudo chattr +i /usr/sap/trans
    ```
@@ -657,7 +660,7 @@ The steps below assume that you install the application server on a server diffe
 
    ```bash
    sudo vi /etc/auto.master
-
+   
    # Add the following line to the file, save and exit
    +auto.master
    /- /etc/auto.direct
@@ -667,7 +670,7 @@ The steps below assume that you install the application server on a server diffe
 
    ```bash
    sudo vi /etc/auto.direct
-
+   
    # Add the following lines to the file, save and exit
    /sapmnt/NW1 -nfsvers=4,nosymlink,sync nw1-nfs:/NW1/sapmntsid
    /usr/sap/trans -nfsvers=4,nosymlink,sync nw1-nfs:/NW1/trans
@@ -684,11 +687,11 @@ The steps below assume that you install the application server on a server diffe
 
    ```bash
    sudo vi /etc/waagent.conf
-
+   
    # Set the property ResourceDisk.EnableSwap to y
    # Create and use swapfile on resource disk.
    ResourceDisk.EnableSwap=y
-
+   
    # Set the size of the SWAP file with property ResourceDisk.SwapSizeMB
    # The free space of resource disk varies by virtual machine size. Make sure that you do not set a value that is too big. You can check the SWAP space with command swapon
    # Size of the swapfile.
@@ -748,7 +751,7 @@ Follow these steps to install an SAP application server.
    ```text
    DATA FILE       : /home/nw1adm/.hdb/nw1-di-0/SSFS_HDB.DAT
    KEY FILE        : /home/nw1adm/.hdb/nw1-di-0/SSFS_HDB.KEY
-
+   
    KEY DEFAULT
      ENV : 10.0.0.14:30313
      USER: SAPABAP1
@@ -772,7 +775,7 @@ The following tests are a copy of the test cases in the best practices guides of
 
    ```bash
    nw1-cl-0:nw1adm 54> sapcontrol -nr 00 -function HAGetFailoverConfig
-
+   
    # 15.08.2018 13:50:36
    # HAGetFailoverConfig
    # OK
@@ -782,9 +785,9 @@ The following tests are a copy of the test cases in the best practices guides of
    # HADocumentation: https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/
    # HAActiveNode:
    # HANodes: nw1-cl-0, nw1-cl-1
-
+   
    nw1-cl-0:nw1adm 55> sapcontrol -nr 00 -function HACheckConfig
-
+   
    # 15.08.2018 14:00:04
    # HACheckConfig
    # OK
@@ -810,9 +813,9 @@ The following tests are a copy of the test cases in the best practices guides of
    # SUCCESS, SAP CONFIGURATION, SAPInstance RA sufficient version (nw1-ascs_NW1_00), SAPInstance includes is-ers patch
    # SUCCESS, SAP CONFIGURATION, Enqueue replication (nw1-ascs_NW1_00), Enqueue replication enabled
    # SUCCESS, SAP STATE, Enqueue replication state (nw1-ascs_NW1_00), Enqueue replication active
-
+   
    nw1-cl-0:nw1adm 56> sapcontrol -nr 00 -function HACheckFailoverConfig
-
+   
    # 15.08.2018 14:04:08
    # HACheckFailoverConfig
    # OK
@@ -843,10 +846,10 @@ The following tests are a copy of the test cases in the best practices guides of
    ```bash
    nw1-cl-0:~ # crm resource migrate rsc_sap_NW1_ASCS00 force
    # INFO: Move constraint created for rsc_sap_NW1_ASCS00
-
+   
    nw1-cl-0:~ # crm resource unmigrate rsc_sap_NW1_ASCS00
    # INFO: Removed migration constraints for rsc_sap_NW1_ASCS00
-
+   
    # Remove failed actions for the ERS that occurred as part of the migration
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
    ```
@@ -889,7 +892,7 @@ The following tests are a copy of the test cases in the best practices guides of
 
    ```bash
    nw1-cl-0:nw1adm 55> sapcontrol -nr 00 -host nw1-ascs -user nw1adm <password> -function HAFailoverToNode ""
-
+   
    # run as root
    # Remove failed actions for the ERS that occurred as part of the migration
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
@@ -943,9 +946,9 @@ The following tests are a copy of the test cases in the best practices guides of
    ```bash
    Online: [ nw1-cl-1 ]
    OFFLINE: [ nw1-cl-0 ]
-
+   
    Full list of resources:
-
+   
    stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
         fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
@@ -957,7 +960,7 @@ The following tests are a copy of the test cases in the best practices guides of
         nc_NW1_ERS (ocf::heartbeat:azure-lb):      Started nw1-cl-1
         vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
-
+   
    Failed Actions:
    * rsc_sap_NW1_ERS02_monitor_11000 on nw1-cl-1 'not running' (7): call=219, status=complete, exitreason='none',
        last-rc-change='Wed Aug 15 14:38:38 2018', queued=0ms, exec=0ms
@@ -970,9 +973,9 @@ The following tests are a copy of the test cases in the best practices guides of
    # list the SBD device(s)
    nw1-cl-0:~ # cat /etc/sysconfig/sbd | grep SBD_DEVICE=
    # SBD_DEVICE="/dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116;/dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1;/dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3"
-
+   
    nw1-cl-0:~ # sbd -d /dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116 -d /dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1 -d /dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3 message nw1-cl-0 clear
-
+   
    nw1-cl-0:~ # systemctl start pacemaker
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ASCS00
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
@@ -1152,7 +1155,7 @@ The following tests are a copy of the test cases in the best practices guides of
    Run the following commands as root on the node where the ASCS instance is running to kill the enqueue server.
 
    ```bash
-   nw1-cl-0:~ #
+   nw1-cl-0:~ # 
    #If using ENSA1
    pgrep -f en.sapNW1 | xargs kill -9
    #If using ENSA2
@@ -1251,7 +1254,7 @@ The following tests are a copy of the test cases in the best practices guides of
    ```bash
    nw1-cl-1:~ # pgrep -fl ASCS00.*sapstartsrv
    # 59545 sapstartsrv
-
+   
    nw1-cl-1:~ # kill -9 59545
    ```
 
@@ -1273,8 +1276,8 @@ The following tests are a copy of the test cases in the best practices guides of
 
 ## Next steps
 
-- [HA for SAP NW on Azure VMs on SLES for SAP applications multi-SID guide](./high-availability-guide-suse-multi-sid.md)
-- [Azure Virtual Machines planning and implementation for SAP][planning-guide]
-- [Azure Virtual Machines deployment for SAP][deployment-guide]
-- [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]
-- To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure VMs, see [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha]
+* [HA for SAP NW on Azure VMs on SLES for SAP applications multi-SID guide](./high-availability-guide-suse-multi-sid.md)
+* [Azure Virtual Machines planning and implementation for SAP][planning-guide]
+* [Azure Virtual Machines deployment for SAP][deployment-guide]
+* [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]
+* To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure VMs, see [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha]
