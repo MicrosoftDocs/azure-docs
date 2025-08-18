@@ -102,7 +102,7 @@ You can also upload a file by using a wildcard symbol (*) anywhere in the file p
 #### [Azure Files NFS](#tab/nfs-uploadfile)
 
 ```azcopy
-azcopy copy '/myDirectory/myTextFile.txt' 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D' --preserve-permissions=true --preserve-info=true --nfs
+azcopy copy '/myDirectory/myTextFile.txt' 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?[SAS]' --preserve-permissions=true --preserve-info=true --from-to=LocalFileNFS
 ```
 
 You can also upload a file by using a wildcard symbol (*) anywhere in the file path or file name. For example: `'/myDirectory/*.txt'`.
@@ -129,7 +129,7 @@ azcopy copy 'C:\myDirectory' 'https://mystorageaccount.file.core.windows.net/myf
 #### [Azure Files NFS](#tab/nfs-uploaddirectory)
 
 ```azcopy
-azcopy copy '/myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D' --recursive --preserve-permissions=true --preserve-info=true --nfs
+azcopy copy '/myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare?[SAS]' --recursive --preserve-permissions=true --preserve-info=true --from-to=LocalFileNFS
 ```
 
 ---
@@ -147,7 +147,7 @@ azcopy copy 'C:\myDirectory' 'https://mystorageaccount.file.core.windows.net/myf
 #### [Azure Files NFS](#tab/nfs-uploaddirectorynew)
 
 ```azcopy
-azcopy copy '/myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D' --recursive --preserve-permissions=true --preserve-info=true --nfs
+azcopy copy '/myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?[SAS]' --recursive --preserve-permissions=true --preserve-info=true --from-to=LocalFileNFS
 ```
 
 ---
@@ -173,7 +173,7 @@ azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.file.core.windows.net/m
 #### [Azure Files NFS](#tab/nfs-uploaddirectorycontents)
 
 ```azcopy
-azcopy copy '/myDirectory/*' 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D' --preserve-permissions=true --preserve-info=true --nfs
+azcopy copy '/myDirectory/*' 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?[SAS]' --preserve-permissions=true --preserve-info=true --from-to=LocalFileNFS
 ```
 
 ---
@@ -206,7 +206,7 @@ In this example, AzCopy transfers the `C:\myDirectory\photos` directory and the 
 #### [Azure Files NFS](#tab/nfs-uploadspecificfiles)
 
 ```azcopy
-azcopy copy '/myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare?[SAS]' --include-path 'photos;documents/myFile.txt' --preserve-permissions=true --preserve-info=true --nfs
+azcopy copy '/myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare?[SAS]' --include-path 'photos;documents/myFile.txt' --preserve-permissions=true --preserve-info=true --from-to=LocalFileNFS
 ```
 
 In this example, AzCopy transfers the `/myDirectory/photos` directory and the `/myDirectory/documents/myFile.txt` file. You need to include the `--recursive` option to transfer all files in the `/myDirectory/photos` directory.
@@ -234,7 +234,7 @@ azcopy copy 'C:\myDirectory' 'https://mystorageaccount.file.core.windows.net/myf
 #### [Azure Files NFS](#tab/nfs-usewildcard)
 
 ```azcopy
-azcopy copy '/myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare?[SAS]' --include-pattern 'myFile*.txt;*.pdf*' --preserve-permissions=true --preserve-info=true --nfs
+azcopy copy '/myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileshare?[SAS]' --include-pattern 'myFile*.txt;*.pdf*' --preserve-permissions=true --preserve-info=true --from-to=LocalFileNFS
 ```
 
 ---
@@ -262,7 +262,7 @@ azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.file.core.windows.net/m
 #### [Azure Files NFS](#tab/nfs-uploaddatetime)
 
 ```azcopy
-azcopy copy '/myDirectory/*' 'https://mystorageaccount.file.core.windows.net/myfileshare?[SAS]' --include-after '2020-08-19T15:04:00Z' --preserve-permissions=true --preserve-info=true --nfs
+azcopy copy '/myDirectory/*' 'https://mystorageaccount.file.core.windows.net/myfileshare?[SAS]' --include-after '2020-08-19T15:04:00Z' --preserve-permissions=true --preserve-info=true --from-to=LocalFileNFS
 ```
 
 ---
@@ -316,7 +316,7 @@ azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFi
 #### [Azure Files NFS](#tab/nfs-downloadfile)
 
 ```azcopy
-azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?[SAS]' '/myDirectory/myTextFile.txt' --preserve-permissions=true --preserve-info=true --nfs
+azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?[SAS]' '/myDirectory/myTextFile.txt' --preserve-permissions=true --preserve-info=true --from-to=FileNFSLocal
 ```
 
 ---
@@ -340,7 +340,7 @@ This example results in a directory named `C:\myDirectory\myFileShareDirectory` 
 #### [Azure Files NFS](#tab/nfs-downloaddirectory)
 
 ```azcopy
-azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?[SAS]' '/myDirectory'  --recursive --preserve-permissions=true --preserve-info=true --nfs
+azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?[SAS]' '/myDirectory'  --recursive --preserve-permissions=true --preserve-info=true --from-to=FileNFSLocal
 ```
 
 This example results in a directory named `/myDirectory/myFileShareDirectory` that contains all of the downloaded files.
@@ -366,7 +366,7 @@ azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileSh
 #### [Azure Files NFS](#tab/nfs-downloaddirectorycontent)
 
 ```azcopy
-azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory/*?[SAS]' '/myDirectory' --preserve-permissions=true --preserve-info=true --nfs
+azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory/*?[SAS]' '/myDirectory' --preserve-permissions=true --preserve-info=true --from-to=FileNFSLocal
 ```
 
 ---
@@ -397,7 +397,7 @@ azcopy copy 'https://mystorageaccount.file.core.windows.net/myFileShare/myDirect
 #### [Azure Files NFS](#tab/nfs-downloadspecificfiles)
 
 ```azcopy
-azcopy copy 'https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory?[SAS]' '/myDirectory'  --include-path 'photos;documents\myFile.txt' --recursive --preserve-permissions=true --preserve-info=true --nfs
+azcopy copy 'https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory?[SAS]' '/myDirectory'  --include-path 'photos;documents\myFile.txt' --recursive --preserve-permissions=true --preserve-info=true --from-to=FileNFSLocal
 ```
 
 ---
@@ -425,7 +425,7 @@ azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myDirect
 #### [Azure Files NFS](#tab/nfs-downloadwildcard)
 
 ```azcopy
-azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myDirectory?[SAS]' '/myDirectory'  --include-pattern 'myFile*.txt;*.pdf*' --preserve-permissions=true --preserve-info=true --nfs
+azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myDirectory?[SAS]' '/myDirectory'  --include-pattern 'myFile*.txt;*.pdf*' --preserve-permissions=true --preserve-info=true --from-to=FileNFSLocal
 ```
 
 ---
@@ -453,7 +453,7 @@ azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/*?[SAS]'
 #### [Azure Files NFS](#tab/nfs-downloaddatetime)
 
 ```azcopy
-azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/*?[SAS]' '/myDirectory' --include-after '2020-08-19T15:04:00Z' --preserve-permissions=true --preserve-info=true --nfs
+azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/*?[SAS]' '/myDirectory' --include-after '2020-08-19T15:04:00Z' --preserve-permissions=true --preserve-info=true --from-to=FileNFSLocal
 ```
 
 ---
@@ -481,7 +481,7 @@ azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFi
 #### [Azure Files NFS](#tab/nfs-downloadsnapshotfile)
 
 ```azcopy
-azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?[SAS]' '/myDirectory/myTextFile.txt' --preserve-permissions=true --preserve-info=true --nfs
+azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?[SAS]' '/myDirectory/myTextFile.txt' --preserve-permissions=true --preserve-info=true --from-to=FileNFSLocal
 ```
 
 ---
@@ -499,7 +499,7 @@ azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileSh
 #### [Azure Files NFS](#tab/nfs-downloadsnapshotdirectory)
 
 ```azcopy
-azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?[SAS]' '/myDirectory'  --recursive --preserve-permissions=true --preserve-info=true --nfs
+azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?[SAS]' '/myDirectory'  --recursive --preserve-permissions=true --preserve-info=true --from-to=FileNFSLocal
 ```
 
 ---
@@ -552,7 +552,7 @@ azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer/myTextFil
 #### [Azure Files NFS](#tab/nfs-copyfiletoaccount)
 
 ```azcopy
-azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer/myTextFile.txt?[SAS]' 'https://mydestinationaccount.file.core.windows.net/mycontainer/myTextFile.txt?[SAS]' --preserve-permissions=true --preserve-info=true --nfs
+azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer/myTextFile.txt?[SAS]' 'https://mydestinationaccount.file.core.windows.net/mycontainer/myTextFile.txt?[SAS]' --preserve-permissions=true --preserve-info=true --from-to=FileNFSFileNFS
 ```
 
 ---
@@ -569,7 +569,7 @@ azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer/myTextFil
 #### [Azure Files NFS](#tab/nfs-copyfilesnapshottoaccount)
 
 ```azcopy
-azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer/myTextFile.txt?[SAS]&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'https://mydestinationaccount.file.core.windows.net/mycontainer/myTextFile.txt?[SAS]' --preserve-permissions=true --preserve-info=true --nfs
+azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer/myTextFile.txt?[SAS]&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'https://mydestinationaccount.file.core.windows.net/mycontainer/myTextFile.txt?[SAS]' --preserve-permissions=true --preserve-info=true --from-to=FileNFSFileNFS
 ```
 
 ---
@@ -593,7 +593,7 @@ azcopy copy 'https://mysourceaccount.file.core.windows.net/myFileShare/myFileDir
 #### [Azure Files NFS](#tab/nfs-copydirectorytoaccount)
 
 ```azcopy
-azcopy copy 'https://mysourceaccount.file.core.windows.net/myFileShare/myFileDirectory?[SAS]' 'https://mydestinationaccount.file.core.windows.net/mycontainer?[SAS]' --recursive --preserve-permissions=true --preserve-info=true --nfs
+azcopy copy 'https://mysourceaccount.file.core.windows.net/myFileShare/myFileDirectory?[SAS]' 'https://mydestinationaccount.file.core.windows.net/mycontainer?[SAS]' --recursive --preserve-permissions=true --preserve-info=true --from-to=FileNFSFileNFS
 ```
 
 ---
@@ -611,7 +611,7 @@ azcopy copy 'https://mysourceaccount.file.core.windows.net/myFileShare/myFileDir
 #### [Azure Files NFS](#tab/nfs-copydirectorysharesnapshottoaccount)
 
 ```azcopy
-azcopy copy 'https://mysourceaccount.file.core.windows.net/myFileShare/myFileDirectory?[SAS]&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'https://mydestinationaccount.file.core.windows.net/mycontainer?[SAS]' --recursive --preserve-permissions=true --preserve-info=true --nfs
+azcopy copy 'https://mysourceaccount.file.core.windows.net/myFileShare/myFileDirectory?[SAS]&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'https://mydestinationaccount.file.core.windows.net/mycontainer?[SAS]' --recursive --preserve-permissions=true --preserve-info=true --from-to=FileNFSFileNFS
 ```
 
 ---
@@ -635,7 +635,7 @@ azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer?[SAS]' 'h
 #### [Azure Files NFS](#tab/nfs-copysharestoaccount)
 
 ```azcopy
-azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer?[SAS]' 'https://mydestinationaccount.file.core.windows.net/mycontainer?[SAS] --preserve-permissions=true --preserve-info=true --nfs
+azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer?[SAS]' 'https://mydestinationaccount.file.core.windows.net/mycontainer?[SAS] --preserve-permissions=true --preserve-info=true --from-to=FileNFSFileNFS
 ```
 
 ---
@@ -652,7 +652,7 @@ azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer?[SAS]&sha
 #### [Azure Files NFS](#tab/nfs-copysharesnapshottoaccount)
 
 ```azcopy
-azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer?[SAS]&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'https://mydestinationaccount.file.core.windows.net/mycontainer?[SAS]' --recursive --preserve-permissions=true --preserve-info=true --nfs
+azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer?[SAS]&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'https://mydestinationaccount.file.core.windows.net/mycontainer?[SAS]' --recursive --preserve-permissions=true --preserve-info=true --from-to=FileNFSFileNFS
 ```
 
 ---
@@ -675,7 +675,7 @@ azcopy copy 'https://mysourceaccount.file.core.windows.net?[SAS]' 'https://mydes
 #### [Azure Files NFS](#tab/nfs-copyaccounttoaccount)
 
 ```azcopy
-azcopy copy 'https://mysourceaccount.file.core.windows.net?[SAS]' 'https://mydestinationaccount.file.core.windows.net?[SAS]' --recursive --preserve-permissions=true --preserve-info=true --nfs
+azcopy copy 'https://mysourceaccount.file.core.windows.net?[SAS]' 'https://mydestinationaccount.file.core.windows.net?[SAS]' --recursive --preserve-permissions=true --preserve-info=true --from-to=FileNFSFileNFS
 ```
 
 ---
@@ -690,7 +690,7 @@ azcopy copy 'https://mysourceaccount.file.core.windows.net?[SAS]&sharesnapshot=2
 ```
 #### [Azure Files NFS](#tab/nfs-copyaccountsnapshottoaccount)
 ```azcopy
-azcopy copy 'https://mysourceaccount.file.core.windows.net?[SAS]&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'https://mydestinationaccount.file.core.windows.net?[SAS]' --recursive --preserve-permissions=true --preserve-info=true --nfs
+azcopy copy 'https://mysourceaccount.file.core.windows.net?[SAS]&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'https://mydestinationaccount.file.core.windows.net?[SAS]' --recursive --preserve-permissions=true --preserve-info=true --from-to=FileNFSFileNFS
 ```
 
 ---
@@ -741,7 +741,7 @@ azcopy sync 'C:\myDirectory' 'https://mystorageaccount.file.core.windows.net/myf
 ```
 #### [Azure Files NFS](#tab/nfs-synclocaltoaccount)
 ```azcopy
-azcopy sync 'C:\myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileShare?[SAS]' --recursive --nfs
+azcopy sync '/myDirectory' 'https://mystorageaccount.file.core.windows.net/myfileShare?[SAS]' --recursive --from-to=LocalFileNFS
 ```
 
 ---
@@ -767,7 +767,7 @@ azcopy sync 'https://mystorageaccount.file.core.windows.net/myfileShare?[SAS]' '
 ```
 #### [Azure Files NFS](#tab/nfs-syncaccounttolocal)
 ```azcopy
-azcopy sync 'https://mystorageaccount.file.core.windows.net/myfileShare?[SAS]' 'C:\myDirectory' --recursive --nfs
+azcopy sync 'https://mystorageaccount.file.core.windows.net/myfileShare?[SAS]' '/myDirectory' --recursive --from-to=FileNFSLocal
 ```
 
 ---
@@ -790,7 +790,7 @@ azcopy sync 'https://mysourceaccount.file.core.windows.net/myfileShare?[SAS]' 'h
 ```
 #### [Azure Files NFS](#tab/nfs-syncaccounts)
 ```azcopy
-azcopy sync 'https://mysourceaccount.file.core.windows.net/myfileShare?[SAS]' 'https://mydestinationaccount.file.core.windows.net/myfileshare?[SAS]' --recursive --preserve-permissions=true --preserve-info=true --nfs
+azcopy sync 'https://mysourceaccount.file.core.windows.net/myfileShare?[SAS]' 'https://mydestinationaccount.file.core.windows.net/myfileshare?[SAS]' --recursive --preserve-permissions=true --preserve-info=true --from-to=FileNFSFileNFS
 ```
 
 ---
@@ -813,7 +813,7 @@ azcopy sync 'https://mysourceaccount.file.core.windows.net/myFileShare/myDirecto
 ```
 #### [Azure Files NFS](#tab/nfs-syncdirectory)
 ```azcopy
-azcopy sync 'https://mysourceaccount.file.core.windows.net/myFileShare/myDirectory?[SAS]' 'https://mydestinationaccount.file.core.windows.net/myFileShare/myDirectory?[SAS]' --recursive --preserve-permissions=true --preserve-info=true --nfs
+azcopy sync 'https://mysourceaccount.file.core.windows.net/myFileShare/myDirectory?[SAS]' 'https://mydestinationaccount.file.core.windows.net/myFileShare/myDirectory?[SAS]' --recursive --preserve-permissions=true --preserve-info=true --from-to=FileNFSFileNFS)
 ```
 
 ---
