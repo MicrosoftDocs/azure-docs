@@ -210,6 +210,48 @@ Make these replacements in the code:
 
 To send the email message, call the `beginSend` function from the `EmailClient`.
 
+## [Async Client](#tab/async-client)
+
+Calling `beginSend` on the async client returns a `PollerFlux` object to which you can subscribe. The callbacks defined in the subscribe method are triggered once the email sending operation is complete. **Note that the initial request to send an email will not be sent until a subscriber is set up.**
+
+```java
+Duration MAIN_THREAD_WAIT_TIME = Duration.ofSeconds(30);
+
+// ExecutorService to run the polling in a separate thread
+ExecutorService executorService = Executors.newSingleThreadExecutor();
+
+PollerFlux<EmailSendResult, EmailSendResult> poller = emailAsyncClient.beginSend(emailMessage);
+
+executorService.submit(() -> {
+    // The initial request is sent out as soon as we subscribe the to PollerFlux object
+    poller.subscribe(
+        response -> {
+            if (response.getStatus() == LongRunningOperationStatus.SUCCESSFULLY_COMPLETED) {
+                System.out.printf("Successfully sent the email (operation id: %s)\n", response.getValue().getId());
+            }
+            else {
+                // The operation ID can be retrieved as soon as the first response is received from the PollerFlux.
+                System.out.println("Email send status: " + response.getStatus() + ", operation id: " + response.getValue().getId());
+            }
+        },
+        error -> {
+            System.out.println("Error occurred while sending email: " + error.getMessage());
+        }
+    );
+});
+
+// In a real application, you might have a mechanism to keep the main thread alive.
+// For this sample we will keep the main thread alive for 30 seconds to make sure the child thread has time to receive the SUCCESSFULLY_COMPLETED status.
+try {
+    Thread.sleep(MAIN_THREAD_WAIT_TIME.toMillis());
+} catch (InterruptedException e) {
+    e.printStackTrace();
+}
+
+executorService.shutdown();
+System.out.println("Main thread ends.");
+```
+
 ## [Sync Client](#tab/sync-client)
 
 Calling `beginSend` on the sync client returns a `SyncPoller` object, which can be used to check on the status of the operation and retrieve the result once it finishes. The initial request to send an email starts as soon as the `beginSend` method is called. **Sending an email is a long running operation. Its important to note that the `getFinalResult()` method on the poller is a blocking operation until a terminal state (`SUCCESSFULLY_COMPLETED` or `FAILED`) is reached.** We recommend that you do manual polling at an interval that's appropriate for your application needs as demonstrated in the following sample.
@@ -255,48 +297,6 @@ catch (Exception exception)
 {
     System.out.println(exception.getMessage());
 }
-```
-
-## [Async Client](#tab/async-client)
-
-Calling `beginSend` on the async client returns a `PollerFlux` object to which you can subscribe. The callbacks defined in the subscribe method are triggered once the email sending operation is complete. **Note that the initial request to send an email will not be sent until a subscriber is set up.**
-
-```java
-Duration MAIN_THREAD_WAIT_TIME = Duration.ofSeconds(30);
-
-// ExecutorService to run the polling in a separate thread
-ExecutorService executorService = Executors.newSingleThreadExecutor();
-
-PollerFlux<EmailSendResult, EmailSendResult> poller = emailAsyncClient.beginSend(emailMessage);
-
-executorService.submit(() -> {
-    // The initial request is sent out as soon as we subscribe the to PollerFlux object
-    poller.subscribe(
-        response -> {
-            if (response.getStatus() == LongRunningOperationStatus.SUCCESSFULLY_COMPLETED) {
-                System.out.printf("Successfully sent the email (operation id: %s)\n", response.getValue().getId());
-            }
-            else {
-                // The operation ID can be retrieved as soon as the first response is received from the PollerFlux.
-                System.out.println("Email send status: " + response.getStatus() + ", operation id: " + response.getValue().getId());
-            }
-        },
-        error -> {
-            System.out.println("Error occurred while sending email: " + error.getMessage());
-        }
-    );
-});
-
-// In a real application, you might have a mechanism to keep the main thread alive.
-// For this sample we will keep the main thread alive for 30 seconds to make sure the child thread has time to receive the SUCCESSFULLY_COMPLETED status.
-try {
-    Thread.sleep(MAIN_THREAD_WAIT_TIME.toMillis());
-} catch (InterruptedException e) {
-    e.printStackTrace();
-}
-
-executorService.shutdown();
-System.out.println("Main thread ends.");
 ```
 
 ---

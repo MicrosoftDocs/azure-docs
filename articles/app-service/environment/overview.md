@@ -3,12 +3,13 @@ title: App Service Environment Overview
 description: Learn about App Service Environments, which are fully isolated and single-tenant App Service deployments that provide high-scale, network-secured hosting.
 author: seligj95
 ms.topic: overview
-ms.date: 06/18/2024
+ms.date: 08/14/2025
 ms.update-cycle: 1095-days
 ms.author: jordanselig
 ms.custom:
   - "UpdateFrequency3, references_regions"
   - build-2025
+ms.service: azure-app-service
 ---
 
 # App Service Environment overview
@@ -174,6 +175,8 @@ App Service Environment v3 is available in the following regions.
 | Sweden South         | ✅                           |                             |
 | Switzerland North    | ✅                           | ✅                          |
 | Switzerland West     | ✅                           |                             |
+| Taiwan North         | ✅                           |                             |
+| Taiwan Northwest     | ✅                           |                             |
 | UAE Central          | ✅                           |                             |
 | UAE North            | ✅                           | ✅                         |
 | UK South             | ✅                           | ✅                          |
@@ -230,7 +233,7 @@ The following sections list the regional pricing tiers, or SKUs, availability fo
 | Canada Central       | ✅          | ✅          | ✅               |
 | Canada East          | ✅          | ✅          | ✅               | 
 | Central India        | ✅          | ✅          | ✅               | 
-| Central US           | ✅          | ✅ *        |                   | 
+| Central US           | ✅          | ✅*         | ✅**             | 
 | East Asia            | ✅          | ✅          | ✅               |
 | East US              | ✅          | ✅          |                   | 
 | East US 2            | ✅          | ✅          | ✅               |
@@ -264,18 +267,21 @@ The following sections list the regional pricing tiers, or SKUs, availability fo
 | Sweden South         | ✅          | ✅          | ✅               |
 | Switzerland North    | ✅          | ✅          | ✅               |
 | Switzerland West     | ✅          | ✅          | ✅               | 
+| Taiwan North         | ✅          |             |                   |
+| Taiwan Northwest     | ✅          |             |                   |
 | UAE Central          | ✅          | ✅          |                   | 
 | UAE North            | ✅          | ✅          | ✅               | 
 | UK South             | ✅          | ✅          | ✅               | 
 | UK West              | ✅          | ✅          | ✅               | 
-| West Central US      | ✅          | ✅ *        |                   | 
-| West Europe          | ✅          | ✅ *        |                   | 
+| West Central US      | ✅          | ✅*         |                   | 
+| West Europe          | ✅          | ✅*         |                   | 
 | West India           | ✅          | ✅          |                   | 
 | West US              | ✅          | ✅          | ✅               | 
 | West US 2            | ✅          | ✅          | ✅               | 
 | West US 3            | ✅          | ✅          | ✅               | 
 
 \* Windows containers don't support large SKUs in this region.
+\** Limited availability. Create a support ticket if you run into issues deploying this SKU.
 
 ### Azure Government regions
 
