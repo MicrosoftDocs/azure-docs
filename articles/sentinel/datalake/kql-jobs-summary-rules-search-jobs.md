@@ -39,6 +39,7 @@ This article compares KQL jobs, summary rules, and search jobs in Microsoft Sent
 | **Lookback period**  | Up to 12 years                           | Up to 1 day                                         | Up to 12 years                                                            |
 | **Timespan**         |  -                                       |      -                                              | Up to 1 year                                                              |
 | **Timeout**          | 1 hour                                   | 10 minutes                                          | 24 hours                                                            |
+| **Maximum number of results**|	Dependant on query timeout	|500,000 records	|1 million records
 | **Pricing model**    | GB data analyzed                         | Analytics tier: free<br>Basic and auxiliary tier: Data scan Log Analytics pricing model | GB data analyzed                |
 
 
