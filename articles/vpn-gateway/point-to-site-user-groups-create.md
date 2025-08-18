@@ -61,8 +61,6 @@ To create and manage Active Directory groups, see [Manage Microsoft Entra groups
     * Engineering group as **{ObjectId1}**
     * Finance group as **{ObjectId2}**
 
-:::image type="content" source="./media/vpn-gateway-user-groups-create/groups.png" alt-text="Screenshot of Microsoft Entra ID groups and Object IDs" lightbox="./media/vpn-gateway-user-groups-create/groups.png":::
-
 * Microsoft Entra users can be assigned to be part of multiple Active Directory groups, and VPN Gateway considers users to be part of the VPN user/policy. If a user belongs to multiple groups, the group that has the lowest numerical priority is selected in the point-to-site connection.
 
 ### RADIUS - NPS vendor-specific attributes

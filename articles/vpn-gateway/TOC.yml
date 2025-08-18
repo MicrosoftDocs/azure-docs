@@ -284,6 +284,14 @@
                   href: point-to-site-vpn-client-configuration-radius-password.md
                 - name: Other authentication protocols
                   href: point-to-site-vpn-client-configuration-radius-other.md
+    - name: Assign IP addresses to specific user groups
+      items:
+        - name: About user groups and client address pools
+          href: point-to-site-user-groups-about.md
+        - name: Configure user groups for address pools - PowerShell
+          href: point-to-site-user-groups-create.md
+        - name: RADIUS - Configure NPS and user groups
+          href: point-to-site-user-groups-radius.md
     - name: Configure Always On tunnels
       items:
         - name: Device tunnel
@@ -300,52 +308,14 @@
       href: create-custom-policies-p2s-ps.md
     - name: Azure VPN Client versions, checks & settings
       items:
-        - name: Azure portal
-          href: point-to-site-radius-gateway.md
-        - name: Azure Powershell
-          href: point-to-site-how-to-radius-ps.md
-        - name: Multifactor authentication - P2S RADIUS and NPS server
-          href: vpn-gateway-radius-mfa-nsp.md
-        - name: VPN client configuration
-          items:
-          - name: Certificate authentication clients
-            href: point-to-site-vpn-client-configuration-radius-certificate.md
-          - name: Password authentication clients
-            href: point-to-site-vpn-client-configuration-radius-password.md
-          - name: Other authentication protocols
-            href: point-to-site-vpn-client-configuration-radius-other.md
-  - name: Assign IP addresses to specific user groups
-    items:
-      - name: About user groups and client address pools
-        href: point-to-site-user-groups-about.md
-      - name: Configure user groups for address pools - PowerShell
-        href: point-to-site-user-groups-create.md
-      - name: RADIUS - Configure NPS and user groups
-        href: point-to-site-user-groups-radius.md
-  - name: Configure Always On tunnels
-    items:
-      - name: Device tunnel
-        href: vpn-gateway-howto-always-on-device-tunnel.md
-      - name: User tunnel
-        href: vpn-gateway-howto-always-on-user-tunnel.md
-  - name: Move to OpenVPN or IKEv2 from SSTP
-    href: ikev2-openvpn-from-sstp.md
-  - name: P2S session management
-    href: p2s-session-management.md
-  - name: Advertise custom routes to P2S clients
-    href: vpn-gateway-p2s-advertise-custom-routes.md
-  - name: Create custom IPsec policies for P2S
-    href: create-custom-policies-p2s-ps.md
-  - name: Azure VPN Client versions, checks & settings
-    items:
-      - name: Azure VPN Client - optional settings
-        href: azure-vpn-client-optional-configurations.md
-      - name: Run Prerequisites Test
-        href: azure-vpn-client-prerequisites-check.md
-      - name: Azure VPN Client versions
-        href: azure-vpn-client-versions.md
-  - name: Intune - Deploy VPN client profile
-    href: vpn-profile-intune.md
+        - name: Azure VPN Client - optional settings
+          href: azure-vpn-client-optional-configurations.md
+        - name: Run Prerequisites Test
+          href: azure-vpn-client-prerequisites-check.md
+        - name: Azure VPN Client versions
+          href: azure-vpn-client-versions.md
+    - name: Intune - Deploy VPN client profile
+      href: vpn-profile-intune.md
 - name: VNet-to-VNet VPN
   items:
     - name: Configure VNet-to-VNet VPN connections
