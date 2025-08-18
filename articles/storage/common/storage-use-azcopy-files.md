@@ -813,7 +813,7 @@ azcopy sync 'https://mysourceaccount.file.core.windows.net/myFileShare/myDirecto
 ```
 #### [Azure Files NFS](#tab/nfs-syncdirectory)
 ```azcopy
-azcopy sync 'https://mysourceaccount.file.core.windows.net/myFileShare/myDirectory?[SAS]' 'https://mydestinationaccount.file.core.windows.net/myFileShare/myDirectory?[SAS]' --recursive --preserve-permissions=true --preserve-info=true --from-to=FileNFSFileNFS)
+azcopy sync 'https://mysourceaccount.file.core.windows.net/myFileShare/myDirectory?[SAS]' 'https://mydestinationaccount.file.core.windows.net/myFileShare/myDirectory?[SAS]' --recursive --preserve-permissions=true --preserve-info=true --from-to=FileNFSFileNFS
 ```
 
 ---
@@ -832,7 +832,11 @@ The first file share that appears in this command is the source. At the end of t
 
 #### [Azure Files SMB](#tab/smb-syncsnapshottoaccount)
 ```azcopy
-azcopy sync 'https://mysourceaccount.file.core.windows.net/myfileShare?[SAS]' 'https://mydestinationaccount.file.core.windows.net/myfileshare?[SAS]' --recursive --preserve-permissions=true --preserve-info=true
+azcopy sync 'https://mysourceaccount.file.core.windows.net/myfileShare?[SAS]&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'https://mydestinationaccount.file.core.windows.net/myfileshare?[SAS]' --recursive --preserve-permissions=true --preserve-info=true
+```
+#### [Azure Files NFS](#tab/nfs-syncsnapshottoaccount)
+```azcopy
+azcopy sync 'https://mysourceaccount.file.core.windows.net/myfileShare?[SAS]&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'https://mydestinationaccount.file.core.windows.net/myfileshare?[SAS]' --recursive --preserve-permissions=true --preserve-info=true --from-to=FileNFSFileNFS
 ```
 
 ---
