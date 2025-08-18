@@ -25,12 +25,12 @@ This reference article lists the input data sources for the User and Entity Beha
 
 These are the data sources from which the UEBA engine collects and analyzes data to train its ML models and set behavioral baselines for users, devices, and other entities. UEBA then looks at data from these sources to find anomalies and glean insights.
 
-| Data source | Events |
-| ----------- | ------ |
-| **Microsoft Entra ID**<br>Sign-in logs | All |
-| **Microsoft Entra ID**<br>Audit logs | ApplicationManagement<br>DirectoryManagement<br>GroupManagement<br>Device<br>RoleManagement<br>UserManagementCategory |
-| **Azure Activity logs** | Authorization<br>AzureActiveDirectory<br>Billing<br>Compute<br>Consumption<br>KeyVault<br>Devices<br>Network<br>Resources<br>Intune<br>Logic<br>Sql<br>Storage |
-| **Windows Security events**<br>*WindowsEvent* or<br>*SecurityEvent* | 4624: An account was successfully logged on<br>4625: An account failed to log on<br>4648: A logon was attempted using explicit credentials<br>4672: Special privileges assigned to new logon<br>4688: A new process has been created |
+| Data source | Connector | Log Analytics table | Analyzed data |
+| ----------- | --------- | ----- | ------------- |
+| **Microsoft Entra ID**<br>Sign-in logs | Microsoft Entra ID | [SigninLogs](/azure/azure-monitor/reference/tables/signinlogs) | All sign-in events |
+| **Microsoft Entra ID**<br>Audit logs | Microsoft Entra ID | [AuditLogs](/azure/azure-monitor/reference/tables/auditlogs) | **Category** field:<br>ApplicationManagement<br>DirectoryManagement<br>GroupManagement<br>Device<br>RoleManagement<br>UserManagementCategory |
+| **Azure Activity logs** | Azure Activity | [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity) | **CategoryValue** field:<br>Authorization<br>AzureActiveDirectory<br>Billing<br>Compute<br>Consumption<br>KeyVault<br>Devices<br>Network<br>Resources<br>Intune<br>Logic<br>Sql<br>Storage |
+| **Windows Security events**<br>*WindowsEvent* or<br>*SecurityEvent* | Windows Security Events via AMA<br>Security Events via Legacy Agent | [WindowsEvent](/azure/azure-monitor/reference/tables/windowsevent)<br>[SecurityEvent](/azure/azure-monitor/reference/tables/securityevent) | **EventID** field:<br>4624: An account was successfully logged on<br>4625: An account failed to log on<br>4648: A logon was attempted using explicit credentials<br>4672: Special privileges assigned to new logon<br>4688: A new process has been created |
 
 ## UEBA enrichments
 
