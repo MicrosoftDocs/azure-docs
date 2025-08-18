@@ -7,7 +7,7 @@ description: Learn how to test the performance of Azure Cache for Redis.
 ms.topic: conceptual
 ms.custom:
   - ignite-2024
-ms.date: 11/08/2024
+ms.date: 08/18/2025
 appliesto:
   - ✅ Azure Cache for Redis
 ---
@@ -16,7 +16,7 @@ appliesto:
 
 Testing the performance of a Redis instance can be a complicated task. The performance of a Redis instance can vary based on parameters such as the number of clients, the size of data values, and whether pipelining is being used. There also can be a tradeoff between optimizing throughput or latency.
 
-Fortunately, several tools exist to make benchmarking Redis easier. Two of the most popular tools are **[redis-benchmark](https://redis.io/docs/management/optimization/benchmarks/)** and **[memtier-benchmark](https://github.com/redislabs/memtier_benchmark)**. This article focuses on redis-benchmark.
+Fortunately, several tools exist to make benchmarking Redis easier. Two of the most popular tools are **[redis-benchmark](https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/benchmarks/** and **[memtier-benchmark](https://github.com/redislabs/memtier_benchmark)**. This article focuses on redis-benchmark.
 
 ## How to use the redis-benchmark utility
 
@@ -178,7 +178,7 @@ memtier_benchmark -h {your-cache-name}.{region}.redis.azure.net -p 10000 -a {you
 
 #### Enterprise & Enterprise Flash tiers
 
-The Enterprise and Enterprise Flash tiers offer a choice of cluster policy: _Enterprise_ and _OSS_. Enterprise cluster policy is a simpler configuration that doesn't require the client to support clustering. OSS cluster policy, on the other hand, uses the [Redis cluster protocol](https://redis.io/docs/management/scaling) to support higher throughputs. We recommend using OSS cluster policy in most cases. For more information, see [Clustering](../redis/architecture.md#clustering) . Benchmarks for both cluster policies are shown in the following tables.
+The Enterprise and Enterprise Flash tiers offer a choice of cluster policy: _Enterprise_ and _OSS_. Enterprise cluster policy is a simpler configuration that doesn't require the client to support clustering. OSS cluster policy, on the other hand, uses the [Redis cluster protocol](https://redis.io/docs/latest/operate/oss_and_stack/management/scaling/) to support higher throughputs. We recommend using OSS cluster policy in most cases. For more information, see [Clustering](../redis/architecture.md#clustering) . Benchgement/scalingmarks for both cluster policies are shown in the following tables.
 
 The following configuration was used to benchmark throughput for the Enterprise and Enterprise flash tiers:
 
