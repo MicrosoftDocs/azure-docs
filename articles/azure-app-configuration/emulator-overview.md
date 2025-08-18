@@ -40,7 +40,7 @@ The following table lists the features supported by the latest Azure App Configu
 
 ## Install the emulator
 
-### [Docker Hub](#tab/entra-id)
+### [Docker Hub](#tab/docker-hub)
 
 Use [DockerHub](https://hub.docker.com/) to pull the latest [App Configuration emulator image](https://mcr.microsoft.com/artifact/mar/azure-app-configuration/app-configuration-emulator/about) by using the following console command:
 
@@ -48,7 +48,7 @@ Use [DockerHub](https://hub.docker.com/) to pull the latest [App Configuration e
 docker pull mcr.microsoft.com/azure-app-configuration/app-configuration-emulator:1.0.0-preview
 ```
 
-### [GitHub](#tab/entra-id)
+### [GitHub](#tab/github)
 
 This installation method requires that you have installed:
 * [Git](https://git-scm.com/)
@@ -73,7 +73,7 @@ dotnet build
 
 ## Run the emulator
 
-### [Docker Hub](#tab/entra-id)
+### [Docker Hub](#tab/docker-hub)
 
 The following command runs the App Configuration emulator Docker image. The `-p 8483:8483` parameter redirects requests from host machine's port 8483 to the Docker instance. The `-e Tenant:AnonymousAuthEnabled=true` and `-e Authentication:Anonymous:AnonymousUserRole=Owner` parameters configure the anonymous authentication for the emulator.
 
@@ -94,14 +94,13 @@ docker run -d -p 8483:8483 \
     mcr.microsoft.com/azure-app-configuration/app-configuration-emulator:1.0.0-preview
 ```
 
-### [GitHub](#tab/entra-id)
+### [GitHub](#tab/github)
 
 ```console
 dotnet run --project src/Azure.AppConfiguration.Emulator.Host/Azure.AppConfiguration.Emulator.Host.csproj
 ```
 
 ---
-
 
 ## Emulator in action
 
