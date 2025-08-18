@@ -167,6 +167,7 @@ foreach ($rule in $rules) {
     $nsg.SecurityRules.Add($nsgRule)
     Set-AzNetworkSecurityGroup -NetworkSecurityGroup $nsg
 }
+```
 
 ### Target VM Subnet
 This is the subnet that contains the target virtual machine that you want to RDP/SSH to.
