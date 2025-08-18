@@ -316,7 +316,11 @@ For this task, you need to edit the **host.json** file for your Standard logic a
 
 1. Get the URL for your MCP server.
 
-   This value combines the default domain URL for your logic app resource and the **`/mcp`** suffix. To find the default domain URL, follow these steps:
+   This value combines the default domain URL for your logic app resource and the **`/mcp`** suffix.
+
+   To find the default domain URL, follow the steps for the option you prefer:
+
+   **Azure portal**
 
    1. In the Azure portal, on your logic app resource sidebar, select **Overview**.
 
@@ -324,9 +328,27 @@ For this task, you need to edit the **host.json** file for your Standard logic a
 
       `https://<logic-app-name>.azurewebsites.net/`
 
-   1. Add the **`/mcp`** suffix, which gives you the MCP server URL:
+   1. Add the `api/mcp` suffix, which gives you the MCP server URL:
 
-      `https://<logic-app-name>.azurewebsites.net/mcp`
+      `https://<logic-app-name>.azurewebsites.net/api/mcp`
+
+   **HTTP request**
+
+   To get the URL by sending an HTTPS request, use the **POST** method and the following URL:
+
+   `https://management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Web/sites/<logic-app-name>/hostruntime/runtime/webhooks/workflow/api/management/listMcpServerUrl?api-version=2021-02-01`
+
+   The following example shows a sample request and response:
+
+   `POST https://management.azure.com/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/fabrikam-resource-group/providers/Microsoft.Web/sites/fabrikam-mcpserver/hostruntime/runtime/webhooks/workflow/api/management/listMcpServerUrl?api-version=2021-02-01`
+
+   ```json
+   {
+       "value": "https://fabrikam-mcpserver.azurewebsites.net/api/mcp",
+       "method": "POST",
+       "basePath": "https://fabrikam-mcpserver.azurewebsites.net/api/mcp"
+   }
+   ```
 
 1. In Visual Studio Code, from the **View** menu, select **Command Palette**. Find and select **MCP: Add Server**.
 
@@ -336,12 +358,12 @@ For this task, you need to edit the **host.json** file for your Standard logic a
 
    When you add an MCP server for the first time, you must choose where to store your MCP configuration. You get the following options, so choose the best option for your scenario:
 
-   - **Global**: Your user configuration, available across all workspaces.
+   - **Global**: Your user configuration, which is the `c:\users\<your-username>\AppData\Roaming\Code\User` directory and available across all workspaces.
    - **Workspace**: Your current workspace in Visual Studio Code.
 
-   This article selects **Global** to store the MCP server information in the user configuration. As a result, an *mcp.json* file is created, opens, and shows your MCP server information.
+   This article selects **Global** to store the MCP server information in the user configuration. As a result, Visual Studio Code creates and opens an **mcp.json** file, which shows your MCP server information.
 
-1. In the *mcp.json* file, select the **Start** or **Restart** link to establish connectivity for your MCP server, for example:
+1. In the **mcp.json** file, select the **Start** or **Restart** link to establish connectivity for your MCP server, for example:
 
    :::image type="content" source="media/set-up-model-context-protocol-server-standard/start-server-mcp-json-file.png" alt-text="Screenshot shows mcp.json file with Start link selected." lightbox="media/set-up-model-context-protocol-server-standard/start-server-mcp-json-file.png":::
 
@@ -349,7 +371,7 @@ For this task, you need to edit the **host.json** file for your Standard logic a
 
 1. Sign in and give consent to call your MCP server.
 
-   After authentication completes, the *mcp.sjon* file shows **Running** as the MCP server status.
+   After authentication completes, the **mcp.sjon** file shows **Running** as the MCP server status.
 
    :::image type="content" source="media/set-up-model-context-protocol-server-standard/running-mcp-json-file.png" alt-text="Screenshot shows mcp.json file with Running status selected." lightbox="media/set-up-model-context-protocol-server-standard/running-mcp-json-file.png":::
 
