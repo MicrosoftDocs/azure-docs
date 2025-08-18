@@ -475,13 +475,13 @@ You can download a specific version of a file or directory by referencing the **
 #### [Azure Files SMB](#tab/smb-downloadsnapshotfile)
 
 ```azcopy
-azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?[SAS]' 'C:\myDirectory\myTextFile.txt' --preserve-permissions=true --preserve-info=true
+azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?[SAS]&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'C:\myDirectory\myTextFile.txt' --preserve-permissions=true --preserve-info=true
 ```
 
 #### [Azure Files NFS](#tab/nfs-downloadsnapshotfile)
 
 ```azcopy
-azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?[SAS]' '/myDirectory/myTextFile.txt' --preserve-permissions=true --preserve-info=true --from-to=FileNFSLocal
+azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?[SAS]&sharesnapshot=2020-09-23T08:21:07.0000000Z' '/myDirectory/myTextFile.txt' --preserve-permissions=true --preserve-info=true --from-to=FileNFSLocal
 ```
 
 ---
@@ -493,13 +493,13 @@ azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFi
 #### [Azure Files SMB](#tab/smb-downloadsnapshotdirectory)
 
 ```azcopy
-azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?[SAS]' 'C:\myDirectory' --recursive --preserve-permissions=true --preserve-info=true
+azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?[SAS]&sharesnapshot=2020-09-23T08:21:07.0000000Z' 'C:\myDirectory' --recursive --preserve-permissions=true --preserve-info=true
 ```
 
 #### [Azure Files NFS](#tab/nfs-downloadsnapshotdirectory)
 
 ```azcopy
-azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?[SAS]' '/myDirectory'  --recursive --preserve-permissions=true --preserve-info=true --from-to=FileNFSLocal
+azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?[SAS]&sharesnapshot=2020-09-23T08:21:07.0000000Z' '/myDirectory'  --recursive --preserve-permissions=true --preserve-info=true --from-to=FileNFSLocal
 ```
 
 ---
