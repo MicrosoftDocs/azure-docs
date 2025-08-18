@@ -126,7 +126,7 @@ The following diagram shows how your data is replicated with GZRS:
 
 :::image type="content" source="media/storage-redundancy/geo-zone-redundant-storage.png" alt-text="Diagram showing how data is replicated with GZRS.":::
 
-To determine if a region supports GZRS, see [Azure regions that support GZRS](storage-redundancy.md#supported-storage-account-types). To support GZRS, a region must support availability zones and have a paired region.
+To determine if a region supports GZRS, see [Azure regions that support GZRS](../common/storage-redundancy.md#supported-storage-account-types). To support GZRS, a region must support availability zones and have a paired region.
 
 ### Snapshot and sync frequency
 
