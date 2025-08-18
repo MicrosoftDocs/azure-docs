@@ -120,11 +120,11 @@
         - name: To Azure backup
           href: ../backup/offline-backup-azure-data-box.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
         - name: Using Commvault
-          href: migrate-with-commvault-and-azure-data-box.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+          href: migrate-commvault-and-data-box.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
         - name: Using Veeam
-          href: migrate-with-veeam-and-azure-data-box.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+          href: migrate-veeam-and-data-box.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
         - name: Using OpenText Migrate
-          href: migrate-with-opentext-and-azure-data-box.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+          href: migrate-opentext-and-data-box.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
       - name: Troubleshoot
         items:
         - name: Data Box share access

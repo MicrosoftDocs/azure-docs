@@ -18,7 +18,7 @@ ms.subservice: storage-common-concepts
 
 During this phase, data assets, dependencies, and the volume and usage of data—both in its current state and after migration—are systematically inventoried. Each dataset is profiled according to factors such as performance, resiliency, security, cost, and usage requirements. These attributes help with appropriate assessment and target service selection.
 
-The following is a list of commonly inventoried and cataloged items.
+The following list contains commonly inventoried and cataloged items.
 
 ## Discover and assess your source data
 
@@ -60,11 +60,11 @@ At this point, consider, if the data changes are too high, how the current netwo
 
 1. Document any *permissions* (*ACLs*) on the data. Ensure the migration method can preserve them or plan to *reapply* them in Azure.
 2. If data must not transit public internet, plan to use *ExpressRoute or Private Link* for in-flight data.
-3. *Regulatory compliance* may also dictate target Azure region (data residency). Categorize the data based on such *security and compliance needs* such as which one needs additional *auditing, chain of custody etc.* If any in case, you are considering offline migration, review and document such specific needs.
+3. *Regulatory compliance* might also dictate target Azure region (data residency). Categorize the data based on such *security and compliance needs* such as which one needs additional *auditing, chain of custody etc.* If any in case, you're considering offline migration, review and document such specific needs.
 4. Outline key *technical design decisions* that must be reviewed and established to move forward with target selections
 
 
-At the end of the Assessment phase, you should have a document that clearly outlines the requirements for each source of data, the present and future needs and its specific sets of requirements once it is migrated to a target system/service. You also need to consider if any system is reaching end of life and will be deprecated and no migration is required or whether its data needs to be stored for a certain period. Such a document will clearly define the capabilities that must be present in the target systems to successfully host the data.
+At the end of the Assessment phase, you should have a document that clearly outlines the requirements for each source of data, the present and future needs and its specific sets of requirements once it's migrated to a target system/service. You also need to consider if any system is reaching end of life and will be deprecated and no migration is required or whether its data needs to be stored for a certain period. Such a document will clearly define the capabilities that must be present in the target systems to successfully host the data.
 
 ### See also
 
