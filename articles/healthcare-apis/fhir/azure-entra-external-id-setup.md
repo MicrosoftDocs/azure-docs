@@ -54,7 +54,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 #### [Azure CLI](#tab/command-line)
 
-1. Use `Connect-AzAccount` to sign in to Azure. After you sign in, use `az account show --output table` to verify the subscription and tenant you want to use. Change the subscription and tenant if needed.
+1. Use `az login` to sign in to Azure. After you sign in, use `az account show --output table` to verify the subscription and tenant you want to use. Change the subscription and tenant if needed.
 
 1. Create a new resource group (or use an existing one) by skipping the "create resource group" step or commenting out the line starting with `az group create`.
 
@@ -88,13 +88,13 @@ You need a test user in your Microsoft Entra External ID tenant to associate wit
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). 
 
-1. If you have access to multiple tenants, use the **Settings** icon ![Admin center settings icon.](media/azure-entra-external-id-setup/admin-center-settings-icon.png) in the top menu to switch to your external tenant from the **Directories + subscriptions** menu.
+1. If you have access to multiple tenants, use the **Settings** icon ![Admin center settings icon.](media/azure-entra-external-id-setup/admin-center-settings-icon.png) in the top menu to switch to your external tenant from the **Directories + subscriptions** menu. Here you will be asked for MFA setup.
 
 1. In the **Users** section of the Microsoft Entra admin center, select **+ New user**, then choose **Create new user**.
 
    ![Screenshot showing the test user creation page in Microsoft Entra External ID.](media/azure-entra-external-id-setup/entra-external-user.png)
 
-1. On the **Basics** page, enter the **User principal name** and **Display name**, then select **Review + create**.
+1. On the **Basics** tab, enter the **User principal name** and **Display name**, then select **Review + create**.
 
    ![Screenshot showing the Create new user pane in Microsoft Entra External ID.](media/azure-entra-external-id-setup/entra-external-user-create.png)
 
@@ -355,7 +355,8 @@ az account set --subscription $subscriptionid
 az group create --name $resourcegroupname --location $region
 
 ### deploy the resource
-az deployment group create --resource-group $resourcegroupname --template-uri https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/main/samples/fhir-aad-b2c/fhir-service-arm-template.json --parameters tenantid=$tenantid region=$region workspaceName=$workspacename fhirServiceName=$fhirservicename smartAuthorityUrl=$smartAuthorityUrl storageAccountConfirm=$smartClientId
+az deployment group create --resource-group $resourcegroupname --template-uri https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/main/samples/fhir-aad-b2c/fhir-service-arm-template.json --parameters tenantid=$tenantid region=$region workspaceName=$workspacename fhirServiceName=$fhirservicename smartAuthorityUrl=$smartAuthorityUrl 
+smartClientId=$smartClientId
 ```
 
 ##  Validate Microsoft Entra External ID Users are able to access FHIR Resources
