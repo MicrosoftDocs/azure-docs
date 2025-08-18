@@ -25,7 +25,7 @@ This reference article lists the input data sources for the User and Entity Beha
 
 These are the data sources from which the UEBA engine collects and analyzes data to train its ML models and set behavioral baselines for users, devices, and other entities. UEBA then looks at data from these sources to find anomalies and glean insights.
 
-| Data source | Connector | Log Analytics table | Analyzed log types |
+| Data source | Connector | Log Analytics table | Analyzed event categories |
 | ----------- | --------- | ------------------- | ------------------ |
 | Microsoft Entra ID sign-in logs | Microsoft Entra ID | [SigninLogs](/azure/azure-monitor/reference/tables/signinlogs) | All sign-in events |
 | Microsoft Entra ID audit logs | Microsoft Entra ID | [AuditLogs](/azure/azure-monitor/reference/tables/auditlogs) | ApplicationManagement<br>DirectoryManagement<br>GroupManagement<br>Device<br>RoleManagement<br>UserManagementCategory |
