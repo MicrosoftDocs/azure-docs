@@ -305,7 +305,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    > - For SLES 12 SP4/SP5, the version must be at least resource-agents-4.3.018.a7fb5035-3.30.1.
    > - For SLES 15/15 SP1, the version must be at least resource-agents-4.3.0184.6ee15eb2-4.13.1.
    >
-   > Note that the change will require brief downtime.  
+   > The change will require brief downtime.  
    > For existing Pacemaker clusters, if the configuration was already changed to use socat as described in [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), there's no requirement to switch immediately to azure-lb resource agent.
 
    ```bash
