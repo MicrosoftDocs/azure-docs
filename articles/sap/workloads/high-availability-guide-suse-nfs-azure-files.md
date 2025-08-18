@@ -80,7 +80,7 @@ The example configurations and installation commands use the following instance 
 | SAP system identifier               | NW1             |
 
 :::image type="complex" source="./media/high-availability-guide-suse/high-availability-guide-suse-nfs-azure-files.png" alt-text="SAP NetWeaver High Availability with NFS on Azure Files":::
-This diagram shows a typical SAP Netweaver HA architecture. The "sapmnt" and "saptrans" file systems are deployed on NFS shares on Azure Files. The SAP central services are protected by a Pacemaker cluster. The clustered VMs are behind an Azure load balancer. The NFS shares are mounted through private end point.
+This diagram shows a typical SAP Netweaver HA architecture. The "sapmnt" and "saptrans" file systems are deployed on NFS shares on Azure Files. The SAP central services are protected by a Pacemaker cluster. The clustered VMs are behind an Azure load balancer. The NFS shares are mounted through private endpoint.
 :::image-end:::
 
 ## Prepare infrastructure
