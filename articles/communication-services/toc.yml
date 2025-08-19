@@ -118,8 +118,6 @@ items:
       href: concepts/analytics/logs/chat-logs.md
     - name: Chat insights
       href: concepts/analytics/insights/chat-insights.md
-#   - name: Export SDK telemetry to Application Insights
-#     href: quickstarts/telemetry-application-insights.md
   - name: Samples and tutorials
     items:
     - name: Create a chat access token
