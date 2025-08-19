@@ -21,7 +21,7 @@ General Purpose v2 (GPv2) storage accounts are the recommended account type for 
 This FAQ addresses common questions about migrating from Blob-Only accounts to General-purpose v2. It covers upgrade procedures, billing considerations, feature differences, and guidance for selecting the right access tier. Use this resource to plan your upgrade and ensure a smooth transition before Blob-Only retirement.
 
 >[!IMPORTANT]  
->Microsoft will retire Blob-Only Storage accounts on September 1, 2026. All Blob-Only Storage accounts must be migrated to General-purpose v2 before this date to avoid service disruption.
+>Microsoft will retire Blob-Only Storage accounts on September 1, 2026. All Blob-Only Storage accounts must be migrated to General-purpose v2 before this date to avoid service disruption. [Learn more about the upgrade process](storage-account-upgrade.md). [Learn more about the retirement](general-purpose-version-1-account-migration-overview.md).
 
 ## Blob-Only Storage to General-purpose v2 FAQs
 
@@ -31,7 +31,7 @@ This FAQ addresses common questions about migrating from Blob-Only accounts to G
 | Can I still create a new Blob-Only Storage account? | No. Starting August 2026, creation of new Blob-Only Storage accounts will be disabled. |
 | Which redundancy options are available on General-purpose v2 accounts? | General-purpose v2 supports Local redundant storage (LRS), Geo-redundant storage (GRS), Zone-redundant storage (ZRS), Read-access geo-redundant storage (RA-GZRS), and Read-access geo-redundant storage (RA-GRS). |
 | Does Blob-Only Storage support lifecycle management policies? | No. Lifecycle management is only available in General-purpose v2 accounts. |
-| How does pricing differ from GPv2? | Blob-Only Storage uses account-level tiering limiting pricing flexibility. General-purpose v2 offers per-blob tiering and optimized pricing for different access patterns. |
+| How does pricing differ from GPv2? | Blob-Only Storage uses account-level tiering limiting pricing flexibility. General-purpose v2 offers per-blob tiering and optimized pricing for different access patterns. [Learn more about GPv2 pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) |
 | Can I migrate from Blob-Only Storage to GPv2 later? Will anything break? | You must migrate to a new General-purpose v2 account and move your data. The migration is nondisruptive if planned properly. Most applications continue to work without changes. |
 | Which blob features won’t I get in Blob-Only Storage? | Features like lifecycle management, per-blob tiering, point-in-time restore, and Data Lake (Hierarchical Namespace) are only available in GPv2. |
 | What would my bill look like after the migration? How do I calculate the new billing amount? | Your bill reflects General-purpose v2 pricing, which includes charges for read/write operations, tier-based storage pricing, and redundancy options. Use the Azure Pricing Calculator and your current invoice data to estimate new costs. |

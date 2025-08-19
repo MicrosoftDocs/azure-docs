@@ -21,7 +21,7 @@ General-purpose v2 (GPv2) storage accounts are the recommended account type for 
 This FAQ addresses common questions about upgrading from general-purpose v1 (GPv1) storage accounts to GPv2. It covers upgrade procedures, billing considerations, feature differences, and guidance for selecting the right access tier. Use this resource to plan your upgrade and ensure a smooth transition before GPv1 retirement.
 
 >[!IMPORTANT]
->Microsoft will retire GPv1 storage accounts on September 1, 2026. All GPv1 accounts must be upgraded to GPv2 before this date to avoid service disruption.
+>Microsoft will retire GPv1 storage accounts on September 1, 2026. All GPv1 accounts must be upgraded to GPv2 before this date to avoid service disruption. [Learn more about the upgrade process](storage-account-upgrade.md). [Learn more about the retirement](general-purpose-version-1-account-migration-overview.md).
 
 ## General-purpose v1 to General-purpose v2 FAQs
 | Question | Answer |
@@ -42,4 +42,4 @@ This FAQ addresses common questions about upgrading from general-purpose v1 (GPv
 | Will my existing application continue to work seamlessly after the upgrade? | In most cases, yes. API endpoints remain unchanged. However, review any hardcoded pricing assumptions or tier-unaware logic to ensure compatibility with General-purpose v2 features. |
 | What if I need help with the upgrade process? | Microsoft provides various resources to assist with the upgrade, including documentation, support forums, and direct support channels. |
 | What happens if I don't upgrade by the deadline? | If you do not migrate your General-purpose v1 storage account to General-purpose v2 by the deadline, all existing General-purpose v1 accounts will be auto migrated over to a GPv2 account, which may result in higher billing costs. Your decision not to migrate an existing General-purpose v1 account will be construed as consent for Microsoft to migrate the account on your behalf. |
-| Why is GPv2 more expensive than GPv1? | GPv2 introduces new features and pricing models that may result in higher costs for certain workloads. However, it also offers improved performance, scalability, and management capabilities that can lead to cost savings in the long run. It's essential to evaluate your specific use case and workload patterns to understand the potential impact on your billing. |
+| Why is GPv2 more expensive than GPv1? | GPv2 introduces new features and pricing models that may result in higher costs for certain workloads. However, it also offers improved performance, scalability, and management capabilities that can lead to cost savings in the long run. It's essential to evaluate your specific use case and workload patterns to understand the potential impact on your billing. [Learn more about GPv2 pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)|

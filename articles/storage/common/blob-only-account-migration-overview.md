@@ -58,12 +58,10 @@ GPv2 supports all blob features available in BlobStorage accounts—and more—w
 
 ## Migration guidance
 
-1. **Inventory your BlobStorage accounts** using Azure CLI, Resource Graph, or the Portal.
-2. **Evaluate workloads** to ensure compatibility with GPv2 (most blob-only workloads require no code changes).
-3. **Migrate to GPv2**:
-   - Create a new GPv2 account.
-   - Use tools like AzCopy, Azure Data Factory, or Storage Explorer to move your data.
-4. **Validate workloads** post-migration to ensure functionality and billing accuracy.
+1. **Inventory your BlobStorage accounts**: using Azure CLI, Resource Graph, or the Portal.
+2. **Evaluate workloads**: to ensure compatibility with GPv2 (most blob-only workloads require no code changes).
+3. **Migrate to GPv2**: Use the Azure portal, CLI, or automation tools to upgrade from GPv1 to GPv2. [Learn more about the upgrade process](storage-account-upgrade.md).
+4. **Validate workloads**: post-migration to ensure functionality and billing accuracy.
 
 >[!Warning]
 >If you do not migrate your Blob-Only storage account to GPv2 by August 31, 2025, all existing Blob-Only accounts will be auto migrated over to a GPv2 account, which may result in higher billing costs. Your decision not to migrate an existing Blob-Only account will be construed as consent for Microsoft to migrate the account on your behalf.
