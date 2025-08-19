@@ -3,8 +3,8 @@ title: Azure IoT Central application administration guide
 description: How to administer your IoT Central application. Application administration includes users, organization, security, and automated deployments.
 author: dominicbetts 
 ms.author: dobett 
-ms.date: 03/04/2024
-ms.topic: conceptual
+ms.date: 08/13/2025
+ms.topic: concept-article
 ms.service: azure-iot-central
 services: iot-central
 ms.custom: [mvc, iot-central-frontdoor]
@@ -18,16 +18,16 @@ An IoT Central application lets you monitor and manage your devices, letting you
 
 IoT Central application administration includes the following tasks:
 
-- Create applications.
-- Manage security.
-- Configure application settings.
-- Upgrade applications.
-- Export and share applications.
-- Monitor application health.
-- DevOps integration.
+- Create applications
+- Manage security
+- Configure application settings
+- Upgrade applications
+- Export and share applications
+- Monitor application health
+- Provide DevOps integration
 
 > [!IMPORTANT]
-> IoT Central applications that remain inactive for more than 30 consecutive days are subject to deletion. To avoid this outcome, please ensure your applications maintain regular activity. Examples of qualifying activity include:
+> IoT Central applications that remain inactive for more than 30 consecutive days are subject to deletion. To avoid this outcome, ensure that your applications maintain regular activity. Examples of qualifying activity include:
 > 
 > - User logins 
 > - API calls 

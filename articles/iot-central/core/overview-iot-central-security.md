@@ -3,8 +3,8 @@ title: Azure IoT Central application security guide
 description: This guide describes how to secure your IoT Central application including users, devices, API access, and authentication to other services for data export.
 author: dominicbetts 
 ms.author: dobett 
-ms.date: 03/04/2024
-ms.topic: conceptual
+ms.date: 08/15/2025
+ms.topic: concept-article
 ms.service: azure-iot-central
 services: iot-central
 ms.custom: mvc
