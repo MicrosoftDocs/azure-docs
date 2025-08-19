@@ -22,7 +22,7 @@ General-purpose v2 (GPv2) storage accounts are the recommended account type for 
 This FAQ addresses common questions about upgrading from **ZRS Classic** (legacy Standard_ZRS on GPv1) to GPv2. It covers upgrade procedures, billing considerations, feature differences, and guidance for selecting the right redundancy option. Use this resource to plan your upgrade and ensure a smooth transition before ZRS Classic retirement.
 
 > [!IMPORTANT]
-> Microsoft will retire ZRS Classic storage accounts on **September 1, 2026**. All ZRS Classic accounts must be upgraded to GPv2 before this date to avoid service disruption. storage-account-upgrade.md. [Learn more about the retirement](zrs-classic# ZRS Classic to GPv2 FAQs
+> Microsoft will retire ZRS Classic storage accounts on **September 1, 2026**. All ZRS Classic accounts must be upgraded to GPv2 [Storage Account Upgrade](storage-account-upgrade.md) before this date to avoid service disruption. [Learn more about the retirement](zone-redundant-storage-classic-account-migration-overview.md)
 
 | Question | Answer |
 |----------|--------|
