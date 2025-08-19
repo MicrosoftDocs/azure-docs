@@ -63,6 +63,8 @@ You can create a variable and declare its data type and initial value by using a
    | **Type** | Yes | <*variable-type*> | The data type for the variable |
    | **Value** | No | <*start-value*> | The initial value for your variable <br><br>**Tip**: Although optional, set the value as a best practice so you always know your variable's start value. |
 
+   To create more than one variable at a time, select **Add a Variable**.
+
    The following example shows the initial values for this sample variable:
 
    :::image type="content" source="./media/logic-apps-create-variables-store-values/initialize-variable.png" alt-text="Screenshot shows Azure portal and a logic app workflow with an action named Initialize variables." lightbox="./media/logic-apps-create-variables-store-values/initialize-variable.png":::
