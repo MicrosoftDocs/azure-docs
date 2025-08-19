@@ -259,7 +259,7 @@ MSSQL_SA_PASSWORD=""
 
 > [!IMPORTANT]
 > 
-> - By passing the value "Y" to the environment variable "ACCEPT_EULA", you are acknowledging and accepting the terms and conditions of the End User License Agreement (EULA) for both [Azure Service Bus emulator](https://github.com/Azure/azure-service-bus-emulator-installer/blob/main/EMULATOR_EULA.txt) and [Azure SQL Edge](https://go.microsoft.com/fwlink/?linkid=2139274).
+> - By passing the value "Y" to the environment variable "ACCEPT_EULA", you are acknowledging and accepting the terms and conditions of the End User License Agreement (EULA) for both [Azure Service Bus emulator](https://github.com/Azure/azure-service-bus-emulator-installer/blob/main/EMULATOR_EULA.txt) and [SQL Server Linux](https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-docker-container-deployment?view=sql-server-ver17&pivots=cs1-bash).
 > 
 >  - Ensure to place .env file in same directory to docker-compose.yaml file.
 >
