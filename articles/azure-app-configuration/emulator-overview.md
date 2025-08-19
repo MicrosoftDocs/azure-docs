@@ -1,5 +1,5 @@
 ---
-title: Local Emualtor Overview
+title: App Configuration Emualtor Overview
 titleSuffix: Azure App Configuration
 description: Overview of Azure App Configuration emulator.
 services: azure-app-configuration
@@ -11,7 +11,7 @@ ms.date: 08/12/2025
 #Customer intent: I want to learn about how to Azure App Configuration emulator for local development.
 ---
 
-# Local Emulaotr Overview
+# Azure App Configuration Emulator Overview
 
 The Azure App Configuration emulator is a local development tool that provides a lightweight implementation of the Azure App Configuration service. This emulator allows developers to test and develop applications locally without requiring an active Azure subscription or connection to the cloud service.
 
@@ -40,9 +40,9 @@ The following table lists the features supported by the latest Azure App Configu
 
 ## Install the emulator
 
-### [Docker Hub](#tab/docker-hub)
+### [Docker](#tab/docker)
 
-Use [DockerHub](https://hub.docker.com/) to pull the latest [App Configuration emulator image](https://mcr.microsoft.com/artifact/mar/azure-app-configuration/app-configuration-emulator/about) by using the following console command:
+Use [Docker](https://hub.docker.com/) to pull the latest [App Configuration emulator image](https://mcr.microsoft.com/artifact/mar/azure-app-configuration/app-configuration-emulator/about) by using the following console command:
 
 ```console
 docker pull mcr.microsoft.com/azure-app-configuration/app-configuration-emulator:1.0.0-preview
@@ -73,7 +73,7 @@ dotnet build
 
 ## Run the emulator
 
-### [Docker Hub](#tab/docker-hub)
+### [Docker](#tab/docker)
 
 The following command runs the App Configuration emulator Docker image. The `-p 8483:8483` parameter redirects requests from host machine's port 8483 to the Docker instance. The `-e Tenant:AnonymousAuthEnabled=true` and `-e Authentication:Anonymous:AnonymousUserRole=Owner` parameters configure the anonymous authentication for the emulator.
 
