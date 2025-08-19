@@ -1,16 +1,16 @@
 ---
-title: Troubleshoot common issues in Azure SRE Agent (preview)
-description: Learn to troubleshoot common problems in Azure SRE Agent.
+title: Troubleshoot Common Problems in Azure SRE Agent Preview
+description: Learn how to troubleshoot common problems in Azure SRE Agent.
 author: craigshoemaker
 ms.author: cshoe
-ms.topic: tutorial
+ms.topic: concept-article
 ms.date: 07/31/2025
 ms.service: azure
 ---
 
-# Troubleshoot common issues in Azure SRE Agent (preview)
+# Troubleshoot common problems in Azure SRE Agent Preview
 
-This guide covers the common problems faced when working with Azure SRE Agent and provides practical solutions to resolve them. The issues are typically related to permissions, regional availability, and administrative access requirements.
+This article covers the common problems that you can face when you're working with Azure SRE Agent Preview. It also provides practical solutions to resolve them. The problems are typically related to permissions, regional availability, and administrative access requirements.
 
 ## Common troubleshooting scenarios
 
@@ -26,10 +26,10 @@ The following table outlines frequent issues you might encounter and their solut
 
 There are few reasons you might encounter an error stating the deployment isn't found. First make sure you're naming your agent correctly, and you have the proper firewall rules in place:
 
-* Ensure the agent’s name is unique across the subscription.
+* Ensure the agent's name is unique across the subscription.
 * Check for geo-blocking or firewall rules that can prevent access to the agent endpoint.
 
-If you’re naming and your network configuration is correct, use the following steps to resolve the agent "couldn't be found" error.
+If you're naming and your network configuration is correct, use the following steps to resolve the agent "couldn't be found" error.
 
 :::image type="content" source="media/troubleshoot/sre-agent-failure-notification.png" alt-text="Screenshot of Azure SRE Agent provisioning failure notification.":::
 
@@ -47,7 +47,7 @@ If you’re naming and your network configuration is correct, use the following 
 
     Look specifically for `"resourcetype : agents"` and `"defaultApiVersion : 2025-05-01-preview"`.
 
-    If running this command doesn’t return the expected result, you need to register your subscription.
+    If running this command doesn't return the expected result, you need to register your subscription.
 
 1. To re-register your subscription, run the az provider register command in the Azure portal cloud shell:
 
@@ -83,9 +83,7 @@ If the Azure portal becomes unresponsive as you try to use SRE Agent, then your 
 
 To grant access to the proper domain, allowlist `*.azuresre.ai` in your firewall settings.
 
-## Considerations
-
-- Zscaler might block access to `*.azuresre.ai` domain by default.
+Zscaler might block access to `*.azuresre.ai` domain by default.
  
 ## Related content
 
