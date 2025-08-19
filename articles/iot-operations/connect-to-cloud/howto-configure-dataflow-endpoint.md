@@ -21,13 +21,13 @@ Use the following table to choose the endpoint type to configure:
 
 | Endpoint type | Description | Can be used as a source | Can be used as a destination | Data flow graphs support |
 |---------------|-------------|-------------------------|------------------------------|---------------------------|
-| [MQTT](howto-configure-mqtt-endpoint.md) | For bi-directional messaging with MQTT brokers, including the one built-in to Azure IoT Operations and Event Grid. | Yes | Yes | Yes |
-| [Kafka](howto-configure-kafka-endpoint.md) | For bi-directional messaging with Kafka brokers, including Azure Event Hubs. | Yes | Yes | Yes |
+| [MQTT](howto-configure-mqtt-endpoint.md) | For bi-directional messaging with MQTT brokers, including the one built-in to Azure IoT Operations and Event Grid. | Yes | Yes | Source and destination |
+| [Kafka](howto-configure-kafka-endpoint.md) | For bi-directional messaging with Kafka brokers, including Azure Event Hubs. | Yes | Yes | Source and destination |
 | [OpenTelemetry](howto-configure-opentelemetry-endpoint.md) | For sending metrics and logs to OpenTelemetry collectors and observability platforms like Grafana and Azure Monitor. | No | Yes | Destination only |
-| [Data Lake](howto-configure-adlsv2-endpoint.md) | For uploading data to Azure Data Lake Gen2 storage accounts. | No | Yes | No |
-| [Microsoft Fabric OneLake](howto-configure-fabric-endpoint.md) | For uploading data to Microsoft Fabric OneLake lakehouses. | No | Yes | No |
-| [Azure Data Explorer](howto-configure-adx-endpoint.md) | For uploading data to Azure Data Explorer databases. | No | Yes | No |
-| [Local storage](howto-configure-local-storage-endpoint.md) | For sending data to a locally available persistent volume, optionally configurable with Azure Container Storage enabled by Azure Arc. | No | Yes | ❌ Not supported |
+| [Data Lake](howto-configure-adlsv2-endpoint.md) | For uploading data to Azure Data Lake Gen2 storage accounts. | No | Yes | Not supported |
+| [Microsoft Fabric OneLake](howto-configure-fabric-endpoint.md) | For uploading data to Microsoft Fabric OneLake lakehouses. | No | Yes | Not supported |
+| [Azure Data Explorer](howto-configure-adx-endpoint.md) | For uploading data to Azure Data Explorer databases. | No | Yes | Not supported |
+| [Local storage](howto-configure-local-storage-endpoint.md) | For sending data to a locally available persistent volume, optionally configurable with Azure Container Storage enabled by Azure Arc. | No | Yes | Not supported |
 
 > [!IMPORTANT]
 > **Data flow graphs limitation**: [Data flow graphs (WASM)](howto-dataflow-graph-wasm.md) currently only support MQTT, Kafka, and OpenTelemetry endpoints. OpenTelemetry endpoints can only be used as destinations in data flow graphs. Other endpoint types are not supported for data flow graphs. For more information, see [Known issues](../troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
