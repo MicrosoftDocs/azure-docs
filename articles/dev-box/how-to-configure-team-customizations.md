@@ -174,7 +174,7 @@ You can use a GitHub or Azure Repos repository as a catalog to make your image d
 
 Once you have an image definition file that you want to use, upload it to a catalog. The following sections show you how to attach your catalog to a project, and make your image definition available for selection when configuring your dev box pools.
 
-## Create image definitions at the project level
+## Configure image definitions at the project level
 
 Projects help you manage Dev Box resources efficiently. You can assign each developer team its own project to organize resources effectively. Create multiple image definitions in your catalog repository, each in its own folder to target different developer teams under your project.
 
