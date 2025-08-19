@@ -58,7 +58,7 @@ Here are the high-level steps to move a credit resource. For more information on
 8.	Click on the acknowledgment that you need to update tools and scripts for these resources. To start moving the resources, select ***Move***
 9.	After the move is complete, verify that the credit resource is in the new subscription and resource group. 
 
-When a credit is moved, the resource URI associated with it is updated to reflect the change.
+When a credit is moved, the resource URI associated with it's updated to reflect the change.
 
 
 ## To view the credit resource URI
@@ -71,45 +71,45 @@ When a credit is moved, the resource URI associated with it is updated to reflec
 
 ## Rename a credit resource
 
-The credit’s resource name is a part of its Uniform Resource Identifier (URI) and cannot be changed. However, you can use [tags](../../azure-resource-manager/management/tag-resources.md) to help identify the credit resource based on a nomenclature relevant to your organization.
+The credit’s resource name is a part of its Uniform Resource Identifier (URI) and can't be changed. However, you can use [tags](../../azure-resource-manager/management/tag-resources.md) to help identify the credit resource based on a nomenclature relevant to your organization.
 
 
 ## Delete a credit resource 
 
-A credit resource may only be deleted if its status is ***Failed***, ***Canceled*** or ***Expired***. Deletion of a credit resource is a permanent action and cannot be undone.
+A credit resource may only be deleted if its status is ***Failed***, ***Canceled***, or ***Expired***. Deletion of a credit resource is a permanent action and can't be undone.
 
-If you attempt to delete an active credit resource, you receive an error notifying you that the credit resource cannot be deleted in it’s current ***Succeeded*** state. 
+If you attempt to delete an active credit resource, you receive an error notifying you that the credit resource can't be deleted in its current ***Succeeded*** state. 
 <br>
 
-Also, attempting to delete a resource group or subscription that contains an active credit resource will also fail with a similar error. To mitigate, you can move the active credit resource to another resource group or subscription within the same billing profile prior to attempting the resource group or subscription deletion. 
+Attempting to delete a resource group or subscription that contains an active credit resource will fail with a similar error. To mitigate, move the active credit resource to another resource group or subscription within the same billing profile before attempting deletion. 
 
-For additional information on moving a credit resource see section: [To move a credit resource](#to-move-a-credit-resource)
+For additional information on moving a credit resource, see section: [To move a credit resource](#to-move-a-credit-resource)
 
 
 ## Cancel a credit 
 
-Contact your Microsoft account team if you have questions about cancelling your credit.
+Contact your Microsoft account team if you have questions about canceling your credit.
 
 
 ## Grant user access to a credit resource
 
-By default, the user account that accepted the credit proposal has owner access to the credit resource. You can grant access by adding additional users to an Azure role. 
+By default, the user account that accepted the credit proposal has owner access to the credit resource. You can grant access by adding other users to an Azure role. 
 
 1.	In the [Azure portal](https://portal.azure.com/), search for **Credits**.
 2.	Select the credit resource.
 3.	On the left navigation menu, select ***Access control (IAM)***.
 4.	From Access control (IAM), select ***Add*** and choose ***Add role assignment***. 
 5.	From the ***Role*** tab, select the appropriate role
-6.	On the ***Members*** tab, additional user
+6.	On the ***Members*** tab, another user
 7.	On the ***Review + assign*** tab, review the role assignment settings
 8.	Select ***Review + assign*** button to assign the role.
 <br>
 
 >[!NOTE] 
-Currently supported Azure built-in roles are Reader, Contributor and Owner
+Currently supported Azure built-in roles are Reader, Contributor, and Owner
 
 ## Frequently asked questions
- - **Does having a credit resource object impact associated with a subscription impact how the credit behaves?** No, having a credit resource object created on a subscription does not change how the credit is applied or what the credit is applied to. The credit resource object acts as a record of the credit awarded and gives you other metadata, such as the credit’s start and end dates and credit amount.
+ - **Does having a credit resource object impact associated with a subscription impact how the credit behaves?** No, having a credit resource created on a subscription doesn’t change how the credit is applied or what the credit is applied to. The credit resource acts as a record of the credit awarded and gives you other metadata, such as the credit’s start and end dates and credit amount.
 
  - **Does the resource group’s location affect credit application?** No, the resource group stores metadata about the resources and doesn’t impact the credit. The credit resource is associated with a Billing Profile and automatically applied to applicable charges on the billing profile. 
 
