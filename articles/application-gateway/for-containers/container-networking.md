@@ -5,7 +5,7 @@ services: application gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
-ms.date: 3/24/2025
+ms.date: 8/26/2025
 ms.author: mbender
 # Customer intent: "As a Kubernetes administrator, I want to configure and deploy Application Gateway for Containers with different CNI plugins, so that I can manage networking efficiently and ensure seamless connectivity between pods in my Azure Kubernetes Service cluster."
 ---
@@ -30,7 +30,7 @@ When choosing a networking model, consider the use cases for each CNI plugin and
 | CNI plugin | Networking model | Use case highlights |
 |-------------|----------------------|-----------------------|
 | **Azure CNI Overlay** | Overlay | - Best for VNET IP conservation<br/>- Max node count supported by API Server + 250 pods per node<br/>- Simpler configuration<br/> - No direct external pod IP access |
-| **Azure CNI Pod Subnet** | Flat | - Direct external pod access<br/>- Modes for efficient VNet IP usage _or_ large cluster scale support (Preview) |
+| **Azure CNI Pod Subnet** | Flat | - Direct external pod access<br/>- Modes for efficient VNet IP usage _or_ large cluster scale support |
 | **Azure CNI Node Subnet** | Flat | - Direct external pod access<br/>- Simpler configuration <br/>- Limited scale <br/>- Inefficient use of VNet IPs |
 
 When provisioning Application Gateway for Containers into a cluster that has CNI Overlay or CNI enabled, Application Gateway for Containers automatically detects the intended network configuration. There are no changes needed in Gateway or Ingress API configuration to specify CNI Overlay or CNI.
@@ -42,10 +42,6 @@ When provisioning Application Gateway for Containers into a cluster that has CNI
 A separate routing domain is created in the Azure Networking stack for the pod's private CIDR space, which creates an Overlay network for direct communication between pods. When Application Gateway for Containers is provisioned, the Overlay routing domain is further extended to the Application Gateway for Containers subnet, allowing proxying of requests from Application Gateway for Containers directly to pods.
 
 Application Gateway for Containers supports Azure Network Policies, Calico, and Cilium Kubernetes network policies running within the cluster.
-
-> [!IMPORTANT]
-> Application Gateway for Containers with CNI Overlay is in PREVIEW.<br>
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ### Limitations
 
