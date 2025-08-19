@@ -31,12 +31,6 @@ Configure team customizations by following these steps:
 
 :::image type="content" source="media/how-to-configure-team-customizations/dev-box-team-customizations-workflow.png" alt-text="Diagram showing the five-step workflow for team customizations in Microsoft Dev Box.":::
 
-1. Create an imagedefinition.yaml file.
-1. Enable and sync catalogs for your project.
-1. Attach the catalog containing your image definition.
-1. Select the image definition when creating a dev box pool.
-1. Create dev boxes and verify that customizations are applied.
-
 ## Prerequisites
 
 | Product | Requirements |
