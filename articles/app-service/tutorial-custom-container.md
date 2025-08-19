@@ -1,8 +1,8 @@
 ---
-title: 'Tutorial: Build and run a custom image in Azure App Service'
-description: A step-by-step guide to build a custom Linux or Windows image, push the image to Azure Container Registry, and then deploy that image to Azure App Service. Learn how to migrate custom software to App Service in a custom container.
+title: 'Tutorial: Build and Run a Custom Image in Azure App Service'
+description: Learn how to migrate custom software to App Service in a custom container. Build a custom image and deploy it to App Service.
 ms.topic: tutorial
-ms.date: 09/04/2024
+ms.date: 08/27/2025
 ms.author: msangapu
 author: msangapu-msft
 keywords: azure app service, web app, linux, windows, docker, container
@@ -11,7 +11,7 @@ zone_pivot_groups: app-service-containers-windows-linux
 ms.service: azure-app-service
 ---
 
-# Migrate custom software to Azure App Service using a custom container
+# Migrate custom software to Azure App Service by using a custom container
 
 ::: zone pivot="container-windows"  
 
@@ -20,7 +20,7 @@ ms.service: azure-app-service
 - Software installations.
 - Changes to the global assembly cache.
 
-For more information, see [Operating system functionality on Azure App Service](operating-system-functionality.md).
+For more information, see [Operating system functionality on App Service](operating-system-functionality.md).
 
 You can deploy a custom-configured Windows image from Visual Studio to make OS changes that your app needs. This makes it easy to migrate an on-premises app that requires a custom OS and software configuration. This tutorial demonstrates how to migrate to App Service an ASP.NET app that uses custom fonts installed in the Windows font library. You deploy a custom-configured Windows image from Visual Studio to [Azure Container Registry](/azure/container-registry/) and then run it in App Service.
 
