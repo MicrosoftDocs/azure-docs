@@ -147,7 +147,8 @@ az networkcloud cluster show --name "<CLUSTER>" \
 
 In this example, if less than 10 compute nodes being provisioned in a rack fail to provision (on a Rack-by-Rack basis), the Cluster upgrade waits indefinitely until the condition is met. If 10 or more of the compute nodes are successfully provisioned, Cluster deployment moves on to the next rack of compute nodes. If there are too many failures in the rack, the hardware must be repaired before the upgrade can continue.
 
-> [!NOTE] > **_`update-strategy` cannot be changed after the Cluster runtime upgrade has started._**
+> [!NOTE]
+> **_`update-strategy` cannot be changed after the Cluster runtime upgrade has started._**
 > When a threshold value below 100% is set, it’s possible that any unhealthy nodes might not be upgraded, yet the "Cluster" status could still indicate that upgrade was successful. For troubleshooting issues with bare metal machines, refer to [Troubleshoot Azure Operator Nexus server problems](troubleshoot-reboot-reimage-replace.md)
 
 ## Upgrade Cluster runtime using CLI
