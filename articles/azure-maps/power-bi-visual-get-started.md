@@ -211,6 +211,10 @@ This visual supports up to 30,000 data points.
 
 Yes, addresses and other location strings can be used in the Azure Maps Power BI visual. For more information on addresses and other location strings, see [The location field] in the *Geocoding in Azure Maps Power BI Visual* article.
 
+**Why I am seeing "Tenant switch not enabled" error in Power BI Desktop even when I have this switch enabled?**
+
+Please upgrade your Power BI desktop app to atleast May 2025 version to resolve this issue.
+
 ## Next steps
 
 Learn more about the Azure Maps Power BI visual:

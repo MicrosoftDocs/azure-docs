@@ -2,7 +2,7 @@
 title: Configure Cross-Tenant Authorization with Microsoft Entra
 description: Learn how to build multitenant applications and configure cross-tenant authorization in Azure SignalR Service.
 author: terencefan
-ms.author: tefa
+ms.author: lianwei
 ms.date: 03/12/2023
 ms.service: azure-signalr-service
 ms.topic: how-to

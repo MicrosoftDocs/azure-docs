@@ -12,7 +12,7 @@ ms.author: chrupa
 # MedTech service and Microsoft Power BI
 
 > [!IMPORTANT]
-> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
+> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central. This deprecation process began in May 2025 and is ongoing.
 
 In this article, learn about using the MedTech service and Microsoft Power Business Intelligence (Power BI).
 

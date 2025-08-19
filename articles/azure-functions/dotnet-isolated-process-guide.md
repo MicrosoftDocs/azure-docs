@@ -22,7 +22,7 @@ Use the following links to get started right away building .NET isolated worker 
 
 | Getting started | Concepts| Samples |
 |--|--|--| 
-| <ul><li>[Using Visual Studio Code](create-first-function-vs-code-csharp.md?tabs=isolated-process)</li><li>[Using command line tools](how-to-create-function-azure-cli.md?pivots=programming-language-csharp)</li><li>[Using Visual Studio](functions-create-your-first-function-visual-studio.md?tabs=isolated-process)</li></ul> | <ul><li>[Hosting options](functions-scale.md)</li><li>[Monitoring](functions-monitoring.md)</li> | <ul><li>[Reference samples](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples)</li></ul> |
+| <ul><li>[Using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-csharp?tabs=isolated-process)</li><li>[Using command line tools](how-to-create-function-azure-cli.md?pivots=programming-language-csharp)</li><li>[Using Visual Studio](functions-create-your-first-function-visual-studio.md?tabs=isolated-process)</li></ul> | <ul><li>[Hosting options](functions-scale.md)</li><li>[Monitoring](functions-monitoring.md)</li> | <ul><li>[Reference samples](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples)</li></ul> |
 
 To learn just about deploying an isolated worker model project to Azure, see [Deploy to Azure Functions](#deploy-to-azure-functions). 
 
@@ -1321,12 +1321,14 @@ Azure Functions currently can be used with the following "Preview" or "Go-live" 
 
 | Operating system | .NET preview version          |
 |------------------|-------------------------------|
-| Linux            | .NET 10 Preview 5<sup>1,2</sup> |
-| Windows          | .NET 10 Preview 5<sup>1</sup> |
+| Linux            | .NET 10 Preview 5<sup>1,2,3</sup> |
+| Windows          | .NET 10 Preview 5<sup>1,2</sup> |
 
-<sup>1</sup> Visual Studio doesn't yet support Azure Functions with .NET 10.
+<sup>1</sup> Apps targeting .NET 10 must use [version 2.0.5 or later of `Microsoft.Azure.Functions.Worker.Sdk`][Microsoft.Azure.Functions.Worker.Sdk].
 
-<sup>2</sup> Linux Consumption apps do not yet .NET 10.
+<sup>2</sup> Visual Studio doesn't yet support Azure Functions with .NET 10.
+
+<sup>3</sup> Linux Consumption apps do not yet support .NET 10.
 
 See [Supported versions][supported-versions] for a list of generally available releases that you can use.
 

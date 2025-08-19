@@ -1,8 +1,8 @@
 ---
 title: Configure data flow profile in Azure IoT Operations
 description: How to configure a data flow profile in Azure IoT Operations to change a data flow behavior.
-author: PatAltimore
-ms.author: patricka
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
