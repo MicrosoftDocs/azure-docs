@@ -40,7 +40,7 @@ This FAQ addresses common questions about upgrading from **ZRS Classic** (legacy
 | Is the upgrade permanent? | Yes. Once upgraded to GPv2, you cannot revert to ZRS Classic. |
 | Why is ZRS Classic being retired? | To standardize on GPv2 for resiliency, feature parity, and consistent pricing. Modern ZRS provides synchronous zone replication and integrates with advanced features like Event Grid and ADLS Gen2. |
 | What if my region doesn’t support ZRS? | Your account will be upgraded to GPv2 with the closest available redundancy (LRS or GRS). You can later migrate to a ZRS-supported region if needed. |
-| How do I calculate the new billing amount? | Use the [Azure Pricing Calculator](https://azure.microsoft.com/prcurrent usage data to estimate costs under GPv2 pricing. |
+| How do I calculate the new billing amount? | Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) and your current usage data to estimate costs under GPv2 pricing. |
 | Can I enable geo-redundancy after upgrading? | Yes. GPv2 supports GRS, RA-GRS, GZRS, and RA-GZRS. |
 | What if I need help with the upgrade process? | Microsoft provides documentation, Q&A forums, and support channels. If you have a support plan, create a support request in the Azure portal. |
 
