@@ -73,7 +73,7 @@ If you have any of the following requirements, use search jobs:
 + Your use case involves targeted extraction rather than frequent summarization or complex multi-table joins.
 + You want to analyze up to one year of historical data within a table from any data tier.
 
-## Related articles:
+## Related articles
 
 - [KQL and the Microsoft Sentinel data lake (preview)](kql-overview.md)
 - [Jupyter notebooks and the Microsoft Sentinel data lake (preview)](notebooks-overview.md)
