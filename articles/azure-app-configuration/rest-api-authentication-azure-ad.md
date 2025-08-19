@@ -37,7 +37,7 @@ Before acquiring a Microsoft Entra token, you must identify what user you want t
 
 ### Audience
 
-Request the Microsoft Entra token with a proper audience. The audience can also be referred to as the _resource_ that the token is being requested for.
+Request the Microsoft Entra token with a proper audience. The audience can also be referred to as the *resource* that the token is being requested for.
 
 For Azure App Configuration in the global Azure cloud, use the following audience: 
 
