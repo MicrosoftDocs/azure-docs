@@ -13,7 +13,7 @@ ms.collection:
 
 # Scenario - Using Microsoft Entra ID to secure access to SAP platforms and applications
 
-This document provides advice on the **technical design and configuration** of SAP platforms and applications when using Microsoft Entra ID as the primary user authentication service for [SAP Cloud Identity Services](https://help.sap.com/docs/cloud-identity-services/cloud-identity-services/landing-page). SAP Cloud Identity Services includes Identity Authentication, Identity Provisioning, Identity Directory, and Authorization Management. Learn more about the initial setup for authentication in the [Microsoft Entra single sign-on (SSO) integration with SAP Cloud Identity Services tutorial](~/identity/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md). For more information on provisioning and other scenarios, see [plan deploying Microsoft Entra for user provisioning with SAP source and target applications](~/identity/app-provisioning/plan-sap-user-source-and-target.md) and [manage access to your SAP applications](~/id-governance/sap.md).
+This document provides advice on the **technical design and configuration** of SAP platforms and applications when using Microsoft Entra ID as the primary user authentication service for [SAP Cloud Identity Services](https://help.sap.com/docs/cloud-identity-services/cloud-identity-services/landing-page). SAP Cloud Identity Services includes Identity Authentication, Identity Provisioning, Identity Directory, and Authorization Management. Learn more about the initial setup for authentication in the [Microsoft Entra single sign-on (SSO) integration with SAP Cloud Identity Services tutorial](/entra/identity/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial). For more information on provisioning and other scenarios, see [plan deploying Microsoft Entra for user provisioning with SAP source and target applications](/entra/identity/app-provisioning/plan-sap-user-source-and-target) and [manage access to your SAP applications](/entra/id-governance/sap).
 
 ## Terminology used in this guide
 
@@ -36,13 +36,13 @@ Since there are many permutations of possible scenarios to be configured, we foc
 - You want to govern all your identities centrally and only from Microsoft Entra ID.
 - You want to reduce maintenance efforts as much as possible and automate authentication and app access across Microsoft and SAP.
 - The general guidance for Microsoft Entra ID with IAS applies for apps deployed on BTP and SAP SaaS apps configured in IAS. Specific recommendations will also be provided where applicable to BTP (for example, using role mappings with Microsoft Entra groups) and SAP SaaS apps (for example, using identity provisioning service for role-based authorization).
-- We also assume that users are already provisioned in Microsoft Entra ID and towards any SAP systems that require users to be provisioned to function. Regardless of how that was achieved: provisioning could have been through manually, from on-premises Active Directory through Microsoft Entra Connect, or through HR systems like SAP SuccessFactors. In this document therefore, SuccessFactors is considered to be an application like any other that (existing) users will sign on to. We don't cover actual provisioning of users from SuccessFactors into Microsoft Entra ID.  For more information on bringing users into Microsoft Entra ID for use with SAP workloads, see [plan deploying Microsoft Entra for user provisioning with SAP source and target applications](~/identity/app-provisioning/plan-sap-user-source-and-target.md) and [manage access to your SAP applications](~/id-governance/sap.md).
+- We also assume that users are already provisioned in Microsoft Entra ID and towards any SAP systems that require users to be provisioned to function. Regardless of how that was achieved: provisioning could have been through manually, from on-premises Active Directory through Microsoft Entra Connect, or through HR systems like SAP SuccessFactors. In this document therefore, SuccessFactors is considered to be an application like any other that (existing) users will sign on to. We don't cover actual provisioning of users from SuccessFactors into Microsoft Entra ID.  For more information on bringing users into Microsoft Entra ID for use with SAP workloads, see [plan deploying Microsoft Entra for user provisioning with SAP source and target applications](/entra/identity/app-provisioning/plan-sap-user-source-and-target) and [manage access to your SAP applications](/entra/id-governance/sap).
 
 Based on these assumptions, we focus mostly on the products and services presented in the diagram below. These are the various components that are most relevant to authentication and authorization in a cloud-based environment.
 
 ![SAP services in scope](./media/scenario-azure-first-sap-identity-integration/sap-services-in-scope.png)
 
-If you've been using SAP Identity Management (IDM), then you can migrate identity management scenarios from SAP IDM to Microsoft Entra. For more information, see [Migrate identity management scenarios from SAP IDM to Microsoft Entra](~/identity/app-provisioning/migrate-from-sap-idm.md).
+If you've been using SAP Identity Management (IDM), then you can migrate identity management scenarios from SAP IDM to Microsoft Entra. For more information, see [Migrate identity management scenarios from SAP IDM to Microsoft Entra](/entra/identity/app-provisioning/migrate-from-sap-idm).
 
 > [!WARNING]
 > Be aware of the SAP SAML assertion limits and impact of the length of SAP Cloud Foundry role collection names and number of collections proxied by groups in SAP Cloud Identity Service. For more information, see SAP note [2732890](https://launchpad.support.sap.com/?sap-support-cross-site-visitor-id=b73c7292f9a46d52#/notes/2732890) in SAP for Me. Exceeded limits result in authorization issues.
@@ -85,7 +85,7 @@ On the trust configuration in BTP, we recommend that "Create Shadow Users During
 
 #### Why this recommendation?
 
-When using federation, you can choose to define the trust configuration at the BTP Subaccount level. In that case, you must repeat the configuration for each other Subaccount you're using. By using IAS as an intermediate trust configuration, you benefit from centralized configuration across multiple Subaccounts and you can use IAS features such as [risk-based authentication](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US/bc52fbf3d59447bbb6aa22f80d8b6056.html) and centralized [enrichment of assertion attributes](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US/7124201682434efb946e1046fde06afe.html). To safeguard the user experience, these advanced security features should only be enforced at a single location. This could either be IAS or when keeping Microsoft Entra ID as the single authoritative user store (as is the premise of this paper), this would centrally be handled by Microsoft Entra [Conditional Access Management](~/identity/conditional-access/overview.md).
+When using federation, you can choose to define the trust configuration at the BTP Subaccount level. In that case, you must repeat the configuration for each other Subaccount you're using. By using IAS as an intermediate trust configuration, you benefit from centralized configuration across multiple Subaccounts and you can use IAS features such as [risk-based authentication](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US/bc52fbf3d59447bbb6aa22f80d8b6056.html) and centralized [enrichment of assertion attributes](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US/7124201682434efb946e1046fde06afe.html). To safeguard the user experience, these advanced security features should only be enforced at a single location. This could either be IAS or when keeping Microsoft Entra ID as the single authoritative user store (as is the premise of this paper), this would centrally be handled by Microsoft Entra [Conditional Access](/entra/identity/conditional-access/concept-conditional-access-policy-common).
 
 Note: to IAS, every Subaccount is considered to be an "application", even though within that Subaccount one or more applications could be deployed. Within IAS, every such application can be set up for federation with the same corporate identity provider (Microsoft Entra ID in this case).
 
@@ -93,11 +93,11 @@ Note: to IAS, every Subaccount is considered to be an "application", even though
 
 In Microsoft Entra ID:
 
-- Optionally [configure Microsoft Entra ID for seamless single sign-on](~/identity/hybrid/connect/how-to-connect-sso.md) (Seamless SSO), which automatically signs users in when they are on their corporate devices connected to your corporate network. When enabled, users don't need to type in their passwords to sign in to Microsoft Entra ID, and usually, even type in their usernames.
+- Optionally [configure Microsoft Entra ID for seamless single sign-on](/entra/identity/hybrid/connect/how-to-connect-sso) (Seamless SSO), which automatically signs users in when they are on their corporate devices connected to your corporate network. When enabled, users don't need to type in their passwords to sign in to Microsoft Entra ID, and usually, even type in their usernames.
 
 In Microsoft Entra ID and IAS:
 
-- Follow the documentation to connect Microsoft Entra ID to IAS in federation (proxy) mode ([SAP doc](https://developers.sap.com/tutorials/cp-ias-azure-ad.html), [Microsoft doc](~/identity/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md)). Watch out for the `NameID` setting on your SSO config in Microsoft Entra ID, because UPNs aren't necessarily email-addresses.
+- Follow the documentation to connect Microsoft Entra ID to IAS in federation (proxy) mode ([SAP doc](https://developers.sap.com/tutorials/cp-ias-azure-ad.html), [Microsoft doc](/entra/identity/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial)). Watch out for the `NameID` setting on your SSO config in Microsoft Entra ID, because UPNs aren't necessarily email-addresses.
 - Configure the "Bundled Application" to use Microsoft Entra ID by going to the "[Conditional Authentication](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US/0143dce88a604533ab5ab17e639fec09.html)" page and setting the "Default Authenticating Identity Provider" to the Corporate Identity Provider representing your Microsoft Entra directory.
 
 In BTP:
@@ -119,7 +119,7 @@ When BTP and IAS have been configured for user **authentication** via federation
 
 #### What are we recommending?
 
-We recommend that you don't put any authorization directly in Microsoft Entra itself and explicitly turn off "[User assignment required](~/identity/enterprise-apps/assign-user-or-group-access-portal.md)" on the Enterprise Application in Microsoft Entra ID. Note that for SAML applications, this setting is enabled by default, so you must take explicit action to disable it.
+We recommend that you don't put any authorization directly in Microsoft Entra itself and explicitly turn off "[User assignment required](/entra/identity/enterprise-apps/assign-user-or-group-access-portal)" on the Enterprise Application in Microsoft Entra ID. Note that for SAML applications, this setting is enabled by default, so you must take explicit action to disable it.
 
 #### Why this recommendation?
 
@@ -129,7 +129,7 @@ While that could be a valid reason for using "User assignment required", it does
 
 #### Summary of implementation
 
-On the Microsoft Entra Enterprise Application representing the federation relation with IAS, disable "[User assignment required](~/identity/enterprise-apps/assign-user-or-group-access-portal.md)". This also means you can safely skip assignment of users.
+On the Microsoft Entra Enterprise Application representing the federation relation with IAS, disable "[User assignment required](/entra/identity/enterprise-apps/assign-user-or-group-access-portal)". This also means you can safely skip assignment of users.
 
 <a name='3---use-azure-ad-groups-for-authorization-through-role-collections-in-iasbtp'></a>
 
@@ -165,7 +165,7 @@ We recommend using the Microsoft Entra group's Group ID rather than its name bec
 In Microsoft Entra ID:
 
 - Create groups to which users can be added that need access to applications in BTP (for example, create a Microsoft Entra group for each Role Collection in BTP).
-- On the Microsoft Entra Enterprise Application representing the federation relation with IAS, configure the SAML User Attributes & Claims to [add a group claim for security groups](~/identity/hybrid/connect/how-to-connect-fed-group-claims.md#add-group-claims-to-tokens-for-saml-applications-using-sso-configuration):
+- On the Microsoft Entra Enterprise Application representing the federation relation with IAS, configure the SAML User Attributes & Claims to [add a group claim for security groups](/entra/identity/hybrid/connect/how-to-connect-fed-group-claims#add-group-claims-to-tokens-for-saml-applications-using-sso-configuration):
     - Set the Source attribute to "Group ID" and the Name to `Groups` (spelled exactly like this, with upper case 'G').
     - Further, in order to keep claims payloads small and to avoid running into the limitation whereby Microsoft Entra ID will limit the number of group claims to 150 in SAML assertions, we highly recommend limiting the groups returned in the claims to only those groups that explicitly were assigned:  
         - Under "Which groups associated with the user should be returned in the claim?" answer with "Groups assigned to the application". Then for the groups you want to include as claims, assign them to the Enterprise Application using the "Users and Groups" section and selecting "Add user/group".
@@ -226,7 +226,7 @@ Because IAS is the centralized component which has been set up to federate with 
 
 When configuring federation between Microsoft Entra ID and IAS, as well as between IAS and BTP, SAML metadata is exchanged which contains X.509 certificates used for encryption and cryptographic signatures of the SAML tokens being sent between both parties. These certificates have expiration dates and must be updated periodically (even in emergency situations when a certificate was compromised for example).
 
-Note: the default validity period of the initial Microsoft Entra certificate used to sign SAML assertions is 3 years (and note that the certificate is specific to the Enterprise Application, unlike OpenID Connect and OAuth 2.0 tokens which are signed by a global certificate in Microsoft Entra ID). You can choose to [generate a new certificate with a different expiration date](~/identity/enterprise-apps/tutorial-manage-certificates-for-federated-single-sign-on.md#customize-the-expiration-date-for-your-federation-certificate-and-roll-it-over-to-a-new-certificate), or create and import your own certificate.
+Note: the default validity period of the initial Microsoft Entra certificate used to sign SAML assertions is 3 years (and note that the certificate is specific to the Enterprise Application, unlike OpenID Connect and OAuth 2.0 tokens which are signed by a global certificate in Microsoft Entra ID). You can choose to [generate a new certificate with a different expiration date](/entra/identity/enterprise-apps/tutorial-manage-certificates-for-federated-single-sign-on#customize-the-expiration-date-for-your-federation-certificate-and-roll-it-over-to-a-new-certificate), or create and import your own certificate.
 
 When certificates expire, they can no longer be used, and new certificates must be configured. Therefore, a process must be established to keep the certificate configuration inside the relying party (which needs to validate the signatures) up to date with the actual certificates being used to sign the SAML tokens.
 
@@ -254,13 +254,13 @@ If the certificates are allowed to expire, or when they are replaced in time but
 
 #### Summary of implementation
 
-[Add an email notification address for certificate expiration](~/identity/enterprise-apps/tutorial-manage-certificates-for-federated-single-sign-on.md#add-email-notification-addresses-for-certificate-expiration) in Microsoft Entra ID and set it to a group mailbox so that it isn't sent to a single individual (who may even no longer have an account by the time the certificate is about to expire). By default, only the user who created the Enterprise Application will receive a notification.
+[Add an email notification address for certificate expiration](/entra/identity/enterprise-apps/tutorial-manage-certificates-for-federated-single-sign-on#add-email-notification-addresses-for-certificate-expiration) in Microsoft Entra ID and set it to a group mailbox so that it isn't sent to a single individual (who may even no longer have an account by the time the certificate is about to expire). By default, only the user who created the Enterprise Application will receive a notification.
 
 Consider building automation to execute the entire certificate rollover process. For example, one can periodically check for expiring certificates and replace them while updating all relying parties with the new metadata.
 
 ## Next Steps
 
-- Learn more about the initial setup in [this tutorial](~/identity/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md)
-- [plan deploying Microsoft Entra for user provisioning with SAP source and target applications](~/identity/app-provisioning/plan-sap-user-source-and-target.md) and
-- [manage access to your SAP applications](~/id-governance/sap.md)
+- Learn more about the initial setup in [this tutorial](/entra/identity/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial)
+- [plan deploying Microsoft Entra for user provisioning with SAP source and target applications](/entra/identity/app-provisioning/plan-sap-user-source-and-target) and
+- [manage access to your SAP applications](/entra/id-governance/sap)
 - Discover additional [SAP integration scenarios with Microsoft Entra ID](/azure/sap/workloads/integration-get-started#microsoft-entra-id-formerly-azure-ad) and beyond
