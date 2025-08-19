@@ -1,6 +1,6 @@
 ---
 title: Create an Azure file share
-description: This article covers how to use the Azure portal, PowerShell, and Azure CLI to deploy a Azure file share, change it performance and delete.
+description: This article covers how to use the Azure portal, PowerShell, and Azure CLI to deploy an Azure file share, change it performance and delete.
 author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
@@ -15,19 +15,19 @@ ms.author: kendownie
 Before you create an Azure file share, you need to answer two questions about how you want to use it:
 
 - **Is Azure file share the right fit for me?**  
-  **Azure file share is a public preview feature.** Azure file share currently offers only SSD (premium). SSD Azure file shares provide consistent high performance and low latency, within single-digit milliseconds for most IO operations. Azure file share currently only support on provisioned v2 billing model. In provisioned v2 billing model you specify how much storage, IOPS, and throughput your Azure file share needs. The amount of each quantity that you provision determines your total bill. By default, when you create a new Azure file share using the provisioned v2 model, we provide a recommendation for how many IOPS and how much throughput you need based on the amount of provisioned storage you specify. Depending on your individual Azure file share requirements, you might find that you require more or less IOPS or throughput than our recommendations, and can optionally override these recommendations with your own values as desired. To learn more about the provisioned v2 model, see [Understanding the provisioned v2 billing model](./understanding-billing.md#provisioned-v2-model). If you need all existing features that Azure File offers, or you need SMB protocol, HDD (standard) performance, please choose Azure file share (Classic) instead.
+  **Azure file share is a public preview feature.** Azure file share currently offers only SSD (premium). SSD Azure file shares provide consistent high performance and low latency, within single-digit milliseconds for most IO operations. Azure file share currently only supports on provisioned v2 billing model. In provisioned v2 billing model you specify how much storage, IOPS, and throughput your Azure file share needs. The amount of each quantity that you provision determines your total bill. By default, when you create a new Azure file share using the provisioned v2 model, we provide a recommendation for how many IOPS and how much throughput you need based on the amount of provisioned storage you specify. Depending on your individual Azure file share requirements, you might find that you require more or less IOPS or throughput than our recommendations, and can optionally override these recommendations with your own values as desired. To learn more about the provisioned v2 model, see [Understanding the provisioned v2 billing model](./understanding-billing.md#provisioned-v2-model). If you need all existing features that Azure File offers, or you need SMB protocol, HDD (standard) performance, please choose Azure file share (Classic) instead.
 
 - **What are the redundancy requirements for your Azure file share?**  
-   Azure file share are only available for the Local and Zone redundancy types. See [Azure Files redundancy](./files-redundancy.md) for more information.
+   Azure file shares are only available for the Local and Zone redundancy types. See [Azure Files redundancy](./files-redundancy.md) for more information.
 
-For more information on Azure Azure file share options, see [Planning for an Azure Files deployment](storage-files-planning.md).
+For more information on Azure file share options, see [Planning for an Azure Files deployment](storage-files-planning.md).
 
 ## Applies to
 
-| Management model     | Object                   | Applys to                           |
+| Management model     | Object                   | Apply to                           |
 | -------------------- | ------------------------ | ----------------------------------- |
 | Microsoft.FileShares | Azure file share         | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage    | classis Azure file share | ![No](../media/icons/no-icon.png)   |
+| Microsoft.Storage    | classic Azure file share | ![No](../media/icons/no-icon.png)   |
 
 ## Prerequisites
 
@@ -35,11 +35,11 @@ For more information on Azure Azure file share options, see [Planning for an Azu
 
 ---
 
-## Create a Azure file share
+## Create an Azure file share
 
 # [Portal](#tab/azure-portal)
 
-To create a Azure file share via the Azure portal, use the search box at the top of the Azure portal to search for **Azure file share** and select the matching result.
+To create an Azure file share via the Azure portal, use the search box at the top of the Azure portal to search for **Azure file share** and select the matching result.
 
 ![A screenshot of the Azure portal search box with results for "Azure file share".](./media/storage-how-to-create-microsoft-fileshares/search.png)
 
@@ -49,7 +49,7 @@ Click **+ Create** to create a new Azure file share.
 
 ### Basics
 
-The first tab to complete to create a Azure file share is labeled **Basics**, which contains the required fields to create a Azure file share.
+The first tab to complete creating an Azure file share is labeled **Basics**, which contains the required fields to create an Azure file share.
 
 ![A screenshot of the Azure portal for create flow 1 for Azure file share".](./media/storage-how-to-create-microsoft-fileshares/createflow1.png)
 
@@ -58,12 +58,12 @@ The first tab to complete to create a Azure file share is labeled **Basics**, wh
 | Subscription                    | Drop-down list     | _Available Azure subscriptions_                                                                                                                                               | Yes                            | The selected subscription in which to deploy the storage account.                                                                                                                                                                                                    |
 | Resource group                  | Drop-down list     | _Available resource groups in selected subscription_                                                                                                                          | Yes                            | The resource group in which to deploy the Azure file share. A resource group is a logical container for organizing for Azure resources, including Azure file share.                                                                                                  |
 | Azure file share name           | Text box           | --                                                                                                                                                                            | Yes                            | The name of the Azure file share must be unique across all existing Azure file share names in Microsoft Azure. It must be 3 to 63 characters long and can contain only lowercase letters, numbers, and hyphens. The name must start and end with a letter or number. |
-| Tier                            | N/A                | --                                                                                                                                                                            | Yes                            | Premium Azure file shares are backed by solid-state drives (SSD) for better performance. Currently Azure file share only support SSD tier.                                                                                                                           |
-| Protocol                        | N/A                | --                                                                                                                                                                            | Yes                            | Azure Azure file shares support a multitude of access protocols. If you need the SMB protocol, deploy your Azure file share within a storage account. Currently Azure file share only support NFS protocol.                                                          |
+| Tier                            | N/A                | --                                                                                                                                                                            | Yes                            | Premium Azure file shares are backed by solid-state drives (SSD) for better performance. Currently Azure file share only supports SSD tier.                                                                                                                           |
+| Protocol                        | N/A                | --                                                                                                                                                                            | Yes                            | Azure Azure file shares support a multitude of access protocols. If you need the SMB protocol, deploy your Azure file share within a storage account. Currently Azure file share only supports NFS protocol.                                                          |
 | Region                          | Drop-down list     | _Available Azure regions_                                                                                                                                                     | Yes                            | The region for the Azure file share to be deployed into. This can be the region associated with the resource group, or any other available region.                                                                                                                   |
 | Provisioned capacity (GiB)      | Drop-down list     | Integer                                                                                                                                                                       | Yes                            | Provisioned capacity for the Azure file share, range from 32 GiB to 262144 GiB.                                                                                                                                                                                      |
-| Redundancy                      | Drop-down list     | <ul><li>Locally-redundant storage (LRS)</li><li>Geo-redundant storage (GRS)</li></ul>                                                                                          | Yes                            | The redundancy choice for the Azure file share. See [Azure Files redundancy](./files-redundancy.md) for more information.                                                                                                                                            |
-| Provisioned IOPS and throughput | Radio button group | <ul><li>Recommended provisioning</li><li>Manually specify IOPS and throughput<ul><li>Provisioned IOPS</li><li>Provisioned throughput (MiB/sec)</li></ul></li></ul>             | Yes                            | Azure file share only use provisioned v2 SSD billing model. See [Understanding billing](./understanding-billing.md) for more information.                                                                                                                            |
+| Redundancy                      | Drop-down list     | <ul><li>Locally redundant storage (LRS)</li><li>Geo-redundant storage (GRS)</li></ul>                                                                                          | Yes                            | The redundancy choice for the Azure file share. See [Azure Files redundancy](./files-redundancy.md) for more information.                                                                                                                                            |
+| Provisioned IOPS and throughput | Radio button group | <ul><li>Recommended provisioning</li><li>Manually specify IOPS and throughput<ul><li>Provisioned IOPS</li><li>Provisioned throughput (MiB/sec)</li></ul></li></ul>             | Yes                            | Azure file share only uses provisioned v2 SSD billing model. See [Understanding billing](./understanding-billing.md) for more information.                                                                                                                            |
 
 ### Advanced
 
