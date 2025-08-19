@@ -358,48 +358,30 @@ App Service can use either a default managed identity or a user-assigned managed
 
 ### [Azure portal](#tab/azure-portal)
 
-:::row:::
-    :::column span="2":::
-        1 In the Azure portal:
-           a. Enter **Managed Identities** in the search bar at the top of the Azure portal.
-           b. Select the item labeled **Managed Identities** under the **Services** heading.
-           c. Select **Create**.
+1. In the Azure portal:
+   1. Enter **Managed Identities** in the search bar at the top of the Azure portal.
+   1. Select the item labeled **Managed Identities** under the **Services** heading.
+   1. Select **Create**.
         You can also go to [Create User Assigned Managed Identity](https://portal.azure.com/#create/Microsoft.ManagedIdentity) directly.
-    :::column-end:::
-    :::column:::
+     
         :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-managed-identity-1.png" alt-text="Screenshot showing how to use the search box to find the Create User Assigned Managed Identity pane." lightbox="./media/tutorial-custom-container/azure-portal-create-managed-identity-1.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        2 In the **Create user Assigned Managed Identity** pane:
-           a. In **Subscription**, select the subscription you want to create your resources in.
-           b. In **Resource group**, select **Create new**, enter the name *msdocs-custom-container-tutorial* for the resource group, and then select **OK**.
-           c. In **Region**, select **West Europe**, or a region near you.
-           d. In **Name**, type **myID**.
-    :::column-end:::
-    :::column:::
+   
+1. In the **Create user Assigned Managed Identity** pane:
+    1. In **Subscription**, select the subscription you want to create your resources in.
+    1. In **Resource group**, select **Create new**, enter the name *msdocs-custom-container-tutorial* for the resource group, and then select **OK**.
+    1. In **Region**, select **West Europe**, or a region near you.
+    1. In **Name**, type **myID**.
+    
         :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-managed-identity-2.png" alt-text="Screenshot showing how to configure a new managed identity." lightbox="./media/tutorial-custom-container/azure-portal-create-managed-identity-2.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        3
-           a. Select the **Review + create** tab.
-           b. Select **Create**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-managed-identity-3.png" alt-text="Screenshot showing the final steps for creating the managed identity." lightbox="./media/tutorial-custom-container/azure-portal-create-managed-identity-3.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        4 When the creation of the identity is complete, you can open its management page by selecting **Go to resource**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-managed-identity-4.png" alt-text="Screenshot showing how to open the management page of the new managed identity." lightbox="./media/tutorial-custom-container/azure-portal-create-managed-identity-4.png":::
-    :::column-end:::
-:::row-end:::
+   
+1. Select the **Review + create** tab, and then select **Create**.
+     
+    :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-managed-identity-3.png" alt-text="Screenshot showing the final steps for creating the managed identity." lightbox="./media/tutorial-custom-container/azure-portal-create-managed-identity-3.png":::
+   
+1. When the creation of the identity is complete, you can open its management page by selecting **Go to resource**.
+     
+    :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-managed-identity-4.png" alt-text="Screenshot showing how to open the management page of the new managed identity." lightbox="./media/tutorial-custom-container/azure-portal-create-managed-identity-4.png":::
+  
 
 -----
 
@@ -413,7 +395,7 @@ App Service can use either a default managed identity or a user-assigned managed
     az acr create --name <registry-name> --resource-group msdocs-custom-container-tutorial --sku Basic --admin-enabled true
     ```
 
-    The `--admin-enabled` parameter lets you push images to the registry using administrative credentials.
+    The `--admin-enabled` parameter lets you push images to the registry by using administrative credentials.
 
 1. Retrieve the administrative credentials by running the [`az credential acr show`](/cli/azure/acr/credential#az-acr-credential-show) command:
 
