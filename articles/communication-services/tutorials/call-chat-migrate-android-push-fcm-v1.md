@@ -17,7 +17,7 @@ This article applies to call and chat applications using Android SDK with Fireba
 
 On June 20, 2023, Google announced that it [deprecated sending messages using the FCM legacy APIs](https://firebase.google.com/docs/cloud-messaging). Google is removing the legacy FCM from service in June 2024. Google recommends [migrating from legacy FCM APIs to FCM HTTP v1](https://firebase.google.com/docs/cloud-messaging/migrate-v1).
 
-If you have a new Android application or never used Google FCM, see the [Register for Android SDK push notifications using FCM v1](./chat-register-android-push-fcm-v1.md) article.
+If you have a new Android application or never used Google FCM, see the [Register for Android SDK push notifications using FCM v1](./call-chat-register-android-push-fcm-v1.md) article.
 
 If your Android application uses the push notification feature, complete the following steps to migrate your push notification to FCM HTTP v1.
 
