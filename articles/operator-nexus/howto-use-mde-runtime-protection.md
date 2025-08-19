@@ -100,7 +100,8 @@ az networkcloud cluster scan-runtime \
 --scan-activity Scan
 ```
 
-> NOTE: the MDE scan action requires the MDE service to be enabled. Just in case it is not enabled, the command will fail.
+> [!NOTE]
+> The MDE scan action requires the MDE service to be enabled. Just in case it is not enabled, the command will fail.
 > In this case set the `Enforcement Level` to a value different from `Disabled` to enable the MDE service.
 
 > [!TIP]
