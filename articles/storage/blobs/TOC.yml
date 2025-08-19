@@ -107,12 +107,12 @@ items:
       - name: Blob-only account migration Frequently Asked Questions
         href: ../common/blob-only-account-migration-frequently-asked-questions.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Zone Redundant Storage (ZRS) Classic account retirement
-      href: ../common/zrs-account-migration-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      href: ../common/zone-redundant-storage-account-migration-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       items:
-      - name: Upgrade a ZRS Classic storage account to GPv2
+      - name: Upgrade a Zone Redundant Storage (ZRS) Classic storage account to GPv2
         href: ../common/storage-account-upgrade.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: ZRS Classic account migration Frequently Asked Questions
-        href: ../common/zrs-account-migration-frequently-asked-questions.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        href: ../common/zone-redundant-storage-account-migration-frequently-asked-questions.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Data transfer and migration
     items:
     - name: Storage migration overview
