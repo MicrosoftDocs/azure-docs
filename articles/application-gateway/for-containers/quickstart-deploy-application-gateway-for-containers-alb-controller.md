@@ -184,7 +184,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     | alb-controller-6648c5d5c-sdd9t           | 1/1   | Running | 0        | 4d6h |
     | alb-controller-6648c5d5c-au234           | 1/1   | Running | 0        | 4d6h |
 
-2. Verify GatewayClass `azure-application-lb` is installed on your cluster:
+2. Verify GatewayClass `azure-alb-external` is installed on your cluster:
 
     ```azurecli-interactive
     kubectl get gatewayclass azure-alb-external -o yaml

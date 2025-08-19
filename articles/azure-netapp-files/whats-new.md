@@ -8,7 +8,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.topic: overview
-ms.date: 08/14/2025
+ms.date: 08/19/2025
 ms.author: anfdocs
 # Customer intent: As a cloud administrator, I want to learn about the latest enhancements in Azure NetApp Files, so that I can effectively utilize new features for improved data security, resilience, and operational efficiency in my organization's cloud storage solutions.
 ---
@@ -19,7 +19,15 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## August 2025
 
-* [Flexible service level](manage-cool-access.md#register-the-feature) now supports storage with cool access (Preview)
+* [Backup support for large volumes](backup-requirements-considerations.md) (Preview)
+
+    [Azure NetApp Files backup](backup-introduction.md) now supports large volumes by moving point-in-time snapshot copy data to low-cost Azure storage to address long-term retention, data protection, and compliance needs. Azure NetApp Files backup employs an efficient data mover to back up data at high speeds for both initial and incremental subsequent backups. You must be [registered to use large volumes](large-volumes-requirements-considerations.md#register-the-feature) to use this feature. 
+    
+* [File access logs](manage-file-access-logs.md) is now generally available (GA)
+
+    File access logs provide enterprise-grade visibility into file-level operations across SMB3, NFSv4.1, and dual-protocol volumes. This capability enhances security, reliability, and operational insight by capturing detailed access activity—including user identity, operation type, and timestamps. Organizations can use file access logs to monitor access patterns, detect unauthorized activity, support compliance investigations, and optimize data usage. By integrating this feature, you strengthen your security posture and align with the Well-Architected Framework's best practices for operational excellence.
+
+* [Flexible service level](manage-cool-access.md?tabs=flexible#register-the-feature) now supports storage with cool access (Preview)
 
     Azure NetApp Files now supports cool access for the Flexible service level, enabling you to further optimize performance and cost by automatically tiering infrequently accessed data to lower-cost Azure storage accounts. This enhancement builds on the Flexible service level's ability to decouple storage capacity and throughput, allowing precise resource alignment for diverse workloads while maintaining configured throughput levels—even with cool access enabled. These features help organizations reduce total cost of ownership without compromising performance. You must be registered for the [Flexible service level](azure-netapp-files-set-up-capacity-pool.md) before enrolling in [the preview for the Flexible service level with cool access](manage-cool-access.md#register-the-feature). 
 
@@ -118,7 +126,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## February 2025
 
-* [Network security group (NSG) support for private link connectivity](azure-netapp-files-network-topologies.md) (Preview)
+* [Network security group (NSG) support for private link connectivity](azure-netapp-files-network-topologies.md) (preview)
 
     Azure NetApp Files now supports private links with NSGs in all regions. This feature enables you to apply NSG policies to private link endpoints, enhancing the security of your workload deployments. 
 
@@ -128,7 +136,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## January 2025 
 
-* [Application volume group for Oracle](application-volume-group-oracle-introduction.md) and [application volume group for SAP HANA extension one](application-volume-group-introduction.md) now support customer-managed keys. (Preview)
+* [Application volume group for Oracle](application-volume-group-oracle-introduction.md) and [application volume group for SAP HANA extension one](application-volume-group-introduction.md) now support customer-managed keys. (preview)
 
     Azure NetApp Files application volume groups for SAP HANA (with extension 1) and Oracle now support customer-managed keys, providing increased security and compliance. This feature is now in preview.
 
@@ -142,7 +150,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Azure NetApp Files allows you to create volumes with the same file path (NFS), share name (SMB), or volume path (dual-protocol) as long as they are in different availability zones. For more information, see [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md), [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md), or [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md). This feature is now generally available. 
 
-* [Cloud Backup for Virtual Machines on Azure NetApp Files datastores for Azure VMware Solution:](../azure-vmware/install-cloud-backup-virtual-machines.md) enhanced backup capabilities (Preview)
+* [Cloud Backup for Virtual Machines on Azure NetApp Files datastores for Azure VMware Solution:](../azure-vmware/install-cloud-backup-virtual-machines.md) enhanced backup capabilities (preview)
 
     Cloud Backup for Virtual Machines now integrates with [Azure NetApp Files backup](backup-introduction.md), significantly enhancing data protection by offering a fully managed backup solution for long-term recovery, archiving, and compliance. This integration allows you to mount a datastore from a snapshot or Azure NetApp Files backup to restore files. You can [mount the backup](../azure-vmware/configure-cloud-backup-virtual-machine.md) to either the Azure VMware Solution host where it was created or to an alternate host.
     
