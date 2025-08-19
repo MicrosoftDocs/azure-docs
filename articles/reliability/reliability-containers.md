@@ -65,9 +65,11 @@ An individual container group is a *zonal* resource, which means it can be deplo
 
 :::image type="content" source="./media/reliability-containers/container-groups-containers-zonal.png" alt-text="Diagram that shows a container group with two containers deployed into a single availability zone." border="false":::
 
-When you deploy an NGroup, you specify one or more zones to deploy it to. If you deploy it to two or more zones, it's a *zone-redundant* NGroup, and an outage of one availability zone only causes problems for the container groups within the affected zone.
+When you deploy an NGroup, you can specify one or more zones to deploy it to. If you deploy it to two or more zones, it's a *zone-redundant* NGroup, and an outage of one availability zone only causes problems for the container groups within the affected zone.
 
 :::image type="content" source="./media/reliability-containers/ngroup-zone-redundant.png" alt-text="Diagram that shows an NGroup with three container groups, deployed into three availability zones." border="false":::
+
+If you don't specify availability zones to use for your NGroup, it's *nonzonal* or *regional*, which means the container groups might be placed in any availability zone within the region, or within the same zone. If any availability zone in the region has a problem, your NGroup might experience downtime.
 
 When you deploy a standby group, you can specify one or more zones, and the platform requests containers across the zones you select. However, standby pools aren't zone-redundant because there's no guarantee that containers are created in multiple zones.
 
