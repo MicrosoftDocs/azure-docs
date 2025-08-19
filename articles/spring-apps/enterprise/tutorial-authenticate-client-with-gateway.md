@@ -4,7 +4,8 @@ description: Learn how to authenticate client with Spring Cloud Gateway on Azure
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: tutorial
-ms.date: 08/28/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.author: karler
 ms.reviewer: v-shilichen
 ms.custom: devx-track-java, devx-track-extended-java, mode-other, engagement-fy23
