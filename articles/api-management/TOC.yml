@@ -286,7 +286,7 @@
       - name: Central metadata cache for policy fragments
         href: fragment-metadata-cache.md
       - name: Policy fragment injection and coordination
-        href: fragment-injection-coordination.md
+        href: fragment-policy-coordination.md
   - name: Error handling
     href: api-management-error-handling-policies.md
   - name: Advanced monitoring

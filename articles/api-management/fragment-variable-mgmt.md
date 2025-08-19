@@ -15,11 +15,11 @@ ms.author: nicolela
 
 **Applies to:** All Azure API Management tiers
 
-[Context variables](api-management-policy-expressions#ContextVariables) enable sequential communication between policy fragments when building advanced pipeline scenarios in Azure API Management (APIM). Proper variable management is critical for building reliable, performant pipelines. Improper handling can lead to runtime errors, performance issues, and unpredictable behavior. Following these best practices ensures your pipelines execute properly with optimal performance.
+[Context variables](api-management-policy-expressions.md#ContextVariables) enable sequential communication between policy fragments when building advanced pipeline scenarios in Azure API Management (APIM). Proper variable management is critical for building reliable, performant pipelines. Improper handling can lead to runtime errors, performance issues, and unpredictable behavior. Following these best practices ensures your pipelines execute properly with optimal performance.
 
 ## Variable fundamentals
 
-Context variables provide thread-safe communication between policy fragments and are created using the built-in [set-variable](set-variable-policy) policy. Each request maintains its own isolated variable context, ensuring that concurrent requests cannot interfere with each other.
+Context variables provide thread-safe communication between policy fragments and are created using the built-in [set-variable](set-variable-policy.md) policy. Each request maintains its own isolated variable context, ensuring that concurrent requests cannot interfere with each other.
 
 ### Variable lifecycle management
 
@@ -143,7 +143,7 @@ Reduce context variable lookups by consolidating multiple accesses into single e
 
 ### Maintain consistent types
 
-Use explicit type handling for optimal performance and reliability. When using [policy expressions](api-management-policy-expressions) with the `@{}` operator, specify the expected type:
+Use explicit type handling for optimal performance and reliability. When using [policy expressions](api-management-policy-expressions.md) with the `@{}` operator, specify the expected type:
 
 ```xml
 <!-- Set as boolean, use as boolean -->

@@ -36,13 +36,13 @@ Design each fragment with a single, well-defined responsibility.
 
 Establish clear communication patterns between fragments.
 
-- **Define Communication**: Create well-defined input/output contracts through [context variables](api-management-policy-expressions#ContextVariables) to enable fragments to communicate without tight coupling. Each request maintains its own isolated `context.Variables` dictionary, ensuring thread-safe communication between fragments. See [Variable Management for Policy Fragments](fragment-variable-mgmt.md) for details.
+- **Define Communication**: Create well-defined input/output contracts through [context variables](api-management-policy-expressions.md#ContextVariables) to enable fragments to communicate without tight coupling. Each request maintains its own isolated `context.Variables` dictionary, ensuring thread-safe communication between fragments. See [Variable Management for Policy Fragments](fragment-variable-mgmt.md) for details.
 
 - **Cache Common Metadata**: Use a central metadata cache to store common data accessed across fragments. This reduces parsing overhead and improves performance. See [Central Metadata Cache for Policy Fragments](fragment-metadata-cache.md) for implementation guidance.
 
 #### 3. Policy coordination
 
-Coordinate fragments across [Product and API policies](api-management-howto-policies#scopes) to handle request processing effectively.
+Coordinate fragments across [Product and API policies](api-management-howto-policies.md#scopes) to handle request processing effectively.
 
 - **Sequential Execution**: Inject fragments in the order they need to execute, enabling workflows where later fragments depend on variables set by earlier fragments.
 
@@ -66,7 +66,7 @@ Optimize fragments for maximum performance.
   - Use early exit patterns for health checks, authentication failures, variable existence, and other scenarios where definitive responses can be determined without further processing.
   - Follow processing optimizations such as minimizing variable access.
 
-For comprehensive implementation details, see the specialized guidance referenced in the [Next Steps](fragment-pipeline-architecture#next-steps) section below.
+For comprehensive implementation details, see the specialized guidance referenced in the [Next Steps](#next-steps) section below.
 
 ## Next steps
 

@@ -17,7 +17,7 @@ ms.author: nicolela
 
 Policy injection and coordination enable sophisticated pipelines through strategic placement of policy fragments at different scopes. Policy injection is the mechanism by which central policies at Product and API levels include policy fragments using the [include-fragment](include-fragment-policy.md) policy.
 
-This injection mechanism allows fragments to be shared between [Product and API policies](api-management-howto-policies#scopes). Effective coordination ensures that Product and API policies work together seamlessly, with each handling appropriate responsibilities without duplication.
+This injection mechanism allows fragments to be shared between [Product and API policies](api-management-howto-policies.md#scopes). Effective coordination ensures that Product and API policies work together seamlessly, with each handling appropriate responsibilities without duplication.
 
 ## Policy injection
 
@@ -219,7 +219,7 @@ Build execution breadcrumb trails to verify fragment sequencing and identify whi
 }" />
 ```
 
-To view the breadcrumb trail, use APIM's built-in [trace](https://learn.microsoft.com/en-us/azure/api-management/trace-policy) policy to log the execution flow (see the documentation for information on where to access and view trace output):
+To view the breadcrumb trail, use APIM's built-in [trace](trace-policy.md) policy to log the execution flow (see the documentation for information on where to access and view trace output):
 
 ```xml
 <trace source="Fragment-Execution" severity="information">
