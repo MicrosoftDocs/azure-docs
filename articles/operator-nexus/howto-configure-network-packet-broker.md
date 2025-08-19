@@ -123,7 +123,6 @@ az networkfabric tap delete --name <tap-name> --resource-group <rg-name> --fabri
 az networkfabric tap show --name <tap-name> --resource-group <rg-name> --fabric-name <fabric-name>
 ```
 
-
 ## Step 4: Enable or Disable a Network TAP
 
 After creating a TAP, **enable it** to start the packet brokering process. You can disable it at any time to stop forwarding traffic.
@@ -154,6 +153,18 @@ az networkfabric tap update-admin-state \
 
 * Updates to TAP rules or neighbor groups can be applied dynamically without disrupting other flows.
 
+## Common errors for NPB
+
+During Network Packet Broker (NPB) configuration, the system classifies all control path errors into two broad categories:
+
+- **Bad Request (400)**  
+  This occurs when the request is invalid. For example, missing required parameters, providing incorrect values, or using an unsupported schema.  
+  **Recommended action:** Review your request payload and ensure that all required fields and values are valid.
+
+- **Internal Server Error (500)**  
+  This occurs when the system encounters an unexpected condition, such as backend unavailability or a transient failure.  
+  **Recommended action:** Retry the operation after a few minutes. 
+  If the issue persists, contact Microsoft Support.
 
 ## Additional resources
 [Concepts: Network Packet Broker](./concepts-nexus-network-packet-broker.md)

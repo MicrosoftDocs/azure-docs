@@ -336,7 +336,7 @@ Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
 
 Identify your [Microsoft Entra tenant ID](/azure/active-directory/fundamentals/how-to-find-tenant) and use Group Policy to configure the client machine(s) you want to mount/use Azure File shares from. You must do this on every client on which Azure Files will be used.
 
-Configure this group policy on the client(s) to "Enabled": `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
+Configure this group policy on the client(s) to "Enabled": `Administrative Templates\System\Kerberos\Specify KDC proxy servers for Kerberos clients`
 
 1. Deploy the following Group Policy setting to client machines using the incoming trust-based flow:
 

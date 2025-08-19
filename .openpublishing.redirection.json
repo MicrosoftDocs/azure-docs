@@ -6430,6 +6430,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/service-connector/quickstart-cli-spring-cloud-connection.md",
+      "redirect_url": "/azure/service-connector/quickstart-portal-spring-cloud-connection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/service-connector/quickstart-cli-app-service-connection.md",
+      "redirect_url": "/azure/service-connector/quickstart-portal-app-service-connection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/service-connector/quickstart-cli-aks-connection.md",
+      "redirect_url": "/azure/service-connector/quickstart-portal-aks-connection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/service-connector/quickstart-cli-container-apps.md",
+      "redirect_url": "/azure/service-connector/quickstart-portal-container-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/service-connector/quickstart-cli-functions-connection.md",
+      "redirect_url": "/azure/service-connector/quickstart-portal-functions-connection",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/load-balancer/move-across-regions-external-load-balancer-portal.md",
       "redirect_url": "/azure/load-balancer/move-across-regions-azure-load-balancer",
       "redirect_document_id": false

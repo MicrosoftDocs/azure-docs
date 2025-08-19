@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot known issues with Azure Update Manager while migrating from Automation Update Management
-description: This article provides details on known issues and how to troubleshoot any problems when migrating from Automation Update Management to Azure Update Manager
+title: Troubleshoot Azure Migration Errors, Fix PowerShell, Token & Module Issues
+description: Learn how to troubleshoot common Azure migration errors including PowerShell module issues, token acquisition failures, and outdated Az modules. Step-by-step fixes for portal and script-based migrations.
 author: habibaum
 ms.author: v-uhabiba
 ms.service: azure-update-manager

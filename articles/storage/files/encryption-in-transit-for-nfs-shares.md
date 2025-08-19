@@ -43,11 +43,11 @@ The [AZNFS](https://github.com/Azure/AZNFS-mount) utility package simplifies enc
 
 ## Supported regions
 
-EiT is now Generally Available (GA) in all regions that support Azure Premium Files except West Europe and Korea Central. These remaining regions are currently running preview. You must register your subscription per the instructions below to use EiT in the preview regions.
+EiT is now Generally Available (GA) in all regions that support Azure Premium Files except West Europe. West Europe is currently running preview. You must register your subscription per the instructions below to use EiT in the preview region.
 
 ### Register for preview (not needed for GA regions)
  
-To enable encryption in transit for your storage accounts and NFS shares in the preview regions (West Europe and Korea Central), you must register for the preview. **No registration is needed in the GA regions.**
+To enable encryption in transit for your storage accounts and NFS shares in the preview region (West Europe), you must register for the preview. **No registration is needed in the GA regions.**
 
 ### [Portal](#tab/azure-portal)
 
@@ -234,4 +234,5 @@ If mounting issues continue, check the log files for more troubleshooting detail
 ## See also
  
 - [Azure Storage encryption for data at rest](/azure/storage/common/storage-service-encryption)
+
 

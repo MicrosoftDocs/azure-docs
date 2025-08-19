@@ -4,7 +4,7 @@ description: This article describes how to set up disaster recovery for a multi-
 author: jyothisuri
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 09/10/2024
+ms.date: 08/19/2025
 ms.author: jsuri
 
 # Customer intent: As a cloud architect, I want to implement a disaster recovery solution for a multi-tier SharePoint application using cloud-based replication services, so that I can ensure application availability and data integrity in the event of a disaster.

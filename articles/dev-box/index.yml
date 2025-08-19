@@ -73,8 +73,6 @@ landingContent:
             url: how-to-configure-user-customizations.md
           - text: Connect to Azure resources and repositories
             url: how-to-customizations-connect-resource-repository.md
-          - text: Use GitHub Copilot to generate a team customization file
-            url: how-to-use-copilot-generate-image-definition-file.md
           - text: Create customization tasks
             url: how-to-create-customization-tasks-catalog.md
   

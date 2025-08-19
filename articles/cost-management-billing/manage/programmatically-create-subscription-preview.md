@@ -5,8 +5,8 @@ author: presharm
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 05/21/2025
-ms.reviewer: presharm
+ms.date: 08/18/2025
+ms.reviewer: nicholak
 ms.author: presharm
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---

@@ -83,8 +83,6 @@ items:
         displayName: customizations, image definition, team customization
       - name: Configure Dev Box imaging
         href: how-to-configure-dev-box-imaging.md
-      - name: Create an image definition file with Copilot
-        href: how-to-use-copilot-generate-image-definition-file.md
       - name: Configure user customizations
         href: how-to-configure-user-customizations.md
         displayName: customizations, image definition, personal customization, individual

@@ -5,7 +5,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.service: azure-update-manager
 ms.topic: overview
-ms.date: 02/26/2025
+ms.date: 08/07/2025
 
 # Customer intent: "As an IT administrator managing Ubuntu servers, I want to upgrade to Ubuntu Pro or migrate to a newer LTS version, so that I can ensure ongoing security updates and reduce vulnerabilities in my environment."
 ---
@@ -30,15 +30,22 @@ Azure Update Manager assesses both Azure and Arc-enabled VMs to identify availab
 
 :::image type="content" source="./media/security-awareness-ubuntu-support/ubuntu-pro-subscription-inline.png" alt-text="Screenshot of recommendation to subscribe to Ubuntu Pro in Azure Update Manager." lightbox="./media/security-awareness-ubuntu-support/ubuntu-pro-subscription-expanded.png":::
 
+## How to enable Ubuntu Pro
+
+You can perform an in-place upgrade to Ubuntu Pro on your existing VMs without downtime.
+
+> [!TIP]
+> For detailed instructions, follow the [official guide on how to upgrade to Ubuntu Pro for virtual machines on Azure](/azure/virtual-machines/workloads/canonical/ubuntu-pro-in-place-upgrade).
+
 You can continue to use the Azure Update Manager [capabilities](updates-maintenance-schedules.md) to remain secure after migrating to a supported model from Canonical.
 
 > [!NOTE]
 > For detailed information on Ubuntu LTS release cycles, end-of-support dates, and official upgrade paths, see the [Canonical Ubuntu LTS end of standard support guidance](/azure/virtual-machines/workloads/canonical/ubuntu-els-guidance).
-> - Ubuntu offers 20.04 LTS and 22.04 LTS as a migration from 18.04 LTS. [Learn more](https://ubuntu.com/18-04/azure).
+> - Ubuntu offers 22.04 LTS and 24.04 LTS as a migration from 20.04 LTS. [Learn more](https://ubuntu.com/20-04/azure).
 
  
 ## Next steps
--- Learn about the [supported regions for Azure VMs and Arc-enabled servers](supported-regions.md).
+- Learn about the [supported regions for Azure VMs and Arc-enabled servers](supported-regions.md).
 - Learn on the [Update sources, types](support-matrix.md) managed by Azure Update Manager.
 - Know more on [supported OS and system requirements for machines managed by Azure Update Manager](support-matrix-updates.md).
 - Learn on [Automatic VM guest patching](support-matrix-automatic-guest-patching.md).

@@ -3,14 +3,20 @@ title: Deploy Bicep files with Cloud Shell
 description: Use Azure Resource Manager and Azure Cloud Shell to deploy resources to Azure. The resources are defined in a Bicep file.
 ms.topic: how-to
 ms.custom: devx-track-bicep, devx-track-arm-template
-ms.date: 04/28/2025
+ms.date: 08/15/2025
 ---
 
 # Deploy Bicep files from Azure Cloud Shell
 
-You can use [Azure Cloud Shell](../../cloud-shell/overview.md) to deploy a Bicep file. Currently you can only deploy  a local Bicep file from the Cloud Shell.
+You can use [Azure Cloud Shell](../../cloud-shell/overview.md) to deploy a Bicep file. Currently you can only deploy a local Bicep file from the Cloud Shell.
 
 You can deploy to any scope. This article shows deploying to a resource group.
+
+In this article, you'll learn how to:
+
+- Upload a Bicep file to Cloud Shell
+- Deploy the file using Azure CLI or PowerShell
+- Verify your deployment was successful
 
 ## Deploy local Bicep file
 
@@ -26,7 +32,7 @@ To deploy a local Bicep file, you must first upload your Bicep file to your Clou
     :::image type="content" source="./media/deploy-cloud-shell/bicep-cloud-shell-upload.png" alt-text="Upload file":::
 
 1. Select the Bicep file you want to upload, and then select **Open**.
-1. To deploy the Bicep file, use the following commands:
+1. To deploy the Bicep file, use the following commands. These commands create a resource group and deploy your Bicep template to it:
 
    ### [Azure CLI](#tab/azure-cli)
 
@@ -53,5 +59,8 @@ To deploy a local Bicep file, you must first upload your Bicep file to your Clou
 
 ## Next steps
 
-- For more information about deployment commands, see [Deploy resources with Bicep and Azure CLI](deploy-cli.md) and [Deploy resources with Bicep and Azure PowerShell](deploy-powershell.md).
-- To preview changes before deploying a Bicep file, see [Bicep deployment what-if operation](./deploy-what-if.md).
+Now that you've learned to deploy Bicep files from Cloud Shell, explore these related topics:
+
+- **Learn advanced deployment techniques**: [Deploy resources with Bicep and Azure CLI](deploy-cli.md) and [Deploy resources with Bicep and Azure PowerShell](deploy-powershell.md)
+- **Preview changes before deployment**: [Bicep deployment what-if operation](./deploy-what-if.md)
+- **Troubleshoot deployment issues**: Review common deployment errors and solutions

@@ -6,7 +6,8 @@ ms.author: karler
 ms.reviewer: felixsong
 ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 04/23/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, fasttrack-edit, mode-other, devx-track-azurecli
 ms.devlang: azurecli
 ---

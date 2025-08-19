@@ -5,7 +5,8 @@ author: KarlErickson
 ms.author: karler
 ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 06/27/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-extended-java, mode-other
 zone_pivot_groups: programming-languages-spring-apps
 ---

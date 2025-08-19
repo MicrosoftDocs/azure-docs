@@ -1806,6 +1806,14 @@ groups:
     title: Azure CLI
   - id: experience-gui
     title: Grafana UI
+- id: interaction-type
+  title: Interaction type
+  prompt: Select how you want to interact with Azure
+  pivots:
+  - id: azure-portal
+    title: Azure portal
+  - id: azure-cli
+    title: Azure CLI
 # Owner: danlep
 - id: api-management-howto-add-products
   title: Interactive or Script
