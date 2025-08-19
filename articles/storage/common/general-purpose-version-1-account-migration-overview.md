@@ -25,6 +25,7 @@ By retiring GPv1, Azure can simplify the platform, eliminate legacy metering inc
 
 ## What is changing?
 Retirement of GPv1 storage accounts means:
+
 | Date           | Milestone                                                   |
 |----------------|-------------------------------------------------------------|
 | September 2025 | Retirement announced                                        |
