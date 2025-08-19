@@ -45,7 +45,6 @@ This FAQ addresses common questions about upgrading from **ZRS Classic** (legacy
 | What if I need help with the upgrade process? | Microsoft provides documentation, Q&A forums, and support channels. If you have a support plan, create a support request in the Azure portal. |
 
 ## Related links
-- [ZRS Classic storage account retirement](../common/zrs-classic-account-migration-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json)
-- [Upgrade a storage account to GPv2](../common/storage-account-upgrade.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json)
-- [Understand how a storage account is replicated](../common/storage-account-replication.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json)
-- [Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)
+- [ZRS Classic storage account retirement overview](zrs-classic-account-migration-overview.md)
+- [Storage account upgrade process](storage-account-upgrade.md)
+- [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)
