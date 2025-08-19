@@ -523,7 +523,7 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
             // Get the Greeting variant for the current user
             if variant, err := app.featureManager.GetVariant("Greeting", targetingContext); err != nil {
                 log.Printf("Error getting Greeting variant: %v", err)
-            } else if variant.ConfigurationValue != nil {
+            } else if variant != nil && variant.ConfigurationValue != nil {
                 // Extract the greeting message from the variant configuration
                 if configValue, ok := variant.ConfigurationValue.(string); ok {
                     greetingMessage = configValue
