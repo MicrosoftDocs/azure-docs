@@ -10,6 +10,7 @@ ms.custom: UpdateFrequency3, fasttrack-edit, AppServiceIdentity
 author: cephalin
 ms.author: cephalin
 #customer intent: As an app developer, I want to user Easy Auth to simplify authentication and authorization for my apps in Azure App Service.
+ms.service: azure-app-service
 ---
 # Authentication and authorization in Azure App Service and Azure Functions
 

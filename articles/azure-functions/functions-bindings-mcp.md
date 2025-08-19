@@ -44,25 +44,15 @@ Add the extension to your project by installing this [NuGet package](https://www
 ::: zone-end  
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java"  
-
-## Install bundle    
-
-The MCP extension preview is part of the preview [extension bundle], which is specified in your host.json project file. 
-
-To use this preview bundle in your app, replace the existing `extensionBundle` object in your project's host.json file with this JSON object:
-
-```json
-"extensionBundle": {
-  "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-  "version": "[4.*, 5.0.0)"
-}
-```
-
+[!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 ::: zone-end
 
 ## host.json settings
 
 [!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
+
+> [!NOTE]
+> Until the extension is no longer in preview, the JSON schema for `host.json` isn't updated, and specific properties and behaviors might change. During the preview period, you might see warnings in your editor that say the `mcp` section isn't recognized. You can safely ignore these warnings.
 
 You can use `host.json` to define MCP server information.
 

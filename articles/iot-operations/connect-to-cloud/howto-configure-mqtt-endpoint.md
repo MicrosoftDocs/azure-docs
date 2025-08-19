@@ -1,8 +1,8 @@
 ---
 title: Configure MQTT data flow endpoints in Azure IoT Operations
 description: Learn how to configure data flow endpoints for MQTT sources and destinations.
-author: PatAltimore
-ms.author: patricka
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
@@ -1300,6 +1300,9 @@ mqttSettings:
 ### MQTT or WebSockets protocol
 
 By default, WebSockets isn't enabled. To use MQTT over WebSockets, set the `protocol` field to `WebSockets`.
+
+> [!IMPORTANT]
+> When using MQTT over WebSockets, Event Grid requires `/mqtt` appended to the end of the host name value. For example, `my-event-grid.eventgrid.azure.net:443/mqtt` or `my-event-grid/mqtt`.
 
 # [Operations experience](#tab/portal)
 
