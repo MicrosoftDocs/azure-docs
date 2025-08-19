@@ -2,7 +2,7 @@
 title: Manage Azure Managed Disks
 description: Learn about managing Azure Managed Disk from the Azure portal.
 ms.topic: how-to
-ms.date: 08/14/2025
+ms.date: 08/19/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.service: azure-backup
@@ -34,7 +34,7 @@ To change the backup policy for Azure Disk, follow these steps:
 
 > [!NOTE]
 >
-> Changing a backup policy assigned to a backup instance does not affect existing recovery points and their retention duration. The updated retention settings will apply only to new recovery points created after the policy change.
+> Changing a backup policy assigned to a backup instance doesn't affect existing recovery points and their retention duration. The updated retention settings will apply only to new recovery points created after the policy change.
 
 ## Monitor the backup and restore operations for Azure Managed Disks
 
@@ -48,7 +48,7 @@ The Azure Backup service creates a job to track the progress of backup (schedule
 
 1. On the **Jobs** pane, select the **Datasource type** as **Azure Disks**.
 
-1. Review the list of backup and restore jobs and their status. Select a job from the list of jobs to view job details.
+1. Review the list of backup and restore jobs and their status. To view job details, select a job from the list.
 
    The following screenshots show completed backup and restore jobs.
 
@@ -62,80 +62,83 @@ This section describes several Azure Backup supported management operations that
 
 ### Stop Protection
 
+You can stop protecting an Azure Disk using one of the following methods:
 
-There are three ways by which you can stop protecting an Azure Disk:
+- **Stop Protection and Retain Data (Retain forever)**: This option helps you stop all future backup jobs from protecting your disk. However, Azure Backup service retains the recovery points that are backed up forever, which allows you to restore the disk when needed. You're charged to keep the recovery points in the vault (see [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/) for details). To resume disk protection, use the **Resume backup** option.
 
-- **Stop Protection and Retain Data (Retain forever)**: This option helps you stop all future backup jobs from protecting your disk. However, Azure Backup service will retain the recovery points that are backed up forever. You'll need to pay to keep the recovery points in the vault (see [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/) for details). You'll be able to restore the disk, if needed. To resume disk protection, use the **Resume backup** option.
+- **Stop Protection and Retain Data (Retain as per Policy)**: This option helps you stop all future backup jobs from protecting your disk. The recovery points are retained as per policy and are chargeable as per the [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/). However, the latest recovery points are retained forever.
 
-- **Stop Protection and Retain Data (Retain as per Policy)**: This option helps you stop all future backup jobs from protecting your disk. The recovery points will be retained as per policy and will be chargeable according to [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/). However, the latest recovery point will be retained forever.
-
-- **Stop Protection and Delete Data**: This option helps you stop all future backup jobs from protecting your disks and delete all the recovery points. You won't be able to restore the disk or use the **Resume backup** option.
+- **Stop Protection and Delete Data**: This option helps you stop all future backup jobs from protecting your disks and delete all the recovery points. You can't restore the disk or use the **Resume backup** option.
 
 #### Stop Protection and Retain Data
 
-1. Go to **Backup center** and select **Azure Disks**.
+1. Go to **Business Continuity Center** and select **Protection inventory** > **Protected items**.
 
-1. From the list of disk backup instances, select the instance that you want to retain.
+   :::image type="content" source="./media/manage-azure-managed-disks/protected-items.png" alt-text="Screenshot shows the list of protected Azure Disks." lightbox="./media/manage-azure-managed-disks/protected-items.png":::
 
-1. Select **Stop Backup**.
+1. On the **Protected items** pane, select **Datasource type** as **Azure Disks**, and then select the required protected item from the list.
 
-   :::image type="content" source="./media/manage-azure-managed-disks/select-disk-backup-instance-to-stop-inline.png" alt-text="Screenshot showing the selection of the Azure disk backup instance to be stopped." lightbox="./media/manage-azure-managed-disks/select-disk-backup-instance-to-stop-expanded.png":::
+1. On the protected disk pane, choose the required disk backup instance from the list that you want to stop backup and retain data.
+
+1. On the protected disk instance pane, select **Stop Backup**.
+
+   :::image type="content" source="./media/manage-azure-managed-disks/disk-backup-instance-to-stop.png" alt-text="Screenshot shows how to initiate the stop backup operation for Azure Disks." lightbox="./media/manage-azure-managed-disks/disk-backup-instance-to-stop.png":::
  
-1. Select one of the following data retention options:
+1. On the **Stop Backup** pane, select one of the following data retention options:
 
-   1. Retain forever
-   1. Retain as per policy
+   - Retain forever
+   - Retain as per policy
  
-   :::image type="content" source="./media/manage-azure-managed-disks/data-retention-options-for-disk-inline.png" alt-text="Screenshot showing the options to stop disk backup instance protection." lightbox="./media/manage-azure-managed-disks/data-retention-options-for-disk-expanded.png":::
+   :::image type="content" source="./media/manage-azure-managed-disks/data-retention-options-for-disk.png" alt-text="Screenshot shows the options to stop disk backup instance protection and retain data." lightbox="./media/manage-azure-managed-disks/data-retention-options-for-disk.png":::
 
    You can also select the reason for stopping backups  from the drop-down list.
 
-1. Click **Stop Backup**.
-
-1. Select **Confirm** to stop data protection.
-
-   :::image type="content" source="./media/manage-azure-managed-disks/confirm-stopping-disk-backup-inline.png" alt-text="Screenshot showing the options for disk backup instance retention to be selected." lightbox="./media/manage-azure-managed-disks/confirm-stopping-disk-backup-expanded.png":::
+1. Select **Stop backup** > **Confirm** to stop data protection.
 
 #### Stop Protection and Delete Data
 
-1. Go to **Backup center** and select **Azure Disks**.
+1. Go to **Business Continuity Center** and select **Protection inventory** > **Protected items**.
 
-1. From the list of disk backup instances, select the instance that you want to delete.
+   :::image type="content" source="./media/manage-azure-managed-disks/protected-items.png" alt-text="Screenshot shows the list of protected Azure Disks." lightbox="./media/manage-azure-managed-disks/protected-items.png":::
 
-1. Click **Stop Backup (Preview)**.
+1. On the **Protected items** pane, select **Datasource type** as **Azure Disks**, and then select the required protected item from the list.
 
-1. Select **Delete Backup Data**.
+1. On the protected disk pane, choose the required disk backup instance from the list that you want to stop backup and delete data.
 
-   Provide the name of the backup instance, reason for deletion, and any other comments.
+1. On the protected disk instance pane, select **Stop Backup**.
 
-   :::image type="content" source="./media/manage-azure-managed-disks/details-to-stop-disk-backup-inline.png" alt-text="Screenshot for the confirmation for stopping disk backup." lightbox="./media/manage-azure-managed-disks/details-to-stop-disk-backup-expanded.png":::
+   :::image type="content" source="./media/manage-azure-managed-disks/disk-backup-instance-to-stop.png" alt-text="Screenshot shows how to initiate the stop backup operation for Azure Disks." lightbox="./media/manage-azure-managed-disks/disk-backup-instance-to-stop.png":::
+ 
+1. On the **Stop Backup** pane, select **Stop backup level** as **Delete backup data**, enter **Name of backup item**, and then choose a reason for stopping backups from the dropdown list.
+ 
+   :::image type="content" source="./media/manage-azure-managed-disks/data-deletion-option-for-disk.png" alt-text="Screenshot shows the option to stop disk backup instance protection and delete data." lightbox="./media/manage-azure-managed-disks/data-deletion-option-for-disk.png":::
 
-1. Select **Stop Backup**.
-
-1. Select **Confirm** to stop data protection.
-
-   :::image type="content" source="./media/manage-azure-managed-disks/confirm-stopping-disk-backup-inline.png" alt-text="Screenshot showing the options for disk backup instance retention to be selected." lightbox="./media/manage-azure-managed-disks/confirm-stopping-disk-backup-expanded.png":::
+1. Select **Stop backup** > **Confirm** to stop data protection.
 
 ### Resume Protection
 
-If you have selected the **Stop Protection and Retain data** option, you can resume protection for your disks.
+If you stop protection with the **Retain backup data** option, you can resume protection for your disks.
 
 >[!Note]
 >When you resume protecting a backup instance, the existing backup policy will start applying to new recovery points only. Recovery points that have already expired based on their original retention duration, as defined by the backup policy in effect at the time of their creation, will be cleaned up.
 
-Use the following steps:
+To resume protection for a disk backup instance, follow these steps:
 
-1. Go to **Backup center** and select **Azure Disks**.
+1. Go to **Business Continuity Center** and select **Protection inventory** > **Protected items**.
 
-1. From the list of disk backup instances, select the instance that you want to resume.
+   :::image type="content" source="./media/manage-azure-managed-disks/protected-items.png" alt-text="Screenshot shows the list of protected Azure Disks." lightbox="./media/manage-azure-managed-disks/protected-items.png":::
 
-1. Select **Resume Backup (Preview)**.
+1. On the **Protected items** pane, select **Datasource type** as **Azure Disks**, and then select the required protected item from the list.
 
-   :::image type="content" source="./media/manage-azure-managed-disks/resume-disk-protection-inline.png" alt-text="Screenshot showing the option to resume protection of disk." lightbox="./media/manage-azure-managed-disks/resume-disk-protection-expanded.png":::
+1. On the protected disk pane, choose the required disk backup instance from the list that you want to resume backup.
 
-1. Select **Resume backup**.
+1. On the protected disk instance pane, select **Resume Backup**.
 
-   :::image type="content" source="./media/manage-azure-managed-disks/resume-disk-backup-inline.png" alt-text="Screenshot showing the option to resume disk backup." lightbox="./media/manage-azure-managed-disks/resume-disk-backup-expanded.png":::
+   :::image type="content" source="./media/manage-azure-managed-disks/resume-disk-protection.png" alt-text="Screenshot shows how to initiate the resume protection operation for Azure Disks" lightbox="./media/manage-azure-managed-disks/resume-disk-protection.png":::
+
+1. On the **Resume Backup** pane, select **Resume backup**.
+
+   :::image type="content" source="./media/manage-azure-managed-disks/resume-disk-backup.png" alt-text="Screenshot shows how to resume disk backup." lightbox="./media/manage-azure-managed-disks/resume-disk-backup.png":::
 
 ### Delete Backup Instance
 
@@ -146,15 +149,23 @@ If you choose to stop all scheduled backup jobs and delete all existing backups,
 
 To delete a disk backup instance, follow these steps:
 
-1. Click **Delete** on the backup instance screen.
+1. Go to **Business Continuity Center** and select **Protection inventory** > **Protected items**.
 
-   :::image type="content" source="./media/manage-azure-managed-disks/initiate-deleting-backup-instance-inline.png" alt-text="Screenshot showing the process to delete a backup instance." lightbox="./media/manage-azure-managed-disks/initiate-deleting-backup-instance-expanded.png":::
+   :::image type="content" source="./media/manage-azure-managed-disks/protected-items.png" alt-text="Screenshot shows the list of protected Azure Disks." lightbox="./media/manage-azure-managed-disks/protected-items.png":::
 
-1. Provide confirmation details including name of the Backup instance, reason for deletion, and additional comments.
+1. On the **Protected items** pane, select **Datasource type** as **Azure Disks**, and then select the required protected item from the list.
 
-   :::image type="content" source="./media/manage-azure-managed-disks/confirm-deleting-backup-instance-inline.png" alt-text="Screenshot showing to confirm the deletion of backup instances." lightbox="./media/manage-azure-managed-disks/confirm-deleting-backup-instance-expanded.png":::
+1. On the protected disk pane, choose the required disk backup instance from the list that you want to delete.
 
-1. Click **Delete** to confirm and proceed with deleting backup instance.
+1. On the protected disk instance pane, select **Delete**.
+
+   :::image type="content" source="./media/manage-azure-managed-disks/initiate-delete-backup-instance.png" alt-text="Screenshot showing the process to delete a backup instance." lightbox="./media/manage-azure-managed-disks/initiate-delete-backup-instance.png":::
+
+1. On the **Delete Backup Data** pane, enter confirmation details including name of the Backup instance, reason for deletion, and other comments.
+
+   :::image type="content" source="./media/manage-azure-managed-disks/confirm-delete-backup-instance.png" alt-text="Screenshot shows how to confirm the deletion of backup instances." lightbox="./media/manage-azure-managed-disks/confirm-delete-backup-instance.png":::
+
+1. Select **Delete** > **Confirm** to proceed with deleting backup instance.
 
 ## Next steps
 
