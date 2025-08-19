@@ -39,10 +39,10 @@ The application report consists of the following three sections:
 
 Access this part by selecting the **Issues** tab. This tab provides a categorized issues list of various aspects of Azure readiness, cloud native, and Java modernization that you need to address to successfully migrate the application to Azure. The following tables describe the **Domain** and **Criticality** values:
 
-| Domain             | Description                                                                                                 |
-|--------------------|-------------------------------------------------------------------------------------------------------------|
-| Cloud Readiness    | Identifies app dependencies and architecture to recommend Azure services and assess cloud-native readiness. |
-| Java Upgrade       | Identifies JDK and framework issues for version upgrade.                                                    |
+| Domain             | Description                                                                             |
+|--------------------|-----------------------------------------------------------------------------------------|
+| Cloud Readiness    | Evaluates app dependencies to suggest Azure services and ensure cloud-native readiness. |
+| Java Upgrade       | Identifies JDK and framework issues for version upgrade.                                |
 
 | Criticality | Description                                                 |
 |-------------|-------------------------------------------------------------|
