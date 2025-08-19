@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Application Gateway v2
-description: Configure Azure Application Gateway v2 for maximum reliability. Learn best practices for availability zones, multi-region deployments, and zone redundancy for production workloads.
+description: Learn how to configure Azure Application Gateway v2 for maximum reliability by using availability zones, multi-region deployments, and zone redundancy.
 author: mbender-ms
 ms.author: mbender
 ms.topic: reliability-article
@@ -15,9 +15,9 @@ ms.date: 07/29/2025
 
 # Reliability in Azure Application Gateway v2
 
-Azure Application Gateway v2 is a web traffic load balancer that lets you manage traffic to your web applications. It provides advanced features like autoscaling, zone redundancy, static VIP addresses, and Web Application Firewall (WAF) integration to deliver highly available and secure application delivery services.
+This article describes how to configure Azure Application Gateway v2 for maximum reliability and fault tolerance. It covers intra-regional resiliency via [availability zones](#availability-zone-support), [multi-region deployments](#multi-region-support), and zone redundancy. Follow these recommendations to reduce downtime and ensure traffic continuity in production environments.
 
-This article describes Azure Application Gateway v2 reliability support, covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support). Learn how to configure your Application Gateway v2 for maximum reliability and fault tolerance in production environments.
+Azure Application Gateway v2 is a web traffic load balancer that lets you manage traffic to your web applications. It provides advanced features like autoscaling, zone redundancy, static VIP addresses, and Web Application Firewall (WAF) integration to deliver highly available and secure application delivery services.
 
 [!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
