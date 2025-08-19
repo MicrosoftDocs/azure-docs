@@ -23,7 +23,7 @@ Orchestrations and entities can be triggered via [client functions](durable-func
 
 The scenarios in this article are based on active/passive configurations, which best support the usage of Azure Storage. This pattern consists of deploying a backup (passive) function app to a different region. [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) monitors the primary (active) function app for HTTP availability. It fails over to the backup function app when the primary app fails. For more information, see [Priority traffic-routing method](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method).
 
-## Considerations
+## General considerations
 
 Keep these considerations in mind when you're configuring an active/passive failover configuration for Durable Functions:
 
@@ -46,20 +46,18 @@ There are several benefits to using this deployment scenario:
 - Traffic Manager takes care of the automatic failover to the healthy function app.
 - Traffic Manager automatically re-establishes traffic to the primary function app after the outage ends.
 
-However, if you use this scenario, consider:
+### Scenario-specific considerations
 
 - If you deploy the function app by using a dedicated Azure App Service plan, replicating the compute infrastructure in the failover datacenter increases costs.
 - This scenario covers outages at the compute infrastructure, but the storage account continues to be the single point of failure for the function app. If an Azure Storage outage occurs, the application suffers downtime.
 - If the function app is failed over, latency increases because the app accesses its storage account across regions.
 - When the function app is in failover, it accesses the storage service in the original region. The network egress traffic can result in higher costs.
 - This scenario depends on Traffic Manager. A client application can take some time before it needs to again request the function app address from Traffic Manager. For more information, see [How Traffic Manager works](../../traffic-manager/traffic-manager-how-it-works.md).
+- Starting in version 2.3.0 of the Durable Functions extension, you can safely run two function apps at the same time with the same storage account and task hub configuration. The first app to start acquires an application-level blob lease that prevents other apps from stealing messages from the task hub queues. If this first app stops running, its lease expires. A second app can acquire the lease and begin to process task hub messages.
 
-> [!NOTE]
-> Starting in version 2.3.0 of the Durable Functions extension, you can safely run two function apps at the same time with the same storage account and task hub configuration. The first app to start acquires an application-level blob lease that prevents other apps from stealing messages from the task hub queues. If this first app stops running, its lease expires. A second app can acquire the lease and begin to process task hub messages.
->
-> For extension versions before 2.3.0, function apps that are configured to use the same storage account process messages and update storage artifacts concurrently. This concurrent activity results in higher overall latencies and egress costs. If the primary and replica apps ever have different code deployed to them, even temporarily, orchestrations might also fail to run correctly because of orchestrator function inconsistencies across the two apps.
->
-> All apps that require geo-distribution for disaster recovery should use version 2.3.0 or later of the Durable Functions extension.
+  For extension versions before 2.3.0, function apps that are configured to use the same storage account process messages and update storage artifacts concurrently. This concurrent activity results in higher overall latencies and egress costs. If the primary and replica apps ever have different code deployed to them, even temporarily, orchestrations might also fail to run correctly because of orchestrator function inconsistencies across the two apps.
+
+  All apps that require geo-distribution for disaster recovery should use version 2.3.0 or later of the Durable Functions extension.
 
 ## Scenario 2: Load-balanced compute with regional storage or a regional durable task scheduler
 
@@ -75,16 +73,16 @@ This approach adds improvements to the previous scenario:
 - **No added latency on failover**: During a failover, a function app and state provider (storage account or durable task scheduler) are colocated, so there's no added latency in the failover region.
 - **Resilience to state backing failures**: If the storage account or durable task scheduler in one region fails, Durable Functions fails in that region. The failure of Durable Functions triggers redirection to the secondary region. Because both compute and app state are isolated per region, Durable Functions in the failover region remains operational.
 
-Here are important considerations for this scenario:
+### Scenario-specific considerations
 
 - If you deploy the function app by using a dedicated App Service plan, replicating the compute infrastructure in the failover datacenter increases costs.
-- The current state isn't failed over. Existing orchestrations and entities are effectively paused and unavailable until the primary region recovers.
-
-To summarize, this scenario preserves latency and minimizes egress costs, but existing orchestrations and entities are unavailable during the downtime. Whether this tradeoff is acceptable depends on the requirements of the application.
+- The current state isn't failed over. Existing orchestrations and entities are effectively paused and unavailable until the primary region recovers. Whether this tradeoff to preserving latency and minimizing egress costs is acceptable depends on the requirements of the application.
 
 ## Scenario 3: Load-balanced compute with shared GRS
 
 This scenario is a modification of the first scenario (implementing a shared storage account). The main difference is that the storage account is created with geo-replication enabled.
+
+![Diagram that shows function apps in separate regions sharing a storage account, with failover to a replica.](./media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario03.png)
 
 This scenario provides the same functional advantages as the first scenario, but it also enables other data recovery advantages:
 
@@ -92,18 +90,14 @@ This scenario provides the same functional advantages as the first scenario, but
 - If there's a regional outage of the Azure Storage service, you can [manually initiate a failover to the secondary replica](../../storage/common/storage-initiate-account-failover.md). In extreme circumstances where a region is lost due to a disaster, Microsoft might initiate a regional failover. In this case, you don't need to take any action.
 - When a failover happens, the state of Durable Functions is preserved up to the last replication of the storage account. The replication typically occurs every few minutes.
 
-As with the other scenarios, there are important considerations:
+For more information, see [Azure storage disaster recovery planning and failover](../../storage/common/storage-disaster-recovery-guidance.md).
+
+### Scenario-specific considerations
 
 - A failover to the replica might take some time. Until the failover finishes and Azure Storage DNS records are updated, the function app continues to be inaccessible.
 - There's an increased cost for using geo-replicated storage accounts.
 - GRS replication copies your data asynchronously. Some of the latest transactions might be lost because of the latency of the replication process.
-
-![Diagram that shows function apps in separate regions sharing a storage account, with failover to a replica.](./media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario03.png)
-
-> [!NOTE]
-> As described for the first scenario, we recommend that function apps deployed in this strategy use version 2.3.0 or later of the Durable Functions extension.
-
-For more information, see [Azure storage disaster recovery planning and failover](../../storage/common/storage-disaster-recovery-guidance.md).
+- As described for the first scenario, we recommend that function apps deployed in this strategy use version 2.3.0 or later of the Durable Functions extension.
 
 ## Next step
 
