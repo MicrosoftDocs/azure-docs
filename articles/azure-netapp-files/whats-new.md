@@ -25,7 +25,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     
 * [File access logs](manage-file-access-logs.md) is now generally available (GA)
 
-    File access logs provide enterprise-grade visibility into file-level operations across SMB3, NFSv4.1, and dual-protocol volumes. This capability enhances security, reliability, and operational insight by capturing detailed access activity—including user identity, operation type, and timestamps. Organizations can use file access logs to monitor access patterns, detect unauthorized activity, support compliance investigations, and optimize data usage. By integrating this feature, you strengthen your security posture and align with the [Well-Architected Framework's best practices for operational excellence](/well-architected/service-guides/azure-netapp-files#operational-excellence).
+    File access logs provide enterprise-grade visibility into file-level operations across SMB3, NFSv4.1, and dual-protocol volumes. This capability enhances security, reliability, and operational insight by capturing detailed access activity—including user identity, operation type, and timestamps. Organizations can use file access logs to monitor access patterns, detect unauthorized activity, support compliance investigations, and optimize data usage. By integrating this feature, you strengthen your security posture and align with the Well-Architected Framework's best practices for operational excellence.
 
 * [Flexible service level](manage-cool-access.md?tabs=flexible#register-the-feature) now supports storage with cool access (Preview)
 
