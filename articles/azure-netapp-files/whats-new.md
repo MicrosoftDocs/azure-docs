@@ -18,9 +18,9 @@ ms.author: anfdocs
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
 
-* [Short-term clone](create-short-term-clone.md) (preview)
+* [Short-term clone](create-short-term-clone.md) (Preview)
 
-<!-- pending PM feedback -->
+    Azure NetApp Files short-term clones enable space-efficient, instant read/write access to data by creating temporary thin clones from existing volume snapshots. Short-term clones elminate the need for full data copies. Ideal for software development, analytics, disaster recovery and testing, short-term clones support large datasets and allow quick refreshes from the latest snapshots. They remain temporary and space-efficient for up to one month, consuming capacity only for incremental changes. This capability accelerates development and analytics workflows, improves quality and resilience, and reduces costs by avoiding full copy storage and minimizing operational overhead.
 
 ## August 2025
 
