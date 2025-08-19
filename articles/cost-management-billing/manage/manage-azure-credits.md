@@ -83,7 +83,7 @@ If you attempt to delete an active credit resource, you receive an error notifyi
 
 Also, attempting to delete a resource group or subscription that contains an active credit resource will also fail with a similar error. To mitigate, you can move the active credit resource to another resource group or subscription within the same billing profile prior to attempting the resource group or subscription deletion. 
 
-For additional information on moving a credit resource see section: [To move a credit resource](#To-move-a-credit-resource)
+For additional information on moving a credit resource see section: [To move a credit resource](#to-move-a-credit-resource)
 
 
 ## Cancel a credit 
