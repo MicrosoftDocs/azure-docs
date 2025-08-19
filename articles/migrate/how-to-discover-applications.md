@@ -87,12 +87,12 @@ Once connected, the appliance gathers configuration and performance data of SQL 
 - If you haven't provided Windows or Linux authentication and PostgreSQL instance authentication credentials on the appliance configuration manager, then add the credentials so that the appliance can use them to connect to respective PostgreSQL instances. 
 
     > [!NOTE]
-    > Appliance can connect to only those MySQL Server instances to which it has network line of sight, whereas software inventory by itself may not need network line of sight.
+    > Appliance can connect to only those PostgreSQL Server instances to which it has network line of sight, whereas software inventory by itself may not need network line of sight.
 
 - PostgreSQL authentication requirements: To connect to a source PostgreSQL Server instance, the sign-in must meet the following requirements:
-    - You must have at least the `CONNECT` privilege on the target databases.
+    - You must have at least the `CONNECT` privilege on the PostgreSQL databases.
     - You must be assigned the `pg_read_all_settings role` or have equivalent permissions to read server configuration settings.
-
+- Learn more about [minimum user privileged script](postgresql-least-privilege-configuration.md).
 - After the connection, the appliance collects configuration data from PostgreSQL instances and databases. It updates the PostgreSQL configuration data every 24 hours.   
 - The appliance collects detailed configuration data from the PostgreSQL Server, including server parameters from `postgresql.conf,` database properties and sizes, installed extensions, replication settings, and user and role configurations.
 - Configuration data is refreshed every 24 hours. As a result, changes to the PostgreSQL Server instance—such as updates to database status, server parameters, or newly installed extensions—may take up to 24 hours to appear in the portal.

@@ -49,7 +49,7 @@ You can view the readiness of PostgreSQL instances for recommended deployment ta
 
 Readiness report: 
 
-- Review the recommended Azure Database for PostgreSQL configurations for migrating to Azure Database for PostgreSQL – Flexible Server.
+- Review the recommended Azure Database for PostgreSQL configurations for migrating to Azure Database for PostgreSQL flexible server.
 - Understand migration issues and warnings you can resolve before moving to the recommended Azure targets.
 - Review the monthly cost of each PostgreSQL instance based on compute and storage.
 

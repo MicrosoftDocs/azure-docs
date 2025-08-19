@@ -77,7 +77,7 @@ items:
         href: how-to-discover-applications.md
       - name: Create least privileged credentials for SQL discovery
         href: least-privilege-credentials.md 
-      - name: Create least privileged PostgreSQL account
+      - name: Create least privileged credentials for PostgreSQL discovery
         href: postgresql-least-privilege-configuration.md
   - name: Discover using inventory import
     items: 
@@ -149,11 +149,11 @@ items:
         items:
         - name: Create an Azure Database for PostgreSQL assessment
           href: tutorial-assess-postgresql.md
-        - name: Customize assessment properties
+        - name: Review assessment PostgreSQL report
           href: tutorial-review-postgresql-properties.md
         - name: Review assessment report
           href: review-sql-assessment.md
-        - name: PostgreSQL assessment-properties
+        - name: PostgreSQL customize assessment settings
           href: postgresql-assessment-properties.md
       - name: MySQL assessment
         items:

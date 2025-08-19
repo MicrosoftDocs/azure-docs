@@ -116,7 +116,7 @@ To confirm the user was created and assigned the correct privileges, run the fol
 -- Check if the user exists and review key attributes
 SELECT usename, usecreatedb, usesuper, userepl
 FROM pg_catalog.pg_user
-WHERE usename = 'azure_migrate_user';
+WHERE usename = '<<Az Migrate username>>';
 ```
 
 The result should show `false` for `usecreatedb`, `usesuper`, and `userepl`.
@@ -129,7 +129,7 @@ Check that the user has necessary monitoring roles by running the following quer
 -- Verify the user exists
 SELECT rolname
 FROM pg_roles
-WHERE rolname = 'azure_migrate_user';
+WHERE rolname = '<>';
 ```
 
 ```sql
@@ -137,7 +137,7 @@ WHERE rolname = 'azure_migrate_user';
 SELECT r.rolname AS granted_role
 FROM pg_auth_members m
 JOIN pg_roles r ON m.roleid = r.oid
-WHERE m.member = (SELECT oid FROM pg_roles WHERE rolname = 'azure_migrate_user');
+WHERE m.member = (SELECT oid FROM pg_roles WHERE rolname = '<>');
 ```
 After running these queries, you should see that the user exists and has only the required permissions for Azure Migrate discovery and assessment.
 
