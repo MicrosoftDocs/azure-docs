@@ -73,7 +73,7 @@ When provisioning Application Gateway for Containers into a cluster that has CNI
 
 With Azure CNI Overlay, please consider the following limitations:
 
-* AGIC Controller: You must be running version v1.8 or greater to take advantage of CNI Overlay.
+* AGIC Controller: You must be running version v1.9.1 or greater to take advantage of CNI Overlay.
 * Subnet Size: The Application Gateway subnet must be a maximum /24 prefix; only one deployment is supported per subnet.
 * Subnet Delegation: The Application Gateway subnet must have subnet delegation for Microsoft.Network/applicationGateways.
 * Regional VNet Peering: Application Gateway deployed in a virtual network in region A and the AKS cluster nodes in a virtual network in region A is not supported.
