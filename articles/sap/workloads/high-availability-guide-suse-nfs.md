@@ -1,7 +1,4 @@
-no problem version:
-
-## suse nfs:
-
+---
 title: High availability for NFS on Azure VMs on SLES | Microsoft Docs
 description: High availability for NFS on Azure VMs on SUSE Linux Enterprise Server
 services: virtual-machines-windows,virtual-network,storage
@@ -13,30 +10,31 @@ ms.custom: linux-related-content
 ms.topic: article
 ms.date: 06/19/2024
 ms.author: radeltch
-
 # Customer intent: "As a system administrator managing SAP applications on Azure VMs, I want to set up a highly available NFS server on SUSE Linux, so that I can ensure reliable shared data storage and uninterrupted service for multiple SAP systems."
-
 ---
 
 # High availability for NFS on Azure VMs on SUSE Linux Enterprise Server
 
-[dbms-guide]: dbms-guide-general.md
-[deployment-guide]: deployment-guide.md
-[planning-guide]: planning-guide.md
-[2205917]: https://launchpad.support.sap.com/#/notes/2205917
-[1944799]: https://launchpad.support.sap.com/#/notes/1944799
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[2191498]: https://launchpad.support.sap.com/#/notes/2191498
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
-[1984787]: https://launchpad.support.sap.com/#/notes/1984787
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
-[template-file-server]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-file-server-md%2Fazuredeploy.json
-[sap-hana-ha]: sap-hana-high-availability.md
+[dbms-guide]:dbms-guide-general.md
+[deployment-guide]:deployment-guide.md
+[planning-guide]:planning-guide.md
+
+[2205917]:https://launchpad.support.sap.com/#/notes/2205917
+[1944799]:https://launchpad.support.sap.com/#/notes/1944799
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1984787]:https://launchpad.support.sap.com/#/notes/1984787
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+
+[template-file-server]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-file-server-md%2Fazuredeploy.json
+
+[sap-hana-ha]:sap-hana-high-availability.md
 
 > [!NOTE]
-> We recommend deploying one of the Azure first-party NFS services: [NFS on Azure Files](../../storage/files/storage-files-quick-create-use-linux.md) or [NFS ANF volumes](../../azure-netapp-files/azure-netapp-files-create-volumes.md) for storing shared data in a highly available SAP system. Be aware, that we are de-emphasizing SAP reference architectures, utilizing NFS clusters.
+> We recommend deploying one of the Azure first-party NFS services: [NFS on Azure Files](../../storage/files/storage-files-quick-create-use-linux.md) or [NFS ANF volumes](../../azure-netapp-files/azure-netapp-files-create-volumes.md) for storing shared data in a highly available SAP system. Be aware, that we are de-emphasizing SAP reference architectures, utilizing NFS clusters.  
 
 This article describes how to deploy the virtual machines, configure the virtual machines, install the cluster framework, and install a highly available NFS server that can be used to store the shared data of a highly available SAP system.
 This guide describes how to set up a highly available NFS server that is used by two SAP systems, NW1 and NW2. The names of the resources (for example virtual machines, virtual networks) in the example assume that you have used the [SAP file server template][template-file-server] with resource prefix **prod**.
@@ -46,28 +44,28 @@ This guide describes how to set up a highly available NFS server that is used by
 
 Read the following SAP Notes and papers first
 
-- SAP Note [1928533], which has:
+* SAP Note [1928533], which has:
+  * List of Azure VM sizes that are supported for the deployment of SAP software
+  * Important capacity information for Azure VM sizes
+  * Supported SAP software, and operating system (OS) and database combinations
+  * Required SAP kernel version for Windows and Linux on Microsoft Azure
 
-  - List of Azure VM sizes that are supported for the deployment of SAP software
-  - Important capacity information for Azure VM sizes
-  - Supported SAP software, and operating system (OS) and database combinations
-  - Required SAP kernel version for Windows and Linux on Microsoft Azure
+* SAP Note [2015553] lists prerequisites for SAP-supported SAP software deployments in Azure.
+* SAP Note [2205917] has recommended OS settings for SUSE Linux Enterprise Server for SAP Applications
+* SAP Note [1944799] has SAP HANA Guidelines for SUSE Linux Enterprise Server for SAP Applications
+* SAP Note [2178632] has detailed information about all monitoring metrics reported for SAP in Azure.
+* SAP Note [2191498] has the required SAP Host Agent version for Linux in Azure.
+* SAP Note [2243692] has information about SAP licensing on Linux in Azure.
+* SAP Note [1984787] has general information about SUSE Linux Enterprise Server 12.
+* SAP Note [1999351] has additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
+* [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
+* [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
+* [Azure Virtual Machines deployment for SAP on Linux (this article)][deployment-guide]
+* [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
+* [SUSE Linux Enterprise High Availability Extension 12 SP5 Highly Available NFS Storage with DRBD and Pacemaker](https://documentation.suse.com/fr-fr/sle-ha/12-SP5/html/SLE-HA-all/art-ha-quick-nfs.html)
+* [SUSE Linux Enterprise Server for SAP Applications 12 SP5 best practices guides](https://documentation.suse.com/en-us/sles-sap/12-SP5/html/SLES4SAP-guide/pre-s4s.html)
+* [SUSE Linux Enterprise Server for SAP Applications 12 SP5 Release Notes](https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP5)
 
-- SAP Note [2015553] lists prerequisites for SAP-supported SAP software deployments in Azure.
-- SAP Note [2205917] has recommended OS settings for SUSE Linux Enterprise Server for SAP Applications
-- SAP Note [1944799] has SAP HANA Guidelines for SUSE Linux Enterprise Server for SAP Applications
-- SAP Note [2178632] has detailed information about all monitoring metrics reported for SAP in Azure.
-- SAP Note [2191498] has the required SAP Host Agent version for Linux in Azure.
-- SAP Note [2243692] has information about SAP licensing on Linux in Azure.
-- SAP Note [1984787] has general information about SUSE Linux Enterprise Server 12.
-- SAP Note [1999351] has additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
-- [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
-- [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
-- [Azure Virtual Machines deployment for SAP on Linux (this article)][deployment-guide]
-- [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
-- [SUSE Linux Enterprise High Availability Extension 12 SP5 Highly Available NFS Storage with DRBD and Pacemaker](https://documentation.suse.com/fr-fr/sle-ha/12-SP5/html/SLE-HA-all/art-ha-quick-nfs.html)
-- [SUSE Linux Enterprise Server for SAP Applications 12 SP5 best practices guides](https://documentation.suse.com/en-us/sles-sap/12-SP5/html/SLES4SAP-guide/pre-s4s.html)
-- [SUSE Linux Enterprise Server for SAP Applications 12 SP5 Release Notes](https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP5)
 
 ## Overview
 
@@ -77,10 +75,10 @@ To achieve high availability, SAP NetWeaver requires an NFS server. The NFS serv
 
 The NFS server uses a dedicated virtual hostname and virtual IP addresses for every SAP system that uses this NFS server. On Azure, a load balancer is required to use a virtual IP address. The presented configuration shows a load balancer with:
 
-- Frontend IP address 10.0.0.4 for NW1
-- Frontend IP address 10.0.0.5 for NW2
-- Probe port 61000 for NW1
-- Probe port 61001 for NW2
+* Frontend IP address 10.0.0.4 for NW1
+* Frontend IP address 10.0.0.5 for NW2
+* Probe port 61000 for NW1
+* Probe port 61001 for NW2
 
 ## Set up a highly available NFS server
 
@@ -97,28 +95,28 @@ Follow [create load balancer](../../load-balancer/quickstart-load-balancer-stand
 1. **Frontend IP Configuration:** Create two frontend IP. Select the same virtual network and subnet as your NFS server.
 2. **Backend Pool:** Create backend pool and add NFS server VMs.
 3. **Inbound rules:** Create two load balancing rule, one for NW1 and another for NW2. Follow the same steps for both load balancing rules.
-   - Frontend IP address: Select frontend IP
-   - Backend pool: Select backend pool
-   - Check "High availability ports"
-   - Protocol: TCP
-   - Health Probe: Create health probe with below details (applies for both NW1 and NW2)
-     - Protocol: TCP
-     - Port: [for example: 61000 for NW1, 61001 for NW2]
-     - Interval: 5
-     - Probe Threshold: 2
-   - Idle timeout (minutes): 30
-   - Check "Enable Floating IP"
+     * Frontend IP address: Select frontend IP
+     * Backend pool: Select backend pool
+     * Check "High availability ports"
+     * Protocol: TCP
+     * Health Probe: Create health probe with below details (applies for both NW1 and NW2)
+       * Protocol: TCP
+       * Port: [for example: 61000 for NW1, 61001 for NW2]
+       * Interval: 5
+       * Probe Threshold: 2
+     * Idle timeout (minutes): 30
+     * Check "Enable Floating IP"
 
 > [!NOTE]
 > Health probe configuration property numberOfProbes, otherwise known as "Unhealthy threshold" in Portal, isn't respected. So to control the number of successful or failed consecutive probes, set the property "probeThreshold" to 2. It is currently not possible to set this property using Azure portal, so use either the [Azure CLI](/cli/azure/network/lb/probe) or [PowerShell](/powershell/module/az.network/new-azloadbalancerprobeconfig) command.
 
 > [!NOTE]
-> When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).
+> When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 > [!IMPORTANT]
 >
-> - Don't enable TCP time stamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set the `net.ipv4.tcp_timestamps` parameter to `0`. For details, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
-> - To prevent saptune from changing the manually set `net.ipv4.tcp_timestamps` value from `0` back to `1`, you should update saptune version to 3.1.1 or higher. For more details, see [saptune 3.1.1 – Do I Need to Update?](https://www.suse.com/c/saptune-3-1-1-do-i-need-to-update/).
+> * Don't enable TCP time stamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set the `net.ipv4.tcp_timestamps` parameter to `0`. For details, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
+> * To prevent saptune from changing the manually set `net.ipv4.tcp_timestamps` value from `0` back to `1`, you should update saptune version to 3.1.1 or higher. For more details, see [saptune 3.1.1 – Do I Need to Update?](https://www.suse.com/c/saptune-3-1-1-do-i-need-to-update/).
 
 ### Create Pacemaker cluster
 
@@ -141,7 +139,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    ```bash
    # IP address of the load balancer frontend configuration for NFS
-
+   
    10.0.0.4 nw1-nfs
    10.0.0.5 nw2-nfs
    ```
@@ -152,7 +150,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    ```bash
    sudo sh -c 'echo /srv/nfs/ *\(rw,no_root_squash,fsid=0\)>/etc/exports'
-
+   
    sudo mkdir /srv/nfs/
    ```
 
@@ -168,7 +166,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    ```bash
    sudo ls /dev/disk/azure/scsi1/
-
+   
    # Example output
    # lun0  lun1
    ```
@@ -186,7 +184,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    ```bash
    ls /dev/disk/azure/scsi1/lun*-part*
-
+   
    # Example output
    # /dev/disk/azure/scsi1/lun0-part1  /dev/disk/azure/scsi1/lun1-part1
    ```
@@ -197,7 +195,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo pvcreate /dev/disk/azure/scsi1/lun0-part1
    sudo vgcreate vg-NW1-NFS /dev/disk/azure/scsi1/lun0-part1
    sudo lvcreate -l 100%FREE -n NW1 vg-NW1-NFS
-
+   
    sudo pvcreate /dev/disk/azure/scsi1/lun1-part1
    sudo vgcreate vg-NW2-NFS /dev/disk/azure/scsi1/lun1-part1
    sudo lvcreate -l 100%FREE -n NW2 vg-NW2-NFS
@@ -277,7 +275,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
              on-io-error       detach;
         }
         net {
-            fencing  resource-and-stonith;
+            fencing  resource-and-stonith;  
         }
         on prod-nfs-0 {
              address   10.0.0.6:7790;
@@ -307,7 +305,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
              on-io-error       detach;
         }
         net {
-            fencing  resource-and-stonith;
+            fencing  resource-and-stonith;  
         }
         on prod-nfs-0 {
              address   10.0.0.6:7791;
@@ -356,41 +354,41 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[1]** Create file systems on the drbd devices
 
-   ```bash
-   sudo mkfs.xfs /dev/drbd0
-   sudo mkdir /srv/nfs/NW1
-   sudo chattr +i /srv/nfs/NW1
-   sudo mount -t xfs /dev/drbd0 /srv/nfs/NW1
-   sudo mkdir /srv/nfs/NW1/sidsys
-   sudo mkdir /srv/nfs/NW1/sapmntsid
-   sudo mkdir /srv/nfs/NW1/trans
-   sudo mkdir /srv/nfs/NW1/ASCS
-   sudo mkdir /srv/nfs/NW1/ASCSERS
-   sudo mkdir /srv/nfs/NW1/SCS
-   sudo mkdir /srv/nfs/NW1/SCSERS
-   sudo umount /srv/nfs/NW1
-
-   sudo mkfs.xfs /dev/drbd1
-   sudo mkdir /srv/nfs/NW2
-   sudo chattr +i /srv/nfs/NW2
-   sudo mount -t xfs /dev/drbd1 /srv/nfs/NW2
-   sudo mkdir /srv/nfs/NW2/sidsys
-   sudo mkdir /srv/nfs/NW2/sapmntsid
-   sudo mkdir /srv/nfs/NW2/trans
-   sudo mkdir /srv/nfs/NW2/ASCS
-   sudo mkdir /srv/nfs/NW2/ASCSERS
-   sudo mkdir /srv/nfs/NW2/SCS
-   sudo mkdir /srv/nfs/NW2/SCSERS
-   sudo umount /srv/nfs/NW2
-   ```
+    ```bash
+    sudo mkfs.xfs /dev/drbd0
+    sudo mkdir /srv/nfs/NW1
+    sudo chattr +i /srv/nfs/NW1
+    sudo mount -t xfs /dev/drbd0 /srv/nfs/NW1
+    sudo mkdir /srv/nfs/NW1/sidsys
+    sudo mkdir /srv/nfs/NW1/sapmntsid
+    sudo mkdir /srv/nfs/NW1/trans
+    sudo mkdir /srv/nfs/NW1/ASCS
+    sudo mkdir /srv/nfs/NW1/ASCSERS
+    sudo mkdir /srv/nfs/NW1/SCS
+    sudo mkdir /srv/nfs/NW1/SCSERS
+    sudo umount /srv/nfs/NW1
+    
+    sudo mkfs.xfs /dev/drbd1
+    sudo mkdir /srv/nfs/NW2
+    sudo chattr +i /srv/nfs/NW2
+    sudo mount -t xfs /dev/drbd1 /srv/nfs/NW2
+    sudo mkdir /srv/nfs/NW2/sidsys
+    sudo mkdir /srv/nfs/NW2/sapmntsid
+    sudo mkdir /srv/nfs/NW2/trans
+    sudo mkdir /srv/nfs/NW2/ASCS
+    sudo mkdir /srv/nfs/NW2/ASCSERS
+    sudo mkdir /srv/nfs/NW2/SCS
+    sudo mkdir /srv/nfs/NW2/SCSERS
+    sudo umount /srv/nfs/NW2
+    ```
 
 1. **[A]** Setup drbd split-brain detection
 
-   When using drbd to synchronize data from one host to another, a so called split brain can occur. A split brain is a scenario where both cluster nodes promoted the drbd device to be the primary and went out of sync. It might be a rare situation but you still want to handle and resolve a split brain as fast as possible. It is therefore important to be notified when a split brain happened.
+    When using drbd to synchronize data from one host to another, a so called split brain can occur. A split brain is a scenario where both cluster nodes promoted the drbd device to be the primary and went out of sync. It might be a rare situation but you still want to handle and resolve a split brain as fast as possible. It is therefore important to be notified when a split brain happened.
 
-   Read [the official drbd documentation](https://www.linbit.com/drbd-user-guide/users-guide-drbd-8-4/#s-split-brain-notification) on how to set up a split brain notification.
+    Read [the official drbd documentation](https://www.linbit.com/drbd-user-guide/users-guide-drbd-8-4/#s-split-brain-notification) on how to set up a split brain notification.
 
-   It is also possible to automatically recover from a split brain scenario. For more information, read [Automatic split brain recovery policies](https://www.linbit.com/drbd-user-guide/users-guide-drbd-8-4/#s-automatic-split-brain-recovery-configuration)
+    It is also possible to automatically recover from a split brain scenario. For more information, read [Automatic split brain recovery policies](https://www.linbit.com/drbd-user-guide/users-guide-drbd-8-4/#s-automatic-split-brain-recovery-configuration)
 
 ### Configure Cluster Framework
 
@@ -400,56 +398,56 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    > Recent testing revealed situations, where netcat stops responding to requests due to backlog and its limitation of handling only one connection. The netcat resource stops listening to the Azure Load balancer requests and the floating IP becomes unavailable.  
    > For existing Pacemaker clusters, we recommended in the past replacing netcat with socat. Currently we recommend using azure-lb resource agent, which is part of package resource-agents, with the following package version requirements:
    >
-   > - For SLES 12 SP4/SP5, the version must be at least resource-agents-4.3.018.a7fb5035-3.30.1.
-   > - For SLES 15/15 SP1, the version must be at least resource-agents-4.3.0184.6ee15eb2-4.13.1.
+   > * For SLES 12 SP4/SP5, the version must be at least resource-agents-4.3.018.a7fb5035-3.30.1.  
+   > * For SLES 15/15 SP1, the version must be at least resource-agents-4.3.0184.6ee15eb2-4.13.1.  
    >
    > Note that the change will require brief downtime.  
    > For existing Pacemaker clusters, if the configuration was already changed to use socat as described in [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), there is no requirement to switch immediately to azure-lb resource agent.
 
    ```bash
    sudo crm configure rsc_defaults resource-stickiness="200"
-
+   
    # Enable maintenance mode
    sudo crm configure property maintenance-mode=true
-
+   
    sudo crm configure primitive drbd_NW1_nfs \
      ocf:linbit:drbd \
      params drbd_resource="NW1-nfs" \
      op monitor interval="15" role="Master" \
      op monitor interval="30" role="Slave"
-
+   
    sudo crm configure ms ms-drbd_NW1_nfs drbd_NW1_nfs \
      meta master-max="1" master-node-max="1" clone-max="2" \
      clone-node-max="1" notify="true" interleave="true"
-
+   
    sudo crm configure primitive fs_NW1_sapmnt \
      ocf:heartbeat:Filesystem \
      params device=/dev/drbd0 \
      directory=/srv/nfs/NW1  \
      fstype=xfs \
      op monitor interval="10s"
-
+   
    sudo crm configure primitive nfsserver systemd:nfs-server \
      op monitor interval="30s"
    sudo crm configure clone cl-nfsserver nfsserver
-
+   
    sudo crm configure primitive exportfs_NW1 \
      ocf:heartbeat:exportfs \
      params directory="/srv/nfs/NW1" \
      options="rw,no_root_squash,crossmnt" clientspec="*" fsid=1 wait_for_leasetime_on_stop=true op monitor interval="30s"
-
+   
    sudo crm configure primitive vip_NW1_nfs IPaddr2 \
      params ip=10.0.0.4 op monitor interval=10 timeout=20
-
+   
    sudo crm configure primitive nc_NW1_nfs azure-lb port=61000 \
      op monitor timeout=20s interval=10
-
+   
    sudo crm configure group g-NW1_nfs \
      fs_NW1_sapmnt exportfs_NW1 nc_NW1_nfs vip_NW1_nfs
-
+   
    sudo crm configure order o-NW1_drbd_before_nfs inf: \
      ms-drbd_NW1_nfs:promote g-NW1_nfs:start
-
+   
    sudo crm configure colocation col-NW1_nfs_on_drbd inf: \
      g-NW1_nfs ms-drbd_NW1_nfs:Master
    ```
@@ -459,46 +457,46 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    ```bash
    # Enable maintenance mode
    sudo crm configure property maintenance-mode=true
-
+   
    sudo crm configure primitive drbd_NW2_nfs \
      ocf:linbit:drbd \
      params drbd_resource="NW2-nfs" \
      op monitor interval="15" role="Master" \
      op monitor interval="30" role="Slave"
-
+   
    sudo crm configure ms ms-drbd_NW2_nfs drbd_NW2_nfs \
      meta master-max="1" master-node-max="1" clone-max="2" \
      clone-node-max="1" notify="true" interleave="true"
-
+   
    sudo crm configure primitive fs_NW2_sapmnt \
      ocf:heartbeat:Filesystem \
      params device=/dev/drbd1 \
      directory=/srv/nfs/NW2  \
      fstype=xfs \
      op monitor interval="10s"
-
+   
    sudo crm configure primitive exportfs_NW2 \
      ocf:heartbeat:exportfs \
      params directory="/srv/nfs/NW2" \
      options="rw,no_root_squash,crossmnt" clientspec="*" fsid=2 wait_for_leasetime_on_stop=true op monitor interval="30s"
-
+   
    sudo crm configure primitive vip_NW2_nfs IPaddr2 \
      params ip=10.0.0.5 op monitor interval=10 timeout=20
-
+   
    sudo crm configure primitive nc_NW2_nfs azure-lb port=61001 \
      op monitor timeout=20s interval=10
-
+   
    sudo crm configure group g-NW2_nfs \
      fs_NW2_sapmnt exportfs_NW2 nc_NW2_nfs vip_NW2_nfs
-
+   
    sudo crm configure order o-NW2_drbd_before_nfs inf: \
      ms-drbd_NW2_nfs:promote g-NW2_nfs:start
-
+   
    sudo crm configure colocation col-NW2_nfs_on_drbd inf: \
      g-NW2_nfs ms-drbd_NW2_nfs:Master
    ```
 
-   The `crossmnt` option in the `exportfs` cluster resources is present in our documentation for backward compatibility with older SLES versions.
+   The `crossmnt` option in the `exportfs` cluster resources is present in our documentation for backward compatibility with older SLES versions.  
 
 1. **[1]** Disable maintenance mode
 
@@ -508,8 +506,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 ## Next steps
 
-- [Install the SAP ASCS and database](high-availability-guide-suse.md)
-- [Azure Virtual Machines planning and implementation for SAP][planning-guide]
-- [Azure Virtual Machines deployment for SAP][deployment-guide]
-- [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]
-- To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure VMs, see [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha]
+* [Install the SAP ASCS and database](high-availability-guide-suse.md)
+* [Azure Virtual Machines planning and implementation for SAP][planning-guide]
+* [Azure Virtual Machines deployment for SAP][deployment-guide]
+* [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]
+* To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure VMs, see [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha]
