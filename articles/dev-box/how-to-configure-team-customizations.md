@@ -44,12 +44,16 @@ Configure team customizations by following these steps:
 | Microsoft Dev Box  | - Set up a [dev center with a dev box pool and a dev box project](./quickstart-get-started-template.md) so you can create a dev box. </br> - Attach a catalog to the dev center with tasks you can use in your image definition file. If you don't have a catalog, see [Add and configure a catalog from GitHub or Azure Repos](./how-to-configure-catalog.md). </br> **- Permissions** </br> - *To create a dev box:* Join the Dev Box Users security group for at least one project. </br> - *To enable project-level catalogs for a dev center:* Platform engineer with write access on the subscription. </br> - *To enable catalog sync settings for a project:* Platform engineer with write access on the subscription. </br> - *To attach a catalog to a project:* Dev Center Project Admin or Contributor permissions on the project. |
 | Visual Studio Code | - Install the latest version |
 
-## Use built-in tasks or a catalog for custom tasks
+## Create an image definition file
+
+To define the tools, packages, and configurations your team needs, create an image definition file in YAML format that lists the required tasks for your dev box environment.
+
+### Use built-in tasks or a catalog for custom tasks
 
 Tasks are reusable actions that come from built-in primitives (WinGet, PowerShell, and Git-Clone) or from a catalog you attach to your dev center project. Choose the source that best fits your customization needs and project requirements.
 
-- **Use WinGet and PowerShell built-in tasks.**
-   Dev Box dev centers support PowerShell and WinGet tasks out of the box. If your customizations require only PowerShell, WinGet, or Git-Clone you can get started with these built-in tasks and create your image defintion file. For more information, see [Create an image definition file](#create-an-image-definition-file).
+- **Use WinGet, PowerShell, and Git-Clone built-in tasks.**
+   Dev Box dev centers support PowerShell and WinGet tasks out of the box. If your customizations require only PowerShell, WinGet, or Git-Clone you can get started with these built-in tasks and create your image definition file. For more information, see [Create an image definition file](#create-an-image-definition-file).
 
    > [!IMPORTANT]
    > The WinGet built-in task isn't the same as the WinGet executable. The WinGet built-in task is based on the PowerShell WinGet cmdlet.
@@ -59,30 +63,7 @@ Tasks are reusable actions that come from built-in primitives (WinGet, PowerShel
    
    To learn more about defining custom tasks, see [Configure tasks for Dev Box customizations](how-to-configure-customization-tasks.md).
 
-## Create image definitions at the project level
-
-Projects help you manage Dev Box resources efficiently. You can assign each developer team its own project to organize resources effectively. Create multiple image definitions in your catalog repository, each in its own folder to target different developer teams under your project.
-
-### Enable project-level catalogs
-
-Enable project-level catalogs at the dev center level before you add a catalog to a project.
-To enable project-level catalogs at the dev center level:
-
-1. In the [Azure portal](https://portal.azure.com/), go to your dev center.
-1. In the left menu, under **Settings**, select **Dev center settings**.
-1. Under **Project level catalogs**, select **Enable catalogs per project**, and then select **Apply**.
-
-   
-   :::image type="content" source="media/how-to-configure-team-customizations/dev-center-settings-project-catalog.png" alt-text="Screenshot of the Dev center settings page with the Project level catalogs pane open and the Enable catalogs per project option selected.":::
-   
-
-For more information about how to add catalogs to projects, see [Add and configure a catalog from GitHub or Azure Repos](./how-to-configure-catalog.md).
-
-## Create an image definition file
-
-To define the tools, packages, and configurations your team needs, create an image definition file in YAML format that lists the required tasks for your dev box environment.
-
-## [AI-powered workflows](#tab/copilot-agent)
+## [AI-powered workflow](#tab/copilot-agent)
 
 Dev Box supports an agentic workflow with GitHub Copilot agent mode. Use natural language prompts to generate the image definition file (*imagedefinition.yaml*). GitHub Copilot makes it easier to set up your Dev Box environment because you describe your needs conversationally instead of manually creating YAML files.
 
@@ -191,9 +172,27 @@ Learn more in [WinGet configuration](https://aka.ms/winget-configuration).
 
 You can use a GitHub or Azure Repos repository as a catalog to make your image definition file accessible from a dev box project. Each project can have a catalog that stores multiple image definition files, which you can configure on pools to align to your developers teams' needs.
 
-Once you have an image definition file that you want to use, upload it to a catalog. The following sections will show you how to attach your catalog to a project, and make your image definition available for selection when configuring your dev box pools.
+Once you have an image definition file that you want to use, upload it to a catalog. The following sections show you how to attach your catalog to a project, and make your image definition available for selection when configuring your dev box pools.
 
-## Configure catalog sync settings for the project
+## Create image definitions at the project level
+
+Projects help you manage Dev Box resources efficiently. You can assign each developer team its own project to organize resources effectively. Create multiple image definitions in your catalog repository, each in its own folder to target different developer teams under your project.
+
+### Enable project-level catalogs
+
+Enable project-level catalogs at the dev center level before you add a catalog to a project.
+To enable project-level catalogs at the dev center level:
+
+1. In the [Azure portal](https://portal.azure.com/), go to your dev center.
+1. In the left menu, under **Settings**, select **Dev center settings**.
+1. Under **Project level catalogs**, select **Enable catalogs per project**, and then select **Apply**.
+
+   
+   :::image type="content" source="media/how-to-configure-team-customizations/dev-center-settings-project-catalog.png" alt-text="Screenshot of the Dev center settings page with the Project level catalogs pane open and the Enable catalogs per project option selected.":::
+
+For more information about how to add catalogs to projects, see [Add and configure a catalog from GitHub or Azure Repos](./how-to-configure-catalog.md).
+
+### Configure catalog sync settings for the project
 
 Set up your project to sync image definitions from the catalog. This setting lets you use the image definitions in the catalog to create dev box pools.
 
@@ -209,7 +208,7 @@ Set up your project to sync image definitions from the catalog. This setting let
   
    :::image type="content" source="./media/how-to-configure-team-customizations/customizations-project-sync-image-definitions.png" alt-text="Screenshot of the sync settings pane in the Azure portal, with the checkbox for image definitions highlighted.":::   
 
-## Attach the catalog that contains the image definition file
+### Attach the catalog that contains the image definition file
 
 To use an image definition file, attach the catalog containing the file to your project. This makes the image definition available for selection when configuring your dev box pools.
 
@@ -250,7 +249,7 @@ Follow these steps to create a dev box pool and specify an image definition:
 1. Select **Create**.
 1. Check that the new dev box pool appears in the list. You might need to refresh the screen.
 
-### Create a dev box using the developer portal
+## Create a dev box using the developer portal
 
 To check that customizations from the image definition file are applied, create a dev box in the Dev Box developer portal. Follow the steps in [Quickstart: Create and connect to a dev box by using the Dev Box developer portal](quickstart-create-dev-box.md). Then connect to the new dev box and check that the customizations work as you expect.
 
