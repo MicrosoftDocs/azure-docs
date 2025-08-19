@@ -13,7 +13,7 @@ ai-usage: ai-assisted
 
 # Reliability in Azure Blob Storage
 
-Azure Blob Storage is Microsoft's object storage solution for the cloud. It's designed to store massive amounts of unstructured data such as text, binary data, documents, media files, and application backups. As a foundational Azure storage service, Blob Storage provides multiple reliability features to ensure that your data remains available and durable during both planned and unplanned events.
+Azure Blob Storage is an object storage solution for the cloud from Microsoft. It's designed to store massive amounts of unstructured data such as text, binary data, documents, media files, and application backups. As a foundational Azure storage service, Blob Storage provides multiple reliability features to ensure that your data remains available and durable during both planned and unplanned events.
 
 Blob Storage supports built-in redundancy mechanisms that store multiple copies of your data across different fault domains. It provides comprehensive redundancy options that include availability zone deployment with zone-redundant storage (ZRS), multi-region protection through geo-redundant configurations, and sophisticated failover capabilities.
 
@@ -38,9 +38,9 @@ Azure Storage provides several redundancy options to help you protect your data 
 
 To effectively manage transient faults when you use Blob Storage, implement the following recommendations:
 
-- **Use the Azure Storage client libraries**, which include built-in retry policies with exponential backoff and jitter. The .NET, Java, Python, and JavaScript SDKs automatically handle retries for transient failures. For more information about retry configuration options, see [Azure Storage retry policy guidance](/azure/storage/blobs/storage-retry-policy).
+- **Use the Azure Storage client libraries**, which include built-in retry policies with exponential backoff and jitter. The .NET, Java, Python, and JavaScript SDKs automatically handle retries for transient failures. For more information about retry configuration options, see [Implement a retry policy with .NET](/azure/storage/blobs/storage-retry-policy).
 
-- **Configure appropriate timeout values** for your blob operations based on blob size and network conditions. Larger blobs require longer timeouts, while smaller operations can use shorter values to detect failures quickly.
+- **Configure appropriate timeout values** for your blob operations based on blob size and network conditions. Larger blobs require longer timeouts, but smaller operations can use shorter values to detect failures quickly.
 
 ## Availability zone support
 
@@ -68,7 +68,7 @@ For more information, see [Blob Storage pricing](https://azure.microsoft.com/pri
 
 ### Configure availability zone support
 
-- **Create a blob storage account with zone redundancy:** To create a new storage account with ZRS, see [Create a storage account](/azure/storage/common/storage-account-create) and select **ZRS**, **geo-zone-redundant storage (GZRS)**, or **read-access geo-redundant storage (RA-GZRS)** as the redundancy option during account creation.
+- **Create a blob storage account with zone redundancy.** To create a new storage account with ZRS, see [Create a storage account](/azure/storage/common/storage-account-create) and select **ZRS**, **geo-zone-redundant storage (GZRS)**, or **read-access geo-redundant storage (RA-GZRS)** as the redundancy option during account creation.
 
 [!INCLUDE [Storage - Configure availability zone support](includes/storage/reliability-storage-availability-zone-configure-include.md)]
 
@@ -87,7 +87,7 @@ This section describes what to expect when a blob storage account is configured 
 
 [!INCLUDE [Storage - Zone down experience](includes/storage/reliability-storage-availability-zone-down-experience-include.md)]
 
-- **Traffic rerouting.** If an availability zone goes offline, Azure initiates networking changes like Domain Name System (DNS) repointing. These updates ensure that traffic is rerouted to the remaining healthy availability zones. The service maintains full functionality by using the surviving zones with no customer intervention required.
+- **Traffic rerouting:** If an availability zone goes offline, Azure initiates networking changes like Domain Name System (DNS) repointing. These updates ensure that traffic is rerouted to the remaining healthy availability zones. The service maintains full functionality by using the surviving zones and doesn't require customer intervention.
 
 ### Zone recovery
 
@@ -159,7 +159,7 @@ For more information, see [Blob Storage pricing](https://azure.microsoft.com/pri
 
 **Object replication** provides an extra option for cross-region data replication that provides asynchronous copying of block blobs between storage accounts. Unlike the built-in geo-redundant storage options that use fixed paired regions, object replication allows you to replicate data between storage accounts in any Azure region, including nonpaired regions. This approach gives you full control over source and destination regions, replication policies, and the specific containers and blob prefixes to replicate.
 
-Object replication can be configured to replicate all blobs within a container, or specific subsets based on blob prefixes and tags. The replication is asynchronous and occurs in the background. You can configure multiple replication policies and even chain replication across multiple storage accounts to create sophisticated multi-region topologies.
+You can configure object replication to replicate all blobs within a container or specific subsets based on blob prefixes and tags. The replication is asynchronous and occurs in the background. You can configure multiple replication policies and even chain replication across multiple storage accounts to create sophisticated multi-region topologies.
 
 Object replication isn't compatible with all storage accounts. For example, it doesn't work with storage accounts that use hierarchical namespaces (also known as *Azure Data Lake Gen2 accounts*).
 
@@ -177,7 +177,7 @@ Blob Storage provides multiple data protection mechanisms that complement redund
 
 **Blob snapshots** create read-only, point-in-time copies of blobs that you can use for backup and recovery scenarios. Snapshots are stored in the same storage account and follow the same redundancy and geo-replication settings as the base blob.
 
-For cross-region backup requirements, consider using **Azure Backup for Blobs**, which provides centralized backup management and can store backup data in regions different from the source data. This service provides operational and vaulted backup options with configurable retention policies and restore capabilities. For more information, see [Azure Backup for Blobs overview](/azure/backup/blob-backup-overview).
+For cross-region backup requirements, consider using **Azure Backup for blobs**, which provides centralized backup management and can store backup data in regions different from the source data. This service provides operational and vaulted backup options that have configurable retention policies and restore capabilities. For more information, see [Backup for blobs overview](/azure/backup/blob-backup-overview).
 
 For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements. However, backups protect against some risks that other approaches don't. For more information, see [Redundancy, replication, and backup](concept-redundancy-replication-backup.md).
 
