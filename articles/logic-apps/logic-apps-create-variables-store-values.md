@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/12/2025
+ms.date: 08/19/2025
 # Customer intent: As an integration solution developer, I want to know how to create and work with variables in my workflows using Azure Logic Apps.
 ---
 
@@ -90,10 +90,6 @@ If you switch from the designer to code view, the following example shows how th
    }
 }
 ```
-
-> [!NOTE]
->
-> Although the **Initialize variables** action has a `"variables"` object with the structure of an array, the action can create only one variable at a time. Each new variable requires an individual **Initialize variables** action.
 
 The following examples show other variable types:
 
