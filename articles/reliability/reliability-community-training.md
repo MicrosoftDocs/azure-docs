@@ -1,6 +1,6 @@
 ---
 title: Reliability in Microsoft Community Training
-description: Find out about reliability in Microsoft Community Training.
+description: Learn how Community Training uses availability zones and disaster recovery strategies to improve reliability. Get guidance on zone redundancy and failover.
 author: atulsoni87AI
 ms.author: anaharris
 ms.topic: reliability-article
@@ -10,12 +10,11 @@ ms.date: 11/01/2024
 ms.subservice: azure-reliability
 ---
 
-
 # Reliability in Microsoft Community Training
 
-Microsoft Community Training is an Azure-powered cloud-based solution that can deliver large-scale, far-spread training programs with high quality and efficiency. With Community Training, organizations of all sizes and types can run large scale training programs for their internal and external communities. Communities can include frontline workers, extended workforces, a partner ecosystem, a volunteer network, and program beneficiaries. 
+This article describes reliability support in Community Training. It covers regional resiliency with [availability zones](/azure/reliability/availability-zones-overview?tabs=azure-cli) and disaster recovery and business continuity. For a more detailed overview of a reliability principle in Azure, see [Azure reliability](/azure/reliability/overview).
 
-This article describes reliability support in Community Training, and covers  both regional resiliency with [availability zones](/azure/reliability/availability-zones-overview?tabs=azure-cli) and disaster recovery and business continuity. For a more detailed overview of a reliability principle in Azure, see [Azure reliability](/azure/reliability/overview).
+Microsoft Community Training is an Azure-powered cloud-based solution that can deliver large-scale, far-spread training programs with high quality and efficiency. With Community Training, organizations of all sizes and types can run large scale training programs for their internal and external communities. Communities can include frontline workers, extended workforces, a partner ecosystem, a volunteer network, and program beneficiaries. 
 
 ## Availability zone support
 

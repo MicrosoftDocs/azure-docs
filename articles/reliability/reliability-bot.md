@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Bot Service 
-description: Find out about reliability in Azure Bot Service  
+description: Learn how Azure Bot Service provides reliability through availability zones, zone redundancy, and disaster recovery for regional bots with local data residency.  
 author: hibrenda 
 ms.author: anaharris
 ms.topic: reliability-article
@@ -12,16 +12,16 @@ ms.date: 01/06/2022
 
 # Reliability in Azure Bot Service
 
-When you create an application (bot) in Azure, you can choose whether or not your bot resource will have global or local data residency. Local data residency ensures that your bot's personal data is preserved, stored, and processed within certain geographic boundaries (like EU boundaries).
+This article describes reliability support in Azure Bot Service. It covers both regional reliability with availability zones and cross-region resiliency with disaster recovery for bots with local data residency. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+
+When you create an application (bot) in Bot Service, you can choose global or local data residency. Local data residency ensures that your bot's personal data is preserved, stored, and processed within specific geographic boundaries, for example, the European Union. This approach helps you meet compliance and regional performance requirements.
 
 >[!IMPORTANT]
 >Availability zone support is not enabled for any standard channels in the regional bot service.
 
-This article describes reliability support in Azure Bot Service, and covers both regional reliability with availability zones and cross-region resiliency with disaster recovery for bots with local data residency. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
-
 For more information on deploying bots with local data residency and regional compliance, see [Regionalization in Azure Bot Service](/azure/bot-service/bot-builder-concept-regionalization).
 
-## Availability zone support
+## Availability zone support and zone redundancy
 
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 

@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Storage Mover
-description: Find out about reliability in Azure Storage Mover
+description: Enhance reliability for Azure Storage Mover by using zone redundancy and availability zones. Learn about the best practices for disaster recovery.
 author: johnmic
 ms.author: johnmic
 ms.topic: reliability-article
@@ -44,7 +44,7 @@ If the region supports availability zones, the instance metadata is automaticall
 >Azure Storage Mover instance metadata includes projects, endpoints, agents, job definitions, and job run history, but doesn't include the actual data to be migrated. Azure storage accounts that are used as migration targets have their own reliability support.  
 
 
-### Prerequisites
+### Prerequisites for availability zone support
 
 - To deploy with availability zone support, you must choose a region that supports availability zones. To see which regions support availability zones, see the [list of supported regions](regions-list.md).
 
@@ -119,11 +119,11 @@ To use the exported template for disaster recovery, a few changes to the templat
 
 After completing the previous steps and verifying that the template parameters are correct, the template is ready for deployment to a new region. You should deploy the template to a new resource group that has the same default region as the location property in the template.
 
-#### Registering the new agent
+#### Register the new agent
 
 Follow the steps within the [deploy an Azure Storage Mover agent](/azure/storage-mover/agent-deploy) article to register a new agent in the new Storage Mover resource.
 
-#### Assigning the agent to job definitions
+#### Assign the agent to job definitions
 
 After the new agent has been registered and reports as online, use the Azure portal or PowerShell to associate the existing job definitions to the new agent. The following PowerShell example is provided for convenience.
 
@@ -146,7 +146,7 @@ Update-AzStorageMoverJobDefinition `
     -AgentName $agentName
 ```
 
-#### Granting agent access to the target storage container
+#### Grant the agent access to the target storage container
 
 You need to assign the data contributor role to the managed identity to successfully perform a migration job. Assign the Hybrid Compute resource's system managed identity access to the target storage account resource. The [assign a managed identity access to a resource](/azure/active-directory/managed-identities-azure-resources/howto-assign-access-portal) article provides guidance on how to grant access to the target resource.
 

@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Container Apps
-description: Learn how to ensure application reliability in Azure Container Apps
+description: Learn how to improve reliability in Azure Container Apps by using availability zones and zone redundancy. Follow configuration steps for high availability and SLA.
 services: container-apps
 author: craigshoemaker
 ms.author: cshoe
@@ -12,9 +12,9 @@ ms.date: 10/23/2023
 
 # Reliability in Azure Container Apps
 
-This article describes reliability support in [Azure Container Apps](/azure/container-apps/overview), and covers both regional resiliency with availability zones and cross-region resiliency with disaster recovery. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/well-architected/resiliency/).
+This article describes reliability support in [Azure Container Apps](/azure/container-apps/overview). It covers how to use availability zones and zone redundancy to improve application uptime and meet SLA requirements. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/well-architected/resiliency/).
 
-## Availability zone support
+## Availability zone support and zone redundancy
 
 [!INCLUDE [availability zone overview](includes/reliability-availability-zone-description-include.md)]
 

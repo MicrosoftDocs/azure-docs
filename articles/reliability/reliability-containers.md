@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Container Instances
-description: Find out about reliability in Azure Container Instances
+description: Learn how to improve reliability in Azure Container Instances by using availability zones, failover, and disaster recovery strategies.
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
@@ -12,7 +12,7 @@ ms.date: 11/29/2022
 
 # Reliability in Azure Container Instances
 
-This article describes reliability support in Azure Container Instances (ACI) and covers both intra-regional resiliency with [availability zones](#availability-zone-support) and information on Disaster Recovery. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+This article describes reliability support in Azure Container Instances. It covers intra-regional resiliency with [availability zones](#availability-zone-support) and disaster recovery strategies that minimize downtime and data loss. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 ## Availability zone support
 
@@ -24,12 +24,12 @@ Azure Container Instances supports *zonal* container group deployments, meaning 
 
 ### Prerequisites
 
-- Zonal container group deployments are supported in most regions where ACI is available for Linux and Windows Server 2019 container groups. For details, see [Regions and resource availability](/azure/container-instances/container-instances-region-availability).
+- Zonal container group deployments are supported in most regions where Container Instances is available for Linux and Windows Server 2019 container groups. For details, see [Regions and resource availability](/azure/container-instances/container-instances-region-availability).
 
 * If using Azure CLI, ensure version `2.30.0` or later is installed.
 * If using PowerShell, ensure version `2.1.1-preview` or later is installed.
 * If using the Java SDK, ensure version `2.9.0` or later is installed.
-* Availability zone support is only available on ACI API version `09-01-2021` or later.
+* Availability zone support is only available on Container Instances API version `09-01-2021` or later.
 
 
 > [!IMPORTANT]

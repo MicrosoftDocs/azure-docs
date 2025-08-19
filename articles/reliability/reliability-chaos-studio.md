@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Chaos Studio
-description: Find out about reliability in Azure Chaos Studio.
+description: Learn how to improve reliability in Azure Chaos Studio by using availability zones and zone redundancy. Understand disaster recovery and zone outage experiences.
 author: prasha-microsoft 
 ms.author: anaharris
 ms.topic: reliability-article
@@ -9,18 +9,15 @@ ms.service: azure-chaos-studio
 ms.date: 01/23/2024 
 ---
 
-
 # Reliability in Azure Chaos Studio
 
-
-This article describes reliability and availability zones support in [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
-
+This article describes reliability support in [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview). It covers how to configure availability zones and what to expect during a zone-wide outage. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 ## Availability zone support
 
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
-Azure Chaos Studio supports zone redundancy as the default configuration within a region.  Chaos Studio resources are automatically duplicated or distributed across different zones. 
+Azure Chaos Studio supports zone redundancy as the default configuration within a region. Chaos Studio resources are automatically duplicated or distributed across different zones. 
 
 ### Prerequisites
 
@@ -44,7 +41,7 @@ In the event of a zone-wide outage, you should anticipate a brief degradation in
 
 ## Cross-region disaster recovery and business continuity
 
-Chaos Studio supports single-region geography only, and doesn't support service enabled cross-region failover.
+Chaos Studio is a single-region service and doesn't support service-enabled cross-region failover.
 
 ## Next steps
 
