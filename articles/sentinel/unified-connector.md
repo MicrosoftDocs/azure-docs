@@ -4,9 +4,9 @@ description: Learn about the Unified Connectors Platform that simplifies connect
 author: mberdugo
 contributors:
 ms.topic: concept-article
-ms.date: 07/10/2025
+ms.date: 08/10/2025
 ms.author: monaberdugo
-ms.reviewer: 
+ms.reviewer: Oded Weber
 
 #customer intent: As a Microsoft Defender for Identity user, I want to understand how unified connectors work so I can manage my integration connections more efficiently.
 ---

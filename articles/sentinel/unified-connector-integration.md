@@ -4,9 +4,9 @@ description: Learn how to connect to the Unified Connectors Platform that simpli
 author: mberdugo
 contributors:
 ms.topic: how-to
-ms.date: 07/10/2025
+ms.date: 08/10/2025
 ms.author: monaberdugo
-ms.reviewer: 
+ms.reviewer: Oded Weber
 
 #customer intent: As a Microsoft Defender for Identity user, I want to simplify my connections by using a unified connector so I can manage my Okta integration more efficiently.
 ---
@@ -29,6 +29,8 @@ The user setting up the Okta connector must have the following roles:
 
 - **Log Analytics Contributor** – Required to write data into the Log Analytics workspace and manage the Data Collection Rule (DCR).
 - **Microsoft Sentinel Contributor** – Required to modify connector settings in Sentinel.
+
+If you are connecting to both Sentinel and Defender for Identity, you need permissions for both products.
 
 Check user roles under the **Access control (IAM)** section of the **Log analytics workspace**.
 If you need to assign these roles, allow 15 minutes for the changes to propagate before proceeding.
@@ -120,3 +122,4 @@ To verify that the Okta connector is successfully ingesting data into your Log A
 ## Considerations and limitations
 
 - Unified connectors aren't visible in the Content hub. To see the unified connectors, go to the [Data connectors Gallery](https://security.microsoft.com/sentinel/unified-connector).
+- All Sentinel connectors are now visible in the Gallery, but the experience remains the same.
