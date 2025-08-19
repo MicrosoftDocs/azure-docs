@@ -56,3 +56,4 @@ Azure IoT Operations depends on these support services and features:
 
 * [Overview of Azure IoT Operations](overview-iot-operations.md)
 * [Deployment details](deploy-iot-ops/overview-deploy.md)
+* [Upgrade to a new version](deploy-iot-ops/howto-upgrade.md)
