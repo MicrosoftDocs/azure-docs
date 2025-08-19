@@ -19,6 +19,8 @@ Blob Storage supports built-in redundancy mechanisms that store multiple copies 
 
 This article describes reliability support in [Blob Storage](/azure/storage/blobs/storage-blobs-overview), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
 
+[!INCLUDE [Shared reliability description](includes/reliability-shared-responsibility-include.md)]
+
 > [!NOTE]
 > Blob Storage is part of the Azure Storage platform. Some of the capabilities of Blob Storage are common across many Azure Storage services. In this article, we use *Azure Storage* to refer to these features.
 
