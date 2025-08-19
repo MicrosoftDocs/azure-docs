@@ -106,6 +106,8 @@ items:
         href: ../common/storage-account-upgrade.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Blob-only account migration Frequently Asked Questions
         href: ../common/blob-only-account-migration-frequently-asked-questions.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+    - name: Zone Redundant Storage (ZRS) account retirement
+      href: ../common/zrs-account-migration-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Data transfer and migration
     items:
     - name: Storage migration overview
