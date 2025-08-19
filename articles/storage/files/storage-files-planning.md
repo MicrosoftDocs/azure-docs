@@ -106,24 +106,19 @@ To learn more, see [How to create Microsoft.FileShares](./create-file-share.md).
 
 Currently, Microsoft.FileShares are available in the following regions:
 
-- North Europe
-- South East Asia
-- East Asia
 - Australia East
 - Australia Southeast
-- Japan West
+- East Asia
+- Southeast Asia
+- North Europe
+- Japan west
 - Germany North
-- South Africa West
+- South Africa west
 - East US
 - South India
 - UAE Central
-- Korea Central
 - Korea South
 - Australia Central
-- Italy North
-- France Central
-- Sweden Central
-- Norway East
 
 ## Comparsion between classic file share and Microsoft.FileShares
 
