@@ -133,8 +133,8 @@ Create a flow log for your virtual network, subnet, or network interface. This f
 
     :::image type="content" source="./media/vnet-flow-logs-manage/create-vnet-flow-log-basics.png" alt-text="Screenshot that shows the Basics tab of creating a virtual network flow log in the Azure portal." lightbox="./media/vnet-flow-logs-manage/create-vnet-flow-log-basics.png":::
 
-    > [!NOTE]
-    > If the storage account is in a different subscription, the resource that you're logging (virtual network, subnet, or network interface) and the storage account must be associated with the same Microsoft Entra tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
+    > [!IMPORTANT]
+    > If you conifgure virtual network flow logs at the NIC, subnet and virtual network, the preference of enablement will be in this order:  NIC > subnet > virtual network.
 
 1. To enable traffic analytics, select **Next: Analytics** button, or select the **Analytics** tab. Enter or select the following values:
 
@@ -149,8 +149,6 @@ Create a flow log for your virtual network, subnet, or network interface. This f
 
     > [!NOTE]
     > To create and select a Log Analytics workspace other than the default one, see [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace?toc=/azure/network-watcher/toc.json)
-
-    [!INCLUDE [Traffic analytics resources](../../includes/network-watcher-traffic-analytics-resources.md)]
 
 1. Select **Review + create**.
 
@@ -188,7 +186,6 @@ Use [New-AzNetworkWatcherFlowLog](/powershell/module/az.network/new-aznetworkwat
     # Create a VNet flow log.
     New-AzNetworkWatcherFlowLog -Enabled $true -Name 'myVNetFlowLog' -NetworkWatcherName 'NetworkWatcher_eastus' -ResourceGroupName 'NetworkWatcherRG' -StorageId $storageAccount.Id -TargetResourceId $vnet.Id -FormatVersion 2 -EnableTrafficAnalytics -TrafficAnalyticsWorkspaceId $workspace.ResourceId -TrafficAnalyticsInterval 10
     ```
-    [!INCLUDE [Traffic analytics resources](../../includes/network-watcher-traffic-analytics-resources.md)]
 
 # [**Azure CLI**](#tab/cli)
 
@@ -223,9 +220,13 @@ Use [az network watcher flow-log create](/cli/azure/network/watcher/flow-log#az-
     # Create a VNet flow log (storage account and traffic analytics workspace are in different resource groups from the virtual network).
     az network watcher flow-log create --location 'eastus' --name 'myVNetFlowLog' --resource-group 'myResourceGroup' --vnet 'myVNet' --storage-account '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/StorageRG/providers/Microsoft.Storage/storageAccounts/myStorageAccount' --traffic-analytics true --workspace '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/WorkspaceRG/providers/Microsoft.OperationalInsights/workspaces/myWorkspace' --interval 10
     ```
-    [!INCLUDE [Traffic analytics resources](../../includes/network-watcher-traffic-analytics-resources.md)]
 
 ---
+
+ > [!NOTE]
+ > If the storage account is in a different subscription, the resource that you're logging (virtual network, subnet, or network interface) and the storage account must be associated with the same Microsoft Entra tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
+
+ [!INCLUDE [Traffic analytics resources](../../includes/network-watcher-traffic-analytics-resources.md)]
 
 ## Enable or disable traffic analytics
 
