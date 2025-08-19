@@ -18,6 +18,8 @@ After your data is collected, stored, and processed, compliance can become an im
 
 This article can help you meet compliance requirements by describing where Microsoft Sentinel data is stored.
 
+[!INCLUDE [china-21vianet-retirement](includes/china-21vianet-retirement.md)]
+
 ## Collected data
 
 Microsoft Sentinel collects the following types of data:
