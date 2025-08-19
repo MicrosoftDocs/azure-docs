@@ -1,6 +1,6 @@
 ---
-title: Important details during migration either by portal or scripts in Azure Update Manager
-description: A summary of important pointers while migrating using Azure portal or migration scripts in Azure Update Manager
+title: Automated Migration - Key Points for Azure Update Manager Success
+description:Learn key points for automated migration to Azure Update Manager, including supported setups, scheduling limits, and cleanup steps.
 author: habibaum
 ms.author: v-uhabiba
 ms.service: azure-update-manager
