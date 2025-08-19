@@ -1,6 +1,7 @@
+---
 title: Policy injection and coordination with fragments
 titleSuffix: Azure API Management
-description: Comprehensive guidance on context variable handling, safe access patterns, and inter-fragment communication.
+description: Fragment injection patterns and coordination between Product and API policies.
 services: api-management
 author: nicolela
 

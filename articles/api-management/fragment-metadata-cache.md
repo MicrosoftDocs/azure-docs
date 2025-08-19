@@ -1,3 +1,4 @@
+---
 title: Central metadata cache for policy fragments
 titleSuffix: Azure API Management
 description: Implementation guidance for shared metadata caching patterns across fragments.
@@ -7,7 +8,7 @@ author: nicolela
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 08/19/2025
-ms.author: nicolela 
+ms.author: nicolela
 ---
 
 # Central metadata cache for policy fragments

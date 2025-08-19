@@ -1,3 +1,4 @@
+---
 title: Variable management for policy fragments
 titleSuffix: Azure API Management
 description: Comprehensive guidance on context variable handling, safe access patterns, and inter-fragment communication.
