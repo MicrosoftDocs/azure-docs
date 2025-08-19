@@ -1,26 +1,25 @@
 ---
-title: Register for Android SDK push notifications using FCM v1
+title: Migrate Android SDK push notifications to FCM v1
 titleSuffix: An Azure Communication Services tutorial
-description: Learn how to register for Android SDK push notifications using Google Firebase Cloud Messaging (FCM HTTP v1).
+description: Learn how to migrate Android SDK push notifications from Google Cloud Messaging (GCM/FCM) to Firebase Cloud Messaging (FCM HTTP v1).
 author: jiminwen
 services: azure-communication-services
 ms.author: jiminwen
 ms.date: 05/31/2024
 ms.topic: tutorial
 ms.service: azure-communication-services
+ms.subservice: chat
 ---
 
-# Register for Android SDK push notifications using Firebase Cloud Messaging HTTP v1 
+# Migrate Android SDK push notifications to Firebase Cloud Messaging HTTP v1 
 
 This article applies to call and chat applications using Android SDK with Firebase Cloud Messaging (FCM) push notification. FCM was previously known as Google Cloud Messaging (GCM/FCM).
 
 On June 20, 2023, Google announced that it [deprecated sending messages using the FCM legacy APIs](https://firebase.google.com/docs/cloud-messaging). Google is removing the legacy FCM from service in June 2024. Google recommends [migrating from legacy FCM APIs to FCM HTTP v1](https://firebase.google.com/docs/cloud-messaging/migrate-v1).
 
-If your existing Android application uses the push notification feature, you need to [migrate to the FCM HTTP v1 endpoint](./call-chat-migrate-android-push-fcm-v1.md).
+If you have a new Android application or never used Google FCM, see the [Register for Android SDK push notifications using FCM v1](./call-chat-register-android-push-fcm-v1.md) article.
 
-If you have a new Android application or never used Google FCM, complete the following steps to register for Android SDK push notification using FCM HTTP v1.
-
-Complete the following steps to migrate your push notification to FCM HTTP v1.
+If your Android application uses the push notification feature, complete the following steps to migrate your push notification to FCM HTTP v1.
 
 ## 1. Generate a private key in Firebase console
 
@@ -31,8 +30,8 @@ Complete the following steps to migrate your push notification to FCM HTTP v1.
 3. Select any programming language.
 
 4. Click **Generate new private key** to download a JSON file containing your new private key.
-    
-    ![Screenshot of how to generate a new private key for FMC v1 in Firebase console.](./media/call-chat-fcm-firebase-console-gen-key.png)
+
+    ![Screenshot of how to generate new private key for FMC v1 in Firebase console.](./media/call-chat-fcm-firebase-console-gen-key.png)
 
 5. Find and open the downloaded JSON file. You need values from this file for the next step.
 
@@ -49,8 +48,19 @@ Complete the following steps to migrate your push notification to FCM HTTP v1.
 
 4. Click **Save**.
 
+## 3. Remove legacy credentials for Google (GCM/FCM)
 
-## 3. Verify that your application receives push notifications
+1. Open your Azure Communication Services Notification Hub in the [Azure portal](https://portal.azure.com).
+
+2. Open **Settings** > **Google (GCM/FCM)**.
+
+3. Clear the **API Key** text box.
+    
+    ![Screenshot of how to remove legacy credentials for GCM / FCM from Azure portal settings.](./media/call-chat-fcm-credentials-remove.png)
+
+4. Click **Save**.
+
+## 4. Verify that your application receives push notifications
 
 1. Wait a few minutes for the changes you made at the Notification Hub to take effect.
 Your application might experience duplicate push notifications or missed notifications during this time.
