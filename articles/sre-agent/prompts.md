@@ -23,7 +23,7 @@ An agent can provide detailed information about different aspects of your apps a
 Further, here are some prompts you can use to help you interact with your agent:
 
 - Which apps have Dapr enabled?
-- List replicas for my container app
+- List replicas for my container app.
 - Which apps have diagnostic logging turned on?
 - Give me an individual heatmap for each storage account.
 - Which revision of my container app is currently active?
