@@ -37,7 +37,7 @@ GPv2 supports all capabilities of GPv1 and adds several enhancements, including 
 
 ## Timeline and milestones
 >[!Warning]
->If you do not migrate your Blob-Only storage account to GPv2 by August 31, 2025, all existing Blob-Only accounts will be auto migrated over to a GPv2 account, which may result in higher billing costs. Your decision not to migrate an existing Blob-Only account will be construed as consent for Microsoft to migrate the account on your behalf.
+>If you do not migrate your General Purpose v1 storage account to GPv2 by August 31, 2025, all existing General Purpose v1 accounts will be auto migrated over to a GPv2 account, which may result in higher billing costs. Your decision not to migrate an existing General Purpose v1 account will be construed as consent for Microsoft to migrate the account on your behalf.
 
 | Date           | Milestone                                                   |
 |----------------|-------------------------------------------------------------|
@@ -57,14 +57,16 @@ The retirement takes effect globally across all Azure regions.
 
 
 ### Model your costs before upgrading
+>[!TIP]
+>If your workload is **write or list heavy**, reduce transaction counts by batching operations, writing larger blocks, and scoping list operations. GPv2 also provides better tools for optimizing costs, but allowing the tiering of data. Ensure cold data isn't left in the hot tier.
+
 1. Capture a baseline of monthly operations by type (**read, write, list/metadata**) and any **egress**.
 1. Use the [Azure Pricing Page](https://azure.microsoft.com/pricing/details/storage/blobs/) page to compare **per-GB** and **per-operation** rates for your region, redundancy (LRS/ZRS/GRS/GZRS), and intended access tier (hot/cool/cold/archive).
 1. Map data to the right tiers and include **early-deletion** minimums for cool/cold/archive.
 1. Plan [lifecycle policies](../blobs/lifecycle-management-overview.md) (for example, move from hot → cool after 30 days of no access, then archive later) and factor in their transaction effects.
 1. Compare your current GPv1 bill to the modeled GPv2 bill (with tiers and lifecycle rules).
 
->[!TIP]
->If your workload is **write or list heavy**, reduce transaction counts by batching operations, writing larger blocks, and scoping list operations. GPv2 also provides better tools for optimizing costs, but allowing the tiering of data. Ensure cold data isn't left in the hot tier.
+
 
 ### Upgrade facts
 - The upgrade is **in-place** and requires **no downtime**; it changes the account kind in Azure Resource Manager.
@@ -73,15 +75,18 @@ The retirement takes effect globally across all Azure regions.
 - The upgrade is **non-disruptive**; your data and endpoints remain the same.
 
 ## How should I prepare?
+>[!TIP]
+>Most workloads can migrate from GPv1 to GPv2 without code changes.
+
 To minimize risk and ensure a smooth migration:
 
 - **Inventory your accounts**: Use [Azure Resource Graph](../../governance/resource-graph/overview.md), CLI, [Azure Inventory](../blobs/blob-inventory-how-to.md), or the Portal to identify all GPv1 accounts.
 - **Evaluate workloads**: Review applications using GPv1 and verify compatibility with GPv2.
+- **Plan for pricing changes**: Understand the new GPv2 pricing model, which includes per-blob tiering and transaction costs. Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs based on your usage patterns.
 - **Upgrade accounts**: Use the Azure portal, CLI, or automation tools to upgrade from GPv1 to GPv2. [Learn more about the upgrade process](storage-account-upgrade.md).
 - **Validate behavior**: Confirm that workloads continue functioning and that billing reflects expected changes post-upgrade.
+- **Monitor usage**: After migration, keep an eye on your storage account metrics to identify any unexpected changes in usage patterns or costs.
 
->[!TIP]
->Most workloads can migrate from GPv1 to GPv2 without code changes.
 
 ## What happens if I don't migrate my accounts?
 >[!Warning]
@@ -105,7 +110,6 @@ If you have a support plan and you need technical help, create a support request
 1. For **Problem type**, select **Data Migration**.
 1. For **Problem subtype**, select **Migrate account to new resource group/subscription/region/tenant**.
 1. Select **Next**, then follow the instructions to submit your support request.
-
 
 
 ## Need help?

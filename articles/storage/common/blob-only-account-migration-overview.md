@@ -56,24 +56,46 @@ GPv2 supports all blob features available in BlobStorage accounts—and more—w
 After the retirement date, **data access will be blocked** for all Blob-Only accounts. This change takes effect globally across all Azure regions.
 
 ## How should I prepare?
-To minimize risk and ensure a smooth migration:
-
-1. **Inventory your Blob-Only Storage accounts**: Use [Azure Resource Graph](../../governance/resource-graph/overview.md), CLI, [Azure Inventory](../blobs/blob-inventory-how-to.md), or the Portal to identify all Blob-only storage accounts.
-2. **Evaluate workloads**: to ensure compatibility with GPv2 (most blob-only workloads require no code changes).
-3. **Migrate to GPv2**: Use the Azure portal, CLI, or automation tools to upgrade from GPv1 to GPv2. [Learn more about the upgrade process](storage-account-upgrade.md).
-4. **Validate workloads**: post-migration to ensure functionality and billing accuracy.
-
 >[!Tip]
 >Most blob-only workloads can migrate from Blob-Only Storage to GPv2 without code changes. Review any hardcoded pricing assumptions or tier-unaware logic to ensure compatibility with GPv2 features.
 >GPv2 enables per-blob tiering and lifecycle rules, offering better cost optimization and automation.
 
+To minimize risk and ensure a smooth migration:
+
+- **Inventory your Blob-Only Storage accounts**: Use [Azure Resource Graph](../../governance/resource-graph/overview.md), CLI, [Azure Inventory](../blobs/blob-inventory-how-to.md), or the Portal to identify all Blob-only storage accounts.
+- **Evaluate workloads**: To ensure compatibility with GPv2 (most blob-only workloads require no code changes).
+- **Plan for pricing changes**: Understand the new GPv2 pricing model, which includes per-blob tiering and transaction costs. Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs based on your usage patterns.
+- **Migrate to GPv2**: Use the Azure portal, CLI, or automation tools to upgrade from GPv1 to GPv2. [Learn more about the upgrade process](storage-account-upgrade.md).
+- **Validate workloads**: Post-migration to ensure functionality and billing accuracy.
+- **Monitor usage**: After migration, keep an eye on your storage account metrics to identify any unexpected changes in usage patterns or costs.
+
+
 ## What happens if I don’t migrate my accounts?
 After **August 31, 2026**, you'll no longer be able to manage Blob-Only Storage accounts. After **September 2026**, if you don't migrate your Blob-Only storage account to General-purpose v2, all existing Blob-Only accounts are auto migrated over to a General-purpose v2 account, which may result in higher billing costs. Your decision not to migrate an existing Blob-Only account will be construed as consent for Microsoft to migrate the account on your behalf.
 
+## How to get help
+If you have questions, get answers from community experts in Microsoft Q&A.
+
+If your organization or company has partnered with Microsoft or works with Microsoft representatives, such as cloud solution architects (CSAs) or customer success account managers (CSAMs), contact them for additional resources for migration.
+
+If you have a support plan and you need technical help, create a support request in the Azure portal:
+
+1. Search for **Help + support** in the [Azure portal](https://portal.azure.com#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
+1. Select **Create a support request**.
+1. For **Summary**, type a description of your issue.
+1. For **Issue type**, select **Technical**.
+1. For **Subscription**, select your subscription.
+1. For **Service**, select **My services**.
+1. For **Service type**, select **Storage Account Management**.
+1. For **Resource**, select the resource you want to migrate.
+1. For **Problem type**, select **Data Migration**.
+1. For **Problem subtype**, select **Migrate account to new resource group/subscription/region/tenant**.
+1. Select **Next**, then follow the instructions to submit your support request.
+
+
 ## Need help?
-For assistance with migration or to learn more about GPv2 features, refer to the following resources:
+Learn more about related features and how to migrate:
 
 - [Upgrade a storage account to GPv2](storage-account-upgrade.md)
 - [Storage account overview](storage-account-overview.md)
 - [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)
-- [Azure Support Portal](https://portal.azure.com#view/Microsoft_AportBlade/~/overview)
