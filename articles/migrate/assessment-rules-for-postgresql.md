@@ -20,16 +20,16 @@ These rules help identify issues and warnings when migrating PostgreSQL to Azure
 
 | Rule Name  | Scope  | Category | Link to Details   |
 |----------|---------|----------|----------------------|
-| Extensions    | Database       | Issue    | [Unsupported PostgreSQL extensions](#extensions)    |
-| Collations   | Instance/Database | Issue    | [Unsupported collations](#collations)     |
-| Language Used  | Database          | Issue    | [Unsupported procedural languages](#language-used)   |
+| Extensions    | Database       | Issue    | [Unsupported PostgreSQL extensions detected](#extensions)    |
+| Collations   | Instance/Database | Issue    | [Unsupported collations detected in the source PostgreSQL](#collations)     |
+| Language Used  | Database          | Issue    | [Unsupported procedural languages detected ](#language-used)   |
 | Custom Data Type used  | Database          | Issue    | [Unsupported custom data types found](#custom-data-type-used)  |
 | Casts   | Database          | Issue    | [Custom cast creation requires superuser privileges](#casts) |
 | Full Text Search (FTS) and FTS Templates  | Database  | Issue  | [Creating FTS configurations requires superuser privileges](#full-text-search-fts-and-fts-templates)  |
 | TLS/SSL versions   | Instance     | Warning  | [Unsupported TLS/SSL versions detected in source](#tlsssl-versions) |
 | Superuser Privileges  | Instance/Database | Warning  | [Unsupported: PostgreSQL objects owned by superuser](#superuser-privileges)  |
 | File Read/Write Privileges  | Database   | Warning  | [Unsupported: Source uses functions/extensions with file system access](#file-readwrite-privileges)  |
-| IPv6 Address   Instance       | Issue    | [Use of IPv6 for database connections](#ipv6-address) |
+| IPv6 Address          | Instance    | Issue |[Use of IPv6 for database connections](#ipv6-address) |
 | Port Usage   | Instance     | Warning  | [Database connections use ports other than 5432 or 6432](#port-usage)   |
 | OID Usage    | Database        | Issue    | [WITH OIDS clause in CREATE TABLE is not supported](#oid-usage)  |
 | Tablespaces  | Instance    | Warning  | [Custom tablespaces detected in source PostgreSQL](#tablespaces)       |
@@ -86,8 +86,6 @@ These rules help identify issues and warnings when migrating PostgreSQL to Azure
 
 **Recommendation**: Document all custom data types and their usage across your database schema. Remove or replace unsupported types with native PostgreSQL types before migration. If custom types include constraints or validation logic, implement them using CHECK constraints, triggers, or application-level validation.
 
--Learn about PostgreSQL documentation for supported native data types.
-
 ### Casts 
 
 - **Title**: Custom cast creation requires superuser privileges, which aren't supported in Azure Database for PostgreSQL Flexible Server.
@@ -110,7 +108,6 @@ These rules help identify issues and warnings when migrating PostgreSQL to Azure
 
 **Recommendation**: Azure Database for PostgreSQL – Flexible Server doesn't support creating or modifying full-text search (FTS) configurations. Use the default FTS configurations or consider using Azure Cognitive Search for advanced search capabilities.
 
-- Learn about the PostgreSQL full-text search documentation.
 
 ### TLS/SSL versions
 
@@ -229,8 +226,6 @@ These rules help identify issues and warnings when migrating PostgreSQL to Azure
 **Description**: Encodings used in the source PostgreSQL database aren't supported in Azure Database for PostgreSQL – Flexible Server. Databases that use unsupported encodings can't be migrated.
 
 **Recommendation**: Convert affected databases to a supported encoding before migration. Encoding conversion may require data transformation and could result in data loss if characters can't be properly mapped. Test thoroughly in a non-production environment to validate the conversion.
-
-- Learn about PostgreSQL encoding documentation.
 
 ### Region availability 
 
