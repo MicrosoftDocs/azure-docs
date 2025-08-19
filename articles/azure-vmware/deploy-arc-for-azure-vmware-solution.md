@@ -107,19 +107,31 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
 
     **Config JSON**
     ```json
-    {
-      "subscriptionId": "",
-      "resourceGroup": "",
-      "applianceControlPlaneIpAddress": "",
-      "privateCloud": "",
-      "isStatic": true,
-      "staticIpNetworkDetails": {
-       "networkForApplianceVM": "",
-       "networkCIDRForApplianceVM": "",
-       "k8sNodeIPPoolStart": "",
-       "k8sNodeIPPoolEnd": "",
-       "gatewayIPAddress": ""
-      }
+  {
+  "subscriptionId": "",
+  "resourceGroup": "",
+  "privateCloud": "",
+  "isStatic": true,
+  "staticIpNetworkDetails": {
+    "networkForApplianceVM": "",
+    "networkCIDRForApplianceVM": ""
+  },
+  "applianceCredentials": {
+    "username": "",
+    "password": ""
+  },
+  "applianceProxyDetails": {
+    "http": "",
+    "https": "",
+    "noProxy": "",
+    "certificateFilePath": ""
+  },
+  "managementProxyDetails": {
+    "http": "",
+    "https": "",
+    "noProxy": "",
+    "certificateFilePath": ""
+  }
     }
     ```
     
@@ -136,16 +148,32 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
 
     **JSON example**
     ```json
-    { 
-      "subscriptionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", 
-      "resourceGroup": "test-rg", 
-      "privateCloud": "test-pc", 
-      "isStatic": true, 
-      "staticIpNetworkDetails": { 
-       "networkForApplianceVM": "arc-segment", 
-       "networkCIDRForApplianceVM": "10.14.10.1/28" 
-      } 
-    } 
+{  
+  "subscriptionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",  
+  "resourceGroup": "test-rg",  
+  "privateCloud": "test-pc",  
+  "isStatic": true,  
+  "staticIpNetworkDetails": {  
+   "networkForApplianceVM": "arc-segment",  
+   "networkCIDRForApplianceVM": "10.14.10.1/28"
+  }, 
+  "applianceCredentials": {
+    "username": "",
+    "password": ""
+  },
+ "applianceProxyDetails": { 
+    "http": "http://contoso-proxy.com", 
+    "https": "https://contoso-proxysecured.com", 
+    "noProxy": "localhost,127.0.0.1,.svc,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,.5edef8ac24a6b4567785cd.australiaeast.avs.azure.com", 
+    "certificateFilePath": "C:\Users\sampleUser.sslProxy.crt" 
+  }, 
+  "managementProxyDetails": { 
+    "http": " http://contoso-proxy.com ", 
+    "https": "https://contoso-proxysecured.com", 
+    "noProxy": "localhost,127.0.0.1,.svc,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,.5edef8ac24a6b4567785cd.australiaeast.avs.azure.com", 
+    "certificateFilePath": “C:\Users\sampleUser.sslProxy.crt" 
+  }
+} 
     ```
 
 3. Run the installation scripts. You can optionally set up this preview from a Windows or Linux-based jump box/VM. 
@@ -172,124 +200,17 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
       
 5. SSL proxy configuration 
 
-If using a proxy, the Arc Resource Bridge must be configured to use the proxy in order to connect to Azure services. This approach requires other parameters to be specified during the onboarding process via the script. 
+If using a proxy, the Arc Resource Bridge must be configured to use the proxy in order to connect to Azure services. This approach requires other parameters to be specified during the onboarding process via the script.
+    - `applianceProxyDetails`- Proxy details to be used for the deployment of Arc Appliance in the network.
+    - `managementProxyDetails`- Proxy details to be used on management VM for running of the script. Provide these details only if you want to set or override the existing proxy settings on management VM.
+    - `http` - Proxy server address for http requests.
+    - `https` - Proxy server address for https requests.
+    - `noProxy` - The list of addresses that should be excluded from proxy. The endpoints those need to be excluded for Arc Deployment for both appliance and management VM are -localhost,127.0.0.1,.svc,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16, <esxihost endpoints common suffix> 
+    -`certificateFilePath` - The certificate that has to be used for authentication if it is an SSL proxy. 
+For more details on proxy configuration for Arc Deployment, Please check [Azure Arc resource bridge network requirements](/azure/azure-arc/resource-bridge/network-requirements).
 
 >[!Important]
 > Arc Resource Bridge supports only direct (explicit) proxies, including unauthenticated proxies, proxies with basic authentication, SSL terminating proxies, and SSL passthrough proxies.
-
-```
-{ 
-
-  "subscriptionId": "", 
-
-  "resourceGroup": "", 
-
-  "privateCloud": "", 
-
-  "isStatic": true, 
-
-  "staticIpNetworkDetails": { 
-
-    "networkForApplianceVM": "", 
-
-    "networkCIDRForApplianceVM": "" 
-
-  }, 
-
-  "applianceProxyDetails": { 
-
-    "http": "", 
-
-    "https": "", 
-
-    "noProxy": "", 
-
-    "certificateFilePath": "" 
-
-  }, 
-
-  "managementProxyDetails": { 
-
-    "http": "", 
-
-    "https": "", 
-
-    "noProxy": "", 
-
-    "certificateFilePath": "" 
-
-  } 
-
-} 
- 
-
-applianceProxyDetails - Provide the proxy details that needs to be used for the deployment of Arc Appliance in the network. 
-
-managementProxyDetails - Provide the proxy details need to be used on management VM for running of the script. Provide these details only if you want to set or override the existing proxy settings on management VM. 
-
-"http" - Proxy server address for http requests. 
-
-"https" - Proxy server address for https requests. 
-
-"noProxy" - The list of addresses that should be excluded from proxy. The endpoints those need to be excluded for Arc Deployment for both appliance and management VM are -localhost,127.0.0.1,.svc,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16, <esxihost endpoints common suffix> 
-
-"certificateFilePath" - The certificate that has to be used for authentication if it is an SSL proxy. 
-
-For more details on proxy configuration for Arc Deployment, Please check https://learn.microsoft.com/en-us/azure/azure-arc/resource-bridge/network-requirements#ssl-proxy-configuration 
-
- 
-Example: 
-{ 
-
-{  
-
-  "subscriptionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",  
-
-  "resourceGroup": "test-rg",  
-
-  "privateCloud": "test-pc",  
-
-  "isStatic": true,  
-
-  "staticIpNetworkDetails": {  
-
-   "networkForApplianceVM": "arc-segment",  
-
-   "networkCIDRForApplianceVM": "10.14.10.1/28"  
-
-  }  
-
-} , 
-
- "applianceProxyDetails": { 
-
-    "http": "http://contoso-proxy.com", 
-
-    "https": "https://contoso-proxysecured.com", 
-
-    "noProxy": "localhost,127.0.0.1,.svc,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,.5edef8ac24a6b4567785cd.australiaeast.avs.azure.com", 
-
-    "certificateFilePath": "C:\Users\sampleUser.sslProxy.crt" 
-
-  }, 
-
-  "managementProxyDetails": { 
-
-    "http": " http://contoso-proxy.com ", 
-
-    "https": "https://contoso-proxysecured.com", 
-
-    "noProxy": "localhost,127.0.0.1,.svc,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,.5edef8ac24a6b4567785cd.australiaeast.avs.azure.com", 
-
-    "certificateFilePath": “C:\Users\sampleUser.sslProxy.crt" 
-
-} 
-
-} 
-```
-
->[!IMPORTANT]
-> After the successful installation of Azure Arc Resource Bridge, it's recommended to retain a copy of the resource bridge config.yaml files in a place that facilitates easy retrieval. These files could be needed later to run commands to perform management operations (for example, [az arc appliance upgrade](/cli/azure/arcappliance/upgrade#az-arcappliance-upgrade-vmware)) on the resource bridge. You can find the three .yaml files (config files) in the same folder where you ran the script.
 
 When the script is run successfully, check the status to see if Azure Arc is now configured. To verify if your private cloud is Arc-enabled, do the following actions:
 
@@ -299,7 +220,10 @@ When the script is run successfully, check the status to see if Azure Arc is now
 
 To recover from failed deployments: 
 
-If the Azure Arc resource bridge deployment fails, consult the [Azure Arc resource bridge troubleshooting](/azure/azure-arc/resource-bridge/troubleshoot-resource-bridge) guide. While there can be many reasons why the Azure Arc resource bridge deployment fails, one of them is KVA timeout error. Learn more about the [KVA timeout error](/azure/azure-arc/resource-bridge/troubleshoot-resource-bridge#kva-timeout-error) and how to troubleshoot. 
+If the Azure Arc resource bridge deployment fails, consult the [Azure Arc resource bridge troubleshooting](/azure/azure-arc/resource-bridge/troubleshoot-resource-bridge) guide. While there can be many reasons why the Azure Arc resource bridge deployment fails, one of them is KVA timeout error. Learn more about the [KVA timeout error](/azure/azure-arc/resource-bridge/troubleshoot-resource-bridge#kva-timeout-error) and how to troubleshoot.
+
+>[!IMPORTANT]
+> After the successful installation of Azure Arc Resource Bridge, it's recommended to retain a copy of the resource bridge config.yaml files in a place that facilitates easy retrieval. These files could be needed later to run commands to perform management operations (for example, [az arc appliance upgrade](/cli/azure/arcappliance/upgrade#az-arcappliance-upgrade-vmware)) on the resource bridge. You can find the three .yaml files (config files) in the same folder where you ran the script.
 
 ## Discover and project your VMware vSphere infrastructure resources to Azure
 
