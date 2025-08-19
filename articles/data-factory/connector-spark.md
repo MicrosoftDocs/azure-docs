@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/06/2025
+ms.date: 08/19/2025
 ---
 
 # Copy data from Spark using Azure Data Factory or Synapse Analytics
@@ -87,7 +87,7 @@ The following properties are supported for Spark linked service version 2.0:
 | port | The TCP port that the Spark server uses to listen for client connections. If you connect to Azure HDInsight, specify port as 443. | Yes |
 | serverType | The type of Spark server. <br/>The allowed value is: **SparkThriftServer** | No |
 | thriftTransportProtocol | The transport protocol to use in the Thrift layer. <br/>The allowed value is: **HTTP** | No |
-| authenticationType | The authentication method used to access the Spark server. <br/>Allowed values are: **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Yes |
+| authenticationType | The authentication method used to access the Spark server. <br/>Allowed values are: **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService**<br/>For WindowsAzureHDInsightService authentication type, `httpPath` will be filled with "/sparkhive2". | Yes |
 | username | The user name that you use to access Spark Server.  | No |
 | password | The password corresponding to the user. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | httpPath | The partial URL corresponding to the Spark server.  | No |
@@ -252,7 +252,7 @@ When you copy data from and to Spark, the following interim data type mappings a
 | TimestampType  | DateTimeOffset  | DateTime  | 
 | StringType  | String  | String  | 
 | BinaryType  | Byte[]  | Byte[]  | 
-| DecimalType  | Decimal  | Decimal  | 
+| DecimalType  | Decimal  | Decimal (For precision greater than 28, String will be returned) | 
 | ArrayType  | String  | String  | 
 | StructType  | String  | String  | 
 | MapType  | String  | String  | 
@@ -278,9 +278,9 @@ The Spark connector version 2.0 offers new functionalities and is compatible wit
 |:--- |:--- |
 | SharkServer and SharkServer2 are not supported for `serverType`. | Support SharkServer and SharkServer2 for `serverType`. | 
 | Binary and SASL are not supported for `thriftTransportProtocl`. | Support Binary and SASL for `thriftTransportProtocl`. | 
-| Username authentication type is not supported. | Support Username authentication type. |
+| Username authentication type is not supported. <br> For WindowsAzureHDInsightService authentication type, `httpPath` will be filled with "/sparkhive2". | Support Username authentication type.  <br> For WindowsAzureHDInsightService authentication type, `httpPath` will not be filled with "/sparkhive2". |
 | The default value of `enableSSL` is true. `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported. <br><br> `enableServerCertificateValidation` is supported. | The default value of `enableSSL` is false. Additionally, support `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert`. <br><br>`enableServerCertificateValidation` is not supported.	 |  
-| The following mappings are used from Spark data types to interim service data types used by the service internally.<br><br>TimestampType -> DateTimeOffset <br>YearMonthIntervalType -> String<br>DayTimeIntervalType -> String | The following mappings are used from Spark data types to interim service data types used by the service internally.<br><br>TimestampType -> DateTime<br>Other mappings supported by version 2.0 listed left are not supported by version 1.0. | 
+| The following mappings are used from Spark data types to interim service data types used by the service internally.<br><br>DecimalType -> Decimal <br>TimestampType -> DateTimeOffset <br>YearMonthIntervalType -> String<br>DayTimeIntervalType -> String | The following mappings are used from Spark data types to interim service data types used by the service internally.<br><br>DecimalType -> Decimal (For precision greater than 28, String will be returned)<br>TimestampType -> DateTime<br>Other mappings supported by version 2.0 listed left are not supported by version 1.0. | 
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
