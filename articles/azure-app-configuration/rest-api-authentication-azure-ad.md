@@ -50,13 +50,13 @@ For Azure App Configuration in the national clouds, use the applicable audience 
 | Azure Government                     | `https://appconfig.azure.us` |
 | Microsoft Azure operated by 21Vianet | `https://appconfig.azure.cn` |
 
+<a name='azure-ad-authority'></a>
 
 ### Microsoft Entra authority
 
 The Microsoft Entra authority is the endpoint you use for acquiring a Microsoft Entra token. For the global Azure cloud, it's in the form of `https://login.microsoftonline.com/{tenantId}`. The `{tenantId}` segment refers to the Microsoft Entra tenant ID to which the user or application who is trying to authenticate belongs.
 
 Azure national clouds have different Microsoft Entra authentication endpoints. See [Microsoft Entra authentication endpoints](/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) for which endpoints to use in the national clouds. 
-
 
 ### Authentication libraries
 
