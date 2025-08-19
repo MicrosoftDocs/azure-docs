@@ -6,14 +6,14 @@ author: chachachachami
 ms.service: azure-health-data-services
 ms.subservice: medtech-service
 ms.topic: troubleshooting
-ms.date: 06/02/2023
+ms.date: 07/18/2025
 ms.author: chrupa
 ---
 
 # Troubleshoot errors using the MedTech service logs
 
 > [!IMPORTANT]
-> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
+> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central. This deprecation process began in May 2025 and is ongoing.
 
 This article provides troubleshooting steps and fixes for errors found in the MedTech service logs. 
 
