@@ -1,12 +1,15 @@
 ---
-title: Configure X authentication
+title: Configure X Authentication
 description: Learn how to configure X authentication as an identity provider for your App Service or Azure Functions app.
 ms.assetid: c6dc91d7-30f6-448c-9f2d-8e91104cde73
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/29/2021
 ms.custom: fasttrack-edit, AppServiceIdentity
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
+# customer intent: As a developer, I want to configure X authentication so that I can use it as an identity provider for an App Service or Azure Functions app. 
+
 ---
 
 # Configure your App Service or Azure Functions app to use X login
@@ -18,6 +21,8 @@ This article shows how to configure Azure App Service or Azure Functions to use 
 To complete the procedure in this article, you need an X account that has a verified email address and phone number. To create a new X account, go to [x.com].
 
 ## <a name="register"> </a>Register your application with X
+
+To register your application with X: 
 
 1. Sign in to the [Azure portal] and go to your application. Copy your **URL**. You'll use it to configure your X app.
 1. Go to the [X Developers] website, sign in with your X account credentials, and select **Create an app**.
@@ -34,6 +39,8 @@ To complete the procedure in this article, you need an X account that has a veri
 
 ## <a name="secrets"> </a>Add X information to your application
 
+To add X information to your application: 
+
 1. Sign in to the [Azure portal] and navigate to your app.
 1. Select **Authentication** in the menu on the left. Click **Add identity provider**.
 1. Select **Twitter** in the identity provider dropdown. Paste in the `API key` and `API secret key` values that you obtained previously.
@@ -48,7 +55,7 @@ To complete the procedure in this article, you need an X account that has a veri
 
 You're now ready to use X for authentication in your app. The provider will be listed on the **Authentication** screen. From there, you can edit or delete this provider configuration.
 
-## <a name="related-content"> </a>Next steps
+## <a name="related-content"> </a>Related content
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 

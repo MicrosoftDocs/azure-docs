@@ -2,7 +2,7 @@
 title: Audit and enforce backup operations for Azure Kubernetes Service clusters using Azure Policy 
 description: 'An article describing how to use Azure Policy to audit and enforce backup operations for all Azure Kubernetes Service clusters created in a given scope'
 ms.topic: how-to
-ms.date: 08/26/2024
+ms.date: 09/30/2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka

@@ -51,6 +51,14 @@ Dev Box customization tasks are wrappers for PowerShell scripts. You use them to
 
 When you create tasks, determine which ones need to run in a system context and which ones can run in a user context after sign-in.
 
+You can use both system and user tasks in your image definition file. The tasks section of the image definition file is divided into system tasks and user tasks sections, which share the same parameters based on the task definitions in your catalog.
+
+- **System tasks**: These tasks run as `LocalSystem` during the provisioning stage of the dev box. They're typically used for system-level configurations, like installing software or configuring system settings that require administrative privileges.
+- **User tasks**: These tasks run as the user after the user's first sign-in to the dev box. They're typically used for user-level configurations, like installing user-specific applications or configuring user settings under user context. For example, users often prefer to install Python and Visual Studio Code under user context instead of systemwide. Put WinGet tasks in the `userTasks` section for better results when they don't work under tasks.
+
+Standard users who set up user customizations can use only user tasks. They can't use system tasks.
+
+
 ## Differences between team customizations and user customizations
 
 Dev Box team customizations allow developer team leads and IT admins to preconfigure customization files for dev box pools. Customizations eliminate the need for developers to go through manual setup.
