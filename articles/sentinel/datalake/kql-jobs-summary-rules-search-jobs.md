@@ -6,7 +6,7 @@ author: EdB-MSFT
 ms.service: microsoft-sentinel  
 ms.topic: how-to
 ms.subservice: sentinel-graph
-ms.date: 08/17/2025
+ms.date: 08/19/2025
 ms.author: edbaynash  
 
 ms.collection: ms-security  
@@ -33,14 +33,14 @@ This article compares KQL jobs, summary rules, and search jobs in Microsoft Sent
 | **Data tier**        | Microsoft Sentinel data lake tier   | Analytics, auxiliary, basic, data lake (except for tables in the default workspace)       | Analytics, auxiliary, basic, data lake (except for tables in the default workspace) |     
 | **Workspace scope**  | Any Microsoft Sentinel workspace connected to Microsoft Defender | Any Microsoft Sentinel workspace connected to Microsoft Defender | Any Microsoft Sentinel workspace  |
 | **Table scope**      | Multiple tables                     | Multiple tables                                     | Single table                                                        |
-| **Query language**   | [KQL jobs supported operators](kql-jobs.md#considerations-and-limitations)   | KQL <br>KQL operators supported except for:<br>•	[Cross-resource queries](/azure/azure-monitor/logs/cross-workspace-query) queries, which use the workspaces(), app(), and resource() expressions, and [cross-service queries](/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy), which use the `ADX()` and `ARG()` expressions<br>• •	Plugins that reshape the data schema, including [bag](/kusto/query/bag-unpack-plugin.md) [unpack](/azure/data-explorer/kusto/query/bag-unpack-plugin.md), [narrow](/azure/data-explorer/kusto/query/narrow-plugin.md), and [pivot](/azure/data-explorer/kusto/query/pivot-plugin.md).<br>• User-defined functions aren't supported | [Limited KQL operators](/azure/azure-monitor/logs/search-jobs.md#kql-query-considerations)  |
-| **Join support**     | Supported                      | Analytics tier: supported<br>Basic: join up to five Analytics tables using [lookup](/azure/data-explorer/kusto/query/lookup-operator.md) operator   | Not supported |
+| **Query language**   | [KQL jobs supported operators](kql-jobs.md#considerations-and-limitations)   | KQL <br>All KQL operators supported except for:<br>•	[Cross-resource queries](/azure/azure-monitor/logs/cross-workspace-query) queries, which use the workspaces(), app(), and resource() expressions, and [cross-service queries](/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy), which use the `ADX()` and `ARG()` expressions<br>• •	Plugins that reshape the data schema, including [bag](/kusto/query/bag-unpack-plugin) [unpack](/azure/data-explorer/kusto/query/bag-unpack-plugin), [narrow](/azure/data-explorer/kusto/query/narrow-plugin), and [pivot](/azure/data-explorer/kusto/query/pivot-plugin).<br>• User-defined functions aren't supported | [Limited KQL operators](/azure/azure-monitor/logs/search-jobs#kql-query-considerations)  |
+| **Join support**     | Supported                      | Analytics tier: supported<br>Basic: join up to five Analytics tables using [lookup](/azure/data-explorer/kusto/query/lookup-operator) operator   | Not supported |
 | **Scheduling frequency** | On-demand<br>Daily, weekly, monthly  | 20 mins to 24 hours                                 | On-demand (long-running searches support up to a 24-hour timeout)  |
 | **Lookback period**  | Up to 12 years                           | Up to 1 day                                         | Up to 12 years                                                            |
 | **Timespan**         |  -                                       |      -                                              | Up to 1 year                                                              |
 | **Timeout**          | 1 hour                                   | 10 minutes                                          | 24 hours                                                            |
 | **Maximum number of results**|	Dependant on query timeout	|500,000 records	|1 million records
-| **Pricing model**    | GB data analyzed                         | Analytics tier: free<br>Basic and auxiliary tier: Data scan Log Analytics pricing model | GB data analyzed                |
+| **Pricing model**    | GB of data analyzed                         | Analytics tier: free<br>Basic and auxiliary tier: Data scan Log Analytics pricing model | GB of data analyzed                |
 
 
 
@@ -48,14 +48,14 @@ This article compares KQL jobs, summary rules, and search jobs in Microsoft Sent
 
 The following section will help you decide which feature is best for your needs.
 
-If you have any of the following requirements, use KQL jobs.
+If you have any of the following requirements, use KQL jobs:
 
 + You're onboarded to the Microsoft Sentinel data lake.
 + You require lookback greater than 24 hours.
-+ You want to query historical data (up to 12 years).
++ You want to query historical data of up to 12 years.
 + You need to run complex queries involving full KQL operators including joins or unions.
 + You need ad-hoc investigation capabilities.
-+ Data is in default workspace.
++ Data is in the default workspace.
 
 
 Use summary rules if you have any of the following requirements:
@@ -71,7 +71,7 @@ If you have any of the following requirements, use search jobs:
 + You have data in archive tier. Note: If you're onboarded to Microsoft Sentinel data lake, to access data older than your onboarding date, use search jobs. For data from your onboarding date onward, use KQL jobs.
 + You need to hydrate large volumes of data from a single table. 
 + Your use case involves targeted extraction rather than frequent summarization or complex multi-table joins.
-+ You want to analyze up to one year of historical data within a table from any data tiers.
++ You want to analyze up to one year of historical data within a table from any data tier.
 
 Related articles:
 
