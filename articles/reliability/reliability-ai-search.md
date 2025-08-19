@@ -154,7 +154,7 @@ However, if you accidentally delete the index and don't have a backup, you can [
 
 ## Service-level agreement
 
-[!INCLUDE [SLA description](includes/reliability-sla-include.md)]
+[!INCLUDE [SLA description](includes/reliability-service-level-agreement-include.md)]
 
 In Azure AI Search, the availability SLA applies to search services that meet the following criteria:
 
