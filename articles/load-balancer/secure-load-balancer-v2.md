@@ -30,7 +30,6 @@ Network security is foundational for Azure Load Balancer as it controls traffic 
 
 - **Protect public load balancers with Azure DDoS Protection**: Enable Azure DDoS Protection Standard for public load balancers to provide advanced protection with detection capabilities that monitor endpoints for threats and signs of abuse. See [Protect your public load balancer with Azure DDoS Protection](tutorial-protect-load-balancer-ddos.md).
 
-- **Configure outbound rules with manual port allocation**: Use outbound rules with manual port allocation instead of default allocation to prevent SNAT exhaustion and connection failures. See [Outbound rules Azure Load Balancer](outbound-rules.md).
 
 ## Identity and access management
 
@@ -48,13 +47,12 @@ Access control for Azure Load Balancer focuses on managing who can configure and
 
 Azure Load Balancer operates at Layer 4 and does not store customer data, but implementing proper data protection measures for traffic and configurations is essential for comprehensive security.
 
-- **Implement end-to-end encryption**: Configure TLS/SSL termination on backend instances rather than the load balancer, as Load Balancer operates at Layer 4 and does not provide SSL termination capabilities. See [Architecture best practices for Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer#security).
+- **Implement end-to-end encryption**: Configure TLS/SSL termination on backend instances rather than the load balancer, as Load Balancer operates at Layer 4 and does not provide SSL termination capabilities.
 
 - **Use Application Gateway for HTTP/HTTPS workloads**: Deploy Azure Application Gateway instead of Load Balancer for HTTP/HTTPS applications that require SSL/TLS termination and web application firewall capabilities. See [Architecture best practices for Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer#security).
 
 - **Protect backend data stores**: Implement encryption at rest and in transit for backend databases and storage systems that receive traffic through the load balancer. See [Azure security baseline for Azure Load Balancer](/security/benchmark/azure/baselines/azure-load-balancer-security-baseline).
 
-- **Secure configuration data**: Protect load balancer configuration information and rules from unauthorized access through proper Azure RBAC implementation and change management processes. See [Azure Load Balancer Best Practices](load-balancer-best-practices.md).
 
 ## Logging and monitoring
 
@@ -79,26 +77,6 @@ Governance controls ensure consistent security configuration and compliance with
 - **Implement Azure Policy controls**: Deploy Azure Policy definitions to audit and enforce load balancer security configurations, including SKU requirements and network security group associations. See [Azure security baseline for Azure Load Balancer](/security/benchmark/azure/baselines/azure-load-balancer-security-baseline#asset-management).
 
 - **Use resource tagging**: Apply consistent tags to load balancer resources for governance, cost management, and security compliance tracking. See [Architecture best practices for Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer#azure-policies).
-
-- **Enforce naming conventions**: Establish and enforce consistent naming conventions for load balancer resources to improve security management and operational clarity. See [Azure Load Balancer Best Practices](load-balancer-best-practices.md).
-
-- **Implement change management**: Establish formal change management processes for load balancer configuration modifications to prevent unauthorized changes and maintain security posture. See [Architecture best practices for Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer#azure-policies).
-
-- **Monitor compliance status**: Use Microsoft Defender for Cloud to monitor compliance with security baselines and receive recommendations for improving load balancer security configurations. See [Azure security baseline for Azure Load Balancer](/security/benchmark/azure/baselines/azure-load-balancer-security-baseline).
-
-## Backup and recovery
-
-Azure Load Balancer configurations should be protected through proper backup and disaster recovery planning to ensure business continuity and rapid restoration capabilities.
-
-- **Document load balancer configurations**: Maintain comprehensive documentation of load balancer rules, health probes, and backend pool configurations for disaster recovery and compliance purposes. See [Architecture best practices for Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer).
-
-- **Use Infrastructure as Code**: Deploy load balancers using Azure Resource Manager templates, Bicep, or Terraform to enable consistent, repeatable deployments and version-controlled configuration management. See [Azure Load Balancer Best Practices](load-balancer-best-practices.md).
-
-- **Implement multi-region deployment**: Deploy load balancers across multiple Azure regions with appropriate backend resources to ensure availability during regional outages. See [Business continuity and disaster recovery considerations](/azure/cloud-adoption-framework/scenarios/app-platform/azure-red-hat-enterprise-linux/business-continuity-disaster-recovery#design-considerations).
-
-- **Plan backend resource recovery**: Ensure comprehensive backup and recovery plans for backend virtual machines and applications that receive traffic through the load balancer. See [Backup cloud and on-premises workloads to cloud](/azure/backup/guidance-best-practices#governance-considerations).
-
-- **Test disaster recovery procedures**: Regularly test load balancer failover scenarios and backend resource recovery to validate business continuity plans and recovery time objectives. See [Securely govern your cloud estate](/azure/cloud-adoption-framework/secure/govern#availability-governance).
 
 ## Service-specific security
 
