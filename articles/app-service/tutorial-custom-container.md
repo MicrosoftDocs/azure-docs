@@ -242,7 +242,7 @@ This tutorial requires version 2.0.80 or later of the Azure CLI. If you're using
 
 After installing Docker, open a terminal window and verify that the docker is installed:
 
-```bash
+```Bash
 docker --version
 ```
 
@@ -250,7 +250,7 @@ docker --version
 
 You can obtain the sample for this tutorial via Git clone or download.
 
-### Clone the repo by using Git
+### Clone the repo by using Git Bash
 
 Clone the sample repository:
 
