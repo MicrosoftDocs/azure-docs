@@ -4,7 +4,8 @@ description: Describes how to troubleshoot common exit codes in Azure Spring App
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: troubleshooting
-ms.date: 01/31/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.author: karler
 ms.reviewer: kunsun
 ms.custom: devx-track-java
