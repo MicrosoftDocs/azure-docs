@@ -8,6 +8,7 @@ ms.custom:
 ms.topic: how-to
 ms.date: 12/02/2022
 ms.author: akashdubey
+# Customer intent: "As an IT administrator managing cloud storage, I want to use the 'blobfuse2 mount list' command, so that I can efficiently display and verify all existing BlobFuse2 mount points on my system."
 ---
 
 # How to use the BlobFuse2 mount list command to display all BlobFuse2 mount points

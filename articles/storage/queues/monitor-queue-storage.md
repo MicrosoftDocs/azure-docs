@@ -9,6 +9,7 @@ ms.author: normesta
 ms.service: azure-queue-storage
 ms.devlang: csharp
 # ms.devlang: csharp, powershell, azurecli
+# Customer intent: "As a cloud administrator, I want to monitor Azure Queue Storage metrics and logs, so that I can ensure optimal performance and troubleshoot any issues effectively."
 ---
 
 # Monitor Azure Queue Storage

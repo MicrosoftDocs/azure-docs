@@ -1,10 +1,11 @@
 ---
 title: Configure virtual network integration with application and configuration routing.
 description: This how-to article walks you through configuring routing on a regional virtual network integration.
-author: madsd
-ms.author: madsd
+author: seligj95
+ms.author: jordanselig
 ms.topic: how-to
 ms.date: 10/20/2021
+ms.service: azure-app-service
 ---
 
 # Manage Azure App Service virtual network integration routing

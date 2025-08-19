@@ -8,6 +8,7 @@ ms.service: azure-databox
 ms.topic: how-to
 ms.date: 08/31/2021
 ms.author: shaas
+# Customer intent: "As a data administrator, I want to use my own certificates for accessing the Data Box device, so that I can ensure secure and trusted communication with the device."
 ---
 
 # Use your own certificates with Data Box and Data Box Heavy devices

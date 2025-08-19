@@ -8,6 +8,7 @@ ms.custom: MVC, engagement-fy23
 ms.author: jsuri
 author: jyothisuri
 
+# Customer intent: As an IT administrator, I want to prepare my on-premises Hyper-V servers for disaster recovery to Azure, so that I can ensure continuity of services in the event of a disaster.
 ---
 
 # Prepare on-premises Hyper-V servers for disaster recovery to Azure

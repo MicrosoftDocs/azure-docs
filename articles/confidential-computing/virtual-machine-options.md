@@ -8,6 +8,7 @@ ms.service: azure-virtual-machines
 ms.custom: devx-track-azurecli
 ms.topic: concept-article
 ms.date: 11/15/2023
+# Customer intent: "As a cloud administrator, I want to evaluate confidential VM options on AMD and Intel processors, so that I can select the most suitable environment for my workloads with optimal security and performance."
 ---
 
 # Azure Confidential VM options

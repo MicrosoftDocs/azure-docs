@@ -6,6 +6,7 @@ ms.author: jacobjaygbay
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
+# Customer intent: As a cloud architect, I want to provision Oracle Database on Azure using Terraform/OpenTofu modules, so that I can efficiently set up a multicloud environment that meets my organization's database management requirements.
 ---
 
 # Exadata - OCI Multicloud landing zone for Azure

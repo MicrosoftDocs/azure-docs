@@ -8,6 +8,7 @@ ms.date: 10/02/2022
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.reviewer: dineshm
+# Customer intent: As a cloud storage administrator, I want to synchronize local and Azure Blob storage using AzCopy, so that I can ensure data consistency and manage storage efficiently across different environments.
 ---
 
 # Synchronize with Azure Blob storage by using AzCopy

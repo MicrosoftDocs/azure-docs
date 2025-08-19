@@ -7,6 +7,7 @@ ms.topic: quickstart
 ms.custom: devx-track-bicep
 ms.date: 05/01/2025
 zone_pivot_groups: app-service-bicep
+ms.service: azure-app-service
 ---
 
 # Quickstart: Create an App Service app by using Bicep

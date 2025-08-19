@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.custom:
   - devx-track-bicep
   - build-2025
-ms.date: 05/09/2025
+ms.date: 07/25/2025
 ---
 
 # Parameters in Bicep
@@ -228,7 +228,7 @@ To reference the value for a parameter, use the parameter name. The following ex
 ```bicep
 param vaultName string = 'keyVault${uniqueString(resourceGroup().id)}'
 
-resource keyvault 'Microsoft.KeyVault/vaults@2019-09-01' = {
+resource keyvault 'Microsoft.KeyVault/vaults@2024-11-01' = {
   name: vaultName
   ...
 }
@@ -264,7 +264,7 @@ param vNetSettings object = {
   ]
 }
 
-resource vnet 'Microsoft.Network/virtualNetworks@2023-11-01' = {
+resource vnet 'Microsoft.Network/virtualNetworks@2024-07-01' = {
   name: vNetSettings.name
   location: vNetSettings.location
   properties: {

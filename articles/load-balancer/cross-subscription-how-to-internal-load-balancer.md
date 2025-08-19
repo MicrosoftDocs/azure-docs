@@ -11,6 +11,7 @@ ms.custom:
   - devx-track-azurepowershell
   - build-2025
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? > .
+# Customer intent: As a network architect, I want to create a cross-subscription internal load balancer, so that I can efficiently manage traffic between virtual networks across different subscriptions.
 ---
 
 # Create a cross-subscription internal load balancer

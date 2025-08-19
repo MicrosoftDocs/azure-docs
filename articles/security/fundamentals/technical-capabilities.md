@@ -113,7 +113,7 @@ When you use Microsoft Entra External ID, your consumers can sign up for your ap
 
 [Microsoft Entra device registration](../../active-directory/devices/overview.md) is the foundation for device-based [Conditional Access](../../active-directory/devices/overview.md) scenarios. When a device is registered, Microsoft Entra device registration provides the device with an identity that is used to authenticate the device when the user signs in. The authenticated device, and the attributes of the device, can then be used to enforce Conditional Access policies for applications that are hosted in the cloud and on-premises.
 
-When combined with a [mobile device management (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) solution such as Intune, the device attributes in Microsoft Entra ID are updated with additional information about the device. This allows you to create Conditional Access rules that enforce access from devices to meet your standards for security and compliance.
+When combined with a [mobile device management (MDM)](https://www.microsoft.com/insidetrack/blog/evolving-the-device-experience-at-microsoft/) solution such as Intune, the device attributes in Microsoft Entra ID are updated with additional information about the device. This allows you to create Conditional Access rules that enforce access from devices to meet your standards for security and compliance.
 
 #### Privileged identity management
 

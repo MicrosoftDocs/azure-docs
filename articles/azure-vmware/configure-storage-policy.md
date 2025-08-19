@@ -10,6 +10,7 @@ ms.custom:
 
 #customer intent: As an Azure service administrator, I want to set VMware vSAN storage policies to determine how storage is allocated to the VM.
 
+# Customer intent: As a cloud administrator, I want to configure VMware vSAN storage policies for my virtual machines, so that I can ensure they meet required service levels and optimize storage allocation.
 ---
 
 # Configure a VMware vSAN storage policy
@@ -52,8 +53,8 @@ Make sure that the minimum level of hosts is met, according to the following tab
 | RAID-1 (mirroring) <br />Default setting  | 1  | 3  |
 | RAID-5 (ESA optimized)  | 1  | 3  |
 | RAID-1 (mirroring)  | 2  | 5  |
-| RAID-6 (ESA optimized)  | 2  | 5  |
-| RAID-1 (mirroring)  | 3  | 7  |
+| RAID-6 (ESA optimized)  | 2  | 6|
+|6 RAID-1 (mirroring)  | 3  | 7  |
 
 ## List storage policies
 

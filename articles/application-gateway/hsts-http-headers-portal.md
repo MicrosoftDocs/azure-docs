@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 11/06/2024
 ms.author: reyjordi
 ms.custom: mvc
+# Customer intent: As a network administrator, I want to configure HSTS headers in the Azure Application Gateway so that I can enhance the security of my website and protect it against various attacks.
 ---
 # Add HSTS headers with Azure Application Gateway - Azure portal
 

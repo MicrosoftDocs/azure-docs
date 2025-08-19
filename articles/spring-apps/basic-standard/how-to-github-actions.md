@@ -512,7 +512,7 @@ jobs:
       run: |
         mvn clean package -DskipTests
 
-    # Maven plugin can cosume this authentication method automatically
+    # Maven plugin can consume this authentication method automatically
     - name: Azure Login
       uses: azure/login@v1
       with:

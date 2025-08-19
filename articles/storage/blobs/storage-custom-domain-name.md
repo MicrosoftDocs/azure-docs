@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 05/22/2025
 ms.author: shaas
 ms.reviewer: dineshm
+# Customer intent: As a web developer, I want to map a custom domain to an Azure Blob Storage endpoint so that I can serve my content from a user-friendly URL while ensuring compatibility with both HTTP and HTTPS access.
 ---
 
 # Map a custom domain to an Azure Blob Storage endpoint

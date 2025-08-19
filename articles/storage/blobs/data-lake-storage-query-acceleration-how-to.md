@@ -12,6 +12,7 @@ ms.reviewer: jamsbak
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp, devx-track-azurepowershell
+# Customer intent: As a data engineer, I want to implement query acceleration on Azure Data Lake Storage, so that I can efficiently retrieve and process specific subsets of data for analytics tasks.
 ---
 
 # Filter data by using Azure Data Lake Storage query acceleration

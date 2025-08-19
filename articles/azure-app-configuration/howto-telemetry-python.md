@@ -1,5 +1,5 @@
 ---
-title:  Enable telemetry for feature flags in a Python application (preview)
+title:  Enable telemetry for feature flags in a Python application
 titleSuffix: Azure App Configuration
 description: Learn how to use telemetry in python for feature flags in Azure App Configuration.
 ms.service: azure-app-configuration
@@ -11,12 +11,12 @@ ms.date: 05/06/2025
 
 # Enable telemetry for feature flags in a Python application
 
-In this tutorial, you use telemetry in your Python application to track feature flag evaluations and custom events. Telemetry allows you to make informed decisions about your feature management strategy. You utilize the feature flag with telemetry enabled created in [Enable telemetry for feature flags](./howto-telemetry.md). Before proceeding, ensure that you create a feature flag named *Greeting* in your Configuration store with telemetry enabled. This tutorial builds on top of [use variant feature flags](./howto-variant-feature-flags-python.md).
+In this tutorial, you use telemetry in your Python application to track feature flag evaluations and custom events. Telemetry allows you to make informed decisions about your feature management strategy. You utilize the feature flag with telemetry enabled created in the [overview for enabling telemetry for feature flags](./howto-telemetry.md). Before proceeding, ensure that you create a feature flag named *Greeting* in your Configuration store with telemetry enabled. This tutorial builds on top of the tutorial for [using variant feature flags in a Python application](./howto-variant-feature-flags-python.md).
 
 ## Prerequisites
 
 - The variant feature flag with telemetry enabled from [Enable telemetry for feature flags](./howto-telemetry.md).
-- The application from [Use variant feature flags](./howto-variant-feature-flags-python.md).
+- The application from [Use variant feature flags in a Python application](./howto-variant-feature-flags-python.md).
 
 ## Add telemetry to your Python application
 
@@ -105,52 +105,10 @@ In this tutorial, you use telemetry in your Python application to track feature 
     export APPLICATIONINSIGHTS_CONNECTION_STRING='applicationinsights-connection-string'
     ```
 
-1. Run the application, [see step 2 of Use variant feature flags](./howto-variant-feature-flags-python.md#build-and-run-the-app) .
-1. Create 10 different users and log into the application. As you log in with each user, you get a different message variant for some of them. ~50% of the time you get no message. 25% of the time you get the message "Hello!" and 25% of the time you get "I hope this makes your day!".
-1. With some of the users select the **Like** button to trigger the telemetry event.
-1. Open your Application Insights resource in the Azure portal and select **Logs** under **Monitoring**. In the query window, run the following query to see the telemetry events:
+## Collect telemetry
 
-    ```kusto
-    // Total users
-    let total_users =
-        customEvents
-        | where name == "FeatureEvaluation"
-        | summarize TotalUsers = count() by Variant = tostring(customDimensions.Variant);
-    
-    // Hearted users
-    let hearted_users =
-        customEvents
-        | where name == "FeatureEvaluation"
-        | extend TargetingId = tostring(customDimensions.TargetingId)
-        | join kind=inner (
-            customEvents
-            | where name == "Liked"
-            | extend TargetingId = tostring(customDimensions.TargetingId)
-        ) on TargetingId
-        | summarize HeartedUsers = count() by Variant = tostring(customDimensions.Variant);
-    
-    // Calculate the percentage of hearted users over total users
-    let combined_data =
-        total_users
-        | join kind=leftouter (hearted_users) on Variant
-        | extend HeartedUsers = coalesce(HeartedUsers, 0)
-        | extend PercentageHearted = strcat(round(HeartedUsers * 100.0 / TotalUsers, 1), "%")
-        | project Variant, TotalUsers, HeartedUsers, PercentageHearted;
-    
-    // Calculate the sum of total users and hearted users of all variants
-    let total_sum =
-        combined_data
-        | summarize Variant="All", TotalUsers = sum(TotalUsers), HeartedUsers = sum(HeartedUsers);
-    
-    // Display the combined data along with the sum of total users and hearted users
-    combined_data
-    | union (total_sum)
-    ```
-
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot of Application Insights showing the results table with four rows; All, Simple, Long, and None with their respective user counts and percentages.](./media/howto-telemetry-python/telemetry-results.png)
-
-    You see one "FeatureEvaluation" for each time the quote page was loaded and one "Liked" event for each time the like button was clicked. The "FeatureEvaluation" event have a custom property called `FeatureName` with the name of the feature flag that was evaluated. Both events have a custom property called `TargetingId` with the name of the user that liked the quote.
+Deploy your application to begin collecting telemetry from your users. To test its functionality, you can simulate user activity by creating many test users. Each user will experience a different variant of greeting messages, and they can interact with the application by clicking the heart button to like a quote. As your user base grows, you can monitor the increasing volume of telemetry data collected in Azure App Configuration. Additionally, you can drill down into the data to analyze how each variant of the feature flag influences user behavior.
+- [Review telemetry results in App Configuration](./howto-telemetry.md#review-telemetry-results-in-azure-app-configuration).
 
 ## Additional resources
 - [Flask Quote of the Day sample](https://github.com/Azure-Samples/quote-of-the-day-python)

@@ -1,14 +1,17 @@
 ---
-title: Encrypt your application source at rest
+title: Encrypt Your Application Source at Rest
 description: Learn how to encrypt your application data in Azure Storage and deploy it as a package file.
-ms.topic: article
+ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 03/06/2020
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
+# customer intent: As a developer, I want to encrypt my application data in Azure Storage to help protect it from unauthorized access. 
+
 ---
 
-# Encryption at rest using customer-managed keys
+# Encrypt data at rest by using customer-managed keys
 
 Encrypting your web app's application data at rest requires an Azure Storage Account and an Azure Key Vault. These services are used when you run your app from a deployment package.
 
@@ -20,9 +23,11 @@ Encrypting your web app's application data at rest requires an Azure Storage Acc
 
 ### Create an Azure Storage account
 
-First, [create an Azure Storage account](../storage/common/storage-account-create.md) and [encrypt it with customer-managed keys](../storage/common/customer-managed-keys-overview.md). Once the storage account is created, use the [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload package files.
+Start by creating a storage account. 
 
-Next, use the Storage Explorer to [generate an SAS](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#generate-a-sas-in-storage-explorer). 
+1. [Create an Azure Storage account](../storage/common/storage-account-create.md) and [encrypt it with customer-managed keys](../storage/common/customer-managed-keys-overview.md). Once the storage account is created, use the [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload package files.
+
+1. Use the Storage Explorer to [generate an SAS](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#generate-a-sas-in-storage-explorer). 
 
 > [!NOTE]
 > Save this SAS URL, this is used later to enable secure access of the deployment package at runtime.
@@ -115,7 +120,7 @@ Only the cost associated with the Azure Storage Account and any applicable egres
 - TAR and GZIP formats are not supported.
 - This feature is not compatible with local cache.
 
-## Next steps
+## Related content
 
 - [Key Vault references for App Service](app-service-key-vault-references.md)
 - [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md)

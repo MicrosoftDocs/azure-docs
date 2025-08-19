@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.custom: engagement-fy23
 ms.date: 02/26/2025
+# Customer intent: As a cloud administrator, I want to install VMware HCX in Azure VMware Solution, so that I can efficiently manage application migration and workload optimization across my cloud and on-premises environments.
 ---
 
 # Install VMware HCX in Azure VMware Solution
@@ -15,7 +16,7 @@ VMware HCX has two component services: **HCX Cloud Manager** and **HCX Connector
 
 This article shows you how to install and activate the VMware HCX Cloud Manager and VMware HCX Connector components. 
 
-HCX Cloud manager is typically deployed as the destination (cloud side), but it can also be used as the source in cloud-to-cloud deployments. HCX Connector is deployed at the source (on-premises environment). A download link is provided for deploying HCX Connector appliance from within the HCX Cloud Manager. 
+HCX Cloud manager is typically deployed as the destination (cloud side), but it can also be used as the source in cloud-to-cloud deployments - among two different Azure VMware Solution private clouds, for example. HCX Connector is deployed at the source (on-premises environment). A download link is provided for deploying HCX Connector appliance from within the HCX Cloud Manager. 
 
 This article also teaches you how to do the following tasks:
 

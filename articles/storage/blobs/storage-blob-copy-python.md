@@ -3,14 +3,15 @@ title: Copy a blob with Python
 titleSuffix: Azure Storage
 description: Learn how to copy a blob in Azure Storage by using the Python client library.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.date: 08/05/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
+# Customer intent: "As a Python developer working with Azure Storage, I want to understand how to copy blobs using the client library, so that I can efficiently manage data transfer within and between storage accounts."
 ---
 
 # Copy a blob with Python
@@ -44,3 +45,4 @@ For page blobs, you can use the [Put Page From URL](/rest/api/storageservices/pu
 - [Package (PyPi)](https://pypi.org/project/azure-storage-blob/)
 
 [!INCLUDE [storage-dev-guide-next-steps-python](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-python.md)]
+
