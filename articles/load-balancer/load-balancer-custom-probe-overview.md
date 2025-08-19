@@ -78,7 +78,7 @@ For HTTP/S probes, if the configured interval is longer than the above timeout p
 
 ## Probe threshold
 
-The probe threoshld value is the number of times a health probe will need to succeed or fail consecutively in order for the probe to mark a backend instance as healthy or unhealthy, respectively. 
+The probe threshold value is the number of times a health probe will need to succeed or fail consecutively in order for the probe to mark a backend instance as healthy or unhealthy, respectively. 
 
 For TCP probes, if the probe threshold is configured to 2, the probe will need to receive 2 consecutive responses before a backend instance begins to receive traffic. Similarly, once a backend instance is deemed healthy, 2 consecutive failures or timeouts are required for the instance to be considered unhealthy and stop receiving new traffic. 
 
