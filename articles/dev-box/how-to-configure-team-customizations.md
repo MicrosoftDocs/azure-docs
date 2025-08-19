@@ -76,7 +76,7 @@ The Dev Box agentic workflow lets you:
 > [!NOTE]
 > The agentic workflow supports only Dev Box primitive tasks, including WinGet, PowerShell, and Git-Clone.
 
-## Generate the image definition file
+### Generate the image definition file
 
 1. Open Visual Studio Code.
 
@@ -243,8 +243,6 @@ Follow these steps to create a dev box pool and specify an image definition:
    | **Licensing** | Select this checkbox to confirm that your organization has Azure Hybrid Benefit licenses to apply to the dev boxes in this pool. |
 
    :::image type="content" source="./media/how-to-configure-team-customizations/pool-specify-image-definition.png" alt-text="Screenshot of the pane for creating a dev box pool." lightbox="./media/how-to-configure-team-customizations/pool-specify-image-definition.png":::
-   
-   :::image type="content" source="./media/how-to-configure-team-customizations/pool-specify-image-definition.png" alt-text="Screenshot of the pane for creating a dev box pool.":::
    
 1. Select **Create**.
 1. Check that the new dev box pool appears in the list. You might need to refresh the screen.
