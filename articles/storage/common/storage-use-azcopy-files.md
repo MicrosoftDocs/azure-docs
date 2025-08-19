@@ -574,7 +574,7 @@ azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer/myTextFil
 
 ---
 
-<a id="copyfiletoaccount"></a>
+<a id="copyfilesnapshottoaccount"></a>
 
 ### Copy a directory to another storage account
 
