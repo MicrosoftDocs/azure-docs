@@ -88,7 +88,7 @@ The Square linked service supports the following properties when apply version 2
 | host | The URL of the Square instance. (i.e. mystore.mysquare.com)  | Yes |
 | clientId | The client ID associated with your Square application.  | Yes |
 | clientSecret | The client secret associated with your Square application. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| accessToken | The access token obtained from Square. Grants limited access to a Square account by asking an authenticated user for explicit permissions. OAuth access tokens expires 30 days after issued, but refresh tokens do not expire. Access tokens can be refreshed by refresh token.<br>Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md).  | Yes |
+| accessToken | The access token obtained from Square. Grants limited access to a Square account by asking an authenticated user for explicit permissions. OAuth access tokens expires 30 days after issued, but refresh tokens do not expire. Access tokens can be refreshed by refresh token.<br>Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). For more information about access token types, see [Access token types](#access-token-types). | Yes |
 | refreshToken | The refresh token obtained from Square. Used to obtain new access tokens when the current one expires.<br>Mark this field as a SecureString to store it securelyFactory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 
 **Example:**
@@ -131,11 +131,12 @@ The Square linked service supports the following properties when apply version 1
 | host | The URL of the Square instance. (i.e. mystore.mysquare.com)  | Yes |
 | clientId | The client ID associated with your Square application.  | Yes |
 | clientSecret | The client secret associated with your Square application. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| accessToken | The access token obtained from Square. Grants limited access to a Square account by asking an authenticated user for explicit permissions. OAuth access tokens expires 30 days after issued, but refresh tokens do not expire. Access tokens can be refreshed by refresh token.<br>Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md).  | Yes |
+| accessToken | The access token obtained from Square. Grants limited access to a Square account by asking an authenticated user for explicit permissions. OAuth access tokens expires 30 days after issued, but refresh tokens do not expire. Access tokens can be refreshed by refresh token.<br>Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). For more information about access token types, see [Access token types](#access-token-types). | Yes |
 | refreshToken | The refresh token obtained from Square. Used to obtain new access tokens when the current one expires.<br>Mark this field as a SecureString to store it securelyFactory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
 | useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over TLS. The default value is true.  | No |
 | usePeerVerification | Specifies whether to verify the identity of the server when connecting over TLS. The default value is true.  | No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
 
@@ -168,6 +169,8 @@ The Square linked service supports the following properties when apply version 1
     }
 }
 ```
+
+### Access token types
 
 Square support two types of access token: **personal** and **OAuth**.
 
@@ -266,10 +269,10 @@ When you copy data from Square, the following mappings apply from Square's data 
 | Integer          | Int32                            | Int32                |
 | Long             | Int64                            | Int64                |
 | Boolean          | Boolean                          | Boolean              |
-| Date             | String representation of Date in RFC 3339/ISO 8601 format.                             | Not supported.       |
-| Timestamp        | String representation of Timestamp in RFC 3339/ISO 8601 format.                        | Not supported.       |
-| Timestamp with offset   | String representation of Timestamp with offset  in RFC 3339/ISO 8601 format.    | Not supported.       |
-| Duration (full/ time only) | String representation of Duration in RFC 3339/ISO 8601 format.               | String representation of Duration in RFC 3339/ISO 8601 format.  |
+| Date             | String                           | Not supported.       |
+| Timestamp        | String                           | Not supported.       |
+| Timestamp with offset   |String                     | Not supported.       |
+| Duration (full/ time only) | String                 | String               |
 | Money            | Int64                            | Int64                |
 
 ## Lookup activity properties
@@ -283,7 +286,7 @@ The following table shows the release stage and change logs for different versio
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
 | Version 1.0 | End of support announced | / |  
-| Version 2.0 | Public Preview | • Date, Timestamp and Timestamp with offset are read as String data type and represented in RFC 3339/ISO 8601 format. <br><br> • `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service.   <br><br> • Self-hosted integration runtime is not supported. <br><br>• `query` is not supported.  |
+| Version 2.0 | Public Preview | • Date, Timestamp and Timestamp with offset are read as String data type. <br><br> • `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service.   <br><br> • Self-hosted integration runtime is not supported. <br><br>• `query` is not supported.  |
 
 ### <a name="upgrade-the-square-connector-from-version-10-to-version-20"></a> Upgrade the Square connector from version 1.0 to version 2.0 (Preview)
 
