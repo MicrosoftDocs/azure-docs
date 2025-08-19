@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: service-connector
 ms.topic: quickstart
 zone_pivot_groups: interaction-type
-ms.date: 7/22/2025
+ms.date: 8/19/2025
 ms.custom:
   - kr2b-contr-experiment
   - build-2024
@@ -53,7 +53,7 @@ This article provides step-by-step instructions for both the Azure portal and Az
     > [!TIP]
     > You can check if the resource provider has already been registered by running the command `az provider show -n "Microsoft.ServiceLinker" --query registrationState`. If the output is `Registered`, then Service Connector has already been registered.
 
-1. Optionally, run the command [az spring connection list-support-types](/cli/azure/spring/connection#az-spring-connection-list-support-types) to get a list of supported target services for Azure Spring Apps.
+1. Optionally, run the following command to get a list of supported target services for Azure Spring Apps.
 
    ```azurecli
    az spring connection list-support-types --output table
@@ -108,7 +108,7 @@ Use Service Connector to create a secure service connection between your Azure S
 
 ### [Managed identity (recommended)](#tab/using-Managed-Identity)
 
-Run the [az spring connection create](/cli/azure/spring/connection#az-spring-connection-create-storage-blob) command to connect application deployed to Azure Spring Apps to a Blob Storage resource, with a system-assigned managed identity. You can run this command in two different ways:
+Run the `az spring connection create` command to connect an application deployed to Azure Spring Apps to a Blob Storage resource, with a system-assigned managed identity. You can run this command in two different ways:
 
 - Generate the new connection step by step.
      
@@ -133,7 +133,7 @@ Run the [az spring connection create](/cli/azure/spring/connection#az-spring-con
 > [!WARNING]
 > Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
-Run the [az spring connection create](/cli/azure/spring/connection#az-spring-connection-create-storage-blob) command to connect application deployed to Azure Spring Apps to a Blob Storage resource, with connection string. You can run this command in two different ways:
+Run the `az spring connection create` command to connect an application deployed to Azure Spring Apps to a Blob Storage resource, with connection string. You can run this command in two different ways:
 
 - Generate the new connection step by step.
 

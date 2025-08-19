@@ -6,14 +6,14 @@ ms.author: honc
 ms.service: service-connector
 ms.topic: quickstart
 zone_pivot_groups: interaction-type
-ms.date: 7/25/2025
+ms.date: 8/19/2025
 keywords: azure functions, service connector, database connection, managed identity, azure storage, authentication
 #Customer intent: As an app developer, I want to securely connect my Azure Functions app to databases, storage accounts, and other Azure services using managed identities and other authentication types.
 ---
 
 # Quickstart: Connect Azure Functions to databases and services with Service Connector
 
-Get started with Service Connector to connect your Azure Functions to databases, storage accounts, and other Azure services. Service Connector simplifies authentication and configuration, enabling you to connect to resources using managed identities orother authentication methods.
+Get started with Service Connector to connect your Azure Functions to databases, storage accounts, and other Azure services. Service Connector simplifies authentication and configuration, enabling you to connect to resources using managed identities or other authentication methods.
 
 This article provides step-by-step instructions for both the Azure portal and Azure CLI. Choose your preferred method using the tabs above.
 
@@ -71,14 +71,14 @@ Use Service Connector to create a service connection between your Azure Function
 
 1. On the **Basics** tab, select or enter the following settings:
 
-| Setting             | Example                                  | Description                                                                                                                                                                                |
-|---------------------|------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Service type**    | *Storage - Blob*                         | The target service type. If you don't have a Blob Storage account, you can [create one](../storage/blobs/storage-quickstart-blobs-portal.md) or use another service type.                    |
-| **Subscription**    | *My subscription*                        | The subscription for your target service (the service you want to connect to). The default value is the subscription for this function app resource.                                       |
-| **Connection name** | *my_connection*                          | The connection name that identifies the connection between your function app and target service. Use the connection name provided by Service Connector or choose your own connection name. |
-| **Storage account** | *my_storage_account*                     | The target storage account you want to connect to. Target service instances to choose from vary according to the selected service type.                                                    |
-| **Client type**     | *The same app stack on this function app* | The default value comes from the function app runtime stack. Select the app stack that's on this function app instance.                                                                    |
-
+    | Setting             | Example                                  | Description                                                                                                                                                                                |
+    |---------------------|------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | **Service type**    | *Storage - Blob*                         | The target service type. If you don't have a Blob Storage account, you can [create one](../storage/blobs/storage-quickstart-blobs-portal.md) or use another service type.                    |
+    | **Subscription**    | *My subscription*                        | The subscription for your target service (the service you want to connect to). The default value is the subscription for this function app resource.                                       |
+    | **Connection name** | *my_connection*                          | The connection name that identifies the connection between your function app and target service. Use the connection name provided by Service Connector or choose your own connection name. |
+    | **Storage account** | *my_storage_account*                     | The target storage account you want to connect to. Target service instances to choose from vary according to the selected service type.                                                    |
+    | **Client type**     | *The same app stack on this function app* | The default value comes from the function app runtime stack. Select the app stack that's on this function app instance.                                                                    |
+    
 1. Select **Next: Authentication** to choose an authentication method.
 
     ### [System-assigned managed identity (recommended)](#tab/SMI)
