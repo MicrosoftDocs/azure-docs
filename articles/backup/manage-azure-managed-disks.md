@@ -10,9 +10,9 @@ ms.custom: engagement-fy24
 # Customer intent: "As an IT administrator, I want to manage Azure Managed Disks through the portal so that I can efficiently change backup policies, monitor operations, and control data protection settings."
 ---
 
-# Manage Azure Managed Disks
+# Manage Azure Managed Disks backup using the Azure portal
 
-This article explains how to manage Azure Managed Disk from the Azure portal.
+This article describes how to manage Azure Managed Disk using the Azure portal.
 
 
 ## Change policy
@@ -36,23 +36,21 @@ To change the backup policy for Azure Disk, follow these steps:
 >
 > Changing a backup policy assigned to a backup instance does not affect existing recovery points and their retention duration. The updated retention settings will apply only to new recovery points created after the policy change.
 
-## Monitor a backup operation
+## Monitor a backup operation for Azure Managed Disks
 
-The Azure Backup service creates a job for scheduled backups or if you trigger on-demand backup operation for tracking. To view the backup job status:
+The Azure Backup service creates a job for scheduled backups or if you trigger on-demand backup operation for tracking. To view the backup job status, follow these steps:
 
-1. Go to the **Backup center** and select **Backup instances**.
+1. Go to the **Business Continuity Center** and select **Monitoring + Reporting** > **Jobs**.
 
-   The **Backup instances** blade shows the jobs dashboard with operation and status for the past seven days.
+   The **Jobs** pane shows the jobs dashboard with operation and status for the past six hours. You can extend the list upto two weeks or set a custom time range.
 
-   :::image type="content" source="./media/backup-managed-disks/jobs-dashboard.png" alt-text="Screenshot shows the jobs dashboard." lightbox="./media/backup-managed-disks/jobs-dashboard.png":::
+   :::image type="content" source="./media/manage-azure-managed-disks/jobs-dashboard.png" alt-text="Screenshot shows the jobs dashboard." lightbox="./media/manage-azure-managed-disks/jobs-dashboard.png":::
 
-1. To view the status of the backup operation, select **View all** to show ongoing and past jobs of this backup instance.
-
-   ![Screenshot shows how to select the view all option.](./media/backup-managed-disks/view-all.png)
+1. On the **Jobs** pane, select the **Datasource type** as **Azure Disks**.
 
 1. Review the list of backup and restore jobs and their status. Select a job from the list of jobs to view job details.
 
-   ![Screenshot shows how to select a job to see details.](./media/backup-managed-disks/select-job.png)
+   :::image type="content" source="./media/manage-azure-managed-disks/backup-job-details.png" alt-text="Screenshot shows the job details of a disk backup." lightbox="./media/manage-azure-managed-disks/backup-job-details.png":::
 
 ## Monitor a restore operation
 
