@@ -7,7 +7,8 @@ ms.author: karler
 ms.reviewer: xiading
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 12/01/2023
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 

@@ -4,7 +4,7 @@ description: Learn how to deploy Tomcat, JBoss EAP, or Java SE apps to run on Az
 keywords: azure app service, web app, windows, oss, java, tomcat, jboss, spring boot, quarkus
 ms.devlang: java
 ms.topic: how-to
-ms.date: 03/27/2025
+ms.date: 08/12/2025
 ms.custom:
   - devx-track-java
   - devx-track-azurecli
@@ -59,7 +59,7 @@ java -version
 To view the Tomcat server version in the SSH session:
 
 ```bash
-sh /usr/local/tomcat/version.sh
+sh /usr/local/tomcat/bin/version.sh
 ```
 
 Or, if your Tomcat server is in a custom location, find `version.sh` with:

@@ -3,7 +3,8 @@ author: KarlErickson
 ms.author: v-muyaofeng
 ms.service: azure-spring-apps
 ms.topic: include
-ms.date: 11/20/2023
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ---
 
 <!-- 
