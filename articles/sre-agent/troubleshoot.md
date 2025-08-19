@@ -14,7 +14,7 @@ This article covers the common problems that you can face when you're working wi
 
 ## Common troubleshooting scenarios
 
-The following table outlines frequent issues you might encounter and their solutions. For more information about how roles and permissions are applied to an agent, see [Security contexts in Azure SRE Agent](./security-context.md).
+The following table outlines frequent issues that you might encounter and their solutions. For more information about how roles and permissions are applied to an agent, see [Security contexts in Azure SRE Agent](./security-context.md).
 
 | Scenario | Reason | Remarks |
 |---|---|---|
@@ -24,67 +24,65 @@ The following table outlines frequent issues you might encounter and their solut
 
 ## Deployment not found
 
-There are few reasons you might encounter an error stating the deployment isn't found. First make sure you're naming your agent correctly, and you have the proper firewall rules in place:
+There are few reasons why you might encounter an error that says the deployment isn't found. First, make sure that you're naming your agent correctly, and that you have the proper firewall rules in place:
 
-* Ensure the agent's name is unique across the subscription.
+* Ensure that the agent's name is unique across the subscription.
 * Check for geo-blocking or firewall rules that can prevent access to the agent endpoint.
 
-If you're naming and your network configuration is correct, use the following steps to resolve the agent "couldn't be found" error.
+If your naming and your network configuration are correct, use the following steps to resolve the agent "DeploymentNotFound" error.
 
-:::image type="content" source="media/troubleshoot/sre-agent-failure-notification.png" alt-text="Screenshot of Azure SRE Agent provisioning failure notification.":::
+:::image type="content" source="media/troubleshoot/sre-agent-failure-notification.png" alt-text="Screenshot that shows a notification of provisioning failure in Azure SRE Agent.":::
 
-1. Confirm your user account has owner or admin permissions and permissions to create resources in the Sweden Central region.
+1. Confirm that your user account has owner or admin permissions and permissions to create resources in the Sweden Central region.
 
-1. Confirm that the subscription is allow-listed for SRE Agent preview. Run the following command to check if your subscription is allow-listed:
+1. Confirm that the subscription is in the allow list for SRE Agent Preview. Run the following command to check whether your subscription is in the allow list:
 
     ```azurecli
     az provider show -n Microsoft.App | grep -C 15 agents
     ```
 
-    If your subscription is allow-listed successfully, you see output similar to the following message.
+    If your subscription is in the allow list, you see output similar to the following message.
 
-    :::image type="content" source="media/troubleshoot/sre-agent-verify-access.png" alt-text="Screenshot of console response verifying user has access to agents.":::
+    :::image type="content" source="media/troubleshoot/sre-agent-verify-access.png" alt-text="Screenshot of a console response that verifies user access to agents.":::
 
     Look specifically for `"resourcetype : agents"` and `"defaultApiVersion : 2025-05-01-preview"`.
 
     If running this command doesn't return the expected result, you need to register your subscription.
 
-1. To re-register your subscription, run the az provider register command in the Azure portal cloud shell:
+1. To re-register your subscription, run the `az provider register` command in Azure Cloud Shell in the Azure portal:
 
     ```azurecli
     az provider register --namespace "Microsoft.App"
     ```
 
-    Try creating the SRE Agent again.
+    Then try creating the agent again.
 
 ## Permission errors
 
-If you're unable to chat or interact with the agent, and you encounter 403 Forbidden or CORS Policy errors, use the following steps to help resolve your issue.
+If can't chat or interact with the agent, and you encounter 403 Forbidden or CORS Policy errors, use the following steps to help resolve your issue.
 
 The following screenshot shows the error message:
 
-:::image type="content" source="media/troubleshoot/sre-agent-permission-errors.png" alt-text="Screenshot of errors resulting from incorrect permissions.":::
+:::image type="content" source="media/troubleshoot/sre-agent-permission-errors.png" alt-text="Screenshot of errors that result from incorrect permissions.":::
 
 Or, you might see the following output in your network trace:
 
 :::image type="content" source="media/troubleshoot/sre-agent-network-trace-error.png" alt-text="Screenshot of the browser network trace when the agent encounters a permissions error.":::
 
-To resolve the issue:
+To resolve the problem:
 
-* Ensure you have Contributor or Owner access to the resource group hosting the SRE Agent.
+* Ensure you have Contributor or Owner access to the resource group that hosts the agent.
 
-* Avoid relying solely on group-based role assignments. Assign roles directly to your account if issues persist.
+* Avoid relying solely on group-based role assignments. Assign roles directly to your account if problems persist.
 
-* Use the *Check Access* feature in the Azure portal to verify you have the right permissions.
+* Use the **Check Access** feature in the Azure portal to verify that you have the right permissions.
 
 ## Portal becomes unresponsive
 
-If the Azure portal becomes unresponsive as you try to use SRE Agent, then your firewall rules might be blocking access to an Azure domain.
+If the Azure portal becomes unresponsive as you try to use SRE Agent, your firewall rules might be blocking access to an Azure domain.
 
-To grant access to the proper domain, allowlist `*.azuresre.ai` in your firewall settings.
+To grant access to the proper domain, add `*.azuresre.ai` to the allow list in your firewall settings. Zscaler might block access to `*.azuresre.ai` domain by default.
 
-Zscaler might block access to `*.azuresre.ai` domain by default.
- 
 ## Related content
 
-* [Security contexts](./security-context.md)
+* [Security contexts in Azure SRE Agent](./security-context.md)

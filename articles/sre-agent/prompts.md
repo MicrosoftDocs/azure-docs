@@ -12,6 +12,31 @@ ms.service: azure
 
 Azure SRE Agent Preview helps you manage and troubleshoot your Azure resources through natural language conversations. This article provides a collection of starter prompts to help you use SRE Agent effectively.
 
+An agent can provide detailed information about aspects of your apps and resources. The following examples demonstrate the types of questions that you might ask your agent:
+
+- What can you assist me with?
+- Why isn't my application working?
+- What services is my resource connected to?
+- Can you provide best practices for my resource?
+- What's the CPU and memory utilization of my app?
+
+Here are some prompts that you can use to help you interact with your agent:
+
+- Which apps have Dapr enabled?
+- List replicas for my container app.
+- Which apps have diagnostic logging turned on?
+- Give me an individual heatmap for each storage account.
+- Which revision of my container app is currently active?
+- What are some best practices that my app should follow?
+- What is the ingress configuration for my container app?
+- Are any staging slots configured for this web app?
+- What container images are used by each of my container apps?
+- List all resource groups that you're managing across all subscriptions.
+- Draw a heatmap of storage latencies over the last 14 days for storage accounts.
+- Show me a visualization of response times for container apps for the last week.
+- List [container apps, web apps, or another app type] that you're managing across all subscriptions.
+- Visualize split of container apps versus web apps versus AKS clusters managed across all subscriptions as a pie chart.
+
 ## Agent capabilities
 
 - How do I get started with SRE Agent?
