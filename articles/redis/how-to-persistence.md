@@ -23,7 +23,7 @@ appliesto:
 
 | Tier      | Memory Optimized, Balanced, Compute Optimized | Flash Optimized |
 |-----------|-----------------------------------------------|-----------------|
-| Available | Yes (preview)                                 | Yes (preview)   |
+| Available | Yes                                           | Yes (preview)   |
 
 ## Types of data persistence in Redis
 
