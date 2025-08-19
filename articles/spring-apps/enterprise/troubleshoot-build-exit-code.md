@@ -4,7 +4,8 @@ description: Learn how to troubleshoot common build issues in Azure Spring Apps.
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: troubleshooting
-ms.date: 08/28/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.author: karler
 ms.reviewer: yili7
 ms.custom: devx-track-java
