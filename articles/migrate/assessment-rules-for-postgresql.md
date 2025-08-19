@@ -20,27 +20,27 @@ These rules help identify issues and warnings when migrating PostgreSQL to Azure
 
 | Rule Name  | Scope  | Category | Link to Details   |
 |----------|---------|----------|----------------------|
-| Extensions    | Database       | Issue    | #extensions    |
-| Collations   | Instance/Database | Issue    | #collations      |
-| Language Used  | Database          | Issue    | #language-used   |
-| Custom Data Type used  | Database          | Issue    | #custom-data-type  |
-| Casts   | Database          | Issue    | #casts  |
-| Full Text Search (FTS) and FTS Templates  | Database  | Issue  | #fts-templates  |
-| TLS/SSL versions   | Instance     | Warning  | #tls-ssl-versions  |
-| Superuser Privileges  | Instance/Database | Warning  | #superuser-privileges  |
-| File Read/Write Privileges  | Database   | Warning  | #file-privileges  |
-| IPv6 Address   Instance       | Issue    | #ipv6-address  |
-| Port Usage   | Instance     | Warning  | #port-usage    |
-| OID Usage    | Database        | Issue    | #oid-usage  |
-| Tablespaces  | Instance    | Warning  | #tablespaces       |
-| PostgreSQL Version < 9.5  | Instance   | Issue    | #postgresql-version-95     |
-| Read Replicas Count | Instance | Warning  | #read-replicas  |
-| Encodings | Database  | Issue    | #encodings  |
-| Region Availability | Instance  | Issue    | #region-availability |
+| Extensions    | Database       | Issue    | [Unsupported PostgreSQL extensions](#extensions)    |
+| Collations   | Instance/Database | Issue    | [Unsupported collations](#collations)     |
+| Language Used  | Database          | Issue    | [Unsupported procedural languages](#language-used)   |
+| Custom Data Type used  | Database          | Issue    | [Unsupported custom data types found](#custom-data-type-used)  |
+| Casts   | Database          | Issue    | [Custom cast creation requires superuser privileges](#casts) |
+| Full Text Search (FTS) and FTS Templates  | Database  | Issue  | [Creating FTS configurations requires superuser privileges](#full-text-search-fts-and-fts-templates)  |
+| TLS/SSL versions   | Instance     | Warning  | [Unsupported TLS/SSL versions detected in source](#tlsssl-versions) |
+| Superuser Privileges  | Instance/Database | Warning  | [Unsupported: PostgreSQL objects owned by superuser](#superuser-privileges)  |
+| File Read/Write Privileges  | Database   | Warning  | [Unsupported: Source uses functions/extensions with file system access](#file-readwrite-privileges)  |
+| IPv6 Address   Instance       | Issue    | [Use of IPv6 for database connections](#ipv6-address) |
+| Port Usage   | Instance     | Warning  | [Database connections use ports other than 5432 or 6432](#port-usage)   |
+| OID Usage    | Database        | Issue    | [WITH OIDS clause in CREATE TABLE is not supported](#oid-usage)  |
+| Tablespaces  | Instance    | Warning  | [Custom tablespaces detected in source PostgreSQL](#tablespaces)       |
+| PostgreSQL Version < 9.5  | Instance   | Issue    | [ Source PostgreSQL version is below 9.5](#postgresql-version--95)     |
+| Read Replicas Count | Instance | Warning  | [Read replicas detected in source PostgreSQL](#read-replicas-count)  |
+| Encodings | Database  | Issue    | [Custom database encodings not allowed on Azure Flexible Server](#encodings)  |
+| Region Availability | Instance  | Issue    | [Target region not available for Azure Flexible Server](#region-availability) |
 
 ## Detailed rule description
 
-### Extensions {#extensions}
+### Extensions
 
 - **Title**: Unsupported PostgreSQL extensions detected in source environment for migration to Azure Database for PostgreSQL Flexible Server.
 
@@ -52,7 +52,7 @@ These rules help identify issues and warnings when migrating PostgreSQL to Azure
 
 - See about the available extensions and modules for the [Azure Database for the PostgreSQL service](/azure/postgresql/extensions/concepts-extensions-versions).
 
-### Collations {#collations}
+### Collations
 
 - **Title**: Unsupported collations detected in the source PostgreSQL environment for migration to Azure Database for PostgreSQL Flexible Server.
 
@@ -64,7 +64,7 @@ These rules help identify issues and warnings when migrating PostgreSQL to Azure
 
 - Contact Azure Support for detailed collation compatibility guidance.
 
-### Language Used {#language-used}
+### Language used
 
 - **Title**: Unsupported procedural languages detected in the source PostgreSQL environment for migration to Azure Database for PostgreSQL Flexible Server.
 
@@ -76,19 +76,7 @@ These rules help identify issues and warnings when migrating PostgreSQL to Azure
 
 - Contact Azure Support for detailed collation compatibility information.
 
-### Language Used {#language-used}
-
-- **Title**: Unsupported procedural languages detected in the source PostgreSQL environment for migration to Azure Database for PostgreSQL Flexible Server.
-
-- **Category**: Issue
-
-- **Description**: The source PostgreSQL environment includes one or more procedural languages that aren't supported in Azure Database for PostgreSQL Flexible Server. Only a limited set of procedural languages is supported, such as `plpgsql`.
-
-**Recommendation**: Audit all database functions, stored procedures, and triggers to identify the procedural languages they use. Replace any unsupported languages with supported ones, such as `plpgsql`, before migration. If your application relies on advanced features not available in `plpgsql`, consider moving that logic to the application layer.
-
-- Learn about PostgreSQL documentation for a list of supported procedural languages.
-
-### Custom Data Type used {#custom-data-type}
+### Custom data type used 
 
 - **Title**: Unsupported custom data types detected in the source PostgreSQL environment for migration to Azure Database for PostgreSQL Flexible Server.
 
@@ -100,7 +88,7 @@ These rules help identify issues and warnings when migrating PostgreSQL to Azure
 
 -Learn about PostgreSQL documentation for supported native data types.
 
-### Casts {#casts}
+### Casts 
 
 - **Title**: Custom cast creation requires superuser privileges, which aren't supported in Azure Database for PostgreSQL Flexible Server.
 
@@ -112,7 +100,7 @@ These rules help identify issues and warnings when migrating PostgreSQL to Azure
 
 - Learn about PostgreSQL documentation for more details on supported type conversions.
 
-### Full Text Search (FTS) and FTS Templates {#fts-templates}
+### Full Text Search (FTS) and FTS Templates
 
 - **Title**: Creating FTS configurations requires superuser privileges.
 
@@ -124,7 +112,7 @@ These rules help identify issues and warnings when migrating PostgreSQL to Azure
 
 - Learn about the PostgreSQL full-text search documentation.
 
-### TLS/SSL versions {#tls-ssl-versions}
+### TLS/SSL versions
 
 - **Title**: Source PostgreSQL instance uses TLS/SSL versions outside the supported range.
 
@@ -136,7 +124,7 @@ These rules help identify issues and warnings when migrating PostgreSQL to Azure
 
 - Learn about [SSL/TLS connectivity in Azure Database for PostgreSQL](/azure/postgresql/flexible-server/concepts-networking-ssl-tls).
 
-### Superuser Privileges {#superuser-privileges}
+### Superuser privileges
 
 - **Title**: PostgreSQL objects and their associated privileges are owned by a superuser.
 
@@ -148,7 +136,7 @@ These rules help identify issues and warnings when migrating PostgreSQL to Azure
 
 - Learn about [Server concepts in Azure Database for PostgreSQL](/azure/postgresql/flexible-server/concepts-servers).
 
-### File Read/Write Privileges {#file-privileges}
+### File read/write privileges
 
 - **Title**: Source database uses functions or extensions that directly access the file system.
 
@@ -160,7 +148,7 @@ These rules help identify issues and warnings when migrating PostgreSQL to Azure
 
 - Learn about [Using pg_azure_storage extension](/azure/postgresql/flexible-server/concepts-storage-extension?tabs=portal-01%2Cportal-02%2Cportal-03%2Cportal-04%2Cportal-05).
 
-### IPv6 Address {#ipv6-address}
+### IPv6 address
 
 - **Title**: Use of IPv6 for database connections.
 
@@ -172,7 +160,7 @@ These rules help identify issues and warnings when migrating PostgreSQL to Azure
 
 - Learn about [Firewall rules in Azure Database for PostgreSQL](/azure/postgresql/flexible-server/concepts-firewall-rules)
 
-### Port Usage {#port-usage}
+### Port usage
 
 - **Title**: Database connections use ports other than 5432 or 6432.
 
@@ -184,7 +172,7 @@ These rules help identify issues and warnings when migrating PostgreSQL to Azure
 
 - Learn about [connection settings in Azure Database for PostgreSQL](/azure/postgresql/flexible-server/server-parameters-table-connections-and-authentication-connection-settings?pivots=postgresql-17).
 
-### OID Usage {#oid-usage}
+### OID usage 
 
 - **Title**: WITH OIDS clause in CREATE TABLE is not supported.
 
@@ -196,7 +184,7 @@ These rules help identify issues and warnings when migrating PostgreSQL to Azure
 
 - Learn about [PostgreSQL 12.0 release notes](https://www.postgresql.org/docs/release/12.0/).
 
-### Tablespaces {#tablespaces}
+### Tablespaces
 
 - **Title**: Use of custom tablespaces detected in the source PostgreSQL instance.
 
@@ -208,7 +196,7 @@ These rules help identify issues and warnings when migrating PostgreSQL to Azure
 
 - Learn about [Known issues in migration service](/azure/postgresql/migrate/migration-service/concepts-known-issues-migration-service).
 
-### PostgreSQL Version < 9.5 {#postgresql-version-95}
+### PostgreSQL version < 9.5 
 
 - **Title**: PostgreSQL version of source PostgreSQL instance is less than 9.5.
 
@@ -220,7 +208,7 @@ These rules help identify issues and warnings when migrating PostgreSQL to Azure
 
 - Learn about [PostgreSQL migration service overview](/azure/postgresql/migrate/migration-service/overview-migration-service-postgresql).
 
-### Read Replicas Count {#read-replicas}
+### Read replicas count
 
 - **Title**: Use of read replicas detected in the source PostgreSQL instance.
 
@@ -232,7 +220,7 @@ These rules help identify issues and warnings when migrating PostgreSQL to Azure
 
 - Learn about [Read replicas in Azure Database for PostgreSQL](/azure/postgresql/flexible-server/concepts-read-replicas)
 
-### Encodings {#encodings}
+### Encodings
 
 - **Title**: Custom database encodings aren't supported in Azure Database for PostgreSQL – Flexible Server.
 
@@ -244,7 +232,7 @@ These rules help identify issues and warnings when migrating PostgreSQL to Azure
 
 - Learn about PostgreSQL encoding documentation.
 
-### Region Availability {#region-availability}
+### Region availability 
 
 - **Title**: Target deployment region isn't supported in Azure Database for PostgreSQL – Flexible Server.
 
