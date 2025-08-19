@@ -28,7 +28,6 @@ The restore operation doesn't create directories in the process. If the specifie
     * You can't create new snapshots on the volume.  
     * You can't delete the snapshot from which the files are being restored. 
     * Policy-scheduled snapshots can't complete during a single-file snapshot restoration operation. The scheduled snapshot is skipped.
-* Single-file restore isn't currently supported with [large volumes](large-volumes.md).
 
 ## Steps
 
