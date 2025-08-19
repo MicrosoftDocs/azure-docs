@@ -240,6 +240,8 @@ items:
         href: quickstarts/email/send-email-advanced/throw-exception-when-tier-limit-reached.md
       - name: Use email object model for payload
         href: quickstarts/email/send-email-advanced/use-email-object-model-for-payload.md
+      - name: Hydrating messageId using EmailClient
+        href: quickstarts/email/send-email-advanced/hydrate-email-client-with-message-id.md
   - name: Manage sender reputation
     items:
     - name: Understand sender reputation
