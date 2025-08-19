@@ -68,5 +68,5 @@ If you want to revoke an identity, follow [this process](../../concepts/identity
 - [Subscribe to SDK events](./events.md)
 - [Manage calls](./manage-calls.md)
 - [Manage video during calls](./manage-video.md)
-- [Migrate Android SDK push notifications to Firebase Cloud Messaging HTTP v1](../../tutorials/call-chat-migrate-android-push-fcm-v1.md)
-- [Register for Android SDK push notifications using Firebase Cloud Messaging HTTP v1](../../tutorials/call-chat-register-android-push-fcm-v1.md)
+- [Migrate Android SDK push notifications to Firebase Cloud Messaging HTTP v1](../../tutorials/chat-migrate-android-push-fcm-v1.md)
+- [Register for Android SDK push notifications using Firebase Cloud Messaging HTTP v1](../../tutorials/chat-register-android-push-fcm-v1.md)
