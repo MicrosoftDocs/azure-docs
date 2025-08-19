@@ -16,7 +16,7 @@ appliesto:
 
 Testing the performance of a Redis instance can be a complicated task. The performance of a Redis instance can vary based on parameters such as the number of clients, the size of data values, and whether pipelining is being used. There also can be a tradeoff between optimizing throughput or latency.
 
-Fortunately, several tools exist to make benchmarking Redis easier. Two of the most popular tools are **[redis-benchmark](https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/benchmarks/** and **[memtier-benchmark](https://github.com/redislabs/memtier_benchmark)**. This article focuses on redis-benchmark.
+Fortunately, several tools exist to make benchmarking Redis easier. Two of the most popular tools are **[redis-benchmark](https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/benchmarks/)** and **[memtier-benchmark](https://github.com/redislabs/memtier_benchmark)**. This article focuses on redis-benchmark.
 
 ## How to use the redis-benchmark utility
 
@@ -34,7 +34,7 @@ Fortunately, several tools exist to make benchmarking Redis easier. Two of the m
 
 1. If you're using an Azure Cache for Redis instance that uses [clustering](cache-how-to-scale.md), you need to add the `--cluster` parameter to your `redis-benchmark` command. Enterprise tier caches using the Enterprise [Clustering](../redis/architecture.md#clustering) can be treated as nonclustered caches and don't need this setting.
 
-1. Launch `redis-benchmark` from the CLI or shell of the VM. For instructions on how to configure and run the tool, see the [redis-benchmark documentation](https://redis.io/docs/management/optimization/benchmarks/) and the [redis-benchmark examples](#redis-benchmark-examples) sections.
+1. Launch `redis-benchmark` from the CLI or shell of the VM. For instructions on how to configure and run the tool, see the [redis-benchmark documentation](https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/benchmarks/) and the [redis-benchmark examples](#redis-benchmark-examples) sections.
 
 ## Benchmarking recommendations
 
