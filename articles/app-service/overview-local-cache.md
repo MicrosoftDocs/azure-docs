@@ -64,18 +64,18 @@ Configuring a local cache causes these changes:
 - The local cache is read/write. However, any modifications are discarded when the app moves between VMs or restarts. Don't use the local cache for storing mission-critical data.
 
 - `D:\home\LogFiles` and `D:\home\Data` contain log files and app data. These folders are stored locally on the VM instance and are periodically copied to the shared content store. Although apps can persist log files and data by writing to these folders, the copy process is best-effort. Log files and data might be lost if a VM instance suddenly stops responding.
-- The best-effort copy affects [log streaming](troubleshoot-diagnostic-logs.md#stream-logs). You might observe up to a one-minute delay in streamed logs.
+- The best-effort copy affects [log streaming](troubleshoot-diagnostic-logs.md#stream-logs). You might observe as much as a one-minute delay in streamed logs.
 - In the shared content store, the folder structure for `LogFiles` and `Data` changes for apps that use a local cache. There are now subfolders with names that consist of a unique identifier and a time stamp. Each subfolder corresponds to a VM instance where the app is or was running.
 - Other folders in `D:\home` remain in the local cache and aren't copied to the shared content store.
-- App deployments via any supported method publish directly to the durable shared content store. To refresh the `D:\home\site` and `D:\home\siteextensions` folders in the local cache, you must restart the app. For a seamless life cycle, see the [section about best practices](#best-practices-for-using-app-service-local-cache) later in this article.
+- App deployments via any supported method publish directly to the durable shared content store. To refresh the `D:\home\site` and `D:\home\siteextensions` folders in the local cache, you must restart the app. To help ensure a seamless life cycle, see the [section about best practices](#best-practices-for-using-app-service-local-cache) later in this article.
 - The default content view of the SCM site continues to reflect the shared content store.
 
 > [!NOTE]
-> If you're using Java (Java SE, Tomcat, or JBoss EAP), then by default, the Java artifacts (.jar, .war, and .ear files) are copied locally to the worker. If your Java application depends on read-only access to additional files, set `JAVA_COPY_ALL` to `true` so that those files are also copied. If a local cache is enabled, it takes precedence over this Java-specific behavior.
+> If you use Java (Java SE, Tomcat, or JBoss EAP), by default, the Java artifacts (.jar, .war, and .ear files) are copied locally to the worker. If your Java application depends on read-only access to additional files, set `JAVA_COPY_ALL` to `true` so that those files are also copied. If a local cache is enabled, it takes precedence over this Java-specific behavior.
 
 ## Methods for enabling a local cache
 
-You configure a local cache by using a combination of reserved app settings. You can set these app settings by using one of the following methods.
+You configure a local cache by using a combination of reserved app settings. You can configure these app settings by using one of the following methods.
 
 ### Configure a local cache by using the Azure portal
 <a name="Configure-Local-Cache-Portal"></a>
@@ -111,13 +111,13 @@ To increase this limit, use the app setting `WEBSITE_LOCAL_CACHE_SIZEINMB`. You 
 
 ## <a name = "best-practices-for-using-app-service-local-cache"></a> Best practices for using a local cache
 
-We recommend using a local cache in conjunction with the [staging environments](../app-service/deploy-staging-slots.md) feature.
+We recommend using a local cache together with the [staging environments](../app-service/deploy-staging-slots.md) feature.
 
 The following process represents the best practices for using a local cache:
 
 1. Add the sticky app setting `WEBSITE_LOCAL_CACHE_OPTION` with the value `Always` to your *production* slot. If you're using `WEBSITE_LOCAL_CACHE_SIZEINMB`, also mark that setting as a sticky setting for the production slot.
 
-1. Create a *staging* slot and publish to it. Typically, you don't set the staging slot to use a local cache, which helps enable a seamless build/deploy/test life cycle while still providing local cache benefits for the production slot.
+1. Create a *staging* slot and publish to it. Typically, you don't set the staging slot to use a local cache. This configuration helps enable a seamless build/deploy/test life cycle while still providing local cache benefits for the production slot.
 
 1. Test your site in the staging slot.
 
@@ -148,7 +148,7 @@ To check the total size of your `/site` and `/siteextensions` folders, you can u
 
 ### How can I tell if my site switched to using a local cache?
 
-When you're using a local cache with staging environments, the swap operation doesn't finish until the local cache is warmed up. To verify that your site is running against the local cache, check the worker process environment variable `WEBSITE_LOCALCACHE_READY`. To inspect this variable across multiple instances, refer to the [Kudu instructions for the worker process environment variable](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable).
+When you're using a local cache with staging environments, the swap operation doesn't finish until the local cache is warmed up. To verify that your site is running against the local cache, check the worker process environment variable `WEBSITE_LOCALCACHE_READY`. For information about inspecting this variable across multiple instances, see to the [Kudu instructions for the worker process environment variable](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable).
 
 ### Why doesn't my app reflect newly published changes?
 
@@ -161,9 +161,9 @@ If your app uses a local cache, you must restart the site to load the latest cha
 
 When you're using a local cache, the structure of your log and data folders changes slightly. The subfolders are now nested under a folder that's named with the unique VM identifier and a time stamp. Each of these folders corresponds to the VM instance where the app is or was running.
 
-### Why does my app still restart with a local cache enabled?
+### Why does my app still restart when a local cache is enabled?
 
-A local cache helps prevent storage-related app restarts. However, your app might still restart during planned infrastructure upgrades on the VM. Overall, you should observe fewer restarts with a local cache enabled.
+A local cache helps prevent storage-related app restarts. However, your app might still restart during planned infrastructure upgrades on the VM. Overall, you should observe fewer restarts if you have a local cache enabled.
 
 ### Does a local cache exclude any directories from being copied to the faster local drive?
 
