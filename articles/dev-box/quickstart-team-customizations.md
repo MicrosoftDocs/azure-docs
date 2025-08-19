@@ -27,10 +27,7 @@ To complete the steps in this quickstart, you must have a dev center configured 
   
 ## Create an image definition
   
-1. Download the [example YAML customization file](https://aka.ms/devcenter/preview/imaging/examples).  
-1. Open the file and examine the tasks.  
-
-The image definition file specifies a name for the image definition by using a `name` field. Use this name to identify the image definition in the dev box pool.
+To create a dev box with customizations, you must create an image definition file. The image definition file is a YAML file that contains the customizations that you want to apply to the dev box. You can use the example image definition file in this quickstart as a starting point.
 
 ## Enable project-level catalogs
 
@@ -47,22 +44,36 @@ You must enable project-level catalogs at the dev center level before you can ad
 The sections that follow walk you through these tasks:
 
 1. Fork the example catalog repository to your GitHub organization.
-1. Install and configure the Microsoft Dev Center app.
-1. Assign permissions in GitHub for the repos.
+1. Configure sync settings to synchronize the catalog with your project.
 1. Add your repository as a catalog.
 
 ### Fork the example catalog repository
 
 1. Open the [example catalog repository](https://aka.ms/devcenter/preview/imaging/examples/repo).
+
+Add image
+
 1. Select **Fork** to fork the repository to your GitHub organization.
 
-### Install the Microsoft Dev Center app
+### Configure catalog sync settings
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Switch back to the [Azure portal](https://portal.azure.com).
 
-1. Go to your dev center or project.
+1. In the search box, enter **projects**. In the list of results, select **Projects**.
 
-1. On the service menu, under **Environment configuration**, select **Catalogs**, and then select **Add**.
+1. Select the project you want to add the catalog to.
+
+1. Select **Sync settings**.
+
+   :::image type="content" source="./media/quickstart-team-customizations/customizations-project-sync-settings-small.png" alt-text="Screenshot of the Catalogs pane in the Azure portal, with the button for sync settings highlighted." lightbox="./media/quickstart-team-customizations/customizations-project-sync-settings.png":::
+
+1. On the **Sync settings** pane, ensure that **Image definitions** is selected, and then select **Save**.
+
+   :::image type="content" source="./media/quickstart-team-customizations/customizations-project-sync-image-definitions.png" alt-text="Screenshot of the pane for sync settings in the Azure portal, with the checkbox for image definitions highlighted." lightbox="./media/quickstart-team-customizations/customizations-project-sync-image-definitions.png":::
+
+### Add your repository as a catalog
+
+1. On the left menu, under **Settings**, select **Catalogs**, and then select **Add**.
 
 1. On the **Add catalog** pane, enter or select the following values:
 
@@ -96,18 +107,9 @@ The sections that follow walk you through these tasks:
 
    :::image type="content" source="media/quickstart-team-customizations/authorize-microsoft-dev-center.png" alt-text="Screenshot of the page that requests Microsoft DevCenter permissions, with the button for authorizing permissions highlighted." lightbox="media/quickstart-team-customizations/authorize-microsoft-dev-center.png":::
 
-### Add your repository as a catalog
-
-1. Switch back to the Azure portal.
-
-1. Select **Sync settings**.
-
-   :::image type="content" source="./media/quickstart-team-customizations/customizations-project-sync-settings-small.png" alt-text="Screenshot of the Catalogs pane in the Azure portal, with the button for sync settings highlighted." lightbox="./media/quickstart-team-customizations/customizations-project-sync-settings.png":::
-
-1. On the **Sync settings** pane, select **Image definitions**, and then select **Save**.
-
-   :::image type="content" source="./media/quickstart-team-customizations/customizations-project-sync-image-definitions.png" alt-text="Screenshot of the pane for sync settings in the Azure portal, with the checkbox for image definitions highlighted." lightbox="./media/quickstart-team-customizations/customizations-project-sync-image-definitions.png":::
-
+1. Switch back to the [Azure portal](https://portal.azure.com).
+ 
+1. On the **Add catalog** pane, select **Sign in with GitHub**.
 
 1. On the **Add catalog** pane, enter the following information, and then select **Add**:
 
@@ -128,7 +130,7 @@ To make the customization file, imagedefintion.yaml, accessible for creating dev
   
 To create a dev box pool that's associated with a project:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Switch back to the [Azure portal](https://portal.azure.com).
 
 1. In the search box, enter **projects**. In the list of results, select **Projects**.
 
