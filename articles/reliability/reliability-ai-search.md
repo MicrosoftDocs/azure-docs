@@ -44,7 +44,7 @@ You also configure the number of *replicas* for your service. In Azure AI Search
 
 You can also configure the number of *partitions*, which represent the storage used by the search indexes.
 
-For more information about replicas and partitions, see [Estimate and manage capacity of a search service](search-capacity-planning.md#add-or-remove-partitions-and-replicas).
+For more information about replicas and partitions, see [Estimate and manage capacity of a search service](/azure/search/search-capacity-planning#add-or-remove-partitions-and-replicas).
 
 ## Transient faults
 
@@ -76,9 +76,9 @@ Support for availability zones depends on infrastructure and storage. For a list
 
 Zone redundancy is automatically enabled when your search service meets all of the following criteria:
 
-+ Is in a [region that has availability zones](search-region-support.md).
-+ Is on the [Basic tier or higher](search-sku-tier.md).
-+ Has [at least two replicas](search-capacity-planning.md#add-or-remove-partitions-and-replicas).
++ Is in a [region that has availability zones](/azure/search/search-region-support).
++ Is on the [Basic tier or higher](/azure/search/search-sku-tier).
++ Has [at least two replicas](/azure/search/search-capacity-planning#add-or-remove-partitions-and-replicas).
   
 > [!NOTE]
 > Zone redundancy is enabled when you have two or more replicas. However, for read-write workloads, you should use three or more replicas so that you receive the highest possible availability service level agreement (SLA).
@@ -154,7 +154,7 @@ However, if you accidentally delete the index and don't have a backup, you can [
 
 ## Service-level agreement
 
-[!INCLUDE [SLA description](~/azure-docs-pr-policy-includes/articles/reliability/includes/reliability-sla-include.md)]
+[!INCLUDE [SLA description](includes/reliability-sla-include.md)]
 
 In Azure AI Search, the availability SLA applies to search services that meet the following criteria:
 
