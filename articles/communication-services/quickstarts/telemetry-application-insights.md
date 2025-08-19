@@ -6,7 +6,7 @@ author: peiliu
 manager: vravikumar
 services: azure-communication-services
 ms.author: peiliu
-ms.date: 19/08/2025
+ms.date: 08/19/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: data
