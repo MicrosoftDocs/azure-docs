@@ -6,11 +6,13 @@ ms.author: mathoma
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-sql-managed-instance
-ms.date: 07/30/2025
+ms.date: 08/19/2025
 zone_pivot_groups: sql-managed-instance-tiers
 ---
 
 # Reliability in Azure SQL Managed Instance
+
+Azure SQL Managed Instance is a fully managed platform as a service (PaaS) database engine that handles most database management functions such as upgrading, patching, backups, and monitoring without user involvement. Azure SQL Managed Instance is a scalable cloud database service that's always running on the latest stable version of the Microsoft SQL Server database engine and a patched OS with built-in high availability, offering close to 100% feature compatibility with SQL Server.
 
 This article describes reliability support in Azure SQL Managed Instance, covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
 
@@ -22,11 +24,7 @@ For most production deployments of Azure SQL Managed Instance, consider the foll
 
 - Follow the guidance provided in [High availability and disaster recovery checklist - Azure SQL Managed Instance](/azure/azure-sql/managed-instance/high-availability-disaster-recovery-checklist).
 
-::: zone pivot="business-critical"
-
 - Enable zone redundancy.
-
-::: zone-end
 
 - Configure [automated backups](/azure/azure-sql/managed-instance/automated-backups-overview), and use zone-redundant or geo-redundant storage for backups.
 
@@ -45,7 +43,7 @@ General Purpose SQL managed instances run on a single node that's managed by [Az
 Business Critical SQL managed instances use multiple replicas in a cluster. The cluster includes:
 
 - A single *primary* replica that's accessible for read-write customer workloads.
-- Up to three *secondary* replicas (compute and storage) that contain copies of data.
+- Up to five *secondary* replicas (compute and storage) that contain copies of data.
 
 The primary replica continually and sequentially pushes changes to the secondary replicas, which ensures that data is persisted on a sufficient number of secondary replicas before committing each transaction. This process guarantees that, if the primary replica or a readable secondary replica become unavailable for any reason, a fully synchronized replica is always available for failover.
 
@@ -79,8 +77,12 @@ When an instance is patched or fails over, the downtime isn't usually impactful 
 
 ## Availability zone support
 
+::: zone pivot="general-purpose"
+
 > [!NOTE]
 > Zone redundancy is not currently available for the Next-gen General Purpose service tier.
+
+::: zone-end
 
 [!INCLUDE [AZ support description](./includes/reliability-availability-zone-description-include.md)]
 
@@ -106,7 +108,6 @@ To enable zone redundancy, your SQL managed instance **Backup storage redundancy
 
 Zone redundancy for Azure SQL Managed Instance is supported in select regions. To learn more, see [Supported regions](/azure/azure-sql/managed-instance/region-availability#zone-redundancy).
 
-
 ### Cost
 
 When you enable zone redundancy, there's an additional cost for your SQL managed instance as well as for zone-redundant backups. For more information, see [Pricing - Azure SQL Managed Instance](https://azure.microsoft.com/pricing/details/azure-sql-managed-instance/).
@@ -125,7 +126,7 @@ This section explains how to configure availability zone support for your SQL ma
 
   All scaling operations for Azure SQL Managed Instance, including enabling zone redundancy, are online operations and require minimal to no downtime. For more details, see [Duration of management operations](/azure/azure-sql/managed-instance/management-operations-duration).
 
-- **Disable zone redundancy:** You can disable zone redundancy following the same steps to enable zone redundancy. This process is an online operation similar to a regular service tier objective upgrade. At the end of the process, the instance is migrated from a zone-redundant ring to a single-zone ring. 
+- **Disable zone redundancy:** You can disable zone redundancy following the same steps to enable zone redundancy. This process is an online operation similar to a regular service tier objective upgrade. At the end of the process, the instance is migrated from zone-redundant infrastructure to single-zone infrastructure.
 
 ### Normal operations
 
@@ -157,7 +158,7 @@ The following section describes what to expect when your SQL managed instance is
 
 - **Detection and response:** Azure SQL Managed Instance is responsible for detecting and responding to a failure in an availability zone. You don't need to do anything to initiate a zone failover.
 
-- **Notification:** Zone failure events can be monitored through Azure Service Health and Resource Health. Set up alerts on these services to receive notifications of zone-level issues.
+- **Notification:** Zone failure events can be monitored through [Azure Service Health](/azure/service-health/overview) and [Azure Resource Health](/azure/service-health/resource-health-overview). Set up alerts on these services to receive notifications of zone-level issues. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal) and [Create and configure Resource Health alerts](/azure/service-health/resource-health-alert-arm-template-guide).
 
 - **Active requests:** When an availability zone is unavailable, any requests that are being processed in the faulty availability zone are terminated and must be retried. To make your applications resilient to these types of problems, see the [transient fault handling guidance](#transient-faults).
 
@@ -189,13 +190,9 @@ The following section describes what to expect when your SQL managed instance is
 
 - **Expected data loss:** There's no data loss expected for committed transactions during an availability zone failover. Inflight transactions need to be retried.
 
-### Failback
+### Zone recovery
 
-When the availability zone recovers, Azure SQL Managed Instance automatically initiates failback by working with Azure Service Fabric to:
-
-- Create replicas in the recovered availability zone.
-- Remove any temporary replicas created in the other availability zones.
-- Route traffic between your instances as normal.
+When the availability zone recovers, Azure SQL Managed Instance works with Azure Service Fabric to restore operations in the recovered zone. No customer intervention is required.
 
 ### Testing for zone failures
 
@@ -209,7 +206,10 @@ This section summarizes key information about failover groups, but it's importan
 
 ### Failover policies
 
-When you create a failover group, you select the [failover policy](/azure/azure-sql/managed-instance/failover-group-sql-mi#failover-policy), which specifies who is responsible for detecting an outage and performing a failover. You can configure customer-managed failover (recommended) or Microsoft-managed failover.
+When you create a failover group, you select the [failover policy](/azure/azure-sql/managed-instance/failover-group-sql-mi#failover-policy), which specifies who is responsible for detecting an outage and performing a failover. You can configure two types of failover policy:
+
+- Customer-managed failover (recommended). When you use a customer-managed failover policy, you can decide whether to perform a *failover*, which doesn't incur data loss, or a *forced failover*, which might incur data loss. Forced failover is used as a recovery method during outages when the primary instance isn't accessible.
+- Microsoft-managed failover. Microsoft-managed failover is only used in exceptional situations to trigger a forced failover.
 
 > [!IMPORTANT]
 > Use customer-managed failover options to develop, test, and implement your disaster recovery plans. **Do not rely on Microsoft-managed failover**, which might only be used in extreme circumstances. A Microsoft-managed failover would likely be initiated for an entire region. It can't be initiated for individual failover groups, SQL managed instances, subscriptions, or customers. Failover might occur at different times for different Azure services. We recommend you use customer-managed failover.
@@ -220,7 +220,11 @@ You can select any Azure region for the SQL managed instances within the failove
 
 ### Cost
 
-When you create multiple SQL managed instances in different regions, you're billed for each SQL managed instance. For more information, see [service pricing information](https://azure.microsoft.com/pricing/details/azure-sql-managed-instance/single/).
+When you create multiple SQL managed instances in different regions, you're billed for each SQL managed instance.
+
+However, if your secondary instance doesn't have any read workloads or applications connected to it, you can save on licensing costs by designating the replica as a standby instance. For more information, see [Configure a license-free standby replica for Azure SQL Managed Instance](/azure/azure-sql/managed-instance/failover-group-standby-replica-how-to-configure)
+
+For more information about Azure SQL Managed Instance pricing, see [service pricing information](https://azure.microsoft.com/pricing/details/azure-sql-managed-instance/single/).
 
 ### Configure multi-region support
 
@@ -242,9 +246,9 @@ This section describes what to expect when SQL managed instances are configured 
 
   To learn more about how failover groups send traffic to each instance, and how you can direct traffic to a read-only listener endpoint, see [Failover groups overview & best practices - Azure SQL Managed Instance](/azure/azure-sql/managed-instance/failover-group-sql-mi).
 
-- **Data replication between regions:** By default, data is replicated asynchronously from the primary instance to the secondary SQL managed instance. Because geo-replication is asynchronous, it's possible to have data loss when a failover occurs.
+- **Data replication between regions:** By default, data is replicated asynchronously from the primary instance to the secondary SQL managed instance.
 
-  You can monitor the replication lag to understand the potential data loss during a failover. For more information, see [Disaster recovery checklist](/azure/azure-sql/managed-instance/high-availability-disaster-recovery-checklist).
+  Because geo-replication is asynchronous, if you perform a forced failover then it's possible to have data loss. You can monitor the replication lag to understand the potential data loss during a forced failover. For more information, see [Disaster recovery checklist](/azure/azure-sql/managed-instance/high-availability-disaster-recovery-checklist).
 
   If you need to eliminate data loss from asynchronous replication during failovers, you can configure your application to block the calling thread until the last committed transaction has been transmitted and hardened in the transaction log of the secondary database. This approach requires custom development, and it reduces the performance of your application. To learn more, see [Prevent loss of critical data](/azure/azure-sql/managed-instance/failover-group-sql-mi#prevent-loss-of-critical-data).
 
@@ -254,13 +258,17 @@ This section describes what to expect when SQL managed instances are configured 
 
 - **Detection and response.** Responsibility for detection and response depends on the failover policy your failover group uses.
   
-  - *Customer-managed failover policy:* You're responsible for detecting the failure in a region and triggering a failover to the secondary instance in the failover group.
+  - *Customer-managed failover policy:* You're responsible for detecting the failure in a region and triggering a failover or forced failover to the secondary instance in the failover group.
+
+    If you perform a failover, Azure SQL Managed Instance waits for data to synchronize to the secondary instance before performing the failover procedure.
+
+    If you perform a forced failover, Azure SQL Managed Instance immediately switches the secondary instance to the primary role without waiting for recent changes to propagate from the primary. This type of failover can incur data loss.
   
-  - *Microsoft-managed failover policy:* The failover group detects a failure in a region and can automatically fail over to the secondary instance in the failover group. However, using a customer managed failover policy is recommended for production workloads so you have control over when the failover occurs.
+  - *Microsoft-managed failover policy:* Microsoft-managed failovers are performed under exceptional circumstances. When Microsoft triggers a failover, the failover group automatically performs a forced failover to the secondary instance in the failover group. However, using a customer managed failover policy is recommended for production workloads so you have control over when the failover occurs.
 
 - **Notification.** Region failure events can be monitored through Azure Service Health and Resource Health. Set up alerts on these services to receive notifications of region-level issues.
 
-- **Active requests.** When a failover group failover occurs, any requests that are being processed are terminated and must be retried. To make your applications resilient to these types of problems, see [transient fault handling guidance](#transient-faults).
+- **Active requests.** When a failover occurs, any requests that are being processed are terminated and must be retried. To make your applications resilient to these types of problems, see [transient fault handling guidance](#transient-faults).
 
 - **Expected data loss.** The amount of data loss depends on how you configure your application. For more information, see [Failover groups overview & best practices - Azure SQL Managed Instance](/azure/azure-sql/managed-instance/failover-group-sql-mi).
 
@@ -276,21 +284,34 @@ Failover groups don't automatically fail back to the primary region when it's re
 
 You can test the failover of a failover group by following the steps described in [Test failover](/azure/azure-sql/managed-instance/failover-group-configure-sql-mi#test-failover).
 
+For detailed guidance about performing disaster recovery drills, see [Performing disaster recovery drills - Azure SQL Managed Instance](/azure/azure-sql/managed-instance/disaster-recovery-drills).
+
 ## Backups
 
-Take backups of your databases to protect against a variety of risks, including loss of data. Backups can be restored to recover from accidental data loss, corruption, or other issues. Azure SQL Managed Instance supports automated backups of your databases as well as user-initiated copy-only backups.
+Take backups of your databases to protect against a variety of risks, including loss of data. Backups can be restored to recover from accidental data loss, corruption, or other issues. Backups aren't same thing as geo-replication for the purpose of redundancy, and they have different purposes and mitigate different risks.
 
-Backups aren't same thing as geo-replication for the purpose of redundancy, and they have different purposes. Geo-replication for the purpose of redundancy is different to [Transactional replication](/azure/azure-sql/managed-instance/replication-transactional-overview). 
+Azure SQL Managed Instance automatically takes full, differential and transaction log backups of your databases. For more information about the types of backups, their frequency, restore capabilities, storage costs, and backup encryption, see [Automated backups in Azure SQL Managed Instance](/azure/azure-sql/managed-instance/automated-backups-overview). 
 
-When you configure automated backups for your SQL managed instance, you can specify how backups should be replicated:
+In addition to the built-in automated backups, Azure SQL Managed Instance also supports user-initiated copy-only backups for user databases. For more information, see [Copy-only backups](/sql/relational-databases/backup-restore/copy-only-backups-sql-server).
 
-- **Zone redundancy:** If your primary region includes [availability zones](./availability-zones-overview.md), your automated backups can be stored in zone-redundant storage.
+### Backup replication
 
-- **Geo-redundancy:** If your primary region has a [paired region](./regions-paired.md), you can choose to replicate your automated backups to the paired region by using geo-redundant storage. This capability enables geo-restore of your backups into the paired region.
+When you configure automated backups for your SQL managed instance, you can specify how backups should be replicated. Backups that are configured to be stored on zone-redundant storage have a higher level of resiliency. We recommend you configure your backups to use one of these storage types:
 
-  In [regions with availability zones and no region pair](./regions-paired.md#nonpaired-regions), you can build a solution to replicate your backups to another region. Consider using user-initiated [copy-only backups](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) and storing them in a storage account that uses [blob object replication](/azure/storage/blobs/object-replication-overview) to replicate to a storage account in another region.
+- Zone-redundant storage (ZRS) for resiliency within the region, as long as the region has availability zones.
+- Geo-zone redundant storage (GZRS) to improve the resilency of your backups across regions, as long as the region has availability zones and is [paired with another region](./regions-paired.md).
+- Geo-redundant storage (GRS), which you should use if your region doesn't support availabilty zones but has a paired region.
 
-For more information about Azure SQL Managed Instance backup redundancy, see [Backup storage redundancy](/azure/azure-sql/managed-instance/automated-backups-overview#backup-storage-redundancy).
+For more information on different storage types and their capabilities, see [Backup storage redundancy](/azure/azure-sql/managed-instance/automated-backups-overview#backup-storage-redundancy).
+
+### Geo-restore
+
+Geo-restore capability is a basic disaster recovery solution, where you restore a copy of your backups to an instance in another Azure region. Geo-backup typically requires a significant amount of downtime and data loss. In order to achieve higher levels of recoverability in the event of a regional disruption, you should configure failover groups by following the guidance in the [multi-region support section of this article](#multi-region-support).
+
+If you use geo-restore then you need to consider how to make your backups available in your secondary region:
+
+- If your primary region is paired, use GZRS or GRS backup storage to support geo-restore to the paired region.
+- If your [primary region isn't paired](./regions-paired.md#nonpaired-regions), you can build a custom solution to replicate your backups to another region. Consider using user-initiated [copy-only backups](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) and storing them in a storage account that uses [blob object replication](/azure/storage/blobs/object-replication-overview) to replicate to a storage account in another region.
 
 ## Reliability during service maintenance
 
