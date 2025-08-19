@@ -360,10 +360,10 @@ App Service can use either a default managed identity or a user-assigned managed
 
 :::row:::
     :::column span="2":::
-        **I.A.** In the Azure portal:
-        1. Type "Managed Identities" in the search bar at the top of the Azure portal.
-        1. Select the item labeled **Managed Identities** under the **Services** heading.
-        1. Select **Create**.
+        1. In the Azure portal:
+           1. Type "Managed Identities" in the search bar at the top of the Azure portal.
+           1. Select the item labeled **Managed Identities** under the **Services** heading.
+           1. Select **Create**.
         You can also navigate to the [creation wizard](https://portal.azure.com/#create/Microsoft.ManagedIdentity) directly.
     :::column-end:::
     :::column:::
