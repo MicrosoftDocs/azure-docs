@@ -10,9 +10,9 @@ ms.date: 08/01/2025
 ms.custom: references_regions
 ---
 
-# Release notes for the Azure Storage Discovery service
+# Release notes for the Azure Storage Discovery preview service
 
-Azure Storage Mover is a fully managed Azure service, which continuously introduces new features and improvements. This article provides a summary of key improvements that are released. The article also points out limitations and if possible, workarounds for identified issues.
+Azure Storage Discovery is a fully managed Azure service, which continuously introduces new features and improvements. This article provides a summary of key improvements that are released. The article also points out limitations and if possible, workarounds for identified issues.
 
 ## 2025 August 5
 
@@ -25,4 +25,6 @@ Features included:
 
 ### Known Limitations
 
-- Reports include insights for both Standard and Premium storage accounts. However, filtering specifically by performance type to isolate insights for Premium accounts is not yet supported. We are actively working to enable this functionality in an upcoming release.
+- Reports include insights for both Standard and Premium storage accounts. However, filtering specifically by performance type to isolate insights for Premium accounts isn't yet supported. We're actively working to enable this functionality in an upcoming release.
+
+- Trend graphs in Reports may occasionally show sharp dips that don’t reflect actual changes in metrics like size or count. These dips are caused by a reporting issue and the fix is underway.

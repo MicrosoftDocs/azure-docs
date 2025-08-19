@@ -6,12 +6,12 @@ ms.topic: how-to
 author: abhishjain002
 ms.author: abhishjain
 ms.reviewer: nijelsf
-ms.date: 01/02/2025
+ms.date: 08/07/2025
 ---
 
-# Hive Warehouse Connector 2.0 APIs in Azure HDInsight
+# Hive Warehouse Connector 2.1 and 2.0 APIs in Azure HDInsight
 
-This article lists all the APIs supported by Hive warehouse connector 2.0. All the examples shown are how to run using spark-shell and hive warehouse connector session.
+This article lists all the APIs supported by Hive warehouse connector 2.1 and 2.0. All the examples shown are how to run using spark-shell and hive warehouse connector session.
 
 How to create Hive warehouse connector session:
 

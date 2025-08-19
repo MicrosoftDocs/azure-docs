@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-nat-gateway
 ms.topic: tutorial
-ms.date: 01/30/2024
+ms.date: 08/06/2025
 ms.custom: template-tutorial, linux-related-content
 # Customer intent: "As a cloud architect, I want to integrate a NAT gateway with a public load balancer, so that I can ensure secure and efficient outbound connectivity for my backend resources."
 ---
@@ -75,7 +75,7 @@ In this section, you test the NAT gateway. You first discover the public IP of t
 
     ```output
     azureuser@vm-1:~$ curl ifconfig.me
-    20.7.200.36
+    203.0.113.25
     ```
 
 1. Close the bastion connection to **vm-1**.
