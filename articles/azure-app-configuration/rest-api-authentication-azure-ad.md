@@ -43,7 +43,7 @@ For Azure App Configuration in the global Azure cloud, use the following audienc
 
 `https://appconfig.azure.com`
 
-For Azure App Configuration in the National clouds, use the applicable audience specified in the table below:
+For Azure App Configuration in the national clouds, use the applicable audience specified in the table below:
 
 | **National Cloud**                   | **Audience**                 |
 | ------------------------------------ | ---------------------------- |
