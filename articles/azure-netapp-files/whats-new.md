@@ -22,6 +22,10 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Backup support for large volumes](backup-requirements-considerations.md) (Preview)
 
     [Azure NetApp Files backup](backup-introduction.md) now supports large volumes by moving point-in-time snapshot copy data to low-cost Azure storage to address long-term retention, data protection, and compliance needs. Azure NetApp Files backup employs an efficient data mover to back up data at high speeds for both initial and incremental subsequent backups. You must be [registered to use large volumes](large-volumes-requirements-considerations.md#register-the-feature) to use this feature. 
+
+* [Restore individual files using single-file restore from backup](restore-single-file-backup.md) (Preview)
+
+    With Azure NetApp Files single file restore from backup, you can restore individual files from Azure NetApp Files backup vault without needing to restore an entire volume. By restoring only the necessary files, you can save cost and time needed for restoring data. This feature is now in  preview.
     
 * [File access logs](manage-file-access-logs.md) is now generally available (GA)
 

@@ -36,7 +36,7 @@ You need to be aware of several requirements and considerations before using Azu
 
     * West US   
 
-    LRS can recover from server-rack and drive failures. However, if a disaster such as a fire or flooding occurs within the data center, all replicas of a storage account using LRS might be lost or unrecoverable. 
+    LRS can recover from server-rack and drive failures. However, if a disaster such as a fire or flooding occurs within the data center, all replicas of a storage account using LRS may be lost or unrecoverable. 
 
 * Policy-based (scheduled) Azure NetApp Files backup is independent from [snapshot policy configuration](azure-netapp-files-manage-snapshots.md).
 
@@ -65,6 +65,8 @@ You need to be aware of several requirements and considerations before using Azu
 * [Manage backup policies](backup-manage-policies.md)
 * [Search backups](backup-search.md)
 * [Restore a backup to a new volume](backup-restore-new-volume.md)
+* [Restore individual files using single-file backup restore](restore-single-file-backup.md)
+* [Disable backup functionality for a volume](backup-disable.md)
 * [Delete backups of a volume](backup-delete.md)
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
 * [Azure NetApp Files backup FAQs](faq-backup.md)
