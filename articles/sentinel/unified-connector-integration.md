@@ -121,5 +121,4 @@ To verify that the Okta connector is successfully ingesting data into your Log A
 
 ## Considerations and limitations
 
-- Unified connectors aren't visible in the Content hub. To see the unified connectors, go to the [Data connectors Gallery](https://security.microsoft.com/sentinel/unified-connector).
-- All Sentinel connectors are now visible in the Gallery, but the experience remains the same.
+- All connectors are now found in the [Data connectors Gallery](https://security.microsoft.com/sentinel/unified-connector) and not in the Content hub. Sentinel connectors have moved from the Content hub to the gallery, but the experience remains the same. To see the unified connectors or Sentinel connectors, go to the [Data connectors Gallery](https://security.microsoft.com/sentinel/unified-connector).
