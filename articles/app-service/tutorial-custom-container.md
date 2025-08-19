@@ -359,7 +359,7 @@ App Service can use either a default managed identity or a user-assigned managed
 ### [Azure portal](#tab/azure-portal)
 
 1. In the Azure portal:
-   1. Enter **Managed Identities** in the search bar at the top of the Azure portal.
+   1. Enter **Managed Identities** in the search box at the top of the Azure portal.
    1. Select the item labeled **Managed Identities** under the **Services** heading.
    1. Select **Create**.
         You can also go to [Create User Assigned Managed Identity](https://portal.azure.com/#create/Microsoft.ManagedIdentity) directly.
@@ -374,7 +374,7 @@ App Service can use either a default managed identity or a user-assigned managed
     
         :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-managed-identity-2.png" alt-text="Screenshot showing how to configure a new managed identity." lightbox="./media/tutorial-custom-container/azure-portal-create-managed-identity-2.png":::
    
-1. Select the **Review + create** tab, and then select **Create**.
+1. On the **Review + create** tab, select **Create**.
      
     :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-managed-identity-3.png" alt-text="Screenshot showing the final steps for creating the managed identity." lightbox="./media/tutorial-custom-container/azure-portal-create-managed-identity-3.png":::
    
@@ -407,66 +407,43 @@ App Service can use either a default managed identity or a user-assigned managed
 
 ### [Azure portal](#tab/azure-portal)
 
-:::row:::
-    :::column span="2":::
-        **II.A.** In the Azure portal:
-        1. Type "Container registries" in the search bar at the top of the Azure portal.
-        1. Select the item labeled **Container registries** under the **Services** heading.
-        1. Select **Create**.
-        You can also navigate to the [creation wizard](https://portal.azure.com/#create/Microsoft.ContainerRegistry) directly.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-container-registry-1.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find the container registry creation wizard." lightbox="./media/tutorial-custom-container/azure-portal-create-container-registry-1.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **II.B.** In the creation wizard:
-        1. In **Subscription**, select the subscription you used earlier.
-        1. In **Resource group**, select *msdocs-custom-container-tutorial*.
-        1. In **Registry name**, type a unique name for your container registry.
-        1. In **Location**, select **West Europe**, or the same region as your managed identity.
-        1. In **SKU**, select **Basic**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-container-registry-2.png" alt-text="A screenshot showing how to configure a new container registry in the creation wizard." lightbox="./media/tutorial-custom-container/azure-portal-create-container-registry-2.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **II.C.**
-        1. Select the **Review + create** tab.
-        1. Select **Create**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-container-registry-3.png" alt-text="A screenshot showing how to complete container registry creation in the creation wizard." lightbox="./media/tutorial-custom-container/azure-portal-create-container-registry-3.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **II.D.** When the creation of the container registry is complete, open its management page by selecting **Go to resource**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-container-registry-4.png" alt-text="A screenshot showing how to open the management page of the new container registry." lightbox="./media/tutorial-custom-container/azure-portal-create-container-registry-4.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **II.E.** In the left navigation menu:
-        1. Select **Access keys**.
-        1. In **Admin user**, select **Enabled**.
-        1. Copy the values for **Login server**, **Username**, and **password**. You'll use them in the next step to sign into the registry and push a docker image.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-container-registry-5.png" alt-text="A screenshot showing how to enable administrative credentials for a container registry." lightbox="./media/tutorial-custom-container/azure-portal-create-container-registry-5.png":::
-    :::column-end:::
-:::row-end:::
-
+1. In the Azure portal:
+    1. Enter **Container registries** in the search box at the top of the Azure portal.
+    1. Select the item labeled **Container registries** under the **Services** heading.
+    1. Select **Create**.
+        You can also go to [Create container registry](https://portal.azure.com/#create/Microsoft.ContainerRegistry) directly.
+     
+    :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-container-registry-1.png" alt-text="Screenshot showing how to use the search box to find the Create container registry pane." lightbox="./media/tutorial-custom-container/azure-portal-create-container-registry-1.png":::
+  
+   
+1. In the the **Create container registry** pane:
+    1. In **Subscription**, select the subscription you used earlier.
+    1. In **Resource group**, select **msdocs-custom-container-tutorial**.
+    1. In **Registry name**, enter a unique name for your container registry.
+    1. In **Location**, select **West Europe**, or the same region as your managed identity.
+    1. In **SKU**, select **Basic**.
+   
+        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-container-registry-2.png" alt-text="Screenshot showing how to configure a new container registry." lightbox="./media/tutorial-custom-container/azure-portal-create-container-registry-2.png":::
+     
+1. On the **Review + create** tab, select **Create**.
+    
+        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-container-registry-3.png" alt-text="Screenshot showing the final steps for creating a container registry." lightbox="./media/tutorial-custom-container/azure-portal-create-container-registry-3.png":::
+    
+1. When the container registry is created, open its management page by selecting **Go to resource**.
+    
+        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-container-registry-4.png" alt-text="Screenshot showing how to open the management page of the new container registry." lightbox="./media/tutorial-custom-container/azure-portal-create-container-registry-4.png":::
+  
+1. In the left pane, select **Access keys**.
+1. In **Admin user**, select **Enabled**.
+1. Copy the values for **Login server**, **Username**, and **password**. You'll use them in the next step to sign in to the registry and push a Docker image.
+     
+    :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-container-registry-5.png" alt-text="Screenshot showing how to enable administrative credentials for a container registry." lightbox="./media/tutorial-custom-container/azure-portal-create-container-registry-5.png":::
+ 
 -----
 
-## Push the sample image to Azure Container Registry
+## Push the sample image to Container Registry
 
-In this section, you push the image to Azure Container Registry, which will be used by App Service later.
+In this section, you push the image to Container Registry, which is used by App Service later.
 
 1. From the local terminal where you built the sample image, use the `docker login` command to sign in to the container registry:
 
@@ -476,7 +453,7 @@ In this section, you push the image to Azure Container Registry, which will be u
 
     Replace `<registry-name>` and `<registry-username>` with values from the previous steps. When prompted, type in one of the passwords from the previous section.
 
-    You use the same registry name in all the remaining steps of this section.
+    Use the same registry name in all the remaining steps of this section.
 
 1. When the sign-in is successful, tag your local Docker image to the registry:
 
@@ -496,7 +473,7 @@ In this section, you push the image to Azure Container Registry, which will be u
 
 ## Authorize the managed identity for your registry
 
-The managed identity you created doesn't have authorization to pull from the container registry yet. In this step, you enable the authorization.
+The managed identity you created doesn't yet have authorization to pull from the container registry. In this step, you enable the authorization.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -520,63 +497,39 @@ The managed identity you created doesn't have authorization to pull from the con
 
 ### [Azure portal](#tab/azure-portal)
 
-:::row:::
-    :::column span="2":::
-        **IV.A.** Back in the management page for the container registry:
-        1. In the left navigation menu, select **Access control (IAM)**.
-        1. Select **Add role assignment**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-1.png" alt-text="A screenshot showing how to enable adding a role assignment for a container registry." lightbox="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-1.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **IV.B.** Select **AcrPull** in the list of roles.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-2.png" alt-text="A screenshot showing how to enable pull permission on the container registry." lightbox="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-2.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **IV.C.**
-        1. Select the **Members** tab.
-        1. Under **Assign access to**, select **Managed identity**.
-        1. Under **Members**, select **Select members**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-3.png" alt-text="A screenshot showing how to select members for an RBAC role." lightbox="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-3.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **IV.D.**
-        1. In **Managed identity**, select **User-assigned managed identity**.
-        1. Under **Select**, select **myID**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-4.png" alt-text="A screenshot showing a user-assigned managed identity selected for role assignment." lightbox="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-4.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **IV.E.**
-        1. Select the **Review + assign** tab.
-        1. Select **Review + assign** at the bottom.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-5.png" alt-text="A screenshot showing role assignment being completed." lightbox="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-5.png":::
-    :::column-end:::
-:::row-end:::
-
+1. Back on the management page for the container registry:
+    1. In the left pane, select **Access control (IAM)**.
+    1. Select **Add role assignment**.
+     
+        :::image type="content" source="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-1.png" alt-text="Screenshot showing how to enable adding a role assignment for a container registry." lightbox="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-1.png":::
+ 
+     
+1. Select **AcrPull** in the list of roles.
+    
+        :::image type="content" source="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-2.png" alt-text="Screenshot showing how to enable pull permission on the container registry." lightbox="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-2.png":::
+     
+1. On the **Members** tab, under **Assign access to**, select **Managed identity**.
+1. Under **Members**, select **Select members**.
+     
+        :::image type="content" source="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-3.png" alt-text="Screenshot showing how to select members for an RBAC role." lightbox="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-3.png":::
+    
+        
+1. In **Managed identity**, select **User-assigned managed identity**.
+1. Under **Select**, select **myID**.
+   
+        :::image type="content" source="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-4.png" alt-text="Screenshot showing a user-assigned managed identity selected for role assignment." lightbox="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-4.png":::
+   
+1. On the **Review + assign** tab, select **Review + assign** at the bottom.
+ 
+        :::image type="content" source="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-5.png" alt-text="Screenshot showing the last step of role assignment." lightbox="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-5.png":::
+ 
 -----
 
 ## Create the web app
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Create an App Service plan using the [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) command:
+1. Create an App Service plan by using the [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) command:
 
     ```azurecli-interactive
     az appservice plan create --name myAppServicePlan --resource-group msdocs-custom-container-tutorial --is-linux
@@ -596,77 +549,51 @@ The managed identity you created doesn't have authorization to pull from the con
     > You can retrieve the web app's container settings at any time with the command `az webapp config container show --name <app-name> --resource-group msdocs-custom-container-tutorial`. The image is specified in the property `DOCKER_CUSTOM_IMAGE_NAME`. When the web app is deployed through Azure DevOps or Azure Resource Manager templates, the image can also appear in a property named `LinuxFxVersion`. Both properties serve the same purpose. If both are present in the web app's configuration, `LinuxFxVersion` takes precedence.
 
 ### [Azure portal](#tab/azure-portal)
-
-:::row:::
-    :::column span="2":::
-        **V.A.** In the Azure portal:
-        1. Type "app" in the search bar at the top of the Azure portal.
-        1. Select the item labeled **App Services** under the **Services** heading.
-        1. Select **Create**.
-        You can also navigate to the [creation wizard](https://portal.azure.com/#create/Microsoft.WebSite) directly.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-app-service-1.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find the App Service creation wizard." lightbox="./media/tutorial-custom-container/azure-portal-create-app-service-1.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **V.B.** In the create wizard:
+ 
+1. In the Azure portal:
+    1. Enter **app** in the search box at the top of the Azure portal.
+    1. Select the item labeled **App Services** under the **Services** heading.
+    1. Select **Create**.
+        You can also go to [Create Web App](https://portal.azure.com/#create/Microsoft.WebSite) directly.
+    
+        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-app-service-1.png" alt-text="Screenshot showing how to use the search box to find the Create Web App pane." lightbox="./media/tutorial-custom-container/azure-portal-create-app-service-1.png":::
+   
+    1. In the **Create Web App** pane:
         1. In **Subscription**, select the subscription you used earlier.
-        1. In **Resource group**, select *msdocs-custom-container-tutorial*.
-        1. In **Name**, type a unique app name, which will be used in your app's default hostname `<app-name>.azurewebsites.net`.
+        1. In **Resource group**, select **msdocs-custom-container-tutorial**.
+        1. In **Name**, enter a unique app name. This name will be used in your app's default hostname `<app-name>.azurewebsites.net`.
         1. In **Publish**, select **Docker Container**.
         1. In **Operating System**, select **Linux**.
         1. In **Region**, select **West Europe**, or a region near you.
-        1. In **Linux Plan (West Europe)**, select **Create new**, type a plan name, and select **OK**.
+        1. In **Linux Plan**, select **Create new**, type a plan name, and then select **OK**.
         1. In **Pricing plan**, select **Change size**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-app-service-2.png" alt-text="A screenshot showing how to configure a new web app in the creation wizard." lightbox="./media/tutorial-custom-container/azure-portal-create-app-service-2.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **V.C.** In the Spec Picker:
+    
+        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-app-service-2.png" alt-text="Screenshot showing how to configure a new web app." lightbox="./media/tutorial-custom-container/azure-portal-create-app-service-2.png":::
+ 
+    1.  In the window that appears:
         1. Select **Dev / Test**.
         1. Select **B1**.
         1. Select **Apply**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-app-service-3.png" alt-text="A screenshot showing a B1 plan selected for App Service." lightbox="./media/tutorial-custom-container/azure-portal-create-app-service-3.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **V.D.** Back in the app creation wizard:
+ 
+        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-app-service-3.png" alt-text="Screenshot showing a B1 plan selected for App Service." lightbox="./media/tutorial-custom-container/azure-portal-create-app-service-3.png":::
+  
+    1. Back in the the **Create Web App** pane:
         1. Select the **Docker** tab.
         1. In **Image Source**, select **Azure Container Registry**.
         1. In **Registry**, select the container registry you created earlier.
         1. In **Image**, select **appsvc-tutorial-custom-image**.
         1. In **Tag**, select **latest**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-app-service-4.png" alt-text="A screenshot showing how to configure Docker settings in the creation wizard." lightbox="./media/tutorial-custom-container/azure-portal-create-app-service-4.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **V.E.**
-        1. Select the **Review + create** tab.
-        1. Select **Create**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-app-service-5.png" alt-text="A screenshot showing how to complete web app creation in the creation wizard." lightbox="./media/tutorial-custom-container/azure-portal-create-app-service-5.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **V.F.** When the creation of the web app is complete, you can open its management page by selecting **Go to resource**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-app-service-6.png" alt-text="A screenshot showing how to open the management page of the new web app." lightbox="./media/tutorial-custom-container/azure-portal-create-app-service-6.png":::
-    :::column-end:::
-:::row-end:::
+ 
+        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-app-service-4.png" alt-text="Screenshot showing how to configure Docker settings." lightbox="./media/tutorial-custom-container/azure-portal-create-app-service-4.png":::
+ 
+    1. On the **Review + create** tab, select **Create**.
+   
+        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-app-service-5.png" alt-text="Screenshot showing the last step for creating a web app." lightbox="./media/tutorial-custom-container/azure-portal-create-app-service-5.png":::
+    
+    1. When the web app is created, you can open its management page by selecting **Go to resource**.
+     
+        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-app-service-6.png" alt-text="Screenshot showing how to open the management page of the new web app." lightbox="./media/tutorial-custom-container/azure-portal-create-app-service-6.png":::
+ 
 
 -----
 
@@ -675,8 +602,8 @@ The managed identity you created doesn't have authorization to pull from the con
 In this step, you configure the web app as follows:
 
 - Configure the app to send requests to port 8000. The sample container is listening on port 8000 for web requests. 
-- Tell your app to use the managed identity to pull images from your container registry.
-- Configure continuous deployment from the container registry (every image push to the registry will trigger your app to pull the new image). This part isn't needed for your web app to pull from your container registry, but it can let your web app know when a new image is pushed to the registry. Without it, you must manually trigger an image pull by restarting the web app.
+- Configure your app to use the managed identity to pull images from your container registry.
+- Configure continuous deployment from the container registry. (Every image push to the registry will trigger your app to pull the new image.) This step isn't needed to configure your web app to pull from your container registry, but it can notify the web app when a new image is pushed to the registry. If you don't complete this step, you must manually trigger an image pull by restarting the web app.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -688,7 +615,7 @@ In this step, you configure the web app as follows:
 
     Replace `<app-name>` with the name you used in the previous step.
 
-1. Enable the user-assigned managed identity in the web app with the [`az webapp identity assign`](/cli/azure/webapp/identity#az-webapp-identity-assign) command:
+1. Enable the user-assigned managed identity in the web app by using the [`az webapp identity assign`](/cli/azure/webapp/identity#az-webapp-identity-assign) command:
 
     ```azurecli-interactive
     id=$(az identity show --resource-group msdocs-custom-container-tutorial --name myID --query id --output tsv)
@@ -697,7 +624,7 @@ In this step, you configure the web app as follows:
 
     Replace `<app-name>` with the name you used in the previous step.
 
-1. Configure your app to pull from Azure Container Registry by using managed identities.
+1. Configure your app to pull from Container Registry by using managed identities.
 
     ```azurecli-interactive
     appConfig=$(az webapp config show --resource-group msdocs-custom-container-tutorial --name <app-name> --query id --output tsv)
@@ -706,7 +633,7 @@ In this step, you configure the web app as follows:
 
     Replace `<app-name>` with the name you used in the previous step.
 
-1. Set the client ID your web app uses to pull from Azure Container Registry. This step isn't needed if you use the system-assigned managed identity.
+1. Set the client ID your web app uses to pull from Container Registry. This step isn't required if you use the system-assigned managed identity.
     
     ```azurecli-interactive
     clientId=$(az identity show --resource-group msdocs-custom-container-tutorial --name myID --query clientId --output tsv)
@@ -721,13 +648,13 @@ In this step, you configure the web app as follows:
 
     `CI_CD_URL` is a URL that App Service generates for you. Your registry should use this URL to notify App Service that an image push occurred. It doesn't actually create the webhook for you.
 
-1. Create a webhook in your container registry using the CI_CD_URL you got from the last step.
+1. Create a webhook in your container registry. Use the CI_CD_URL you got in the last step.
 
     ```azurecli-interactive
     az acr webhook create --name appserviceCD --registry <registry-name> --uri $cicdUrl --actions push --scope appsvc-tutorial-custom-image:latest
     ```
 
-1. To test if your webhook is configured properly, ping the webhook and see if you get a 200 OK response.
+1. To test if your webhook is configured properly, ping the webhook and see whether you get a 200 OK response.
 
     ```azurecli-interactive
     eventId=$(az acr webhook ping --name appserviceCD --registry <registry-name> --query id --output tsv)
