@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/12/2025
+ms.date: 08/20/2025
 #Customer intent: As an integration solution developer, I want to repeat an action on arrays and collections or until a condition is met by using a loop with my workflow in Azure Logic Apps.
 ---
 
@@ -357,8 +357,7 @@ If you're working in code view, you can define an `Until` action in your workflo
 }
 ```
 
-This example **Until** loop calls an HTTP endpoint, which creates a resource. The loop stops when the 
-HTTP response body returns with `Completed` status. To prevent endless loops, the loop also stops if any of the following conditions happen:
+This example **Until** loop calls an HTTP endpoint, which creates a resource. The loop stops when the HTTP response body returns with `Completed` status. To prevent endless loops, the loop also stops if any of the following conditions happen:
 
 - The loop ran 10 times as specified by the `count` attribute. The default is 60 times.
 
