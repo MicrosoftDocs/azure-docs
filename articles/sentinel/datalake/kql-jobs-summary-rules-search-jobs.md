@@ -48,7 +48,7 @@ This article compares KQL jobs, summary rules, and search jobs in Microsoft Sent
 
 The following section will help you decide which feature is best for your needs.
 
-If you have the following requirements, use KQL jobs.
+If you have any of the following requirements, use KQL jobs.
 
 + You're onboarded to the Microsoft Sentinel data lake.
 + You require lookback greater than 24 hours.
@@ -58,14 +58,14 @@ If you have the following requirements, use KQL jobs.
 + Data is in default workspace.
 
 
-Use summary rules if you have the following requirements:
+Use summary rules if you have any of the following requirements:
 
 + Your tenant isn't onboarded to Microsoft Sentinel data lake, and your data may still reside in Auxiliary or Basic tiers.
 + You need lookback within 24 hours.
 + You need frequent summarization (for example, every 20 minutes)
 + You want to use out-of-the-box templates.`
 
-If you have the following requirements, use search jobs:
+If you have any of the following requirements, use search jobs:
 
 + Your Microsoft Sentinel workspace isn't connected to Defender portal and your data resides in Analytics or basic tiers.
 + You have data in archive tier. Note: If you're onboarded to Microsoft Sentinel data lake, to access data older than your onboarding date, use search jobs. For data from your onboarding date onward, use KQL jobs.
