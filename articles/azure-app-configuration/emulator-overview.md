@@ -21,22 +21,22 @@ The Azure App Configuration emulator is open source. For more information, visit
 
 The following table lists the features supported by the latest Azure App Configuration emulator.
 
-| Feature | Status |
-| ------- | ------ |
-| Web UI | Available |
-| Anonymous Authentication | Available |
-| [HMAC Authentication](./rest-api-authentication-hmac.md) | Available |
-| [Entra Id Authentication](./rest-api-authentication-azure-ad.md) | WIP |
-| .NET Aspire Integration | WIP |
+| Feature                                                          | Status    |
+| ---------------------------------------------------------------- | --------- |
+| Web UI                                                           | Available |
+| Anonymous Authentication                                         | Available |
+| [HMAC Authentication](./rest-api-authentication-hmac.md)         | Available |
+| [Entra Id Authentication](./rest-api-authentication-azure-ad.md) | WIP       |
+| .NET Aspire Integration                                          | WIP       |
 
-| API | Status |
-| ------- | ------ |
-| [`/keys`](./rest-api-keys.md) | Available |
-| [`/kv`](./rest-api-key-value.md) | Available |
-| [`/labels`](./rest-api-labels.md) | Available |
-| [`/locks`](./rest-api-locks.md) | Available |
-| [`/revisions`](./rest-api-revisions.md) | Available |
-| [`/snapshots`](./rest-api-snapshot.md) | WIP |
+| API                                                              | Status    |
+| ---------------------------------------------------------------- | --------- |
+| [`/keys`](./rest-api-keys.md)                                    | Available |
+| [`/kv`](./rest-api-key-value.md)                                 | Available |
+| [`/labels`](./rest-api-labels.md)                                | Available |
+| [`/locks`](./rest-api-locks.md)                                  | Available |
+| [`/revisions`](./rest-api-revisions.md)                          | Available |
+| [`/snapshots`](./rest-api-snapshot.md)                           | WIP       |
 
 ## Install the emulator
 
@@ -104,7 +104,7 @@ dotnet run --project src/Azure.AppConfiguration.Emulator.Host/Azure.AppConfigura
 
 ## Emulator in action
 
-Once started, the emulator will be available at: `http://localhost:8483`
+Once started, the emulator is available at: `http://localhost:8483`
 
 1. Open your browser and navigate to `http://localhost:8483`.
 
@@ -116,12 +116,12 @@ Once started, the emulator will be available at: `http://localhost:8483`
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the emulator UI, creating a new key value.](./media/emulator/ui-create.png)
 
-1. Click the `Save` button and you will see the key value in the configuration explorer.
+1. Click the `Save` button and you see the key value in the configuration explorer.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the emulator UI with the new key value.](./media/emulator/ui-updated.png)
 
-1. Get `http://localhost:8483/kv`. You will get the following response.
+1. Get `http://localhost:8483/kv` and you get the following response.
 
     ```json
     {"items":[{"etag":"EzV9zWW8k5JpcIXL00T5Kg","key":"Message","label":null,"content_type":null,"value":"Hello World!","tags":{},"locked":false,"last_modified":"2025-08-12T16:56:25.384738+00:00"}]}
@@ -129,4 +129,4 @@ Once started, the emulator will be available at: `http://localhost:8483`
 
 ## Next steps
 
-For examples about how to use the emulator in your applications, please go to the [GitHub repository](https://github.com/Azure/AppConfiguration-Emulator/tree/main/examples).
+For examples about how to use the emulator in your applications, go to the [GitHub repository](https://github.com/Azure/AppConfiguration-Emulator/tree/main/examples).
