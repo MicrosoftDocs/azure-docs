@@ -54,13 +54,13 @@ The **Enterprise clustering policy** is a simpler configuration that utilizes a 
 
 The Enterprise clustering policy is the only one that can be used with the [RediSearch module](redis-modules.md). While the Enterprise cluster policy makes an Azure Managed Redis instance appear to be non-clustered to users, it still has some limitations with [Multi-key commands](#multi-key-commands).
 
-The **Non-Clustered (preview)** clustering policy stores data on each node without sharding. It applies only to caches sized 25 GB and smaller. Scenarios for using Non-Clustered (preview) clustering policy include:
+The **Non-Clustered (preview)** clustering policy stores data on each node without sharding. It applies only to caches sized 25 GB and smaller. Scenarios for using Non-Clustered clustering policy include:
 
 - When migrating from a Redis environment that’s non-sharded. For example, the non-sharded topologies of Basic, Standard, and Premium SKUs of Azure Cache for Redis.
 - When running cross slot commands extensively and dividing data into shards would cause failures. For example, the MULTI commands.
 - When using Redis as message broker and doesn't need sharding.
 
-The considerations for using Non-Clustered (Preview) policy are:
+The considerations for using Non-Clustered policy are:
 
 - This only applies to Azure Managed Redis tiers that are less than or equal to 25 GB.
 - It’s not as performant as other clustering policies, because CPUs can only multi-thread with Redis Enterprise software when the cache is sharded.

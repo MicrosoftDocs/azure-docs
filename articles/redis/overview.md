@@ -74,7 +74,7 @@ One tier stores data both in-memory and on-disk:
 > Storing some data on-disk using the Flash Optimized tier doesn't increase data resiliency. You can use data persistence on the Flash Optimized tier as well.
 >
 
-For instructions on how to scale between tiers and SKUs, see [Scale (preview) an Azure Managed Redis instance](how-to-scale.md).
+For instructions on how to scale between tiers and SKUs, see [Scale an Azure Managed Redis instance](how-to-scale.md).
 
 ### Tiers and SKUs at a glance
 
@@ -98,7 +98,7 @@ The following table helps describe some of the features supported by tier:
 | [Data persistence (preview)](how-to-persistence.md)                                       | Yes               | Yes               | Yes               | Yes               |
 | [Zone redundancy](high-availability.md)                                                 | Yes               | Yes               | Yes               | Yes               |
 | [Geo-replication](how-to-active-geo-replication.md)                                     | Yes (Active)      | Yes (Active)      | Yes (Active)      | No                |
-| Non-clustered instances (preview)                                                               | Yes             | Yes               | Yes                 | No                |
+| Non-clustered instances                                                               | Yes             | Yes               | Yes                 | No                |
 | [Connection audit logs](monitor-diagnostic-settings.md)                                 | Yes (Event-based) | Yes (Event-based) | Yes (Event-based) | Yes (Event-based) |
 | [JSON data structures(that is, Redis JSON)](redis-modules.md)                              | Yes               | Yes               | Yes               | Yes               |
 | [Search functionality (including vector search)](redis-modules.md)                      | Yes               | Yes               | Yes               | No                |
