@@ -163,9 +163,9 @@ items:
     - name: Authentication service hero sample
       href: samples/trusted-auth-sample.md
     - name: Migrate to Android push notifications FCM v1
-      href: tutorials/chat-migrate-android-push-fcm-v1.md
+      href: tutorials/call-chat-migrate-android-push-fcm-v1.md
     - name: Register for Android push notifications FCM v1
-      href: tutorials/chat-register-android-push-fcm-v1.md
+      href: tutorials/call-chat-register-android-push-fcm-v1.md
   - name: References
     items:
     - name: Chat (JavaScript)
