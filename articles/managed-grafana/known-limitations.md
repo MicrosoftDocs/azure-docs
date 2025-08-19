@@ -34,7 +34,7 @@ Azure Managed Grafana has the following known limitations:
 
 * Only Azure subscriptions billed directly through Microsoft are eligible for the purchase of Grafana Enterprise. CSP subscriptions, i.e., Azure subscriptions billed through Cloud Solution Providers (CSP), are ineligible.
 
-* Each Azure Managed Grafana workspace can only be assigned one managed identity, user-assigned or system-assigned, but not both.
+* An Azure Managed Grafana workspace can use only one managed identity: user-assigned or system-assigned.
 
 ### Current User authentication
 
