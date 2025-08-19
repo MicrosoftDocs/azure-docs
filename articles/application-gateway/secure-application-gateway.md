@@ -6,7 +6,7 @@ ms.author: mbender
 ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.custom: security
-ms.date: 07/29/2025
+ms.date: 08/15/2025
 ai-usage: ai-assisted
 ---
 
@@ -38,9 +38,9 @@ Web Application Firewall provides essential protection against common web vulner
 
 * **Configure custom WAF rules**: Create custom rules to address specific threats targeting your applications, including rate limiting, IP blocking, and geo-filtering. Custom rules provide targeted protection beyond managed rule sets. For more information, see [Create and use v2 custom rules](/azure/web-application-firewall/ag/create-custom-waf-rules).
 
-* **Enable bot protection**: Use the bot protection managed rule set to identify and block malicious bots while allowing legitimate traffic from search engines and monitoring tools. For more information, see [Configure bot protection](/azure/web-application-firewall/ag/bot-protection.md).
+* **Enable bot protection**: Use the bot protection managed rule set to identify and block malicious bots while allowing legitimate traffic from search engines and monitoring tools. For more information, see [Configure bot protection](/azure/web-application-firewall/ag/bot-protection).
 
-* **Implement rate limiting**: Configure rate limiting rules to prevent abuse and DDoS attacks by controlling the number of requests allowed from individual IP addresses within specified time windows. For more information, see [Rate limiting overview](/azure/web-application-firewall/ag/rate-limiting-overview.md).
+* **Implement rate limiting**: Configure rate limiting rules to prevent abuse and DDoS attacks by controlling the number of requests allowed from individual IP addresses within specified time windows. For more information, see [Rate limiting overview](/azure/web-application-firewall/ag/rate-limiting-overview).
 
 ## Identity and access management
 
@@ -54,7 +54,7 @@ Proper authentication and authorization controls ensure only authorized users an
 
 Data protection for Application Gateway focuses on securing data in transit and managing certificates and secrets properly.
 
-* **Enable TLS encryption**: Configure TLS termination to encrypt data in transit between clients and your Application Gateway. Use TLS v1.2 or later and disable legacy versions like SSL 3.0 and TLS v1.0 to protect against known vulnerabilities. For more information, see [Overview of TLS termination and end to end TLS with Application Gateway](./ssl-overview.md).
+* **Enable TLS encryption**: Configure TLS termination to encrypt data in transit between clients and your Application Gateway. Ensure you are using the latest version to protect against known vulnerabilities. For more information, see [Overview of TLS termination and end to end TLS with Application Gateway](./ssl-overview.md).
 
 * **Store certificates in Azure Key Vault**: Use Azure Key Vault to securely store and manage your TLS certificates instead of embedding them in configuration files. This enables automatic certificate rotation and centralized management of secrets. For more information, see [TLS termination with Key Vault certificates](./key-vault-certs.md).
 

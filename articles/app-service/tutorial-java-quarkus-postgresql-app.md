@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.date: 04/30/2025
 ms.custom: mvc, devx-track-extended-java, AppServiceConnectivity
 zone_pivot_groups: app-service-portal-azd
+ms.service: azure-app-service
 ---
 
 # Tutorial: Deploy a Quarkus web app to Azure App Service and PostgreSQL

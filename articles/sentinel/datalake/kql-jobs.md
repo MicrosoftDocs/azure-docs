@@ -121,11 +121,11 @@ When creating jobs in the Microsoft Sentinel data lake, consider the following l
 
 ## KQL
 
-+ All KQL operators are supported except for the following:
++ All KQL operators and functions are supported except for the following:
   + `adx()`
-  + `externaldata`
+  + `externaldata()`
   + `arg()`
-  + `Ingestion_time()`
+  + `ingestion_time()`
 
 + User-defined functions not supported.
 

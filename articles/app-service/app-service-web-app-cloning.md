@@ -7,6 +7,7 @@ ms.date: 05/02/2025
 ms.custom: devx-track-azurepowershell
 author: msangapu-msft
 ms.author: msangapu
+ms.service: azure-app-service
 ---
 # Clone an Azure App Service app by using PowerShell
 
