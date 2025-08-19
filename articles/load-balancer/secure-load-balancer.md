@@ -26,7 +26,7 @@ Network security is foundational for Azure Load Balancer as it controls traffic 
 
 - **Allow Azure Load Balancer health probe traffic**: Ensure that network security groups and local firewall policies allow traffic from IP address 168.63.129.16 to enable health probes to reach backend instances. See [Azure Load Balancer health probe](load-balancer-custom-probe-overview.md).
 
-- **Use internal load balancer for private workloads**: Deploy internal load balancer with private frontend IP addresses to isolate backend resources from direct internet exposure and allow traffic only from within virtual networks or peered networks. See [Internal Load Balancer Frontend IP configuration](components.md#frontend-ip-configuration).
+- **Use internal load balancer for private workloads**: Deploy internal load balancer with private frontend IP addresses to isolate backend resources from direct internet exposure and allow traffic only from within virtual networks or peered networks. See [Internal Load Balancer Frontend IP configuration](components.md#frontend-ip-configurations).
 
 - **Protect public load balancers with Azure DDoS Protection**: Enable Azure DDoS Protection Standard for public load balancers to provide advanced protection with detection capabilities that monitor endpoints for threats and signs of abuse. See [Protect your public load balancer with Azure DDoS Protection](tutorial-protect-load-balancer-ddos.md).
 
