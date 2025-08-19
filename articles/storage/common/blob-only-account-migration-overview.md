@@ -32,13 +32,13 @@ By retiring Blob-Only accounts, Azure simplifies the platform and ensures all cu
 | Date           | Milestone                                      |
 |----------------|------------------------------------------------|
 | September 2025 | Retirement announced                          |
-| August 2026    | Creation of new BlobStorage accounts disabled                         |
-| September 2026 | Full retirement; BlobStorage accounts decommissioned |
+| August 2026    | Creation of new Blob-Only accounts disabled                         |
+| September 2026 | Full retirement; Any remaining Blob-Only Storage accounts automigrated to GPv2. Your decision not to migrate an existing Blob-Only account will be construed as consent for Microsoft to migrate the account on your behalf. |
 
-After the retirement date, **data access will be blocked** for all BlobStorage accounts.
+After the retirement date, **data access will be blocked** for all Blob-Only accounts.
 
 ## Why migrate to GPv2?
-| Feature                          | BlobStorage     | GPv2           |
+| Feature                          | Blob-Only     | GPv2           |
 |----------------------------------|------------------|----------------|
 | Blob tiering                     | ✅ Account-level | ✅ Per-blob     |
 | Lifecycle management             | ❌               | ✅              |

@@ -30,7 +30,7 @@ Retirement of GPv1 storage accounts means:
 |----------------|-------------------------------------------------------------|
 | September 2025 | Retirement announced                                        |
 | August 2026    | Creation of new GPv1 Storage accounts disabled              |
-| September 2026 | Full retirement; GPv1 Storage accounts automigrated to GPv2 |
+| September 2026 | Full retirement; Any remaining GPv1 Storage accounts automigrated to GPv2. Your decision not to migrate an existing GPv1 account will be construed as consent for Microsoft to migrate the account on your behalf. |
 
 The retirement takes effect globally across all Azure regions.
 
