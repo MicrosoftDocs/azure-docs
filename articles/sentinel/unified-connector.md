@@ -95,6 +95,7 @@ The Sentinel tab shows the connectors that are available only to Sentinel as the
 ## Considerations and limitations
 
 - The unified connectors scope doesn't include billing. Each individual product is responsible for how its users are charged.
+- The unified connectors feature isn't supported for tenants in the United Arab Emirates region.
 - Unified connectors are the preferred way to create a connection. If you already have an Okta connector, you can disconnect it and install a unified connector so that you only collect the system logs once. We don't recommended having both a unified connector and a product specific connector for the same data source.
-- Currently for Sentinel unified connectors are not part of solutions and cannot be discovered through content hub.
+- Currently, for Sentinel, unified connectors aren't part of solutions and can't be discovered through content hub.
 - Currently the unified connectors platform doesn't allow self-service development for 3rd parties.
