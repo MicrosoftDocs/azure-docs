@@ -1,96 +1,101 @@
 ---
 title: Secure your Azure Load Balancer deployment
-description: Learn how to secure your Azure Load Balancer deployment with network security controls, access management, monitoring best practices, and DDoS protection.
+description: Learn how to secure Azure Load Balancer, with best practices for protecting your deployment.
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: conceptual
-ms.custom: security
-ms.date: 08/01/2025
+ms.custom: horz-security
+ms.date: 08/13/2025
 ai-usage: ai-assisted
 ---
 
 # Secure your Azure Load Balancer deployment
 
-Azure Load Balancer distributes incoming traffic across healthy virtual machine instances in a backend pool, providing high availability and scalability for your applications. As a critical networking component that handles traffic routing and load distribution, securing your Load Balancer deployment is essential to protect your infrastructure from unauthorized access and ensure reliable service delivery.
+Azure Load Balancer provides Layer 4 load balancing capabilities to distribute incoming traffic among healthy backend instances. When deploying this service, it's important to follow security best practices to protect data, configurations, and infrastructure.
 
 This article provides guidance on how to best secure your Azure Load Balancer deployment.
 
 ## Network security
 
-Network security for Azure Load Balancer focuses on controlling traffic flow, implementing proper segmentation, and protecting backend resources from unauthorized access. Proper network configuration ensures that only legitimate traffic reaches your applications while maintaining high availability.
+Network security is foundational for Azure Load Balancer as it controls traffic flow and access to backend resources. Standard Load Balancer follows a secure-by-default approach with closed inbound connections.
 
-* **Use internal Load Balancers for private traffic**: Deploy internal Azure Load Balancers to restrict traffic to backend resources from within specific virtual networks or peered networks without internet exposure. This prevents direct internet access to your backend services. For more information, see [Internal Load Balancer Frontend IP configuration](components.md#frontend-ip-configuration).
+- **Use Standard Load Balancer SKU**: Deploy Standard Load Balancer instead of Basic SKU for enhanced security with closed-by-default inbound connections and zero trust network security model. See [Azure Load Balancer overview](load-balancer-overview.md).
 
-* **Implement external Load Balancers with SNAT**: Configure external Load Balancers with Source Network Address Translation (SNAT) to mask backend resource IP addresses and protect them from direct internet exposure while still allowing outbound connectivity.
+- **Implement network security groups on subnets**: Apply network security groups to backend subnets and network interfaces to explicitly permit allowed traffic and restrict access to trusted ports and IP address ranges. See [Azure security baseline for Azure Load Balancer](/security/benchmark/azure/baselines/azure-load-balancer-security-baseline#network-security).
 
-* **Apply Network Security Groups**: Configure Network Security Groups (NSGs) on backend subnets to control traffic flow and allow access only to trusted ports and IP address ranges. While you can't apply NSGs directly to the Load Balancer, you can control traffic to backend resources. For more information, see [Network Security Groups overview](/azure/virtual-network/network-security-groups-overview).
+- **Allow Azure Load Balancer health probe traffic**: Ensure that network security groups and local firewall policies allow traffic from IP address 168.63.129.16 to enable health probes to reach backend instances. See [Azure Load Balancer health probe](load-balancer-custom-probe-overview.md).
 
-* **Use Standard Load Balancer for production**: Deploy Standard Load Balancer for production workloads as it's designed to be secure by default and requires explicit network security group rules to allow traffic. Standard Load Balancer is closed to inbound flows unless explicitly permitted, unlike Basic Load Balancer which is open by default.
+- **Use internal load balancer for private workloads**: Deploy internal load balancer with private frontend IP addresses to isolate backend resources from direct internet exposure and allow traffic only from within virtual networks or peered networks. See [Internal Load Balancer Frontend IP configuration](components.md#frontend-ip-configuration).
 
-* **Configure outbound rules carefully**: Review and configure outbound rules for Standard Load Balancers to control outbound NAT behavior and ensure secure outbound connectivity from backend resources.
+- **Protect public load balancers with Azure DDoS Protection**: Enable Azure DDoS Protection Standard for public load balancers to provide advanced protection with detection capabilities that monitor endpoints for threats and signs of abuse. See [Protect your public load balancer with Azure DDoS Protection](tutorial-protect-load-balancer-ddos.md).
 
-* **Leverage virtual network integration**: Configure Load Balancer frontend IP addresses within your virtual network infrastructure to maintain network isolation and enable integration with other Azure networking services.
 
-* **Enable DDoS protection**: Configure Azure DDoS Protection on public Load Balancers to protect against distributed denial-of-service attacks and ensure service availability during attack scenarios. For more information, see [Protect your public load balancer with Azure DDoS Protection](tutorial-protect-load-balancer-ddos.md).
+## Identity and access management
 
-* **Allow health probe traffic**: Ensure that health probe traffic from the source IP address 168.63.129.16 is allowed in network security groups and local firewall policies using the AzureLoadBalancer service tag. Blocking this traffic can cause health probes to fail and mark healthy instances as down. For more information, see [Load Balancer health probes](load-balancer-custom-probe-overview.md#probe-source-ip-address).
+Access control for Azure Load Balancer focuses on managing who can configure and modify load balancer resources and settings through Azure's role-based access control system.
 
-## Privileged access
+- **Implement Azure role-based access control**: Assign appropriate Azure roles to users and groups for load balancer management, using built-in roles like Network Contributor or creating custom roles with specific permissions. See [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles).
 
-Privileged access management for Azure Load Balancer ensures that only authorized users can configure and manage Load Balancer resources while following the principle of least privilege access.
+- **Use least privilege access**: Grant users the minimum permissions necessary to perform their tasks, avoiding broad administrative roles when specific load balancer operations are sufficient. See [What is Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview).
 
-* **Use role-based access control**: Implement Azure role-based access control (RBAC) to grant users only the minimum permissions required for their responsibilities. Assign the Network Contributor role or create custom roles with specific permissions for Load Balancer management. For more information, see [Cross-subscription overview](cross-subscription-overview.md#authorization).
+- **Secure backend resource access**: Configure appropriate authentication and authorization for backend pool resources including virtual machines and application services that receive load-balanced traffic. See [Architecture best practices for Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer#security).
 
-* **Implement cross-subscription access controls**: When using cross-subscription Load Balancer configurations, ensure proper authorization by assigning users to the Network Contributor role or custom roles with appropriate actions on both subscriptions involved in the configuration.
-
-* **Secure administrative access**: Limit administrative access to Load Balancer resources by using privileged access workstations and implementing multi-factor authentication for all administrative activities.
-
-* **Regular access reviews**: Conduct periodic reviews of user permissions and access rights to Load Balancer resources to ensure that access remains appropriate and follows the principle of least privilege.
-
-## Logging and threat detection
-
-Comprehensive logging and monitoring for Azure Load Balancer enables threat detection, performance optimization, and compliance requirements while providing visibility into traffic patterns and security events.
-
-* **Enable Azure Monitor metrics**: Configure Azure Monitor to collect and analyze Load Balancer metrics including data path availability, health probe status, connection counts, and throughput metrics. For more information, see [Monitor Azure Load Balancer](monitor-load-balancer.md).
-
-* **Configure diagnostic settings**: Create diagnostic settings to send Load Balancer metrics to Log Analytics workspaces, storage accounts, or event hubs for analysis and long-term retention. For more information, see [Monitor Azure Load Balancer](monitor-load-balancer.md#creating-a-diagnostic-setting).
-
-* **Use Load Balancer Insights**: Leverage Azure Load Balancer Insights for functional dependency views, metrics dashboards, and connection monitoring to gain comprehensive visibility into Load Balancer performance and health. For more information, see [Using Insights to monitor and configure your Azure Load Balancer](load-balancer-insights.md).
-
-* **Monitor health probe status**: Track health probe metrics to identify backend instance availability issues and ensure proper traffic distribution across healthy endpoints. For more information, see [Load Balancer health probes](load-balancer-custom-probe-overview.md#monitoring).
-
-* **Set up alerting**: Configure alerts in Azure Monitor to notify administrators when Load Balancer metrics exceed defined thresholds or when health probes indicate backend service issues.
-
-* **Enable resource health monitoring**: Use Azure Resource Health to monitor the health status of your Load Balancer and receive notifications about service issues that might affect your deployment.
+- **Enable managed identity for backend services**: Use Azure managed identities for backend services to eliminate the need for storing credentials in code or configuration files. See [What is Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview).
 
 ## Data protection
 
-Data protection for Azure Load Balancer focuses on securing traffic in transit and ensuring that sensitive information remains protected as it flows through the load balancing infrastructure.
+Azure Load Balancer operates at Layer 4 and does not store customer data, but implementing proper data protection measures for traffic and configurations is essential for comprehensive security.
 
-* **Enable HTTPS probes for encrypted endpoints**: Configure HTTPS health probes when backend services support encrypted endpoints to maintain security consistency throughout the traffic flow. Standard Load Balancer supports HTTPS probes while Basic Load Balancer only supports TCP and HTTP probes. For more information, see [Load Balancer health probes](load-balancer-custom-probe-overview.md).
+- **Implement end-to-end encryption**: Configure TLS/SSL termination on backend instances rather than the load balancer, as Load Balancer operates at Layer 4 and does not provide SSL termination capabilities.
 
-* **Implement end-to-end TLS encryption**: Since Load Balancer operates at Layer 4 and doesn't provide TLS termination, implement TLS encryption directly on backend VMs to ensure end-to-end encryption. This approach provides better security and allows for greater scale-out of TLS applications. For more information, see [Load Balancer concepts](concepts.md).
+- **Use Application Gateway for HTTP/HTTPS workloads**: Deploy Azure Application Gateway instead of Load Balancer for HTTP/HTTPS applications that require SSL/TLS termination and web application firewall capabilities. See [Architecture best practices for Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer#security).
 
-* **Secure backend instance communications**: Ensure that backend instances use encrypted protocols (HTTPS, TLS) for client communications to protect data in transit from network-based attacks such as eavesdropping and man-in-the-middle attacks.
+- **Protect backend data stores**: Implement encryption at rest and in transit for backend databases and storage systems that receive traffic through the load balancer. See [Azure security baseline for Azure Load Balancer](/security/benchmark/azure/baselines/azure-load-balancer-security-baseline).
 
-* **Configure secure transfer requirements**: When Load Balancer frontend configurations use public IP addresses, ensure that any associated storage accounts or services require secure transfer (HTTPS) to prevent unencrypted data transmission.
 
-## Asset management
+## Logging and monitoring
 
-Asset management for Azure Load Balancer involves implementing governance controls, monitoring configurations, and ensuring compliance with organizational security policies. Proper asset management helps maintain security posture and operational visibility.
+Comprehensive monitoring and logging capabilities help detect security threats, performance issues, and provide visibility into load balancer operations and traffic patterns.
 
-* **Implement Azure Policy governance**: Use Azure Policy to monitor and enforce security configurations for your Load Balancer resources. Define standard security configurations and use built-in policy definitions to maintain compliance. For more information, see [Create and manage policies](/azure/governance/policy/tutorials/create-and-manage).
+- **Enable diagnostic settings**: Configure diagnostic settings to send load balancer metrics and logs to Azure Monitor Logs, Storage Account, or Event Hub for analysis and alerting. See [Monitor Azure Load Balancer](monitor-load-balancer.md#creating-a-diagnostic-setting).
 
-* **Create custom policies for specific requirements**: When built-in policies don't meet your needs, create custom Azure Policy definitions using aliases in the 'Microsoft.Network' namespace to audit or enforce specific Load Balancer configurations.
+- **Use Azure Monitor Insights**: Deploy Load Balancer Insights to access pre-configured dashboards, functional dependency views, and metrics visualization for proactive monitoring. See [Using Insights to monitor and configure your Azure Load Balancer](load-balancer-insights.md).
 
-* **Monitor configuration compliance**: Regularly review Load Balancer configurations against your organization's security standards and use Azure Policy to automatically detect and remediate configuration drift.
+- **Configure health probe monitoring**: Implement comprehensive health probes to monitor backend instance health and configure appropriate intervals and thresholds for accurate health detection. See [Manage health probes for Azure Load Balancer](manage-probes-how-to.md).
 
-* **Maintain inventory and documentation**: Keep detailed records of your Load Balancer deployments, their configurations, and their relationships with other Azure resources to support security assessments and compliance reporting.
+- **Monitor connection metrics**: Track key metrics including Data Path Availability, Health Probe Status, and SYN Count to identify potential security threats and performance issues. See [Standard load balancer diagnostics with metrics, alerts, and resource health](load-balancer-standard-diagnostics.md#multi-dimensional-metrics).
 
-* **Use resource tags**: Apply consistent resource tags to Load Balancer resources for organization, cost tracking, and security compliance purposes.
+- **Enable VNet flow logs**: Configure virtual network flow logs to analyze traffic patterns flowing through the load balancer and identify potential security threats or anomalous behavior. See [Monitor Azure Load Balancer](monitor-load-balancer.md#analyzing-load-balancer-traffic-with-vnet-flow-logs).
 
-## Next steps
+- **Set up security alerts**: Create Azure Monitor alerts for security-relevant events such as failed health probes, unusual traffic patterns, or configuration changes. See [Monitor Azure Load Balancer](monitor-load-balancer.md).
 
-- [Azure Well-Architected Framework - Security](/azure/well-architected/security/)
-- [Cloud Adoption Framework - Security overview](/azure/cloud-adoption-framework/secure/overview)
+## Compliance and governance
+
+Governance controls ensure consistent security configuration and compliance with organizational policies and regulatory requirements across load balancer deployments.
+
+- **Implement Azure Policy controls**: Deploy Azure Policy definitions to audit and enforce load balancer security configurations, including SKU requirements and network security group associations. See [Azure security baseline for Azure Load Balancer](/security/benchmark/azure/baselines/azure-load-balancer-security-baseline#asset-management).
+
+- **Use resource tagging**: Apply consistent tags to load balancer resources for governance, cost management, and security compliance tracking. See [Architecture best practices for Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer#azure-policies).
+
+## Service-specific security
+
+Azure Load Balancer has unique security considerations related to traffic distribution algorithms, session persistence, and integration with other Azure networking services.
+
+- **Configure appropriate distribution mode**: Select the optimal distribution mode (5-tuple, 2-tuple, or 3-tuple hash) based on security requirements, considering that session persistence can create uneven load distribution. See [Azure Load Balancer distribution modes](distribution-mode-concepts.md).
+
+- **Enable TCP reset for better security**: Configure TCP reset on load balancing rules to send bidirectional TCP reset packets on idle timeout, providing clearer connection state information to applications. See [Azure Load Balancer Best Practices](load-balancer-best-practices.md#enable-tcp-resets).
+
+- **Secure floating IP configurations**: When using floating IP for high availability scenarios, ensure proper configuration of loopback interfaces in guest operating systems and implement appropriate security controls. See [Azure Load Balancer Best Practices](load-balancer-best-practices.md#configure-loop-back-interface-when-setting-up-floating-ip).
+
+- **Implement Gateway Load Balancer security**: For network virtual appliances, separate trusted and untrusted traffic on different tunnel interfaces and increase MTU limits to prevent packet drops from VXLAN headers. See [Azure Load Balancer Best Practices](load-balancer-best-practices.md#implement-gateway-load-balancer-configuration-best-practices).
+
+- **Integrate with Azure Firewall**: Route traffic through Azure Firewall when using internal load balancers for additional security inspection and threat protection capabilities. See [Architecture best practices for Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer#security).
+
+- **Use NAT Gateway for outbound connectivity**: Deploy Azure NAT Gateway for predictable outbound IP addresses and enhanced security compared to default outbound access IP mechanisms. See [Tutorial: Protect your public load balancer with Azure DDoS Protection](tutorial-protect-load-balancer-ddos.md#create-nat-gateway).
+
+## Learn more
+
+- [Azure security baseline for Azure Load Balancer](/security/benchmark/azure/baselines/azure-load-balancer-security-baseline)
+- [Architecture best practices for Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer)
+- [Azure Load Balancer documentation](/azure/load-balancer/)
