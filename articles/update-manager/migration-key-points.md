@@ -1,6 +1,6 @@
 ---
 title: Automated Migration - Key Points for Azure Update Manager Success
-description:Learn key points for automated migration to Azure Update Manager, including supported setups, scheduling limits, and cleanup steps.
+description: Learn key points for automated migration to Azure Update Manager, including supported setups, scheduling limits, and cleanup steps.
 author: habibaum
 ms.author: v-uhabiba
 ms.service: azure-update-manager
