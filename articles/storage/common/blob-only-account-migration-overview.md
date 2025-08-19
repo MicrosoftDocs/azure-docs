@@ -28,15 +28,6 @@ Blob-Only accounts were introduced to support blob-only scenarios with account-l
 
 By retiring Blob-Only accounts, Azure simplifies the platform and ensures all customers benefit from modern capabilities and consistent pricing.
 
-## What is changing?
-| Date           | Milestone                                      |
-|----------------|------------------------------------------------|
-| September 2025 | Retirement announced                          |
-| August 2026    | Creation of new Blob-Only accounts disabled                         |
-| September 2026 | Full retirement; Any remaining Blob-Only Storage accounts automigrated to GPv2. Your decision not to migrate an existing Blob-Only account will be construed as consent for Microsoft to migrate the account on your behalf. |
-
-After the retirement date, **data access will be blocked** for all Blob-Only accounts.
-
 ## Why migrate to GPv2?
 | Feature                          | Blob-Only     | GPv2           |
 |----------------------------------|------------------|----------------|
@@ -51,20 +42,32 @@ After the retirement date, **data access will be blocked** for all Blob-Only acc
 **Note**  
 GPv2 supports all blob features available in BlobStorage accounts—and more—while enabling finer control and broader service integration.
 
-## Migration guidance
+## Timeline and milestones
+
+>[!Warning]
+>If you do not migrate your Blob-Only storage account to GPv2 by August 31, 2025, all existing Blob-Only accounts will be auto migrated over to a GPv2 account, which may result in higher billing costs. Your decision not to migrate an existing Blob-Only account will be construed as consent for Microsoft to migrate the account on your behalf.
+
+| Date           | Milestone                                      |
+|----------------|------------------------------------------------|
+| September 2025 | Retirement announced                          |
+| August 2026    | Creation of new Blob-Only accounts disabled                         |
+| September 2026 | Full retirement; Any remaining Blob-Only Storage accounts automigrated to GPv2. Your decision not to migrate an existing Blob-Only account will be construed as consent for Microsoft to migrate the account on your behalf. |
+
+After the retirement date, **data access will be blocked** for all Blob-Only accounts. This change takes effect globally across all Azure regions.
+
+## How should I prepare?
+To minimize risk and ensure a smooth migration:
+
 1. **Inventory your Blob-Only Storage accounts**: Use [Azure Resource Graph](../../governance/resource-graph/overview.md), CLI, [Azure Inventory](../blobs/blob-inventory-how-to.md), or the Portal to identify all Blob-only storage accounts.
 2. **Evaluate workloads**: to ensure compatibility with GPv2 (most blob-only workloads require no code changes).
 3. **Migrate to GPv2**: Use the Azure portal, CLI, or automation tools to upgrade from GPv1 to GPv2. [Learn more about the upgrade process](storage-account-upgrade.md).
 4. **Validate workloads**: post-migration to ensure functionality and billing accuracy.
 
->[!Warning]
->If you do not migrate your Blob-Only storage account to GPv2 by August 31, 2025, all existing Blob-Only accounts will be auto migrated over to a GPv2 account, which may result in higher billing costs. Your decision not to migrate an existing Blob-Only account will be construed as consent for Microsoft to migrate the account on your behalf.
-
 >[!Tip]
 >Most blob-only workloads can migrate from Blob-Only Storage to GPv2 without code changes. Review any hardcoded pricing assumptions or tier-unaware logic to ensure compatibility with GPv2 features.
 >GPv2 enables per-blob tiering and lifecycle rules, offering better cost optimization and automation.
 
-## What happens if I don’t migrate?
+## What happens if I don’t migrate my accounts?
 After **August 31, 2026**, you'll no longer be able to manage Blob-Only Storage accounts. After **September 2026**, if you don't migrate your Blob-Only storage account to General-purpose v2, all existing Blob-Only accounts are auto migrated over to a General-purpose v2 account, which may result in higher billing costs. Your decision not to migrate an existing Blob-Only account will be construed as consent for Microsoft to migrate the account on your behalf.
 
 ## Need help?
