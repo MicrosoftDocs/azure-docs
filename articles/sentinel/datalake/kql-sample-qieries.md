@@ -17,10 +17,14 @@ ms.collection: ms-security
 
 This article provides sample KQL queries that can be used interactively or in KQL jobs to investigate security incidents and monitor for suspicious activity in the Microsoft Sentinel data lake.
 
+Interactive queries are run manually in tools like advanced hunting and KQL queries in Data lake exploration. Interactive queries are great for ad-hoc investigation, troubleshooting, or exploring data.
+
+Queries for jobs are designed to run automatically on a schedule. They’re used for ongoing monitoring, alerting, or data enrichment. Job queries often include logic for summarizing, aggregating, or exporting results, and may be optimized for performance and reliability.
+
 
 ## Sample interactive queries
 
-The following interactive queries can be used to explore and analyze data in the Microsoft Sentinel data lake.
+The following sample interactive queries can be used to explore and analyze data in the Microsoft Sentinel data lake.
 
 ### Identify possible insider threats
 
@@ -40,7 +44,7 @@ DeviceFileEvents
 
 ### Investigate potential privilege escalation or unauthorized administrative actions
 
-Identify users who successfully signed in and performed sensitive operations such as “Add service principal” or “Certificates and secrets management” between 90 and 180 days ago. This query links individual login events with corresponding audit logs to provide detailed visibility into each action. The results include the user identity, IP address, and accessed applications, enabling granular investigation of potentially risky behavior.	
+Identify users who successfully signed in and performed sensitive operations such as “Add service principal” or “Certificates and secrets management” between 90 and 180 days ago. This query links individual sign-in events with corresponding audit logs to provide detailed visibility into each action. The results include the user identity, IP address, and accessed applications, enabling granular investigation of potentially risky behavior.	
 
 ```KQL
 AuditLogs
@@ -59,7 +63,10 @@ AuditLogs
 
 ### Investigate slow Brute Force attack
 
-Detect IP addresses with a high number of failed sign-in attempts (with specific error codes) coming from multiple unique users	let relevantErrorCodes = dynamic([50053, 50126, 50055, 50057, 50155, 50105, 50133, 50005, 50076, 50079, 50173, 50158, 50072, 50074, 53003, 53000, 53001, 50129]);
+Detect IP addresses with a high number of failed sign-in attempts and specific error codes coming from multiple unique users.
+
+```KQL
+let relevantErrorCodes = dynamic([50053, 50126, 50055, 50057, 50155, 50105, 50133, 50005, 50076, 50079, 50173, 50158, 50072, 50074, 53003, 53000, 53001, 50129]);
 SigninLogs
 | where TimeGenerated >= ago(180d)
 | where ResultType in (relevantErrorCodes)
@@ -68,11 +75,12 @@ SigninLogs
 | summarize FailedAttempts = count(), UniqueUsers = dcount(UserPrincipalName) by IPAddress, Location, OS
 | where FailedAttempts > 5 and UniqueUsers > 5
 | order by FailedAttempts desc
-
+```
 
 ## Sample queries for KQL jobs
 
-The following queries for KQL jobs can be used for various security investigations
+The following queries can be used in KQL jobs to automate investigations and monitoring tasks in the Microsoft Sentinel data lake.
+
 
 ### Brute Force Attack incident investigation
 
