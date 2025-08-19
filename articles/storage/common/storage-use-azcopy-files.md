@@ -4,7 +4,7 @@ description: Transfer data with AzCopy and file storage. AzCopy is a command-lin
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 08/11/2025
+ms.date: 08/19/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 # Customer intent: As a user of a cloud file storage service, I want to transfer files to and from storage accounts using a command-line tool, so that I can efficiently manage and synchronize large amounts of data between my local environment and the cloud.
@@ -402,7 +402,7 @@ azcopy copy 'https://mystorageaccount.file.core.windows.net/myFileShare/myDirect
 
 ---
 
-<a id="downloaddirectorycontent"></a>
+<a id="downloadspecificfiles"></a>
 
 In this example, AzCopy transfers the `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` directory and the `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/documents/myFile.txt` file. Include the `--recursive` option to transfer all files in the `https://mystorageaccount.file.core.windows.net/myFileShare/myDirectory/photos` directory.
 
