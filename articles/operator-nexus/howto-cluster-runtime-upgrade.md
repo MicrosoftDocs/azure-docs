@@ -147,8 +147,7 @@ az networkcloud cluster show --name "<CLUSTER>" \
 
 In this example, if less than 10 compute nodes being provisioned in a rack fail to provision (on a Rack-by-Rack basis), the Cluster upgrade waits indefinitely until the condition is met. If 10 or more of the compute nodes are successfully provisioned, Cluster deployment moves on to the next rack of compute nodes. If there are too many failures in the rack, the hardware must be repaired before the upgrade can continue.
 
-> [!NOTE]
-> **_`update-strategy` cannot be changed after the Cluster runtime upgrade has started._**
+> [!NOTE] > **_`update-strategy` cannot be changed after the Cluster runtime upgrade has started._**
 > When a threshold value below 100% is set, it’s possible that any unhealthy nodes might not be upgraded, yet the "Cluster" status could still indicate that upgrade was successful. For troubleshooting issues with bare metal machines, refer to [Troubleshoot Azure Operator Nexus server problems](troubleshoot-reboot-reimage-replace.md)
 
 ## Upgrade Cluster runtime using CLI
@@ -162,13 +161,20 @@ az networkcloud cluster update-version --cluster-name "<CLUSTER>" \
 --subscription "<SUBSCRIPTION>"
 ```
 
-This command initiates the runtime upgrade process for the specified Cluster, and typically completes within about 5 minutes. Detailed status and diagnostic information for this step is available if needed in Azure portal in the `JSON View` of the Cluster (Operator Nexus) resource. The following information is included in the `updateVersion` entry of the `properties.actionStates` field, when using API Version `2025-07-01-preview` or higher.
+This command initiates the runtime upgrade process for the specified Cluster. The command itself typically completes within about 5 minutes, but this command only starts the upgrade process. The actual runtime upgrade continues to execute in the background and can take several hours to complete, as it upgrades nodes rack by rack and installs the new OS version.
+
+Detailed status and diagnostic information for the initiation step is available in Azure portal in the `JSON View` of the Cluster (Operator Nexus) resource. The following information is included in the `updateVersion` entry of the `properties.actionStates` field, when using API Version `2025-07-01-preview` or higher.
 
 - Start and end time of the action.
 - Current status (`Succeeded`, `Failed`, or `InProgress`).
 - Any extra context or error message associated with the current status.
 - The Correlation ID for the original `cluster update-version` operation, as also shown in the Azure Activity log.
 - An ordered list of individual steps and their status - for example `Validate Cluster conditions and upgrade versions`, and `Initiate Platform Runtime Extension update`.
+
+> [!IMPORTANT]
+> The `properties.actionStates` entry for `updateVersion` reflects only the short initiation phase (validation and request initiation that typically completes in ~5 minutes).
+> It doesn't track the rack-by-rack progress of the main upgrade.
+> To monitor the full upgrade, use the Cluster’s detailed status and detailed status message in the resource Overview, or query via `az networkcloud cluster show`.
 
 Example `JSON View` output for the Cluster (Operator Nexus) resource:
 
