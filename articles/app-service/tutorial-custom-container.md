@@ -22,18 +22,16 @@ ms.service: azure-app-service
 
 For more information, see [Operating system functionality on App Service](operating-system-functionality.md).
 
-You can deploy a custom-configured Windows image from Visual Studio to make OS changes that your app needs. This makes it easy to migrate an on-premises app that requires a custom OS and software configuration. This tutorial demonstrates how to migrate to App Service an ASP.NET app that uses custom fonts installed in the Windows font library. You deploy a custom-configured Windows image from Visual Studio to [Azure Container Registry](/azure/container-registry/) and then run it in App Service.
+You can deploy a custom-configured Windows image from Visual Studio to make OS changes that your app needs. Doing so makes it easy to migrate an on-premises app that requires a custom OS and software configuration. This tutorial demonstrates how to migrate to App Service an ASP.NET app that uses custom fonts installed in the Windows font library. You deploy a custom-configured Windows image from Visual Studio to [Azure Container Registry](/azure/container-registry/) and then run it in App Service.
 
-:::image type="content" source="media/tutorial-custom-container/app-running-newupdate.png" alt-text="Shows the web app running in a Windows container.":::
+:::image type="content" source="media/tutorial-custom-container/app-running-newupdate.png" alt-text="Screenshot that shows the web app running in a Windows container.":::
 
 ## Prerequisites
-
-To complete this tutorial:
 
 - <a href="https://hub.docker.com/" target="_blank">Sign up for a Docker Hub account</a>.
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Install Docker for Windows</a>.
 - <a href="/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Configure Docker to run Windows containers</a>.
-- <a href="https://www.visualstudio.com/downloads/" target="_blank">Install Visual Studio 2022</a> with the **ASP.NET and web development** and **Azure development** workloads. If you've installed Visual Studio 2022 already:
+- <a href="https://www.visualstudio.com/downloads/" target="_blank">Install Visual Studio 2022</a> with the **ASP.NET and web development** and **Azure development** workloads. If you already have Visual Studio 2022 installed:
     - Install the latest updates in Visual Studio by selecting **Help** > **Check for Updates**.
     - Add the workloads in Visual Studio by selecting **Tools** > **Get Tools and Features**.
 
@@ -50,7 +48,7 @@ The sample project contains a simple ASP.NET application that uses a custom font
 
 ### Install the font
 
-In Windows Explorer, navigate to *custom-font-win-container-master/CustomFontSample*, right-click *FrederickatheGreat-Regular.ttf*, and select **Install**.
+In Windows Explorer, go to *custom-font-win-container-master/CustomFontSample*, right-click *FrederickatheGreat-Regular.ttf*, and select **Install**.
 
 This font is publicly available from [Google Fonts](https://fonts.google.com/specimen/Fredericka+the+Great).
 
@@ -62,19 +60,19 @@ Select **Ctrl+F5** to run the app without debugging. The app is displayed in you
 
 :::image type="content" source="media/tutorial-custom-container/local-app-in-browser.png" alt-text="Screenshot showing the app displayed in the default browser.":::
 
-As the app uses an installed font, the app can't run in the App Service sandbox. However, you can deploy it using a Windows container instead, because you can install the font in the Windows container.
+Because the app uses an installed font, the app can't run in the App Service sandbox. However, you can deploy it by using a Windows container instead, because you can install the font in the Windows container.
 
 ### Configure Windows container
 
 In Solution Explorer, right-click the **CustomFontSample** project and select **Add** > **Container Orchestration Support**.
 
-:::image type="content" source="media/tutorial-custom-container/enable-container-orchestration.png" alt-text="Screenshot of the Solution Explorer window showing the CustomFontSample project. The Add and Container Orchestrator Support menu items are selected.":::
+:::image type="content" source="media/tutorial-custom-container/enable-container-orchestration.png" alt-text="Screenshot of the CustomFontSample project in Solution Explorer. The Add and Container Orchestrator Support menu items are highlighted.":::
 
 Select **Docker Compose** > **OK**.
 
 Your project is now set to run in a Windows container. A `Dockerfile` is added to the **CustomFontSample** project, and a **docker-compose** project is added to the solution. 
 
-From the Solution Explorer, open **Dockerfile**.
+From Solution Explorer, open **Dockerfile**.
 
 You need to use a [supported parent image](configure-custom-container.md#supported-parent-images). Change the parent image by replacing the `FROM` line with the following code:
 
@@ -82,7 +80,7 @@ You need to use a [supported parent image](configure-custom-container.md#support
 FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
 ```
 
-At the end of the file, add the following line and save the file:
+Add the following line to the end of the file and save the file:
 
 ```dockerfile
 RUN ${source:-obj/Docker/publish/InstallFont.ps1}
@@ -96,23 +94,23 @@ You can find *InstallFont.ps1* in the **CustomFontSample** project. It's a simpl
 
 ## Publish to Azure Container Registry
 
-[Azure Container Registry](/azure/container-registry/) can store your images for container deployments. You can configure App Service to use images that are hosted in Azure Container Registry.
+[Azure Container Registry](/azure/container-registry/) can store your images for container deployments. You can configure App Service to use images that are hosted in Container Registry.
 
 ### Open the publish wizard
 
 In the Solution Explorer, right-click the **CustomFontSample** project and select **Publish**.
 
-:::image type="content" source="media/tutorial-custom-container/open-publish-wizard.png" alt-text="Screenshot of Solution Explorer showing the CustomFontSample project. The Publish menu item is selected.":::
+:::image type="content" source="media/tutorial-custom-container/open-publish-wizard.png" alt-text="Screenshot of the CustomFontSample project in Solution Explorer. The Publish menu item is highlighted.":::
 
 ### Create and publish the registry
 
 In the publish wizard, select **Container Registry** > **Create New Azure Container Registry** > **Publish**.
 
-:::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="Screenshot of the publish wizard. Container Registry, Create New Azure Container Registry, and the Publish button are selected.":::
+:::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="Screenshot of the publish wizard. Container Registry, Create New Azure Container Registry, and the Publish button are highlighted.":::
 
 ### Sign in with an Azure account
 
-In the **Create a new Azure Container Registry** dialog, select **Add an account**, and then sign in to your Azure subscription. If you're already signed in, select the account containing the desired subscription from the dropdown.
+In the **Create a new Azure Container Registry** dialog, select **Add an account**, and then sign in to your Azure subscription. If you're already signed in, select the account containing the desired subscription from the dropdown list.
 
 :::image type="content" source="./media/tutorial-custom-container/add-an-account.png" alt-text="Screenshot that shows how to sign in to Azure.":::
 
@@ -137,23 +135,23 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a web app
 
-From the left menu, select **Create a resource** > **Web** > **Web App for Containers**.
+In the left menu, select **Create a resource** > **Web** > **Web App for Containers**.
 
 ### Configure app basics
 
-On the **Basics** tab, configure the settings according to the following table. Then select **Next: Docker**.
+On the **Basics** tab, configure the settings by using the following table as a guide. Then select **Next: Docker**.
 
 | Setting  | Suggested value | 
 | ----------------- | ------------ | 
 |**Subscription**| Make sure the correct subscription is selected.   |
-|**Resource Group**| Select **Create new**, type **myResourceGroup**, and select **OK**. |  
-|**Name**| Type a unique name. The URL of the web app is `https://<app-name>.azurewebsites.net`, where `<app-name>` is your app name. |
+|**Resource Group**| Select **Create new**, enter **myResourceGroup**, and then select **OK**. |  
+|**Name**| Enter a unique name. The URL of the web app is `https://<app-name>.azurewebsites.net`, where `<app-name>` is your app name. |
 |**Publish**| **Docker Container** | 
 |**Operating System**| **Windows** | 
 |**Region**| **West Europe** | 
-|**Windows Plan**| Select **Create new**, type **myAppServicePlan**, and select **OK**. | 
+|**Windows Plan**| Select **Create new**, enter **myAppServicePlan**, and then select **OK**. | 
 
-Your **Basics** tab should look like this:
+Your **Basics** tab should look similar to this one:
 
 :::image type="content" source="media/tutorial-custom-container/configure-app-basics.png" alt-text="Screenshot of the Basics tab that's used to configure the web app.":::
 
@@ -174,9 +172,9 @@ Select **Create** and wait for Azure to create the required resources.
 
 ## Browse to the web app
 
-When the deployment is complete, a notification box is displayed.
+When the deployment is complete, a notification message appears:
 
-:::image type="content" source="media/tutorial-custom-container/portal-create-finished.png" alt-text="Shows that the Azure operation is complete.":::
+:::image type="content" source="media/tutorial-custom-container/portal-create-finished.png" alt-text="Screenshot that shows the notification message." lightbox="media/tutorial-custom-container/portal-create-finished.png":::
 
 1. Select **Go to resource**.
 
@@ -184,15 +182,15 @@ When the deployment is complete, a notification box is displayed.
 
 A new browser page is opened to the following page:
 
-:::image type="content" source="media/tutorial-custom-container/app-starting.png" alt-text="Shows the new browser page for the web app.":::
+:::image type="content" source="media/tutorial-custom-container/app-starting.png" alt-text="Screentshot that shows the new browser page for the web app.":::
 
 Wait a few minutes and try again, until you get the homepage with the font you expect:
 
 :::image type="content" source="media/tutorial-custom-container/app-running-newupdate.png" alt-text="Screenshot of the homepage with the font you configured.":::
 
-**Congratulations!** You've migrated an ASP.NET application to Azure App Service in a Windows container.
+Congratulations! You've migrated an ASP.NET application to App Service in a Windows container.
 
-## View the container start-up logs
+## View the container startup logs
 
 It might take some time for the Windows container to load. To see the progress, go to the following URL. (Replace \<app-name> with the name of your app.)
 ```
@@ -215,11 +213,10 @@ The streamed logs look like this:
 
 ::: zone pivot="container-linux"
 
-
-Azure App Service uses the Docker container technology to host both built-in images and custom images. To see a list of built-in images, run the Azure CLI command, ['az webapp list-runtimes --os linux'](/cli/azure/webapp#az-webapp-list-runtimes). If those images don't satisfy your needs, you can build and deploy a custom image.
+Azure App Service uses Docker container technology to host both built-in images and custom images. To see a list of built-in images, run the Azure CLI command, [az webapp list-runtimes --os linux](/cli/azure/webapp#az-webapp-list-runtimes). If those images don't satisfy your needs, you can build and deploy a custom image.
 
 > [!NOTE]
-> Your container should target the x86-64 architecture. ARM64 is not supported.
+> Your container should target the x86-64 architecture. ARM64 isn't supported.
 >
 
 In this tutorial, you learn how to:
@@ -231,7 +228,7 @@ In this tutorial, you learn how to:
 > - Configure environment variables.
 > - Pull the image into App Service by using a managed identity.
 > - Access diagnostic logs.
-> - Enable CI/CD from Azure Container Registry to App Service.
+> - Enable CI/CD from Container Registry to App Service.
 > - Connect to the container by using SSH.
 
 Completing this tutorial incurs a small charge in your Azure account for the container registry and can incur more costs if you host the container for longer than a month.
@@ -239,7 +236,7 @@ Completing this tutorial incurs a small charge in your Azure account for the con
 ## Set up your initial environment
 
 This tutorial requires version 2.0.80 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
-- Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Be sure that you have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
   - Install [Docker](https://docs.docker.com/get-started/#setup), which you use to build Docker images. Installing Docker might require a computer restart.
 
@@ -251,9 +248,9 @@ docker --version
 
 ## Clone or download the sample app
 
-You can obtain the sample for this tutorial via git clone or download.
+You can obtain the sample for this tutorial via Git clone or download.
 
-### Clone with Git
+### Clone the repo by using Git
 
 Clone the sample repository:
 
@@ -269,9 +266,9 @@ Then navigate to the folder:
 cd docker-django-webapp-linux
 ```
 
-### Download from GitHub
+### Download the ZIP from GitHub
 
-Instead of using git clone, you can visit [https://github.com/Azure-Samples/docker-django-webapp-linux](https://github.com/Azure-Samples/docker-django-webapp-linux) and select **Code** > **Local** > **Download ZIP**.
+Instead of using Git clone, you can go to [https://github.com/Azure-Samples/docker-django-webapp-linux](https://github.com/Azure-Samples/docker-django-webapp-linux) and select **Code** > **Local** > **Download ZIP**.
 
 Unpack the ZIP file into a folder named *docker-django-webapp-linux*.
 
@@ -279,7 +276,7 @@ Then open a terminal window in the *docker-django-webapp-linux* folder.
 
 ## (Optional) Examine the Docker file
 
-This is the file in the sample that's named *Dockerfile*. It describes the Docker image and contains configuration instructions.
+Following is the file in the sample that's named *Dockerfile*. It describes the Docker image and contains configuration instructions.
 
 ```Dockerfile
 FROM tiangolo/uwsgi-nginx-flask:python3.6
@@ -315,7 +312,7 @@ ENTRYPOINT ["init.sh"]
 ## Build and test the image locally
 
 > [!NOTE]
-> Docker Hub has [quotas on the number of anonymous pulls per IP and the number of authenticated pulls per free user.](https://www.docker.com/pricing) If you notice your pulls from Docker Hub are being limited, try `docker login` if you're not already logged in.
+> Docker Hub imposes [quotas on the number of anonymous pulls per IP and the number of authenticated pulls per free user](https://www.docker.com/pricing). If you notice that your pulls from Docker Hub are being limited, try running `docker login` if you're not already logged in.
 >
 
 1. Run the following command to build the image:
@@ -330,7 +327,7 @@ ENTRYPOINT ["init.sh"]
     docker run -it -p 8000:8000 appsvc-tutorial-custom-image
     ```
 
-    This [`docker run`](https://docs.docker.com/engine/reference/commandline/run/) command specifies the port with the `-p` argument and includes the name of the image. `-it` lets you stop it with **Ctrl+C**.
+    This [`docker run`](https://docs.docker.com/engine/reference/commandline/run/) command specifies the port by using the `-p` argument and includes the name of the image. `-it` lets you stop it by using **Ctrl+C**.
 
     > [!TIP]
     > If you're running on Windows and see the error *standard_init_linux.go:211: exec user process caused "no such file or directory"*, the *init.sh* file contains CRLF line endings instead of the expected LF endings. This error happens if you used Git to clone the sample repository but omitted the `--config core.autocrlf=input` parameter. In this case, clone the repository again with the `--config` argument. You might also see the error if you edited *init.sh* and saved it with CRLF endings. In this case, save the file again with LF endings only.
@@ -339,7 +336,7 @@ ENTRYPOINT ["init.sh"]
 
    :::image type="content" source="./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-local.png" alt-text="Screenshot of the test results.":::    
 
-## I. Create a user-assigned managed identity
+## Create a user-assigned managed identity
 
 App Service can use either a default managed identity or a user-assigned managed identity to authenticate with a container registry. In this tutorial, you'll use a user-assigned managed identity.
 
@@ -406,7 +403,7 @@ App Service can use either a default managed identity or a user-assigned managed
 
 -----
 
-## II. Create a container registry
+## Create a container registry
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -485,7 +482,7 @@ App Service can use either a default managed identity or a user-assigned managed
 
 -----
 
-## III. Push the sample image to Azure Container Registry
+## Push the sample image to Azure Container Registry
 
 In this section, you push the image to Azure Container Registry, which will be used by App Service later.
 
@@ -515,7 +512,7 @@ In this section, you push the image to Azure Container Registry, which will be u
 
     While you're waiting, you can complete the steps in the next section to configure App Service to deploy from the registry.
 
-## IV. Authorize the managed identity for your registry
+## Authorize the managed identity for your registry
 
 The managed identity you created doesn't have authorization to pull from the container registry yet. In this step, you enable the authorization.
 
@@ -593,7 +590,7 @@ The managed identity you created doesn't have authorization to pull from the con
 
 -----
 
-## V. Create the web app
+## Create the web app
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -691,7 +688,7 @@ The managed identity you created doesn't have authorization to pull from the con
 
 -----
 
-## VI. Configure the web app
+## Configure the web app
 
 In this step, you configure the web app as follows:
 
@@ -827,7 +824,7 @@ In this step, you configure the web app as follows:
 :::row-end:::
 -----
 
-## VII. Browse to the web app
+## Browse to the web app
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -852,7 +849,7 @@ The first time you attempt to access the app, it might take some time for the ap
 
 :::image type="content" source="./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png" alt-text="A screenshot of web app running in a browser.":::
 
-## VIII. Access diagnostic logs
+## Access diagnostic logs
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -902,7 +899,7 @@ On the Deployment Center page, you can already see the log messages for pulling 
 
 -----
 
-## IX. Modify the app code and redeploy
+## Modify the app code and redeploy
 
 In this section, you make a change to the web app code, rebuild the image, and then push it to your container registry. App Service then automatically pulls the updated image from the registry to update the running web app.
 
@@ -944,7 +941,7 @@ In this section, you make a change to the web app code, rebuild the image, and t
 
 1. When the image push is complete, the webhook notifies App Service about the push, and App Service tries to pull in the updated image. Wait a few minutes, and then verify that the update has been deployed by browsing to `https://<app-name>.azurewebsites.net`.
 
-## X. Connect to the container using SSH
+## Connect to the container using SSH
 
 SSH enables improved-security communication between a container and a client. To enable an SSH connection to your container, you must configure your custom image for it. When the container is running, you can open an SSH connection.
 
@@ -1017,7 +1014,7 @@ service ssh start
 
 -----
 
-## XI. Clean up resources
+## Clean up resources
 
 ### [Azure CLI](#tab/azure-cli)
 
