@@ -1,3 +1,15 @@
+title: Central metadata cache for policy fragments
+titleSuffix: Azure API Management
+description: Implementation guidance for shared metadata caching patterns across fragments.
+services: api-management
+author: nicolela
+
+ms.service: azure-api-management
+ms.topic: concept-article
+ms.date: 08/19/2025
+ms.author: nicolela 
+---
+
 # Central metadata cache for policy fragments
 
 **Applies to:** All Azure API Management tiers
@@ -166,7 +178,7 @@ Other fragments can now access parsed metadata sections directly:
 Cache settings are stored in the metadata fragment as shown in the main example above. The cache fragment automatically uses these settings for both caching behavior and invalidation.  For example:
 
 ```xml
-<!-- Example: Updating cache settings in the metadata fragment -->
+<!-- Example: Updated cache settings in the metadata fragment -->
 'cache-settings': {
   'config-version': '1.0.1',     <!-- Change version to invalidate cache -->
   'ttl-seconds': 7200,           <!-- Increase TTL to 2 hours -->
@@ -269,7 +281,7 @@ When extracting metadata from request bodies for caching, always use `preserveCo
     var body = context.Request.Body.As<string>(preserveContent: true);
     var requestData = JObject.Parse(body);
     
-    // Extract metadata for routing/caching without consuming the body
+    // Extract metadata without consuming the body
     return new JObject {
       ["user-id"] = requestData["user"]?.ToString() ?? "anonymous"
     };

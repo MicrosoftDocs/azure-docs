@@ -1,3 +1,15 @@
+title: Policy injection and coordination with fragments
+titleSuffix: Azure API Management
+description: Comprehensive guidance on context variable handling, safe access patterns, and inter-fragment communication.
+services: api-management
+author: nicolela
+
+ms.service: azure-api-management
+ms.topic: concept-article
+ms.date: 08/19/2025
+ms.author: nicolela 
+---
+
 # Policy injection and coordination with fragments
 
 **Applies to:** All Azure API Management tiers
