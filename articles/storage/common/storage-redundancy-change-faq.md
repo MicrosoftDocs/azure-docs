@@ -1,13 +1,13 @@
 ---
-title: Data redundancy frequently asked questions
+title: Storage redundancy change FAQs
 titleSuffix: Azure Storage
-description: Data redundancy frequently asked questions in Azure Storage.
+description: Frequently asked questions about changing redundancy configuration.
 services: storage
 author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: concept-article
-ms.date: 08/12/2025
+ms.date: 08/18/2025
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.custom: references_regions, engagement
@@ -19,33 +19,37 @@ Initial: 69 (1620/75)
 Current: 99 (3350/0)
 -->
 
-# Azure Storage redundancy FAQs
+# Storage redundancy change FAQs
 
-This article contains answers to frequently asked questions about Azure Storage redundancy.
+The need to change your storage account's redundancy options can be driven by many different factors. The decision to change redundancy options is a dynamic process that involves carefully weighing the organization's needs for data availability, disaster recovery, performance, and cost against the risks and benefits of various redundancy options. Regular assessment and adjustment are crucial to ensuring an optimal and resilient data storage strategy. This article contains answers to frequently asked questions about Azure Storage redundancy.
 
 ## What is the billing impact of the SKU conversion process? 
 
 When you add or remove zonal redundancy to a storage account (LRS <-> ZRS, GRS <-> GZRS or RA-GRS <-> RA-GZRS) there's no initial cost for making the conversion. Once the SKU is successfully converted for the account, the ongoing data storage and transaction cost might be higher due to the increased replication. For example, when converting an account from LRS to ZRS completing the conversion is free of cost but ZRS has a higher data storage and data transaction cost than LRS. 
 
-**Add link to pricing page here.**
+For details on pricing, see the [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) article.
 
-When you add geo-redundancy (LRS -> GRS or ZRS -> GZRS), conversion incurs an egress bandwidth charge at the time of the change because your entire storage account is being replicated to the secondary region. All subsequent writes to the primary region also incur egress bandwidth charges to replicate the write to the secondary region.
+When you add geo-redundancy (LRS -> GRS / RA-GRS or ZRS -> GZRS / RA-> GZRS), the conversion incurs a [geo-replication data transfer charge](https://azure.microsoft.com/pricing/details/storage/blobs/) at the time of the change because your entire storage account is being replicated to the secondary region. All subsequent writes to the primary region also incur geo-replication data transfer charges to replicate the write to the secondary region.
 
 When you remove geo-redundancy (GRS -> LRS or ZRS -> GZRS), there are no costs for making this change.
 
 It's important to note when you remove read access from your storage account (RA-GRS -> GRS or RA-GZRS -> GZRS), that account is billed as RA-GRS or RA-GZRS for 30 days beyond the date on which it was converted.
 
-Learn more: Change how a storage account is replicated - Azure Storage | Microsoft Learn
+You can learn more about changing a storage account's replication options [here](http://www.foo.com).
     
 ## How long does the SKU conversion process take? 
 
 **Shall we explicitly callout here that creating a support ticket won't help?  Also clarify that ZRS and GRS migration process are different?**
 
-A zonal redundancy conversion (LRS <-> ZRS, GRS <-> GZRS, RA-GRS <-> RA-GZRS) typically starts within a few days after the request is validated. However, it might take up to weeks depending on current resource demands in the region, account size, and other factors. There's currently no SLA for completion of a SKU conversion. If you need more control over when a conversion begins and finishes, consider a Manual migration. Manual migrations utilize a feature or tool such as AzCopy to migrate the data of your current storage account to another storage account with the desired redundancy.
+A zonal redundancy conversion (LRS <-> ZRS, GRS <-> GZRS, RA-GRS <-> RA-GZRS) typically starts within a few days after the request is validated. However, it might take up to weeks depending on current resource demands in the region, account size, and other factors. 
 
-Learn more: Change how a storage account is replicated - Azure Storage | Microsoft Learn
-        
-A geo redundancy conversion (LRS <-> GRS or ZRS <-> GZRS) currently has no SLA for completion. The timeframe it takes to complete these conversions can vary depending on various factors, including:
+It is not possible to speed up this process by submitting a support request. The conversion progress will change to 'In progress' when data movement begins.
+
+There's currently no SLA for completion of a SKU conversion. If you need more control over when a conversion begins and finishes, consider a Manual migration. Manual migrations utilize a feature or tool such as AzCopy to migrate the data of your current storage account to another storage account with the desired redundancy.
+
+You can learn more about changing a storage account's replication options [here](http://www.foo.com).
+
+A geo redundancy conversion (LRS <-> GRS or ZRS <-> GZRS) currently has no SLA for completion. It is not possible to speed up this process by submitting a support request. The timeframe it takes to complete these conversions can vary depending on various factors, including:
 
 - The number and size of the objects in the storage account.
 - The available resources for background replication, such as CPU, memory, disk, and WAN capacity.
@@ -54,9 +58,11 @@ Learn more: Initiate a storage account failover - Azure Storage | Microsoft Lear
         
 ## Why is my SKU conversion process taking so long? 
 
-**Shall we explicitly callout here that creating a support ticket won't help?  Also clarify that ZRS and GRS migration process are different?**
+**Also clarify that ZRS and GRS migration process are different?**
 
-There's currently no SLA for completion of a  SKU conversion. If you need more control over when a conversion begins and finishes, consider a Manual migration. Manual migrations utilize a feature or tool such as AzCopy to migrate the data of your current storage account to another storage account with the desired redundancy. The SKU conversion process typically completes within a few days but can take up to a few weeks depending on the current resource demands in the region, account size along with various other factors.
+There's currently no SLA for completion of a  SKU conversion. It is not possible to speed up this process by submitting a support request. The conversion progress will change to 'In progress' when data movement begins.
+
+If you need more control over when a conversion begins and finishes, consider a Manual migration. Manual migrations utilize a feature or tool such as AzCopy to migrate the data of your current storage account to another storage account with the desired redundancy. The SKU conversion process typically completes within a few days but can take up to a few weeks depending on the current resource demands in the region, account size along with various other factors.
 
 Learn more: Change how a storage account is replicated - Azure Storage | Microsoft Learn
         
@@ -99,7 +105,6 @@ It's important to note if you decide to do ZRS -> LRS then LRS -> GRS, you must 
 
 - Object Replication: User can delete their object replication policies and retry. (WILL BE UNBLOCKED SOON)
 - NFSv3: User can't unconfigure NFSv3 once enabled so if they really want ZRS they have to do a manual migration. For example, use AzCopy
-- SFTP: User can disable SFTP and retry (Enable or disable SFTP support in Azure Blob Storage - Azure Storage | Microsoft Learn) (WILL BE UNBLOCKED SOON)
 - Point in time restore (PITR): User can disable PITR and retry (WILL BE UNBLOCKED SOON)
 - Archive data: User can rehydrate their data to cold, cool, or hot then retry or they can delete the archived data.
 - NFSv4 accounts with public endpoints: User can disable access to the storage account’s public endpoints (Change how a storage account is replicated - Azure Storage | Microsoft Learn)
