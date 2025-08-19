@@ -1,11 +1,11 @@
 ---
-title: Manage snapshot policies in Azure NetApp Files | Microsoft Docs
+title: Manage snapshot policies in Azure NetApp Files
 description: Describes how to create, manage, modify, and delete snapshot policies by using Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 03/18/2024
+ms.date: 05/18/2025
 ms.author: anfdocs
 # Customer intent: As a system administrator, I want to create and manage snapshot policies for Azure NetApp Files, so that I can ensure point-in-time recovery of volumes and streamline data management.
 ---
