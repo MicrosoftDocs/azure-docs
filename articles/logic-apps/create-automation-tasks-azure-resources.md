@@ -51,11 +51,11 @@ By comparison, Azure Automation is a cloud-based automation and configuration se
 
 ## Pricing
 
-When you create an automation task, charges don't start automatically incurring. Underneath, an automation task is powered by a workflow in a logic app resource that's hosted in multi-tenant Azure Logic Apps. So, the [Consumption pricing model](logic-apps-pricing.md) applies to automation tasks. Metering and billing are based on the trigger and action executions in the underlying logic app workflow.
+When you create an automation task, charges don't start automatically incurring. Underneath, an automation task is powered by a workflow in a logic app resource that multi-tenant Azure Logic Apps hosts. So, the [Consumption pricing model](logic-apps-pricing.md) applies to automation tasks. Metering and billing are based on the trigger and action executions in the underlying logic app workflow.
 
-Executions are metered and billed, regardless whether the workflow runs successfully or whether the workflow is even instantiated. For example, suppose your automation task uses a polling trigger that regularly makes an outgoing call to an endpoint. This outbound request is metered and billed as an execution, regardless whether the trigger fires or is skipped, which affects whether a workflow instance is created.
+Executions are metered and billed, regardless whether the workflow runs successfully or whether the workflow is even instantiated. For example, suppose your automation task uses a polling trigger that regularly makes an outgoing call to an endpoint. This outbound request is metered and billed as an execution. The request might cause the trigger to fires or be skipped, which affects whether a workflow instance is created.
 
-Triggers and actions follow [Consumption plan rates](https://azure.microsoft.com/pricing/details/logic-apps/), which differ based on whether these operations are ["built-in"](../connectors/built-in.md) or ["managed" (Standard or Enterprise)](../connectors/managed.md). Triggers and actions also make storage transactions, which use the [Consumption plan data rate](https://azure.microsoft.com/pricing/details/logic-apps/).
+Triggers and actions follow [Consumption plan rates](https://azure.microsoft.com/pricing/details/logic-apps/), which differ based on whether these operations are ["built-in"](../connectors/built-in.md) or ["managed" (Standard or Enterprise)](../connectors/managed.md). Triggers and actions also make storage transactions, which use the Consumption plan data rate.
 
 > [!NOTE]
 > As a monthly bonus, the Consumption plan includes *several thousand* built-in executions free of charge. 
@@ -77,31 +77,31 @@ Triggers and actions follow [Consumption plan rates](https://azure.microsoft.com
 
 1. On the resource navigation menu, in the **Automation** section, and select **Tasks (preview)**.
 
-   ![Screenshot that shows the Azure portal and storage account resource menu with "Tasks (preview)" selected.](./media/create-automation-tasks-azure-resources/storage-account-menu-automation-section.png)
+   :::image type="content" source="./media/create-automation-tasks-azure-resources/storage-account-menu-automation-section.png" alt-text="Screenshot shows the Azure portal and storage account resource menu with Tasks highlighted.":::
 
 1. On the **Tasks** pane, select **Add a task** so that you can select a task template.
 
-   ![Screenshot that shows the "Tasks (preview)" pane with "Add a task" selected.](./media/create-automation-tasks-azure-resources/add-automation-task.png)
+   :::image type="content" source="./media/create-automation-tasks-azure-resources/add-automation-task.png" alt-text="Screenshot shows the Tasks pane with the Add a task link.":::
 
 1. On the **Add a task** pane, under **Select a template**, in the template for the replication task that you want to create, select **Select**. If the next page doesn't appear, select **Next: Authenticate**.
 
    This example continues by selecting the **Send monthly cost for resource** task template.
 
-   ![Screenshot that shows the "Add a task" pane with "Send monthly cost for resource" template selected.](./media/create-automation-tasks-azure-resources/select-task-template.png)
+   :::image type="content" source="./media/create-automation-tasks-azure-resources/select-task-template.png" alt-text="Screenshot shows the Add a task pane with the Send monthly cost for resource template highlighted and the option to select.":::
 
 1. Under **Authenticate**, in the **Connections** section, select **Create** for every connection that appears in the task so that you can provide authentication credentials for all the connections. The types of connections in each task vary based on the task.
 
    This example shows only one of the connections that's required by this task.
 
-   ![Screenshot that shows the selected "Create" option for the Azure Resource Manager connection.](./media/create-automation-tasks-azure-resources/create-authenticate-connections.png)
+   :::image type="content" source="./media/create-automation-tasks-azure-resources/create-authenticate-connections.png" alt-text="Screenshot shows the Create option for the Azure Resource Manager connection.":::
 
 1. When you're prompted, sign in with your Azure account credentials.
 
-   ![Screenshot that shows the selection, "Sign in".](./media/create-automation-tasks-azure-resources/create-connection-sign-in.png)
+   :::image type="content" source="./media/create-automation-tasks-azure-resources/create-connection-sign-in.png" alt-text="Screenshot shows the Connect pane where you can select Sign In.":::
 
    Each successfully authenticated connection looks similar to this example:
 
-   ![Screenshot that shows successfully created connection.](./media/create-automation-tasks-azure-resources/create-connection-success.png)
+   :::image type="content" source="./media/create-automation-tasks-azure-resources/create-connection-success.png" alt-text="Screenshot shows a connection with the status Connected.":::
 
 1. After you authenticate all the connections, select **Next: Configure** if the next page doesn't appear.
 
@@ -117,18 +117,18 @@ Triggers and actions follow [Consumption plan rates](https://azure.microsoft.com
 
    Tasks that send email notifications require an email address.
 
-   ![Screenshot that shows the required information for the selected task.](./media/create-automation-tasks-azure-resources/provide-task-information.png)
+   :::image type="content" source="./media/create-automation-tasks-azure-resources/provide-task-information.png" alt-text="Screenshot shows the required information to configure the task.":::
 
    The task that you created, which is automatically live and running, now appears on the **Tasks** list.
 
-   ![Screenshot that shows the automation tasks list](./media/create-automation-tasks-azure-resources/automation-tasks-list.png)
+   :::image type="content" source="./media/create-automation-tasks-azure-resources/automation-tasks-list.png" alt-text="Screenshot shows the automation tasks list with your new task.":::
 
    > [!TIP]
    > If the task doesn't appear immediately, try refreshing the tasks list or wait a little before you refresh. On the toolbar, select **Refresh**.
 
    After the selected task runs, you get an email that looks like this example:
 
-   ![Screenshot that shows email notification sent by task.](./media/create-automation-tasks-azure-resources/email-notification-received.png)
+   :::image type="content" source="./media/create-automation-tasks-azure-resources/email-notification-received.png" alt-text="Screenshot shows an email notification sent by task.":::
 
 <a name="review-task-history"></a>
 
@@ -142,11 +142,11 @@ To view a task's history of runs along with their statuses, inputs, outputs, and
 
 1. In the tasks list, find the task that you want to review. In that task's **Runs** column, select **View**.
 
-   ![Screenshot that shows a task and the selected "View" option.](./media/create-automation-tasks-azure-resources/view-runs-for-task.png)
+   :::image type="content" source="./media/create-automation-tasks-azure-resources/view-runs-for-task.png" alt-text="Screenshot shows the task you created with the View option highlighted.":::
 
    The **Runs history** pane shows all the runs for the task along with their statuses, start times, identifiers, and run durations.
 
-   ![Screenshot that shows a task's runs, their statuses, and other information.](./media/create-automation-tasks-azure-resources/view-runs-history.png)
+   :::image type="content" source="./media/create-automation-tasks-azure-resources/view-runs-history.png" alt-text="Screenshot shows a task's runs, their statuses, and other information.":::
 
    Here the possible statuses for a run:
 
@@ -157,9 +157,8 @@ To view a task's history of runs along with their statuses, inputs, outputs, and
    | **Running** | The task is currently running. |
    | **Succeeded** | All actions succeeded. A task can still finish successfully if an action failed, but a subsequent action existed to handle the failure. |
    | **Waiting** | The run hasn't started yet and is paused because an earlier instance of the task is still running. |
-   |||
 
-   For more information, see [Review runs history in monitoring view](monitor-logic-apps.md#review-runs-history).
+   For more information, see [Review workflow run history](monitor-logic-apps.md#review-workflow-run-history).
 
 1. To view the statuses and other information for each step in a run, select that run.
 
@@ -169,19 +168,11 @@ To view a task's history of runs along with their statuses, inputs, outputs, and
 
    * Each step shows its status and run duration. Steps that have 0-second durations took less than 1 second to run.
 
-   ![Screenshot that shows each step in the run, status, and run duration.](./media/create-automation-tasks-azure-resources/runs-history-details.png)
+   :::image type="content" source="./media/create-automation-tasks-azure-resources/runs-history-details.png" alt-text="Screenshot shows each step in the run, status, and run duration.":::
 
 1. To review the inputs and outputs for each step, select the step, which expands.
 
-   This example shows the inputs for the Recurrence trigger, which has no outputs because the trigger only specifies when the workflow runs and provides no outputs for the subsequent actions to process.
-
-   ![Screenshot that shows the expanded trigger and inputs.](./media/create-automation-tasks-azure-resources/view-trigger-inputs.png)
-
-   In contrast, the **Send an email** action has inputs from earlier actions in the workflow and outputs.
-
-   ![Screenshot that shows an expanded action, inputs, and outputs.](./media/create-automation-tasks-azure-resources/view-action-inputs-outputs.png)
-
-To learn how you can build your own automated workflows so that you can integrate apps, data, services, and systems apart from the context of automation tasks for Azure resources, see [Quickstart: Create an example Consumption logic app workflow - Azure portal](quickstart-create-example-consumption-workflow.md).
+To learn how you can build your own automated workflows so that you can integrate apps, data, services, and systems apart from the context of automation tasks for Azure resources, see [Quickstart: Create a Consumption logic app workflow in the Azure portal](quickstart-create-example-consumption-workflow.md).
 
 <a name="edit-task"></a>
 
@@ -189,7 +180,7 @@ To learn how you can build your own automated workflows so that you can integrat
 
 To change a task, you have these options:
 
-* [Edit the task "inline"](#edit-task-inline) so that you can change the task's properties, such as connection information or configuration information, for example, your email address.
+* [Edit the task inline](#edit-task-inline) so that you can change the task's properties, such as connection information or configuration information, for example, your email address.
 
 * [Edit the task's underlying workflow](#edit-task-workflow) in the workflow designer.
 
@@ -199,23 +190,23 @@ To change a task, you have these options:
 
 1. In the [Azure portal](https://portal.azure.com), find the resource that has the task that you want to update.
 
-1. On the resource navigation menu, in the **Automation** section, select **Tasks (preview)**.
+1. On the resource navigation menu, in the **Automation** section, select **Tasks**.
 
 1. In the tasks list, find the task that you want to update. Open the task's ellipses (**...**) menu, and select **Edit in-line**.
 
-   ![Screenshot that shows the opened ellipses menu and the selected option, "Edit in-line".](./media/create-automation-tasks-azure-resources/edit-task-in-line.png)
+   :::image type="content" source="./media/create-automation-tasks-azure-resources/edit-task-in-line.png" alt-text="Screenshot shows a task with the opened ellipses menu and the selected option Edit in-line.":::
 
    By default, the **Authenticate** tab appears and shows the existing connections.
 
 1. To add new authentication credentials or select different existing authentication credentials for a connection, open the connection's ellipses (**...**) menu, and select either **Add new connection** or if available, different authentication credentials.
 
-   ![Screenshot that shows the Authentication tab, existing connections, and the selected ellipses menu.](./media/create-automation-tasks-azure-resources/edit-connections.png)
+   :::image type="content" source="./media/create-automation-tasks-azure-resources/edit-connections.png" alt-text="Screenshot shows the Authentication tab with existing connections and a selected ellipses menu.":::
 
 1. To update other task properties, select **Next: Configure**.
 
    For the task in this example, the only property available for edit is the email address.
 
-   ![Screenshot that shows the "Configure" tab.](./media/create-automation-tasks-azure-resources/edit-task-configuration.png)
+   :::image type="content" source="./media/create-automation-tasks-azure-resources/edit-task-configuration.png" alt-text="Screenshot that shows the Configure tab where you can edit the email address.":::
 
 1. When you're done, select **Save**.
 
@@ -223,14 +214,14 @@ To change a task, you have these options:
 
 ### Edit the task's underlying workflow
 
-When you change the underlying workflow for an automation task, your changes affect only the task instance that you created, and not the template that creates the task. After you make and save your changes, the name that you provided for your original task might not accurately describe the task anymore, so you might have to recreate the task with a different name.
+When you change the underlying workflow for an automation task, your changes affect only the task instance that you created, and not the template that creates the task. After you make and save your changes, the name that you provided for your original task might not accurately describe the task. You can recreate the task with a different name.
 
 > [!TIP]
 > As a best practice, clone the underlying workflow so that you can edit the copied version instead. 
 > That way, you can make and test your changes on the copy while the original automation task continues 
-> to work and run without risking disruption or breaking existing functionality. After you finish your 
+> to work and run. You don't risk disruption or breaking existing functionality. After you finish your 
 > changes and are satisfied that the new version runs successfully, you can disable or delete the 
-> original automation task and use the cloned version for your automation task. The following steps 
+> original automation task. Then use the cloned version for your automation task. The following steps 
 > include information about how to clone your workflow.
 
 1. In the [Azure portal](https://portal.azure.com), find the resource that has the task that you want to update.
@@ -239,27 +230,25 @@ When you change the underlying workflow for an automation task, your changes aff
 
 1. In the tasks list, find the task that you want to update. Open the task's ellipses (**...**) menu, and select **Open in Logic Apps**.
 
-   ![Screenshot that shows the opened ellipses menu and the selected option, "Open in Logic Apps".](./media/create-automation-tasks-azure-resources/edit-task-logic-app-designer.png)
+   :::image type="content" source="./media/create-automation-tasks-azure-resources/edit-task-logic-app-designer.png" alt-text="Screenshot shows the opened ellipses menu and the selected option, Open in Logic Apps.":::
 
-   The task's underlying workflow opens in the Azure Logic Apps service and shows the **Overview** pane where you can view the same runs history that's available for the task.
+   The task's underlying workflow opens in the Azure Logic Apps service.
 
-   ![Screenshot that shows the task in Azure Logic Apps view with Overview pane selected.](./media/create-automation-tasks-azure-resources/task-logic-apps-view.png)
-
-1. To open the underlying workflow in the designer, on the logic app navigation menu, select **Logic app designer**.
-
-   ![Screenshot that shows the "Logic app designer" menu option selected and designer surface with the underlying workflow.](./media/create-automation-tasks-azure-resources/view-task-workflow-logic-app-designer.png)
+   :::image type="content" source="./media/create-automation-tasks-azure-resources/view-task-workflow-logic-app-designer.png" alt-text="Screenshot shows the workflow designer surface with the underlying workflow.":::
 
    You can now edit the properties for the workflow's trigger and actions as well as edit the trigger and actions that define the workflow itself. However, as best practice, follow the steps to clone your workflow so that you can make your changes on a copy while the original workflow continues to work and run.
 
 1. To clone your workflow and edit the copied version instead, follow these steps:
 
-   1. On the logic app workflow menu, select **Overview**.
+   1. Open your logic app to the **Overview** page by selecting **Home** in the Azure portal.
+   
+   1. Use the search box to find and open **Logic app** and select your logic app.
 
-   1. On the overview pane's toolbar, select **Clone**.
+   1. On the **Overview** toolbar, select **Clone**.
 
-   1. On the logic app creation pane, under **Name**, enter a new name for your copied logic app workflow.
+   1. On **Create a logic app**, under **Name**, enter a new name for your copied logic app workflow.
 
-      Except for **Logic App Status**, the other properties aren't available for editing.
+      Except for **Logic App Status**, you can't edit the other properties.
 
    1. Under **Logic App Status**, select **Disabled** so that the cloned workflow doesn't run while you make your changes. You can enable the workflow when you're ready to test your changes.
 
@@ -269,19 +258,15 @@ When you change the underlying workflow for an automation task, your changes aff
 
    For example, you can change the Recurrence trigger to run weekly, rather than monthly.
 
-   ![Screenshot that shows the expanded Recurrence trigger with the Frequency list open to show available frequency options.](./media/create-automation-tasks-azure-resources/edit-recurrence-trigger.png)
+   :::image type="content" source="./media/create-automation-tasks-azure-resources/edit-recurrence-trigger.png" alt-text="Screenshot shows the expanded Recurrence trigger with the Frequency list open to show available frequency options.":::
 
    For more information about the Recurrence trigger, see [Create, schedule, and run recurring tasks and workflows with the Recurrence trigger.](../connectors/connectors-native-recurrence.md).
 
 1. To save your changes, on the designer toolbar, select **Save**.
 
-   ![Screenshot that shows the designer toolbar and the selected "Save" command.](./media/create-automation-tasks-azure-resources/save-updated-workflow.png)
+   :::image type="content" source="./media/create-automation-tasks-azure-resources/save-updated-workflow.png" alt-text="Screenshot shows the designer toolbar and the highlighted Save icon.":::
 
 1. To test and run the updated workflow, on the designer toolbar, select **Run**.
-
-   After the run finishes, the designer shows the workflow's run details.
-
-   ![Screenshot that shows the workflow's run details on the designer.](./media/create-automation-tasks-azure-resources/view-run-details-designer.png)
 
 1. To disable the workflow so that the task doesn't continue running, see [Manage logic apps in the Azure portal](../logic-apps/manage-logic-apps-with-azure-portal.md).
 
@@ -289,7 +274,7 @@ When you change the underlying workflow for an automation task, your changes aff
 
 ## Create automation task template from workflow
 
-You can create your own automation task template by using any Consumption logic app workflow that starts with a recurring or event-based trigger, but not HTTP-based triggers or HTTP-based webhook triggers. For this task, you'll need the following items:
+You can create your own automation task template by using any Consumption logic app workflow that starts with a recurring or event-based trigger, but not HTTP-based triggers or HTTP-based webhook triggers. For this task, you need the following items:
 
 * A [GitHub](https://github.com) account
 
@@ -300,7 +285,7 @@ You can create your own automation task template by using any Consumption logic 
   * [About forks](https://docs.github.com/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)
   * [Fork a repo](https://docs.github.com/get-started/quickstart/fork-a-repo)
 
-* A working branch in your forked repository where you'll add your automation task template.
+* A working branch in your forked repository where you add your automation task template.
 
   For more information about branches and creating a branch, review the following documentation:
 
@@ -322,13 +307,15 @@ After the Azure Logic Apps team reviews and approves your PR for merging to the 
 
 ### Export workflow to automation task template
 
-1. In the [Azure portal](https://portal.azure.com), open the logic app workflow that you want to export. Make sure that the workflow starts with a recurring or event-based trigger, not an HTTP-based trigger or HTTP-based webhook trigger.
+Before you begin, make sure that the workflow starts with a recurring or event-based trigger, instead of an HTTP-based trigger or HTTP-based webhook trigger.
+
+1. In the [Azure portal](https://portal.azure.com), open the logic app workflow that you want to export. 
 
 1. On the logic app resource menu, select **Overview**.
 
 1. On the **Overview** pane toolbar, select **Export** > **Export to Automation Task**.
 
-   ![Screenshot showing the 'Overview' pane toolbar with 'Export' menu open and 'Export to Automation Task' selected.](./media/create-automation-tasks-azure-resources/export-automation-task.png)
+   :::image type="content" source="./media/create-automation-tasks-azure-resources/export-automation-task.png" alt-text="Screenshot show the Overview toolbar with Export menu open and Export to Automation Task highlighted.":::
 
 1. On the **Export to Automation Task** pane that opens, provide the following information:
 
@@ -336,29 +323,22 @@ After the Azure Logic Apps team reviews and approves your PR for merging to the 
    |----------|----------|-------|-------------|
    | **Template Name** | Yes | <*template-name*> | The friendly display name for the automation task template. <p><p>**Important**: Make sure that you use a concise and easy-to-understand name, for example, **List stale virtual machines**. |
    | **Template Description** | Yes | <*template-description*> | A description for the template's task or purpose |
-   | **Supported Resource Types** | No | Empty or <*supported-Azure-resource-type-list*> | The first-class Azure resource types where you want to make the template available. Sub-resource types are currently unsupported. To include all first-class Azure resource types, leave this property empty. To specify multiple resource types, separate each name with a comma and use the following syntax: <p><p>**Microsoft.<*service-provider*>/<*entity*>** <p><p>For example, to make the template available for Azure resource groups, specify **Microsoft.Resources/resourceGroups**. For more information, review [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md). |
+   | **Supported Resource Types** | No | Empty or <*supported-Azure-resource-type-list*> | The first-class Azure resource types where you want to make the template available. Subresource types are currently unsupported. To include all first-class Azure resource types, leave this property empty. To specify multiple resource types, separate each name with a comma and use the following syntax: <p><p>**Microsoft.<*service-provider*>/<*entity*>** <p><p>For example, to make the template available for Azure resource groups, specify **Microsoft.Resources/resourceGroups**. For more information, review [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md). |
    | **Unsupported Resource Types** | No | Empty or <*unsupported-Azure-resource-type-list*> | If any, the Azure resource types where you specifically don't want to make the template available. To specify multiple resource types, separate each name with a comma and use the following syntax: <p><p>**Microsoft.<*service-provider*>/<*entity*>** <p><p>For example, to make the template unavailable for Azure resource groups, specify **Microsoft.Resources/resourceGroups**. For more information, review [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md). |
-   | **Configure Parameters** | No | Varies | If your workflow includes cross-environment [parameter definitions](create-parameters-workflows.md), those parameters appear in this section for you to configure further. You can select whether each parameter value is provided either from the resource or the task creator. <p><p>- If you select **From Resource**, select a **Source Parameter** property value to use from that resource: <p>-- **Resource Name** <br>-- **Resource Type** <br>-- **Resource Id** <br>-- **Subscription Id** <br>-- **Resource Group** <br>-- **Resource Location**. <p><p>- If you select **User Provided**, select a **Template** format that determines how the task creator provides the parameter value: <p>-- **Default**: The parameter value is anything other than an interval, frequency, or time zone. <p>---- Specify the parameter's display name, default value, and description. <p>---- If the value is a timestamp (*hh:mm:ss*), set the **Format** property to **Time Format**. <p>---- To mark the parameter as required, change the **Optional** to **Required**. <p>-- **Interval**: The parameter value is an interval, such as **1** or **12**. <p>-- **Frequency**: The parameter value is a frequency, such as **Hour**, **Day** or **Month**. <p>-- **Timezone**: The parameter value is a timezone, such as **(UTC-08:00) Pacific Time (US & Canada)**. |
+   | **Configure Parameters** | No | Varies | If your workflow includes cross-environment [parameter definitions](create-parameters-workflows.md), those parameters appear in this section for you to configure further. You can select whether each parameter value is provided either from the resource or the task creator. <p><p>- If you select **From Resource**, select a **Source Parameter** property value to use from that resource: <p>-- **Resource Name** <br>-- **Resource Type** <br>-- **Resource Id** <br>-- **Subscription Id** <br>-- **Resource Group** <br>-- **Resource Location**. <p><p>- If you select **User Provided**, select a **Template** format that determines how the task creator provides the parameter value: <p>-- **Default**: The parameter value is anything other than an interval, frequency, or time zone. <p>---- Specify the parameter's display name, default value, and description. <p>---- If the value is a timestamp (*hh:mm:ss*), set the **Format** property to **Time Format**. <p>---- To mark the parameter as required, change the **Optional** to **Required**. <p>-- **Interval**: The parameter value is an interval, such as **1** or **12**. <p>-- **Frequency**: The parameter value is a frequency, such as **Hour**, **Day, or **Month**. <p>-- **Timezone**: The parameter value is a timezone, such as **(UTC-08:00) Pacific Time (US & Canada)**. |
    |||||
 
-   The following example shows the properties for a sample automation task template that works only on an Azure resource group:
+   The following example shows the properties for a sample automation task template:
 
-   ![Screenshot showing the 'Export to Automation Task' pane with example properties for an automation task template.](./media/create-automation-tasks-azure-resources/export-template-properties.png)
+   :::image type="content" source="./media/create-automation-tasks-azure-resources/export-template-properties.png" alt-text="Screenshot showing the Export to Automation Task pane with example properties for an automation task template.":::
 
-   In this example, the task's underlying workflow includes the following parameter definitions and specifies that these parameter values are provided by the task creator:
-
-   | Parameter | Description |
-   |-----------|-------------|
-   | **emailAddress** | Specifies the email address for where to send the report. This parameter uses the **Default** template, which lets you specify the parameter's information, the expected format, and whether the parameter is optional or not. For this example parameter, the expected format is **None**, and the parameter is **Required**. |
-   | **numberOf** | Specifies the maximum number of time units that a virtual machine can stay idle. This parameter uses the **Default** template. |
-   | **timeUnit** | Specifies the time unit to use for the parameter value. This parameter uses the **Frequency** template, which shows the time units that the task creator can select, for example, **Hour**, **Day**, or **Month**. |
-   |||
+   In this example, the task's underlying workflow includes the following parameter definitions and specifies that these parameter values are provided by the task creator.
 
 1. When you're done, select **Download Template**, and save the template using the **.json** file name extension. For a consistent template name, use only lowercase, hyphens between words, and the following syntax:
 
    **<*action-verb*>-<*Azure-resource*>**
 
-   For example, based on the earlier example template name, you might name the template file as **list-stale-virtual-machines.json**.
+   For example, based on the earlier example template name, you might name the template file as **power-off-virtual-machine.json**.
 
 <a name="upload-template"></a>
 
@@ -446,6 +426,6 @@ If your task runs successfully, continue by creating a pull request from your wo
 
 We'd like to hear from you! To report bugs, provide feedback, or ask questions about this preview capability, [contact the Azure Logic Apps team](mailto:logicappspm@microsoft.com).
 
-## Next steps
+## Next step
 
-* [Manage logic apps in the Azure portal](manage-logic-apps-with-azure-portal.md)
+* [Edit and manage logic app workflows](manage-logic-apps-with-azure-portal.md)
