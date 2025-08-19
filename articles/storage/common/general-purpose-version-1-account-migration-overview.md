@@ -16,19 +16,15 @@ ms.custom: devx-track-arm-template
 ---
 
 # General-purpose v1 (GPv1) storage account retirement overview
-
 Azure Storage is retiring the General-purpose v1 (GPv1) storage account type. This article explains why the change is occurring, what it means for your workloads, and how to prepare for the transition to General-purpose v2 (GPv2) accounts.
 
 ## Why is GPv1 being retired?
-
 GPv1 was introduced to support early Azure storage scenarios across blobs, tables, queues, and files. However, GPv2 has since become the default standard for storage accounts, offering broader feature support, improved consistency, and better performance.
 
 By retiring GPv1, Azure can simplify the platform, eliminate legacy metering inconsistencies, and ensure all customers benefit from modern capabilities and pricing models.
 
 ## What is changing?
-
 Retirement of GPv1 storage accounts means:
-
 | Date           | Milestone                                                   |
 |----------------|-------------------------------------------------------------|
 | September 2025 | Retirement announced                                        |
@@ -38,7 +34,6 @@ Retirement of GPv1 storage accounts means:
 The retirement takes effect globally across all Azure regions.
 
 ## Key differences between GPv1 and GPv2
-
 | Feature | GPv1 | GPv2 |
 |--------|------|------|
 | Blob tiering (Hot/Cool/Archive) | ❌ | ✅ |
@@ -76,7 +71,6 @@ GPv2 supports all capabilities of GPv1 and adds several enhancements, including 
 - The upgrade is **non-disruptive**; your data and endpoints remain the same.
 
 ## How should I prepare?
-
 To minimize risk and ensure a smooth migration:
 
 - **Inventory your accounts**: Use [Azure Resource Graph](../../governance/resource-graph/overview.md), CLI, [Azure Inventory](../blobs/blob-inventory-how-to.md), or the Portal to identify all GPv1 accounts.
@@ -88,7 +82,6 @@ To minimize risk and ensure a smooth migration:
 >Most workloads can migrate from GPv1 to GPv2 without code changes.
 
 ## Timeline and milestones
-
 | Date | Milestone |
 |------|-----------|
 | September 2025 | GPv1 retirement announced |
@@ -120,8 +113,7 @@ If you have a support plan and you need technical help, create a support request
 
 
 
-## Related content
-
+## Need help?
 Learn more about related features and how to migrate:
 
 - [Upgrade a storage account to GPv2](storage-account-upgrade.md)

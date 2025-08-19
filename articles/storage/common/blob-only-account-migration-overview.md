@@ -15,13 +15,10 @@ ms.custom: devx-track-arm-template
 ---
 
 # Blob-Only storage account retirement overview
-
 Azure Storage is retiring the **Blob-Only** storage account type. This article explains what this change means for your blob-only workloads and how to prepare for the transition to **General-purpose v2 (GPv2)** storage accounts.
 
 ## Why is Blob-Only being retired?
-
 Blob-Only accounts were introduced to support blob-only scenarios with account-level access tiering. However, **GPv2** has since become the standard for all new storage accounts, offering:
-
 - **Per-blob tiering** (Hot, Cool, Archive)
 - **Lifecycle management**
 - **Immutable blob storage**
@@ -29,10 +26,9 @@ Blob-Only accounts were introduced to support blob-only scenarios with account-l
 - **Advanced redundancy options**
 - **Support for all storage services** (blobs, tables, queues, files)
 
-By retiring BlobStorage, Azure simplifies the platform and ensures all customers benefit from modern capabilities and consistent pricing.
+By retiring Blob-Only accounts, Azure simplifies the platform and ensures all customers benefit from modern capabilities and consistent pricing.
 
 ## What is changing?
-
 | Date           | Milestone                                      |
 |----------------|------------------------------------------------|
 | September 2025 | Retirement announced                          |
@@ -42,7 +38,6 @@ By retiring BlobStorage, Azure simplifies the platform and ensures all customers
 After the retirement date, **data access will be blocked** for all BlobStorage accounts.
 
 ## Why migrate to GPv2?
-
 | Feature                          | BlobStorage     | GPv2           |
 |----------------------------------|------------------|----------------|
 | Blob tiering                     | ✅ Account-level | ✅ Per-blob     |
@@ -57,8 +52,7 @@ After the retirement date, **data access will be blocked** for all BlobStorage a
 GPv2 supports all blob features available in BlobStorage accounts—and more—while enabling finer control and broader service integration.
 
 ## Migration guidance
-
-1. **Inventory your BlobStorage accounts**: using Azure CLI, Resource Graph, or the Portal.
+1. **Inventory your Blob-Only Storage accounts**: Use [Azure Resource Graph](../../governance/resource-graph/overview.md), CLI, [Azure Inventory](../blobs/blob-inventory-how-to.md), or the Portal to identify all Blob-only storage accounts.
 2. **Evaluate workloads**: to ensure compatibility with GPv2 (most blob-only workloads require no code changes).
 3. **Migrate to GPv2**: Use the Azure portal, CLI, or automation tools to upgrade from GPv1 to GPv2. [Learn more about the upgrade process](storage-account-upgrade.md).
 4. **Validate workloads**: post-migration to ensure functionality and billing accuracy.
@@ -71,12 +65,10 @@ GPv2 supports all blob features available in BlobStorage accounts—and more—w
 >GPv2 enables per-blob tiering and lifecycle rules, offering better cost optimization and automation.
 
 ## What happens if I don’t migrate?
-
 After **August 31, 2026**, you'll no longer be able to manage Blob-Only Storage accounts. After **September 2026**, if you don't migrate your Blob-Only storage account to General-purpose v2, all existing Blob-Only accounts are auto migrated over to a General-purpose v2 account, which may result in higher billing costs. Your decision not to migrate an existing Blob-Only account will be construed as consent for Microsoft to migrate the account on your behalf.
 
 ## Need help?
 For assistance with migration or to learn more about GPv2 features, refer to the following resources:
-
 
 - [Upgrade a storage account to GPv2](storage-account-upgrade.md)
 - [Storage account overview](storage-account-overview.md)
