@@ -6,7 +6,7 @@ ms.topic: how-to
 author: apurbasroy
 ms.author: apsinhar
 ms.reviewer: nijelsf
-ms.date: 9/20/2025
+ms.date: 08/20/2025
 ---
 
 # **Manage Entra ID-enabled Azure HDInsight clusters with ARM templates**
