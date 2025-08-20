@@ -237,7 +237,7 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 
     ---
 
-    This code shows you how to connect to an Azure Cache for Redis instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` and `CLIENT LIST` commands are also executed.
+    This code shows you how to connect to an Azure Cache for Redis instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` commands are also executed.
 
 1. Close the **App.java** file.
 
@@ -249,7 +249,7 @@ Execute the following Maven command to build and run the app:
 mvn compile exec:java -D exec.mainClass=example.demo.App
 ```
 
-In the following output, you can see that the `Message` key previously had a cached value. The value was updated to a new value using `jedis.set`. The app also executed the `PING` and `CLIENT LIST` commands.
+In the following output, you can see that the `Message` key previously had a cached value. The value was updated to a new value using `jedis.set`. The app also executed the `PING` commands.
 
 ```output
 Cache Command  : Ping
@@ -264,8 +264,6 @@ Cache Response : OK
 Cache Command  : GET Message
 Cache Response : Hello! The cache is working from Java!
 
-Cache Command  : CLIENT LIST
-Cache Response : id=777430 addr=             :58989 fd=22 name= age=1 idle=0 flags=N db=0 sub=0 psub=0 multi=-1 qbuf=0 qbuf-free=32768 obl=0 oll=0 omem=0 ow=0 owmem=0 events=r cmd=client numops=6
 ```
 
 [!INCLUDE [redis-cache-resource-group-clean-up](includes/redis-cache-resource-group-clean-up.md)]
