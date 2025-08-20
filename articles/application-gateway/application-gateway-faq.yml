@@ -185,7 +185,9 @@ sections:
       - question: How does Application Gateway handle routine maintenance?
         answer: |
           Updates initiated to Application Gateway are applied one [update domain](/azure/virtual-machines/availability-set-overview#how-do-availability-sets-work) at a time. As each update domain's instances are being updated, the remaining instances in other update domains continue to serve traffic. Active connections are gracefully drained from the instances being updated for up to 5 minutes to help establish connectivity to instances in a different update domain before the update begins. The update process proceeds to the next set of instances only if the current set of instances were upgraded successfully. 
+          
           Azure Application Gateway also supports MaxSurge ([Rolling Upgrades with MaxSurge](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-maxsurge)), a capability within Azure Virtual Machine Scale Sets (VMSS) that enables new instances to be provisioned during rolling upgrades without taking existing ones offline. By integrating MaxSurge into the upgrade process, customers can transition to newer gateway versions without any capacity degradation. MaxSurge is automatically enabled on Application Gateway and requires no configuration. 
+          
           **Note:** Additional IP space is required to provision the temporary instances used by MaxSurge. If sufficient IP space is not available during an update, Application Gateway will fall back to the traditional upgrade method, which may result in reduced maximum capacity based on the number of instances. 
   
   - name: Configuration
