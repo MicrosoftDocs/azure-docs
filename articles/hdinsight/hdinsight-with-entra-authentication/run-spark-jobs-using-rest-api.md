@@ -81,7 +81,7 @@ curl -k -v -H "Content-Type: application/json" -H "Authorization: Bearer " -X PO
 
 ```
 
-## Examples
+### Examples
 
 - If the jar file is on the cluster storage (WASBS)
     
@@ -113,7 +113,7 @@ curl -k -v -H "Authorization: Bearer " -X GET "https://<spark_cluster_name>.azur
 
 ```
 
-## Examples
+### Examples
 
 - If you want to retrieve all the Livy Spark batches running on the cluster:
     
@@ -143,7 +143,7 @@ curl -k -v -H "Authorization: Bearer " -X DELETE "https://<spark_cluster_name>.a
 
 ```
 
-## Example
+### Example
 
 Deleting a batch job with batch ID `5`.
 
@@ -309,6 +309,6 @@ HDInsight 3.5 clusters and above, by default, disable use of local file paths to
 
 ## Submitting Livy jobs for a cluster within an Azure virtual network
 
-If you connect to an HDInsight Spark cluster from within an Azure Virtual Network, you can directly connect to Livy on the cluster. In such a case, the URL for Livy endpoint is `http://<IP address of the headnode>:8998/batches`. Here, **8998** is the port on which Livy runs on the cluster headnode. For more information on accessing services on non-public ports, see [Ports used by Apache Hadoop services on HDInsight](../hdinsight-hadoop-port-settings-for-services).
+If you connect to an HDInsight Spark cluster from within an Azure Virtual Network, you can directly connect to Livy on the cluster. In such a case, the URL for Livy endpoint is `http://<IP address of the headnode>:8998/batches`. Here, **8998** is the port on which Livy runs on the cluster headnode. For more information on accessing services on non-public ports, see [Ports used by Apache Hadoop services on HDInsight](./hdinsight-hadoop-port-settings-for-services).
 
 ## Next Steps:
