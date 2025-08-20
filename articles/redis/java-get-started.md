@@ -76,17 +76,20 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 
     ### [Microsoft Entra ID authentication (recommended)](#tab/entraid)
 
+    > [!NOTE]
+    > Microsoft has entered into a partnership with Redis, Inc. As part of this collaboration, Microsoft Entra ID authentication support has been moved from Azure SDK to Redis Entra ID extensions. The new `redis-authx-entraid` library provides enhanced authentication capabilities and is the recommended approach for Microsoft Entra ID authentication with Azure Cache for Redis.
+
     ```xml
     <dependency>
-        <groupId>com.azure</groupId>
-        <artifactId>azure-identity</artifactId>
-        <version>1.15.0</version> <!-- {x-version-update;com.azure:azure-identity;dependency} -->
+        <groupId>redis.clients.authentication</groupId>
+        <artifactId>redis-authx-entraid</artifactId>
+        <version>0.1.1-beta1</version>
     </dependency>
 
     <dependency>
         <groupId>redis.clients</groupId>
         <artifactId>jedis</artifactId>
-        <version>5.2.0</version> <!-- {x-version-update;redis.clients:jedis;external_dependency} -->
+        <version>6.0.0</version> 
     </dependency>
     ```
 
@@ -98,7 +101,7 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
     <dependency>
         <groupId>redis.clients</groupId>
         <artifactId>jedis</artifactId>
-        <version>5.2.0</version> <!-- {x-version-update;redis.clients:jedis;external_dependency} -->
+        <version>6.0.0</version> 
     </dependency>
     ```
 
@@ -111,42 +114,56 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
     ```java
     package example.demo;
 
-    import com.azure.identity.DefaultAzureCredential;
-    import com.azure.identity.DefaultAzureCredentialBuilder;
-    import com.azure.core.credential.TokenRequestContext;
+    import redis.clients.authentication.core.TokenAuthConfig;
+    import redis.clients.authentication.entraid.EntraIDTokenAuthConfigBuilder;
     import redis.clients.jedis.DefaultJedisClientConfig;
-    import redis.clients.jedis.Jedis;
+    import redis.clients.jedis.HostAndPort;
+    import redis.clients.jedis.JedisClientConfig;
+    import redis.clients.jedis.UnifiedJedis;
+    import redis.clients.jedis.authentication.AuthXManager;
+
+    import java.util.Set;
 
     /**
-     * Redis test
+     * Redis test with Microsoft Entra ID authentication using redis-authx-entraid
+     * For more information about Redis authentication extensions, see:
+     * https://redis.io/docs/latest/develop/clients/jedis/amr/
      *
      */
     public class App
     {
         public static void main( String[] args )
         {
-
-            boolean useSsl = true;
-
-            //Construct a Token Credential from Identity library, e.g. DefaultAzureCredential / ClientSecretCredential / Client CertificateCredential / ManagedIdentityCredential etc.
-            DefaultAzureCredential defaultAzureCredential = new DefaultAzureCredentialBuilder().build();
-
-            // Fetch a Microsoft Entra token to be used for authentication. This token will be used as the password.
-                    String token = defaultAzureCredential
-                            .getToken(new TokenRequestContext()
-                                    .addScopes("https://redis.azure.com/.default")).block().getToken();
-
             String cacheHostname = System.getenv("REDIS_CACHE_HOSTNAME");
-            String username = System.getenv("USER_NAME");
-            int port = Integer.parseInt(System.getenv().getOrDefault("REDIS_CACHE_PORT", "6380"));
+            String clientId = System.getenv("REDIS_CLIENT_ID");
+            String clientSecret = System.getenv("REDIS_CLIENT_SECRET");
+            String authority = System.getenv("REDIS_AUTHORITY"); // e.g., "https://login.microsoftonline.com/<tenant-id>"
+            int port = Integer.parseInt(System.getenv().getOrDefault("REDIS_CACHE_PORT", "10000"));
+            String scopes = "https://redis.azure.com/.default"; // The scope for Azure Cache for Redis
 
-            // Connect to the Azure Cache for Redis over the TLS/SSL port using the key.
-            Jedis jedis = new Jedis(cacheHostname, port, DefaultJedisClientConfig.builder()
-                    .password(token) // Microsoft Entra access token as password is required.
-                    .user(username) // Username is Required
-                    .ssl(useSsl) // SSL Connection is Required
-                    .build());
-            // Perform cache operations using the cache connection object...
+            // Build TokenAuthConfig for Microsoft Entra ID authentication
+            // This can be configured with managed identity, client secret, client certificate,
+            // or any other credential that implements TokenCredential
+            TokenAuthConfig tokenAuthConfig = new EntraIDTokenAuthConfigBuilder()
+                    .authority(authority) // e.g., "https://login.microsoftonline.com/<tenant-id>"
+                    .scopes(Set.of(scopes)) // The scope for Azure Cache for Redis
+                    .clientId(clientId) // The client ID of the application registered in Azure AD
+                    .secret(clientSecret) // Client secret or other credential
+                    .build();
+
+            // Configure Jedis with AuthXManager for passwordless authentication
+            JedisClientConfig config = DefaultJedisClientConfig.builder()
+                    .authXManager(new AuthXManager(tokenAuthConfig))
+                    .ssl(true)
+                    .build();
+
+            // Create UnifiedJedis connection
+            UnifiedJedis jedis = new UnifiedJedis(
+                    new HostAndPort(cacheHostname, port),
+                    config);
+
+            // Test the connection
+            System.out.println(String.format("Database size is %d", jedis.dbSize()));
 
             // Simple PING command
             System.out.println( "\nCache Command  : Ping" );
@@ -216,7 +233,6 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
             // Demonstrate "SET Message" executed as expected...
             System.out.println( "\nCache Command  : GET Message" );
             System.out.println( "Cache Response : " + jedis.get("Message"));
-
             // Get the client list, useful to see if connection list is growing...
             System.out.println( "\nCache Command  : CLIENT LIST" );
             System.out.println( "Cache Response : " + jedis.clientList());

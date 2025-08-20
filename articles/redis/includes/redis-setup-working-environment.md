@@ -14,7 +14,9 @@ The following steps show you how to set up the working environment for the Java 
 
 ```bash
 export REDIS_CACHE_HOSTNAME=<your-host-name>.redis.cache.windows.net
-export USER_NAME=<user-name>
+export REDIS_CLIENT_ID=<your-client-id>
+export REDIS_CLIENT_SECRET=<your-client-secret>
+export REDIS_AUTHORITY=https://login.microsoftonline.com/<your-tenant-id>
 export REDIS_CACHE_PORT=10000
 ```
 
@@ -22,15 +24,15 @@ export REDIS_CACHE_PORT=10000
 
 ::: zone pivot="azure-cache-redis"
 
-
 ```bash
 export REDIS_CACHE_HOSTNAME=<your-host-name>.redis.cache.windows.net
-export USER_NAME=<user-name>
+export REDIS_CLIENT_ID=<your-client-id>
+export REDIS_CLIENT_SECRET=<your-client-secret>
+export REDIS_AUTHORITY=https://login.microsoftonline.com/<your-tenant-id>
 export REDIS_CACHE_PORT=6380
 ```
 
 ::: zone-end
-
 
 Replace the placeholders with the following values:
 
@@ -38,15 +40,12 @@ Replace the placeholders with the following values:
 
   :::image type="content" source="media/redis-cache-access-keys/redis-cache-hostname-ports.png" alt-text="Screenshot showing Azure Cache for Redis properties.":::
 
-- `<user-name>`: Object ID of your managed identity or service principal.
+- `<your-client-id>`: The application (client) ID of your Azure AD application registration.
+- `<your-client-secret>`: The client secret of your Azure AD application registration.  
+- `<your-tenant-id>`: Your Azure Active Directory tenant ID.
 
-  You can get the user name by using the following steps:
-
-  1. In the Azure portal, navigate to your Azure Cache for Redis instance.
-  1. On the navigation pane, select **Data Access Configuration**.
-  1. On the **Redis Users** tab, find the **Username** column.
-
-     :::image type="content" source="media/cache-java-get-started/user-name.png" alt-text="Screenshot of the Azure portal that shows the Azure Cache for Redis Data Access Configuration page with the Redis Users tab and a Username value highlighted." lightbox="media/cache-java-get-started/user-name.png":::
+  > [!NOTE]
+  > The above example uses client secret authentication. You can also configure the `redis-authx-entraid` library to use other authentication methods such as managed identity or client certificate by modifying the `EntraIDTokenAuthConfigBuilder` configuration in your code.
 
 ### [Access key authentication](#tab/accesskey)
 
