@@ -3,7 +3,7 @@ title: Overview of Azure SRE Agent Preview
 description: Learn how AI-enabled agents help solve problems and support resilient and self-healing systems on your behalf.
 author: craigshoemaker
 ms.topic: overview
-ms.date: 08/08/2025
+ms.date: 08/20/2025
 ms.author: cshoe
 ms.service: azure
 ---
@@ -53,7 +53,9 @@ Azure SRE Agent serves as a virtual site reliability engineer in helping you mai
 
 ## Supported services
 
-Although Azure SRE Agent can help you monitor, maintain, and manage any Azure service, the agent features specialized tools for managing the following services:
+Azure SRE Agent helps you monitor, maintain, and manage any Azure service.
+
+The agent also features fine-tuned contexts for managing the following services:
 
 :::row:::
    :::column span="":::

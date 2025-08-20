@@ -67,8 +67,8 @@ landingContent:
             url: concept-what-are-dev-box-customizations.md
           - text: Configure team customizations
             url: how-to-configure-team-customizations.md
-          - text: Configure Dev Box imaging
-            url: how-to-configure-dev-box-imaging.md
+          - text: Configure dev center imaging
+            url: how-to-configure-dev-center-imaging.md
           - text: Configure user customizations
             url: how-to-configure-user-customizations.md
           - text: Connect to Azure resources and repositories
