@@ -285,7 +285,7 @@ In the following example workflow, starting at 8:00 AM each day, the **Until** a
    | Parameter | Value | Description |
    |-----------|-------|-------------|
    | **To** | <*email-address\@domain*> | The recipient's email address. For testing, use your own email address. | 
-   | **Subject** | **Current value for "Limit" variable is:** **Limit** | The email subject. For this example, make sure that you include the **Limit** variable to confirm that the current value meets your specified condition: <br><br>1. Select inside the **Subject** box so that the lightning icon appears. <br><br>2. In the dynamic content list, next to the **Variables** section header, select **See more**. <br><br>3. Select **Limit**. |
+   | **Subject** | **Current value for "Limit" variable is:** **Limit** | The email subject. For this example, make sure that you include the **Limit** variable to confirm that the current value meets your specified condition: <br><br>1. Select inside the **Subject** box, and then select the lightning icon. <br><br>2. From the dynamic content list that opens, next to the **Variables** section header, select **See more**. <br><br>3. Select **Limit**. |
    | **Body** | <*email-content*> | The email message content that you want to send. For this example, enter whatever text you want. |
 
    When you're done, your email action looks similar to the following example:
