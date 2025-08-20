@@ -4,14 +4,14 @@ description: Learn about the Microsoft Sentinel health and audit feature, which 
 author: batamig
 ms.author: bagol
 ms.topic: concept-article
-ms.date: 08/04/2024
+ms.date: 08/20/2025
 
 
 #Customer intent: As a security analyst, I want to monitor and audit Microsoft Sentinel's health and activity so that I can ensure the service is functioning correctly and detect any unauthorized actions.
 
 ---
 
-# Auditing and health monitoring in Microsoft Sentinel 
+# Auditing and health monitoring in Microsoft Sentinel
 
 Microsoft Sentinel is a critical service for advancing and protecting the security of your organization’s technological and information assets, so you want to be sure that it's always running smoothly and free of interference. 
 
@@ -38,7 +38,7 @@ The *SentinelHealth* table isn't billable and incurs no charges for ingesting he
 
 > [!IMPORTANT]
 >
-> The *SentinelHealth* and *SentinelAudit* data tables are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The *SentinelAudit* data table is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 ### Questions to verify service health and audit data

@@ -4,7 +4,7 @@ description: Use the SentinelHealth data table to keep track of your analytics r
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 02/20/2023
+ms.date: 08/20/2025
 
 
 #Customer intent: As a security analyst, I want to monitor and audit the health and integrity of my analytics rules so that I can ensure uninterrupted and tampering-free threat detection.
@@ -23,7 +23,7 @@ For information on rule insights and manual rerunning of rules, see [Monitor and
 
 > [!IMPORTANT]
 >
-> The *SentinelHealth* and *SentinelAudit* data tables are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The *SentinelAudit* data table is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Summary
 

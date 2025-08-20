@@ -4,7 +4,7 @@ description: Monitor supported data connectors by using the SentinelHealth data 
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.date: 10/17/2024
+ms.date: 08/20/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -13,7 +13,7 @@ appliesto:
 
 ---
 
-# Turn on auditing and health monitoring for Microsoft Sentinel (preview)
+# Turn on auditing and health monitoring for Microsoft Sentinel (Preview)
 
 Monitor the health and audit the integrity of supported Microsoft Sentinel resources by turning on the auditing and health monitoring feature in Microsoft Sentinel's **Settings** page. Get insights on health drifts, such as the latest failure events or changes from success to failure states, and on unauthorized actions, and use this information to create notifications and other automated actions.
 
@@ -23,7 +23,7 @@ To implement the health and audit feature using API (Bicep/AZURE RESOURCE MANAGE
 
 > [!IMPORTANT]
 >
-> The *SentinelHealth* and *SentinelAudit* data tables are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The *SentinelAudit* data table is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 ## Prerequisites
