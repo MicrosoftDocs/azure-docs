@@ -114,8 +114,6 @@ This section describes what to expect when search services are configured for zo
 + **Expected downtime**: A zone failure isn't expected to cause downtime to your search service for read operations, because read replicas in other availability zones continue to serve requests.
 
     If the primary replica is lost because it was in the affected zone, Azure AI Search automatically promotes another replica to become the new primary so that write operations can resume. It typically takes a few seconds for the replica promotion to occur, and during this time write operations might not succeed. Ensure that your applications are prepared by following [transient fault handling guidance](#transient-faults).
-    
-    A zone failure can temporarily reduce your service's overall capacity. To prepare for availability zone failure, consider over-provisioning the number of replicas. Over-provisioning allows the solution to tolerate some degree of capacity loss and continue to function without degraded performance. For more information, see [Manage capacity with over-provisioning](/azure/reliability/concept-redundancy-replication-backup#manage-capacity-with-over-provisioning).
 
 + **Traffic rerouting**: When a zone fails, Azure AI Search detects the failure and routes requests to active replicas in the surviving zones. If the primary replica was lost
 
