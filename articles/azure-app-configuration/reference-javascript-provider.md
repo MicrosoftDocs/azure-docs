@@ -434,7 +434,7 @@ const credential = new DefaultAzureCredential();
 const appConfig = await load(endpoint, credential, {
     keyVaultOptions: {
         credential: credential,
-        secretRefreshIntervalInMs: 120_000
+        secretRefreshIntervalInMs: 7200_000 // 2 hours
     }
 });
 ```
