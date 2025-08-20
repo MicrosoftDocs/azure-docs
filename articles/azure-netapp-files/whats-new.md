@@ -21,8 +21,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     [Azure NetApp Files datastore](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) is now supported in [Azure VMware Solution (AVS) Generation 2](../azure-vmware/native-introduction.md) (Gen 2). AVS Gen 2 private clouds are deployed inside an Azure virtual network. This deployment simplifies networking architecture, enhances data transfer speeds, reduces latency for workloads, and improves performance when accessing Azure NetApp Files datastores and other Azure services. 
 
-    
-
 ## August 2025
 
 * [Backup support for large volumes](backup-requirements-considerations.md) (Preview)
