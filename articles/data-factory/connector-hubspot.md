@@ -67,14 +67,14 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The HubSpot connector now supports version 2.0. Refer to this [section](#upgrade-the-hubspot-connector-from-version-10-to-version-20-preview) to upgrade your HubSpot connector version from version 1.0. For the property details, see the corresponding sections.
+The HubSpot connector now supports version 2.0 (Preview). Refer to this [section](#upgrade-the-hubspot-connector-from-version-10-to-version-20) to upgrade your HubSpot connector version from version 1.0. For the property details, see the corresponding sections.
 
 - [Version 2.0 (Preview)](#version-20)
 - [Version 1.0](#version-10)
 
 ### <a name="version-20"></a> Version 2.0 (Preview)
 
-The HubSpot linked service supports the following properties when apply version 2.0:
+The HubSpot linked service supports the following properties when apply version 2.0 (Preview):
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -83,6 +83,7 @@ The HubSpot linked service supports the following properties when apply version 
 | clientSecret | The client secret associated with your HubSpot application. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | accessToken | The access token obtained when initially authenticating your OAuth integration. Learn how to get access token with your client ID and secret from [here](https://developers.hubspot.com/docs/methods/oauth2/get-access-and-refresh-tokens). Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | refreshToken | The refresh token obtained when initially authenticating your OAuth integration. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If no value is specified, the property uses the default Azure integration runtime. | No |
 
 **Example:**
 
@@ -125,6 +126,8 @@ The HubSpot linked service supports the following properties when apply version 
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
 | useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over TLS. The default value is true.  | No |
 | usePeerVerification | Specifies whether to verify the identity of the server when connecting over TLS. The default value is true.  | No |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If no value is specified, the property uses the default Azure integration runtime. | No |
+
 
 **Example:**
 
@@ -259,9 +262,9 @@ The following table shows the release stage and change logs for different versio
 | Version 1.0 | End of support announced | / |  
 | Version 2.0 (Preview)| Public Preview | • date is read as DateTime data type. <br><br>• object is read as String data type<br><br>• `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. <br><br>  • `query` is not supported in Copy activity. |
 
-### Upgrade the HubSpot connector from version 1.0 to version 2.0 (Preview)
+### <a name="upgrade-the-hubspot-connector-from-version-10-to-version-20"></a> Upgrade the HubSpot connector from version 1.0 to version 2.0 (Preview)
 
-1. In **Edit linked service** page, select version 2.0 (Preview) and configure the linked service by referring to [Linked service properties version 2.0](#version-20).
+1. In **Edit linked service** page, select version 2.0 (Preview) and configure the linked service by referring to [Linked service properties version 2.0 (Preview)](#version-20).
 
 2. The data type mapping for the HubSpot linked service version 2.0 (Preview) is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for HubSpot](#data-type-mapping-for-hubspot).
 
