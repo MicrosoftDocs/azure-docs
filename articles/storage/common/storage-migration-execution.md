@@ -1,6 +1,6 @@
 ---
 title: Azure Storage migration execution guide
-description: Azure Storage migration execution guide describes basic guidance for storage migration execution stages
+description: The Azure Storage migration execution guide describes basic guidance for storage migration execution stages.
 author: bapic
 ms.author: bapic
 ms.topic: concept-article 
@@ -8,27 +8,39 @@ ms.date: 08/11/2025
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ---
-# Execute the migration
 
-The migration phase is the final migration step that does data movement and migration. Typically, you'll run through the migration phase several times to accomplish an easier switchover. The migration phase consists of the following steps:
+<!--
+Initial score: 78 (522/14)
+Current score: 100 (634/0)
+-->
 
-1. **Initial migration:** Begin with the bulk copy, move the initial bulk data using one of the appropriate/recommended tools.
-2. **Iterate**: You might discover errors that need fixing and rerunning some of the tasks. Optimize concurrency settings if needed to improve speed etc.
-3. **Incremental syncs:** If the source data is not static and changes are expected at the source during the initial seed/migration process, run incremental synchronization to catch up on changes. You can repeat this step several times if there are numerous changes. The goal of running multiple resync operations is to reduce the time it takes for the final step. For inactive data and for data that has no changes (like backup or archive data), you can skip this step.
-4. **Final Cutover & Switch to Azure:**  The final switchover step switches the active usage of the data from the source to the target and retires the source. Schedule a final cutover window, freeze changes on source if possible (downtime) and run final incremental sync. Verify last minute changes are captured in Azure and update configurations so users and applications now point to the Azure location.
-5. **Post migration tasks:** Once target is active, you need to complete data validation and ensure all appropriate security, monitoring, protection mechanisms are in place. Depending on your target service and workloads, the activities will differ. Here are a few more recommendations for blob storage:
+# Executing the migration
 
-    - [Data protection](/azure/storage/blobs/security-recommendations)
-    - [Identity and access management](/azure/storage/blobs/security-recommendations)
-    - [Networking](/azure/storage/blobs/security-recommendations)
-    - [Monitoring](/azure/storage/blobs/monitor-blob-storage) & [monitoring best practices](/azure/storage/blobs/blob-storage-monitoring-scenarios)
+The execution phase is the final phase in the migration process. All data movement and migration tasks occur in this phase. Typically, you take an iterative approach by working through the execution several times to ensure that all changes and updates are captured. This process helps to accomplish an easier switchover and keep data loss to a minimum. 
+
+The execution phase consists of the following steps:
+
+1. **Initial migration:** Beginning with the bulk copy, migrate the initial set of data using the most appropriate recommended tools.
+2. **Iterate**: You might discover errors that require remediation, and possibly rerunning some of the tasks. Optimize concurrency settings if needed to improve speed and efficiency.
+3. **Incremental sync:** If the source data is dynamic, changes at the source are expected during the initial seeding or migration process. In this case, run incremental synchronization to sync any changes. You can repeat this step several times if there are numerous changes. The goal of running multiple sync operations is to reduce the time required for the final cutover. Inactive data, archival data, or backup data that remains static can be excluded from this step.
+4. **Final Cutover to Azure:**  The final cutover step involves consuming that active data located at the target destination and retiring the source data. Before scheduling a final cutover window, however, freeze all source changes and schedule sufficient downtime to run the final incremental sync. Verify that all last-minute changes are captured in Azure, and update configurations so users and applications now point to the Azure target location.
+5. **Post migration tasks:** After the target is active, you need to complete a thorough data validation to ensure all appropriate security, monitoring, and protection mechanisms are in place. These validation activities differ based on your target service and workloads. 
+
+The following examples include best-practice recommendations for post-migration validation using Azure Blob Storage.
+
+    - [Data protection](../blobs/security-recommendations.md#data-protection)
+    - [Identity and access management](../blobs/security-recommendations.md#identity-and-access-management)
+    - [Networking](../blobs/security-recommendations.md#networking)
+    - [Monitoring](../blobs/monitor-blob-storage.md#monitor-azure-blob-storage) and [monitoring best practices](../blobs/blob-storage-monitoring-scenarios.md)
 
 ### Best practices
 
-* Ensure no concurrent or overlapping changes to the target dataset in Azure until entire data is migrated from the source. Unexpected changes both in target and source may lead to failures or data loss. 
-* Do not migrate the data and application infrastructure separately. Plan to move the application and its unstructured data together or at least in close timeframes. Leaving data on-premises and applications in Azure may lead to latency and retriable errors leading to application failures, negative user experiences and unexpected downtimes. It is advisable to perform necessary PoC tests wherever possible (keeping in mind application needs).
-* Avoid big-bang cutovers and aim to reduce downtime at cutover. Plan the cutover window at a low-usage time and communicate to stakeholders about any read-only period needed
-* Migrate in parallel streams wherever possible to accelerate throughput. *Be mindful* not to overload source systems - throttle if needed so you don't impact production use
-* Do a trial migration on a representative sample of data before the full run
-* Throughout execution, maintain a migration log. Record what was transferred when, any issues encountered, and their resolution. This helps with accountability and any future audit or post-mortem analysis
-* After the final cutover, keep the source in read-only a bit longer as a fallback. Only decommission source data once you're confident the Azure copy is complete and correct.
+The following recommendations contain best practices that should be followed during your Azure migration. These best practices are gleaned from our experience with both small and enterprise-level customers, and are intended to be a resource for IT pros.
+
+- **Ensure that there are no concurrent or overlapping changes to the target dataset within Azure until all data is migrated from the source.** Unexpected changes within both the target and source might lead to unexpected failures and data loss.
+- **When migrating an application workload, don't migrate the application's data and infrastructure separately.** Plan to move the application and its unstructured data together - or at least within the closest possible timeframe. Leaving data and application infrastructure separated between on-premises and Azure might cause latency and lead to application failures and unexpected downtimes. Whenever possible, perform necessary proof-of-concept testing to validate application requirements.
+- **Avoid direct changeovers or *"big-bang cutovers"*.** Instead of replacing your previous system abruptly with no transition period, aim to reduce downtime at cutover by planning the cutover window during off-peak usage hours. Communicate to stakeholders about any read-only period needed well in advance.
+- **Migrate in parallel streams wherever possible to accelerate throughput.** Ensure that source systems aren't overloaded, and use bandwidth throttling if necessary to avoid performance degradation.
+- **Perform a sample migration using a representative data sample before beginning the full run.** This exercise can help identify potential issues and validate your migration approach.
+- **Maintain a migration log throughout the execution phase, monitoring all activities.** Record the details surrounding each workload's transfer, including start time, duration, issues encountered, and their resolution. These details help with accountability and future audits or post-mortem analysis.
+- **After the final cutover, retain the source data in a read-only state as a fallback.** Only decommission source data once you're confident the Azure copy is complete and correct.

@@ -8,70 +8,101 @@ ms.date: 08/11/2025
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ---
-# Plan the migration strategy
 
-Choosing the right migration strategy is critical, as it can significantly impact project timelines, costs, and overall business continuity. With careful planning and a thoughtful approach, you can ensure a smooth and efficient transition for your data assets.
+<!--
+Initial score: 68 (1031/44)
+Current score: 100 (1426/0)
+-->
 
-### Determine Online vs. Offline Transfer
+# Planning the migration strategy
 
-- If you have sufficient *network bandwidth*, **online** migration is the simplest for one time and/or recurring delta syncs. If bandwidth is *limited, constrained, unreliable or no network at all* and data is considerably large (multi-TBs - PBs), plan to use **offline** transfer.
-- In case the data continues to change, a **hybrid approach** works best (if there are network constraints, else follow online migration). You use offline mode to **seed the bulk** of the data, then do online **delta syncs** for the changes. Alternatively, you can also choose an online only option (in case of no network constraints) leveraging a tool that can continue to sync content until the delta reduces to zero and perform a final cutover at a time convenient for you.
-- Considering *Data size, transfer frequency, network bandwidth*, and ***timeline*** you can weigh in suitable migration modes. Below is a simple way to think about this.
-- The table below depicts various sizes of data and their corresponding projected time to migrate over the wire given a particular available bandwidth on-premises (up to 90% utilized). You should consider using a physical device (offline mode) or a combination of online and offline if the projected time is too slow for you.
-- For example, for a better understanding, the cells in green are best candidates for online transfer (assuming less than 25 days are acceptable for you); the ones in orange are best for offline (in case 25 days are too late or costly, network too constraint/limited etc.); and the ones in blue can adopt both or one over the other on a case-to-case basis.
+Choosing the right migration strategy is critical, as it can significantly affect project timelines, costs, and overall business continuity. With careful planning and a thoughtful approach, you can ensure a smooth and efficient transition for your data assets.
 
-![Table showing duration of online data migration for a specific data size and bandwidth.](media/migration-duration-table.png)
-![Table showing the legends of the table for online data migration for a specific data size and bandwidth.](media/migration-duration-table-legend.png)
+## Choosing online vs. offline transfer
 
-- Reach out to your Microsoft Representative for guidance if you have related questions at any point in time
-- Your *migration timeline, network bandwidth and the total data size are* considered as the primary constraint
-- The above calculation assumes network bandwidth is 90% consumed. Kindly consider the overall utilization of the network wherein you do not have a dedicated connection for data migration.
-- Your unique situation and requirements will be the driving factors for choosing the appropriate transfer mode (online/offline).
+When planning your migration strategy, it's essential to determine the most suitable transfer method for your data. Online migrations are simplest for both one-time and recurring delta syncs. However, in cases where network bandwidth is limited, constrained, unreliable, or even nonexistent, an offline transfer might be the most feasible option. This situation might also be true even when bandwidth isn't a concern, but your data set is measured in terabytes or petabytes.
 
-> **!Pro Tip:**
-> The guiding principle is minimizing downtime and moving most data ahead of time. By the final cutover, Azure should already have an up-to-date copy, so the last sync and switchover is quick.
+When data continues to change during migration, a hybrid approach is often the most effective—especially when network bandwidth is limited. This method involves using offline mode to transfer the bulk of the data initially, followed by online delta synchronizations to capture ongoing changes.
 
-### Lift & shift data migration
+If network constraints aren't a concern, an online-only migration is also viable. This approach uses a tool that continuously syncs data until the remaining delta is minimal, allowing for a final cutover at a time that suits your schedule.
 
-Lift and shift data migration is a strategy where data and applications are moved from one environment (like on-premises infrastructure) to another (such as the cloud) with minimal or no changes to the underlying architecture. It's a fast and straightforward approach, ideal for organizations looking to quickly modernize their infrastructure without redesigning their applications. Whereas most cloud migrations involve this approach, there is also a need to delta sync for the source workloads that change during the data transfer duration. Hence it is important to choose the right tools for both initial migration/seeding and delta synchronization.
+To determine the best migration strategy, consider factors such as data volume, frequency of updates, available bandwidth, and project timeline. These elements help guide the choice between offline, online, or hybrid modes. The choice of transfer mode depends on your specific use case and requirements. However, factors such as timeline, available bandwidth, and data volume influence the final decision.
 
-You will read more about the tools choices and recommended tools in the upcoming section.
+The following table outlines estimated migration durations. These values are based on data size and available on-premises bandwidth, assuming up to 90% utilization. If the projected time is unacceptable, using a physical device for offline transfer might be more suitable. You can also combine offline and online methods as needed.
 
-### Data change rate and tiering
+For reference:
 
-- Depending on the data change rate & access frequency and tools capability to perform a catchup/sync iteratively, the appropriate solution should be chosen; If data is accessed or changed frequently use specialized tools such as Azure Data Mover or partner solutions for online transfers.  Similar considerations apply to a high number of files involving 10s of millions; Use the right tool based on source considerations, target capabilities and bandwidth.
-- Unmanaged solutions such as robocopy, azCopy, distCP, rsync etc. might encounter scale issues for transfer involving 10s of millions of files in a single job. Review how to [optimize AzCopy tool](/azure/storage/common/storage-use-azcopy-optimize) for transfer jobs. Review the corresponding tools documentation for accurate and latest scale and performance limits.
-- Similar considerations apply whether data tiering is required during migration or not. In some cases, data/cloud tiering is maintained as a continuous data management process.
+- Red cells suggest offline migration is preferable when 25 days are too long or costly, or when bandwidth is limited.
+- Green cells indicate ideal candidates for online migration, assuming a transfer window of less than 25 days is acceptable.
+- Blue cells represent scenarios where either method—or a combination—might be appropriate depending on specific needs.
 
-### Data movement & Hybrid storage
+:::image type="content" source="media/storage-migration-planning-strategy/migration-duration-table.png" alt-text="A table showing online data migration durations for specific data sizes and network throughput." lightbox="media/storage-migration-planning-strategy/migration-duration-table-lrg.png":::
 
-- Cloud-only storage vs On-prem cache requirement: While planning your migration, identify if the data set will continue to be used in Azure against the datasets for which an on-premises cache is also required.
-- One time movement vs repetitive transfer and Uni or bi- directional sync
-- Identify if the moment is one time migration or requires repetitive transfers and in what frequency, the size involved in the frequency. Also, identify whether it will be unidirectional or bi-directional synchronization if on-premises presence is required.
+Contact your Microsoft representative for guidance if you have questions at any point in time.
 
-### Replication as a migration strategy
+> [!TIP]
+> A key principle in Azure migration is minimizing downtime by transferring most of the data in advance. By the time of the final cutover, Azure should already hold an up-to-date copy of the source data. This approach ensures that the last synchronization is quick and the switchover happens smoothly.
 
-There are cases in which data migration can leverage a replication tool. For example, Azure Migrate can replicate your on-premises physical and virtual machines along with disks (and with data of course inside) to Azure VM. It provides end to end planning, replication health status, cutover and orchestrating entire migration plan. On-premises VM disks are migrated as Azure Disks. Similarly, there are ISV tools such as Carbonite Migrate, Veeam Backup & Replication that can help migrate large amounts of data with underlying replication technologies. Often these tools require separate deployment, management and configurations. However, they provide additional capabilities such as pre-migration testing and reduce downtime.
+## Lift-and-shift data migration
 
-### Backup and restore as a migration strategy
+For the purposes of this article, "lift-and-shift" is a migration approach where data and applications are moved from on-premises infrastructure to Azure, with minimal changes to the existing architecture. This method is fast and straightforward, making it ideal for organizations aiming to modernize their infrastructure quickly without redesigning their applications.
 
-In some cases, a traditional backup and restore method can also work as an effective migration strategy. This is primarily suitable for the scenarios below:
-- Archival or historical data migration
-- Source systems do not support modern or other tooling options
-- Noncritical or low downtime tolerant systems
-- Dev-test environment migrations
-- Maintaining a legal hold requirement for point in time migration needs.
+This approach is useful for scenarios where the data is already structured and can be easily transferred to Azure storage services. It allows organizations to take advantage of Azure's scalability, reliability, and security features while maintaining their existing applications and workflows.
 
-#### Additional resources
+While this approach is common in cloud migrations, it's important to account for source workloads that might continue to change during the transfer. In such cases, delta synchronization is essential to ensure data consistency.
 
-Please review additional resources for more information on this topic.
+Choosing the right tools is critical for the initial migration or data seeding, but also for handling ongoing changes through delta syncs. The next section will explore recommended tools and strategies to support both phases of the migration.
 
-1. [Azure Storage Migration Tools Comparison - Unstructured data | Microsoft Learn](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison)
-2. [Microsoft Azure Data Box overview ](/azure/databox/data-box-overview)
-3. [Introduction to Azure Storage Mover ](/azure/storage-mover/service-overview)
-4. [Combine Azure Storage Mover and Azure Data Box](https://techcommunity.microsoft.com/blog/azurestorageblog/storage-migration-combine-azure-storage-mover-and-azure-data-box/4143354)
-5. [Copy or move data to Azure Storage by using AzCopy v10 ](/azure/storage/common/storage-use-azcopy-v10)
-6. [Migration and modernization tool - Azure Migrate ](/azure/migrate/tutorial-migrate-vmware)
-7. [Azure Storage Migration Program Details](/azure/storage/solution-integration/validated-partners/data-management/azure-file-migration-program-solutions)
-8. [Introduction to Azure File Sync ](/azure/storage/file-sync/file-sync-introduction)
-9. [Azure Data Factory ](/azure/data-factory/quickstart-get-started)
+## Data change rate and tiering
+
+Choosing the right migration solution depends on how frequently the data changes, its access frequency, and the tool's ability to perform iterative synchronization. For workloads with frequent updates or high access rates, use specialized tools such as Azure Data Mover or trusted partner solutions that support continuous online transfers.
+
+This guidance also applies when dealing with a large number of files, especially when the volume reaches tens of millions. In such cases, selecting the appropriate tool based on the source environment, target capabilities, and available bandwidth is essential.
+
+Unmanaged tools like robocopy, AzCopy, distCP, and rsync might face scalability challenges when handling large file sets in a single transfer job. It's important to [review optimization strategies for AzCopy](storage-use-azcopy-optimize.md) and consult the official documentation for each tool to understand current performance limits and scale recommendations.
+
+Similar considerations apply whether or not data tiering is part of the migration strategy. In some scenarios, tiering between data and cloud environments is maintained as an ongoing data management practice.
+
+## Data movement and hybrid storage
+
+When planning an Azure migration, it's important to determine whether your data resides entirely in the cloud, or if an on-premises cache is required. This distinction helps define how the data is accessed post-migration, and influences the overall architecture of the solution.
+
+Another key consideration is whether the migration involves a one-time transfer or requires ongoing synchronization. If data needs to be moved repeatedly, identify the frequency of these transfers and the volume of data involved. These factors help in selecting tools that can handle the load efficiently and maintain consistency across environments.
+
+It's also essential to determine the direction of synchronization. If the data must remain accessible and up-to-date in both the cloud and on-premises environments, a bi-directional sync might be necessary. In contrast, if data only needs to flow in one direction, a unidirectional sync might suffice.
+
+These decisions—cloud-only versus hybrid storage, one-time versus repetitive transfers, and uni-directional versus bi-directional synchronization—guide the selection of migration tools and influence how the migration is executed. During the next migration phase, recommended tools and configurations are reviewed to help support these scenarios effectively.
+
+## Replication as a migration strategy
+
+In certain scenarios, data migration can be effectively managed using replication tools. These tools continuously copy data from a source environment to Azure, ensuring that the destination remains synchronized throughout the migration process. 
+
+For example, Azure Migrate supports replication of on-premises physical and virtual machines, including their disks and embedded data, to Azure virtual machines. It offers a comprehensive solution that includes planning, monitoring replication health, managing cutover, and orchestrating the entire migration workflow. During the process, on-premises disks are converted into Azure-managed disks, streamlining integration with cloud infrastructure.
+
+Independent software vendor (ISV) solutions such as *Carbonite Migrate* and *Veeam Backup and Replication* also rely on replication technologies to transfer large volumes of data. These tools often require separate deployment and configuration but offer advanced capabilities such as premigration testing, real-time synchronization, and reduced downtime during cutover.
+
+Replication-based migration is useful when minimizing disruption is a priority. It allows organizations to maintain operational continuity while gradually transitioning workloads to Azure. Selecting the right replication tool depends on factors such as infrastructure complexity, data volume, and the need for ongoing synchronization.
+
+## Backup and restore as a migration strategy
+
+A traditional backup and restore method can sometimes serve as an effective migration strategy. This approach is ideal when migrating archival or historical data that doesn't require real-time access or frequent updates.
+
+It's also suitable when the source systems don't support modern migration tools, or when migrating noncritical workloads that can tolerate some downtime. Development and test environments often fall into this category as simplicity and speed are prioritized over continuous availability.
+
+Additionally, a backup and restore approach is a practical choice when legal requirements dictate that data be preserved at a specific point in time. In such cases, maintaining a snapshot through backup ensures compliance while enabling controlled restoration in Azure.
+
+Although this method might not offer the automation or scale of replication-based or online migration tools, it remains a reliable option for some specific use cases. The next phase describes how to implement this strategy effectively by utilizing tools that support backup and restore operations for Azure.
+
+## Next steps
+
+Review the following resources for more information on this subject.
+
+- [Azure Storage Migration Tools Comparison](../solution-integration/validated-partners/data-management/migration-tools-comparison.md)
+- [Microsoft Azure Data Box overview](../../databox/data-box-overview.md)
+- [Introduction to Azure Storage Mover](../../storage-mover/service-overview.md)
+- [Combine Azure Storage Mover and Azure Data Box](https://techcommunity.microsoft.com/blog/azurestorageblog/storage-migration-combine-azure-storage-mover-and-azure-data-box/4143354)
+- [Copy or move data to Azure Storage by using AzCopy v10](storage-use-azcopy-v10.md)
+- [Migration and modernization tool - Azure Migrate](../../migrate/tutorial-migrate-vmware.md)
+- [Azure Storage Migration Program Details](../solution-integration/validated-partners/data-management/azure-file-migration-program-solutions.md)
+- [Introduction to Azure File Sync](../file-sync/file-sync-introduction.md)
+- [Azure Data Factory quickstart](../../data-factory/quickstart-get-started.md)

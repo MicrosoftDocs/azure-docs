@@ -11,37 +11,36 @@ ms.author: bchakra
 
 <!--
 Initial score: 65 (404/20)
-Curremnt score: 98 (1141/1 false-positive)
+Curremnt score: 100 (448/0 false-positive)
 -->
 
 # Seeding data with Veeam and Azure Data Box Next-gen
 
-This article provides information on using Azure Data Box and Veeam solutions together to migrate large amounts of data to Azure storage services. Using Azure Data Box and Veeam Backup and Replication solutions allows you to migrate on-premises backup and archive data in a reliable, secure, and timely manner. 
+Although Azure Blob storage provides cost-effective data retention and recovery capabilities, neither product supports all features. Using Data Box and Veeam Backup and Replication solutions in tandem allows you to migrate on-premises backup and archive data in a reliable, secure, and timely manner. This article provides a high level overview of the steps required to migrate large amounts of data to Azure storage services using Azure Data Box and Veeam solutions.
 
-Azure Blob storage provides cost-effective data retention and recovery capabilities. However, not all Azure Blob features are supported by each product. You can learn more about using object storage with Veeam Products in the [Veeam product documentation](https://www.veeam.com/kb4241).
-
-This article describes how the process works at a high level. You can find relevant, detailed, step-by-step instructions within the respective products' websites.
+You can find relevant, detailed, step-by-step instructions within the respective products' websites. You can learn more about using object storage with Veeam Products in the [Veeam product documentation](https://www.veeam.com/kb4241).
 
 ![Image of Veeam and Azure Data Box workflow.](media/migrate-veeam-and-data-box/veeam-data-box-workflow.png)
 
 ### Solution flow overview
 
-1. Log in to Azure portal and [order](https://portal.azure.com/) an appropriate size of Azure Data Box.  
+1. Sign in to [Azure portal](https://portal.azure.com/) and order an appropriately sized Azure Data Box device. Step-by-step directions are available within the [Oder and Deploy a Data Box device](data-box-deploy-ordered.md) tutorial.
 
-2. Once the device arrives, setup and configure the Azure Data box. Here's [step by step guide](/azure/databox/data-box-deploy-ordered) to order, and set up an Azure Data Box device.
+2. Configure the Data Box device as a Veeam Scale-out Backup Repository (SOBR) capacity tier.
 
-3. Setup Azure Data Box and configure as SOBR capacity tier
+    - After the device arrives, ensure that you connect the Azure Data Box to your on-premises network infrastructure. You can find detailed steps within the [Set up and deploy](data-box-deploy-set-up.md) article.
 
-    a.  Once device arrives, ensure that you [connect](/azure/databox/data-box-deploy-set-up) Azure Data Box to your on-premises infrastructure and [setup REST API access](/azure/databox/data-box-deploy-copy-data-via-rest).
+    - To allow Veeam Backup and Replication to communicate with Data Box, configure REST API access on the device. Instructions for completing this step can be found in the [setup REST API access](data-box-deploy-copy-data-via-rest) article.
 
-    b. Add the appliance to Veeam Backup & Replication. Configuring [Azure Data Box as a Capacity Tier extent](https://helpcenter.veeam.com/docs/backup/hyperv/data_box_seeding.html) with "Copy backups to object storage as soon as they're created" in your Scale-Out Backup Repository (SOBR). Note that *"Move mode"* isn't recommended.
+    - Add the appliance to Veeam Backup and Replication. [Configure Azure Data Box as a Capacity Tier extent](https://helpcenter.veeam.com/docs/backup/hyperv/data_box_seeding.html) by following the steps in Veeam's article. Enable the `Copy backups to object storage as soon as they're created` option in your Scale-Out Backup Repository (SOBR). Take note that *Move mode* isn't recommended.
 
-4. Back up your data to the data box appliance using the Veeam solution. Veeam Backup and Replication uses the REST API endpoint (Azure Blob) to write to the Data Box device.
+3. Back up your data to the Data Box appliance using the Veeam solution. The process relies on the Azure Blob REST API endpoint to write to the Data Box device.
 
-5. Once the backup data has been fully copied to the device, you need to put the data box tier into [maintenance mode](https://helpcenter.veeam.com/docs/backup/hyperv/sobr_maintenance.html) in Veeam and [prepare the device for shipping](https://helpcenter.veeam.com/docs/backup/hyperv/data_box_seeding.html).
+4. After the backup data is copied to the device, you need to place the data box tier into maintenance mode within Veeam and prepare the device for shipping. For help with maintenance mode, see Veeam's [maintenance mode](https://helpcenter.veeam.com/docs/backup/hyperv/sobr_maintenance.html) documentation. Detailed information on shipping is available in the [shipping](https://helpcenter.veeam.com/docs/backup/hyperv/data_box_seeding.html) article.
 
-6. Once the device is shipped to the Azure datacenter, data is imported into the storage account, [add the destination Storage Account to Veeam Backup and Replication](https://helpcenter.veeam.com/docs/backup/hyperv/data_box_seeding.html?ver=120) and synchronize the data.
+5. After the device is shipped to the Azure datacenter, your data is imported into the storage account. Finally, add the destination Storage Account to Veeam Backup and Replication. Detailed instructions on data synchronization can be found in the [Data Box seeding](https://helpcenter.veeam.com/docs/backup/hyperv/data_box_seeding.html?ver=120) article.
 
- Learn more about other solutions integration in Azure with Veeam and Azure Blob storage here: [Azure Data Protection with Veeam - Azure Storage | Microsoft Learn](/azure/storage/solution-integration/validated-partners/backup-archive-disaster-recovery/veeam/veeam-solution-guide)
+You can learn about more solutions integration approaches with Veeam and Azure Blob storage in the [Azure Data Protection with Veeam](/azure/storage/solution-integration/validated-partners/backup-archive-disaster-recovery/veeam/veeam-solution-guide) solutions guide.
 
-*This article is based on the original blog content by Johan Huttenga and is available at [Seeding data with Veeam and Azure Data Box Next-gen](https://community.veeam.com/blogs-and-podcasts-57/seeding-data-with-veeam-and-azure-data-box-next-gen-10819). All due credit to the author and the Veeam community.*
+> [!NOTE]
+> This article is based on the original blog titled *Seeding data with Veeam and Azure Data Box Next-gen* by Johan Huttenga. The original blog is available at [https://community.veeam.com/blogs-and-podcasts-57/seeding-data-with-veeam-and-azure-data-box-next-gen-10819](https://community.veeam.com/blogs-and-podcasts-57/seeding-data-with-veeam-and-azure-data-box-next-gen-10819).

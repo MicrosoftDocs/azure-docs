@@ -20,7 +20,6 @@ Bandwidth and throughput are often the largest constraint when migrating large a
 
 OpenText Migrate and Availability utilize the powerful Double-Take real-time replication engine and provide host-based file transfer solutions. This feature enables the movement and synchronization of data from one system or host to another without the need to write to the blob or file endpoint directly.
 
-
 ![An image of how OpenText solution and Azure Data box work together.](media/migrate-opentext-and-data-box/ot-hybrid-seeding.png)
 
 **Key Benefits:**
@@ -39,7 +38,7 @@ Although every migration scenario has its own unique requirements, the following
 
 ### Hybrid Universal Offline Seeding with OpenText Migrate
 
-![An image showing OpenText Migrate and Azure Data Box offline seeding flow](media/data-box-migrate-with-isv/OT-offline-seeding.png)
+![An image showing OpenText Migrate and Azure Data Box offline seeding flow](media/migrate-opentext-and-data-box/OT-offline-seeding.png)
 
 #### Scenario details
 

@@ -51,9 +51,9 @@ In this stage, you determine and inventory all sources that need to be migrated 
 - Assessing replication, change rate, and resiliency and downtime tolerance.
 - Understanding security and compliance requirements.
 
-You can either perform this phase manually or use automated tools. There are several commercial tools available from Independent Software Vendors (ISVs) that can help with the assessment phase. For more information, see the [comparison matrix](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison) article.
+You can either perform this phase manually or use automated tools. There are several commercial tools available from Independent Software Vendors (ISVs) that can help with the assessment phase. For more information, see the [comparison matrix](../solution-integration/validated-partners/data-management/migration-tools-comparison.md) article.
 
-[Read more](1-Assessment-stage.md) on assessment stage activities.
+[Read more](storage-migration-assessment.md) on assessment stage activities.
 
 </Details>
 
@@ -88,32 +88,32 @@ Planning a migration strategy involves identifying a suitable method with which 
 - Replication as a strategy
 - Backup and restore as a migration strategy
 
-[Read more](3-Planning-migration-strategy.md) on Migration planning strategy.
+[Read more](storage-migration-planning-strategy.md) on Migration planning strategy.
 
 </Details>
 
 ### Select migration tools
 
-There are various migration tools available to help you perform your migration. For example, some open source tools include AzCopy, robocopy, xcopy, and rsync. Microsoft offers managed tools such as Azure Storage Mover, Azure Data box, Azure File Sync, Azure Migrate, and Data Box Gateway. There are also many other commercial, non-Microsoft tools available. A list of available commercial tools is available within our [comparison matrix](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison) article, which also provides comparisons between them.
+There are various migration tools available to help you perform your migration. For example, some open source tools include AzCopy, robocopy, xcopy, and rsync. Microsoft offers managed tools such as Azure Storage Mover, Azure Data box, Azure File Sync, Azure Migrate, and Data Box Gateway. There are also many other commercial, non-Microsoft tools available. A list of available commercial tools is available within our [comparison matrix](../solution-integration/validated-partners/data-management/migration-tools-comparison.md) article, which also provides comparisons between them.
 
 The following table provides a selection of scenario-based migration tools for your reference. Although feasible alternatives might exist on a case-by-case basis, the following examples are considered the most suitable.
 
 | **Scenario** | **Recommended Tool(s)** |
 |--------------|-------------------------|
-| • Need for a fully managed, automated, resilient tool with single management pane (in Azure);<br>• File or file share migration beyond small transfers, typically > 1 TB of data, scaling up to millions of files or objects<br>• Lift and shift and/or continuous sync from on-premises NAS<br>• Windows file servers with no Azure File Sync installed or already configured<br>• Migrate to Azure involving: <br> - SMB (2.x, 3.x) to Azure Blob (Hot/Cold) or ADLS with HNS (hierarchical namespace service) enabled<br> -	 SMB (2.x, 3.x) to Azure Files (SMB only)<br> -	NFS (v3, v4.1) to Azure Blob (Hot/Cold) or ADLS with HNS enabled (NFS v3 only)<br> -	One time or continuous (including multicloud environments)<br> -	S3 to Azure Blob (Hot/Cold) or ADLS (hierarchical namespace)<br> -	"Metadata-only" copy functionality, requiring only the copy of file metadata or structure without file contents (seeding permissions or doing dry-run migrations, for example)<br> | [Azure Storage Mover](/azure/storage-mover/service-overview) |
-|•	Offline data transfer (low bandwidth or no network connectivity, remote sites) <br> •	Copy from on-premises SMB/NFS shares/NAS sources to Azure Blob, Files, ADLS, to specific tiers directly, including direct import to a different region (outside source country).<br> •	Offline transfer from Azure Files, Premium FileStorage, Blob (Hot/Cold) to On-premises<br> •	Offline transfer of on-premises HDFS to Azure Blob (Hot/Cold) or ADLS (HNS enabled)| [Azure Data Box](/azure/databox/data-box-overview)|
+| • Need for a fully managed, automated, resilient tool with single management pane (in Azure);<br>• File or file share migration beyond small transfers, typically > 1 TB of data, scaling up to millions of files or objects<br>• Lift and shift and/or continuous sync from on-premises NAS<br>• Windows file servers with no Azure File Sync installed or already configured<br>• Migrate to Azure involving: <br> - SMB (2.x, 3.x) to Azure Blob (Hot/Cold) or ADLS with HNS (hierarchical namespace service) enabled<br> -	 SMB (2.x, 3.x) to Azure Files (SMB only)<br> -	NFS (v3, v4.1) to Azure Blob (Hot/Cold) or ADLS with HNS enabled (NFS v3 only)<br> -	One time or continuous (including multicloud environments)<br> -	S3 to Azure Blob (Hot/Cold) or ADLS (hierarchical namespace)<br> -	"Metadata-only" copy functionality, requiring only the copy of file metadata or structure without file contents (seeding permissions or doing dry-run migrations, for example)<br> | [Azure Storage Mover](../../storage-mover/service-overview.md) |
+|•	Offline data transfer (low bandwidth or no network connectivity, remote sites) <br> •	Copy from on-premises SMB/NFS shares/NAS sources to Azure Blob, Files, ADLS, to specific tiers directly, including direct import to a different region (outside source country).<br> •	Offline transfer from Azure Files, Premium FileStorage, Blob (Hot/Cold) to On-premises<br> •	Offline transfer of on-premises HDFS to Azure Blob (Hot/Cold) or ADLS (HNS enabled)| [Azure Data Box](../../databox/data-box-overview.md)|
 | • Need to transfer large amounts of data in a short period through both offline and online solutions. <br> • Offline seeding of initial bulk data due to network constraints followed by delta sync.| Azure Data Box for seeding with Azure Storage Mover for delta sync |
-| • Physical machines, VMs, and their attached disks; VMs running in Hyper-V, VMware, AWS, GCP. | [Azure Migrate](/azure/migrate/migrate-services-overview) |
-| • Rapid, one-off, or incremental, small to medium scale data transfer (typically < 1 TB per job) to or from Azure<br> • Service-to-service (files-to-files, files-to-blob, etc.) transfers over Azure backbone (intra-Azure)<br> • Scripting capability requirement (filtering criteria, metadata updates, or any transformation, for example) and precise control for such transfers<br> • Doesn't involve millions of files or objects transfer<br> •	Local file system, SMB, NFS mounts to Azure<br> •	S3 to Azure Blob (typically < 1 TB)<br> • AWS EFS or AWS FSx for Windows to Azure Files<br> •	Google Cloud Storage (S3, GCS API) to Azure Storage (blob), ADLS (HNS enabled) | [AzCopy](/azure/storage/common/storage-use-azcopy-v10) (always uses HTTPS REST APIs) |
-| • Windows File Server source (SMB 2.x or 3.x to Azure Files) <br> • Hybrid data sync with reverse or bi-directional file sync <br> • Centralized file server management with on-premises cache and cloud tiering <br> • Collaboration and teamwork with branch-out deployments (multi-site access and sync)<br> •	Cloud-side backup with business continuity and disaster recovery along with on-premises cache presence<br> • One time file shares migration need with Azure File Sync already deployed and configured  | [Azure File Sync](/azure/storage/file-sync/file-sync-introduction) |
-|• Continuous ingestion and cloud tiering requirements to Azure storage (Blob) with on-premises cache <br> •	Source is on-premises (NFS v3, 4.1 or SMB 2.x, 3.x) (One-way sync) or bi-directional (with manual sync) to or from Azure<br> • No need for multiple on-premises copies of that data kept in sync (one-way) | [Azure Data Box Gateway](/azure/databox-gateway) |
-| • Small scale, one-off transfers with custom scripting, or Linux/Windows CLI based migrations | [AzCopy](/azure/storage/common/storage-use-azcopy-v10), [rsync](/azure/storage/common/storage-use-rsync), [Robocopy](/azure/storage/common/storage-use-robocopy) |
-| • Complex data management, analytics, tiering, or unsupported use cases and targets (ANF or Lustre, for example) beyond Azure native tooling capabilities | [ISV Tools](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison) (Komprise, Cirata, Data Dynamics, Atempo) |
-| • Large archive data migration from on-premises Tapes to Azure storage | See the [tape migration guide](/azure/storage/common/tape-migration-guide) and explore partner solutions such as Tape Ark |
-| • Large on-premises backup or archive using ISV solutions (Commvault, Veeam, or RUbrik, for example)<br> • Offline seeding with delta sync by backup tool. | Use partner specific recommendations; <br> [Azure Data Box](/azure/databox/data-box-overview) with an [ISV solution](/azure/storage/solution-integration/validated-partners/backup-archive-disaster-recovery/partner-overview) |
-| • Other scenarios including: <br> - on-premises NAS to Azure Files (except via Data Box data copy service)<br> - on-premises Linux to Azure Files NFS <br> - AWS EFS/FSx/S3 to Azure Files <br> - GCP FileStorage to Azure Files | - [ISV Tools](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison) (Komprise, Cirata, Data Dynamics, Atempo) <br> OR <br> - Mount the source on a client and use Azure Storage Mover or AzCopy |
+| • Physical machines, VMs, and their attached disks; VMs running in Hyper-V, VMware, AWS, GCP. | [Azure Migrate](../../migrate/migrate-services-overview.md) |
+| • Rapid, one-off, or incremental, small to medium scale data transfer (typically < 1 TB per job) to or from Azure<br> • Service-to-service (files-to-files, files-to-blob, etc.) transfers over Azure backbone (intra-Azure)<br> • Scripting capability requirement (filtering criteria, metadata updates, or any transformation, for example) and precise control for such transfers<br> • Doesn't involve millions of files or objects transfer<br> •	Local file system, SMB, NFS mounts to Azure<br> •	S3 to Azure Blob (typically < 1 TB)<br> • AWS EFS or AWS FSx for Windows to Azure Files<br> •	Google Cloud Storage (S3, GCS API) to Azure Storage (blob), ADLS (HNS enabled) | [AzCopy](storage-use-azcopy-v10.md) (always uses HTTPS REST APIs) |
+| • Windows File Server source (SMB 2.x or 3.x to Azure Files) <br> • Hybrid data sync with reverse or bi-directional file sync <br> • Centralized file server management with on-premises cache and cloud tiering <br> • Collaboration and teamwork with branch-out deployments (multi-site access and sync)<br> •	Cloud-side backup with business continuity and disaster recovery along with on-premises cache presence<br> • One time file shares migration need with Azure File Sync already deployed and configured  | [Azure File Sync](../file-sync/file-sync-introduction.md) |
+|• Continuous ingestion and cloud tiering requirements to Azure storage (Blob) with on-premises cache <br> •	Source is on-premises (NFS v3, 4.1 or SMB 2.x, 3.x) (One-way sync) or bi-directional (with manual sync) to or from Azure<br> • No need for multiple on-premises copies of that data kept in sync (one-way) | [Azure Data Box Gateway](../../databox-gateway/) |
+| • Small scale, one-off transfers with custom scripting, or Linux/Windows CLI based migrations | [AzCopy](storage-use-azcopy-v10.md), rsync, [Robocopy](storage-use-robocopy.md) |
+| • Complex data management, analytics, tiering, or unsupported use cases and targets (ANF or Lustre, for example) beyond Azure native tooling capabilities | [ISV Tools](../solution-integration/validated-partners/data-management/migration-tools-comparison.md) (Komprise, Cirata, Data Dynamics, Atempo) |
+| • Large archive data migration from on-premises Tapes to Azure storage | See the [tape migration guide](tape-migration-guide.md) and explore partner solutions such as Tape Ark |
+| • Large on-premises backup or archive using ISV solutions (Commvault, Veeam, or RUbrik, for example)<br> • Offline seeding with delta sync by backup tool. | Use partner specific recommendations; <br> [Azure Data Box](../../databox/data-box-overview.md) with an [ISV solution](../solution-integration/validated-partners/backup-archive-disaster-recovery/partner-overview.md) |
+| • Other scenarios including: <br> - on-premises NAS to Azure Files (except via Data Box data copy service)<br> - on-premises Linux to Azure Files NFS <br> - AWS EFS/FSx/S3 to Azure Files <br> - GCP FileStorage to Azure Files | - [ISV Tools](../solution-integration/validated-partners/data-management/migration-tools-comparison.md) (Komprise, Cirata, Data Dynamics, Atempo) <br> OR <br> - Mount the source on a client and use Azure Storage Mover or AzCopy |
 
-[Read more](4-Select-migration-tools.md) on migration tools and choices.
+[Read more](storage-migration-tools.md) about migration tools and choices.
 
 ### Migration execution
 
@@ -124,7 +124,7 @@ The migration phase is the final migration step. This step performs the data mov
 
 The duration of an unstructured data migration depends on several aspects. Outside of the chosen method, the most critical factors are the total size of the data and the file size distribution. The larger the total data set, the longer the migration time required. The smaller the average file size, the longer the migration time required. If you have a large number of small files, consider archiving them within larger files (compress to .tar or .zip files), if feasible, to reduce the total migration time.
 
-[Read more](5-Migration-execution.md) on migration tools and choices.
+[Read more](storage-migration-execution.md) on migration execution.
 
 </Details>
 
@@ -140,18 +140,18 @@ Migration of block-based devices can be accomplished in two ways:
 - Migration of full virtual machines together with the underlying block-based devices. 
 - Migration of block based devices only.
 
-For help migrating VMs with their underlying block devices, see the [Azure Migrate](/azure/migrate/) documentation. , and more complexed use cases, use [Cirrus Migrate Cloud](/azure/storage/solution-integration/validated-partners/data-management/cirrus-data-migration-guide).
+For help migrating VMs with their underlying block devices, see the [Azure Migrate](../../migrate/) documentation. For more complexed use cases, use [Cirrus Migrate Cloud](../solution-integration/validated-partners/data-management/cirrus-data-migration-guide.md).
 
 
-To explore workloads suitable for migration and their appropriate approaches, see the [Disk Storage product page](https://azure.microsoft.com/services/storage/disks/) and the [Azure Disk types](/azure/virtual-machines/disks-types) article. You can learn about which disks best fit your requirements, and the latest capabilities such as [disk bursting](/azure/virtual-machines/disk-bursting). 
+To explore workloads suitable for migration and their appropriate approaches, see the [Disk Storage product page](https://azure.microsoft.com/services/storage/disks/) and the [Azure Disk types](../../virtual-machines/disks-types) article. You can learn about which disks best fit your requirements, and the latest capabilities such as [disk bursting](../../virtual-machines/disk-bursting).
 
 </Details>
 
 ## See also
 
-- [Choose an Azure solution for data transfer](/azure/storage/common/storage-choose-data-transfer-solution)
-- [Compare commercial migration tools](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison)
-- [Migrate to Azure file shares](/azure/storage/files/storage-files-migration-overview)
-- [Migrate to Data Lake Storage with WANdisco LiveData Platform for Azure](/azure/storage/blobs/migrate-gen2-wandisco-live-data-platform)
-- [Copy or move data to Azure Storage with AzCopy](/azure/storage/common/storage-use-azcopy-v10)
+- [Choose an Azure solution for data transfer](storage-choose-data-transfer-solution.md)
+- [Compare commercial migration tools](../solution-integration/validated-partners/data-management/migration-tools-comparison.md)
+- [Migrate to Azure file shares](../files/storage-files-migration-overview.md)
+- [Migrate to Data Lake Storage with WANdisco LiveData Platform for Azure](../blobs/migrate-gen2-wandisco-live-data-platform.md)
+- [Copy or move data to Azure Storage with AzCopy](storage-use-azcopy-v10.md)
 - [Migrate large datasets to Azure Blob Storage with AzReplicate](/samples/azure/azreplicate/azreplicate/)

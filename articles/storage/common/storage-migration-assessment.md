@@ -1,6 +1,6 @@
 ---
-title: Storage Assessment
-description: Storage migration Assessment guide describes basic guidance for storage migration Assessment
+title: Azure migration guidance storage assessment
+description: The Azure storage migration assessment guide describes basic guidance for the Assessment phase of any migration strategy.
 author: bapic
 ms.author: bapic
 ms.topic: concept-article 
@@ -10,13 +10,13 @@ ms.subservice: storage-common-concepts
 ---
 
 <!--
-65 (870/25)
-
+65 (670/25)
+93 (751/5 false-positives)
 -->
 
 # Storage migration assessment
 
-During this phase, data assets, dependencies, and the volume and usage of data—both in its current state and after migration—are systematically inventoried. Each dataset is profiled according to factors such as performance, resiliency, security, cost, and usage requirements. These attributes help with appropriate assessment and target service selection.
+During the assessment phase, data assets, dependencies, and the volume and usage of data are systematically inventoried. This inventory takes into account data in both its pre- and post-migration state. Each dataset is profiled according to factors such as performance, resiliency, security, cost, and usage requirements. These attributes help with appropriate assessment and target service selection.
 
 The following list contains commonly inventoried and cataloged items.
 
@@ -24,18 +24,18 @@ The following list contains commonly inventoried and cataloged items.
 
 ### Inventory Data Assets
 
-1. Catalog all *data sources* to migrate (such as user data, departmental shares, file shares, application data, content management systems, databases, back-up-archive data, virtual machine disks, stored on any SAN, NAS, DFS, tape archives etc.)
-2. In this catalog, for each source of data, estimate the *data size* (in GB/TB/PB), include approx. *number of files & objects*.
-3. Capture the *hierarchy, depth of the directory* structure.
-4. Note the special properties such as *reserved file names*, *directory/file length (long path), or *alternate data streams* involved.
-5. *Authentication methods* involved for the current and future data services
+1. Catalog all *data sources* being migrated. These sources include user data, departmental shares, file shares, application data, content management systems, and databases. They also include back-up-archive data, virtual machine disks, or data stored on any SAN, NAS, DFS, or tape archives.
+2. Estimate the *data size* in GB/TB/PB for each data source within your catalog. Include the approximate *number of files and objects*.
+3. Capture the *hierarchy* and *depth of the directory structures*.
+4. Note any special properties such as *reserved file names*, *directory or file length*, *long paths*, or *alternate data streams* involved.
+5. Note *Authentication methods* involved for the current and future data services.
 
 ### Identify Data type & Access Patterns
 
-1. For each source, record the *data type* and *access method*, and the *frequency of access*.
-2. Identify *access methods & protocols* file-level (accessible via SMB/NFS), object-level (via S3/REST APIs), or block-level (raw disks or LUNs attached to servers, iSCSI etc.)
+1. Record the *data type* and *access method* for each source, and the *frequency of access*.
+2. Identify *access methods and protocols* at the file-level, object-level, or block-level. For example, file-level protocols might include SMB or NFS. Object-level protocols might include S3 or REST APIs, and block-level protocols might include iSCSI, or raw disks or LUNs attached to servers.
 3. Note *application dependencies* on this data for pre- and post-migration access, which protocols once migrated to Azure.
-4. Capture specific permission levels *(ACLs) retention requirements* of the permissions, any specific feature support for the file such as *access-based enumeration, alternate data streams*.
+4. Capture specific permission levels and ACLs, retention requirements for permissions, and any specific feature support for the file such as *access-based enumeration* or *alternate data streams*.
 5. Also note the *access patterns*- sequential vs random; read/write ratio
 6. Mention if you're considering *consolidation or reorganization* of the data, as you migrate to Azure storage.
 
@@ -48,26 +48,26 @@ The following list contains commonly inventoried and cataloged items.
 
 ### Assess replication, change rate, resiliency & downtime tolerance
 
-1. Determine data *change rates* (how frequently data changes) and the acceptable *downtime* for cutover. If data is static (does not change), one-time copy is fine. If actively changing, plan for incremental syncs and a final cutover window. 
+1. Determine data *change rates* to understand how frequently data changes, and the acceptable *downtime* for cutover. If your data is static and doesn't change, a one-time copy is acceptable. However, actively changing, dynamic data requires you to plan for incremental syncs and a final cutover window.
 2. Agree on any read-only period for final migration to avoid missed updates.
-3. Capture the SLA, RPO, RTO needs (depending on application's availability, resiliency needs)
-4. Existing data protection, recovery, and monitoring needs
-5. Any replication policies (Ex: synchronous or asynchronous high availability or disaster recovery needs) and snapshot policies if applicable (frequency and retention period)
+3. Capture the SLA, RPO, RTO requirements based on an application's availability and resiliency needs.
+4. Document existing data protection, recovery, and monitoring needs.
+5. Capture any replication policies, such as synchronous or asynchronous high-availability or disaster recovery requirements. Also note any snapshot policies if applicable, such as frequency and retention period.
 
-At this point, consider, if the data changes are too high, how the current network bandwidth supports the delta changes post initial offline seeding. Are there additional parameters to consider for such systems and the data?  
+At this point, consider whether the data changes are excessively frequent, and whether the current network bandwidth can support the delta changes after initial offline seeding. Are there other parameters to consider for such systems and the data?
 
-### Factor in Security & Compliance Requirements
+### Factor in Security and Compliance Requirements
 
-1. Document any *permissions* (*ACLs*) on the data. Ensure the migration method can preserve them or plan to *reapply* them in Azure.
-2. If data must not transit public internet, plan to use *ExpressRoute or Private Link* for in-flight data.
-3. *Regulatory compliance* might also dictate target Azure region (data residency). Categorize the data based on such *security and compliance needs* such as which one needs additional *auditing, chain of custody etc.* If any in case, you're considering offline migration, review and document such specific needs.
-4. Outline key *technical design decisions* that must be reviewed and established to move forward with target selections
+1. Document any *permissions* and *ACLs* on the data. Ensure the migration method can preserve them, or create a plan to *reapply* them in Azure.
+2. Plan to use *ExpressRoute* or *Private Link* for any in-flight data that must not transit the public internet.
+3. Consider that *regulatory compliance* might dictate specific target Azure regions to comply with data residency requirements. Categorize the data based on *security and compliance needs*, such as *auditing* or *chain of custody*. If you're considering offline migration, review and document any such specific needs.
+4. Outline key *technical design decisions* that must be reviewed and established to move forward with target selections.
+5. Consider whether any system is nearing end of life. Although deprecated systems might not be migrated, it's possible that system data needs to be stored for a certain period to meet regulatory compliance. 
 
-
-At the end of the Assessment phase, you should have a document that clearly outlines the requirements for each source of data, the present and future needs and its specific sets of requirements once it's migrated to a target system/service. You also need to consider if any system is reaching end of life and will be deprecated and no migration is required or whether its data needs to be stored for a certain period. Such a document will clearly define the capabilities that must be present in the target systems to successfully host the data.
+At the end of the Assessment phase, you should have a document that clearly outlines the requirements for each source of data. These requirements include its present and future needs, and its specific sets of requirements after migrating to a target system or service. The Assessment document clearly defines the capabilities that must be present in the target systems to successfully host the data.
 
 ### See also
 
-- [Azure Migrate documentation | Microsoft Learn](/azure/migrate/)
-- [3P Assessment Tools](/azure/storage/solution-integration/validated-partners/data-management/azure-file-migration-program-solutions)
-- [Offline Data Transfers using Azure Data Box](/azure/databox/data-box-overview)
+- [Azure Migrate documentation | Microsoft Learn](../../migrate/)
+- [Partner Assessment Tools](../solution-integration/validated-partners/data-management/azure-file-migration-program-solutions.md)
+- [Offline Data Transfers using Azure Data Box](../../databox/data-box-overview.md)
