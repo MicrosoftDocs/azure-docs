@@ -16,7 +16,7 @@ This article describes reliability support in Azure Table Storage, covering intr
 
 [!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
-[Table Storage](/azure/storage/tables/table-storage-overview) is a service that stores structured NoSQL data in the cloud. It provides a store where each entity is accessed via a key and contains a set of attributes. A single table can contain entities that have different sets of properties, and properties can be of various data types.
+[Table Storage](/azure/storage/tables/table-storage-overview) is a service that stores structured NoSQL data in the cloud. It provides a store where each entity is accessed via a key and contains a set of attributes. A single table can contain entities that have different sets of properties, and properties can consist of various data types.
 
 Table Storage provides several reliability features through the underlying Azure Storage platform. As part of Azure Storage, Table Storage inherits the same redundancy options, availability zone support, and geo-replication capabilities that ensure high availability and durability for your table data.
 
@@ -93,13 +93,13 @@ For detailed pricing information, see [Table Storage pricing](https://azure.micr
 
 ### Normal operations
     
-This section describes what to expect when a table storage account is configured for zone redundancy and all availability zones are operational.
+This section describes what to expect when a Table Storage account is configured for zone redundancy and all availability zones are operational.
 
 [!INCLUDE [Storage - Normal operations](includes/storage/reliability-storage-availability-zone-normal-operations-include.md)]
 
 ### Zone-down experience
 
-When an availability zone becomes unavailable, Table Storage automatically handles the failover process with the following behavior:
+When an availability zone becomes unavailable, Table Storage automatically handles the failover process by responding with the following behaviors:
 
 [!INCLUDE [Storage - Zone down experience](includes/storage/reliability-storage-availability-zone-down-experience-include.md)]
 
