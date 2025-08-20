@@ -80,4 +80,4 @@ To start collecting health and audit data, you need to [enable health and audit 
 - [Monitor the health of your data connectors](monitor-data-connector-health.md)
 - [Monitor the health and integrity of your analytics rules](monitor-analytics-rule-integrity.md)
 - [Monitor SAP system health](monitor-sap-system-health.md)
-- The [*SentinelHealth*](health-table-reference.md) and [*SentinelAudit*](audit-table-reference.md) table schemas.
+- The [*SentinelHealth*](health-table-reference.md) and [*SentinelAudit*](audit-table-reference.md) table schemas
