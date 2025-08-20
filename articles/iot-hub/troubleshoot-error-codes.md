@@ -141,7 +141,8 @@ To resolve this error:
 * Use the latest versions of the [Azure IoT Hub SDKs](iot-hub-devguide-sdks.md).
 * See the guidance for [500xxx Internal errors](#500xxx-internal-errors).
 
-We recommend using Azure IoT device SDKs to manage connections reliably. To learn more, see [Manage device reconnections to create resilient applications](../iot/concepts-manage-device-reconnections.md)
+> [!NOTE]
+> We recommend using Azure IoT device SDKs to manage connections reliably. To learn more, see [Manage device reconnections to create resilient applications](../iot/concepts-manage-device-reconnections.md)
 
 ## 409001 Device already exists
 

@@ -261,7 +261,7 @@ Make sure to set up and consistently apply good naming conventions across all Az
 For guidance around this practice, review the following Microsoft recommendations and resources:
 
 - [Abbreviation examples for Azure resources](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations) 
-- [Azure Naming Tool](https://github.com/microsoft/CloudAdoptionFramework/tree/master/ready/AzNamingTool), which generates Azure-compliant names, helps you standardize on names, and automates your naming process.
+- [Azure Naming Tool](https://github.com/mspnp/AzureNamingTool), which generates Azure-compliant names, helps you standardize on names, and automates your naming process.
 
 ### Naming conventions for Azure Logic Apps resources
 

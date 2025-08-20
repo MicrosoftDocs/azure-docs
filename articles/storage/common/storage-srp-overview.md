@@ -3,8 +3,8 @@ title: Overview of the Azure Storage client libraries
 titleSuffix: Azure Storage
 description: Overview of the Azure Storage client libraries. Learn about the management and data plane libraries, and when to use each set of libraries as you build your application.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 
 ms.service: azure-storage
 ms.topic: overview

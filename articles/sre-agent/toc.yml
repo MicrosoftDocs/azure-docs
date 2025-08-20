@@ -25,3 +25,7 @@ items:
       href: troubleshoot.md
     - name: Billing
       href: billing.md
+- name: Reference
+  items:
+    - name: Starter prompts
+      href: prompts.md
