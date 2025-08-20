@@ -180,6 +180,8 @@ items:
           href: tutorial-ai-slm-fastapi.md
         - name: Web app from Azure AI Foundry
           href: /azure/ai-foundry/tutorials/deploy-chat-web-app?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
+        - name: Agentic web app
+          href: tutorial-ai-agent-web-app-langgraph-foundry-python.md
   - name: PHP
     items:
     - name: Quickstart
