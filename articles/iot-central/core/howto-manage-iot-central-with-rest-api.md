@@ -5,7 +5,7 @@ services: iot-central
 ms.service: azure-iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/18/2024
+ms.date: 08/06/2025
 ms.topic: how-to
 
 #customer intent: As a developer, I want to learn how to use the REST API to manage IoT Central applications so that I can automate application management tasks.

@@ -3,7 +3,7 @@ title: Quickstart - Configure Azure IoT Central rules and actions
 description: In this quickstart, you learn how to configure telemetry-based rules and actions in your IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/03/2024
+ms.date: 08/06/2025
 ms.topic: quickstart
 ms.service: azure-iot-central
 services: iot-central
@@ -119,7 +119,7 @@ When the phone is lying on its back, the **z** value is less than `-0.9`, when t
 
 Shortly after you save the rule, it becomes live. When the conditions defined in the rule are met, IoT Central sends an email to the address you specified in the action.
 
-To trigger the rule, make sure the smartphone app is sending data and then place it face down on your desk. After five minutes, IoT Central sends you an email to notify you that your smartphone is face down.
+To trigger the rule, make sure the smartphone app is sending data, and then place it face down on your desk. After five minutes, IoT Central sends you an email to notify you that your smartphone is face down.
 
 After your testing is complete, disable the rule to stop receiving the notification emails in your inbox.
 

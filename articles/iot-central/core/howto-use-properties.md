@@ -3,7 +3,7 @@ title: Use properties in an Azure IoT Central solution
 description: Learn how to use read-only and writable properties in an Azure IoT Central solution. Define properties in IoT Central and use properties programmatically.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/27/2024
+ms.date: 08/06/2025
 ms.topic: how-to
 ms.service: azure-iot-central
 services: iot-central
@@ -40,7 +40,7 @@ The following table shows the configuration settings for a property capability.
 | Field | Description |
 |---|---|
 | Display name | The display name for the property value used on dashboard tiles and device forms. |
-| Name | The name of the property. Azure IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field must be alphanumeric.  The device code uses this **Name** value. |
+| Name | The name of the property. Azure IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field must be alphanumeric. The device code uses this **Name** value. |
 | Capability type | Property. |
 | Semantic type | The semantic type of the property, such as temperature, state, or event. The choice of semantic type determines which of the following fields are available. |
 | Schema | The property data type, such as double, string, or vector. The semantic type determines the available choices. Schema isn't available for the event and state semantic types. |
@@ -106,7 +106,7 @@ You can update the writable properties in this view:
 
 ## Next steps
 
-Now that you've learned how to use properties in your Azure IoT Central application, see:
+Now that you know how to use properties in your Azure IoT Central application, see:
 
 * [IoT Plug and Play conventions](../../iot/concepts-convention.md)
 * [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md)

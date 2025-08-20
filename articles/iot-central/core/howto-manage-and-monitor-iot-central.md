@@ -6,7 +6,7 @@ ms.service: azure-iot-central
 ms.custom: devx-track-azurepowershell
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/02/2024
+ms.date: 08/06/2025
 ms.topic: how-to
 #customer intent: As an administrator, I want to learn how to manage and monitor IoT Central applications using Azure portal, Azure CLI, and Azure PowerShell so that I can maintain my set of IoT Central applications.
 ---
