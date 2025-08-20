@@ -117,7 +117,7 @@ Create a flow log for your virtual network, subnet, or network interface. This f
 
     :::image type="content" source="./media/flow-logs.png" alt-text="Screenshot of Network Watcher flow logs in the Azure portal." lightbox="./media/flow-logs.png":::
 
-1. On the **Basics** tab of **Create a flow log**, enter or select the following values:
+1. On the **Basics** tab of **Create a flow log**, enter, or select the following values:
 
     | Setting | Value |
     | ------- | ----- |
