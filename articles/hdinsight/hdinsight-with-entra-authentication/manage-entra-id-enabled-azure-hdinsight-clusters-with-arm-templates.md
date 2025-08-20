@@ -242,7 +242,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 
 | Name | Description | Value |
 | --- | --- | --- |
-| days | Days of the week for a schedule-based autoscale rule | String array containing any of:'Friday''Monday''Saturday''Sunday''Thursday''Tuesday''Wednesday' |
+| days | Days of the week for a schedule-based autoscale rule | String array containing any of:'Friday' 'Monday' ,'Saturday' ,'Sunday' , 'Thursday' , 'Tuesday' , 'Wednesday' |
 | timeAndCapacity | Time and capacity for a schedule-based autoscale rule | [AutoscaleTimeAndCapacity](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#autoscaletimeandcapacity-1) |
 
 **AutoscaleTimeAndCapacity**
@@ -251,7 +251,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 | --- | --- | --- |
 | maxInstanceCount | The maximum instance count of the cluster | int |
 | minInstanceCount | The minimum instance count of the cluster | int |
-| time | 24-hour time in the form xx:xx | string |
+| time | 24-hour time in the form HH:MM | string |
 
 
 **ClientGroupInfo**
@@ -280,11 +280,11 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 | kafkaRestProperties         | The cluster kafka rest proxy configuration.   | [KafkaRestProperties](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#kafkarestproperties-1)           |
 | minSupportedTlsVersion      | The minimal supported tls version.            | string                        |
 | networkProperties           | The network properties.                       | [NetworkProperties](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#networkproperties-1)             |
-| osType                      | The type of operating system.                 | 'Linux''Windows'             |
+| osType                      | The type of operating system.                 | 'Linux' , 'Windows'             |
 | privateLinkConfigurations   | The private link configurations.              | [PrivateLinkConfiguration[]](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#networkproperties-1)    |
 | securityProfile             | The security profile.                         | [SecurityProfile](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#securityprofile-1)               |
 | storageProfile              | The storage profile.                          | [StorageProfile](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#storageprofile-1)                |
-| tier                        | The cluster tier.                             | 'Premium''Standard'          |
+| tier                        | The cluster tier.                             | 'Premium' , 'Standard'          |
 
 
 **ClusterDefinition**
@@ -301,7 +301,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 
 | Name | Description | Value |
 | --- | --- | --- |
-| type | The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. | 'None''SystemAssigned''SystemAssigned, UserAssigned''UserAssigned' |
+| type | The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. | 'None' , 'SystemAssigned' , 'UserAssigned' |
 | userAssignedIdentities | The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'. | [ClusterIdentityUserAssignedIdentities](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#clusteridentityuserassignedidentities-1) |
 
 
@@ -334,7 +334,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 | keyName             | Key name that is used for enabling disk encryption.          | string |
 | keyVersion          | Specific key version that is used for enabling disk encryption. | string |
 | msiResourceId       | Resource ID of Managed Identity that is used to access the key vault. | string |
-| vaultUri            | Base key vault URI where the customers key is located eg. https://myvault.vault.azure.net | string |
+| vaultUri            | Base key vault URI where the customer's key is located eg. https://myvault.vault.azure.net | string |
 
 
 **EncryptionInTransitProperties**
@@ -373,7 +373,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 | Name | Description | Value |
 | --- | --- | --- |
 | clientGroupInfo       | The information of AAD security group.              | ClientGroupInfo                          |
-| configurationOverride | The configurations that need to be overriden.       | KafkaRestPropertiesConfigurationOverride |
+| configurationOverride | The configurations that need to be overridden.       | KafkaRestPropertiesConfigurationOverride |
 
 
 **LinuxOperatingSystemProfile**
@@ -387,7 +387,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 **Microsoft.HDInsight/clusters**
 | Name | Description | Value |
 | --- | --- | --- |
-| apiVersion | The api version.                              | '2025-01-15-preview'                         |
+| apiVersion | The API version.                              | '2025-01-15-preview'                         |
 | identity   | The identity of the cluster, if configured.   | ClusterIdentity                              |
 | location   | The location of the cluster.                  | string                                      |
 | name       | The resource name.                            | string (required)                           |
