@@ -1,11 +1,11 @@
 ---
 title: "Azure Operator Nexus: How to configure the Cluster deployment"
 description: Learn the steps for deploying the Operator Nexus Cluster.
-author: bartpinto
-ms.author: bpinto
+author: lb4368
+ms.author: lborgmeyer
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 05/22/2025
+ms.date: 08/13/2025
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -47,7 +47,7 @@ with a Network Fabric.
 > To confirm the status, open the JSON properties for the Cluster (Operator Nexus) resource in Azure portal, or run an `az networkcloud cluster show` CLI command as shown in the following example. If the bmmConnectionString values show nonempty `redfish+https..` values, then it's safe to update the cluster. This issue will be fixed in a future release.
 >
 > Sample bmcConnectionString output for `az networkcloud cluster show -n cluster01 -g cluster01resourceGroup--query 'computeRackDefinitions[].bareMetalMachineConfigurationData[].bmcConnectionString' -o json` is as follows:
-> 
+>
 > ```
 > ["redfish+https://10.9.3.20/redfish/v1/Systems/System.Embedded.1",
 > "redfish+https://10.9.3.19/redfish/v1/Systems/System.Embedded.1",
@@ -57,14 +57,13 @@ with a Network Fabric.
 
 ### Create the Cluster using Azure CLI - single storage appliance:
 
->[!IMPORTANT]
->This command creates the cluster for a Nexus instance that contains a single storage appliance. If you run it against an instance with two storage appliances, the second appliance doesn't configure. Follow [the instructions for multiple storage appliances](#create-the-cluster-using-azure-cli---multiple-storage-appliances) if your Nexus instance includes two storage appliances.
+> [!IMPORTANT]
+> This command creates the cluster for a Nexus instance that contains a single storage appliance. If you run it against an instance with two storage appliances, the second appliance doesn't configure. Follow [the instructions for multiple storage appliances](#create-the-cluster-using-azure-cli---multiple-storage-appliances) if your Nexus instance includes two storage appliances.
 
 ```azurecli
 az networkcloud cluster create --name "<CLUSTER_NAME>" --location "<LOCATION>" \
   --extended-location name="<CL_NAME>" type="CustomLocation" \
   --resource-group "<CLUSTER_RG>" \
-  --analytics-workspace-id "<LAW_ID>" \
   --cluster-location "<CLUSTER_LOCATION>" \
   --network-rack-id "<AGGR_RACK_RESOURCE_ID>" \
   --rack-sku-id "<AGGR_RACK_SKU>"\
@@ -75,17 +74,18 @@ az networkcloud cluster create --name "<CLUSTER_NAME>" --location "<LOCATION>" \
   --compute-rack-definitions '[{"networkRackId": "<COMPX_RACK_RESOURCE_ID>", "rackSkuId": "<COMPX_RACK_SKU>", "rackSerialNumber": "<COMPX_RACK_SN>", "rackLocation": "<COMPX_RACK_LOCATION>", "storageApplianceConfigurationData": [], "bareMetalMachineConfigurationData":[{"bmcCredentials": {"password":"<COMPX_SVRY_BMC_PASS>", "username":"<COMPX_SVRY_BMC_USER>"}, "bmcMacAddress":"<COMPX_SVRY_BMC_MAC>", "bootMacAddress":"<COMPX_SVRY_BOOT_MAC>", "machineDetails":"<COMPX_SVRY_SERVER_DETAILS>", "machineName":"<COMPX_SVRY_SERVER_NAME>"}]}]'\
   --managed-resource-group-configuration name="<MRG_NAME>" location="<MRG_LOCATION>" \
   --network fabric-id "<NF_ID>" \
-  --cluster-service-principal application-id="<SP_APP_ID>" \
-    password="$SP_PASS" principal-id="$SP_ID" tenant-id="<TENANT_ID>" \
+  --mi-user-assigned "<CLUSTER_UAMI>" \
+  --analytics-output-settings analytics-workspace-id="<LAW_ID>" identity-type="<ID_TYPE>" identity-resource-id="<CLUSTER_UAMI>" \
+  --command-output-settings container-url="<COMMAND_OUTPUT_CONTAINER_URI>" identity-type="<ID_TYPE>" identity-resource-id="<CLUSTER_UAMI>" \
+  --secret-archive-settings vault-uri="<VAULT_URI>" identity-type="<ID_TYPE>" identity-resource-id="<CLUSTER_UAMI>" \
   --subscription "<SUBSCRIPTION_ID>" \
-  --secret-archive-settings "{identity-type:<ID_TYPE>, vault-uri:<VAULT_URI>}" \
   --cluster-type "<CLUSTER_TYPE>" --cluster-version "<CLUSTER_VERSION>" \
   --tags <TAG_KEY1>="<TAG_VALUE1>" <TAG_KEY2>="<TAG_VALUE2>"
 ```
 
 ### Create the Cluster using Azure CLI - multiple storage appliances:
 
-"<AGGR_RACK_SKU>" must be set to a value which supports two storage appliances. See [Operator Nexus Network Cloud SKUs](./reference-operator-nexus-skus.md) to pick an appropriate SKU. The cluster creation command also sets the default storage appliance for volume creation. The default appliance is the appliance with `"rackSlot":1` in its configuration data.
+"<AGGR_RACK_SKU>" must be set to a value that supports two storage appliances. See [Operator Nexus Network Cloud SKUs](./reference-operator-nexus-skus.md) to pick an appropriate SKU. The cluster creation command also sets the default storage appliance for volume creation. The default appliance is the appliance with `"rackSlot":1` in its configuration data.
 
 ```azurecli
 az networkcloud cluster create --name "<CLUSTER_NAME>" --location "<LOCATION>" \
@@ -102,63 +102,62 @@ az networkcloud cluster create --name "<CLUSTER_NAME>" --location "<LOCATION>" \
   --compute-rack-definitions '[{"networkRackId": "<COMPX_RACK_RESOURCE_ID>", "rackSkuId": "<COMPX_RACK_SKU>", "rackSerialNumber": "<COMPX_RACK_SN>", "rackLocation": "<COMPX_RACK_LOCATION>", "storageApplianceConfigurationData": [], "bareMetalMachineConfigurationData":[{"bmcCredentials": {"password":"<COMPX_SVRY_BMC_PASS>", "username":"<COMPX_SVRY_BMC_USER>"}, "bmcMacAddress":"<COMPX_SVRY_BMC_MAC>", "bootMacAddress":"<COMPX_SVRY_BOOT_MAC>", "machineDetails":"<COMPX_SVRY_SERVER_DETAILS>", "machineName":"<COMPX_SVRY_SERVER_NAME>"}]}]'\
   --managed-resource-group-configuration name="<MRG_NAME>" location="<MRG_LOCATION>" \
   --network fabric-id "<NF_ID>" \
-  --cluster-service-principal application-id="<SP_APP_ID>" \
-    password="$SP_PASS" principal-id="$SP_ID" tenant-id="<TENANT_ID>" \
+  --mi-user-assigned "<CLUSTER_UAMI>" \
+  --analytics-output-settings analytics-workspace-id="<LAW_ID>" identity-type="<ID_TYPE>" identity-resource-id="<CLUSTER_UAMI>" \
+  --command-output-settings container-url="<COMMAND_OUTPUT_CONTAINER_URI>" identity-type="<ID_TYPE>" identity-resource-id="<CLUSTER_UAMI>" \
+  --secret-archive-settings vault-uri="<VAULT_URI>" identity-type="<ID_TYPE>" identity-resource-id="<CLUSTER_UAMI>" \
   --subscription "<SUBSCRIPTION_ID>" \
-  --secret-archive-settings "{identity-type:<ID_TYPE>, vault-uri:<VAULT_URI>}" \
   --cluster-type "<CLUSTER_TYPE>" --cluster-version "<CLUSTER_VERSION>" \
   --tags <TAG_KEY1>="<TAG_VALUE1>" <TAG_KEY2>="<TAG_VALUE2>"
 ```
 
 ### Parameters for Cluster operations
 
-| Parameter name            | Description                                                                                                                                             |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CLUSTER_NAME              | Resource Name of the Cluster                                                                                                                            |
-| LOCATION                  | The Azure Region where the Cluster is deployed                                                                                                          |
-| CL_NAME                   | The Cluster Manager Custom Location from Azure portal                                                                                                   |
-| CLUSTER_RG                | The Cluster resource group name                                                                                                                         |
-| LAW_ID                    | Log Analytics Workspace ID for the Cluster                                                                                                              |
-| CLUSTER_LOCATION          | The local name of the Cluster                                                                                                                           |
-| AGGR_RACK_RESOURCE_ID     | RackID for Aggregator Rack                                                                                                                              |
-| AGGR_RACK_SKU             | The Rack Stock Keeping Unit (SKU) for Aggregator Rack \*See [Operator Nexus Network Cloud SKUs](./reference-operator-nexus-skus.md)                                              |
-| AGGR_RACK_SN              | Rack Serial Number for Aggregator Rack                                                                                                                  |
-| AGGR_RACK_LOCATION        | Rack physical location for Aggregator Rack                                                                                                              |
-| AGGR_RACK_BMM             | Used for single rack deployment only, empty for multi-rack                                                                                              |
-| SA1_NAME                   | First Storage Appliance Device name                                                                                                                           |
-| SA2_NAME                   | Second Storage Appliance Device name                                                                                                                           |
-| SA1_PASS                   | First Storage Appliance admin password reference URI or password value \*See [Key Vault Credential Reference](reference-key-vault-credential.md)                                                                                            |
-| SA2_PASS                   | Second Storage Appliance admin password reference URI or password value \*See [Key Vault Credential Reference](reference-key-vault-credential.md)                                                                                             |
-| SA_USER                   | Storage Appliance admin user                                                                                                                            |
-| SA1_SN                     | First Storage Appliance Serial Number                                                                                                                         |
-| SA2_SN                     | Second Storage Appliance Serial Number                                                                                                                         |
-| COMPX_RACK_RESOURCE_ID    | RackID for CompX Rack; repeat for each rack in compute-rack-definitions                                                                                 |
-| COMPX_RACK_SKU            | The Rack Stock Keeping Unit (SKU) for CompX Rack; repeat for each rack in compute-rack-definitions \*See [Operator Nexus Network Cloud Stock Keeping Unit (SKUs)](./reference-operator-nexus-skus.md) |
-| COMPX_RACK_SN             | Rack Serial Number for CompX Rack; repeat for each rack in compute-rack-definitions                                                                     |
-| COMPX_RACK_LOCATION       | Rack physical location for CompX Rack; repeat for each rack in compute-rack-definitions                                                                 |
-| COMPX_SVRY_BMC_PASS       | CompX Rack ServerY Baseboard Management Controller (BMC) password reference URI or password value; repeat for each rack in compute-rack-definitions and for each server in rack \*See [Key Vault Credential Reference](reference-key-vault-credential.md)        |
-| COMPX_SVRY_BMC_USER       | CompX Rack ServerY BMC user; repeat for each rack in compute-rack-definitions and for each server in rack                                               |
-| COMPX_SVRY_BMC_MAC        | CompX Rack ServerY BMC MAC address; repeat for each rack in compute-rack-definitions and for each server in rack                                        |
-| COMPX_SVRY_BOOT_MAC       | CompX Rack ServerY boot Network Interface Card (NIC) MAC address; repeat for each rack in compute-rack-definitions and for each server in rack          |
-| COMPX_SVRY_SERVER_DETAILS | CompX Rack ServerY details; repeat for each rack in compute-rack-definitions and for each server in rack                                                |
-| COMPX_SVRY_SERVER_NAME    | CompX Rack ServerY name; repeat for each rack in compute-rack-definitions and for each server in rack                                                   |
-| MRG_NAME                  | Cluster managed resource group name                                                                                                                     |
-| MRG_LOCATION              | Cluster Azure region                                                                                                                                    |
-| NF_ID                     | Reference to Network Fabric                                                                                                                             |
-| SP_APP_ID                 | Service Principal App ID                                                                                                                                |
-| SP_PASS                   | Service Principal Password                                                                                                                              |
-| SP_ID                     | Service Principal ID                                                                                                                                    |
-| TENANT_ID                 | Subscription tenant ID                                                                                                                                  |
-| SUBSCRIPTION_ID           | Subscription ID                                                                                                                                         |
-| KV_RESOURCE_ID            | Key Vault ID                                                                                                                                            |
-| CLUSTER_TYPE              | Type of Cluster, Single, or MultiRack                                                                                                                   |
-| CLUSTER_VERSION           | Network Cloud (NC) Version of Cluster                                                                                                                   |
-| TAG_KEY1                  | Optional tag1 to pass to Cluster Create                                                                                                                 |
-| TAG_VALUE1                | Optional tag1 value to pass to Cluster Create                                                                                                           |
-| TAG_KEY2                  | Optional tag2 to pass to Cluster Create                                                                                                                 |
-| TAG_VALUE2                | Optional tag2 value to pass to Cluster Create                                                                                                           |
-| ID_TYPE                   | See [Cluster Support for Managed Identities](./howto-cluster-managed-identity-user-provided-resources.md#key-vault-settings) for details on secret-archive-settings                               |
-| VAULT_URI                 | See [Cluster Support for Managed Identities](./howto-cluster-managed-identity-user-provided-resources.md#key-vault-settings) for details on secret-archive-settings                               |
+| Parameter name            | Description                                                                                                                                                                                                                                               |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| CLUSTER_NAME              | Resource Name of the Cluster                                                                                                                                                                                                                              |
+| LOCATION                  | The Azure Region where the Cluster is deployed                                                                                                                                                                                                            |
+| CL_NAME                   | The Cluster Manager Custom Location from Azure portal                                                                                                                                                                                                     |
+| CLUSTER_RG                | The Cluster resource group name                                                                                                                                                                                                                           |
+| ID_TYPE                   | See [Cluster Support for Managed Identities](./howto-cluster-managed-identity-user-provided-resources.md) for details on managed identities for user-provided resources                                                                                   |
+| CLUSTER_UAMI              | See [Cluster Support for Managed Identities](./howto-cluster-managed-identity-user-provided-resources.md) for details on managed identities for user-provided resources                                                                                   |
+| LAW_ID                    | See [Cluster Support for Managed Identities](./howto-cluster-managed-identity-user-provided-resources.md#log-analytics-workspaces-setup) for details on analytics-output-settings                                                                         |
+| CLUSTER_LOCATION          | The local name of the Cluster                                                                                                                                                                                                                             |
+| AGGR_RACK_RESOURCE_ID     | RackID for Aggregator Rack                                                                                                                                                                                                                                |
+| AGGR_RACK_SKU             | The Rack Stock Keeping Unit (SKU) for Aggregator Rack \*See [Operator Nexus Network Cloud SKUs](./reference-operator-nexus-skus.md)                                                                                                                       |
+| AGGR_RACK_SN              | Rack Serial Number for Aggregator Rack                                                                                                                                                                                                                    |
+| AGGR_RACK_LOCATION        | Rack physical location for Aggregator Rack                                                                                                                                                                                                                |
+| AGGR_RACK_BMM             | Used for single rack deployment only, empty for multi-rack                                                                                                                                                                                                |
+| SA1_NAME                  | First Storage Appliance Device name                                                                                                                                                                                                                       |
+| SA2_NAME                  | Second Storage Appliance Device name                                                                                                                                                                                                                      |
+| SA1_PASS                  | First Storage Appliance admin password reference URI or password value \*See [Key Vault Credential Reference](reference-key-vault-credential.md)                                                                                                          |
+| SA2_PASS                  | Second Storage Appliance admin password reference URI or password value \*See [Key Vault Credential Reference](reference-key-vault-credential.md)                                                                                                         |
+| SA_USER                   | Storage Appliance admin user                                                                                                                                                                                                                              |
+| SA1_SN                    | First Storage Appliance Serial Number                                                                                                                                                                                                                     |
+| SA2_SN                    | Second Storage Appliance Serial Number                                                                                                                                                                                                                    |
+| COMPX_RACK_RESOURCE_ID    | RackID for CompX Rack; repeat for each rack in compute-rack-definitions                                                                                                                                                                                   |
+| COMPX_RACK_SKU            | The Rack Stock Keeping Unit (SKU) for CompX Rack; repeat for each rack in compute-rack-definitions \*See [Operator Nexus Network Cloud Stock Keeping Unit (SKUs)](./reference-operator-nexus-skus.md)                                                     |
+| COMPX_RACK_SN             | Rack Serial Number for CompX Rack; repeat for each rack in compute-rack-definitions                                                                                                                                                                       |
+| COMPX_RACK_LOCATION       | Rack physical location for CompX Rack; repeat for each rack in compute-rack-definitions                                                                                                                                                                   |
+| COMPX_SVRY_BMC_PASS       | CompX Rack ServerY Baseboard Management Controller (BMC) password reference URI or password value; repeat for each rack in compute-rack-definitions and for each server in rack \*See [Key Vault Credential Reference](reference-key-vault-credential.md) |
+| COMPX_SVRY_BMC_USER       | CompX Rack ServerY BMC user; repeat for each rack in compute-rack-definitions and for each server in rack                                                                                                                                                 |
+| COMPX_SVRY_BMC_MAC        | CompX Rack ServerY BMC MAC address; repeat for each rack in compute-rack-definitions and for each server in rack                                                                                                                                          |
+| COMPX_SVRY_BOOT_MAC       | CompX Rack ServerY boot Network Interface Card (NIC) MAC address; repeat for each rack in compute-rack-definitions and for each server in rack                                                                                                            |
+| COMPX_SVRY_SERVER_DETAILS | CompX Rack ServerY details; repeat for each rack in compute-rack-definitions and for each server in rack                                                                                                                                                  |
+| COMPX_SVRY_SERVER_NAME    | CompX Rack ServerY name; repeat for each rack in compute-rack-definitions and for each server in rack                                                                                                                                                     |
+| MRG_NAME                  | Cluster managed resource group name                                                                                                                                                                                                                       |
+| MRG_LOCATION              | Cluster Azure region                                                                                                                                                                                                                                      |
+| NF_ID                     | Reference to Network Fabric                                                                                                                                                                                                                               |
+| TENANT_ID                 | Subscription tenant ID                                                                                                                                                                                                                                    |
+| SUBSCRIPTION_ID           | Subscription ID                                                                                                                                                                                                                                           |
+| CLUSTER_TYPE              | Type of Cluster, Single, or MultiRack                                                                                                                                                                                                                     |
+| CLUSTER_VERSION           | Network Cloud (NC) Version of Cluster                                                                                                                                                                                                                     |
+| TAG_KEY1                  | Optional tag1 to pass to Cluster Create                                                                                                                                                                                                                   |
+| TAG_VALUE1                | Optional tag1 value to pass to Cluster Create                                                                                                                                                                                                             |
+| TAG_KEY2                  | Optional tag2 to pass to Cluster Create                                                                                                                                                                                                                   |
+| TAG_VALUE2                | Optional tag2 value to pass to Cluster Create                                                                                                                                                                                                             |
+| VAULT_URI                 | See [Cluster Support for Managed Identities](./howto-cluster-managed-identity-user-provided-resources.md#key-vault-settings) for details on secret-archive-settings                                                                                       |
+| CONTAINER_URI             | See [Cluster Support for Managed Identities](./howto-cluster-managed-identity-user-provided-resources.md#storage-accounts-setup) for details on command-output-settings                                                                                   |
 
 ## Cluster Identity
 
@@ -179,20 +178,20 @@ You can find examples for an 8-Rack 2M16C SKU Cluster using these two files:
 [cluster.parameters.jsonc](./cluster-parameters-jsonc-example.md)
 
 > [!NOTE]
-> To get the correct formatting, copy the raw code file. The values within the cluster.parameters.jsonc file are customer specific and may not be a complete list. Update the value fields for your specific environment.
+> To get the correct formatting, copy the raw code file. The values within the cluster.parameters.jsonc file are customer specific and might not be a complete list. Update the value fields for your specific environment.
 
 1. Navigate to [Azure portal](https://portal.azure.com/) in a web browser and sign in.
 1. Search for 'Deploy a custom template' in the Azure portal search bar, and then select it from the available services.
-1. Click on Build your own template in the editor.
-1. Click on Load file. Locate your cluster.jsonc template file and upload it.
-1. Click Save.
-1. Click Edit parameters.
-1. Click Load file. Locate your cluster.parameters.jsonc parameters file and upload it.
-1. Click Save.
+1. Select Build your own template in the editor.
+1. Select Load file. Locate your cluster.jsonc template file and upload it.
+1. Select Save.
+1. Select Edit parameters.
+1. Select Load file. Locate your cluster.parameters.jsonc parameters file and upload it.
+1. Select Save.
 1. Select the correct Subscription.
 1. Search for the Resource group to see if it already exists. If not, create a new Resource group.
 1. Make sure all Instance Details are correct.
-1. Click Review + create.
+1. Select Review + create.
 
 ### Cluster validation
 
@@ -255,7 +254,7 @@ az networkcloud cluster show --resource-group "<resourceGroup>" --name "<cluster
     "value": 97
 ```
 
-In this example, if less than 97% of the compute nodes being deployed pass hardware validation, the Cluster deployment fails. **NOTE: All kubernetes control plane (KCP) and nexus management plane (NMP) must pass hardware validation.** If 97% or more of the compute nodes being deployed pass hardware validation, the Cluster deployment continues to the bootstrap provisioning phase. 
+In this example, if less than 97% of the compute nodes being deployed pass hardware validation, the Cluster deployment fails. **NOTE: All kubernetes control plane (KCP) and nexus management plane (NMP) must pass hardware validation.** If 97% or more of the compute nodes being deployed pass hardware validation, the Cluster deployment continues to the bootstrap provisioning phase.
 
 > [!NOTE]
 > Deployment thresholds can't be changed after Cluster deployment is started.
@@ -293,6 +292,87 @@ az networkcloud cluster deploy \
 > See the section [Cluster Deploy Failed](#cluster-deploy-failed) for more detailed steps.
 > Optionally, the command can run asynchronously using the `--no-wait` flag.
 
+#### Monitor status in Cluster JSON properties
+
+In version 2509.1 and above, you can view progress of the `cluster deploy` action in Azure portal in the `JSON View` of the Cluster (Operator Nexus) resource. The following information is included in the `properties.actionStates` field, when using API Version `2025-07-01-preview` or higher.
+
+- Start and end time of the deploy action.
+- Current status (`Succeeded`, `Failed`, or `InProgress`).
+- Any extra context or error message associated with the current status.
+- The Correlation ID for the original `cluster deploy` operation, as also shown in the Azure Activity log.
+- An ordered list of individual steps and their status - such as `Validate Hardware`, `Generate Boostrap Image`, and `Reset compute hosts`.
+
+Example `JSON View` output for the Cluster (Operator Nexus) resource:
+
+```json
+{
+  "properties": {
+    "actionStates": [
+      {
+        "actionType": "Microsoft.NetworkCloud/clusters/deploy",
+        "correlationId": "196157eb-0c9f-47df-8428-ac2f86cfc816",
+        "endTime": "2025-07-28T23:33:27Z",
+        "message": "Deploy action completed successfully; cluster deployment initiated and proceeding automatically - monitor progress via cluster detailed status",
+        "startTime": "2025-07-28T17:32:50Z",
+        "status": "Completed",
+        "stepStates": [
+          {
+            "endTime": "2025-07-28T17:32:50Z",
+            "startTime": "2025-07-28T17:32:50Z",
+            "status": "Completed",
+            "stepName": "Wait for Cluster to be created"
+          },
+          {
+            "endTime": "2025-07-28T17:32:51Z",
+            "startTime": "2025-07-28T17:32:51Z",
+            "status": "Completed",
+            "stepName": "Wait for Cluster network definitions"
+          },
+          {
+            "endTime": "2025-07-28T17:32:51Z",
+            "startTime": "2025-07-28T17:32:51Z",
+            "status": "Completed",
+            "stepName": "Validate Cluster conditions"
+          },
+          {
+            "endTime": "2025-07-28T18:08:38Z",
+            "startTime": "2025-07-28T17:32:51Z",
+            "status": "Completed",
+            "stepName": "Validate Hardware"
+          },
+          {
+            "endTime": "2025-07-28T18:14:37Z",
+            "startTime": "2025-07-28T18:08:38Z",
+            "status": "Completed",
+            "stepName": "Generate Bootstrap Image"
+          },
+          {
+            "endTime": "2025-07-28T18:18:27Z",
+            "message": "Successfully reset 30 nodes",
+            "startTime": "2025-07-28T18:14:38Z",
+            "status": "Completed",
+            "stepName": "Reset compute hosts using Redfish/BMC"
+          },
+          {
+            "endTime": "2025-07-28T18:18:51Z",
+            "message": "Completed successfully on attempt 1 of 10",
+            "startTime": "2025-07-28T18:18:51Z",
+            "status": "Completed",
+            "stepName": "Boot Ephemeral Node from Bootstrap Image"
+          },
+          {
+            "endTime": "2025-07-28T23:33:27Z",
+            "startTime": "2025-07-28T23:33:27Z",
+            "status": "Completed",
+            "stepName": "Clean-up Bootstrap Image job"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
 ### Cluster Deployment with hardware validation
 
 During a Cluster deploy process, one of the steps executed is hardware validation.
@@ -303,7 +383,6 @@ passed and/or are available to meet the thresholds necessary for deployment to c
 
 > [!IMPORTANT]
 > The hardware validation process writes the results to the specified `analyticsWorkspaceId` at Cluster Creation.
-> Additionally, the provided Service Principal in the Cluster object is used for authentication against the Log Analytics Workspace Data Collection API.
 > This capability is only visible during a new deployment (Green Field); the logs aren't available retroactively.
 
 > [!NOTE]
@@ -367,6 +446,11 @@ metal machines that failed the hardware validation (for example, `COMP0_SVR0_SER
   "status": "Failed"
 }
 ```
+
+> [!TIP]
+> In version 2509.1 and above, you can also view the status and final result of the `cluster deploy` action in Azure portal in the `JSON View` of the Cluster (Operator Nexus) resource as described in [Monitor status in Cluster JSON properties](#monitor-status-in-cluster-json-properties).
+> This status includes a detailed breakdown of the steps taken and the status of each step in the deployment process.
+> This information can help to identify which specific step failed and why.
 
 See the article [Tracking Asynchronous Operations Using Azure CLI](./howto-track-async-operations-cli.md) for another example.
 For more information on specific machine validation or deployment failures, see [Troubleshoot Bare Metal Machine (BMM) provisioning](./troubleshoot-bare-metal-machine-provisioning.md).

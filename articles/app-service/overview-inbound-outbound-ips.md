@@ -1,14 +1,18 @@
 ---
-title: Inbound/Outbound IP addresses
+title: Inbound/Outbound IP Addresses
 description: Learn how inbound and outbound IP addresses are used in Azure App Service, when they change, and how to find the addresses for your app.
 author: msangapu-msft
 ms.author: msangapu
-ms.topic: article
+ms.topic: concept-article
 ms.date: 08/05/2025
 ms.update-cycle: 1095-days
 ms.custom:
   - UpdateFrequency3
   - build-2025
+ms.service: azure-app-service
+
+# Customer intent: As a developer, I want to learn how inbound and outbound IP addresses are used in Azure App Service, when they change, and how to find the addresses for an app.
+
 ---
 
 # Inbound and outbound IP addresses in Azure App Service
@@ -139,6 +143,8 @@ You can configure the IP mode behavior using the `IPMode` property:
 - **IPv6**: DNS returns IPv6 address only
 - **IPv4AndIPv6**: DNS returns both IPv4 and IPv6 addresses
 
+IPMode is a DNS-only feature. Every App Service site can receive requests via both IPv4 and IPv6 endpoints—regardless of the configured IpMode. IpMode only influences how DNS resolves the endpoint, so it affects clients that rely on DNS resolution (which should be most clients), but it doesn't restrict which protocol endpoints can be reached.
+
 ### Configure IPv6 support
 
 # [Azure portal](#tab/azure-portal)
@@ -209,7 +215,7 @@ When using custom domains, you can configure DNS records to support IPv6:
 - **IPv6 only**: Add an AAAA record pointing to your app's IPv6 address. Clients must support IPv6.
 - **Dual-stack**: Add both A (IPv4) and AAAA (IPv6) records, or use a CNAME record to the default hostname, which inherits the `IPMode` behavior.
 
-## Next steps
+## Related content
 
 * Learn how to [restrict inbound traffic](./app-service-ip-restrictions.md) by source IP addresses.
 * Learn more about [service tags](../virtual-network/service-tags-overview.md).

@@ -7,6 +7,9 @@ ms.custom: playwright-testing-preview
 ---
 # Monitor Microsoft Playwright Testing Preview data reference
 
+> [!NOTE]
+> Playwright Testing is now part of [Azure App Testing](https://aka.ms/AzureAppTesting), a unified service for functional and performance tests. Learn more about how to [get started](https://aka.ms/AzureAppTesting/announcement).
+
 Learn about the data and resources collected by Azure Monitor from your workspace in Microsoft Playwright Testing Preview. See [Monitor Microsoft Playwright Testing](monitor-playwright-testing.md) for details on collecting and analyzing monitoring data.
 
 > [!IMPORTANT]

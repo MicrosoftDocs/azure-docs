@@ -5,6 +5,8 @@ author: dlepow
 ms.author: danlep
 ms.date: 06/25/2025
 ms.topic: quickstart
+ms.service: azure-api-center
+
 ---
 
 # Quickstart: Create your API center using the Visual Studio Code extension

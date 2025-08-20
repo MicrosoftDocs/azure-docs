@@ -27,8 +27,6 @@ Azure Communication Services relies on Azure Event Grid subscriptions to deliver
 
 [Call Automation events](../../concepts/call-automation/call-automation.md#call-automation-webhook-events) are sent to the webhook callback URI specified when you answer a call or place a new outbound call. Your callback URI must be a public endpoint with a valid HTTPS certificate, Domain Name System name, and IP address with the correct firewall ports open to enable Call Automation to reach it. This anonymous public web server could create a security risk if you don't take the necessary steps to secure it from unauthorized access.
 
-A common way that you can improve this security is by implementing an API key mechanism. Your web server can generate the key at runtime and provide it in the callback URI as a query parameter when you answer or create a call. Your web server can verify the key in the webhook callback from Call Automation before it allows access. Some customers require more security measures. In these cases, a perimeter network device might verify the inbound webhook, separate from the web server or application itself. The API key mechanism alone might not be sufficient.
-
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Secure webhook endpoint with .NET](./includes/secure-webhook-endpoint-csharp.md)]
 ::: zone-end
@@ -44,6 +42,19 @@ A common way that you can improve this security is by implementing an API key me
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Secure webhook endpoint with Python](./includes/secure-webhook-endpoint-python.md)]
 ::: zone-end
+
+> [!IMPORTANT]
+> Our service uses standard JSON Web Token in the authentication header, and only support OpenID Connect (OIDC) JWT validation.
+
+### Query Parameter Token Authentication
+
+Query Parameter Token Authentication is a simple method of securing webhook callbacks by appending a pre-shared secret token to the webhook endpoint URL as a query string parameter. This token acts as a lightweight authentication key, allowing your system to verify that webhook callback events originate from the Call Automation Service.
+
+```
+https://api.example.com/webhook?token=8f2d9c63a7b14d32b53c9e12a1f47fcb
+```
+
+When webhook callback events are received, the Call Automation Service includes the token exactly as you configured (see example above). Upon receiving the request, your system compares the token in the query parameter against a stored, trusted value. Requests without the token, or with an incorrect value, should be rejected.
 
 ## Call Automation WebSocket events
 
