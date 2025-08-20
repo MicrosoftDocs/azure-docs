@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 07/23/2024
+ms.date: 08/19/2024
 ms.author: danlep
 ---
 
@@ -107,11 +107,11 @@ In the following example, sending a request to a URL other than the defined back
 
 ### Switch backend when error received
 
-In the following example, a request is retried up to two times when a `429 Too Many Requests` response status code is received. Since `first-fast-retry` is set to true, the first retry is executed immediately upon the initial request failure. On the first retry attempt, the request is sent to the primary backend. On the second retry attempt, the request is sent to the secondary backend.
+In the following example, the request is retried up to one time. The initial request is dispatched to the primary backend. If a `429 Too Many Requests` response status code is returned, the request is retried immediately and forwarded to the secondary backend. 
 
 ```xml
 <retry 
-   condition="@(context.Response != null && context.Response.StatusCode == 429)" count="2" 
+   condition="@(context.Response != null && context.Response.StatusCode == 429)" count="1" 
    first-fast-retry=true>
        <set-variable name="retry-attempt" value="@(context.Variables.GetValueOrDefault<int>("retry-attempt", 0) + 1 )" />
        <set-backend-service backend-id="@(context.Variables.GetValueOrDefault<int>("retry-attempt", 0) % 2 == 0 ? "primary-backend" : "secondary-backend" )" />
