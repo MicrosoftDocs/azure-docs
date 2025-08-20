@@ -101,6 +101,8 @@
         href: manage/manage-consumption-commitment.md
       - name: Track your Microsoft Azure Consumption Commitment
         href: manage/track-consumption-commitment.md
+      - name: Manage a Microsoft Azure discount resource
+        href: manage/manage-azure-discount.md
       - name: Markup - China
         href: manage/markup-china.md
     - name: Administer subscriptions

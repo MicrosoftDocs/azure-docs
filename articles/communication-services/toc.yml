@@ -118,8 +118,6 @@ items:
       href: concepts/analytics/logs/chat-logs.md
     - name: Chat insights
       href: concepts/analytics/insights/chat-insights.md
-    - name: Export SDK telemetry to Application Insights
-      href: quickstarts/telemetry-application-insights.md
   - name: Samples and tutorials
     items:
     - name: Create a chat access token
@@ -280,8 +278,8 @@ items:
       href: concepts/email-metrics.md
     - name: Email insights
       href: concepts/analytics/insights/email-insights.md
-    - name: Export SDK telemetry to Application Insights
-      href: quickstarts/telemetry-application-insights.md
+ #  - name: Export SDK telemetry to Application Insights
+ #    href: quickstarts/telemetry-application-insights.md
   - name: Samples and tutorials
     items:
     - name: Detect sensitive data using Azure AI
@@ -344,8 +342,8 @@ items:
       href: concepts/analytics/sms-metrics.md
     - name: SMS insights
       href: concepts/analytics/insights/sms-insights.md
-    - name: Export SDK telemetry to Application Insights
-      href: quickstarts/telemetry-application-insights.md
+#   - name: Export SDK telemetry to Application Insights
+#     href: quickstarts/telemetry-application-insights.md
   - name: Samples and tutorials
     items:
     - name: Get a phone number
@@ -652,8 +650,6 @@ items:
       href: concepts/analytics/rooms-metrics.md
     - name: Closed captions logs
       href: concepts/analytics/logs/closed-captions-logs.md
-    - name: Export SDK telemetry to Application Insights
-      href: quickstarts/telemetry-application-insights.md
   - name: Quality and diagnostics
     items:
     - name: Optimize call quality
@@ -969,8 +965,6 @@ items:
       href: concepts/analytics/log-analytics.md
     - name: Set up call monitoring and alerting
       href: concepts/analytics/set-up-call-monitoring.md
-    - name: Export SDK telemetry to Application Insights
-      href: quickstarts/telemetry-application-insights.md
   - name: Samples and tutorials
     items:
     - name: Get a trial phone number
