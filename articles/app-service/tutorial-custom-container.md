@@ -427,15 +427,15 @@ App Service can use either a default managed identity or a user-assigned managed
     1. In **Location**, select **West Europe**, or the same region as your managed identity.
     1. In **SKU**, select **Basic**.
    
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-container-registry-2.png" alt-text="Screenshot showing how to configure a new container registry." lightbox="./media/tutorial-custom-container/azure-portal-create-container-registry-2.png":::
+    :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-container-registry-2.png" alt-text="Screenshot showing how to configure a new container registry." lightbox="./media/tutorial-custom-container/azure-portal-create-container-registry-2.png":::
      
 1. On the **Review + create** tab, select **Create**.
     
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-container-registry-3.png" alt-text="Screenshot showing the final steps for creating a container registry." lightbox="./media/tutorial-custom-container/azure-portal-create-container-registry-3.png":::
+    :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-container-registry-3.png" alt-text="Screenshot showing the final steps for creating a container registry." lightbox="./media/tutorial-custom-container/azure-portal-create-container-registry-3.png":::
     
 1. When the container registry is created, open its management page by selecting **Go to resource**.
     
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-container-registry-4.png" alt-text="Screenshot showing how to open the management page of the new container registry." lightbox="./media/tutorial-custom-container/azure-portal-create-container-registry-4.png":::
+    :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-container-registry-4.png" alt-text="Screenshot showing how to open the management page of the new container registry." lightbox="./media/tutorial-custom-container/azure-portal-create-container-registry-4.png":::
   
 1. In the left pane, select **Access keys**.
 1. In **Admin user**, select **Enabled**.
@@ -505,27 +505,27 @@ The managed identity you created doesn't yet have authorization to pull from the
     1. In the left pane, select **Access control (IAM)**.
     1. Select **Add role assignment**.
      
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-1.png" alt-text="Screenshot showing how to enable adding a role assignment for a container registry." lightbox="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-1.png":::
+    :::image type="content" source="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-1.png" alt-text="Screenshot showing how to enable adding a role assignment for a container registry." lightbox="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-1.png":::
  
      
 1. Select **AcrPull** in the list of roles.
     
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-2.png" alt-text="Screenshot showing how to enable pull permission on the container registry." lightbox="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-2.png":::
+    :::image type="content" source="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-2.png" alt-text="Screenshot showing how to enable pull permission on the container registry." lightbox="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-2.png":::
      
 1. On the **Members** tab, under **Assign access to**, select **Managed identity**.
 1. Under **Members**, select **Select members**.
      
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-3.png" alt-text="Screenshot showing how to select members for an RBAC role." lightbox="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-3.png":::
+    :::image type="content" source="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-3.png" alt-text="Screenshot showing how to select members for an RBAC role." lightbox="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-3.png":::
     
         
 1. In **Managed identity**, select **User-assigned managed identity**.
 1. Under **Select**, select **myID**.
    
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-4.png" alt-text="Screenshot showing a user-assigned managed identity selected for role assignment." lightbox="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-4.png":::
+    :::image type="content" source="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-4.png" alt-text="Screenshot showing a user-assigned managed identity selected for role assignment." lightbox="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-4.png":::
    
 1. On the **Review + assign** tab, select **Review + assign** at the bottom.
  
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-5.png" alt-text="Screenshot showing the last step of role assignment." lightbox="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-5.png":::
+    :::image type="content" source="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-5.png" alt-text="Screenshot showing the last step of role assignment." lightbox="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-5.png":::
  
 -----
 
