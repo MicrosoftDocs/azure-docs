@@ -293,6 +293,6 @@ The following table lists the currently allowed values for the `ThreatType` fiel
 
 ## Related content
 
-- [Traffic analytics overview](traffic-analytics.md).
+- [Traffic analytics overview](traffic-analytics.md)
 - [Use queries in traffic analytics](traffic-analytics-queries.md)
 - [Traffic analytics usage scenarios](traffic-analytics-usage-scenarios.md)
