@@ -83,7 +83,7 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
     <dependency>
         <groupId>redis.clients.authentication</groupId>
         <artifactId>redis-authx-entraid</artifactId>
-        <version>0.1.1-beta1</version>
+        <version>0.1.1-beta2</version>
     </dependency>
 
     <dependency>
@@ -180,10 +180,6 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
             System.out.println( "\nCache Command  : GET Message" );
             System.out.println( "Cache Response : " + jedis.get("Message"));
 
-            // Get the client list, useful to see if connection list is growing...
-            System.out.println( "\nCache Command  : CLIENT LIST" );
-            System.out.println( "Cache Response : " + jedis.clientList());
-
             jedis.close();
         }
     }
@@ -233,9 +229,6 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
             // Demonstrate "SET Message" executed as expected...
             System.out.println( "\nCache Command  : GET Message" );
             System.out.println( "Cache Response : " + jedis.get("Message"));
-            // Get the client list, useful to see if connection list is growing...
-            System.out.println( "\nCache Command  : CLIENT LIST" );
-            System.out.println( "Cache Response : " + jedis.clientList());
 
             jedis.close();
         }
