@@ -351,6 +351,8 @@ items:
     items:
     - name: Run jobs with Hadoop on HDInsight using PowerShell
       href: ./hdinsight-with-entra-authentication/run-mapreduce-jobs-on-entra-enabled-hdInsight-using-powershell.md
+    - name: Manage Entra ID enabled Azure HDInsight clusters with ARM templates
+      href: ./hdinsight-with-entra-authentication/manage-entra-id-enabled-azure-hdinsight-clusters-with-arm-templates.md
   - name: Reference
     items:
     - name: Azure CLI
