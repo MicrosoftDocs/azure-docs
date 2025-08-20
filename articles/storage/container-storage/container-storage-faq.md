@@ -3,7 +3,7 @@ title: Frequently asked questions for Azure Container Storage
 description: Get answers to Azure Container Storage frequently asked questions (FAQ).
 author: khdownie
 ms.service: azure-container-storage
-ms.date: 10/15/2024
+ms.date: 08/20/2025
 ms.author: kendownie
 ms.topic: faq
 ms.custom: references_regions
@@ -15,6 +15,10 @@ ms.custom: references_regions
 [Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers.
 
 ## General questions
+
+* <a id="azure-container-storage-vs-csi-drivers"></a>
+  **What's the difference between Azure Container Storage v1 and v2?**
+  Azure Container Storage v2 features a lighter weight, on-demand installation and optimized resource utilization compared to v1. However, v2 currently only supports Ephemeral Disk (Local NVMe) as backing storage, whereas v1 supports Azure Disks, Ephemeral Disk, and Azure Elastic SAN.
 
 * <a id="azure-container-storage-vs-csi-drivers"></a>
   **What's the difference between Azure Container Storage and Azure CSI (Container Storage Interface) drivers?**  
@@ -42,7 +46,7 @@ ms.custom: references_regions
 
 * <a id="azure-container-storage-limitations"></a>
   **Which other Azure services does Azure Container Storage support?**  
-  Currently, Azure Container Storage supports only Azure Kubernetes Service (AKS) with storage pools provided by Azure Disks, Ephemeral Disk, or Azure Elastic SAN.
+  Currently, Azure Container Storage supports only Azure Kubernetes Service (AKS).
 
 * <a id="azure-container-storage-rwx"></a>
   **Does Azure Container Storage support read-write-many (RWX) workloads?**  
@@ -50,7 +54,7 @@ ms.custom: references_regions
 
 * <a id="azure-container-storage-remove"></a>
   **How do I remove Azure Container Storage?**  
-  See [Remove Azure Container Storage](remove-container-storage.md).
+  See [Remove Azure Container Storage](remove-container-storage.md). To remove Azure Container Storage (v1), see [Remove Azure Container Storage (v1)](remove-container-storage-v1.md).
 
 * <a id="azure-container-storage-containeros"></a>
   **Does Azure Container Storage support Windows containers on AKS?**  

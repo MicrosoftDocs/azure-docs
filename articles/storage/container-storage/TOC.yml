@@ -15,6 +15,32 @@
     href: install-container-storage-aks.md
 - name: Storage options
   items:
+  - name: Use with Ephemeral Disk (Local NVMe)
+    href: use-container-storage-with-local-disk.md
+- name: How-to guides
+  items:
+  - name: Remove Azure Container Storage
+    href: remove-container-storage.md
+- name: Concepts
+  items:
+  - name: Understand billing
+    href: container-storage-billing.md 
+  - name: FAQ
+    href: container-storage-faq.md
+- name: Azure Container Storage (v1) documentation
+  items:
+  - name: What is Azure Container Storage (v1)?
+    href: container-storage-introduction-v1.md
+- name: Quickstarts
+  items:
+  - name: Use Azure Container Storage (v1) with AKS
+    href: container-storage-aks-quickstart-v1.md
+- name: Tutorials
+  items:
+  - name: Create AKS cluster and install Azure Container Storage (v1)
+    href: install-container-storage-aks-v1.md
+- name: Storage options
+  items:
   - name: Use with Azure Disks
     href: use-container-storage-with-managed-disks.md
   - name: Use with Azure Elastic SAN
@@ -40,7 +66,7 @@
   - name: Enable monitoring with managed Prometheus
     href: enable-monitoring.md
   - name: Remove Azure Container Storage
-    href: remove-container-storage.md
+    href: remove-container-storage-v1.md
   - name: Troubleshoot Azure Container Storage
     href: troubleshoot-container-storage.md
   - name: Install Azure Container Storage using Azure Arc (optional)
@@ -48,7 +74,7 @@
 - name: Concepts
   items:
   - name: Understand billing
-    href: container-storage-billing.md 
+    href: container-storage-billing-v1.md 
   - name: FAQ
     href: container-storage-faq.md
 - name: Reference
