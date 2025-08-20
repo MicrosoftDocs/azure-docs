@@ -356,7 +356,7 @@ items:
     - name: Run Apache Hive queries using powershell on Entra enabled HDInsight cluster
       href: ./hdinsight-with-entra-authentication/run-apache-hive-queries-using-powershell-on-entra-enabled-hdinsight-cluster.md
     - name: Run Spark jobs using Rest API
-      href: ./hdinsight-with-entra-authentication/ hdinsight-with-entra-authentication/run-spark-jobs-using-rest-api.md
+      href: ./hdinsight-with-entra-authentication/hdinsight-with-entra-authentication/run-spark-jobs-using-rest-api.md
   - name: Reference
     items:
     - name: Azure CLI
