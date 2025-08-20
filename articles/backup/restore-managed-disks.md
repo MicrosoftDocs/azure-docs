@@ -2,7 +2,7 @@
 title: Restore Azure Managed Disks
 description: Learn how to restore Azure Managed Disks from the Azure portal.
 ms.topic: how-to
-ms.date: 06/11/2025
+ms.date: 08/20/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to restore Azure Managed Disks using recovery points, so that I can recover lost or corrupted data while maintaining the integrity of the original disk.
@@ -12,21 +12,21 @@ ms.author: v-mallicka
 
 This article describes how to restore [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) from a restore point created by Azure Backup. You can also restore Managed Disk using [Azure PowerShell](restore-managed-disks-ps.md), [Azure CLI](restore-managed-disks-cli.md), [REST API](backup-azure-dataprotection-use-rest-api-restore-disks.md).
 
-Currently, the Original-Location Recovery (OLR) option of restoring by replacing existing the source disk from where the backups were taken isn't supported. You can restore from a recovery point to create a new disk either in the same resource group as that of the source disk from where the backups were taken or in any other resource group. This is known as Alternate-Location Recovery (ALR) and this helps to keep both the source disk and the restored (new) disk.
-
-In this article, you'll learn how to:
-
-- Restore to create a new disk
-
-- Track the restore operation status
-
-## Restore to create a new disk
-
 Backup Vault uses Managed Identity to access other Azure resources. To restore from backup, Backup vault’s managed identity requires a set of permissions on the resource group where the disk is to be restored.
 
 Backup vault uses a system assigned managed identity, which is restricted to one per resource and is tied to the lifecycle of this resource. You can grant permissions to the managed identity by using Azure role-based access control (Azure RBAC). Managed identity is a service principal of a special type that may only be used with Azure resources. Learn more about [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md).
 
-The following pre-requisites are required to perform a restore operation:
+
+>[!Note]
+>Currently, the Original-Location Recovery (OLR) option of restoring by replacing existing the source disk from where the backups were taken isn't supported. You can restore from a recovery point to create a new disk either in the same resource group as that of the source disk from where the backups were taken or in any other resource group. This is known as Alternate-Location Recovery (ALR) and this helps to keep both the source disk and the restored (new) disk.
+
+## Prerequisites
+
+Before you restore a new disk from a recovery point, ensure that the following prerequisites are met:
+
+
+
+
 
 1. Assign the **Disk Restore Operator** role to the Backup Vault’s managed identity on the Resource group where the disk will be restored by the Azure Backup service.
 
@@ -61,13 +61,43 @@ The following pre-requisites are required to perform a restore operation:
 
 1. If the disk to be restored is encrypted with [customer-managed keys (CMK)](/azure/virtual-machines/disks-enable-customer-managed-keys-portal) or using [double encryption using platform-managed keys and customer-managed keys](/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal), then assign the **Reader** role permission to the Backup Vault’s managed identity on the **Disk Encryption Set** resource.
 
-Once the prerequisites are met, follow these steps to perform the restore operation.
 
-1. In the [Azure portal](https://portal.azure.com/), go to **Backup center**. Select **Backup instances** under the **Manage** section. From the list of backup instances, select the disk backup instance for which you want to perform the restore operation.
 
-    ![List of backup instances](./media/restore-managed-disks/backup-instances.png)
+
+
+
+
+
+
+## Restore a new disk from a recovery point
+
+To restore a new disk from a recovery point, follow these steps:
+
+1. Go to **Business Continuity Center**, and then select **Recover**.
 
     Alternately, you can perform this operation from the Backup vault you used to configure backup for the disk.
+
+1. On the **Recover** pane, select  **Datasource type** as **Azure Disks**, and then under **Protected item**, click **Select** to choose a disk instance.
+
+   :::image type="content" source="./media/restore-managed-disks/recover-azure-disks.png" alt-text="Screenshot shows the selection of a disk instance for restore." lightbox="./media/restore-managed-disks/recover-azure-disks.png":::
+
+1. On the **Select Protected item** pane, select a disk instance from the list, and then click **Select**.
+
+1. On the **Recover** pane, select  **Continue**.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 1. In the **Backup instance** screen, select the restore point that you want to use to perform the restore operation and select **Restore**.
 
