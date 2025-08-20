@@ -139,18 +139,18 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a web app
 
-In the left menu, select **Create a resource** > **Web** > **Web App for Containers**.
+Select **Create a resource**,  and then select **Create** under **Web App**. 
 
 ### Configure app basics
 
-On the **Basics** tab, configure the settings by using the following table as a guide. Then select **Next: Docker**.
+On the **Basics** tab, configure the settings by using the following table as a guide. 
 
 | Setting  | Suggested value | 
 | ----------------- | ------------ | 
 |**Subscription**| Make sure the correct subscription is selected.   |
-|**Resource Group**| Select **Create new**, enter **myResourceGroup**, and then select **OK**. |  
+|**Resource group**| Select **Create new**, enter **myResourceGroup**, and then select **OK**. |  
 |**Name**| Enter a unique name. The URL of the web app is `https://<app-name>.azurewebsites.net`, where `<app-name>` is your app name. |
-|**Publish**| **Docker Container** | 
+|**Publish**| **Container** | 
 |**Operating System**| **Windows** | 
 |**Region**| **West Europe** | 
 |**Windows Plan**| Select **Create new**, enter **myAppServicePlan**, and then select **OK**. | 
@@ -161,11 +161,11 @@ Your **Basics** tab should look similar to this one:
 
 ### Configure the Windows container
 
-On the **Docker** tab, configure your custom Windows container as shown in the following table, and then select **Review + create**.
+On the **Container** tab, configure your custom Windows container as shown in the following table, and then select **Review + create**.
 
 | Setting  | Suggested value |
 | ----------------- | ------------ |
-|**Image Source**| Azure Container Register |
+|**Image Source**| **Azure Container Registry** |
 |**Registry**| Select [the registry you created earlier](#publish-to-azure-container-registry). |
 |**Image**| customfontsample |
 |**Tag**| latest |
