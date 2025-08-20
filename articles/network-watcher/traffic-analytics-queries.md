@@ -59,7 +59,7 @@ NTANetAnalytics
 
 ### View cross regional traffic
 
-Use the following query to view intra and inter regional traffic over the past 30 days.
+Use the following query to view intra-regional and inter-regional traffic over the past 30 days.
 
 ```kusto
 NTANetAnalytics
@@ -338,7 +338,7 @@ destIPs = iif(isempty(DestIP_s), split(DestPublicIPs_s," "), pack_array(DestIP_s
 
 ## Prevent duplicate records
 
-If flow logging is enabled on both sides of a connection, same flow can be captured on multiple devices. As a result, duplicate data may appear if all flow logs are aggregated in the same Log Analytics workspace. To avoid this, it's necessary to include `FlowDirection` or `MACAddress` to distinguish between records and prevent duplication.
+If flow logging is enabled on both sides of a connection, a flow can be captured on multiple devices. As a result, duplicate data might appear if all flow logs are aggregated in the same Log Analytics workspace. It's necessary to include `FlowDirection` or `MACAddress` to prevent duplication and distinguish between records.
 
 In a flow/connection:
 
@@ -356,7 +356,7 @@ For example, if a connection is made from *VM1* to *VM2* with the following fiel
 | VM1 | 10.0.0.4 | 10.0.0.5 | A1-B1-C1-D1-E1-F1 | 100 | 200 | Outbound |
 | VM2 | 10.0.0.4 | 10.0.0.5 | A2-B2-C2-D2-E2-F2 | 100 | 200 | Inbound |
 
-You can use any of the following queries to calculate total outbound bytes for a device with IP address `10.0.0.4` and MAC address `A1:B1:C1:D1:E1:F1`, for connections initiated by this device:
+You can use any of the following queries to calculate total outbound bytes for a device with IP address `10.0.0.4` and MAC address `A1:B1:C1:D1:E1:F1`, for connections initiated by this device.
  
 ```kusto
 NTANetAnalytics
@@ -379,7 +379,7 @@ NTANetAnalytics
 | summarize totalIniBytes = sum(BytesSrcToDest);
 ```
 
-To calculate total outbound bytes for a device with IP address `10.0.0.4` and MAC address `A1:B1:C1:D1:E1:F1`, for connections initiated by another devices to this device, you can use any of the following queries:
+Similarly, you can use any of the following queries to calculate total outbound bytes for a device with IP address `10.0.0.4` and MAC address `A1:B1:C1:D1:E1:F1`, for connections initiated by another devices to this device.
 
 ```kusto 
 NTANetAnalytics
