@@ -2,7 +2,7 @@
 title: Azure Storage migration tools selection guide
 description: Azure Storage migration tools selection guide describes basic guidance for storage migration tools selection
 author: bapic
-ms.author: bapic
+ms.author: bchakra
 ms.topic: concept-article 
 ms.date: 08/11/2025
 ms.service: azure-storage
@@ -62,7 +62,7 @@ You can use any available Windows Server protocol to access your data locally, i
 
 You can find all supported migration scenarios for File Sync within the [migration overview](../files/storage-files-migration-overview.md) article.
 
-Learn more about [Azure File Sync](../storage/file-sync/file-sync-introduction.md) and various [migration scenarios here](../files/storage-files-migration-overview.md).
+Learn more about [Azure File Sync](../file-sync/file-sync-introduction.md) and various [migration scenarios here](../files/storage-files-migration-overview.md).
 
 #### Data Box Gateway
 
@@ -154,7 +154,7 @@ You can read more about Azure Import/Export in the [service overview](../../impo
 
 #### Graphical interfaces 
 
-If you occasionally transfer a few files and don't need to automate your data transfer, you can choose a graphical interface tool such as [Azure Storage Explorer](https://azure.microsoft.com/en-us/products/storage/storage-explorer) or a [web-based exploration tool](../blobs/storage-quickstart-blobs-portal.md) within the Azure portal.
+If you occasionally transfer a few files and don't need to automate your data transfer, you can choose a graphical interface tool such as [Azure Storage Explorer](https://azure.microsoft.com/products/storage/storage-explorer) or a [web-based exploration tool](../blobs/storage-quickstart-blobs-portal.md) within the Azure portal.
 
 #### Scripted or programmatic transfer
 

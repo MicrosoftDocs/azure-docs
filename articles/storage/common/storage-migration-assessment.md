@@ -2,7 +2,7 @@
 title: Azure migration guidance storage assessment
 description: The Azure storage migration assessment guide describes basic guidance for the Assessment phase of any migration strategy.
 author: bapic
-ms.author: bapic
+ms.author: bchakra
 ms.topic: concept-article 
 ms.date: 08/11/2025
 ms.service: azure-storage
@@ -68,6 +68,6 @@ At the end of the Assessment phase, you should have a document that clearly outl
 
 ### See also
 
-- [Azure Migrate documentation | Microsoft Learn](../../migrate/)
+- [Azure Migrate documentation](../../migrate/migrate-services-overview.md)
 - [Partner Assessment Tools](../solution-integration/validated-partners/data-management/azure-file-migration-program-solutions.md)
 - [Offline Data Transfers using Azure Data Box](../../databox/data-box-overview.md)

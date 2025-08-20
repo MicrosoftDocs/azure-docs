@@ -2,7 +2,7 @@
 title: Azure migration guidance storage target selection
 description: The storage migration target selection guide describes basic guidance for the storage migration's target selection phase.
 author: bapic
-ms.author: bapic
+ms.author: bchakra
 ms.topic: concept-article 
 ms.date: 08/11/2025
 ms.service: azure-storage
@@ -56,8 +56,8 @@ Migration of unstructured data primarily includes following scenarios:
 
 For evaluating current limits of some of the key storage services, and to determine whether you need to modify your choices based on them, see:
 
-- [Storage account limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#storage-account-limits)
-- [Blob Storage limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#blob-storage-limits)
+- [Storage account limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#standard-storage-account-limits)
+- [Blob Storage limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-blob-storage-limits)
 - [Azure Files scalability and performance targets](../files/storage-files-scale-targets.md)
 - [Azure NetApp Files resource limits](../../azure-netapp-files/azure-netapp-files-resource-limits.md)
 
@@ -76,13 +76,13 @@ If any of the limits prevent you from using a specific service, there are severa
 #### See also
 
 - [Choose an Azure storage service - Azure Architecture Center | Microsoft Learn](/azure/architecture/guide/technology-choices/storage-options)
-- [Azure Managed Disks (and Azure VMs)](../../virtual-machines/managed-disks-overview.md)
+- [Azure Managed Disks and Azure VMs](/azure/virtual-machines/managed-disks-overview)
 - Design guides:
   - [Architecture Best Practices for Azure Blob Storage](/azure/well-architected/service-guides/azure-blob-storage)
   - [Architecture Best Practices for Azure Files](/azure/well-architected/service-guides/azure-files)
   - [Architecture Best Practices for Azure Disk Storage](/azure/well-architected/service-guides/azure-disk-storage)
 - Scalability & Performance: [Blob storage](/azure/storage/blobs/storage-performance-checklist), [Azure Files and Azure NetApp Files](/azure/storage/files/storage-files-netapp-comparison),  [Azure Virtual Machines](/azure/virtual-machines/disks-scalability-targets) 
-- [Azure Storage pricing](https://azure.microsoft.com/en-us/pricing/details/storage/blobs/?msockid=0efcd8cf38ca66710905cc0b3922673d)
+- [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/?msockid=0efcd8cf38ca66710905cc0b3922673d)
 - [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/?msockid=0efcd8cf38ca66710905cc0b3922673d)
 - [Compare NFS access to Azure Files, Blob Storage, and Azure NetApp Files](../common/nfs-comparison.md)
 - [Azure Files and Azure NetApp Files comparison | Microsoft Learn](../files/storage-files-netapp-comparison.md)

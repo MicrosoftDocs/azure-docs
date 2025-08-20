@@ -20,7 +20,7 @@ Although Azure Blob storage provides cost-effective data retention and recovery 
 
 You can find relevant, detailed, step-by-step instructions within the respective products' websites. You can learn more about using object storage with Veeam Products in the [Veeam product documentation](https://www.veeam.com/kb4241).
 
-![Image of Veeam and Azure Data Box workflow.](media/migrate-veeam-and-data-box/veeam-data-box-workflow.png)
+![Image of Veeam and Azure Data Box workflow.](media/migrate-veeam-and-data-box/workflow.png)
 
 ### Solution flow overview
 
@@ -30,7 +30,7 @@ You can find relevant, detailed, step-by-step instructions within the respective
 
     - After the device arrives, ensure that you connect the Azure Data Box to your on-premises network infrastructure. You can find detailed steps within the [Set up and deploy](data-box-deploy-set-up.md) article.
 
-    - To allow Veeam Backup and Replication to communicate with Data Box, configure REST API access on the device. Instructions for completing this step can be found in the [setup REST API access](data-box-deploy-copy-data-via-rest) article.
+    - To allow Veeam Backup and Replication to communicate with Data Box, configure REST API access on the device. Instructions for completing this step can be found in the [setup REST API access](data-box-deploy-copy-data-via-rest.md) article.
 
     - Add the appliance to Veeam Backup and Replication. [Configure Azure Data Box as a Capacity Tier extent](https://helpcenter.veeam.com/docs/backup/hyperv/data_box_seeding.html) by following the steps in Veeam's article. Enable the `Copy backups to object storage as soon as they're created` option in your Scale-Out Backup Repository (SOBR). Take note that *Move mode* isn't recommended.
 

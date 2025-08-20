@@ -20,14 +20,14 @@ Azure offers various options for storing file data. Azure native storage service
 - [Azure Native Qumulo](https://qumulo.com/product/azure/) - Fully managed, cloud-native file service offering elastic performance, and capacity scaling. Pay-as-you-go consumption model ensures you only pay what you use. Hot, and Cold storage class options are available.
   
 There are several articles that describe the differences and recommendation on selecting the native file service. You can learn more:
-- Our migration guide describes the [basic flow chart](../../../common/storage-migration-overview.md#choose-a-target-storage-service)
+- Our migration guide describes the [basic flow chart](../../../common/storage-migration-overview.md#target-selection)
 - [Detailed comparison between Azure Files and Azure NetApp Files](../../../files/storage-files-netapp-comparison.md)
 
 Many independent software vendor (ISV) solutions can provide file services in Azure. This article addresses two topics:
 - provides general considerations on selecting file services
 - outlines the differences between ISV solutions.
-  
-Full list of verified ISV solutions is available on [Azure Storage partners for primary and secondary storage](./partner-overview.md).
+
+A full list of verified ISV solutions is available within the [Azure Storage partners for primary and secondary storage](partner-overview.md) article.
 
 ## Considerations
 

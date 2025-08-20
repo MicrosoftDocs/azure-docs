@@ -2,7 +2,7 @@
 title: Azure Storage migration execution guide
 description: The Azure Storage migration execution guide describes basic guidance for storage migration execution stages.
 author: bapic
-ms.author: bapic
+ms.author: bchakra
 ms.topic: concept-article 
 ms.date: 08/11/2025
 ms.service: azure-storage
@@ -28,10 +28,10 @@ The execution phase consists of the following steps:
 
 The following examples include best-practice recommendations for post-migration validation using Azure Blob Storage.
 
-    - [Data protection](../blobs/security-recommendations.md#data-protection)
-    - [Identity and access management](../blobs/security-recommendations.md#identity-and-access-management)
-    - [Networking](../blobs/security-recommendations.md#networking)
-    - [Monitoring](../blobs/monitor-blob-storage.md#monitor-azure-blob-storage) and [monitoring best practices](../blobs/blob-storage-monitoring-scenarios.md)
+- [Data protection](../blobs/security-recommendations.md#data-protection)
+- [Identity and access management](../blobs/security-recommendations.md#identity-and-access-management)
+- [Networking](../blobs/security-recommendations.md#networking)
+- [Monitoring](../blobs/monitor-blob-storage.md#monitor-azure-blob-storage) and [monitoring best practices](../blobs/blob-storage-monitoring-scenarios.md)
 
 ### Best practices
 

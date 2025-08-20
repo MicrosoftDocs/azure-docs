@@ -40,7 +40,7 @@ When bandwidth limitations make initial cloud seeding impractical, Commvault ena
 
 4. Offload the selected backup data to an Azure Data Box device using Commvault's built-in integration. Configure Azure Storage as a cloud library, and redirect all write operations to your Data Box device. After configuration is complete, you can either run a full backup or an auxiliary copy operation. For more details on the required steps, visit Commvault's article on [offline seeding using Commvault Air Gap Protect](https://documentation.commvault.com/2024e/essential/seeding_air_gap_protect.html).
 
-You can also utilize this process when bringing your own subscription and storage account. Detailed information is available within Commvault's [solution overview](https://documentation.commvault.com/11.20/migrating_data_to_microsoft_azure_using_azure_data_box.html).
+You can also utilize this process when bringing your own subscription and storage account. Detailed information is available within Commvault's [solution overview](https://documentation.commvault.com/2023e/expert/migrating_data_to_microsoft_azure_using_azure_data_box.html).
 
 5. Return the Data Box device to Microsoft. Your data is uploaded directly into the target AGP storage account.
 
