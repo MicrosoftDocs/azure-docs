@@ -106,11 +106,11 @@ In Solution Explorer, right-click the **CustomFontSample** project and select **
 
 1. In the **Publish** window, select **Azure**, and then select **Next**.
 
-1. Select Azure Container Registry, and then select Next.
+1. Select **Azure Container Registry**, and then select **Next**.
 
-1. Select the subscription where you want to publish the registery and then select **Create new**. 
+1. Select the subscription where you want to publish the registery, and then select **Create new**. 
 
-:::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="Screenshot of the publish wizard. Container Registry, Create New Azure Container Registry, and the Publish button are highlighted.":::
+:::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="Screenshot that shows the Publish window.The Create new button is highlighted.":::
 
 ### Sign in with an Azure account
 
@@ -674,7 +674,7 @@ In this step, you configure the web app as follows:
 
 1. On your web app's management page, select **Configuration**.
     
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-configure-app-service-1.png" alt-text="Screenshot showing how to open the Configuration page." lightbox="./media/tutorial-custom-container/azure-portal-configure-app-service-1.png":::
+    :::image type="content" source="./media/tutorial-custom-container/azure-portal-configure-app-service-1.png" alt-text="Screenshot showing how to open the Configuration page." lightbox="./media/tutorial-custom-container/azure-portal-configure-app-service-1.png":::
     
 1. On the **Configuration** page:
     1. Select **New application setting**.
@@ -684,17 +684,17 @@ In this step, you configure the web app as follows:
     1. Select **Save** at the top of the page, and then select **Continue**.
         The `WEBSITES_PORT` setting specifies the container port to forward web requests to. For more information, see [Custom containers](reference-app-settings.md#custom-containers).
      
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-configure-app-service-2.png" alt-text="Screenshot showing how to set the WEBSITES_PORT app setting." lightbox="./media/tutorial-custom-container/azure-portal-configure-app-service-2.png":::
+    :::image type="content" source="./media/tutorial-custom-container/azure-portal-configure-app-service-2.png" alt-text="Screenshot showing how to set the WEBSITES_PORT app setting." lightbox="./media/tutorial-custom-container/azure-portal-configure-app-service-2.png":::
    
 1. In the left pane, select **Identity**. Then do the following on
 1. On the **Identity** page, on the **User assigned** tab, select **Add**.
    
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-configure-app-service-3.png" alt-text="Screenshot showing how to add a user-assigned managed identity to a web app." lightbox="./media/tutorial-custom-container/azure-portal-configure-app-service-3.png":::
+    :::image type="content" source="./media/tutorial-custom-container/azure-portal-configure-app-service-3.png" alt-text="Screenshot showing how to add a user-assigned managed identity to a web app." lightbox="./media/tutorial-custom-container/azure-portal-configure-app-service-3.png":::
      
         
 1. Select **myID**, and then select **Add**.
     
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-configure-app-service-4.png" alt-text="Screenshot showing how to add a user-assigned managed identity." lightbox="./media/tutorial-custom-container/azure-portal-configure-app-service-4.png":::
+    :::image type="content" source="./media/tutorial-custom-container/azure-portal-configure-app-service-4.png" alt-text="Screenshot showing how to add a user-assigned managed identity." lightbox="./media/tutorial-custom-container/azure-portal-configure-app-service-4.png":::
     
      
 1. In the left pane, select **Deployment Center**. Then do the following on the **Deployment Center** page:
@@ -704,11 +704,11 @@ In this step, you configure the web app as follows:
         1. Select **Save** in at the top of the page.
         When you turn on continuous deployment to a container registry, a webhook is automatically added to the registry for your web app.
     
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-configure-app-service-5.png" alt-text="Screenshot showing a user-assigned managed identity selected for registry authentication. Continuous deployment is seleced." lightbox="./media/tutorial-custom-container/azure-portal-configure-app-service-5.png":::
+    :::image type="content" source="./media/tutorial-custom-container/azure-portal-configure-app-service-5.png" alt-text="Screenshot showing a user-assigned managed identity selected for registry authentication. Continuous deployment is seleced." lightbox="./media/tutorial-custom-container/azure-portal-configure-app-service-5.png":::
     
 1. On the **Deployment Center** page, select the **Logs** tab. On this tab, you can see log messages for pulling the image and starting the container. Later, you'll learn how to see generated console messages from within the container.
      
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-configure-app-service-6.png" alt-text="Screenshot showing log messages for pulling an image and starting the container." lightbox="./media/tutorial-custom-container/azure-portal-configure-app-service-6.png":::
+    :::image type="content" source="./media/tutorial-custom-container/azure-portal-configure-app-service-6.png" alt-text="Screenshot showing log messages for pulling an image and starting the container." lightbox="./media/tutorial-custom-container/azure-portal-configure-app-service-6.png":::
     
 -----
 
@@ -724,7 +724,7 @@ To test the app, browse to `https://<app-name>.azurewebsites.net`. Replace `<app
 1. On the App Service page, in the left pane, select **Overview**.
 1. Under **URL**, select the link.
    
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-browse-app-1.png" alt-text="Screenshot showing how to browse to the web app from the Azure portal." lightbox="./media/tutorial-custom-container/azure-portal-browse-app-1.png":::
+    :::image type="content" source="./media/tutorial-custom-container/azure-portal-browse-app-1.png" alt-text="Screenshot showing how to browse to the web app from the Azure portal." lightbox="./media/tutorial-custom-container/azure-portal-browse-app-1.png":::
  
 
 -----
@@ -767,10 +767,10 @@ On the Deployment Center page, you can already see the log messages for pulling 
     1. In **Application logging**, select **File System**.
     1. Select **Save**.
      
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-stream-diagnostic-logs-1.png" alt-text="Screenshot showing how to enable diagnostic logging for the custom container." lightbox="./media/tutorial-custom-container/azure-portal-stream-diagnostic-logs-1.png":::
+    :::image type="content" source="./media/tutorial-custom-container/azure-portal-stream-diagnostic-logs-1.png" alt-text="Screenshot showing how to enable diagnostic logging for the custom container." lightbox="./media/tutorial-custom-container/azure-portal-stream-diagnostic-logs-1.png":::
 1. In the left pane, select **Log stream**. You should see the container's console output in the log stream.
    
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-stream-diagnostic-logs-2.png" alt-text="Screenshot showing log messages that contain the container's console output." lightbox="./media/tutorial-custom-container/azure-portal-stream-diagnostic-logs-2.png":::
+    :::image type="content" source="./media/tutorial-custom-container/azure-portal-stream-diagnostic-logs-2.png" alt-text="Screenshot showing log messages that contain the container's console output." lightbox="./media/tutorial-custom-container/azure-portal-stream-diagnostic-logs-2.png":::
  
 
 -----
@@ -874,11 +874,11 @@ service ssh start
     1. In the left pane, select **SSH**.
     1. Select **Go**.
    
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-start-ssh-container-session-1.png" alt-text="Screenshot showing how to open an SSH session with your custom container." lightbox="./media/tutorial-custom-container/azure-portal-start-ssh-container-session-1.png":::
+    :::image type="content" source="./media/tutorial-custom-container/azure-portal-start-ssh-container-session-1.png" alt-text="Screenshot showing how to open an SSH session with your custom container." lightbox="./media/tutorial-custom-container/azure-portal-start-ssh-container-session-1.png":::
    
 1. The SSH session is opened in a new browser tab. Wait for the status bar at the bottom to show a green SSH CONNECTION ESTABLISHED message. You can then run commands from within the container. Configuration changes made to your container aren't persisted across app restarts.
    
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-start-ssh-container-session-2.png" alt-text="Screenshot showing an SSH session with a custom container." lightbox="./media/tutorial-custom-container/azure-portal-start-ssh-container-session-2.png":::
+    :::image type="content" source="./media/tutorial-custom-container/azure-portal-start-ssh-container-session-2.png" alt-text="Screenshot showing an SSH session with a custom container." lightbox="./media/tutorial-custom-container/azure-portal-start-ssh-container-session-2.png":::
      
 
 -----
@@ -899,16 +899,16 @@ az group delete --name msdocs-custom-container-tutorial
     1. Enter the resource group name.
     1. Select the resource group.
      
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-delete-resource-group-1.png" alt-text="Screenshot showing how to search for and go to a resource group in the Azure portal." lightbox="./media/tutorial-custom-container/azure-portal-delete-resource-group-1.png":::
+    :::image type="content" source="./media/tutorial-custom-container/azure-portal-delete-resource-group-1.png" alt-text="Screenshot showing how to search for and go to a resource group in the Azure portal." lightbox="./media/tutorial-custom-container/azure-portal-delete-resource-group-1.png":::
    
      
 1. On the resource group page, select **Delete resource group**.
  
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-delete-resource-group-2.png" alt-text="Screenshot showing the location of the Delete resource group button in the Azure portal." lightbox="./media/tutorial-custom-container/azure-portal-delete-resource-group-2.png":::
+    :::image type="content" source="./media/tutorial-custom-container/azure-portal-delete-resource-group-2.png" alt-text="Screenshot showing the location of the Delete resource group button in the Azure portal." lightbox="./media/tutorial-custom-container/azure-portal-delete-resource-group-2.png":::
     
 1. Enter the resource group name to confirm your deletion, and then select **Delete**.
  
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-delete-resource-group-3.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-custom-container/azure-portal-delete-resource-group-3.png":::
+    :::image type="content" source="./media/tutorial-custom-container/azure-portal-delete-resource-group-3.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-custom-container/azure-portal-delete-resource-group-3.png":::
  
 
 -----
