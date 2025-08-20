@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 05/08/2024
+ms.date: 08/19/2025
 ms.author: danlep
 ---
 
@@ -13,8 +13,13 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-premium-dev-standard](../../../includes/api-management-availability-premium-dev-standard.md)]
 
+
 > [!IMPORTANT]
 > If you created workspaces after the generally available release of workspaces in July 2024, your workspaces shouldn't be affected by these changes.
+>
+
+> [!IMPORTANT]
+> In August 2025, we announced that some of the breaking changes described for the generally available release of workspaces have been rescinded. [See the announcement for details](https://aka.ms/apim/workspaces/built-in-gateway-changes)
 > 
 
 After 14 June 2024, as part of our development of [workspaces](../workspaces-overview.md) in Azure API Management, we're introducing several breaking changes. 
