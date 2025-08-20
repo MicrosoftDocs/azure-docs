@@ -77,6 +77,22 @@ To minimize risk and ensure a smooth migration:
 - **Validate workloads**: Post-migration to ensure functionality and billing accuracy.
 - **Monitor usage**: After migration, keep an eye on your storage account metrics to identify any unexpected changes in usage patterns or costs.
 
+## Azure Resource Graph - Example Query 
+
+Azure Resource Graph is a powerful tool that allows you to explore and query your Azure resources at scale. You can use it to identify all ZRS Classic storage accounts in your environment and assess their configurations. This can help you plan your migration to GPv2 more effectively.
+
+Here is an example query to find all GPv1 storage accounts:
+
+```
+Resources
+| where type == "microsoft.storage/storageaccounts"
+| where sku.name in~ ("Standard_LRS", "Standard_GRS", "Standard_ZRS", "Standard_RAGRS", "Standard_RAGZRS")
+| where kind != "StorageV2"
+| extend Version = tostring(properties.siteProperties.propertiesid)
+| project name, type, tenantId, kind, location, resourceGroup, subscriptionId, managedBy, sku, plan, properties, tags, identity, zones, extendedLocation, Version
+
+```
+
 ## Regions that don't support Zone Redundant Storage
 The following regions do not support Zone Redundant Storage (ZRS), if you have a ZRS Classic account in one or more of the following regions, please reach out to support to discuss moving to either LRS or GRS or migrating to a region that supports ZRS:
 
