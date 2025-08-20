@@ -32,9 +32,11 @@ The concepts discussed in this article aren't limited to the PowerShell and are 
 
 ## Retrieve the blocklist
 
+In this section, you set up the variables required to query the flow log blob and list the blocks within the [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) block blob.
+
 # [**Virtual network flow logs**](#tab/vnet)
 
-The following PowerShell script sets up the variables needed to query the virtual network flow log blob and list the blocks within the [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) block blob. Update the script to contain valid values for your environment.
+Update the PowerShell script with valid values for your environment.
 
 ```powershell
 function Get-VNetFlowLogCloudBlockBlob {
@@ -94,7 +96,7 @@ $blockList = Get-VNetFlowLogBlockList -CloudBlockBlob $CloudBlockBlob
 
 # [**Network security group flow logs**](#tab/nsg)
 
-The following PowerShell script sets up the variables needed to query the network security group flow log blob and list the blocks within the [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) block blob. Update the script to contain valid values for your environment, specifically `yourSubscriptionId`, `FLOWLOGSVALIDATIONWESTCENTRALUS`, `V2VALIDATIONVM-NSG`, `yourStorageAccountName`, `ml-rg`, `000D3AF87856`, `11/11/2018 03:00`. For example, `yourSubscriptionId` should be replaced with your Azure subscription ID.
+Update the PowerShell script with valid values for your environment, specifically `yourSubscriptionId`, `FLOWLOGSVALIDATIONWESTCENTRALUS`, `V2VALIDATIONVM-NSG`, `yourStorageAccountName`, `ml-rg`, `000D3AF87856`, `11/11/2018 03:00`. For example, `yourSubscriptionId` should be replaced with your Azure subscription ID.
 
 ```powershell
 function Get-NSGFlowLogCloudBlockBlob {
