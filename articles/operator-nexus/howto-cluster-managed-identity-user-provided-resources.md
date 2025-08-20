@@ -112,6 +112,7 @@ The `--command-output-settings` data construct is used to define the Storage Acc
 Valid `command-output-type` values are:
 - `BareMetalMachineRunCommand`: Output from the `az networkcloud baremetalmachine run-command` command.
 - `BareMetalMachineRunDataExtracts`: Output from the `az networkcloud baremetalmachine run-data-extract` command.
+- `BareMetalMachineRunDataExtractsRestricted`: Output from the `az networkcloud baremetalmachine run-data-extracts-restricted` command.
 - `BareMetalMachineRunReadCommands`: Output from the `az networkcloud baremetalmachine run-read-command` command.
 - `StorageRunReadCommands`: Output from the `az networkcloud storageappliance run-read-command` command.
 
