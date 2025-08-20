@@ -79,7 +79,7 @@ Zone redundancy is automatically enabled when your search service meets all of t
 + Has [at least two replicas](/azure/search/search-capacity-planning#add-or-remove-partitions-and-replicas).
   
 > [!NOTE]
-> Zone redundancy is enabled when you have two or more replicas. However, for read-write workloads, you should use three or more replicas so that you receive the highest possible availability service level agreement (SLA).
+> Zone redundancy is enabled when you have two or more replicas. However, for read-write workloads, you should use three or more replicas so that you receive the highest possible availability service-level agreement (SLA).
 
 ### Cost
 
