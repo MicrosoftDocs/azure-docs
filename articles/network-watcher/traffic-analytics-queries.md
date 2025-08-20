@@ -12,7 +12,6 @@ zone_pivot_groups: flow-log-types
 #CustomerIntent: As a traffic analytics user, I want to learn how to use queries so I can easily query traffic analytics.
 ---
 
-
 # Use queries in traffic analytics
 
 This article provides sample Kusto Query Language (KQL) queries to help you analyze Azure Traffic Analytics data effectively. Traffic Analytics processes Virtual Network flow logs and Network Security Group (NSG) flow logs to provide detailed insights into network traffic patterns, security events, and performance metrics.
@@ -349,7 +348,7 @@ In a flow/connection:
 - `BytesSrcToDest`/`PacketsSrcToDest` denote bytes or packets sent from source to destination irrespective of where they were captured.
 - `BytesDestToSrc`/`PacketsDestToSrc` denote bytes or packets sent from destination to source irrespective of where they were captured.
 
-For example, if a connection is made from *VM1* to *VM2* with the following fields:
+For example, if a connection is made from *VM1* to *VM2* with the following fields.
  
 | VM | SrcIp | DestIp | MAC | BytesSrcToDest | BytesDestToSrc | FlowDirection |
 | --- | --- | --- | --- | --- | --- | --- |
