@@ -15,7 +15,7 @@ ms.custom:
 This article outlines key design considerations for Azure VMware Solution Generation 2 (Gen 2) private clouds. It explains the capabilities this generation brings to VMware-based private cloud environments, enabling access for your applications from both on-premises infrastructure and Azure-based resources. There are several considerations to review before you set up your Azure VMware Solution Gen 2 private cloud. This article provides solutions for use cases that you might encounter when you're using the private cloud type.
 
 > [!Note]
-> Generation 2 is available in specific Azure public regions. SLAs are region-specific— contact your Microsoft account team or Microsoft Support to confirm coverage.
+> Generation 2 is available in specific Azure public regions. SLAs are region specific. Contact your Microsoft account team or Microsoft Support to confirm coverage.
 
 ## Limitations during Public Preview
 
@@ -26,9 +26,9 @@ The following functionality is limited during this time. These limitations will 
 - You can only create **1 private cloud per Resource Group**. Multiple private clouds in a single Resource Group are not supported. 
 - Your private cloud and Virtual Network for your private cloud must be in the ***same*** Resource Group.
 - You cannot ***move*** your private cloud from one Resource Group to another after the private cloud is created.
-- **Virtual Network Service Endpoints** direct connectivity from Azure VMware Solution workloads is not supported.
-- **vCloud Director** using Private Endpoints is supported. However, vCloud Director using Public Endpoints is not supported.
-- **vSAN Stretched Clusters** is not supported.
+- **Virtual Network Service Endpoints** direct connectivity from Azure VMware Solution workloads aren't supported.
+- Connectivity from **Azure VMware Solution (AVS) workloads to Azure virtual machines or to other AVS workloads** over Network File System (NFS) for Azure NetApp Files isn't supported.- **vCloud Director** using Private Endpoints is supported. However, vCloud Director using Public Endpoints isn't supported.
+- **vSAN Stretched Clusters** isn't supported.
 - Public IP down to the VMware NSX Microsoft Edge for configuring internet will not be supported. You can find what internet options are supported in [Internet connectivity options](native-internet-connectivity-design-considerations.md)
 
 - **Network Security Groups** associated with the private cloud host virtual network must be created in the ***same*** resource group as the private cloud and its virtual network.
@@ -37,13 +37,13 @@ The following functionality is limited during this time. These limitations will 
 
   - To avoid issues, customers must ensure that:
     
-    - The customer virtual network is not linked to resources in a different resource group and detach such resources (e.g., DDoS Protection Plans) from the virtual network before proceeding
+    - The customer virtual network isn't linked to resources in a different resource group and detach such resources (for example, DDoS Protection Plans) from the virtual network before proceeding
         
-    - Create a role assignment from your cross-resource group to give the “AzS VIS Prod App” service principle "network contributor" access. This will allow you to use reference and havee it correctly applied for you Azure VMware Solution private cloud.
+    - Create a role assignment from your cross-resource group to give the “AzS VIS Prod App” service principle "network contributor" access. The role assignment allows you to use reference and have yourreference correctly applied for your Azure VMware Solution private cloud.
         
 ## Unsupported integrations during Public Preview
 
-The following 1st-party and 3rd-party integrations won't be available during Public Preview:
+The following 1st-party and 3rd-party integrations aren't be available:
 - **Zerto DR**
 - **JetStream DR**
 
@@ -54,7 +54,7 @@ Azure VMware Solution Gen 2 private clouds provide a VMware private cloud enviro
 The private cloud connects to your Azure virtual network using standard Azure networking. Azure VMware Solution Gen 2 private clouds require a minimum /22 CIDR network address block for subnets. This network complements your on-premises networks, so the address block shouldn't overlap with address blocks used in other virtual networks in your subscription and on-premises networks. Management, vMotion, and Replication networks are provisioned automatically within this address block as subnets inside your Virtual Network.
 
 > [!Note]
-> Permitted ranges for your address block are the RFC 1918 private address spaces (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), except for 172.17.0.0/16. Replication network is not applicable to AV64 nodes and is planned for general deprecation at a future date.
+> Permitted ranges for your address block are the RFC 1918 private address spaces (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), except for 172.17.0.0/16. Replication network isn't applicable to AV64 nodes and is planned for general deprecation at a future date.
 
 Avoid using the following IP schema reserved for VMware NSX usage: 
 
