@@ -7,7 +7,7 @@ ms.service: dev-box
 ms.custom:
   - ignite-2024
 ms.topic: quickstart
-ms.date: 11/06/2024
+ms.date: 08/19/2025
 
 #customer intent: As a Dev Center Admin or Project Admin, I want to create an image definition file so that I can create a customized dev box as a proof of concept.  
 
@@ -17,13 +17,13 @@ ms.date: 11/06/2024
 
 In this quickstart, you create a dev box by using Microsoft Dev Box team customizations. The feature uses an image definition file so that you can create consistently customized dev boxes for your development team and provide a tailored environment for your projects.
   
+ 
 ## Prerequisites
-  
-To complete the steps in this quickstart, you must have a dev center configured with a dev box project.  
-  
-## Permissions required to configure customizations
-  
-[!INCLUDE [permissions-for-customizations](includes/permissions-for-customizations.md)]
+
+| Product | Requirements |
+|---------|--------------|
+| Microsoft Dev Box  | - Set up a [dev center with a dev box pool and a dev box project](./quickstart-get-started-template.md) so you can create a dev box. </br> - Attach a catalog to the dev center with tasks you can use in your image definition file. If you don't have a catalog, see [Add and configure a catalog from GitHub or Azure Repos](./how-to-configure-catalog.md). </br> **- Permissions** </br> - *To create a dev box:* Join the Dev Box Users security group for at least one project. </br> - *To enable project-level catalogs for a dev center:* Platform engineer with write access on the subscription. </br> - *To enable catalog sync settings for a project:* Platform engineer with write access on the subscription. </br> - *To attach a catalog to a project:* Dev Center Project Admin or Contributor permissions on the project. </br> - *To create a customization file:* None specified. Anyone can create a customization file. </br> - *To use the developer portal to upload and apply a YAML file during dev box creation:* Dev Box User. </br> - *To add tasks to a catalog:* Permission to add to the repository that hosts the catalog. |
+| Visual Studio Code | - Install the latest version |
   
 ## Create an image definition
   
