@@ -80,9 +80,6 @@ This section describes what to expect when a blob storage account is configured 
 
 [!INCLUDE [Storage - Normal operations](includes/storage/reliability-storage-availability-zone-normal-operations-include.md)]
 
-> [!IMPORTANT]
-> The data replication approach across zones is usually different than the approach used across regions.
-
 ### Zone-down experience
 
 This section describes what to expect when a blob storage account is configured for ZRS and there's an availability zone outage.
