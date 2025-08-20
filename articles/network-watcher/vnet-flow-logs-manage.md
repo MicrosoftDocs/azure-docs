@@ -6,9 +6,8 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 04/17/2025
+ms.date: 08/20/2025
 
-#CustomerIntent: As an Azure administrator, I want to log my virtual network IP traffic using Network Watcher VNet flow logs so that I can analyze it later.
 # Customer intent: As an Azure administrator, I want to manage virtual network flow logs so that I can log, analyze, and optimize IP traffic in my virtual network.
 ---
 
@@ -134,7 +133,7 @@ Create a flow log for your virtual network, subnet, or network interface. This f
     :::image type="content" source="./media/vnet-flow-logs-manage/create-vnet-flow-log-basics.png" alt-text="Screenshot that shows the Basics tab of creating a virtual network flow log in the Azure portal." lightbox="./media/vnet-flow-logs-manage/create-vnet-flow-log-basics.png":::
 
     > [!IMPORTANT]
-    > If you conifgure virtual network flow logs at the NIC, subnet and virtual network, the preference of enablement will be in this order:  NIC > subnet > virtual network.
+    > If you configure virtual network flow logs at the NIC, subnet and virtual network, the preference of enablement will be in this order: NIC > subnet > virtual network.
 
 1. To enable traffic analytics, select **Next: Analytics** button, or select the **Analytics** tab. Enter or select the following values:
 
@@ -223,7 +222,7 @@ Use [az network watcher flow-log create](/cli/azure/network/watcher/flow-log#az-
 
 ---
 
- > [!NOTE]
+ > [!IMPORTANT]
  > If the storage account is in a different subscription, the resource that you're logging (virtual network, subnet, or network interface) and the storage account must be associated with the same Microsoft Entra tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
 
  [!INCLUDE [Traffic analytics resources](../../includes/network-watcher-traffic-analytics-resources.md)]
