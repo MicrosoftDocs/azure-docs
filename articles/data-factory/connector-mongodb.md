@@ -262,8 +262,8 @@ When copying data from MongoDB, the following mappings are used from MongoDB dat
 | Null | Null |
 | JavaScript | String |
 | Regular Expression | String |
-| minKey | Int64 |
-| maxKey | Int64 |
+| Min key | Int64 |
+| Max key | Int64 |
 | Binary | String |
 
 ## MongoDB connector lifecycle and upgrade
