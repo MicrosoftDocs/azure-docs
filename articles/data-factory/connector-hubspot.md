@@ -15,7 +15,7 @@ ms.author: jianleishen
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from HubSpot. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
-> The HubSpot connector version 2.0 (Preview) provides improved native HubSpot support. If you are using HubSpot connector version 1.0 in your solution, please [upgrade the HubSpot connector](#upgrade-the-hubspot-connector-from-version-10-to-version-20-preview) before **October 22, 2025**. Refer to this [section](#hubspot-connector-lifecycle-and-upgrade) for details on the difference between version 2.0 (Preview) and version 1.0.
+> The HubSpot connector version 2.0 (Preview) provides improved native HubSpot support. If you are using HubSpot connector version 1.0 in your solution, please [upgrade the HubSpot connector](#upgrade-the-hubspot-connector-from-version-10-to-version-20) before **October 22, 2025**. Refer to this [section](#hubspot-connector-lifecycle-and-upgrade) for details on the difference between version 2.0 (Preview) and version 1.0.
 
 ## Supported capabilities
 
