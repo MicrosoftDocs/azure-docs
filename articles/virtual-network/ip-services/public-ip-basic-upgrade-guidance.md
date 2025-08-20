@@ -1,3 +1,4 @@
+test changes
 ---
 title: Upgrade Basic Public IP Address to Standard SKU in Azure
 description: Upgrade basic public IP addresses to standard SKU in Azure. Learn migration steps, compare SKUs, and prepare for the September 30 2025 retirement.
