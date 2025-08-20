@@ -98,7 +98,7 @@ You need to separately configure volume placement and cross-zone replication.
 
 ### Normal operations
 
-This section describes what to expect when Azure NetApp Files volumes are configured to deploy into multiple availability zones, cross-zone replication is enabled, and all availability zones are operational.
+This section describes what to expect when multiple Azure NetApp Files volumes are deployed into separate availability zones, cross-zone replication is enabled, and all availability zones are operational.
 
 - **Traffic routing between zones:** Incoming requests are routed to the specific volume, which is located in the availability zone that you select.
 
@@ -109,7 +109,7 @@ This section describes what to expect when Azure NetApp Files volumes are config
 
 ### Zone-down experience
 
-This section describes what to expect when Azure NetApp Files volumes are configured to deploy into multiple availability zones, cross-zone replication is enabled, and there's an availability zone outage.
+This section describes what to expect when multiple Azure NetApp Files volumes are deployed into separate availability zones, cross-zone replication is enabled, and there's an availability zone outage.
 
 - **Detection and response:** You're responsible for detecting the loss of an availability zone and initiating a failover.
 
@@ -133,7 +133,7 @@ This section describes what to expect when Azure NetApp Files volumes are config
 
 - **Traffic rerouting:** You're responsible for redirecting your application traffic to connect to the newly active destination volume. For more information, see [fail over to the destination volume](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume).
 
-### Failback
+### Zone recovery
 
 Failback is a manual process that requires you to perform a resync operation, reestablish the replication, and remount the source volume for the client to access. For more information, see [Manage disaster recovery by using Azure NetApp Files](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md).
 
@@ -225,7 +225,7 @@ For most solutions, you shouldn't rely exclusively on backups. Instead, use the 
 
 ## Service-level agreement
 
-The service-level agreement (SLA) for Azure NetApp Files describes the expected availability of the service and the conditions that must be met to achieve that availability expectation. For more information, see [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+[!INCLUDE [SLA description](includes/reliability-sla-include.md)]
 
 ## Related content
 
