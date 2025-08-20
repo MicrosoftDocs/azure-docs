@@ -28,7 +28,7 @@ Azure AI Search doesn't provide a service-level agreement for the Free tier, whi
 
 When you use Azure AI Search, you create a *search service*. Each search service supports many *search indexes* that store your searchable content.
 
-Azure AI Search isn't designed as a primary data store. Instead, you use indexers to connect your search service to external data sources. An indexer crawls the source data, invokes skills that perform processing and enrichment, and populates your index with the skill outputs.
+Azure AI Search isn't designed as a primary data store. Instead, you use *indexers* to connect your search service to external data sources. An indexer crawls the source data, invokes *skills* that perform processing and enrichment, and populates your index with the skill outputs.
 
 You also configure the number of *replicas* for your service. In Azure AI Search, a replica is a copy of your service's search engine. You can think of a replica as representing a single virtual machine (VM). Each search service can have between 1 and 12 replicas. 
 
@@ -37,7 +37,6 @@ The addition of multiple replicas allows AI Search to:
 - Increase the availability of your search service.
 - Perform maintenance on one replica while queries continue executing on other replicas.
 - Handle higher indexing and query workloads.
-
 
 In addition, it's possible that AI Search will automatically provision replicas in different zones in regions that support availability zones.
 
@@ -107,7 +106,9 @@ This section describes what to expect when search services are configured for zo
 
 + **Detection and response**: Azure AI Search is responsible for detecting a failure in an availability zone. You don't need to do anything to initiate a zone failover.
 
-+ **Notification**: Azure AI Search doesn't notify you when a zone is down. However, you can use Azure Resource Health to monitor for the health of replicas. If a zone is down, the replicas in that zone will show as unavailable. You can also use Azure Service Health to understand the overall health of the Azure AI Search service, including any zone failures. Set up alerts on these services to receive notifications of zone-level issues.
++ **Notification**: Azure AI Search doesn't notify you when a zone is down. However, you can use [Azure Resource Health](/azure/service-health/resource-health-overview) to monitor for the health of replicas. If a zone is down, the replicas in that zone will show as unavailable. You can also use [Azure Service Health](/azure/service-health/overview) to understand the overall health of the Azure AI Search service, including any zone failures.
+
+  Set up alerts on these services to receive notifications of zone-level problems. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal) and [Create and configure Resource Health alerts](/azure/service-health/resource-health-alert-arm-template-guide).
 
 + **Active requests**: Requests being processed by replicas in the failed zone are terminated and should be retried by clients, following the guidance for [handling transient faults](#transient-faults).
 
