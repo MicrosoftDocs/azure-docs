@@ -42,7 +42,7 @@ Azure Remote Rendering uses meters for measurement and the up direction is the Y
 
 ![Object names](media/object-names.jpg)
 
-After you create or acquire some textures, you can also create unique textures. You can use texturing apps such as Quixel Suite, PhotoShop, or Substance Suite or get generic tiling textures from other sources.
+After you create or acquire some textures, you can also create unique textures. You can use texturing apps such as Quixel Suite, Photoshop, or Substance Suite or get generic tiling textures from other sources.
 
 To apply textures to your model:
 

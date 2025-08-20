@@ -1,7 +1,7 @@
 ---
-title:  Prepare an email communication resource for Azure Communication Services
+title: Prepare an email communication resource for Azure Communication Services
 titleSuffix: An Azure Communication Services concept article
-description: Learn about the Azure Communication Services email resources and domains.
+description: This article describes how to prepare Azure Communication Services email resources and domains.
 author: bashan-git
 manager: sphenry
 services: azure-communication-services
@@ -10,9 +10,10 @@ ms.date: 03/31/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
+
 # Prepare an email communication resource for Azure Communication Services 
 
-Similar to Chat, VoIP, and SMS modalities under Azure Communication Services, you can send an email by using an Azure Communication Services resource. Sending an email requires certain preconfiguration steps, and you have to rely on an admin in your organization to help set that up. The admin needs to:
+Similar to Chat, VoIP, and SMS modalities under Azure Communication Services, you can send an email using an Azure Communication Services resource. Sending an email requires certain preconfiguration steps, and you need to assign an admin in your organization to help set that up. The admin needs to:
 
 - Approve the domain that your organization allows you to send mail from.
 - Define the sender domain for the P1 sender email address (also known as the Mail From email address) that appears on the envelope of the email. For more information, see [RFC 5321](https://tools.ietf.org/html/rfc5321).
@@ -50,7 +51,7 @@ After the sender domains are configured and verified, you can link these domains
 - [Create and manage an email communication resource in Azure Communication Services](../../quickstarts/email/create-email-communication-resource.md)
 - [Connect a verified email domain in Azure Communication Services](../../quickstarts/email/connect-email-communication-resource.md)
 
-The following topics might be interesting to you:
+## Related articles
 
 - Familiarize yourself with the [email client library](../email/sdk-features.md).
 - Learn how to send emails with [custom verified domains](../../quickstarts/email/add-custom-verified-domains.md).

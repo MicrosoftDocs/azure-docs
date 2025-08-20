@@ -1,11 +1,11 @@
 ---
 title: "Azure Operator Nexus - Example of cluster.jsonc template file"
 description: Example of cluster.jsonc template file to use with ARM template in creating a cluster.
-author: jeffreymason
-ms.author: jeffreymason
+author: bartpinto
+ms.author: bpinto
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 05/08/2024
+ms.date: 07/21/2025
 ms.custom: template-how-to, devx-track-arm-template
 ---
 
@@ -20,7 +20,7 @@ ms.custom: template-how-to, devx-track-arm-template
     "environment": {
       "type": "string",
       "metadata": {
-        "description": "Name of the environment"
+        "description": "Name of the Environment"
       }
     },
     "name": {
@@ -45,11 +45,32 @@ ms.custom: template-how-to, devx-track-arm-template
     "managedResourceGroupName": {
       "type": "string",
       "metadata": {
-        "description": "Specify a managed resource group for the resource."
+        "description": "Managed Resource Group for the Resource."
       }
     },
-    "clusterLawName": {
-      "type": "string"
+    "assignedIdentity": {
+      "type": "string",
+      "metadata": {
+        "description": "Managed identity resource ID for the Cluster."
+      }
+    },
+    "analyticsWorkspaceId": {
+      "type": "string",
+      "metadata": {
+        "description": "Log Analytics Workspace and Managed Identity resource IDs for the Cluster."
+      }
+    },
+    "containerUrl": {
+      "type": "string",
+      "metadata": {
+        "description": "Storage Account URL for Cluster command output."
+      }
+    },
+    "vaultUri": {
+      "type": "string",
+      "metadata": {
+        "description": "KeyVault Uri for Cluster"
+      }
     },
     "networkFabricId": {
       "type": "string",
@@ -60,7 +81,7 @@ ms.custom: template-how-to, devx-track-arm-template
     "clusterType": {
       "type": "string",
       "metadata": {
-        "description": "The type of the cluster, whether single or multi-rack"
+        "description": "The type of the Cluster, single or multi-rack"
       },
       "allowedValues": [
         "SingleRack",
@@ -70,7 +91,7 @@ ms.custom: template-how-to, devx-track-arm-template
     "clusterVersion": {
       "type": "string",
       "metadata": {
-        "description": "The version of the cluster to install"
+        "description": "The version of the Cluster to install"
       }
     },
     "clusterLocation": {
@@ -82,31 +103,19 @@ ms.custom: template-how-to, devx-track-arm-template
     "customLocation": {
       "type": "string",
       "metadata": {
-        "description": "The custom location of the cluster manager"
+        "description": "The Custom Location of the Cluster Manager"
       }
     },
     "aggregatorOrSingleRack": {
       "type": "object",
       "metadata": {
-        "description": "Aggregator rack or single rack definition"
+        "description": "Aggregator Rack or single Rack definition"
       }
     },
     "computeRacks": {
       "type": "array",
       "metadata": {
-        "description": "Compute rack definitions"
-      }
-    },
-    "clusterServicePrincipal": {
-      "type": "secureobject",
-      "metadata": {
-        "description": "Service principal account details used by the cluster to install the Arc Appliance.  This field is needed in the near-term for Arc enrollment"
-      }
-    },
-    "secretArchive": {
-      "type": "string",
-      "metadata": {
-        "description": "Secret KeyVault for credential rotation"
+        "description": "Compute Rack definitions"
       }
     }
   },
@@ -148,11 +157,26 @@ ms.custom: template-how-to, devx-track-arm-template
                 "description": "Location of Cluster Resource"
               }
             },
-            "analyticsWorkspaceId": {
-              "type": "string"
+            "assignedIdentity": {
+              "type": "string",
+              "metadata": {
+                "description": "Managed identity resource ID for the Cluster."
+              }
             },
-            "clusterLawName": {
-              "type": "string"
+            "analyticsWorkspaceId": {
+              "type": "string",
+              "metadata": {
+                "description": "Log Analytics Workspace and Managed Identity resource IDs for the Cluster."
+              }
+            },
+            "analyticsOutputSettings": {
+              "type": "object"
+            },
+            "secretArchiveSettings": {
+              "type": "object"
+            },
+            "commandOutputSettings": {
+              "type": "object"
             },
             "resourceGroupName": {
               "type": "string"
@@ -166,7 +190,7 @@ ms.custom: template-how-to, devx-track-arm-template
             "clusterType": {
               "type": "string",
               "metadata": {
-                "description": "The type of the cluster, whether single or multi-rack"
+                "description": "The type of the Cluster, single or multi-rack"
               },
               "allowedValues": [
                 "SingleRack",
@@ -176,7 +200,7 @@ ms.custom: template-how-to, devx-track-arm-template
             "clusterVersion": {
               "type": "string",
               "metadata": {
-                "description": "The version of the cluster to install"
+                "description": "The version of the Cluster to install"
               }
             },
             "clusterLocation": {
@@ -188,87 +212,55 @@ ms.custom: template-how-to, devx-track-arm-template
             "customLocation": {
               "type": "string",
               "metadata": {
-                "description": "The custom location of the cluster manager"
+                "description": "The Custom Location of the Cluster Manager"
               }
             },
             "aggregatorOrSingleRack": {
               "type": "object",
               "metadata": {
-                "description": "Aggregator rack or single rack definition"
+                "description": "Aggregator Rack or single Rack definition"
               }
             },
             "computeRacks": {
               "type": "array",
               "metadata": {
-                "description": "Compute rack definitions"
-              }
-            },
-            "clusterServicePrincipal": {
-              "type": "secureobject",
-              "metadata": {
-                "description": "Service principal account details used by the cluster to install the Arc Appliance. This field is needed for Arc enrollment."
+                "description": "Compute Rack definitions"
               }
             },
             "managedResourceGroupConfiguration": {
               "type": "object"
-            },
-            "secretArchive": {
-              "type": "string",
-              "metadata": {
-                "description": "Secret KeyVault for credential rotation"
-              }
-            },
-            "sshKeyUrl": {
-              "type": "string",
-              "metadata": {
-                "description": "SSH Key URL that is used for to gather list of Public Keys"
-              }
             }
           },
           "variables": {},
           "resources": [
             {
-              "type": "Microsoft.OperationalInsights/workspaces",
-              "apiVersion": "2021-12-01-preview",
-              "name": "[parameters('clusterLawName')]",
-              "location": "[parameters('location')]",
-              "properties": {
-                "sku": {
-                  "name": "pergb2018"
-                },
-                "retentionInDays": 120,
-                "features": {
-                  "enableLogAccessUsingOnlyResourcePermissions": true
-                }
-              }
-            },
-            {
-              "dependsOn": [
-                "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('clusterLawName'))]"
-              ],
               "type": "Microsoft.NetworkCloud/clusters",
-              "apiVersion": "2023-07-01",
+              "apiVersion": "2025-02-01",
               "name": "[parameters('name')]",
               "location": "[parameters('location')]",
-              "tags": {
-                "LabEnvironment": "[parameters('environment')]",
-                "ResourceType": "cluster",
-                "sshKeyUrl": "[parameters('sshKeyUrl')]"
-              },
+              "tags": {},
+              "identity": {
+                "type": "UserAssigned",
+                "userAssignedIdentities": {
+                  "[parameters('assignedIdentity')]": {}
+                }
+              }, 
               "extendedLocation": {
                 "name": "[parameters('customLocation')]",
                 "type": "CustomLocation"
               },
               "properties": {
-                "analyticsWorkspaceId": "[parameters('analyticsWorkspaceId')]",
                 "networkFabricId": "[parameters('networkFabricId')]",
                 "clusterType": "[parameters('clusterType')]",
                 "clusterVersion": "[parameters('clusterVersion')]",
                 "clusterLocation": "[parameters('clusterLocation')]",
+                "analyticsWorkspaceId": "[parameters('analyticsWorkspaceId')]",
                 "aggregatorOrSingleRackDefinition": "[parameters('aggregatorOrSingleRack')]",
                 "computeRackDefinitions": "[parameters('computeRacks')]",
-                "clusterServicePrincipal": "[parameters('clusterServicePrincipal')]",
-                "managedResourceGroupConfiguration": "[parameters('managedResourceGroupConfiguration')]"
+                "managedResourceGroupConfiguration": "[parameters('managedResourceGroupConfiguration')]",
+                "analyticsOutputSettings": "[parameters('analyticsOutputSettings')]",
+                "secretArchiveSettings": "[parameters('secretArchiveSettings')]",
+                "commandOutputSettings": "[parameters('commandOutputSettings')]"
               }
             }
           ],
@@ -278,17 +270,11 @@ ms.custom: template-how-to, devx-track-arm-template
           "environment": {
             "value": "[parameters('environment')]"
           },
-          "analyticsWorkspaceId": {
-            "value": "[concat(subscription().id, '/resourceGroups/', parameters('resourceGroupName'), '/providers/Microsoft.OperationalInsights/workspaces/', parameters('clusterLawName'))]"
-          },
           "name": {
             "value": "[parameters('name')]"
           },
           "location": {
             "value": "[parameters('location')]"
-          },
-          "clusterLawName": {
-            "value": "[parameters('clusterLawName')]"
           },
           "resourceGroupName": {
             "value": "[parameters('resourceGroupName')]"
@@ -299,6 +285,12 @@ ms.custom: template-how-to, devx-track-arm-template
               "name": "[parameters('managedResourceGroupName')]"
             }
           },
+          "assignedIdentity": {
+            "value": "[parameters('assignedIdentity')]"
+          }, 
+          "analyticsWorkspaceId": {
+            "value": "[parameters('analyticsWorkspaceId')]"
+          }, 
           "networkFabricId": {
             "value": "[parameters('networkFabricId')]"
           },
@@ -317,26 +309,40 @@ ms.custom: template-how-to, devx-track-arm-template
           "aggregatorOrSingleRack": {
             "value": "[parameters('aggregatorOrSingleRack')]"
           },
+          "analyticsOutputSettings": {
+            "value": {
+              "analyticsWorkspaceId": "[parameters('analyticsWorkspaceId')]",
+              "associatedIdentity": {
+                "identityType": "UserAssignedIdentity",
+                "userAssignedIdentityResourceId": "[parameters('assignedIdentity')]"
+              }
+            }
+          },
+          "commandOutputSettings": {
+            "value": {
+              "containerUrl": "[parameters('containerUrl')]",
+              "associatedIdentity": {
+                "identityType": "UserAssignedIdentity",
+                "userAssignedIdentityResourceId": "[parameters('assignedIdentity')]"
+              }
+            }
+          },
+          "secretArchiveSettings": {
+            "value": {
+              "vaultUri": "[parameters('vaultUri')]",
+              "associatedIdentity": {
+                "identityType": "UserAssignedIdentity",
+                "userAssignedIdentityResourceId": "[parameters('assignedIdentity')]"
+              }
+            }
+          },
           "computeRacks": {
             "value": "[parameters('computeRacks')]"
-          },
-          "clusterServicePrincipal": {
-            "value": "[parameters('clusterServicePrincipal')]"
-          },
-          "secretArchive": {
-            "value": {
-              "keyVaultId": "[parameters('secretArchive')]",
-              "useKeyVault": "True"
-
-          },
-          "sshKeyUrl": {
-            "value": "[parameters('sshKeyUrl')]"
           }
         }
       }
     }
-  }
-],
+  ],
   "outputs": {}
 }
 ```

@@ -7,7 +7,7 @@ ms.author: rosemalcolm
 ms.service: azure-deployment-environments
 ms.custom: devx-track-azurecli, build-2023, ignite-2024
 ms.topic: how-to
-ms.date: 11/06/2024
+ms.date: 03/31/2025
 # customer intent: As a developer, I want to learn how to manage my environments in Azure Deployment Environments so that I can create, redeploy, and delete my environments as needed.
 ---
 
@@ -107,17 +107,17 @@ An attempt to delete a deployment environment might fail due to issues like the 
 
 If the deletion fails, you can forcibly delete the environment. Force delete deletes the environment, its deployment resource group, and all resources in the deployment resource group. Any resources created outside the resource group are orphaned; force delete doesn't delete them.
 
-To forcibly delete an environment, follow these steps:
+To forcibly delete an environment from the CLI, follow these steps:
 1. Open the CLI.
 1. Run the following command to forcibly delete the environment:
 
    ```bash
-   az devcenter environment delete --name <environment-name> --dev-center <dev-center-name> --project-name <project-name> --force
+   az devcenter dev environment delete --name <environment-name> --dev-center <dev-center-name> --project-name <project-name> --force
    ```
 
     Replace `<environment-name>` with the name of the environment you want to delete, `<dev-center-name>` with the name of your dev center, and `<project-name>` with the name of the project that the environment belongs to.
 
-For more information about the `az devcenter environment delete` command, see [az devcenter environment delete](/cli/azure/devcenter/dev/environment).
+For more information about the `az devcenter dev environment delete` command, see [az devcenter dev environment delete](/cli/azure/devcenter/dev/environment).
 
 > [!IMPORTANT]
 > The force delete feature is currently in PREVIEW.

@@ -2,7 +2,8 @@
 title: Batch security and compliance best practices
 description: Learn best practices and useful tips for enhancing security with your Azure Batch solutions.
 ms.date: 11/21/2024
-ms.topic: conceptual
+ms.topic: concept-article
+# Customer intent: As a cloud architect, I want to implement security best practices for Azure Batch deployments so that I can ensure compliance and protect sensitive data within my organization's cloud infrastructure.
 ---
 
 # Batch security and compliance best practices

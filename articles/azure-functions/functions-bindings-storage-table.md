@@ -125,27 +125,7 @@ Functions version 1.x doesn't support isolated worker process.
 
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
 
-## Install bundle
-
-The Azure Tables bindings are part of an [extension bundle], which is specified in your host.json project file. You may need to modify this bundle to change the version of the bindings, or if bundles aren't already installed. To learn more, see [extension bundle].
-
-# [Bundle v3.x](#tab/extensionv3)
-
-[!INCLUDE [functions-bindings-supports-identity-connections-note](../../includes/functions-bindings-supports-identity-connections-note.md)]
-
-You can add this version of the extension from the extension bundle v3 by adding or replacing the following code in your `host.json` file:
-
-[!INCLUDE [functions-extension-bundles-json-v3](../../includes/functions-extension-bundles-json-v3.md)]
-
-# [Bundle v2.x](#tab/extensionv2)
-
-You can install this version of the extension in your function app by registering the [extension bundle], version 2.x.
-
-# [Functions 1.x](#tab/functions1)
-
-Functions 1.x apps automatically have a reference to the extension.
-
----
+[!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 
 ::: zone-end
 
@@ -237,7 +217,7 @@ Functions version 1.x doesn't support isolated worker process. To use the isolat
 [storage-4.x]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/4.0.5
 [table-api-package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Tables/
 
-[extension bundle]: ./functions-bindings-register.md#extension-bundles
+[extension bundle]: ./extension-bundles.md
 
 [Update your extensions]: ./functions-bindings-register.md
 

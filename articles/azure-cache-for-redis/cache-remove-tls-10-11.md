@@ -5,6 +5,8 @@ description: Learn how to remove TLS 1.0 and 1.1 from your application when comm
 
 ms.topic: conceptual
 ms.date: 02/05/2025
+appliesto:
+  - ✅ Azure Cache for Redis
 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 

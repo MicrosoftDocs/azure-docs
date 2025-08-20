@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 12/13/2024
 ms.custom: engagement-fy23
+# Customer intent: "As a system administrator, I want to configure Windows Server Active Directory as an external identity source for vCenter Server, so that I can authenticate users and manage role-based access efficiently."
 ---
 
 # Set an external identity source for vCenter Server
@@ -38,7 +39,7 @@ In this article, you learn how to:
 
 - Ensure that your Windows Server Active Directory network is connected to your Azure VMware Solution private cloud.
 
-- Windows Server Active Directory authentication with LDAPS, see [Configure LDAPS within Azure Vmware Solution](https://techcommunity.microsoft.com/blog/fasttrackforazureblog/configure-ldaps-within-azure-vmware-solution/3725759).
+- Windows Server Active Directory authentication with LDAPS, see [Configure LDAPS within Azure VMware Solution](https://techcommunity.microsoft.com/blog/fasttrackforazureblog/configure-ldaps-within-azure-vmware-solution/3725759).
 
 - Configure DNS resolution for Azure VMware Solution to your on-premises Windows Server Active Directory. Set up a DNS forwarder in the Azure portal. For more information, see [Configure a DNS forwarder for Azure VMware Solution](configure-dns-azure-vmware-solution.md).
 

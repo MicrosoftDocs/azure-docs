@@ -5,7 +5,7 @@ author: johndowns
 ms.author: jodowns
 ms.service: azure-frontdoor
 ms.topic: quickstart
-ms.date: 8/11/2023
+ms.date: 08/11/2023
 ms.custom: devx-track-terraform
 content_well_notification: 
   - AI-contribution
@@ -13,6 +13,8 @@ ai-usage: ai-assisted
 ---
 
 # Quickstart: Create an Azure Front Door using Terraform
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 This quickstart describes how to use Terraform to create a Front Door profile to set up high availability for a web endpoint.
 

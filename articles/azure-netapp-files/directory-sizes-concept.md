@@ -4,9 +4,10 @@ description: Learn how metadata impacts directory sizes in Azure NetApp Files.
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
-ms.date: 07/23/2024
+ms.topic: concept-article
+ms.date: 07/23/2025
 ms.author: anfdocs
+# Customer intent: "As a systems administrator managing file systems on Azure NetApp Files, I want to monitor directory sizes and understand their limits, so that I can optimize performance and prevent errors due to exceeded directory metadata limits."
 ---
 # Understand directory sizes in Azure NetApp Files 
 

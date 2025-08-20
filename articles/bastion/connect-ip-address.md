@@ -2,12 +2,13 @@
 title: 'Connect to a VM - specified private IP address: Azure portal'
 titleSuffix: Azure Bastion
 description: Learn how to connect to your virtual machines using a specified private IP address via Azure Bastion.
-author: cherylmc
+author: abell
 ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 03/03/2025
-ms.author: cherylmc
+ms.author: abell
 
+# Customer intent: As a network administrator, I want to configure and connect to virtual machines using a specified private IP address via Bastion, so that I can securely manage resources in my network environment.
 ---
 
 # Connect to a VM via specified private IP address

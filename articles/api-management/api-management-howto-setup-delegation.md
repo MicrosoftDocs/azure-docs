@@ -6,7 +6,7 @@ services: api-management
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 06/24/2024
+ms.date: 05/24/2025
 ms.author: danlep
 ---
 
@@ -200,7 +200,7 @@ var signature = digest.toString('base64');
 
 ## Related content
 - [Learn more about the developer portal.](api-management-howto-developer-portal.md)
-- [Authenticate using Microsoft Entra ID](api-management-howto-aad.md) or with [Azure AD B2C](api-management-howto-aad-b2c.md).
+- [Authenticate using Microsoft Entra ID](api-management-howto-aad.md) or with [Microsoft Entra External ID](/entra/external-id/customers/overview-customers-ciam).
 - More developer portal questions? [Find answers in our FAQ](developer-portal-faq.md).
 
 [Delegating developer sign-in and sign-up]: #delegate-signin-up

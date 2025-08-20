@@ -11,7 +11,7 @@ ms.subservice: web-sdk
 
 # How to use image templates
 
-Images can be used with HTML markers and various layers within the Azure Maps web SDK:
+Images can be used with HTML markers and various layers within the Azure Maps Web SDK:
 
 - Symbol layers can render points on the map with an image icon. Symbols can also be rendered along a lines path.
 - Polygon layers can be rendered with a fill pattern image.
@@ -119,7 +119,7 @@ The [HTML Marker with built-in icon template] sample demonstrates this using the
 
 ## Create custom reusable templates
 
-If your application uses the same icon within different modules or if you're creating a module that adds more image templates, you can easily add and retrieve these icons from the Azure Maps web SDK. Use the following static functions on the `atlas` namespace.
+If your application uses the same icon within different modules or if you're creating a module that adds more image templates, you can easily add and retrieve these icons from the Azure Maps Web SDK. Use the following static functions on the `atlas` namespace.
 
 | Name | Return Type | Description |
 |------|-------------|-------------|
@@ -136,7 +136,7 @@ SVG image templates support the following placeholder values:
 | `{scale}` | The SVG image is converted to an png image when added to the map image sprite. This placeholder can be used to scale a template before it's converted to ensure it renders clearly. |
 | `{text}` | The location to render text when used with an HTML Marker. |
 
-The [Add custom icon template to atlas namespace] sample demonstrates how to take an SVG template, and add it to the Azure Maps web SDK as a reusable icon template, as shown in the following screenshot. For the source code for this sample, see [Add custom icon template to atlas namespace sample code].
+The [Add custom icon template to atlas namespace] sample demonstrates how to take an SVG template, and add it to the Azure Maps Web SDK as a reusable icon template, as shown in the following screenshot. For the source code for this sample, see [Add custom icon template to atlas namespace sample code].
 
 :::image type="content" source="./media/how-to-use-image-templates-web-sdk/add-custom-icon-template-to-atlas-namespace.png" lightbox="./media/how-to-use-image-templates-web-sdk/add-custom-icon-template-to-atlas-namespace.png" alt-text="Screenshot showing a map displaying a polygon layer in the shape of a big green triangle with multiple images of blue anchors inside.":::
 
@@ -148,7 +148,7 @@ The [Add custom icon template to atlas namespace] sample demonstrates how to tak
 
 ## List of image templates
 
-This table lists all image templates currently available within the Azure Maps web SDK. The template name is above each image. By default, the primary color is blue and the secondary color is white. To make the secondary color easier to see on a white background, the following images have the secondary color set to black.
+This table lists all image templates currently available within the Azure Maps Web SDK. The template name is above each image. By default, the primary color is blue and the secondary color is white. To make the secondary color easier to see on a white background, the following images have the secondary color set to black.
 
 **Symbol icon templates**
 

@@ -6,8 +6,8 @@ author: kromerm
 ms.author: makromer
 ms.subservice: orchestration
 ms.custom: synapse
-ms.topic: conceptual
-ms.date: 10/20/2023
+ms.topic: concept-article
+ms.date: 03/31/2025
 ---
 
 # Nested activities in Azure Data Factory and Azure Synapse Analytics
@@ -17,6 +17,7 @@ ms.date: 10/20/2023
 This article helps you understand nested activities in Azure Data Factory and Azure Synapse Analytics and how to use them, limitations, and best practices.
 
 ## Overview
+
 A Data Factory or Synapse Workspace pipeline can contain control flow activities that allow for other activities to be contained inside of them. Think of these nested activities as containers that hold one or more other activities that can execute depending on the top level control flow activity.
 
 See the following example with an If activity that has one activity contained.
@@ -24,16 +25,18 @@ See the following example with an If activity that has one activity contained.
 :::image type="content" source="media/concepts-pipelines-activities/nested-activity-example.png" alt-text="Screenshot showing an example If Condition activity with a contained activity inside.":::
 
 ## Control flow activities
+
 The following control flow activities support nested activities:
 
 Control activity | Description
 ---------------- | -----------
 [For Each](control-flow-for-each-activity.md) | ForEach Activity defines a repeating control flow in your pipeline. This activity is used to iterate over a collection and executes specified activities in a loop. The loop implementation of this activity is similar to the Foreach looping structure in programming languages.
 [If Condition Activity](control-flow-if-condition-activity.md) | The If Condition can be used to branch based on condition that evaluates to true or false. The If Condition activity provides the same functionality that an if statement provides in programming languages. It evaluates a set of activities when the condition evaluates to `true` and another set of activities when the condition evaluates to `false.`
-[Until Activity](control-flow-until-activity.md) | Implements Do-Until loop that is similar to Do-Until looping structure in programming languages. It executes a set of activities in a loop until the condition associated with the activity evaluates to true. You can specify a timeout value for the until activity.
+[Until Activity](control-flow-until-activity.md) | Implements Do-Until loop that is similar to Do-Until looping structure in programming languages. It executes a set of activities in a loop until the condition associated with the activity evaluates to true. You can specify a time-out value for the until activity.
 [Switch Activity](control-flow-switch-activity.md) | The Switch activity provides the same functionality that a switch statement provides in programming languages. It evaluates a set of activities corresponding to a case that matches the condition evaluation.
 
 ## Navigating nested activities
+
 There are two primary ways to navigate to the contained activities in a nested activity.
 
 1. Each control flow activity that supports nested activities has an activity tab. Selecting the activity tab will then give you a pencil icon you can select to drill down into the inner activities panel. 
@@ -46,6 +49,7 @@ Your pipeline canvas will then switch to the context of the inner activity conta
 :::image type="content" source="media/concepts-pipelines-activities/nested-activity-breadcrumb.png" alt-text="Screenshot showing an example If Condition activity inside the true branch with a highlight on the breadcrumb to navigate back to the parent pipeline.":::
 
 ## Nested activity embedding limitations
+
 There are constraints on the activities that support nesting (ForEach, Until, Switch, and If Condition), for nesting another nested activity. Specifically:
 
 - If and Switch can be used inside ForEach or Until activities.
@@ -60,6 +64,7 @@ ForEach or Until supports only single level nesting
 If and Switch can't be used inside If and Switch activities.
 
 ## Best practices for multiple levels of nested activities
+
 In order to have logic that supports nesting more than one level deep, you can use the [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md) inside of your nested activity to call another pipeline that then can have another level of nested activities. A common use case for this pattern is with the ForEach loop where you need to additionally loop based off logic in the inner activities. 
 
 An example of this pattern would be if you had a file system that had a list of folders and each folder there are multiple files you want to process. You would accomplish this pattern, generally, by performing the following.

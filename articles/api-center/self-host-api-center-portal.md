@@ -39,6 +39,8 @@ The API Center portal reference implementation provides:
     * [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
     * [Vite package](https://www.npmjs.com/package/vite)
 
+## Create Microsoft Entra app registration
+
 [!INCLUDE [api-center-portal-app-registration](includes/api-center-portal-app-registration.md)]
 
 > [!NOTE]
@@ -99,6 +101,9 @@ Follow these steps to build and test the API Center portal locally.
 ## Deploy to Azure
 
 For steps to deploy the portal to Azure Static Web Apps, see the [API Center portal starter](https://github.com/Azure/APICenter-Portal-Starter.git) repository.
+
+## Enable sign-in to portal by Microsoft Entra users and groups 
+
 
 [!INCLUDE [api-center-portal-user-sign-in](includes/api-center-portal-user-sign-in.md)]
 

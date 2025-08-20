@@ -19,6 +19,14 @@ Using private endpoints for your App Configuration store enables you to:
 - Increase security for the virtual network (VNet) ensuring data doesn't escape from the VNet.
 - Securely connect to the App Configuration store from on-premises networks that connect to the VNet using [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoutes](../expressroute/expressroute-locations.md) with private-peering.
 
+Private endpoints availability varies by App Configuration tier:
+- **Free tier**: Not available
+- **Developer tier**: Up to 1 private endpoint
+- **Standard tier**: Up to 10 private endpoints
+- **Premium tier**: Up to 40 private endpoints
+
+For more information about pricing, see [Azure App Configuration pricing](https://azure.microsoft.com/pricing/details/app-configuration/).
+
 ## Conceptual overview
 
 A private endpoint is a special network interface for an Azure service in your [Virtual Network](../virtual-network/virtual-networks-overview.md) (VNet). When you create a private endpoint for your App Configuration store, it provides secure connectivity between clients on your VNet and your configuration store. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and the configuration store uses a secure private link.
@@ -34,6 +42,12 @@ Service account owners can manage consent requests and private endpoints through
 ### Private endpoints for App Configuration 
 
 When creating a private endpoint, you must specify the App Configuration store to which it connects. If you enable the geo-replication for an App Configuration store, you can connect to all replicas of the store using the same private endpoint. If you have multiple App Configuration stores, you need a separate private endpoint for each store.
+
+### Considerations for geo-replicated App Configuration stores
+
+When geo-replication is enabled for your App Configuration store, you can use a single private endpoint to connect to all replicas. However, since private endpoints are regional resources, this approach may not ensure connectivity in the event of a regional outage.
+
+For enhanced resilience, consider creating private endpoints for each replica of your geo-replicated store, in addition to a private endpoint for the origin store. This ensures that if one region becomes unavailable, clients can access the store through private endpoints provisioned in the same region as a replica. Ensure the relevant [DNS changes](#dns-changes-for-private-endpoints) are made so the endpoint for each replica resolves to the relevant IP address for the private endpoint in the respective replica's region.
 
 ### Connecting to private endpoints
 
@@ -59,7 +73,7 @@ If you are using a custom DNS server on your network, you need to configure it t
 
 ## Pricing
 
-Enabling private endpoints requires a [Standard or Premium tier](https://azure.microsoft.com/pricing/details/app-configuration/) App Configuration store. To learn about private link pricing details, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link).
+Enabling private endpoints requires a [Developer, Standard or Premium tier](https://azure.microsoft.com/pricing/details/app-configuration/) App Configuration store. To learn about private link pricing details, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link).
 
 ## Troubleshooting private endpoint errors
 

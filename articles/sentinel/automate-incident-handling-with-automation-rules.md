@@ -6,8 +6,8 @@ ms.author: bagol
 ms.topic: conceptual
 ms.date: 10/16/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -70,7 +70,7 @@ The following table shows the different possible scenarios that cause an automat
 
 With automation rules centrally handling the response to both incidents and alerts, how should you choose which to automate, and in which circumstances?
 
-For most use cases, **incident-triggered automation** is the preferable approach. In Microsoft Sentinel, an **incident** is a “case file” – an aggregation of all the relevant evidence for a specific investigation. It’s a container for alerts, entities, comments, collaboration, and other artifacts. Unlike **alerts** which are single pieces of evidence, incidents are modifiable, have the most updated status, and can be enriched with comments, tags, and bookmarks. The incident allows you to track the attack story that keeps evolving with the addition of new alerts. 
+For most use cases, **incident-triggered automation** is the preferable approach. In Microsoft Sentinel, an **incident** is a “case file” – an aggregation of all the relevant evidence for a specific investigation. It’s a container for alerts, entities, comments, collaboration, and other artifacts. Unlike **alerts** which are single pieces of evidence, incidents are modifiable, have the most updated status, and can be enriched with comments, tags, and bookmarks. The incident allows you to track the attack story that keeps evolving with the addition of new alerts.
 
 For these reasons, it makes more sense to build your automation around incidents. So the most appropriate way to create playbooks is to base them on the Microsoft Sentinel incident trigger in Azure Logic Apps.
 

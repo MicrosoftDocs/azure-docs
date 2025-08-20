@@ -11,6 +11,8 @@ ms.date: 05/11/2024
 
 # Compare the pricing of Azure CDN Standard Microsoft and Azure Front Door
 
+**Applies to:** :heavy_check_mark: CDN Standard from Microsoft (classic)
+
 > [!NOTE]
 > The prices presented in this article serves as examples and are intended solely for illustration purposes only. For region-specific pricing information, see the pricing pages of [Azure Front Door](https://azure.microsoft.com/pricing/details/frontdoor/) and [Azure CDN](https://azure.microsoft.com/pricing/details/cdn).
 

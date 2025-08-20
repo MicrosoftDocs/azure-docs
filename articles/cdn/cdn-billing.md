@@ -7,8 +7,9 @@ ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: concept-article
-ms.date: 03/20/2024
+ms.date: 03/31/2025
 ROBOTS: NOINDEX
+# Customer intent: As a content manager using a cloud-based content delivery network, I want to understand the billing structure and associated costs, so that I can effectively manage my expenses and optimize my content delivery strategies.
 ---
 
 # Understanding Azure Content Delivery Network billing

@@ -4,8 +4,8 @@ titleSuffix: Azure Digital Twins
 description: Learn about the billing concept of Query Units in Azure Digital Twins
 author: baanders
 ms.author: baanders
-ms.date: 03/01/2022
-ms.topic: conceptual
+ms.date: 04/11/2025
+ms.topic: concept-article
 ms.service: azure-digital-twins
 ---
 
@@ -20,7 +20,7 @@ It abstracts away the system resources like CPU, IOPS, and memory that are requi
 The amount of Query Units consumed to execute a query is affected by:
 
 * The complexity of the query
-* The size of the result set (so a query returning 10 results will consume more QUs than a query of similar complexity that returns just one result)
+* The size of the result set (so a query returning 10 results consumes more QUs than a query of similar complexity that returns just one result)
 
 This article explains how to understand Query Units and track Query Unit consumption.
 
@@ -38,8 +38,8 @@ The following code snippet demonstrates how you can extract the query charges in
 
 To learn more about querying Azure Digital Twins, visit:
 
-* [Query language](concepts-query-language.md)
-* [Query the twin graph](how-to-query-graph.md)
+* [Azure Digital Twins query language](concepts-query-language.md)
+* [Query the Azure Digital Twins twin graph](how-to-query-graph.md)
 * [Query API reference documentation](/rest/api/digital-twins/dataplane/query/query-twins)
 
 You can find Azure Digital Twins query-related limits in [Azure Digital Twins service limits](reference-service-limits.md).

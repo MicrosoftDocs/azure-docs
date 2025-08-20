@@ -4,6 +4,7 @@ description: Learn how to associate an Azure Batch account with network security
 ms.topic: how-to
 ms.date: 3/17/2025
 ms.custom: references_regions
+# Customer intent: As a network administrator, I want to associate my Azure Batch account with a network security perimeter, so that I can ensure secure communication and access controls between my PaaS resources.
 ---
 
 # Associate Azure Batch accounts with network security perimeter

@@ -1,14 +1,14 @@
 ---
 title: Reduce costs for Microsoft Sentinel
 description: Learn how to reduce costs for Microsoft Sentinel by using different methods in the Azure portal.
-author: austinmccollum
-ms.author: austinmc
+author: EdB-MSFT
+ms.author: edbaynash
 ms.custom: subject-cost-optimization
 ms.topic: conceptual
-ms.date: 07/09/2024
+ms.date: 06/14/2025
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -25,13 +25,13 @@ Costs for Microsoft Sentinel are only a portion of the monthly costs in your Azu
 ## Set or change pricing tier
 To optimize for highest savings, monitor your ingestion volume to ensure you have the Commitment Tier that aligns most closely with your ingestion volume patterns. Consider increasing or decreasing your Commitment Tier to align with changing data volumes.
 
-You can increase your Commitment Tier anytime, which restarts the 31-day commitment period. However, to move back to Pay-As-You-Go or to a lower Commitment Tier, you must wait until after the 31-day commitment period finishes. Billing for Commitment Tiers is on a daily basis.
+You can increase your Commitment Tier anytime, which restarts the 31-day commitment period. However, to move back to pay-as-you-go or to a lower Commitment Tier, you must wait until after the 31-day commitment period finishes. Billing for Commitment Tiers is on a daily basis.
 
 To see your current Microsoft Sentinel pricing tier, select **Settings** in the Microsoft Sentinel left navigation, and then select the **Pricing** tab. Your current pricing tier is marked **Current tier**.
 
 To change your pricing tier commitment, select one of the other tiers on the pricing page, and then select **Apply**. You must have **Contributor** or **Owner** for the Microsoft Sentinel workspace to change the pricing tier.
 
-:::image type="content" source="media/billing-reduce-costs/simplified-pricing-tier.png" alt-text="Screenshot of pricing page in Microsoft Sentinel settings, with Pay-As-You-Go selected as current pricing tier." lightbox="media/billing-reduce-costs/simplified-pricing-tier.png":::
+:::image type="content" source="media/billing-reduce-costs/simplified-pricing-tier.png" alt-text="Screenshot of pricing page in Microsoft Sentinel settings, with pay-as-you-go selected as current pricing tier." lightbox="media/billing-reduce-costs/simplified-pricing-tier.png":::
 
 To learn more about how to monitor your costs, see [Manage and monitor costs for Microsoft Sentinel](billing-monitor-costs.md).
 
@@ -39,7 +39,7 @@ For workspaces still using classic pricing tiers, the Microsoft Sentinel pricing
 
 ## Buy a pre-purchase plan
 
-Save on your Microsoft Sentinel costs when you pre-purchase Microsoft Sentinel commit units (CUs). Use the pre-purchased CUs at any time during the one year purchase term.
+Save on your Microsoft Sentinel analytics tier costs when you pre-purchase Microsoft Sentinel commit units (CUs). Use the pre-purchased CUs at any time during the one year purchase term.
 
 Any eligible Microsoft Sentinel costs deduct first from the pre-purchased CUs automatically. You don't need to redeploy or assign a pre-purchased plan to your Microsoft Sentinel workspaces for the CU usage to get the pre-purchase discounts.
 
@@ -49,14 +49,11 @@ For more information, see [Optimize Microsoft Sentinel costs with a pre-purchase
 
 Microsoft Sentinel analyzes all the data ingested into Microsoft Sentinel-enabled Log Analytics workspaces. It's best to have a separate workspace for non-security operations data, to ensure it doesn't incur Microsoft Sentinel costs.
 
-When hunting or investigating threats in Microsoft Sentinel, you might need to access operational data stored in these standalone Azure Log Analytics workspaces. You can access this data by using cross-workspace querying in the log exploration experience and workbooks. However, you can't use cross-workspace analytics rules and hunting queries unless Microsoft Sentinel is enabled on all the workspaces.
+## Use the Microsoft Sentinel data lake (preview) for lower fidelity or secondary security data 
 
-## Select low-cost log types for high-volume, low-value data
+While the analytics tier is most appropriate for continuous, real-time threat detection, the Microsoft Sentinel data lake is well-suited for query and analytics of secondary security data that is not needed for real time threat detection. Microsoft Sentinel data lake offers ingestion and storage at a significantly reduced cost. For more information, see [Microsoft Sentinel Pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
 
-While standard analytics logs are most appropriate for continuous, real-time threat detection, two other log types&mdash;[basic logs and auxiliary logs](/azure/azure-monitor/logs/basic-logs-configure)&mdash;are more suited for ad-hoc querying and search of verbose, high-volume, low-value logs that aren't frequently needed or accessed on demand. Enable basic log data ingestion at a significantly reduced cost, or auxiliary log data ingestion (now in Preview) at an even lower cost, for eligible data tables. For more information, see [Microsoft Sentinel Pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
-
-- [Log retention plans in Microsoft Sentinel](log-plans.md)
-- [Log sources to use for Auxiliary Logs ingestion](basic-logs-use-cases.md)
+[!INCLUDE [sentinel-lake-preview](includes/sentinel-lake-preview.md)]
 
 ## Optimize Log Analytics costs with dedicated clusters
 
@@ -80,15 +77,11 @@ Here are some other considerations for moving to a dedicated cluster for cost op
 
 For more information about dedicated clusters, see [Log Analytics dedicated clusters](/azure/azure-monitor/logs/cost-logs#dedicated-clusters).
 
-## Reduce data retention costs with long-term retention
+## Reduce data retention costs with total retention
 
-Microsoft Sentinel retains data by default in interactive form for the first 90 days. To adjust the data retention period in Log Analytics, select **Usage and estimated costs** in the left navigation, then select **Data retention**, and then adjust the slider.
+Microsoft Sentinel retains analytics tier data by default for the first 90 days in analytics retention. As data ages, it loses its value for real-time analytics and investigation. Security operations center (SOC) users might not access older data as frequently but still want to access the data for wider historical investigations or audit purposes. To help you reduce Microsoft Sentinel data retention costs, total retention is available. Data that ages out of its analytics retention state can still be retained, at a much-reduced cost, and accessed using data lake exploration capabilities. For more information, see [Lake exploration, KQL queries](datalake/kql-overview.md).
 
-Microsoft Sentinel security data might lose some of its value after a few months. Security operations center (SOC) users might not need to access older data as frequently as newer data, but still might need to access the data for sporadic investigations or audit purposes.
-
-To help you reduce Microsoft Sentinel data retention costs, Azure Monitor now offers long-term retention. Data that ages out of its interactive retention state can still be retained for up to twelve years, at a much-reduced cost, and with limitations on its usage. For more information, see [Manage data retention in a Log Analytics workspace](/azure/azure-monitor/logs/data-retention-configure).
-
-You can reduce costs even further by enrolling tables that contain secondary security data in the **Auxiliary logs** plan (now in Preview). This plan allows you to store high-volume, low-value logs at a low price, with a lower-cost 30-day interactive retention period at the beginning to allow for summarization and basic querying. To learn more about the Auxiliary logs plan and other plans, see [Log retention plans in Microsoft Sentinel](log-plans.md). While the auxiliary logs plan remains in Preview, you also have the option of enrolling these tables in the **Basic logs** plan. Basic logs offers similar functionality to auxiliary logs, but with less of a cost savings.
+Use **Data management > Tables** to adjust the Analytics and Total retention period.
 
 ## Use data collection rules for your Windows Security Events
 
@@ -105,3 +98,5 @@ Besides for the predefined sets of events that you can select to ingest, such as
 - Learn about how to [prevent unexpected costs](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
 - For more tips on reducing Log Analytics data volume, see [Azure Monitor best practices - Cost management](/azure/azure-monitor/best-practices-cost).
+- To understand more about Microsoft Sentinel data lake (Preview), see [Microsoft Sentinel data lake (Preview)](datalake/sentinel-lake-overview.md).
+- To onboard to Microsoft Sentinel data lake (Preview), see [Onboard data to Microsoft Sentinel data lake (Preview)](datalake/sentinel-lake-onboarding.md). 

@@ -2,12 +2,13 @@
 title: Understanding pricing - Azure Application Gateway
 description: This article describes the billing process for Azure Application Gateway and Web Application Firewall for both v1 to v2 SKUs
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.custom: references_regions
 ms.date: 01/19/2024
-ms.author: greglin
+ms.author: mbender
+# Customer intent: As a cloud architect, I want to understand the pricing structure for Azure Application Gateway and Web Application Firewall SKUs, so that I can accurately plan and manage costs for my cloud infrastructure.
 ---
 
 # Understanding Pricing for Azure Application Gateway and Web Application Firewall
@@ -40,13 +41,13 @@ Application Gateway V2 and WAF V2 SKUs support autoscaling and guarantee high av
 Capacity Unit is the measure of capacity utilization for an Application Gateway across multiple parameters.
 
 A single Capacity Unit consists of the following parameters:
-* 2500 Persistent connections
-* 2.22-Mbps throughput
+* 2,500 Persistent connections
+* 1 GB per hour (2.22-Mbps) throughput
 * 1 Compute Unit
 
 The parameter with the highest utilization among these three parameters is used to calculate capacity units for billing purposes.
 
-#### Capacity Unit related to Instance Count
+#### Capacity Units related to Instance Count
 <h4 id="instance-count"></h4>
 
 You can also pre-provision resources by specifying the **Instance Count**. Each instance guarantees a minimum of 10 capacity units in terms of processing capability. The same instance could potentially support more than 10 capacity units for different traffic patterns depending upon the capacity unit parameters.
@@ -59,7 +60,7 @@ Total capacity units are calculated based on the higher of the capacity units by
 
 ### Compute unit
 
-**Compute Unit** is the measure of compute capacity consumed. Factors affecting compute unit consumption are TLS connections/second, URL Rewrite computations, and WAF rule processing. The number of requests a compute unit can handle depends on various criteria like TLS certificate key size, key exchange algorithm, header rewrites, and in case of WAF: incoming request size.
+**Compute units** are an entirely different concept from capacity units. Compute units are a measure of compute capacity consumed, while capacity units are a measure of capacity utilization across multiple parameters. Compute units are one of three parameters used to calculate capacity units. Factors affecting compute unit consumption are TLS connections/second, URL Rewrite computations, and WAF rule processing. The number of requests a compute unit can handle depends on various criteria like TLS certificate key size, key exchange algorithm, header rewrites, and in case of WAF: incoming request size.
 
 Compute unit guidance:
 * Basic_v2 (preview) - Each compute unit is capable of approximately 10 connections per second with RSA 2048-bit key TLS certificate.
@@ -67,6 +68,15 @@ Compute unit guidance:
 * WAF_v2 - Each compute unit can support approximately 10 concurrent requests per second for 70-30% mix of traffic with 70% requests less than 2 KB GET/POST and remaining higher. WAF performance isn't affected by response size currently.
 
 The following table shows example prices using Application Gateway Standard v2 SKU. These prices are based on a snapshot of East US pricing and are for illustration purposes only.
+
+### How much traffic can an instance handle?
+
+Each instance of Application Gateway Standard_v2 can handle the following traffic:
+* 25,000 persistent connections
+* 500-Mbps throughput
+* 10 compute units
+
+Therefore, in cases where the dominant factor is either compute units or persistent connections, each instance can handle 10 capacity units. In cases where the dominant factor is throughput, each instance can handle approximately 225 capacity units. This data depends on the type of payload.
 
 #### Fixed Costs (East US region pricing)
 
@@ -115,7 +125,7 @@ Let’s assume you’ve provisioned a Standard_V2 Application Gateway with manua
 
 Your Application Gateway costs using the pricing described previously are calculated as follows:
 
-1 CU can handle 2.22 Mbps throughput.
+1 CU can handle 2.22-Mbps throughput.
 
 CUs required to handle 88.8 Mbps = 88.8 / 2.22 = 40 
 
@@ -133,7 +143,7 @@ Variable Costs = $0.008 * ( 3 (Instance Units) * 10 (capacity units) + 10 (addit
 Total Costs = $179.58 + $233.6 = $413.18
 
 However, if processing capacity equivalent to only say 7 additional CUs was available for use within the 3 reserved instances.
-In this scenario the Application Gateway resource is under scaled and could potentially lead to increase in latency or requests getting dropped.
+In this scenario, the Application Gateway resource is under scaled and could potentially lead to increase in latency or requests getting dropped.
 
 Fixed Price = $0.246  * 730 (Hours) =  $179.58
 
@@ -400,7 +410,7 @@ You can view the amount of consumption for different parameters (compute unit, t
 
 * Fixed Billable Capacity Units
 
-    The minimum number of capacity units kept provisioned as per the minimum instance count setting (one instance translates to 10 capacity units) in the Application Gateway configuration.
+    The minimum number of capacity units kept provisioned as per the minimum instance count setting (one instance translates to a minimum of 10 capacity units) in the Application Gateway configuration.
 
 * Estimated Billed Capacity units
 

@@ -13,7 +13,7 @@ ms.author: duau
 
 # Migrate to an availability zone-enabled ExpressRoute virtual network gateway using PowerShell
 
-When you create an ExpressRoute virtual network gateway, you need to choose the [gateway SKU](expressroute-about-virtual-network-gateways.md#gateway-types). If you choose a higher-level SKU, more CPUs and network bandwidth are allocated to the gateway. As a result, the gateway can support higher network throughput and more dependable network connections to the virtual network. 
+When you create an ExpressRoute virtual network gateway, you need to choose the [gateway SKU](expressroute-about-virtual-network-gateways.md). If you choose a higher-level SKU, more CPUs and network bandwidth are allocated to the gateway. As a result, the gateway can support higher network throughput and more dependable network connections to the virtual network. 
 
 The following SKUs are available for ExpressRoute virtual network gateways:
 
@@ -66,7 +66,7 @@ This script creates a new ExpressRoute virtual network gateway on the same gatew
 1. Run the **PrepareMigration.ps1** script to prepare the migration. 
 
     ```azurepowershell-interactive
-   gateway-migration/preparemigration.ps1
+   expressroute-gateway\gateway-migration\preparemigration.ps1
     ```
 1. Enter the resource ID of your gateway. 
 1. Choose a name for your new resources, the new resource name will be added to the existing name. For example: existingresourcename_newname.
@@ -86,7 +86,7 @@ This script transfers the configuration from the old gateway to the new one.
 1.  Run the **Migration.ps1** script to perform the migration. 
 
     ```azurepowershell-interactive
-    gateway-migration/migration.ps1
+    expressroute-gateway\gateway-migration\migration.ps1
     ```
 1. Enter the resource ID of your premigration gateway.
 1. Enter the resource ID of your post-migration gateway.
@@ -98,7 +98,7 @@ This script deletes the old gateway and its connections.
 1. Run the **CommitMigration.ps1** script to complete the migration. 
 
     ```azurepowershell-interactive
-   gateway-migration/commitmigration.ps1
+    expressroute-gateway\gateway-migration\commitmigration.ps1
     ```
 1. Enter the resource ID of the premigration gateway.
 

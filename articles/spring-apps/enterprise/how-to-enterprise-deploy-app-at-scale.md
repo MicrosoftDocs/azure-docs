@@ -6,7 +6,8 @@ ms.author: karler
 ms.reviewer: xiading
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 08/28/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ---
 
 # Scale out to deploy over 500 and up to 1000 application instances using Azure Spring Apps Enterprise

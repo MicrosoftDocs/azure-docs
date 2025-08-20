@@ -6,29 +6,19 @@ author: duongau
 
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 11/13/2019
-ms.author: duau 
+ms.date: 07/10/2025
+ms.author: duau
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
 
 # Create an ExpressRoute circuit by using Azure Resource Manager template
-
-> [!div class="op_single_selector"]
-> * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
-> * [PowerShell](expressroute-howto-circuit-arm.md)
-> * [Azure CLI](howto-circuit-cli.md)
-> * [Azure Resource Manager template](expressroute-howto-circuit-resource-manager-template.md)
-> * [Video - Azure portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
-> * [PowerShell (classic)](expressroute-howto-circuit-classic.md)
->
 
 Learn how to create an ExpressRoute circuit by deploying an Azure Resource Manager template by using Azure PowerShell. For more information on developing Resource Manager templates, see [Resource Manager documentation](../azure-resource-manager/index.yml) and the [template reference](/azure/templates/microsoft.network/expressroutecircuits).
 
 ## Before you begin
 
 * Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
-* Ensure that you have permissions to create new networking resources. Contact your account administrator if you do not have the right permissions.
-* You can [view a video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit) before beginning in order to better understand the steps.
+* Ensure that you have permissions to create new networking resources. Contact your account administrator if you don't have the right permissions.
 
 ## <a name="create"></a>Create and provision an ExpressRoute circuit
 
@@ -61,10 +51,10 @@ To create an ExpressRoute Circuit by deploying a template:
 
    * **SKU tier** determines whether an ExpressRoute circuit is [Local](expressroute-faqs.md#expressroute-local), Standard, or [Premium](expressroute-faqs.md#expressroute-premium). You can specify *Local*, *Standard, or *Premium*.
    * **SKU family** determines the billing type. You can specify *Metereddata* for a metered data plan and *Unlimiteddata* for an unlimited data plan. You can change the billing type from *Metereddata* to *Unlimiteddata*, but you can't change the type from *Unlimiteddata* to *Metereddata*. A *Local* circuit is *Unlimiteddata* only.
-   * **Peering Location** is the physical location where you are peering with Microsoft.
+   * **Peering Location** is the physical location where you're peering with Microsoft.
 
      > [!IMPORTANT]
-     > The Peering Location indicates the [physical location](expressroute-locations.md) where you are peering with Microsoft. This is **not** linked to "Location" property, which refers to the geography where the Azure Network Resource Provider is located. While they are not related, it is a good practice to choose a Network Resource Provider geographically close to the Peering Location of the circuit.
+     > The Peering Location indicates the [physical location](expressroute-locations.md) where you're peering with Microsoft. This Peering Location is **not** linked to "Location" property, which refers to the geography where the Azure Network Resource Provider is located. While they aren't related, it's a good practice to choose a Network Resource Provider geographically close to the Peering Location of the circuit.
 
     The resource group name is the service bus namespace name with **rg** appended.
 
@@ -85,7 +75,7 @@ You can delete your ExpressRoute circuit by selecting the **delete** icon. Note 
 
 * You must unlink all virtual networks from the ExpressRoute circuit. If this operation fails, check whether any virtual networks are linked to the circuit.
 * If the ExpressRoute circuit service provider provisioning state is **Provisioning** or **Provisioned** you must work with your service provider to deprovision the circuit on their side. We continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
-* If the service provider has deprovisioned the circuit (the service provider provisioning state is set to **Not provisioned**), you can delete the circuit. This stops billing for the circuit.
+* Once the service provider provisioning state is set to **Not provisioned**, you can delete the circuit. Once the circuit is deleted, its billing will also stop.
 
 You can delete your ExpressRoute circuit by running the following PowerShell command:
 

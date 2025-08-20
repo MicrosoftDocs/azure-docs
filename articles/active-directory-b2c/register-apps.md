@@ -19,6 +19,7 @@ ms.subservice: b2c
 ---
 
 # Register apps in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Before your [applications](application-types.md) can interact with Azure Active Directory B2C (Azure AD B2C), you must register them in a tenant that you manage.
 

@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-bastion
-ms.date: 11/21/2024
+ms.date: 04/04/2025
 
 ---
 
@@ -14,7 +14,7 @@ ms.date: 11/21/2024
 
 This article describes reliability support in Azure Bastion. It covers intra-regional resiliency via [availability zones](#availability-zone-support). It also covers [multi-region deployments](#multi-region-support).
 
-Because resiliency is a shared responsibility between you and Microsoft, this article also covers ways for you to create a resilient solution that meets your needs.
+[!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
 > [!IMPORTANT]
 > Zone redundancy features for Azure Bastion resources are currently in preview.
@@ -88,9 +88,11 @@ There's no additional cost to use zone redundancy for Azure Bastion.
 
 **Migration:** It's not possible to change the availability zone configuration of an existing Azure Bastion resource. Instead, you need to create an Azure Bastion resource with the new configuration and delete the old one.
 
-### Traffic routing between zones
+### Normal operations
 
-When you initiate an SSH or RDP session, it can be routed to an Azure Bastion instance in any of the availability zones you selected.
+This section describes what to expect when Azure Bastion resources are configured for availability zone support and all availability zones are operational.
+
+**Traffic routing between zones:** When you initiate an SSH or RDP session, it can be routed to an Azure Bastion instance in any of the availability zones you selected.
 
 If you configure zone redundancy on Azure Bastion, a session might be sent to an Azure Bastion instance in an availability zone that's different from the virtual machine you're connecting to. In the following diagram, a request from the user is sent to an Azure Bastion instance in zone 2, although the virtual machine is in zone 1:
 
@@ -101,13 +103,15 @@ In most scenarios, the small amount of cross-zone latency isn't significant. How
 
 ### Zone-down experience
 
-**Detection and response:** When you use zone redundancy, Azure Bastion detects and responds to failures in an availability zone. You don't need to do anything to initiate an availability zone failover.
+This section describes what to expect when an Azure Bastion resource is configured for availability zone support and there's an availability zone outage.
 
-**Active requests:** When an availability zone is unavailable, any RDP or SSH connections in progress that use an Azure Bastion instance in the faulty availability zone are terminated and need to be retried.
+- **Detection and response:** When you use zone redundancy, Azure Bastion detects and responds to failures in an availability zone. You don't need to do anything to initiate an availability zone failover.
 
-If the virtual machine you're connecting to isn't in the affected availability zone, the virtual machine continues to be accessible. See [Reliability in virtual machines: Zone down experience](./reliability-virtual-machines.md#zone-down-experience) for more information on the VM zone down experience.
+- **Active requests:** When an availability zone is unavailable, any RDP or SSH connections in progress that use an Azure Bastion instance in the faulty availability zone are terminated and need to be retried.
 
-**Traffic rerouting:** When you use zone redundancy, new connections use Azure Bastion instances in the surviving availability zones. Overall, Azure Bastion remains operational.
+    If the virtual machine you're connecting to isn't in the affected availability zone, the virtual machine continues to be accessible. See [Reliability in virtual machines: Zone down experience](./reliability-virtual-machines.md#zone-down-experience) for more information on the VM zone down experience.
+
+- **Traffic rerouting:** When you use zone redundancy, new connections use Azure Bastion instances in the surviving availability zones. Overall, Azure Bastion remains operational.
 
 ### Failback
 

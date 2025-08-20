@@ -3,7 +3,7 @@ title: Overview for Microsoft Azure Maps
 description: Learn about services and capabilities in Microsoft Azure Maps and how to use them in your applications.
 author: faterceros
 ms.author: aterceros
-ms.date: 10/21/2022
+ms.date: 03/31/2025
 ms.topic: overview
 ms.service: azure-maps
 ms.subservice: general
@@ -39,18 +39,6 @@ The following video explains Azure Maps in depth:
 The Azure Maps Web SDK lets you customize interactive maps with your own content and imagery. You can use this interactive map for both your web or mobile applications. The map control makes use of WebGL, so you can render large data sets with high performance. You can develop with the SDK by using JavaScript or TypeScript.
 
 :::image type="content" source="./media/about-azure-maps/intro_web_map_control.png" lightbox="./media/about-azure-maps/intro_web_map_control.png" alt-text="Example map of population change created by using Azure Maps Web SDK.":::
-
-### Android SDK
-
-> [!NOTE]
->
-> **Azure Maps Android SDK retirement**
->
-> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
-
-Use the Azure Maps Android SDK to create mobile mapping applications.
-
-:::image type="content" source="./media/about-azure-maps/android_sdk.png" lightbox="./media/about-azure-maps/android_sdk.png" border="false" alt-text="Map examples on a mobile device.":::
 
 ## Services in Azure Maps
 

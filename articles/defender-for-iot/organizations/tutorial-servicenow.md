@@ -19,13 +19,13 @@ Once you have the Operational Technology Manager application, two integrations a
 
 Import Microsoft Defender for IoT sensors with more attributes, including connection details and Purdue model zones, into the Network Intrusion Detection Systems (NIDS) class. Provide visibility into your OT network status and manage it within the ServiceNow application.
 
-For more information about the Azure Defender for IoT option, see the [Service Graph Connector (SGC) Integration with Microsoft Azure Defender for IoT](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ddd4bf1b53f130104b5cddeeff7b1229) information on the ServiceNow store.
+For more information about the Microsoft Defender for IoT option, see the [Service Graph Connector (SGC) Integration with Microsoft Defender for IoT](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ddd4bf1b53f130104b5cddeeff7b1229) information on the ServiceNow store.
 
 ### Vulnerability Response (VR)
 
 Track and resolve vulnerabilities of your OT assets with the data imported from Defender for IoT into the ServiceNow Operational Technology Vulnerability Response application.
 
-For more information about the Azure Defender for IoT option, see the [Vulnerability Response (VR)](https://store.servicenow.com/sn_appstore_store.do#!/store/application/a187f54f9713e91088ae3e0e6253afcf/1.0.1?referer=%2Fstore%2Fsearch%3Flistingtype%3Dallintegrations%25253Bancillary_app%25253Bcertified_apps%25253Bcontent%25253Bindustry_solution%25253Boem%25253Butility%25253Btemplate%25253Bgenerative_ai%25253Bsnow_solution%26q%3Ddefender%2520for%2520IoT&sl=sh) information on the ServiceNow store.
+For more information about the Microsoft Defender for IoT option, see the [Vulnerability Response (VR)](https://store.servicenow.com/sn_appstore_store.do#!/store/application/a187f54f9713e91088ae3e0e6253afcf/1.0.1?referer=%2Fstore%2Fsearch%3Flistingtype%3Dallintegrations%25253Bancillary_app%25253Bcertified_apps%25253Bcontent%25253Bindustry_solution%25253Boem%25253Butility%25253Btemplate%25253Bgenerative_ai%25253Bsnow_solution%26q%3Ddefender%2520for%2520IoT&sl=sh) information on the ServiceNow store.
 
 For more information, read the ServiceNow supporting links and documentation for the ServiceNow terms of service.
 

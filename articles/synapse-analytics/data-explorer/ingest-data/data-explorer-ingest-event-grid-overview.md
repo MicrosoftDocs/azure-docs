@@ -2,14 +2,17 @@
 title: Event Grid data connection for Azure Synapse Data Explorer (Preview)
 description: This article provides an overview of how to ingest (load) data into Azure Synapse Data Explorer from Event Grid.
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 03/24/2025
 author: shsagir
 ms.author: shsagir
 ms.reviewer: tzgitlin
 ms.service: azure-synapse-analytics
 ms.subservice: data-explorer
 ---
+
 # Event Grid data connection (Preview)
+
+[!INCLUDE [data-explorer-deprecation-notice](../includes/data-explorer-deprecation-notice.md)]
 
 Event Grid ingestion is a pipeline that listens to Azure storage, and updates Azure Data Explorer to pull information when subscribed events occur. Data Explorer offers continuous ingestion from Azure Storage (Blob storage and ADLSv2) with [Azure Event Grid](../../../event-grid/overview.md) subscription for blob created or blob renamed notifications and streaming these notifications to Data Explorer via an Event Hub.
 

@@ -14,6 +14,7 @@ ms.subservice: b2c
 ---
 
 # Azure Active Directory B2C global identity framework
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [Azure Active Directory B2C](overview.md) is a customer identity access management (CIAM) solution capable of supporting millions of users and billions of authentications per day. It takes care of the scaling and safety of the authentication platform, monitoring, and automatically handling threats like denial-of-service, password spray, or brute force attacks.
 

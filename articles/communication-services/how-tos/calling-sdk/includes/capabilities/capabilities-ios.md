@@ -2,24 +2,26 @@
 author: DaybreakQuip
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 05/21/2024
+ms.date: 06/20/2025
 ms.author: zehangzheng
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-ios.md)]
 
-Capabilities feature is an extended feature of the core `Call` API and allows you to obtain the capabilities of the local participant in the current call.
+The ability to view capabilities is an extended feature of the core `Call` API. It enables you to obtain the capabilities of the local participant in the current call.
 
-The feature allows you to register for an event listener, to listen to capability changes.
+The feature enables you to register for an event listener to listen for capability changes.
 
-In order to use the Capabilities call feature for Windows, the first step is to obtain the Capabilities feature API object:
+To use the capabilities call feature for Windows, the first step is to obtain the capabilities feature API object:
 
-## Obtaining capabilities feature
+## Get the capabilities feature
+
 ```swift
 let capabilitiesCallFeature =call.feature(Features.capabilities)
 ```
 
 ## Get the capabilities of the local participant
-Capabilities object has the capabilities of the local participants and is of type `ParticipantCapability`. Properties of Capabilities include:
+
+The capabilities object has the capabilities of the local participants and is of type `ParticipantCapability`. Properties of capabilities include:
 
 - *isAllowed* indicates if a capability can be used.
 - *reason* indicates capability resolution reason.
@@ -29,6 +31,7 @@ var capabilities = capabilitiesCallFeature.capabilities
 ```
 
 ## Subscribe to `capabilitiesChanged` event
+
 ```swift
 
 capabilitiesCallFeature.delegate = CapabilitiesCallDelegate()
@@ -43,7 +46,8 @@ public class CapabilitiesCallDelegate : CapabilitiesCallFeatureDelegate
 ```
 
 ## Capabilities Exposed
-- *TurnVideoOn*: Ability to turn video on
+
+- *TurnVideoOn*: Ability to turn on video
 - *UnmuteMicrophone*: Ability to unmute microphone
 - *ShareScreen*: Ability to share screen
 - *RemoveParticipant*: Ability to remove a participant
@@ -58,4 +62,4 @@ public class CapabilitiesCallDelegate : CapabilitiesCallFeatureDelegate
 - *CustomBackground*: Ability to apply a custom background
 - *StartLiveCaptions*: Ability to start live captions
 - *RaiseHand*: Ability to raise hand
-- *MuteOthers*: Ability to soft mute remote participant(s) in the meeting 
+- *MuteOthers*: Ability to soft mute remote participants in the meeting 

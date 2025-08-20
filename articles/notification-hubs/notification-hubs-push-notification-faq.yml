@@ -6,14 +6,11 @@ metadata:
   author: sethmanheim
   manager: lizross
   keywords: push notification, push notifications, iOS push notifications, android push notifications, ios push, android push
-
   ms.service: azure-notification-hubs
   ms.tgt_pltfrm: mobile-multiple
   ms.topic: faq
-  ms.date: 04/24/2024
+  ms.date: 05/01/2025
   ms.author: sethm
-  ms.reviewer: heathertian
-  ms.lastreviewed: 11/13/2019
 title: "Push notifications with Azure Notification Hubs: Frequently asked questions"
 summary: |
 
@@ -32,7 +29,7 @@ sections:
 
           * **Free**: This tier is a good starting point for exploring push capabilities. It's not recommended for production apps. You get 500 devices and 1 million pushes included per subscription per month, with no service level agreement (SLA) guarantee.
           * **Basic**: This tier (or the Standard tier) is recommended for smaller production apps. You get 200,000 devices and 10 million pushes included per subscription per month as a baseline.
-          * **Standard**: This tier is recommended for medium to large production apps. You get 10 million devices and 10 million pushes included per subscription per month as a baseline. Includes rich telemetry (additional data about push status provided).
+          * **Standard**: This tier is recommended for medium to large production apps. You get 10 million devices and 10 million pushes included per subscription per month as a baseline. Includes rich telemetry (more data about push status provided).
 
           Standard tier features:
 
@@ -101,12 +98,12 @@ sections:
           The PNS does not guarantee any SLA for delivering notifications. However, most push notifications are delivered to target devices within a few minutes (typically within 10 minutes) from the time they are sent to Notification Hubs. A few notifications might take more time.
 
           > [!NOTE]
-          > Azure Notification Hubs has a policy in place to drop any push notifications that aren't delivered to the PNS within 30 minutes. This delay can happen for a number of reasons, but most commonly because the PNS is throttling your application.
+          > Azure Notification Hubs has a policy in place to drop any push notifications that aren't delivered to the PNS within 30 minutes. This delay can happen for many reasons, but most commonly because the PNS is throttling your application.
 
       - question: |
           Is there any latency guarantee?
         answer: |
-          Because of the nature of push notifications (they are delivered by an external, platform-specific PNS), there is no latency guarantee. Typically, the majority of push notifications are delivered within a few minutes.
+          Because of the nature of push notifications (they are delivered by an external, platform-specific PNS), there is no latency guarantee. Typically, most push notifications are delivered within a few minutes.
 
       - question: |
           Where does Azure Notification Hubs store data?
@@ -175,19 +172,19 @@ sections:
       - question: |
           Is all of my data stored in encrypted form?
         answer: |
-          Azure Notification Hubs encrypts all customer data at rest with the exception of registration tags. For this reason, you should not store personal or confidential data using tags.
+          Azure Notification Hubs encrypts all customer data at rest except for registration tags. For this reason, you should not store personal or confidential data using tags.
 
       - question: |
           Is there audit log capability?
         answer: |
-          Yes. All Notification Hubs management operations update the Azure Activity Log to which is exposed in the [Azure portal](https://portal.azure.com). The Azure Activity Log offers insights into the operations performed on resources in your subscriptions. Using the Activity Log, you can determine the what, who, and when for any write operations (PUT, POST, DELETE) made for the resources in your subscription. You can also understand the status of the operations and other relevant properties. However. the Activity Log does not include read (GET) operation.
+          Yes. All Notification Hubs management operations update the Azure Activity Log to which is exposed in the [Azure portal](https://portal.azure.com). The Azure Activity Log offers insights into the operations performed on resources in your subscriptions. Using the Activity Log, you can determine the what, who, and when for any write operations (PUT, POST, DELETE) made for the resources in your subscription. You can also understand the status of the operations and other relevant properties. However, the Activity Log does not include read (GET) operations.
 
       - question: |
           Does Notification Hubs detect uninstallation?
         answer: |
           If you stored the device as a `Registration`, the first time you send to that registration and the PNS responds with an error status code that indicates the device is not valid, the device is deleted from your notification hub.
 
-          If you stored your devices using the `Installation` APIs, they are not deleted in the scenario above. This decision was made to preserve tags and other metadata about a particular user that might be relevant if the user reinstalls.
+          If you stored your devices using the `Installation` APIs, they are not deleted in this scenario. This decision was made to preserve tags and other metadata about a particular user that might be relevant if the user reinstalls.
 
           For both registrations and installations, you can set an expiration so that the device is automatically cleaned up at a given time. A common pattern is to have your client application update that expiration date once a day to move it back as long as the user is using your application.
 
@@ -210,4 +207,4 @@ sections:
           - [Azure Monitoring REST API walkthrough](/azure/azure-monitor/essentials/rest-api-walkthrough)
 
           > [!NOTE]
-          > Successful notifications mean simply that push notifications have been delivered to the external PNS (for example, APNs for iOS and macOS or FCM for Android devices). It is the responsibility of the PNS to deliver the notifications to target devices. Typically, the PNS does not expose delivery metrics to third parties.
+          > Successful notifications mean simply that push notifications were delivered to the external PNS (for example, APNs for iOS and macOS or FCM for Android devices). It is the responsibility of the PNS to deliver the notifications to target devices. Typically, the PNS does not expose delivery metrics to third parties.

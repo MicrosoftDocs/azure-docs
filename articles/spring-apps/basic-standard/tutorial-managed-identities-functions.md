@@ -7,7 +7,8 @@ ms.reviewer: margard
 ms.service: azure-spring-apps
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ms.topic: tutorial
-ms.date: 08/29/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ---
 
 # Tutorial: Use a managed identity to invoke Azure Functions from an Azure Spring Apps app

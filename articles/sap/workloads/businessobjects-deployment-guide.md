@@ -9,6 +9,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.date: 06/15/2023
 ms.author: depadia
+# Customer intent: As an IT administrator, I want to plan and deploy the SAP BusinessObjects BI Platform on Azure, so that I can leverage Azure's scalable resources and connectivity to enhance business intelligence reporting and analytics within my organization.
 ---
 
 # SAP BusinessObjects BI platform planning and implementation guide on Azure

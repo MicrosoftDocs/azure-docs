@@ -43,7 +43,7 @@ Run the following command to create an Event Hubs namespace in the resource grou
 
 ```azurepowershell-interactive
 $namespaceName="myNamespace$(Get-Random)"
-New-AzEventHubNamespace -ResourceGroupName $rgName -NamespaceName $namespaceName -Location $region
+New-AzEventHubNamespace -ResourceGroupName $rgName -Name $namespaceName -Location $region
 ```
 
 You see the output similar to the following one. You see the name of the namespace in the `Name` field. 

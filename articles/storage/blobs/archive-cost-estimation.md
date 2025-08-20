@@ -5,9 +5,12 @@ description: Learn how to calculate the cost of storing and maintaining data in 
 author: normesta
 
 ms.author: normesta
-ms.date: 9/10/2024
+ms.date: 05/15/2025
 ms.service: azure-blob-storage
 ms.topic: how-to
+ms.custom:
+  - build-2025
+# Customer intent: As a data manager, I want to accurately estimate the costs of archiving data using cloud storage, so that I can make informed decisions about my organization's data management and storage strategies.
 ---
 
 # Estimate the cost of archiving data

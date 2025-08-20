@@ -1,14 +1,17 @@
 ---
-title: Node.js best practices and troubleshooting
+title: Node.js Best Practices and Troubleshooting
 description: Learn the best practices and troubleshooting steps for Node.js applications running in Azure App Service.
 author: msangapu-msft
 
 ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
 ms.devlang: javascript
-ms.topic: article
+ms.topic: best-practice
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: devx-track-js
+ms.service: azure-app-service
+# customer intent: As a developer, I want to learn best practices for Node.js applications that run in App Service so that I can use these apps more effectively.
+
 ---
 # Best practices and troubleshooting guide for node applications on Azure App Service Windows
 
@@ -102,7 +105,7 @@ This setting controls the logging of stdout and stderr by iisnode. Iisnode captu
 
 ### devErrorsEnabled
 
-The default value is false. When set to true, iisnode displays the HTTP status code and Win32 error code on your browser. The win32 code is helpful in debugging certain types of issues.
+The default value is false. When set to true, iisnode displays the HTTP status code and Win32 error code on your browser. The Win32 code is helpful in debugging certain types of issues.
 
 ### debuggingEnabled (do not enable on live production site)
 
@@ -161,7 +164,7 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-Go to the Debug Console site `https://yoursite.scm.azurewebsites.net/DebugConsole`
+To go to the Debug Console site for your app, select **Development Tools** > **Advanced Tools**, then select **Go**. In Kudu, select **Debug console** for **CMD** or **PowerShell**.
 
 Go into your site/wwwroot directory. You see a command prompt as shown in the following example:
 
@@ -219,17 +222,17 @@ You can install `memwatch` just like v8-profiler and edit your code to capture a
 
 There are a few reasons why node.exe is shut down randomly:
 
-1. Your application is throwing uncaught exceptions – Check d:\\home\\LogFiles\\Application\\logging-errors.txt file for the details on the exception thrown. This file has the stack trace to help debug and fix your application.
-2. Your application is consuming too much memory, which is affecting other processes from getting started. If the total VM memory is close to 100%, your node.exe’s could be killed by the process manager. Process manager kills some processes to let other processes get a chance to do some work. To fix this issue, profile your application for memory leaks. If your application requires large amounts of memory, scale up to a larger VM (which increases the RAM available to the VM).
+- Your application is throwing uncaught exceptions – Check d:\\home\\LogFiles\\Application\\logging-errors.txt file for the details on the exception thrown. This file has the stack trace to help debug and fix your application.
+- Your application is consuming too much memory, which is affecting other processes from getting started. If the total VM memory is close to 100%, your node.exe’s could be killed by the process manager. Process manager kills some processes to let other processes get a chance to do some work. To fix this issue, profile your application for memory leaks. If your application requires large amounts of memory, scale up to a larger VM (which increases the RAM available to the VM).
 
 ### My node application does not start
 
 If your application is returning 500 Errors when it starts, there could be a few reasons:
 
-1. Node.exe is not present at the correct location. Check nodeProcessCommandLine setting.
-2. Main script file is not present at the correct location. Check web.config and make sure the name of the main script file in the handlers section matches the main script file.
-3. Web.config configuration is not correct – check the settings names/values.
-4. Cold Start – Your application is taking too long to start. If your application takes longer than (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000 seconds, iisnode returns a 500 error. Increase the values of these settings to match your application start time to prevent iisnode from timing out and returning the 500 error.
+- Node.exe is not present at the correct location. Check nodeProcessCommandLine setting.
+- Main script file is not present at the correct location. Check web.config and make sure the name of the main script file in the handlers section matches the main script file.
+- Web.config configuration is not correct – check the settings names/values.
+- Cold Start – Your application is taking too long to start. If your application takes longer than (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000 seconds, iisnode returns a 500 error. Increase the values of these settings to match your application start time to prevent iisnode from timing out and returning the 500 error.
 
 ### My node application crashed
 
@@ -240,14 +243,14 @@ Your application is throwing uncaught exceptions – Check `d:\\home\\LogFiles\\
 The common cause for long application start times is a high number of files in the node\_modules. The application tries to load most of these files when starting. By default, since your files are stored on the network share on Azure App Service, loading many files can take time.
 Some solutions to make this process faster are:
 
-1. Try to lazy load your node\_modules and not load all of the modules at application start. To Lazy load modules, the call to require(‘module’) should be made when you actually need the module within the function before the first execution of module code.
-2. Azure App Service offers a feature called local cache. This feature copies your content from the network share to the local disk on the VM. Since the files are local, the load time of node\_modules is much faster.
+- Try to lazy load your node\_modules and not load all of the modules at application start. To Lazy load modules, the call to require(‘module’) should be made when you actually need the module within the function before the first execution of module code.
+- Azure App Service offers a feature called local cache. This feature copies your content from the network share to the local disk on the VM. Since the files are local, the load time of node\_modules is much faster.
 
 ## IISNODE http status and substatus
 
 The `cnodeconstants` [source file](https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h) lists all of the possible status/substatus combinations iisnode can return due to an error.
 
-Enable FREB for your application to see the win32 error code (be sure you enable FREB only on non-production sites for performance reasons).
+Enable FREB for your application to see the Win32 error code (be sure you enable FREB only on non-production sites for performance reasons).
 
 | HTTP Status | HTTP Substatus | Possible Reason? |
 | --- | --- | --- |
@@ -258,12 +261,12 @@ Enable FREB for your application to see the win32 error code (be sure you enable
 | 500 |1004-1018 |There was some error while sending the request or processing the response to/from node.exe. Check if node.exe crashed. check d:\\home\\LogFiles\\logging-errors.txt for stack trace. |
 | 503 |1000 |Not enough memory to allocate more named pipe connections. Check why your app is consuming so much memory. Check maxConcurrentRequestsPerProcess setting value. If it's not infinite and you have many requests, increase this value to prevent this error. |
 | 503 |1001 |Request could not be dispatched to node.exe because the application is recycling. After the application has recycled, requests should be served normally. |
-| 503 |1002 |Check win32 error code for actual reason – Request could not be dispatched to a node.exe. |
+| 503 |1002 |Check Win32 error code for actual reason – Request could not be dispatched to a node.exe. |
 | 503 |1003 |Named pipe is too Busy – Verify if node.exe is consuming excessive CPU |
 
 NODE.exe has a setting called `NODE_PENDING_PIPE_INSTANCES`. On Azure App Service, this value is set to 5000. Meaning that node.exe can accept 5000 requests at a time on the named pipe. This value should be good enough for most node applications running on Azure App Service. You should not see 503.1003 on Azure App Service because of the high value for the `NODE_PENDING_PIPE_INSTANCES`
 
-## More resources
+## Related content
 
 Follow these links to learn more about Node.js applications on Azure App Service.
 

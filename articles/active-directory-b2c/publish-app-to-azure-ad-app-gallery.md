@@ -19,6 +19,7 @@ ms.subservice: b2c
 ---
 
 # Publish your Azure Active Directory B2C app to the Microsoft Entra app gallery
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 The Microsoft Entra app gallery is a catalog of thousands of apps. The app gallery makes it easy to deploy and configure single sign-on (SSO) and automate user setup. You can find popular cloud apps in the gallery, such as Workday, ServiceNow, and Zoom.
 

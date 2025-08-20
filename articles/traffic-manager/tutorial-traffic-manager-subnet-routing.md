@@ -2,12 +2,13 @@
 title: 'Tutorial: Configure subnet traffic routing with Azure Traffic Manager'
 description: This tutorial explains how to configure Traffic Manager to route traffic from user subnets to specific endpoints.
 services: traffic-manager
-author: greg-lindsay
+author: asudbring
 ms.service: azure-traffic-manager
 ms.topic: tutorial
 ms.date: 08/08/2024
-ms.author: greglin
+ms.author: allensu
 ms.custom: template-tutorial
+# Customer intent: "As a network administrator, I want to configure traffic routing based on user subnets, so that I can direct users to specific endpoints according to their IP addresses for improved service management and optimization."
 ---
 
 # Tutorial: Direct traffic to specific endpoints based on user subnet using Traffic Manager

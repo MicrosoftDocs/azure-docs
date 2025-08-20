@@ -1,14 +1,15 @@
 ---
-title: Cannot delete a virtual network in Azure
-description: Learn how to troubleshoot the issue in which you cannot delete a virtual network in Azure.
+title: Can't delete a virtual network in Azure
+description: Learn how to troubleshoot the issue in which you can't delete a virtual network in Azure.
 services: virtual-network
 author: asudbring
 manager: dcscontentpm
 ms.service: azure-virtual-network
 ms.topic: troubleshooting
-ms.date: 10/31/2018
+ms.date: 04/17/2025
 ms.author: allensu
 ms.custom: fasttrack-edit
+# Customer intent: As a cloud administrator, I want to troubleshoot the deletion of a virtual network, so that I can resolve any issues preventing its removal and maintain the efficiency of my cloud resources.
 ---
 
 # Troubleshooting: Failed to delete a virtual network in Azure
@@ -26,7 +27,7 @@ You might receive errors when you try to delete a virtual network in Microsoft A
 5. [Check whether the virtual network is connected to other resource](#check-whether-the-virtual-network-is-connected-to-other-resource).
 6. [Check whether a virtual machine is still running in the virtual network](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network).
 7. [Check whether the virtual network is stuck in migration](#check-whether-the-virtual-network-is-stuck-in-migration).
-8. [Check whether the virtual network was used by a web app for VNet integration](#check-whether-the-virtual-network-was-used-by-a-web-app-for-vnet-integration).
+8. [Check whether the virtual network was used by a web app for virtual network integration](#check-whether-the-virtual-network-was-used-by-a-web-app-for-virtual-network-integration).
 
 ## Troubleshooting steps
 
@@ -34,7 +35,7 @@ You might receive errors when you try to delete a virtual network in Microsoft A
 
 To remove the virtual network, you must first remove the virtual network gateway.
 
-For classic virtual networks, go to the **Overview** page of the classic virtual network in the Azure portal. In the **VPN connections** section, if the gateway is running in the virtual network, you will see the IP address of the gateway. 
+For classic virtual networks, go to the **Overview** page of the classic virtual network in the Azure portal. In the **VPN connections** section, if the gateway is running in the virtual network, the IP address of the gateway is shown. 
 
 ![Check whether gateway is running](media/virtual-network-troubleshoot-cannot-delete-vnet/classic-gateway.png)
 
@@ -50,7 +51,7 @@ Go to the **Overview** page of the virtual network. Check the **Connected device
 
 ![Screenshot of the list of Connected devices for a virtual network in Azure portal. The Application gateway is highlighted in the list.](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
 
-If there is an application gateway, you must remove it before you can delete the virtual network.
+If there's an application gateway, you must remove it before you can delete the virtual network.
 
 ### Check whether Azure container instances still exist in the virtual network
 
@@ -69,7 +70,7 @@ If these steps don't resolve the issue, use these [Azure CLI commands](/azure/co
 
 ### Check whether Microsoft Entra Domain Service is enabled in the virtual network
 
-If the Active Directory Domain Service is enabled and connected to the virtual network, you cannot delete this virtual network. 
+If the Active Directory Domain Service is enabled and connected to the virtual network, you can't delete this virtual network. 
 
 To disable the service, see [Disable Microsoft Entra Domain Services using the Azure portal](../active-directory-domain-services/delete-aadds.md).
 
@@ -91,15 +92,15 @@ Make sure that no virtual machine is in the virtual network.
 
 ### Check whether the virtual network is stuck in migration
 
-If the virtual network is stuck in a migration state, it cannot be deleted. Run the following command to abort the migration, and then delete the virtual network.
+If the virtual network is stuck in a migration state, it can't be deleted. Run the following command to abort the migration, and then delete the virtual network.
 
 ```azurepowershell
 Move-AzureVirtualNetwork -VirtualNetworkName "Name" -Abort
 ```
 
-### Check whether the virtual network was used by a web app for VNet integration
+### Check whether the virtual network was used by a web app for virtual network integration
 
-If the virtual network was integrated with a web app in the past, then the web app was deleted without disconnecting the VNet integration, see [Deleting the App Service plan or web app before disconnecting the VNet integration](../azure-functions/functions-networking-options.md#troubleshooting).
+If the virtual network was integrated with a web app in the past, then the web app was deleted without disconnecting the virtual network integration, see [Deleting the App Service plan or web app before disconnecting the virtual network integration](../azure-functions/functions-networking-options.md#troubleshooting).
 
 ## Next steps
 

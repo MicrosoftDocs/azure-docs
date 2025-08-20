@@ -2,17 +2,20 @@
 title: Troubleshoot SAP HANA databases instance backup errors
 description: This article describes how to troubleshoot common errors that might occur when you use Azure Backup to back up SAP HANA database instances.
 ms.topic: troubleshooting
-ms.date: 09/30/2024
+ms.date: 08/19/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a database administrator, I want to troubleshoot backup errors for SAP HANA instances, so that I can ensure successful backups and optimal performance of my database workloads."
 ---
 
 # Troubleshoot SAP HANA snapshot backup jobs on Azure Backup
 
 This article provides troubleshooting information to back up SAP HANA databases instances on Azure Virtual Machines. For more information on the SAP HANA backup scenarios we currently support, see [Scenario support](sap-hana-backup-support-matrix.md#scenario-support).
 
-## Common user errors
+## Common backup errors for SAP HANA database instances
+
+This section describes common errors that you might encounter when you back up SAP HANA database instances using Azure Backup. It also provides recommended actions to resolve these errors.
 
 ### Error code: UserErrorVMIdentityNotEnabled
 
@@ -138,26 +141,6 @@ Azure VM and retry the operation. For more information, see the [Azure workload 
 
 **Recommended action**: Select another snapshot recovery point. For more information, see the [SAP HANA database backup troubleshooting article](https://aka.ms/HANASnapshotTSGuide).
 
-### UserErrorRestoreDiskIncompatible
-
-**Error message**: The restored disk type is not supported by the target vm.
-
-**Recommended action**: Upgrade the VM or use a compatible target vm for restore. For more information, see the [SAP HANA database backup troubleshooting article](https://aka.ms/HANASnapshotTSGuide).
-
-### UserErrorSnasphotRestoreContextMissingForDBRecovery 
- 
-**Error message**: Snapshot based point in time restore operation could not be started because one of the previous restore steps is not complete
-
-**Cause**: Snapshot attach and mount or SystemDB recovery isn't done on the target VM.
-
-**Recommended action**:  Retry the operation after completing a snapshot attach and mount operation on the target machine. 
-
-### UserErrorInvalidScenarioForSnapshotPointInTimeRecovery 
-
-**Cause**:  The snapshot point-in-time restore operation failed as the underlying database on the target machine is protected with Azure Backup.
-
-**Recommended action**: Retry the restore operation after you stop protection of the databases on the target machine and ensure that the *Backint path is empty*. [Learn more about Backint path](https://aka.ms/HANABackupConfigurations).
-
 ### OperationCancelledBecauseSameOperationQueuedUserError
 
 **Error code**: `OperationCancelledBecauseSameOperationQueuedUserError`
@@ -176,12 +159,36 @@ Azure VM and retry the operation. For more information, see the [Azure workload 
 
 **Recommended action**: Ensure that you're using the supported File System
 
+## Common restore errors for SAP HANA database instances
+
+This section describes common errors that you might encounter when you restore SAP HANA database instances using Azure Backup. It also provides recommended actions to resolve these errors.
+
+### UserErrorRestoreDiskIncompatible
+
+**Error message**: The restored disk type is not supported by the target vm.
+
+**Recommended action**: Upgrade the VM or use a compatible target vm for restore. For more information, see the [SAP HANA database backup troubleshooting article](https://aka.ms/HANASnapshotTSGuide).
+
+### UserErrorSnasphotRestoreContextMissingForDBRecovery 
+ 
+**Error message**: Snapshot based point in time restore operation could not be started because one of the previous restore steps is not complete
+
+**Cause**: Snapshots attach and mount or SystemDB recovery isn't done on the target VM.
+
+**Recommended action**:  Retry the operation after completing a snapshot attach and mount operation on the target machine. 
+
+### UserErrorInvalidScenarioForSnapshotPointInTimeRecovery 
+
+**Cause**:  The snapshot point-in-time restore operation failed as the underlying database on the target machine is protected with Azure Backup.
+
+**Recommended action**: Retry the restore operation after you stop protection of the databases on the target machine and ensure that the *Backint path is empty*. [Learn more about Backint path](https://aka.ms/HANABackupConfigurations).
+
 ## Appendix
 
 **Perform restoration actions in SAP HANA studio**
 
 1. Recover System database from data snapshot using HANA Studio. See this [SAP documentation](https://help.sap.com/docs/SAP_HANA_COCKPIT/afa922439b204e9caf22c78b6b69e4f2/9fd053d58cb94ac69655b4ebc41d7b05.html).
-1. Run the pre-registration script to reset the user credentials.
+1. Run the preregistration script to reset the user credentials.
 1. Once done, recover all tenant databases from a data snapshot using HANA Studio. See this [HANA documentation](https://help.sap.com/docs/SAP_HANA_COCKPIT/afa922439b204e9caf22c78b6b69e4f2/b2c283094b9041e7bdc0830c06b77bf8.html).
 
 ## Next steps

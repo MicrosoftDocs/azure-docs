@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Join a Teams meeting
+title: Join a Teams meeting
 author: eboltonmaggs
 ms.author: eboltonmaggs
 ms.date: 05/03/2024
@@ -7,11 +7,11 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-In this quickstart, you'll learn how to chat in a Teams meeting using the Azure Communication Services Chat SDK for iOS.
+This article describes how to chat in a Teams meeting using the Azure Communication Services Chat SDK for iOS.
 
 ## Sample Code
 
-If you'd like to skip ahead to the end, you can download this quickstart as a sample on [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/join-chat-to-teams-meeting).
+Download this code at GitHub Azure Samples [Join your chat app to a Teams meeting](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/join-chat-to-teams-meeting).
 
 ## Prerequisites 
 
@@ -25,7 +25,6 @@ az communication user-identity token issue --scope voip chat --connection-string
 ```
 For details, see [Use Azure CLI to Create and Manage Access Tokens](../../identity/access-tokens.md?pivots=platform-azcli).
 
-
 ## Setting up
 
 ### Creating the Xcode project
@@ -33,7 +32,6 @@ For details, see [Use Azure CLI to Create and Manage Access Tokens](../../identi
 In Xcode, create a new iOS project and select the Single View App template. This tutorial uses the [SwiftUI framework](https://developer.apple.com/xcode/swiftui/), so you should set the Language to Swift and the User Interface to SwiftUI. You're not going to create tests during this quick start. Feel free to uncheck Include Tests.
 
 :::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Screenshot showing the New Project window within Xcode.":::
-
 
 ### Installing CocoaPods
 
@@ -62,23 +60,25 @@ end
 
 ### Request access to the microphone
 
-In order to access the device's microphone, you need to update your app's Information Property List with an `NSMicrophoneUsageDescription`. You set the associated value to a `string` that was included in the dialog the system uses to request access from the user.
+To access the device microphone, you need to update your app's Information Property List with an `NSMicrophoneUsageDescription`. You set the associated value to a `string` that was included in the dialog the system uses to request access from the user.
 
-Under the target, select the `Info` tab and add a string for ‘Privacy -  Microphone Usage Description’
+Under the target, select the `Info` tab and add a string for `Privacy -  Microphone Usage Description`.
 
 :::image type="content" source="../media/ios/xcode-add-microphone-permission.png" alt-text="Screenshot showing adding microphone usage within Xcode.":::
 
 ### Disable User Script Sandboxing
 
-Some of the scripts within the linked libraries write files during the build process. To allow this, disable the User Script Sandboxing in Xcode.
+Some of the scripts within the linked libraries write files during the build process. To enable file writing, disable the User Script Sandboxing in Xcode.
+
 Under the build settings, search for `sandbox` and set `User Script Sandboxing` to `No`.
 
 :::image type="content" source="../media/ios/disable-user-script-sandbox.png" alt-text="Screenshot showing disabling user script sandboxing within Xcode.":::
 
 ## Joining the meeting chat 
 
-A Communication Services user can join a Teams meeting as an anonymous user using the Calling SDK. Once a user has joined the Teams meeting, they can send and receive messages with other meeting attendees. The user won't have access to chat messages sent prior to joining, nor will they be able to send or receive messages when they aren't in the meeting. 
-To join the meeting and start chatting, you can follow the next steps.
+A Communication Services user can join a Teams meeting as an anonymous user using the Calling SDK. Once a user joins the Teams meeting, they can send and receive messages with other meeting attendees. The user doesn't have access to chat messages sent before joining, nor can they send or receive messages when they aren't in the meeting.
+
+To join the meeting and start chatting, follow the next steps.
 
 ## Set up the app framework
 
@@ -92,7 +92,6 @@ import AzureCommunicationCalling
 import AzureCommunicationChat
 ```
 
-
 In `ContentView.swift` add the following snippet, just above the `struct ContentView: View` declaration:
 
 ```swift 
@@ -102,8 +101,9 @@ let displayName: String = "Quickstart User"
 ```
 
 Replace `<ADD_YOUR_ENDPOINT_URL_HERE>` with the endpoint for your Communication Services resource.
-Replace `<ADD_YOUR_USER_TOKEN_HERE>` with the token generated above, via the Azure client command line.
-Read more about user access tokens: [User Access Token](../../identity/access-tokens.md)
+Replace `<ADD_YOUR_USER_TOKEN_HERE>` with the previously generated token, via the Azure client command line.
+
+For more information, see [User Access Token](../../identity/access-tokens.md)
 
 Replace `Quickstart User` with the display name you'd like to use in the Chat.
 
@@ -128,7 +128,7 @@ To hold the state, add the following variables to the `ContentView` struct:
 
 ```
 
-Now let's add the main body var to hold the UI elements. We attach business logic to these controls in this quickstart. Add the following code to the `ContentView` struct:
+Now add the main body var to hold the UI elements. We attach business logic to these controls. Add the following code to the `ContentView` struct:
 
 ```swift
 var body: some View {
@@ -290,10 +290,9 @@ Add the following function to the `ContentView` struct to handle joining the mee
 
 ```
 
-
 ### Initialize the ChatThreadClient
 
-We will initialize the `ChatThreadClient` after the user has joined the meeting. This requires us to check the meeting status from the delegate and then initialize the `ChatThreadClient` with the `threadId` when joined to the meeting.
+We initialize the `ChatThreadClient` after the user joins the meeting. Then we need to check the meeting status from the delegate and then initialize `ChatThreadClient` with the `threadId` when joined to the meeting.
 
 Create the `connectChat()` function with the following code:
 
@@ -310,9 +309,7 @@ Create the `connectChat()` function with the following code:
   }
 ```
 
-Add the following helper function to the `ContentView`, used to parse the Chat thread ID from the Team's meeting link, if possible. In the case that this extraction fails, the user will need to manually enter the Chat thread ID using Graph APIs to retrieve the thread ID.
-
-
+Add the following helper function to the `ContentView`, used to parse the Chat thread ID from the Team's meeting link, if possible. In the case that this extraction fails, the user needs to manually enter the Chat thread ID using Graph APIs to retrieve the thread ID.
 
 ```swift
  func getThreadId(from teamsMeetingLink: String) -> String? {
@@ -380,7 +377,7 @@ struct MeetingMessage: Identifiable {
 }
 ```
 
-Next add the `receiveMessage()` function to `ContentView`. This called when a messaging event occurs. Note that you need to register for all events that you want to handle in the `switch` statement via the `chatClient?.register()` method.
+Next add the `receiveMessage()` function to `ContentView`. When a messaging event occurs, it calls this function. You need to register for all events that you want to handle in the `switch` statement via the `chatClient?.register()` method.
 
 ```swift
   func receiveMessage(event: TrouterEvent) -> Void {
@@ -408,7 +405,7 @@ Next add the `receiveMessage()` function to `ContentView`. This called when a me
   }
 ```
 
-Finally, we need to implement the delegate handler for the call client. This handler is used to check the call status and initialize the chat client when the user joins the meeting.
+Finally, we need to implement the delegate handler for the call client. Use this handler to check the call status and initialize the chat client when the user joins the meeting.
 
 ```swift
 class CallObserver : NSObject, CallDelegate {
@@ -452,7 +449,7 @@ class CallObserver : NSObject, CallDelegate {
 
 ### Leave the chat
 
-When the user leaves the Team's meeting, we clear the Chat messages from the UI and hang up the call. The full code is shown below.
+When the user leaves the Teams meeting, we clear the Chat messages from the UI and hang up the call. See the following full code example.
 
 ```swift
   func leaveMeeting() {
@@ -486,10 +483,9 @@ Run the application.
 
 To join the Teams meeting, enter your Team's meeting link in the UI.
 
-After you join the Team's meeting, you need to admit the user to the meeting in your Team's client. Once the user is admitted and has joined the chat, you're able to send and receive messages.
+After you join the Team's meeting, you need to admit the user to the meeting in your Team's client. Once the user is admitted and joins the chat, they can send and receive messages.
 
 :::image type="content" source="../join-teams-meeting-chat-quickstart-ios.png" alt-text="Screenshot of the completed iOS Application.":::
 
 > [!NOTE] 
-> Certain features are currently not supported for interoperability scenarios with Teams. Learn more about the supported features, please see [Teams meeting capabilities for Teams external users](../../../concepts/interop/guest/capabilities.md)
-
+> Certain features are currently not supported for interoperability scenarios with Teams. For more information about supported features, see [Teams meeting capabilities for Teams external users](../../../concepts/interop/guest/capabilities.md).

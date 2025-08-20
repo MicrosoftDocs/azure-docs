@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 4/12/2024
 ms.custom: engagement-fy23
+# Customer intent: As a cloud architect, I want to configure Azure NetApp Files for Azure VMware Solution VMs, so that I can migrate and sync critical data across on-premises servers and cloud environments efficiently.
 ---
 
 # Attach Azure NetApp Files to Azure VMware Solution VMs

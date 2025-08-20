@@ -11,9 +11,9 @@ metadata:
     - ignite-2023
     - ignite-2024
   ms.topic: landing-page
-  author: jyothisuri
-  ms.author: jsuri
-  ms.date: 03/03/2025
+  author: AbhishekMallick-MS
+  ms.author: v-mallicka
+  ms.date: 03/25/2025
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -58,9 +58,27 @@ landingContent:
             url: tutorial-monitor-protection-summary.md
 
   # Card (optional)
-  - title: Azure Business Continuity Center Copilot (preview)
+  - title: Azure Business Continuity Center Copilot
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Manage BCDR estate (preview)
+          - text: Manage BCDR estate
             url: tutorial-manage-data-using-copilot.md
+
+  # Card (optional)
+  - title: Supported workloads
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Back up SAP ASE database
+            url: ../backup/sap-ase-database-about.md
+          - text: Protect Azure Elastic SAN via Azure Backup (preview)
+            url: ../backup/azure-elastic-storage-area-network-backup-overview.md?toc=/azure/business-continuity-center/toc.json&bc=/azure/business-continuity-center/breadcrumb/toc.json    
+  
+  # Card (optional)
+  - title: Architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Well-Architecture design recommendation for monitoring/ alerting
+            url: /azure/well-architected/reliability/monitoring-alerting-strategy#azure-facilitation

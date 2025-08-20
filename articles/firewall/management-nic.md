@@ -7,6 +7,7 @@ ms.date: 11/6/2024
 ms.service: azure-firewall
 ms.topic: concept-article
 ms.author: duau
+# Customer intent: "As a network administrator, I want to configure a Management NIC for Azure Firewall, so that I can ensure proper management traffic handling and prepare for upcoming Firewall features without service disruption."
 ---
 
 # Azure Firewall Management NIC

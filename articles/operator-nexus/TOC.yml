@@ -11,11 +11,15 @@
       href: concepts-resource-types.md
     - name: Compute overview
       href: concepts-compute.md
+    - name: Telco Input Template
+      href: concepts-telco-input-template.md
     - name: Storage
       expanded: false
       items:
         - name: Storage overview
           href: concepts-storage.md
+        - name: Multiple storage appliances
+          href: concepts-storage-multiple-appliances.md
         - name: Storage for Nexus Kubernetes
           href: concepts-storage-kubernetes.md
     - name: Cluster deployment and upgrades
@@ -34,6 +38,8 @@
           href: concepts-network-fabric.md
         - name: Network Fabric Controller
           href: concepts-network-fabric-controller.md
+        - name: Network Fabric management upgrade
+          href: concepts-fabric-management-upgrade.md
         - name: Network Fabric Services
           href: concepts-network-fabric-services.md
         - name: Network Fabric resource update and commit
@@ -46,7 +52,11 @@
           href: concepts-disable-border-gateway-protocol-neighbors.md
         - name: Network Packet Broker
           href: concepts-nexus-network-packet-broker.md
+        - name: Commit Workflow v2
+          href: concepts-commit-workflow-v2.md
         - name: Route Policy
+        - name: Azure Firewall outbound rules for Azure Operator Nexus
+          href: concepts-azure-firewall-outbound-rules-nexus.md
           expanded: false
           items:
             - name: Route Policy Overview
@@ -96,6 +106,11 @@
       href: concepts-security-access-identity.md
     - name: Availability
       href: concepts-nexus-availability.md
+    - name: Credential
+      expanded: false
+      items:
+        - name: Baseboard Management Controller Credential Rotation Overview
+          href: concepts-baseboard-management-controller-credential-rotation.md
 - name: Quickstarts
   items:
     - name: Before you start workload deployment
@@ -161,8 +176,12 @@
               href: howto-cluster-runtime-upgrade.md
             - name: Cluster Upgrades With PauseAfterRack Strategy
               href: howto-cluster-runtime-upgrade-with-pauseafterrack-strategy.md
+            - name: Cluster Upgrades Template
+              href: howto-cluster-runtime-upgrade-template.md
             - name: Network Fabric Upgrades
               href: howto-upgrade-nexus-fabric.md
+            - name: Network Fabric Upgrades Template
+              href: howto-upgrade-nexus-fabric-template.md
             - name: Credential Rotation
               href: howto-credential-rotation.md
             - name: Credential Manager Key Vault
@@ -202,8 +221,6 @@
           href: howto-delete-layer-3-isolation-domains.md
         - name: Cross-subscription deployments and required RBAC for Network Fabric
           href: concepts-cross-subscription-deployments-required-rbac-for-network-fabric.md
-        - name: How to replace network devices in Azure Operator Nexus Network Fabric
-          href: howto-replace-network-devices.md
         - name: How to put a device into maintenance mode
           href: howto-put-device-in-maintenance-mode.md
         - name: How to set up break glass access
@@ -224,15 +241,29 @@
           href: howto-append-custom-suffix-to-interface-descriptions.md
         - name: How to reboot Network Device in Azure Operator Nexus Network Fabric
           href: howto-reboot-network-device.md
+        - name: How to replace network devices in Azure Operator Nexus Network Fabric
+          href: howto-replace-network-devices.md
         - name: How to Configure NNF with Bring Your Own (BYO) Storage
           href: howto-configure-bring-your-own-storage-network-fabric.md
         - name: How to upgrade OS of terminal server
           href: howto-upgrade-os-of-terminal-server.md
         - name: How to restrict serial port access and set timeout on terminal-server
           href: howto-restrict-serial-port-access-and-set-timeout-on-terminal-server.md
+        - name: How to configure BGP prefix limit on Customer Edge (CE) devices for Azure Operator Nexus
+          href: howto-configure-bgp-prefix-limit-on-customer-edge-devices.md
+        - name: BMP log streaming in Azure Operator Nexus Network Fabric
+          href: concepts-bmp-log-streaming.md
+        - name: How to enable / disable BMP log streaming Azure Operator Nexus
+          href: howto-enable-log-streaming.md
+        - name: How to use Commit Workflow v2 in Azure Operator Nexus
+          href: howto-use-commit-workflow-v2.md
+        - name: How to set administrative lock or unlock for Network fabric
+          href: howto-set-administrative-lock-or-unlock-for-network-fabric.md
     - name: Cluster
       expanded: false
       items:
+        - name: Best Practices for Bare Metal Machine Operations
+          href: howto-bare-metal-best-practices.md
         - name: BareMetal Actions
           expanded: false
           items:
@@ -240,7 +271,7 @@
               href: howto-baremetal-bmm-ssh.md
             - name: BareMetal BMC Access Setup
               href: howto-baremetal-bmc-ssh.md
-            - name: BareMetal Functions
+            - name: Bare Metal Machine Platform Commands
               href: howto-baremetal-functions.md
             - name: BareMetal Run-Read Execution
               href: howto-baremetal-run-read.md
@@ -281,7 +312,6 @@
           href: howto-kubernetes-cluster-install-microsoft-defender.md
         - name: Kubernetes cluster features
           href: howto-kubernetes-cluster-features.md
-
     - name: Nexus Virtual Machine
       expanded: false
       items:
@@ -317,12 +347,6 @@
           href: howto-configure-acls-for-ssh-management-on-access-vpn.md
         - name: Enable/Disable Vulnerability Scanning
           href: howto-enable-disable-vulnerability-scanning.md
-        - name: Service Principal Best Practices
-          href: howto-service-principal.md
-          expanded: false
-          items:
-            - name: Service Principal Rotation
-              href: howto-service-principal-rotation.md
     - name: Install CLI Extension
       href: howto-install-cli-extensions.md
     - name: General
@@ -332,10 +356,36 @@
           href: howto-check-runtime-version.md
         - name: Site decommission checklist
           href: howto-decommission-nexus-instance-checklist.md
+        - name: Nexus Instance Deployment Template
+          href: howto-nexus-instance-deployment-template.md
 
 - name: Troubleshooting
   expanded: true
   items:
+    - name: Bare Metal Machine
+      expanded: false
+      items:
+        - name: Troubleshoot Bare Metal Server Problems
+          href: troubleshoot-reboot-reimage-replace.md
+        - name: Troubleshoot Bare Metal Machine Provisioning
+          href: troubleshoot-bare-metal-machine-provisioning.md
+        - name: Troubleshoot Hardware Validation Failure
+          href: troubleshoot-hardware-validation-failure.md
+        - name: Troubleshoot Degraded status
+          href: troubleshoot-bare-metal-machine-degraded.md
+        - name: Troubleshoot Warning status
+          href: troubleshoot-bare-metal-machine-warning.md
+        - name: Troubleshoot Out of Memory Pods
+          href: troubleshoot-memory-limits.md
+    - name: Cluster
+      expanded: false
+      items:
+        - name: Troubleshoot Accepted Cluster Resource
+          href: troubleshoot-accepted-cluster-hydration.md
+        - name: Troubleshoot Control Plane Quorum
+          href: troubleshoot-control-plane-quorum.md
+        - name: Troubleshoot Cluster heartbeat connection status disconnected
+          href: troubleshoot-cluster-heartbeat-connection-status-disconnected.md
     - name: Network Fabric
       expanded: false
       items:
@@ -347,25 +397,26 @@
           href: troubleshoot-dns-issues.md
         - name: Troubleshoot TWAMP (UDP) not working
           href: troubleshoot-twamp-udp-not-working.md
-    - name: Cluster or BMM
+    - name: Resource Health
       expanded: false
       items:
-        - name: Troubleshoot Bare Metal Machine
-          href: troubleshoot-reboot-reimage-replace.md
-        - name: Troubleshoot Bare Metal Machine Provisioning
-          href: troubleshoot-bare-metal-machine-provisioning.md
-        - name: Troubleshoot Hardware Validation Failure
-          href: troubleshoot-hardware-validation-failure.md
-        - name: Troubleshoot Degraded status
-          href: troubleshoot-bare-metal-machine-degraded.md
-        - name: Troubleshoot Warning status
-          href: troubleshoot-bare-metal-machine-warning.md
-        - name: Troubleshoot Control Plane Quorum
-          href: troubleshoot-control-plane-quorum.md
-        - name: Troubleshoot Accepted Cluster Resource
-          href: troubleshoot-accepted-cluster-hydration.md
-        - name: Troubleshoot Out of Memory Pods
-          href: troubleshoot-memory-limits.md
+        - name: Troubleshoot Resource Health alerts
+          href: troubleshoot-resource-health-alerts.md
+        - name: Troubleshoot failed volume attachments
+          href: troubleshoot-failed-volume-attachments.md
+        - name: Troubleshoot storage control plane connectivity issues
+          href: troubleshoot-storage-control-plane-disconnected.md
+        - name: Troubleshoot unhealthy Container Storage Interface (CSI) pods
+          href: troubleshoot-unhealthy-container-storage-interface.md
+        - name: Troubleshoot Unhealthy Network File System pods
+          href: troubleshoot-network-file-system-unhealthy.md
+        - name: Troubleshoot Unhealthy or Degraded Storage Appliance
+          href: troubleshoot-unhealthy-degraded-storage-appliance.md
+    - name: Storage Appliance
+      expanded: false
+      items:
+        - name: Troubleshoot Multiple Storage appliances
+          href: troubleshoot-multiple-storage-appliances.md
     - name: Tenant Workload
       expanded: false
       items:
@@ -397,6 +448,8 @@
           items:
             - name: Due To Bare Metal Machine Power Failure
               href: troubleshoot-kubernetes-cluster-stuck-workloads-due-to-power-failure.md
+        - name: Troubleshoot a Kubernetes Cluster Node in NotReady,Scheduling Disabled after Runtime Upgrade
+          href: troubleshoot-kubernetes-cluster-node-cordoned.md
 - name: FAQ
   href: azure-operator-nexus-faq.md
 - name: Reference
@@ -451,6 +504,8 @@
           href: reference-acl-examples.md
     - name: Operator Nexus SKUs
       href: reference-operator-nexus-skus.md
+    - name: Password By Key Vault Reference
+      href: reference-key-vault-credential.md
 - name: Release Notes
   items:
     - name: 2024

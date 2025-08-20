@@ -4,8 +4,9 @@ description: Get answers to frequently asked questions about VPN Gateway connect
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 02/18/2025
+ms.date: 05/09/2025
 ms.author: cherylmc
+# Customer intent: As a network administrator, I want to understand the configuration options and limitations of Azure VPN Gateway, so that I can effectively manage cross-premises connections and optimize my organization’s hybrid network architecture.
 ---
 
 # VPN Gateway FAQ
@@ -70,11 +71,13 @@ To help ensure proper functionality and healthy state for your VPN gateway, cons
 * Revert to the Azure DNS default by removing the custom DNS within the VNet settings (recommended configuration).
 * Add in your custom DNS configuration a DNS forwarder that points to Azure DNS (168.63.129.16). Depending on the specific rules and nature of your custom DNS, this setup might not resolve the issue as expected.
 
+When configuring the Azure DNS Private Resolver's forwarding rule in the VNet where the VPN Gateway is deployed, if you include a wildcard in the DNS forwarding ruleset, ensure that the forwarding destination IP points to the built-in Azure DNS service (168.63.129.16) to resolve public URLs.
+
 ### Can two VPN clients connected in point-to-site to the same VPN gateway communicate?
 
-No. VPN clients connected in point-to-site to the same VPN gateway can't communicate with each other.
+Yes. VPN clients connected in point-to-site to the same VPN gateway can communicate with each other.
 
-When two VPN clients are connected to the same point-to-site VPN gateway, the gateway can automatically route traffic between them by determining the IP address that each client is assigned from the address pool. However, if the VPN clients are connected to different VPN gateways, routing between the VPN clients isn't possible because each VPN gateway is unaware of the IP address that the other gateway assigned to the client.
+When two VPN clients are connected to the same point-to-site VPN gateway, the gateway can automatically route traffic between them by determining the IP address that each client is assigned from the address pool.
 
 ### Could a potential vulnerability known as "tunnel vision" affect point-to-site VPN connections?
 
@@ -144,7 +147,7 @@ Azure Standard SKU public IP resources must use a static allocation method. You 
 
 Standard SKU public IP address resources use a static allocation method. Going forward, you must use a Standard SKU public IP address when you create a new VPN gateway. This requirement applies to all gateway SKUs except the Basic SKU. The Basic SKU currently supports only Basic SKU public IP addresses. We're working on adding support for Standard SKU public IP addresses for the Basic SKU.
 
-For non-zone-redundant and non-zonal gateways that were previously created (gateway SKUs that don't have *AZ* in the name), dynamic IP address assignment is supported but is being phased out. When you use a dynamic IP address, the IP address doesn't change after it's assigned to your VPN gateway. The only time that the VPN gateway IP address changes is when the gateway is deleted and then re-created. The public IP address doesn't change when you resize, reset, or complete other internal maintenance and upgrades of your VPN gateway.
+For non-zone-redundant and non-zonal gateways that were previously created (gateway SKUs that don't have *AZ* in the name), dynamic IP address assignment is supported but is being phased out. When you use a dynamic IP address, the IP address doesn't change after it's assigned to your VPN gateway. The only time that the VPN gateway IP address changes is when the gateway is deleted and then re-created. The public IP address doesn't change when you upgrade (resize), reset, or complete other internal maintenance and upgrades of your VPN gateway.
 
 ### How does the retirement of Basic SKU public IP addresses affect my VPN gateways?
 
@@ -163,6 +166,10 @@ Yes. You can use the Set Pre-Shared Key REST API and PowerShell cmdlet to config
 ### Can I use other authentication options?
 
 You're limited to using preshared keys for authentication.
+
+### Does Azure VPN Gateway support IPv6?
+
+Yes. For additional information see [Configure IPv6 for VPN Gateway](ipv6-configuration.md).
 
 ### How do I specify which traffic goes through the VPN gateway?
 
@@ -333,7 +340,7 @@ RADIUS authentication is supported for the OpenVPN protocol.
 
 ### How do I configure a cross tenant scenario?
 
- * If you're using REST API or ARM templates for connection resources referencing a gateway in a different tenant, follow this authentication procedure: [Header values for authentication](https://learn.microsoft.com/azure/azure-resource-manager/management/authenticate-multi-tenant#header-values-for-authentication).
+ * If you're using REST API or ARM templates for connection resources referencing a gateway in a different tenant, follow this authentication procedure: [Header values for authentication](../azure-resource-manager/management/authenticate-multi-tenant.md#header-values-for-authentication).
  * For [site-to-site](vpn-gateway-create-site-to-site-rm-powershell.md#tenants).
  * For [VNet-to-VNet](vpn-gateway-vnet-vnet-rm-ps.md#tenant).
 

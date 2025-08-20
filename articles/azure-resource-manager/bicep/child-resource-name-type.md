@@ -3,7 +3,7 @@ title: Child resources in Bicep
 description: Describes how to set the name and type for child resources in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 09/26/2024
+ms.date: 04/28/2025
 ---
 
 # Set name and type for child resources in Bicep
@@ -67,7 +67,7 @@ A nested resource declaration must appear at the top level of syntax of the pare
 When defined within the parent resource type, you format the type and name values as a single segment without slashes. The following example shows a storage account with a child resource for the file service, and the file service has a child resource for the file share. The file service's name is set to `default` and its type is set to `fileServices`. The file share's name is set `exampleshare` and its type is set to `shares`.
 
 ```bicep
-resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storage 'Microsoft.Storage/storageAccounts@2024-01-01' = {
   name: 'examplestorage'
   location: resourceGroup().location
   kind: 'StorageV2'
@@ -119,7 +119,7 @@ When defined outside of the parent resource, you format the type and with slashe
 The following example shows a storage account, file service, and file share that are all defined at the root level.
 
 ```bicep
-resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storage 'Microsoft.Storage/storageAccounts@2024-01-01' = {
   name: 'examplestorage'
   location: resourceGroup().location
   kind: 'StorageV2'
@@ -128,12 +128,12 @@ resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   }
 }
 
-resource service 'Microsoft.Storage/storageAccounts/fileServices@2023-04-01' = {
+resource service 'Microsoft.Storage/storageAccounts/fileServices@2024-01-01' = {
   name: 'default'
   parent: storage
 }
 
-resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-04-01' = {
+resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2024-01-01' = {
   name: 'exampleshare'
   parent: service
 }
@@ -146,7 +146,7 @@ Referencing the child resource symbolic name works the same as referencing the p
 You can also use the full resource name and type when declaring the child resource outside the parent. You don't set the parent property on the child resource. Because the dependency can't be inferred, you must set it explicitly.
 
 ```bicep
-resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storage 'Microsoft.Storage/storageAccounts@2024-01-01' = {
   name: 'examplestorage'
   location: resourceGroup().location
   kind: 'StorageV2'
@@ -155,14 +155,14 @@ resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   }
 }
 
-resource service 'Microsoft.Storage/storageAccounts/fileServices@2023-04-01' = {
+resource service 'Microsoft.Storage/storageAccounts/fileServices@2024-01-01' = {
   name: 'examplestorage/default'
   dependsOn: [
     storage
   ]
 }
 
-resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-04-01' = {
+resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2024-01-01' = {
   name: 'examplestorage/default/exampleshare'
   dependsOn: [
     service

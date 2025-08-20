@@ -1,12 +1,12 @@
 ---
 title: Understand Azure role definitions - Azure RBAC
 description: Learn about Azure role definitions in Azure role-based access control (Azure RBAC) for fine-grained access management of Azure resources.
-author: rolyon
-manager: femila
+author: jenniferf-skc
+manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: conceptual
-ms.date: 02/12/2024
-ms.author: rolyon
+ms.date: 03/30/2025
+ms.author: jfields
 ms.custom:
 ---
 # Understand Azure role definitions
@@ -261,7 +261,7 @@ Authorization for all control plane API calls is handled by Azure Resource Manag
 
 To better understand how control plane and data plane actions work, let's consider a specific example. Alice has been assigned the [Owner](built-in-roles.md#owner) role at the subscription scope. Bob has been assigned the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role at a storage account scope. The following diagram shows this example.
 
-![Role-based access control has been extended to support both control plane and data plane actions](./media/role-definitions/rbac-data-plane.png)
+:::image type="content" source="./media/role-definitions/rbac-data-plane.png" alt-text="Diagram of role-based access control that has been extended to support both control plane and data plane actions." lightbox="./media/role-definitions/rbac-data-plane.png":::
 
 The [Owner](built-in-roles.md#owner) role for Alice and the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role for  Bob have the following actions:
 

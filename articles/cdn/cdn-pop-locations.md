@@ -7,9 +7,10 @@ ms.author: halkazwini
 manager: kumud
 ms.service: azure-cdn
 ms.topic: concept-article
-ms.date: 03/20/2024
+ms.date: 03/31/2025
 ms.custom: references_regions
 ROBOTS: NOINDEX
+# Customer intent: "As a network architect, I want to review the Point of Presence locations for Content Delivery Network services by region, so that I can determine the best infrastructure to optimize content delivery for my application."
 ---
 
 # Azure Content Delivery Network Coverage by Metro

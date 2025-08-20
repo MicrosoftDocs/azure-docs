@@ -13,12 +13,11 @@ ms.author: rifox
 ---
 
 ## Prerequisites
-Before you get started, make sure to:
 
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install [Python](https://www.python.org/downloads/) 3.7+.
-- Create an Azure Communication Services resource. For details, see [Quickstart: Create and manage Communication Services resources](../../create-communication-resource.md). You'll need to **record your resource endpoint and connection string** for this quickstart.
-- A [User Access Token](../../identity/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the user_id string**. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+- Create an Azure Communication Services resource. For details, see [Quickstart: Create and manage Communication Services resources](../../create-communication-resource.md). You need to **record your resource endpoint and connection string** for this article.
+- A [User Access Token](../../identity/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the user_id string**. You can also use the Azure CLI and run the following command with your connection string to create a user and an access token.
 
   ```azurecli-interactive
   az communication identity token issue --scope chat --connection-string "yourConnectionString"
@@ -36,7 +35,7 @@ Open your terminal or command window, create a new directory for your app, and g
 mkdir chat-quickstart && cd chat-quickstart
 ```
 
-Use a text editor to create a file called *start-chat.py* in the project root directory. Add the structure for the program, including basic exception handling. In the following sections, you'll add all the source code for this quickstart to this file.
+Use a text editor to create a file called *start-chat.py* in the project root directory. Add the structure for the program, including basic exception handling. In the following sections, add all the source code for this article to this file.
 
 ```python
 import os
@@ -83,7 +82,7 @@ from azure.communication.chat import ChatClient, CommunicationTokenCredential
 endpoint = "<replace with your resource endpoint>"
 chat_client = ChatClient(endpoint, CommunicationTokenCredential("<Access Token>"))
 ```
-This quickstart doesn't cover creating a service tier to manage tokens for your chat application, but that's recommended. For more information, see the "Chat architecture" section of [Chat concepts](../../../concepts/chat/concepts.md).
+This article doesn't cover creating a service tier to manage tokens for your chat application, but it's recommended. For more information, see the "Chat architecture" section of [Chat concepts > Chat architecture](../../../concepts/chat/concepts.md#chat-architecture).
 
 ## Start a chat thread
 
@@ -136,12 +135,12 @@ for chat_thread_item_page in chat_threads.by_page():
 
 ## Send a message to a chat thread
 
-Use the `send_message` method to send a message to a chat thread you just created, identified by `thread_id`.
+Use the `send_message` method to send a message to a chat thread you created, identified by `thread_id`.
 
 - Use `content` to provide the chat message content.
 - Use `chat_message_type` to specify the message content type. Possible values are `text` and `html`. If you don't specify a value, the default is `text`.
 - Use `sender_display_name` to specify the display name of the sender.
-- Use `metadata` optionally to include any additional data you want to send along with the message. This field provides a mechanism for developers to extend chat message functionality and add custom information for your use case. For example, when sharing a file link in the message, you might want to add 'hasAttachment:true' in metadata so that recipient's application can parse that and display accordingly.
+- Use `metadata` optionally to include any other data you want to send along with the message. This field provides a mechanism for developers to extend chat message functionality and add custom information for your use case. For example, when sharing a file link in the message, you might want to add 'hasAttachment:true' in metadata so that recipient's application can parse that and display accordingly.
 
 `SendChatMessageResult` is the response returned from sending a message. It contains an ID, which is the unique ID of the message.
 
@@ -189,7 +188,7 @@ for chat_message_page in chat_messages.by_page():
 
 `list_messages` returns the latest version of the message, including any edits or deletes that happened to the message by using `update_message` and `delete_message`. For deleted messages, `ChatMessage.deleted_on` returns a `datetime` value indicating when that message was deleted. For edited messages, `ChatMessage.edited_on` returns a `datetime` value indicating when the message was edited. You can access the original time of message creation by using `ChatMessage.created_on`, which can be used for ordering the messages.
 
-`list_messages` returns different types of messages, which can be identified by `ChatMessage.type`. 
+`list_messages` returns different types of messages, which you identify from the `ChatMessage.type`. 
 
 For more information, see [Message types](../../../concepts/chat/concepts.md#message-types).
 
@@ -206,14 +205,13 @@ send_message_result = chat_thread_client.send_message(content)
 chat_thread_client.send_read_receipt(message_id=send_message_result.id)
 ```
 
-
 ## Add a user as a participant to the chat thread
 
-When you create a chat thread, you can then add and remove users from it. By adding users, you give them access to be able to send messages to the chat thread, and add or remove other participants. Before calling the `add_participants` method, ensure that you have acquired a new access token and identity for that user. The user needs that access token to initialize the chat client.
+When you create a chat thread, you can then add and remove users from it. By adding users, you give them access to be able to send messages to the chat thread, and add or remove other participants. Before calling the `add_participants` method, ensure that you acquired a new access token and identity for that user. The user needs that access token to initialize the chat client.
 
-You can add one or more users to the chat thread by using the `add_participants` method, provided that a new access token and identity is available for all users.
+You can add one or more users to the chat thread by using the `add_participants` method, if a new access token and identity is available for all users.
 
-A `list(tuple(ChatParticipant, CommunicationError))` is returned. When the participant is successfully added, an empty list is expected. If you encounter an error while adding a participant, the list is populated with the failed participants, along with the error that was encountered.
+A `list(tuple(ChatParticipant, CommunicationError))` is returned. When the participant is successfully added, an empty list is expected. If you encounter an error while adding a participant, the list is populated with the failed participants and the error that was encountered.
 
 ```python
 from azure.communication.identity import CommunicationIdentityClient
@@ -286,5 +284,6 @@ Run the application from your application directory with the `python` command.
 python start-chat.py
 ```
 
-## Sample Code
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/add-chat).
+## Sample code
+
+Find the finalized code for this article in the GitHub sample [Add Chat to your application](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/add-chat).

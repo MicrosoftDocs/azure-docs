@@ -1,12 +1,12 @@
 ---
 title: Filter and view subscriptions
 description: This article explains how to filter and view subscriptions in the Azure portal.
-author: PreetiSGit
-ms.reviewer: presharm
+author: preetione
+ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/03/2025
+ms.date: 08/13/2025
 ms.author: presharm
 ---
 

@@ -12,11 +12,11 @@ ms.service: azure-communication-services
 ms.custom: include files
 ---
 
-Get started with Azure CLI Python to automate the creation of Azure Communication Services (ACS), Email Communication Services (ECS), manage custom domains, configure DNS records, verify domains, and domain linking to communication resource.
+Get started with Azure CLI Python to automate the creation of Azure Communication Services, Email Communication Services, manage custom domains, configure DNS records, verify domains, and domain linking to communication resource.
 
-In this sample, we cover what the sample does and the prerequisites you need before running it locally on your machine.
+In this sample, we describe what the sample does and the prerequisites you need before running it locally on your machine.
 
-This documentation provides a detailed guide on using Azure CLI Python to automate the creation of Azure Communication Services (ACS) and Email Communication Services (ECS). It also covers the process of managing custom domains, configuring DNS records (such as Domain, SPF, DKIM, DKIM2), verifying domains and domain linking to communication resource.
+This article describes how to use Azure CLI Python to automate the creation of Azure Communication Services and Email Communication Services. It also describes the process of managing custom domains, configuring DNS records (such as Domain, SPF, DKIM, DKIM2), verifying domains and domain linking to communication resource.
 
 ## Prerequisites
 
@@ -27,19 +27,19 @@ This documentation provides a detailed guide on using Azure CLI Python to automa
 
 ## Prerequisite check
 
-- In a command prompt, run the `python --version` command to check whether Python is installed or not.
+- In a command prompt, run the `python --version` command to check whether Python is installed.
 
 ```console
 python --version
 ```
 
-- In a command prompt, run the `pip --version` command to check whether pip is installed or not.
+- In a command prompt, run the `pip --version` command to check whether pip is installed.
 
 ```console
 pip --version
 ```
 
-- In a command prompt, run the `az --version` command to check whether the Azure CLI is installed or not.
+- In a command prompt, run the `az --version` command to check whether the Azure CLI is installed.
 
 ```console
 az --version
@@ -56,10 +56,10 @@ az login
 Before proceeding, define the variables needed for setting up the ACS, ECS, and domains, along with DNS configuration for the domains. Modify these variables based on your environment:
 
 ```python
-# Define the name of the Azure resource group where resources will be created
+# Define the name of the Azure resource group where resources are created
 resourceGroup = "ContosoResourceProvider1"
 
-# Specify the region where the resources will be created. In this case, Europe.
+# Specify the region where the resources are created. In this case, Europe.
 dataLocation = "europe"
 
 # Define the name of the Azure Communication Service resource
@@ -68,7 +68,7 @@ commServiceName = "ContosoAcsResource1"
 # Define the name of the Email Communication Service resource
 emailServiceName = "ContosoEcsResource1"
 
-# Define the DNS zone name where the domains will be managed (replace with actual DNS zone)
+# Define the DNS zone name where the domains are managed (replace with actual DNS zone)
 dnsZoneName = "contoso.net"
 
 # Define the list of domains to be created and managed (replace with your own list of domains)
@@ -81,9 +81,9 @@ domains = [
 ]
 ```
 
-## Login to Azure Account
+## Sign in to Azure account
 
-To login to your Azure account through python code, follow the below code:
+To sign in to your Azure account through python code, use the following code:
 
 ```python
 def loginToAzure():
@@ -178,7 +178,7 @@ def addRecordSetToDns(domainName, subDomainPrefix):
         print(f"Domain details are: {domainDetails}")
 
         # Extract verification record values Domain, SPF and DKIM from the parsed JSON response
-        # These values will be used to create DNS records
+        # These values are used to create DNS records
         domainValue = domainDetails['verificationRecords']['Domain']['value']
         spfValue = domainDetails['verificationRecords']['SPF']['value']
         dkimName = domainDetails['verificationRecords']['DKIM']['name']
@@ -301,10 +301,10 @@ import json
 import time
 
 # Variables
-# Define the name of the Azure resource group where resources will be created
+# Define the name of the Azure resource group where resources are created
 resourceGroup = "ContosoResourceProvider1"
 
-# Specify the region where the resources will be created. In this case, Europe.
+# Specify the region where the resources are created. In this case, Europe.
 dataLocation = "europe"
 
 # Define the name of the Azure Communication Service resource
@@ -313,7 +313,7 @@ commServiceName = "ContosoAcsResource1"
 # Define the name of the Email Communication Service resource
 emailServiceName = "ContosoEcsResource1"
 
-# Define the DNS zone name where the domains will be managed (replace with actual DNS zone)
+# Define the DNS zone name where the domains are managed (replace with actual DNS zone)
 dnsZoneName = "contoso.net"
 
 # Define the list of domains to be created and managed (replace with your own list of domains)
@@ -329,10 +329,10 @@ domains = [
 def runCommand(command):
     try:
         # Execute the shell command using subprocess.run
-        # 'check=True' will raise an exception if the command exits with a non-zero status
+        # 'check=True' raises an exception if the command exits with a non-zero status
         # 'capture_output=True' captures the command's output and stores it in 'result.stdout'
         # 'text=True' ensures the output is returned as a string (rather than bytes)
-        # 'shell=True' allows us to execute the command as if it were in the shell (e.g., using shell features like pipes)
+        # 'shell=True' us execute the command as if it were in the shell (for example: using shell features like pipes)
         result = subprocess.run(command, check=True, capture_output=True, text=True, shell=True)
 
         # Return the standard output (stdout) of the command if successful
@@ -345,7 +345,7 @@ def runCommand(command):
         return None # Return None to indicate that the command failed
 
     except Exception as e:
-        # This will catch any other exceptions that may occur (e.g., issues unrelated to the subprocess itself)
+        # This catches any other exceptions that may occur (such as issues unrelated to the subprocess itself)
         print(f"Unexpected error while executing command '{command}': {e}") # Print any unexpected error messages
         return None # Return None to indicate that an error occurred
 
@@ -354,7 +354,8 @@ def errorHandler(errorMessage="Error occurred. Exiting."):
     print(errorMessage)
     exit(1)
 
-# Log in to Azure
+# Sign in to Azure
+
 def loginToAzure():
     try:
         # Print a message indicating that the Azure login process is starting
@@ -415,7 +416,7 @@ def addRecordSetToDns(domainName, subDomainPrefix):
         print(f"Domain details are: {domainDetails}")
 
         # Extract verification record values Domain, SPF and DKIM from the parsed JSON response
-        # These values will be used to create DNS records
+        # These values are used to create DNS records
         domainValue = domainDetails['verificationRecords']['Domain']['value']
         spfValue = domainDetails['verificationRecords']['SPF']['value']
         dkimName = domainDetails['verificationRecords']['DKIM']['name']
@@ -528,7 +529,7 @@ def main():
         # Step 4: Loop through each domain in the 'domains' list
         for domainName in domains:
 
-            # Extract the subdomain prefix from the fully qualified domain name (e.g., "sales" from "sales.contoso.net")
+            # Extract the subdomain prefix from the fully qualified domain name (for example: "sales" from "sales.contoso.net")
             subDomainPrefix = domainName.split('.')[0]
             try:
                 print(f"Creating domain: {domainName}")

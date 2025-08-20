@@ -4,7 +4,9 @@ titleSuffix: Azure Virtual WAN
 description: Learn how to configure Virtual WAN routing policies.
 author: wtnlee
 ms.service: azure-virtual-wan
-ms.custom: devx-track-bicep
+ms.custom:
+  - devx-track-bicep
+  - build-2025
 ms.topic: how-to
 ms.date: 03/26/2025
 ms.author: wellee
@@ -27,7 +29,7 @@ There are two types of Routing Policies: Internet Traffic and Private Traffic Ro
 
     In other words, when a Private Traffic Routing Policy is configured on the Virtual WAN Hub, all branch-to-branch, branch-to-virtual network, virtual network-to-branch, and inter-hub traffic is sent via Azure Firewall, Network Virtual Appliance, or SaaS solution deployed in the Virtual WAN Hub.
 
-## Use Cases
+## Use cases
 
 The following section describes two common scenarios where Routing Policies are applied to Secured Virtual WAN hubs.
 
@@ -84,7 +86,7 @@ Consider the following configuration where Hub 1 (Normal) and Hub 2 (Secured) ar
 | Hub 2 VNets     | &#8594;| Hub 2 AzFW, NVA, or SaaS|   Hub 2 AzFW, NVA, or SaaS    | Hub 2 AzFW, NVA, or SaaS| Hub 2 AzFW, NVA, or SaaS | Hub 2 AzFW, NVA, or SaaS|
 | Hub 2 Branches   | &#8594;|   Hub 2 AzFW, NVA, or SaaS  |    Hub 2 AzFW, NVA, or SaaS    | Hub 2 AzFW, NVA, or SaaS|  Hub 2 AzFW, NVA, or SaaS | Hub 2 AzFW, NVA, or SaaS|
 
-## <a name="knownlimitations"></a> Known Limitations
+## <a name="knownlimitations"></a>Known limitations
 
 * The following table describes the availability of routing intent in different Azure environments.
     * Routing intent isn't available in Microsoft Azure operated by 21 Vianet.
@@ -103,10 +105,10 @@ Consider the following configuration where Hub 1 (Normal) and Hub 2 (Secured) ar
   * Static routes in the defaultRouteTable that point to a Virtual Network connection can't be used in conjunction with routing intent. However, you can use the [BGP peering feature](scenario-bgp-peering-hub.md).
   * Static routes on the Virtual Network connection with "static route propagation" aren't applied to the next-hop resource specified in private routing policies. Support for applying static routes on Virtual Network connections to private routing policy next-hop is on the roadmap.
   * The ability to deploy both an SD-WAN connectivity NVA and a separate Firewall NVA or SaaS solution in the **same** Virtual WAN hub is currently in the road-map. Once routing intent is configured with next hop SaaS solution or Firewall NVA, connectivity between the SD-WAN NVA and Azure is impacted. Instead, deploy the SD-WAN NVA and Firewall NVA or SaaS solution in different Virtual Hubs. Alternatively, you can also deploy the SD-WAN NVA in a spoke Virtual Network connected to the hub and leverage the virtual hub [BGP peering](scenario-bgp-peering-hub.md) capability.
-  * Network Virtual Appliances (NVAs) can only be specified as the next hop resource for routing intent if they're Next-Generation Firewall or dual-role Next-Generation Firewall and SD-WAN NVAs. Currently, **checkpoint**, **fortinet-ngfw** and **fortinet-ngfw-and-sdwan** are the only NVAs eligible to be configured to be the next hop for routing intent. If you attempt to specify another NVA, Routing Intent creation fails. You can check the type of the NVA by navigating to your Virtual Hub -> Network Virtual Appliances and then looking at the **Vendor** field. [**Palo Alto Networks Cloud NGFW**](how-to-palo-alto-cloud-ngfw.md) is also supported as the next hop for Routing Intent, but is considered a next hop of type **SaaS solution**. 
+  * Network Virtual Appliances (NVAs) can only be specified as the next hop resource for routing intent if they're Next-Generation Firewall or dual-role Next-Generation Firewall and SD-WAN NVAs. Currently, **checkpoint**, **fortinet-ngfw**, **fortinet-ngfw-and-sdwan** and **cisco-tdv-vwan-nva**  are the only NVAs eligible to be configured to be the next hop for routing intent. If you attempt to specify another NVA, Routing Intent creation fails. You can check the type of the NVA by navigating to your Virtual Hub -> Network Virtual Appliances and then looking at the **Vendor** field. [**Palo Alto Networks Cloud NGFW**](how-to-palo-alto-cloud-ngfw.md) is also supported as the next hop for Routing Intent, but is considered a next hop of type **SaaS solution**. 
   * Routing Intent users who want to connect multiple ExpressRoute circuits to Virtual WAN and want to send traffic between them via a security solution deployed in the hub can enable open up a support case to enable this use case. Reference [enabling connectivity across ExpressRoute circuits](#expressroute) for more information.
 
-### Virtual Network Address Space Limits
+### <a name="address-limits"></a>Virtual Network address space limits
 
 > [!NOTE]
 > The maximum number of Virtual Network address spaces that you can connect to a single Virtual WAN hub is adjustable. Open an Azure support case to request a limit increase. The limits are applicable at the Virtual WAN hub level. If you have multiple Virtual WAN hubs that require a limit increase, request a limit increase for all Virtual WAN hubs in your Virtual WAN deployment.
@@ -365,12 +367,21 @@ Using the sample VPN configuration and VPN site from above, create firewall rule
 
 #### Performance for Encrypted ExpressRoute
 
-Configuring private routing policies with Encrypted ExpressRoute routes VPN ESP packets through the next hop security appliance deployed in the hub. As a result, you can expect Encrypted ExpressRoute maximum VPN tunnel throughput of 1 Gbps in both directions (inbound from on-premises and outbound from Azure). To achieve the maximum VPN tunnel throughput, consider the following deployment optimizations:
+Configuring private routing policies with Encrypted ExpressRoute routes VPN ESP packets through the next hop security appliance deployed in the hub. Encrypted ExpressRoute performance is impacted by two main factors:
+* You can expect Encrypted ExpressRoute VPN tunnels to have a maximum throughput of 1 Gbps due to ESP traffic being forwarded through the next hop security appliance deployed in the Virtual WAN hub. 
+* In practice, Encrypted ExpressRoute VPN tunnel throughput is also impacted by the maximum per-tunnel packets-per-second (PPS) supported by the VPN Gateway scale unit. For smaller packet sizes, you may see lower tunnel throughput. See [Site-to-site VPN performance](virtual-wan-faq.md#packets) for more information.
+
+
+To achieve the maximum VPN tunnel throughput, consider the following deployment optimizations:
 
 * Deploy Azure Firewall Premium instead of Azure Firewall Standard or Azure Firewall Basic.
 * Ensure Azure Firewall processes the rule that allows traffic between the VPN tunnel endpoints (192.168.1.4 and 192.168.1.5 in the example above) first by making the rule have the highest priority in your Azure Firewall policy. For more information about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](../firewall/rule-processing.md#rule-processing-using-firewall-policy).
 * Turn off deep-packet for traffic between the VPN tunnel endpoints. For information on how to configure Azure Firewall to exclude traffic from deep-packet inspection, reference [IDPS bypass list documentation](../firewall/premium-features.md#idps).
 * Configure VPN devices to use GCMAES256 for both IPSEC Encryption and Integrity to maximize performance.
+
+To achieve maximum aggregate throughput, consider the following optimization:
+
+* To increase throughput between a single on-premises site and Azure, create multiple tunnels between on-premises devices and the Site-to-site VPN Gateway in Virtual WAN. Ensure your on-premises VPN device is configured to load-balance traffic across all active tunnels.
 
 #### Direct routing to NVA instances for dual-role connectivity and firewall NVAs
 
@@ -409,14 +420,14 @@ The following steps describe how to configure routing intent and routing policie
 
     :::image type="content" source="./media/routing-policies/configure-intents.png"alt-text="Screenshot showing how to configure routing policies."lightbox="./media/routing-policies/configure-intents.png":::
 
-7. If you want to configure a Private Traffic Routing Policy and have branches or virtual networks advertising non-IANA RFC1918 Prefixes, select **Private Traffic Prefixes** and specify the non-IANA RFC1918 prefix ranges in the text box that comes up. Select **Done**. 
+1. If you want to configure a Private Traffic Routing Policy and have branches or virtual networks advertising non-IANA RFC1918 Prefixes, select **Private Traffic Prefixes** and specify the non-IANA RFC1918 prefix ranges in the text box that comes up. Select **Done**. Additionally, add any address ranges corresponding to delegated subnets for bare-metal services (Azure NetApp Files, Oracle Database @ Azure or Nutanix NC2 cloud clusters )connected to Virtual WAN  
 
     :::image type="content" source="./media/routing-policies/private-prefixes.png"alt-text="Screenshot showing how to edit private traffic prefixes."lightbox="./media/routing-policies/private-prefixes.png":::
 
-8. Select **Inter-hub** to be **Enabled**. Enabling this option ensures your Routing Policies are applied to the Routing Intent of this Virtual WAN Hub. 
-9. Select **Save**. 
-10. Repeat steps 2-8 for other Secured Virtual WAN hubs that you want to configure Routing policies for.
-11. At this point, you're ready to send test traffic. Make sure your Firewall Policies are configured appropriately to allow/deny traffic based on your desired security configurations. 
+1. Select **Inter-hub** to be **Enabled**. Enabling this option ensures your Routing Policies are applied to the Routing Intent of this Virtual WAN Hub. 
+1. Select **Save**. 
+1. Repeat steps 2-8 for other Secured Virtual WAN hubs that you want to configure Routing policies for.
+1. At this point, you're ready to send test traffic. Make sure your Firewall Policies are configured appropriately to allow/deny traffic based on your desired security configurations. 
 
 ### <a name="nva"></a> Configure routing intent and policies through Virtual WAN portal
 
@@ -427,29 +438,29 @@ The following steps describe how to configure routing intent and routing policie
 
     :::image type="content" source="./media/routing-policies/routing-policies-vwan-ui.png"alt-text="Screenshot showing how to navigate to routing policies."lightbox="./media/routing-policies/routing-policies-vwan-ui.png":::
 
-3. If you want to configure a Private Traffic Routing Policy (for branch and Virtual Network Traffic), select **Azure Firewall**, **Network Virtual Appliance** or **SaaS solutions** under **Private Traffic**. Under **Next Hop Resource**, select the relevant next hop resource.
+1. If you want to configure a Private Traffic Routing Policy (for branch and Virtual Network Traffic), select **Azure Firewall**, **Network Virtual Appliance** or **SaaS solutions** under **Private Traffic**. Under **Next Hop Resource**, select the relevant next hop resource.
 
     :::image type="content" source="./media/routing-policies/routing-policies-private-nva.png"alt-text="Screenshot showing how to configure NVA private routing policies."lightbox="./media/routing-policies/routing-policies-private-nva.png":::
 
-4. If you want to configure a Private Traffic Routing Policy and have branches or virtual networks using non-IANA RFC1918 Prefixes, select **Additional Prefixes** and specify the non-IANA RFC1918 prefix ranges in the text box that comes up. Select **Done**. Make sure you add the same prefix to the Private Traffic prefix text box in all Virtual Hubs configured with Private Routing Policies to ensure the correct routes are advertised to all hubs.
+1. If you want to configure a Private Traffic Routing Policy and have branches or virtual networks using non-IANA RFC1918 Prefixes, select **Additional Prefixes** and specify the non-IANA RFC1918 prefix ranges in the text box that comes up. Select **Done**. Make sure you add the same prefix to the Private Traffic prefix text box in all Virtual Hubs configured with Private Routing Policies to ensure the correct routes are advertised to all hubs.
 
     :::image type="content" source="./media/routing-policies/private-prefixes-nva.png"alt-text="Screenshot showing how to configure additional private prefixes for NVA routing policies."lightbox="./media/routing-policies/private-prefixes-nva.png":::
 
-5. If you want to configure an Internet Traffic Routing Policy, select **Azure Firewall**, **Network Virtual Appliance** or **SaaS solution**. Under **Next Hop Resource**, select the relevant next hop resource.
+1. If you want to configure an Internet Traffic Routing Policy, select **Azure Firewall**, **Network Virtual Appliance** or **SaaS solution**. Under **Next Hop Resource**, select the relevant next hop resource.
 
     :::image type="content" source="./media/routing-policies/public-routing-policy-nva.png"alt-text="Screenshot showing how to configure public routing policies for NVA."lightbox="./media/routing-policies/public-routing-policy-nva.png":::
 
-6. To apply your routing intent and routing policies configuration, click **Save**.
+1. To apply your routing intent and routing policies configuration, click **Save**.
 
     :::image type="content" source="./media/routing-policies/save-nva.png"alt-text="Screenshot showing how to save routing policies configurations."lightbox="./media/routing-policies/save-nva.png":::
 
-7. Repeat for all hubs you would like to configure routing policies for.
+1. Repeat for all hubs you would like to configure routing policies for.
 
-8. At this point, you're ready to send test traffic. Ensure your Firewall Policies are configured appropriately to allow/deny traffic based on your desired security configurations.
+1. At this point, you're ready to send test traffic. Ensure your Firewall Policies are configured appropriately to allow/deny traffic based on your desired security configurations.
 
-## Configure routing intent using a BICEP template
+## Configure routing intent using a Bicep file
 
-See the [BICEP template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/virtual-wan-routing-intent) for information about the template and steps.
+See the [Bicep file](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/virtual-wan-routing-intent) for information about the template and steps.
 
 ## Troubleshooting
 
@@ -494,6 +505,7 @@ Assuming you have already reviewed the [Known Limitations](#knownlimitations) se
   * **If you're using Private Endpoints deployed in Virtual Networks connected to the Virtual Hub**, traffic from on-premises destined for Private Endpoints deployed in Virtual Networks connected to the Virtual WAN hub by default **bypasses** the routing intent next hop Azure Firewall, NVA, or SaaS. However, this results in asymmetric routing (which can lead to loss of connectivity between on-premises and Private Endpoints) as Private Endpoints in Spoke Virtual Networks forward on-premises traffic to the Firewall. To ensure routing symmetry, enable [Route Table network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md) on the subnets where Private Endpoints are deployed. Configuring /32 routes corresponding to Private Endpoint private IP addresses in the Private Traffic text box **will not** ensure traffic symmetry when private routing policies are configured on the hub.
   * **If you're using Encrypted ExpressRoute with Private Routing Policies**, ensure that your Firewall device has a rule configured to allow traffic between the Virtual WAN Site-to-site VPN Gateway private IP tunnel endpoint and on-premises VPN device. ESP (encrypted outer) packets should log in Azure Firewall logs. For more information on Encrypted ExpressRoute with routing intent, see [Encrypted ExpressRoute documentation](#encryptedER).
   * **If you're using a user-defined route tables on your spoke virtual networks**, ensure that "Propagate gateway routes" is set to "Yes" on the route table. "Propagate gateway routes" must be enabled for Virtual WAN to advertise routes to workloads deployed in spoke Virtual Networks connected to Virtual WAN. For more information on user-defined route table settings, see [Virtual Network user-defined routing documentation](../virtual-network/virtual-networks-udr-overview.md#border-gateway-protocol).
+  * * **If you're using bare-metal services such as Azure NetApp Files, Nutanix Cloud Clusters (NC2) or Oracle Database@Azure**, ensure that the exact (or more specific) CIDR range corresponding to bare-metal delegated subnets are added as additional private traffic prefix text boxes. This configuration is required for on-premises traffic destined for bare-metal delegated subnets to be inspected by the next hop reosurce specified in routing intent private routing policy.
 
 ### Troubleshooting Azure Firewall routing issues
 

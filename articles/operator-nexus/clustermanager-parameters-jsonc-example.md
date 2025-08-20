@@ -1,48 +1,44 @@
 ---
 title: "Azure Operator Nexus - Example of clusterManager.parameters.jsonc template file"
-description: Example of clusterManager.parameters.jsonc template file to use with ARM template in creating a cluster manager.
-author: jeffreymason
-ms.author: jeffreymason
+description: Example of clusterManager.parameters.jsonc template file to use with ARM template in creating a Cluster Manager.
+author: bartpinto
+ms.author: bpinto
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 05/08/2024
+ms.date: 07/21/2025
 ms.custom: template-how-to, devx-track-arm-template
 ---
 
 # Example of clusterManager.parameters.jsonc template file.
 
 ```clusterManager.parameters.jsonc
-
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "name": {
-      "value": "$CLUSTER_MANAGER_NAME"
+      "value": "CM_NAME"
     },
     "resourceGroupName": {
-      "value": "$CLUSTER_MANAGER_RG"
+      "value": "CM_GROUP"
     },
     "managedResourceGroupName": {
-      "value": "$MRG_NAME"
+      "value": "CM_MRG"
     },
     "fabricControllerId": {
-      "value": "$NFC_ID"
+      "value": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/NFC_RG/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/NFC_NAME"
     },
     "vmSize": {
-      "value": "$VM_SIZE"
+      "value": ""
     },
     "clusterManagerTags": {
-      "value": {
-        "EnableClusterManagerInfraServices": "true",
-        "EnableFabricAssignRoleIntegration": "true"
-      }
+      "value": {}
     },
     "environment": {
-      "value": "$CLUSTER_MANAGER_NAME"
+      "value": "CM_NAME"
     },
     "location": {
-      "value": "$LOCATION"
+      "value": "REGION"
     }
   }
 }

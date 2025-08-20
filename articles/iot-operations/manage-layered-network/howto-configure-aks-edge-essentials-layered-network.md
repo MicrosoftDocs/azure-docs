@@ -1,9 +1,9 @@
 ---
 title: Configure Layered Network Management (preview) to use Azure IoT Operations in an isolated network
 description: Configure Azure IoT Layered Network Management (preview) service to enable Azure IoT Operations in an isolated network.
-author: PatAltimore
+author: SoniaLopezBravo
 ms.subservice: layered-network-management
-ms.author: patricka
+ms.author: sonialopez
 ms.topic: how-to
 ms.custom:
   - ignite-2023
@@ -16,6 +16,8 @@ ms.service: azure-iot-operations
 # Configure Layered Network Management (preview) to use Azure IoT Operations in an isolated network
 
 This walkthrough is an example of deploying Azure IoT Operations to a special environment that's different than the default [Azure IoT Operations scenario](../get-started-end-to-end-sample/quickstart-deploy.md). By default, Azure IoT Operations is deployed to an Arc-enabled cluster that has direct internet access. In this scenario, you deploy Azure IoT Operations to an isolated network environment. The hardware and cluster must meet the prerequisites of Azure IoT Operations and there are extra configurations for the network, host OS, and cluster. As a result, the Azure IoT Operations components run and connect to Arc through the Azure IoT Layered Network Management (preview) service.
+
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 
 >[!IMPORTANT]
 > This is an advanced scenario for Azure IoT Operations. You should complete the following steps to get familiar with the basic concepts before you start this advanced scenario.
@@ -101,4 +103,4 @@ You can now follow the steps in [Deploy Azure IoT Operations to an Arc-enabled K
 Once IoT Operations is deployed, you can try the following tutorials. The Azure IoT Operations in your level 3 cluster works as described in the tutorials.
 
 - [Tutorial: Add OPC UA assets to your Azure IoT Operations cluster](../end-to-end-tutorials/tutorial-add-assets.md)
-- [Tutorial: Send asset telemetry to the cloud using the data lake connector for MQTT broker](../end-to-end-tutorials/tutorial-upload-telemetry-to-cloud.md)
+- [Tutorial: Send asset telemetry to the cloud using the data lake connector for MQTT broker](../end-to-end-tutorials/tutorial-upload-messages-to-cloud.md)

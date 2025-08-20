@@ -147,7 +147,7 @@ It's possible to store GeoJSON objects inline inside of JavaScript, however this
 
 ## Optimize rendering layers
 
-Azure maps provide several different layers for rendering data on a map. There are many optimizations you can take advantage of to tailor these layers to your scenario the increase performances and the overall user experience.
+Azure Maps provide several different layers for rendering data on a map. There are many optimizations you can take advantage of to tailor these layers to your scenario the increase performances and the overall user experience.
 
 ### Create layers once and reuse them
 

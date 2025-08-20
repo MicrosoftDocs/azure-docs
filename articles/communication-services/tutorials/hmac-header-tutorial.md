@@ -1,7 +1,7 @@
 ---
-title: Tutorial - Learn How to Sign an HTTP Request with HMAC
-titleSuffix: An Azure Communication Services tutorial
-description: Learn how to sign an HTTP request for Azure Communication Services by using HMAC.
+title: Sign an HTTP Request using hash-based message authentication code (HMAC)
+titleSuffix: An Azure Communication Services article
+description: This article describes how to sign an HTTP request for Azure Communication Services by using HMAC.
 author: alexandra142
 manager: soricos
 services: azure-communication-services
@@ -15,12 +15,12 @@ ms.custom: devx-track-python
 zone_pivot_groups: acs-programming-languages-csharp-python
 ---
 
-# Tutorial: Sign an HTTP request
+# Sign an HTTP request using hash-based message authentication code (HMAC)
 
-In this tutorial, you learn how to sign an HTTP request with a hash-based message authentication code (HMAC) signature.
+This article describes how to sign an HTTP request with a hash-based message authentication code (HMAC) signature.
 
 > [!NOTE]
-> We strongly encourage you to use [Azure SDKs](https://github.com/Azure/azure-sdk). The approach described here is a fallback option for cases when Azure SDKs can't be used for any reason.
+> We recommend using the [Azure SDKs](https://github.com/Azure/azure-sdk) to sign an HTTP request. The approach described in this article is a fallback option if Azure SDKs can't be used for any reason.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -40,12 +40,12 @@ In this tutorial, you learn how to:
 
 ## Clean up resources
 
-To clean up and remove a Communication Services subscription, delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You can find out more about how to [clean up Azure Communication Services resources](../quickstarts/create-communication-resource.md#clean-up-resources) and [clean up Azure Functions resources](../../azure-functions/create-first-function-vs-code-csharp.md#clean-up-resources).
+To clean up and remove a Communication Services subscription, delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You can find out more about how to [clean up Azure Communication Services resources](../quickstarts/create-communication-resource.md#clean-up-resources) and [clean up Azure Functions resources](../../azure-functions/how-to-create-function-vs-code.md?pivot=programming-language-csharp#clean-up-resources).
 
 ## Related content
 
 - [Add voice calling to your app](../quickstarts/voice-video-calling/getting-started-with-calling.md)
 - [Add chat to your app](../quickstarts/chat/get-started.md)
 - [Create user access tokens](../quickstarts/identity/access-tokens.md)
-- [Learn about client and server architecture](../concepts/identity-model.md#client-server-architecture)
+- [Learn about client and server architecture](../concepts/identity-model.md#client-server-architecture-for-the-bring-your-own-identity-byoi-model)
 - [Learn about authentication](../concepts/authentication.md)

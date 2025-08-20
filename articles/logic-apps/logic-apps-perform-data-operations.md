@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/31/2024
+ms.date: 04/02/2025
 # Customer intent: As a developer using Azure Logic Apps, I want to perform various data operations on various data types for my workflow in Azure Logic Apps.
 ---
 
@@ -32,7 +32,7 @@ This how-to guide shows how you can work with data in your logic app workflow in
 
 ## Data operation actions
 
-The following sections summarize the data operations you can use and are organized based on the source data types that the operations work on, but each description appears alphabetically.
+The following sections summarize the data operations you can use. The operations are organized based on the source data types that the operations work on, but each description appears alphabetically.
 
 ### JSON actions
 
@@ -113,9 +113,9 @@ To try the **Compose** action, follow these steps by using the workflow designer
 
       :::image type="content" source="media/logic-apps-perform-data-operations/configure-compose-action.png" alt-text="Screenshot shows Consumption workflow, Compose action, dynamic content list, and selected inputs to use." lightbox="media/logic-apps-perform-data-operations/configure-compose-action.png":::
 
-      The following example shows the finished sample **Compose** action: 
+      The following example shows definitions added for two variables, and the process to add the third variable: 
 
-      :::image type="content" source="media/logic-apps-perform-data-operations/finished-compose-action.png" alt-text="Screenshot shows Consumption workflow and finished example Compose action." lightbox="media/logic-apps-perform-data-operations/finished-compose-action.png":::
+      :::image type="content" source="media/logic-apps-perform-data-operations/configure-compose-action.png" alt-text="Screenshot shows Consumption workflow, Compose action, dynamic content list, and selected inputs to use." lightbox="media/logic-apps-perform-data-operations/configure-compose-action.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -139,7 +139,7 @@ To try the **Compose** action, follow these steps by using the workflow designer
 
    For this example, follow these steps:
 
-   1. In the **Inputs** box, enter the following sample JSON object, including the spacing as shown:
+   1. In the **Inputs** box, enter the following sample JSON object syntax, including the spacing as shown:
 
       ```json
       {
@@ -148,20 +148,20 @@ To try the **Compose** action, follow these steps by using the workflow designer
       }
       ```
 
-   1. In the JSON object, put your cursor in the corresponding locations, select the dynamic content list (lightning icon), and then select the corresponding variable from the list:
+   1. For each variable declaration in the object syntax, place the insertion cursor as described in the following table. Select the dynamic content list (lightning icon), and then select the corresponding definition from the **Variables** list:
 
-      | JSON property | Variable |
-      |---------------|----------|
-      | **`age`** | **ageVar** |
-      | **`fullName`** | "**lastNameVar**, **firstNameVar**" |
+      | JSON property | Cursor location | Variable | 
+      |---------------|-----------------|----------|
+      | `age` | Before comma | `ageVar` |
+      | `fullName` | - Last name: Before comma <br> - First name: After comma | "`lastNameVar`, `firstNameVar`" |
 
-      The following example shows both added and not yet added variables:
+      The following example shows how to prepare the **Compose** action: 
+
+      :::image type="content" source="media/logic-apps-perform-data-operations/compose-lightning-insert-cursor.png" alt-text="Screenshot shows Standard workflow, Compose action, insert cursor location, and lightning icon." lightbox="media/logic-apps-perform-data-operations/compose-lightning-insert-cursor.png":::
+
+      The following example shows definitions added for two variables, and the process to add the third variable: 
 
       :::image type="content" source="media/logic-apps-perform-data-operations/configure-compose-action.png" alt-text="Screenshot shows Standard workflow, Compose action, dynamic content list, and selected inputs to use." lightbox="media/logic-apps-perform-data-operations/configure-compose-action.png":::
-
-      The following example shows the finished sample **Compose** action: 
-
-      :::image type="content" source="media/logic-apps-perform-data-operations/finished-compose-action.png" alt-text="Screenshot shows Standard workflow and finished example Compose action." lightbox="media/logic-apps-perform-data-operations/finished-compose-action.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -173,20 +173,19 @@ To confirm whether the **Compose** action creates the expected results, send you
 
 1. In your workflow, add an action that can send you the results from the **Compose** action.
 
-   This example continues by using the Office 365 Outlook action named **Send an email**.
+   This example continues by using the Office 365 Outlook action named **Send an email (V2)**:
 
-1. In this action, for each box where you want the results to appear, select inside each box, and then select the dynamic content list. From that list, under the **Compose** action, select **Outputs**.
+   :::image type="content" source="media/logic-apps-perform-data-operations/add-outlook-action-send-email.png" alt-text="Screenshot shows Standard workflow, add action, Office 365 Outlook, Send an email (V2)." lightbox="media/logic-apps-perform-data-operations/add-outlook-action-send-email.png":::
 
-   For this example, the result appears in the email's body, so add the **Outputs** field to the **Body** box.
+1. In this action, for each box where you want the results to appear, select inside each box, and then select the dynamic content list (lightning icon). In the list, under the **Compose** action, select **Outputs**.
+
+   For this example, the result appears in the email body, so you add the **Outputs** field to the **Body** box:
 
    :::image type="content" source="media/logic-apps-perform-data-operations/send-email-compose-action.png" alt-text="Screenshot shows workflow designer, the action named Send an email, and output from the preceding Compose action." lightbox="media/logic-apps-perform-data-operations/send-email-compose-action.png":::
 
-1. Save your workflow, and then manually run your workflow.
+1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run** > **Run**.
 
-   - Consumption workflow: On the designer toolbar, select **Run** > **Run**.
-   - Standard workflow: On the workflow navigation menu, select **Overview**. On the **Overview** page toolbar, select **Run** > **Run**.
-
-If you used the Office 365 Outlook action, the following example shows the result:
+If you use the Office 365 Outlook - Send an email action, the following example shows the result:
 
 :::image type="content" source="media/logic-apps-perform-data-operations/compose-email-results.png" alt-text="Screenshot shows email with results from the Compose action.":::
 
@@ -270,6 +269,8 @@ By default, the **Columns** property is set to automatically create the table co
 
 1. If the **Columns** property doesn't appear in the action information box, from the **Advanced parameters** list, select **Columns**.
 
+   :::image type="content" source="media/logic-apps-perform-data-operations/advanced-parameters-show-columns.png" alt-text="Screenshot shows Standard workflow and Columns parameter selected in the Advanced parameters list.":::
+
 1. Open the **Columns** list, and select **Custom**.
 
 1. In the **Header** property, specify the custom header text to use instead.
@@ -293,11 +294,13 @@ In the **Create CSV table** action, keep the **Header** column empty. On each ro
 
 1. For each array property that you want, in the **Value** column, select inside the edit box, and then select the function icon, which opens the expression editor. Make sure that the **Function** list appears selected.
 
+   :::image type="content" source="media/logic-apps-perform-data-operations/select-function-expression-value-field.png" alt-text="Screenshot shows Standard workflow, Columns parameter, Function expression selected for the Column Value field.":::
+
 1. In the expression editor, enter the following expression, but replace `<array-property-name>` with the array property name for the value that you want. When you're done with each expression, select **Add**.
 
    Syntax: `item()?['<array-property-name>']`
 
-   Examples:
+   Example values:
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
@@ -310,14 +313,13 @@ In the **Create CSV table** action, keep the **Header** column empty. On each ro
 
    :::image type="content" source="media/logic-apps-perform-data-operations/finished-csv-expression.png" alt-text="Screenshot shows action named Create CSV table and function named item()." lightbox="media/logic-apps-perform-data-operations/finished-csv-expression.png":::
 
+1. Save your workflow. On the designer toolbar, select **Save**.
+
 #### Work in code view
 
 In the action's JSON definition, within the `columns` array, set the `header` property to an empty string. For each `value` property, dereference each array property that you want.
 
-1. From the designer, switch to code view.
-
-   * **Consumption**: On the designer toolbar, select **Code view**.
-   * **Standard**: On the workflow navigation menu, under **Developer**, select **Code**.
+1. On the designer toolbar, select **Code view**.
 
 1. In the code editor, find the action's `columns` array. For each column of array values that you want, add an empty `header` property and the following expression for the `value` property:
 
@@ -334,6 +336,7 @@ In the action's JSON definition, within the `columns` array, set the `header` pr
 
    ```json
    "Create_CSV_table": {
+      "type": "Table",
       "inputs": {
          "columns": [
             { 
@@ -351,6 +354,9 @@ In the action's JSON definition, within the `columns` array, set the `header` pr
    }
    ```
 
+   > [!NOTE]
+   > If you copy the example into your code, make sure you include the `runAfter` action at the end of the `Create_CSV_table` definition.
+
 1. Switch back to designer view to review the results.
 
 ### Test your workflow
@@ -359,18 +365,15 @@ To confirm whether the **Create CSV table** action creates the expected results,
 
 1. In your workflow, add an action that can send you the results from the **Create CSV table** action.
 
-   This example continues by using the Office 365 Outlook action named **Send an email**.
+   This example continues by using the Office 365 Outlook action named **Send an email (V2)**.
 
 1. In this action, for each box where you want the results to appear, select inside each box, which opens the dynamic content list. From that list, under the **Create CSV table** action, select **Output**.
 
    :::image type="content" source="media/logic-apps-perform-data-operations/send-email-create-csv-table-action.png" alt-text="Screenshot shows workflow with action named Send an email. The Body property contains the field named Output from preceding action named Create CSV table." lightbox="media/logic-apps-perform-data-operations/send-email-create-csv-table-action.png":::
 
-1. Save your workflow, and then manually run your workflow.
+1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run** > **Run**.
 
-   - Consumption workflow: On the designer toolbar, select **Run** > **Run**.
-   - Standard workflow: On the workflow navigation menu, select **Overview**. On the **Overview** page toolbar, select **Run** > **Run**.
-
-If you used the Office 365 Outlook action, the following example shows the result:
+If you use the Office 365 Outlook - Send an email action, the following example shows the result:
 
 :::image type="content" source="media/logic-apps-perform-data-operations/create-csv-table-email-results.png" alt-text="Screenshot shows email with results from action named Create CSV table." lightbox="media/logic-apps-perform-data-operations/create-csv-table-email-results.png":::
 
@@ -502,10 +505,7 @@ In the **Create HTML table** action, keep the **Header** column empty. On each r
 
 In the action's JSON definition, within the `columns` array, set the `header` property to an empty string. For each `value` property, dereference each array property that you want.
 
-1. From the designer, switch to code view.
-
-   * **Consumption**: On the designer toolbar, select **Code view**.
-   * **Standard**: On the workflow navigation menu, under **Developer**, select **Code**.
+1. On the designer toolbar, select **Code view**.
 
 1. In the code editor, find the action's `columns` array. For each column of array values that you want, add an empty `header` property and the following expression for the `value` property:
 
@@ -522,6 +522,7 @@ In the action's JSON definition, within the `columns` array, set the `header` pr
 
    ```json
    "Create_HTML_table": {
+      "type": "Table",
       "inputs": {
          "columns": [
             { 
@@ -539,6 +540,9 @@ In the action's JSON definition, within the `columns` array, set the `header` pr
    }
    ```
 
+   > [!NOTE]
+   > If you copy the example into your code, make sure you include the `runAfter` action at the end of the `Create_HTML_table` definition.
+
 1. Switch back to designer view to review the results.
 
 ### Test your workflow
@@ -547,18 +551,15 @@ To confirm whether the **Create HTML table** action creates the expected results
 
 1. In your workflow, add an action that can send you the results from the **Create HTML table** action.
 
-   This example continues by using the Office 365 Outlook action named **Send an email**.
+   This example continues by using the Office 365 Outlook action named **Send an email (V2)**.
 
 1. In this action, for each box where you want the results to appear, select inside each box, and then select the lightning icon, which opens the dynamic content list. From that list, under the **Create HTML table** action, select **Output**.
 
    :::image type="content" source="media/logic-apps-perform-data-operations/send-email-create-html-table-action.png" alt-text="Screenshot shows workflow with action named Send an email. The Body property contains the Output field from preceding action named Create HTML table." lightbox="media/logic-apps-perform-data-operations/send-email-create-html-table-action.png":::
 
-1. Save your workflow, and then manually run your workflow.
+1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run** > **Run**.
 
-   - Consumption workflow: On the designer toolbar, select **Run** > **Run**.
-   - Standard workflow: On the workflow navigation menu, select **Overview**. On the **Overview** page toolbar, select **Run** > **Run**.
-
-If you used the Office 365 Outlook action, the following example shows the result:
+If you use the Office 365 Outlook - Send an email action, the following example shows the result:
 
 :::image type="content" source="media/logic-apps-perform-data-operations/create-html-table-email-results.png" alt-text="Screenshot shows email with results from action named Create HTML table." lightbox="media/logic-apps-perform-data-operations/create-html-table-email-results.png":::
 
@@ -658,7 +659,7 @@ To confirm whether **Filter array** action creates the expected results, send yo
 
 1. In your workflow, add an action that can send you the results from the **Filter array** action.
 
-   This example continues by using the Office 365 Outlook action named **Send an email**.
+   This example continues by using the Office 365 Outlook action named **Send an email (V2)**.
 
 1. In this action, complete the following steps:
 
@@ -674,12 +675,9 @@ To confirm whether **Filter array** action creates the expected results, send yo
 
       :::image type="content" source="media/logic-apps-perform-data-operations/send-email-filter-array-action-complete.png" alt-text="Screenshot shows Standard workflow and finished example action for Send an email." lightbox="media/logic-apps-perform-data-operations/send-email-filter-array-action-complete.png":::
 
-1. Save your workflow, and then manually run your workflow.
+1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run** > **Run**.
 
-   - Consumption workflow: On the designer toolbar, select **Run** > **Run**.
-   - Standard workflow: On the workflow navigation menu, select **Overview**. On the **Overview** page toolbar, select **Run** > **Run**.
-
-If you used the Office 365 Outlook action, the following example shows the result:
+If you use the Office 365 Outlook - Send an email action, the following example shows the result:
 
 :::image type="content" source="media/logic-apps-perform-data-operations/filter-array-email-results.png" alt-text="Screenshot shows email with results from action named Filter array." lightbox="media/logic-apps-perform-data-operations/filter-array-email-results.png":::
 
@@ -757,18 +755,15 @@ To confirm whether the **Join** action creates the expected results, send yourse
 
 1. In your workflow, add an action that can send you the results from the **Join** action.
 
-   This example continues by using the Office 365 Outlook action named **Send an email**.
+   This example continues by using the Office 365 Outlook action named **Send an email (V2)**.
 
 1. In this action, for each box where you want the results to appear, select inside each box, and then select the lightning icon, which opens the dynamic content list. From that list, under the **Join** action, select **Output**.
 
    :::image type="content" source="media/logic-apps-perform-data-operations/send-email-join-action-complete.png" alt-text="Screenshot shows a workflow with the finished action named Send an email for the Join action." lightbox="media/logic-apps-perform-data-operations/send-email-join-action-complete.png":::
 
-1. Save your workflow, and then manually run your workflow.
+1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run** > **Run**. 
 
-   - Consumption workflow: On the designer toolbar, select **Run** > **Run**.
-   - Standard workflow: On the workflow navigation menu, select **Overview**. On the **Overview** page toolbar, select **Run** > **Run**.
-
-If you used the Office 365 Outlook action, the following example shows the result:
+If you use the Office 365 Outlook - Send an email action, the following example shows the result:
 
 :::image type="content" source="media/logic-apps-perform-data-operations/join-email-results.png" alt-text="Screenshot shows email with results from the Join action." lightbox="media/logic-apps-perform-data-operations/join-email-results.png":::
 
@@ -937,7 +932,7 @@ To confirm whether the **Parse JSON** action creates the expected results, send 
 
 1. In your workflow, add an action that can send you the results from the **Parse JSON** action.
 
-   This example continues by using the Office 365 Outlook action named **Send an email**.
+   This example continues by using the Office 365 Outlook action named **Send an email (V2)**.
 
 1. In this action, for each box where you want the results to appear, select inside each edit box, and then select the lightning icon, which opens the dynamic content list. From that list, under the **Parse JSON** action, select the properties from the parsed JSON object.
 
@@ -949,12 +944,9 @@ To confirm whether the **Parse JSON** action creates the expected results, send 
 
    :::image type="content" source="media/logic-apps-perform-data-operations/send-email-parse-json-action-complete.png" alt-text="Screenshot shows workflow with finished action named Send an email for action named Parse JSON." lightbox="media/logic-apps-perform-data-operations/send-email-parse-json-action-complete.png":::
 
-1. Save your workflow, and then manually run your workflow.
+1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run** > **Run**. 
 
-   - Consumption workflow: On the designer toolbar, select **Run** > **Run**.
-   - Standard workflow: On the workflow navigation menu, select **Overview**. On the **Overview** page toolbar, select **Run** > **Run**.
-
-If you used the Office 365 Outlook action, the following example shows the result:
+If you use the Office 365 Outlook - Send an email action, the following example shows the result:
 
 :::image type="content" source="media/logic-apps-perform-data-operations/parse-json-email-results.png" alt-text="Screenshot shows email with results from action named Parse JSON." lightbox="media/logic-apps-perform-data-operations/parse-json-email-results.png":::
 
@@ -962,13 +954,13 @@ If you used the Office 365 Outlook action, the following example shows the resul
 
 ## Select action
 
-By default, the **Select** action creates an array that contains JSON objects built from the values in an existing array. For example, you can create a JSON object for each value in an integer array by specifying the properties that each JSON object must have and mapping the values from the source array to those properties. Although you can change the component JSON objects, the output array always has the same number of items as the source array. To use the output array from the **Select** action, subsequent actions must either accept arrays as input, or you might have to transform the output array into another compatible format.
+By default, the **Select** action creates an array that contains JSON objects built from the values in an existing array. For example, you can create a JSON object for each value in an integer array. Specify the properties that each JSON object must have and map the values from the source array to the properties. Although you can change the component JSON objects, the output array always has the same number of items as the source array. To use the output array from the **Select** action, subsequent actions must either accept arrays as input, or you might have to transform the output array into another compatible format.
 
 To try the **Select** action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Select** and **Initialize variable** action definitions from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Select](logic-apps-data-operations-code-samples.md#select-action-example). For more information about this action in your underlying workflow definition, see [Select action](logic-apps-workflow-actions-triggers.md#select-action).
 
 > [!TIP]
 >
-> For an example that creates create an array with strings or integers built from the values in a JSON object array, 
+> For an example that creates an array with strings or integers built from the values in a JSON object array, 
 > see the **Select** and **Initialize variable** action definitions in 
 > [Data operation code examples - Select](logic-apps-data-operations-code-samples.md#select-action-example).
 
@@ -1072,12 +1064,9 @@ To confirm whether the **Select** action creates the expected results, send your
 
       :::image type="content" source="media/logic-apps-perform-data-operations/send-email-select-action-complete.png" alt-text="Screenshot shows workflow and finished action named Send an email for the Select action." lightbox="media/logic-apps-perform-data-operations/send-email-select-action-complete.png":::
 
-1. Save your workflow, and then manually run your workflow.
+1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run** > **Run**. 
 
-   - Consumption workflow: On the designer toolbar, select **Run** > **Run**.
-   - Standard workflow: On the workflow navigation menu, select **Overview**. On the **Overview** page toolbar, select **Run** > **Run**.
-
-If you used the Office 365 Outlook action, the following example shows the result:
+If you use the Office 365 Outlook - Send an email action, the following example shows the result:
 
 :::image type="content" source="media/logic-apps-perform-data-operations/select-email-results.png" alt-text="Screenshot shows email with results from the Select action." lightbox="media/logic-apps-perform-data-operations/select-email-results.png":::
 

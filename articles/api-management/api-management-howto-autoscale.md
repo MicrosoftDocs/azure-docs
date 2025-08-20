@@ -6,14 +6,14 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 02/06/2024
+ms.date: 06/03/2025
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
 
 # Automatically scale an Azure API Management instance
 
-[!INCLUDE [api-management-availability-premium-standard-basic](../../includes/api-management-availability-premium-standard-basic.md)]
+[!INCLUDE [api-management-availability-premium-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 An Azure API Management service instance can scale automatically based on a set of rules. This behavior can be enabled and configured through [Azure Monitor autoscale](/azure/azure-monitor/autoscale/autoscale-overview#supported-services-for-autoscale).
 
@@ -22,7 +22,8 @@ The article walks through the process of configuring autoscale and suggests opti
 > [!NOTE]
 > * In service tiers that support multiple scale units, you can also [manually scale](upgrade-and-scale.md) your API Management instance.
 > * An API Management service in the **Consumption** tier scales automatically based on the traffic - without any additional configuration needed.
-> * Currently, autoscale is not supported for the [workspace gateway](workspaces-overview.md#workspace-gateway) in API Management workspaces.
+
+[!INCLUDE [api-management-service-update-behavior](../../includes/api-management-service-update-behavior.md)]
 
 ## Prerequisites
 
@@ -38,17 +39,16 @@ To follow the steps from this article, you must:
 Certain limitations and consequences of scaling decisions need to be considered before configuring autoscale behavior.
 
 + The [pricing tier](api-management-features.md) of your API Management instance determines the [maximum number of units](upgrade-and-scale.md#upgrade-and-scale) you may scale to. For example, the **Standard tier** can be scaled to 4 units. You can add any number of units to the **Premium** tier.
-+ The scaling process takes at least 20 minutes.
 + If the service is locked by another operation, the scaling request will fail and retry automatically.
-+ If your service instance is deployed in multiple regions (locations), only units in the **Primary location** can be autoscaled with Azure Monitor autoscale. Units in other locations can only be scaled manually.
-+ If your service instance is configured with [availability zones](zone-redundancy.md) in the **Primary location**, be aware of the number of zones when configuring autoscaling. The number of API Management units in autoscale rules and limits must be a multiple of the number of zones. 
++ If your service instance is deployed in multiple regions (locations), only units in the **Primary location** can be autoscaled with Azure Monitor autoscale. Units in other locations can be scaled manually or using custom scaling tools.
++ If your service instance is configured with [availability zones](zone-redundancy.md) in the **Primary location**, we recommend leaving the default **Automatic** setting for availability zones. If you select specific zones, the number of API Management units in autoscale rules and limits must be a multiple of the number of zones configured. 
 
 ## Enable and configure autoscale for an API Management instance
 
 Follow these steps to configure autoscale for an Azure API Management service:
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and navigate to your API Management instance.
-1. In the left menu, select **Scale out (auto-scale)**, and then select **Custom autoscale**.
+1. In the left menu, select **Deployment + infrastructure** > **Scale out (auto-scale)**, and then select **Custom autoscale**.
 
     :::image type="content" source="media/api-management-howto-autoscale/01.png" alt-text="Screenshot of scale-out options in the portal.":::
 
@@ -64,7 +64,7 @@ Follow these steps to configure autoscale for an Azure API Management service:
     |-----------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Metric source         | Current resource  | Define the rule based on the current API Management resource metrics.                                                                                                                                                                                                     |
     | *Criteria*            |                   |                                                                                                                                                                                                                                                                                 |
-    | Metric name           | Capacity          | [Capacity metric](api-management-capacity.md) is an API Management metric reflecting usage of resources by an Azure API Management instance.                                                                                                                                                            |
+    | Metric name           | Capacity          | [Capacity metric](api-management-capacity.md) is one of the API Management metrics reflecting usage of resources by an Azure API Management instance. Choose a capacity metric supported in your API Management service tier.                                                                                                                                                           |
     | Location | Select the primary location of the API Management instance | |
     | Operator              | Greater than      |                                                                                                                                                                                                                                                                                 |
     | Metric threshold             | 70%               | The threshold for the averaged capacity metric. For considerations on setting this threshold, see [Using capacity for scaling decisions](api-management-capacity.md#use-capacity-for-scaling-decisions).                                                                                                                                                                                                                               |
@@ -73,7 +73,7 @@ Follow these steps to configure autoscale for an Azure API Management service:
     |*Action*              |                   |                                                                                                                                                                                                                                                                                 |
     | Operation             | Increase count by |                                                                                                                                                                                                                                                                                 |
     | Instance count        | 1                 | Scale out the Azure API Management instance by 1 unit.                                                                                                                                                                                                                          |
-    | Cool down (minutes)   | 60                | It takes at least 20 minutes for the API Management service to scale out. In most cases, the cool down period of 60 minutes prevents from triggering many scale-outs.                                                                                                  |
+    | Cool down (minutes)   | 60                | In most cases, the cool down period of 60 minutes prevents from triggering many scale-outs.                                                                                                  |
 
 1. Select **Add** to save the rule.
 1. To add another rule, select **Add a rule**.

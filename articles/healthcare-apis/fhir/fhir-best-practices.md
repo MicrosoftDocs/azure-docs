@@ -37,7 +37,7 @@ In Azure FHIR service, bundles act as containers for multiple resources. Batch a
 
 * **Do** generate load on Azure FHIR service in a linear manner and avoid burst operations to prevent performance degradation.
 * **Do** tune the number of concurrent bundle requests to the FHIR server. A high number (>100) may lead to negative scaling and reduced processing throughput.
-* **DO** use separate transaction bundles for FHIR resources that don't depend on each other, and can be updated separately.
+* **DO** use separate transaction bundles for FHIR resources that don't depend on each other and can be updated separately.
 * **Consider** using smaller bundle sizes for complex operations such as conditional creates or updates.
 * **Consider** enabling parallel processing for batch and transaction bundles. By default, resources in bundles are processed sequentially. To enhance throughput, you can enable parallel resource processing by adding the HTTP header flag `x-bundle-processing-logic` and setting it to `parallel`. For more information, see the [batch bundle parallel processing documentation](rest-api-capabilities.md#bundle-parallel-processing).
 * **Avoid** submitting parallel bundle requests that attempt to update the same resources concurrently, which can cause delays in processing.
@@ -71,6 +71,13 @@ For data extraction, use the bulk `$export` operation as specified in the [HL7 F
 * **Consider** splitting Patient, Group, and filtered system exports into small data blocks for export.
 
 For more information on export operations, see [Export your FHIR data](export-data.md).
+
+## Storing binary data in FHIR resources
+* **Do** storing small payloads (up to 2MB) as base64-encoded strings within the FHIR resource.
+* **Consider** using external storage solutions for larger binary data. Store binary data in a blob storage and reference it in the FHIR resource using a URL to avoid inefficiencies.
+* **Consider** breaking up large binary files into smaller chunks (less than 2MB) and storing them as separate binary resources, which can then be linked together using a FHIR resource.
+* **Avoid** storing large binary data directly within the FHIR resource, as it can lead to limitations and inefficiencies in FHIR service capabilities such as import, export, and search.
+
 
 By applying these best practices you can enhance the performance and efficiency of data ingestion, bundle processing, query execution, and data extraction in Azure FHIR service.
 

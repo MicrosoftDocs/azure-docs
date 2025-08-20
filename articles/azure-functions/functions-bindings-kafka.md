@@ -46,11 +46,7 @@ Add the extension to your project by installing this [NuGet package](https://www
 ::: zone-end  
 
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
-
-## Install bundle    
-
-The Kafka extension is part of an [extension bundle], which is specified in your host.json project file. When you create a project that targets Functions version 3.x or later, you should already have this bundle installed. To learn more, see [extension bundle].
-
+[!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 ::: zone-end
 
 ## Enable runtime scaling
@@ -110,4 +106,4 @@ The following properties, which are inherited from the [Apache Kafka C/C++ clien
 
 - [Run a function from an Apache Kafka event stream](./functions-bindings-kafka-trigger.md)
  
-[extension bundle]: ./functions-bindings-register.md#extension-bundles
+[extension bundle]: ./extension-bundles.md

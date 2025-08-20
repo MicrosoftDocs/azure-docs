@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 2/6/2024
 ms.custom: references_regions, engagement-fy23
+# Customer intent: As a cloud administrator, I want to manage the Arc-enabled Azure VMware private cloud, so that I can ensure the system is secure, well-maintained, and efficiently connected to Azure services.
 ---
 
 

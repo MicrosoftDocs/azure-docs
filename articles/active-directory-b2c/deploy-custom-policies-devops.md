@@ -19,6 +19,7 @@ ms.subservice: b2c
 ---
 
 # Deploy custom policies with Azure Pipelines
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [Azure Pipelines](/azure/devops/pipelines) supports continuous integration (CI) and continuous delivery (CD) to constantly and consistently test, build, and ship a code to any target. This article describes how to automate the deployment process of the Azure Active Directory B2C (Azure AD B2C) [custom policies](user-flow-overview.md) using Azure Pipelines.
 

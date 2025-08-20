@@ -219,7 +219,7 @@ To visualize messaging metrics in the Azure portal:
 
 1. In the **Scope** field, enter your IoT hub name.
 
-1. In the **Metric Namespace** field, select *Iot Hub Standard Metrics*.
+1. In the **Metric Namespace** field, select *IoT Hub Standard Metrics*.
 
 1. In the **Metric** field, select *Total number of messages used*.
 

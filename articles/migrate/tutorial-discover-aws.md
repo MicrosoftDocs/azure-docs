@@ -5,13 +5,16 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 08/08/2024
+ms.date: 02/07/2025
 ms.service: azure-migrate
 ms.custom: mvc, subject-rbac-steps, engagement-fy25
-#Customer intent: As a server admin I want to discover my AWS instances.
+ms.collection:
+ - migration
+ - aws-to-azure
+# Customer intent: "As a server administrator, I want to discover my AWS instances using a migration tool, so that I can assess and plan their migration to Azure efficiently."
 ---
 
-# Tutorial: Discover AWS instances with Azure Migrate: Discovery and assessment
+# Tutorial: Discover AWS instances with Azure Migrate
 
 As part of your migration journey to Azure, you discover your servers for assessment and migration.
 
@@ -74,14 +77,14 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 1. In the portal, go to **Microsoft Entra ID** > **Users**.
 
-1. Request the tenant or Privileged Role Administrator to assign the [Application Developer role](../active-directory/roles/permissions-reference.md#application-developer) to the account to allow Microsoft Entra app registration by users. [Learn more](../active-directory/roles/manage-roles-portal.md#assign-a-role).
+1. Request the tenant or global admin to assign the [Application Developer role](../active-directory/roles/permissions-reference.md#application-developer) to the account to allow Microsoft Entra app registration by users. [Learn more](../active-directory/roles/manage-roles-portal.md#assign-a-role).
 
 ## Prepare AWS instances
 
 Set up an account that the appliance can use to access AWS instances.
 
-- For **Windows servers**, set up a local user account on all the Windows servers that you want to include in the discovery. Add the user account to the following groups: - Remote Management Users - Performance Monitor Users - Performance Log users.
- - For **Linux servers**, you need a root account on the Linux servers that you want to discover. Refer to the instructions in the [support matrix](migrate-support-matrix-physical.md#permissions-for-linux-server) for an alternative.
+- For **Windows servers**, set up a local user account on all the Windows servers that you want to include in the discovery. Add the user account to the following groups: - Remote Management Users - Performance Monitor Users - Performance Log users. Refer the [instructions](tutorial-discover-physical.md#prepare-windows-server).
+ - For **Linux servers**, you need a root account on the Linux servers that you want to discover. Refer the [instructions](tutorial-discover-physical.md#prepare-linux-server).
 - Azure Migrate uses password authentication when discovering AWS instances. AWS instances don't support password authentication by default. Before you can discover instance, you need to enable password authentication.
     - For Windows servers, allow WinRM port 5985 (HTTP). This allows remote WMI calls.
     - For Linux servers:
@@ -103,7 +106,7 @@ Set up a new project.
 2. Under **Services**, select **Azure Migrate**.
 3. In **Get started**, select **Create project**.
 5. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
-6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
+6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](supported-geographies.md#public-cloud) and [government clouds](supported-geographies.md#azure-government).
 
 7. Select **Create**.
 8. Wait a few minutes for the project to deploy. The **Azure Migrate: Discovery and assessment** tool is added by default to the new project.
@@ -132,7 +135,7 @@ To set up the appliance you:
 
 ### 1. Generate the project key
 
-1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 2. In **Discover servers** > **Are your servers virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
 3. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you will set up for discovery of physical or virtual servers. The name should be alphanumeric with 14 characters or fewer.
 1. Select **Generate key** to start the creation of the required Azure resources. Do not close the Discover servers page during the creation of resources.

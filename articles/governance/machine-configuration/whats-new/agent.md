@@ -20,6 +20,13 @@ For information on release notes for the connected machine agent, see
 
 ## Windows extension release notes (Microsoft.GuestConfiguration.ConfigurationforWindows)
 
+### Version 1.29.92.0 - April 2025
+
+#### Updated
+
+- Migrated to .NET 8
+- Upgraded to PowerShell 7.4.7
+
 ### Version 1.29.91.0 - March 2025
 
 #### Updated
@@ -60,6 +67,13 @@ For information on release notes for the connected machine agent, see
 
 
 ## Extension for Linux extension release notes (Microsoft.GuestConfiguration.ConfigurationforLinux)
+
+### Version 1.26.87 - April 2025
+
+#### Updated
+
+- Updated .NET from version 6 to 8
+- Updated PowerShell from version 7.2.x to 7.4.7
 
 ### Version 1.26.85 - March 2025
 

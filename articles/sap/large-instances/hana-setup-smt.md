@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 06/25/2021
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017, linux-related-content
+# Customer intent: As a system administrator managing SAP HANA on Azure Large Instances, I want to set up an SMT server, so that I can facilitate updates and manage software packages efficiently without direct internet connectivity.
 ---
 # Set up SMT server for SUSE Linux
 

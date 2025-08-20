@@ -6,7 +6,8 @@ ms.author: karler
 ms.reviewer: dingmeng-xue
 ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article
-ms.date: 03/17/2025
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
@@ -51,7 +52,7 @@ The migration approach from Azure Spring Apps to Azure Container Apps involves t
 
 1. Assess and plan: Evaluate your current workloads on Azure Spring Apps, including dependencies, configurations, and network settings.
 
-1. Containerize applications: Although Azure Container Apps supports deploying from JAR or source code, we recommend that you containerize applications into Docker containers, which have better portability and efficiency. You can containerize applications by creating Dockerfiles and building container images using tools like Azure Container Registry or Docker Hub. You can also build container images by buildpacks locally. To learn how to containerize your application and build a container image similar to the one running in Azure Spring Apps, see [Overview of Containerization](./migrate-to-azure-container-apps-build-overview.md).
+1. Containerize applications: Although Azure Container Apps supports deploying from JAR or source code, we recommend that you containerize applications into Docker containers, which have better portability and efficiency. You can containerize applications by creating Dockerfiles and building container images using tools like Azure Container Registry or Docker Hub. You can also build container images by buildpacks locally. To learn how to containerize your application and build a container image similar to the one running in Azure Spring Apps, see [Overview of Containerization](./containerization-overview.md).
 
 1. Set up the Azure Container Apps environment: Provision a managed environment in Azure Container Apps, including configuring virtual networks, subnets, and any necessary security settings to match your previous network configurations in Azure Spring Apps. For more information, see [Provision Azure Container Apps](./migrate-to-azure-container-apps-provision.md) or [Migrating custom Virtual Network](./migrate-to-azure-container-apps-network.md).
 
@@ -80,7 +81,7 @@ The migration approach from Azure Spring Apps to Azure Container Apps involves t
 
 ## Migration assistant tool
 
-To speed up your migration and help you evaluate features on Azure Container Apps, we provide a new command in the Azure CLI. This command retrieves the configurations of existing Azure Spring Apps resources based on the resource ID of the service instance. It then translates these configurations into Bicep files for Azure Container App resources. This method enables you to quickly set up an Azure Container Apps managed environment and app resources while applying basic settings similar to those settings in your existing Azure Spring Apps resources. For more information, see [az spring export](/cli/azure/spring#az-spring-export).
+To speed up your migration and help you evaluate features on Azure Container Apps, we provide a new command in the Azure CLI. This command retrieves the configurations of existing Azure Spring Apps resources based on the resource ID of the service instance. It then translates these configurations into Bicep files for Azure Container App resources. This method enables you to quickly set up an Azure Container Apps managed environment and app resources while applying basic settings similar to those settings in your existing Azure Spring Apps resources.
 
 To create Azure Container Apps resources that match the configurations of your existing Azure Spring Apps resources, use the following steps:
 
@@ -100,7 +101,7 @@ To create Azure Container Apps resources that match the configurations of your e
 1. The previous command generates a **README.md** file with detailed instructions. Follow those instructions to update the required parameters in the Bicep files.
 
    > [!NOTE]
-   > Azure Container Apps requires containerized image URLs. If you don't yet have a containerized image URL for your application, you can leave the quickstart image URL in the parameters unchanged, and deploy your own application later. For more information on obtaining container images, see [Overview of containerization](./migrate-to-azure-container-apps-build-overview.md)
+   > Azure Container Apps requires containerized image URLs. If you don't yet have a containerized image URL for your application, you can leave the quickstart image URL in the parameters unchanged, and deploy your own application later. For more information on obtaining container images, see [Overview of containerization](./containerization-overview.md)
 
 1. If a resource group doesn't exist, create it by using the following command:
 

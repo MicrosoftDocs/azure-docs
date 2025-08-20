@@ -80,7 +80,7 @@ To add a VM to the lab, follow these steps. For more information, see [Create la
    - **Virtual machine size**: Keep the default value for the base, or select **Change Size** to select a different size.
    - **Allow hibernation**: You can select this checkbox to enable hibernation for this VM. For this tutorial, keep the checkbox deselected.
      >[!NOTE]
-     >If you enable hibernation, you must also select **Public** for **IP Address** in the **Advanced settings**, because **Private** and **Shared** IPs aren't supported if hibernation is enabled.
+     >If you enable hibernation, you must also select either **Public** or **Private** for **IP Address** in the **Advanced settings**, because hibernation for **Shared** IPs isn't currently supported.
    - **OS disk type**: You can select a disk type from the dropdown list. For this tutorial, keep the default value.
    - **Artifacts**: You can select **Add or Remove Artifacts** to select and configure artifacts to add to the VM. For more information, see [Add artifacts](devtest-lab-add-vm.md#add-optional-artifacts).
 

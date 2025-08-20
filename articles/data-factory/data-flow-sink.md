@@ -45,6 +45,9 @@ When using data flows in Azure Synapse workspaces, you will have an additional o
 
 Mapping data flow follows an extract, load, and transform (ELT) approach and works with *staging* datasets that are all in Azure. Currently, the following datasets can be used in a sink transformation.
 
+>[!TIP]
+>Your sink can be a different format than your source. This is one step of how you can transform from one format to another. For example, from a CSV to a Parquet sink. You might need to make some transformations in your data flow between source and sink for this to work correctly. (For example, Parquet has more specific header requirements than CSV.)
+
 | Connector | Format | Dataset/inline |
 | --------- | ------ | -------------- |
 | [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties) <br>[Delimited text](format-delimited-text.md#mapping-data-flow-properties) <br>[Delta](format-delta.md) <br>[JSON](format-json.md#mapping-data-flow-properties) <br/>[ORC](format-orc.md#mapping-data-flow-properties)<br>[Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/✓ <br>✓/✓ <br>-/✓ <br>✓/✓ <br>✓/✓<br>✓/✓ |

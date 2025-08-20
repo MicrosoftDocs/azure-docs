@@ -1,7 +1,7 @@
 ---
-title: Tutorial - Build a Trusted User Access Service by Using Azure Functions in Azure Communication Services
-titleSuffix: An Azure Communication Services tutorial
-description: Learn how to create a trusted user access service for Azure Communication Services with Azure Functions.
+title: Build an authentication service using Azure Functions
+titleSuffix: An Azure Communication Services article
+description: This article describes how to create a trusted user access service for Azure Communication Services using Azure Functions.
 author: tophpalmer
 manager: chpalm
 services: azure-communication-services
@@ -13,14 +13,14 @@ ms.subservice: identity
 ms.custom: devx-track-js
 ---
 
-# Tutorial: Build a trusted user access service by using Azure Functions
+# Build an authentication service using Azure Functions
 
 This article describes how to use Azure Functions to build a trusted user access service.
 
 > [!IMPORTANT]
-> The endpoint created at the end of this tutorial isn't secure. Be sure to read about the security details in the [Azure Functions security](../../azure-functions/security-concepts.md) article. You need to add security to the endpoint to ensure that bad actors can't provision tokens.
+> The endpoint created in this tutorial isn't secure. Be sure to read about the security details in the [Azure Functions security](../../azure-functions/security-concepts.md) article. You need to add security to the endpoint to ensure that bad actors can't provision tokens.
 
-In this tutorial, you learn how to:
+This article describes how to:
 > [!div class="checklist"]
 > * Set up a function.
 > * Generate access tokens.
@@ -35,7 +35,7 @@ As part of setting up a trusted service to provide access tokens for users, you 
 
 ## Clean up resources
 
-If you want to clean up and remove an Azure Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You can find out more about how to [clean up Communication Service resources](../quickstarts/create-communication-resource.md#clean-up-resources) and [clean up Azure Functions resources](../../azure-functions/create-first-function-vs-code-csharp.md#clean-up-resources).
+If you want to clean up and remove an Azure Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You can find out more about how to [clean up Communication Service resources](../quickstarts/create-communication-resource.md#clean-up-resources) and [clean up Azure Functions resources](../../azure-functions/how-to-create-function-vs-code.md?pivot=programming-language-csharp#clean-up-resources).
 
 ## Related content
 
@@ -43,5 +43,5 @@ If you want to clean up and remove an Azure Communication Services subscription,
 - [Add voice calling to your app](../quickstarts/voice-video-calling/getting-started-with-calling.md)
 - [Add chat to your app](../quickstarts/chat/get-started.md)
 - [Create user access tokens](../quickstarts/identity/access-tokens.md)
-- [Learn about client and server architecture](../concepts/identity-model.md#client-server-architecture)
+- [Learn about client and server architecture](../concepts/identity-model.md#client-server-architecture-for-the-bring-your-own-identity-byoi-model)
 - [Learn about authentication](../concepts/authentication.md)

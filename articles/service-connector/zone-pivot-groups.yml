@@ -2,7 +2,7 @@
 groups:
 # Owner: xiaofanzhou
 - id: passwordless
-  title: Azure Database for PostgreSQL/MySQL/SQL use passwordless connection
+  title: Azure Database for PostgreSQL/MySQL/SQL/Fabric use passwordless connection
   prompt: Choose the Azure service to connect
   pivots:
   - id: postgresql
@@ -11,6 +11,8 @@ groups:
     title: Azure Database for MySQL - Flexible Server
   - id: sql
     title: Azure SQL Database
+  - id: fabricsql
+    title: SQL database in Microsoft Fabric
 
 - id: howto-authtype
   title: Choose the authentication type

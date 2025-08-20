@@ -78,7 +78,7 @@ Follow these steps to add required code snippets to the Main function of your `P
 
 ### List WhatsApp templates
 
-List of templates can be viewed in Azure portal or In WhatsApp Manager or Using SDK. All options are listed below in detail.
+List of templates can be viewed in Azure portal or In WhatsApp Manager or Using SDK. All options are listed as follows:
 
 You can view your templates in the Azure portal by going to your Azure Communication Service resource > **Advanced Messaging** > **Templates**.
 
@@ -89,6 +89,9 @@ Select a template to view the details.
 The `content` field of the template details can include parameter bindings. The parameter bindings can be denoted as:
 - A `format` field with a value such as `IMAGE`.
 - Double brackets surrounding a number, such as `{{1}}`. The number, indexed started at 1, indicates the order in which the binding values must be supplied to create the message template.
+- Double brackets surrounding a name, such as `{{movie_name}}`. The named parameters allow developers to reference parameters by name instead of position.
+  > [!IMPORTANT]
+  > When using named parameters, you must ensure that the name you use when sending the message **exactly matches** the name defined in the template you created in the Meta WhatsApp Manager.
 
 :::image type="content" source="../../media/template-messages/sample-movie-ticket-confirmation-azure-portal.png" lightbox="../../media/template-messages/sample-movie-ticket-confirmation-azure-portal.png" alt-text="Screenshot that shows template details.":::
 
@@ -573,7 +576,7 @@ Response<SendMessageResult> sendTemplateMessageResult4 =
 ```
 
 ### Send Authentication Template message
-This sample template sends authentication template message with one-time password buttons. More details can be find [here](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates/auth-otp-template-messages)
+This sample template sends authentication template message with one-time password buttons. For more information, see the Facebook Auth Template API article [Sending Authentication Templates](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates/auth-otp-template-messages).
 
 #### Example
 

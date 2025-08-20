@@ -7,7 +7,7 @@ ms.service: azure-iot-hub
 services: iot-hub
 ms.author: sonialopez
 ms.topic: conceptual
-ms.date: 09/01/2023
+ms.date: 03/28/2025
 ms.custom: ["Role: Cloud Development", "Role: IoT Device", "Role: System Architecture", devx-track-azurecli]
 ---
 
@@ -22,9 +22,9 @@ Authenticating access by using Microsoft Entra ID and controlling permissions by
 
 ## Authentication and authorization
 
-*Authentication* is the process of proving that you are who you say you are. Authentication verifies the identity of a user or device to IoT Hub. It's sometimes shortened to *AuthN*.
+*Authentication* is the process of proving that you're who you say you are. Authentication verifies the identity of a user or device to IoT Hub. Authentication is sometimes shortened to *AuthN*. 
 
-*Authorization* is the process of confirming permissions for an authenticated user or device on IoT Hub. It specifies what resources and commands you're allowed to access, and what you can do with those resources and commands. Authorization is sometimes shortened to *AuthZ*.
+*Authorization* is the process of confirming permissions for an authenticated user or device on IoT Hub. Authorization specifies what resources and commands you're allowed to access, and what you can do with those resources and commands. Authorization is sometimes shortened to *AuthZ*.
 
 When a Microsoft Entra security principal requests access to an IoT Hub service API, the principal's identity is first *authenticated*. For authentication, the request needs to contain an OAuth 2.0 access token at runtime. The resource name for requesting the token is `https://iothubs.azure.net`. If the application runs in an Azure resource like an Azure VM, Azure Functions app, or Azure App Service app, it can be represented as a [managed identity](/entra/identity/managed-identities-azure-resources/how-managed-identities-work-vm).
 
@@ -34,8 +34,8 @@ After the Microsoft Entra principal is authenticated, the next step is *authoriz
 
 With Microsoft Entra ID and RBAC, IoT Hub requires that the principal requesting the API have the appropriate level of permission for authorization. To give the principal the permission, give it a role assignment.
 
-- If the principal is a user, group, or application service principal, follow the guidance in [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
-- If the principal is a managed identity, follow the guidance in [Assign a managed identity access to a resource](/entra/identity/managed-identities-azure-resources/how-to-assign-access-azure-resource).
+- If the principal is a user, group, or application service principal, follow the guidance in [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+- If the principal is a managed identity, follow the guidance in [Assign a managed identity access to an Azure resource or another resource](/entra/identity/managed-identities-azure-resources/how-to-assign-access-azure-resource).
 
 To ensure least privilege, always assign the appropriate role at the lowest possible [resource scope](#resource-scope), which is probably the IoT Hub scope.
 
@@ -48,7 +48,7 @@ IoT Hub provides the following Azure built-in roles for authorizing access to Io
 | [IoT Hub Registry Contributor](../role-based-access-control/built-in-roles.md#iot-hub-registry-contributor) | Allows full access to the IoT Hub device registry. |
 | [IoT Hub Twin Contributor](../role-based-access-control/built-in-roles.md#iot-hub-twin-contributor) | Allows read and write access to all IoT Hub device and module twins. |
 
-You can also define custom roles to use with IoT Hub by combining the [permissions](#permissions-for-iot-hub-service-apis) that you need. For more information, see [Create custom roles for Azure role-based access control](../role-based-access-control/custom-roles.md).
+You can also define custom roles to use with IoT Hub by combining the [permissions](#permissions-for-iot-hub-service-apis) that you need. For more information, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
 ### Resource scope
 
@@ -89,8 +89,8 @@ The following table describes the permissions available for IoT Hub service API 
 
 > [!TIP]
 >
-> - The [Bulk Registry Update](/rest/api/iothub/service/bulkregistry/updateregistry) operation requires both `Microsoft.Devices/IotHubs/devices/write` and `Microsoft.Devices/IotHubs/devices/delete`.
-> - The [Twin Query](/rest/api/iothub/service/query/gettwins) operation requires `Microsoft.Devices/IotHubs/twins/read`.
+> - The [Update Registry](/rest/api/iothub/service/bulkregistry/updateregistry) operation requires both `Microsoft.Devices/IotHubs/devices/write` and `Microsoft.Devices/IotHubs/devices/delete`.
+> - The [Get Twins](/rest/api/iothub/service/query/gettwins) operation requires `Microsoft.Devices/IotHubs/twins/read`.
 > - [Get Digital Twin](/rest/api/iothub/service/digitaltwin/getdigitaltwin) requires `Microsoft.Devices/IotHubs/twins/read`. [Update Digital Twin](/rest/api/iothub/service/digitaltwin/updatedigitaltwin) requires `Microsoft.Devices/IotHubs/twins/write`.
 > - Both [Invoke Component Command](/rest/api/iothub/service/digitaltwin/invokecomponentcommand) and [Invoke Root Level Command](/rest/api/iothub/service/digitaltwin/invokerootlevelcommand) require `Microsoft.Devices/IotHubs/directMethods/invoke/action`.
 
@@ -105,13 +105,13 @@ By default, IoT Hub supports service API access through both Microsoft Entra ID 
 
 > [!WARNING]
 >
-> By denying connections using shared access policies, all users and services that connect using this method lose access immediately. Notably, since Device Provisioning Service (DPS) only supports linking IoT hubs using shared access policies, all device provisioning flows will fail with "unauthorized" error. Proceed carefully and plan to replace access with Microsoft Entra role based access.
+> By denying connections using shared access policies, all users and services that connect using this method lose access immediately. Notably, since Device Provisioning Service (DPS) only supports linking IoT hubs using shared access policies, all device provisioning flows fail with "unauthorized" error. Proceed carefully and plan to replace access with Microsoft Entra role based access.
 >
 > **Do not proceed if you use Device Provisioning Service**.
 
 1. Ensure that your service clients and users have [sufficient access](#manage-access-to-iot-hub-by-using-azure-rbac-role-assignment) to your IoT hub. Follow the [principle of least privilege](../security/fundamentals/identity-management-best-practices.md).
-1. In the [Azure portal](https://portal.azure.com), go to your IoT hub.
-1. On the left pane, select **Shared access policies**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
+1. Select **Shared access policies** from the **Security settings** section of the navigation menu.
 1. Under **Connect using shared access policies**, select **Deny**, and review the warning.
 
     :::image type="content" source="media/iot-hub-dev-guide-azure-ad-rbac/disable-local-auth.png" alt-text="Screenshot that shows how to turn off IoT Hub shared access policies." border="true":::
@@ -126,7 +126,7 @@ Your IoT Hub service APIs can now be accessed only through Microsoft Entra ID an
 
 You can provide access to IoT Hub from the Azure portal with either shared access policies or Microsoft Entra permissions.
 
-When you try to access IoT Hub from the Azure portal, the Azure portal first checks whether you've been assigned an Azure role with `Microsoft.Devices/iotHubs/listkeys/action`. If you have, the Azure portal uses the keys from shared access policies to access IoT Hub. If not, the Azure portal tries to access data by using your Microsoft Entra account. 
+When you try to access IoT Hub from the Azure portal, the Azure portal first checks whether you're assigned an Azure role with `Microsoft.Devices/iotHubs/listkeys/action`. If you have, the Azure portal uses the keys from shared access policies to access IoT Hub. If not, the Azure portal tries to access data by using your Microsoft Entra account. 
 
 To access IoT Hub from the Azure portal by using your Microsoft Entra account, you need permissions to access IoT Hub data resources (like devices and twins). You also need permissions to go to the IoT Hub resource in the Azure portal. The built-in roles provided by IoT Hub grant access to resources like devices and twin but they don't grant access to the IoT Hub resource. So access to the portal also requires the assignment of an Azure Resource Manager role like [Reader](../role-based-access-control/built-in-roles.md#reader). The reader role is a good choice because it's the most restricted role that lets you navigate the portal. It doesn't include the `Microsoft.Devices/iotHubs/listkeys/action` permission (which provides access to all IoT Hub data resources via shared access policies). 
 
@@ -159,5 +159,5 @@ For more information, see the [Azure IoT extension for Azure CLI release page](h
 ## Next steps
 
 - For more information on the advantages of using Microsoft Entra ID in your application, see [Integrating with the Microsoft identity platform](/entra/identity-platform/how-to-integrate).
-- To learn how access tokens, refresh tokens, and ID tokens are used in authorization and authentication, see [Security tokens](/entra/identity-platform/security-tokens).
+- To learn how access tokens, refresh tokens, and ID tokens are used in authorization and authentication, see [Tokens and claims overview](/entra/identity-platform/security-tokens).
 

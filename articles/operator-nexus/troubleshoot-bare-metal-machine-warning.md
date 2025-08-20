@@ -4,7 +4,7 @@ description: Troubleshooting guide for Bare Metal Machines Warning status messag
 ms.service: azure-operator-nexus
 ms.custom: azure-operator-nexus
 ms.topic: troubleshooting
-ms.date: 03/03/2025
+ms.date: 08/12/2025
 author: robertstarling
 ms.author: robstarling
 ms.reviewer: ekarandjeff
@@ -12,7 +12,7 @@ ms.reviewer: ekarandjeff
 
 # Troubleshoot _'Warning'_ detailed status messages on an Azure Operator Nexus Cluster Bare Metal Machine
 
-This document provides basic troubleshooting information for Bare Metal Machine (BMM) resources which are reporting a _Warning_ message in the BMM detailed status message.
+This document provides basic troubleshooting information for Bare Metal Machine (BMM) resources that are reporting a _Warning_ message in the BMM detailed status message.
 
 ## Symptoms
 
@@ -26,9 +26,13 @@ The Detailed status message of the Bare Metal Machine (Operator Nexus) resource 
 
 ## Troubleshooting
 
-To check for any Bare Metal Machines (BMMs) which are reporting _Warning_ messages, run `az networkcloud baremetalmachine list -g <ResourceGroup_Name> -o table`. This command shows the current status of all BMMs in the specified resource group. Any active _Warning_ conditions are visible in the Detailed Status Message, as seen in the following example.
+Evaluate the current status of all BMMs in the specified resource group.
+Any active _Warning_ conditions are visible in the Detailed Status Message, as seen in the following example.
 
-```
+To check for any Bare Metal Machines (BMMs) which are reporting _Warning_ messages, run:
+
+```azurecli
+az networkcloud baremetalmachine list -g <ResourceGroup_Name> -o table
 Name            ResourceGroup                       DetailedStatus    DetailedStatusMessage
 --------------  ----------------------------------  ----------------  -------------------------------------------------------------------------------------------
 rack1control01  cluster-1-HostedResources-3EA53DF9  Provisioned       The OS is provisioned to the machine.
@@ -40,7 +44,12 @@ rack1compute01  cluster-1-HostedResources-3EA53DF9  Provisioned       The OS is 
 For more information, use an Azure CLI Bare Metal Machine `run-read-command` command such as the following to inspect the `conditions` status of the corresponding kubernetes BMM object.
 
 ```azurecli
-az networkcloud baremetalmachine run-read-command -g <ResourceGroup_Name> -n rack1control01 --limit-time-seconds 60 --commands "[{command:'kubectl get',arguments:[-n,nc-system,bmm,rack1compute01,-o,json]}]" --output-directory .
+az networkcloud baremetalmachine run-read-command \
+  -g <ResourceGroup_Name> \
+  -n rack1control01 \
+  --limit-time-seconds 60 \
+  --commands "[{command:'kubectl get',arguments:[-n,nc-system,bmm,rack1compute01,-o,json]}]" \
+  --output-directory .
 ```
 
 - Replace `<ResourceGroup_Name>` with the name of the resource group containing the BMM resources.
@@ -52,7 +61,7 @@ Review the `lastTransitionTime` and `message` fields for more information about 
 
 **Example `run-read-command` output (`kubectl get bmm`):**
 
-```
+```json
 {
   "status": {
     "conditions": [
@@ -83,9 +92,14 @@ Review the `lastTransitionTime` and `message` fields for more information about 
 }
 ```
 
+You can also check for any potentially related recent lifecycle actions (such as Restart or Power off actions) in the Azure portal. See [Monitor status in Bare Metal Machine JSON properties](./howto-bare-metal-best-practices.md#monitor-status-in-bare-metal-machine-json-properties). If available, this information is also visible in the output of the previous `run-read-command` in the `actionStates` status field.
+
 ## `Warning: PXE port is unhealthy`
 
-This message in the BMM _Detailed status message_ field indicates a problem with network connectivity on the Preboot Execution Environment (PXE) Ethernet port on the underlying compute host. This port is used during provisioning and upgrade to download the operating system image and other software components. PXE connectivity issues shouldn't directly affect customer workloads running on a compute host. However they can cause failures in BMM lifecycle operations such as the following.
+This message in the BMM _Detailed status message_ field indicates a problem with network connectivity on the Preboot Execution Environment (PXE) Ethernet port on the underlying compute host.
+The PXE port is used during provisioning and upgrades to download the operating system image and other software components.
+PXE connectivity issues shouldn't directly affect customer workloads running on a compute host.
+However they can cause failures in BMM lifecycle operations such as the following.
 
 - Cluster Provisioning
 - Cluster Upgrade
@@ -102,8 +116,8 @@ To troubleshoot this issue:
 - review the `conditions` status of the kubernetes `bmm` object, as described in the [Troubleshooting](#troubleshooting) section
 - this information should identify the specific root cause (port down or port flapping) and approximate time of the issue
 - check the Ethernet cabling and Top Of Rack (TOR) switch for the affected PXE port
-- check for any other BMMs which are also reporting unhealthy PXE status or other network-related problems
-- check for any recent deployment or infrastructure changes which coincide with the time of failure.
+- check for any other BMMs that are also reporting unhealthy PXE status or other network-related problems
+- check for any recent deployment or infrastructure changes that coincide with the time of failure.
 
 **Example `conditions` output for PXE warning**
 
@@ -131,20 +145,22 @@ This message can indicate an issue with the underlying compute host or baseboard
 To troubleshoot this issue:
 
 - review the `conditions` status of the kubernetes `bmm` object, as described in the [Troubleshooting](#troubleshooting) section
+- review the `actionStates` status field of the kubernetes `bmm` object for any recently initiated lifecycle actions (such as a Restart or Power off) as described in the [Troubleshooting](#troubleshooting) section
 - this information should identify the approximate time of the issue and any other available details
 - check the power feed, power cables, and physical hardware for the specified BMM
 - check whether any other BMMs are also reporting an unexpected power state Warning, which might indicate a broader issue with the underlying infrastructure
-- check for any recent deployment or infrastructure changes which coincide with the time of failure
+- check for any recent deployment or infrastructure changes that coincide with the time of failure
 - review the power state and logs on the BMC for the affected host.
 
 For more information about logging into the BMC, see [Troubleshoot Hardware Validation Failure](./troubleshoot-hardware-validation-failure.md).
 
 > [!WARNING]
-> In versions 2502.1 and 2502.3, there's a known issue where `BMM power state doesn't match expected state` is incorrectly reported during deprovisioning and provisioning, for example when running the BMM Reimage or Replace actions. This issue is fixed in version 2504.1.
+> In versions 2502.1 and 2502.3, there's a known issue where `BMM power state doesn't match expected state` is incorrectly reported during deprovisioning and provisioning.
+> For example, the issue can happen when running the BMM Reimage or Replace actions. This issue is fixed in version 2504.1.
 
 **Example `conditions` output for unexpected power state**
 
-```
+```json
 "conditions": [
     {
       "lastTransitionTime": "2025-03-04T15:59:36Z",

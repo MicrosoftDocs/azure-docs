@@ -4,9 +4,10 @@ description: While a blob is in the archive access tier, it's considered to be o
 author: normesta
 
 ms.author: normesta
-ms.date: 07/31/2024
+ms.date: 06/21/2025
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
+# Customer intent: As a cloud storage administrator, I want to rehydrate archived blobs to an online tier, so that I can access and modify the stored data as needed for operational tasks.
 ---
 
 # Blob rehydration from the archive tier
@@ -33,6 +34,10 @@ To check the rehydration priority while the rehydration operation is underway, c
 Standard priority is the default rehydration option. A high-priority rehydration is faster, but also costs more than a standard-priority rehydration. A high-priority rehydration may take longer than one hour, depending on blob size and current demand. Microsoft recommends reserving high-priority rehydration for use in emergency data restoration situations.
 
 While a standard-priority rehydration operation is pending, you can update the rehydration priority setting for a blob to *High* to rehydrate that blob more quickly. For example, if you're rehydrating a large number of blobs in bulk, you can specify *Standard* priority for all blobs for the initial operation, then increase the priority to *High* for any individual blobs that need to be brought online more quickly, up to the limit of 10 GiB per hour.
+
+> [!IMPORTANT]
+> The 10 GiB/hour limit applies at the **storage account level**, not per blob. While timelines such as “up to 15 hours” for standard priority may apply to individual blobs under ideal conditions, they do **not scale linearly** for bulk operations. Customers rehydrating large volumes of data should expect longer durations and plan accordingly.
+> The throughput is shared across all blobs being rehydrated within the same account, and exceeding the hourly limit may result in throttling or extended delays. For optimal performance, consider batching rehydration requests and monitoring account-level activity.
 
 The rehydration priority setting can't be lowered from *High* to *Standard* for a pending operation. Keep in mind that updating the rehydration priority setting may have a billing impact.
 
@@ -106,9 +111,9 @@ For more information on handling events in Blob Storage, see [Reacting to Azure 
 
 ## Pricing and billing
 
-A rehydration operation with [Set Blob Tier](/rest/api/storageservices/set-blob-tier) is billed for data read transactions and data retrieval size. A high-priority rehydration has higher operation and data retrieval costs compared to standard priority. High-priority rehydration shows up as a separate line item on your bill. If a high-priority request to return an archived blob that is less than 10 GB in size takes more than five hours, you won't be charged the high-priority retrieval rate. However, standard retrieval rates still apply.
+A rehydration operation with [Set Blob Tier](/rest/api/storageservices/set-blob-tier) is billed for data read transactions and data retrieval size. A high-priority rehydration has higher operation and data retrieval costs compared to standard priority. High-priority rehydration shows up as a separate line item on your bill. If a high-priority request to return an archived blob that is less than 10 GB in size takes more than five hours, you won't be charged the high-priority retrieval rate. However, standard retrieval rates still apply. For a sample cost estimate, see [Cost estimate: Move data out of archive storage](cost-estimate-archive-retrieval-set-tier.md).
 
-Copying an archived blob to an online tier with [Copy Blob](/rest/api/storageservices/copy-blob) is billed for data read transactions and data retrieval size. Creating the destination blob in an online tier is billed for data write transactions. Early deletion fees don't apply when you copy to an online blob because the source blob remains unmodified in the archive tier. High-priority retrieval charges do apply if selected.
+Copying an archived blob to an online tier with [Copy Blob](/rest/api/storageservices/copy-blob) is billed for data read transactions and data retrieval size. Creating the destination blob in an online tier is billed for data write transactions. Early deletion fees don't apply when you copy to an online blob because the source blob remains unmodified in the archive tier. High-priority retrieval charges do apply if selected. For a sample estimate, see [Cost estimate: Retrieve data from archive storage for analysis](cost-estimate-archive-retrieval-copy-blob.md).
 
 Blobs in the archive tier should be stored for a minimum of 180 days. Deleting or changing the tier of an archived blob before the 180-day period elapses incurs an early deletion fee. For example, if a blob is moved to the archive tier and then deleted or moved to the hot tier after 45 days, you'll be charged an early deletion fee equivalent to 135 (180 minus 45) days of storing that blob in the archive tier. For more information, see [Archive access tier](access-tiers-overview.md#archive-access-tier).
 

@@ -2,8 +2,8 @@
 title: Run PowerShell commands with Microsoft Entra credentials to access blob data
 titleSuffix: Azure Storage
 description: PowerShell supports signing in with Microsoft Entra credentials to run commands on blob data in Azure Storage. An access token is provided for the session and used to authorize calling operations. Permissions depend on the Azure role assigned to the Microsoft Entra security principal.
-author: pauljewellmsft
-ms.author: pauljewell
+author: normesta
+ms.author: normesta
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 05/12/2022
@@ -11,6 +11,7 @@ ms.date: 05/12/2022
 ms.reviewer: nachakra
 ms.devlang: powershell
 ms.custom: devx-track-azurepowershell
+# Customer intent: As an IT administrator, I want to use Microsoft Entra credentials to run PowerShell commands on Azure Blob Storage, so that I can manage blob data securely without needing to use account keys or SAS tokens.
 ---
 
 # Run PowerShell commands with Microsoft Entra credentials to access blob data
@@ -84,3 +85,4 @@ The following example shows how to create a container in a new storage account f
 
 - [Assign an Azure role for access to blob data](assign-azure-role-data-access.md)
 - [Authorize access to data in Azure Storage](../common/authorize-data-access.md)
+

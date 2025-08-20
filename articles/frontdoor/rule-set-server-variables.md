@@ -6,10 +6,12 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 05/07/2024
+ms.date: 04/09/2025
 ---
 
 # Azure Front Door Rule set server variables
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 Rule set server variables provide access to structured information about the request when you work with [Rule sets](front-door-rules-engine.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json).
 
@@ -18,7 +20,7 @@ When you use [Rule set match conditions](rules-match-conditions.md), server vari
 When you use [Rule set actions](front-door-rules-engine-actions.md), you can use server variables to dynamically change the request and response headers, and rewrite URLs, paths, and query strings, for example, when a new page load or when a form gets posted.
 
 > [!NOTE]
-> Server variables are available with Azure Front Door Standard and Premium tiers.
+> Server variables are only available with Azure Front Door Standard and Premium tiers.
 
 ## Supported variables
 
@@ -37,6 +39,9 @@ When you use [Rule set actions](front-door-rules-engine-actions.md), you can use
 | `ssl_protocol`   | The protocol of an established TLS connection.<br/> To access this server variable in a match condition, use [SSL protocol](rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json#ssl-protocol).|
 | `server_port`    | The port of the server that accepted a request.<br/> To access this server variable in a match condition, use [Server port](rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json#server-port).|
 | `url_path`       | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments or leading slash.<br />For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `url_path` value is `article.aspx`. <br /> Azure Front Door supports dynamic capture of URL path with `{url_path:seg#}` server variable, and converts URL path to lowercase or uppercase with `{url_path.tolower}` or `{url_path.toupper}`. For more information, see [Server variable format](#server-variable-format) and [Server variables](rule-set-server-variables.md). <br/> To access this server variable in a match condition, use [Request path](rules-match-conditions.md#request-path) condition. |
+| `http_req_header_<headername>`       | Captures the value of a request header. E.g. for request header Device: Desktop, the variable is http_req_header_Device, the value of this variable is Desktop. <br /> The header name in the variable syntax support alphanumeric and hyphen (a-z, A-Z, 0-9 and “-”).   |
+| `http_req_arg_<querystringkeyname>`       | Captures the value from a query string key value pair. E.g. in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the variable is http_req_header_id, the value of this variable is 123.  <br /> The query string key in the variable syntax support alphanumeric and hyphen (a-z, A-Z, 0-9 and “-”).  |
+| `http_resp_header_<headername>`       | Captures the value of a response header from origin. E.g. for a response header Access-Control-Allow-Origin `https://learn.microsoft.com`, the variable is http_req_header_ header Access-Control-Allow-Origin, the value of this variable is `https://learn.microsoft.com`. <br /> The header name in the variable syntax support alphanumeric and hyphen (a-z, A-Z, 0-9 and “-”). |
 
 ## Server variable format 
 
@@ -50,6 +55,25 @@ When you work with Rule Set actions, specify server variables by using the follo
     * Offsets and lengths within range: `{var:0:5}` = `AppId`, `{var:7:7}` = `1f59297`, `{var:7:-7}` = `1f592979c584d0f9d679db3e`
     * Zero lengths: `{var:0:0}` = null,  `{var:4:0}` = null 
     * Offsets within range and lengths out of range: `{var:0:100}` = `AppId=01f592979c584d0f9d679db3e66a3e5e`, `{var:5:100}` = `=01f592979c584d0f9d679db3e66a3e5e`,  `{var:0:-48}` = null,  `{var:4:-48}` = null
+    * To experiment with how {variable:offset:length} works, open a Linux bash terminal or use bash terminal in [Azure Cloud Shell](https://shell.azure.com/). Enter the following example into the terminal and examine the output to understand how the substring extraction behaves.
+      
+```azurecli-interactive
+variable=helloworld123; echo ${variable:5} #Output = world123
+```
+```azurecli-interactive
+variable=helloworld123; echo ${variable:0:5}  #Output = hello
+```
+> [!NOTE]
+> In Bash, a space is required before a negative number in parameter expansion to avoid syntax errors.
+
+```azurecli-interactive
+variable=helloworld123; echo ${variable: -3:3} #Output=123 
+```
+
+```azurecli-interactive
+variable=helloworld123; echo ${variable:5: -3} #Output = world
+```
+ 
 * `{url_path:seg#}`: Allow users to capture and use the desired URL path segment in URL Redirect, URL Rewrite, or any meaningful action. User can also capture multiple segments by using the same style as substring capture `{url_path:seg1:3}`. For example, for a source pattern `/id/12345/default` and a URL rewrite Destination `/{url_path:seg1}/home`, the expected URL path after rewrite is `/12345/home`. For a multiple-segment capture, when the source pattern is `/id/12345/default/location/test`, a URL rewrite destination `/{url_path:seg1:3}/home` results in `/12345/default/location/home`. Segment capture includes the location path, so if route is `/match/*`, segment 0 will be match.
 
     Offset corresponds to the index of the start segment, and length refers to how many segments to capture, including the one at index = offset.

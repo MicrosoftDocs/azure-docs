@@ -6,7 +6,7 @@ ms.author: whhender
 ms.reviewer: jianleishen
 ms.subservice: data-movement
 ms.topic: quickstart
-ms.date: 05/15/2024
+ms.date: 06/06/2025
 ms.custom: template-quickstart, devx-track-azurecli, mode-api
 ---
 
