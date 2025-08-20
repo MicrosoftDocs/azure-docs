@@ -59,19 +59,19 @@ Configuration Setting Mapping | [GA](./reference-dotnet-provider.md#configuratio
 Key Vault References | [GA](./reference-dotnet-provider.md#key-vault-reference) | GA | GA | GA | [GA](./reference-javascript-provider.md#key-vault-reference) | GA
 Key Vault Secret Refresh | [GA](./reference-dotnet-provider.md#key-vault-secret-refresh) | WIP | GA | WIP | [GA](./reference-javascript-provider.md#key-vault-secret-refresh) | GA
 Custom Key Vault Secret Resolution | [GA](./reference-dotnet-provider.md#key-vault-reference) | GA | GA | GA | [GA](./reference-javascript-provider.md#key-vault-reference) | GA
-Parallel Secret Resolution | WIP | WIP | WIP | WIP | [GA](./reference-javascript-provider.md#parallel-secret-resolution) | GA
+Parallel Secret Resolution | WIP | N/A | WIP | N/A | [GA](./reference-javascript-provider.md#parallel-secret-resolution) | GA
 Feature Flags | [GA](./reference-dotnet-provider.md#feature-flag) | GA | GA | GA | [GA](./reference-javascript-provider.md#feature-flag) | GA
-Variant Feature Flags | [GA](./reference-dotnet-provider.md#feature-flag) | GA | GA | GA | [GA](./reference-javascript-provider.md#feature-flag) | GA
-Feature Flag Telemetry | GA | GA | WIP | GA | GA | WIP
+Variant Feature Flags | [GA](./reference-dotnet-provider.md#feature-flag) | Preview | GA | GA | [GA](./reference-javascript-provider.md#feature-flag) | GA
+Feature Flag Telemetry | GA | Preview | WIP | GA | GA | WIP
 Key Prefix Trim | [GA](./reference-dotnet-provider.md#trim-prefix-from-keys) | GA | GA | GA | [GA](./reference-javascript-provider.md#trim-prefix-from-keys) | GA
 Configurable Startup Time-out | [GA](./reference-dotnet-provider.md#startup-retry) | WIP | N/A | WIP | [GA](./reference-javascript-provider.md#startup-retry) | WIP
-Replica Auto Discovery | [GA](./reference-dotnet-provider.md#geo-replication) | GA | GA | WIP | [GA](./reference-javascript-provider.md#geo-replication) | WIP
-Replica Failover | [GA](./reference-dotnet-provider.md#geo-replication) | GA | GA | WIP | [GA](./reference-javascript-provider.md#geo-replication) | WIP
-Replica Load Balancing | [GA](./reference-dotnet-provider.md#geo-replication) | WIP | GA | WIP | [GA](./reference-javascript-provider.md#geo-replication) | WIP
+Replica Auto Discovery | [GA](./reference-dotnet-provider.md#geo-replication) | GA | GA | GA | [GA](./reference-javascript-provider.md#geo-replication) | WIP
+Replica Failover | [GA](./reference-dotnet-provider.md#geo-replication) | GA | GA | GA | [GA](./reference-javascript-provider.md#geo-replication) | WIP
+Replica Load Balancing | [GA](./reference-dotnet-provider.md#geo-replication) | WIP | GA | GA | [GA](./reference-javascript-provider.md#geo-replication) | WIP
 Snapshots | [GA](./reference-dotnet-provider.md#snapshot) | GA | GA | WIP | [GA](./reference-javascript-provider.md#snapshot) | WIP
 Distributed Tracing | [GA](./reference-dotnet-provider.md#distributed-tracing) | WIP | WIP | WIP | WIP | WIP
-Health Check | WIP | WIP | WIP | WIP | WIP | WIP 
-Select by Tag Filters | [GA](./reference-dotnet-provider.md#load-specific-key-values-using-selectors) | WIP | WIP | WIP | [GA](./reference-javascript-provider.md#tag-filters) | WIP
+Health Check | WIP | GA | WIP | WIP | WIP | WIP 
+Select by Tag Filters | [GA](./reference-dotnet-provider.md#load-specific-key-values-using-selectors) | WIP | WIP | GA | [GA](./reference-javascript-provider.md#tag-filters) | WIP 
 
 ## Support policy
 

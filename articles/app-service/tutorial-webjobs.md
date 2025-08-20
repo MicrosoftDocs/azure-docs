@@ -8,6 +8,7 @@ ms.author: msangapu
 ms.reviewer: glenga
 zone_pivot_groups: app-service-webjobs
 #Customer intent: As a web developer, I want to leverage a scheduled background task to keep my application running smoothly.
+ms.service: azure-app-service
 ---
 
 # Tutorial: Build a scheduled WebJob

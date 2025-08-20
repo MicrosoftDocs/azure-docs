@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
-ms.date: 05/22/2024
+ms.date: 05/22/2025
 # Customer intent: As a network administrator, I want to understand the networking requirements and limitations of Azure NetApp Files, so that I can effectively integrate it with my existing Azure Virtual Networks and ensure optimal performance for my applications.
 ---
 # Networking FAQs for Azure NetApp Files
