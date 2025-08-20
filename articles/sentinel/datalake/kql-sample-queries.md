@@ -1,25 +1,27 @@
----  
+---
 title: Sample KQL queries for Microsoft Sentinel data lake
-titleSuffix: Microsoft Security  
+titleSuffix: Microsoft Security
 description: Use KQL queries to explore and analyze data in the Microsoft Sentinel data lake.
-author: EdB-MSFT  
-ms.service: microsoft-sentinel  
+
+author: EdB-MSFT
+ms.service: microsoft-sentinel
 ms.topic: how-to
 ms.subservice: sentinel-graph
-ms.date: 08/19/2025
-ms.author: edbaynash  
+ms.date: 08/20/2025
+ms.author: edbaynash
+ms.collection: ms-security
 
-ms.collection: ms-security  
+#customer intent: As a security analyst, I want to run learn from sample KQL queries so that I can investigate incidents and monitor suspicious activity in Microsoft Sentinel data lake.
 ---  
 
 
 # Sample KQL queries for Microsoft Sentinel data lake
 
-This article provides sample KQL queries that can be used interactively or in KQL jobs to investigate security incidents and monitor for suspicious activity in the Microsoft Sentinel data lake.
+This article provides sample KQL queries that you can use interactively or in KQL jobs to investigate security incidents and monitor for suspicious activity in the Microsoft Sentinel data lake.
 
-Interactive queries are run manually in tools like advanced hunting and KQL queries in Data lake exploration. Interactive queries are great for ad-hoc investigation, troubleshooting, or exploring data.
+Interactive queries are run manually in tools like advanced hunting and KQL queries in data lake exploration. Interactive queries are great for ad-hoc investigation, troubleshooting, or exploring data.
 
-Queries for jobs are designed to run automatically on a schedule. They’re used for ongoing monitoring, alerting, or data enrichment. Job queries often include logic for summarizing, aggregating, or exporting results, and may be optimized for performance and reliability.
+Job queries are one-time, long running queries or queries that run automatically on a schedule. Use job queries for data aggregation tasks, historical threat intelligence, and anomaly detection. Job queries often summarize, aggregate, or export results.
 
 
 ## Sample interactive queries
@@ -44,7 +46,7 @@ DeviceFileEvents
 
 ### Investigate potential privilege escalation or unauthorized administrative actions
 
-Identify users who successfully signed in and performed sensitive operations such as “Add service principal” or “Certificates and secrets management” between 90 and 180 days ago. This query links individual sign-in events with corresponding audit logs to provide detailed visibility into each action. The results include the user identity, IP address, and accessed applications, enabling granular investigation of potentially risky behavior.	
+Identify users who successfully signed in and performed sensitive operations such as “add service principal” or “certificates and secrets management” between 90 and 180 days ago. This query links individual sign-in events with corresponding audit logs to provide detailed visibility into each action. The results include the user identity, IP address, and accessed applications, enabling granular investigation of potentially risky behavior.	
 
 ```KQL
 AuditLogs
@@ -84,7 +86,7 @@ The following queries can be used in KQL jobs to automate investigations and mon
 
 ### Brute force attack incident investigation
 
-Enrich Signin logs with network logs for Brute Force Attack incident investigation 
+Enrich sign-in logs with network logs for brute force attack incident investigation.
 
 ```KQL
 // Attacker IPs from signin failures (enriched with domains)
@@ -110,7 +112,7 @@ matchedFirewall
 
 ### Historical activity involving IP addresses from threat intelligence
 
-Uncover historical network activity involving IP addresses from threat intelligence, helping trace potential exposure or compromise that occurred 3–6 months ago 	
+Uncover historical network activity involving IP addresses from threat intelligence, helping trace potential exposure or compromise that occurred 3–6 months ago. 
 
 ```KQL
 let IPRegex = '[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}';
@@ -152,7 +154,7 @@ IP_Indicators
 
 ### Suspicious travel activity
 
-Look for successful sign-ins from countries not previously seen for a given user, which may signal account compromise or suspicious travel activity in the last 180 days.
+Look for successful sign-ins from countries or regions not previously seen for a given user, which may signal account compromise or suspicious travel activity in the last 180 days.
 
 ```KQL
 SigninLogs
@@ -184,9 +186,9 @@ SigninLogs
 ```
 
 
-### Daily location trend per user, app in signinLogs
+### Daily location trend per user and application
 
-Daily job to summarize sign-in activity by user and application, showing the list and count of distinct geographic locations and IPs used in the last 24 hours. 
+A daily job to summarize sign-in activity by user and application, showing the list and count of distinct geographic locations and IPs used in the last 24 hours.
 
 ```KQL
 SigninLogs
@@ -200,7 +202,7 @@ SigninLogs
 
 ### Daily process execution trend
 
-Daily job to track process creation events (Event ID 4688) from SecurityEvents, summarizing counts by process name along with the number of distinct computers, accounts, parent processes, and unique command lines observed in the past 24 hours.	
+A daily job to track process creation events (Event ID 4688) from `SecurityEvents`, summarizing counts by process name along with the number of distinct computers, accounts, parent processes, and unique command lines observed in the past 24 hours.	
 
 ```KQL
 
