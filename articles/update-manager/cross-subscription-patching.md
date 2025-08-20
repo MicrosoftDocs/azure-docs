@@ -1,6 +1,6 @@
 ---
-title: Cross subscription patching in Azure Update Manager
-description: Learn about the overview, benefits, and limitations of cross-subscription patching in Azure Update Manager. Centralize and streamline patch management across multiple Azure subscriptions.
+title: Cross Subscription Patching in Azure Update Manager
+description: Discover the overview, key benefits, and limitations of cross-subscription patching in Azure Update Manager. Centralize patch management for Windows, Linux, and hybrid environments across multiple Azure subscriptions.
 ms.service: azure-update-manager
 ms.date: 02/04/2025
 ms.topic: concept-article

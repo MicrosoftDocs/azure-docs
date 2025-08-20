@@ -1,6 +1,6 @@
 ---
 title: Enable cross-subscription patching in Azure Update Manager
-description: Learn how to enable cross-subscription patching in Azure Update Manager.
+description: Learn how to enable cross-subscription patching in Azure using CLI or portal. Register resource providers, assign roles, and schedule updates with Update Manager.
 ms.service: azure-update-manager
 author: habibaum
 ms.author: v-uhabiba
