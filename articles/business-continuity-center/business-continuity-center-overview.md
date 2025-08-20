@@ -3,7 +3,7 @@ title: What is Azure Business Continuity Center?
 description: Azure Business Continuity Center is a cloud-native unified business continuity and disaster recovery (BCDR) management platform in Azure that enables you to manage your protection estate across solutions and environments.
 ms.topic: overview
 ms.service: azure-business-continuity-center
-ms.date: 11/19/2024
+ms.date: 08/20/2025
 ms.custom:
   - mvc
   - ignite-2023
@@ -14,6 +14,10 @@ ms.author: v-mallicka
 # What is Azure Business Continuity Center?
  
 The Azure Business Continuity Center is a cloud-native unified business continuity and disaster recovery (BCDR) management platform in Azure that enables you to manage your protection estate across solutions and environments. It provides a unified experience with consistent views, seamless navigation, and supporting information to provide a holistic view of your business continuity estate for better discoverability with the ability to do core activities.
+
+Watch the following video for a deep dive into the Azure Business Continuity Center—a centralized platform that offers a single pane of glass for all your Business Continuity and Disaster Recovery (BCDR) needs. Discover how it empowers organizations to manage, monitor, govern, and audit compliance across solutions and platforms, while enabling core actions from one unified interface. <br>
+
+> [!VIDEO https://learn-video.azurefd.net/vod/player?show=azure-friday&ep=revolutionize-business-continuity-and-disaster-recovery-with-azures-business-continuity-center]
 
 ## Why should I use Azure Business Continuity Center?
 
