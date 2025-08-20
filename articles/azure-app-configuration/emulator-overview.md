@@ -11,13 +11,13 @@ ms.date: 08/12/2025
 #Customer intent: I want to learn about how to Azure App Configuration emulator for local development.
 ---
 
-# Azure App Configuration Emulator Overview
+# Azure App Configuration emulator overview
 
 The Azure App Configuration emulator is a local development tool that provides a lightweight implementation of the Azure App Configuration service. This emulator allows developers to test and develop applications locally without requiring an active Azure subscription or connection to the cloud service.
 
 The Azure App Configuration emulator is open source. For more information, visit the [GitHub repository](https://github.com/Azure/AppConfiguration-Emulator).
 
-## Feature Overview
+## Feature overview
 
 The following table lists the features supported by the latest Azure App Configuration emulator.
 
@@ -57,17 +57,17 @@ This installation method requires that you have installed:
 
 1. Clone the [GitHub repository](https://github.com/Azure/AppConfiguration-Emulator) for the emulator project.
 
-```console
-git clone https://github.com/Azure/AppConfiguration-Emulator.git
-```
+    ```console
+    git clone https://github.com/Azure/AppConfiguration-Emulator.git
+    ```
 
 1. Build the entire solution including the UI components.
 
-```console
-cd AppConfiguration-Emulator
-dotnet restore
-dotnet build
-```
+    ```console
+    cd AppConfiguration-Emulator
+    dotnet restore
+    dotnet build
+    ```
 
 ---
 
