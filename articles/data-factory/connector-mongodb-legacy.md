@@ -212,7 +212,7 @@ When copying data from MongoDB, the following mappings are used from MongoDB dat
 > [!NOTE]
 > To learn about support for arrays using virtual tables, refer to [Support for complex types using virtual tables](#support-for-complex-types-using-virtual-tables) section.
 >
-> Currently, the following MongoDB data types are not supported: DBPointer, Symbol, Undefined.
+> Currently, the following MongoDB data types aren't supported: DBPointer, Symbol, Undefined.
 
 ## Support for complex types using virtual tables
 
