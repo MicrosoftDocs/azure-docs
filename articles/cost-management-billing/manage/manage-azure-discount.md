@@ -52,7 +52,7 @@ Here are the high-level steps to move a discount resource. For more information 
 8.	Click on the acknowledgment that you need to update tools and scripts for these resources. To start moving the resources, select ***Move***
 9.	After the move is complete, verify that the discount resource is in the new subscription and resource group. 
 
-When a discount is moved, the resource URI associated with it is updated to reflect the change.
+When a discount is moved, the resource URI associated with it's updated to reflect the change.
 
 
 ## To view the discount resource URI
@@ -76,7 +76,7 @@ The discount’s resource name is a part of its Uniform Resource Identifier (URI
 
 ## Delete a discount resource 
 You can only delete a discount resource if its status is in the ***Failed***, ***Canceled***, or ***Expired*** states. Deletion is permanent and can't be reversed.
-If you try to delete an active discount resource in an ***Active*** state, an error will notify you that deletion is not allowed.
+If you try to delete an active discount resource in an ***Active*** state, an error notifies you that deletion is not allowed.
 
 Deleting a resource group or subscription with an active discount resource will fail. To resolve, move the discount resource to another group or subscription within the same billing account before deleting.
 
@@ -84,7 +84,7 @@ For additional information on moving a discount resource, see section: [To move 
 
 
 ## Cancel a discount 
-Please contact your Microsoft account team if you have questions about cancelling your discount.
+Contact your Microsoft account team if you have questions about canceling your discount.
 
 
 ## Grant user access to a discount resource
