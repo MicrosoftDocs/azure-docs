@@ -33,7 +33,7 @@ Detect historical access to sensitive document files on endpoints by correlating
 
 ```KQL
 DeviceFileEvents
-| where Timestamp between (datetime_add("day", -180, now()) .. datetime_add("day", -90, now()))[OS1.1][ZM1.2]
+| where Timestamp between (datetime_add("day", -180, now()) .. datetime_add("day", -90, now()))
 | where FileName endswith ".docx" or FileName endswith ".pdf" or FileName endswith ".xlsx"
 | where FolderPath contains "Confidential" or FolderPath contains "Sensitive" or FolderPath contains "Restricted"
 | where ActionType in ("FileAccessed", "FileRead", "FileModified", "FileCopied", "FileMoved")
@@ -61,7 +61,7 @@ AuditLogs
 | sort by Actor asc, LoginTime desc
 ```
 
-### Investigate slow Brute Force attack
+### Investigate slow brute force attack
 
 Detect IP addresses with a high number of failed sign-in attempts and specific error codes coming from multiple unique users.
 
@@ -82,7 +82,7 @@ SigninLogs
 The following queries can be used in KQL jobs to automate investigations and monitoring tasks in the Microsoft Sentinel data lake.
 
 
-### Brute Force Attack incident investigation
+### Brute force attack incident investigation
 
 Enrich Signin logs with network logs for Brute Force Attack incident investigation 
 
@@ -184,7 +184,7 @@ SigninLogs
 ```
 
 
-### Daily location trend per user, app in SiginLogs
+### Daily location trend per user, app in signinLogs
 
 Daily job to summarize sign-in activity by user and application, showing the list and count of distinct geographic locations and IPs used in the last 24 hours. 
 
