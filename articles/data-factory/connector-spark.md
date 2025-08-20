@@ -90,7 +90,7 @@ The following properties are supported for Spark linked service version 2.0:
 | authenticationType | The authentication method used to access the Spark server. <br/>Allowed values are: **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Yes |
 | username | The user name that you use to access Spark Server.  | No |
 | password | The password corresponding to the user. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
-| httpPath | The partial URL corresponding to the Spark server. <br/>For WindowsAzureHDInsightService authentication type, the default value is "/sparkhive2". | No |
+| httpPath | The partial URL corresponding to the Spark server. <br/>For WindowsAzureHDInsightService authentication type, the default value is `/sparkhive2`. | No |
 | enableSsl | Specifies whether the connections to the server are encrypted using TLS. The default value is true.  | No |
 | enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when you connect. <br>Always use System Trust Store. The default value is true. | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
@@ -271,7 +271,7 @@ The following table shows the release stage and change logs for different versio
 | Version | Release stage | Change log |
 | :----------- | :------- | :------- |
 | Version 1.0 | End of support announced | / |
-| Version 2.0 | GA version available | • The default value of `enableSSL` is true. `enableServerCertificateValidation` is supported. <br>`trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported.   <br><br>• For WindowsAzureHDInsightService authentication type, the default value of `httpPath` is "/sparkhive2".<br><br>• DecimalType is read as Decimal data type. <br><br>• TimestampType is read as DateTimeOffset data type. <br><br>•  YearMonthIntervalType, DayTimeIntervalType are read as String data type. <br><br>• SharkServer and SharkServer2 are not supported for `serverType`. <br><br>• Binary and SASL are not supported for `thriftTransportProtocl`. <br><br>• Username authentication type is not supported. |
+| Version 2.0 | GA version available |  • `enableServerCertificateValidation` is supported. <br><br>• The default value of `enableSSL` is true.  <br><br>• For WindowsAzureHDInsightService authentication type, the default value of `httpPath` is `/sparkhive2`.<br><br>• DecimalType is read as Decimal data type. <br><br>• TimestampType is read as DateTimeOffset data type. <br><br>•  YearMonthIntervalType, DayTimeIntervalType are read as String data type. <br><br>• `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported. <br><br>• SharkServer and SharkServer2 are not supported for `serverType`. <br><br>• Binary and SASL are not supported for `thriftTransportProtocl`. <br><br>• Username authentication type is not supported. |
 
 ### <a name="upgrade-the-spark-connector"></a> Upgrade the Spark connector from version 1.0 to version 2.0
 
