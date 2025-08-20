@@ -13,11 +13,11 @@ ms.reviewer: Oded Weber
 
 # Unified Connectors Overview
 
-The Unified connectors platform enables you to connect to several different Microsoft security products using a single connector. This platform simplifies the connector management experience across Microsoft security products.
+The Unified connectors platform enables you to connect once to an external product that provides value in multiple Microsoft security products. This platform simplifies the connector management experience across Microsoft security products.
 
 Unified connectors provide the following benefits:
 
-- Connect and collect the data once for use with multiple products
+- Connect and collect the data once for use with multiple Microsoft security products
 - Centralized Management
 - Enhanced Security: Credentials stored once
 - Cost Reduction: Reduced API calls and data duplication
@@ -28,9 +28,9 @@ The unified connectors platform provides unified services shared by all security
 
 ### Unified collector service
 
-Different products collect the same data from the same source for different scenarios. For example, Okta Single Sign On system logs are collected every five minutes both by Microsoft Sentinel and Defender for Identity users. This duplication and inefficient and can cause customers to exceed their API rate limit due to the quotas imposed by Okta.
+Multiple Microsoft Security products may collect the same data from the same external source for different scenarios. For example, Okta Single Sign On system logs are collected every five minutes both by Microsoft Sentinel and Defender for Identity users. This duplication and inefficiency can cause customers to exceed their API rate limit due to the quotas imposed by Okta.
 
-The unified connector unifies two or more products that have similar collection rules and collects the data once for all products as illustrated in the following diagram:
+The unified collector is applied to two or more Microsoft Security products connecting to the same external source and having similar data collection needs. It collects the data once for all products as illustrated in the following diagram:
 
 :::image type="content" source="./media/unified-connector/unified-connector-structure.png" alt-text="Diagram showing Okta data flowing into the unified collector and from there to Sentinel, MDI, and Microsoft security exposure management.":::
 
@@ -40,7 +40,7 @@ Users can manage all their connectors in one place through the Unified Security 
 
 ### One time authentication
 
-The platform provides a unified credentials service where the customer's credentials are entered once and stored for all connectors, enhancing security and usability.
+When configuring a unified connector, you enter your credentials for the external product only once. Your credentials are stored and managed in a unified credentials service serving all applicable connections to this product.  This enhances security of credentials management along with usability.
 
 ### Unified health service
 
@@ -58,7 +58,7 @@ Unified connectors are pre-installed with the latest version where possible, min
 
 ## Supported Products
 
-The Unified Connectors Platform is currently available for the following Microsoft security products:
+The Unified Connectors Platform currently supports connectors serving the following Microsoft security products:
 
 - Microsoft Sentinel
 - Microsoft Defender for Identity
@@ -77,9 +77,11 @@ The available unified connectors are shown in the [Data connectors Gallery](http
 
 You can see all the available unified connectors in this tab. There are also links to other product specific connectors galleries. The connectors column of the table shows you how many connector instances this connector currently has. The table also shows who supports the connector and who the provider is.
 
-The **My Connectors** tab shows the connectors that are currently configured. The **Unified connectors** tab shows the unified connectors that are available to you. You can select a connector to see its health information and manage it.
+The **My Connectors** tab shows the connectors that are currently configured. The **Unified connectors** tab shows the unified connectors that are available to you, while the Sentinel tab shows connectors that are available only to Sentinel as they appear in the content hub.
 
 :::image type="content" source="./media/unified-connector/connector-info.png" alt-text="Screenshot of my connectors tab in connectors gallery.":::
+
+Under the Unified connectors tab, you can select a connector to see and manage its health information.
 
 Connector health information available in the **My Connectors** tab includes:
 
@@ -94,7 +96,7 @@ The Sentinel tab shows the connectors that are available only to Sentinel as the
 
 ## Considerations and limitations
 
-- The unified connectors scope doesn't include billing. Each individual product is responsible for how its users are charged.
+- Billing for Connectors data is managed separately for each individual Microsoft security product, in accordance with its use cases and benefits.
 - The unified connectors feature isn't supported for tenants in the United Arab Emirates region.
 - Unified connectors are the preferred way to create a connection. If you already have an Okta connector, you can disconnect it and install a unified connector so that you only collect the system logs once. We don't recommended having both a unified connector and a product specific connector for the same data source.
 - Currently, for Sentinel, unified connectors aren't part of solutions and can't be discovered through content hub.
