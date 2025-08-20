@@ -6,7 +6,7 @@ ms.topic: how-to
 author: apurbasroy
 ms.author: apsinhar
 ms.reviewer: nijelsf
-ms.date: 09/20/2025
+ms.date: 08/20/2025
 ---
 
 # Run Apache Hive queries in HDInsight using the REST API
@@ -17,7 +17,7 @@ With the REST API, you can integrate Hive query execution into applications, scr
 
 **Prerequisites**
 
-- An Entra Enabled Apache Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](/hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started).
+- An Entra Enabled Apache Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](../hadoop/apache-hadoop-linux-tutorial-get-started).
 - A REST client. This document uses [Curl](https://curl.haxx.se/).
 - If you use Bash, you'll also need jq, a command-line JSON processor. See [Download jq](https://jqlang.org/download/)
 
@@ -88,10 +88,10 @@ A successful request returns a JSON object containing:
       ```
         {"status":"ok","version":"v1"}
       ```
-      The parameters used in this command are as follows:
+    The parameters used in this command are as follows:
 
-       - `u` - The username and password used to authenticate the request.
-       - `G` - Indicates that this request is a GET operation.
+       - `u` The username and password used to authenticate the request.
+       - `G`  Indicates that this request is a GET operation.
 1. The beginning of the URL, `https://$CLUSTERNAME.azurehdinsight.net/templeton/v1`, is the same for all requests. The path, `/status`, indicates that the request is to return a status of WebHCat (also known as Templeton) for the server. You can also request the version of Hive by using the following command:
     
     Bash
@@ -130,7 +130,7 @@ A successful request returns a JSON object containing:
   > External tables should be used when you expect the underlying data to be updated by an external source. For example, an automated data upload process or another MapReduce operation.
 
 
-      Dropping an external table does **not** delete the data, only the table definition.
+Dropping an external table does **not** delete the data, only the table definition.
 
 
       
@@ -150,11 +150,13 @@ A successful request returns a JSON object containing:
 
 ### To check the status of the job, use the following command:
     
-      Bash    
-      ```
+ Bash   
+	  
+     
+ ```
             curl -H "Authorization: Bearer $TOKEN" -d user.name=admin -G https://$CLUSTER_NAME.azurehdinsight.net/templeton/v1/jobs/$jobid | jq .status.state
-      ```
-      If the job has finished, the state is **SUCCEEDED**.
+ ```
+If the job has finished, the state is **SUCCEEDED**.
 
  Once the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter passed with the query contains the location of the output file; in this case, `/example/rest`. This address stores the output in the `example/curl` directory in the clusters default storage.
 
