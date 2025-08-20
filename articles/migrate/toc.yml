@@ -151,8 +151,6 @@ items:
           href: tutorial-assess-postgresql.md
         - name: Review assessment PostgreSQL report
           href: tutorial-review-postgresql-properties.md
-        - name: Review assessment report
-          href: review-sql-assessment.md
         - name: PostgreSQL customize assessment settings
           href: postgresql-assessment-properties.md
       - name: MySQL assessment
