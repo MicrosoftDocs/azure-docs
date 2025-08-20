@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Container Instances
-description: Learn how to improve reliability in Azure Container Instances by using availability zones, failover, and disaster recovery strategies.
+description: Learn how to improve reliability in Azure Container Instances by using availability zones, zonal container groups, and multi-region disaster recovery strategies.
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
@@ -40,7 +40,7 @@ Azure Container Instances supports *zonal* container group deployments, meaning 
 To change your container group's availability zone, you must delete the container group and create another container group with the new availability zone.
 
 
-### Create a resource with availability zone enabled
+### Create a resource with availability zones enabled
 
 To create a Container Instance resource with availability zone enabled, you'll need to deploy a container group using an Azure Resource Manager (ARM) template.
 

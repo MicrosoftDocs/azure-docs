@@ -14,7 +14,7 @@ ms.date: 03/09/2023
 
 # Reliability in Azure Batch
 
-This article describes reliability support in Azure Batch. It covers how to improve intra-regional resiliency by using [availability zones](#availability-zone-support) to minimize downtime and data loss. It also links to information about [cross-region recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity).
+This article describes reliability support in Azure Batch. It covers how to improve intra-regional resiliency by using [availability zones](#availability-zone-support), batch pools, and compute nodes to minimize downtime and data loss. It also links to information about [cross-region recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity).
 
 ## Availability zone support
 

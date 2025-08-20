@@ -1,7 +1,7 @@
 ---
 title: Reliability in Azure AI Search
 titleSuffix: Azure AI Search
-description: Learn how to improve reliability in Azure AI Search by using availability zones and multi-region architecture for more resilient performance.
+description: Learn how to improve reliability in Azure AI Search by using availability zones, replicas, and multi-region deployments for more resilient performance.
 author: haileytap
 ms.author: haileytapia
 ms.service: azure-ai-search

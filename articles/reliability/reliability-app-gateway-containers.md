@@ -13,7 +13,7 @@ ms.date: 02/07/2024
 # Reliability in Azure Application Gateway for Containers
 
 
-This article describes reliability and availability zone support in [Azure Application Gateway for Containers](/azure/application-gateway/for-containers/overview). Learn how to configure zone redundancy to increase resilience and availability for container workloads. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+This article describes reliability and availability zone support in [Azure Application Gateway for Containers](/azure/application-gateway/for-containers/overview). Learn how to configure zone redundancy to increase resilience and availability for container workloads that have highly available deployment configurations. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 ## Availability zones and zone redundancy support
 

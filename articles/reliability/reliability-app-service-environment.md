@@ -13,9 +13,9 @@ ms.date: 07/17/2025
 
 # Reliability in Azure App Service Environment
 
-App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment to run App Service apps securely at high scale. This article describes reliability support in [App Service Environment](../app-service/environment/overview.md). It covers intra-regional resiliency via [availability zones](#availability-zone-support) and [multiple-region deployments](#multiple-region-support).
+App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment to run App Service apps securely at high scale. This article describes reliability support in [App Service Environment](../app-service/environment/overview.md), including zone redundancy configuration for mission-critical applications. It covers intra-regional resiliency via [availability zones](#availability-zone-support) and [multiple-region deployments](#multiple-region-support).
 
-Unlike the App Service public multitenant offering that shares supporting infrastructure, an App Service Environment provides dedicated compute for a single customer.
+Unlike the App Service public multitenant offering that shares supporting infrastructure, an App Service Environment provides dedicated compute resources and enhanced network isolation for a single customer.
   
 An environment provides the following key reliability benefits:
 

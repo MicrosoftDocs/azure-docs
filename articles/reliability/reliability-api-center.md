@@ -12,7 +12,7 @@ ms.date: 04/15/2024
 
 # Reliability in Azure API Center
 
-This article describes reliability support in Azure API Center, including availability zones and zone redundancy, and what customers should expect during zone or regional outages. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+This article describes reliability support in Azure API Center, including availability zones, zone redundancy, data residency, and what customers should expect during zone or regional outages. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 ## Availability zone support
 

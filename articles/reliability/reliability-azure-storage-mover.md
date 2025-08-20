@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Storage Mover
-description: Enhance reliability for Azure Storage Mover by using zone redundancy and availability zones. Learn about the best practices for disaster recovery.
+description: Enhance reliability for Azure Storage Mover by using zone redundancy and availability zones. Learn about instance metadata protection and agent configuration.
 author: johnmic
 ms.author: johnmic
 ms.topic: reliability-article

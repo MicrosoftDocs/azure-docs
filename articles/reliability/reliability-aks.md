@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Kubernetes Service (AKS)
-description: Learn how to deploy highly available workloads in Azure Kubernetes Service (AKS) by using availability zones and multi-region architecture.
+description: Learn how to deploy highly available production workloads in Azure Kubernetes Service (AKS) by using availability zones and multi-region architecture.
 author: schaffererin
 ms.author: schaffererin
 ms.topic: reliability-article

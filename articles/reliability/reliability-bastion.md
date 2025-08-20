@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Bastion
-description: Learn how to improve reliability in Azure Bastion by using availability zones and zone redundancy to minimize downtime and support disaster recovery.
+description: Improve reliability in Azure Bastion by using availability zones and zone redundancy for RDP/SSH connections. Understand disaster recovery best practices.
 author: anaharris-ms 
 ms.author: anaharris
 ms.topic: reliability-article

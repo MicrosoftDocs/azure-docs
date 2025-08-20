@@ -14,7 +14,7 @@ ms.date: 01/06/2022
 
 This article describes reliability support in Azure Bot Service. It covers both regional reliability with availability zones and cross-region resiliency with disaster recovery for bots with local data residency. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
-When you create an application (bot) in Bot Service, you can choose global or local data residency. Local data residency ensures that your bot's personal data is preserved, stored, and processed within specific geographic boundaries, for example, the European Union. This approach helps you meet compliance and regional performance requirements.
+When you create an application (bot) in Bot Service, you can choose global or local data residency. Local data residency ensures that your bot's personal data is preserved, stored, and processed within specific geographic boundaries, such as the European Union. This approach helps you meet compliance and regional reliability requirements.
 
 >[!IMPORTANT]
 >Availability zone support is not enabled for any standard channels in the regional bot service.
