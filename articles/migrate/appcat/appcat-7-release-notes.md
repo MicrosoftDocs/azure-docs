@@ -20,7 +20,7 @@ This article provides the release notes for Azure Migrate application and code a
 ### 7.7.0.3
 
 This release contains the following fixes and enhancements:
-- Rename `domain` and `category` for the report.
+- Refine issue domain names and category names.
 - Separate global config from installation location.
 - Do not generate temp files during analysis.
 - Return error when input is non-java project.
