@@ -1,5 +1,5 @@
 ---
-title: Storage hierarchy of Azure NetApp Files | Microsoft Docs
+title: Storage hierarchy of Azure NetApp Files
 description: Describes the storage hierarchy, including Azure NetApp Files accounts, capacity pools, and volumes.
 services: azure-netapp-files
 author: b-hchen

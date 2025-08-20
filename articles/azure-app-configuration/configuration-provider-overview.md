@@ -39,7 +39,7 @@ Module | Platform | Sample | Release Notes
 
 ## Feature Development Status
 
-This is an overview of each feature and its current status for different frameworks or programming languages.  
+This is an overview of each feature and its current status for different frameworks or programming languages. 
 
 - **GA (General Availability)**: The feature is fully released, considered stable, and ready for production use.  
 - **Preview**: The feature is available for early testing and feedback, but not yet fully stable or recommended for production use.  
@@ -54,9 +54,10 @@ Dynamic Refresh (Poll Mode) | [GA](./reference-dotnet-provider.md#refresh-on-sen
 Dynamic Refresh (Push Mode) | GA | GA | N/A | N/A | N/A | N/A
 Dynamic Refresh (Collection Monitoring) | [GA](./reference-dotnet-provider.md#configuration-refresh) | WIP | GA | WIP | [GA](./reference-javascript-provider.md#configuration-refresh) | GA
 JSON Content Type Handling | [GA](./reference-dotnet-provider.md#json-content-type-handling) | GA | GA | GA | [GA](./reference-javascript-provider.md#json-content-type-handling) | GA
+JSON with Comments | WIP | WIP | WIP | WIP | [GA](./reference-javascript-provider.md#json-content-type-handling) | WIP
 Configuration Setting Mapping | [GA](./reference-dotnet-provider.md#configuration-setting-mapping) | N/A | N/A | N/A | N/A | N/A
 Key Vault References | [GA](./reference-dotnet-provider.md#key-vault-reference) | GA | GA | GA | [GA](./reference-javascript-provider.md#key-vault-reference) | GA
-Key Vault Secret Refresh | [GA](./reference-dotnet-provider.md#key-vault-secret-refresh) | N/A | GA | WIP | WIP | GA
+Key Vault Secret Refresh | [GA](./reference-dotnet-provider.md#key-vault-secret-refresh) | WIP | GA | WIP | [GA](./reference-javascript-provider.md#key-vault-secret-refresh) | GA
 Custom Key Vault Secret Resolution | [GA](./reference-dotnet-provider.md#key-vault-reference) | GA | GA | GA | [GA](./reference-javascript-provider.md#key-vault-reference) | GA
 Parallel Secret Resolution | WIP | N/A | WIP | N/A | [GA](./reference-javascript-provider.md#parallel-secret-resolution) | GA
 Feature Flags | [GA](./reference-dotnet-provider.md#feature-flag) | GA | GA | GA | [GA](./reference-javascript-provider.md#feature-flag) | GA
@@ -69,8 +70,8 @@ Replica Failover | [GA](./reference-dotnet-provider.md#geo-replication) | GA | G
 Replica Load Balancing | [GA](./reference-dotnet-provider.md#geo-replication) | WIP | GA | GA | [GA](./reference-javascript-provider.md#geo-replication) | WIP
 Snapshots | [GA](./reference-dotnet-provider.md#snapshot) | GA | GA | WIP | [GA](./reference-javascript-provider.md#snapshot) | WIP
 Distributed Tracing | [GA](./reference-dotnet-provider.md#distributed-tracing) | WIP | WIP | WIP | WIP | WIP
-Health Check | WIP | GA | WIP | WIP | WIP | WIP 
-Select by Tag Filters | [GA](./reference-dotnet-provider.md#load-specific-key-values-using-selectors) | WIP | WIP | GA | WIP | WIP 
+Health Check | [GA](./reference-dotnet-provider.md#health-check) | GA | WIP | WIP | WIP | WIP 
+Select by Tag Filters | [GA](./reference-dotnet-provider.md#load-specific-key-values-using-selectors) | WIP | WIP | GA | [GA](./reference-javascript-provider.md#tag-filters) | WIP 
 
 ## Support policy
 
