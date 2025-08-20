@@ -80,7 +80,7 @@ If you try to delete an active discount resource in an ***Active*** state, an er
 
 Deleting a resource group or subscription with an active discount resource will fail. To resolve, move the discount resource to another group or subscription within the same billing account before deleting.
 
-For additional information on moving a discount resource, see section: [To move a discount resource](#To-move-a-discount-resource)
+For additional information on moving a discount resource, see section: [To move a discount resource](#to-move-a-discount-resource)
 
 
 ## Cancel a discount 
