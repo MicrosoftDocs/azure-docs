@@ -79,6 +79,7 @@ The HubSpot linked service supports the following properties when apply version 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Hubspot** | Yes |
+| version | The version that you specify. The value is `2.0`. | Yes |
 | clientId | The client ID associated with your HubSpot application. Learn how to create an app in HubSpot from [here](https://developers.hubspot.com/docs/faq/how-do-i-create-an-app-in-hubspot). | Yes |
 | clientSecret | The client secret associated with your HubSpot application. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | accessToken | The access token obtained when initially authenticating your OAuth integration. Learn how to get access token with your client ID and secret from [here](https://developers.hubspot.com/docs/methods/oauth2/get-access-and-refresh-tokens). Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
