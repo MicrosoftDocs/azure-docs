@@ -21,7 +21,7 @@ This article provides the release notes for Azure Migrate application and code a
 
 This release contains the following fixes and enhancements:
 - Refine issue domain names and category names.
-- Separate global config from installation location.
+- move .appcat-ignore into user home path instead of appCAT installation folder
 - Remove unnecessary temporary files like eclipse specific configuration during analysis.
 - Return error message directly for non-java projects.
 
