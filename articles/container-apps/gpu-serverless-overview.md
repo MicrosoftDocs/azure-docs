@@ -74,12 +74,19 @@ Keep in mind the following items as you use serverless GPUs:
 
 Access to this feature is only available after you have serverless GPU quota. You can submit your GPU quota request via a [customer support case](/azure/azure-portal/supportability/how-to-create-azure-support-request). When opening a support case for a GPU quota request, please select the following:
 
+1. In the **Problem description** tab, select the following values:
+
 | Field | Value |
 |--|--|
 | Issue type | Service and subscription limits (quota) |
+| Subscription | Your subscription |
 | Quota type | Container Apps |
 
-In the **Additional details** section, select **Request details** and for **Quota type**, select either **Managed Environment Consumption NCA100 Gpus** or **Managed Environment Consumption T4 Gpus**.
+1. In the **Additional details** tab, select **Request details**.
+
+1. For **Quota type**, select either **Managed Environment Consumption NCA100 Gpus** or **Managed Environment Consumption T4 Gpus**.
+
+1. Complete the remaining required fields to submit your request.
 
 ## Supported regions
 
