@@ -4,7 +4,7 @@ description: Use Microsoft Entra ID and Azure role-based access control (RBAC) t
 author: zhenlan
 ms.author: zhenlwa
 ms.date: 10/05/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-app-configuration
 
 ---

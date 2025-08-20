@@ -4,7 +4,7 @@ description: Service Connector region availability and region support list
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/28/2024
 ms.custom: references_regions
 ---

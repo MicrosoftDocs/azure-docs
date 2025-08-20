@@ -73,7 +73,7 @@ For more information, see the following resources:
 
 - [What is rate limiting for Azure Front Door?](waf-front-door-rate-limit.md).
 - [Configure an Azure Web Application Firewall rate limit rule by using Azure PowerShell](waf-front-door-rate-limit-configure.md).
-- [Why do additional requests above the threshold configured for my rate limit rule get passed to my back-end server?](waf-faq.yml#why-do-additional-requests-above-the-threshold-configured-for-my-rate-limit-rule-get-passed-to-my-backend-server-)
+- [Why do additional requests above the threshold configured for my rate limit rule get passed to my back-end server?](waf-faq.yml#why-do-additional-requests-above-the-threshold-configured-for-my-rate-limit-rule-get-passed-to-my-back-end-server-)
 
 ### Use a high threshold for rate limits
 

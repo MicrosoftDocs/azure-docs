@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-managed-grafana
 ms.custom: devx-track-azurecli
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/05/2024
 #customer intent: As a Grafana administrator, I want to use service accounts in Azure Managed Grafana so that I can automate operations add authenticate applications in Grafana.
 ---

@@ -183,5 +183,5 @@ If you create a dev box with user customizations in a project where user customi
 ## Related content
 
 - [Microsoft Dev Box customizations](concept-what-are-dev-box-customizations.md)
-- [Configure Dev Box imaging](how-to-configure-dev-box-imaging.md)
+- [Configure dev center imaging](how-to-configure-dev-center-imaging.md)
 - [Add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md)

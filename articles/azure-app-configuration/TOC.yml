@@ -451,6 +451,10 @@
       items:
       - name: Feature flag telemetry reference
         href: feature-flag-telemetry-reference.md
+  - name: Local emulator
+    items:
+    - name: Overview
+      href: emulator-overview.md
   - name: Deployment
     items:
     - name: ARM template

@@ -61,7 +61,7 @@ Use the time picker above the query editor to select the time range for your que
 
 
 > [!NOTE]
-> Queries are limited to 30,000 rows or 64 MB of data and timeout after 10 minutes. When selecting a broad time range, your query may exceed these limits.
+> Queries are limited to 500,000 rows or 64 MB of data and timeout after 8 minutes. When selecting a broad time range, your query may exceed these limits.
 
 ### View schema information
 
@@ -116,6 +116,7 @@ external_table("microsoft.entra.id.AADRiskyUsers")
     + `externaldata()`
     + `arg()`
     + `ingestion_time()`
+    + `workspace()`
 
 
 [!INCLUDE [Service limits for KQL queries against the data lake](../includes/service-limits-kql-queries.md)]

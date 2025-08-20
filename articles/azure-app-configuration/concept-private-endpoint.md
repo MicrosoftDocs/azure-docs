@@ -5,7 +5,7 @@ services: azure-app-configuration
 author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/15/2023
 
 #Customer intent: As a developer using Azure App Configuration, I want to understand how to use private endpoints to enable secure communication with my App Configuration instance.

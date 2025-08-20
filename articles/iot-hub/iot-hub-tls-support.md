@@ -84,6 +84,9 @@ The following non-recommended cipher suites are allowed on hubs **without mi
 
 A client can suggest a list of higher cipher suites to use during `ClientHello`. However, IoT Hub might not support some of them, for example, `ECDHE-ECDSA-AES256-GCM-SHA384`. In this case, IoT Hub tries to follow the preference of the client but eventually negotiate down the cipher suite with `ServerHello`.
 
+> [!NOTE]
+> When using an ECDSA or ECDHE cipher, the client must provide the `supported_groups` extension in the `ClientHello` with a valid group. When connecting with a client certificate, the client must include the curve used in that client certificate in its `supported_groups` extension.
+
 ## Update IoT Hub to TLS 1.2 support
 
 Once an IoT Hub is created, the `minTlsVersion` property can be updated using the Azure portal, CLI, or SDKs. If you need to update to enforce IoT Hub to use TLS 1.2 and strong cipher suites (only allowed in selected regions) or to set TLS 1.2 support (supported in all regions), you can do so following these steps.

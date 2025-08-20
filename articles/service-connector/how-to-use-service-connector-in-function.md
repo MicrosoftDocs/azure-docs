@@ -3,7 +3,7 @@ title: How Service Connector helps Azure Functions connect to services
 description: Learn how to use Service Connector to connect to services in Azure Functions. 
 author: houk-ms
 ms.service: service-connector
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/25/2023
 ms.author: honc
 ---
