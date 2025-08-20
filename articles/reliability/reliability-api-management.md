@@ -86,7 +86,7 @@ If you want to explicitly select the availability zones to use, you can choose b
 
 - **Zone-redundant:** Manually configure zone redundancy for an API Management instance in a supported region to provide redundancy for service components. When you select two or more availability zones to use, Azure automatically replicates the service components across the selected zones.
 
-    :::image type="complex" border="false" source="zone-redundant-automatic-multi-unit.png" alt-text="Diagram that shows three API Management units distributed across availability zones for manual zone redundancy." lightbox="zone-redundant-automatic-multi-unit.png":::
+    :::image type="complex" border="false" source="./media/reliability-api-management/zone-redundant-automatic-multi-unit.png" alt-text="Diagram that shows three API Management units distributed across availability zones for manual zone redundancy." lightbox="./media/reliability-api-management/zone-redundant-automatic-multi-unit.png":::
        The diagram shows three boxes labeled Unit 1, Unit 2, and Unit 3 deployed in an API Management instance. Each unit box contains two icons that represent VMs. Three larger boxes are labeled Availability Zone 1, Availability Zone 2, and Availability Zone 3. Zone 1 contains unit 1, zone 2 contains unit 2, and zone 3 contains unit 3.
     :::image-end:::
 
