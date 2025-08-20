@@ -6,7 +6,7 @@ ms.topic: how-to
 author: apurbasroy
 ms.author: apsinhar
 ms.reviewer: nijelsf
-ms.date: 09/20/2025
+ms.date: 9/20/2025
 ---
 
 # **Manage Entra ID-enabled Azure HDInsight clusters with ARM templates**
@@ -15,7 +15,7 @@ Azure HDInsight now supports integration with Microsoft Entra ID, enabling secur
 By using Azure Resource Manager (ARM) templates, you can deploy and manage Entra ID-enabled HDInsight clusters in a repeatable, automated, and consistent way. 
 This guide explains how to define the necessary ARM template resources, configure Entra ID settings, and manage your clusters at scale—all while ensuring compliance with organizational security and governance requirements.
 
-# Prerequisites
+## Prerequisites
 
   Before you begin, ensure you have the following:
 
@@ -228,7 +228,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 
 | Name | Description | Value |
 | --- | --- | --- |
-| capacity | Parameters for load-based autoscale | [AutoscaleCapacity](azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#autoscalecapacity-1) |
+| capacity | Parameters for load-based autoscale | AutoscaleCapacity |
 | recurrence | Parameters for schedule-based autoscale | [AutoscaleRecurrence](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#autoscalerecurrence-1) |
 
 **AutoscaleCapacity**
