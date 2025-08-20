@@ -96,23 +96,25 @@ You can find *InstallFont.ps1* in the **CustomFontSample** project. It's a simpl
 
 [Azure Container Registry](/azure/container-registry/) can store your images for container deployments. You can configure App Service to use images that are hosted in Container Registry.
 
-### Open the publish wizard
+### Open the Publish window
 
-In the Solution Explorer, right-click the **CustomFontSample** project and select **Publish**.
+In Solution Explorer, right-click the **CustomFontSample** project and select **Publish**.
 
 :::image type="content" source="media/tutorial-custom-container/open-publish-wizard.png" alt-text="Screenshot of the CustomFontSample project in Solution Explorer. The Publish menu item is highlighted.":::
 
 ### Create and publish the registry
 
-In the publish wizard, select **Container Registry** > **Create New Azure Container Registry** > **Publish**.
+1. In the **Publish** window, select **Azure**, and then select **Next**.
+
+1. Select Azure Container Registry, and then select Next.
+
+1. Select the subscription where you want to publish the registery and then select **Create new**. 
 
 :::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="Screenshot of the publish wizard. Container Registry, Create New Azure Container Registry, and the Publish button are highlighted.":::
 
 ### Sign in with an Azure account
 
-In the **Create a new Azure Container Registry** dialog, select **Add an account**, and then sign in to your Azure subscription. If you're already signed in, select the account containing the desired subscription from the dropdown list.
-
-:::image type="content" source="./media/tutorial-custom-container/add-an-account.png" alt-text="Screenshot that shows how to sign in to Azure.":::
+In the **Azure Container Registry** window, select **Add an account**, and then sign in to your Azure subscription. If you're already signed in, select the account containing the desired subscription from the dropdown list.
 
 ### Configure the registry
 
@@ -120,12 +122,14 @@ Configure the new container registry by using the suggested values in the follow
 
 | Setting  | Suggested value | 
 | ----------------- | ------------ | 
-|**DNS Prefix**| Keep the generated registry name, or change it to another unique name. |  
-|**Resource Group**| Select **New**, type **myResourceGroup**, and select **OK**. |  
+|**DNS prefix**| Keep the generated registry name, or change it to another unique name. |  
+|**Resource group**| Select **New**, enter **myResourceGroup**, and then select **OK**. |  
 |**SKU**| **Basic**. For more information, see [Pricing tiers](https://azure.microsoft.com/pricing/details/container-registry/). |
 |**Registry Location**| **West Europe** | 
 
 :::image type="content" source="./media/tutorial-custom-container/configure-registry.png" alt-text="Screenshot of the Create a new Azure Container Registry page.":::
+
+Select **Finish**.
 
 A terminal window opens and displays the image deployment progress. Wait for the deployment to complete.
 
