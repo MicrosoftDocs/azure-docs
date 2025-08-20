@@ -115,7 +115,7 @@ This section describes what to expect when search services are configured for zo
 
     If the primary replica is lost because it was in the affected zone, Azure AI Search automatically promotes another replica to become the new primary so that write operations can resume. It typically takes a few seconds for the replica promotion to occur, and during this time write operations might not succeed. Ensure that your applications are prepared by following [transient fault handling guidance](#transient-faults).
 
-+ **Traffic rerouting**: When a zone fails, Azure AI Search detects the failure and routes requests to active replicas in the surviving zones. If the primary replica was lost
++ **Traffic rerouting**: When a zone fails, Azure AI Search detects the failure and routes requests to active replicas in the surviving zones. If the primary replica was lost, another replica is promoted to be the new primary.
 
 ### Zone recovery
 
