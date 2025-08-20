@@ -67,14 +67,12 @@ landingContent:
             url: concept-what-are-dev-box-customizations.md
           - text: Configure team customizations
             url: how-to-configure-team-customizations.md
-          - text: Configure Dev Box imaging
-            url: how-to-configure-dev-box-imaging.md
+          - text: Configure dev center imaging
+            url: how-to-configure-dev-center-imaging.md
           - text: Configure user customizations
             url: how-to-configure-user-customizations.md
           - text: Connect to Azure resources and repositories
             url: how-to-customizations-connect-resource-repository.md
-          - text: Use GitHub Copilot to generate a team customization file
-            url: how-to-use-copilot-generate-image-definition-file.md
           - text: Create customization tasks
             url: how-to-create-customization-tasks-catalog.md
   

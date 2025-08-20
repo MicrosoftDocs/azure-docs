@@ -97,4 +97,4 @@ For comprehensive cost optimization guidance, see [DDoS Protection cost optimiza
 
 - Configure [DDoS Protection diagnostic logs](ddos-diagnostic-alert-templates.md) to monitor and analyze DDoS attack patterns.
 - Learn more about [DDoS Protection reference architectures](ddos-protection-reference-architectures.md)
-- Get started with [Network Protection](manage-ddos-protection.md) or [IP Protection].(manage-ddos-ip-protection-portal.md) configuration.
+- Get started with [Network Protection](manage-ddos-protection.md) or [IP Protection](manage-ddos-ip-protection-portal.md) configuration.
