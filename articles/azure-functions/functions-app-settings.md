@@ -340,6 +340,18 @@ When using an identity-based storage connection, sets the data plane URI of the 
 
 Use this setting instead of `AzureWebJobsStorage__accountName` in sovereign clouds or when using a custom DNS. For more information, see [Connecting to host storage with an identity](functions-reference.md#connecting-to-host-storage-with-an-identity).
 
+## AzureWebJobsStorage__clientId
+
+Sets the client ID of a specific user-assigned identity used to obtain an access token for managed identity authentication. Requires that `AzureWebJobsStorage__credential` be set to `managedidentity`. The value is a client ID that corresponds to an identity assigned to the application. You can't set both `AzureWebJobsStorage__managedIdentityResourceId` and `AzureWebJobsStorage__clientId`. When not set, the system-assigned identity is used. 
+
+## AzureWebJobsStorage__credential
+
+Defines how an access token is obtained for the connection. Use `managedidentity` for managed identity authentication. When using `managedidentity`, a managed identity must be available in the hosting environment. Don't set `AzureWebJobsStorage__credential` in local development scenarios. 
+
+## AzureWebJobsStorage__managedIdentityResourceId
+
+Sets the resource identifier of a user-assigned identity used to obtain an access token for managed identity authentication. Requires that `AzureWebJobsStorage__credential` be set to `managedidentity`. The value is the resource ID of an identity assigned to the application used for managed identity authentication. You can't set both `AzureWebJobsStorage__managedIdentityResourceId` and `AzureWebJobsStorage__clientId`. When not set, the system-assigned identity is used. 
+
 ## AzureWebJobsStorage__queueServiceUri
 
 When using an identity-based storage connection, sets the data plane URI of the queue service of the storage account.
@@ -794,9 +806,22 @@ Enables your function app to run from a package file, which can be locally mount
 |---|------------|
 |WEBSITE\_RUN\_FROM\_PACKAGE|`1`|
 
-Valid values are either a URL that resolves to the location of an external deployment package file, or `1`. When set to `1`, the package must be in the `d:\home\data\SitePackages` folder. When you use zip deployment with `WEBSITE_RUN_FROM_PACKAGE` enabled, the package is automatically uploaded to this location. In preview, this setting was named `WEBSITE_RUN_FROM_ZIP`. For more information, see [Run your functions from a package file](run-functions-from-deployment-package.md).
+Valid values are either a URL that resolves to the location of an external deployment package file, or `1`. When set to `1`, the package must be in the `d:\home\data\SitePackages` folder. When you use zip deployment with `WEBSITE_RUN_FROM_PACKAGE` enabled, the package is automatically uploaded to this location. For more information, see [Run your functions from a package file](run-functions-from-deployment-package.md).
 
-When you deploy from an external package URL, you must also manually sync triggers. For more information, see [Trigger syncing](functions-deployment-technologies.md#trigger-syncing).
+When you use `WEBSITE_RUN_FROM_PACKAGE=<URL>`, the URL must resolve to the package file location in an accessible storage location, such as an Azure Blob Storage container. The container must be private to prevent unauthorized access, which requires you to use either a shared access signature (SAS) in the URL or Microsoft Entra ID authentication to allow access. Using Microsoft Entra ID with managed identities is recommended. 
+
+This is an example of setting `WEBSITE_RUN_FROM_PACKAGE` to the URL of a deployment package in an Azure Blog Storage container:  
+`WEBSITE_RUN_FROM_PACKAGE=https://contosostorageaccount.blob.core.windows.net/mycontainer/mypackage.zip`
+
+When using SAS, you append the token to the URL as a query parameter.  
+
+When you [deploy a package from Azure Blob Storage using a user-assigned managed identity](run-functions-from-deployment-package.md#fetch-a-package-from-azure-blob-storage-using-a-managed-identity), you must also set [`WEBSITE_RUN_FROM_PACKAGE_BLOB_MI_RESOURCE_ID`](#website_run_from_package_blob_mi_resource_id) to the resource ID of the user-assigned managed identity. When you deploy from an external package URL, you must also manually sync triggers. For more information, see [Trigger syncing](functions-deployment-technologies.md#trigger-syncing).
+
+## WEBSITE_RUN_FROM_PACKAGE_BLOB_MI_RESOURCE_ID
+
+Indicates the resource ID of a user-assigned managed identity that's used when accessing a deployment package from an external Azure Blob Storage container secured using Microsoft Entra ID. This setting requires that [`WEBSITE_RUN_FROM_PACKAGE`](#website_run_from_package) be set to the URL of the deployment package in a private container. 
+
+Setting `WEBSITE_RUN_FROM_PACKAGE_BLOB_MI_RESOURCE_ID=SystemAssigned` is the same as omitting the setting, in which case the system-assigned managed identity for the app is used. 
 
 ## WEBSITE\_SKIP\_CONTENTSHARE\_VALIDATION
 

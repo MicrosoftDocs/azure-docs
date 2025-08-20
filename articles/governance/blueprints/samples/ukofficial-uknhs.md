@@ -16,7 +16,7 @@ architecture that must implement controls for UK OFFICIAL and UK NHS.
 
 ## Control mapping
 
-The [Azure Policy control mapping](../../policy/samples/ukofficial-uknhs.md) provides details on
+The [Azure Policy control mapping](/azure/governance/policy/samples/ukofficial-uknhs) provides details on
 policy definitions included within this blueprint and how these policy definitions map to the
 **controls** in the UK OFFICIAL and UK NHS framework. When assigned to an architecture, resources
 are evaluated by Azure Policy for non-compliance with assigned policy definitions. For more

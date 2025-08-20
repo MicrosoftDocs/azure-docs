@@ -24,19 +24,19 @@ Document score: 100 - 495/0 (words, issues)
 !########################################################
 -->
 
-# Create and manage a storage discovery workspace
+# Create and manage a storage discovery preview workspace
 
-The Azure Storage Discovery Workspace (ASDW) is a central resource within the Azure Storage Discovery platform. A discovery workspace is designed to help users manage and visualize storage data across various scopes such as tenants, subscriptions, and resource groups.
+The Azure Storage Discovery workspace is a central resource within the Azure Storage Discovery (preview) platform. A discovery workspace is designed to help users manage and visualize storage data across various scopes such as tenants, subscriptions, and resource groups.
 
-Follow the steps in this article to create an ASDW resource.
+Follow the steps in this article to create an Azure Storage Discovery workspace resource.
 
 ## Create a storage discovery workspace
 
-You can create a storage discovery workspace using the Azure portal, Azure CLI, or ARM templates. 
+You can create a storage discovery workspace using the Azure portal, Azure PowerShell, or the Azure CLI.
 
 ### [Azure portal](#tab/portal)
 
-Create an ASDW resource by selecting **Create** as shown in the following image.
+Create an Azure Storage Discovery Workspace resource in the Azure portal by selecting **Create** as shown in the following image.
 
 :::image source="media/create-workspace/create-resource-sml.png" alt-text="Screenshot of the Create ASDW page."  lightbox="media/create-workspace/create-resource.png":::
 
@@ -91,19 +91,18 @@ After the access checks complete successfully, the resource can be deployed as s
 
 ### [Azure PowerShell](#tab/powershell)
 
-Something like this:
+Create an Azure Storage Discovery workspace resource in the Azure portal by modifying the variables in the following PowerShell script to include your resource group, workspace name, and location. Verify that your values are correct, and then run the script in the Azure PowerShell console.
 
 ```powershell
 
-# Set variables for the resources
-$resGroupName   = "MyResourceGroup"
-$workSpaceName  = "MyStorageDiscoveryWorkspace"
+# First, set variables for the resources
+$resGroupName   = "myResourceGroup"
+$workSpaceName  = "myStorageDiscoveryWorkspace"
 $location       = "East US"
-$DiscoveryScopeLevel1 = "MyScopeLevel1"
-$DiscoveryScopeLevel2 = "MyScopeLevel2"
+$DiscoveryScopeLevel1 = "myScopeLevel1"
+$DiscoveryScopeLevel2 = "myScopeLevel2"
 
-# First, prepare local DiscoveryScope object, which can be used to 
-# both create/update Workspace
+# Next, prepare a DiscoveryScope object
 $scope1 =  New-AzStorageDiscoveryScopeObject -DisplayName "test1" `
             -ResourceType "Microsoft.Storage/storageAccounts"  `
             -TagKeysOnly "e2etest1" -Tag @{"tag1" = "value1"; "tag2" = "value2" }
@@ -111,10 +110,10 @@ $scope2 =  New-AzStorageDiscoveryScopeObject -DisplayName "test2" `
             -ResourceType "Microsoft.Storage/storageAccounts"  `
             -TagKeysOnly "e2etest2" -Tag @{"tag3" = "value3" }
 
-# CVreate the discovery workspace
+# Finally, create the discovery workspace
 New-AzStorageDiscoveryWorkspace -Name $workSpaceName  -ResourceGroupName $resGroupName `
 -Location $location -Description 123 -WorkspaceRoot $DiscoveryScopeLevel1 `
--Sku Standard   -Scope $scope1  # -debug 
+-Sku Standard   -Scope $scope1
 
 ```
 

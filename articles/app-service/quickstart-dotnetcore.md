@@ -16,6 +16,7 @@ ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, devdivchpfy22, devx-trac
 ai-usage: ai-assisted
 ms.collection: ce-skilling-ai-copilot
 #customer intent: As a .NET developer, I want to deploy a web app to Azure App Services by using my preferred development process.
+ms.service: azure-app-service
 ---
 
 <!-- NOTES:

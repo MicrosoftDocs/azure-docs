@@ -1,9 +1,9 @@
 ---
 title: How does Azure IoT Operations work in layered network?
 description: Use the Layered Network Management (preview) service to enable Azure IoT Operations in industrial network environment.
-author: PatAltimore
+author: SoniaLopezBravo
 ms.subservice: layered-network-management
-ms.author: patricka
+ms.author: sonialopez
 ms.topic: concept-article
 ms.date: 10/22/2024
 

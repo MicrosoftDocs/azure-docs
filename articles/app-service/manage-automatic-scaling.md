@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 04/18/2025
 ms.custom: devx-track-azurecli
 
+ms.service: azure-app-service
 ---
 
 # Automatic scaling in Azure App Service
