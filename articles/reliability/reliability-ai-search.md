@@ -37,8 +37,7 @@ The addition of multiple replicas allows AI Search to:
 - Increase the availability of your search service.
 - Perform maintenance on one replica while queries continue executing on other replicas.
 - Handle higher indexing and query workloads.
-
-In addition, it's possible that AI Search will automatically provision replicas in different zones in regions that support availability zones.
+- Provision replicas in different availability zones for extra resiliency, if your region supports availability zones.
 
 You can also configure the number of *partitions*, which represent the storage used by the search indexes.
 
