@@ -4,7 +4,8 @@ description: Azure Spring Apps resource list
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: reference
-ms.date: 09/08/2020
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.author: karler
 ms.custom: devx-track-java
 ---
