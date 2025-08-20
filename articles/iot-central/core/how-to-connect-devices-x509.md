@@ -3,7 +3,7 @@ title: Connect devices with X.509 certificates to your application
 description: This article describes how devices can use X.509 certificates to authenticate to your application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/01/2024
+ms.date: 08/06/2025
 ms.topic: how-to
 ms.service: azure-iot-central
 services: iot-central
@@ -467,4 +467,4 @@ When the secondary certificate nears expiration, and needs to be rolled, you can
 
 4. For secondary certificate update, select the folder icon to select the new certificate to be uploaded for the enrollment entry. Select **Save**.
 
-5. Later when the primary certificate has expired, come back and update the primary certificate.
+5. Later, when the primary certificate expires, come back and update the primary certificate.

@@ -4,7 +4,7 @@ description: Learn how to use the IoT Central data export capability to continuo
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/05/2024
+ms.date: 08/06/2025
 ms.topic: how-to
 ms.service: azure-iot-central
 ---

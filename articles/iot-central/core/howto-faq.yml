@@ -4,7 +4,7 @@ metadata:
   description: "Azure IoT Central frequently asked questions (FAQ) and answers"
   author: dominicbetts
   ms.author: dobett
-  ms.date: 02/06/2024
+  ms.date: 08/06/2025
   ms.topic: faq
   ms.service: azure-iot-central
   services: iot-central
@@ -17,7 +17,7 @@ sections:
       - question: |
           How do I get information about my application?
         answer: |
-          You may need:
+          You might need:
           
           - This information if you contact support.
           - The Azure subscription your application uses to locate billing information in the Azure portal.

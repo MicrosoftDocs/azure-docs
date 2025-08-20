@@ -3,7 +3,7 @@ title: Edit device templates in your Azure IoT Central application
 description: Iteratively update your device templates without impacting your live connected devices by using versioned device templates.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/04/2024
+ms.date: 08/06/2025
 ms.topic: how-to
 ms.service: azure-iot-central
 services: iot-central
@@ -52,7 +52,7 @@ The following actions are useful when you edit a device template:
 - _Save_. When you change part of your device template, saving the changes creates a draft that you can return to. These changes don't yet affect connected devices. Any devices created from this template don't have the saved changes until you publish it.
 - _Publish_. When you publish the device template, it applies any saved changes to existing device instances. Newly created device instances always use the latest published template.
 - _Version a template_. When you version a device template, it creates a new template with all the latest saved changes. Changes made to a new version don't impact existing device instances. To learn more, see [Version a device template](#version-a-device-template).
-- _Version an interface_. When you version an interface, it creates a new interface with all the latest saved capabilities. You can reuse an interface in multiples locations within a template. That's why a change made to one reference to an interface changes all the places in the template that use the interface. When you version an interface, this behavior changes because the new version is now a separate interface. To learn more, see [Version an interface](#version-an-interface).
+- _Version an interface_. When you version an interface, it creates a new interface with all the latest saved capabilities. You can reuse an interface in multiples locations within a template. That reuse is why a change made to one reference to an interface changes all the places in the template that use the interface. When you version an interface, this behavior changes because the new version is now a separate interface. To learn more, see [Version an interface](#version-an-interface).
 - _Migrate a device_. When you migrate a device, the device instance swaps from one device template to another. Device migration can cause a short while IoT Central processes the changes. To learn more, see [Migrate a device across versions](#migrate-a-device-across-versions).
 
 ### Version numbers
