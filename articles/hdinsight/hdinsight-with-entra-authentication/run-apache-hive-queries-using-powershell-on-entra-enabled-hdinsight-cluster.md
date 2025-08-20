@@ -1,12 +1,12 @@
 ---
-title:Run Apache Hive queries using PowerShell on Entra enabled HDInsight Cluster
-description:Learn how to run Apache Hive queries using PowerShell on Entra enabled HDInsight Cluster
-ms.service:azure-hdinsight
-ms.topic:how-to
-author:apurbasroy
-ms.author:apsinhar
-ms.reviewer:nijelsf
-ms.date:09/20/2025
+title: Run Apache Hive queries using PowerShell on Entra enabled HDInsight Cluster
+description: Learn how to run Apache Hive queries using PowerShell on Entra enabled HDInsight Cluster
+ms.service: azure-hdinsight
+ms.topic: how-to
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: nijelsf
+ms.date: 09/20/2025
 ---
 
 # Run Apache Hive queries using PowerShell on Entra ID-enabled HDInsight clusters
@@ -16,11 +16,11 @@ Apache Hive provides a powerful SQL-like interface for querying and analyzing da
 This guide walks you through how to connect to an Entra-enabled HDInsight cluster from PowerShell, authenticate with Entra ID, and run Hive queries to analyze your data. By leveraging PowerShell, you can automate Hive operations, integrate with scripts, and manage workloads more efficiently.
 
 > [!NOTE]  
->This document does not provide a detailed description of what the HiveQL statements that are used in the examples do. For information on the HiveQL that is used in this example, see [Use Apache Hive with Apache Hadoop on HDInsight](./hadoop/apache-hadoop-linux-tutorial-get-started).
+>This document does not provide a detailed description of what the HiveQL statements that are used in the examples do. For information on the HiveQL that is used in this example, see [Use Apache Hive with Apache Hadoop on HDInsight](/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal).
 
  **Prerequisites**
 
-- An Entra enabled Apache Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](./hadoop/apache-hadoop-linux-tutorial-get-started).
+- An Entra enabled Apache Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](/hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started).
 - The PowerShell [Az Module](/powershell/azure/) installed.
 
 - **Run a Hive query**
@@ -188,7 +188,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
      ```
 
 > [!NOTE]  
->For longer HiveQL queries, you can use the Azure PowerShell **Here-Strings** cmdlet or HiveQL script files. The following snippet shows how to use the `Invoke-Hive` cmdlet to run a HiveQL script file. The HiveQL script file must be uploaded to wasbs://.`Invoke-AzHDInsightHiveJob -File "wasbs://<ContainerName>@<StorageAccountName>/<Path>/query.hql"` For more information about **Here-Strings**, see [**HERE-STRINGS**](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_quoting_rules#here-strings).
+>For longer HiveQL queries, you can use the Azure PowerShell **Here-Strings** cmdlet or HiveQL script files. The following snippet shows how to use the `Invoke-Hive` cmdlet to run a HiveQL script file. The HiveQL script file must be uploaded to wasbs://.`Invoke-AzHDInsightHiveJob -File "wasbs://<ContainerName>@<StorageAccountName>/<Path>/query.hql"` For more information about **Here-Strings**, see [**HERE-STRINGS**](/powershell/module/microsoft.powershell.core/about/about_quoting_rules#here-strings).
 
 **Troubleshooting**
 
