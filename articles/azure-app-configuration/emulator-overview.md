@@ -1,5 +1,5 @@
 ---
-title: App Configuration Emualtor Overview
+title: App Configuration Emulator Overview
 titleSuffix: Azure App Configuration
 description: Overview of Azure App Configuration emulator.
 services: azure-app-configuration
