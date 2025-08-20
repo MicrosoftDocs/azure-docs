@@ -6,7 +6,7 @@ author: haileytap
 ms.author: haileytapia
 ms.service: azure-ai-search
 ms.topic: reliability-article
-ms.date: 08/19/2025
+ms.date: 08/20/2025
 ms.custom: subject-reliability
 ---
 
@@ -26,16 +26,20 @@ Azure AI Search doesn't provide a service-level agreement for the Free tier, whi
 
 ## Reliability architecture overview
 
-When you use Azure AI Search, you create a *service*. Each service supports many *search indexes*, which represent your searchable content.
+When you use Azure AI Search, you create a *search service*. Each search service supports many *search indexes* that store your searchable content.
 
-Azure AI Search isn't designed as a primary data store. Instead, you connect it to other data stores by using *indexers*, which import, process, and enrich your data.
+Azure AI Search isn't designed as a primary data store. Instead, you use indexers to connect your search service to external data sources. An indexer crawls the source data, invokes skills that perform processing and enrichment, and populates your index with the skill outputs.
 
-You also configure the number of *replicas* for your service. In Azure AI Search, a replica is a copy of your service's search engine. You can think of a replica as representing a single virtual machine (VM). Each service can have between 1 and 12 replicas. Adding replicas provides several benefits:
+You also configure the number of *replicas* for your service. In Azure AI Search, a replica is a copy of your service's search engine. You can think of a replica as representing a single virtual machine (VM). Each search service can have between 1 and 12 replicas. 
 
-- Having multiple replicas increases the availability of your service.
-- It allows Azure AI Search to perform maintenance on one replica while queries continue executing on other replicas.
-- Your service can handle higher indexing and query workloads.
-- If your region supports availability zones, replicas are automatically provisioned in different zones for extra resiliency.
+The addition of multiple replicas allows AI Search to:
+
+- Increase the availability of your search service.
+- Perform maintenance on one replica while queries continue executing on other replicas.
+- Handle higher indexing and query workloads.
+
+
+In addition, it's possible that AI Search will automatically provision replicas in different zones in regions that support availability zones.
 
 You can also configure the number of *partitions*, which represent the storage used by the search indexes.
 
@@ -45,7 +49,7 @@ For more information about replicas and partitions, see [Estimate and manage cap
 
 [!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
 
-Azure AI Search indexers have built-in transient fault handling. If a data source is briefly unavailable, the indexer is designed to recover and retry. It uses change tracking to resume indexing from the last successfully indexed document.
+Azure AI Search indexers have built-in transient fault handling. If a data source is briefly unavailable, the indexer is designed to recover and retry, and uses change tracking to resume indexing from the last successfully indexed document.
 
 Search services might experience transient faults during standard, unscheduled maintenance operations. Azure AI Search doesn't provide advance notification or allow scheduling of maintenance at specific times. Although every effort is made to minimize downtime, even for single-replica services, brief interruptions can still occur. To improve resiliency against these transient faults, we recommend that you use two or more replicas.
 
@@ -55,7 +59,7 @@ Any applications you build that interact with Azure AI Search should handle tran
 
 [!INCLUDE [Availability zone support description](includes/reliability-availability-zone-description-include.md)]
 
-Azure AI Search is zone redundant, which means that your replicas are distributed across multiple availability zones within the service region.
+Azure AI Search is zone redundant, which means that your replicas are distributed across multiple availability zones within the search service region.
 
 When you add two or more replicas to your service, Azure AI Search attempts to place each replica in a different availability zone. For services with more replicas than available zones, replicas are distributed across zones as evenly as possible.
 
@@ -87,7 +91,7 @@ If your search service meets the [requirements for zone redundancy](#requirement
 
 ### Capacity planning and management
 
-To prepare for availability zone failure, consider *over-provisioning* the number of replicas. Over-provisioning allows the solution to tolerate some degree of capacity loss and continue to function without degraded performance. Adding replicas during an outage is challenging, so overprovisioning helps ensure that your service can handle normal request volumes, even with reduced capacity. For more information, see [Manage capacity with over-provisioning](/azure/reliability/concept-redundancy-replication-backup#manage-capacity-with-over-provisioning).
+To prepare for availability zone failure, consider *over-provisioning* the number of replicas. Over-provisioning allows the your search service to tolerate some degree of capacity loss and continue to function without degraded performance. Adding replicas during an outage is challenging, so over-provisioning helps ensure that your search service can handle normal request volumes, even with reduced capacity. For more information, see [Manage capacity with over-provisioning](/azure/reliability/concept-redundancy-replication-backup#manage-capacity-with-over-provisioning).
 
 ### Normal operations
 
@@ -145,11 +149,11 @@ However, if you accidentally delete the index and don't have a backup, you can [
 
 [!INCLUDE [SLA description](includes/reliability-service-level-agreement-include.md)]
 
-In Azure AI Search, the availability SLA applies to search services that meet the following criteria:
+In Azure AI Search, the availability SLA applies to search services that:
 
-+ The service is configured to use a billable tier.
-+ Read-only workloads (queries) for search services must have at least two replicas.
-+ Read-write workloads (queries and indexing) for search services must have at least three replicas.
++ Are configured to use [a billable tier](/azure/search/search-sku-tier).
++ Have at least two [replicas](/azure/search/search-capacity-planning#add-or-remove-partitions-and-replicas) for read-only workloads (queries).
++ Have at least three replicas for read-write workloads (queries and indexing).
 
 ## Related content
 
