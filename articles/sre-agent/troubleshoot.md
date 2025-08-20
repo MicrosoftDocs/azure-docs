@@ -10,11 +10,11 @@ ms.service: azure
 
 # Troubleshoot common problems in Azure SRE Agent Preview
 
-This article covers common problems that you can face when you're working with Azure SRE Agent Preview. It also provides practical solutions to resolve them. The problems are typically related to permissions, regional availability, and administrative access requirements.
+This article covers common problems that you might face when you're working with Azure SRE Agent Preview, along with practical solutions to resolve them. The problems are typically related to permissions, regional availability, and administrative access requirements.
 
 ## Common troubleshooting scenarios
 
-The following table outlines problems that you might encounter and their solutions. For more information about how roles and permissions are applied to an agent, see [Security contexts in Azure SRE Agent](./security-context.md).
+The following table outlines common problems and their solutions. For more information about how roles and permissions are applied to an agent, see [Security contexts in Azure SRE Agent](./security-context.md).
 
 | Scenario | Reason | Remarks |
 |---|---|---|
@@ -41,7 +41,7 @@ If your naming and your network configuration are correct, use the following ste
     az provider show -n Microsoft.App | grep -C 15 agents
     ```
 
-    If your subscription is in the allow list, you see output similar to the following message.
+    If your subscription is in the allow list, you get output similar to the following message.
 
     :::image type="content" source="media/troubleshoot/sre-agent-verify-access.png" alt-text="Screenshot of a console response that verifies user access to agents.":::
 
@@ -63,7 +63,7 @@ If you can't chat or interact with the agent, the problem might be related to a 
 
 :::image type="content" source="media/troubleshoot/sre-agent-permission-errors.png" alt-text="Screenshot of errors that result from incorrect permissions.":::
 
-Or, you might see the following output in your network trace.
+Or, you might get the following output in your network trace.
 
 :::image type="content" source="media/troubleshoot/sre-agent-network-trace-error.png" alt-text="Screenshot of a browser network trace when the agent encounters a permissions error.":::
 

@@ -45,8 +45,8 @@ When you create an agent from the portal, you can apply one of the following per
 
 | Permission level | Description |
 |---|---|
-| Reader | Initially configured with read-only permissions on the resource groups that it manages. When a necessary action requires elevated permissions, the agent prompts the user for a temporary elevation to complete the action. |
-| Privileged | Initially configured to take approved actions on resources and resource types detected in its assigned resource groups. |
+| Reader | Initially configured with read-only permissions on the resource groups that the agent manages. When a necessary action requires elevated permissions, the agent prompts the user for a temporary elevation to complete the action. |
+| Privileged | Initially configured to take approved actions on resources and resource types detected in the agent's assigned resource groups. |
 
 At any time, you can change which permissions are available to the agent's managed identity by modifying the identity and access management (IAM) settings of a resource group that the agent manages.
 
@@ -86,11 +86,11 @@ The following table details how the agent behaves when it attempts to conduct a 
 
 | Agent has permission? | Execution mode | Agent behavior |
 |---|---|---|
-| Yes | Review | Prompts for approval to take action, and then the agent uses its permissions to perform the action upon approval |
-| No | Review | First prompts for approval to take action, and then prompts for temporary access to perform the action [on behalf of the user](/entra/identity-platform/v2-oauth2-on-behalf-of-flow) |
+| Yes | Review | Prompts for approval to take action, and then uses its permissions to perform the action upon approval |
+| No | Review | Prompts for approval to take action, and then prompts for temporary access to perform the action [on behalf of the user](/entra/identity-platform/v2-oauth2-on-behalf-of-flow) |
 | Yes | Automatic | Uses its permissions to perform the action |
 | No | Automatic | Prompts for temporary access to perform the action [on behalf of the user](/entra/identity-platform/v2-oauth2-on-behalf-of-flow) |
 
 ## Related content
 
-* [Troubleshoot common problems in Azure SRE Agent](./troubleshoot.md)
+* [Troubleshoot Azure SRE Agent](./troubleshoot.md)

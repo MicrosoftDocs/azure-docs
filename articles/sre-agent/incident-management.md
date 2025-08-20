@@ -19,9 +19,9 @@ SRE Agent receives alerts from incident management platforms such as:
 
 Predefined conditions that you configure in these platforms trigger the alerts.
 
-When SRE Agent receives an alert from the management platform, the agent brings the incident into its context, analyzes the situation, and determines the next steps. This process mimics how a human site reliability engineer would acknowledge and investigate an incident.
+When SRE Agent receives an alert from the management platform, the agent brings the incident into its context, analyzes the situation, and determines the next steps. This process mimics how a human site-reliability engineer would acknowledge and investigate an incident.
 
-The agent reviews logs, health probes, and other telemetry to assess the incident. During the assessment step, the agent summarizes findings, determines if the alert is a false positive, and decides whether action is needed.
+The agent reviews logs, health probes, and other data to assess the incident. During the assessment step, the agent summarizes findings, determines if the alert is a false positive, and decides whether action is needed.
 
 ## Agent responses
 
@@ -37,7 +37,7 @@ You define the rules for how the agent handles incidents of various priorities. 
 
 Minimal setup is required for Azure Monitor (default integration). Non-Microsoft systems like PagerDuty require extra setup for incident handling preferences.
 
-To access the incident management settings, open your agent in the Azure portal. Select **Settings** > **Incident platform**.
+To access the incident management settings, open your agent in the Azure portal. Then select **Settings** > **Incident platform**.
 
 ### Azure Monitor
 

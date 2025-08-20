@@ -27,7 +27,7 @@ Azure SRE Agent has the following key features:
 
 * **Conversational chat interface**: By gathering responses to your prompts, you can use the agent to troubleshoot and resolve application problems, deploy Azure services, and delegate work to autonomous agents. You can accomplish all those activities in a chat window.
 
-* **Incident management**: You can configure the agent to be the first to respond to incidents in your environment. By pairing SRE Agent with [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview), [PagerDuty](https://www.pagerduty.com/) or [ServiceNow](https://www.servicenow.com/), you can define custom resolution workflows to quickly resolve problems. Depending on your configuration, the agent can fix problems upon your approval or work autonomously.
+* **Incident management**: You can configure the agent to be the first to respond to incidents in your environment. By pairing SRE Agent with [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview), [PagerDuty](https://www.pagerduty.com/), or [ServiceNow](https://www.servicenow.com/), you can define custom resolution workflows to quickly resolve problems. Depending on your configuration, the agent can fix problems upon your approval or work autonomously.
 
 * **Continuous, proactive monitoring**: The agent continuously evaluates activity in your environments to monitor active resources. The agent maintains a knowledge graph of your Azure infrastructure to maintain relationships between resources and dependencies.
 
@@ -35,7 +35,7 @@ Azure SRE Agent has the following key features:
 
 ## Daily uses for the agent
 
-Azure SRE Agent serves as a virtual site reliability engineer in helping you maintain and optimize your Azure resources. Here's how you can use the agent on a daily basis:
+Azure SRE Agent serves as a virtual site-reliability engineer in helping you maintain and optimize your Azure resources. Here's how you can use the agent on a daily basis:
 
 * **Incident response**: When your monitoring systems trigger alerts, interact with the agent through the chat interface to quickly diagnose problems. The agent can analyze a problem, suggest mitigations, and (with your approval) implement fixes automatically.
 
@@ -75,7 +75,7 @@ The agent also features fine-tuned contexts for managing the following services:
    :::column-end:::
 :::row-end:::
 
-To get the latest list of services with custom agent tooling, submit the following prompt to the agent:
+To get the latest list of services that have custom agent tooling, submit the following prompt to the agent:
 
 ```text
 Which Azure services do you have specialized tooling available for?
@@ -86,7 +86,7 @@ Which Azure services do you have specialized tooling available for?
 Keep in mind the following considerations as you use Azure SRE Agent:
 
 * English is the only supported language in the chat interface.
-* During the preview, you can deploy the agent to the Sweden Central region, but the agent can monitor and remediate problems for services in any Azure region.
+* During the preview, you can deploy the agent to only the Sweden Central region, but the agent can monitor and remediate problems for services in any Azure region.
 * For more information on how data is managed in SRE Agent, see the [Microsoft privacy statement](https://www.microsoft.com/privacy/privacystatement).
 
 ## Next step

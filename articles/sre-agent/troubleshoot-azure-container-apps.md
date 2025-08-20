@@ -186,9 +186,7 @@ By introducing a typo into the container image tag, you bring the app down so th
     What's wrong with my-container-app?
     ```
 
-    From here, the agent recognizes that the tag name is invalid.
-
-    Although every chat session is different, the response should resemble the following example:
+    From here, the agent recognizes that the tag name is invalid. Although every chat session is different, the response should resemble the following example:
 
     > ⚠️ I found a potential issue with crs-aca-app:
     >
@@ -206,7 +204,7 @@ By introducing a typo into the container image tag, you bring the app down so th
     If your agent doesn't respond with a yes-or-no question, you can give your agent the following command and wait for a response:
 
     ```text
-    Rollback to the last working version.
+    Roll back to the last working version.
     ```
 
 1. As the agent concludes the rollback analysis, it asks you for approval to execute the rollback operation.

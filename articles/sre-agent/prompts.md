@@ -35,7 +35,7 @@ Here are some prompts that you can use to help you interact with your agent:
 - Draw a heatmap of storage latencies over the last 14 days for storage accounts.
 - Show me a visualization of response times for container apps for the last week.
 - List [container apps, web apps, or another app type] that you're managing across all subscriptions.
-- Visualize split of container apps versus web apps versus AKS clusters managed across all subscriptions as a pie chart.
+- Visualize the split of container apps versus web apps versus AKS clusters managed across all subscriptions as a pie chart.
 
 ## Agent capabilities
 
@@ -77,7 +77,7 @@ Here are some prompts that you can use to help you interact with your agent:
 - Why is my web app timed out?
 - Why is my web app throwing 500 errors?
 - My web app is down. Can you analyze it?
-- My web is stuck and isn't loading. Investigate for me.
+- My web app is stuck and isn't loading. Investigate for me.
 
 ## Azure Container Apps
 
@@ -105,9 +105,9 @@ Here are some prompts that you can use to help you interact with your agent:
 
 - My container app is stuck in an activation failed state. Investigate for me.
 - Why is my container app timed out?
-- Why is my web app throwing 500 errors?
+- Why is my container app throwing 500 errors?
 - My container app is down. Can you analyze it?
-- My web is stuck and isn't loading. Investigate for me.
+- My container app is stuck and isn't loading. Investigate for me.
 
 ## Azure Kubernetes Service
 
@@ -158,6 +158,6 @@ Here are some prompts that you can use to help you interact with your agent:
 - Can you show me the recent failure logs for my API Management instance?
 - What's the failure rate for my API operations in my API Management instance?
 - Is anything wrong with my API Management instance's virtual network configuration?
-- Can you help me inspect the global policy for my API Management?
+- Can you help me inspect the global policy for my API Management instance?
 - Is my `<API_NAME>` API in my API Management instance causing any errors?
 - Can you help me change/delete my `<NSG_NAME>` NSG rule on my API Management instance?

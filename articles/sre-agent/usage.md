@@ -79,7 +79,7 @@ Create an agent by associating resource groups that you want to monitor with the
 
 ## Chat with your agent
 
-Your agent has access to any resource inside the resource group that's associated with the agent. Use the chat feature to inquire about and resolve problems related to your resources.
+Your agent has access to any resource inside the resource group that's associated with the agent. Use the chat feature to inquire about and resolve problems related to your resources:
 
 1. In the Azure portal, search for and select **Azure SRE Agent**.
 
@@ -90,7 +90,7 @@ When the chat window appears, you can begin asking your agent questions. Here's 
 * What can you help me with?
 * What subscriptions/resource groups/resources are you managing?
 * What alerts should I set up for `<RESOURCE_NAME>`?
-* Show me visualization of `2xx` requests versus HTTP errors for my web apps across all subscriptions.
+* Show me a visualization of `2xx` requests versus HTTP errors for my web apps across all subscriptions.
 
 If you have a specific problem in mind, you might ask questions like:
 

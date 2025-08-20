@@ -8,7 +8,7 @@ ms.date: 07/17/2025
 ms.service: azure
 ---
 
-# Troubleshoot an App Service app by using Azure SRE Agent Preview
+# Tutorial: Troubleshoot an App Service app by using Azure SRE Agent Preview
 
 > [!NOTE]
 > Azure SRE Agent is in preview. By using SRE Agent, you consent to the product-specific [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -208,7 +208,7 @@ After your agent is deployed and connected to your resource group, you can inter
 
 1. In the Azure portal, search for and select **Azure SRE Agent**.
 
-1. From the list of agents, select **my-app-service-sre-agent**.
+1. In the list of agents, select **my-app-service-sre-agent**.
 
 1. Select **Chat with agent**.
 
@@ -292,7 +292,7 @@ Now that the app is experiencing failures, use SRE Agent to diagnose and resolve
 
 After SRE Agent rolls back the slot swap, confirm that your app is functioning correctly:
 
-1. Open your App Service app in a browser by selecting **Browse** from the **Overview** page.
+1. Open your App Service app in a browser by selecting **Browse** on the **Overview** page.
 
 1. Notice that the text **ERROR INJECTION ENABLED** no longer appears, confirming that the app reverted to its original state.
 

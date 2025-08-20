@@ -14,14 +14,14 @@ Azure SRE Agent Preview works on your behalf in two ways.
 
 As soon as you create the agent, it begins monitoring your resources. During this time, the agent examines system data and learns about your resource's behavior. This continuous attention ensures that the agent is ready to respond to problems regardless of the scale or complexity of what you deploy on Azure. This type of action is called *always-on flow*.
 
-By contrast, the agent works differently from continuous monitoring when you prompt the agent or it works on tasks on its own. For example, when the agent detects a situation that requires attention, it carries out distinct, measurable tasks that use AI components to address the problem. The same action holds true when you issue a prompt to the agent. This type of action is called *active flow*.
+The agent works differently from continuous monitoring when when the agent works on tasks on its own. For example, when the agent detects a situation that requires attention, it carries out discrete, measurable tasks that use AI components to address the problem. The same action holds true when you issue a prompt to the agent. This type of action is called *active flow*.
 
 The following table summarizes the distinctions between the two types of actions.
 
 | Action type | Description | Triggered when... |
 |---|---|---|
 | Always-on flow | Continuous monitoring of your resources | You create the agent, and monitoring continues until the agent is deleted. |
-| Active flow | Measurable tasks that the agent takes in an attempt to mitigate problems or interact with you | Either you prompt the agent to take action, or the agent autonomously takes action on your behalf and reports the results. |
+| Active flow | Measurable tasks that the agent takes to mitigate problems or to interact with you | Either you prompt the agent to take action, or the agent autonomously takes action on your behalf and reports the results. |
 
 The amount of time that your agent spends in these flows affects how you're billed for the agent.
 
@@ -29,9 +29,9 @@ The amount of time that your agent spends in these flows affects how you're bill
 
 Billing for Azure SRE Agent is based on Azure agent units (AAUs). AAUs standardize measuring agentic processing across all prebuilt Azure agents. This common metric makes it easier for you to adopt new agents, compare agents, and better understand pricing in a predictable way.
 
-Actions in the always-on flow and actions in the active flow are billed at different rates. The total cost to use SRE Agent is a combination of costs for always-on flow and active flow.
+Actions in the always-on flow and actions in the active flow are billed at different rates. The total cost to use SRE Agent is a combination of costs for the two action types.
 
-Use the following table to help you estimate the costs associated with how you use SRE Agent.
+The following table can help you estimate the costs associated with how you use SRE Agent.
 
 | Action type | Calculation basis |
 |---|---|
