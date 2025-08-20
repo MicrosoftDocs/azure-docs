@@ -350,13 +350,13 @@ items:
   - name: Cluster operations with Entra ID authentication
     items:
     - name: Run jobs with Hadoop on HDInsight using PowerShell
-      href: ./hdinsight-with-entra-authentication/run-mapreduce-jobs-on-entra-enabled-hdInsight-using-powershell.md
+      href: ./hdinsight-with-entra-authentication/run-mapreduce-jobs-on-entra-enabled-hdinsight-using-powershell.md
     - name: Manage Entra ID enabled Azure HDInsight clusters with ARM templates
       href: ./hdinsight-with-entra-authentication/manage-entra-id-enabled-azure-hdinsight-clusters-with-arm-templates.md
     - name: Run Apache Hive queries using powershell on Entra enabled HDInsight cluster
       href: ./hdinsight-with-entra-authentication/run-apache-hive-queries-using-powershell-on-entra-enabled-hdinsight-cluster.md
     - name: Run Spark jobs using Rest API
-      href: ./hdinsight-with-entra-authentication/hdinsight-with-entra-authentication/run-spark-jobs-using-rest-api.md
+      href: ./hdinsight-with-entra-authentication/run-spark-jobs-using-rest-api.md
   - name: Reference
     items:
     - name: Azure CLI
