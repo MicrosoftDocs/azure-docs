@@ -4,7 +4,7 @@ description: Connect to a Linux-based Azure Kubernetes Service (AKS) cluster and
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 08/15/2025
+ms.date: 08/20/2025
 ms.author: kendownie
 ms.custom: 
   - references_regions
@@ -14,7 +14,7 @@ ms.custom:
 
 # Quickstart: Use Azure Container Storage with Azure Kubernetes Service
 
-[Azure Container Storage](container-storage-introduction-v2.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This Quickstart shows you how to connect to a Linux-based [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) cluster and install Azure Container Storage.
+[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This Quickstart shows you how to connect to a Linux-based [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) cluster and install Azure Container Storage.
 
 > [!IMPORTANT]
 > This article covers installation of Azure Container Storage v2.0.0 and later. This version currently only supports local NVMe Disk storage type. For details about the capabilities of v2.0.0 and later, see [Azure Container Storage](container-storage-introduction.md). For earlier versions, see [Azure Container Storage v1 documentation](container-storage-introduction-v1.md). If you already have Azure Container Storage v1 installed on your cluster, remove it by following the steps to [Remove Azure Container Storage v1](remove-container-storage-v1.md).
@@ -87,11 +87,11 @@ Follow these guidelines when choosing a VM type for the cluster nodes. You must 
 
 - Choose a VM SKU that supports local NVMe data disks, for example, [Storage optimized VM SKUs](/azure/virtual-machines/sizes/overview#storage-optimized) or [GPU accelerated VM SKUs](/azure/virtual-machines/sizes/overview#gpu-accelerated).
 
-- Choose the OS type for the VMs in the node pools as Linux OS. Windows OS isn't currently supported.
+- Choose Linux OS as the OS type for the VMs in the node pools. Windows OS isn't currently supported.
 
 ## Install Azure Container Storage on your AKS cluster
 
-Run the following command to install Azure Container Storage on the cluster. Replace <cluster-name> and <resource-group> with your own values. Remember to replace `<cluster-name>` and `<resource-group>` with your own values.
+Run the following command to install Azure Container Storage on the cluster. Replace `<cluster-name>` and `<resource-group>` with your own values.
 
 ```azurecli-interactive
 az aks update -n <cluster-name> -g <resource-group> --enable-azure-container-storage

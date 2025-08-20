@@ -91,7 +91,7 @@ Follow these guidelines when choosing a VM type for the cluster nodes. You must 
 
 ## Create a new AKS cluster and install Azure Container Storage
 
-If you already have an AKS cluster deployed, follow the installation instructions in [this QuickStart](container-storage-aks-quickstart-v2.md).
+If you already have an AKS cluster deployed, follow the installation instructions in [this QuickStart](container-storage-aks-quickstart.md).
 
 Run the following command to create a new AKS cluster and install Azure Container Storage. Replace `<cluster-name>` and `<resource-group>` with your own values, and specify which VM type you want to use.
 
