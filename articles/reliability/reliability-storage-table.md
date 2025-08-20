@@ -33,8 +33,7 @@ For production environments, take the following actions:
 
 - If you need resilience to region outages and your storage account's primary region is paired, consider enabling geo-redundant storage (GRS) to replicate data asynchronously to the paired region. In supported regions, you can combine geo-redundancy with zone redundancy by using geo-zone-redundant storage (GZRS).
 
-- For high-scale production workloads, or if you have high resiliency requirements, consider using [Azure Cosmos DB for Table](/azure/cosmos-db/table/introduction). Azure Cosmos DB for Table is compatible with applications that are written for Table Storage. It supports low latency read and write operations at high scale and provides strong global distribution across multiple regions with flexible consistency models.  
-Also, it provides built-in backup and various other capabilities that enhance your application's resiliency and performance.
+- For high-scale production workloads, or if you have high resiliency requirements, consider using [Azure Cosmos DB for Table](/azure/cosmos-db/table/overview). Azure Cosmos DB for Table is compatible with applications that are written for Table Storage. It supports low-latency read and write operations at high scale and provides strong global distribution across multiple regions with flexible consistency models.  It also provides built-in backup and other capabilities that enhance your application's resiliency and performance.
 
 ## Reliability architecture overview
 
@@ -52,17 +51,17 @@ To manage transient faults effectively when you use Table Storage, take the foll
 
 - **Configure appropriate timeouts** in your Table Storage client to balance responsiveness with resilience to temporary slowdowns. The default timeouts in Azure Storage client libraries are typically suitable for most scenarios.
 
-- **Implement exponential backoff** for retry policies, especially when encountering HTTP 503 server busy or HTTP 500 operation timeout errors. Table Storage might throttle requests when individual partitions become hot or when storage account limits are approached.
+- **Implement exponential backoff** for retry policies, especially when your application encounters HTTP 503 server busy or HTTP 500 operation timeout errors. Table Storage might throttle requests when individual partitions become hot or when storage account limits are approached.
 
-- **Design partition-aware retry logic** in high-scale applications. Partition-aware retry logic is a more advanced approach that considers Table Storage's partitioned architecture and distributes operations across multiple partitions to reduce the likelihood of encountering throttling on individual partition servers.
+- **Design partition-aware retry logic** in high-scale applications. Partition-aware retry logic is a more advanced approach that considers partitioned architecture in Table Storage and distributes operations across multiple partitions to reduce the likelihood of encountering throttling on individual partition servers.
 
-To learn more about the Table Storage architecture and how to design resilient and high-scale applications, see [Performance and scalability checklist for Table storage](/azure/storage/tables/storage-performance-checklist).
+To learn more about the Table Storage architecture and how to design resilient and high-scale applications, see [Performance and scalability checklist for Table Storage](/azure/storage/tables/storage-performance-checklist).
 
 ## Availability zone support
 
 [!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
 
-Table Storage is zone-redundant when deployed with ZRS configuration. Unlike locally redundant storage (LRS), ZRS guarantees that Azure synchronously replicates your table data across multiple availability zones. This configuration ensures that your tables remain accessible even if an entire availability zone becomes unavailable. All write operations must be acknowledged across multiple zones before completion, which provides strong consistency guarantees.
+Table Storage is zone-redundant when it deploys with ZRS configuration. Unlike locally redundant storage (LRS), ZRS guarantees that Azure synchronously replicates your table data across multiple availability zones. This configuration ensures that your tables remain accessible even if an entire availability zone becomes unavailable. All write operations must be acknowledged across multiple zones before completion, which provides strong consistency guarantees.
 
 Zone redundancy is enabled at the storage account level and applies to all Table Storage resources within that account. Because the setting applies to the entire storage account, you can't configure individual entities for different redundancy levels. When an availability zone experiences an outage, Azure Storage automatically routes requests to healthy zones without requiring any intervention from you or your application.
 
@@ -84,7 +83,7 @@ For detailed pricing information, see [Table Storage pricing](https://azure.micr
 
 ### Configure availability zone support
 
-- **Create a storage account and table with zone redundancy:**
+- **Create a storage account and table that have zone redundancy:**
 
     1. [Create a storage account](/azure/storage/common/storage-account-create). Make sure to select ZRS, GZRS, or read-access geo-redundant storage (RA-GZRS) as the redundancy option.
 
@@ -157,7 +156,7 @@ For detailed pricing information, see [Table Storage pricing](https://azure.micr
 [!INCLUDE [Storage - Multi Region Normal operations](includes/storage/reliability-storage-multi-region-normal-operations-include.md)]
 
 > [!IMPORTANT]
-> The data replication approach across regions is usually different than the approach used across zones.
+> The approach to data replication across regions is usually different than the approach to data replication across zones.
 
 ### Region-down experience
 
@@ -176,7 +175,7 @@ For detailed pricing information, see [Table Storage pricing](https://azure.micr
 [!INCLUDE [Storage - Alternative multi-region approaches - reasons](includes/storage/reliability-storage-multi-region-alternative-reasons-include.md)]
 
 > [!NOTE]
-> For applications built to use Table Storage, consider using [Azure Cosmos DB for Table](/azure/cosmos-db/table/introduction). Azure Cosmos DB for Table supports advanced multi-region requirements, including support for nonpaired regions. It's also designed for compatibility with applications built for Table Storage.
+> For applications built to use Table Storage, consider using [Azure Cosmos DB for Table](/azure/cosmos-db/table/overview). Azure Cosmos DB for Table supports advanced multi-region requirements, including support for nonpaired regions. It's also designed for compatibility with applications built for Table Storage.
 
 [!INCLUDE [Storage - Alternative multi-region approaches - approach overview](includes/storage/reliability-storage-multi-region-alternative-approach-include.md)]
 
@@ -186,7 +185,7 @@ For Table Storage, a multiple-account approach requires you to manage data distr
 
 Table Storage doesn't provide traditional backup capabilities like point-in-time restore (PITR). However, you can implement custom backup strategies for table data. For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements. However, backups protect against some risks that other approaches don't. For more information, see [Redundancy, replication, and backup](./concept-redundancy-replication-backup.md).
 
-If you require built-in backup capabilities, consider moving to [Azure Cosmos DB for Table](/azure/cosmos-db/table/introduction), which provides support for both periodic and continuous backups. For more information, see [Online backup and on-demand data restore in Azure Cosmos DB](/azure/cosmos-db/online-backup-and-restore).
+If you require built-in backup capabilities, consider moving to [Azure Cosmos DB for Table](/azure/cosmos-db/table/overview), which provides support for both periodic and continuous backups. For more information, see [Online backup and on-demand data restore in Azure Cosmos DB](/azure/cosmos-db/online-backup-and-restore).
 
 For scenarios that require data backup from Table Storage, consider the following approaches:
 
@@ -206,6 +205,6 @@ When you design backup strategies for Table Storage, consider the partitioned na
 - [Design scalable and performant tables](../storage/tables/table-storage-design.md)
 - [Azure Storage redundancy](../storage/common/storage-redundancy.md)
 - [Azure storage disaster recovery planning and failover](../storage/common/storage-disaster-recovery-guidance.md)
-- [Performance and scalability checklist for Table storage](../storage/tables/storage-performance-checklist.md)
+- [Performance and scalability checklist for Table Storage](../storage/tables/storage-performance-checklist.md)
 - [Azure reliability](overview.md)
 - [Recommendations for handling transient faults](/azure/well-architected/reliability/handle-transient-faults)
