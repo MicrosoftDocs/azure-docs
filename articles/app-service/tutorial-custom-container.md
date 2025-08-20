@@ -795,7 +795,7 @@ In this section, you make a change to the web app code, rebuild the image, and t
 
 1. Save your changes.
 
-1. Change to the *docker-django-webapp-linux* folder and rebuild the image:
+1. Go to the *docker-django-webapp-linux* folder and rebuild the image:
 
     ```bash
     docker build --tag appsvc-tutorial-custom-image .
