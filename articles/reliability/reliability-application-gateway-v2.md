@@ -123,7 +123,7 @@ This section explains how to configure availability zone support for your gatewa
 
   If you need to move from a zone-redundant gateway to a zonal configuration, you need to deploy a new gateway.
 
-- **Disable availability zone support.** Availability zone support can't be disabled. All gateways in regions that have availability zones must be either zone-redundant or zonal.
+- **Disable availability zone support.** Availability zone support can't be disabled. All gateways in regions that support availability zones must be either zone-redundant or zonal.
 
 ### Capacity planning and management
 
@@ -157,7 +157,7 @@ The following section describes what to expect when Application Gateway v2 is co
 
 - **Notification:** Zone failure events can be monitored through Azure Service Health and Resource Health. Set up alerts on these services to receive notifications of zone-level problems.
 
-- **Active requests:** Requests that instances in the failed zone process are terminated. Clients should retry the requests by following the guidance for how to [handle transient faults](#transient-faults).
+- **Active requests:**  During a zone outage, requests that are being processed by instances in that zone are terminated. Clients should retry the requests by following the guidance for how to [handle transient faults](#transient-faults).
 
 - **Expected data loss:** Zone failures aren't expected to cause data loss because Application Gateway is a stateless service.
 
@@ -232,9 +232,6 @@ For configuration management and disaster recovery, you should take the followin
 - Document and version control custom configurations, rules, and policies.
 
 - Implement automated deployment pipelines for consistent gateway provisioning.
-
-> [!NOTE]
-> For most solutions, you shouldn't rely exclusively on configuration exports. Instead, use the other capabilities described in this guide to support your resiliency requirements. However, configuration management protects against configuration drift and enables rapid redeployment scenarios.
 
 For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements. However, backups protect against some risks that other approaches don't. For more information, see [Redundancy, replication, and backup](concept-redundancy-replication-backup.md).
 
