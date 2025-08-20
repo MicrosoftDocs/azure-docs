@@ -4,7 +4,7 @@ description: This article covers availability zones, zone redundancy, disaster r
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/05/2023
 ms.custom: references_regions
 #Customer intent: As an Azure developer, I want to understand the availability of my connection created with Service Connector.
