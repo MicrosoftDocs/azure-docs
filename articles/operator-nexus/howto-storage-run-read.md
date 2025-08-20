@@ -54,7 +54,7 @@ When an optional argument `--output-directory` is provided, the output result is
 
 ## Check the command status and view the output in a user specified storage account
 
-Sample output is shown. It prints the top 4,000 characters of the result to the screen for convenience and provides a short-lived link to the storage blob containing the command execution result. You can use the link to download the zipped output file (tar.gz). To access the output, users need the appropriate access to the storage blob. For information on assigning roles to storage accounts, see [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal).
+Sample output is shown. It prints the top 4,000 characters of the result to the screen for convenience and provides a link to the storage blob containing the command execution result. You can use the link to download the zipped output file (tar.gz). To access the output, users need the appropriate access to the storage blob. For information on assigning roles to storage accounts, see [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal). For information on allowing access through the storage account firewall using [networking rules](/azure/storage/common/storage-network-security) or [private endpoints](/azure/storage/common/storage-private-endpoints), see the respective documentation.
 
 ```output
   ====Action Command Output====

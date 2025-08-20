@@ -351,6 +351,11 @@
           items:
             - name: Service Principal Rotation
               href: howto-service-principal-rotation.md
+    - name: Storage Appliance
+      expanded: false
+      items:
+        - name: Storage Appliance Run-Read Commands
+          href: howto-storage-run-read.md
     - name: Install CLI Extension
       href: howto-install-cli-extensions.md
     - name: General
