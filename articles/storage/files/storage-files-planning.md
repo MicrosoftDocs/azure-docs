@@ -79,7 +79,7 @@ Delivered by the Microsoft.FileShares resource provider, file shares are now a f
 
 - Faster deployment time: Provisioning is dramatically quicker than the classic file share, measured around 3.4× faster for single file share creation.
 
-- Higher scale limits: Enjoy increased resource and request quotas with the Microsoft.FileShares resource provider—ideal for large environments managing lots of file shares.
+- Higher scale limits: Enjoy increased resource and request quotas with the Microsoft.FileShares resource provider—ideal for large environments managing lots of file shares. For current file share limits, see [Azure Files scalability and performance targets](./storage-files-scale-targets.md#azure-microsoftfileshares-scale-targets)
 
 As the current public preview phase, Microsoft.FileShares supports on:
 

@@ -327,6 +327,7 @@ Follow these instructions in the portal to change the size and performance of a 
 2. Select settings from the context menu.
 3. Choose Size + performance
    ![image on choosing size and performance for mfs](./media/storage-how-to-create-file-share/mfs-change-size1.png)
+
 4. The Size and performance pop out dialog has the following options:
    Provisioned capcity (GiB): The amount of storage provisioned on the share.
 
@@ -398,14 +399,14 @@ az storage share-rm delete \
 
 ## Delete a file share
 
-Go to your file share.
+1. Go to your file share.
 
-Select Delete from the context menu.
+2. Select Delete from the context menu.
 
 ![Delete imgae](./media/storage-how-to-create-file-share/Deletefs.png)
 
-The Delete pop-out contains a survey about why you're deleting the file share. You can skip this, but we appreciate any feedback you have on Azure Files, particularly if something isn't working properly for you.
+3. The Delete pop-out contains a survey about why you're deleting the file share. You can skip this, but we appreciate any feedback you have on Azure Files, particularly if something isn't working properly for you.
 
-Enter the file share name to confirm deletion and select Delete.
+4. Enter the file share name to confirm deletion and select Delete.
 
 ---

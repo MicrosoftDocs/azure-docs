@@ -109,7 +109,7 @@ You can also mount the Azure file share using NFS client mount in command line. 
 # - `<your-resource-group>` → The resource group containing the file share.
 # - `<your-file-share-name>` → The name of your file share.
 
-# you will use $hostname later when mounting the file share
+# you will use $hostname later when mounting the file share.
 hostName=$(az resource show \
   --ids "/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/providers/Microsoft.FileShares/fileShares/<your-file-share-name>" \
   --query "properties.hostName" \
@@ -170,10 +170,10 @@ For classic file share, remember to replace `<YourStorageAccountName>` and `<Fil
 The record in **/etc/fstab** should look like this if you're using the AZNFS Mount Helper and want to mount the share using encryption in transit.
 
 ```bash
-# Microsoft.Storage
+# For Microsoft.Storage file share, use:
 <YourStorageAccountName>.file.core.windows.net:/<YourStorageAccountName>/<FileShareName> /media/<YourStorageAccountName>/<FileShareName> aznfs defaults,sec=sys,vers=4.1,nolock,proto=tcp,nofail,_netdev   0 2
 
-# Microsoft.FileShares
+# For Microsoft.FileShares file share, use:
 $hostName:/$shortName/<FileShareName> /media/$shortName/<FileShareName> aznfs defaults,sec=sys,vers=4.1,nolock,proto=tcp,nofail,_netdev   0 2
 ```
 
@@ -182,10 +182,10 @@ $hostName:/$shortName/<FileShareName> /media/$shortName/<FileShareName> aznfs de
 If you're using the AZNFS Mount Helper but don't want to use encryption in transit, the record in **/etc/fstab** should look like this:
 
 ```bash
-# Microsoft.Storage
+# For Microsoft.Storage file share, use:
 <YourStorageAccountName>.file.core.windows.net:/<YourStorageAccountName>/<FileShareName> /media/<YourStorageAccountName>/<FileShareName> aznfs defaults,sec=sys,vers=4.1,nolock,proto=tcp,nofail,_netdev,notls   0 2
 
-# Microsoft.FileShares
+# For Microsoft.FileShares file share, use:
 $hostName:/$shortName/<FileShareName> /media/$shortName/<FileShareName> aznfs defaults,sec=sys,vers=4.1,nolock,proto=tcp,nofail,_netdev,notls   0 2
 ```
 
@@ -194,10 +194,10 @@ $hostName:/$shortName/<FileShareName> /media/$shortName/<FileShareName> aznfs de
 If you're using the native NFS mount without AZNFS, the record in **/etc/fstab** should look like this:
 
 ```bash
-# Microsoft.Storage
+# For Microsoft.Storage file share, use:
 <YourStorageAccountName>.file.core.windows.net:/<YourStorageAccountName>/<FileShareName> /media/<YourStorageAccountName>/<FileShareName> nfs vers=4,minorversion=1,_netdev,nofail,sec=sys 0 0
 
-#Microsfot.FileShares
+# For Microsoft.FileShares file share, use:
 $hostName:/$shortName/<FileShareName> /media/$shortName/<FileShareName> nfs vers=4,minorversion=1,_netdev,nofail,sec=sys 0 0
 ```
 

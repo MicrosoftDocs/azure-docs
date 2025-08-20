@@ -16,7 +16,7 @@ ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
 Before you create an Azure classic file share, you need to answer two questions about how you want to use it:
 
 - **What are the performance requirements for your Azure classic file share?**  
-   Azure Files (classic) offers two different media tiers of storage, SSD (premium) and HDD (standard), which enable you to tailor your file shares to the performance and price requirements of your scenario. SSD file shares provide consistent high performance and low latency, within single-digit milliseconds for most IO operations. HDD file shares provide cost-effective storage for general purpose use.
+   Azure classic file shares offers two different media tiers of storage, SSD (premium) and HDD (standard), which enable you to tailor your file shares to the performance and price requirements of your scenario. SSD file shares provide consistent high performance and low latency, within single-digit milliseconds for most IO operations. HDD file shares provide cost-effective storage for general purpose use.
 
 - **What are the redundancy requirements for your Azure classic file share?**  
    Azure Files offers Local (LRS), Zone (ZRS), Geo (GRS), and GeoZone (GZRS) redundancy options for standard SMB file shares. SSD file shares are only available for the Local and Zone redundancy types. See [Azure Files redundancy](./files-redundancy.md) for more information.
@@ -50,7 +50,7 @@ For more information on these choices, see [Planning for an Azure Files deployme
 
 ## Create a storage account
 
-Azure file shares (Classic) are deployed into _storage accounts_, which are top-level objects that represent a shared pool of storage. This pool of storage can be used to deploy multiple file shares.
+Azure classic file shares are deployed into _storage accounts_, which are top-level objects that represent a shared pool of storage. This pool of storage can be used to deploy multiple file shares.
 
 Storage accounts have two properties, kind and SKU, which dictate the billing model, media tier, and redundancy of the file shares deployed in the storage account. For Azure Files, there are three main combinations of kind and SKU to consider:
 
@@ -539,7 +539,8 @@ az storage share-rm create \
 ## Set up a virtual machine
 
 SMB protocol file share are able to mount to a Linux, Windows virtual machine, while NFS protocol file share are only able to use Linux virtual machine.
-To learn more about how to create a virtual machine for your file share, see [How to create Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu) for more information.
+
+For Windows VM creation instructions, see [Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windoes/quick-create-portal.md) for more information. To learn more about how to create a Linux virtual machine for your file share, see [How to create Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu) for more information.
 
 ## Set up networking configurations
 
@@ -550,7 +551,9 @@ NFS file shares can only be accessed from trusted networks. Currently, the only 
 
 ### Set up a private endpoint or service endpoint
 
-NFS protocol file share requires network-level security configurations. Currently there are two options for establishing networking-level security configuations. Private endpoint and service endpoint. Private endpoint gives your file share a private, static IP address within your virtual network, preventing connectivity interruptions from dynamic IP address changes. Traffic to your file share stays within peered virtual networks, including those in other regions and on premises. Standard [data processing rates](https://azure.microsoft.com/pricing/details/private-link/) for private endpoints apply. See [What is a private endpoint](../../private-link/private-endpoint-overview.md) to learn more about private endpoint. If you don't require a static IP address, you can enable a service endpoint for Azure Files within the virtual network. A service endpoint configures file share to allow access only from specific subnets. The allowed subnets can belong to a virtual network in the same subscription or a different subscription, including those that belong to a different Microsoft Entra tenant. There's no extra charge for using service endpoints. See [Azure virtual netowrk service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) to learn more.
+NFS protocol file share requires network-level security configurations. Currently there are two options for establishing networking-level security configuations. Private endpoint and service endpoint. Private endpoint gives your file share a private, static IP address within your virtual network, preventing connectivity interruptions from dynamic IP address changes. Traffic to your file share stays within peered virtual networks, including those in other regions and on premises. Standard [data processing rates](https://azure.microsoft.com/pricing/details/private-link/) for private endpoints apply. See [What is a private endpoint](../../private-link/private-endpoint-overview.md) to learn more about private endpoint. 
+
+If you don't require a static IP address, you can enable a service endpoint for Azure Files within the virtual network. A service endpoint configures file share to allow access only from specific subnets. The allowed subnets can belong to a virtual network in the same subscription or a different subscription, including those that belong to a different Microsoft Entra tenant. There's no extra charge for using service endpoints. See [Azure virtual netowrk service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) to learn more.
 
 1. Select the NFS file share you created. You should see a dialog that says _Connect to this NFS share from Linux_. Under **Network configuration**, select **Review options**
 
@@ -596,7 +599,7 @@ To enable hybrid access to an NFS Azure file share, use one of the following net
 
 ## Use a classic file share
 
-After you create a file share, you can create directories on the share and use it to store files.
+After you create a classic file share, you can create directories on the share and use it to store files.
 
 ### Create a directory
 
