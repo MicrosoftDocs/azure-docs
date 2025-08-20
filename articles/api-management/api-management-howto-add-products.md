@@ -2,7 +2,7 @@
 title: Tutorial - Create and publish a product in Azure API Management
 description: In this tutorial, you create and publish a product in Azure API Management. Once it's published, developers can begin to use the product's APIs.
 ms.topic: tutorial
-ms.date: 10/22/2024
+ms.date: 08/19/2025
 ms.custom: devdivchpfy22, devx-track-azurecli 
 ms.service: azure-api-management
 author: dlepow
@@ -52,7 +52,7 @@ In this tutorial, you learn how to:
     |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Display name             | The name as you want it to be shown in the [developer portal](api-management-howto-developer-portal.md).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
     | Description              | Provide information about the product such as its purpose, the APIs it provides access to, and other details.                                                                                                                                               |
-    | State                    | Select **Published** if you want to publish the product to the developer portal. Before the APIs in a product can be discovered by developers, the product must be published. By default, new products are unpublished.                                                                                      |
+    | State                    | Select **Published** if you want to publish the product to the developer portal. Before the APIs in a product can be discovered by developers, the product must be published. By default, new products are unpublished.<br/><br/>The API Management gateway processes all requests to the product's APIs, and validates access according to configured authentication and authorization methods, regardless of whether the product is published.                                                                                    |
     | Requires subscription    | Select if a user is required to subscribe to use the product (the product is *protected*) and a subscription key must be used to access the product's APIs. If a subscription isn't required (the product is *open*), a subscription key isn't required to access the product's APIs. See [Access to product APIs](#access-to-product-apis) later in this article.                                                                                                                                                                                                   |
     | Requires approval        | Select if you want an administrator to review and accept or reject subscription attempts to this product. If not selected, subscription attempts are auto-approved.                                                                                                                         |
     | Subscription count limit | Optionally limit the count of multiple simultaneous subscriptions. Minimum value: 1                                                                                                                                                                                                                                |
@@ -174,7 +174,7 @@ az apim product api delete --resource-group apim-hello-word-resource-group \
 
 ## Access to product APIs
 
-After you publish a product, developers can access the APIs. Depending on how the product is configured, they may need to subscribe to the product for access.
+After you publish a product, developers can discover the product's APIs in the developer portal. Depending on how the product is configured, they may need to subscribe to the product for access.
 
 * **Protected product** - Developers must first subscribe to a protected product to get access to the product's APIs. When they subscribe, they get a subscription key that can access any API in that product. If you created the API Management instance, you are an administrator already, so you are subscribed to every product by default. For more information, see [Subscriptions in Azure API Management](api-management-subscriptions.md).
 
