@@ -9,7 +9,7 @@ ms.reviewer: nijelsf
 ms.date: 08/21/2025
 ---
 
-## Run Apache Hive queries using the HDInsight .NET SDK
+# Run Apache Hive queries using the HDInsight .NET SDK
 
 The HDInsight .NET SDK provides a programmatic way to interact with Apache Hive on Azure HDInsight clusters. Using the SDK, you can authenticate, submit Hive queries, monitor their execution, and retrieve results directly from your .NET applications.
 
