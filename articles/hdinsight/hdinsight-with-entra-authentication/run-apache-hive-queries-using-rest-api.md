@@ -17,7 +17,7 @@ With the REST API, you can integrate Hive query execution into applications, scr
 
 **Prerequisites**
 
-- An Entra Enabled Apache Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](/hadoop/apache-hadoop-linux-tutorial-get-started).
+- An Entra Enabled Apache Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
 - A REST client. This document uses [Curl](https://curl.haxx.se/).
 - If you use Bash, you'll also need jq, a command-line JSON processor. See [Download jq](https://jqlang.org/download/)
 
@@ -90,8 +90,9 @@ A successful request returns a JSON object containing:
       ```
     The parameters used in this command are as follows:
 
-       - 'u' The username and password used to authenticate the request.
-       - 'G'  Indicates that this request is a GET operation.
+  
+ 	 - 'u' The username and password used to authenticate the request.
+     - 'G' Indicates that this request is a GET operation.
 1. The beginning of the URL, `https://$CLUSTERNAME.azurehdinsight.net/templeton/v1`, is the same for all requests. The path, `/status`, indicates that the request is to return a status of WebHCat (also known as Templeton) for the server. You can also request the version of Hive by using the following command:
     
     Bash
