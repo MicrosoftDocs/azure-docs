@@ -51,15 +51,6 @@ Add the extension to your project by installing this [NuGet package](https://www
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
 [!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 ::: zone-end
-## Migrate to extension v2
-
-When you migrate your app from using version 1.x of the RabbitMQ extension to using version 2.x, these v1.x binding properties are no longer supported and are ignored in v2.x, if set:
-
-+ HostName
-+ UserNameSetting
-+ PasswordSetting
-+ Port
-
 ## host.json settings
 
 [!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
@@ -80,10 +71,20 @@ When you migrate your app from using version 1.x of the RabbitMQ extension to us
 
 |Property  |Default | Description |
 |---------|---------|---------|
-|prefetchCount|30|Gets or sets the number of messages that the message receiver can simultaneously request and is cached.|
-|queueName|n/a| Name of the queue to receive messages from.|
-|connectionString|n/a|The RabbitMQ message queue connection string. <!---verify this--> The connection string is directly specified here and not through an app setting.|
-|port|0|(ignored if using connectionString) Gets or sets the Port used. Defaults to 0, which points to rabbitmq client's default port setting: 5672.|
+|`prefetchCount`|30|Gets or sets the number of messages that the message receiver can simultaneously request and is cached.|
+|`queueName`|n/a| Name of the queue to receive messages from.|
+|`connectionString`|n/a|The RabbitMQ message queue connection string. <!---verify this--> The connection string is directly specified here and not through an app setting.|
+|`port`|0|(ignored if using connectionString) Gets or sets the Port used. Defaults to 0, which points to rabbitmq client's default port setting: 5672.|
+
+> [!IMPORTANT]
+> Support for these v1.x settings is removed in v2.x of the binding extension. 
+>
+> + `hostName`
+> + `userNameSetting`
+> + `passwordSetting`
+> + `port`
+>
+> If your host.json or binding definitions include these settings, they are ignored when using the v2.x extension. Instead, use the `connectionString` setting, which can be [maintained in Azure Key Vault](../app-service/app-service-key-vault-references.md) for improved security. 
 
 ## Related articles
 
