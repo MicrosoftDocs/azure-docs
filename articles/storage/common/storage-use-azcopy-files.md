@@ -30,10 +30,12 @@ See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download
 
 You can use the [azcopy make](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_make) command to create a file share. The example in this section creates a file share named `myfileshare`.
 
+> [!NOTE]
+> AzCopy version 10.30.0 introduces a breaking change where it no longer automatically creates file shares for transfers involving Azure Files using NFS or SMB protocols.
+
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
->
-> AzCopy version 10.30.0 introduces a breaking change where it no longer automatically creates file shares for transfers involving Azure Files using NFS or SMB protocols.
+
 
 **Syntax**
 
