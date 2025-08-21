@@ -2,7 +2,7 @@
 title: Create Pre and Post Events Using a Webhook with Automation Runbooks.
 description: In this tutorial, you learn how to create the pre and post events using webhook with Automation runbooks.
 ms.service: azure-update-manager
-ms.date: 008/21/2025
+ms.date: 08/21/2025
 ms.topic: tutorial 
 author: habibaum
 ms.author: v-uhabiba
