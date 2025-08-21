@@ -16,7 +16,12 @@ author: mbender-ms
 
 # Migrate from Amazon Web Services (AWS) Application Load Balancer to Azure Application Gateway
 
-If you currently use AWS Application Load Balancer (ALB) and plan to migrate your workload to Azure, this guide can help you understand the migration process, feature mappings, and best practices. On Azure, [Azure Application Gateway](overview.md) provides application load balancing capabilities that enable you to manage traffic to your web applications. You'll learn how to assess your current environment, plan & prepare the migration, and execute the transition while maintaining application availability and performance.
+If you currently use AWS Application Load Balancer (ALB) and plan to migrate your workload to Azure, this guide can help you understand the migration process, feature mappings, and best practices. On Azure, [Azure Application Gateway](overview.md) provides application load balancing capabilities that enable you to manage traffic to your web applications. 
+
+You'll learn how to:
+- Assess your current environment
+- Plan and prepare the migration
+- Execute the transition while maintaining application availability and performance
 
 ## What you'll accomplish
 
@@ -89,7 +94,7 @@ This migration is designed as a cutover migration. With this approach, you build
 **Recommended maintenance window:**
 
 - Duration: 1-2 hours during low-traffic period
-- Buffer time: Extra 30 minutes for unforeseen problems
+- Buffer time: Extra 30 minutes for unforeseen issues
 - Rollback time: 15-30 minutes if needed
 
 > [!NOTE]
@@ -222,7 +227,7 @@ These changes ensure applications function correctly with Application Gateway's 
 
 ### Environmental changes
 
-Prepare your Azure environment by deploying the necessary infrastructure and configuring security and monitoring components to support the migrated workload. This preparation helps ensure a smooth transition and minimizes potential problems during the migration process.
+Prepare your Azure environment by deploying the necessary infrastructure. Configure security and monitoring components to support the migrated workload. This preparation helps ensure a smooth transition and minimizes potential issues during the migration process.
 
 #### Azure resource provisioning
 
@@ -273,7 +278,7 @@ In general, the migration process involves deploying and migrating resources fir
 
 ## Step 3: Evaluation
 
-Validation of the defined success criteria involves both automated and manual testing to ensure all functionality and performance benchmarks are met. Key areas such as routing accuracy, SSL/TLS termination, back-end health, response times, and session handling should be tested against the original AWS ALB configuration. Automated tests are best suited for verifying repeatable aspects like traffic distribution, throughput, and health check performance. Manual testing should be used to confirm more complex behaviors, such as custom error page display, configuration consistency, and SLA compliance. By combining these approaches, you can confidently validate that the Azure environment meets the required standards and mirrors the expected behavior from AWS.
+Validation of the defined success criteria involves both automated and manual testing to ensure all functionality and performance benchmarks are met. Test key areas including routing accuracy, SSL/TLS termination, back-end health, response times, and session handling against the original AWS ALB configuration. Automated tests are best suited for verifying repeatable aspects like traffic distribution, throughput, and health check performance. Manual testing should be used to confirm more complex behaviors, such as custom error page display, configuration consistency, and SLA compliance. By combining these approaches, you can confidently validate that the Azure environment meets the required standards and mirrors the expected behavior from AWS.
 
 ### Validation criteria
 
@@ -311,7 +316,7 @@ Establish validation criteria based on the original AWS ALB capabilities identif
 
 - **Session handling:** Maintain session affinity where configured
 
-- **Configuration drift:** Monitor for configuration drift between environments to prevent reliability problems post-migration
+- **Configuration drift:** Monitor for configuration drift between environments to prevent reliability issues post-migration
 
 - **Compliance and SLA alignment:** Validate that the migrated solution meets required compliance standards and Azure SLAs for uptime and reliability
 
