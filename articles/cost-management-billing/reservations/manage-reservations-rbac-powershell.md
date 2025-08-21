@@ -16,7 +16,7 @@ ms.author: liuyizhu
 
 # Grant RBAC access to Azure reservations using PowerShell
 
-This article shows you how to grant Role-Based Access Control (RBAC) access to Azure reservations using PowerShell. To view and manage RBAC access in Azure Portal, see [Permissions to view and manage Azure reservations](view-reservations.md). 
+This article shows you how to grant Role-Based Access Control (RBAC) access to Azure reservations using PowerShell. To view and manage RBAC access in Azure portal, see [Permissions to view and manage Azure reservations](view-reservations.md). 
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
