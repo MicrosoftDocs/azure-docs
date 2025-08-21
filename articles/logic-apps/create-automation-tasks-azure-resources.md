@@ -53,10 +53,10 @@ When you create an automation task, charges don't start automatically. Underneat
 
 Executions are recorded and billed, regardless whether the workflow runs successfully or whether the workflow is even instantiated. For example, suppose your automation task uses a polling trigger that regularly makes an outgoing call to an endpoint. This outbound request is billed as an execution. The request might cause the trigger to fire or be skipped, which affects whether a workflow instance is created.
 
-Triggers and actions follow [Consumption plan rates](/pricing/details/logic-apps/), which differ based on whether these operations are [*built-in*](../connectors/built-in.md) or [*managed* (Standard or Enterprise)](../connectors/managed.md). Triggers and actions also make storage transactions, which use the Consumption plan data rate.
+Triggers and actions follow [Consumption plan rates]([/pricing/details/logic-apps/](https://azure.microsoft.com/pricing/details/logic-apps/), which differ based on whether these operations are [*built-in*](../connectors/built-in.md) or [*managed* (Standard or Enterprise)](../connectors/managed.md). Triggers and actions also make storage transactions, which use the Consumption plan data rate.
 
 > [!NOTE]
-> As a monthly bonus, the Consumption plan includes *several thousand* built-in executions free of charge. For more information, see [Consumption plan rates](/pricing/details/logic-apps/).
+> As a monthly bonus, the Consumption plan includes *several thousand* built-in executions free of charge. For more information, see [Consumption plan rates]([/pricing/details/logic-apps/](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 ## Prerequisites
 
