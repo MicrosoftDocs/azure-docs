@@ -97,8 +97,14 @@ items:
       items:
       - name: Migrate a GPv1 storage account to GPv2
         href: ../common/storage-account-upgrade.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: GPv1 account migration Frequently Asked Questions
+      - name: GPv1 account retirement Frequently Asked Questions (FAQ)
         href: ../common/general-purpose-version-1-account-migration-frequently-asked-questions.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: GPv1 Standard ZRS migration
+        href: ../common/general-purpose-version-1-standard-zrs-migration.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: GPv1 Standard ZRS retirement Frequently Asked Questions (FAQ)
+        href: ../common/general-purpose-version-1-standard-zrs-migration-frequently-asked-questions.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Migrate GPv1 Standard ZRS to GPv2
+        href: ../common/general-purpose-version-1-standard-zrs-upgrade-process.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Legacy Blob Storage account retirement
       href: ../common/legacy-blob-storage-account-migration-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       items:
@@ -106,13 +112,6 @@ items:
         href: ../common/storage-account-upgrade.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Legacy Blob Storage account migration Frequently Asked Questions
         href: ../common/legacy-blob-storage-account-migration-frequently-asked-questions.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-    - name: Zone Redundant Storage (ZRS) Classic account retirement
-      href: ../common/zone-redundant-storage-classic-account-migration-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      items:
-      - name: Upgrade a Zone Redundant Storage (ZRS) Classic storage account to GPv2
-        href: ../common/zone-redundant-storage-classic-account-upgrade-process.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Zone Redundant Storage (ZRS) Classic account migration Frequently Asked Questions
-        href: ../common/zone-redundant-storage-classic-account-migration-frequently-asked-questions.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Data transfer and migration
     items:
     - name: Storage migration overview

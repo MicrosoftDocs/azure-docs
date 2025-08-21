@@ -5,13 +5,12 @@ description: FAQ page for the retirement of Azure GPv1 storage accounts.
 Services: storage
 author: gtrossell
 ms.service: azure-storage
-ms.topic: how-to
+ms.topic: FAQ
 ms.date: 07/22/2025
 ms.author: padmalathas
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
-
-# CustomerIntent As a storage admin, I want to find answers to common questions about the retirement of GPv1 storage accounts, so that I can plan my upgrade to GPv2 and avoid service disruption.
+# CustomerIntent: As a storage admin, I want to find answers to common questions about the retirement of GPv1 storage accounts, so that I can plan my upgrade to GPv2 and avoid service disruption.
 ---
 
 # Upgrade to General-purpose v2 storage accounts FAQ

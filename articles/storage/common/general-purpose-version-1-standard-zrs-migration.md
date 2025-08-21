@@ -13,7 +13,7 @@ ms.custom: devx-track-arm-template
 #CustomerIntent: As a storage admin, I want to understand the ZRS Classic retirement so that I can prepare for a smooth migration to GPv2.
 ---
 
-# ZRS Classic storage account retirement overview
+# General Purpose v1 (GPv1) with ZRS redundancy retirement overview
 
 Azure Storage is retiring the **ZRS Classic** storage account configuration. This article explains what the change means for workloads using ZRS Classic and how to prepare for a smooth transition to **General-purpose v2 (GPv2)** with modern ZRS.
 

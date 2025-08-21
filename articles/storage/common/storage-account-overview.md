@@ -229,7 +229,7 @@ The following account types are retired or scheduled for retirement. They aren�
 | Retired account type | Supported services | Redundancy options | Deployment model | Guidance |
 | --- | --- | --- | --- | --- |
 | **Standard general-purpose v1** | Blob, Queue, Table, Azure Files | LRS/GRS/RA-GRS | Resource Manager, classic¹ | Upgrade existing General Purpose v1 accounts to General-Purpose v2 to access modern features and cost-optimization capabilities. Before upgrading, model capacity and operations costs—see [General Purpose v1 account migration](./general-purpose-version-1-account-migration-overview.md). For the in-place upgrade, see [storage account upgrade](./storage-account-upgrade.md). |
-| **Blob Storage** | Block blobs and append blobs | LRS/GRS/RA-GRS | Resource Manager | Upgrade existing Blob-Only Storage accounts to GPv2 to use access tiers and lifecycle management. See [Blob-Only account migration overview](./blob-only-account-migration-overview.md) and [access tiers overview](../blobs/access-tiers-overview.md). |
+| **Blob Storage** | Block blobs and append blobs | LRS/GRS/RA-GRS | Resource Manager | Upgrade existing Legacy Blob Storage accounts to GPv2 to use access tiers and lifecycle management. See [Legacy Blob Storage account migration overview](./legacy-blob-storage-account-migration-overview.md) and [access tiers overview](../blobs/access-tiers-overview.md). |
 | **Classic (ASM) storage accounts** | Blob, Queue, Table, Azure Files | LRS/GRS/RA-GRS | classic | Retired. Migrate to the Resource Manager deployment model. See [classic account migration overview](./classic-account-migration-overview.md). |
 
 ¹ “classic” denotes the Azure Service Management (ASM) deployment model.
