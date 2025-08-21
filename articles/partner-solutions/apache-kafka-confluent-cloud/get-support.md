@@ -9,32 +9,34 @@ ms.date: 1/31/2024
 
 # Get support for Confluent Cloud resource
 
-This article describes how to contact support for your instance of Apache Kafka® & Apache Flink® on Confluent Cloud™ on Azure.
+This article describes how to contact support for your instance of Apache Kafka & Apache Flink on Confluent Cloud on Azure, an Azure Native Integrations service.
 
 ## Contact support
 
-To submit a support request to Confluent, either contact [Confluent support](https://support.confluent.io) or submit a request through the portal, as shown below.
+To submit a support request to Confluent, either contact [Confluent support](https://support.confluent.io) or submit a request through the Azure portal.
 
 > [!NOTE]
-> For first time users, reset your password before you sign in to the Confluent support portal. If you don't have an account with Confluent Cloud, send an email to `cloud-support@confluent.io` for further assistance.
+> For first-time users, reset your password before you sign in to the Confluent support portal. If you don't have an account with Confluent Cloud, send an email to `cloud-support@confluent.io` for assistance.
 
-In the portal, you can either submit a request through Azure Help and Support, or directly from your instance of Apache Kafka & Apache Flink on Confluent Cloud on Azure.
+In the portal, you can either submit a request through Azure Help and Support or directly from your instance of Apache Kafka & Apache Flink on Confluent Cloud on Azure.
 
 To submit a request through Azure Help and Support:
 
-1. Select **Help + support**.
+1. In the portal menu, select **Help + support**.
 1. Select **Create a support request**.
-1. In the form, select **Technical** for **Issue type**. Select your subscription. In the list of services, select **Confluent on Azure**.
+1. For **Issue type**, select **Technical**.
+1. Select your subscription.
+1. In the list of services, select **Confluent on Azure**.
 
-    :::image type="content" source="media/support-request-help.png" alt-text="Create a support request from help.":::
+    :::image type="content" source="media/support-request-help.png" alt-text="Screenshot that shows how to create a support request from help in the Azure portal.":::
 
 To submit a request from your resource:
 
 1. In the Azure portal, select your Confluent organization.
-1. On the left menu,, select **New support request**.
+1. On the left menu, select **New support request**.
 1. To create a support request, select **Confluent portal**.
 
-    :::image type="content" source="media/support-request.png" alt-text="Create a support request from instance.":::
+    :::image type="content" source="media/support-request.png" alt-text="Screenshot that shows how to create a support request from your Confluent instance in the Azure portal.":::
 
 ## Related content
 

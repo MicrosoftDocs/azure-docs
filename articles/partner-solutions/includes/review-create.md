@@ -17,6 +17,6 @@ If the review identifies errors, a red dot appears next to each section where er
 
 1. Select **Create**.
 
-The message "Deployment is in progress" appears. When the deployment is complete, the message "Your deployment is complete" appears.
+The message "Deployment is in progress" appears. When the deployment is complete, the message "Your deployment is complete" appears on the top-right corner of the Azure portal.
 
 After the resource is created, select **Go to resource** to view your resource.

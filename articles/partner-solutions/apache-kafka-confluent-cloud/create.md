@@ -4,6 +4,7 @@ description: Learn how to begin using Apache Kafka & Apache Flink on Confluent C
 ms.topic: quickstart
 ms.date: 02/07/2025
 
+#customer intent: As a developer, I want to learn how to create a new instance of Apache Kafka & Apache Flink on Confluent Cloud by using the Azure portal so that I can create resources.
 ---
 
 # Quickstart: Create a Confluent resource in the Azure portal
@@ -28,27 +29,27 @@ The **Basics** tab has three sections:
 - **Azure resource details**
 - **Confluent organization details**
 
-:::image type="content" source="media/create/basics-tab.png" alt-text="Screenshot that shows the Create a Confluent organization options in the Azure portal on the Basics tab.":::
+:::image type="content" source="media/create/basics-tab.png" alt-text="Screenshot that shows the options to create a Confluent organization on the Basics tab in the Azure portal.":::
 
-There are required fields (identified with a red asterisk) in each section.
+Each section has required settings to configure (identified with red asterisks).
 
 1. Under **Project details**, enter or select values for these required settings:
 
-    | Setting               | Action                                                    |
+    | Name               | Action                                                    |
     |---------------------|-----------------------------------------------------------|
     | **Subscription**        | Select an existing subscription.   |
     | **Resource group**      | Select an existing resource group, or create a new one.       |
 
 1. Under **Azure Resource details**, enter or select values for these required settings:
 
-    | Setting              | Action                                    |
+    | Name              | Action                                    |
     |--------------------|-------------------------------------------|
     | **Resource name**      | Enter a unique name for the resource.   |
     | **Region**             | Select an Azure region for the resource deployment.  |
 
 1. Under **Confluent organization details**, enter or select values for these required settings:
 
-    | Setting             | Action                                                                                           |
+    | Name             | Action                                                                                           |
     |-------------------|--------------------------------------------------------------------------------------------------|
     | **Organization**      | Select an existing organization, or create a new one.   |
 

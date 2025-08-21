@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ms.date: 1/31/2024
 
-#customer intent: As a developer I want create a new instance of Apache Kafka & Apache Flink on Confluent Cloud by using Azure PowerShell.
+#customer intent: As a developer, I want to learn how to create a new instance of Apache Kafka & Apache Flink on Confluent Cloud by using Azure PowerShell so that I can create resources.
 ---
 
 # Quickstart: Create a Confluent Cloud resource by using Azure PowerShell
