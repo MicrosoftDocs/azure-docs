@@ -4,7 +4,8 @@ description: Explore supported versions, environments, and dependencies for Azur
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
-ms.date: 08/12/2025
+ms.date: 08/21/2025
+ms.custom: references_regions
 
 # As an IT admin, you want to know the supported environments for Azure IoT Operations to plan your deployment effectively.
 ---
