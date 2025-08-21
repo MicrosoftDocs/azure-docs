@@ -4,7 +4,6 @@ titleSuffix: Azure Storage
 description: Learn what the retirement of Azure ZRS Classic storage accounts means and how to prepare for a smooth migration to GPv2.
 services: storage
 author: gtrossell
-
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 08/19/2025

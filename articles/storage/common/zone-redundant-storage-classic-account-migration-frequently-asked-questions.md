@@ -4,14 +4,12 @@ titleSuffix: Azure Storage
 description: FAQ page for the retirement of Azure ZRS Classic storage accounts.
 services: storage
 author: gtrossell
-
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 08/19/2025
 ms.author: akashdubey
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
-
 # CustomerIntent: As a storage admin, I want to find answers to common questions about the retirement of ZRS Classic storage accounts, so that I can plan my upgrade to GPv2 and avoid service disruption.
 ---
 
