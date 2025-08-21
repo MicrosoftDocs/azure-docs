@@ -1,8 +1,8 @@
 ---
 title: Configure core MQTT broker settings
 description: Configure core MQTT broker settings for high availability, scale, memory usage, and disk-backed message buffer behavior.
-author: PatAltimore
-ms.author: patricka
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.topic: how-to
 ms.subservice: azure-mqtt-broker
 ms.custom:
