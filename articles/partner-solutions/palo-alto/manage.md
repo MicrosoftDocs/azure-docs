@@ -42,7 +42,7 @@ You can view and change settings by selecting one of the following settings cate
 
 1. Select **Security Policies** under **Settings** in the left pane.
 1. In **Local Rulestack**, select an existing rulestack from the dropdown list.
-1. To manage settings for a rulestack, select the rulestack name under **Local Rulestack**. This action takes you to the Local Rulestack page. In the left pane, you see the following settings categories under **Resources**:
+1. To manage settings for a rulestack, select the rulestack name under **Local Rulestack**. This action takes you to the local rulestack page. In the left pane, you see the following settings categories under **Resources**:
    - Rules
    - Security Services
    - Prefix List
@@ -53,17 +53,53 @@ You can view and change settings by selecting one of the following settings cate
 
 #### Rules
 
+1. Select **Rules** under **Resources** in the left pane of the local rulestack page. A page appears that shows local rules and allows you to add, delete, and configure them. 
+1. To edit a rule, select the checkbox next to it and then select **Edit**. A pane showing the configured parameters for the rule appears. You can edit the parameters. 
+1. To add a rule, select **Add**. A pane that allows you to configure and validate the parameters appears. 
+1. To delete a rule, select the checkbox next to it and then select **Delete**. 
+
 #### Security Services
+
+1. Select **Security Services** under **Resources** in the left pane of the local rulestack page. 
+1. Under **Advanced Threat Prevention**, you can enable, disable, and configure vulnerability protection, anti-spyware, antivirus, and file blocking profiles.  
+1. Under **Advanced URL Filtering**, you can enable, disable, and configure URL access management profiles. 
+1. Under **DNS Security**, you can enable, disable, and configure DNS security profiles. 
+1. Under **Encrypted Threat Protection**, you can manage egress decryption settings.
 
 #### Prefix List
 
+1. Select **Prefix List** under **Resources** in the left pane of the local rulestack page. A page appears that shows prefixes and allows you to add, delete, and configure them.
+1. To edit a prefix, select the checkbox next to it and then select **Edit**. A pane showing the name, description, and address of the prefix appears. You can edit and validate the configuration.
+1. To add a prefix, select the **Add** button. A pane that allows you to enter a name, description, and address appears. You can also validate the parameters. 
+1. To delete a prefix, select the checkbox next to it and then select **Delete**.
+
 #### FQDN List 
+
+1. Select **FQDN List** under **Resources** in the left pane of the local rulestack page. A page appears that slows FQDNs and allows you to add, delete, and configure them. 
+1. To edit an FQDN, select the checkbox next to it and then select **Edit**. A pane showing the configured name, description, and FQDN appears. You can edit and validate the configuration. 
+1. To add an FQDN, select the **Add** button. A pane that allows you to enter a name, description, and FQDN appears. You can also validate the parameters. 
+1. To delete an FQDN, select the checkbox next to it and then select **Delete**.
 
 #### Certificates
 
+1. Select **Certificates** under **Resources** in the left pane of the local rulestack page. A page appears that shows certificates and allows you to add, delete, and configure them. 
+1. To edit a certificate, select the checkbox next to it then select **Edit**. A pane that shows the current configuration appears. Edit the values as needed. 
+1.  To add a certificate, select the **Add** button. A pane that allows you to configure the certificate appears. You select the certificate from a key vault or paste in a URL. You can also add self-signed certificates. 
+1. To edit a certificate, select the checkbox next to it and then select **Edit**. You can edit and validate the configuration.
+1. To delete a certificate, select the checkbox next to it and then select **Delete**. 
+ 
 #### Deployment
 
+1. Select **Deployment** under **Resources** in the left pane of the local rulestack page. 
+1. On the **Deployment** page, select **Deploy Configuration** to deploy changes that you made to the rulesack. 
+1. Select **Revert** to remove all changes made since the last deployed configuration.
+
 #### Managed Identity
+
+1. Select **Managed Identity** under **Resources** in the left pane of the local rulestack page. 
+1. On the **Managed Identity** page, you can enable or disable managed identity. 
+1. To enable managed identity, select **Enable MI** and then select an identity in the **Identity** list. 
+1. To disable managed identity, clear the **Enable MI** checkbox. 
 
 ## Log Settings
 
