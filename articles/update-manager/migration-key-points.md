@@ -5,7 +5,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.service: azure-update-manager
 ms.topic: concept-article
-ms.date: 09/05/2024
+ms.date: 08/21/2025
 
 # Customer intent: "As a cloud administrator, I want to efficiently migrate automation schedules to Azure Update Manager using the portal or scripts, so that I can ensure all supported configurations are properly transferred and optimize my deployment processes."
 ---
