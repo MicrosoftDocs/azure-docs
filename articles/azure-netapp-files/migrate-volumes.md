@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 06/10/2025
+ms.date: 08/21/2025
 ms.author: anfdocs
 ---
 # Migrate volumes to Azure NetApp Files 
@@ -64,7 +64,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     The "remote path" values are the host, server, and volume names of your on-premises storage. 
 
     ```rest
-    PUT: https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.NetApp/netAppAccounts/<account-name>/capacityPools/<capacity-pool-name>/volumes/Migvolfinal?api-version=2024-09-01
+    PUT: https://<region>.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.NetApp/netAppAccounts/<account-name>/capacityPools/<capacity-pool-name>/volumes/Migvolfinal?api-version=2024-09-01
     Body: {
        "type":"Microsoft.NetApp/netAppAccounts/capacityPools/volumes",
        "location":"<LOCATION>",
@@ -120,7 +120,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     >Every node in your ONTAP system needs an IC LIF. Each IC LIF needs to be listed here. 
 
     ```rest
-        POST https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.NetApp/netAppAccounts/<account-name>/capacityPools/<capacity-pool-name>/volumes/<volume-names>/peerExternalCluster?api-version=2024-09-01
+        POST https://<region>.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.NetApp/netAppAccounts/<account-name>/capacityPools/<capacity-pool-name>/volumes/<volume-names>/peerExternalCluster?api-version=2024-09-01
     
         Body: {
            "PeerAddresses":[
@@ -132,16 +132,16 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
         }
     ```
 
-1. View the result header. Copy the Azure-AsyncOperation ID.
+1. View the result header. Copy the `Azure-AsyncOperation` ID.
 1. In your on-premises system, accept the cluster peer request from Azure NetApp Files by sending a GET request using Azure-AsyncOperation ID.
 
     ```rest
 
-    POST https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/providers/Microsoft.NetApp/locations/<location>/operationResults/<Azure-AsyncOperation>?api-version=2024-09-01...
+    POST https://<region>.management.azure.com/subscriptions/<subscription-ID>/providers/Microsoft.NetApp/locations/<location>/operationResults/<Azure-AsyncOperation>?api-version=2024-09-01...
     ```
     
     >[!NOTE]
-    > This operation can take time. Check on the request status. It's complete when that status reads "Succeeded." If the Azure-AsyncOperation doesn't respond successfully after an hour or it fails with an error, run the `peerExternalCluster` command again. Ensure the network configuration between your external ONTAP system and your Azure NetApp Files delegated subnet is working before continuing.
+    > This operation can take time. Check on the request status. It's complete when that status reads "Succeeded." If the `Azure-AsyncOperation` doesn't respond successfully after an hour or it fails with an error, run the `peerExternalCluster` command again. Ensure the network configuration between your external ONTAP system and your Azure NetApp Files delegated subnet is working before continuing.
 
     ```json
     {
@@ -168,12 +168,12 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 1. Issue an `authorizeExternalReplication` API request for your migration volumes. Repeat this request for each migration volume. 
 
     ```rest
-    POST: https://southcentralus.management.azure.com/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.NetApp/netAppAccounts/<account-name>/capacityPools/<capacity-pool-name>/volumes/<volume-names>/authorizeExternalReplication?api-version=2024-09-01
+    POST: https://<region>.management.azure.com/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.NetApp/netAppAccounts/<account-name>/capacityPools/<capacity-pool-name>/volumes/<volume-names>/authorizeExternalReplication?api-version=2024-09-01
     ```
 1. Accept the storage virtual machine (SVM) peer request from Azure NetApp Files by sending a GET request using the Azure-AsyncOperation ID in step 3. 
 
     ```rest
-    GET https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/providers/Microsoft.NetApp/locations/<location>/operationResults/<>?api-version=2024-09-01&...
+    GET https://<region>.management.azure.com/subscriptions/<subscription-ID>/providers/Microsoft.NetApp/locations/<location>/operationResults/<>?api-version=2024-09-01&...
     ```
 
     An example response: 
@@ -199,22 +199,22 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 1. If there have been changes to the data after the baseline transfer, send a "Perform Replication Transfer" request to capture any incremental data written after the baseline transfer was completed. Repeat this operation for _each_ migration volume. 
 
     ```rest
-        POST https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-names>/providers/Microsoft.NetApp/netAppAccounts/<account-name>>/capacityPools/<capacity-pool>/volumes/<volumes>/performReplicationTransfer?api-version=2024-07-01 
+        POST https://<region>.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-names>/providers/Microsoft.NetApp/netAppAccounts/<account-name>>/capacityPools/<capacity-pool>/volumes/<volumes>/performReplicationTransfer?api-version=2024-07-01 
     ```
 
 1. Break the replication relationship. You can accomplish this in the Azure portal by navigating to each volume's **Replication** menu then selecting **Break peering**. You can alternately submit an API request: 
 
     ```rest
-    POST https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group>/providers/Microsoft.NetApp/netAppAccounts/<NetApp-account>/capacityPools/<capacity-pool-name>>/volumes/<volumes>/breakReplication?api-version=2024-09-01
+    POST https://<region>.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group>/providers/Microsoft.NetApp/netAppAccounts/<NetApp-account>/capacityPools/<capacity-pool-name>>/volumes/<volumes>/breakReplication?api-version=2024-09-01
     ```
 
 1. Finalize the replication by deleting the migration replication. If the deleted replication is the last migration associated with your subscription, the associated cluster peer and intercluster LIFs are deleted. 
 
     ```rest
-    POST https://southcentralus.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.NetApp/netAppAccounts/<NetApp-account>/capacityPools/<capacity-pool>/volumes/<volume-names>/finalizeExternalReplication?api-version=2024-09-01
+    POST https://<region>.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.NetApp/netAppAccounts/<NetApp-account>/capacityPools/<capacity-pool>/volumes/<volume-names>/finalizeExternalReplication?api-version=2024-09-01
     ```
 
-    Finalizing removes all the peering infromation on Azure NetApp Files. Manually confirm that all replication data is removed on the ONTAP cluster. If any entities remain, run the `cluster peer delete` command. 
+    Finalizing replication removes all the peering information on Azure NetApp Files. Manually confirm that all replication data is removed on the ONTAP cluster. If any peering information remains, run the `cluster peer delete` command. 
  
 ## More information 
 
