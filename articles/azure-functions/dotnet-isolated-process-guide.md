@@ -498,17 +498,17 @@ Here are some of the parameters that you can include as part of a function metho
 
 - [Bindings](#bindings), which are marked as such by decorating the parameters as attributes. The function must contain exactly one trigger parameter.
 - An [execution context object](#execution-context), which provides information about the current invocation.
-- A [cancelation token](#cancelation-tokens), used for graceful shutdown.
+- A [cancellation token](#cancellation-tokens), used for graceful shutdown.
 
 ### Execution context
 
 .NET isolated passes a [FunctionContext] object to your function methods. This object lets you get an [`ILogger`][ILogger] instance to write to the logs by calling the [GetLogger] method and supplying a `categoryName` string. You can use this context to obtain an [`ILogger`][ILogger] without having to use dependency injection. To learn more, see [Logging](#logging). 
 
-### Cancelation tokens
+### Cancellation tokens
 
-A function can accept a [cancelationToken](/dotnet/api/system.threading.cancellationtoken) parameter, which enables the operating system to notify your code when the function is about to be terminated. You can use this notification to make sure the function doesn't terminate unexpectedly in a way that leaves data in an inconsistent state.
+A function can accept a [cancellationToken](/dotnet/api/system.threading.cancellationtoken) parameter, which enables the operating system to notify your code when the function is about to be terminated. You can use this notification to make sure the function doesn't terminate unexpectedly in a way that leaves data in an inconsistent state.
 
-Cancelation tokens are supported in .NET functions when running in an isolated worker process. The following example raises an exception when a cancelation request is received:
+Cancellation tokens are supported in .NET functions when running in an isolated worker process. The following example raises an exception when a cancelation request is received:
 
 ```csharp
 [Function(nameof(ThrowOnCancellation))]
@@ -557,7 +557,7 @@ public async Task HandleCancellationCleanup(
 
 #### Scenarios that lead to cancelation
 
-The cancelation token is signaled when the function invocation is canceled. Several reasons could lead to a cancelation,
+The cancellation token is signaled when the function invocation is canceled. Several reasons could lead to a cancelation,
 and those could vary depending on the trigger type being used. Some common reasons are:
 
 1. Client disconnect: the client that is invoking your function disconnected. This is most likely for HttpTrigger functions.
@@ -565,7 +565,7 @@ and those could vary depending on the trigger type being used. Some common reaso
    A restart can occur due to worker instance movements, worker instance updates, or scaling.
     - Invocations in-flight during a restart event may be retried depending on how they were triggered. Please refer to the [retry documentation](./functions-bindings-error-pages.md#retries) for further information.
 
-For the isolated worker model, the host we will send the invocation through to the worker _even_ if the cancelation token was canceled _before_ the host is able to send the invocation request to the worker.
+For the isolated worker model, the host we will send the invocation through to the worker _even_ if the cancellation token was canceled _before_ the host is able to send the invocation request to the worker.
 
 If you do not want pre-canceled invocations to be sent to the worker, you can add the `SendCanceledInvocationsToWorker` property to your `host.json` file to disable this behavior. The following example shows a `host.json` file that uses this property:
 
@@ -581,7 +581,7 @@ If you do not want pre-canceled invocations to be sent to the worker, you can ad
 > 
 > `Cancellation has been requested. The invocation request with id '{invocationId}' is canceled and will not be sent to the worker`
 > 
-> This occurs when the cancelation token is canceled (as a result of one of the events described above) _before_ the host has sent
+> This occurs when the cancellation token is canceled (as a result of one of the events described above) _before_ the host has sent
 > an incoming invocation request to the worker. This exception can be safely ignored and would be expected when `SendCanceledInvocationsToWorker`
 > is `false`.
 
