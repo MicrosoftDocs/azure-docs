@@ -45,6 +45,8 @@ Example:
 az resource move --destination-group ResourceGroup --destination-subscription-id SubscriptionId --ids "ResourceId1" "ResourceId2" "ResourceId3"
 ```
 
+---
+
 ## Limitations
 
 * App Configuration stores that have private endpoints attached are unable to be moved across subscriptions and resource groups. To move the store, first delete the private endpoints, complete the move, and then recreate the private endpoints. It is important to consider that by default when removing all private endpoints, public network access for the store will be enabled. This can be avoided by explicitly disabling public network access to the store, however disabling public network access without private endpoints will result in temporary downtime as the store will be inaccessible. It is important to consider whether temporary public exposure of the endpoint, or temporary downtime is acceptable during the move.
