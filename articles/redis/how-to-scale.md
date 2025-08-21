@@ -42,7 +42,7 @@ Three tiers are for in-memory data:
 
 One tier stores data both in-memory and on-disk:
 
-- _Flash Optimized_ - Enables Redis clusters to automatically move less frequently accessed data from memory (RAM) to NVMe storage. This reduces performance, but allows for cost-effective scaling of caches with large datasets.
+- _Flash Optimized_ (preview) - Enables Redis clusters to automatically move less frequently accessed data from memory (RAM) to NVMe storage. This reduces performance, but allows for cost-effective scaling of caches with large datasets.
 
 [!INCLUDE [tier-preview](includes/tier-preview.md)]
 
@@ -174,7 +174,6 @@ For more information on how Azure Managed Redis handles sharding, see [Sharding 
 
 - If high availability mode is enabled, all data should be preserved during scaling operations.
 - If you're scaling to a smaller memory level, you need to ensure that the current memory usage is smaller than the intended new memory size. If the current memory usage is more than the intended SKU memory size, you can flush your data using Flush operation or manually choose key values to delete.
-<!-- - add link -->
 - If high availability mode is disabled, all data is lost and the cache is unavailable during the scaling operation.
 
 ### Is my cache be available during scaling?
