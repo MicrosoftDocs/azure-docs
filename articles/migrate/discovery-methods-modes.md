@@ -25,7 +25,7 @@ The appliance-based discovery method involves deploying a virtual appliance that
 ### Key features
 
 - Continuous collection of configuration and performance data.  
-- Supports discovering workloads such as SQL databases, webapps, and MySQL. 
+- Supports discovering workloads such as SQL databases, webapps, PostgreSQL and MySQL. 
 - Discover software inventory and enable dependency analysis.  
 
 ## Guidance to choose the right appliance

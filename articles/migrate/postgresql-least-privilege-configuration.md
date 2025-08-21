@@ -103,7 +103,7 @@ Run the script using the PostgreSQL command-line tool (`psql`) with superuser pr
 
 ```
 psql -h <hostname> -p <port> -d <database> -U <superuser> \
-    -v username=azure_migrate_user \
+    -v username=<<Az Migrate username>> \
     -v password='your_secure_password' \
     -f CreateUser.sql
 ```
@@ -129,7 +129,7 @@ Check that the user has necessary monitoring roles by running the following quer
 -- Verify the user exists
 SELECT rolname
 FROM pg_roles
-WHERE rolname = '<>';
+WHERE rolname = '<<Az Migrate username>>';
 ```
 
 ```sql
@@ -137,7 +137,7 @@ WHERE rolname = '<>';
 SELECT r.rolname AS granted_role
 FROM pg_auth_members m
 JOIN pg_roles r ON m.roleid = r.oid
-WHERE m.member = (SELECT oid FROM pg_roles WHERE rolname = '<>');
+WHERE m.member = (SELECT oid FROM pg_roles WHERE rolname = '<<Az Migrate username>>');
 ```
 After running these queries, you should see that the user exists and has only the required permissions for Azure Migrate discovery and assessment.
 
@@ -145,7 +145,7 @@ After running these queries, you should see that the user exists and has only th
 
 Use a least-privilege PostgreSQL account exclusively for Azure Migrate, regularly review permissions, rotate credentials, monitor activity, and disable the account when no longer needed.
 
-- Replace `<USERNAME>` and `<PASSWORD>` with your chosen username and a strong password for the least-privilege user.
+- Replace `<<Az Migrate username>>` and `<PASSWORD>` with your chosen username and a strong password for the least-privilege user.
 - Run the script with superuser privileges, as creating users and assigning roles requires elevated access.
 - Confirm that your PostgreSQL instance is running and accessible before executing the script.
 - Test the script in a development or staging environment prior to production use.
