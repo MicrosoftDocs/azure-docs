@@ -7,6 +7,7 @@ author: cephalin
 ms.author: cephalin
 ms.custom:
   - build-2025
+ms.service: azure-app-service
 ---
 
 # Environment variables and app settings in Azure App Service

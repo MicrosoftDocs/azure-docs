@@ -1,10 +1,10 @@
 ---
-title: Understand Azure File Sync cloud tiering
+title: Understand Azure File Sync Cloud Tiering
 description: Understand cloud tiering, an optional Azure File Sync feature. Frequently accessed files are cached locally on the server; others are tiered to Azure Files.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 04/13/2023
+ms.date: 07/16/2025
 ms.author: kendownie
 # Customer intent: As a system administrator, I want to understand how Azure File Sync cloud tiering works so that I can optimize local storage use and manage file access efficiently in my organization.
 ---
@@ -13,11 +13,13 @@ ms.author: kendownie
 
 Cloud tiering, an optional feature of Azure File Sync, decreases the amount of local storage required while keeping the performance of an on-premises file server.
 
-When enabled, this feature stores only frequently accessed (hot) files on your local server. Infrequently accessed (cool) files are split into namespace (file and folder structure) and file content. The namespace is stored locally and the file content stored in an Azure file share in the cloud.
+When enabled, this feature stores only frequently accessed (hot) files on your local server. Infrequently accessed (cool) files are split into namespace (file and folder structure) and file content. The namespace is stored locally, and the file content is stored in an Azure file share in the cloud.
 
 When a user opens a tiered file, Azure File Sync seamlessly recalls the file data from the Azure file share.
 
 ## How cloud tiering works
+
+Cloud tiering works by monitoring file access patterns and tiering files based on defined policies.
 
 ### Cloud tiering policies
 
@@ -50,7 +52,11 @@ Typically, last access time is tracked and available. However, when a new server
 The date policy works the same way. Without a last access time, the date policy will act on the last modified time. If that's unavailable, it will fall back to the create time of a file. Over time, the system will observe more file access requests and automatically start to use the self-tracked last access time.
 
 > [!NOTE]
-> Cloud tiering does not depend on the NTFS feature for tracking last access time. This NTFS feature is off by default and due to performance considerations, we don't recommend that you manually enable this feature. Cloud tiering tracks last access time separately.
+> Cloud tiering doesn't depend on the NTFS feature for tracking last access time. This NTFS feature is off by default. Due to performance considerations, we don't recommend that you manually enable this feature. Cloud tiering tracks last access time separately.
+
+### Considerations for choosing a cloud tiering policy
+
+Cold files that are less frequently accessed are best suited to be tiered files, as recalling data requires downloading from the cloud. Azure File Sync reserves 10% of total memory for persisting recalls to the disk. If 60% of this reserved memory is in use, the recalls won't be persisted to the disk. If a large number of tiered files are present on the system and a lot of access takes place, the system might hit a memory threshold. This can cause unexpected additional egress, I/O performance degradation, system slowness, and hangs.
 
 ### Proactive recalling
 
@@ -86,6 +92,7 @@ It's also possible for a file to be partially tiered or partially recalled. In a
 > Size represents the logical size of the file. Size on disk represents the physical size of the file stream that's stored on the disk.
 
 ## Low disk space mode
+
 Disks that have server endpoints can run out of space due to various reasons, even when cloud tiering is enabled. These reasons include:
 
 - Data being manually copied to the disk outside of the server endpoint path
@@ -107,7 +114,9 @@ When the volume free space surpasses the threshold, Azure File Sync reverts to t
 If a volume has two server endpoints, one with tiering enabled and one without tiering, then low disk space mode will only apply to the server endpoint where tiering is enabled.
 
 ### How is the threshold for low disk space mode calculated?
+
 Calculate the threshold by taking the minimum of the following three numbers:
+
 - 10% of volume size in GiB 
 - Volume Free Space Policy in GiB
 - 20 GiB

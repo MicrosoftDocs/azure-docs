@@ -7,8 +7,8 @@ ms.custom:
   - ignite-2023
   - ignite-2024
 ms.date: 03/30/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ---
 
 # Tutorial: View protected items and perform actions

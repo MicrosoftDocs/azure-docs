@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.author: jsuri
 ms.date: 05/27/2021
 
+# Customer intent: As an IT administrator, I want to prepare the Azure environment for VMware VM replication, so that I can ensure effective disaster recovery of my virtual machines and physical servers to Azure.
 ---
 
 # Prepare the target environment for disaster recovery of VMware VMs or physical servers to Azure

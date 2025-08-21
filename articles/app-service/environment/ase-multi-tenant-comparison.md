@@ -7,6 +7,7 @@ ms.author: jordanselig
 ms.topic: concept-article
 ms.custom:
   - build-2025
+ms.service: azure-app-service
 ---
 
 # App Service Environment v3 and App Service public multitenant comparison

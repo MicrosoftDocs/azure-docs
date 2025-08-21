@@ -8,6 +8,7 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.reviewer: dineshm
+# Customer intent: "As a data engineer, I want to use AzCopy to efficiently download blobs from Azure Blob Storage, so that I can manage and process storage data as needed in my projects."
 ---
 
 # Download blobs from Azure Blob Storage by using AzCopy

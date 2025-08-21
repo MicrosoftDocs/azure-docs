@@ -5,8 +5,9 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: reference
-ms.date: 02/20/2025
+ms.date: 08/20/2025
 ms.author: phjensen
+# Customer intent: "As a cloud administrator, I want to use the runbefore and runafter capabilities of the Application Consistent Snapshot tool, so that I can automate command execution for backup and restoration processes with Azure NetApp Files."
 ---
 
 # RunBefore and RunAfter using Azure Application Consistent Snapshot tool
@@ -104,6 +105,7 @@ if [ -r "${SAS_KEY_FILE}" ]; then
   source "${SAS_KEY_FILE}"
 else
   echo "Credential file '${SAS_KEY_FILE}' not found, exiting!"
+  exit 2
 fi
 
 

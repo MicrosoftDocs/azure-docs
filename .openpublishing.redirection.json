@@ -1,6 +1,256 @@
 {
   "redirections": [
     {
+      "source_path": "articles/managed-ccf/application-scenarios.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/confidential-consortium-framework-overview.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/faq.yml",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/get-started.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/how-to-activate-members.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/how-to-backup-restore-resource.md",
+      "redirect_url": "/previous-versions/azure/managed-ccf/how-to-backup-restore-resource",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/how-to-enable-azure-monitor.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/how-to-manage-members.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/how-to-update-application.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/how-to-update-javascript-runtime-options.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/how-to-view-members.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/index.yml",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/overview.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/quickstart-cli.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/quickstart-deploy-application.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/quickstart-go.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/quickstart-java.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/quickstart-net.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/quickstart-portal.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/quickstart-python.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/managed-ccf/quickstart-typescript.md",
+      "redirect_url": "/azure/confidential-ledger/managed-confidential-consortium-framework-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storsimple/index.yml",
+      "redirect_url": "/previous-versions/azure/storsimple/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storsimple/storsimple-overview.md",
+      "redirect_url": "/previous-versions/azure/storsimple/storsimple-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-troubleshooting-arp-classic.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-troubleshooting-arp-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-howto-circuit-classic.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-howto-circuit-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-howto-routing-classic.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-howto-routing-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-howto-linkvnet-classic.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-howto-linkvnet-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-howto-move-arm.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-howto-move-arm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-move.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-move",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-migration-classic-resource-manager.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-migration-classic-resource-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-center/discover-shadow-apis-dev-proxy.md",
+      "redirect_url": "/previous-versions/azure/api-center/discover-shadow-apis-dev-proxy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-center/find-nonproduction-api-requests-dev-proxy.md",
+      "redirect_url": "/previous-versions/azure/api-center/find-nonproduction-api-requests-dev-proxy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-center/check-minimal-api-permissions-dev-proxy.md",
+      "redirect_url": "/previous-versions/azure/api-center/check-minimal-api-permissions-dev-proxy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/add-nodes.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/add-nodes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/add-storage.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/add-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/additional-doc.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/additional-doc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/cluster-create.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/cluster-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/configure-network.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/configure-network",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/index.yml",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/install.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/monitor.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/mount-clients.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/mount-clients",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/network-power.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/network-power",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/node-password.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/node-password",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/overview.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/port-list.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/port-list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/power-off.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/power-off",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/specs.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/specs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/support-ticket.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/support-ticket",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/supported-ciphers.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/supported-ciphers",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/backup/azure-elastic-storage-area-network-backup-manage.md",
       "redirect_url": "/azure/backup/azure-elastic-san-backup-manage",
       "redirect_document_id": false
@@ -2100,191 +2350,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/classic-retirement.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/classic-retirement",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/configure-host-pool-personal-desktop-assignment-type-2019.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/configure-host-pool-personal-desktop-assignment-type-2019",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/configure-vm-gpu-2019.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/configure-vm-gpu-2019",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/connect-android-2019.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/connect-android-2019",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/connect-ios-2019.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/connect-ios-2019",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/connect-macos-2019.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/connect-macos-2019",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/connect-web-2019.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/connect-web-2019",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/connect-windows-2019.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/connect-windows-2019",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/create-host-pools-arm-template.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/create-host-pools-arm-template",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/create-host-pools-azure-marketplace-2019",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/create-host-pools-powershell-2019.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/create-host-pools-powershell-2019",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/create-service-principal-role-powershell.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/create-service-principal-role-powershell",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/create-validation-host-pool-2019.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/create-validation-host-pool-2019",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/customize-feed-virtual-desktop-users-2019.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/customize-feed-virtual-desktop-users-2019",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/customize-rdp-properties-2019.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/customize-rdp-properties-2019",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/data-locations-2019.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/data-locations-2019",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/delegated-access-virtual-desktop-2019.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/delegated-access-virtual-desktop-2019",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/deploy-diagnostics.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/deploy-diagnostics",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/diagnostics-log-analytics-2019.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/diagnostics-log-analytics-2019",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/diagnostics-role-service-2019.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/diagnostics-role-service-2019",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/environment-setup-2019.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/environment-setup-2019",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/expand-existing-host-pool-2019.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/expand-existing-host-pool-2019",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/host-pool-load-balancing-2019.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/host-pool-load-balancing-2019",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/manage-app-groups-2019.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/manage-app-groups-2019",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/manage-resources-using-ui-powershell.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/manage-resources-using-ui-powershell",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/manage-resources-using-ui.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/manage-resources-using-ui",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/manual-delete.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/manual-delete",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/publish-apps-2019.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/publish-apps-2019",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/set-up-scaling-script.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/set-up-scaling-script",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/set-up-service-alerts-2019.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/set-up-service-alerts-2019",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/tenant-setup-azure-active-directory",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/troubleshoot-management-tool.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/troubleshoot-management-tool",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/troubleshoot-powershell-2019.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/troubleshoot-powershell-2019",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/troubleshoot-service-connection-2019.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/troubleshoot-service-connection-2019",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/troubleshoot-set-up-issues-2019.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/troubleshoot-set-up-issues-2019",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/troubleshoot-set-up-overview-2019",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/troubleshoot-vm-configuration-2019.md",
-      "redirect_url": "/previous-versions/azure/virtual-desktop-classic/troubleshoot-vm-configuration-2019",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/lab-services/class-type-adobe-creative-cloud.md",
       "redirect_url": "/previous-versions/azure/lab-services/class-type-adobe-creative-cloud",
       "redirect_document_id": false
@@ -2432,6 +2497,16 @@
     {
       "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-cross-premises-options.md",
       "redirect_url": "/previous-versions/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/vpn-gateway/gateway-sku-change.md",
+      "redirect_url": "/azure/vpn-gateway/gateway-sku-upgrade",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/vpn-gateway/gateway-sku-resize.md",
+      "redirect_url": "/azure/vpn-gateway/gateway-sku-upgrade",
       "redirect_document_id": false
     },
     {
@@ -4075,8 +4150,53 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/expressroute/quickstart-create-expressroute-vnet-template.md",
+      "redirect_url": "/azure/expressroute/expressroute-howto-circuit-resource-manager-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/expressroute/expressroute-howto-expressroute-direct-cli.md",
+      "redirect_url": "/azure/expressroute/how-to-expressroute-direct-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/expressroute/expressroute-howto-erdirect.md",
+      "redirect_url": "/azure/expressroute/how-to-expressroute-direct-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/expressroute/how-to-routefilter-cli.md",
+      "redirect_url": "/azure/expressroute/how-to-routefilter-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/expressroute/how-to-routefilter-powershell.md",
+      "redirect_url": "/azure/expressroute/how-to-routefilter-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/expressroute/work-remotely-support.md",
+      "redirect_url": "/azure/networking/working-remotely-support",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/expressroute/working-remotely-support.md",
       "redirect_url": "/azure/expressroute/work-remotely-support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/expressroute/expressroute-howto-add-ipv6-powershell.md",
+      "redirect_url": "/azure/expressroute/expressroute-howto-add-ipv6",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/expressroute/expressroute-howto-add-ipv6-cli.md",
+      "redirect_url": "/azure/expressroute/expressroute-howto-add-ipv6",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/expressroute/expressroute-howto-add-ipv6-portal.md",
+      "redirect_url": "/azure/expressroute/expressroute-howto-add-ipv6",
       "redirect_document_id": false
     },
     {
@@ -5730,71 +5850,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/virtual-desktop/bandwidth-recommendations.md",
-      "redirect_url": "/windows-server/remote/remote-desktop-services/network-guidance",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/virtual-desktop/compare-virtual-desktop-windows-365.md",
-      "redirect_url": "/azure/virtual-desktop/overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/virtual-desktop/connect-android.md",
-      "redirect_url": "/azure/virtual-desktop/user-documentation/connect-android",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-desktop/connect-ios.md",
-      "redirect_url": "/azure/virtual-desktop/user-documentation/connect-ios",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-desktop/connect-macos.md",
-      "redirect_url": "/azure/virtual-desktop/user-documentation/connect-macos",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-desktop/connect-microsoft-store.md",
-      "redirect_url": "/azure/virtual-desktop/user-documentation/connect-microsoft-store",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-desktop/connect-web.md",
-      "redirect_url": "/azure/virtual-desktop/user-documentation/connect-web",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-desktop/connect-windows-7-10.md",
-      "redirect_url": "/azure/virtual-desktop/user-documentation/connect-windows-7-10",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-desktop/diagnostics-role-service.md",
-      "redirect_url": "/azure/virtual-desktop/troubleshoot-set-up-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/virtual-desktop/linux-overview.md",
-      "redirect_url": "/azure/virtual-desktop/user-documentation/linux-overview",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/virtual-desktop/partners.md",
-      "redirect_url": "https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=azure%20virtual%20desktop",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/virtual-desktop/rd-gateway-role.md",
-      "redirect_url": "/windows-server/remote/remote-desktop-services/remote-desktop-gateway-role",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/virtual-desktop/teams-on-wvd.md",
-      "redirect_url": "/azure/virtual-desktop/teams-on-avd",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/virtual-machines-command-line-tools.md",
       "redirect_url": "/cli/azure/get-started-with-az-cli2",
       "redirect_document_id": false
@@ -6375,6 +6430,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/service-connector/quickstart-cli-spring-cloud-connection.md",
+      "redirect_url": "/azure/service-connector/quickstart-portal-spring-cloud-connection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/service-connector/quickstart-cli-app-service-connection.md",
+      "redirect_url": "/azure/service-connector/quickstart-portal-app-service-connection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/service-connector/quickstart-cli-aks-connection.md",
+      "redirect_url": "/azure/service-connector/quickstart-portal-aks-connection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/service-connector/quickstart-cli-container-apps.md",
+      "redirect_url": "/azure/service-connector/quickstart-portal-container-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/service-connector/quickstart-cli-functions-connection.md",
+      "redirect_url": "/azure/service-connector/quickstart-portal-functions-connection",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/load-balancer/move-across-regions-external-load-balancer-portal.md",
       "redirect_url": "/azure/load-balancer/move-across-regions-azure-load-balancer",
       "redirect_document_id": false
@@ -6447,91 +6527,6 @@
     {
       "source_path_from_root": "/articles/reliability/cross-region-replication-azure.md",
       "redirect_url": "/azure/reliability/regions-paired",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/troubleshoot-agent.md",
-      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-agent",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/troubleshoot-app-attach.md",
-      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-app-attach",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/troubleshoot-authorization.md",
-      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-authorization",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/troubleshoot-azure-ad-connections.md",
-      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-azure-ad-connections",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/troubleshoot-connection-quality.md",
-      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-connection-quality",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/troubleshoot-custom-image-templates.md",
-      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-custom-image-templates",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/troubleshoot-device-redirections.md",
-      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-device-redirections",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/troubleshoot-insights.md",
-      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-insights",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/troubleshoot-management-issues.md",
-      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-management-issues",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/troubleshoot-multimedia-redirection.md",
-      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-multimedia-redirection",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/troubleshoot-powershell.md",
-      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-powershell",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/troubleshoot-rdp-shortpath.md",
-      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-rdp-shortpath",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/troubleshoot-service-connection.md",
-      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-service-connection",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/troubleshoot-session-host-configuration-update.md",
-      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-session-host-configuration-update",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/troubleshoot-set-up-issues.md",
-      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-set-up-issues",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/troubleshoot-set-up-overview.md",
-      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-set-up-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-desktop/troubleshoot-vm-configuration.md",
-      "redirect_url": "/troubleshoot/azure/virtual-desktop/troubleshoot-vm-configuration",
       "redirect_document_id": false
     },
     {
@@ -7085,9 +7080,78 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/reliability/availability-zones-migration-overview.md",
+      "redirect_url": "/azure/reliability/availability-zones-enable-zone-resiliency",
+      "redirect_document_id": false
+    },
+    {  
+      "source_path": "articles/app-service/sre-agent-overview.md",
+      "redirect_url": "/azure/sre-agent/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/sre-agent-usage.md",
+      "redirect_url": "/azure/sre-agent/usage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sre-agent/incident-management-tools.md",
+      "redirect_url": "/azure/sre-agent/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/tutorial-sre-agent.md",
+      "redirect_url": "/azure/sre-agent/troubleshoot-azure-app-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/container-apps/sre-agent-troubleshoot.md",
+      "redirect_url": "/azure/sre-agent/troubleshoot-azure-container-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sre-agent/permissions.md",
+      "redirect_url": "/azure/sre-agent/security-context",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/reliability/whats-new.md",
       "redirect_url": "/azure/reliability/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/hipaa-hitrust-9-2.md",
+      "redirect_url": "/azure/governance/policy/samples/hipaa-hitrust",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/migrate-workload-aks-mysql.md",
+      "redirect_url": "/azure/reliability/availability-zones-migration-overview",
+      "redirect_document_id": true
+    },
+    {
+       "source_path": "articles/private-5g-core/disconnected-mode.md",
+       "redirect_url": "/azure/private-5g-core/azure-stack-edge-disconnects",
+       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/signups/startup-programs.md",
+      "redirect_url": "/azure/signups/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/migrate-sql-database.md",
+      "redirect_url": "/azure/azure-sql/database/enable-zone-redundancy",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/reliability/migrate-app-gateway-v2.md",
+      "redirect_url": "/azure/reliability/reliability-application-gateway-v2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/migrate-storage.md",
+      "redirect_url": "/azure/storage/common/redundancy-migration",
     }
   ]
 }

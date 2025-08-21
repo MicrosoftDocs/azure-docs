@@ -1,7 +1,7 @@
 ---
-title: Azure Communication Services Call Automation Events handling with Event Processor
+title: Azure Communication Services Call Automation Events Handling with the Event Processor
 titleSuffix: An Azure Communication Services how-to document
-description: Provides a how-to guide on using Call Automation's Event Processor
+description: The article shows how to use the Call Automation event processor.
 author: minwoolee-msft
 ms.topic: how-to
 ms.service: azure-communication-services
@@ -10,28 +10,28 @@ ms.date: 05/31/2023
 ms.author: minwoolee
 ---
 
-# Handling Events with Call Automation's Event Processor Overview
+# Handle events with the Call Automation event processor
 
-Once the call is established with Call Automation, further state update of the on-going call is sent as separate event via [Webhook Callback](../../concepts/call-automation/call-automation.md#call-automation-webhook-events). These events have important information, such as latest state of the call and outcome of the request that was sent.
+After a call is established with Call Automation, a further update of the ongoing call is sent as a separate event via a [webhook callback](../../concepts/call-automation/call-automation.md#call-automation-webhook-events). These events have important information, such as the latest state of the call and the outcome of the request that was sent.
 
-Call Automation's EventProcessor helps easily processing these Webhook Callback events for your applications. It helps corelate each event to its respective call, and allow you to build applications with ease.
+The Call Automation event processor helps to easily process webhook callback events for your applications. It helps to correlate each event to its respective call so that you can build applications with ease.
 
 ## Benefits
 
-EventProcessor features allow developers to easily build robust application that can handle call automation events.
+By using event processor features, you can easily build robust applications that can handle Call Automation events. They can:
 
-- Associating events to its respective calls
-- Easily able to write code linearly
-- Handling events that could happen anytime during the call (such as, CallDisconnected or ParticipantsUpdated)
-- Handling rare case where events arriving earlier than the request's response
-- Set custom timeout for waiting on events
+- Associate an event to its respective calls.
+- Write code linearly.
+- Handle events that could happen anytime during the call (such as `CallDisconnected` or `ParticipantsUpdated`).
+- Handle rare cases where events arrive earlier than the request's response.
+- Set a custom timeout for waiting on events.
 
-## Passing events to Call Automation's EventProcessor
+## Pass events to the Call Automation event processor
 
-Call Automation's EventProcessor first need to consume events that were sent from the service. Once the event arrives in callback endpoint, pass the event to EventProcessor.
+The Call Automation event processor first needs to consume events that were sent from the service. After the event arrives at the callback endpoint, pass the event to the event processor.
 
 > [!IMPORTANT]
-> Have you established webhook callback events endpoint? EventProcessor still needs to consume callback events through webhook callback. See **[quickstart](../../quickstarts/call-automation/quickstart-make-an-outbound-call.md)** that describes establishing webhook endpoints.
+> Have you established a webhook callback events endpoint? The event processor still needs to consume callback events through a webhook callback. For information on how to establish webhook endpoints, see [Make an outbound call by using Call Automation](../../quickstarts/call-automation/quickstart-make-an-outbound-call.md).
 
 ```csharp
 using Azure.Communication.CallAutomation;
@@ -48,11 +48,11 @@ public IActionResult CallbackEvent([FromBody] CloudEvent[] cloudEvents)
 }
 ```
 
-Now we're ready to use the EventProcessor.
+Now you're ready to use the event processor.
 
-## Using Create Call request's response to wait for Call Connected event
+## Use the Create Call request response to wait for a Call Connected event
 
-First scenario is to create an outbound call, then wait until the call is established with the EventProcessor.
+The first scenario is to create an outbound call and then wait until the call is established with the event processor.
 
 ```csharp
 // Creating an outbound call here
@@ -62,49 +62,48 @@ CallConnection callConnection = createCallResult.CallConnection;
 // Wait for 40 seconds before throwing timeout error.
 var tokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(40));
 
-// We can wait for EventProcessor that related to outbound call here. In this case, we are waiting for CreateCallEventResult, upto 40 seconds.
+// We can wait for EventProcessor that related to outbound call here. In this case, we are waiting for CreateCallEventResult, up to 40 seconds.
 CreateCallEventResult eventResult = await createCallResult.WaitForEventProcessorAsync(tokenSource);
 
 // Once EventResult comes back, we can get SuccessResult of CreateCall - which is, CallConnected event.
 CallConnected returnedEvent = eventResult.SuccessResult;
 ```
 
-With EventProcessor, we can easily wait CallConnected event until the call is established. If the call was never established (that is, callee never picked up the phone), it throws Timeout Exception.  If the creation of the call otherwise fails, you will receive the `CallDisconnected` and `CreateCallFailed` events with error codes to further troubleshoot (see [this page](./../../resources/troubleshooting/voice-video-calling/troubleshooting-codes.md) for more information on Call Automation error codes).
+With the event processor, you can easily wait for the `CallConnected` event until the call is established. If the call was never established (that is, the caller never picked up the phone), it throws a timeout exception. If the creation of the call otherwise fails, you receive `CallDisconnected` and `CreateCallFailed` events with error codes for further troubleshooting. For more information on Call Automation error codes, see [Troubleshooting call end response codes](./../../resources/troubleshooting/voice-video-calling/troubleshooting-codes.md).
 
-> [!NOTE]
-> If specific timeout was not given when waiting on EventProcessor, it will wait until its default timeout happens. The default timeout is 4 minutes.
+If a specific timeout wasn't given when you waited on the event processor, it waits until its default timeout happens. The default timeout is four minutes.
 
-## Using Play request's response to wait for Play events
+## Use the Play request response to wait for Play events
 
-Now the call is established, let's try to play some audio in the call, then wait until the media is played.
+Now that the call is established, try to play some audio in the call, and then wait until the media plays.
 
 ```csharp
-// play my prompt to everyone
+// Play my prompt to everyone.
 FileSource fileSource = new FileSource(playPrompt);
 PlayResult playResult = await callConnection.GetCallMedia().PlayToAllAsync(fileSource);
 
-// wait for play to complete
+// Wait for play to complete.
 PlayEventResult playEventResult = await playResult.WaitForEventProcessorAsync();
 
-// check if the play was completed successfully
+// Check if the play was completed successfully.
 if (playEventResult.IsSuccess)
 {
-    // success play!
+    // Success play!
     PlayCompleted playCompleted = playEventResult.SuccessResult;
 }
 else
 {
-    // failed to play the audio.
+    // Failed to play the audio.
     PlayFailed playFailed = playEventResultResult.FailureResult;
 }
 ```
 
 > [!WARNING]
-> EventProcessor utilizes OperationContext to track event with its related request. If OperationContext was not set during request, EventProcessor will set generated GUID to track future events to the request. If you are setting your own OperationContext during request, EventProcessor will still work - but it's advised to set them differently from request to request, to allow EventProcessor to distinguish request 1's event and request 2's event.
+> The event processor uses `OperationContext` to track an event with its related request. If `OperationContext` wasn't set during the request, the event processor sets generated GUID to track future events to the request. If you set `OperationContext` during the request, the event processor still works, but we recommend that you set them differently from request to request. In this way, the event processor can distinguish the first request's event and the second request's event.
 
-## Handling events with Ongoing EventProcessor
+## Handle events with the ongoing event processor
 
-Some events could happen anytime during the call, such as CallDisconnected or ParticipantsUpdated, when other caller leaves the call. EventProcessor provides a way to handle these events easily with ongoing event handler.
+Some events could happen anytime during the call, such as `CallDisconnected` or `ParticipantsUpdated`, when other callers leave the call. The event processor provides a way to handle these events easily with the ongoing event handler.
 
 ```csharp
 // Use your call automation client that established the call
@@ -117,14 +116,13 @@ eventProcessor.AttachOngoingEventProcessor<ParticipantsUpdated>(callConnectionId
 });
 ```
 
-With this given ongoing EventProcessor, we can now print number or participant in the call whenever people join or leave the call.
+With this specific ongoing event processor, you can now print the number of participants or the participants on the call whenever people join or leave the call.
 
-> [!TIP]
-> You can attach ongoing handler to any event type! This opens possibility to build your application with callback design pattern.
+You can attach an ongoing handler to any event type. This capability opens the possibility to build your application with a callback design pattern.
 
-## Advanced: Using predicate to wait for specific event
+## Advanced: Use a predicate to wait for a specific event
 
-If you would like to wait for specific event with given predicate without relying on EventResult returned from request, it's also possible to do so with predicate. Let's try to wait for CallDisconnected event with matching CallConnectionId and its type.
+If you want to wait for a specific event with a specific predicate without the need to rely on `EventResult` returned from the request, it's also possible to do so with a predicate. Try to wait for a `CallDisconnected` event with the matching `CallConnectionId` and its type.
 
 ```csharp
 // Use your call automation client that established the call
@@ -138,14 +136,14 @@ CallDisconnected disconnectedEvent = (CallDisconnected)await eventProcessor.Wait
 );
 ```
 
-## Advanced: Detailed specification
+## Advanced: Detailed specifications
 
-- The default timeout for waiting on EventProcessor is 4 minutes. After that, it will throw timeout exception.
-- The same call automation client that made the request must be used to wait on event using EventProcessor.
-- Once the CallDisconnect event is received for the call, all of the call's events are removed from the memory.
-- In some rare cases, event may arrive earlier than the response of the request. In these cases, it's saved in backlog for 5 seconds.
-- You may have multiple EventProcessor wait on the same event. Once the matching event arrives, all of EventProcessors waiting on that event returns with arrived event.
+- The default timeout for waiting on the event processor is four minutes. After that, it throws a timeout exception.
+- The same call automation client that made the request must be used to wait on an event by using the event processor.
+- After the `CallDisconnect` event is received for the call, all the call's events are removed from the memory.
+- In some rare cases, an event might arrive earlier than the response of the request. In these cases, it's saved in backlog for five seconds.
+- You might have multiple event processors waiting on the same event. After the matching event arrives, all the event processors waiting on that event return with the arrived event.
 
-## Next steps
+## Related content
 
-- Learn more about [How to control and steer calls with Call Automation](../call-automation/actions-for-call-control.md).
+- Learn more about how to [control and steer calls with Call Automation](../call-automation/actions-for-call-control.md).

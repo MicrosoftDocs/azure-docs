@@ -8,6 +8,7 @@ ms.date: 08/29/2023
 ms.author: jsuri
 ms.custom: MVC, engagement-fy23
 
+# Customer intent: "As a cloud administrator, I want to set up disaster recovery for Azure VMware Solution VMs, so that I can ensure business continuity and minimize downtime during outages."
 ---
 # Set up Azure Site Recovery for Azure VMware Solution VMs
 

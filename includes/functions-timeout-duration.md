@@ -18,7 +18,7 @@ The following table shows the default and maximum values (in minutes) for specif
 | **[Flex Consumption plan](../articles/azure-functions/flex-consumption-plan.md)** | 30 | Unbounded<sup>2</sup> |
 | **[Premium plan](../articles/azure-functions/functions-premium-plan.md)** |  30<sup>4</sup> | Unbounded<sup>2</sup> |  
 | **[Dedicated plan](../articles/azure-functions/dedicated-plan.md)** |  30<sup>4</sup> | Unbounded<sup>3</sup> |  
-| **[Container Apps](../articles/azure-functions/functions-container-apps-hosting.md)** | 30 | Unbounded<sup>5</sup>  | 
+| **[Container Apps](../articles/container-apps/functions-overview.md)** | 30 | Unbounded<sup>5</sup>  | 
 | **[Consumption plan](../articles/azure-functions/consumption-plan.md)** |  5 | 10 |  
 
 1. Regardless of the function app time-out setting, 230 seconds is the maximum amount of time that an HTTP triggered function can take to respond to a request. This is because of the [default idle time-out of Azure Load Balancer](../articles/app-service/faq-availability-performance-application-issues.yml#why-does-my-request-time-out-after-230-seconds). For longer processing times, consider using the [Durable Functions async pattern](../articles/azure-functions/durable/durable-functions-overview.md#async-http) or [defer the actual work and return an immediate response](../articles/azure-functions/performance-reliability.md#avoid-long-running-functions).

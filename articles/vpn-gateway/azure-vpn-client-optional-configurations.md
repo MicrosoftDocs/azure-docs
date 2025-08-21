@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 03/07/2025
 ms.author: cherylmc
 
+# Customer intent: "As a network administrator, I want to configure optional settings for the Azure VPN Client, so that I can optimize DNS and routing for point-to-site connections."
 ---
 # Azure VPN Client - configure optional DNS and routing settings
 

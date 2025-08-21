@@ -209,61 +209,29 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 
 Microsoft Sentinel's customizable, machine learning-based anomalies can identify anomalous behavior with analytics rule templates that can be put to work right out of the box. While anomalies don't necessarily indicate malicious or even suspicious behavior by themselves, they can be used to improve detections, investigations, and threat hunting.
 
-- [Anomalous Microsoft Entra sign-in sessions](#anomalous-azure-ad-sign-in-sessions)
 - [Anomalous Azure operations](#anomalous-azure-operations)
 - [Anomalous Code Execution](#anomalous-code-execution)
 - [Anomalous local account creation](#anomalous-local-account-creation)
-- [Anomalous scanning activity](#anomalous-scanning-activity)
 - [Anomalous user activities in Office Exchange](#anomalous-user-activities-in-office-exchange)
-- [Anomalous user/app activities in Azure audit logs](#anomalous-userapp-activities-in-azure-audit-logs)
-- [Anomalous W3CIIS logs activity](#anomalous-w3ciis-logs-activity)
-- [Anomalous web request activity](#anomalous-web-request-activity)
 - [Attempted computer brute force](#attempted-computer-brute-force)
 - [Attempted user account brute force](#attempted-user-account-brute-force)
 - [Attempted user account brute force per login type](#attempted-user-account-brute-force-per-login-type)
 - [Attempted user account brute force per failure reason](#attempted-user-account-brute-force-per-failure-reason)
 - [Detect machine generated network beaconing behavior](#detect-machine-generated-network-beaconing-behavior)
 - [Domain generation algorithm (DGA) on DNS domains](#domain-generation-algorithm-dga-on-dns-domains)
-- Domain Reputation Palo Alto anomaly (DISCONTINUED)
-- [Excessive data transfer anomaly](#excessive-data-transfer-anomaly)
 - [Excessive Downloads via Palo Alto GlobalProtect](#excessive-downloads-via-palo-alto-globalprotect)
 - [Excessive uploads via Palo Alto GlobalProtect](#excessive-uploads-via-palo-alto-globalprotect)
-- [Login from an unusual region via Palo Alto GlobalProtect account logins](#login-from-an-unusual-region-via-palo-alto-globalprotect-account-logins)
-- Multi-region logins in a single day via Palo Alto GlobalProtect (DISCONTINUED)
-- [Potential data staging](#potential-data-staging)
 - [Potential domain generation algorithm (DGA) on next-level DNS Domains](#potential-domain-generation-algorithm-dga-on-next-level-dns-domains)
-- [Suspicious geography change in Palo Alto GlobalProtect account logins](#suspicious-geography-change-in-palo-alto-globalprotect-account-logins)
-- [Suspicious number of protected documents accessed](#suspicious-number-of-protected-documents-accessed)
 - [Suspicious volume of AWS API calls from Non-AWS source IP address](#suspicious-volume-of-aws-api-calls-from-non-aws-source-ip-address)
-- [Suspicious volume of AWS CloudTrail log events of group user account by EventTypeName](#suspicious-volume-of-aws-cloudtrail-log-events-of-group-user-account-by-eventtypename)
 - [Suspicious volume of AWS write API calls from a user account](#suspicious-volume-of-aws-write-api-calls-from-a-user-account)
-- [Suspicious volume of failed login attempts to AWS Console by each group user account](#suspicious-volume-of-failed-login-attempts-to-aws-console-by-each-group-user-account)
-- [Suspicious volume of failed login attempts to AWS Console by each source IP address](#suspicious-volume-of-failed-login-attempts-to-aws-console-by-each-source-ip-address)
 - [Suspicious volume of logins to computer](#suspicious-volume-of-logins-to-computer)
 - [Suspicious volume of logins to computer with elevated token](#suspicious-volume-of-logins-to-computer-with-elevated-token)
 - [Suspicious volume of logins to user account](#suspicious-volume-of-logins-to-user-account)
 - [Suspicious volume of logins to user account by logon types](#suspicious-volume-of-logins-to-user-account-by-logon-types)
 - [Suspicious volume of logins to user account with elevated token](#suspicious-volume-of-logins-to-user-account-with-elevated-token)
-- [Unusual external firewall alarm detected](#unusual-external-firewall-alarm-detected)
-- [Unusual mass downgrade AIP label](#unusual-mass-downgrade-aip-label)
-- [Unusual network communication on commonly used ports](#unusual-network-communication-on-commonly-used-ports)
-- [Unusual network volume anomaly](#unusual-network-volume-anomaly)
-- [Unusual web traffic detected with IP in URL path](#unusual-web-traffic-detected-with-ip-in-url-path)
 
 <a name='anomalous-azure-ad-sign-in-sessions'></a>
 
-### Anomalous Microsoft Entra sign-in sessions
-
-**Description:** The machine learning model groups the Microsoft Entra sign-in logs on a per-user basis. The model is trained on the previous 6 days of user sign-in behavior. It indicates anomalous user sign-in sessions over the past day. 
-
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                | Microsoft Entra sign-in logs                                |
-| **MITRE ATT&CK tactics:**        | Initial Access                                                     |
-| **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts<br>T1566 - Phishing<br>T1133 - External Remote Services |
-
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Anomalous Azure operations
 
@@ -304,30 +272,7 @@ Microsoft Sentinel's customizable, machine learning-based anomalies can identify
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### Anomalous scanning activity
 
-**Description:** This algorithm looks for port scanning activity, coming from a single source IP to one or more destination IPs, that is not normally seen in a given environment.
-
-The algorithm takes into account whether the IP is public/external or private/internal, and the event is marked accordingly. Only private-to-public or public-to-private activity is considered at this time. Scanning activity can indicate an attacker attempting to determine available services in an environment that can be potentially exploited and used for ingress or lateral movement. A high number of source ports and high number of destination ports from a single source IP to either a single or multiple destination IP or IPs can be interesting and indicate anomalous scanning. Additionally, if there is a high ratio of destination IPs to the single source IP this can indicate anomalous scanning.
-
-Configuration details:
-- Job run default is daily, with hourly bins.  
-    The algorithm uses the following configurable defaults to limit the results based on hourly bins.
-- Included device actions - accept, allow, start
-- Excluded ports - 53, 67, 80, 8080, 123, 137, 138, 443, 445, 3389
-- Distinct destination port count >= 600
-- Distinct source port count >= 600
-- Distinct source port count divided by distinct destination port, ratio converted to percent >= 99.99
-- Source IP (always 1) divided by destination IP, ratio converted to percent >= 99.99
-
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                | CommonSecurityLog (PAN, Zscaler, CEF, CheckPoint, Fortinet)        |
-| **MITRE ATT&CK tactics:**        | Discovery                                                          |
-| **MITRE ATT&CK techniques:**     | T1046 - Network Service Scanning                                   |
-
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Anomalous user activities in Office Exchange
 
@@ -342,44 +287,6 @@ Configuration details:
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### Anomalous user/app activities in Azure audit logs
-
-**Description:** This algorithm identifies anomalous user/app Azure sessions in audit logs for the last day, based on the behavior of the previous 21 days across all users and apps. The algorithm checks for sufficient volume of data before training the model.
-
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                | Microsoft Entra audit logs                                  |
-| **MITRE ATT&CK tactics:**        | Collection<br>Discovery<br>Initial Access<br>Persistence<br>Privilege Escalation |
-| **MITRE ATT&CK techniques:**     | **Collection:**<br>T1530 - Data from Cloud Storage Object<br><br>**Discovery:**<br>T1087 - Account Discovery<br>T1538 - Cloud Service Dashboard<br>T1526 - Cloud Service Discovery<br>T1069 - Permission Groups Discovery<br>T1518 - Software Discovery<br><br>**Initial Access:**<br>T1190 - Exploit Public-Facing Application<br>T1078 - Valid Accounts<br><br>**Persistence:**<br>T1098 - Account Manipulation<br>T1136 - Create Account<br>T1078 - Valid Accounts<br><br>**Privilege Escalation:**<br>T1484 - Domain Policy Modification<br>T1078 - Valid Accounts  |
-
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
-
-### Anomalous W3CIIS logs activity
-
-**Description:** This machine learning algorithm indicates anomalous IIS sessions over the past day. It will capture, for example, an unusually high number of distinct URI queries, user agents, or logs in a session, or of specific HTTP verbs or HTTP statuses in a session. The algorithm identifies unusual W3CIISLog events within an hourly session, grouped by site name and client IP. The model is trained on the previous 7 days of IIS activity. The algorithm checks for sufficient volume of IIS activity before training the model.
-
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                | W3CIIS logs                                                        |
-| **MITRE ATT&CK tactics:**        | Initial Access<br>Persistence                                      |
-| **MITRE ATT&CK techniques:**     | **Initial Access:**<br>T1190 - Exploit Public-Facing Application<br><br>**Persistence:**<br>T1505 - Server Software Component                                |
-
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
-
-### Anomalous web request activity
-
-**Description:** This algorithm groups W3CIISLog events into hourly sessions grouped by site name and URI stem. The machine learning model identifies sessions with unusually high numbers of requests that triggered 5xx-class response codes in the last day. 5xx-class codes are an indication that some application instability or error condition has been triggered by the request. They can be an indication that an attacker is probing the URI stem for vulnerabilities and configuration issues, performing some exploitation activity such as SQL injection, or leveraging an unpatched vulnerability. This algorithm uses 6 days of data for training.
-
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                | W3CIIS logs                                                        |
-| **MITRE ATT&CK tactics:**        | Initial Access<br>Persistence                                      |
-| **MITRE ATT&CK techniques:**     | **Initial Access:**<br>T1190 - Exploit Public-Facing Application<br><br>**Persistence:**<br>T1505 - Server Software Component                                |
-
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Attempted computer brute force
 
@@ -459,24 +366,6 @@ Configuration details:
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### Domain Reputation Palo Alto anomaly (DISCONTINUED)
-
-**Description:** This algorithm evaluates the reputation for all domains seen specifically in Palo Alto firewall (PAN-OS product) logs. A high anomaly score indicates a low reputation, suggesting that the domain has been observed to host malicious content or is likely to do so.
-
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
-
-### Excessive data transfer anomaly
-
-**Description:** This algorithm detects unusually high data transfer observed in network logs. It uses time series to decompose the data into seasonal, trend and residual components to calculate baseline. Any sudden large deviation from the historical baseline is considered anomalous activity.
-
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                | CommonSecurityLog (PAN, Zscaler, CEF, CheckPoint, Fortinet)        |
-| **MITRE ATT&CK tactics:**        | Exfiltration                                                       |
-| **MITRE ATT&CK techniques:**     | T1030 - Data Transfer Size Limits<br>T1041 - Exfiltration Over C2 Channel<br>T1011 - Exfiltration Over Other Network Medium<br>T1567 - Exfiltration Over Web Service<br>T1029 - Scheduled Transfer<br>T1537 - Transfer Data to Cloud Account |
-
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Excessive Downloads via Palo Alto GlobalProtect
 
@@ -504,37 +393,6 @@ Configuration details:
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### Login from an unusual region via Palo Alto GlobalProtect account logins
-
-**Description:** When a Palo Alto GlobalProtect account signs in from a source region that has rarely been signed in from during the last 14 days, an anomaly is triggered. This anomaly may indicate that the account has been compromised.
-
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                | CommonSecurityLog (PAN VPN)                                        |
-| **MITRE ATT&CK tactics:**        | Credential Access<br>Initial Access<br>Lateral Movement            |
-| **MITRE ATT&CK techniques:**     | T1133 - External Remote Services                                   |
-
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
-
-### Multi-region logins in a single day via Palo Alto GlobalProtect (DISCONTINUED)
-
-**Description:** This algorithm detects a user account which had sign-ins from multiple non-adjacent regions in a single day through a Palo Alto VPN.
-
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
-
-### Potential data staging
-
-**Description:** This algorithm compares the downloads of distinct files on a per-user basis from the previous week with the downloads for the current day for each user, and an anomaly is triggered when the number of downloads of distinct files exceeds the configured number of standard deviations above the mean. Currently the algorithm only analyzes files commonly seen during exfiltration of documents, images, videos and archives with the extensions `doc`, `docx`, `xls`, `xlsx`, `xlsm`, `ppt`, `pptx`, `one`, `pdf`, `zip`, `rar`, `bmp`, `jpg`, `mp3`, `mp4`, and `mov`.
-
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                | Office Activity log (Exchange)                                     |
-| **MITRE ATT&CK tactics:**        | Collection                                                         |
-| **MITRE ATT&CK techniques:**     | T1074 - Data Staged                                                |
-
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Potential domain generation algorithm (DGA) on next-level DNS Domains
 
@@ -549,31 +407,7 @@ Configuration details:
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### Suspicious geography change in Palo Alto GlobalProtect account logins
 
-**Description:** A match indicates that a user logged in remotely from a country/region that is different from the country/region of the user's last remote login. This rule might also indicate an account compromise, particularly if the rule matches occurred closely in time. This includes the scenario of impossible travel.
-
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                | CommonSecurityLog (PAN VPN)                                        |
-| **MITRE ATT&CK tactics:**        | Initial Access<br>Credential Access                                |
-| **MITRE ATT&CK techniques:**     | T1133 - External Remote Services<br>T1078 - Valid Accounts         |
-
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
-
-### Suspicious number of protected documents accessed
-
-**Description:** This algorithm detects high volume of access to protected documents in Azure Information Protection (AIP) logs. It considers AIP workload records for a given number of days and determines whether the user performed unusual access to protected documents in a day given historical behavior.
-
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                | Azure Information Protection logs                                  |
-| **MITRE ATT&CK tactics:**        | Collection                                                         |
-| **MITRE ATT&CK techniques:**     | T1530 - Data from Cloud Storage Object<br>T1213 - Data from Information Repositories<br>T1005 - Data from Local System<br>T1039 - Data from Network Shared Drive<br>T1114 - Email Collection |
-
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Suspicious volume of AWS API calls from Non-AWS source IP address
 
@@ -588,18 +422,6 @@ Configuration details:
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### Suspicious volume of AWS CloudTrail log events of group user account by EventTypeName
-
-**Description:** This algorithm detects an unusually high volume of events per group user account, by different event types (AwsApiCall, AwsServiceEvent, AwsConsoleSignIn, AwsConsoleAction), in your AWS CloudTrail log within the last day. The model is trained on the previous 21 days of AWS CloudTrail log events by group user account. This activity may indicate that the account is compromised.
-
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                | AWS CloudTrail logs                                                |
-| **MITRE ATT&CK tactics:**        | Initial Access                                                     |
-| **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
-
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Suspicious volume of AWS write API calls from a user account
 
@@ -614,31 +436,6 @@ Configuration details:
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### Suspicious volume of failed login attempts to AWS Console by each group user account
-
-**Description:** This algorithm detects an unusually high volume of failed login attempts to AWS Console per group user account in your AWS CloudTrail log within the last day. The model is trained on the previous 21 days of AWS CloudTrail log events by group user account. This activity may indicate that the account is compromised.
-
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                | AWS CloudTrail logs                                                |
-| **MITRE ATT&CK tactics:**        | Initial Access                                                     |
-| **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
-
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
-
-### Suspicious volume of failed login attempts to AWS Console by each source IP address
-
-**Description:** This algorithm detects an unusually high volume of failed login events to AWS Console per source IP address in your AWS CloudTrail log within the last day. The model is trained on the previous 21 days of AWS CloudTrail log events by source IP address. This activity may indicate that the IP address is compromised.
-
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                | AWS CloudTrail logs                                                |
-| **MITRE ATT&CK tactics:**        | Initial Access                                                     |
-| **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
-
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ### Suspicious volume of logins to computer
 
@@ -705,70 +502,6 @@ Configuration details:
 
 [Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### Unusual external firewall alarm detected
-
-**Description:** This algorithm identifies unusual external firewall alarms which are threat signatures released by a firewall vendor. It uses the last 7 days' activities to calculate the 10 most triggered signatures and the 10 hosts that triggered the most signatures. After excluding both type of noisy events, it triggers an anomaly only after exceeding the threshold for the number of signatures triggered in a single day.
-
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                | CommonSecurityLog (PAN)                                            |
-| **MITRE ATT&CK tactics:**        | Discovery<br>Command and Control                                   |
-| **MITRE ATT&CK techniques:**     | **Discovery:**<br>T1046 - Network Service Scanning<br>T1135 - Network Share Discovery<br><br>**Command and Control:**<br>T1071 - Application Layer Protocol<br>T1095 - Non-Application Layer Protocol<br>T1571 - Non-Standard Port |
-
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
-
-### Unusual mass downgrade AIP label
-
-**Description:** This algorithm detects unusually high volume of downgrade label activity in Azure Information Protection (AIP) logs. It considers "AIP" workload records for a given number of days and determines the sequence of activity performed on documents along with the label applied to classify unusual volume of downgrade activity.
-
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                | Azure Information Protection logs                                  |
-| **MITRE ATT&CK tactics:**        | Collection                                                         |
-| **MITRE ATT&CK techniques:**     | T1530 - Data from Cloud Storage Object<br>T1213 - Data from Information Repositories<br>T1005 - Data from Local System<br>T1039 - Data from Network Shared Drive<br>T1114 - Email Collection |
-
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
-
-### Unusual network communication on commonly used ports
-
-**Description:** This algorithm identifies unusual network communication on commonly used ports, comparing daily traffic to a baseline from the previous 7 days. This includes traffic on commonly used ports (22, 53, 80, 443, 8080, 8888), and compares daily traffic to the mean and standard deviation of several network traffic attributes calculated over the baseline period. The traffic attributes considered are daily total events, daily data transfer and number of distinct source IP addresses per port. An anomaly is triggered when the daily values are greater than the configured number of standard deviations above the mean.
-
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                | CommonSecurityLog (PAN, Zscaler, CheckPoint, Fortinet)             |
-| **MITRE ATT&CK tactics:**        | Command and Control<br>Exfiltration                                |
-| **MITRE ATT&CK techniques:**     | **Command and Control:**<br>T1071 - Application Layer Protocol<br><br>**Exfiltration:**<br>T1030 - Data Transfer Size Limits                                  |
-
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
-
-### Unusual network volume anomaly
-
-**Description:** This algorithm detects unusually high volume of connections in network logs. It uses time series to decompose the data into seasonal, trend and residual components to calculate baseline. Any sudden large deviation from the historical baseline is considered as anomalous activity.
-
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                | CommonSecurityLog (PAN, Zscaler, CEF, CheckPoint, Fortinet)        |
-| **MITRE ATT&CK tactics:**        | Exfiltration                                                       |
-| **MITRE ATT&CK techniques:**     | T1030 - Data Transfer Size Limits                                  |
-
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
-
-### Unusual web traffic detected with IP in URL path
-
-**Description:** This algorithm identifies unusual web requests listing an IP address as the host. The algorithm finds all web requests with IP addresses in the URL path and compares them with the previous week of data to exclude known benign traffic. After excluding known benign traffic, it triggers an anomaly only after exceeding certain thresholds with configured values such as total web requests, numbers of URLs seen with same host destination IP address, and number of distinct source IPs within the set of URLs with the same destination IP address. This type of request can indicate an attempt to bypass URL reputation services for malicious purposes.
-
-| Attribute                        | Value                                                              |
-| -------------------------------- | ------------------------------------------------------------------ |
-| **Anomaly type:**                | Customizable machine learning                                      |
-| **Data sources:**                | CommonSecurityLog (PAN, Zscaler, CheckPoint, Fortinet)             |
-| **MITRE ATT&CK tactics:**        | Command and Control<br>Initial Access                              |
-| **MITRE ATT&CK techniques:**     | **Command and Control:**<br>T1071 - Application Layer Protocol<br><br>**Initial Access:**<br>T1189 - Drive-by Compromise                                      |
-
-[Back to Machine learning-based anomalies list](#machine-learning-based-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 ## Next steps
 

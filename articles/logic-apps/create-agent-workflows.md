@@ -8,6 +8,7 @@ ms.reviewer: estfan, divswa, karansin, krmitta, kewear, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.date: 05/19/2025
+ms.update-cycle: 180-days
 # Customer intent: As a logic app workflow developer, I want to automate workflows that complete tasks with AI agents and other AI capabilities for my integration scenarios by using Azure Logic Apps.
 ms.custom:
   - build-2025
@@ -401,7 +402,7 @@ For an action parameter that uses only model-generated outputs, create an agent 
 
    :::image type="content" source="media/create-agent-workflows/generate-agent-parameter.png" alt-text="Screenshot shows an action with the mouse cursor inside a parameter box, parameter options, and the selected option to generate an agent parameter." lightbox="media/create-agent-workflows/generate-agent-parameter.png":::
 
-   The **Create agent parameter** window shows the **Name**, **Type**, and **Location** fields, which are prepopulated from the source action parameter.
+   The **Create agent parameter** window shows the **Name**, **Type**, and **Description** fields, which are prepopulated from the source action parameter.
 
    The following table describes the fields that define the agent parameter:
 

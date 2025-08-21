@@ -1,12 +1,12 @@
 ---
 title: What is Azure IoT Edge
 description: Learn how Azure IoT Edge enables you to deploy, run, and monitor containerized Linux workloads at the edge for better business insights and offline decision-making.
-author: PatAltimore
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-edge
 services: iot-edge
 ms.topic: overview
 ms.date: 03/20/2025
-ms.author: patricka
 ms.custom:
   - mvc, linux-related-content
   - ai-gen-docs-bap

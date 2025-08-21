@@ -11,6 +11,7 @@ ms.topic: concept-article
 ms.author: normesta
 ms.reviewer: ozgun
 ms.custom: engagement-fy23
+# Customer intent: As a cloud architect, I want to implement encryption scopes for Blob storage, so that I can create secure boundaries for data belonging to different customers within the same storage account.
 ---
 
 # Encryption scopes for Blob storage
@@ -31,7 +32,7 @@ When you define an encryption scope, you can specify whether the scope is protec
 
 If you define an encryption scope with a customer-managed key, then you can choose to update the key version either automatically or manually. If you choose to automatically update the key version, then Azure Storage checks the key vault or managed HSM daily for a new version of the customer-managed key and automatically updates the key to the latest version. For more information about updating the key version for a customer-managed key, see [Update the key version](../common/customer-managed-keys-overview.md#update-the-key-version).
 
-Azure Policy provides a built-in policy to require that encryption scopes use customer-managed keys. For more information, see the **Storage** section in [Azure Policy built-in policy definitions](../../governance/policy/samples/built-in-policies.md#storage).
+Azure Policy provides a built-in policy to require that encryption scopes use customer-managed keys. For more information, see the **Storage** section in [Azure Policy built-in policy definitions](/azure/governance/policy/samples/built-in-policies#storage).
 
 A storage account may have up to 10,000 encryption scopes that are protected with customer-managed keys for which the key version is automatically updated. If your storage account already has 10,000 encryption scopes that are protected with customer-managed keys that are being automatically updated, then the key version must be updated manually for any additional encryption scopes that are protected with customer-managed keys.
 

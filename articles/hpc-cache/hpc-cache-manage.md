@@ -7,6 +7,7 @@ ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 06/29/2022
 ms.author: rohogue
+# Customer intent: As an IT administrator, I want to manage and update the Azure HPC Cache through the portal or CLI, so that I can ensure optimal performance and data consistency for my high-performance computing workloads.
 ---
 
 # Manage your cache

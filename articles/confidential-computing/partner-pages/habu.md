@@ -8,6 +8,7 @@ ms.subservice: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 03/29/2023
 ms.author: ananyagarg
+# Customer intent: "As a data analyst, I want to utilize Habu's data clean rooms with Azure confidential computing, so that I can collaborate securely on sensitive data analytics without compromising privacy."
 ---
 
 # Habu

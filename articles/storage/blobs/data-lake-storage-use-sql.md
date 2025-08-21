@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.date: 11/18/2024
 ms.author: normesta
 ms.custom: devx-track-sql
+# Customer intent: "As a data analyst, I want to query data stored in Azure Data Lake using SQL in Synapse Analytics, so that I can perform analytics on my data efficiently and derive insights from it."
 ---
 
 # Tutorial: Query Azure Data Lake Storage using SQL language in Synapse Analytics

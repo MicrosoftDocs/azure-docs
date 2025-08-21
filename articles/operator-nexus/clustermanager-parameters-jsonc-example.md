@@ -5,7 +5,7 @@ author: bartpinto
 ms.author: bpinto
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 05/08/2024
+ms.date: 07/21/2025
 ms.custom: template-how-to, devx-track-arm-template
 ---
 
@@ -17,39 +17,28 @@ ms.custom: template-how-to, devx-track-arm-template
   "contentVersion": "1.0.0.0",
   "parameters": {
     "name": {
-      "value": "<CLUSTER_MANAGER_NAME>"
+      "value": "CM_NAME"
     },
     "resourceGroupName": {
-      "value": "<CLUSTER_MANAGER_RG>"
+      "value": "CM_GROUP"
     },
     "managedResourceGroupName": {
-      "value": "<MRG_NAME>"
+      "value": "CM_MRG"
     },
     "fabricControllerId": {
-      "value": "<NFC_ID>"
+      "value": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/NFC_RG/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/NFC_NAME"
     },
     "vmSize": {
       "value": ""
     },
-    "assignedIdentities": {
-      "value": {
-        "type": "UserAssigned",
-        "userAssignedIdentities": {
-          "<UAMI_RID>": {}
-        }
-      }
-    },
     "clusterManagerTags": {
-      "value": {
-        "<TAG1>": "<TAG1_VALUE>",
-        "<TAG2>": "<TAG2_VALUE>"
-      }
+      "value": {}
     },
     "environment": {
-      "value": "<CLUSTER_MANAGER_NAME>"
+      "value": "CM_NAME"
     },
     "location": {
-      "value": "<LOCATION>"
+      "value": "REGION"
     }
   }
 }
