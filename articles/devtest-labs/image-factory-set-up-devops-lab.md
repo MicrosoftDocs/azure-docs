@@ -11,7 +11,7 @@ ms.custom: UpdateFrequency2
 # Run an image factory from Azure DevOps
 This article covers all the preparations needed to run the image factory from Azure DevOps (formerly Visual Studio Team Services).
 
-> [!NOTE]
+> [!TIP]
 > Any orchestration engine will work! Azure DevOps is not mandatory. The image factory is run using Azure PowerShell scripts, so it could be run manually, by using Windows Task Scheduler, other CI/CD systems, and so on.
 
 [!INCLUDE [direct-azure-image-builder](includes/direct-azure-image-builder.md)]
