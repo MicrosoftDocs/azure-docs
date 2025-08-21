@@ -95,7 +95,7 @@ This section describes what to expect when Azure Bastion resources are configure
 
 If you configure zone redundancy on Azure Bastion, a session might be sent to an Azure Bastion instance in an availability zone that's different from the virtual machine you're connecting to. In the following diagram, a request from the user is sent to an Azure Bastion instance in zone 2, although the virtual machine is in zone 1:
 
-:::image type="content" source="./media/bastion/bastion-instance-zone-traffic.png" alt-text="Diagram that shows cross-zone traffic. A user request goes to an Azure Bastion instance in zone 2 and is forwarded to a VM in zone 1." border="false"::
+:::image type="content" source="./media/bastion/bastion-instance-zone-traffic.png" alt-text="Diagram that shows cross-zone traffic. A user request goes to an Azure Bastion instance in zone 2 and is forwarded to a VM in zone 1." border="false":::
 
 In most scenarios, the small amount of cross-zone latency isn't significant. However, if you have unusually stringent latency requirements for your Azure Bastion workloads, you should deploy a dedicated single-zone Azure Bastion instance in the virtual machine's availability zone. This configuration doesn't provide zone redundancy, and we don't recommend it for most customers.
 
