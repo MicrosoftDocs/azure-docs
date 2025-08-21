@@ -519,6 +519,10 @@ options := &azureappconfiguration.Options{
 appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
 ```
 
+## Geo-replication
+
+For information about using geo-replication, go to [Enable geo-replication](./howto-geo-replication.md).
+
 ## Next steps
 
 To learn how to use the Go configuration provider, continue to the following tutorial.
