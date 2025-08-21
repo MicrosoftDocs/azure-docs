@@ -1,6 +1,6 @@
 ---
-title: Run MapReduce jobs with Apache Hadoop on Entra enabled HDInsight using PowerShell
-description: Learn how to run MapReduce jobs with Apache Hadoop on Entra enabled HDInsight using PowerShell
+title: Run Hive queries in Entra ID enabled Azure HDInsight cluster using .NET SDK
+description: Learn how to run Hive queries in Entra ID enabled Azure HDInsight cluster using .NET SDK
 ms.service: azure-hdinsight
 ms.topic: how-to
 author: apurbasroy
@@ -13,7 +13,7 @@ ms.date: 08/21/2025
 
 The HDInsight .NET SDK provides a programmatic way to interact with Apache Hive on Azure HDInsight clusters. Using the SDK, you can authenticate, submit Hive queries, monitor their execution, and retrieve results directly from your .NET applications.
 
-This approach enables developers to integrate big data processing into existing .NET solutions, automate analytics workflows, and build custom applications that leverage the power of Hive on HDInsight. With Microsoft Entra ID-enabled clusters, you also gain secure identity-based access and centralized control.
+This approach enables developers to integrate big data processing into existing .NET solutions, automate analytics workflows, and build custom applications that apply the power of Hive on HDInsight. With Microsoft Entra ID-enabled clusters, you also gain secure identity-based access and centralized control.
 
 ## **Prerequisites**
 
@@ -21,8 +21,8 @@ Before you begin this article, you must have the following items:
 
 - An Apache Hadoop cluster in HDInsight. See [Get started using Linux-based Hadoop in HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
 > [!NOTE]  
->As of September 15, 2017, the HDInsight .NET SDK only supports returning Hive query results from Azure Storage accounts. If you use this example with an HDInsight cluster that uses Azure Data Lake Storage as primary storage, you cannot retrieve search results using the .NET SDK.
-- [Visual Studio](https://visualstudio.microsoft.com/vs/community/) 2013 and beyond. At least workload .NET desktop development should be installed.
+>As of September 15, 2017, the HDInsight .NET SDK only supports returning Hive query results from Azure Storage accounts. If you use this example with a HDInsight cluster that uses Azure Data Lake Storage as primary storage, you can't retrieve search results using the .NET SDK.
+- [Visual Studio](https://visualstudio.microsoft.com/vs/community/) 2013 and beyond. At least, workload .NET desktop development should be installed.
 
 
 **Run a Hive Query**
@@ -30,13 +30,13 @@ Before you begin this article, you must have the following items:
 The HDInsight .NET SDK provides .NET client libraries, which makes it easier to work with HDInsight clusters from .NET.
 
   1. Create a C# console application in Visual Studio.
-  1. From the Nuget Package Manager Console, run the following command:
+  1. From the Nuget Package Manager Console, run the  command:
    
       ```
       Install-Package Microsoft.Azure.HDInsight.Job -Version 3.0.0-preview.3
 
       ```
-  1. Edit the code below to initialize the values for variables: `ExistingClusterName, TenantId, ClientId,ClientSecret, ExistingClusterPassword,DefaultStorageAccountName,DefaultStorageAccountKey,DefaultStorageContainerName`. Then use the revised code as the entire contents of **Program.cs** in Visual Studio.
+  1. Edit the code to initialize the values for variables: `ExistingClusterName, TenantId, ClientId,ClientSecret, ExistingClusterPassword,DefaultStorageAccountName,DefaultStorageAccountKey,DefaultStorageContainerName`. Then use the revised code as the entire contents of **Program.cs** in Visual Studio.
 
 
       ```
