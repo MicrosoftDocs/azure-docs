@@ -7090,6 +7090,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/reliability/availability-zones-migration-overview.md",
+      "redirect_url": "/azure/reliability/availability-zones-enable-zone-resiliency",
+      "redirect_document_id": false
+    },
+    {  
       "source_path": "articles/app-service/sre-agent-overview.md",
       "redirect_url": "/azure/sre-agent/overview",
       "redirect_document_id": false
