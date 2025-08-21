@@ -85,38 +85,28 @@ To restore a new disk from a recovery point, follow these steps:
 
 1. On the **Recover** pane, select  **Continue**.
 
+1. On the **Restore** pane, on the **Basics** tab, select **Next: Restore point**.
 
+1. On the **Restore point** tab, under **Restore Point**, click **Select restore point**.
 
+   :::image type="content" source="./media/restore-managed-disks/restore-point-selection.png" alt-text="Screenshot shows the selection of a restore point for Azure Disk restore." lightbox="./media/restore-managed-disks/restore-point-selection.png":::
 
+1. On the **Select restore point** pane,  choose a restore point from the list, and then click **Select**.
 
+1. On the **Restore** pane, select **Next: Restore parameters**.
 
+1. On the **Restore parameters** pane, select the **Target subscription** and **Target resource group** where you want to restore the backup to, enter a value under **Restored disk name**, and then select **Validate**.
 
-
-
-
-
-
-
-
-
-1. In the **Backup instance** screen, select the restore point that you want to use to perform the restore operation and select **Restore**.
-
-    ![Select restore point](./media/restore-managed-disks/select-restore-point.png)
-
-1. In the **Restore** workflow, review the **Basics** and **Select recovery point** tab information, and select **Next: Restore parameters**.
-
-    ![Review Basics and Select recovery point information](./media/restore-managed-disks/review-information.png)
-
-1. In the **Restore parameters** tab, select the **Target subscription** and **Target resource group** where you want to restore the backup to. Provide the name of the disk to be restored. Select **Next: Review + restore**.
-
-    ![Restore parameters](./media/restore-managed-disks/restore-parameters.png)
+:::image type="content" source="./media/restore-managed-disks/set-restore-parameters.png" alt-text="Screenshot shows the selection of Azure Disk restore parameters." lightbox="./media/restore-managed-disks/set-restore-parameters.png":::
 
     >[!TIP]
-    >Disks being backed up by Azure Backup using the Disk Backup solution can also be backed up by Azure Backup using the Azure VM backup solution with the Recovery Services vault. If you have configured protection of the Azure VM to which this disk is attached, you can also use the Azure VM restore operation. You can choose to restore the VM, or disks and files or folders from the recovery point of the corresponding Azure VM backup instance. For more information, see [Azure VM backup](./about-azure-vm-restore.md).
+    >You can protect disks with Azure Backup using either the Disk Backup solution or the Azure VM backup solution with a Recovery Services vault. If you have already protected the Azure VM that uses this disk, you can restore the VM, individual disks, or files and folders from the VM backup recovery point. For more information, see [Azure VM backup](./about-azure-vm-restore.md).
 
-1. Once the validation is successful, select **Restore** to start the restore operation.
+1. When the validation is successful, select **Next: Review + restore**.
 
-    ![Initiate restore operation](./media/restore-managed-disks/initiate-restore.png)
+1. On the **Review + restore** pane, review the restore settings, and then select **Restore** to start the restore operation.
+
+   :::image type="content" source="./media/restore-managed-disks/start-restore.png" alt-text="Screenshot shows how to start the Azure disk restore operation.":::
 
     >[!NOTE]
     > Validation might take few minutes to complete before you can trigger restore operation. Validation may fail if:
@@ -140,20 +130,10 @@ It's recommended that you revoke the **Disk Restore Operator** role assignment f
 
 ## Track a restore operation
 
-After you trigger the restore operation, the backup service creates a job for tracking. Azure Backup displays notifications about the job in the portal. To view the restore job progress:
+After you trigger the restore operation, the backup service creates a job for tracking. Azure Backup displays notifications about the job in the portal. Learn [how to view the restore job progress](manage-azure-managed-disks.md#monitor-a-restore-operation).
 
-1. Go to the **Backup instance** screen. It shows the jobs dashboard with operation and status for the past seven days.
 
-    ![Jobs dashboard](./media/restore-managed-disks/jobs-dashboard.png)
-
-1. To view the status of the restore operation, select **View all** to show ongoing and past jobs of this backup instance.
-
-    ![Select View all](./media/restore-managed-disks/view-all.png)
-
-1. Review the list of backup and restore jobs and their status. Select a job from the list of jobs to view job details.
-
-    ![List of jobs](./media/restore-managed-disks/list-of-jobs.png)
 
 ## Next steps
 
-- [Azure Disk Backup FAQ](disk-backup-faq.yml)
+- [Azure Disk Backup FAQ](disk-backup-faq.yml).
