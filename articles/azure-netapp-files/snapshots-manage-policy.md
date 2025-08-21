@@ -1,12 +1,13 @@
 ---
-title: Manage snapshot policies in Azure NetApp Files | Microsoft Docs
+title: Manage snapshot policies in Azure NetApp Files
 description: Describes how to create, manage, modify, and delete snapshot policies by using Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 03/18/2024
+ms.date: 05/18/2025
 ms.author: anfdocs
+# Customer intent: As a system administrator, I want to create and manage snapshot policies for Azure NetApp Files, so that I can ensure point-in-time recovery of volumes and streamline data management.
 ---
 
 # Manage snapshot policies in Azure NetApp Files
@@ -29,7 +30,7 @@ A snapshot policy enables you to specify the snapshot creation frequency in hour
 3.	Select the **Hourly**, **Daily**, **Weekly**, or **Monthly** tab to create hourly, daily, weekly, or monthly snapshot policies. Specify the **Number of snapshots to keep**.  
 
     > [!IMPORTANT] 
-    > For *monthly* snapshot policy definition, be sure to specify a day that will work for all intended months.  If you intend for the monthly snapshot configuration to work for all months in the year, pick a day of the month between 1 and 28.  For example, if you specify `31` (day of the month), the monthly snapshot configuration is skipped for the months that have less than 31 days. 
+    > For *monthly* snapshot policy definition, specify a day that works for all intended months. If you intend for the monthly snapshot configuration to work for all months in the year, pick a day of the month between 1 and 28.  For example, if you specify `31` (day of the month), the monthly snapshot configuration is skipped for the months that have less than 31 days. 
     > 
         
     > [!NOTE] 
@@ -64,7 +65,7 @@ If you want a volume to use the snapshot policy, you need to [apply the policy t
 
 If you want a volume to use a snapshot policy that you created, you need to apply the policy to the volume. 
 
-You cannot apply a snapshot policy to a destination volume in cross-region replication.  
+You can't apply a snapshot policy to a destination volume in cross-region replication.  
 
 1.	Go to the **Volumes** page, right-click the volume that you want to apply a snapshot policy to, and select **Edit**.
 
@@ -79,11 +80,11 @@ You cannot apply a snapshot policy to a destination volume in cross-region repli
 You can modify an existing snapshot policy to change the policy state, snapshot frequency (hourly, daily, weekly, or monthly), or number of snapshots to keep.
 
 >[!IMPORTANT]
->When modifying a snapshot policy, make note of the naming format. Snapshots created with policies modified before March 2022 will have a long name, for example `daily-0-min-past-1am.2022-11-03_0100`, while snapshots created with policies after March 2022 will have a shorter name, for example `daily.2022-11-29_0100`.
+>When modifying a snapshot policy, note the naming format. Snapshots created with policies modified before March 2022 have a long name, for example `daily-0-min-past-1am.2022-11-03_0100`, while snapshots created with policies after March 2022 have a shorter name, for example `daily.2022-11-29_0100`.
 >
-> If your snapshot policy is creating snapshots using the long naming convention, modifications to the snapshot policy will not be applied to existing snapshots. The snapshots created with the previous schedule will not be deleted or overwritten by the new schedule. You will have to manually delete the old snapshots.
+> If your snapshot policy is creating snapshots using the long naming convention, modifications to the snapshot policy aren't applied to existing snapshots. The snapshots created with the previous schedule aren't deleted or overwritten by the new schedule. You have to manually delete the old snapshots.
 >
-> If your snapshot policy is creating snapshots using the short naming convention, policy modifications will be applied to the existing snapshots. 
+> If your snapshot policy is creating snapshots using the short naming convention, policy modifications are applied to the existing snapshots. 
  
 1.	From the NetApp Account view, select **Snapshot policy**.
 
@@ -93,7 +94,7 @@ You can modify an existing snapshot policy to change the policy state, snapshot 
 
 3.	Make the changes in the Snapshot Policy window that appears, then select **Save**. 
 
-4.  You will receive a prompt asking you to confirm that you want to update the Snapshot Policy. Select **Yes** to confirm your choice. 
+4.  A prompt asks you to confirm you want to update the Snapshot Policy. Select **Yes** to confirm your choice. 
 
 ## Delete a snapshot policy 
 

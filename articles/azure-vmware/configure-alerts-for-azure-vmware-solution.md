@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.custom: engagement-fy23
 ms.service: azure-vmware
 ms.date: 12/05/2023
+# Customer intent: As an IT administrator managing an Azure VMware Solution, I want to configure alert rules and metrics monitoring, so that I can receive timely notifications of critical events and gain insights into the performance of my private cloud infrastructure.
 ---
 
 # Configure Azure Alerts in Azure VMware Solution 

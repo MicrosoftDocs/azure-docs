@@ -1,8 +1,8 @@
 ---
 title: "Microsoft Sentinel migration: Select a data ingestion tool | Microsoft Docs"
 description: Select a tool to transfer your historical data to the selected target platform.
-author: cwatson-cat
-ms.author: cwatson
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: how-to
 ms.date: 05/03/2022
 

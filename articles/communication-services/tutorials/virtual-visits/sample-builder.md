@@ -29,7 +29,7 @@ Learn more foundational concepts in the virtual appointments [overview](../../co
 ### Capabilities
 The Sample Builder can help:
 -  **Deploy a working virtual visit experience in minute**s—minimal code required
--  **View cutting edge new AI capabilites**— try out new AI powered features 
+-  **View cutting edge new AI capabilities**— try out new AI powered features 
 -  **Customize the consumer experience** with by altering prebuilt user interface, post-call surveys, and more
 -  **Integrate with Microsoft Bookings** to support scheduling workflows
 -  **Launch Microsoft Teams meetings** using Azure Communication Services and enable guest access via the web app

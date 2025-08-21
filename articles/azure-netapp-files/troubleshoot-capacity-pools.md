@@ -9,6 +9,7 @@ ms.date: 05/18/2025
 ms.author: anfdocs
 ms.custom:
   - build-2025
+# Customer intent: As an Azure NetApp Files administrator, I want to troubleshoot capacity pool errors, so that I can resolve management issues effectively and ensure optimal performance for my volumes.
 ---
 # Troubleshoot capacity pool errors
 

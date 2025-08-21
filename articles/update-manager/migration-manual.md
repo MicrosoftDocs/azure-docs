@@ -7,6 +7,7 @@ ms.service: azure-update-manager
 ms.topic: concept-article
 ms.date: 08/01/2024
 
+# Customer intent: As a system administrator migrating from an existing update management solution, I want to manually transfer resources to Azure Update Manager, so that I can ensure continued patch management and maintenance for both Azure and non-Azure environments.
 ---
 
 # Manual migration guidance

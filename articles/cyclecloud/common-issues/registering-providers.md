@@ -2,22 +2,22 @@
 title: Common Issues - Azure Credentials| Microsoft Docs
 description: Azure CycleCloud common issue - Azure Credentials
 author: adriankjohnson
-ms.date: 06/20/2023
+ms.date: 06/30/2025
 ms.author: adjohnso
 ms.topic: conceptual
 ms.service: azure-cyclecloud
 ms.custom: compute-evergreen
 ---
-# Common Issues: Azure provider registration error
+# Common issues: Azure provider registration error
 
-## Possible Error Messages
+## Possible error messages
 
 - `Failed to register Azure providers`
 
 ## Resolution
-Before you can use your Azure subscription, Azure requires that you register access to the Azure resource providers. CycleCloud, when adding new accounts, will attempt to register the providers for use in your subscription. If the service principal configured for CycleCloud does not have permission to register the providers, this error will occur.
+Before you can use your Azure subscription, Azure requires that you register access to the Azure resource providers. CycleCloud attempts to register the providers for use in your subscription when you add new accounts. This error occurs if the service principal configured for CycleCloud doesn't have permission to register the providers.
 
-There are two possible resolutions:
+Resolve this error by doing one of the following steps:
 1. Grant the CycleCloud service principal the following permissions:
     - `Microsoft.Compute/register/action`
     - `Microsoft.Storage/register/action`
@@ -34,6 +34,6 @@ az provider register --namespace "Microsoft.Resources"
 az provider register --namespace "Microsoft.Commerce"
 ```
 
-## More Information
+## More information
 
-For more information on specific permissions required for Azure CycleCloud, see [Create a custom role for CycleCloud](/azure/cyclecloud/managed-identities#create-a-custom-role-and-managed-identity-for-cyclecloud)
+For more information on specific permissions required for Azure CycleCloud, see [Create a custom role for CycleCloud](/azure/cyclecloud/managed-identities#create-a-custom-role-and-managed-identity-for-cyclecloud).

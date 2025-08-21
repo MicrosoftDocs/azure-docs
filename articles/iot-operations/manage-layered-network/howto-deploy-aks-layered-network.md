@@ -1,9 +1,9 @@
 ---
 title: "Quickstart: Configure Layered Network Management (preview) to Arc-enable a cluster in Azure environment"
 description: Deploy Azure IoT Layered Network Management (preview) to an AKS cluster and Arc-enable a cluster on an Ubuntu VM.
-author: PatAltimore
+author: SoniaLopezBravo
 ms.subservice: layered-network-management
-ms.author: patricka
+ms.author: sonialopez
 ms.topic: how-to
 ms.custom:
   - ignite-2023
@@ -21,8 +21,10 @@ In this quickstart, you set up the Azure IoT Layered Network Management (preview
 
 The Layered Network Management architecture requires DNS configuration on the level 3 network, where the allowlisted URLs are repointed to the level 4 network. In this example, this setup is accomplished using an automated setup that's built on CoreDNS, the default DNS resolution mechanism that ships with k3s.
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 
 ## Prerequisites
+
 These prerequisites are only for deploying the Layered Network Management independently and Arc-enable the child level cluster.
 
 - An [AKS cluster](/azure/aks/learn/quick-kubernetes-deploy-portal)

@@ -4,6 +4,7 @@ description: Learn how and why to create a Batch pool that uses ephemeral OS dis
 ms.topic: how-to
 ms.date: 03/27/2025
 ms.devlang: csharp
+# Customer intent: "As a cloud architect, I want to configure Azure Batch pools with ephemeral OS disks, so that I can reduce costs and improve application performance for stateless workloads."
 ---
 
 # Use ephemeral OS disk nodes for Azure Batch pools

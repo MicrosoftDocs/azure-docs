@@ -9,6 +9,7 @@ ms.author: normesta
 ms.reviewer: jamesbak
 ms.date: 11/15/2024
 ms.service: azure-data-lake-storage
+# Customer intent: As a data engineer, I want to use the Azure Blob File System driver to access Azure Data Lake Storage, so that I can leverage Hadoop tools and frameworks without needing to modify my existing codebase.
 ---
 
 # The Azure Blob Filesystem driver (ABFS): A dedicated Azure Storage driver for Hadoop

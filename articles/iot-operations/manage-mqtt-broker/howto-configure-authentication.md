@@ -1,8 +1,8 @@
 ---
 title: Configure MQTT broker authentication
 description: Configure MQTT broker authentication.
-author: PatAltimore
-ms.author: patricka
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
@@ -757,6 +757,92 @@ In this example, every client that has a certificate issued by the root CA with 
 The matching for attributes always starts from the leaf client certificate and then goes along the chain. The attribute assignment stops after the first match. In the previous example, even if `smart-fan` has the intermediate certificate `CN = Contoso Intermediate CA`, it doesn't get the associated attributes.
 
 You can apply authorization rules to clients by using X.509 certificates with these attributes. To learn more, see [Authorize clients that use X.509 authentication](./howto-configure-authorization.md#authorize-clients-that-use-x509-authentication).
+
+#### Optional: Azure Device Registry integration for X.509 authentication (preview)
+
+> [!IMPORTANT]
+> Azure Device Registry integration for X.509 authentication is currently in preview. This feature is subject to certain limitations and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+You can enable Azure Device Registry integration with X.509 authentication to enforce device-level certificate validation and revocation. When enabled, this feature requires X.509 clients to have matching devices in the device registry and allows you to disable clients by disabling the corresponding device.
+
+With Azure Device Registry integration enabled:
+
+- Client certificates must have a Common Name (CN) that matches a device name in the Azure Device Registry.
+- Only enabled devices in the registry can authenticate successfully.
+- Device status is checked upon client authentication and every 10 minutes thereafter.
+- Disabled or removed devices are automatically denied access.
+
+Before you enable this feature, create a corresponding device in the Azure Device Registry for each client certificate. The device name must match the certificate's Common Name (CN). To create and manage devices in the Azure Device Registry, see:
+- [Use the operations experience to manage resources such as assets, devices, and data flows](../discover-manage-assets/howto-manage-assets-devices.md)
+- [Understand assets and devices](../discover-manage-assets/concept-assets-devices.md)
+
+To enable Azure Device Registry integration, set the `additionalValidation` field to `AzureDeviceRegistry` in your X.509 settings. The `additionalValidation` field performs additional validation of the client certificate using the specified method, with supported values of `AzureDeviceRegistry` or `None` (default):
+
+# [Portal](#tab/portal)
+
+In the Azure portal, when you configure the X.509 authentication method, add the Azure Device Registry validation in the **X.509 authentication details** pane in JSON format:
+
+```json
+{
+  "trustedClientCaCert": "<TRUSTED_CA_CONFIGMAP>",
+  "additionalValidation": "AzureDeviceRegistry"
+}
+```
+
+# [Azure CLI](#tab/cli)
+
+Use the [az iot ops broker authn apply](/cli/azure/iot/ops/broker/authn#az-iot-ops-broker-authn-apply) command to create or change an MQTT broker authentication policy with Azure Device Registry validation.
+
+Example configuration file with Azure Device Registry integration:
+
+```json
+{
+  "authenticationMethods": [
+    {
+      "method": "X509",
+      "x509Settings": {
+        "trustedClientCaCert": "<TRUSTED_CA_CONFIGMAP>",
+        "additionalValidation": "AzureDeviceRegistry"
+      }
+    }
+  ]
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+x509Settings: {
+  trustedClientCaCert: '<TRUSTED_CA_CONFIGMAP>'
+  additionalValidation: 'AzureDeviceRegistry'
+  // authorizationAttributes: {
+    //// Optional authorization attributes can still be used
+  // }
+}
+```
+
+# [Kubernetes (preview)](#tab/kubernetes)
+
+```yaml
+apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
+kind: BrokerAuthentication
+metadata:
+  name: aio-broker-authn
+  namespace: azure-iot-operations
+spec:
+  authenticationMethods:
+  - method: X509
+    x509Settings:
+      trustedClientCaCert: <TRUSTED_CA_CONFIGMAP>
+      additionalValidation: AzureDeviceRegistry
+```
+
+> [!NOTE]
+> Note the API version `v1beta1` is required when using the `additionalValidation` field.
+
+---
+
+After you enable Azure Device Registry integration, create a corresponding device in the Azure Device Registry for each client certificate. The device name must match the certificate's Common Name (CN). If a client tries to authenticate with a certificate that doesn't have a matching enabled device in the registry, authentication fails.
 
 ### Enable X.509 authentication for a listener port
 

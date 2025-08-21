@@ -104,7 +104,7 @@
   - name: Author templates
     href: ../azure-resource-manager/templates/syntax.md
   - name: Community templates
-    href: https://azure.microsoft.com/documentation/templates
+    href: https://github.com/Azure/azure-quickstart-templates?tab=readme-ov-file#azure-resource-manager-quickstart-templates
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/firewall-manager/
   - name: Regional availability

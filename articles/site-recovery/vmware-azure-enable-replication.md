@@ -6,6 +6,7 @@ ms.service: azure-site-recovery
 ms.topic: how-to
 ms.author: jsuri
 ms.date: 12/19/2024
+# Customer intent: As a system administrator, I want to enable VMware VM replication to Azure for disaster recovery, so that I can ensure business continuity and seamless recovery in the event of a disaster.
 ---
 
 # Enable replication to Azure for VMware VMs - Modernized

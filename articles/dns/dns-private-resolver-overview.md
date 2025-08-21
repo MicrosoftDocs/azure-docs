@@ -13,7 +13,7 @@ ms.author: allensu
 
 # What is Azure DNS Private Resolver? 
 
-Azure DNS Private Resolver is a new service that enables you to query Azure DNS private zones from an on-premises environment and vice versa without deploying VM based DNS servers. 
+Azure DNS Private Resolver is a fully managed, highly available service that enables secure and seamless DNS resolution between Azure virtual networks and on-premises environments—without the need to deploy, manage, or patch custom DNS servers. This service lets you resolve DNS queries for private DNS zones from anywhere, facilitating hybrid network connectivity and simplifying network management for enterprise scenarios.
 
 ## How does it work?
 
@@ -110,7 +110,7 @@ The following restrictions hold with respect to virtual networks:
 Subnets used for DNS resolver have the following limitations:
 - A subnet must be a minimum of /28 address space or a maximum of /24 address space. A /28 subnet is sufficient to accommodate current endpoint limits. A subnet size of /27 to /24 can provide flexibility if these limits change.
 - A subnet can't be shared between multiple DNS resolver endpoints. A single subnet can only be used by a single DNS resolver endpoint.
-- All IP configurations for a DNS resolver inbound endpoint must reference the same subnet. Spanning multiple subnets in the IP configuration for a single DNS resolver inbound endpoint isn't allowed.
+- All IP configurations for a DNS resolver inbound endpoint must reference the same subnet as where the endpoint is provisioned.
 - The subnet used for a DNS resolver inbound endpoint must be within the virtual network referenced by the parent DNS resolver.
 - The subnet can only be delegated to **Microsoft.Network/dnsResolvers** and can't be used for other services.
 

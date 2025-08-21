@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 03/24/2023
 ms.author: jsuri
 ms.custom: engagement-fy23
+# Customer intent: As an IT administrator managing Azure virtual machines, I want to automate the updates of the Mobility service through Site Recovery, so that I can ensure efficient disaster recovery without manually overseeing each upgrade.
 ---
 
 # Automatic update of the Mobility service in Azure-to-Azure replication

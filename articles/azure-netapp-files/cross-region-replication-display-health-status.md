@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 03/03/2025
 ms.author: anfdocs
+# Customer intent: As a cloud administrator, I want to monitor the health status of replication relationships in Azure NetApp Files, so that I can ensure data integrity and continuity during cross-region replication processes.
 ---
 # Display health and monitor status of replication relationship in Azure NetApp Files
 
@@ -64,9 +65,9 @@ Create [alert rules in Azure Monitor](/azure/azure-monitor/alerts/alerts-overvie
 
 ## Next steps
 
-* [Cross-region replication](cross-region-replication-introduction.md)
+* [Cross-region replication](replication.md)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
-* [Resize a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
+* [Resize a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-replication-destination-volume)
 * [Volume replication metrics](azure-netapp-files-metrics.md#replication)
 * [Delete volume replications or volumes](cross-region-replication-delete.md)
 * [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)

@@ -2,7 +2,6 @@
 title: Using Redis modules with Azure Managed Redis
 description: You can use Redis modules with your Azure Managed Redis instances to extend your caching use cases.
 ms.date: 05/18/2025
-ms.service: azure-managed-redis
 ms.topic: conceptual
 ms.custom:
   - template-concept
@@ -23,7 +22,7 @@ Some popular modules are available for use in Azure Managed Redis:
 
 | Module | Memory Optimized  |Balanced | Compute Optimized  |Flash Optimized  |
 |---------|---------|---------|---------|---------|
-|RediSearch   |   Yes   |    Yes     | Yes|  Yes (preview)    |
+|RediSearch   |   Yes   |    Yes     | Yes|  No    |
 |RedisBloom   |      Yes   |    Yes    | Yes |  No    |
 |RedisTimeSeries |   Yes    |    Yes   | Yes |  No    |
 |RedisJSON  |     Yes    |  Yes    |   Yes   | Yes |

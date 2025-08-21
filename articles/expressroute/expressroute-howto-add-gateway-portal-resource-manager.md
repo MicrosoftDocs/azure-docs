@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 12/06/2024
+ms.date: 07/25/2025
 ms.author: duau
 ms.custom:
   - reference_regions
@@ -38,11 +38,10 @@ The steps for this tutorial use the values in the following configuration refere
 * Gateway Subnet name: "GatewaySubnet" You must always name a gateway subnet *GatewaySubnet*.
 	* Gateway Subnet address space = "10.0.1.0/24"
 * Gateway Name = "myERGwScale"
-* Gateway Public IP Name = "myERGwScaleIP"
 * Gateway type = "ExpressRoute" This type is required for an ExpressRoute configuration.
 
     > [!IMPORTANT]
-    > ExpressRoute Virtual Network Gateways no longer support the Basic Public IP SKU. Associate a Standard IP to create the Virtual Network Gateway.
+    > ExpressRoute Virtual Network Gateways no longer support the Basic Public IP SKU. Microsoft will create an Auto-assigned Standard Public IP associated with the Virtual Network Gateway. [ExpressRoute Auto-Assigned Public IP](expressroute-about-virtual-network-gateways.md#auto-assigned-public-ip)
     >
 
 ## Create the gateway subnet
@@ -77,15 +76,11 @@ The steps for this tutorial use the values in the following configuration refere
     | Region | Change the **Region** field to point to the location where your virtual network is located. If the region isn't pointing to the location where your virtual network is, the virtual network doesn't appear in the **Virtual network** dropdown. <br>  If you want to create the gateway in an [Azure Extended Zone](../extended-zones/overview.md), select **Deploy to an Azure Extended Zone**.|
     | Gateway type | Select **ExpressRoute**.|
     | SKU | Select a gateway SKU from the dropdown. For more information, see [ExpressRoute gateway SKUs](expressroute-about-virtual-network-gateways.md#gwsku). |
-    | Minimum Scale Units | This option is only available when you select the **ErGwScale (Preview)** SKU. Enter the minimum number of scale units you want to use. For more information, see [ExpressRoute Gateway Scale Units](expressroute-about-virtual-network-gateways.md#expressroute-scalable-gateway-preview). |
-    | Maximum Scale Units | This option is only available when you select the **ErGwScale (Preview)** SKU. Enter the maximum number of scale units you want to use. For more information, see [ExpressRoute Gateway Scale Units](expressroute-about-virtual-network-gateways.md#expressroute-scalable-gateway-preview). |
+    | Minimum Scale Units | This option is only available when you select the **ErGwScale (Preview)** SKU. Enter the minimum number of scale units you want to use. For more information, see [ExpressRoute Gateway Scale Units](scalable-gateway.md). |
+    | Maximum Scale Units | This option is only available when you select the **ErGwScale (Preview)** SKU. Enter the maximum number of scale units you want to use. For more information, see [ExpressRoute Gateway Scale Units](scalable-gateway.md). |
     | Virtual network | Select *vnet-1*. |
     | **Public IP address** | |
-    | Public IP address | Select **Create new**.|
-    | Public IP address name | Provide a name for the public IP address. |
-    | Public IP address SKU | Select **Standard**. Scalable gateways only support Standard SKU IP address. |
-    | Assignment | By default, all Standard SKU public IP addresses are assigned statically. |
-    | Availability zone | Select if you want to use availability zones. For more information, see [Zone redundant gateways](../vpn-gateway/about-zone-redundant-vnet-gateways.md).|
+    | Assignment | By default, all ExpressRoute Gateways will have an [Auto-Assigned Public IP](expressroute-about-virtual-network-gateways.md#auto-assigned-public-ip). |
 
     > [!IMPORTANT]
     > If you plan to use IPv6-based private peering over ExpressRoute, please make sure to create your gateway with a Public IP address of type Standard, Static using the [PowerShell instructions](./expressroute-howto-add-gateway-resource-manager.md#add-a-gateway).
@@ -147,3 +142,5 @@ To learn how to link your virtual network to an ExpressRoute circuit, advance to
 
 > [!div class="nextstepaction"]
 > [Link a Virtual Network to an ExpressRoute circuit](expressroute-howto-linkvnet-portal-resource-manager.md)
+
+

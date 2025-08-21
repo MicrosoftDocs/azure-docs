@@ -9,6 +9,7 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: storage-common-concepts
 ms.custom: monitoring
+# Customer intent: As a cloud architect, I want to transition from classic storage metrics to Azure Monitor metrics, so that I can leverage enhanced monitoring capabilities and ensure accurate data representation for my storage resources.
 ---
 
 # Transition to metrics in Azure Monitor

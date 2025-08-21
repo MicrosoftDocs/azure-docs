@@ -4,6 +4,7 @@ description: Learn how to run web apps in Azure App Service by deploying your fi
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
 ms.date: 04/17/2025
+ms.update-cycle: 180-days
 zone_pivot_groups: app-service-ide
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
@@ -15,6 +16,7 @@ ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, devdivchpfy22, devx-trac
 ai-usage: ai-assisted
 ms.collection: ce-skilling-ai-copilot
 #customer intent: As a .NET developer, I want to deploy a web app to Azure App Services by using my preferred development process.
+ms.service: azure-app-service
 ---
 
 <!-- NOTES:

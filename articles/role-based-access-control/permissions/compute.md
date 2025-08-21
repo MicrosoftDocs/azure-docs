@@ -3,9 +3,9 @@ title: Azure permissions for Compute - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Compute category.
 ms.service: role-based-access-control
 ms.topic: generated-reference
-author: rolyon
-manager: femila
-ms.author: rolyon
+author: jenniferf-skc
+manager: pmwongera
+ms.author: jfields
 ms.date: 05/25/2025
 ms.custom: generated
 ---
@@ -783,7 +783,7 @@ Azure service: [Virtual Machines](/azure/virtual-machines/), [Virtual Machine Sc
 > | Microsoft.Compute/locations/communityGalleries/images/versions/read | Get the properties of a Community Gallery Image Version |
 > | Microsoft.Compute/locations/diagnosticOperations/read | Gets status of a Compute Diagnostic operation |
 > | Microsoft.Compute/locations/diagnostics/run/action | Create a request for running Diagnostics |
-> | Microsoft.Compute/locations/diagnostics/read | Gets the properties of all available Compute Disgnostics |
+> | Microsoft.Compute/locations/diagnostics/read | Gets the properties of all available Compute Diagnostics |
 > | Microsoft.Compute/locations/diagnostics/generate/action | Create a request for generating recommendations |
 > | Microsoft.Compute/locations/diagnostics/diskInspection/read | Gets the properties of DiskInspection Diagnostic |
 > | Microsoft.Compute/locations/diskOperations/read | Gets the status of an asynchronous Disk operation |

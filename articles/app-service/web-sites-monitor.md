@@ -2,11 +2,14 @@
 title: Azure App Service Quotas and Metrics
 description: Learn how to monitor apps in Azure App Service by using the Azure portal. Understand the quotas and metrics that are reported.
 ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
-ms.topic: article
+ms.topic: concept-article
 ms.date: 03/31/2025
 ms.author: msangapu
 author: msangapu-msft
-#customer intent: As a app developer, I need to use quotas and metrics to support my team's web apps in Azure App Service.
+ms.service: azure-app-service
+
+#customer intent: As an app developer, I need to use quotas and metrics to support my team's web apps in Azure App Service.
+
 ---
 # Azure App Service quotas and metrics
 
