@@ -23,7 +23,7 @@ You can [move](https://learn.microsoft.com/azure/azure-resource-manager/manageme
 
 1. If you are moving to a new resource group, select **Move** next to the resource group details. If you are moving to a new subscription, select **Move** next to the subscription details.
 
-1. If you're moving the resource to another subscription, select the destination **Subscription**.
+1. If you are moving the resource to another subscription, select the destination **Subscription**.
 
 1. Select the destination **Resource group**, or create a new resource group.
 
