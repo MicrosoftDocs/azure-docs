@@ -17,7 +17,7 @@ ms.author: chrupa
 Check out our open-source software (OSS) projects on GitHub, which provide source code and instructions to deploy services for various use cases with the MedTech service.
 
 > [!IMPORTANT]
-> Links to OSS projects on the GitHub website are for informational purposes only and do not constitute an endorsement or guarantee of any kind.  You should review the information and licensing terms on the OSS projects on GitHub before using it.  
+> The links to OSS projects on the GitHub website are for informational purposes only and do not constitute an endorsement or guarantee of any kind.  You should review the information and licensing terms on the OSS projects on GitHub before using it.  
 
 ## MedTech service GitHub projects
 
