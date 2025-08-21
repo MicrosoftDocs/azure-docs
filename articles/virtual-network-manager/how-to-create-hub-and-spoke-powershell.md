@@ -99,7 +99,9 @@ This section will guide you through how to create a hub-and-spoke configuration 
      ```
 
 > [!NOTE]
-> If you're currently using peering and want to manage topology and connectivity with Azure Virtual Network Manager, you can migrate without any downtime to your network. Virtual network manager instances are fully compatible with pre-existing hub and spoke topology deployment using peering. This means that you won't need to delete any existing peered connections between the spokes and the hub as the network manager will automatically detect and manage them.
+> If you're currently using virtual network peerings created outside of Azure Virtual Network Manager and want to manage your topology and connectivity with Azure Virtual Network Manager, you have a few options for deployment to eliminate or minimize downtime to your network:
+> 1. **Deploy Azure Virtual Network Manager connectivity configurations on top of existing peerings.** Connectivity configurations are fully compatible with preexisting manual peerings. When you deploy a connectivity configuration, by default Azure Virtual Network Manager reuses existing peerings that achieve the connectivity described in the configuration and establishes additional connectivity as needed. This means that you aren't required to delete any existing peerings between the hub and spoke virtual networks.
+> 2. **Fully manage connectivity with Azure Virtual Network Manager.** If you want to fully manage connectivity from a single control plane, you can opt to *Delete existing peerings* to remove all previously created peerings from the network groups' virtual networks targeted in this configuration upon deployment.
 
 ## Deploy the hub-and-spoke configuration
 

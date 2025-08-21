@@ -247,6 +247,8 @@
     href: storage-files-scale-targets.md
   - name: Understanding billing
     href: understanding-billing.md
+  - name: Cost estimation examples
+    href: file-estimate-cost.md
   - name: Optimize costs with storage reservations
     href: files-reserve-capacity.md
 - name: Monitor metrics and logs
@@ -261,6 +263,8 @@
   items:
   - name: Virtual desktops
     href: virtual-desktop-workloads.md
+  - name: Azure Kubernetes Service
+    href: azure-kubernetes-service-workloads.md    
   - name: SAP
     href: /azure/sap/workloads/planning-guide-storage-azure-files?toc=/azure/storage/files/toc.json
   - name: SQL Server
@@ -301,8 +305,6 @@
   items:
   - name: Introduction to Azure Files
     href: /training/modules/introduction-to-azure-files/
-  - name: Extend share capacity with Azure File Sync
-    href: /training/modules/extend-share-capacity-with-azure-file-sync/
   - name: Configure Azure Files and Azure File Sync
     href: /training/modules/configure-azure-files-file-sync/
   - name: Implement a hybrid file server infrastructure

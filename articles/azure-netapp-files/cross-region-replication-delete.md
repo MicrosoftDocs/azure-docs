@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 03/22/2025
+ms.date: 07/22/2025
 ms.author: anfdocs
 ms.custom:
   - build-2025
@@ -13,7 +13,7 @@ ms.custom:
 ---
 # Delete volume replications or volumes
 
-This article describes how to delete volume replications. It also describes how to delete the source or destination volume.
+This article describes how to delete volume replications. It also describes how to delete the source or destination volume. If you're deleting a source or destination volume, ensure no [files locks are in place](understand-file-locks.md).
 
 ## Delete volume replications
 
@@ -58,8 +58,8 @@ If you want to delete the source or destination volume, you must perform the fol
 
 ## Next steps  
 
-* [Cross-region replication](cross-region-replication-introduction.md)
-* [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md)
+* [Cross-region replication](replication.md)
+* [Requirements and considerations for using cross-region replication](replication-requirements.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
 * [Troubleshoot cross-region-replication](troubleshoot-cross-region-replication.md)
 * [Re-establish deleted volume relationship](reestablish-deleted-volume-relationships.md)
