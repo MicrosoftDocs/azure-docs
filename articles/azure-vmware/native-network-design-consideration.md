@@ -39,7 +39,7 @@ The following functionality is limited during this time. These limitations will 
     
     - The customer virtual network isn't linked to resources in a different resource group and detach such resources (for example, DDoS Protection Plans) from the virtual network before proceeding
         
-    - Create a role assignment from your cross-resource group to give the “AzS VIS Prod App” service principle "network contributor" access. The role assignment allows you to use reference and have yourreference correctly applied for your Azure VMware Solution private cloud.
+    - Create a role assignment from your cross-resource group to give the “AzS VIS Prod App” service principle "network contributor" access. The role assignment allows you to use reference and have your reference correctly applied for your Azure VMware Solution private cloud.
         
 ## Unsupported integrations during Public Preview
 
