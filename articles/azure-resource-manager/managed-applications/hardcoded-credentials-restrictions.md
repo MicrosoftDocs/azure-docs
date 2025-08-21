@@ -30,16 +30,16 @@ As a result, any secrets present in the template are at risk for exposure and ca
 ## Credential Examples
 
 Hardcoded credential:
-- "adminPassword": "fixedValue"
+- ```"adminPassword": "fixedValue"```
 
 Guessable passwords:
-- "adminPassword": "[concat(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')), 'fixedvalue')]"
+- ```"adminPassword": "[concat(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')), 'fixedvalue')]"```
 
 SAS URIs:
-- https://<storage_account>.blob.core.windows.net/<container>/<blob_name>?sv=2022-11-02&st=2025-08-20T09%3A00%3A00Z&se=2025-08-20T10%3A00%3A00Z&sr=b&sp=r&sig=<signature>
+- ```https://<storage_account>.blob.core.windows.net/<container>/<blob_name>?sv=2022-11-02&st=2025-08-20T09%3A00%3A00Z&se=2025-08-20T10%3A00%3A00Z&sr=b&sp=r&sig=<signature>```
 
 API Keys/Storage keys:
-- api_key = "12345abcde67890xyz12345abcde67890"
+- ```api_key = "12345abcde67890xyz12345abcde67890"```
 
 ## References
 
