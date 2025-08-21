@@ -11,19 +11,21 @@ ms.date: 08/20/2025
 
 ---
 
-# Move across resource groups or subscriptions
+# Move an App Configuration store to another subscription or resource group
 
-You can move an App Configuration stores to a different resource group or subscription by using the Azure portal.
+You can [move](https://learn.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) an App Configuration store to a different resource group or subscription by using the Azure Portal or Azure CLI.
+
+### [Azure CLI](#tab/azure-portal)
 
 1. Go to the [Azure portal](https://portal.azure.com/).
 
-1. Navigate to the resource that you want to move.
+1. Navigate to the App Configuration store that you want to move. The overview page should be displayed by default.
 
-1. On the subscription or resource group overview page, select **Move**.
+1. If you are moving to a new resource group, select **Move** next to the resource group details. If you are moving to a new subscription, select **Move** next to the subscription details.
 
 1. If you're moving the resource to another subscription, select the destination **Subscription**.
 
-1. If you're moving the resource to another resource group, select the destination **Resource group**, or create a new resource group.
+1. Select the destination **Resource group**, or create a new resource group.
 
 1. Select **Next**.
 
@@ -33,9 +35,19 @@ You can move an App Configuration stores to a different resource group or subscr
 
 1. Select **Move**.
 
+### [Azure CLI](#tab/azure-cli)
+
+The Azure CLI's `az resource move` [command](https://learn.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-move) can be used to perform the move.
+
+Example:
+
+```
+az resource move --destination-group ResourceGroup --destination-subscription-id SubscriptionId --ids "ResourceId1" "ResourceId2" "ResourceId3"
+```
+
 ## Limitations
 
-* App Configuration stores that have private endpoints attached are unable to be moved accross subscriptions and resource groups.
+* App Configuration stores that have private endpoints attached are unable to be moved across subscriptions and resource groups. To move the store, first delete the private endpoints, complete the move, and then recreate the private endpoints. It is important to consider that by default when removing all private endpoints, public network access for the store will be enabled. This can be avoided by explicitly disabling public network access to the store, however disabling public network access without private endpoints will result in temporary downtime as the store will be inaccessible. It is important to consider whether temporary public exposure of the endpoint, or temporary downtime is acceptable during the move.
 
 ## Next steps
 
