@@ -19,7 +19,7 @@ Azure Managed Redis has different SKU and tier offerings that provide flexibilit
 
 > [!NOTE]
 > Because each tier of Azure Managed Redis has almost the same features, scaling is typically used just to change memory and performance characteristics.
-Scaling is currently in Public Preview.
+Scaling geo-replicated Azure Managed Redis caches remains in Public Preview.
 >
 
 ## Types of scaling
@@ -184,7 +184,7 @@ For more information on how Azure Managed Redis handles sharding, see [Sharding 
 
 ### Are there scaling limitations with geo-replication?
 
-With [active geo-replication](how-to-active-geo-replication.md) configured, you can't mix and match cache sizes in a geo-replication group. As a result, scaling the caches in a geo-replication group requires a few more steps. See [Scaling instances in a geo-replication group](how-to-active-geo-replication.md#scaling-instances-in-a-geo-replication-group) for instructions.
+Scaling geo-replicated caches is in Public Preview.  With [active geo-replication](how-to-active-geo-replication.md) configured, you can't mix and match cache sizes in a geo-replication group. As a result, scaling the caches in a geo-replication group requires a few more steps. See [Scaling instances in a geo-replication group](how-to-active-geo-replication.md#scaling-instances-in-a-geo-replication-group) for instructions.
 
 ### How long does scaling take?
 

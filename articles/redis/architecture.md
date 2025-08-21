@@ -42,7 +42,7 @@ Each Azure Managed Redis instance is internally configured to use clustering, ac
 
 ### Cluster policies
 
-Azure Managed Redis offers three clustering policies: _OSS_, _Enterprise_, and Non-Clustered (preview). _OSS_ cluster policy is recommended for most applications because it supports higher maximum throughput, but there are advantages and disadvantages to each version.
+Azure Managed Redis offers three clustering policies: _OSS_, _Enterprise_, and Non-Clustered. _OSS_ cluster policy is recommended for most applications because it supports higher maximum throughput, but there are advantages and disadvantages to each version.
 
 The **OSS clustering policy** implements the same [Redis Cluster API](https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/) as Azure Cache for Redis tiers. The Redis Cluster API allows the Redis client to connect directly to shards on each Redis node, minimizing latency and optimizing network throughput, allowing throughput to scale near-linearly as the number of shards and vCPUs increases. The OSS clustering policy generally provides the best latency and throughput performance. The OSS cluster policy, however, requires your client library to support the Redis Cluster API. Today, almost all Redis clients support the Redis Cluster API, but compatibility might be an issue for older client versions or specialized libraries.
 
@@ -54,7 +54,7 @@ The **Enterprise clustering policy** is a simpler configuration that utilizes a 
 
 The Enterprise clustering policy is the only one that can be used with the [RediSearch module](redis-modules.md). While the Enterprise cluster policy makes an Azure Managed Redis instance appear to be non-clustered to users, it still has some limitations with [Multi-key commands](#multi-key-commands).
 
-The **Non-Clustered (preview)** clustering policy stores data on each node without sharding. It applies only to caches sized 25 GB and smaller. Scenarios for using Non-Clustered clustering policy include:
+The **Non-Clustered** clustering policy stores data on each node without sharding. It applies only to caches sized 25 GB and smaller. Scenarios for using Non-Clustered clustering policy include:
 
 - When migrating from a Redis environment that’s non-sharded. For example, the non-sharded topologies of Basic, Standard, and Premium SKUs of Azure Cache for Redis.
 - When running cross slot commands extensively and dividing data into shards would cause failures. For example, the MULTI commands.

@@ -20,7 +20,7 @@ Some features that were previous in Public Preview have are now generally availa
 
 - Scaling a cache (GA)
 - Data persistence (GA)
-- Non-clustered caches (GA)
+- _Non-clustered_ clustering policy (GA)
 
 ## May 2025
 
