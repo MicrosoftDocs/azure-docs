@@ -1,10 +1,8 @@
 ---
 title: Azure RabbitMQ bindings for Azure Functions
 description: Learn to send Azure RabbitMQ triggers and bindings in Azure Functions.
-author: ggailey777
 ms.topic: reference
-ms.date: 11/13/2024
-ms.author: glenga
+ms.date: 08/20/2025
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
@@ -53,8 +51,16 @@ Add the extension to your project by installing this [NuGet package](https://www
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
 [!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 ::: zone-end
+## Migrate to extension v2
 
-### host.json settings
+When you migrate your app from using version 1.x of the RabbitMQ extension to using version 2.x, these v1.x binding properties are no longer supported and are ignored in v2.x, if set:
+
++ HostName
++ UserNameSetting
++ PasswordSetting
++ Port
+
+## host.json settings
 
 [!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
 
