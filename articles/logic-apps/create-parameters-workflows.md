@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/18/2025
+ms.date: 08/22/2025
 ms.custom:
   - build-2025
 #Customer intent: As an integration developer who works with Azure Logic Apps, I want to use parameters and application settings as values across workflows.
@@ -27,37 +27,26 @@ For more information about multitenant and single-tenant Azure Logic Apps, see [
 
 - A Consumption or Standard logic app workflow
 
-  If you don't have a logic app workflow yet, see [Create an example Consumption logic app workflow using the Azure portal](quickstart-create-example-consumption-workflow.md) or [Create an example Standard logic app workflow using the Azure portal](create-single-tenant-workflows-azure-portal.md).
+  If you don't have a logic app workflow yet, see [Create a Consumption logic app workflow](quickstart-create-example-consumption-workflow.md) or [Create a Standard logic app workflow](create-single-tenant-workflows-azure-portal.md).
 
-    > [!NOTE]
-    > Currently, you can create parameters for Consumption logic app workflows only by using the Azure portal. 
-    > You can create parameters for Standard logic app workflows by using the Azure portal or Visual Studio Code.
+   > [!NOTE]
+   > Currently, you can create parameters for Consumption logic app workflows only by using the Azure portal. You can create parameters for Standard logic app workflows by using the Azure portal or Visual Studio Code.
 
 <a name="parameters-introduction"></a>
 
 ## Parameters for Consumption versus Standard logic app workflows
 
-For both Consumption and Standard logic app workflows, you can define parameters using the designer. After you define the parameter, you can reference that parameter from any workflow or connection that's in the *same* logic app resource.
+For both Consumption and Standard logic app workflows, you can define parameters using the workflow designer. After you define the parameter, you can reference that parameter from any workflow or connection that's in the *same* logic app resource.
 
-In multitenant Consumption logic app workflows, you create and use parameters in the designer. Then you define and set the environment variables in your Azure Resource Manager template (ARM template) and template parameters files. In this scenario, you have to define and set the parameters *at deployment*. This requirement means that even if you only have to change one variable, you have to redeploy your logic app's ARM template.
+In multitenant Consumption logic app workflows, you create and use parameters in the designer. Then you define and set the environment variables in your Azure Resource Manager template (ARM template) and template parameters files. In this scenario, you have to define and set the parameters *at deployment*. This requirement means that even if you have to change only one variable, you must redeploy your logic app's ARM template.
 
 In single-tenant Standard logic app workflows, you can work with environment variables both at runtime and deployment by using parameters *and* app settings. App settings contain global configuration options for *all the workflows* in the same logic app resource. For more information, see [Edit host and app settings for single-tenant based logic apps](edit-app-settings-host-settings.md).
 
 > [!IMPORTANT]
 >
-> When you use sensitive information, such as connection strings that include usernames and passwords, 
-> make sure to use the most secure authentication flow available. For example, in Standard logic app workflows, 
-> secure data types, such as `securestring` and `secureobject`, aren't supported. Microsoft recommends that you 
-> authenticate access to Azure resources with a [managed identity](/entra/identity/managed-identities-azure-resources/overview) 
-> when possible, and assign a role that has the least privilege necessary.
+> When you use sensitive information, such as connection strings that include user names and passwords, make sure to use the most secure authentication flow available. For example, in Standard logic app workflows, secure data types, such as `securestring` and `secureobject`, aren't supported. Microsoft recommends that you authenticate access to Azure resources with a [managed identity](/entra/identity/managed-identities-azure-resources/overview) when possible, and assign a role that has the least privilege necessary.
 >
-> If this capability is unavailable, make sure to secure connection strings through other measures, such as 
-> [Azure Key Vault](/azure/key-vault/general/overview), which you can use with [app settings](edit-app-settings-host-settings.md). 
-> You can then [directly reference secure strings](../app-service/app-service-key-vault-references.md), such as connection 
-> strings and keys. Similar to ARM templates, where you can define environment variables at deployment time, you can define 
-> app settings within your [logic app workflow definition](/azure/templates/microsoft.logic/workflows). 
-> You can then capture dynamically generated infrastructure values, such as connection endpoints and storage strings. 
-> For more information, see [Application types for the Microsoft identity platform](/entra/identity-platform/v2-app-types).
+> If this capability is unavailable, make sure to secure connection strings through other means, such as [Azure Key Vault](/azure/key-vault/general/overview), which you can use with [app settings](edit-app-settings-host-settings.md).  You can then [directly reference secure strings](../app-service/app-service-key-vault-references.md), such as connection strings and keys. Similar to ARM templates, where you can define environment variables at deployment time, you can define app settings within your [logic app workflow definition](/azure/templates/microsoft.logic/workflows). You can then capture dynamically generated infrastructure values, such as connection endpoints and storage strings. For more information, see [Application types for the Microsoft identity platform](/entra/identity-platform/v2-app-types).
 
 App settings have size limits and can't be referenced from certain areas in Azure Logic Apps. Parameters offer a wider range of use cases than app settings, such as support for large value sizes and complex objects.
 
@@ -69,7 +58,7 @@ For example, if you use Visual Studio Code as your development tool to run workf
 - Review and edit the app settings in your project's local.settings.json file. Then reference these app settings in your parameters.
 
 > [!NOTE]
-> In general, consider using parameters as the default way to parameterize values, not app settings. That way, when you need to store secure keys or strings, you can follow the recommendation to reference app settings from your parameters. You can use both options in your solution by using parameters to reference app settings.
+> Consider using parameters as the default way to parameterize values instead of app settings. That way, when you need to store secure keys or strings, you can follow the recommendation to reference app settings from your parameters. You can use both options in your solution by using parameters to reference app settings.
 
 ## Define, use, and edit parameters
 
@@ -77,15 +66,15 @@ This procedure describes how to work with parameters for either Consumption or S
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
 
-   - For Standard logic apps, on the resource sidebar, under **Workflows**, select **Workflows**.
+   - For Standard logic apps, on the resource menu, under **Workflows**, select **Workflows**.
 
      On the **Workflows** page, select the blank workflow to open the designer.
 
-   - For Consumption logic apps, on the resource sidebar, under **Development Tools**, select the designer to open the workflow.
+   - For Consumption logic apps, on the resource menu, under **Development Tools**, select the designer to open the workflow.
 
 1. From the designer toolbar, select **Parameters**.
 
-   :::image type="content" source="./media/create-parameters-workflows/select-parameter.png" alt-text="Screenshot shows the Azure portal with the workflow designer open and Parameters on designer toolbar highlighted.":::
+   :::image type="content" source="./media/create-parameters-workflows/select-parameter.png" alt-text="Screenshot shows the Azure portal with the workflow designer open and Parameters on designer toolbar highlighted." lightbox="./media/create-parameters-workflows/select-parameter.png":::
 
 1. On the **Parameters** pane, select **Create parameter**.
 
@@ -114,7 +103,7 @@ To reference the parameter from a trigger or action that's in any workflow in th
 
 1. From that list, under **Parameters**, select your previously created parameter.
 
-   :::image type="content" source="./media/create-parameters-workflows/reference-parameter.png" alt-text="Screenshot shows created parameter in the dynamic content list.":::
+   :::image type="content" source="./media/create-parameters-workflows/reference-parameter.png" alt-text="Screenshot shows created parameter in the dynamic content list." lightbox="./media/create-parameters-workflows/reference-parameter.png":::
 
 To view or edit parameters in the same logic app:
 
@@ -122,7 +111,7 @@ To view or edit parameters in the same logic app:
 
   The **Parameters** pane opens and displays all the parameters that you defined from workflows in that logic app.
 
-- (Standard workflows only) To view or edit in bulk JSON, on the resource sidebar, select **Parameters**.
+- (Standard workflows only) To view or edit in bulk JSON, on the resource menu, select **Parameters**.
 
   The **Parameters** JSON view opens and displays all the parameters that you defined from workflows in that logic app.
 
@@ -234,7 +223,7 @@ If you have a NuGet-based logic app project, you have to update your project fil
 ```
 
 > [!NOTE]
-> Currently, the capability to dynamically replace parameters files isn't yet available in the Azure portal or the workflow designer.
+> Currently, the capability to dynamically replace parameters files isn't available in the Azure portal or the workflow designer.
 
 For more information about setting up your logic apps for DevOps deployments:
 
