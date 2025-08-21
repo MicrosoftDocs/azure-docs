@@ -11,7 +11,7 @@ ms.date: 08/21/2025
 
 # Manage Entra ID enabled HDInsight clusters using REST API
 
-Microsoft Entra ID-enabled HDInsight clusters can be administered programmatically through the Azure REST API. The REST API allows authorized clients to perform management operations such as provisioning, updating, scaling, and deleting clusters. This method is well-suited for enterprise automation scenarios, integration with CI/CD pipelines, and environments requiring precise control without reliance on the Azure portal or SDKs.
+Microsoft Entra ID-enabled HDInsight clusters can be administered programmatically through the Azure REST API. The REST API allows authorized clients to perform management operations such as provisioning, updating, scaling, and deleting clusters. This method is well-suited for enterprise automation scenarios, integration with CI/CD pipelines, and environments requiring precise control without reliance on the Azure portal or SDK.
 
 
 
@@ -30,7 +30,7 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 | PUT | https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{resourceGroup Name}/providers/Microsoft.HDInsight/clusters/{cluster name}?api-version={api-version} |
  
  
- The following example shows the request body for creating an Entra enabled Linux-based hadoop cluster. For examples of creating clusters in other ways, see the Examples section below.
+ The following example shows the request body for creating an Entra enabled Linux-based hadoop cluster. For examples of creating clusters in other ways, see the Examples section as follows:.
 
 
 
@@ -198,7 +198,7 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 | Element name | Required | Type   | Description |
 |--------------|----------|--------|-------------|
-| vmSize       | Yes      | String | Specifies the size of the VM. Refer to [HDInsight configuration options](/azure/hdinsight/hdinsight-component-versioning#node-pricing-tiers) (scroll down to **Node pricing tiers**) for valid sizes. |
+| vmSize       | Yes      | String | Specifies the size of the Virtual Machine. Refer to [HDInsight configuration options](/azure/hdinsight/hdinsight-component-versioning#node-pricing-tiers) (scroll down to **Node pricing tiers**) for valid sizes. |
 
 
 
@@ -282,7 +282,7 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 **Response**
 
 
-If validation is complete and the request is accepted, the operation will return 200 (OK).
+If validation is complete and the request is accepted, the operation returns 200 (OK).
 
 **Status code:** 200 OK
 
@@ -386,7 +386,7 @@ Create a premium domain-joined cluster with Apache Ranger. User needs to provide
 
 **Request**
 
-See [Common parameters and headers]((https://learn.microsoft.com/en-us/rest/api/hdinsight/#common-parameters-and-headers)) for headers and parameters that are used by clusters.
+See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-headers) for headers and parameters that are used by clusters.
 
 
 | Method | Request URI                                                                                                                                                                        |
@@ -575,7 +575,7 @@ The following example shows the request body for creating an Entra enabled Linux
 |-------------------------|----------|-----------------|-------------|
 | directoryType           | Yes      | String          | Type of LDAP directory that is used. Currently "ActiveDirectory" is the only supported value. |
 | domain                  | Yes      | String          | Active Directory domain for the cluster. |
-| organizationalUnitDN    | Yes      | String          | Distinguished name of the organizational unit in the Active Directory where user and computer accounts will be created. |
+| organizationalUnitDN    | Yes      | String          | Distinguished name of the organizational unit in the Active Directory where user and computer accounts are created. |
 | ldapsUrls               | Yes      | Array of String | URLs of one or multiple LDAPS servers for the Active Directory. |
 | domainUserName          | Yes      | String          | A domain user account with sufficient permissions for creating the cluster. It should be in user@domain format. |
 | domainUserPassword      | Yes      | String          | Password for the domain user account. |
@@ -665,7 +665,7 @@ The following example shows the request body for creating an Entra enabled Linux
 
 **Response**
 
-If validation is complete and the request is accepted, the operation will return 200 (OK).
+If validation is complete and the request is accepted, the operation returns 200 (OK).
 
 
 **Status code:** 200 OK
@@ -771,7 +771,7 @@ Azure Data Lake can be configured as the default filesystem for cluster versions
 **Request**
 
 
-See [Common parameters](https://learn.microsoft.com/en-us/rest/api/hdinsight/#common-parameters-and-headers) and headers for headers and parameters that are used by clusters.
+See [Common parameters](/rest/api/hdinsight/#common-parameters-and-headers) and headers for headers and parameters that are used by clusters.
 
 
 This example shows the request body for creating a Linux-based Hadoop cluster using Azure Data Lake Store as the default filesystem for the cluster.
