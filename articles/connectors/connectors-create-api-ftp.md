@@ -136,7 +136,7 @@ This section shows the steps for the following FTP connector triggers:
 
 1. In the [Azure portal](https://portal.azure.com), and open your blank logic app workflow in the designer.
 
-1. On the designer, select **Choose an operation**. Under the search box, select **Built-in**.
+1. On the designer, select **Add a trigger**. Under the search box, select **Built-in**.
 
 1. In the search box, enter **ftp**. From the triggers list, select the trigger named **When a filed is added or updated**.
 
@@ -151,7 +151,7 @@ This section shows the steps for the following FTP connector triggers:
 
    ![Screenshot shows Standard workflow designer, FTP built-in trigger, and connection profile.](./media/connectors-create-api-ftp/ftp-trigger-connection-built-in-standard.png)
 
-1. When you're done, select **Create**.
+1. When you're done, select **Create new**.
 
 1. When the trigger information box appears, in the **Folder path** box, specify the path to the folder that you want to monitor.
 
@@ -165,7 +165,7 @@ This section shows the steps for the following FTP connector triggers:
 
 1. In the [Azure portal](https://portal.azure.com), and open your blank logic app workflow in the designer.
 
-1. On the designer, select **Choose an operation**. Under the search box, select **Azure**.
+1. On the designer, select **Add a trigger**. Under the search box, select **Shared**.
 
 1. In the search box, enter **ftp**. From the triggers list, select the trigger named **When a filed is added or modified (properties only)**.
 
@@ -180,7 +180,7 @@ This section shows the steps for the following FTP connector triggers:
 
    ![Screenshot shows Standard workflow designer, FTP managed connector trigger, and connection profile.](./media/connectors-create-api-ftp/ftp-trigger-connection-azure-standard.png)
 
-1. When you're done, select **Create**.
+1. When you're done, select **Create new**.
 
 1. When the trigger information box appears, find the folder that you want to monitor for new or edited files.
 
@@ -288,7 +288,7 @@ The steps to add and use an FTP action differ based on whether your workflow use
 
 * [**Managed trigger**](#managed-trigger-workflows): Describes the steps to add a managed action.
 
- If you used the FTP managed connector trigger, and want the content from a newly added or modified file, you can use a **For each** loop to iterate through the array that's returned by the trigger. You then have to use intermediary actions such as the FTP action named **Get file metadata** before you use the **Get file content** action.
+  If you used the FTP managed connector trigger, and want the content from a newly added or modified file, you can use a **For each** loop to iterate through the array that's returned by the trigger. You then have to use intermediary actions such as the FTP action named **Get file metadata** before you use the **Get file content** action.
 
 <a name="built-in-trigger-workflows"></a>
 
