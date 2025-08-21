@@ -37,7 +37,7 @@ The addition of multiple replicas allows AI Search to:
 - Increase the availability of your search service.
 - Perform maintenance on one replica while queries continue executing on other replicas.
 - Handle higher indexing and query workloads.
-- Provision replicas in different availability zones for extra resiliency, if your region supports availability zones.
+- Improve resiliency by attempting to provision replicas in different availability zones, if supported in your region.
 
 You can also configure the number of *partitions*, which represent the storage used by the search indexes.
 
@@ -77,7 +77,13 @@ Zone redundancy is automatically enabled when your search service meets all of t
 + Has [at least two replicas](/azure/search/search-capacity-planning#add-or-remove-partitions-and-replicas).
   
 > [!NOTE]
-> Zone redundancy is enabled when you have two or more replicas. However, for read-write workloads, you should use three or more replicas so that you receive the highest possible availability service-level agreement (SLA).
+> Azure AI Search attempts to distribute replicas across multiple zones when you have two or more replicas. However, for read-write workloads, you should use three or more replicas so that you receive the highest possible availability service-level agreement (SLA).
+
+### Instance distribution across zones
+
+Azure AI Search attempts to place replicas across different availability zones. However, there are occasionally situations where all of the replicas of a search service can be placed into the same availability zone. This situation can happen when replicas are removed from your service, such as when you *scale in* by configuring your service to use fewer replicas. The reason is that replica removal currently doesn't cause the remaining replicas to be rebalanced across zones.
+
+To reduce the likelihood of all of your replicas being placed into a single availabilty zone, you can manually trigger a scale-out operation immediately after a scale-in operation. For example, suppose your search service has ten replicas and you want to scale in to seven replicas. Instead of performing a single scale operation, you can temporarily scale to six instances, then immediately scale to seven instances, to trigger zone rebalancing.
 
 ### Cost
 
@@ -115,9 +121,11 @@ This section describes what to expect when search services are configured for zo
   
   If the primary replica is lost because it was in the affected zone, then any write operations that haven't yet been replicated might be lost.
 
-+ **Expected downtime**: A zone failure isn't expected to cause downtime to your search service for read operations, because read replicas in other availability zones continue to serve requests.
++ **Expected downtime**: In most situations, a zone failure isn't expected to cause downtime to your search service for read operations, because read replicas in other availability zones continue to serve requests.
 
     If the primary replica is lost because it was in the affected zone, Azure AI Search automatically promotes another replica to become the new primary so that write operations can resume. It typically takes a few seconds for the replica promotion to occur, and during this time write operations might not succeed. Ensure that your applications are prepared by following [transient fault handling guidance](#transient-faults).
+
+    However, there are some unlikely situations where all of your search service's replicas could be in a single availability zone, and if this happens, you might experience downtime until the zone recovers. For more information, and to understand a workaround, see [Instance distribution](#instance-distribution-across-zones).
 
 + **Traffic rerouting**: When a zone fails, Azure AI Search detects the failure and routes requests to active replicas in the surviving zones. If the primary replica was lost, another replica is promoted to be the new primary.
 
