@@ -1,5 +1,5 @@
 ---
-title: Change how a storage account is replicated
+title: Change how a ZRS Classic storage account is replicated
 titleSuffix: Azure Storage
 description: Learn how to change how data in an existing storage account is replicated.
 services: storage
@@ -7,9 +7,8 @@ author: gtrossell
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 08/21/2025
-ms.author: shaas
+ms.author: akashdubey
 ms.subservice: storage-common-concepts
-ms.custom: engagement-fy23, references_regions, devx-track-azurepowershell
 # Customer intent: "As a cloud administrator, I want to change the replication settings of my ZRS Classic storage account, so that I can optimize cost and availability based on my organization's data protection requirements."
 ---
 
