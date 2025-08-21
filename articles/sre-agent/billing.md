@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.topic: tutorial
 ms.date: 08/08/2025
-ms.service: azure
+ms.service: sre-agent
 ---
 
 # Billing for Azure SRE Agent (preview)

@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.topic: tutorial
 ms.date: 07/18/2025
-ms.service: azure
+ms.service: sre-agent
 ---
 
 # Security contexts in Azure SRE Agent (preview)

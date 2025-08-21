@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 07/24/2025
 ms.author: cshoe
-ms.service: azure
+ms.service: sre-agent
 ---
 
 # Starter prompts for Azure SRE Agent (preview)
