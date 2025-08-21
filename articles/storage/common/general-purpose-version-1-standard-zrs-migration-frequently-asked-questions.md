@@ -5,12 +5,12 @@ description: FAQ page for the retirement of Azure GPv1 Standard ZRS storage acco
 services: storage
 author: gtrossell
 ms.service: azure-storage
-ms.topic: FAQ
+ms.topic: faq
 ms.date: 08/19/2025
 ms.author: akashdubey
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
-# CustomerIntent: As a storage admin, I want to find answers to common questions about the retirement of General Purpose v1 (GPv1) Standard ZRS storage accounts, so that I can plan my upgrade to General Purpose v2 (GPv2) and avoid service disruption.
+# CustomerIntent: As a storage admin, I want to find answers to common questions about the retirement of General Purpose v1 (GPv1) Standard Zone Redundant Storage storage accounts, so that I can plan my upgrade to General Purpose v2 (GPv2) and avoid service disruption.
 ---
 
 # Upgrade from GPv1 Standard ZRS FAQ
