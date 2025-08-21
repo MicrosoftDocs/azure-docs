@@ -4,7 +4,8 @@ description: Learn how to begin using Apache Kafka & Apache Flink on Confluent C
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
 ms.date: 1/31/2024
-# customerIntent: As a developer I want to create a new instance of Apache Kafka & Apache Flink on Confluent Cloud by using the Azure CLI.
+
+#customer intent: As a developer I want to create a new instance of Apache Kafka & Apache Flink on Confluent Cloud by using the Azure CLI.
 ---
 
 # Quickstart: Create a Confluent Cloud resource by using the Azure CLI
@@ -96,9 +97,9 @@ To view the organization by resource ID:
 az confluent organization show --ids "/subscriptions/{SubID}/resourceGroups/{myResourceGroup}/providers/Microsoft.Confluent/organizations/{myOrganization}"
 ```
 
-If you get an error, see [Troubleshoot Apache Kafka & Apache Flink on Confluent Cloud solutions](troubleshoot.md).
+If an error message appears, see [Troubleshoot Apache Kafka & Apache Flink on Confluent Cloud solutions](troubleshoot.md).
 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Manage the Confluent Cloud resource](manage.md)
+> [Manage your Confluent Cloud resource](manage.md)

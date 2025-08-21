@@ -23,10 +23,10 @@ You can find Apache Kafka & Apache Flink on Confluent Cloud in the [Azure portal
 
 ## Capabilities
 
-Deep integration between Confluent Cloud and Azure gives you the following capabilities. You can:
+Deep integration between Confluent Cloud and Azure gives you key capabilities. You can:
 
 - Provision a new Confluent Cloud organization resource from the Azure portal with fully managed infrastructure or link to an existing Confluent Cloud organization.
-- Streamline single sign-on (SSO) from Azure to Confluent Cloud with Microsoft Entra ID. No separate authentication is needed from the Confluent Cloud portal.
+- Streamline single sign-on (SSO) from Azure to Confluent Cloud with Microsoft Entra ID. No separate authentication is required from the Confluent Cloud portal.
 - Get unified billing of Confluent Cloud consumption through Azure subscription invoicing.
 - Manage Confluent Cloud resources from the Azure portal, and track them on the **All resources** pane with your other Azure resources.
 

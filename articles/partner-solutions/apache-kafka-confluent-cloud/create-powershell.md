@@ -4,7 +4,8 @@ description: Learn how to begin using Apache Kafka & Apache Flink on Confluent C
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ms.date: 1/31/2024
-# customerIntent: As a developer I want create a new instance of Apache Kafka & Apache Flink on Confluent Cloud by using Azure PowerShell.
+
+#customer intent: As a developer I want create a new instance of Apache Kafka & Apache Flink on Confluent Cloud by using Azure PowerShell.
 ---
 
 # Quickstart: Create a Confluent Cloud resource by using Azure PowerShell
@@ -105,4 +106,4 @@ If you get an error, see [Troubleshoot Apache Kafka & Apache Flink on Confluent 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Manage the Confluent Cloud resource](manage.md)
+> [Manage your Confluent Cloud resource](manage.md)

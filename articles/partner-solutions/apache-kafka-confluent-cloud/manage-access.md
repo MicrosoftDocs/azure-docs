@@ -1,12 +1,13 @@
 ---
 title: Use Confluent Access Management in the Azure Portal
 titlesuffix: partner-solutions
-description: Learn how to use Confluent Access Management in the Azure portal to add, delete and manage users.
+description: Learn how to use Confluent Access Management in the Azure portal to add, delete, and manage users.
 ms.service: partner-services
 subservice: confluent
 ms.topic: how-to
 ms.date: 1/31/2024
-# CustomerIntent: As an organization admin, I want to manage user permissions in Apache Kafka & Apache Flink on Confluent Cloud so that I can add, delete and manage users.
+
+#customer intent: As an organization admin, I want to manage user permissions in Apache Kafka & Apache Flink on Confluent Cloud so that I can add, delete and manage users.
 ---
 
 # Manage user permissions in a Confluent organization
@@ -36,13 +37,13 @@ Follow the steps below to add a user to a Confluent organization.
     :::image type="content" source="media/manage-access/account-and-access.png" alt-text="Screenshot of the Azure platform showing the Confluent Account and Access menu.":::
 
    > [!TIP]
-   > If you get the error "You do not have enough permissions on the organization to perform this operation", make sure that you have the required permissions. You must be a subscription Owner or Contributor.
+   > If the error message "You do not have enough permissions on the organization to perform this operation" appears, make sure that you have the required permissions. You must be assigned the Owner or Contributor role for the subscription.
 
-1. Select **Add User**. A new pane opens with a list of users who belong to your tenant.
+1. Select **Add User**.
 
     :::image type="content" source="media/manage-access/add-user.png" alt-text="Screenshot of the Azure platform showing the Add user option.":::
 
-1. Select the user you want to add and select **Add User**.
+1. In **Add New User**, select the user to add, and then select **Add User**.
 
     :::image type="content" source="media/manage-access/select-user-to-add.png"alt-text="Screenshot of the Azure platform showing choosing a user to add.":::
 
@@ -89,6 +90,6 @@ Remove a permission assigned to a user in the Confluent organization.
 
 ## Related content
 
-* Get help with [troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions](troubleshoot.md).
-* If you need to contact support, see [Get support for Confluent Cloud resource](get-support.md).
-* To learn more about managing Confluent Cloud, go to [Manage the Confluent Cloud resource](manage.md).
+* [Troubleshoot Apache Kafka & Apache Flink on Confluent Cloud solutions](troubleshoot.md)
+* [Get support for Confluent Cloud resource](get-support.md)
+* [Manage your Confluent Cloud resource](manage.md)

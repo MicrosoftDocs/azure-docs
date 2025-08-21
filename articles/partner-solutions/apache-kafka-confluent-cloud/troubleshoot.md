@@ -88,7 +88,7 @@ If you can't see the list of connectors, make sure that you're assigned the Owne
 ## Related content
 
 - Learn how to [manage your instance](manage.md) of Apache Kafka & Apache Flink on Confluent Cloud.
-- Get started with Apache Kafka & Apache Flink on Confluent Cloud - An Azure Native ISV Service on
+- Get started with Apache Kafka & Apache Flink on Confluent Cloud, an Azure Native Integrations service:
 
     > [!div class="nextstepaction"]
     > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations)

@@ -1,9 +1,10 @@
 ---
-title: Contact support for Confluent Cloud
-description: This article describes how to contact support for Confluent Cloud on the Azure portal.
-# customerIntent: As a developer I want learn how I can contact support for Apache Kafka & Apache Flink on Confluent Cloud.
+title: Contact Support for Confluent Cloud
+description: Learn how to contact support for Confluent Cloud on the Azure portal.
 ms.topic: conceptual
 ms.date: 1/31/2024
+
+#customer intent: As a developer, I want learn how I can contact support for Apache Kafka & Apache Flink on Confluent Cloud.
 ---
 
 # Get support for Confluent Cloud resource
@@ -27,18 +28,18 @@ To submit a request through Azure Help and Support:
 
     :::image type="content" source="media/support-request-help.png" alt-text="Create a support request from help.":::
 
-To submit a request from your resource, follow these steps:
+To submit a request from your resource:
 
 1. In the Azure portal, select your Confluent organization.
-1. From the menu on the screen's left side, select **New support request**.
-1. To create a support request, select the link to the **Confluent portal**.
+1. On the left menu,, select **New support request**.
+1. To create a support request, select **Confluent portal**.
 
     :::image type="content" source="media/support-request.png" alt-text="Create a support request from instance.":::
 
 ## Related content
 
-- For help with troubleshooting, see [Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions](troubleshoot.md).
-- Get started with Apache Kafka & Apache Flink on Confluent Cloud - An Azure Native ISV Service on
+- [Troubleshoot Apache Kafka & Apache Flink on Confluent Cloud solutions](troubleshoot.md)
+- Get started with Apache Kafka & Apache Flink on Confluent Cloud, an Azure Native Integrations service:
 
     > [!div class="nextstepaction"]
     > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations)

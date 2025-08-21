@@ -34,21 +34,21 @@ There are required fields (identified with a red asterisk) in each section.
 
 1. Under **Project details**, enter or select values for these required settings:
 
-    | Field               | Action                                                    |
+    | Setting               | Action                                                    |
     |---------------------|-----------------------------------------------------------|
     | **Subscription**        | Select an existing subscription.   |
     | **Resource group**      | Select an existing resource group, or create a new one.       |
 
 1. Under **Azure Resource details**, enter or select values for these required settings:
 
-    | Field              | Action                                    |
+    | Setting              | Action                                    |
     |--------------------|-------------------------------------------|
     | **Resource name**      | Enter a unique name for the resource.   |
     | **Region**             | Select an Azure region for the resource deployment.  |
 
 1. Under **Confluent organization details**, enter or select values for these required settings:
 
-    | Field             | Action                                                                                           |
+    | Setting             | Action                                                                                           |
     |-------------------|--------------------------------------------------------------------------------------------------|
     | **Organization**      | Select an existing organization, or create a new one.   |
 
@@ -71,4 +71,4 @@ There are required fields (identified with a red asterisk) in each section.
 
 ## Related content
 
-- [Manage a Confluent Cloud resource](manage.md)
+- [Manage your Confluent Cloud resource](manage.md)
