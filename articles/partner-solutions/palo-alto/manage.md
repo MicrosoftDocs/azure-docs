@@ -84,7 +84,7 @@ You can view and change settings by selecting one of the following settings cate
 
 1. Select **Certificates** under **Resources** in the left pane of the local rulestack page. A page appears that shows certificates and allows you to add, delete, and configure them. 
 1. To edit a certificate, select the checkbox next to it then select **Edit**. A pane that shows the current configuration appears. Edit the values as needed. 
-1.  To add a certificate, select the **Add** button. A pane that allows you to configure the certificate appears. You select the certificate from a key vault or paste in a URL. You can also add self-signed certificates. 
+1.  To add a certificate, select the **Add** button. A pane that allows you to configure the certificate appears. You can select the certificate from a key vault or paste in a URL. You can also add self-signed certificates. 
 1. To edit a certificate, select the checkbox next to it and then select **Edit**. You can edit and validate the configuration.
 1. To delete a certificate, select the checkbox next to it and then select **Delete**. 
  
