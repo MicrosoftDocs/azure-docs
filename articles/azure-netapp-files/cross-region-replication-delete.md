@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 03/22/2025
+ms.date: 07/22/2025
 ms.author: anfdocs
 ms.custom:
   - build-2025
@@ -13,7 +13,7 @@ ms.custom:
 ---
 # Delete volume replications or volumes
 
-This article describes how to delete volume replications. It also describes how to delete the source or destination volume.
+This article describes how to delete volume replications. It also describes how to delete the source or destination volume. If you're deleting a source or destination volume, ensure no [files locks are in place](understand-file-locks.md).
 
 ## Delete volume replications
 
