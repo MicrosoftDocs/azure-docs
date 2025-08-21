@@ -14,7 +14,7 @@ In Azure Functions, support for a language stack is limited to [specific version
 
 To help ensure your function apps continue to receive support, follow the instructions in this article to update them to the latest available versions. The way that you update your function app depends on several factors:
 
-- The language you use to write your function apps. Make sure to select your programming language at the top of this article. 
+- The language you use to develop your function apps. Make sure to select your programming language at the top of this article. 
 - The operating system on which your function app runs in Azure: Windows or Linux. 
 - The [hosting plan](./functions-scale.md).
 
