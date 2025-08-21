@@ -1,6 +1,6 @@
 ---
-title: How to make your Azure workloads zone resilient
-description: Learn about how to approach enabling zone resilience for your Azure workloads. Understand the importance of prioritizing workloads and Azure services for zone resiliency, and find zone resiliency information for various Azure services.
+title: How to Make Your Azure Workloads Zone Resilient
+description: Learn how to enable zone resilience for Azure workloads. Understand prioritizing workloads and Azure services for zone resiliency across various services.
 author: anaharris-ms
 ms.service: azure
 ms.subservice: azure-reliability
@@ -12,14 +12,14 @@ ms.custom: subject-reliability
 
 # How to make your workloads zone resilient
 
-Designing your Azure workloads for zone resiliency helps safeguard your applications against hardware failures, network disruptions, and natural disasters. By distributing resources across multiple availability zones within a region for zone resiliency, you reduce the risk of a single zone outage impacting your critical services.
+Designing your Azure workloads for zone resiliency helps safeguard your applications against hardware failures, network disruptions, and natural disasters. By distributing resources across multiple availability zones within a region for zone resiliency, you reduce the risk of a single zone outage affecting your critical services.
 
-While zone resiliency is best addressed during initial workload planning and deployment, many existing workloads may not yet be configured for this level of protection. In most situations, enabling zone resiliency for deployed workloads is straightforward, and Microsoft is regularly making improvements to simplify the process even more. However, because any change to your workload can introduce risk, it's essential to plan carefully. Assess and prioritize which workloads and services within those workloads are most vital to your business, and apply zone resiliency to the most impactful resources first.
+While zone resiliency is best addressed during initial workload planning and deployment, many existing workloads might not yet be configured for this level of protection. In most situations, enabling zone resiliency for deployed workloads is straightforward, and Microsoft is regularly making improvements to simplify the process even more. However, because any change to your workload can introduce risk, it's essential to plan carefully. Assess and prioritize which workloads and services within those workloads are most vital to your business, and apply zone resiliency to the most impactful resources first.
 
 This article outlines key considerations for enabling zone resiliency in your Azure workloads, helping you plan and execute a successful transition to a more resilient architecture.
 
 > [!TIP]
-> If you are currently in the process of designing your workloads or plan to do a design review of your current workloads, it's important that you follow the guidance in [Well-Architected Framework (WAF) - Recommendations for designing for redundancy](/azure/well-architected/reliability/redundancy), which can help you design your workload redundancy at different levels, with an emphasis on critical workflows. In addition to adopting availability zones, the WAF redundancy recommendations guide offers strategies such as multi-region deployments and deployment stamps.
+> If you're currently in the process of designing your workloads or plan to do a design review of your current workloads, it's important that you follow the guidance in [Well-Architected Framework (WAF) - Recommendations for designing for redundancy](/azure/well-architected/reliability/redundancy), which can help you design your workload redundancy at different levels, with an emphasis on critical workflows. In addition to adopting availability zones, the WAF redundancy recommendations guide offers strategies such as multi-region deployments and deployment stamps.
 
 ## What is zone resiliency?
 
@@ -35,7 +35,7 @@ To learn more, see [Types of availability zone support](./availability-zones-ove
 
 ## Zone enablement procedure
 
-Use the following steps to systematically review your Azure workloads, prioritize them for zone resiliency, and enable zone resiliency on each component.
+Use the following steps to systematically review your Azure workloads, prioritize them for zone resiliency, and enable zone resiliency for each component.
 
 ### Prerequisites
 
@@ -53,10 +53,10 @@ Before you begin, make sure you perform the following actions:
 
    | Workload type | Description | Effect of disruption |
    |-|-|-|
-   | *Mission-critical* | Critical flows and workloads that must be highly reliable, always available, resilient to failures, and operational. | Any disruption to essential functions immediately risks catastrophic business damage, or introduces risks to human life. |
-   | *Business-critical* | Essential flows and workloads that operate important business functions. | Disruption risks some financial loss or brand damage. |
-   | *Business-operational* | Contributes to efficiency of business operations, but out of direct line-of-service to customers. | Some level of disruption can be tolerated. |
-   | *Administrative* | Internal production flows and workloads not aligned to business operations. | Disruption can be tolerated. |
+   | Mission-critical | Critical flows and workloads that must be highly reliable, always available, resilient to failures, and operational. | Any disruption to essential functions immediately risks catastrophic business damage, or introduces risks to human life. |
+   | Business-critical | Essential flows and workloads that operate important business functions. | Disruption risks some financial loss or brand damage. |
+   | Business-operational | Contributes to efficiency of business operations, but out of direct line-of-service to customers. | Some level of disruption can be tolerated. |
+   | Administrative | Internal production flows and workloads not aligned to business operations. | Disruption can be tolerated. |
 
    For more information on how to classify your workloads by criticality rating, see [Well-Architected Framework: Assign a criticality rating to each flow](/azure/well-architected/reliability/identify-flows#assign-a-criticality-rating-to-each-flow).
 
@@ -80,15 +80,15 @@ The following provides a *suggested* prioritization of Azure service groups base
 
    Compute services include Virtual Machines, Virtual Machine Scale Sets, AKS, App Service, App Service Environments, Azure Functions, and Azure Container Apps. 
 
-1. Review all **remaining business-critical** resources that are used in your critical flows. These resources may not be as critical as the ones listed above, but they still play a role in your application's functionality and should be considered for zone resiliency.
+1. Review all **remaining business-critical** resources that are used in your critical flows. These resources might not be as critical as the ones listed above, but they still play a role in your application's functionality and should be considered for zone resiliency.
 
-1. Review the rest of your **business-operational resources** and make informed decisions about whether to make them zone resilient. This includes services that may not be directly tied to your critical workloads but still contribute to overall application performance and reliability.
+1. Review the rest of your **business-operational resources** and make informed decisions about whether to make them zone resilient. This includes services that might not be directly tied to your critical workloads but still contribute to overall application performance and reliability.
 
 ### Step 2: Assess zone configuration approaches
 
 Now that you have prioritized your workloads and Azure services, it's important to understand the approach you can use to enable availability zone support on each service, and how to achieve a zone-resilient configuration. 
 
-Each Azure reliability service guide provides a section that describes how to enable zone resiliency for that service. This section will help you understand the effort required to make each service zone resilient, so you can plan your strategy accordingly. For more information for a particular service, see the [Azure reliability service guides](./overview-reliability-guidance.md).
+Each Azure reliability service guide provides a section that describes how to enable zone resiliency for that service. This section helps you understand the effort required to make each service zone resilient, so you can plan your strategy accordingly. For more information for a particular service, see the [Azure reliability service guides](./overview-reliability-guidance.md).
 
 Use the table in [Azure services by zone configuration approach](#azure-services-by-zone-configuration-approach) to quickly understand the approaches to use for common Azure services.
 
@@ -97,11 +97,11 @@ Use the table in [Azure services by zone configuration approach](#azure-services
 
 ### Step 3: Test for latency
 
-When you make workloads zone-resilient, it's important to consider latency between availability zones. Occasionally, some legacy systems can't tolerate the small amount of additional latency that cross-zone traffic introduces, especially when synchronous replication is enabled within the data tier. If you suspect that your workload might be affected by cross-zone latency, make sure to perform testing both before and after enabling zone resiliency.
+When you make workloads zone-resilient, it's important to consider latency between availability zones. Occasionally, some legacy systems can't tolerate the small amount of extra latency that cross-zone traffic introduces, especially when synchronous replication is enabled within the data tier. If you suspect that cross-latency might affect your workload, make sure to perform testing before and testing after you enable zone resiliency.
 
 ## Zone configuration approaches for Azure services
 
-Each Azure service supports a specific type of availability zone support, which is based on the service's intended use and internal architecture.  If you currently have a resource that isn't configured to use availability zones (a *nonzonal* resource), you may want to reconfigure it with availability zone support. The reliability guide for that service provides guidance or links to availability zone configuration instructions.
+Each Azure service supports a specific type of availability zone support, which is based on the service's intended use and internal architecture. If you currently have a resource that isn't configured to use availability zones (a *nonzonal* resource), you might want to reconfigure it with availability zone support. The reliability guide for that service provides guidance or links to availability zone configuration instructions.
 
 This section provides a quick overview of the different types of zone configuration approaches, and which approach each service supports.
 
@@ -114,13 +114,13 @@ The table in the [Azure services by zone configuration approach section](#azure-
 
 | Approach | Description | Typical level of effort | Might require downtime |
 | --- | --- | --- | --- |
-| **Always zone-resilient** | The service is already zone resilient by default in [regions that support availability zones](./regions-list.md). No action is required. | None | No |
-| **Enablement** | Minimal configuration changes required, such as enabling zone redundancy in settings. There's no effect on availability during the process, but be aware of any effects on cost or performance. | Low | No |
-| **Modification** | Likely requires some configuration changes, such as redeploying dependent resources or modifying network settings. | Medium | Yes |
-| **Redeployment** | Significant changes required, such as redeploying entire resources, applications or services, or migrating data to new services. | High | Yes | 
+| Always zone-resilient | The service is already zone resilient by default in [regions that support availability zones](./regions-list.md). No action is required. | None | No |
+| Enablement | Minimal configuration changes required, such as enabling zone redundancy in settings. There's no effect on availability during the process, but be aware of any effects on cost or performance. | Low | No |
+| Modification | Likely requires some configuration changes, such as redeploying dependent resources or modifying network settings. | Medium | Yes |
+| Redeployment | Significant changes required, such as redeploying entire resources, applications or services, or migrating data to new services. | High | Yes | 
 
 > [!NOTE]
-> The information listed here is a summary of the typical approach you might use to enable availability zone support. However, there might be factors that affect how it works for your specific solution. For example, some services might be listed as *Always zone-resilient*, but that applies only in specific regions or when you use particular tiers of the service. Use these tables as a starting point, but it's important to review the linked documents to understand the specific details.
+> The information listed in this article is a summary of the typical approach you might use to enable availability zone support. However, there might be factors that affect how it works for your specific solution. For example, some services might be listed as *Always zone-resilient*, but that applies only in specific regions or when you use particular tiers of the service. Use these tables as a starting point, but it's important to review the linked documents to understand the specific details.
 
 ### Azure services by zone configuration approach
 
@@ -176,9 +176,13 @@ This table summarizes the availability zone support for many Azure services, and
 | [Azure Virtual Machine Scale Sets](migrate-vm.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | Redeployment |
 | Public IP address | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | Always zone-resilient |
 
+## Next steps
+
+- [Microsoft commitment to expand Azure availability zones to more regions](https://azure.microsoft.com/blog/our-commitment-to-expand-azure-availability-zones-to-more-regions/)
+- [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones)
+
 ## Related resources
+
 - [Azure reliability guides](overview-reliability-guidance.md)
 - [Azure services with availability zones](availability-zones-service-support.md)
 - [List of Azure regions](regions-list.md)
-- [Microsoft commitment to expand Azure availability zones to more regions](https://azure.microsoft.com/blog/our-commitment-to-expand-azure-availability-zones-to-more-regions/)
-- [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones)
