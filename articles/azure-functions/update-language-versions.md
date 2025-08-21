@@ -10,7 +10,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Update language stack versions in Azure Functions 
 
-In Azure Functions, support for a language stack is limited to [specific versions](functions-versions.md#languages). As new versions become available, you might want to update your function apps to take advantage of new features. Support in Functions can also end for older versions. Functions support for a language typically aligns with the community end-of-support timeline. For more information, see the [language runtime support policy](./language-support-policy.md). For supported versions of various languages, see [Languages by runtime version](supported-languages.md#languages-by-runtime-version).
+In Azure Functions, support for a language stack is limited to [specific versions](functions-versions.md#languages). As new versions become available, you might want to update your function apps to take advantage of new features. Support in Functions can also end for older versions and is typically aligned to community end-of-support timelines. For more information, see the [language runtime support policy](./language-support-policy.md). For supported versions of various languages, see [Languages by runtime version](supported-languages.md#languages-by-runtime-version).
 
 To help ensure your function apps continue to receive support, follow the instructions in this article to update them to the latest available versions. The way that you update your function app depends on several factors:
 
