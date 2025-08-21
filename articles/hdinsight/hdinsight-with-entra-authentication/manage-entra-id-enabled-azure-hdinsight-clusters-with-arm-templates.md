@@ -17,7 +17,7 @@ This guide explains how to define the necessary ARM template resources, configur
 
 ## Prerequisites
 
-  Before you begin, ensure you have the following:
+  Before you begin, ensure you have the following resources:
 
   * Azure subscription with sufficient permissions to deploy resources.
 
@@ -242,7 +242,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 
 | Name | Description | Value |
 | --- | --- | --- |
-| days | Days of the week for a schedule-based autoscale rule | String array containing any of:'Friday' 'Monday' ,'Saturday' ,'Sunday' , 'Thursday' , 'Tuesday' , 'Wednesday' |
+| days | Days of the week for a schedule-based autoscale rule | String array containing any of:'Friday' / 'Monday' / 'Saturday' / 'Sunday' / 'Thursday' / 'Tuesday' / 'Wednesday' |
 | timeAndCapacity | Time and capacity for a schedule-based autoscale rule | [AutoscaleTimeAndCapacity](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#autoscaletimeandcapacity-1) |
 
 **AutoscaleTimeAndCapacity**
@@ -258,8 +258,8 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 
 | Name | Description | Value |
 | --- | --- | --- |
-| groupId | The AAD security group id. | string |
-| groupName | The AAD security group name. | string |
+| groupId | The Entra security group id. | string |
+| groupName | The Entra security group name. | string |
 
 **ClusterCreateParametersExtendedTags**
 
@@ -278,13 +278,13 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 | diskEncryptionProperties    | The disk encryption properties.               | [DiskEncryptionProperties](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#diskencryptionproperties-1)     |
 | encryptionInTransitProperties | The encryption-in-transit properties.       | [EncryptionInTransitProperties](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#encryptionintransitproperties-1) |
 | kafkaRestProperties         | The cluster kafka rest proxy configuration.   | [KafkaRestProperties](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#kafkarestproperties-1)           |
-| minSupportedTlsVersion      | The minimal supported tls version.            | string                        |
+| minSupportedTlsVersion      | The minimal supported TLS version.            | string                        |
 | networkProperties           | The network properties.                       | [NetworkProperties](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#networkproperties-1)             |
-| osType                      | The type of operating system.                 | 'Linux' , 'Windows'             |
+| osType                      | The type of operating system.                 | 'Linux' / 'Windows'             |
 | privateLinkConfigurations   | The private link configurations.              | [PrivateLinkConfiguration[]](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#networkproperties-1)    |
 | securityProfile             | The security profile.                         | [SecurityProfile](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#securityprofile-1)               |
 | storageProfile              | The storage profile.                          | [StorageProfile](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#storageprofile-1)                |
-| tier                        | The cluster tier.                             | 'Premium' , 'Standard'          |
+| tier                        | The cluster tier.                             | 'Premium' / 'Standard'          |
 
 
 **ClusterDefinition**
@@ -301,8 +301,8 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 
 | Name | Description | Value |
 | --- | --- | --- |
-| type | The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. | 'None' , 'SystemAssigned' , 'UserAssigned' |
-| userAssignedIdentities | The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'. | [ClusterIdentityUserAssignedIdentities](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#clusteridentityuserassignedidentities-1) |
+| type | The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. | 'None' / 'SystemAssigned' / 'UserAssigned' |
+| userAssignedIdentities | The list of user identities associated with the cluster. The user identity dictionary key references are ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'. | [ClusterIdentityUserAssignedIdentities](/azure/templates/microsoft.hdinsight/clusters?pivots=deployment-language-arm-template#clusteridentityuserassignedidentities-1) |
 
 
 **ComputeIsolationProperties**
@@ -334,7 +334,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 | keyName             | Key name that is used for enabling disk encryption.          | string |
 | keyVersion          | Specific key version that is used for enabling disk encryption. | string |
 | msiResourceId       | Resource ID of Managed Identity that is used to access the key vault. | string |
-| vaultUri            | Base key vault URI where the customer's key is located eg. https://myvault.vault.azure.net | string |
+| vaultUri            | Base key vault URI where the customer's key is located for example. https://myvault.vault.azure.net | string |
 
 
 **EncryptionInTransitProperties**
@@ -344,17 +344,23 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 
 
 **HardwareProfile**
+
+
 | Name | Description | Value |
 | --- | --- | --- |
-| vmSize	| The size of the VM	| string |
+| vmSize	| The size of the Virtual Machine	| string |
 
 **IPConfiguration**
+
+
 | Name | Description | Value |
 | --- | --- | --- |
 | name       | The name of private link IP configuration.        | string (required)        |
 | properties | The private link ip configuration properties.     | IPConfigurationProperties |
 
 **IPConfigurationProperties**
+
+
 | Name | Description | Value |
 | --- | --- | --- |
 | primary                  | Indicates whether this IP configuration is primary for the corresponding NIC. | bool        |
@@ -363,10 +369,12 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 | subnet                   | The subnet resource id.                                                        | ResourceId  |
 
 **IpTag**
+
+
 | Name | Description | Value |
 | --- | --- | --- |
 | ipTagType | Gets or sets the ipTag type: Example FirstPartyUsage.                  | string (required) |
-| tag       | Gets or sets value of the IpTag associated with the public IP. Example HDInsight, SQL, Storage etc | string (required) |
+| tag       | Gets or sets value of the IpTag associated with the public IP. Example HDInsight, SQL, Storage etc., | string (required) |
 
 
 **KafkaRestProperties**
@@ -400,7 +408,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 **NetworkProperties**
 | Name | Description | Value |
 | --- | --- | --- |
-| outboundDependenciesManagedType | A value to describe how the outbound dependencies of a HDInsight cluster are managed. 'Managed' means that the outbound dependencies are managed by the HDInsight service. 'External' means that the outbound dependencies are managed by a customer specific solution. | 'External' 'Managed' |
+| outboundDependenciesManagedType | A value to describe how the outbound dependencies of a HDInsight cluster are managed. 'Managed' means the HDInsight service manages the outbound dependencies. 'External' means a customer-specific solution manages the outbound dependencies. | 'External' 'Managed' |
 | privateLink                     | Indicates whether or not private link is enabled.                                                                                                                                    | 'Disabled' 'Enabled' |
 | publicIpTag                     | Gets or sets the IP tag for the public IPs created along with the HDInsight Clusters.                                                                                                 | IpTag                |
 | resourceProviderConnection      | The direction for the resource provider connection.                                                                                                                                  | 'Inbound' 'Outbound' |
@@ -424,14 +432,14 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 **PrivateLinkConfigurationProperties**
 | Name | Description | Value |
 | --- | --- | --- |
-| groupId          | The HDInsight private linkable sub-resource name to apply the private link configuration to. For example, 'headnode', 'gateway', 'edgenode'. | string (required)   |
+| groupId          | The HDInsight private linkable subresource name to apply the private link configuration to. For example, 'headnode'/ 'gateway'/ 'edgenode'. | string (required)   |
 | ipConfigurations | The IP configurations for the private link service.                                                                                           | IPConfiguration[] (required) |
 
 
 **ResourceId**
 | Name | Description | Value |
 | --- | --- | --- |
-| id	| The azure resource id.	| string |
+| id	| The Azure resource id.	| string |
 
 **Role**
 | Name | Description | Value |
@@ -486,7 +494,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 **StorageAccount**
 | Name | Description | Value |
 | --- | --- | --- |
-| container      | The container in the storage account, only to be specified for WASB storage accounts. | string |
+| container      | The container in the storage account, only to be specified for `WASB` storage accounts. | string |
 | enableSecureChannel | Enable secure channel or not, it's an optional field. Default value is false when cluster version < 5.1 and true when cluster version >= 5.1. | bool |
 | fileshare      | The file share name.                                                                  | string |
 | fileSystem     | The filesystem, only to be specified for Azure Data Lake Storage Gen 2.                | string |
@@ -520,7 +528,7 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 
 
 
-By managing Microsoft Entra ID-enabled Azure HDInsight clusters with ARM templates, you gain a consistent, repeatable, and automated way to deploy and configure secure big data environments. ARM templates allow you to define all cluster settings — including identity, networking, storage, and security — as code, ensuring that deployments are predictable and compliant with organizational standards.
+By managing Microsoft Entra ID-enabled Azure HDInsight clusters with ARM templates, you gain a consistent, repeatable, and automated way to deploy and configure secure big data environments. ARM templates allow you to define all cluster settings including identity, networking, storage, and security as code, ensuring that deployments are predictable and compliant with organizational standards.
 
 This approach not only streamlines cluster provisioning and management but also integrates seamlessly with CI/CD pipelines, enabling you to scale and govern your HDInsight workloads with confidence.
 
