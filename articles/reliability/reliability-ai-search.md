@@ -81,7 +81,7 @@ Zone redundancy is automatically enabled when your search service meets all of t
 
 ### Instance distribution across zones
 
-Azure AI Search attempts to place replicas across different availability zones. However, there are occasionally situations where all of the replicas of a search service can be placed into the same availability zone. This situation can happen when replicas are removed from your service, such as when you *scale in* by configuring your service to use fewer replicas. The reason is that replica removal currently doesn't cause the remaining replicas to be rebalanced across zones.
+Azure AI Search attempts to place replicas across different availability zones. However, there are occasionally situations where all of the replicas of a search service might be placed into the same availability zone. This situation can happen when replicas are removed from your service, such as when you *scale in* by configuring your service to use fewer replicas. The reason is that replica removal currently doesn't cause the remaining replicas to be rebalanced across the availability zones.
 
 To reduce the likelihood of all of your replicas being placed into a single availabilty zone, you can manually trigger a scale-out operation immediately after a scale-in operation. For example, suppose your search service has ten replicas and you want to scale in to seven replicas. Instead of performing a single scale operation, you can temporarily scale to six instances, then immediately scale to seven instances, to trigger zone rebalancing.
 
