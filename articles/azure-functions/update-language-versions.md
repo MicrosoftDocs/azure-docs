@@ -21,7 +21,7 @@ To help ensure your function apps continue to receive support, follow the instru
 ::: zone pivot="programming-language-csharp"   
 
 > [!NOTE]
-> This article shows you how to update the .NET version of a function app that uses the [isolated worker model](dotnet-isolated-process-guide.md). If your function app runs on an older version of .NET and uses [the in-process model](functions-dotnet-class-library.md), consider the following options:
+> This article shows you how to update the .NET version of a function app that uses the [isolated worker model](dotnet-isolated-process-guide.md). If your function app runs on an older version of .NET and uses the [in-process model](functions-dotnet-class-library.md), consider the following options:
 >
 > - [Update to target .NET 8](./functions-dotnet-class-library.md#updating-to-target-net-8).
 > - [Migrate from the in-process model to the isolated worker model](migrate-dotnet-to-isolated-model.md).
@@ -109,6 +109,10 @@ When you use a [staging slot](functions-deployment-slots.md), make sure to targe
 ### [Windows](#tab/windows/azure-portal)
 
 [!INCLUDE [functions-update-language-version-portal](../../includes/functions-update-language-version-portal.md)]
+
+::: zone pivot="programming-language-python" 
+Python apps aren't supported on Windows. Go to the **Linux** tab instead.
+::: zone-end
 
 ### [Linux](#tab/linux/azure-portal)
 

@@ -50,6 +50,4 @@ Use the following steps to update the PowerShell version:
 
 1. Select **Save**. When you're notified about a restart, select **Continue**. 
 ::: zone-end 
-::: zone pivot="programming-language-python" 
-Python apps aren't supported on Windows. Go to the **Linux** tab instead.
-::: zone-end 
+
