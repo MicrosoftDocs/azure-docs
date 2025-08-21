@@ -3,7 +3,7 @@ title: Azure SRE Agent overview (preview)
 description: Learn how AI-enabled agents help solve problems and support resilient and self-healing systems on your behalf.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 08/20/2025
+ms.date: 08/21/2025
 ms.author: cshoe
 ms.service: azure
 ---
@@ -18,8 +18,8 @@ Ask questions in natural language, get explainable RCAs, and orchestrate inciden
 
 | Ask & understand | Automate incidents | Stay proactive |
 |---|---|---|
-| Ask plain-language questions about Azure resources, incidents, and health. | Diagnose, mitigate, and resolve incidents across Azure Monitor or integrated tools. The agent can work autonomously or with approvals. | Agent sends daily summaries of environment health, flags spikes in CPU/memory usage, and identifies resources not following security best practices. |
-| **Examples:**<br><br>• What changed in `payments-prod` in last 24 hours?<br><br>• Which resources are unhealthy?<br><br>• What alerts are active now? | **Examples:**<br><br>• Incidents from ServiceNow<br><br>• 500 error alerts from Azure Monitor | **Examples:**<br><br>• Daily health summary for *prod-web*<br><br>• CPU spike detection<br><br>• Security compliance violations |
+| Ask plain-language questions about Azure resources, incidents, and health. | Diagnose, mitigate, and resolve incidents across Azure Monitor or integrated tools. The agent works autonomously or with approvals. | Agent sends daily summaries of environment health, flags spikes in CPU/memory usage, and identifies resources not following security best practices. |
+| **Examples:**<br><br>• What changed in production in last 24 hours?<br><br>• Which resources are unhealthy?<br><br>• What alerts are active now? | **Examples:**<br><br>• Incidents from ServiceNow<br><br>• 500 error alerts from Azure Monitor | **Examples:**<br><br>• Daily health summary for production<br><br>• CPU spike detection<br><br>• Security compliance violations |
 
 Watch the following video to see SRE Agent in action.
 
@@ -31,7 +31,7 @@ Watch the following video to see SRE Agent in action.
 
 | Feature | Description |
 |---|---|
-| **Incident Automation** | Diagnose, enrich, and orchestrate workflows across Azure Monitor and supported tools with human-in-the-loop approvals or autonomous execution within scoped guardrails. |
+| **Incident Automation** | Diagnose, enrich, and orchestrate workflows across Azure Monitor and supported tools with human-in-the-loop approvals or autonomous execution using custom incident resolution plans. |
 | **Explainable root cause analysis (RCA)** | Correlate metrics, logs, traces, and recent deployments to propose likely causes and safe mitigations. When attached to a source code repository, the agent can pinpoint code diffs in RCA reports. |
 | **Dev work item creation** | Automatically create developer work items in GitHub or Azure DevOps, linking incidents to commits, PRs, and deployment history. Includes repro steps, logs, and suspects to accelerate resolution. |
 | **Natural language insights** | Ask questions and issue commands in plain English. |
@@ -46,46 +46,39 @@ Azure SRE Agent integrates with the following services:
 
 - **Source Code:** GitHub, Azure DevOps
 
-## Quickstart
+## Get started
 
 Use the following steps to start working with Azure SRE Agent.
 
-:::row:::
-   :::column span="":::
+### Get started and explore
 
-    ### Get started and explore
+1. Create [a new agent](usage.md) in your subscription with *[Reader](security-context.md)* permissions.
 
-    1. Create [a new agent](usage.md) in your subscription with *[Reader](security-context.md)* permissions.
+1. Point the agent to the resource groups you want it to manage.
 
-    1. Point the agent to the resource groups you want it to manage.
+1. Try prompts like:
 
-    1. Try prompts like:
-    
-        - What’s the CPU and memory utilization of my app?
-    
-        - Which resources are unhealthy?
-    
-        - Where am I missing alert rules?
-    
-    1. Take action to proposed next steps.
+    - What’s the CPU and memory utilization of my app?
 
-   :::column-end:::
-   :::column span="":::
-    ### Handle an incident
+    - Which resources are unhealthy?
 
-    1. Enable integrations:  
+    - Where am I missing alert rules?
 
-       - Incident management tools: Link to ServiceNow, PagerDuty, or use Azure Monitor alerts.  
-    
-       - Ticketing systems: Use Azure Boards.
-    
-       - Source code repositories: Connect to GitHub or Azure DevOps.  
+1. Take action to proposed next steps.
 
-    1. Send a test incident to validate enrichment, RCA, and automation flow.
+### Handle an incident
 
-    1. Review incident context, RCA timeline, and proposed mitigations.
-   :::column-end:::
-:::row-end:::
+1. Enable integrations:  
+
+    - Incident management tools: Link to ServiceNow, PagerDuty, or use Azure Monitor alerts.  
+
+    - Ticketing systems: Use Azure Boards.
+
+    - Source code repositories: Connect to GitHub or Azure DevOps.  
+
+1. Send a test incident to validate enrichment, RCA, and automation flow.
+
+1. Review incident context, RCA timeline, and proposed mitigations.
 
 ## Considerations
 
