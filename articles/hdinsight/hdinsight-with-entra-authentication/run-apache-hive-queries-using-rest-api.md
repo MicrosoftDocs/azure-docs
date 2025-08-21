@@ -136,9 +136,9 @@ Dropping an external table does **not** delete the data, only the table defini
 
       
 
-      -`ROW FORMAT` - How the data is formatted. The fields in each log are separated by a space.
-      -`STORED AS TEXTFILE LOCATION` - Where the data is stored (the example/data directory) and that it's stored as text.
-      -`SELECT` - Selects a count of all rows where column **t4** contains the value **[ERROR]**. This statement returns a value of **3** as there are three rows that contain this value.
+-`ROW FORMAT` - How the data is formatted. The fields in each log are separated by a space.
+-`STORED AS TEXTFILE LOCATION` - Where the data is stored (the example/data directory) and that it's stored as text.
+-`SELECT` - Selects a count of all rows where column **t4** contains the value **[ERROR]**. This statement returns a value of **3** as there are three rows that contain this value.
 
 
   > [!NOTE]  
