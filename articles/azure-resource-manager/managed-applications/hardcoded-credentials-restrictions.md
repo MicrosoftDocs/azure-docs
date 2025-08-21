@@ -19,13 +19,13 @@ As a result, any secrets present in the template are at risk for exposure and ca
 
 ## Managing Credentials in ARM Templates
 
-- Managed Applications (only if management access is enabled): [Use Azure Key Vault when deploying Managed Applications](https://learn.microsoft.com/en-us/azure/azure-resource-manager/managed-applications/key-vault-access).
+- Managed Applications (only if management access is enabled): [Use Azure Key Vault when deploying Managed Applications](https://learn.microsoft.com/azure/azure-resource-manager/managed-applications/key-vault-access).
 - Solution templates: Credentials have to be parameterized and provided by the customer. If for any reason this isn't possible, then they should be randomly generated in the template and shouldn't be guessable.
-  - Implement [parameters in templates](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/parameters)
+  - Implement [parameters in templates](https://learn.microsoft.com/azure/azure-resource-manager/templates/parameters)
   - Variables used for credentials or secrets shouldn't use plaintext strings.
-  - The use of the ```uniquestring``` function is deterministic for an input and doesn't meet the requirement that the password isn't guessable. [Template functions](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/template-functions-string#uniquestring).
+  - The use of the ```uniquestring``` function is deterministic for an input and doesn't meet the requirement that the password isn't guessable. [Template functions](https://learn.microsoft.com/azure/azure-resource-manager/templates/template-functions-string#uniquestring).
   - Any password string must NOT be concatenated with any plaintext string. For example, [concat(parameters('password')), 'plaintext')] is an invalid password. This is to avoid padding the string to bypass password length requirements.
-  - If there's a hardcoded SAS URI, then it's as good as a public link. The publisher can either create a public link or package the resource with the zip file and reference it using [referenced linked templates and artifacts](https://learn.microsoft.com/en-us/azure/azure-resource-manager/managed-applications/artifacts-location).
+  - If there's a hardcoded SAS URI, then it's as good as a public link. The publisher can either create a public link or package the resource with the zip file and reference it using [referenced linked templates and artifacts](https://learn.microsoft.com/azure/azure-resource-manager/managed-applications/artifacts-location).
 
 ## Credential Examples
 
