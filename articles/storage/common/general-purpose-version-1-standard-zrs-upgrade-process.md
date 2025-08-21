@@ -12,31 +12,27 @@ ms.subservice: storage-common-concepts
 # Customer intent: "As a cloud administrator, I want to upgrade from my General Purpose V1 ZRS storage account, to a General Purpose V2 account, so that I can take advantage of the latest features and improvements."
 ---
 
-# Upgrade a ZRS Classic storage account to GPv2
+# Upgrade General Purpose v1 (GPv1) with ZRS redundancy account to GPv2
 
 > [!IMPORTANT]
->  General Purpose V1 account with ZRS redundancy were deprecated on March 31, 2021. Customers can no longer create ZRS Classic accounts. If you still have some, you should upgrade them to general purpose v2 accounts.
+>  General Purpose V1 account with ZRS redundancy were deprecated on March 31, 2021. Customers can no longer create General Purpose v1 (GPv1) with ZRS redundancy accounts. If you still have some, you should upgrade them to General Purpose v2 (GPv2) accounts.
 
-ZRS Classic was available only for **block blobs** in general-purpose V1 (GPv1) storage accounts. For more information about storage accounts, see [Azure storage account overview](storage-account-overview.md).
+General Purpose v1 (GPv1) with ZRS redundancy was available only for **block blobs** in general-purpose V1 (GPv1) storage accounts. For more information about storage accounts, see [Azure storage account overview](storage-account-overview.md).
 
-ZRS Classic accounts asynchronously replicated data across data centers within one to two regions. Replicated data wasn't available unless Microsoft initiated a failover to the secondary. A General Purpose V1 (GPv1) account with ZRS redundancy can't be converted to or from LRS, GRS, or RA-GRS.
+General Purpose v1 (GPv1) with ZRS redundancy asynchronously replicated data across data centers within one to two regions. Replicated data wasn't available unless Microsoft initiated a failover to the secondary. A General Purpose v1 (GPv1) with ZRS redundancy account can't be converted to or from LRS, GRS, or RA-GRS.
 
-To change ZRS Classic to another replication type, use one of the following methods:
 
-- Upgrade it to ZRS first
-- [Manually migrate the data directly to another replication type](#manual-migration)
-
-To upgrade your ZRS Classic storage account to ZRS, use the Azure portal, PowerShell, or Azure CLI in regions where ZRS is available:
+To upgrade your General Purpose v1 (GPv1) with ZRS redundancy account to GPv2, use the Azure portal, PowerShell, or Azure CLI in regions where GPv2 is available:
 
 # [Portal](#tab/portal)
 
-To upgrade to ZRS in the Azure portal, navigate to the **Configuration** settings of the account and choose **Upgrade**:
+To upgrade to GPv2 in the Azure portal, navigate to the **Configuration** settings of the account and choose **Upgrade**:
 
-![Upgrade ZRS Classic to ZRS in the Portal](media/redundancy-migration/portal-zrs-classic-upgrade.png)
+![Upgrade to GPv2 in the Portal](media/redundancy-migration/portal-zrs-classic-upgrade.png)
 
 # [PowerShell](#tab/powershell)
 
-To upgrade to ZRS using PowerShell, call the following command:
+To upgrade to GPv2 using PowerShell, call the following command:
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource_group> -AccountName <storage_account> -UpgradeToStorageV2
@@ -52,9 +48,6 @@ az storage account update -g <resource_group> -n <storage_account> --set kind=St
 
 ---
 
-To manually migrate your ZRS Classic account data to another type of replication, follow the steps to [perform a manual migration](#manual-migration).
-
-If you want to migrate your data into a zone-redundant storage account located in a region different from the source account, you must perform a manual migration. For more information, see [Move an Azure Storage account to another region](storage-account-move.md).
 
 ## Downtime requirements
 
