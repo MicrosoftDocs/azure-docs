@@ -61,7 +61,7 @@ A version bundle is a secondary value added to the Kubernetes version. Version b
 
 Before April 2025, version bundle numbers were incremented starting from `1` and varied depending on how long a particular Kubernetes patch version was available on Nexus. After April 2025, all version bundles in the same release are numbered with the same release identifier, for example `-4.4.0` or `-4.5.0`. The chart below details which version bundles are in the same series.
  
-Version bundles give users the ability to predict and manage the process of moving between different versions of Kubernetes clusters offered by the Operator Nexus Kubernetes service.
+Version bundles give users the ability to plan and manage the process of upgrading their Kubernetes clusters offered by the Operator Nexus Kubernetes service.
  
 All Nexus cluster upgrades follow the standard Kubernetes versions skew policy. In some cases, more than one upgrade might be needed to bring a cluster to the desired Kubernetes version. Skipping over any version bundle release is accepted, however you can't downgrade to a previous version bundle series.
 
