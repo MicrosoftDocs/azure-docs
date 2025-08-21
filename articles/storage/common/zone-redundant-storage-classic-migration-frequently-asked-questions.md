@@ -13,19 +13,19 @@ ms.custom: devx-track-arm-template
 # CustomerIntent: As a storage admin, I want to find answers to common questions about the retirement of ZRS Classic storage accounts, so that I can plan my upgrade to GPv2 and avoid service disruption.
 ---
 
-# Upgrade from ZRS Classic storage accounts FAQ
+# Upgrade from ZRS Classic storage FAQ
 
 General-purpose v2 (GPv2) storage accounts are the recommended account type for most Azure Storage scenarios. GPv2 accounts provide access to the latest Azure Storage features, including modern ZRS replication, blob tiering, lifecycle management, and advanced redundancy options. They also offer the most cost-effective pricing model for a wide range of workloads.
 
 This FAQ addresses common questions about upgrading from **ZRS Classic** (legacy Standard_ZRS on GPv1) to GPv2. It covers upgrade procedures, billing considerations, feature differences, and guidance for selecting the right redundancy option. Use this resource to plan your upgrade and ensure a smooth transition before ZRS Classic retirement.
 
 > [!IMPORTANT]
-> Microsoft will retire ZRS Classic storage accounts on **September 1, 2026**. All ZRS Classic accounts must be upgraded to GPv2 [Storage Account Upgrade](storage-account-upgrade.md) before this date to avoid service disruption. [Learn more about the retirement](zone-redundant-storage-classic-account-migration-overview.md)
+> Microsoft will retire accounts that use ZRS Classic on **September 1, 2026**. All accounts must be upgraded to GPv2 [Storage Account Upgrade](storage-account-upgrade.md) before this date to avoid service disruption. [Learn more about the retirement](zone-redundant-storage-classic-migration-overview.md)
 
 | Question | Answer |
 |----------|--------|
-| What is a ZRS Classic storage account? | ZRS Classic refers to legacy Standard_ZRS replication used with GPv1 accounts (account kind `Storage`). It predates modern ZRS and does not provide synchronous replication across three availability zones. |
-| Can I still create a new ZRS Classic account? | No. Creation of new ZRS Classic accounts is blocked starting September 2025. |
+| What is ZRS Classic storage? | ZRS Classic refers to legacy Standard_ZRS replication used with GPv1 accounts (account kind `Storage`). It predates modern ZRS and does not provide synchronous replication across three availability zones. |
+| Can I still create a new account using ZRS standard redundancy? | No. Creation of new accounts is blocked starting September 2025. |
 | How does modern ZRS differ from ZRS Classic? | Modern ZRS (on GPv2) replicates data **synchronously across three availability zones** in the same region, ensuring high availability during zonal outages. ZRS Classic uses an older replication model that may require platform failover to access secondary copies. |
 | Which redundancy options are available on GPv2 accounts? | LRS, ZRS, GRS, RA-GRS, GZRS, and RA-GZRS. |
 | Does ZRS Classic support blob tiering or lifecycle management? | No. ZRS Classic does not support per-blob tiering or lifecycle policies. |
