@@ -51,334 +51,119 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
     go get github.com/microsoft/Featuremanagement-Go/featuremanagement/providers/azappconfig
     ```
 
-1. Create a templates directory for your HTML templates:
+1. Create a templates directory for your HTML templates and add the required HTML files:
 
-    ```console
+    ```bash
     mkdir templates
     ```
 
-## Create a Go Gin web app
+    Add the following HTML template files from the [GitHub repo](https://github.com/microsoft/FeatureManagement-Go/tree/main/example/quickstart/quote-of-the-day/templates) and place them in the `templates` directory:
+    
+    - [`index.html`](https://github.com/microsoft/FeatureManagement-Go/blob/main/example/quickstart/quote-of-the-day/templates/index.html) - The home page template
+    - [`login.html`](https://github.com/microsoft/FeatureManagement-Go/blob/main/example/quickstart/quote-of-the-day/templates/login.html) - The login page template
 
-1. Create an HTML template for the home page. Add the following content to `templates/index.html`:
 
-    ```html
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{.title}}</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                background-color: #f4f4f4;
-                color: #333;
-            }
+1. Create a file named `appconfig.go` with the following content. You can connect to your App Configuration store using Microsoft Entra ID (recommended) or a connection string.
 
-            .quote-container {
-                background-color: #fff;
-                margin: 2em auto;
-                padding: 2em;
-                border-radius: 8px;
-                max-width: 750px;
-                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-                display: flex;
-                justify-content: space-between;
-                align-items: start;
-                position: relative;
-            }
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
-            .vote-container {
-                position: absolute;
-                top: 10px;
-                right: 10px;
-                display: flex;
-                gap: 0em;
-            }
+    ```golang
+    package main
 
-            .vote-container .btn {
-                background-color: #ffffff;
-                border-color: #ffffff;
-                color: #333
-            }
+    import (
+        "context"
+        "log"
+        "os"
 
-            .vote-container .btn:focus {
-                outline: none;
-                box-shadow: none;
-            }
+        "github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
+        "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+    )
 
-            .vote-container .btn:hover {
-                background-color: #F0F0F0;
-            }
+    func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.AzureAppConfiguration, error) {
+        // Get the endpoint from environment variable
+        endpoint := os.Getenv("AZURE_APPCONFIG_ENDPOINT")
+        if endpoint == "" {
+            log.Fatal("AZURE_APPCONFIG_ENDPOINT environment variable is not set")
+        }
 
-            .greeting-content {
-                font-family: 'Georgia', serif;
-            }
+        // Create a credential using DefaultAzureCredential
+        credential, err := azidentity.NewDefaultAzureCredential(nil)
+        if err != nil {
+            log.Fatalf("Failed to create credential: %v", err)
+        }
 
-            .quote-content p.quote {
-                font-size: 2em;
-                font-family: 'Georgia', serif;
-                font-style: italic;
-                color: #4EC2F7;
-            }
+        // Set up authentication options with endpoint and credential
+        authOptions := azureappconfiguration.AuthenticationOptions{
+            Endpoint:   endpoint,
+            Credential: credential,
+        }
 
-            .navbar-brand {
-                font-weight: bold;
-            }
-        </style>
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" href="/">Quote of the Day</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/">Home</a>
-                        </li>
-                    </ul>                <ul class="navbar-nav">
-                        {{if .user}}
-                        <li class="nav-item">
-                            <span class="navbar-text me-3">Welcome, {{.user}}!</span>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/logout">Logout</a>
-                        </li>
-                        {{else}}
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/login">Login</a>
-                        </li>
-                        {{end}}
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        // Set up options to enable feature flags
+        options := &azureappconfiguration.Options{
+            FeatureFlagOptions: azureappconfiguration.FeatureFlagOptions{
+                Enabled: true,
+                RefreshOptions: azureappconfiguration.RefreshOptions{
+                    Enabled: true,
+                },
+            },
+        }
 
-        <div class="container">        {{if .user}}
-            <div class="quote-container">
-                <div class="quote-content">
-                    {{if .greetingMessage}}
-                    <h3 class="greeting-content">{{.greetingMessage}}</h3>
-                    <br />
-                    {{end}}
-                    {{if .quote}}
-                    <p class="quote">"{{.quote.Message}}"</p>
-                    <p>- <b>{{.quote.Author}}</b></p>
-                    {{else}}
-                    <p class="quote">"Quote not found"</p>
-                    <p>- <b>Unknown</b></p>
-                    {{end}}
-                </div>
+        // Load configuration from Azure App Configuration
+        appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+        if err != nil {
+            log.Fatalf("Failed to load configuration: %v", err)
+        }
 
-                <div class="vote-container">
-                    <button class="btn btn-primary" onclick="heartClicked(this)">
-                        <i class="far fa-heart"></i>
-                    </button>
-                </div>
-            </div>
-            {{else}}
-            <div class="quote-container">
-                <div class="quote-content">
-                    {{if .quote}}
-                    <p class="quote">"{{.quote.Message}}"</p>
-                    <p>- <b>{{.quote.Author}}</b></p>
-                    {{else}}
-                    <p class="quote">"Quote not found"</p>
-                    <p>- <b>Unknown</b></p>
-                    {{end}}
-                </div>
-
-                <div class="vote-container">
-                    <button class="btn btn-primary" onclick="heartClicked(this)">
-                        <i class="far fa-heart"></i>
-                    </button>
-                </div>
-            </div>
-            {{end}}
-        </div>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script>
-            function heartClicked(button) {
-                var icon = button.querySelector('i');
-                icon.classList.toggle('far');
-                icon.classList.toggle('fas');
-            }
-        </script>
-    </body>
-    </html>
+        return appConfig, nil
+    }
     ```
 
-1. Create an HTML template for the login page. Add the following content to `templates/login.html`:
+    ### [Connection string](#tab/connection-string)
 
-    ```html
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{.title}}</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" href="/">Quote of the Day</a>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/">Home</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+    ```golang
+    package main
 
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="text-center">Login</h3>
-                        </div>
-                        <div class="card-body">
-                            {{if .error}}
-                            <div class="alert alert-danger" role="alert">
-                                {{.error}}
-                            </div>
-                            {{end}}
+    import (
+        "context"
+        "log"
+        "os"
 
-                            <form method="post" action="/login">
-                                <div class="mb-3">
-                                    <label for="email" class="form-label">Email Address</label>
-                                    <input type="email" class="form-control" id="email" name="email" required 
-                                        placeholder="Enter your email address">
-                                </div>
-                                <div class="d-grid">
-                                    <button type="submit" class="btn btn-primary">Login</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        "github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
+    )
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
-    </html>
+    func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.AzureAppConfiguration, error) {
+        // Get the connection string from environment variable
+        connectionString := os.Getenv("AZURE_APPCONFIG_CONNECTION_STRING")
+        if connectionString == "" {
+            log.Fatal("AZURE_APPCONFIG_CONNECTION_STRING environment variable is not set")
+        }
+
+        // Set up authentication options with connection string
+        authOptions := azureappconfiguration.AuthenticationOptions{
+            ConnectionString: connectionString,
+        }
+
+        // Set up options to enable feature flags
+        options := &azureappconfiguration.Options{
+            FeatureFlagOptions: azureappconfiguration.FeatureFlagOptions{
+                Enabled: true,
+                RefreshOptions: azureappconfiguration.RefreshOptions{
+                    Enabled: true,
+                },
+            },
+        }
+
+        // Load configuration from Azure App Configuration
+        appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+        if err != nil {
+            log.Fatalf("Failed to load configuration: %v", err)
+        }
+
+        return appConfig, nil
+    }
     ```
 
-
-## Connect to App Configuration
-
-Create a file named `appconfig.go` with the following content. You can connect to your App Configuration store using Microsoft Entra ID (recommended) or a connection string.
-
-### [Microsoft Entra ID (recommended)](#tab/entra-id)
-
-```golang
-package main
-
-import (
-    "context"
-    "log"
-    "os"
-
-    "github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
-    "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
-)
-
-func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.AzureAppConfiguration, error) {
-    // Get the endpoint from environment variable
-    endpoint := os.Getenv("AZURE_APPCONFIG_ENDPOINT")
-    if endpoint == "" {
-        log.Fatal("AZURE_APPCONFIG_ENDPOINT environment variable is not set")
-    }
-
-    // Create a credential using DefaultAzureCredential
-    credential, err := azidentity.NewDefaultAzureCredential(nil)
-    if err != nil {
-        log.Fatalf("Failed to create credential: %v", err)
-    }
-
-    // Set up authentication options with endpoint and credential
-    authOptions := azureappconfiguration.AuthenticationOptions{
-        Endpoint:   endpoint,
-        Credential: credential,
-    }
-
-    // Set up options to enable feature flags
-    options := &azureappconfiguration.Options{
-        FeatureFlagOptions: azureappconfiguration.FeatureFlagOptions{
-            Enabled: true,
-            RefreshOptions: azureappconfiguration.RefreshOptions{
-                Enabled: true,
-            },
-        },
-    }
-
-    // Load configuration from Azure App Configuration
-    appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
-    if err != nil {
-        log.Fatalf("Failed to load configuration: %v", err)
-    }
-
-    return appConfig, nil
-}
-```
-
-### [Connection string](#tab/connection-string)
-
-```golang
-package main
-
-import (
-    "context"
-    "log"
-    "os"
-
-    "github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
-)
-
-func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.AzureAppConfiguration, error) {
-    // Get the connection string from environment variable
-    connectionString := os.Getenv("AZURE_APPCONFIG_CONNECTION_STRING")
-    if connectionString == "" {
-        log.Fatal("AZURE_APPCONFIG_CONNECTION_STRING environment variable is not set")
-    }
-
-    // Set up authentication options with connection string
-    authOptions := azureappconfiguration.AuthenticationOptions{
-        ConnectionString: connectionString,
-    }
-
-    // Set up options to enable feature flags
-    options := &azureappconfiguration.Options{
-        FeatureFlagOptions: azureappconfiguration.FeatureFlagOptions{
-            Enabled: true,
-            RefreshOptions: azureappconfiguration.RefreshOptions{
-                Enabled: true,
-            },
-        },
-    }
-
-    // Load configuration from Azure App Configuration
-    appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
-    if err != nil {
-        log.Fatalf("Failed to load configuration: %v", err)
-    }
-
-    return appConfig, nil
-}
-```
-
----
+    ---
 
 ## Use the variant feature flag
 
