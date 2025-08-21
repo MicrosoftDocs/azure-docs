@@ -46,7 +46,7 @@ In single-tenant Standard logic app workflows, you can work with environment var
 >
 > When you use sensitive information, such as connection strings that include user names and passwords, make sure to use the most secure authentication flow available. For example, in Standard logic app workflows, secure data types, such as `securestring` and `secureobject`, aren't supported. Microsoft recommends that you authenticate access to Azure resources with a [managed identity](/entra/identity/managed-identities-azure-resources/overview) when possible, and assign a role that has the least privilege necessary.
 >
-> If this capability is unavailable, make sure to secure connection strings through other means, such as [Azure Key Vault](/azure/key-vault/general/overview), which you can use with [app settings](edit-app-settings-host-settings.md).  You can then [directly reference secure strings](../app-service/app-service-key-vault-references.md), such as connection strings and keys. Similar to ARM templates, where you can define environment variables at deployment time, you can define app settings within your [logic app workflow definition](/azure/templates/microsoft.logic/workflows). You can then capture dynamically generated infrastructure values, such as connection endpoints and storage strings. For more information, see [Application types for the Microsoft identity platform](/entra/identity-platform/v2-app-types).
+> If this capability is unavailable, make sure to secure connection strings through other means, such as [Azure Key Vault](/azure/key-vault/general/overview), which you can use with [app settings](edit-app-settings-host-settings.md). You can then [directly reference secure strings](../app-service/app-service-key-vault-references.md), such as connection strings and keys. Similar to ARM templates, where you can define environment variables at deployment time, you can define app settings within your [logic app workflow definition](/azure/templates/microsoft.logic/workflows). You can then capture dynamically generated infrastructure values, such as connection endpoints and storage strings. For more information, see [Application types for the Microsoft identity platform](/entra/identity-platform/v2-app-types).
 
 App settings have size limits and can't be referenced from certain areas in Azure Logic Apps. Parameters offer a wider range of use cases than app settings, such as support for large value sizes and complex objects.
 
@@ -204,7 +204,7 @@ You want to use parameters where possible. Because app settings are generated du
 
 ### Manage parameters files
 
-Typically, you need to manage multiple versions of parameters files. You might have targeted values for different deployment environments, such as development, testing, and production. Managing these parameters files often works like managing ARM template parameters files. When you deploy to a specific environment, you promote the corresponding parameters file, generally through a pipeline for DevOps.
+Typically, you need to manage multiple versions of parameters files. You might use targeted values for different deployment environments, such as development, testing, and production. Managing these parameters files often works like managing ARM template parameters files. When you deploy to a specific environment, you promote the corresponding parameters file, generally through a pipeline for DevOps.
 
 To dynamically replace parameters files using the Azure CLI, run the following command:
 
