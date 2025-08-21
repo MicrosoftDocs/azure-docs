@@ -668,7 +668,7 @@ When the trigger parameter is of type `HttpRequestData` or `HttpRequest`, custom
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
-using FromBodyAttribute = Microsoft.Azure.Functions.Worker.Http.FromBodyAttribute;
+using FromBodyAttribute = Microsoft.Azure.Functions.Worker.Http.FromBodyAttribute; // <-- LOOK at this
 
 namespace AspNetIntegration
 {
@@ -676,7 +676,7 @@ namespace AspNetIntegration
     {
         [Function(nameof(BodyBindingHttpTrigger))]
         public IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequest req,
-            [FromBody] Person person)
+            [FromBody] Person person) // WARNING this FromBody attribute is from above explicit fully qualified using
         {
             return new OkObjectResult(person);
         }
