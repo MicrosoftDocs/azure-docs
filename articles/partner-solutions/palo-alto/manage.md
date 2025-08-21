@@ -2,7 +2,7 @@
 title: Manage a Cloud Next-Generation Firewall (NGFW) by Palo Alto Networks Resource by Using the Azure Portal
 description: Manage your Cloud NGFW resource in the Azure portal, including networking, NAT, rulestack settings, logging, Domain Name System (DNS) proxy configuration, and billing plan changes.
 ms.topic: how-to
-ms.date: 08/13/2025
+ms.date: 08/21/2025
 ms.custom:
   - ai-gen-docs-bap
   - ai-gen-desc
@@ -42,6 +42,28 @@ You can view and change settings by selecting one of the following settings cate
 
 1. Select **Security Policies** under **Settings** in the left pane.
 1. In **Local Rulestack**, select an existing rulestack from the dropdown list.
+1. To manage settings for a rulestack, select the rulestack name under **Local Rulestack**. This action takes you to the Local Rulestack page. In the left pane, you see the following settings categories under **Resources**:
+   - Rules
+   - Security Services
+   - Prefix List
+   - FDQN List
+   - Certificates
+   - Deployment
+   - Managed Identity 
+
+#### Rules
+
+#### Security Services
+
+#### Prefix List
+
+#### FQDN List 
+
+#### Certificates
+
+#### Deployment
+
+#### Managed Identity
 
 ## Log Settings
 
