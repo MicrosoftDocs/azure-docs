@@ -6,7 +6,7 @@ ms.author: cephalin
 ms.date: 07/21/2025
 ms.topic: tutorial
 ms.custom:
-  - devx-track-dotnet
+  - devx-track-javascript
 ms.collection: ce-skilling-ai-copilot
 ms.service: azure-app-service
 ---
