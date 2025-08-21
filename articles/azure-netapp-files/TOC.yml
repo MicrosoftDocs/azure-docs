@@ -417,6 +417,8 @@
         href: snapshots-restore-file-client.md
       - name: Restore a volume using snapshot revert
         href: snapshots-revert-volume.md
+      - name: Create a short-term clone
+        href: create-short-term-clone.md
       - name: Delete snapshots
         href: snapshots-delete.md
     - name: Manage volume backups

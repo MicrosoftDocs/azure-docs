@@ -2,8 +2,8 @@
 title: Pipeline parameters and variables
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about pipeline parameters and variables in Azure Data Factory and Azure Synapse Analytics.
-author: soferreira
-ms.author: soferreira
+author: whhender
+ms.author: whhender
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: concept-article
