@@ -41,7 +41,7 @@ The addition of multiple replicas allows AI Search to:
 
 You can also configure the number of *partitions*, which represent the storage used by the search indexes.
 
-For more information about replicas and partitions, see [Estimate and manage capacity of a search service](/azure/search/search-capacity-planning#add-or-remove-partitions-and-replicas).
+It's important to understand the impact of adding replicas and partitions, because they each affect read and write performance in different ways. For more information about replicas and partitions, see [Estimate and manage capacity of a search service](/azure/search/search-capacity-planning).
 
 ## Transient faults
 
@@ -51,7 +51,7 @@ Azure AI Search indexers have built-in transient fault handling. If a data sourc
 
 Search services might experience transient faults during standard, unscheduled maintenance operations. Azure AI Search doesn't provide advance notification or allow scheduling of maintenance at specific times. Although every effort is made to minimize downtime, even for single-replica services, brief interruptions can still occur. To improve resiliency against these transient faults, we recommend that you use two or more replicas.
 
-Any applications you build that interact with Azure AI Search should handle transient faults for both read and write operations.
+Any applications you build that interact with Azure AI Search should handle transient faults. Use a retry strategy, with exponential backoffs, for both read and write operations.
 
 ## Availability zone support
 
