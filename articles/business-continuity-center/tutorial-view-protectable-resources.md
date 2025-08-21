@@ -15,7 +15,7 @@ ms.author: v-mallicka
 
 This tutorial shows you how to view your resources that are currently not protected by any solution, using Azure Business Continuity (ABC) center. 
 
-For additional context and examples on ABCC’s inventory capabilities for unprotected resources and available protection solutions, see this [Microsoft Community Hub blog](https://techcommunity.microsoft.com/blog/azurestorageblog/business-continuity-with-abcc-part-2-understand-your-protectable-resources-inven/4009914).
+For more context and examples on ABCC’s inventory capabilities for unprotected resources and available protection solutions, see this [Microsoft Community Hub blog](https://techcommunity.microsoft.com/blog/azurestorageblog/business-continuity-with-abcc-part-2-understand-your-protectable-resources-inven/4009914).
 
 ## Prerequisites
 
