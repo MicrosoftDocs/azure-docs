@@ -169,6 +169,8 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 **computeProfile**
+
+
 | Element name   | Required | Type                              | Description |
 |----------------|----------|-----------------------------------|-------------|
 | clusterVersion | Yes      | String                            | Specifies the cluster version. |
@@ -179,6 +181,8 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 **role**
+
+
 | Element name        | Required | Type          | Description |
 |---------------------|----------|---------------|-------------|
 | name                | Yes      | String        | Specifies the role name. |
@@ -190,6 +194,8 @@ See [Common parameters and headers](/rest/api/hdinsight/#common-parameters-and-
 
 
 **hardwareProfile**
+
+
 | Element name | Required | Type   | Description |
 |--------------|----------|--------|-------------|
 | vmSize       | Yes      | String | Specifies the size of the VM. Refer to [HDInsight configuration options](/azure/hdinsight/hdinsight-component-versioning#node-pricing-tiers) (scroll down to **Node pricing tiers**) for valid sizes. |
@@ -380,7 +386,7 @@ Create a premium domain-joined cluster with Apache Ranger. User needs to provide
 
 **Request**
 
-See [Common parameters and headers](../../../../rest/api/hdinsight.md#common-parameters-and-headers) for headers and parameters that are used by clusters.
+See [Common parameters and headers]((https://learn.microsoft.com/en-us/rest/api/hdinsight/#common-parameters-and-headers)) for headers and parameters that are used by clusters.
 
 
 | Method | Request URI                                                                                                                                                                        |
@@ -765,7 +771,7 @@ Azure Data Lake can be configured as the default filesystem for cluster versions
 **Request**
 
 
-See [Common parameters](../../../../rest/api/hdinsight.md#common-parameters-and-headers) and headers for headers and parameters that are used by clusters.
+See [Common parameters](https://learn.microsoft.com/en-us/rest/api/hdinsight/#common-parameters-and-headers) and headers for headers and parameters that are used by clusters.
 
 
 This example shows the request body for creating a Linux-based Hadoop cluster using Azure Data Lake Store as the default filesystem for the cluster.
