@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 7/21/2023
 ms.author: vvenugopal
 ms.custom: devx-track-azurecli, linux-related-content
+# Customer intent: "As a system administrator, I want to remove sudo users from a Linux image, so that I can enhance the security of confidential VM deployments by reducing administrative privileges."
 ---
 
 # Harden a Linux image to remove sudo users

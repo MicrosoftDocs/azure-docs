@@ -1,8 +1,8 @@
 ---
 title: Create and provision Azure IoT Edge devices using X.509 certificates on Linux on Windows
 description: Use X.509 certificate attestation to test provisioning devices at scale for Azure IoT Edge with device provisioning service
-author: PatAltimore
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.date: 06/06/2025
 ms.topic: how-to
 ms.service: azure-iot-edge

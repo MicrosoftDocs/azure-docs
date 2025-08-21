@@ -8,6 +8,7 @@ ms.author: normesta
 ms.date: 06/13/2025
 ms.service: azure-blob-storage
 ms.topic: concept-article
+# Customer intent: As a cloud storage manager, I want to select the appropriate access tier for my blob data, so that I can optimize storage costs based on the frequency of access and retention requirements.
 ---
 
 # Access tiers for blob data

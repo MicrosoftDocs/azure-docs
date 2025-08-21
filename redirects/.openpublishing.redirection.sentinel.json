@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/sentinel/sap/deployment-attack-disrupt.md",
+            "redirect_url": "/defender-xdr/automatic-attack-disruption",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/sentinel/kusto-overview.md",
             "redirect_url": "/kusto/query/kusto-sentinel-overview?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json",
             "redirect_document_id": false

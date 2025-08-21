@@ -8,6 +8,7 @@ ms.date: 02/19/2024
 ms.author: jsuri
 ms.custom: MVC
 
+# Customer intent: "As a cloud administrator, I want to run a disaster recovery drill from Azure VMware Solution to Azure, so that I can validate my replication strategy and ensure system resilience without data loss."
 ---
 # Run a disaster recovery drill from Azure VMware Solution to Azure
 

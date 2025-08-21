@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 09/06/2024
 ms.author: jsuri
 
+# Customer intent: "As a cloud service provider, I want to implement multi-tenant disaster recovery for VMware VMs to Azure, so that I can ensure tenant isolation and efficient resource management while providing reliable failover and failback support."
 ---
 # Overview of multi-tenant support for VMware disaster recovery to Azure with CSP
 

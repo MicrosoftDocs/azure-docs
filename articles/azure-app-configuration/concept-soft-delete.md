@@ -5,8 +5,8 @@ author: muksvso
 ms.author: mubatra
 ms.service: azure-app-configuration
 ms.custom:
-ms.topic: conceptual
-ms.date: 05/13/2024
+ms.topic: concept-article
+ms.date: 06/04/2025
 ---
 
 # Soft delete
@@ -53,7 +53,7 @@ To list deleted App Configuration stores, or get an individual store by name the
 
 ## Billing implications
 
-There won't be any charges for the soft deleted stores. Once you recover a soft deleted store, the usual charges will start applying. Soft delete isn't available with free tier.
+There won't be any charges for the soft deleted stores. Once you recover a soft deleted store, the usual charges will start applying. Soft delete isn't available in the Free and Developer tiers.
 
 ## Next steps
 

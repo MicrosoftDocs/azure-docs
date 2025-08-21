@@ -7,6 +7,7 @@ ms.topic: troubleshooting
 ms.date: 05/07/2025
 ms.service: azure-site-recovery
 ms.custom: engagement-fy23
+# Customer intent: "As a cloud administrator, I want to troubleshoot replication issues with Azure Site Recovery for VMs, so that I can ensure reliable disaster recovery and maintain business continuity."
 ---
 
 # Troubleshoot replication in Azure VM disaster recovery

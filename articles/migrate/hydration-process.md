@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 05/15/2025
 ms.custom: vmware-scenario-422, engagement-fy23, linux-related-content
+# Customer intent: "As a system administrator, I want to understand the hydration process in Azure Migrate so that I can ensure my VMs are properly configured for successful migration to Azure."
 ---
 
 # Hydration process

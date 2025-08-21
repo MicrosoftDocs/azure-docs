@@ -7,6 +7,7 @@ ms.date: 6/18/2025
 author: suzizuber
 ms.author: v-szuber
 ms.custom: engagement-fy23
+# Customer intent: "As a cloud architect, I want to understand the hardware specifications of different host types in Azure VMware Solution, so that I can select the appropriate resources for building or scaling my private cloud clusters."
 ---
 
 <!-- Used in plan-private-cloud-deployment.md and concepts-private-cloud-clusters.md -->

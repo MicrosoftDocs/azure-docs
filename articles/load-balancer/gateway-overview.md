@@ -7,6 +7,7 @@ author: mbender-ms
 ms.author: mbender
 ms.date: 06/26/2024
 ms.topic: concept-article
+# Customer intent: "As a network administrator, I want to implement Gateway Load Balancer with my Network Virtual Appliances, so that I can enhance network performance, simplify management, and ensure seamless integration of advanced network functionalities."
 ---
 
 # Gateway Load Balancer

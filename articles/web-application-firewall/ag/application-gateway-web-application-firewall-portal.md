@@ -7,6 +7,7 @@ ms.service: azure-web-application-firewall
 ms.topic: tutorial
 ms.date: 05/23/2024
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway with Web Application Firewall so I can protect my applications.
+# Customer intent: As an IT administrator, I want to configure an application gateway with a Web Application Firewall through the cloud portal so that I can ensure my web applications are protected against cybersecurity threats.
 ---
 
 # Tutorial: Create an application gateway with a Web Application Firewall using the Azure portal

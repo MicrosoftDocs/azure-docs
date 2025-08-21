@@ -17,6 +17,9 @@ ms.custom: mode-other
 
 [!INCLUDE [Short code eligibility notice](../../includes/public-preview-include-short-code-eligibility.md)]
 
+> [!TIP]
+> For global SMS delivery and partner-managed options, check out [Messaging Connect](../../concepts/sms/messaging-connect.md).
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

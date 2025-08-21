@@ -12,12 +12,12 @@ keywords: functions, azure cli samples, azure cli examples, azure cli code sampl
 
 These end-to-end Azure CLI scripts are provided to help you learn how to provision and managing the Azure resources required by Azure Functions. You must use the [Azure Functions Core Tools](functions-run-local.md) to create actual Azure Functions code projects from the command line on your local computer and deploy code to these Azure resources. For a complete end-to-end example of developing and deploying from the command line using both Core Tools and the Azure CLI, see one of these language-specific command line quickstarts: 
 
-+ [C#](create-first-function-cli-csharp.md)
-+ [Java](create-first-function-cli-java.md)
-+ [JavaScript](create-first-function-cli-node.md)
-+ [PowerShell](create-first-function-cli-powershell.md)
-+ [Python](create-first-function-cli-python.md)
-+ [TypeScript](create-first-function-cli-typescript.md)
++ [C#](how-to-create-function-azure-cli.md?pivots=programming-language-csharp)
++ [Java](how-to-create-function-azure-cli.md?pivots=programming-language-java)
++ [JavaScript](how-to-create-function-azure-cli.md?pivots=programming-language-javascript)
++ [PowerShell](how-to-create-function-azure-cli.md?pivots=programming-language-powershell)
++ [Python](how-to-create-function-azure-cli.md?pivots=programming-language-python)
++ [TypeScript](how-to-create-function-azure-cli.md?pivots=programming-language-typescript)
 
 The following table includes links to bash scripts that you can use to create and manage the Azure resources required by Azure Functions using the Azure CLI.
 

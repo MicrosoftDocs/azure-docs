@@ -3,14 +3,15 @@ title: Create a user delegation SAS for a blob with .NET
 titleSuffix: Azure Storage
 description: Learn how to create a user delegation SAS for a container or blob with Microsoft Entra credentials by using the .NET client library for Blob Storage.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 09/06/2024
 ms.reviewer: dineshm
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
+# Customer intent: As a developer, I want to create a user delegation SAS for blobs and containers using .NET, so that I can securely grant limited access to storage resources based on user permissions.
 ---
 
 # Create a user delegation SAS for a container or blob with .NET

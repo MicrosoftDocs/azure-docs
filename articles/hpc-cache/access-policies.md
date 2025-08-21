@@ -6,6 +6,7 @@ ms.service: azure-hpc-cache
 ms.topic: how-to
 ms.date: 05/19/2022
 ms.author: rohogue
+# Customer intent: "As a storage administrator, I want to create and manage custom client access policies for storage targets, so that I can control client permissions and enhance security based on specific access requirements."
 ---
 
 # Control client access

@@ -1,11 +1,12 @@
 ---
-title: Performance FAQs for Azure NetApp Files | Microsoft Docs
+title: Performance FAQs for Azure NetApp Files 
 description: Answers frequently asked questions (FAQs) about Azure NetApp Files Performance.
 ms.service: azure-netapp-files
 ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
 ms.date: 09/10/2024
+# Customer intent: As an IT administrator managing Azure NetApp Files, I want to optimize performance and monitor metrics, so that I can ensure the storage system meets my workload requirements effectively.
 ---
 # Performance FAQs for Azure NetApp Files
 

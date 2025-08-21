@@ -6,6 +6,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.date: 08/22/2024
 ms.topic: overview
+# Customer intent: As a cloud administrator, I want to validate and manage updates for customized images in my environment using Update Manager, so that I can ensure my VMs receive the necessary patches and maintain system reliability.
 ---
 
 # Manage updates for customized images

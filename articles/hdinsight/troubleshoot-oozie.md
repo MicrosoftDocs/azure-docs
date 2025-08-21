@@ -99,6 +99,25 @@ For example, for the job example from [Use Hadoop Oozie workflows](hdinsight-use
     ```xml
     <archive>mssql-jdbc-7.0.0.jre8.jar</archive>
     ```
+## Oozie UI – Default user access rights 
+
+### Issue
+
+For the created HDInsight Oozie clusters, users by default would have read access to all jobs, write access to their own jobs, and can write to jobs based on ACLs. Admin users have broader permissions, including write access to all jobs and operations. In Oozie clusters, if security configuration is disabled, all users are treated as admins and HDInsight Oozie clusters have security configuration disabled by default. 
+
+### Cause
+
+If security is disabled, all users are treated as admin users which is a standard behavior in Oozie and not specific to HDInsight platform. Reference to the same available in the following Oozie page - [Oozie - User Authentication Public Doc](https://oozie.apache.org/docs/4.2.0/AG_Install.html#:~:text=If%20security%20is,in%20oozie.service)
+
+### Resolution
+
+Admin users can be defined through specific property. ACLs are set during job submission and can include both usernames and groups. The system checks if the user belongs to the necessary groups to perform actions. 
+
+Set this property oozie.service.AuthorizationService.security.enabled=true in ambari 
+
+Ambari UI -> Services -> Oozie -> Configs -> Advanced ->  Search and Set to True -> Restart All Affected 
+
+Admin users are determined from the list of admin groups, specified in oozie.service.AuthorizationService.admin.groups property. Use commas to separate multiple groups, spaces, tabs and ENTER characters are trimmed. 
 
 ## Next steps
 

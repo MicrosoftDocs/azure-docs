@@ -9,7 +9,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create App Service Environment in portal
+  - name: Create an App Service Environment in the Azure portal
     href: creation.md
   - name: Create an App Service Environment using Terraform
     href: creation-terraform.md
@@ -23,19 +23,21 @@
   items:
   - name: Networking architecture
     href: networking.md
-  - name: Resiliency
+  - name: Reliability
     items:
-    - name: Migrate to availability zone support
-      href: ../../reliability/migrate-app-service-environment.md
+    - name: Reliability in an Azure App Service Environment
+      href: ../../reliability/reliability-app-service-environment.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json&bc=/azure/app-service/breadcrumb/toc.json
+    - name: Configure an App Service Environment for zone redundancy
+      href: configure-zone-redundancy-environment.md
   - name: Certificates
     href: overview-certificates.md
   - name: Diagnostics
     href: ../overview-diagnostics.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
 - name: How-To guides
   items:
-  - name: Using App Service Environment
+  - name: Use an App Service Environment
     href: using.md
-  - name: Create App Service Environment from template
+  - name: Create an App Service Environment from template
     href: how-to-create-from-template.md
   - name: App Service Environment custom settings
     href: app-service-app-service-environment-custom-settings.md
@@ -45,7 +47,7 @@
     href: how-to-custom-domain-suffix.md
   - name: Upgrade preference for planned maintenance
     href: how-to-upgrade-preference.md
-- name: Migrate to App Service Environment v3
+- name: Migrate to an App Service Environment v3
   items:
   - name: Auto-migration overview
     href: auto-migration.md

@@ -6,7 +6,7 @@ ms.author: bagol
 ms.topic: feature-availability
 ms.custom: references_regions
 ms.service: microsoft-sentinel
-ms.date: 11/26/2024
+ms.date: 06/22/2025
 
 
 #Customer intent: As a security operations manager, I want to understand the Microsoft Sentinel's feature availability across different Azure environments so that I can effectively plan and manage our security operations.
@@ -24,8 +24,6 @@ This article describes the features available in Microsoft Sentinel across diffe
 ## Experience in the Defender portal 
 
 Microsoft Sentinel is also available in the [Microsoft Defender portal](microsoft-sentinel-defender-portal.md). In the Defender portal, all features in general availability are available in commercial, GCC, GCC High and DoD clouds. Features still in preview are available only in the commercial cloud.
-
-While [attack disruption in the Defender portal](/defender-xdr/automatic-attack-disruption) is generally available, [SAP support for attack disruption](/defender-xdr/automatic-attack-disruption#automated-response-actions-for-sap-with-microsoft-sentinel) in the Defender portal available only in the commercial cloud.
 
 For more information, see [Microsoft Defender XDR for US Government customers](/defender-xdr/usgov).
 
@@ -63,7 +61,7 @@ For more information, see [Microsoft Defender XDR for US Government customers](/
 |[Azure Kubernetes Service (AKS)](data-connectors-reference.md#azure-kubernetes-service-aks) |Public preview |Yes| Yes|Yes|
 |[Azure SQL Databases](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/azure-sentinel-sql-solution-query-deep-dive/ba-p/2597961) |GA |Yes |Yes|Yes |
 |[Azure Web Application Firewall (WAF)](data-connectors-reference.md#azure-web-application-firewall-waf) |GA |Yes |Yes|Yes |
-|[Cisco ASA](data-connectors-reference.md#cisco-asaftd-via-ama-preview) |GA |Yes |Yes|Yes |
+|[Cisco ASA](data-connectors-reference.md#cisco-asaftd-via-ama) |GA |Yes |Yes|Yes |
 |[Codeless Connectors Platform](create-codeless-connector.md?tabs=deploy-via-arm-template%2Cconnect-via-the-azure-portal) |Public preview |Yes |No|No |
 |[Common Event Format (CEF)](connect-common-event-format.md) |GA |Yes |Yes|Yes |
 |[Common Event Format (CEF) via AMA](connect-cef-syslog-ama.md) |GA |Yes |Yes |Yes |
@@ -79,7 +77,7 @@ For more information, see [Microsoft Defender XDR for US Government customers](/
 |[Microsoft Purview Information Protection](connect-microsoft-purview.md) |Public preview |Yes |No |No |
 |[Microsoft Sentinel solution for Microsoft Business Apps](business-applications/solution-overview.md) | GA |Yes |Yes |Yes |
 |[Office 365](connect-services-api-based.md) |GA |Yes |Yes |Yes |
-|[Summary rules](summary-rules.md) | Public preview |Yes |No |No |
+|[Summary rules](summary-rules.md) | GA |Yes |No |No |
 |[Syslog](connect-syslog.md) |GA |Yes |Yes |Yes |
 |[Syslog via AMA](connect-cef-syslog-ama.md) |GA |Yes |Yes |Yes |
 |[Windows DNS Events via AMA](connect-dns-ama.md) |GA |Yes |Yes |Yes |
@@ -161,7 +159,7 @@ For more information, see [Microsoft Defender XDR for US Government customers](/
 |Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
 |---------|---------|---------|---------|---------|
 |[Threat protection for SAP](sap/deployment-overview.md)</sup> |GA |Yes|Yes |Yes |
-|[Agentless data connector](sap/deployment-overview.md#data-connector) | Public preview | Yes |No | No |
+|[Agentless data connector](sap/deployment-overview.md#data-connector) | Limited preview | Yes |No | No |
 
 ## Threat intelligence support		
 
