@@ -473,6 +473,7 @@ The following table explains the trigger configuration properties that you set i
 |**consumerGroup** |An optional property that sets the [consumer group](../articles/event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. |
 |**cardinality** | Set to `many` in order to enable batching. If omitted or set to `one`, a single message is passed to the function.|
 |**connection** | The name of an app setting or setting collection that specifies how to connect to Event Hubs. See [Connections](#connections).|
+|**dataType** | An optional property that sets the type of the trigger input. Choose `string` or `binary` if the input is not valid JSON. | 
 
 # [Functions 1.x](#tab/functionsv1)
 
