@@ -100,7 +100,7 @@ items:
       - name: GPv1 account retirement Frequently Asked Questions (FAQ)
         href: ../common/general-purpose-version-1-account-migration-frequently-asked-questions.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: GPv1 Standard ZRS migration
-        href: ../common/general-purpose-version-1-standard-zrs-migration-process.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        href: ../common/general-purpose-version-1-standard-zrs-migration-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: GPv1 Standard ZRS retirement Frequently Asked Questions (FAQ)
         href: ../common/general-purpose-version-1-standard-zrs-migration-frequently-asked-questions.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Migrate GPv1 Standard ZRS to GPv2

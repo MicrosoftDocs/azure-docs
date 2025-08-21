@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 08/21/2025
 ms.author: akashdubey
 ms.subservice: storage-common-concepts
-# Customer intent: "As a cloud administrator, I want to upgrade from my General Purpose V1 ZRS storage account, to a General Purpose V2 account, so that I can take advantage of the latest features and improvements."
+# Customer intent: "As a cloud administrator, I want to upgrade from my General Purpose V1 Zone Redundant Storage (ZRS) storage account, to a General Purpose V2 account, so that I can take advantage of the latest features and improvements."
 ---
 
 # Upgrade General Purpose v1 (GPv1) with ZRS redundancy account to GPv2

@@ -1,5 +1,5 @@
 ---
-title: General Purpose v1 (GPv1) Standard Zone Redundant Storage account retirement FAQ
+title: General Purpose v1 (GPv1) Standard Zone Redundant Storage account retirement frequently asked questions (faq)
 titleSuffix: Azure Storage
 description: FAQ page for the retirement of Azure General Purpose v1 (GPv1) Standard Zone Redundant Storage accounts.
 services: storage
