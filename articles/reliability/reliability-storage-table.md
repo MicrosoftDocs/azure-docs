@@ -103,7 +103,7 @@ When an availability zone becomes unavailable, Table Storage automatically handl
 
 [!INCLUDE [Storage - Zone down experience](includes/storage/reliability-storage-availability-zone-down-experience-include.md)]
 
-- **Traffic rerouting:** If a zone becomes unavailable, Azure undertakes networking updates such as Domain Name System (DNS) repointing so that requests are directed to the remaining healthy availability zones. The service maintains full functionality by using the surviving zones and doesn't require customer intervention.
+- **Traffic rerouting:** If a zone becomes unavailable, Azure undertakes networking updates such as Domain Name System (DNS) repointing so that requests are directed to the remaining healthy availability zones. The service maintains full functionality by using the healthy zones and doesn't require customer intervention.
 
 ### Zone recovery
 
