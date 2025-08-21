@@ -23,7 +23,7 @@ In this guide, you'll use the targeting filter to roll out a feature to targeted
 - An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - A feature flag with targeting filter. [Create the feature flag](./howto-targetingfilter.md).
 - Go 1.21 or later. For information on installing Go, see the [Go downloads page](https://golang.org/dl/).
-- [Azure App Configuration Go provider](https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration) v1.1.0 or later.
+- [Azure App Configuration Go provider](https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration) v1.1.0-beta.1 or later.
 
 ## Create a web application with a feature flag
 
