@@ -2,8 +2,8 @@
 title: Access built-in metrics in Azure IoT Edge
 description: Access built-in metrics from IoT Edge runtime components to monitor device health.
 #customer intent: As a system administrator, I want to access built-in metrics in Azure IoT Edge so that I can monitor and understand the health of my IoT Edge devices.  
-author: PatAltimore
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.date: 05/08/2025
 ms.topic: concept-article
 ms.service: azure-iot-edge

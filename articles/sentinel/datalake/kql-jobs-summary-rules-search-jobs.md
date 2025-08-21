@@ -1,7 +1,7 @@
 ---  
-title: Compare KQL jobs, summary rules, and search jobs
+title: KQL jobs, summary rules, and search jobs
 titleSuffix: Microsoft Security  
-description: Compare KQL jobs, summary rules, and search jobs in Microsoft Sentinel to choose the best tool for querying and analyzing security data.
+description: A comparison of KQL jobs, summary rules, and search jobs in Microsoft Sentinel to choose the best tool for querying and analyzing security data.
 author: EdB-MSFT  
 ms.service: microsoft-sentinel  
 ms.topic: how-to
@@ -15,7 +15,7 @@ ms.collection: ms-security
 
 ---
 
-# Compare KQL jobs, summary rules, and search jobs
+# KQL jobs, summary rules, and search jobs
 
 This article compares KQL jobs, summary rules, and search jobs in Microsoft Sentinel. These features let you query and analyze data in Microsoft Sentinel, and each serves different purposes and use cases.
 

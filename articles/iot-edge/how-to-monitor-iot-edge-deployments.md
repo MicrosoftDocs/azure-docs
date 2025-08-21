@@ -1,9 +1,8 @@
 ---
 title: Monitor IoT Edge deployments - Azure IoT Edge
 description: High-level monitoring including edgeHub and edgeAgent reported properties and automatic deployment metrics. 
-author: PatAltimore
-
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.date: 06/06/2025
 ms.topic: concept-article
 ms.service: azure-iot-edge

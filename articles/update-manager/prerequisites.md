@@ -5,7 +5,7 @@ ms.service: azure-update-manager
 ms.custom: linux-related-content
 author: habibaum
 ms.author: v-uhabiba
-ms.date: 09/24/2024
+ms.date: 08/21/2025
 ms.topic: overview
 # Customer intent: "As a system administrator, I want to understand the prerequisites for Azure Update Manager, so that I can effectively prepare my Linux and Arc-enabled servers for update management."
 ---

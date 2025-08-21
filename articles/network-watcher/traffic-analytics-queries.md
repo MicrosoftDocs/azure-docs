@@ -14,7 +14,7 @@ zone_pivot_groups: flow-log-types
 
 # Use queries in traffic analytics
 
-This article provides sample Kusto Query Language (KQL) queries to help you analyze Azure Traffic Analytics data effectively. Traffic Analytics processes Virtual Network flow logs and Network Security Group (NSG) flow logs to provide detailed insights into network traffic patterns, security events, and performance metrics.
+This article provides sample Kusto Query Language (KQL) queries to help you analyze traffic analytics data effectively. Traffic analytics processes virtual network (VNet) flow logs and network security group (NSG) flow logs to provide detailed insights into network traffic patterns, security events, and performance metrics.
 
 Use these queries to:
 

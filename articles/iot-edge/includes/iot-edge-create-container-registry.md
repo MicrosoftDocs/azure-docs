@@ -1,9 +1,9 @@
 ---
-author: PatAltimore
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-edge
 ms.topic: include
 ms.date: 12/30/2019
-ms.author: patricka
 ---
 
 ## Create a container registry

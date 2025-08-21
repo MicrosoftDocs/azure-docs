@@ -1,9 +1,8 @@
 ---
 title: Troubleshoot Azure IoT Edge 
 description: Use this article to learn standard diagnostic skills for Azure IoT Edge, like retrieving component status and logs
-author: PatAltimore
-
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.date: 05/05/2025
 ms.topic: troubleshooting-general
 ms.service: azure-iot-edge
