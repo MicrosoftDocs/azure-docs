@@ -23,24 +23,27 @@ Ask questions in natural language, get explainable RCAs, and orchestrate inciden
 
 Watch the following video to see SRE Agent in action.
 
+<br>
+
 > [!VIDEO https://www.youtube.com/embed/DRWppVNOTqQ?si=FJ9dNk5uY1kUET-R]
 
 ## Key capabilities
 
-- **Incident Automation**: Diagnose, enrich, and orchestrate workflows across Azure Monitor and supported tools with human-in-the-loop approvals or autonomous execution within scoped guardrails.
-
-- **Explainable root cause analysis (RCA)**: Correlate metrics, logs, traces, and recent deployments to propose likely causes and safe mitigations. When attached to a source code repository, the agent can pinpoint code diffs in RCA reports.
-
-- **Dev work item creation**: Automatically create developer work items in GitHub or Azure DevOps, linking incidents to commits, PRs, and deployment history. Includes repro steps, logs, and suspects to accelerate resolution.
-
-- **Natural language insights**: Ask questions and issue commands in plain English.
+| Feature | Description |
+|---|---|
+| **Incident Automation** | Diagnose, enrich, and orchestrate workflows across Azure Monitor and supported tools with human-in-the-loop approvals or autonomous execution within scoped guardrails. |
+| **Explainable root cause analysis (RCA)** | Correlate metrics, logs, traces, and recent deployments to propose likely causes and safe mitigations. When attached to a source code repository, the agent can pinpoint code diffs in RCA reports. |
+| **Dev work item creation** | Automatically create developer work items in GitHub or Azure DevOps, linking incidents to commits, PRs, and deployment history. Includes repro steps, logs, and suspects to accelerate resolution. |
+| **Natural language insights** | Ask questions and issue commands in plain English. |
 
 ## Integrations
 
 Azure SRE Agent integrates with the following services:
 
-- **Observability:** Azure Monitor (metrics, logs, traces), Application Insights
-- **Incidents & work:** ServiceNow, PagerDuty, Azure Boards  
+- **Observability:** [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview) (metrics, logs, traces), Application Insights
+
+- **Incidents & work:**  [ServiceNow](https://www.servicenow.com/) and [PagerDuty](https://www.pagerduty.com/)  
+
 - **Source Code:** GitHub, Azure DevOps
 
 ## Quickstart
