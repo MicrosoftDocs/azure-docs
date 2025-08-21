@@ -29,17 +29,17 @@ Check out our open-source software (OSS) projects on GitHub, which provide sourc
 
 Fitbit
 
-* [microsoft/fitbit-on-fhir](https://github.com/microsoft/FitbitOnFHIR): Intructions on how to bring Fitbit&#174; data to a FHIR service.
+* [microsoft/fitbit-on-fhir](https://github.com/microsoft/FitbitOnFHIR): Bring Fitbit&#174; data to a FHIR service.
 
 HealthKit
 
-* [microsoft/healthkit-on-fhir](https://github.com/microsoft/healthkit-on-fhir): Intructions on how to bring Apple&#174; HealthKit&#174; data to a FHIR service.
+* [microsoft/healthkit-on-fhir](https://github.com/microsoft/healthkit-on-fhir): Bring Apple&#174; HealthKit&#174; data to a FHIR service.
 
-* [microsoft/healthkit-to-fhir](https://github.com/microsoft/healthkit-to-fhir): This provides a simple way to create FHIR resources from HKObjects.
+* [microsoft/healthkit-to-fhir](https://github.com/microsoft/healthkit-to-fhir): Provides a simple way to create FHIR resources from HKObjects.
 
 Fit on FHIR
 
-* [microsoft/fit-on-fhir](https://github.com/microsoft/fit-on-fhir): Intructions on how to bring Google Fit&#174; data to a FHIR service.
+* [microsoft/fit-on-fhir](https://github.com/microsoft/fit-on-fhir): Bring Google Fit&#174; data to a FHIR service.
 
 Health Data Sync
 
