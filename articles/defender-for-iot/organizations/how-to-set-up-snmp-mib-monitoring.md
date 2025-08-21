@@ -40,7 +40,7 @@ To download a predefined SNMP MIB file from the Azure portal, you need access to
 
 1. In the **SNMP MIB monitoring configuration** pane, select **+ Add host** and enter the following details:
 
-    :::image type="content" source="media/how-to-set-up-snmp-mib-monitoring/snmp-mib-monitoring-configuration.png" alt-text="Screenshot of the SNMP MIB monitoring configuration page.":::
+    :::image type="content" source="media/how-to-set-up-snmp-mib-monitoring/simple-network-management-protocol-configuration.png" alt-text="Screenshot of the SNMP MIB monitoring configuration page.":::
 
     - **Host 1**: Enter the IP address of your SNMP monitoring server. Select **+ Add host** again if you have multiple servers, as many times as needed.
 
@@ -64,6 +64,10 @@ Defender for IoT in the Azure portal provides a downloadable MIB file for you to
 **To download the SNMP MIB file** from [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select **Sites and sensors** > **More actions** > **Download SNMP MIB file**.
 
 ## Query SNMP configuration on the sensor
+
+> [!NOTE]
+> - Querying the SNMP configuration on the sensor is supported starting in version **25.2 or later.**
+> - Sign in to the sensor with the **cyberx** user before running SNMP queries. The **cyberx** user is the default administrative account for OT sensors. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
 **Validate and query the SNMP MIB Monitoring configuration in the OT sensor:**
 
