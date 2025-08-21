@@ -81,6 +81,8 @@ The Functions host also performs a background trigger sync after the application
 + When deployments use an external package URL with a resource manager-based deployment using ARM templates or Bicep or Terraform files.
 + When you update the deployment package _in-place_ using the same external package URL.
 
+> [!IMPORTANT]
+> When you apply network restrictions to your Function App either being outbound (VNET Integration) and/or Inbound (Private Endpoints) you need to guarantee connectivity to the Storage Account, configured on AzureWebJobsStorage app setting, and that the Function App can connect to itself, in order for sync triggers operation to be successfully.
 ### Remote build
 
 You can request Azure Functions to perform a remote build of your code project during deployment. In these scenarios, you should request a remote build instead of building locally:
