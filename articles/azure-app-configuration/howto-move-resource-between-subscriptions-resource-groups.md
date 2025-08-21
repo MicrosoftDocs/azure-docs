@@ -13,7 +13,7 @@ ms.date: 08/20/2025
 
 # Move an App Configuration store to another subscription or resource group
 
-You can [move](https://learn.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) an App Configuration store to a different resource group or subscription by using the Azure Portal or Azure CLI.
+You can [move](../azure-resource-manager/management/move-resource-group-and-subscription) an App Configuration store to a different resource group or subscription by using the Azure Portal or Azure CLI.
 
 ### [Azure CLI](#tab/azure-portal)
 
@@ -37,7 +37,7 @@ You can [move](https://learn.microsoft.com/azure/azure-resource-manager/manageme
 
 ### [Azure CLI](#tab/azure-cli)
 
-The Azure CLI's `az resource move` [command](https://learn.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-move) can be used to perform the move.
+The Azure CLI's `az resource move` [command](/cli/azure/resource#az-resource-move) can be used to perform the move.
 
 Example:
 
