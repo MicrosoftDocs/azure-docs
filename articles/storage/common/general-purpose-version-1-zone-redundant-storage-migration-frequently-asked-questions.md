@@ -43,7 +43,7 @@ This FAQ addresses common questions about upgrading from **GPv1 Standard ZRS** t
 | What if I need help with the upgrade process? | Microsoft provides documentation, Q&A forums, and support channels. If you have a support plan, create a support request in the Azure portal. |
 
 ## Related links
-- [GPv1 standard ZRS retirement overview](general-purpose-version-1-standard-zrs-migration-overview.md)
+- [GPv1 standard ZRS retirement overview](general-purpose-version-1-zone-redundant-storage-migration-overview.md)
 - [Storage account upgrade process](storage-account-upgrade.md)
 - [Storage Account Redundancy](storage-redundancy.md)
 - [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)
