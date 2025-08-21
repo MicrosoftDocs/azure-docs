@@ -4,10 +4,10 @@ description: Learn how to use the next generation of Azure Migrate application a
 author: KarlErickson
 ms.author: karler
 ms.reviewer: brborges
-ms.service: azure
+ms.service: azure-java
+ms.subservice: java-fundamentals
 ms.custom:
   - devx-track-java
-  - devx-track-extended-java
   - build-2025
 ms.topic: overview
 ms.date: 01/15/2025
