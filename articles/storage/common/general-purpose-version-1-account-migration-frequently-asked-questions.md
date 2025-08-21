@@ -5,7 +5,7 @@ description: FAQ page for the retirement of Azure GPv1 storage accounts.
 Services: storage
 author: gtrossell
 ms.service: azure-storage
-ms.topic: FAQ
+ms.topic: faq
 ms.date: 07/22/2025
 ms.author: padmalathas
 ms.subservice: storage-common-concepts
