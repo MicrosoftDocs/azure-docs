@@ -44,6 +44,8 @@ ms.date: 07/08/2025
 
 *Reuse content below as much as possible*
 
+<!-- Art Library Source# ConceptArt-0-000-92 -->
+
 ---
 
 The Azure IoT Operations southbound connectors use Akri services to:
