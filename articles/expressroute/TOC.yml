@@ -161,9 +161,9 @@
         - name: About Scalable Gateway
           items: 
             - name: Overview
-            - href: scalable-gateway.md
+              href: scalable-gateway.md
             - name: Configure a scalable gateway
-            - href: expressroute-howto-scalable-portal.md
+              href: expressroute-howto-scalable-portal.md
         - name: Configure a virtual network gateway
           items:
             - name: Azure portal
