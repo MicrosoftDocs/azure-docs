@@ -67,7 +67,7 @@ Defender for IoT in the Azure portal provides a downloadable MIB file for you to
 
 > [!NOTE]
 > - Querying the SNMP configuration on the sensor is supported starting in version **25.2 or later.**
-> - Sign in to the sensor with the **cyberx** user before running SNMP queries. The **cyberx** user is the default administrative account for OT sensors. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+> - To access the Defender for IoT CLI, sign in to your OT or Enterprise IoT sensor as the cyberx user, using a terminal emulator and SSH.
 
 **Validate and query the SNMP MIB Monitoring configuration in the OT sensor:**
 
