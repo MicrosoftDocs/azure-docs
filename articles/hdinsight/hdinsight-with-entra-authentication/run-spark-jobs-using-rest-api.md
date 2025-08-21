@@ -72,7 +72,7 @@ A successful request returns a JSON object containing:
 
 ## Submit an Apache Livy Spark batch job
 
-Before you submit a batch job, you must upload the application jar on the cluster storage associated with the cluster. You can use [AzCopy](/azure/storage/common/storage-use-azcopy-v10), a command-line utility, to do so. There are various other clients you can use to upload data. You can find more about them at [Upload data for Apache Hadoop jobs in HDInsight](/hdinsight/hdinsight-upload-data.md).
+Before you submit a batch job, you must upload the application jar on the cluster storage associated with the cluster. You can use [AzCopy](/azure/storage/common/storage-use-azcopy-v10), a command-line utility, to do so. There are various other clients you can use to upload data. You can find more about them at [Upload data for Apache Hadoop jobs in HDInsight](/hdinsight-upload-data.md).
 
 Windows Command Prompt
 
@@ -309,6 +309,6 @@ HDInsight 3.5 clusters and above, by default, disable use of local file paths to
 
 ## Submitting Livy jobs for a cluster within an Azure virtual network
 
-If you connect to an HDInsight Spark cluster from within an Azure Virtual Network, you can directly connect to Livy on the cluster. In such a case, the URL for Livy endpoint is `http://<IP address of the headnode>:8998/batches`. Here, **8998** is the port on which Livy runs on the cluster headnode. For more information on accessing services on non-public ports, see [Ports used by Apache Hadoop services on HDInsight](/hdinsight/hdinsight-hadoop-port-settings-for-services).
+If you connect to an HDInsight Spark cluster from within an Azure Virtual Network, you can directly connect to Livy on the cluster. In such a case, the URL for Livy endpoint is `http://<IP address of the headnode>:8998/batches`. Here, **8998** is the port on which Livy runs on the cluster headnode. For more information on accessing services on non-public ports, see [Ports used by Apache Hadoop services on HDInsight](/hdinsight-hadoop-port-settings-for-services).
 
 ## Next Steps:
