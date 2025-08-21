@@ -1,5 +1,5 @@
 ---
-title: Solution architectures using Azure NetApp Files | Microsoft Docs
+title: Solution architectures using Azure NetApp Files
 description: Provides references to best practices for solution architectures using Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen

@@ -1,9 +1,8 @@
 ---
 title: Use Azure IoT Edge as a gateway for downstream devices
 description: Use Azure IoT Edge to create a transparent, opaque, or proxy gateway device that sends data from multiple downstream devices to the cloud or processes locally.
-author: PatAltimore
-
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.date: 07/09/2025
 ms.topic: concept-article
 ms.service: azure-iot-edge
