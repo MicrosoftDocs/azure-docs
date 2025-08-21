@@ -24,7 +24,7 @@ See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download
 > To learn more, see [Authorize AzCopy](storage-use-azcopy-authorize-azure-active-directory.md). 
 
 > [!TIP]
-> When working with Azure Files NFS, it is essential to include the ``--nfs`` CLI switch in your commands.
+> When using Azure Files NFS, it is important to specify the ``--from-to`` CLI switch with one of the following supported options: ``FileNFSLocal``, ``LocalFileNFS``, or ``FileNFSFileNFS`` in your commands.
 
 ## Create file shares
 
