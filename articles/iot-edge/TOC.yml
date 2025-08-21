@@ -30,8 +30,6 @@
       href: tutorial-deploy-stream-analytics.md
     - name: Classify images with Custom Vision
       href: tutorial-deploy-custom-vision.md
-    - name: Store data locally with SQL
-      href: tutorial-store-data-sql-server.md
   - name: Create hierarchies of IoT Edge devices
     href: tutorial-nested-iot-edge.md
   - name: Configure EST server

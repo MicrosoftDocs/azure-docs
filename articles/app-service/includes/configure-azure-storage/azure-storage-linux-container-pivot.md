@@ -231,7 +231,7 @@ To validate that the Azure Storage is mounted successfully for the app:
 - Ensure the following ports are open when using virtual network integration: Azure Files: 80 and 445. Azure Blobs: 80 and 443.
 - If you [initiate a storage failover](../../../storage/common/storage-initiate-account-failover.md) when the storage account is mounted to the app, the mount doesn't connect until the app is restarted or the storage mount is removed and added again.
 
-## Next step
+## Related content
 
-- [Configure a custom container](../../configure-custom-container.md?pivots=platform-linux).
-- [Video: How to mount Azure Storage as a local share](https://www.youtube.com/watch?v=OJkvpWYr57Y).
+- [Configure a custom container](../../configure-custom-container.md?pivots=platform-linux)
+- [Video: How to mount Azure Storage as a local share](https://www.youtube.com/watch?v=OJkvpWYr57Y)

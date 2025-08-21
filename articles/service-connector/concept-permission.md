@@ -4,7 +4,7 @@ description: Learn about the resource permission requirements for creating conne
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/18/2024
 ---
 
@@ -48,9 +48,11 @@ Creating connections to Azure resources requires appropriate permissions.
 > |`Microsoft.AppPlatform/Spring/read`|Get Azure Spring Apps service instance(s)|
 > |`Microsoft.AppPlatform/Spring/apps/read`|Get the applications for a specific Azure Spring Apps service instance|
 > |`Microsoft.AppPlatform/Spring/apps/write`|Create or update the application for a specific Azure Spring Apps service instance|
+> |`Microsoft.AppPlatform/Spring/apps/listConnectorProps/action`|Get the connector properties of Azure Spring Apps application|
 > |`Microsoft.AppPlatform/Spring/apps/deployments/*/read`|Get the deployments for a specific application|
 > |`Microsoft.AppPlatform/Spring/apps/deployments/*/write`|Create or update the deployment for a specific application|
 > |`Microsoft.AppPlatform/Spring/apps/deployments/*/delete`|Delete the deployment for a specific application|
+> |`Microsoft.AppPlatform/Spring/apps/deployments/listConnectorProps/action`|Get the connector properties of the deployment for a specific application|
 
 ### Azure Container Apps 
 
