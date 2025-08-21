@@ -26,7 +26,7 @@ This FAQ addresses common questions about migrating from Blob-Only accounts to G
 
 | Question | Answer |
 |----------|--------|
-| What is a Blob-Only Storage account? | A Blob-Only Storage account is a legacy Azure Storage account type designed for blob-only workloads. It supports block blobs and append blobs with account-level access tiering (Hot, Cool, Archive). |
+| What is a Blob-Only Storage account? | A Blob-Only Storage account is a legacy Azure Storage account type designed for blob-only workloads. It supports block blobs and append blobs with account-level access tiering (hot, cool, archive). |
 | Can I still create a new Blob-Only Storage account? | No. Starting August 2026, creation of new Blob-Only Storage accounts will be disabled. |
 | Which redundancy options are available on General-purpose v2 accounts? | General-purpose v2 supports Local redundant storage (LRS), Geo-redundant storage (GRS), Zone-redundant storage (ZRS), Read-access geo-redundant storage (RA-GZRS), and Read-access geo-redundant storage (RA-GRS). |
 | Does Blob-Only Storage support lifecycle management policies? | No. Lifecycle management is only available in General-purpose v2 accounts. |
