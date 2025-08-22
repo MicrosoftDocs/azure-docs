@@ -24,7 +24,7 @@
     - name: Create an file share
       href: create-file-share.md
     - name: Modify a file share
-      href: how-to-modify-file-share.md
+      href: modify-file-share.md
 - name: Authentication and authorization
   items:
     - name: Overview of identity-based authentication
