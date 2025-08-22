@@ -42,6 +42,7 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"os"
 
 	"github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
@@ -107,6 +108,61 @@ func main() {
 ```
 
 ---
+
+### Load specific key-values using selectors
+
+By default, the configuration provider loads all key-values with no label from App Configuration. You can selectively load key-values by configuring the `Selectors` field in the `Options` struct.
+
+```golang
+options := &azureappconfiguration.Options{
+	Selectors: []azureappconfiguration.Selector{
+		{
+			// Load configuration values with prefix "App:" and no label
+			KeyFilter:   "App:*",
+			LabelFilter: "",
+		},
+		{
+			// Load configuration values with prefix "App:" and "Prod" label
+			KeyFilter:   "App:*",
+			LabelFilter: "Prod",
+		},
+	},
+}
+
+appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+```
+
+The `Selector` struct supports the following fields:
+
+- **KeyFilter**: Determines which configuration keys to include. Use exact matches, prefix matching with `*`, or comma-separated multiple keys.
+- **LabelFilter**: Selects key-values with a specific label. If empty, loads key-values with no label.
+
+> [!NOTE]
+> When multiple selectors include overlapping keys, later selectors take precedence over earlier ones.
+
+### Trim prefix from keys
+
+When loading configuration values with specific prefixes, you can use the `TrimKeyPrefixes` option to remove those prefixes from the keys in your configuration. This creates cleaner configuration keys in your application while maintaining organization in your App Configuration store.
+
+```golang
+options := &azureappconfiguration.Options{
+	// Load configuration values with prefix "TestApp:" and trim the prefix
+	Selectors: []azureappconfiguration.Selector{
+		{
+			KeyFilter: "TestApp:*",
+		},
+	},
+	TrimKeyPrefixes: []string{"TestApp:"},
+}
+
+appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+```
+
+For example, if your App Configuration store contains a key named `TestApp:Settings:Message`, it will be accessible in your application as `Settings:Message` after trimming the `TestApp:` prefix.
+
+### JSON content type handling
+
+You can create JSON key-values in App Configuration. When a key-value with the content type `"application/json"` is read, the configuration provider will parse it into nested structures. For more information, go to [Use content type to store JSON key-values in App Configuration](./howto-leverage-json-content-type.md).
 
 ## Consume configuration
 
@@ -195,74 +251,23 @@ if err := v.ReadConfig(bytes.NewBuffer(jsonBytes)); err != nil {
 }
 ```
 
-## JSON content type handling
-
-You can create JSON key-values in App Configuration. When a key-value with the content type `"application/json"` is read, the configuration provider will parse it into nested structures. For more information, go to [Use content type to store JSON key-values in App Configuration](./howto-leverage-json-content-type.md).
-
-## Load specific key-values using selectors
-
-By default, the configuration provider loads all key-values with no label from App Configuration. You can selectively load key-values by configuring the `Selectors` field in the `Options` struct.
-
-```golang
-options := &azureappconfiguration.Options{
-	Selectors: []azureappconfiguration.Selector{
-		{
-			// Load configuration values with prefix "App:" and no label
-			KeyFilter:   "App:*",
-			LabelFilter: "",
-		},
-		{
-			// Load configuration values with prefix "App:" and "Prod" label
-			KeyFilter:   "App:*",
-			LabelFilter: "Prod",
-		},
-	},
-}
-
-appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
-```
-
-The `Selector` struct supports the following fields:
-
-- **KeyFilter**: Determines which configuration keys to include. Use exact matches, prefix matching with `*`, or comma-separated multiple keys.
-- **LabelFilter**: Selects key-values with a specific label. If empty, loads key-values with no label.
-
-> [!NOTE]
-> When multiple selectors include overlapping keys, later selectors take precedence over earlier ones.
-
-## Trim prefix from keys
-
-When loading configuration values with specific prefixes, you can use the `TrimKeyPrefixes` option to remove those prefixes from the keys in your configuration. This creates cleaner configuration keys in your application while maintaining organization in your App Configuration store.
-
-```golang
-options := &azureappconfiguration.Options{
-	Selectors: []azureappconfiguration.Selector{
-		{
-			KeyFilter: "TestApp:*",
-		},
-	},
-	TrimKeyPrefixes: []string{"TestApp:"},
-}
-
-appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
-```
-
-For example, if your App Configuration store contains a key named `TestApp:Settings:Message`, it will be accessible in your application as `Settings:Message` after trimming the `TestApp:` prefix.
-
 ## Configuration refresh
 
 Configuring refresh enables the application to pull the latest values from the App Configuration store without having to restart. You can configure refresh options using the `RefreshOptions` field in the `Options` struct. The loaded configuration will be updated when any change of selected key-values is detected on the server. By default, a refresh interval of 30 seconds is used, but you can override it with the `Interval` property.
 
 ```golang
 options := &azureappconfiguration.Options{
+	// Load all keys that start with `TestApp:` and have no label
 	Selectors: []azureappconfiguration.Selector{
 		{
 			KeyFilter:   "TestApp:*",
 			LabelFilter: "",
 		},
 	},
+	// Trigger full configuration refresh when any selected key changes
 	RefreshOptions: azureappconfiguration.KeyValueRefreshOptions{
 		Enabled:  true,
+		// Check for changes no more often than every 60 seconds
 		Interval: 60 * time.Second,
 	},
 }
@@ -283,6 +288,34 @@ This design prevents unnecessary requests to App Configuration when your applica
 
 > [!NOTE]
 > Even if the refresh call fails for any reason, your application continues to use the cached configuration. Another attempt will be made when the configured refresh interval has passed and the refresh call is triggered by your application activity. Calling `Refresh` is a no-op before the configured refresh interval elapses, so its performance impact is minimal even if it's called frequently.
+
+### Refresh on sentinel key
+
+A sentinel key is a key that you update after you complete the change of all other keys. The configuration provider monitors the sentinel key instead of all selected key-values. When a change is detected, your app refreshes all configuration values.
+
+This approach is useful when updating multiple key-values. By updating the sentinel key only after all other configuration changes are completed, you ensure your application reloads configuration just once, maintaining consistency.
+
+```golang
+options := &azureappconfiguration.Options{
+	// Load all keys that start with `TestApp:` and have no label
+	Selectors: []azureappconfiguration.Selector{
+		{
+			KeyFilter:   "TestApp:*",
+			LabelFilter: "",
+		},
+	},
+	// Trigger full configuration refresh only if the `SentinelKey` changes
+	RefreshOptions:  azureappconfiguration.KeyValueRefreshOptions{
+		Enabled: true,
+		WatchedSettings: []azureappconfiguration.WatchedSetting{
+			{
+				Key:   "SentinelKey",
+				Label: "",
+			},
+		},
+	},
+}
+```
 
 ### Custom refresh callback
 
@@ -305,32 +338,6 @@ appConfig.OnRefreshSuccess(func() {
 })
 ```
 
-### Refresh on sentinel key
-
-A sentinel key is a key that you update after you complete the change of all other keys. The configuration provider monitors the sentinel key instead of all selected key-values. When a change is detected, your app refreshes all configuration values.
-
-This approach is useful when updating multiple key-values. By updating the sentinel key only after all other configuration changes are completed, you ensure your application reloads configuration just once, maintaining consistency.
-
-```golang
-options := &azureappconfiguration.Options{
-	Selectors: []azureappconfiguration.Selector{
-		{
-			KeyFilter:   "TestApp:*",
-			LabelFilter: "",
-		},
-	},
-	RefreshOptions:  azureappconfiguration.KeyValueRefreshOptions{
-		Enabled: true,
-		WatchedSettings: []azureappconfiguration.WatchedSetting{
-			{
-				Key:   "SentinelKey",
-				Label: "",
-			},
-		},
-	},
-}
-```
-
 ## Feature flags
 
 [Feature flags](./manage-feature-flags.md#create-a-feature-flag) in Azure App Configuration provide a modern way to control feature availability in your applications. Unlike regular configuration values, feature flags must be explicitly loaded using the `FeatureFlagOptions` field in the `Options` struct.
@@ -339,6 +346,7 @@ options := &azureappconfiguration.Options{
 options := &azureappconfiguration.Options{
 	FeatureFlagOptions: azureappconfiguration.FeatureFlagOptions{
 		Enabled: true,
+		// Load feature flags that start with `TestApp:` and have `dev` label
 		Selectors: []azureappconfiguration.Selector{
 			{
 				KeyFilter:   "TestApp:*",
