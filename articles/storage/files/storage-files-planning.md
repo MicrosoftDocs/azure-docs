@@ -121,7 +121,8 @@ Currently, file share (Microsoft.FileShares) is available in the following regio
 - Korea South
 - Australia Central
 
-## Comparsion between file share (Microsoft.Storage) and file share (Microsoft.FileShares)
+## Comparing resource providers: Microsoft.Storage versus Microsoft.FileShares
+
 
 | Feature                                                          | classic file share ![fileshareclassicicon1](./media/storage-files-planning/icon-service-Azure-Fileshares.svg) | file share(Microsoft.FileShares) ![mfsicon](./media/storage-files-planning/icon-service-Managed-File-Shares.svg) |
 | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
