@@ -99,11 +99,12 @@ items:
         href: ../common/storage-account-upgrade.md
       - name: GPv1 account retirement Frequently Asked Questions (FAQ)
         href: ../common/general-purpose-version-1-account-migration-frequently-asked-questions.md
-      - name: GPv1 Standard ZRS migration
-        href: ../common/general-purpose-version-1-zone-redundant-storage-migration-overview.md
-      - name: GPv1 Standard ZRS retirement Frequently Asked Questions (FAQ)
+    - name: GPv1 ZRS Standard migration
+      href: ../common/general-purpose-version-1-zone-redundant-storage-migration-overview.md
+      items:
+      - name: GPv1 ZRS Standard retirement Frequently Asked Questions (FAQ)
         href: ../common/general-purpose-version-1-zone-redundant-storage-migration-freq-asked-questions.md
-      - name: Migrate GPv1 Standard ZRS to GPv2
+      - name: Migrate GPv1 ZRS to GPv2 ZRS
         href: ../common/general-purpose-version-1-zone-redundant-storage-upgrade-process.md
     - name: Legacy Blob Storage account retirement
       href: ../common/legacy-blob-storage-account-migration-overview.md
