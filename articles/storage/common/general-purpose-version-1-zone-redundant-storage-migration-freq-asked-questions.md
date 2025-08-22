@@ -24,79 +24,79 @@ This FAQ addresses common questions about upgrading from **GPv1 Standard ZRS** t
 > See: storage-account-upgrade.md · general-purpose-version-1-zone-redundant-storage-migration-overview.md
 
 
-## What is GPv1 Standard ZRS storage?
+### What is GPv1 Standard ZRS storage?
 
 **GPv1 Standard ZRS** refers to legacy `Standard_ZRS` redundancy used with GPv1 accounts (account kind `Storage`). It predates modern ZRS and does **not** provide synchronous replication across three availability zones.
 
-## Can I still create a new account using ZRS standard redundancy?
+### Can I still create a new account using ZRS standard redundancy?
 
 No. Creation of new accounts using **Standard ZRS on GPv1** is blocked starting **September 2025**.
 
-## How does modern ZRS differ from GPv1 Standard ZRS?
+### How does modern ZRS differ from GPv1 Standard ZRS?
 
 Modern **ZRS on GPv2** replicates data **synchronously across three availability zones** in the same region, helping ensure high availability during zonal outages. **GPv1 Standard ZRS** uses an older replication model that may require platform failover to access secondary copies.
 
-## Which redundancy options are available on GPv2 accounts?
+### Which redundancy options are available on GPv2 accounts?
 
 **GPv2 supports:** Local-redundant storage (**LRS**), Zone-redundant storage (**ZRS**), Geo-redundant storage (**GRS**), Read-access geo-redundant storage (**RA-GRS**), Geo-zone-redundant storage (**GZRS**), and Read-access geo-zone-redundant storage (**RA-GZRS**).
 
-## Does GPv1 Standard ZRS support blob tiering or lifecycle management?
+### Does GPv1 Standard ZRS support blob tiering or lifecycle management?
 
 No. **GPv1 Standard ZRS** does not support **per-blob tiering** or **lifecycle management policies**.
 
-## How does pricing differ from GPv1 Standard ZRS?
+### How does pricing differ from GPv1 Standard ZRS?
 
 **GPv2** introduces **tier-based pricing** and **transaction meters**. While some operations may cost more, GPv2 offers **cost optimization** via **Hot/Cool/Archive** tiers and lifecycle rules.
 
-## Can I upgrade from GPv1 Standard ZRS to GPv2 later? Will anything break?
+### Can I upgrade from GPv1 Standard ZRS to GPv2 later? Will anything break?
 
 Yes. You can upgrade **in place** via the Azure portal, CLI, or PowerShell. The upgrade is **non-disruptive** and keeps the **same endpoints**. Most workloads require **no code changes**.
 
 > [!TIP]
 > Validate SDK versions, redundancy assumptions, and any automation that references account kind or legacy Standard_ZRS semantics before upgrading production.
 
-## Will the upgrade require downtime?
+### Will the upgrade require downtime?
 
 No. The upgrade is **online** and does **not** interrupt data access.
 
-## Will there be any data loss?
+### Will there be any data loss?
 
 No. The upgrade process preserves all **data** and **metadata**.
 
-## Will my existing application continue to work seamlessly after the upgrade?
+### Will my existing application continue to work seamlessly after the upgrade?
 
 In most cases, yes. **API endpoints remain unchanged**. Validate SDK compatibility and any **hardcoded** assumptions about pricing or redundancy.
 
-## What happens if I don’t upgrade by the retirement date?
+### What happens if I haven’t upgraded by the retirement date?
 
-Microsoft may **automatically upgrade** your GPv1 Standard ZRS account to GPv2 with the **nearest supported redundancy option**. This may result in **billing changes**.
+Microsoft will **automatically upgrade** your account and your decision not to migrate an existing GPv1 account will be construed as consent for Microsoft to migrate the account on your behalf. Which means you risk **billing misalignment**. **Data is preserved**, but access could be temporarily impacted.
 
 > [!WARNING]
 > Auto-upgrade timing and outcomes can vary. Proactive upgrades let you choose redundancy, tiering, and feature configurations aligned to your workload.
 
-## Is the upgrade permanent?
+### Is the upgrade permanent?
 
 Yes. Once upgraded to **GPv2**, you **cannot** revert to **GPv1 Standard ZRS**.
 
-## Why is GPv1 Standard ZRS being retired?
+### Why is GPv1 Standard ZRS being retired?
 
 To standardize on **GPv2** for resiliency, feature parity, and consistent pricing. Modern **ZRS** provides **synchronous zone replication** and integrates with advanced features such as **Event Grid** and **Azure Data Lake Storage (hierarchical namespace)**.
 
-## What if my region doesn’t support ZRS?
+### What if my region doesn’t support ZRS?
 
 Your account will be upgraded to **GPv2** with the **closest available redundancy** (for example, **LRS** or **GRS**). You can later **migrate** to a region that supports **ZRS** if needed.
 
-## How do I calculate the new billing amount?
+### How do I calculate the new billing amount?
 
 Use the **Azure Pricing Calculator** and your current usage data to estimate costs under **GPv2** pricing.  
 Calculator: https://azure.microsoft.com/pricing/calculator/  
 Blobs pricing: https://azure.microsoft.com/pricing/details/storage/blobs/
 
-## Can I enable geo-redundancy after upgrading?
+### Can I enable geo-redundancy after upgrading?
 
 Yes. **GPv2** supports **GRS**, **RA-GRS**, **GZRS**, and **RA-GZRS**.
 
-## What if I need help with the upgrade process?
+### What if I need help with the upgrade process?
 
 Microsoft provides documentation, Q&A forums, and support channels. If you have a support plan, create a **support request** in the Azure portal.
 

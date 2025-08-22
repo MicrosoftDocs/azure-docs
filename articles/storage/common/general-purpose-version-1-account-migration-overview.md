@@ -70,7 +70,7 @@ The retirement takes effect globally across all Azure regions.
 ### Upgrade facts
 - The upgrade is **in-place** and requires **no downtime**; it changes the account kind in Azure Resource Manager.
 - Upgrading to GPv2 is **permanent**.
-- Set your **default access tier** (hot or cool) during the upgrade to avoid unintended charges. For details, see [storage-account-upgrade](storage-account-upgrade.md).
+- Set your **default access tier** (hot or cool) during the upgrade to avoid unintended charges. For details, see [Upgrade to General Purpose v2 (GPv2)](storage-account-upgrade.md).
 - The upgrade is **non-disruptive**; your data and endpoints remain the same.
 
 ## How should I prepare?
