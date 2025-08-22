@@ -116,8 +116,8 @@ landingContent:
             url: how-to-configure-intune-conditional-access-policies.md
           - text: Enable single sign-on for dev box
             url: how-to-enable-single-sign-on.md
-          - text: Set up access policies for Dev tunnels
-            url: how-to-set-up-dev-tunnels.md
+          - text: Configure access policies for Dev tunnels
+            url: how-to-conditional-access-dev-tunnels-service.md
 
    # Card
   - title: Support & Reference
