@@ -562,7 +562,7 @@ If you don't require a static IP address, you can enable a service endpoint for 
    :::image type="content" source="media/storage-files-quick-create-use-linux/create-private-endpoint.png" alt-text="Screenshot showing how to select + private endpoint to create a new private endpoint.":::
 
 > [!NOTE]
-> Step 1 to 3 are tailored for NFS file share scenario, you can also choose networking setting at the storage account level for both SMB and NFS file shares. Go to storage account, on the side bar choose Security + networking, and then proceed with Netowrking. From there you can set up both service endpoing or private endpoint. 
+> Steps 1 to 3 show an NFS file share scenario. You can also modify the networking setting at the storage account level for SMB file shares. Go to storage account, choose **Security + networking**, and configure the required endpoints. 
 
 1. Leave **Subscription** and **Resource group** the same. Under **Instance**, provide a name and select a region for the new private endpoint. Your private endpoint must be in the same region as your virtual network, so use the same region as you specified when creating the VM. When all the fields are complete, select **Next: Resource**.
 
