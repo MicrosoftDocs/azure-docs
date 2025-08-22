@@ -1,11 +1,11 @@
 ---
-title: Delete snapshots using Azure NetApp Files | Microsoft Docs
+title: Delete snapshots using Azure NetApp Files
 description: Describes how to delete snapshots by using Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 08/30/2024
+ms.date: 07/30/2025
 ms.author: anfdocs
 # Customer intent: "As an IT administrator, I want to delete unnecessary snapshots in Azure NetApp Files, so that I can manage storage efficiently and ensure optimal resource utilization."
 ---

@@ -2,7 +2,7 @@
 title: Authorize a managed identity request
 description: This article provides information about authorizing requests to Azure Web PubSub resources with Managed identities for Azure resources.
 author: terencefan
-ms.author: tefa
+ms.author: lianwei
 ms.date: 03/11/2025
 ms.service: azure-web-pubsub
 ms.topic: how-to

@@ -7,6 +7,7 @@ ms.topic: overview
 ms.custom: devx-track-extended-java, devx-track-python, devx-track-js
 ms.date: 02/05/2025
 zone_pivot_groups: app-service-getting-started-stacks
+ms.service: azure-app-service
 ---
 
 # Getting started with Azure App Service
@@ -135,4 +136,4 @@ Use the following resources to get started with PHP.
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Learn about App Service](./overview.md)
+> [Deploy an ASP.NET web app](./quickstart-dotnetcore.md)

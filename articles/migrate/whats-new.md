@@ -15,15 +15,19 @@ ms.custom: mvc, engagement-fy25
 
 [Azure Migrate](migrate-services-overview.md) helps you discover, assess, and migrate on-premises servers, apps, and data to the Azure cloud platform. This article summarizes new releases and features in Azure Migrate.
 
+## Update (August 2025)
+
+- General availability: Azure Migrate enhances resiliency by supporting migration to [ZRS Disks](/azure/virtual-machines/disks-deploy-zrs?tabs=portal) during Migration. **Zone-Redundant Storage (ZRS)** for Azure Disks synchronously replicates data across three physically separate availability zones within a region – each with independent power, cooling, and networking – enhancing Disk availability and resiliency.
+
 ## Update (July 2025)
 
 - General availability: Azure Migrate now supports SSH authentication for Linux servers in [VMware](tutorial-discover-vmware.md) and [Hyper-V](tutorial-discover-hyper-v.md#provide-server-credentials) appliance stacks, enabling guest discovery, software inventory, dependency analysis, and discovery of Java Tomcat applications.
 
 ## Update (June 2025)
 
-- Public preview: Azure Migrate supports end-to-end migration of Gen2 VMs—(VM with UEFI boot type)—to Trusted Launch virtual machines (TVMs). This is available for all migration scenarios (VMware, Hyper-V, and Physical). Users can now assess their Gen2 VMs for TVM readiness and perform direct migrations to TVMs using Azure Migrate. It includes full support for  Secure boot, **test migrations** and **scaled migrations**, enabling a seamless and secure transition to Trusted Launch VMs.
+- Public preview: Azure Migrate supports end-to-end migration of Gen2 VMs—(VM with UEFI boot type)—to Trusted Launch virtual machines (TVMs). This is available for all migration scenarios (VMware, Hyper-V, and Physical). Users can now assess their Gen2 VMs for TVM readiness and perform direct migrations to TVMs using Azure Migrate. It includes full support for  Secure boot, **test migrations** and **scaled migrations**, enabling a seamless and secure transition to Trusted Launch VMs. [Learn more](tutorial-migrate-hyper-v.md#replicate-hyper-v-vms).
 
-- Public preview: Azure Migrate supports sustainability efforts by offering Sustainability insights in its Business Case. It empowers IT, finance, and sustainability teams estimate on-premises emissions, compare them with Azure emissions, track yearly reductions, and show both cost and environmental benefits in a single view. This enables customers to make smart migration choices that reduce carbon emissions and support their organization’s ESG goals.
+- Public preview: Azure Migrate supports sustainability efforts by offering Sustainability insights in its Business Case. It empowers IT, finance, and sustainability teams estimate on-premises emissions, compare them with Azure emissions, track yearly reductions, and show both cost and environmental benefits in a single view. This enables customers to make smart migration choices that reduce carbon emissions and support their organization’s ESG goals. [Learn more](how-to-build-a-business-case.md).
 
 
 ## Update (May 2025)

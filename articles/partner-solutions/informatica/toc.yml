@@ -21,10 +21,10 @@ items:
   - name: Troubleshoot
     expanded: true
     items:
-    - name: Get support for an Informatica IDMC organization
-      href: support.md
-    - name: Fix common errors with an Informatica IDMC organization
-      href: troubleshoot.md
+    - name: Get support
+      href: https://support.informatica.com/
+    - name: Troubleshoot  
+      href: /troubleshoot/azure/partner-solutions/welcome-native-integrations
 - name: Reference
   items:
   - name: Python

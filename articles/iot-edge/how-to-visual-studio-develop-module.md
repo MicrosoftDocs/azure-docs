@@ -2,8 +2,8 @@
 title: Develop and debug Azure IoT Edge modules using Visual Studio
 description: Use Visual Studio to develop a custom IoT Edge module and deploy to an IoT device.
 services: iot-edge
-author: PatAltimore
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.date: 06/04/2025
 ms.topic: concept-article
 ms.service: azure-iot-edge

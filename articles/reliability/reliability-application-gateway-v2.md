@@ -183,7 +183,7 @@ The following section describes what to expect when Application Gateway v2 is co
 
 ### Zone recovery
 
-The failback behavior depends on the availability zone configuration that your gateway uses.
+The zone recovery behavior depends on the availability zone configuration that your gateway uses:
 
 - *Zone-redundant:* When the affected availability zone recovers, Application Gateway automatically takes the following actions:
 
