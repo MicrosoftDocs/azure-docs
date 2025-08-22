@@ -64,7 +64,8 @@ With both SMB and NFS file shares, Azure Files offers enterprise-grade file shar
 
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
 
-To learn more, see [How to create classic file share](./create-classic-file-share.md).
+To learn more, see [Create an Azure classic file share](./create-classic-file-share.md).
+
 
 ### What is file share with Microsoft.FileShares (preview)?
 
