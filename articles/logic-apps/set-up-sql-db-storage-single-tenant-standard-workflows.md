@@ -141,7 +141,7 @@ The following table describes some reasons why you might want to use SQL:
 
 ## Set up SQL during creation in the Azure portal
 
-When you create your logic app using the **Logic App (Standard)** resource type in Azure, you can set up SQL as your storage provider.
+When you create your logic app by selecting **Standard** and a hosting option in Azure, you can set up SQL as your storage provider.
 
 1. In the [Azure portal](https://portal.azure.com), sign in with your Azure account.
 
