@@ -58,6 +58,10 @@ items:
     href: concepts/credentials-best-practices.md
   - name: Use cases for string identifiers
     href: concepts/raw-id-use-cases.md
+  - name: Build an authentication service using Azure Functions
+    href: tutorials/trusted-service-tutorial.md
+  - name: Authentication service hero sample
+    href: samples/trusted-auth-sample.md
   - name: Presence events
     href: ../event-grid/communication-services-presence-events.md
   - name: References
@@ -148,8 +152,6 @@ items:
       href: quickstarts/chat/react-native.md
     - name: Enable push notifications in your chat app
       href: tutorials/add-chat-push-notifications.md
-    - name: Build an authentication service using Azure Functions
-      href: tutorials/trusted-service-tutorial.md
     - name: Add a bot to your chat app
       href: quickstarts/chat/quickstart-botframework-integration.md
     - name: Integrate an OpenAI bot with chat
@@ -158,8 +160,6 @@ items:
       href: how-tos/chat-sdk/data-loss-prevention.md
     - name: Chat hero sample
       href: samples/chat-hero-sample.md
-    - name: Authentication service hero sample
-      href: samples/trusted-auth-sample.md
   - name: References
     items:
     - name: Chat (JavaScript)
