@@ -14,7 +14,7 @@ ms.custom:
 
 This article explains how to track the relationships or dependencies between APIs and associated resources in your [Azure API center](overview.md). Use the dependency tracker (preview) to map relationships across APIs, environments, and deployments in your catalog. Also track dependencies on external components including GitHub repositories and other resources in Azure and other cloud platforms.
 
-By tracking dependencies between source and target resources, you can:
+Each dependency identifies a *source* resource and a *target* resource that depends on it. By tracking dependencies between source and target resources, you can:
 
 * **Troubleshoot and resolve issues** more effectively by providing visibility into the relationships between components
 
@@ -41,15 +41,45 @@ To add a dependency:
 1. In **Target details**, select a **Target Type** (for example, an API or a related resource). Depending on the type, enter or select identifying information such as a name or ID.
 1. **Save** the dependency.
 
-:::image type="content" source="media/track-resource-dependencies/create-dependency.png" alt-text="Screenshot of addinng a dependency in the portal.":::
+:::image type="content" source="media/track-resource-dependencies/create-dependency.png" alt-text="Screenshot of adding a dependency in the portal.":::
 
+The dependency is added. 
 
+## View dependencies 
 
-## View dependencies in the Azure portal
+API Center provides both a table view that lists dependencies, and a graphical view with a holistic representation. Use these views to explore the relationships between your resources.
 
+To see a graphical view:
 
+1. In the left menu, under **Assets**, select **Dependency tracker (preview)**.
+1. Select the **Graph View** tab.
 
+Explore the graphical representation of your dependencies. Select the box representing any API center resource to see its details.
+
+:::image type="content" source="media/track-resource-dependencies/view-dependency-graph.png" alt-text="Screenshot of the dependency graph in the portal.":::
+
+## Manage dependencies
+
+You can edit or delete dependencies as needed.
+
+To view or edit dependency details:
+
+1. In the left menu, under **Assets**, select **Dependency tracker (preview)**.
+1. In the table view, find the dependency you want to edit.
+1. Select **See details**.
+1. To make changes, select **Edit**, and update details.
+1. **Save** your changes.
+
+To delete a dependency:
+
+1. In the **Dependency tracker (preview)** table view, find the dependency that you want to delete.
+1. Select **Delete dependency** (trash can icon).
+1. Confirm the deletion.
+
+> [!NOTE]
+> If you delete an API Center resource that is a source or target in a dependency, the dependency isn't automatically deleted. You must delete it yourself
 
 ## Related content
 
-[TBD]
+* [Overview of Azure API center](overview.md)
+* [Register APIs in your API inventory](register-apis.md)
