@@ -6,7 +6,7 @@ author: sloanster
 services: azure-communication-services
 
 ms.author: micahvivion
-ms.date: 08/22/2025
+ms.date: 08/25/2025
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.custom: references_regions
@@ -22,7 +22,7 @@ The EU Data Boundary consists of the countries/regions in the European Union (EU
 
 ## Calling
 
-When we discuss how calling data is processed let's define. Some details on various participants in call:
+To establish how Azure Communication Services calling data aligns with EUDB compliance, it's important to first define key details about how calling data is processed—particularly in scenarios involving various types of participants:
 - **Organizer**: responsible for creating and managing a group call or meeting session. They are the person that sets the meeting identity.
 - **Initiator**: the first person who joins the meeting
 - **Guest**: a participant who isn't a member of the tenant of the Organizer. May include a member of a different tenant or a PSTN (dial-in) user.
@@ -30,7 +30,7 @@ When we discuss how calling data is processed let's define. Some details on vari
 - **Real Time Text (RTT)**: is an accessibility compliance requirement for voice and video platforms in the EU. For more information, see: [Directive 2019/882](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019L0882).
 - **Resource**: refers to a provisioned communication identity or endpoint. See [here](../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp#manage-your-communication-services-resource) for more details
 
-For Azure Communication Services calling resources that were defined to be located within the European data boundary, when either the organizer, initiator, or guests join a call from a location inside the European boundary, personal data (PII) is processed and stored in facilities within EU boundary countries/regions. 
+For Azure Communication Services calling resources that were defined to be located within a European data boundary country\regiion and when either the organizer, initiator, or a guest join a call from a location inside the European boundary, all personal data (PII) is processed and stored in facilities within EU boundary countries/regions. 
 
 ## SMS
 
