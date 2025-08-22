@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 06/03/2025
+ms.date: 08/19/2025
 ms.author: danlep
 #customer intent: As administrator of an API Management instance, I want to learn about using workspaces to manage APIs in a decentralized way, so that I can enable my development teams to manage and productize their own APIs.
 ms.custom:
@@ -71,6 +71,10 @@ Workspace gateways are managed independently from the API Management service and
 
 * For information on the cost of workspace gateways, see [API Management pricing](https://aka.ms/apimpricing).
 * For a detailed comparison of API Management gateways, see [API Management gateways overview](api-management-gateways-overview.md).
+
+> [!NOTE]
+> In August 2025, we announced upcoming changes to gateway and tier support in workspaces. [See the announcement for details](https://aka.ms/apim/workspaces/built-in-gateway-changes)
+> 
 
 ### Associate workspaces with a workspace gateway
 
