@@ -74,7 +74,6 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 1. Change to the new **redis-jedis-test** project directory.
 1. Open the **pom.xml** file. In the file, you see a dependency for [Jedis](https://github.com/xetorthio/jedis):
 
-    ### Microsoft Entra ID authentication (recommended)
 
     > [!NOTE]
     > Microsoft has entered into a partnership with Redis, Inc. As part of this collaboration, Microsoft Entra ID authentication support has been moved from Azure SDK to Redis Entra ID extensions. The new `redis-authx-entraid` library provides enhanced authentication capabilities and is the recommended approach for Microsoft Entra ID authentication with Azure Cache for Redis.
@@ -97,7 +96,6 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 
 1. Open **App.java** and see the code with the following code:
 
-    ### Microsoft Entra ID authentication (recommended)
 
     ```java
     package example.demo;
