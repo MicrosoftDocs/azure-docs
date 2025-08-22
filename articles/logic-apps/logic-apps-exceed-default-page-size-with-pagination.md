@@ -17,7 +17,9 @@ When you get data, items, or records by using a connector action in Azure Logic 
 
 For some actions, the number of results might exceed the connector's default page size. In this case, the action returns only the first page of results. 
 
-Some actions let you turn on a *pagination* setting so that your logic app can retrieve more results up to the pagination limit. The action returns those results as a single message when the action finishes. When you use pagination, you must specify a *threshold* value, which is the number of results you want the action to return. The action gets results until reaching your specified threshold. When your total number of items is less than the specified threshold, the action gets all the results.
+Some actions let you turn on a *pagination* setting so that your logic app can retrieve more results up to the pagination limit. The action returns those results as a single message when the action finishes.
+
+When you use pagination, you must specify a *threshold* value, which is the number of results you want the action to return. The action gets results until reaching your specified threshold. When your total number of items is less than the specified threshold, the action gets all the results.
 
 Turning on the pagination setting retrieves pages of results based on a connector's page size. This behavior means that sometimes, you might get more results than your specified threshold. For example, when using the SQL Server **Get rows** action, which supports pagination setting:
 
