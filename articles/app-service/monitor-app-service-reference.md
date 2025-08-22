@@ -78,7 +78,7 @@ The following table lists more information about resource logs you can collect f
 | AppServicePlatformLogs  | TBA | Yes | Yes | Yes | Container operation logs |
 | AppServiceAntivirusScanAuditLogs | Yes | Yes | Yes | Yes | [Anti-virus scan logs](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) using Microsoft Defender for Cloud; **only available for Premium tier** | 
 
-<sup>1</sup> For Java SE apps, add "$WEBSITE_AZMON_PREVIEW_ENABLED" to the app settings and set it to 1 or to true.
+<sup>1</sup> Java and Tomcat are supported in their default configuration. Additional code and/or configuration might be required for some logging frameworks.
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 ### App Services
