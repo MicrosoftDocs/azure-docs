@@ -28,4 +28,6 @@ By using an SRE Agent, you consent to the product-specific [Supplemental Terms o
 
 - Your data isn't used to train AI models. Your data is only accessible to engineers for service improvement and debugging, but not for model training.
 
+- Data collected includes End User Identifiable Information (EUII) and Organization Identifiable Information (OII)
+
 - Data is isolated using tenant and Azure subscription boundaries.
