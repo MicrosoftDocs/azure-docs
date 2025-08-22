@@ -93,18 +93,6 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
     </dependency>
     ```
 
-    ### [Access key authentication](#tab/accesskey)
-
-    [!INCLUDE [redis-access-key-alert](includes/redis-access-key-alert.md)]
-
-    ```xml
-    <dependency>
-        <groupId>redis.clients</groupId>
-        <artifactId>jedis</artifactId>
-        <version>6.0.0</version> 
-    </dependency>
-    ```
-
 1. Close the **pom.xml** file.
 
 1. Open **App.java** and see the code with the following code:
@@ -164,56 +152,6 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 
             // Test the connection
             System.out.println(String.format("Database size is %d", jedis.dbSize()));
-
-            // Simple PING command
-            System.out.println( "\nCache Command  : Ping" );
-            System.out.println( "Cache Response : " + jedis.ping());
-
-            // Simple get and put of integral data types into the cache
-            System.out.println( "\nCache Command  : GET Message" );
-            System.out.println( "Cache Response : " + jedis.get("Message"));
-
-            System.out.println( "\nCache Command  : SET Message" );
-            System.out.println( "Cache Response : " + jedis.set("Message", "Hello! The cache is working from Java!"));
-
-            // Demonstrate "SET Message" executed as expected...
-            System.out.println( "\nCache Command  : GET Message" );
-            System.out.println( "Cache Response : " + jedis.get("Message"));
-
-            jedis.close();
-        }
-    }
-    ```
-
-    ### [Access key authentication](#tab/accesskey)
-
-    ```java
-    package example.demo;
-
-    import redis.clients.jedis.DefaultJedisClientConfig;
-    import redis.clients.jedis.Jedis;
-
-    /**
-     * Redis test
-     *
-     */
-    public class App
-    {
-        public static void main( String[] args )
-        {
-
-            boolean useSsl = true;
-            String cacheHostname = System.getenv("REDIS_CACHE_HOSTNAME");
-            String cachekey = System.getenv("REDIS_CACHE_KEY");
-            int port = Integer.parseInt(System.getenv().getOrDefault("REDIS_CACHE_PORT", "6380"));
-
-            // Connect to the Azure Cache for Redis over the TLS/SSL port using the key.
-            Jedis jedis = new Jedis(cacheHostname, port, DefaultJedisClientConfig.builder()
-                .password(cachekey)
-                .ssl(useSsl)
-                .build());
-
-            // Perform cache operations using the cache connection object...
 
             // Simple PING command
             System.out.println( "\nCache Command  : Ping" );

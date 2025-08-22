@@ -47,36 +47,4 @@ Replace the placeholders with the following values:
   > [!NOTE]
   > The above example uses client secret authentication. You can also configure the `redis-authx-entraid` library to use other authentication methods such as managed identity or client certificate by modifying the `EntraIDTokenAuthConfigBuilder` configuration in your code.
 
-### [Access key authentication](#tab/accesskey)
-
-::: zone pivot="azure-managed-redis"
-
-```bash
-export REDIS_CACHE_HOSTNAME=<your-host-name>.redis.cache.windows.net
-export REDIS_CACHE_KEY=<your-primary-access-key>
-export REDIS_CACHE_PORT=10000
-```
-
-::: zone-end
-
-::: zone pivot="azure-cache-redis"
-
-```bash
-export REDIS_CACHE_HOSTNAME=<your-host-name>.redis.cache.windows.net
-export REDIS_CACHE_KEY=<your-primary-access-key>
-export REDIS_CACHE_PORT=6380
-```
-
-::: zone-end
-
-Replace the placeholders with the following values:
-
-- `<your-host-name>`: The DNS host name.  To get the host name and ports for your cache, select **Overview** from the **Resource** menu. The host name is of the form `<DNS name>.redis.cache.windows.net`.
-
-  :::image type="content" source="media/redis-cache-access-keys/redis-cache-hostname-ports.png" alt-text="Screenshot showing Azure Cache for Redis properties.":::
-
-- `<your-primary-access-key>`: The primary access key. To get the access keys, select **Authentication** from the **Resource** menu. Then, select the **Access keys** tab.
-
-  :::image type="content" source="media/redis-cache-access-keys/redis-cache-keys.png" alt-text="Screenshot showing Azure Cache for Redis access keys.":::
-
 ---
