@@ -14,7 +14,7 @@ ms.custom:
 
 # Multi-region solutions in nonpaired regions
 
-Although some Azure services support geo-redundancy and geo-replication by using paired regions, you can create solutions that support multiple regions [even when those regions aren't paired](./regions-paired.md). This article lists some of the services and possible configurations for multi-region solutions that don't require paired regions. To learn more about each Azure service and how it supports reliability, see the [Azure service reliability guides](./overview-reliability-guidance.md).
+Some Azure services support geo-redundancy and geo-replication by using paired regions, but you can create solutions that support multiple regions [even when those regions aren't paired](./regions-paired.md). This article lists some of the services and possible configurations for multi-region solutions that don't require paired regions. To learn more about each Azure service and how it supports reliability, see the [Azure service reliability guides](./overview-reliability-guidance.md).
 
 ## Azure AI Search
 
@@ -109,7 +109,9 @@ For geo-replication in nonpaired regions with Azure SQL Managed Instance, you ca
 
 To achieve geo-replication in nonpaired regions:
 
-- **For object storage:** To learn about how to create multi-region solutions by using Blob Storage, see [Reliability in Blob Storage](./reliability-storage-blob.md).
+- **For object storage:** 
+
+   - To learn about how to create multi-region solutions by using Blob Storage, see [Reliability in Blob Storage](./reliability-storage-blob.md).
 
 - **For Azure NetApp Files:**
    

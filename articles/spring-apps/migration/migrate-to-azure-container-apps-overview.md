@@ -6,7 +6,8 @@ ms.author: karler
 ms.reviewer: dingmeng-xue
 ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article
-ms.date: 03/17/2025
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
@@ -80,7 +81,7 @@ The migration approach from Azure Spring Apps to Azure Container Apps involves t
 
 ## Migration assistant tool
 
-To speed up your migration and help you evaluate features on Azure Container Apps, we provide a new command in the Azure CLI. This command retrieves the configurations of existing Azure Spring Apps resources based on the resource ID of the service instance. It then translates these configurations into Bicep files for Azure Container App resources. This method enables you to quickly set up an Azure Container Apps managed environment and app resources while applying basic settings similar to those settings in your existing Azure Spring Apps resources. For more information, see [az spring export](/cli/azure/spring#az-spring-export).
+To speed up your migration and help you evaluate features on Azure Container Apps, we provide a new command in the Azure CLI. This command retrieves the configurations of existing Azure Spring Apps resources based on the resource ID of the service instance. It then translates these configurations into Bicep files for Azure Container App resources. This method enables you to quickly set up an Azure Container Apps managed environment and app resources while applying basic settings similar to those settings in your existing Azure Spring Apps resources.
 
 To create Azure Container Apps resources that match the configurations of your existing Azure Spring Apps resources, use the following steps:
 

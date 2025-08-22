@@ -1,8 +1,8 @@
 ---
 title: How Azure IoT Edge Modules Run Logic on Devices
 description: Learn how Azure IoT Edge modules run logic on devices, using containerized applications, and secure communication with IoT Hub.
-author: PatAltimore
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.date: 03/20/2025
 ms.topic: concept-article
 ms.service: azure-iot-edge
