@@ -14,8 +14,6 @@ Azure SRE Agent is an AI-powered reliability assistant that helps teams diagnose
 
 Ask questions in natural language, get explainable root cause analysis (RCA), and orchestrate incident workflows with human-in-the-loop approvals or autonomous execution within scoped guardrails. You can configure the agent to follow customized instructions and runbooks and enable consistent and scalable incident response aligned with your team’s operational practices.
 
-:::image type="content" source="media/overview/sre-agent-processing-flow.png" alt-text="Diagram of  how Azure SRE Agent processes requests.":::
-
 ## What you can do with SRE Agent
 
 | Ask & understand | Automate incidents | Stay proactive |
