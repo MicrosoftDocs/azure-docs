@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.date: 02/20/2024
 ms.custom: devdivchpfy22, devx-track-azurecli
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-app-configuration
 ---
 # Use customer-managed keys to encrypt your App Configuration data

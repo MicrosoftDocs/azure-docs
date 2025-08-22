@@ -7,7 +7,8 @@ ms.author: karler
 ms.reviewer: jiec
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 04/18/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java
 zone_pivot_groups: spring-apps-tier-selection
 ---

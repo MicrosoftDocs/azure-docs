@@ -1,12 +1,12 @@
 ---
-title: Linux direct I/O best practices for Azure NetApp Files | Microsoft Docs
+title: Linux direct I/O best practices for Azure NetApp Files
 description: Describes Linux direct I/O and the best practices to follow for Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: concept-article
-ms.date: 03/02/2024
+ms.date: 06/02/2025
 ms.author: anfdocs
 # Customer intent: As a systems administrator, I want to implement direct I/O best practices for Azure NetApp Files, so that I can optimize storage performance benchmarking and accurately assess the limits of my storage service.
 ---
