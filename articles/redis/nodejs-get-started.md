@@ -16,7 +16,7 @@ ai-usage: ai-assisted
 
 # Quickstart: Use Azure Redis with JavaScript
 
-In this article, you learn how to use an Azure Redis cache for JavaScript with the TypeScriptlanguage and connect using Microsoft Entra ID.
+In this article, you learn how to use an Azure Redis cache for JavaScript with the TypeScript language and connect by using Microsoft Entra ID.
 
 ## Prerequisites
 
@@ -31,20 +31,20 @@ In this article, you learn how to use an Azure Redis cache for JavaScript with t
 
 ## Create an Azure Managed Redis instance
 
-First, create a cache. You can create a cache using Azure Managed Redis or Azure Cache for Redis using the Azure portal. In this Quickstart, we use Azure Managed Redis.
+First, create a cache. You can create a cache by using Azure Managed Redis or Azure Cache for Redis with the Azure portal. In this quickstart, we use Azure Managed Redis.
 
-When you create the cache, Microsoft Entra ID is enabled by default making it secure from the start. Your cache must also use a public endpoint for this QuickStart. You must to [authenticated in your local development environment](/azure/developer/javascript/sdk/authentication/local-development-environment-developer-account). 
+When you create the cache, Microsoft Entra ID is enabled by default, which makes it secure from the start. Your cache must also use a public endpoint for this quickstart. You must be [authenticated in your local development environment](/azure/developer/javascript/sdk/authentication/local-development-environment-developer-account). 
 
 To create a cache with the portal, follow one of these procedures:
 
 - [Azure Managed Redis](quickstart-create-managed-redis.md)
 - [Azure Cache for Redis](/azure/azure-cache-for-redis/quickstart-create-redis)
 
-Optionally, you can create a cache using Azure CLI, PowerShell, whichever you prefer.
+Optionally, you can create a cache by using Azure CLI, PowerShell, or whichever tool you prefer.
 
 ## Code to connect to a Redis cache
 
-In the first part of the code sample, set your connection to the cache:
+In the first part of the ECMAScript code sample, set your connection to the cache:
 
 ```typescript
 import { useIdentityPlugin, DefaultAzureCredential } from '@azure/identity';
@@ -95,7 +95,7 @@ await client.connect();
 
 ## Code to test a connection
 
-In the next section, test the connection using the Redis command `ping` that returns the `pong` string.
+In the next section, test the connection by using the Redis command `ping`. This command returns the `pong` string.
 
 ```typescript
 const pingResult = await client.ping();
@@ -104,7 +104,7 @@ console.log('Ping result:', pingResult);
 
 ## Code set a key, get a key
 
-In this section, use a basic `set` and `get` sequence to start using the Redis cache in the simplest way to get started.
+In this section, use a basic `set` and `get` sequence to start using the Redis cache in the simplest way.
 
 ```typescript
 const setResult = await client.set("Message", "Hello! The cache is working from Node.js!");
@@ -114,9 +114,9 @@ const getResult = await client.get("Message");
 console.log('Get result:', getResult);
 ```
 
-Before you can run this code, you must add yourself as a Redis user.
+Before you build (`tsc`) and run this code (`node index.js`), add yourself as a Redis user.
 
-You must also [authorize your connection](/azure/developer/javascript/sdk/authentication/local-development-environment-developer-account) to Azure from the command line using the Azure command line or Azure developer command line (azd).
+Also, [authorize your connection](/azure/developer/javascript/sdk/authentication/local-development-environment-developer-account) to Azure from the command line by using the Azure command line or Azure developer command line (azd).
 
 You should also [add users or a System principal to your cache](entra-for-authentication.md#add-users-or-system-principal-to-your-cache). Add anyone who might run the program as a user on the Redis cache.
 
