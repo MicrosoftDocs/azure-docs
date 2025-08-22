@@ -99,7 +99,8 @@ The following regions have an increased maximum throughput for HDD pay-as-you-go
 
 ### Azure Microsoft.FileShares scale targets
 
-Microsoft.FileShares is currently in public preview and the scale target is currently being set to 1,000 file shares per region per subscription.
+Creating file shares using the Microsoft.FileShares resource provider is currently in preview. The scale target is 1,000 file shares per region per subscription.
+
 
 ### Azure file share scale targets
 
