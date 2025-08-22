@@ -132,6 +132,7 @@ When creating jobs in the Microsoft Sentinel data lake, consider the following l
   + `externaldata()`
   + `arg()`
   + `ingestion_time()`
+  + `workspace()`
 
 + User-defined functions not supported.
 

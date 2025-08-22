@@ -18,6 +18,8 @@ After your data is collected, stored, and processed, compliance can become an im
 
 This article can help you meet compliance requirements by describing where Microsoft Sentinel data is stored.
 
+[!INCLUDE [azure-21vianet-retirement](includes/azure-21vianet-retirement.md)]
+
 ## Collected data
 
 Microsoft Sentinel collects the following types of data:
@@ -66,7 +68,7 @@ Regions supported for Microsoft Sentinel raw data, and for processed and configu
 ### Regions supported for Microsoft Sentinel data lake
 
 > [!NOTE]
-> The Microsoft Sentinel data lake is currently in preview. During this time onboarding may be temporarily unavailable in some regions. When onboarding is available in your region, a onboarding banner appears on the Microsoft Defender portal home page to guide you through the process.
+> The Microsoft Sentinel data lake is currently in preview. During this time onboarding may be temporarily unavailable in some regions. When onboarding is available in your region, an onboarding banner appears on the Microsoft Defender portal home page to guide you through the process.
 
 
 | Continent              | Country/Region   | Azure Region                          |

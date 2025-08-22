@@ -4,7 +4,7 @@ description: This article explains how you can encrypt data in transit (EiT) for
 author: guptasonia
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/27/2025
+ms.date: 08/20/2025
 ms.author: kendownie
 ms.custom:
   - devx-track-azurepowershell
@@ -43,41 +43,10 @@ The [AZNFS](https://github.com/Azure/AZNFS-mount) utility package simplifies enc
 
 ## Supported regions
 
-EiT is now Generally Available (GA) in all regions that support Azure Premium Files except West Europe. West Europe is currently running preview. You must register your subscription per the instructions below to use EiT in the preview region.
-
-### Register for preview (not needed for GA regions)
- 
-To enable encryption in transit for your storage accounts and NFS shares in the preview region (West Europe), you must register for the preview. **No registration is needed in the GA regions.**
-
-### [Portal](#tab/azure-portal)
-
-Register through the Azure portal by searching for "Encryption in transit for Azure NFS file shares" under Preview Features.
-
-:::image type="content" source="./media/encryption-in-transit-nfs-shares/portal-registration-encryption-in-transit.png" alt-text="Diagram showing the Azure portal screen to test if EiT is applied." lightbox="./media/encryption-in-transit-nfs-shares/portal-registration-encryption-in-transit.png":::
-
-For more information, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal).
-
-### [PowerShell](#tab/azure-powershell)
-
-Register through PowerShell using [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature):
-
-```PowerShell
-Register-AzProviderFeature -FeatureName "AllowEncryptionInTransitNFS4" -ProviderNamespace "Microsoft.Storage"
-```
-
-### [Azure CLI](#tab/azure-cli)
- 
-Register through Azure CLI using [az feature register](/cli/azure/feature):
-
-```bash
-az feature register --name AllowEncryptionInTransitNFS4 --namespace Microsoft.Storage
-```
-   
----
-
+EiT for NFS is now Generally Available (GA) in all regions that [support SSD Azure file shares](redundancy-premium-file-shares.md).
 
 ## Enforce encryption in transit
- 
+
 By enabling the **Secure transfer required** setting on the storage account, you can ensure that all the mounts to the NFS volumes in the storage account are encrypted. EiT can be enabled on both new and existing storage accounts and NFS Azure file shares. There is no additional cost for enabling EiT.
 
 :::image type="content" source="./media/encryption-in-transit-nfs-shares/storage-account-settings.png" alt-text="Screenshot showing how to enable Secure transfer on a storage account." lightbox="./media/encryption-in-transit-nfs-shares/storage-account-settings.png":::

@@ -1,9 +1,8 @@
 ---
 title: Properties of the Azure IoT Edge agent and hub module twins
 description: Review the specific properties and their values for the edgeAgent and edgeHub module twins
-author: PatAltimore
-
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.date: 05/08/2025
 ms.topic: concept-article
 ms.service: azure-iot-edge
