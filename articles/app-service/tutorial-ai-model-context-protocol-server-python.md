@@ -13,7 +13,7 @@ ms.service: azure-app-service
 
 # Integrate an App Service app as an MCP Server for GitHub Copilot Chat (Python)
 
-In this tutorial, you'll learn how to expose an FastAPI app's functionality through Model Context Protocol (MCP), add it as a tool to GitHub Copilot, and interact with your app using natural language in Copilot Chat agent mode.
+In this tutorial, you'll learn how to expose a FastAPI app's functionality through Model Context Protocol (MCP), add it as a tool to GitHub Copilot, and interact with your app using natural language in Copilot Chat agent mode.
 
 :::image type="content" source="media/tutorial-ai-model-context-protocol-server-python/model-context-protocol-call-success.png" alt-text="Scenario Preview: Screenshot showing that the response from the MCP tool call in the GitHub Copilot Chat window.":::
 
@@ -160,7 +160,7 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
     - The `@mcp.tool()` decorator adds a [tool](https://github.com/modelcontextprotocol/python-sdk?tab=readme-ov-file#tools) to the MCP server with its implementation.
     - The tool function's description helps the calling agent to understand how to use the tool and its parameters.
     
-    The tools duplicate the existing restaurant reviews functionality in the form-based FastAPI web application. If you want, you can add more tools for update and delete funcionality.
+    The tools duplicate the existing restaurant reviews functionality in the form-based FastAPI web application. If you want, you can add more tools for update and delete functionality.
 
 1. In *src/fastapi_app/app.py*, find the line for `app = FastAPI()` (line 24) and replace it with the following code:
 
@@ -170,7 +170,7 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
     app.mount("/mcp", mcp.streamable_http_app())
     ```
     
-    This code mounts the MCP server's streamable HTTP endpoint to the existing FastAPI app at the the path `/mcp`. Together with the default path of the streamable HTTP endpoint, the full path is `/mcp/mcp`.
+    This code mounts the MCP server's streamable HTTP endpoint to the existing FastAPI app at the path `/mcp`. Together with the default path of the streamable HTTP endpoint, the full path is `/mcp/mcp`.
 
 ## Test the MCP server locally
     

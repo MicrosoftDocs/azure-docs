@@ -23,7 +23,7 @@ If your web application already has useful features, like shopping, hotel bookin
 > * Add OpenAPI functionality to your web app.
 > * Make sure OpenAPI schema compatible with Azure AI Foundry Agent Service.
 > * Register your app as an OpenAPI tool in Azure AI Foundry Agent Service.
-> * Test your agent in the the agents playground.
+> * Test your agent in the agents playground.
 
 ## Prerequisites
 

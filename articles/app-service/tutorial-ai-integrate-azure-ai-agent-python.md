@@ -13,7 +13,7 @@ ms.service: azure-app-service
 
 # Add an App Service app as a tool in Azure AI Foundry Agent Service (Python)
 
-In this tutorial, you'll learn how to expose an FastAPI app's functionality through OpenAPI, add it as a tool to Azure AI Foundry Agent Service, and interact with your app using natural language in the agents playground.
+In this tutorial, you'll learn how to expose a FastAPI app's functionality through OpenAPI, add it as a tool to Azure AI Foundry Agent Service, and interact with your app using natural language in the agents playground.
 
 If your web application already has useful features, like shopping, hotel booking, or data management, it's easy to make those capabilities available to an AI agent in Azure AI Foundry Agent Service. By simply adding an OpenAPI schema to your app, you enable the agent to understand and use your app's capabilities when it responds to users' prompts. This means anything your app can do, your AI agent can do too, with minimal effort beyond creating an OpenAPI endpoint for your app. In this tutorial, you start with a simple restaurant ratings app. By the end, you'll be able to see restaurant ratings as well as create new restaurants and new reviews with an agent through conversational AI.
 
@@ -23,7 +23,7 @@ If your web application already has useful features, like shopping, hotel bookin
 > * Add OpenAPI functionality to your web app.
 > * Make sure OpenAPI schema compatible with Azure AI Foundry Agent Service.
 > * Register your app as an OpenAPI tool in Azure AI Foundry Agent Service.
-> * Test your agent in the the agents playground.
+> * Test your agent in the agents playground.
 
 ## Prerequisites
 
