@@ -392,7 +392,7 @@ When you create a classic file share using the provisioned v1 billing model, you
 
 # [Portal](#tab/azure-portal)
 
-Follow these instructions to create a new Azure file share using the Azure portal.
+Follow these instructions to create a new Azure classic file share using the Azure portal.
 
 1. Go to your newly created storage account. From the service menu, under **Data storage**, select **File shares**.
 
