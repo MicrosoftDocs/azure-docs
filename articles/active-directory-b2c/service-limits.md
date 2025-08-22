@@ -169,8 +169,10 @@ The following table lists the administrative configuration limits in the Azure A
 |Number of sign-out URLs per application        |1          |
 |String Limit per Attribute      |250 Chars          |
 |Number of B2C tenants per subscription      |20         |
-|Total number of objects (user accounts and applications) per tenant (default limit)|1.25 million |
-|Total number of objects (user accounts and applications) per tenant (using a verified custom domain). If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md).|5.25 million |
+|Total number of objects per tenant (default limit)|1.25 million (1M user accounts and 250K applications) |
+|Total number of objects per tenant (using a verified custom domain). If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md).|5.25 million (5M user accounts and 250K applications) |
+|Japan Go-Local B2C Tenants - Total number of objects per tenant (default limit)|310,000 (60K user accounts and 250K applications)|
+|Japan Go-Local B2C Tenants - Total number of objects  per tenant (using a verified custom domain). If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md).|570,000 (320K user accounts and 250K applications)|
 |Levels of [inheritance](custom-policy-overview.md#inheritance-model) in custom policies     |10         |
 |Number of policies per Azure AD B2C tenant (user flows + custom policies)     |200          |
 |Maximum policy file size      |1024 KB          |
