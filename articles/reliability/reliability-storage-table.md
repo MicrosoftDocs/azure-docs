@@ -16,7 +16,7 @@ This article describes reliability support in Azure Table Storage, covering intr
 
 [!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
-[Table Storage](/azure/storage/tables/table-storage-overview) is a service that stores structured NoSQL data in the cloud. It provides a store where each entity is accessed via a key and contains a set of attributes. A single table can contain entities that have different sets of properties, and properties can consist of various data types.
+[Table Storage](/azure/storage/tables/table-storage-overview) is a service that stores structured NoSQL data in the cloud. It provides a schemaless store where each entity is accessed via a key and contains a set of attributes. A single table can contain entities that have different sets of properties, and properties can consist of various data types.
 
 Table Storage provides several reliability features through the underlying Azure Storage platform. As part of Azure Storage, Table Storage inherits the same redundancy options, availability zone support, and geo-replication capabilities that ensure high availability and durability for your table data.
 
@@ -61,7 +61,7 @@ To learn more about the Table Storage architecture and how to design resilient a
 
 [!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
 
-Table Storage is zone-redundant when it deploys with ZRS configuration. Unlike locally redundant storage (LRS), ZRS guarantees that Azure synchronously replicates your table data across multiple availability zones. This configuration ensures that your tables remain accessible even if an entire availability zone becomes unavailable. All write operations must be acknowledged across multiple zones before completion, which provides strong consistency guarantees.
+Table Storage is zone-redundant when you deploy it with ZRS configuration. Unlike locally redundant storage (LRS), ZRS guarantees that Azure synchronously replicates your table data across multiple availability zones. This configuration ensures that your tables remain accessible even if an entire availability zone becomes unavailable. All write operations must be acknowledged across multiple zones before the service completes the write, which provides strong consistency guarantees.
 
 Zone redundancy is enabled at the storage account level and applies to all Table Storage resources within that account. Because the setting applies to the entire storage account, you can't configure individual entities for different redundancy levels. When an availability zone experiences an outage, Azure Storage automatically routes requests to healthy zones without requiring any intervention from you or your application.
 
@@ -83,7 +83,7 @@ For detailed pricing information, see [Table Storage pricing](https://azure.micr
 
 ### Configure availability zone support
 
-- **Create a storage account and table that have zone redundancy:**
+- **Create a zone-redundant storage account and table:**
 
     1. [Create a storage account](/azure/storage/common/storage-account-create). Make sure to select ZRS, GZRS, or read-access geo-redundant storage (RA-GZRS) as the redundancy option.
 
