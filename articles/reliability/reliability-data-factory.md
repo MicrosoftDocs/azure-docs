@@ -125,15 +125,23 @@ Zone-redundant Data Factory resources can be deployed in [any region that suppor
 
 ### Normal operations
 
-**Traffic routing between zones:** During normal operations, Data Factory automatically distributes pipeline activities, triggers, and other work among healthy instances in each availability zone.
+This section describes what to expect when Data Factory resources are configured for zone redundancy and all availability zones are operational.
+
+- **Traffic routing between zones:** During normal operations, Data Factory automatically distributes pipeline activities, triggers, and other work among healthy instances in each availability zone.
 
 ### Zone-down experience
 
-**Detection and response:** The Data Factory platform is responsible for detecting a failure in an availability zone and responding. You don't need to do anything to initiate a zone failover in your pipelines or other components.
+This section describes what to expect when Data Factory resources are configured for zone redundancy and there's an availability zone outage.
 
-**Active requests:** Any pipelines and triggers in progress continue to run, and you don't experience any immediate disruption from a zone failure. However, activities in progress during a zone failure might fail and be restarted. It's important to design activities to be idempotent, which helps them recover from zone failures and other faults. For more information, see [Transient faults](#transient-faults).
+- **Detection and response:** The Data Factory platform is responsible for detecting a failure in an availability zone and responding. You don't need to do anything to initiate a zone failover in your pipelines or other components.
 
-### Failback
+- **Notification**: Azure Data Factory doesn't notify you when a zone is down. However, you can use [Azure Resource Health](/azure/service-health/resource-health-overview) to monitor for the health of your data factory. If a zone is down, the data factory in that zone will show as unavailable. You can also use [Azure Service Health](/azure/service-health/overview) to understand the overall health of the Azure Data Factory service, including any zone failures.
+  
+  Set up alerts on these services to receive notifications of zone-level problems. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal) and [Create and configure Resource Health alerts](/azure/service-health/resource-health-alert-arm-template-guide).
+
+- **Active requests:** Any pipelines and triggers in progress continue to run, and you don't experience any immediate disruption from a zone failure. However, activities in progress during a zone failure might fail and be restarted. It's important to design activities to be idempotent, which helps them recover from zone failures and other faults. For more information, see [Transient faults](#transient-faults).
+
+### Zone recovery
 
 When the availability zone recovers, Data Factory automatically fails back to the original zone. You don't need to do anything to initiate a zone failback in your pipelines or other components.
 
