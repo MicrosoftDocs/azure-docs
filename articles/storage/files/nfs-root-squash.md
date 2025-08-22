@@ -185,7 +185,7 @@ You can configure root squash settings on an existing NFS file share (Microsoft.
 
    ![image for mfs root squash](./media/nfs-root-squash/mfs-root-squash.png)
    
-4. Select Save to update the root squash value.
+4. Select **Save** to update the root squash value.
 
 ## See also
 
