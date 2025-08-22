@@ -1,19 +1,19 @@
 ---
-title: How to modify file share
+title: Modify an Azure File Share
 titleSuffix: Azure Files
-description: How to change file share size, or delete it by using the Azure portal, Azure PowerShell, or Azure CLI. Covers both classic and managed file share.
+description: How to change file share size or delete the share by using the Azure portal, Azure PowerShell, or Azure CLI.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 08/1/2025
+ms.date: 08/22/2025
 ms.author: kendownie
 ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
-# Customer intent: "As a cloud administrator, I want modify my file share after I create it."
+# Customer intent: "As a cloud administrator, I want resize or delete my Azure file share."
 ---
 
-# How to modify Azure file share
+# How to modify an Azure file share
 
-This guide walks you through how to adjust the size, cost, and performance characteristics, as well as update or delete both classic file shares and file share using the Azure portal, Azure PowerShell, and Azure CLI.
+This article explains how to adjust the size, cost, and performance characteristics of Azure file shares using the Azure portal, Azure PowerShell, and Azure CLI. The procedures are different for classic file shares, which use the Microsoft.Storage resource provider, versus file shares created with Microsoft.FileShares (preview).
 
 ## Applies to
 
@@ -33,8 +33,6 @@ This guide walks you through how to adjust the size, cost, and performance chara
 | Microsoft.Storage    | Pay-as-you-go  | HDD (standard) | Zone (ZRS)     | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
 | Microsoft.Storage    | Pay-as-you-go  | HDD (standard) | Geo (GRS)      | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
 | Microsoft.Storage    | Pay-as-you-go  | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
-
----
 
 ## Change the cost and performance characteristics of a classic file share
 
@@ -79,13 +77,11 @@ You can modify a provisioned v2 file share with the `Update-AzRmStorageShare` cm
 $resourceGroupName = "<my-resource-group>"
 $storageAccountName = "<my-storage-account-name>"
 $shareName = "<name-of-the-file-share>"
-
 # The provisioning desired on the file share. Delete the parameters if no
 # change is desired.
 $provisionedStorageGib = 10240
 $provisionedIops = 10000
 $provisionedThroughputMibPerSec = 2048
-
 # Update the file share provisioning.
 Update-AzRmStorageShare `
         -ResourceGroupName $resourceGroupName `
@@ -94,7 +90,6 @@ Update-AzRmStorageShare `
         -QuotaGiB $provisionedStorageGib `
         -ProvisionedIops $provisionedIops `
         -ProvisionedBandwidthMibps $provisionedThroughputMibPerSec
-
 $f = Get-AzRmStorageShare -ResourceGroupName $resourceGroupName -AccountName $storageAccountName -ShareName $shareName
 $f | fl
 ```
@@ -131,8 +126,6 @@ az storage share-rm update \
 
 After creating your provisioned v1 file share, you can change the provisioned storage size of the file share. Changing the provisioned storage of the share will also change the amount of provisioned IOPS and provisioned throughput. You can only decrease the provisioned storage after 24 hours have elapsed since your last storage increase. Storage, IOPS, and throughput changes are effective within a few minutes after a provisioning change. For more information, see [provisioned v1 provisioning detail](./understanding-billing.md#provisioned-v1-provisioning-detail).
 
-
-
 # [Portal](#tab/azure-portal)
 
 Follow these instructions to update the provisioning for your file share.
@@ -163,41 +156,33 @@ You can modify a provisioned v1 file share with the `Update-AzRmStorageShare` cm
 $resourceGroupName = "<resource-group>"
 $storageAccountName = "<storage-account>"
 $fileShareName = "<file-share>"
-
 # The provisioning desired on the file share. Set to $null to keep at the
 # current level of provisioning.
 $provisionedStorageGib = 10240
-
 # Paid bursting settings.
 $paidBurstingEnabled = $null # Set to $true or $false.
 $paidBurstingMaxIops = $null # Set to an integer value.
 $paidBurstingMaxThroughputMibPerSec = $null # Set to an integer value.
-
 # Configure parameter object for splatting.
 $params = @{
     ResourceGroupName = $resourceGroupName;
     StorageAccountName = $storageAccountName;
     Name = $fileShareName;
 }
-
 if ($null -ne $provisionedStorageGib) {
     $params += @{ QuotaGiB = $provisionedStorageGib }
 }
-
 if ($null -ne $paidBurstingEnabled) {
     $params += @{ PaidBurstingEnabled = $paidBurstingEnabled }
 }
-
 if ($null -ne $paidBurstingMaxIops) {
     $params += @{ PaidBurstingMaxIops = $paidBurstingMaxIops }
 }
-
 if ($null -ne $paidBurstingMaxThroughputMibPerSec) {
     $params += @{
         PaidBurstingMaxBandwidthMibps = $paidBurstingMaxThroughputMibPerSec
     }
 }
-
 # Update the file share provisioning.
 Update-AzRmStorageShare @params
 ```
@@ -249,7 +234,7 @@ After you've created your pay-as-you-go file share, there are two properties you
 
 # [Portal](#tab/azure-portal)
 
-Follow these instructions to update the access tier of your file share.
+Follow these instructions to update the access tier of your file share using the Azure portal.
 
 1. Go to your storage account. From the service menu, under **Data storage**, select **File shares**.
 
@@ -282,21 +267,17 @@ You can modify the access tier and quota settings of a pay-as-you-go file share 
 $resourceGroupName = "<resource-group>"
 $storageAccountName = "<storage-account>"
 $fileShareName = "<file-share>"
-
 # The settings to be changed on the file share. Set to $null to skip setting.
 $accessTier = "Cool"
 $quotaGib = $null
-
 # Construct a parameters hash table for cmdlet splatting.
 $updateParams = @{
     ResourceGroupName = $resourceGroupName
     StorageAccountName = $storageAccountName
     Name = $fileShareName
 }
-
 if ($null -ne $accessTier) { $updateParams += @{ AccessTier = $accessTier } }
 if ($null -ne $quotaGib) { $updateParams += @{ QuotaGiB = $quotaGib } }
-
 # Update the file share
 Update-AzRmStorageShare @updateParams
 ```
@@ -335,48 +316,47 @@ $command
 
 ## Change the cost and performance characteristics of a file share (Microsoft.FileShares)
 
-Follow these instructions in the portal to change the size and performance of a file share (Microsoft.FileShares) using the Azure portal. The amount of storage, IOPS, and throughput you provision can be dynamically scaled up or down as your needs change. However, you can only decrease a provisioned quantity after 24 hours have elapsed since your last quantity increase. Storage, IOPS, and throughput changes are effective within a few minutes after a provisioning change.
+Follow these instructions to change the size and performance of a file share (Microsoft.FileShares) using the Azure portal. The amount of storage, IOPS, and throughput you provision can be dynamically scaled up or down as your needs change. However, you can only decrease a provisioned quantity after 24 hours have elapsed since your last quantity increase. Storage, IOPS, and throughput changes are effective within a few minutes after a provisioning change.
 
-1. Select the file share you desire to modify.
-2. Select settings from the context menu.
-3. Choose Size + performance
+1. Select the file share you want to modify.
+2. From the context menu, select **Settings**.
+3. Choose **Size + performance**.
 
-   ![image on choosing size and performance for mfs](./media/storage-how-to-create-file-share/mfs-change-performance-1.png)
+   ![image on choosing size and performance for a file share created with Microsoft.FileShares](./media/storage-how-to-create-file-share/mfs-change-performance-1.png)
 
-4. The Size and performance pop out dialog has the following options:
-   Provisioned capcity (GiB): The amount of storage provisioned on the share.
+4. The **Size and performance** dialog has the following options:
 
-- **Provisioned capacity (GiB)**: The amount of storage provisioned on the share.
+   - **Provisioned capacity (GiB)**: The amount of storage provisioned on the share.
 
-  - **Provisioned IOPS and throughput**: A radio button group that lets you select between _Recommended provisioning_ and _Manually specify IOPS and throughput_. If your share is at the recommended IOPS and throughput level for the amount of storage provisioned, _Recommended provisioning_ will be selected; otherwise, _Manually specify IOPS and throughput_ will be selected. You can toggle between these two options depending on your desire to change share provisioning.
+   - **Provisioned IOPS and throughput**: A radio button group that lets you select between _Recommended provisioning_ and _Manually specify IOPS and throughput_. If your share is at the recommended IOPS and throughput level for the amount of storage provisioned, _Recommended provisioning_ will be selected; otherwise, _Manually specify IOPS and throughput_ will be selected. You can toggle between these two options to change share provisioning.
 
     - **IOPS**: If you select _Manually specify IOPS and throughput_, this textbox enables you to change the amount of IOPS provisioned on this file share.
 
-    - **Throughput (MiB/sec)**: If you select _Manually specify IOPS and throughput_, this textbox enables you to change the amount of throughput provisioned on this file share.
+    - **Throughput (MiB/sec)**: If you select _Manually specify IOPS and throughput_, this textbox enables you to change the amount of throughput provisioned on the file share.
 
-    ![image on saving new size for mfs](./media/storage-how-to-create-file-share/mfs-change-performance-2.png)
+    ![image on saving new size for a file share created with Microsoft.FileShares](./media/storage-how-to-create-file-share/mfs-change-performance-2.png)
 
-5. Select **Save** to save provisioning changes. Storage, IOPS, and throughput changes are effective within a few minutes after a provisioning change.
+5. Select **Save**. Storage, IOPS, and throughput changes are effective within a few minutes after a provisioning change.
 
 ---
 
 ## Delete a classic file share
 
-Depending on your workflow, you might wish to delete unused or outdated file shares. You can use the following instructions to delete file shares. File shares in storage accounts with [soft delete enabled](storage-files-prevent-file-share-deletion.md) can be recovered within the retention period.
+Depending on your workflow, you might want to delete unused or outdated file shares. File shares in storage accounts with [soft delete enabled](storage-files-prevent-file-share-deletion.md) can be recovered within the retention period.
 
 # [Portal](#tab/azure-portal)
 
-Follow these instructions to delete a classic file share.
+Follow these instructions to delete a classic file share using the Azure portal.
 
 1. Go to your storage account. From the service menu, under **Data storage**, select **File shares**.
 
-2. In the file share list, select the **...** for the file share you desire to delete.
+2. In the file share list, select the **...** for the file share you want to delete.
 
 3. Select **Delete share** from the context menu.
 
 4. The **Delete** pop-out contains a survey about why you're deleting the file share. You can skip this, but we appreciate any feedback you have on Azure Files, particularly if something isn't working properly for you.
 
-5. Enter the file share name to confirm deletion and select **Delete**.
+5. Enter the file share name to confirm deletion and then select **Delete**.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -387,7 +367,6 @@ You can delete a file share using the `Remove-AzRmStorageShare` cmdlet. Remember
 $resourceGroupName = "<resource-group>"
 $storageAccountName = "<storage-account>"
 $fileShareName = "<file-share>"
-
 # Remove the file share
 Remove-AzRmStorageShare `
         -ResourceGroupName $resourceGroupName `
@@ -414,14 +393,17 @@ az storage share-rm delete \
 
 ## Delete a file share (Microsoft.FileShares)
 
-1. Go to your file share (Microsoft.FileShares).
+1. Go to your file share.
 
-2. Select Delete from the context menu.
+2. Select **Delete** from the context menu.
 
-    ![Delete imgae](./media/storage-how-to-create-file-share/delete-mfs.png)
+    ![Delete image](./media/storage-how-to-create-file-share/delete-mfs.png)
 
-3. The Delete pop-out contains a survey about why you're deleting the file share. You can skip this, but we appreciate any feedback you have on Azure Files, particularly if something isn't working properly for you.
+3. The **Delete** pop-out contains a survey about why you're deleting the file share. You can skip this, but we appreciate any feedback you have on Azure Files, particularly if something isn't working properly for you.
 
-4. Enter the file share name to confirm deletion and select Delete.
+4. Enter the file share name to confirm deletion and then select **Delete**.
 
----
+## Next steps
+
+- Learn [more about Azure Files](storage-files-introduction.md)
+- Learn how to [plan for an Azure Files deployment](storage-files-planning.md)
