@@ -5,12 +5,11 @@ description: Find out about reliability and high availability in Azure Database 
 author: gkasar
 ms.author: gkasar
 ms.reviewer: maghan, gbowerman
-ms.date: 01/10/2025
+ms.date: 08/22/2025
 ms.service: azure-database-postgresql
 ms.topic: conceptual
 ms.custom:
   - subject-reliability
-  - ignite-2023
 ---
 
 <!--#Customer intent:  I want to understand reliability support in Azure Database for PostgreSQL - Flexible Server so that I can respond to and/or avoid failures in order to minimize downtime and data loss. -->
@@ -105,7 +104,10 @@ For a detailed guide on configuring and interpreting HA health statuses, refer t
 
 - Planned events such as scale computing and scale storage happens on the standby first and then on the primary server. Currently, the server doesn't failover for these planned operations.
 
-- If logical decoding or logical replication is configured with an availability-configured Flexible Server, in the event of a failover to the standby server, the logical replication slots aren't copied over to the standby server. To maintain logical replication slots and ensure data consistency after a failover, it is recommended to use the PG Failover Slots extension. For more information on how to enable this extension, please refer to the [documentation](/azure/postgresql/flexible-server/concepts-extensions#pg_failover_slots-preview).
+- If logical decoding or logical replication is configured on an HA-enabled Flexible Server, note that in PostgreSQL 16 and below, logical replication slots are not preserved on the standby server after a failover by default.
+    - To ensure logical replication continues to function after failover, it is required to enable the `pg_failover_slots` extension and configure supporting settings such as `hot_standby_feedback = on`.
+    - Starting with **PostgreSQL 17**, slot synchronization is supported natively. If the correct PostgreSQL configurations (`sync_replication_slots`, `hot_standby_feedback`) are enabled, logical replication slots will be preserved automatically after failover, and no extension is required.
+    - For setup steps and prerequisites, please refer to the [PG_Failover_Slots extension](/azure/postgresql/flexible-server/concepts-extensions#pg_failover_slots-preview) documentation.
 
 - Configuring availability zones between private (VNET) and public access with private endpoints isn't supported. You must configure availability zones within a VNET (spanned across availability zones within a region) or public access with private endpoints.
 

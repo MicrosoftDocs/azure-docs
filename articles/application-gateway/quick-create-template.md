@@ -47,6 +47,9 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 > [!TIP]
 > You can modify values of the `Name` and `Tier` parameters under `resource\applicationGateWay\properties\sku` to use a different SKU. For example: `Basic`. For information about deploying custom templates, see [Create and deploy ARM templates](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
+> [!NOTE]
+> In regions that support availability zones, if you don't specify zones during creation via CLI, PowerShell, ARM/Bicep, or the REST API—Azure Application Gateway automatically enables zone redundancy, distributing instances across multiple availability zones for enhanced resiliency
+
 Multiple Azure resources are defined in the template:
 
 - [**Microsoft.Network/applicationgateways**](/azure/templates/microsoft.network/applicationgateways)
