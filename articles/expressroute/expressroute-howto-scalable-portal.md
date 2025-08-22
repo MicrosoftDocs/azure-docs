@@ -38,7 +38,7 @@ This article walks you through configuring a scalable ExpressRoute gateway in Az
 
 3. Select **Review + Create**, then **Create** to start the deployment. Validation occurs, and the gateway creation process may take up to 45 minutes.
 
-:::image type="content" source="media/expressroute-howto-scalablegw/create-gw.png" alt-text="Screenshot of the create page in Azure portal with Scalable Gateway." :::
+:::image type="content" source="media/expressroute-howto-scalablegw/create-scale.png" alt-text="Screenshot of the create page in Azure portal with Scalable Gateway." :::
 
 ## Update the gateway SKU to Scalable Gateway after migration
 
