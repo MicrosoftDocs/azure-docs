@@ -417,7 +417,6 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
         "fmt"
         "log"
         "net/http"
-        "os"
         "strings"
 
         "github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
