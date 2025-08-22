@@ -42,7 +42,7 @@ Capacity Unit is the measure of capacity utilization for an Application Gateway 
 
 A single Capacity Unit consists of the following parameters:
 * 2,500 Persistent connections
-* 2.22-Mbps throughput
+* 1 GB per hour (2.22-Mbps) throughput
 * 1 Compute Unit
 
 The parameter with the highest utilization among these three parameters is used to calculate capacity units for billing purposes.
@@ -54,16 +54,13 @@ You can also pre-provision resources by specifying the **Instance Count**. Each 
 
 Manually defined scale and limits set for autoscaling (minimum or maximum) are set in terms of instance count. The manually set scale for instance count and the minimum instance count in autoscale config reserves 10 capacity units/instance. These reserved capacity units are billed as long as the application gateway is active regardless of the actual resource consumption. If actual consumption crosses the 10 capacity units/instance threshold, additional capacity units are billed under the variable component.
 
-> [!NOTE]
-> An **Instance** is a physical deployment unit of Application Gateway. Users aren't billed directly for the number of instances, but rather for the capacity units reserved or consumed by the instances. 
-
 #### Total capacity units
 
 Total capacity units are calculated based on the higher of the capacity units by utilization or by instance count.
 
 ### Compute unit
 
-**Compute Unit** is the measure of compute capacity consumed. Factors affecting compute unit consumption are TLS connections/second, URL Rewrite computations, and WAF rule processing. The number of requests a compute unit can handle depends on various criteria like TLS certificate key size, key exchange algorithm, header rewrites, and in case of WAF: incoming request size.
+**Compute units** are an entirely different concept from capacity units. Compute units are a measure of compute capacity consumed, while capacity units are a measure of capacity utilization across multiple parameters. Compute units are one of three parameters used to calculate capacity units. Factors affecting compute unit consumption are TLS connections/second, URL Rewrite computations, and WAF rule processing. The number of requests a compute unit can handle depends on various criteria like TLS certificate key size, key exchange algorithm, header rewrites, and in case of WAF: incoming request size.
 
 Compute unit guidance:
 * Basic_v2 (preview) - Each compute unit is capable of approximately 10 connections per second with RSA 2048-bit key TLS certificate.
@@ -71,9 +68,6 @@ Compute unit guidance:
 * WAF_v2 - Each compute unit can support approximately 10 concurrent requests per second for 70-30% mix of traffic with 70% requests less than 2 KB GET/POST and remaining higher. WAF performance isn't affected by response size currently.
 
 The following table shows example prices using Application Gateway Standard v2 SKU. These prices are based on a snapshot of East US pricing and are for illustration purposes only.
-
-> [!NOTE]
-> Compute units are an entirely different concept from capacity units. Compute units are a measure of compute capacity consumed, while capacity units are a measure of capacity utilization across multiple parameters. Compute units are one of three parameters used to calculate capacity units.
 
 ### How much traffic can an instance handle?
 

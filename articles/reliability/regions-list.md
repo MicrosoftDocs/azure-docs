@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.service: azure
 ms.subservice: azure-reliability
 ms.topic: conceptual
-ms.date: 04/15/2025
+ms.date: 07/31/2025
 ms.author: anaharris
 ms.custom: references_regions, subject-reliability
 ---
@@ -28,12 +28,13 @@ Azure provides the most extensive global footprint of any cloud provider and is 
  
 | Region | Availability zone support | Paired region | Physical location | Geography |
 |--------|----------------------------|---------------|-------------------|-----------|
-|  Australia Central | | Australia Central 2 | Canberra | Australia |
+| Australia Central | | :::image type="content" source="media/icon-region-restricted.svg" alt-text="Icon that shows that this region is access restricted to support specific customer scenarios, such as in-country/region disaster recovery" border="false"::: Australia Central 2 | Canberra | Australia |
 | :::image type="content" source="media/icon-region-restricted.svg" alt-text="Icon that shows that this region is access restricted to support specific customer scenarios, such as in-country/region disaster recovery" border="false"::: Australia Central 2 | | Australia Central | Canberra | Australia |
 | Australia East | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | Australia Southeast | New South Wales | Australia |
 | Australia Southeast | | Australia East | Victoria | Australia |
 | Austria East | :::image alt-text="Yes" type="content" source="media/icon-checkmark.svg" border="false"::: | n/a | Vienna | Austria |
-| Brazil South | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | South Central US | Sao Paulo State | Brazil |
+|:::image type="content" source="media/icon-region-coming-soon.svg"  alt-text="Icon that shows that this region is coming soon."  border="false"::: Austria East | :::image alt-text="Yes" type="content" source="media/icon-checkmark.svg" border="false"::: | n/a | Vienna| Austria |
+| Brazil South | :::image alt-text="Yes" type="content" source="media/icon-checkmark.svg" border="false"::: | South Central US | Sao Paulo State | Brazil |
 | :::image type="content" source="media/icon-region-restricted.svg" alt-text="Icon that shows that this region is access restricted to support specific customer scenarios, such as in-country/region disaster recovery" border="false"::: Brazil Southeast | | Brazil South | Rio | Brazil |
 | Canada Central | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | Canada East | Toronto | Canada |
 | Canada East | | Canada Central | Quebec | Canada |
@@ -52,8 +53,8 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 | Italy North | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | n/a | Milan | Italy |
 | Japan East | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | Japan West | Tokyo, Saitama | Japan |
 | Japan West | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | Japan East | Osaka | Japan |
-| Korea Central | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | :::image type="content" source="media/icon-region-restricted.svg" alt-text="Icon that shows that this region is access restricted to support specific customer scenarios, such as in-country disaster recovery" border="false"::: Korea South | Seoul | Korea |
-| :::image type="content" source="media/icon-region-restricted.svg" alt-text="Icon that shows that this region is access restricted to support specific customer scenarios, such as in-country disaster recovery" border="false"::: Korea South | | Korea Central | Busan | Korea |
+| Korea Central | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | Korea South | Seoul | Korea |
+| Korea South | | Korea Central | Busan | Korea |
 | Malaysia West | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | n/a | n/a | Malaysia |
 | Mexico Central | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | n/a | Querétaro State | Mexico |
 | New Zealand North | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | n/a | Auckland | New Zealand |
@@ -93,6 +94,6 @@ To retrieve a list of regions names directly, including the names that can be us
 
 ## Related content
 
-- [What are Azure regions](regions-overview.md)
+- [What are Azure regions?](regions-overview.md)
 - [Azure region pairs and nonpaired regions](regions-paired.md)
 - [Microsoft commitment to expand Azure availability zones to more regions](https://azure.microsoft.com/blog/our-commitment-to-expand-azure-availability-zones-to-more-regions/)
