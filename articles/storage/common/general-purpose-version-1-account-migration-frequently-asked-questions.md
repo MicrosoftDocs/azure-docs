@@ -21,7 +21,7 @@ This FAQ addresses common questions about upgrading from General-purpose v1 (GPv
 
 > [!IMPORTANT]
 > Microsoft will retire GPv1 storage accounts on **September 1, 2026**. All GPv1 accounts must be upgraded to GPv2 before this date to avoid service disruption.  
-> See: storage-account-upgrade.md · general-purpose-version-1-account-migration-overview.md
+> See:[storage-account-upgrade](storage-account-upgrade.md) and [general-purpose-version-1-account-migration-overview.md](general-purpose-version-1-account-migration-overview.md) for more information.
 
 A GPv1 account is the original **general-purpose** Azure Storage account type. It supports all four core storage services (**Blobs**, **Files**, **Queues**, **Tables**) and the classic redundancy SKUs (**LRS**, **GRS**, **RA-GRS**). It predates Blob tiering and many newer management features.
 

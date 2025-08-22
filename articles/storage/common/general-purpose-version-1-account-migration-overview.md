@@ -57,7 +57,7 @@ The retirement takes effect globally across all Azure regions.
 
 ### Model your costs before upgrading
 >[!TIP]
->If your workload is **write or list heavy**, reduce transaction counts by batching operations, writing larger blocks, and scoping list operations. GPv2 also provides better tools for optimizing costs, but allowing the tiering of data. Ensure cold data isn't left in the hot tier.
+>If your workload is **read, write or list heavy**, reduce transaction counts by batching operations, writing larger blocks, and scoping list operations. GPv2 also provides better tools for optimizing costs, but allowing the tiering of data. Ensure cold data isn't left in the hot tier.
 
 1. Capture a baseline of monthly operations by type (**read, write, list/metadata**) and any **egress**.
 1. Use the [Azure Pricing Page](https://azure.microsoft.com/pricing/details/storage/blobs/) page to compare **per-GB** and **per-operation** rates for your region, redundancy (LRS/ZRS/GRS/GZRS), and intended access tier (hot/cool/cold/archive).
@@ -86,7 +86,7 @@ To minimize risk and ensure a smooth migration:
 - **Validate behavior**: Confirm that workloads continue functioning and that billing reflects expected changes post-upgrade.
 - **Monitor usage**: After migration, keep an eye on your storage account metrics to identify any unexpected changes in usage patterns or costs.
 
-## Azure Resource Graph - Example Query 
+### Azure Resource Graph - Example Query 
 
 Azure Resource Graph is a powerful tool that allows you to explore and query your Azure resources at scale. You can use it to identify all GPv1 storage accounts in your environment and assess their configurations. This can help you plan your migration to GPv2 more effectively.
 
