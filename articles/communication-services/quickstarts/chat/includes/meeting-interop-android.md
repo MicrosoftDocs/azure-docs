@@ -220,7 +220,7 @@ To the `MainActivity` class, add the following variables:
     private String threadId;
     private ChatThreadAsyncClient chatThreadAsyncClient;
     
-    // The list of ids corresponsding to messages which have already been processed
+    // The list of ids corresponding to messages which have already been processed
     ArrayList<String> chatMessages = new ArrayList<>();
 ```
 

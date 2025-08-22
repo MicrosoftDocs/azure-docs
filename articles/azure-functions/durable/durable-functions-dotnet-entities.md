@@ -122,12 +122,12 @@ public class Counter : TaskEntity<int>
         this.logger = logger; 
     }
 
-    public int Add(int amount) 
+    public void Add(int amount) 
     {
         this.State += amount;
     }
 
-    public Reset() 
+    public Task Reset() 
     {
         this.State = 0;
         return Task.CompletedTask;

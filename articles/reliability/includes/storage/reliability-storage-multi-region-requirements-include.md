@@ -1,6 +1,6 @@
 ---
- title: include file
- description: include file
+ title: Description of Azure Storage geo-redundant storage region support
+ description: Description of Azure Storage geo-redundant storage region support
  author: anaharris-ms
  ms.service: azure
  ms.topic: include
@@ -9,4 +9,4 @@
  ms.custom: include file
 ---
 
-Geo-redundant storage, as well as customer initiated failover and failback are available in all [Azure paired regions](../../regions-paired.md) that support general-purpose v2 storage accounts.
+Geo-redundant storage (GRS) and customer-initiated failover and failback are available in all [Azure paired regions](../../regions-paired.md) that support general-purpose v2 Azure Storage accounts.

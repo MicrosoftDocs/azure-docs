@@ -6,6 +6,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.date: 02/26/2025
 ms.topic: overview
+# Customer intent: As a cloud administrator, I want to understand the unsupported workloads for Azure Update Manager so that I can ensure proper update management for my systems and use recommended alternatives for those workloads.
 ---
 
 # Unsupported workloads for Azure Update Manager

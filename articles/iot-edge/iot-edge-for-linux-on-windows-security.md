@@ -1,8 +1,8 @@
 ---
 title: Azure IoT Edge for Linux on Windows security
 description: Overview of the Azure IoT Edge for Linux on Windows security framework and the different security premises that are enabled by default or optional. 
-author: PatAltimore
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.date: 06/06/2025
 ms.topic: concept-article
 ms.service: azure-iot-edge
@@ -18,7 +18,7 @@ Azure IoT Edge for Linux on Windows uses all the security features of a Windows 
 
 ## Virtual machine security
 
-The IoT Edge for Linux (EFLOW) curated virtual machine is based on [Microsoft CBL-Mariner](https://github.com/microsoft/CBL-Mariner). CBL-Mariner is an internal Linux distribution for Microsoft's cloud infrastructure, edge products, and services. CBL-Mariner provides a consistent platform for these devices and services, and it helps Microsoft stay current on Linux updates. For more information, see [CBL-Mariner security](https://github.com/microsoft/CBL-Mariner/blob/1.0/SECURITY.md). 
+The IoT Edge for Linux (EFLOW) curated virtual machine is based on [Microsoft Azure Linux](https://github.com/microsoft/CBL-Mariner). Azure Linux is an internal Linux distribution for Microsoft's cloud infrastructure, edge products, and services. Azure Linux provides a consistent platform for these devices and services, and it helps Microsoft stay current on Linux updates. For more information, see [Azure Linux security](https://github.com/microsoft/CBL-Mariner/blob/1.0/SECURITY.md). 
 
 The EFLOW virtual machine uses a four-point comprehensive security platform:
 1. Servicing updates
@@ -27,7 +27,7 @@ The EFLOW virtual machine uses a four-point comprehensive security platform:
 1. DM-Verity
 
 ### Servicing updates
-When security vulnerabilities arise, CBL-Mariner provides the latest security patches and fixes through EFLOW monthly updates. The virtual machine doesn't have a package manager, so you can't manually download or install RPM packages. EFLOW installs all updates to the virtual machine using the A/B update mechanism. For more information on EFLOW updates, see [Update IoT Edge for Linux on Windows](./iot-edge-for-linux-on-windows-updates.md).
+When security vulnerabilities arise, Azure Linux provides the latest security patches and fixes through EFLOW monthly updates. The virtual machine doesn't have a package manager, so you can't manually download or install RPM packages. EFLOW installs all updates to the virtual machine using the A/B update mechanism. For more information on EFLOW updates, see [Update IoT Edge for Linux on Windows](./iot-edge-for-linux-on-windows-updates.md).
 
 ### Read-only root filesystem
 The EFLOW virtual machine has two main partitions: *rootfs* and *data*. The rootFS-A or rootFS-B partitions are interchangeable, and one is mounted as a read-only filesystem at `/`, so you can't change files in this partition. The *data* partition, mounted under `/var`, is readable and writable, so you can change its content. The update process doesn't change the data stored in this partition, so it isn't modified across updates.

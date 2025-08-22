@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: overview
-ms.custom: mvc
+ms.custom: mvc, portfolio-consolidation-2025
 ms.date: 09/27/2023
 ms.author: mbender
 #Customer intent: As an IT administrator, I want to learn about Azure Application Gateways and what I can use them for.
@@ -29,7 +29,7 @@ This type of routing is known as application layer (OSI layer 7) load balancing.
 > * To do transport layer load balancing, review [Load Balancer](../load-balancer/load-balancer-overview.md). 
 > 
 > Your end-to-end scenarios may benefit from combining these solutions as needed.
-> For an Azure load-balancing options comparison, see [Overview of load-balancing options in Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
+> For an overview of the load balancing and content delivery services in Azure, see [Load Balancing and Content Delivery](../networking/load-balancer-content-delivery/load-balancing-content-delivery-overview.md).
 
 
 ## Features

@@ -8,6 +8,7 @@ ms.date: 2/15/2023
 ms.author: kianaharris
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
+# Customer intent: As a cloud architect, I want to create an Azure HPC Cache instance using the Azure portal or CLI, so that I can optimize file service performance for high-performance computing workloads.
 ---
 
 # Create an Azure HPC Cache

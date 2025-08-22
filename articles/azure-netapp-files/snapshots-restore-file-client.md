@@ -1,13 +1,14 @@
 ---
-title: Restore a file from a snapshot using a client with Azure NetApp Files | Microsoft Docs
+title: Restore a file from a snapshot using a client with Azure NetApp Files 
 description: Describes how to restore a file from a snapshot using a client with the volume mounted using Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 03/16/2024
+ms.date: 06/16/2025
 ms.author: anfdocs
+# Customer intent: As a data administrator, I want to restore individual files from snapshots using mounted clients, so that I can recover mistakenly deleted or overwritten files without restoring entire volumes.
 ---
 
 # Restore a file from a snapshot using a client with Azure NetApp Files

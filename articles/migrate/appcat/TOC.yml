@@ -1,23 +1,39 @@
 items:
-- name: Azure Migrate application and code assessment
-  href: index.yml
-- name: Overview
-  expanded: true
-  items: 
+  - name: Azure Migrate application and code assessment
+    href: index.yml
   - name: Overview
     href: overview.md
   - name: Assess Java applications and code
-    href: java.md
-  - name: Assess Java applications and code version 7 (Preview)
-    href: java-preview.md
+    expanded: true
+    items:
+      - name: Assess Java applications and code version 7
+        expanded: true
+        items:
+          - name: Overview
+            href: java.md
+          - name: Release notes
+            href: appcat-7-release-notes.md
+          - name: "Quickstart: Assess a Java project"
+            href: appcat-7-quickstart.md
+          - name: Interpret the report
+            href: appcat-7-interpret-report.md
+          - name: CLI guide
+            href: appcat-7-cli-guide.md
+          - name: Rule development guide
+            href: appcat-7-rule-guide.md
+      - name: Assess Java applications and code version 6 (not recommended)
+        expanded: true
+        items:
+          - name: Assess Java applications and code
+            href: java-6.md
+          - name: CLI usage guide
+            href: https://azure.github.io/appcat-docs/cli/
+          - name: Rules development guide
+            href: https://azure.github.io/appcat-docs/rules-development-guide/
   - name: Assess .NET applications and code
     href: dotnet.md
-- name: Resources
-  expanded: true
-  items:
-  - name: FAQ
-    href: faq.yml
-  - name: CLI usage guide
-    href: https://azure.github.io/appcat-docs/cli/
-  - name: Rules development guide
-    href: https://azure.github.io/appcat-docs/rules-development-guide/
+  - name: Resources
+    expanded: true
+    items:
+      - name: FAQ
+        href: faq.yml

@@ -1,8 +1,7 @@
 ---
 title: Azure Managed Redis Architecture
 description: Learn how Azure Managed Redis is architected
-ms.date: 05/18/2025
-ms.service: azure-managed-redis
+ms.date: 08/18/2025
 ms.topic: conceptual
 ms.custom:
   - ignite-2024
@@ -45,7 +44,7 @@ Each Azure Managed Redis instance is internally configured to use clustering, ac
 
 Azure Managed Redis offers three clustering policies: _OSS_, _Enterprise_, and Non-Clustered (preview). _OSS_ cluster policy is recommended for most applications because it supports higher maximum throughput, but there are advantages and disadvantages to each version.
 
-The **OSS clustering policy** implements the same [Redis Cluster API](https://redis.io/docs/reference/cluster-spec/) as Azure Cache for Redis tiers. The Redis Cluster API allows the Redis client to connect directly to shards on each Redis node, minimizing latency and optimizing network throughput, allowing throughput to scale near-linearly as the number of shards and vCPUs increases. The OSS clustering policy generally provides the best latency and throughput performance. The OSS cluster policy, however, requires your client library to support the Redis Cluster API. Today, almost all Redis clients support the Redis Cluster API, but compatibility might be an issue for older client versions or specialized libraries.
+The **OSS clustering policy** implements the same [Redis Cluster API](https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/) as Azure Cache for Redis tiers. The Redis Cluster API allows the Redis client to connect directly to shards on each Redis node, minimizing latency and optimizing network throughput, allowing throughput to scale near-linearly as the number of shards and vCPUs increases. The OSS clustering policy generally provides the best latency and throughput performance. The OSS cluster policy, however, requires your client library to support the Redis Cluster API. Today, almost all Redis clients support the Redis Cluster API, but compatibility might be an issue for older client versions or specialized libraries.
 
 OSS clustering policy can't be used with the [RediSearch module](redis-modules.md).
 

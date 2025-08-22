@@ -1,9 +1,9 @@
 ---
-title: 'Tutorial: Add audio effects suppression ability to your Windows apps'
-titleSuffix: An Azure Communication Services tutorial on how to enable audio effects
-description: Learn how to add audio effects in your calls by using Azure Communication Services.
+title: Enable audio noise suppression improvements
+titleSuffix: An Azure Communication Services article
+description: This article describes how to add audio effects in your calls using Azure Communication Services.
 author: t-leejiyoon
-ms.date: 07/28/2023
+ms.date: 06/27/2025
 ms.author: t-leejiyoon
 services: azure-communication-services
 ms.topic: include

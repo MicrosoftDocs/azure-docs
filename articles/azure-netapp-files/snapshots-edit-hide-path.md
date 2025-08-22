@@ -1,19 +1,20 @@
 ---
-title: Edit the Hide snapshot path option of Azure NetApp Files | Microsoft Docs
+title: Edit the Hide snapshot path option of Azure NetApp Files
 description: Describes how to control the visibility of a snapshot volume with Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 03/16/2024
+ms.date: 07/16/2025
 ms.author: anfdocs
+# Customer intent: "As a cloud administrator, I want to modify the visibility setting of snapshot paths for Azure NetApp Files volumes, so that I can manage access and ensure data security according to my organization's requirements."
 ---
 
 # Edit the Hide snapshot path option of Azure NetApp Files
 The Hide snapshot path option controls whether the snapshot path of a volume is visible. During the creation of an [NFS](azure-netapp-files-create-volumes.md#create-an-nfs-volume) or [SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) volume, you can specify whether the snapshot path should be hidden. After creating the volume, you can edit the Hide snapshot path option as needed.  
 
 > [!NOTE]
-> For a [destination volume](cross-region-replication-create-peering.md#create-the-data-replication-volume-the-destination-volume) in cross-region replication, the Hide snapshot path option is enabled by default. The setting isn't modifiable. 
+> For a [destination volume](cross-region-replication-create-peering.md#create-the-data-replication-volume-the-destination-volume) in cross-region replication, the Hide snapshot path option is disabled by default. The setting isn't modifiable. 
 
 ## Steps
 

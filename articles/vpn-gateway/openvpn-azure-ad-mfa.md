@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 01/17/2025
 ms.author: cherylmc
 
+# Customer intent: As a network administrator, I want to enable multifactor authentication for VPN users so that I can enhance security and protect sensitive data accessed through the VPN.
 ---
 # Enable Microsoft Entra ID multifactor authentication (MFA) for P2S VPN users
 

@@ -9,6 +9,7 @@ ms.collection: ce-skilling-ai-copilot
 ms.custom:
 ms.topic: reference
 ms.date: 12/13/2024
+ms.update-cycle: 180-days
 ms.author: danlep
 ---
 
@@ -44,7 +45,7 @@ The `llm-semantic-cache-store` policy caches responses to chat completion API re
 
 - [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) outbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ### Usage notes
 

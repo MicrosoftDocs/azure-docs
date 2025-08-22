@@ -8,7 +8,8 @@ ms.topic: concept-article
 ms.date: 06/12/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
-ms.custom: subject-cost-optimization
+ms.custom: subject-cost-optimization, copilot-scenario-highlight
+# Customer intent: As a cost manager, I want to analyze and manage Azure Blob Storage costs, so that I can optimize our cloud spending and avoid unexpected charges.
 ---
 
 # Plan and manage costs for Azure Blob Storage
@@ -171,6 +172,9 @@ If you've been using Blob Storage for some time, you should periodically review 
 - [Tutorial: Analyze blob inventory reports](../blobs/storage-blob-inventory-report-analytics.md)
 - [Tutorial: Calculate container statistics by using Databricks](../blobs/storage-blob-calculate-container-statistics-databricks.md)
 - [Calculate blob count and total size per container using Azure Storage inventory](../blobs/calculate-blob-count-size.yml)
+
+> [!TIP]
+> You can use Microsoft Copilot in Azure to get suggestions on reducing the cost of your storage account. For more information, see [Manage and troubleshoot storage accounts using Microsoft Copilot in Azure](/azure/copilot/improve-storage-accounts#reduce-storage-costs).
 
 If you can model future capacity requirements, you can save money with Azure Storage reserved capacity. Azure Storage reserved capacity is available for most access tiers and offers you a discount on capacity for block blobs and for Azure Data Lake Storage data in standard storage accounts when you commit to a reservation for either one year or three years. A reservation provides a fixed amount of storage capacity for the term of the reservation. Azure Storage reserved capacity can significantly reduce your capacity costs for block blobs and Azure Data Lake Storage data. To learn more, see [Optimize costs for Blob Storage with reserved capacity](../blobs/storage-blob-reserved-capacity.md).
 

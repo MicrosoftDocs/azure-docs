@@ -1,6 +1,6 @@
 ---
- title: include file
- description: include file
+ title: Description of Azure Storage availability zone cost
+ description: Description of Azure Storage availability zone cost
  author: anaharris-ms
  ms.service: azure
  ms.topic: include
@@ -9,4 +9,4 @@
  ms.custom: include file
 ---
 
-When you enable ZRS, you're charged at a different rate than locally redundant storage due to the additional replication and storage overhead.
+When you enable zone-redundant storage (ZRS), you're charged at a different rate than locally redundant storage (LRS) because of the extra replication and storage overhead.

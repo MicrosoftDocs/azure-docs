@@ -6,7 +6,9 @@ author: anaharris-ms
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-file-storage
+ai-usage: ai-assisted
 ms.date: 08/22/2025
+
 ---
 
 # Reliability in Azure Files
@@ -25,11 +27,11 @@ This article describes reliability and availability zones support in [Azure File
 
 ## Production deployment recommendations
 
-To learn about how to deploy Azure Files to support your solution's reliability requirements, and how reliability affects other aspects of your architecture, see [Architecture best practices forAzure Files](/azure/well-architected/service-guides/azure-files) in the Azure Well-Architected Framework.
+To learn about how to deploy Azure Files to support your solution's reliability requirements, and how reliability affects other aspects of your architecture, see [Architecture best practices for Azure Files](/azure/well-architected/service-guides/azure-files) in the Azure Well-Architected Framework.
 
 ## Reliability architecture overview
 
-Azure Files is available in two tiers: 
+Azure Files is available in two media tiers: 
 
 - **Premium tier** uses solid state disks (SSD) for high performance. This tier is recommended for workloads that require low latency.
 - **Standard tier** supports hard disk drives (HDD) for general purpose workloads. 
@@ -50,7 +52,7 @@ To effectively manage transient faults when using Azure Files, configure appropr
 
 [!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
 
-Azure Files provides robust availability zone support through zone-redundant storage configurations that automatically distribute your data across multiple availability zones within a region. When you configure a storage account for zone-redundant storage (ZRS), Azure synchronously replicates your file data across multiple availability zones, ensuring that your data remains accessible even if one zone experiences an outage.
+Azure Files provides robust availability zone support through zone-redundant storage configurations that automatically distribute your data across multiple availability zones within a region. Unlike LRS, ZRS guarantees that Azure synchronously replicates your file data across multiple availability zones. ZRS ensures that your data remains accessible even if one zone experiences an outage.
 
 [!INCLUDE [Storage - Availability zone support](includes/storage/reliability-storage-availability-zone-support-include.md)]
 
@@ -138,9 +140,9 @@ For detailed pricing information, see [Azure Files pricing](https://azure.micros
 
 ### Configure multi-region support
 
-- **Create a new storage account with geo-redundancy.** To create a storage account with geo-redundant configuration, see [Create a storage account](/azure/storage/common/storage-account-create) and select GRS or GZRS during account creation.
+[!INCLUDE [Storage - Multi Region create](includes/storage/reliability-storage-multi-region-configure-create.md)]
 
-- **Migration.** To convert an existing file storage account to geo-redundant storage, see [Change redundancy configuration for Azure Files](/azure/storage/files/files-change-redundancy-configuration?tabs=portal).
+- **Enable geo-redundancy on an existing file storage account.** To convert an existing file storage account to geo-redundant storage, see [Change redundancy configuration for Azure Files](/azure/storage/files/files-change-redundancy-configuration?tabs=portal).
 
   > [!WARNING]
   > After your account is reconfigured for geo-redundancy, it may take a significant amount of time before existing data in the new primary region is fully copied to the new secondary.

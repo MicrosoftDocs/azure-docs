@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 05/26/2025
+ms.date: 07/16/2025
 ms.author: duau
 ms.custom: references_regions, ai-usage
 # Customer intent: As a network architect, I want to understand the features and benefits of ExpressRoute Metro, so that I can implement high-resiliency connectivity solutions between our on-premises networks and Azure resources.
@@ -43,11 +43,15 @@ The following diagram allows for a comparison between the standard ExpressRoute 
 |--|--|--|--|--|--|
 | Amsterdam Metro | Equinix AM5<br>Digital Realty AMS8 | 1 | West Europe | &check; | Colt<br>Digital Realty<br>Equinix<br>euNetworks<br><br>Megaport<br> |
 | Atlanta Metro | Equinix AT1<br>Digital Realty ATL14 | 1 | &cross; | &check; |  Equinix |
-| Jakarta Metro | NeutraDC HDC<br>NTT GDC | 2 | Indonesia Central | &check; |  |
-| Madrid Metro | Equinix MD2<br>Digital Realty MAD1 | 1 | Spain Central | &check; | Colt<br>Equinix |
-| Milan Metro | Irideos Milan<br>Data4Italy Milan | 1 | Italy North | &check; | Equinix |
+| Chicago Metro | Equinix CH1<br>CoreSite CH1 | 1 | North Central US | &check; |  Equinix<br>Megaport<sup>1</sup> |
+| Dallas Metro | Equinix DA6 <br>Digital Realty DFW10 | 1 | &cross; | &check; | Megaport<sup>1</sup>  |
+| Jakarta Metro | NeutraDC HDC<br>NTT GDC | 2 | Indonesia Central | &check; | DCI Indonesia<sup>1</sup><br>Telin<sup>1</sup><br>XL Axiata<sup>1</sup> |
+| Madrid Metro | Equinix MD2<br>Digital Realty MAD1 | 1 | Spain Central | &check; | Colt<br>Equinix<br>Megaport<sup>1</sup> |
+| Milan Metro | Irideos Milan<br>Data4Italy Milan | 1 | Italy North | &check; | Equinix<br>Megaport<sup>1</sup> |
 | Singapore Metro | Global Switch Tai Seng<br>Equinix SG1 | 2 | Southeast Asia | &check; | Colt<br>Equinix<br>Megaport |
+| Taipei Metro | Chief Telecom<br>Chunghwa Telecom Co. Ltd | 2 | Taiwan North | &check; | |
 | Zurich Metro |  Digital Realty ZUR2<br>Equinix ZH5 | 1 | Switzerland North | &check; | Colt<br>Digital Realty |
+| Washington DC Metro | Equinix DC6<br>CoreSite VA3 | 1 | East US<br/>East US 2 | &check; |  Equinix<sup>1</sup><br>Megaport<sup>1</sup> |
 
 <sup>1<sup> These service providers will be available in the future.
 

@@ -9,6 +9,7 @@ ms.date: 02/07/2025
 ms.service: azure-migrate
 ms.custom: mvc, subject-rbac-steps, engagement-fy24, linux-related-content
 #Customer intent: As a server admin I want to discover my on-premises server inventory.
+# Customer intent: As a server administrator, I want to discover and assess my on-premises physical servers using a migration tool, so that I can efficiently plan for migration to the cloud.
 ---
 
 # Discover physical servers and servers running in AWS and GCP
@@ -61,7 +62,7 @@ For discovering Linux servers, you can set up a least privileged sudo account by
 
 **Set up Least privileged Linux user accounts** 
 
-- You need a sudo user account on the Linux servers you want to discover.
+- You need a user account that has sudo permissions to execute the below commands with `NOPASSWD` on the Linux servers you want to discover.
 - This account helps collect configuration and performance data, perform software inventory (find installed applications), and enable agentless dependency analysis using SSH.
 - Ensure that you enable `NOPASSWD` for the account so it can run the required commands without asking for a password each time it uses sudo.
 - Modify the sudoers file to disable terminal (requiretty) for the user account. 

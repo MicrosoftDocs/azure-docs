@@ -4,6 +4,7 @@ description: Learn how to update existing Batch pool properties.
 ms.topic: how-to
 ms.date: 04/02/2025
 ms.custom:
+# Customer intent: As a cloud administrator, I want to update properties of existing Batch pools, so that I can adapt to evolving workloads and maintain optimal performance without needing to recreate the pools unnecessarily.
 ---
 
 # Update Batch pool properties

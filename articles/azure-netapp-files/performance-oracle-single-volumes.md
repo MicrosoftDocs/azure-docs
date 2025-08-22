@@ -1,12 +1,13 @@
 ---
-title: Oracle database performance on Azure NetApp Files single volume | Microsoft Docs
+title: Oracle database performance on Azure NetApp Files single volume
 description: Describes performance test results of an Azure NetApp Files single volume on Oracle database.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 02/04/2024
+ms.date: 06/04/2025
 ms.author: anfdocs
+# Customer intent: "As a database administrator, I want to evaluate the performance of Oracle databases running on Azure NetApp Files, so that I can optimize storage configurations for online transaction and analytical processing workloads."
 ---
 # Oracle database performance on Azure NetApp Files single volumes
 

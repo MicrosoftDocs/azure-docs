@@ -4,7 +4,7 @@ description: Learn about the shared responsibility model for reliability on the 
 ms.service: azure
 ms.subservice: azure-reliability
 ms.topic: conceptual
-ms.date: 12/14/2024
+ms.date: 08/13/2025
 ms.author: anaharris
 author: anaharris-ms
 ms.custom: subject-reliability
@@ -14,7 +14,7 @@ ms.custom: subject-reliability
 
 In the Azure public cloud platform, reliability is a shared responsibility between Microsoft and you. Because there are different levels of reliability in each workload that you design and deploy, it's important that you understand who has primary responsibility for each one of those levels from a reliability perspective.
 
-To help you better understand how shared responsibility works, especially when confronting an outage or disaster, this article describes the shared responsibility *model* for resiliency. For more information on how to actually use this model to plan for disaster recovery, see [Recommendations for designing a disaster recovery strategy](/azure/well-architected/reliability/disaster-recovery).
+To help you better understand how shared responsibility works, especially when confronting an outage or disaster, this article describes the *shared responsibility model* for resiliency. For more information on how to actually use this model to plan for disaster recovery, see [Recommendations for designing a disaster recovery strategy](/azure/well-architected/reliability/disaster-recovery).
 
 ## Shared responsibility model for reliability
 
@@ -56,18 +56,20 @@ All Azure services benefit from these core platform reliability capabilities, an
 
 Azure provides many different resilience-enhancing capabilities. Although Microsoft is responsible for providing these capabilities, you are entirely responsible for selecting and using the appropriate ones for your needs. Some examples of these capabilities include:
 
-- **Regions.** Azure has over 60 regions, and you can use multiple regions in a single solution to achieve geo-redundancy, meet your data residency needs, and enable low-latency communication to users globally. To learn more about regions, see [What are Azure regions?](./regions-overview.md).
+- **Regions.** Azure has over 70 regions, and you can use multiple regions in a single solution to achieve geo-redundancy, meet your data residency needs, and enable low-latency communication to users globally. To learn more about regions, see [What are Azure regions?](./regions-overview.md).
 
 - **Availability zones.** Many Azure regions support availability zones, which enable you to distribute your workloads across multiple independent sets of datacenters. Azure services support availability zones in a way that suits their intended purpose, usually by supporting zonal deployments (pinned to a single zone) and/or zone-redundant deployments (spread across multiple zones). To learn more about availability zones, see [What are availability zones?](./availability-zones-overview.md).
 
-- **Service tiers.** Services provide a range of offerings and tiers that suit different requirements. For example, when you create a virtual machine, you can choose between a standard disk, which provides a low-cost option, or a premium disk to achieve a higher level of availability.
+- **Service tiers.** Services provide a range of offerings and tiers that suit different requirements. You're responsible for choosing the appropriate tier based on your reliability goals and other needs. For example, when you create a virtual machine, you can choose between a standard disk, which provides a low-cost option, or a premium disk to achieve a higher level of availability.
 
-- **Backups.** Many Azure services that store data support backups, which might be automatic, manual, or both. With backups, you can protect your workload against outages as well as data corruption and other data loss events.
+- **Backups.** Many Azure services that store data support backups, which might be automatic, manual, or both. With backups, you can protect your workload against outages as well as data corruption and other data loss events. You're responsible for verifying whether backups are enabled and for configuring them appropriately.
 
-- **Governance.** Platform capabilities like Azure Policy, role-based access control, and Microsoft Entra ID identity protection capabilities, can be configured to enforce your organization's requirements consistently. With these approaches you can protect your workloads against security incidents and accidental changes that might cause downtime or other problems with your workload.
+- **Governance.** Platform capabilities like Azure Policy, role-based access control, and Microsoft Entra ID identity protection capabilities, can be configured to enforce your organization's requirements consistently. With these approaches you can protect your workloads against security incidents and accidental changes that might cause downtime or other problems with your workload. Microsoft provides these governance tools, but you're responsible for configuring and maintaining them.
 
 > [!IMPORTANT]
-> It's important to understand the *service level agreements* (SLAs) for each Azure service. SLAs provide important information on the expected uptime of the service, and any conditions you need to meet to be eligible for the SLA. For SLAs for each service, see [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+> It's important to understand the *service level agreements* (SLAs) for each Azure service. SLAs provide important information on the expected uptime of the service, and any conditions you need to meet to be eligible for the SLA. You are responsible for understanding and meeting these conditions; Microsoft does not monitor or enforce your eligibility.
+>
+> For SLAs for each service, see [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 ### Applications
 

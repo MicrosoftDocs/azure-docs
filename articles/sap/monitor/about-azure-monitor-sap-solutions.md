@@ -9,6 +9,7 @@ ms.custom: subject-monitoring
 ms.date: 08/21/2024
 ms.author: jushiman
 #Customer intent: As a developer, I want to learn how to monitor my SAP resources on Azure so that I can better understand their availability, performance, and operation.
+# Customer intent: As an IT administrator, I want to monitor my SAP resources on Azure for availability and performance, so that I can ensure the reliability and smooth operation of critical business processes.
 ---
 
 # What is Azure Monitor for SAP solutions?

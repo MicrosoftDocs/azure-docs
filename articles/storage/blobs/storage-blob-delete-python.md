@@ -3,14 +3,15 @@ title: Delete and restore a blob with Python
 titleSuffix: Azure Storage
 description: Learn how to delete and restore a blob in your Azure Storage account using the Python client library
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.date: 08/12/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
+# Customer intent: "As a cloud developer using Python, I want to delete and restore blobs in Azure Storage, so that I can manage my data effectively and recover from accidental deletions."
 ---
 
 # Delete and restore a blob with Python

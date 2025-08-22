@@ -1,8 +1,8 @@
 ---
 title: Azure Storage samples using JavaScript and TypeScript
 description: View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the JavaScript/Node.js storage client libraries.
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.date: 02/26/2025
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
@@ -10,6 +10,7 @@ ms.topic: sample
 ms.custom: devx-track-js
 ms.devlang: javascript
 ai-usage: ai-assisted
+# Customer intent: "As a developer using JavaScript, I want to access code samples for Azure Storage operations, so that I can quickly implement features like uploading and downloading data without having to write all the code from scratch."
 ---
 
 # Azure Storage samples using JavaScript client libraries
@@ -123,3 +124,4 @@ For information on samples for other languages:
 - Python: [Azure Storage samples using Python](storage-samples-python.md)
 - C++: [Azure Storage samples using C++](storage-samples-c-plus-plus.md)
 - All other languages: [Azure Storage samples](storage-samples.md)
+

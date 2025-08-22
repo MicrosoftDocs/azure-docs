@@ -9,6 +9,7 @@ ms.date: 05/13/2025
 ms.author: phjensen
 ms.custom:
   - build-2025
+# Customer intent: "As a database administrator, I want to configure the database for the Azure Application Consistent Snapshot tool, so that I can ensure reliable and consistent snapshots for backup and recovery processes across different database systems."
 ---
 
 # Configure the database for Azure Application Consistent Snapshot tool

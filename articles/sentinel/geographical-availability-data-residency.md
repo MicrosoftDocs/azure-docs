@@ -18,6 +18,8 @@ After your data is collected, stored, and processed, compliance can become an im
 
 This article can help you meet compliance requirements by describing where Microsoft Sentinel data is stored.
 
+[!INCLUDE [azure-21vianet-retirement](includes/azure-21vianet-retirement.md)]
+
 ## Collected data
 
 Microsoft Sentinel collects the following types of data:
@@ -62,6 +64,27 @@ Regions supported for Microsoft Sentinel raw data, and for processed and configu
 | | **UK**| • UK South<br>• UK West |
 |**Australia** | **Australia**| • Australia Central<br>Australia Central 2<br>• Australia East<br>• Australia Southeast	|
 |**Africa** | **South Africa**| • South Africa North |
+
+### Regions supported for Microsoft Sentinel data lake
+
+> [!NOTE]
+> The Microsoft Sentinel data lake is currently in preview. During this time onboarding may be temporarily unavailable in some regions. When onboarding is available in your region, an onboarding banner appears on the Microsoft Defender portal home page to guide you through the process.
+
+
+| Continent              | Country/Region   | Azure Region                          |
+|------------------------|------------------|---------------------------------------|
+| North America          | Canada           | Canada Central                        |
+| North America          | United States    | Central US<br>East US<br>East US 2<br>South Central US<br>West US2 |
+| Asia and Middle East   |       -          | Southeast Asia                        |
+|  Asia and Middle East  | India            | Central India                         |
+|  Asia and Middle East  | Israel           | Israel Central                        |
+|  Asia and Middle East  | Japan            | Japan East                            |
+| Europe                 |                  | North Europe<br>West Europe           |
+| Europe                 | France           | France Central                        |
+|  Europe                | Switzerland      | Switzerland North                     |
+|  Europe                | UK               | UK South                              |
+| Australia              | Australia        | Australia East                       |
+
 
 ## Data retention
 

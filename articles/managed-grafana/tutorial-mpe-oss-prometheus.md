@@ -2,7 +2,7 @@
 title: Connect to self-hosted Prometheus on an AKS cluster via managed private endpoint
 titleSuffix: Azure Managed Grafana
 description: In this tutorial, learn how to connect to self-hosted Prometheus on an AKS Cluster using a managed private endpoint.
-services: managed-grafana
+ms.service: azure-managed-grafana
 author: maud-lv
 ms.topic: tutorial
 ms.date: 02/21/2024

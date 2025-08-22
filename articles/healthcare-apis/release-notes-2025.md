@@ -17,6 +17,58 @@ ms.custom:
 
 This article describes features, enhancements, and bug fixes released in 2025 for the FHIR&reg; service, Azure API for FHIR, DICOM&reg; service, and MedTech service in Azure Health Data Services.
 
+## August 2025
+### FHIR service
+
+**Bulk Delete remove references feature**: The $bulk-delete operation now supports the option to remove references to resources that are being deleted. This means that if you delete a resource that is referenced by another resource, the reference is removed from the referencing resource. More information [here](https://learn.microsoft.com/azure/healthcare-apis/fhir/fhir-bulk-delete#preview-capabilities-for-the-bulk-delete-operation). 
+
+**Patient export improvement**: Improved performance of Patient/$export functionality by splitting patients into smaller groups and processing them in parallel.
+
+#### Bug fixes:
+
+**Bulk delete and custom search parameter fix**: Previously, there was a bug where after using $bulk-delete to hard delete a custom search parameter, it was not possible to then create the same custom search parameter with the same url or code. This issue has been fixed, and you can now create a custom search parameter after using $bulk-delete to hard delete a custom search parameter with the same url or code. 
+
+**Custom search parameter creation and update issues**: Previously, there was a bug where duplicate custom search parameters could be created, and existing custom search parameters couldn't be updated. This fixes search parameter creation and update issues in some scenarios, with more fixes to follow soon.
+
+**Headers for bundles for FHIR servers behind proxy**: Previously, X-Forwarded-Host and X-Forwarded-Prefix headers weren't being returned properly for requests within bundles when the FHIR server is behind a proxy. This issue has been fixed, and X-Forwarded-Host and X-Forwarded-Prefix will now be correctly used to return URLs for requests within bundles for FHIR servers behind a proxy.
+
+**CHECK Constraint Conflict Error Status Code Fix**: For the issue identified with CHECK constraint conflict error, will be resolved with status code 400.
+
+**Import Data Resource Versioning Conflict Fix**: When importing data with identical last updated times, multiple versions of the same resource can be created, leading to a key conflict during merging. This happens because a conflict wasn’t detected if allowNegativeVersions flag is enabled, allowing duplicate resources into the merge list.
+
+**Enhanced error message for conditional references**: Previously, a conditional reference that returns multiple results would result in the error message "Given conditional reference doesn't resolve to a resource." This error message has been updated to be more descriptive, and is now changed to "Given conditional reference resolved to multiple resources."
+
+**Returning correct count**: Not referenced search was counting soft deleted resources when using _summary=count and was not returning correct results when soft deleted resources are present in the database. The fix is implemented to filter correctly.
+
+**Synchronization issue during search parameter update addressed**: Resolved an issue due to nodes not in synchronization causing sporadic failures when updating custom SearchParameter resources across multiple FHIR services and environments. PUT requests with unchanged JSON bodies were incorrectly returning HTTP 400 or 404 errors.
+
+**Token search is case sensitive**: Fixed an issue with token search fields where only the first value was indexed if multiple values differed only by case. Now, all values—regardless of casing—are stored and searchable. Incase you were impacted by this issue, we suggest to run reindex on token search parameters.
+
+**Handling of bulk job cancellation**: Cancellation requests for export, bulk update, or bulk delete jobs that are already completed no longer return HTTP 500.Instead, the server now returns HTTP 405 (Method Not Allowed) to correctly reflect the invalid operation.
+
+**Reindex infrastructure**: Reindex infrastructure is updated to a new orchestrator that splits the reindex job into chunks and executes the task to complete in a parallel and distributed manner.
+
+## July 2025
+### FHIR service
+
+#### Bug fixes:
+**Conditional Create/Update Response Headers and Content Handling Fix**: Previously, there was a bug where conditional create or update may fail to return the content and appropriate headers (ETag, LastModified, and Location) when the condition provided matches that of a resource that already exists in the system. This issue has been fixed, and now, Content-Location, Etag, and LastModified headers are returned on conditional create and update requests. Additionally, added handling for the Prefer header to return content in the requested form (representation, minimal, and OperationOutcome). 
+
+**$import Search Parameter Table Constraints Fix**: Previously, $import may surface 500 "InternalServerError" errors due to improperly defined constraints on Code and Code Overflow columns in Search Parameter tables. This issue has been fixed. 
+
+## June 2025
+### FHIR service
+**Added configuration for eventual consistency option in $import**: Allows users to enable eventual consistency for the $import operation.
+
+**Bulk delete enhancement**: Added a parameter to bulk delete that can receive a list of resources to exclude from the bulk delete operation.
+
+#### Bug fixes:
+**Support Added for Standalone Extensions on Primitive Type "code"**: Previously, extensions for primitive type "code" could not be uploaded individually, and would lead to a HTTP 400 Bad Request response. This bug has been fixed, and users can now upload extensions without their corresponding "origin" attributes.
+
+**_summary Search Parameter Now Included in CapabilityStatement**: Previously, the CapabilityStatement was missing the _summary search parameter. We have fixed this and added the _summary search parameter to the CapabilityStatement.
+
+**Intermittent HTTP 400 Errors Resolved for Custom Search Parameter Queries**: Previously, there were intermittent HTTP 400 error responses back when searching using custom search parameters that were created and reindexed successfully. This issue has been fixed. 
+
 ## May 2025
 ### FHIR service
 **Enhanced error handling for $export**: Previously, 412 errors from Azure Storage weren't retried, and would be surfaced as 500 InternalServerError. The issue is fixed, and these requests are now retried. 
@@ -31,13 +83,12 @@ This article describes features, enhancements, and bug fixes released in 2025 fo
 
 **Added ID in CapabilityStatement**: Previously, when retrieving the server's CapabilityStatement from the /metadata endpoint, the returned resource did not contain an ID. We have now added a dynamic ID to the CapabilityStatement 
 
-Added validation on resource ID for import. Previously, the import process was not validating IDs, allowing unsupported characters, for example, "#", to cause errors. Now, we have added validation on resource ID for import, and have included the error message "Invalid resource ID".
+**Added validation on resource ID for import**: Previously, the import process was not validating IDs, allowing unsupported characters, for example, "#", to cause errors. Now, we have added validation on resource ID for import, and have included the error message "Invalid resource ID".
 
 #### Bug fixes:
 **Creation after deletion of search parameters fix**: Previously, creating the same search parameter that was deleted in the past could fail due to an issue in updating the cache for Search Parameter definition manager. The issue is fixed, and now, the cache is synced before validating a search parameter in an incoming request.
 
 **Patient-everything with SMART patient user fix**: An issue was discovered where the patient-everything operation with a SMART patient user was failing. The issue is fixed, and now, the patient-everything operation works as expected with a SMART patient user.
-
 
 ## April 2025
 ### FHIR service

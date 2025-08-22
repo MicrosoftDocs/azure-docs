@@ -3,7 +3,7 @@ author: pgrandhi
 ms.service: azure-communication-services
 ms.custom: devx-track-azurepowershell
 ms.topic: include
-ms.date: 01/27/2024
+ms.date: 06/28/2025
 ms.author: pgrandhi
 ---
 
@@ -24,18 +24,19 @@ First, install the Azure Communication Services module ```Az.EventGrid``` using 
 ```PowerShell
 PS C:\> Install-Module Az.EventGrid
 ```
+
 1. Sign in to your Azure subscription with the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and follow the on-screen directions.
 
-   ```PowerShell
-   Connect-AzAccount
-   ```
+  ```PowerShell
+  Connect-AzAccount
+  ```
 
 2. If your identity is associated with more than one subscription, then set your active subscription to **subscription of the Web PubSub** resource that you want to move.
 
-   ```PowerShell
-   $context = Get-AzSubscription -SubscriptionId <subscription-id>
-   Set-AzContext $context
-   ```
+  ```PowerShell
+  $context = Get-AzSubscription -SubscriptionId <subscription-id>
+  Set-AzContext $context
+  ```
 
 To create an event subscription using the [Azure PowerShell](/powershell/azure/get-started-azureps), use the [`New-AzEventGridSubscription`](/powershell/module/az.eventgrid/new-azeventgridsubscription) command. 
 
@@ -86,4 +87,4 @@ Get-AzResource
 
 ## Next steps
 
-- For information on other commands, see [Az.EventGrid PowerShell Module](/powershell/module/az.eventgrid/new-azeventgridsubscription).
+- For information about other commands, see [Az.EventGrid PowerShell Module](/powershell/module/az.eventgrid/new-azeventgridsubscription).
