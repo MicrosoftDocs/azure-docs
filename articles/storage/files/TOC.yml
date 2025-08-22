@@ -19,7 +19,7 @@
       href: /azure/well-architected/service-guides/azure-files?toc=/azure/storage/files/toc.json&bc=/azure/storage/files/breadcrumb/toc.json
 - name: Create file shares
   items:
-    - name: Create an classic file share
+    - name: Create a classic file share
       href: create-classic-file-share.md
     - name: Create a file share (Microsoft.FileShares)
       href: create-file-share.md
