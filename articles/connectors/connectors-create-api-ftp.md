@@ -121,7 +121,7 @@ To use a built-in connection trigger in a Standard workflow:
 
 1. When you're done, select **Create new**.
 
-1. When the trigger information box appears, in the **Folder path** box, specify the path to the folder that you want to monitor.
+1. When the trigger information page appears, in the **Folder Path** box, specify the path to the folder that you want to monitor.
 
    :::image type="content" source="./media/connectors-create-api-ftp/ftp-trigger-built-in-folder-path.png" alt-text="Screenshot shows workflow designer with the FTP built-in trigger and Folder path with the specific folder path to monitor.":::
 
@@ -147,7 +147,7 @@ To use a managed connection trigger in a Consumption or Standard workflow:
 
 1. Follow the [general steps](../logic-apps/add-trigger-action-workflow.md#add-trigger) to add the FTP trigger **When a filed is added or modified (properties only)**.
 
-1. Provide the [information for your connection](/connectors/ftp/#creating-a-connection).
+1. Provide the information for your connection.
 
    :::image type="content" source="./media/connectors-create-api-ftp/ftp-trigger-connection-azure.png" alt-text="Screenshot shows workflow designer with the FTP managed connector trigger information.":::
 
@@ -157,7 +157,7 @@ To use a managed connection trigger in a Consumption or Standard workflow:
 
 1. When you're done, select **Create new**.
 
-1. When the trigger information box appears, find the folder that you want to monitor for new or edited files.
+1. When the trigger information page appears, find the folder that you want to monitor for new or edited files.
 
    1. In the **Folder** box, select the folder icon to view the folder directory.
 
@@ -217,7 +217,7 @@ To add actions to a built-in connection trigger in a Standard workflow:
    >
    > By default, this connector transfers files in text format. To transfer files in binary format, for example, where and when encoding is used, select the binary transport option.
 
-1. In the action information pane that appears, select inside the **File path** box so that the dynamic content list opens.
+1. In the action information pane that appears, select inside the **File Path** to enable the lightning icon to open the  dynamic content list.
 
    You can now select outputs from the preceding trigger.
 
@@ -321,7 +321,7 @@ To run and trigger the workflow, follow these steps:
 
 1. On workflow menu, select **Overview**.
 
-1. On the **Overview** pane toolbar, select **Run Trigger** > **Run**.
+1. On the **Overview** pane toolbar, select **Run** > **Run**.
 
 1. Add a file to the FTP folder that your workflow monitors.
 
@@ -355,7 +355,7 @@ To run and trigger the workflow, follow these steps:
 
 1. On workflow menu, select **Overview**.
 
-1. On the **Overview** pane toolbar, select **Run Trigger** > **Run**.
+1. On the **Overview** pane toolbar, select **Run** > **Run**.
 
 1. Add a file to the FTP folder that your workflow monitors.
 
@@ -550,6 +550,6 @@ This action returns a [BlobMetadata](/connectors/ftp/#blobmetadata) object named
 
 ## Related content
 
+- [What are connectors in Azure Logic Apps](introduction.md)
 - [Managed connectors for Azure Logic Apps](managed.md)
 - [Built-in connectors for Azure Logic Apps](built-in.md)
-- [What are connectors in Azure Logic Apps](introduction.md)
