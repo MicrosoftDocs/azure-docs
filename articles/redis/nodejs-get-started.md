@@ -16,24 +16,25 @@ ai-usage: ai-assisted
 
 # Quickstart: Use Azure Redis with JavaScript
 
-In this article, you learn how to use an Azure Redis cache for JavaScript with the TypeScript language and connect by using Microsoft Entra ID.
+In this quickstart, you learn how to use an Azure Redis cache for JavaScript with the TypeScript language and connect by using Microsoft Entra ID.
 
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - Install [Node.js LTS](https://nodejs.org/)
 - Install [TypeScript](https://www.typescriptlang.org/)
-- Add [imports for the Node.js Redis application](https://redis.io/docs/latest/develop/clients/nodejs/) to your project and to your development environment
-  - [`@azure/identity-broker`](https://www.npmjs.com/package/@azure/identity-broker)
-  - [`@redis/client`](https://www.npmjs.com/package/@redis/client)
-  - [`@redis/entraid`](https://www.npmjs.com/package/@redis/entraid)
-  - [`redis`](https://www.npmjs.com/package/redis)
+- Add the packages used in this quickstart to your project:
+
+  ```bash
+  npm install @azure/identity @azure/identity-broker redis @redis/entraid @redis/client
+  ```
+
 
 ## Create an Azure Managed Redis instance
 
 First, create a cache. You can create a cache by using Azure Managed Redis or Azure Cache for Redis with the Azure portal. In this quickstart, we use Azure Managed Redis.
 
-When you create the cache, Microsoft Entra ID is enabled by default, which makes it secure from the start. Your cache must also use a public endpoint for this quickstart. You must be [authenticated in your local development environment](/azure/developer/javascript/sdk/authentication/local-development-environment-developer-account). 
+When you create the cache, Microsoft Entra ID is enabled by default, which makes it secure from the start. For this quickstart, the cache uses a public endpoint. In production, consider using private endpoints and other network controls.
 
 To create a cache with the portal, follow one of these procedures:
 
