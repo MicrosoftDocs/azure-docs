@@ -113,7 +113,7 @@ This section shows the steps for the following FTP connector triggers:
 
 1. Provide the information for your connection.
 
-   ![Screenshot shows the Create connection page in workflow designer with the FTP built-in trigger information.](./media/connectors-create-api-ftp/ftp-trigger-connection-built-in-standard.png)
+   :::image type="content" source="./media/connectors-create-api-ftp/ftp-trigger-connection-built-in.png" alt-text="Screenshot shows the Create connection page in workflow designer with the FTP built-in trigger information.":::
 
    > [!NOTE]
    >
@@ -123,7 +123,7 @@ This section shows the steps for the following FTP connector triggers:
 
 1. When the trigger information box appears, in the **Folder path** box, specify the path to the folder that you want to monitor.
 
-   ![Screenshot shows workflow designer with the FTP built-in trigger and Folder path with the specific folder path to monitor.](./media/connectors-create-api-ftp/ftp-trigger-built-in-folder-path-standard.png)
+   :::image type="content" source="./media/connectors-create-api-ftp/ftp-trigger-built-in-folder-path.png" alt-text="Screenshot shows workflow designer with the FTP built-in trigger and Folder path with the specific folder path to monitor.":::
 
 1. When you're done, save your logic app workflow.
 
@@ -147,7 +147,7 @@ When you save your workflow, this step automatically publishes your updates to y
 
 1. Provide the [information for your connection](/connectors/ftp/#creating-a-connection).
 
-   ![Screenshot shows workflow designer with the FTP managed connector trigger information.](./media/connectors-create-api-ftp/ftp-trigger-connection-azure-standard.png)
+   :::image type="content" source="./media/connectors-create-api-ftp/ftp-trigger-connection-azure.png" alt-text="Screenshot shows workflow designer with the FTP managed connector trigger information.":::
 
    > [!NOTE]
    >
@@ -162,11 +162,11 @@ When you save your workflow, this step automatically publishes your updates to y
 
    1. Select the right angle arrow (**>**). Browse to the folder that you want, and then select the folder.
 
-   ![Screenshot shows workflow designer with FTP managed connector trigger with the option to select a folder.](./media/connectors-create-api-ftp/ftp-trigger-azure-select-folder-standard.png)
+   :::image type="content" source="./media/connectors-create-api-ftp/ftp-trigger-azure-select-folder.png" alt-text="Screenshot shows workflow designer with FTP managed connector trigger with the option to select a folder.":::
 
    Your selected folder appears in the **Folder** box.
 
-   ![Screenshot shows workflow designer with the FTP managed connector trigger and Folder path with the specific folder path to monitor.](./media/connectors-create-api-ftp/ftp-trigger-azure-selected-folder-standard.png)
+   :::image type="content" source="./media/connectors-create-api-ftp/ftp-trigger-azure-selected-folder.png" alt-text="Screenshot shows workflow designer with the FTP managed connector trigger and Folder path with the specific folder path to monitor.":::
 
 1. When you're done, save your logic app workflow.
 
@@ -209,7 +209,7 @@ The steps to add and use an FTP action differ based on whether your workflow use
 
 1. If necessary, provide the information for your connection. When you're done, select **Create**.
 
-   ![Screenshot shows workflow designer with an FTP built-in action with connection information.](./media/connectors-create-api-ftp/ftp-action-connection-built-in-standard.png)
+   :::image type="content" source="./media/connectors-create-api-ftp/ftp-action-connection-built-in.png" alt-text="Screenshot shows workflow designer with an FTP built-in action with connection information.":::
 
    > [!NOTE]
    >
@@ -221,11 +221,11 @@ The steps to add and use an FTP action differ based on whether your workflow use
 
 1. In the dynamic content list, under **When a file is added or updated**, select **File path**.
 
-   ![Screenshot shows Standard workflow designer, "Get file content" action, dynamic content list opened, and "File path" selected.](./media/connectors-create-api-ftp/ftp-action-get-file-content-file-path-built-in-standard.png)
+   :::image type="content" source="./media/connectors-create-api-ftp/ftp-action-get-file-content-file-path-built-in.png" alt-text="Screenshot shows Standard workflow designer, "Get file content" action, dynamic content list opened, and "File path" selected.":::
 
    The **File path** property now references the **File path** trigger output.
 
-   ![Screenshot shows workflow designer with the Get file content action complete.](./media/connectors-create-api-ftp/ftp-action-get-file-content-complete-built-in-standard.png)
+   :::image type="content" source="./media/connectors-create-api-ftp/ftp-action-get-file-content-complete-built-in.png" alt-text="Screenshot shows workflow designer with the Get file content action complete.":::
 
 1. Add any other actions that your workflow needs. 
 
@@ -247,7 +247,7 @@ The steps to add and use an FTP action differ based on whether your workflow use
 
 1. If necessary, provide the [information for your connection](/connectors/ftp/#creating-a-connection). When you're done, select **Create**.
 
-   ![Screenshot shows workflow designer with FTP managed connector action with connection information.](./media/connectors-create-api-ftp/ftp-action-connection-azure-standard.png)
+   :::image type="content" source="./media/connectors-create-api-ftp/ftp-action-connection-azure.png" alt-text="Screenshot shows workflow designer with FTP managed connector action with connection information.":::
 
    > [!NOTE]
    >
@@ -259,11 +259,11 @@ The steps to add and use an FTP action differ based on whether your workflow use
 
 1. In the dynamic content list, under **When a file is added or modified (properties only)**, select **List of Files Id**.
 
-   ![Screenshot shows workflow designer with the Get file metadata action dynamic content list opened and List of Files Id highlighted.](./media/connectors-create-api-ftp/ftp-get-file-metadata-list-files-azure-standard.png)
+   :::image type="content" source="./media/connectors-create-api-ftp/ftp-get-file-metadata-list-files-azure.png" alt-text="Screenshot shows workflow designer with the Get file metadata action dynamic content list opened and List of Files Id highlighted.":::
 
    The **File** property now references the **List of Files Id** trigger output.
 
-   ![Screenshot shows workflow designer with the Get file metadata action and File set to List of Files Id.](./media/connectors-create-api-ftp/ftp-get-file-metadata-complete-azure-standard.png)
+   :::image type="content" source="./media/connectors-create-api-ftp/ftp-get-file-metadata-complete-azure.png" alt-text="Screenshot shows workflow designer with the Get file metadata action and File set to List of Files Id.":::
 
 1. On the designer, follow these [general steps](../logic-apps/add-trigger-action-workflow.md#add-action) to add the FTP action named **Get file content** to your workflow.
 
@@ -273,11 +273,11 @@ The steps to add and use an FTP action differ based on whether your workflow use
 
 1. In the dynamic content list, under **Get file metadata**, select **Id**.
 
-   ![Screenshot shows workflow designer with Get file content action dynamic content list opened and Id highlighted.](./media/connectors-create-api-ftp/ftp-get-file-content-file-id-azure-standard.png)
+   :::image type="content" source="./media/connectors-create-api-ftp/ftp-get-file-content-file-id-azure.png" alt-text="Screenshot shows workflow designer with Get file content action dynamic content list opened and Id highlighted.":::
 
    The **File** property now references the **Id** action output.
 
-   ![Screenshot shows workflow designer with Get file content action with File set to Id.](./media/connectors-create-api-ftp/ftp-get-file-content-complete-azure-standard.png)
+   :::image type="content" source="./media/connectors-create-api-ftp/ftp-get-file-content-complete-azure.png" alt-text="Screenshot shows workflow designer with Get file content action with File set to Id.":::
 
 1. Add any other actions that your workflow needs.
 
@@ -301,13 +301,13 @@ To check that your workflow returns the content that you expect, add another act
 
    1. In the **Get file content** action, select inside the **Body** box so that the dynamic content list opens. In the dynamic content list, under **Get file content**, select **File content**.
 
-      ![Screenshot shows workflow designer with Send an email action dynamic content list opened with Get file content selected.](./media/connectors-create-api-ftp/send-email-action-body-see-more-built-in-standard.png)
+      :::image type="content" source="./media/connectors-create-api-ftp/send-email-action-body-see-more-built-in.png" alt-text="Screenshot shows workflow designer with Send an email action dynamic content list opened with Get file content selected.":::
 
    1. In the dynamic content list, under **Get file content**, select **File content**.
 
       The **Body** property now references the **File content** action output.
 
-      ![Screenshot shows workflow designer with Send an email action with File content action output.](./media/connectors-create-api-ftp/send-email-action-complete-built-in-standard.png)
+      :::image type="content" source="./media/connectors-create-api-ftp/send-email-action-complete-built-in.png" alt-text="Screenshot shows workflow designer with Send an email action with File content action output.":::
 
 1. Save your logic app workflow.
 
@@ -333,13 +333,13 @@ To check that your workflow returns the content that you expect, add another act
 
    1. In the **Get file content** action, select inside the **Body** box so that the dynamic content list opens. In the dynamic content list, under **Get file content**, select **File content**.
 
-      ![Screenshot shows workflow designer with Send an email action dynamic content list opened with File content highlighted.](./media/connectors-create-api-ftp/send-email-action-body-see-more-azure-standard.png)
+      :::image type="content" source="./media/connectors-create-api-ftp/send-email-action-body-see-more-azure.png" alt-text="Screenshot shows workflow designer with Send an email action dynamic content list opened with File content highlighted.":::
 
    1. In the dynamic content list, under **Get file content**, select **File content**.
 
       The **Body** property now references the **File content** action output.
 
-      ![Screenshot shows workflow designer with Send an email action with File content as managed action output.](./media/connectors-create-api-ftp/send-email-action-complete-azure-standard.png)
+      :::image type="content" source="./media/connectors-create-api-ftp/send-email-action-complete-azure.png" alt-text="Screenshot shows workflow designer with Send an email action with File content as managed action output.":::
 
 1. Save your logic app workflow.
 
