@@ -538,7 +538,7 @@ az storage share-rm create \
 
 ## Set up networking
 
-If you are using a SMB protocol file share, networking configuration are not required. However, we still recommend you take it into consideration. If you are using a NFS protocol file share, networking configurations are required, since NFS file shares can only be accessed from trusted networks. Currently, the only way to secure the data in your storage account is by using a virtual network and other network security settings. Any other tools used to secure data, including account key authorization, Microsoft Entra security, and access control lists (ACLs) can't be used to authorize an NFSv4.1 request. SMB protocol file share does not require network level configuration.
+If you're using an SMB file share, networking configuration isn't required. However, we still recommend you take it into consideration. If you're using an NFS file share, networking configuration is required.
 
 > [!IMPORTANT]
 > The NFSv4.1 protocol runs on port 2049. If you're connecting from an on-premises network, make sure that your client allows outgoing communication through port 2049. If you grant access to specific VNets, make sure that any network security groups associated with those VNets don't contain security rules that block incoming communication through port 2049.
