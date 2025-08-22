@@ -38,7 +38,7 @@ landingContent:
         links:
           - text: Create a classic file share
             url: create-classic-file-share.md
-          - text: Create a file share
+          - text: Create a file share with Microsoft.FileShares (preview)
             url: create-file-share.md
 
   # Card
