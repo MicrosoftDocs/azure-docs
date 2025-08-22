@@ -101,7 +101,7 @@ This section describes what to expect when key vaults are in a region that has a
 
 The following section describes what to expect when key vaults are in a region that has availability zones and one or more availability zones are unavailable:
 
-- **Detection and response:** The Key Vault service is responsible for detecting zone failures and individual components and automatically responding to them. You don't need to take any action during a zone failure.
+- **Detection and response:** The Key Vault service is responsible for detecting zone failures and automatically responding to them. You don't need to take any action during a zone failure.
 
 - **Notification:** You can monitor the status of your key vault through Azure Resource Health and Azure Service Health. These services provide notifications about any service degradation.
 
