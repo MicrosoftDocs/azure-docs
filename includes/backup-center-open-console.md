@@ -2,7 +2,7 @@
 author: AbhishekMallick-MS
 ms.service: azure-backup
 ms.topic: include
-ms.date: 12/24/2024
+ms.date: 08/22/2025
 ms.author: v-abhmallick
 ---
 
@@ -22,3 +22,4 @@ To get started with using Backup center, follow these steps:
 
     :::image type="content" source="./media/backup-center-open-console/backup-center-launch-from-information-banner.png" alt-text="Screenshot shows how to launch Backup center from the information banner." lightbox="./media/backup-center-open-console/backup-center-launch-from-information-banner.png" ::: 
 
+1. On the **Navigate to Backup Center** pane, select a reason for transitioning to Backup center, type a reason in the text box, and then select **Submit**.
