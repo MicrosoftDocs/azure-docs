@@ -114,7 +114,11 @@ There's no extra charge to enable availability zone support in AKS. You pay for 
 
    AKS also attempts to rebalance the pods across the healthy zones. If you choose to manually scale your node pool in a zone-down scenario, your pods might remain in the *Pending* state when there are no nodes available in the healthy zones. Scaling out in the remaining zones is also subject to the availability of quota and capacity for the VM SKU that you use.
 
-- **Notification:** AKS doesn't notify you when a zone is down. You can use your node or pod health metrics to monitor the health of your nodes and pods.
+- **Notification:** AKS doesn't notify you when a zone is down. However, you can use [Azure Resource Health](/azure/service-health/resource-health-overview) to monitor for the health of your cluster. You can also use [Azure Service Health](/azure/service-health/overview) to understand the overall health of the AKS service, including any zone failures.
+  
+  Set up alerts on these services to receive notifications of zone-level problems. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal) and [Create and configure Resource Health alerts](/azure/service-health/resource-health-alert-arm-template-guide).
+
+   You can also use your node or pod health metrics to monitor the health of your nodes and pods.
 
 - **Active requests:** Any active requests might experience disruptions. Some requests can fail, and latency might increase while your workload fails over to another zone.
 
