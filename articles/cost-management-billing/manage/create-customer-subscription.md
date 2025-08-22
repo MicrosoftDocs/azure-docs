@@ -3,11 +3,11 @@ title: Create a subscription for a partner's customer
 titleSuffix: Azure Cost Management + Billing
 description: Learn how a Microsoft Partner creates a subscription for a customer in the Azure portal.
 author: PreetiSGit
-ms.reviewer: presharm
+ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 07/25/2025
+ms.date: 08/21/2025
 ms.author: presharm
 ---
 

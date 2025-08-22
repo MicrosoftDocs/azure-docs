@@ -76,7 +76,7 @@ The following information describes what happens when you have a zone-redundant 
 
 - **Expected downtime:** A zone failure isn't expected to cause downtime to your resources.
 
-### Failback
+### Zone recovery
 
 When the availability zone recovers, Azure Device Registry automatically restores operations in the availability zone.
 
@@ -128,7 +128,7 @@ This section describes what to expect when a device registry is configured for c
 
     After the failover operation for the registry completes, all operations from the device and back-end applications are expected to continue working without requiring manual intervention.
 
-### Failback
+### Region recovery
 
 When the primary region recovers, Azure Device Registry automatically restores operations in the region.
 

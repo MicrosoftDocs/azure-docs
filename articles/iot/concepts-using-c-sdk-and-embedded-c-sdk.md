@@ -6,6 +6,7 @@ ms.author: dobett
 ms.service: azure-iot
 ms.topic: conceptual
 ms.date: 1/10/2025
+ms.update-cycle: 1095-days
 ms.custom: template-concept, linux-related-content
 
 #Customer intent: As a device developer, I want to understand when to use the Azure IoT C SDK or the Embedded C SDK to optimize device and application performance.

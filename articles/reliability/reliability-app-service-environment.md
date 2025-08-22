@@ -114,7 +114,7 @@ To learn how to create, enable, or disable a new zone-redundant App Service Envi
 
 [!INCLUDE [Zone-down experience description](includes/app-service/reliability-zone-down-experience-include.md)]
 
-### Failback
+### Zone recovery
 
 [!INCLUDE [Failback description](includes/app-service/reliability-failback-include.md)]
 

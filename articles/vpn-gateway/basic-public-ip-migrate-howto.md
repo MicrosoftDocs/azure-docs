@@ -142,6 +142,17 @@ Invoke-AzVirtualNetworkGatewayAbortMigration -InputObject $gateway
 ## Known Issues
 
 * For VpnGw1 CSES to VMSS migration, we are seeing higher CPU utilization due to .NET core optimization. This is a known issue and we recommend to either wait for 10 minutes after prepare stage or upgrade to a higher gateway SKU during the migration process.
+* Migration Limitation – Point-to-Site VPN Gateways using legacy DNS :  Gateways that were created with the older cloudapp.net DNS do not yet have a supported migration path. A guided migration experience is planned, and the tentative timeline will be shared by the end of September 2025.
+  - Do *NOT* remove your existing Point-to-Site configuration to perform this migration
+  - On your existing gateway, if you do not have an existing point-to-site configuration, do not add this point-to-site configuration until this migration capability is released
+* Follow these steps to check if your gateway falls into the legacy DNS category: 
+  - In the Azure portal, navigate to you Virtual Network Gateway. 
+  - Go to Settings -> Point-to-site configuration. 
+  - Download VPN Client
+  - Then, extract the downloaded config zip to some local directory on your machine. 
+  - Go to AzureVPN folder and open “azurevpnconfig.xml” file. 
+  - Look for serverlist -> serverEntry -> fqdn. Check the suffix of the fqdn.
+  - If FQDN has suffix “cloudapp.net”, then it means that your gateway is on cloudapp.net based VPN gateway server.
 
 ## Next steps
 
