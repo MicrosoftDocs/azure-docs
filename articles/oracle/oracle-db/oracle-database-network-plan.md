@@ -38,12 +38,15 @@ Advanced network features enhance the virtual networking experience, offering im
 * North Europe
 * South Central US
 * Southeast Asia
+* Spain Central
 * Sweden Central
+* UAE North
+* UK South 
+* UK West
 * US West
 * US West 2
 * US West 3 
-* UK South 
-* UK West
+
 
 
 > [!NOTE]
