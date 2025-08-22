@@ -21,7 +21,7 @@
   items:
     - name: Create an classic file share
       href: create-classic-file-share.md
-    - name: Create an file share
+    - name: Create a file share (Microsoft.FileShares)
       href: create-file-share.md
     - name: Modify a file share
       href: modify-file-share.md
