@@ -1,13 +1,14 @@
 ---
 title: GPv1 storage account retirement FAQ
 titleSuffix: Azure Storage
-description: Frequently asked questions about the retirement of Azure General-purpose v1 (GPv1) storage accounts and upgrading to GPv2.
+description: Commonly asked questions regarding the retirement of Azure General-purpose v1 (GPv1) storage accounts and upgrading to GPv2.
+Services: storage
 author: gtrossell
-ms.author: normesta
 ms.service: azure-storage
-ms.subservice: storage-accounts
 ms.topic: faq
-ms.date: 08/22/2025
+ms.date: 07/22/2025
+ms.author: normesta
+ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
 #customer-intent: As a storage admin, I want to find answers to common questions about the retirement of GPv1 storage accounts, so that I can plan my upgrade to GPv2 and avoid service disruption.
 ---

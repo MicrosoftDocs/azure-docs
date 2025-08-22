@@ -1,13 +1,14 @@
 ---
 title: Legacy Blob Storage account retirement FAQ
 titleSuffix: Azure Storage
-description: Frequently asked questions about the retirement of Azure Legacy Blob Storage (blob-only) accounts and migrating to General-purpose v2 (GPv2).
+description: Commonly asked questions regarding the retirement of Azure General-purpose v1 (GPv1) legacy blob storage accounts and upgrading to GPv2.
+Services: storage
 author: gtrossell
-ms.author: normesta
 ms.service: azure-storage
-ms.subservice: blobs
 ms.topic: faq
-ms.date: 08/22/2025
+ms.date: 07/22/2025
+ms.author: normesta
+ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
 #customer-intent: As a storage admin, I want to understand the Legacy Blob Storage retirement so that I can prepare for a smooth migration to GPv2.
 ---
@@ -43,7 +44,9 @@ No. **Lifecycle management** is only available in **General-purpose v2** account
 ## How does pricing differ from GPv2?
 
 Legacy Blob Storage uses **account-level tiering**, limiting pricing flexibility. **General-purpose v2** offers **per-blob tiering** and optimized pricing for different access patterns.  
-See **[Blob storage pricing](https://azure.microsoft.com/pricing/details/storage/ble from Legacy Blob Storage to GPv2 later, will anything break?
+See [Blob storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) for details.
+
+## If I migrate from Legacy Blob Storage to GPv2 later, will anything break?
 
 You must migrate to a **new General-purpose v2 account** and move your data. The migration is **nondisruptive if planned properly**. Most applications continue to work without changes.
 
@@ -99,7 +102,7 @@ If you don't migrate your Legacy Blob Storage account to General-purpose v2 by t
 
 ## See also
 
-- [Legacy Blob Storage retirement overview](legacy-blob-storage-retirement-overview.md)  
+- [Legacy Blob Storage retirement overview](legacy-blob-storage-account-migration-overview.md)  
 - [Storage account upgrade process](storage-account-upgrade.md)  
 - [Learn more about GPv2 pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 - [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
