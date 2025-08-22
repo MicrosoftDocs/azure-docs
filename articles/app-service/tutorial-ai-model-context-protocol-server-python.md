@@ -15,7 +15,7 @@ ms.service: azure-app-service
 
 In this tutorial, you'll learn how to expose an FastAPI app's functionality through Model Context Protocol (MCP), add it as a tool to GitHub Copilot, and interact with your app using natural language in Copilot Chat agent mode.
 
-    :::image type="content" source="media/tutorial-ai-model-context-protocol-server-python/model-context-protocol-call-success.png" alt-text="Scenario Preview: Screenshot showing that the response from the MCP tool call in the GitHub Copilot Chat window.":::
+:::image type="content" source="media/tutorial-ai-model-context-protocol-server-python/model-context-protocol-call-success.png" alt-text="Scenario Preview: Screenshot showing that the response from the MCP tool call in the GitHub Copilot Chat window.":::
 
 If your web application already has useful features, like shopping, hotel booking, or data management, it's easy to make those capabilities available for:
 
