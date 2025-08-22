@@ -33,7 +33,7 @@ Azure file shares can be mounted in Linux distributions using either the Server 
 
 ## Prerequisite: Configure network security
 
-NFS 4.1 file shares (Both classic file share and file share) can only be accessed from trusted networks. Currently, the only way to secure the data is by using a virtual network and other network security settings. Any other tools used to secure data, including account key authorization, Microsoft Entra security, and access control lists (ACLs) can't be used to authorize an NFSv4.1 request. To learn more about how to set up NFS 4.1 file share, virtual machine, and networking setting, see [how to create a classic file share](./create-classic-file-share.md), and [how to create a file share](./create-file-share.md) for more information.
+NFSv4.1 file shares (both classic and those created with Microsoft.FileShares) can only be accessed from trusted networks. We recommend securing the data by using a virtual network and other network security settings. Any other tools used to secure data, including account key authorization, Microsoft Entra security, and access control lists (ACLs) can't be used to authorize an NFSv4.1 request. To learn more about how to set up NFS 4.1 file share, virtual machine, and networking setting, see [how to create a classic file share](./create-classic-file-share.md), and [how to create a file share](./create-file-share.md) for more information.
 
 ## Mount an NFS Azure file share
 
