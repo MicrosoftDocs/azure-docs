@@ -68,7 +68,7 @@ To create a storage account via the Azure portal, use the search box at the top 
 
 ![A screenshot of the Azure portal search box with results for "storage accounts".](./media/storage-how-to-create-file-share/create-storage-account-0.png)
 
-This shows a list of all existing storage accounts available in your visible subscriptions. Click **+ Create** to create a new storage account.
+This shows a list of all existing storage accounts available in your visible subscriptions. Select **+ Create** to create a new storage account.
 
 ### Basics
 
