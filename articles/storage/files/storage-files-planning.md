@@ -91,24 +91,6 @@ This new model simplifies the deployment experience and unlocks a host of new ca
 
 - Higher scale limits: Enjoy increased resource and request quotas with the Microsoft.FileShares resource provider, which is ideal for large environments managing lots of file shares. For current file share limits, see [Azure Files scalability and performance targets](./storage-files-scale-targets.md#azure-microsoftfileshares-scale-targets).
 
-
-As the current public preview phase, file share (Microsoft.FileShares) supports on:
-
-- NFS 4.1 protocol (SSD tier only)
-- Provisioned v2 SSD billing model only
-- Azure Portal experience with support for service endpoints and private endpoints
-- Full support on NFS EiT (Encryption in transit) on file share.
-
-We’re actively working on expanding capabilities, including:
-
-- File share snapshots
-- Soft delete for file shares
-- Encryption at rest using customer-managed keys
-- Official PowerShell and CLI modules
-- Azure Monitor integration
-- FileREST protocol support for NFS shares
-- SMB protocol support
-
 On the Azure portal, classic file share will remain using the blue icon, while file share (Microsoft.FileShares) will use the purple icon.
 If you require all the feature that Azure File currently offer, we recommend you use classic file share instead.
 To learn more, see [How to create file share using Microsoft.FileShares](./create-file-share.md).

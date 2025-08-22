@@ -467,6 +467,13 @@ In the following tables, the term alphanumeric refers to:
 > | namespaces / eventhubs / authorizationRules | event hub | 1-50 | Alphanumerics, periods, hyphens, and underscores<br><br>Start and end with letter or number. |
 > | namespaces / eventhubs / consumergroups | event hub | 1-50 | Alphanumerics, periods, hyphens, and underscores<br><br>Start and end with letter or number. |
 
+## Microsoft.FileShares
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | file share | global | 3-63 | Lowercase letters, numbers, and hyphens<br><br>Can't start or end with hyphens. Can't use consecutive hyphens. |
+
 ## Microsoft.HDInsight
 
 > [!div class="mx-tableFixed"]
@@ -883,7 +890,6 @@ In the following tables, the term alphanumeric refers to:
 > | blob | container | 1-1024 | Any URL characters and case sensitive |
 > | queue | storage account | 3-63 | Lowercase letters, numbers, and hyphens<br><br>Can't start or end with hyphens. Can't use consecutive hyphens. |
 > | table | storage account | 3-63 | Alphanumerics<br><br>Start with a letter. |
-> | Microsoft.FileShares | global | 3-63 | Lowercase letters, numbers, and hyphens<br><br>Can't start or end with hyphens. Can't use consecutive hyphens. |
 
 ## Microsoft.StorageSync
 
