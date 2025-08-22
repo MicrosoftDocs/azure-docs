@@ -102,7 +102,7 @@ items:
       - name: GPv1 Standard ZRS migration
         href: ../common/general-purpose-version-1-zone-redundant-storage-migration-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: GPv1 Standard ZRS retirement Frequently Asked Questions (FAQ)
-        href: ../common/general-purpose-version-1-zone-redundant-storage-migration-frequently-asked-questions.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        href: ../common/general-purpose-version-1-zone-redundant-storage-migration-freq-asked-questions.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Migrate GPv1 Standard ZRS to GPv2
         href: ../common/general-purpose-version-1-zone-redundant-storage-upgrade-process.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Legacy Blob Storage account retirement
