@@ -42,7 +42,7 @@ Understanding how capacity pools work helps you select the right capacity pool t
 - You can't move a capacity pool across NetApp accounts.   
   For example, in the [Conceptual diagram of storage hierarchy](#conceptual_diagram_of_storage_hierarchy), you can't move Capacity Pool 1 US East NetApp account to US West 2 NetApp account.  
 - You can't delete a capacity pool until you delete all volumes within the capacity pool. 
-- [Azure NetApp Files storage with cool access](cool-access-introduction.md) is supported in Flexible, Standard, Premium, and Ultra service-level capacity pool. For more information about service levels, including the Flexible service level, see [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md).
+- [Azure NetApp Files storage with cool access](cool-access-introduction.md) is supported in Flexible, Standard, Premium, and Ultra service-level capacity pools. For more information about service levels, including the Flexible service level, see [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md).
 
 ### <a name="qos_types"></a>Quality of Service (QoS) types for capacity pools
 
@@ -64,7 +64,7 @@ When you [create a capacity pool](azure-netapp-files-set-up-capacity-pool.md), y
 
 In a manual QoS capacity pool, you can assign the capacity and throughput for a volume independently. For minimum and maximum throughput levels, see [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits). The total throughput of all volumes created with a manual QoS capacity pool is limited by the total throughput of the pool. It's determined by the combination of the pool size and the service-level throughput.  For instance, a 4-TiB capacity pool with the Ultra service level has a total throughput capacity of 512 MiB/s (4 TiB x 128 MiB/s/TiB) available for the volumes.
 
-Manual QoS capacity pools also required for the [**Flexible** service level](azure-netapp-files-service-levels.md#Flexible), enabling you to adjust throughput and size limits independently for capacity pools using manual QoS. This service level is designed for demanding applications such as Oracle or SAP HANA. For throughput information, see [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md#Flexible).
+Manual QoS capacity pools are required for the [**Flexible** service level](azure-netapp-files-service-levels.md#Flexible), enabling you to adjust throughput and size limits independently for capacity pools using manual QoS. This service level is designed for demanding applications such as Oracle or SAP HANA. For throughput information, see [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md#Flexible).
 
 ##### Example of using manual QoS
 
