@@ -203,7 +203,6 @@ The following example shows how to deploy to a staging slot, and then swap to a 
 - task: AzureAppServiceManage@0
   inputs:
     azureSubscription: '<service-connection-name>'
-    appType: webAppLinux
     WebAppName: '<app-name>'
     ResourceGroupName: '<name of resource group>'
     SourceSlot: staging
