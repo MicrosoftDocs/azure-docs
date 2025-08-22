@@ -17,6 +17,9 @@ items:
 - name: Azure Monitor for SAP solutions
   href: monitor/toc.yml
 
+- name: Enterprise Insights for SAP solutions
+  href: enterprise-insights/toc.yml
+
 - name: SAP HANA on Azure (Large Instances)
   href: large-instances/toc.yml
  
