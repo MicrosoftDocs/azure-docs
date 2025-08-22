@@ -223,7 +223,7 @@ To add actions to a built-in connection trigger in a Standard workflow:
 
 1. In the dynamic content list, under **When a file is added or updated**, select **File path**.
 
-   :::image type="content" source="./media/connectors-create-api-ftp/ftp-action-get-file-content-file-path-built-in.png" alt-text="Screenshot shows Standard workflow designer, "Get file content" action, dynamic content list opened, and "File path" selected.":::
+   :::image type="content" source="./media/connectors-create-api-ftp/ftp-action-get-file-content-file-path-built-in.png" alt-text="Screenshot shows Standard workflow designer, "Get file content" action, dynamic content list opened, and File path selected.":::
 
    The **File path** property now references the **File path** trigger output.
 
