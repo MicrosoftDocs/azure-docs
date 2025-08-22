@@ -20,7 +20,7 @@ By default, short-term clones convert to regular volumes after 32 days.
 
 ## Considerations 
 
-* Short-term clone volumes are supported with the [Standard, Premium, Ultra, and Flexible service levels](azure-netapp-files-service-levels.md).
+* Short-term clone volumes are supported with the [Flexible, Standard, Premium, and Ultra service levels](azure-netapp-files-service-levels.md).
     * You can create a short-term clone in a capacity pool with a different service level than that of the source volume's snapshot. 
 * Short-term clone volume size contributes to capacity pool quota like any other volume.
 * If the capacity pool hosting the short-term clone is set to auto QoS, throughput is calculated based on the quota value (volume size) you assign when creating the short-term clone. For a short-term clone in capacity pools with manual QoS, throughput is assigned when creating the short-term clone.

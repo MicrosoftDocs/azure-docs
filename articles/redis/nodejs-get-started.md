@@ -107,6 +107,7 @@ In this section, use a basic `set` and `get` sequence to start using the Redis c
 const setResult = await client.set("Message", "Hello! The cache is working from Node.js!");
 console.log('Set result:', setResult);
 
+
 const getResult = await client.get("Message");
 console.log('Get result:', getResult);
 ```
@@ -162,6 +163,7 @@ function getClient() {
     });
 
     client.on('error', (err) => console.error('Redis client error:', err));
+
 
     return client;
 }
