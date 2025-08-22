@@ -19,6 +19,26 @@ metadata:
 
 landingContent:
   # Card
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Configure Microsoft Dev Box Resources using the Get Started template
+            url: quickstart-get-started-template.md 
+          - text: Create a dev box
+            url: quickstart-create-dev-box.md
+      - linkListType: deploy
+        links:
+          - text: Design Dev Box deployment architecture
+            url: concept-dev-box-deployment-guide.md
+      - linkListType: how-to-guide
+        links:
+          - text: Connect to your dev box
+            url: how-to-create-dev-boxes-developer-portal.md#connect-through-the-windows-app
+          - text: Use multiple monitors with your dev box 
+            url: how-to-create-dev-boxes-developer-portal.md#configure-multiple-monitors
+
+  # Card
   - title: About Microsoft Dev Box
     linkLists:
       - linkListType: overview
@@ -38,26 +58,6 @@ landingContent:
           - text: Explore Microsoft Dev Box deployment guidelines and best practices
             url: https://learn.microsoft.com/training/modules/explore-microsoft-dev-box-deployment-guidelines-best-practices/
 
-  # Card
-  - title: Get started
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Configure Microsoft Dev Box Resources using the Get Started template
-            url: quickstart-get-started-template.md 
-          - text: Create a dev box
-            url: quickstart-create-dev-box.md
-      - linkListType: deploy
-        links:
-          - text: Microsoft Dev Box deployment guide
-            url: concept-dev-box-deployment-guide.md
-      - linkListType: how-to-guide
-        links:
-          - text: Connect to your dev box
-            url: how-to-create-dev-boxes-developer-portal.md#connect-through-the-windows-app
-          - text: Use multiple monitors with your dev box 
-            url: how-to-create-dev-boxes-developer-portal.md#configure-multiple-monitors
- 
   # Card
   - title: Configure ready-to-code dev boxes
     linkLists:
