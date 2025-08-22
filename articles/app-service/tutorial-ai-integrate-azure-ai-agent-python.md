@@ -15,7 +15,7 @@ ms.service: azure-app-service
 
 In this tutorial, you'll learn how to expose an FastAPI app's functionality through OpenAPI, add it as a tool to Azure AI Foundry Agent Service, and interact with your app using natural language in the agents playground.
 
-If your web application already has useful features, like shopping, hotel booking, or data management, it's easy to make those capabilities available to an AI agent in Azure AI Foundry Agent Service. By simply adding an OpenAPI schema to your app, you enable the agent to understand and use your app's capabilities when it responds to users' prompts. This means anything your app can do, your AI agent can do too, with minimal effort beyond creating an OpenAPI endpoint for your app. In this tutorial, you start with a simple to-do list app. By the end, you'll be able to create, update, and manage tasks with an agent through conversational AI.
+If your web application already has useful features, like shopping, hotel booking, or data management, it's easy to make those capabilities available to an AI agent in Azure AI Foundry Agent Service. By simply adding an OpenAPI schema to your app, you enable the agent to understand and use your app's capabilities when it responds to users' prompts. This means anything your app can do, your AI agent can do too, with minimal effort beyond creating an OpenAPI endpoint for your app. In this tutorial, you start with a simple restaurant ratings app. By the end, you'll be able to see restaurant ratings as well as create new restaurants and new reviews with an agent through conversational AI.
 
 :::image type="content" source="media/tutorial-ai-integrate-azure-ai-agent-dotnet/agents-playground.png" alt-text="Screenshot showing the agents playground in the middle of a conversation that takes actions by using the OpenAPI tool.":::
 
@@ -114,6 +114,8 @@ FasAPI already contains OpenAPI functionality at the default path `/openapi.json
         session.refresh(review)
         return review
     ```
+
+    This code only shows the create API for brevity and for parity with the existing sample application. If you want, you can also add other APIs, such as update and delete.
 
 1. Start the development server for the sample app with the following commands:
 

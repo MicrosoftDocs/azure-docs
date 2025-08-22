@@ -71,7 +71,9 @@ Implement AI capabilities in your Python web applications:
 - [Build a RAG application with Azure OpenAI and Azure AI Search (Python)](tutorial-ai-openai-search-python.md) - Implement RAG with Python.
 - [Run a chatbot with a local SLM (FastAPI)](tutorial-ai-slm-fastapi.md) - Deploy a FastAPI application with a local SLM sidecar.
 - [Azure AI Foundry tutorial: Deploy an enterprise chat web app](/azure/ai-foundry/tutorials/deploy-chat-web-app?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json) - Deploy fully integrated AI web app straight from your deployment in Azure AI Foundry.
-- [Build an agentic web app with LangGraph or Azure AI Foundry Agent Service (Python)](tutorial-ai-agent-web-app-langgraph-foundry-python.md) - Create an intelligent agent-based application using Python and a choice of LangGraph or Azure AI Foundry Agent Service.
+- [Integrate an App Service app as an MCP Server for GitHub Copilot Chat (Python)](tutorial-ai-model-context-protocol-server-python.md) - Host an MCP server with Python to extend GitHub Copilot Chat capabilities.
+- [Add an App Service app as a tool in Azure AI Foundry Agent Service (Python)](tutorial-ai-integrate-azure-ai-agent-python.md) - Expose your Python web app’s capabilities to Azure AI Foundry Agent Service using OpenAPI, enabling agents to perform real-world tasks.
+- [Build an agentic web app with LangGraph or Azure AI Foundry Agent Service (Python)](tutorial-ai-agent-web-app-langgraph-foundry-python.md) - Create an intelligent agent-based application using Python, LangGraph, or Azure AI Foundry Agent Service.
 
 ## Model Context Protocol (MCP) servers
 
