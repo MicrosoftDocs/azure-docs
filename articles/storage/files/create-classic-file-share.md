@@ -596,7 +596,7 @@ To enable hybrid access to an NFS Azure file share, use one of the following net
 
 ## Next steps
 
-- Learn how to create a [Windows](/azure/virtual-machines/windoes/quick-create-portal.md) virtual machine, or [Linux](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu) virtual machine. 
+- Learn how to create a [Windows](/azure/virtual-machines/windows/quick-create-portal.md) virtual machine, or [Linux](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu) virtual machine. 
 - Mount an SMB file share on [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), or [Linux](storage-how-to-use-files-linux.md).
 - Mount an NFS file share on [Linux](storage-files-how-to-mount-nfs-shares.md)
 - Learn how to [change size, preformance and delete on a file share](modify-file-share.md).

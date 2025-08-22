@@ -96,3 +96,9 @@ Tags are name/value pairs that enable you to categorize resources and view conso
 ### Review + create
 
 The final step to create the file share (Microsoft.FileShares) is to select the **Create** button on the **Review + create** tab. This button isn't available until you complete all the required fields.
+
+## Next steps
+
+- Learn how to create a [Linux](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu) virtual machine. 
+- Mount an NFS file share on [Linux](storage-files-how-to-mount-nfs-shares.md)
+- Learn how to [change size, preformance and delete on a file share](modify-file-share.md).
