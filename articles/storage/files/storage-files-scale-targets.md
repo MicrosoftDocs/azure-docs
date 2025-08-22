@@ -97,7 +97,8 @@ The following regions have an increased maximum throughput for HDD pay-as-you-go
 - West US 2
 - West US 3
 
-### Azure Microsoft.FileShares scale targets
+### Scale targets for file shares created with Microsoft.FileShares (preview)
+
 
 Creating file shares using the Microsoft.FileShares resource provider is currently in preview. The scale target is 1,000 file shares per region per subscription.
 
