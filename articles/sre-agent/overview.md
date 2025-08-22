@@ -3,16 +3,16 @@ title: Azure SRE Agent overview (preview)
 description: Learn how AI-enabled agents help solve problems and support resilient and self-healing systems on your behalf.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 08/21/2025
+ms.date: 08/22/2025
 ms.author: cshoe
 ms.service: azure
 ---
 
 # Azure SRE Agent overview (preview)
 
-Azure SRE Agent is an AI-powered reliability assistant that helps you prevent, diagnose, and resolve production issues faster with less toil.
+Azure SRE Agent is an AI-powered reliability assistant that helps teams diagnose and resolve production issues, reduce operational toil, and lower mean time to resolution (MTTR).
 
-Ask questions in natural language, get explainable RCAs, and orchestrate incident workflows with human-in-the-loop approvals or autonomous execution within scoped guardrails.
+Ask questions in natural language, get explainable root cause analysis (RCA), and orchestrate incident workflows with human-in-the-loop approvals or autonomous execution within scoped guardrails. You can configure the agent to follow customized instructions and runbooks and enable consistent and scalable incident response aligned with your team’s operational practices.
 
 ## What you can do with SRE Agent
 
@@ -32,6 +32,7 @@ Watch the following video to see SRE Agent in action.
 | Feature | Description |
 |---|---|
 | **Incident Automation** | Diagnose, enrich, and orchestrate workflows across Azure Monitor and supported tools with human-in-the-loop approvals or autonomous execution using custom incident resolution plans. |
+| **Customizable incident handling** | Tailor the agent’s behavior to follow your operational instructions, ensuring incidents are managed in alignment with your team’s SRE best practices. |
 | **Explainable root cause analysis (RCA)** | Correlate metrics, logs, traces, and recent deployments to propose likely causes and safe mitigations. When attached to a source code repository, the agent can pinpoint code diffs in RCA reports. |
 | **Dev work item creation** | Automatically create developer work items in GitHub or Azure DevOps, linking incidents to commits, PRs, and deployment history. Includes repro steps, logs, and suspects to accelerate resolution. |
 | **Natural language insights** | Ask questions and issue commands in plain English. |
@@ -40,9 +41,7 @@ Watch the following video to see SRE Agent in action.
 
 Azure SRE Agent integrates with the following services:
 
-- **Observability:** [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview) (metrics, logs, traces), Application Insights
-
-- **Incidents & work:**  [ServiceNow](https://www.servicenow.com/) and [PagerDuty](https://www.pagerduty.com/)  
+- **Incidents & work:** [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview), [PagerDuty](https://www.pagerduty.com/), [ServiceNow](https://www.servicenow.com/)
 
 - **Source Code:** GitHub, Azure DevOps
 
@@ -60,11 +59,11 @@ Use the following steps to start working with Azure SRE Agent.
     
     1. Try prompts like:
 
-        - What’s the CPU and memory utilization of my app?
+            - *What’s the CPU and memory utilization of my app?*
     
-        - Which resources are unhealthy?
+            - *Which resources are unhealthy?*
     
-        - Where am I missing alert rules?
+            - *Where am I missing alert rules?*
     
     1. Take action to proposed next steps.
    :::column-end:::
@@ -73,11 +72,11 @@ Use the following steps to start working with Azure SRE Agent.
 
     1. Enable integrations:  
 
-        - Incident management tools: Link to ServiceNow, PagerDuty, or use Azure Monitor alerts.  
+            - Incident management tools: Link to ServiceNow, PagerDuty, or use Azure Monitor alerts.  
 
-        - Ticketing systems: Use Azure Boards.
+            - Ticketing systems: Use Azure Boards.
 
-        - Source code repositories: Connect to GitHub or Azure DevOps.  
+            - Source code repositories: Connect to GitHub or Azure DevOps.  
 
     1. Send a test incident to validate enrichment, RCA, and automation flow.
 
