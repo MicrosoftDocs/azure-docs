@@ -165,7 +165,7 @@ To copy data from HubSpot, set the type property of the dataset to **HubspotObje
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **HubspotObject** | Yes |
-| tableName | Name of the table. | 	Yes for version 2.0 (Preview).<br>No for version 1.0 (if "query" in activity source is specified) |
+| tableName | Name of the table. For version 2.0 (Preview), the name of the table is `<HubSpot Category>.<Sub Category>.<Object Name>`, for example: `CRM.Commerce.Payments`. | 	Yes for version 2.0 (Preview).<br>No for version 1.0 (if "query" in activity source is specified) |
 
 **Example**
 
@@ -261,7 +261,7 @@ The following table shows the release stage and change logs for different versio
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
 | Version 1.0 | End of support announced | / |  
-| Version 2.0 (Preview)| Public Preview | • date is read as DateTime data type. <br><br>• object is read as String data type<br><br>• `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. <br><br>  • `query` is not supported in Copy activity. |
+| Version 2.0 (Preview)| Public Preview |• The `tableName` value is `<HubSpot Category>.<Sub Category>.<Object Name>`, for example: `CRM.Commerce.Payments`. <br><br>• date is read as DateTime data type. <br><br>• object is read as String data type.<br><br>•`useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. <br><br>  • `query` is not supported in Copy activity. |
 
 ### <a name="upgrade-the-hubspot-connector-from-version-10-to-version-20"></a> Upgrade the HubSpot connector from version 1.0 to version 2.0 (Preview)
 
