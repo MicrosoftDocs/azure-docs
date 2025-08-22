@@ -95,9 +95,10 @@ This section describes what to expect when Azure Bastion resources are configure
     <!-- Art Library Source# ConceptArt-0-000-015- -->
     :::image type="content" source="./media/bastion/bastion-instance-zone-traffic.png" alt-text="Diagram that shows Azure Bastion with three instances. A user request goes to an Azure Bastion instance in zone 2 and is sent to a VM in zone 1." border="false":::
 
-    In most scenarios, the small amount of cross-zone latency isn't significant. However, if you have unusually stringent latency requirements for your Azure Bastion workloads, you should deploy a dedicated single-zone Azure Bastion instance in the virtual machine's availability zone. This configuration doesn't provide zone redundancy, and we don't recommend it for most customers.
+   >[!TIP]
+   >In most scenarios, the amount of cross-zone latency isn't significant. However, if you have unusually stringent latency requirements your workloads, you should deploy a dedicated single-zone Azure Bastion instance in the virtual machine's availability zone. Keep in mind that this configuration doesn't provide zone redundancy, and we don't recommend it for most customers.
 
-- **Data replication between zones:** Azure Bastion doesn't store state, so there's no data to replicate between zones.
+- **Data replication between zones:** Because Azure Bastion doesn't store state, there's no data to replicate between zones.
 
 ### Zone-down experience
 
