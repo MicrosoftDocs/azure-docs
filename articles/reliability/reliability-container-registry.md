@@ -126,7 +126,11 @@ When a zone becomes unavailable, Container Registry automatically handles the fa
 
 - **Detection and response:** The Container Registry platform automatically detects failures in an availability zone and initiates a response. The service automatically routes traffic to the remaining healthy zones. No manual intervention is required to initiate a zone failover.
 
-- **Notification:** Zone failure events can be monitored through Azure Service Health and through registry availability metrics in Azure Monitor. Set up alerts on these services to receive notifications about zone-level problems.
+- **Notification**: Azure Container Registry doesn't notify you when a zone is down. However, you can use [Azure Service Health](/azure/service-health/overview) to understand the overall health of the Azure Container Registry service, including any zone failures.
+    
+    Set up alerts to receive notifications of zone-level problems. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal).
+
+    You can also monitor registry availability metrics in Azure Monitor.
 
 - **Active requests:** When an availability zone is unavailable, any requests in progress that are connected to resources in the faulty availability zone are terminated. They need to be retried.
 
@@ -210,7 +214,11 @@ When a region becomes unavailable, container operations can continue to use alte
 
 - **Detection and response:** Container Registry monitors the health of each regional replica and is responsible for redirecting traffic to another region.
 
-- **Notification:** Region health can be monitored through Azure Service Health. Set up alerts to receive notifications of region-level problems. You can also monitor registry availability metrics for each regional endpoint to detect problems.
+- **Notification**: Azure Container Registry doesn't notify you when a region is down. However, you can use [Azure Service Health](/azure/service-health/overview) to understand the overall health of the Azure Container Registry service, including any region failures.
+    
+    Set up alerts to receive notifications of region-level problems. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal).
+
+    You can also monitor registry availability metrics for each regional endpoint in Azure Monitor.
 
 - **Active requests:** Any active requests currently in flight to an unavailable region will fail and must be retried so that they can be directed to a healthy region.
 
