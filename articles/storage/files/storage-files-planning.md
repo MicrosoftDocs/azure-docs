@@ -105,7 +105,8 @@ To learn more, see [How to create file share using Microsoft.FileShares](./creat
 
 ### Region availability
 
-Currently, file share (Microsoft.FileShares) is available in the following regions:
+Currently, creating a file share with Microsoft.FileShares (preview) is available in the following regions:
+
 
 - Australia East
 - Australia Southeast
