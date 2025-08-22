@@ -59,7 +59,8 @@ With both SMB and NFS file shares, Azure Files offers enterprise-grade file shar
 | File system transactions (TxF)                             | Not supported                                                                                                                                | N/A                                                                                                                                                                                                                                                                                                                                                                                                                 |
 ## Management concepts
 
-### What is classic file share?
+### What is an Azure classic file share?
+
 
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
 
