@@ -19,7 +19,7 @@ Ask questions in natural language, get explainable root cause analysis (RCA), an
 | Ask & understand | Automate incidents | Stay proactive |
 |---|---|---|
 | Ask plain-language questions about Azure resources, incidents, and health. | Diagnose, mitigate, and resolve incidents across Azure Monitor or integrated tools. The agent works autonomously or with approvals. | Agent sends daily summaries of environment health, flags spikes in CPU/memory usage, and identifies resources not following security best practices. |
-| **Examples:**<br><br>• What changed in production in last 24 hours?<br><br>• Which resources are unhealthy?<br><br>• What alerts are active now? | **Examples:**<br><br>• Incidents from ServiceNow<br><br>• 500 error alerts from Azure Monitor | **Examples:**<br><br>• Daily health summary for production<br><br>• CPU spike detection<br><br>• Security compliance violations |
+| **Examples:**<br><br>• *What changed in production in last 24 hours?*<br><br>• *Which resources are unhealthy?*<br><br>• *What alerts are active now?* | **Examples:**<br><br>• Incidents from ServiceNow<br><br>• 500 error alerts from Azure Monitor<br><br> • Report on all the AKS pods running for in a namespace | **Examples:**<br><br>• Daily health summary for production<br><br>• CPU spike detection<br><br>• Security compliance violations |
 
 Watch the following video to see SRE Agent in action.
 
@@ -59,11 +59,11 @@ Use the following steps to start working with Azure SRE Agent.
     
     1. Try prompts like:
 
-            - *What’s the CPU and memory utilization of my app?*
+        • *What’s the CPU and memory utilization of my app?*
     
-            - *Which resources are unhealthy?*
+        • *Which resources are unhealthy?*
     
-            - *Where am I missing alert rules?*
+        • *Where am I missing alert rules?*
     
     1. Take action to proposed next steps.
    :::column-end:::
@@ -72,11 +72,11 @@ Use the following steps to start working with Azure SRE Agent.
 
     1. Enable integrations:  
 
-            - Incident management tools: Link to ServiceNow, PagerDuty, or use Azure Monitor alerts.  
+      • Incident management tools: Link to ServiceNow, PagerDuty, or use Azure Monitor alerts.  
 
-            - Ticketing systems: Use Azure Boards.
+      • Ticketing systems: Azure Boards.
 
-            - Source code repositories: Connect to GitHub or Azure DevOps.  
+      • Source code repositories: Connect to GitHub or Azure DevOps.  
 
     1. Send a test incident to validate enrichment, RCA, and automation flow.
 
