@@ -19,7 +19,7 @@ Although you can opt to keep a full copy of your data locally, Azure File Sync c
 
 | Introducing Azure File Sync | Azure Files with Sync (Ignite 2019)  |
 |-|-|
-| [![Screencast of the Introducing Azure File Sync video.](../files/media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Screencast of the Azure Files with Sync presentation.](../files/media/storage-files-introduction/ignite-2018-video.png)](https://www.youtube.com/embed/6E2p28XwovU) |
+| [![Screencast of the Introducing Azure File Sync video - select to play.](../files/media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Screencast of the Azure Files with Sync presentation - select to play.](../files/media/storage-files-introduction/ignite-2018-video.png)](https://www.youtube.com/embed/6E2p28XwovU) |
 
 ## Benefits of Azure File Sync
 
@@ -31,13 +31,13 @@ Cloud tiering can help you cut costs, because you need to store only a fraction 
 
 ### Multiple-site access and sync
 
-Azure File Sync is ideal for distributed access scenarios. For each of your offices, you can provision a local Windows server as part of your Azure File Sync deployment. Changes made to a server in one office automatically sync to the servers in all other offices.
+Azure File Sync is ideal for distributed access scenarios. For each of your offices, you can provision a local Windows Server instance as part of your Azure File Sync deployment. Changes made to a server in one office automatically sync to the servers in all other offices.
 
 ### Business continuity and disaster recovery
 
 Azure File Sync is backed by Azure Files, which offers several redundancy options for highly available storage. Because Azure contains resilient copies of your data, your local server becomes a disposable caching device.
 
-You can recover from a failed server by adding a new server to your Azure File Sync deployment. Rather than restoring from a local backup, you provision another Windows server, install the Azure File Sync agent on it, and then add it to your Azure File Sync deployment.
+You can recover from a failed server by adding a new server to your Azure File Sync deployment. Rather than restoring from a local backup, you provision another Windows Server instance, install the Azure File Sync agent on it, and then add it to your Azure File Sync deployment.
 
 Azure File Sync downloads your file namespace before downloading data, so that your server can be up and running as soon as possible. For even faster recovery, you can have a warm standby server as part of your deployment, or you can use Azure File Sync with Windows clustering.
 
@@ -45,7 +45,7 @@ Azure File Sync downloads your file namespace before downloading data, so that y
 
 Reduce your on-premises backup spending by taking centralized backups in the cloud via Azure Backup. SMB Azure file shares have native snapshot capabilities. You can automate the process by using Azure Backup to schedule your backups and manage their retention.
 
-Azure Backup also integrates with your on-premises servers. When you restore to the cloud, the changes are automatically downloaded on your Windows server.
+Azure Backup also integrates with your on-premises servers. When you restore to the cloud, the changes are automatically downloaded on your Windows Server instance.
 
 ### Migration
 
