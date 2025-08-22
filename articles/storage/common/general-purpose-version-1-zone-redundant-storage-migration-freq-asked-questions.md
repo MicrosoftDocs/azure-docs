@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Frequently asked questions about the retirement of Azure General-purpose v1 (GPv1) Standard Zone-redundant storage (ZRS) accounts and upgrading to GPv2.
 author: gtrossell
 ms.author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.subservice: storage-accounts
 ms.topic: faq
 ms.date: 08/22/2025
@@ -103,7 +103,8 @@ Microsoft provides documentation, Q&A forums, and support channels. If you have 
 
 ## See also
 
-- **GPv1 Standard ZRS retirement overview:** general-purpose-version-1-zone-redundant-storage-migration-overview.md  
-- **Storage account upgrade process:** storage-account-upgrade.md  
-- **Storage account redundancy:** storage-redundancy.md  
-- **Azure Storage pricing:** https://azure.microsoft.com/pricing/details/storage/blobs/
+- [GPv1 Standard ZRS retirement overview](general-purpose-version-1-zone-redundant-storage-migration-overview.md)  
+- [Storage account upgrade process](storage-account-upgrade.md)  
+- [Storage account redundancy](storage-redundancy.md)
+- [Learn more about GPv2 pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+- [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)

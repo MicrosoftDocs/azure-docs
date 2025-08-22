@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Frequently asked questions about the retirement of Azure Legacy Blob Storage (blob-only) accounts and migrating to General-purpose v2 (GPv2).
 author: gtrossell
 ms.author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.subservice: blobs
 ms.topic: faq
 ms.date: 08/22/2025
@@ -20,7 +20,7 @@ This FAQ addresses common questions about migrating from Legacy Blob Storage (bl
 
 > [!IMPORTANT]
 > Microsoft will retire Legacy Blob Storage accounts on **September 1, 2026**. All Legacy Blob Storage must be migrated to General-purpose v2 before this date to avoid service disruption.  
-> See: [Migrate to GPv2](storage-account-upgrade.md) and [General Purpose v1 (GPv1) account migration overview](general-purpose-version-1-account-migration-overview.md) for more details.
+> See: [Migrate to GPv2](storage-account-upgrade.md) and [General Purpose v1 (GPv1) account migration overview](general-purpose-version-1-account-migration-overview.md) for more details
 
 
 A Legacy Blob Storage account is a legacy Azure Storage account type designed for blob-only workloads. It supports **block blobs** and **append blobs** with **account-level access tiering** (hot, cool, archive).
@@ -99,6 +99,7 @@ If you don't migrate your Legacy Blob Storage account to General-purpose v2 by t
 
 ## See also
 
-- **Blob storage FAQ (template reference):** https://learn.microsoft.com/azure/storage/blobs/storage-blob-faq  
-- **Blobs pricing:** https://azure.microsoft.com/pricing/details/storage/blobs/  
-- **Azure Pricing Calculator:** https://azure.microsoft.com/pricing/calculator/
+- [Legacy Blob Storage retirement overview](legacy-blob-storage-retirement-overview.md)  
+- [Storage account upgrade process](storage-account-upgrade.md)  
+- [Learn more about GPv2 pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+- [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)

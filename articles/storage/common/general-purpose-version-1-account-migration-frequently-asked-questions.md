@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Frequently asked questions about the retirement of Azure General-purpose v1 (GPv1) storage accounts and upgrading to GPv2.
 author: gtrossell
 ms.author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.subservice: storage-accounts
 ms.topic: faq
 ms.date: 08/22/2025
@@ -101,6 +101,6 @@ If you don't upgrade your GPv1 storage account to GPv2 by the deadline, **all ex
 ## Why is GPv2 more expensive than GPv1?
 
 GPv2 introduces new features and pricing models that may result in **higher costs for certain workloads**. However, it offers improved **performance**, **scalability**, and **management** capabilities that can lead to **overall cost savings**. Evaluate your **specific use case** and **access patterns** to understand the impact.  
-[Learn more about GPv2 pricing](https://azure.microsoft.com/pricing/details/storagelob storage FAQ (template reference):** https://learn.microsoft.com/azure/storage/blobs/storage-blob-faq  
-- **Blobs pricing:** https://azure.microsoft.com/pricing/details/storage/blobs/  
-- **Azure Pricing Calculator:** https://azure.microsoft.com/pricing/calculator/
+[Learn more about GPv2 pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+[Blobs pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)
+[Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
