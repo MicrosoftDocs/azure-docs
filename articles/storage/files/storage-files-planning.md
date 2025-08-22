@@ -81,7 +81,8 @@ This new model simplifies the deployment experience and unlocks a host of new ca
 
 - Dedicated performance per share: Each share gets its own IOPS, throughput, and capacity so you will not have to worry about resource contention. Making it ideal for environments managing hundreds of shares (e.g., CI/CD pipelines) and for separating departments or customer workloads.
 
-- Predictable, flexible costs: The new management model uses SSD provisioned v2 model allowing you independently set storage, IOPS, and throughput for each share. You can adjust them as needs change. This brings clear, predictable pricing while retaining the agility to scale up or down.
+- Predictable, flexible costs: Creating file shares with Microsoft.FileShares automatically uses the provisioned v2 billing model, allowing you independently set storage, IOPS, and throughput for each share. You can adjust them as your needs change. This brings clear, predictable pricing while retaining the agility to scale up or down.
+
 
 - Granular control at the share level: Apply networking (service or private endpoints), security, and billing per file share. This gives you precise blast-radius control and cleaner cost attribution to teams, apps, or customers.
 
