@@ -17,7 +17,7 @@ In this tutorial, you'll learn how to expose an FastAPI app's functionality thro
 
 If your web application already has useful features, like shopping, hotel booking, or data management, it's easy to make those capabilities available to an AI agent in Azure AI Foundry Agent Service. By simply adding an OpenAPI schema to your app, you enable the agent to understand and use your app's capabilities when it responds to users' prompts. This means anything your app can do, your AI agent can do too, with minimal effort beyond creating an OpenAPI endpoint for your app. In this tutorial, you start with a simple restaurant ratings app. By the end, you'll be able to see restaurant ratings as well as create new restaurants and new reviews with an agent through conversational AI.
 
-:::image type="content" source="media/tutorial-ai-integrate-azure-ai-agent-dotnet/agents-playground.png" alt-text="Screenshot showing the agents playground in the middle of a conversation that takes actions by using the OpenAPI tool.":::
+:::image type="content" source="media/tutorial-ai-integrate-azure-ai-agent-dotnet/agents-playground.png" alt-text="Scenario Preview: Screenshot showing the agents playground in the middle of a conversation that takes actions by using the OpenAPI tool.":::
 
 > [!div class="checklist"]
 > * Add OpenAPI functionality to your web app.
