@@ -21,9 +21,9 @@ This article describes Azure Application Gateway v2 reliability support, coverin
 [!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
 > [!IMPORTANT]
-> The reliability of your overall solution depends on the configuration of the back-end servers that Application Gateway routes traffic to. Depending on your solution, these might be Azure virtual machines (VMs), Azure virtual machine scale sets, Azure App Services, or external endpoints.
+> The reliability of your overall solution depends on the configuration of the backend servers that Application Gateway routes traffic to. Depending on your solution, these might be Azure virtual machines (VMs), Azure virtual machine scale sets, Azure App Services, or external endpoints.
 >
-> Your back-end servers aren't in scope for this article, but their availability configurations directly affect your application's resilience. Review the reliability guides for all of the Azure services in your solution to understand how each service supports your reliability requirements. By ensuring that your back-end servers are also configured for high availability and zone redundancy, you can achieve end-to-end reliability for your application.
+> Your backend servers aren't in scope for this article, but their availability configurations directly affect your application's resilience. Review the reliability guides for all of the Azure services in your solution to understand how each service supports your reliability requirements. By ensuring that your backend servers are also configured for high availability and zone redundancy, you can achieve end-to-end reliability for your application.
 
 Application Gateway v2 is a web traffic load balancer that you can use to manage traffic to your web applications. It provides advanced features like autoscaling, zone redundancy, static virtual IP (VIP) addresses, and web application firewall (WAF) integration to deliver highly available and secure application delivery services.
 
@@ -47,7 +47,7 @@ Application Gateway is a managed service. It's important to understand some key 
 
   A *capacity unit* represents an amount of capacity that the gateway can process. A capacity unit is a synthetic measure that incorporates traffic, the number of connections, and compute resources. Each instance can handle at least 10 capacity units. For more information, see [Scale Application Gateway v2 and WAF v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
 
-- **Health probes:** Application Gateway uses [health probes](/azure/application-gateway/application-gateway-probe-overview) to continuously monitor your back-end servers, like individual application servers. Traffic can be automatically redirected to healthy back-end servers when unhealthy servers are detected.
+- **Health probes:** Application Gateway uses [health probes](/azure/application-gateway/application-gateway-probe-overview) to continuously monitor your backend servers, like individual application servers. Traffic can be automatically redirected to healthy backend servers when unhealthy servers are detected.
 
 ## Transient faults
 
@@ -57,7 +57,7 @@ When you use Application Gateway, consider the following best practices:
 
 - **Implement retry logic.** Clients should implement appropriate retry mechanisms for transient connection failures.
 
-- **Configure health probes with tolerance.** Configure your health probes to allow a grace period for transient faults. Health probes can be configured with an *unhealthy threshold*, which specifies the number of consecutive failed connection attempts that should trigger the back-end server to be marked as unhealthy. The default value of three ensures that transient faults in your back-end servers don't trigger Application Gateway to unnecessarily mark the server as unhealthy.
+- **Configure health probes with tolerance.** Configure your health probes to allow a grace period for transient faults. Health probes can be configured with an *unhealthy threshold*, which specifies the number of consecutive failed connection attempts that should trigger the backend server to be marked as unhealthy. The default value of three ensures that transient faults in your backend servers don't trigger Application Gateway to unnecessarily mark the server as unhealthy.
 
 ## Availability zone support
 
@@ -215,7 +215,7 @@ To achieve multi-region resilience by using Application Gateway v2, you need to 
 
 - Deploy a global load balancing solution that can send traffic between your regional gateways. The global load balancing services in Azure are Azure Traffic Manager and Azure Front Door. Each service routes traffic based on health checks, geographic proximity, or performance metrics. Azure Front Door also provides a range of other capabilities, including distributed denial-of-service (DDoS) attack protection, WAF capabilities, and advanced rules and routing features.
 
-- Beyond the gateway, consider replicating back-end applications and data across regions. Consult the reliability guides for each Azure service to understand multi-region deployment approaches.
+- Beyond the gateway, consider replicating backend applications and data across regions. Consult the reliability guides for each Azure service to understand multi-region deployment approaches.
 
 For an example approach, see [Use Application Gateway with Traffic Manager](/azure/traffic-manager/traffic-manager-use-with-application-gateway).
 
