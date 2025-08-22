@@ -46,7 +46,7 @@ The following table describes some reasons why you might want to use SQL:
 | Scenario | Recommend storage provider |
 |----------|----------------------------|
 | You want to run logic app workflows in Azure with more control over storage throughput and performance. | Use SQL as your storage provider as Azure Storage doesn't provide tools to fine-tune throughput and performance. |
-| You want to run logic app workflows on premises, which you can with [Azure Arc enabled Logic Apps](azure-arc-enabled-logic-apps-overview.md). | Use SQL as your storage provider so that you can choose where to host your SQL database, for example, on premises in a virtual machine, a container, or multi-cloud. Consider running your logic app workflows close to the systems you want to integrate, or reducing your dependency on the cloud.   |
+| You want to run logic app workflows on premises, which you can with [Standard workflows that use hybrid deployment](create-standard-workflows-hybrid-deployment.md). For more information, see [Set up your own infrastructure for Standard logic apps using hybrid deployment](set-up-standard-workflows-hybrid-deployment-requirements.md). | Use SQL as your storage provider so that you can choose where to host your SQL database, for example, on premises in a virtual machine, a container, or multi-cloud. Consider running your logic app workflows close to the systems you want to integrate, or reducing your dependency on the cloud.   |
 | You want predictable storage costs. | Use SQL as your storage provider when you want more control over scaling costs. SQL costs are based on each compute and input-output operations per second (IOPs). Azure Storage costs are based on numbers of operations, which might work better for small workloads that scale to zero. |
 | You prefer to use SQL over Azure Storage. | SQL is a well-known and reliable ecosystem that you can use to apply the same governance and management across your logic apps behind-the-scenes operations. |
 | You want to reuse existing SQL environments. | Use SQL as your storage provider if you already own SQL licenses that you want to reuse or modernize onto the cloud. You also might want to use the Azure Hybrid Benefits for your logic app integrations. |
@@ -159,9 +159,8 @@ When you create your logic app using the **Logic App (Standard)** resource type 
    | **Resource Group** | Yes | <*Azure-resource-group-name*> | The Azure resource group where you create your logic app and related resources. This resource name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <p><p>This example creates a resource group named `Fabrikam-Workflows-RG`. |
    | **Type** | Yes | **Standard** | This logic app resource type runs in the single-tenant Azure Logic Apps environment and uses the [Standard usage, billing, and pricing model](logic-apps-pricing.md#standard-pricing). |
    | **Logic App name** | Yes | <*logic-app-name*> | The name to use for your logic app. This resource name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <p><p>This example creates a logic app named `Fabrikam-Workflows`. <p><p>**Note**: Your logic app's name automatically gets the suffix, `.azurewebsites.net`, because the **Logic App (Standard)** resource is powered by the single-tenant Azure Logic Apps runtime, which uses the Azure Functions extensibility model and is hosted as an extension on the Azure Functions runtime. Azure Functions uses the same app naming convention. |
-   | **Publish** | Yes | <*deployment-environment*> | The deployment destination for your logic app. By default, **Workflow** is selected for deployment to single-tenant Azure Logic Apps. Azure creates an empty logic app resource where you have to add your first workflow. <p><p>**Note**: Currently, the **Docker Container** option requires a [*custom location*](/azure/azure-arc/kubernetes/conceptual-custom-locations) on an Azure Arc enabled Kubernetes cluster, which you can use with [Azure Arc enabled Logic Apps (Preview)](azure-arc-enabled-logic-apps-overview.md). The resource locations for your logic app, custom location, and cluster must all be the same. |
-   | **Region** | Yes | <*Azure-region*> | The location to use for creating your resource group and resources. This example deploys the sample logic app to Azure and uses **West US**. <p>- If you selected **Docker Container**, select your custom location. <p>- To deploy to an [ASEv3](../app-service/environment/overview.md) resource, which must first exist, select that environment resource from the **Region** list. |
-   |||||
+   | **Publish** | Yes | <*deployment-environment*> | The deployment destination for your logic app. By default, **Workflow** is selected for deployment to single-tenant Azure Logic Apps. Azure creates an empty logic app resource where you have to add your first workflow. |
+   | **Region** | Yes | <*Azure-region*> | The location to use for creating your resource group and resources. This example deploys the sample logic app to Azure and uses **West US**. <p>- To deploy to an [ASEv3](../app-service/environment/overview.md) resource, which must first exist, select that environment resource from the **Region** list. |
 
    The following example shows the **Create Logic App** page with the **Basics** tab:
 
@@ -177,7 +176,6 @@ When you create your logic app using the **Logic App (Standard)** resource type 
    | **Plan type** | Yes | <*hosting-plan*> | The hosting plan to use for deploying your logic app. <p><p>For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing). |
    | **Windows Plan** | Yes | <*plan-name*> | The plan name to use. Either select an existing plan name or provide a name for a new plan. <p><p>This example uses the name `Fabrikam-Service-Plan`. |
    | **SKU and size** | Yes | <*pricing-tier*> | The [pricing tier](../app-service/overview-hosting-plans.md) to use for your logic app. Your selection affects the pricing, compute, memory, and storage that your logic app and workflows use. <p><p>To change the default pricing tier, select **Change size**. You can then select other pricing tiers, based on the workload that you need. <p><p>For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing). |
-   |||||
 
    The following example shows the **Create Logic App** page with the **Hosting** tab:
 
@@ -251,8 +249,6 @@ You can directly publish your logic app project from Visual Studio Code to Azure
 1. Select a location for your logic app. You can also start typing to filter the list.
 
    - To deploy to Azure, select the Azure region where you want to deploy. If you previously created an App Service Environment v3 (ASEv3) resource and want to deploy there, select your ASEv3.
-
-   - To deploy to Azure Arc enabled Logic Apps, select your previously configured custom location.
 
    The following example shows the location list filtered to **West US**.
 
