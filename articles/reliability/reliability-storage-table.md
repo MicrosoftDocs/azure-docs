@@ -155,9 +155,6 @@ For detailed pricing information, see [Table Storage pricing](https://azure.micr
 
 [!INCLUDE [Storage - Multi Region Normal operations](includes/storage/reliability-storage-multi-region-normal-operations-include.md)]
 
-> [!IMPORTANT]
-> The approach to data replication across regions is usually different than the approach to data replication across zones.
-
 ### Region-down experience
 
 [!INCLUDE [Storage - Multi Region Down experience](includes/storage/reliability-storage-multi-region-down-experience-include.md)]
