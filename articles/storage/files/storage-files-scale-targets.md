@@ -147,7 +147,8 @@ A popular use case for Azure Files is storing user profile containers and disk i
 
 ## Microsoft.FileShares scale targets
 
-In public preview, we support up to 1,000 file shares per region per subscription. We will continuous make improvement on this as we getting to general available.
+
+
 
 ## Azure File Sync scale targets
 
