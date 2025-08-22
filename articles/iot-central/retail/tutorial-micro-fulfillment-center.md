@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett 
 ms.service: azure-iot-central
 ms.topic: tutorial
-ms.date: 06/18/2024
+ms.date: 08/07/2025
 #customer intent: As a developer, I want to learn how to deploy and use the micro-fulfillment center application template for Azure IoT Central so that I can understand how to use it in my projects.
 
 ---

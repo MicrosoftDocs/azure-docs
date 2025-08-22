@@ -3,7 +3,7 @@ title: Tutorial - Deploy an Azure IoT in-store analytics app
 description: This tutorial shows how to create and deploy an in-store analytics retail application in IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/27/2024
+ms.date: 08/07/2025
 services: iot-central
 ms.service: azure-iot-central
 ms.topic: tutorial

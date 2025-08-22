@@ -3,7 +3,7 @@ title: Tutorial - Use Azure IoT Central device groups
 description: Tutorial - Learn how to use device groups to analyze telemetry from  devices in your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/17/2024
+ms.date: 08/07/2025
 ms.topic: tutorial
 ms.service: azure-iot-central
 services: iot-central
@@ -90,7 +90,7 @@ For four of the simulated sensor devices, use the **Manage device** view to set 
 1. To customize the device group to include only the devices belonging to **Contoso**, select **+ Filter**. Select the **Customer Name** property, the **Equals** comparison operator, and **Contoso** as the value. You can add multiple filters and devices that meet **all** the filter criteria are placed in the device group. The device group you create is accessible to anyone who has access to the application, so anyone can view, modify, or delete the device group.
 
     > [!TIP]
-    > The device group is a dynamic query. Every time you view the list of devices, there may be different devices in the list. The list depends on which devices currently meet the criteria of the query.
+    > The device group is a dynamic query. Every time you view the list of devices, there might be different devices in the list. The list depends on which devices currently meet the criteria of the query.
 
 1. Choose **Save**.
 

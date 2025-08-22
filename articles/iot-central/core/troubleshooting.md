@@ -4,7 +4,7 @@ description: Troubleshoot and resolve issues with device connections and data ex
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/06/2024
+ms.date: 08/07/2025
 ms.topic: troubleshooting
 ms.service: azure-iot-central
 ms.custom: device-developer, devx-track-azurecli
@@ -31,7 +31,7 @@ az extension add --name azure-iot
 ```
 
 > [!NOTE]
-> You may be prompted to install the `uamqp` library the first time you run an extension command.
+> You might be prompted to install the `uamqp` library the first time you run an extension command.
 
 When you've installed the `azure-iot` extension, start your device to see if the messages it's sending are making their way to IoT Central.
 
@@ -48,7 +48,7 @@ To monitor the telemetry your device is sending, use the following command:
 az iot central diagnostics monitor-events --app-id <iot-central-app-id> --device-id <device-name>
 ```
 
-If the device has connected successfully to IoT Central, you see output similar to the following example:
+If the device connected successfully to IoT Central, you see output similar to the following example:
 
 ```output
 Monitoring telemetry.
@@ -166,7 +166,7 @@ Here's a list of common error codes you might see when a device tries to upload 
 
 ## Unmodeled data issues
 
-When you've established that your device is sending data to IoT Central, the next step is to ensure that your device is sending data in a valid format.
+After you establish that your device is sending data to IoT Central, the next step is to ensure that your device is sending data in a valid format.
 
 To detect which categories your issue is in, run the most appropriate Azure CLI command for your scenario:
 
@@ -182,7 +182,7 @@ To detect which categories your issue is in, run the most appropriate Azure CLI 
     az iot central diagnostics validate-properties --app-id <iot-central-app-id> --device-id <device-name>
     ```
 
-You may be prompted to install the `uamqp` library the first time you run a `validate` command.
+You might be prompted to install the `uamqp` library the first time you run a `validate` command.
 
 The three common types of issue that cause device data to not appear in IoT Central are:
 
@@ -208,7 +208,7 @@ Command group 'iot central diagnostics' is in preview and under development. Ref
 [WARNING]  [DeviceId: sample-device-01] [TemplateId: urn:modelDefinition:ofhmazgddj:vmjwwjuvdzg] Device is sending data that has not been defined in the device template. Following capabilities have NOT been defined in the device template '['osVersion']'. Following capabilities have been defined in the device template (grouped by components) '{'thermostat1': ['temperature', 'targetTemperature', 'maxTempSinceLastReboot', 'getMaxMinReport', 'rundiagnostics'], 'thermostat2': ['temperature', 'targetTemperature', 'maxTempSinceLastReboot', 'getMaxMinReport', 'rundiagnostics'], 'deviceInformation': ['manufacturer', 'model', 'swVersion', 'osName', 'processorArchitecture', 'processorManufacturer', 'totalStorage', 'totalMemory']}'.
 ```
 
-A device must use the data types defined in the device template for any telemetry or property values. For example, you see a schema mismatch if the type defined in the device template is boolean, but the device sends a string. The following output shows an example error message where the device using a string value for a property that's defined as a double:
+A device must use the data types defined in the device template for any telemetry or property values. For example, you see a schema mismatch if the type defined in the device template is boolean, but the device sends a string. The following output shows an example error message where the device using a string value for a property defined as a double:
 
 ```output
 Command group 'iot central diagnostics' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
@@ -224,7 +224,7 @@ If you prefer to use a GUI, use the IoT Central **Raw data** view to see if some
 
 :::image type="content" source="media/troubleshooting/raw-data-view.png" alt-text="Screenshot that shows the raw data view in an IoT Central application." lightbox="media/troubleshooting/raw-data-view.png":::
 
-When you've detected the issue, you may need to update device firmware, or create a new device template that models previously unmodeled data.
+When you detect the issue, you might need to update device firmware, or create a new device template that models previously unmodeled data.
 
 If you chose to create a new template that models the data correctly, migrate devices from your old template to the new template. To learn more, see [Manage devices in your Azure IoT Central application](howto-manage-devices-individually.md).
 
@@ -259,7 +259,7 @@ Before you configure or enable the export destination, make sure that you comple
     | Azure Event Hubs | Azure Event Hubs Data Sender |
     | Azure Data Explorer | Admin |
 
-    If the permissions were not set correctly before you created the destination in your IoT Central application, try removing the destination and then adding it again.
+    If the permissions weren't set correctly before you created the destination in your IoT Central application, try removing the destination and then adding it again.
 
 - Configure any virtual networks, private endpoints, and firewall policies.
 

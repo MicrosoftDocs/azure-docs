@@ -3,7 +3,7 @@ title: Tutorial - Azure IoT water quality monitoring
 description: This tutorial shows you how to deploy and use the water quality monitoring application template for IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/13/2024
+ms.date: 08/07/2025
 ms.topic: tutorial
 ms.service: azure-iot-central
 services: iot-central
@@ -187,7 +187,7 @@ The water quality monitoring application you created from the application templa
 1. Explore the **Device Properties** tab and the **Device Dashboard** tab.
 
 > [!NOTE]
-> All tabs have been configured from **Device template views**.
+> All tabs are configured from **Device template views**.
 
 ### Add new devices
 

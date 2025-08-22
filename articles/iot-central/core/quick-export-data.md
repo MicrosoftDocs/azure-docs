@@ -3,7 +3,7 @@ title: Quickstart - Export data from Azure IoT Central
 description: In this quickstart, you learn how to use the data export feature in IoT Central to integrate with other cloud services.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/01/2024
+ms.date: 08/07/2025
 ms.topic: quickstart
 ms.service: azure-iot-central
 services: iot-central
