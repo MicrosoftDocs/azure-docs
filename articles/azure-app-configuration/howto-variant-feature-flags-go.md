@@ -536,7 +536,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
             // Get the Greeting variant for the current user
             if variant, err := app.featureManager.GetVariant("Greeting", targetingContext); err != nil {
                 log.Printf("Error getting Greeting variant: %v", err)
-            } else if variant.ConfigurationValue != nil {
+            } else if variant != nil && variant.ConfigurationValue != nil {
                 // Extract the greeting message from the variant configuration
                 if configValue, ok := variant.ConfigurationValue.(string); ok {
                     greetingMessage = configValue
