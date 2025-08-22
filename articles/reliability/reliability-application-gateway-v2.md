@@ -104,7 +104,7 @@ This section explains how to configure availability zone support for your gatewa
     To deploy a new gateway, see [Quickstart: Direct web traffic by using Application Gateway - Azure portal](../application-gateway/quick-create-portal.md).
 
     > [!NOTE]
-    > After you deploy a new gateway, Azure portal or other tooling might indicate that the gateway isn't zone-redundant. However, if the gateway is deployed in a region that supports availability zones, it's guaranteed to be zone-redundant by default.
+    > After you deploy a new gateway by using the Azure portal, the portal or other tooling might indicate that the gateway isn't zone-redundant. However, if the gateway is deployed in a region that supports availability zones, it's guaranteed to be zone-redundant.
 
     When you use the Azure CLI, Azure PowerShell, Bicep, Azure Resource Manager templates (ARM templates), or Terraform, you can optionally specify the availability zones to deploy your gateway into. You can deploy a zone-redundant gateway by specifying two or more zones. However, we recommend that you omit the zone list so that your gateway can use all of the availability zones, unless you have a specific reason not to use a specific zone.
 
