@@ -101,4 +101,4 @@ In this tutorial, you learned how to use the portal to:
 ## Related content
 
  * [Learn more about Azure API Center](key-concepts.md)
-
+* [Track API resource dependencies](track-resource-dependencies.md)

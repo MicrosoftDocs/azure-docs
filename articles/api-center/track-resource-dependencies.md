@@ -12,15 +12,18 @@ ms.custom:
 
 # Track API resource dependencies in your API center 
 
-This article explains how to track the relationships or dependencies between APIs and associated resources in your [Azure API center](overview.md). Use the dependency tracker (preview) to map relationships across APIs, environments, and deployments in your catalog. Also track dependencies on external components including GitHub repositories and other resources in Azure and other cloud platforms.
+This article explains how to track the dependencies between APIs and associated resources in your [Azure API center](overview.md). Use the dependency tracker (preview) to map dependencies across APIs, environments, and deployments in your catalog. Also track dependencies on external components including GitHub repositories and other resources in Azure and other cloud platforms.
 
-Each dependency identifies a *source* resource and a *target* resource that depends on it. By tracking dependencies between source and target resources, you can:
+Each dependency identifies a *source* resource and a related *target* resource that depends on it. By tracking dependencies between source and target resources, you can:
 
 * **Troubleshoot and resolve issues** more effectively by providing visibility into the relationships between components
 
 * **Improve the reliability of systems** by identifying risks such as circular dependencies or over-reliance on single points of failure
 
 * **Improve effectiveness of AI agents** such as using mapped dependencies for automatic discovery of valid endpoints for tasks and validating toolchain compatibility
+
+> [!NOTE]
+> This is a preview feature and is subject to change. [Limits](/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#azure-api-center-limits) apply.
 
 ## Prerequisites
 
@@ -29,7 +32,7 @@ Each dependency identifies a *source* resource and a *target* resource that depe
 
 ## Add a dependency
 
-Use the dependency tracker in the Azure portal to add and manage dependencies between your API resources. 
+Use the dependency tracker in the Azure portal to add a dependency. 
 
 To add a dependency:
 
@@ -47,25 +50,25 @@ The dependency is added.
 
 ## View dependencies 
 
-API Center provides both a table view that lists dependencies, and a graphical view with a holistic representation. Use these views to explore the relationships between your resources.
+API Center provides a default table view that lists dependencies, and a graphical view with a holistic representation. Use these views to explore the relationships between your resources.
 
 To see a graphical view:
 
 1. In the left menu, under **Assets**, select **Dependency tracker (preview)**.
 1. Select the **Graph View** tab.
 
-Explore the graphical representation of your dependencies. Select the box representing any API center resource to see its details.
+In the graphical view, select the box representing any API center resource to see its details.
 
 :::image type="content" source="media/track-resource-dependencies/view-dependency-graph.png" alt-text="Screenshot of the dependency graph in the portal.":::
 
 ## Manage dependencies
 
-You can edit or delete dependencies as needed.
+You can edit or delete dependencies as needed using the table view.
 
 To view or edit dependency details:
 
 1. In the left menu, under **Assets**, select **Dependency tracker (preview)**.
-1. In the table view, find the dependency you want to edit.
+1. Select **Table View**, and find the dependency you want to edit.
 1. Select **See details**.
 1. To make changes, select **Edit**, and update details.
 1. **Save** your changes.
@@ -77,7 +80,7 @@ To delete a dependency:
 1. Confirm the deletion.
 
 > [!NOTE]
-> If you delete an API Center resource that is a source or target in a dependency, the dependency isn't automatically deleted. You must delete it yourself
+> If you delete an API Center resource that is a source or target in a dependency, the dependency isn't automatically deleted. You must delete it yourself.
 
 ## Related content
 
