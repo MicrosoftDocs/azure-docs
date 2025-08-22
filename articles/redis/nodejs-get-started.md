@@ -29,6 +29,11 @@ In this quickstart, you learn how to use an Azure Redis cache for JavaScript wit
   npm install @azure/identity @azure/identity-broker redis @redis/entraid @redis/client
   ```
 
+- Authenticate to Azure for your development environment with [Azure CLI](/cli/azure):
+
+  ```bash
+  az login
+  ```
 
 ## Create an Azure Managed Redis instance
 
