@@ -126,7 +126,7 @@ There's no extra charge to enable availability zone support in AKS. You pay for 
 
 For more information, see [Zone resiliency considerations for AKS](/azure/aks/aks-zone-resiliency).
 
-### Failback
+### Zone recovery
 
 When the availability zone recovers, failback behavior depends on the component:
 

@@ -137,7 +137,7 @@ When a zone becomes unavailable, Container Registry automatically handles the fa
 
 - **Traffic rerouting:** The platform automatically reroutes traffic to healthy zones without requiring you to make any configuration changes.
 
-### Failback
+### Zone recovery
 
 When the affected availability zone recovers, Container Registry automatically distributes operations across all available zones, including the recovered zone. The service rebalances traffic and data distribution without requiring manual intervention or causing service disruption.
 
@@ -225,7 +225,7 @@ When a region becomes unavailable, container operations can continue to use alte
 
 - **Traffic rerouting:** When a region becomes unavailable, container operations are automatically routed to another replica in a healthy region. Clients don't need to change the endpoint in which they interact with the registry. Microsoft automatically handles routing, failover, and failback.
 
-### Failback
+### Region recovery
 
 When a region recovers, data plane operations automatically resume for that regional endpoint through Traffic Manager routing. The service synchronizes any changes that occur during the outage by using asynchronous replication with eventual consistency.
 

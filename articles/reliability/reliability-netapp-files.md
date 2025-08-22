@@ -130,7 +130,7 @@ This section describes what to expect when Azure NetApp Files volumes are config
 
 - **Traffic rerouting:** You're responsible for redirecting your application traffic to connect to the newly active destination volume. For more information, see [fail over to the destination volume](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume).
 
-### Failback
+### Zone recovery
 
 Failback is a manual process that requires performing a resync operation, reestablishing the replication, and remounting the source volume for the client to access. For more information, see [Manage disaster recovery using Azure NetApp Files](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md).
 
@@ -204,9 +204,9 @@ This section describes what to expect when Azure NetApp Files volumes are config
 
 - **Traffic rerouting:** You're responsible for redirecting your application traffic to connect to the newly active destination volume. For more information, see [fail over to the destination volume](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume).
 
-### Failback
+### Region recovery
 
-Failback is a manual process that requires performing a resync operation, reestablishing the replication, and remounting the source volume for the client to access. For more information, see [Manage disaster recovery using Azure NetApp Files](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md).
+After the primary region recovers, you're responsible for failback. Failback is a manual process that requires performing a resync operation, reestablishing the replication, and remounting the source volume for the client to access. For more information, see [Manage disaster recovery using Azure NetApp Files](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md).
 
 ### Testing for region failures
 

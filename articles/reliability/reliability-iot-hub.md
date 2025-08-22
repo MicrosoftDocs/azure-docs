@@ -105,7 +105,7 @@ This section describes what to expect when IoT Hub resources are configured for 
 
 - **Traffic rerouting:** When your IoT hub is deployed in a region that supports zone redundancy for compute components, IoT Hub detects the loss of the zone. Then, any new requests are automatically redirected to a new primary instance of the service in one of the healthy availability zones.
 
-### Failback
+### Zone recovery
 
 When the availability zone recovers, IoT Hub automatically restores instances in the availability zone and reroutes traffic between your instances as normal.
 
@@ -233,7 +233,7 @@ Depending on where you route your IoT hub's messages, you might need to perform 
 
 - **Azure Storage:** When routing to Azure Storage, list the blobs or files first. Then iterate over them to ensure that all blobs or files are read without assuming partitioning. The partition range can potentially change during a Microsoft-initiated failover or customer-initiated failover. You can use the [List Blobs API](/rest/api/storageservices/list-blobs) to enumerate the list of blobs or the [List Azure Data Lake Storage API](/rest/api/storageservices/datalakestoragegen2/filesystem/list) for the list of files. For more information, see [Azure Storage as a routing endpoint](../iot-hub//iot-hub-devguide-endpoints.md#azure-storage-as-a-routing-endpoint).
 
-### Failback
+### Region recovery
 
 To fail back to the primary region, you can manually trigger the failover action a second time. It's important to remember the [restrictions on how frequently you can fail over](#region-down-experience).
 

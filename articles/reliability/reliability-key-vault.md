@@ -115,7 +115,7 @@ The following section describes what to expect when key vaults are in a region t
 
 For more information, see [Failover within a region](/azure/key-vault/general/disaster-recovery-guidance#failover-within-a-region) in the Key Vault availability and redundancy documentation.
 
-### Failback
+### Zone recovery
 
 When the affected availability zone recovers, Key Vault automatically restores operations to that zone. The Azure platform fully manages this process and doesn't require any customer intervention.
 

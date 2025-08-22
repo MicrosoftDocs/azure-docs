@@ -133,7 +133,7 @@ Zone-redundant Data Factory resources can be deployed in [any region that suppor
 
 **Active requests:** Any pipelines and triggers in progress continue to run, and you don't experience any immediate disruption from a zone failure. However, activities in progress during a zone failure might fail and be restarted. It's important to design activities to be idempotent, which helps them recover from zone failures and other faults. For more information, see [Transient faults](#transient-faults).
 
-### Failback
+### Zone recovery
 
 When the availability zone recovers, Data Factory automatically fails back to the original zone. You don't need to do anything to initiate a zone failback in your pipelines or other components.
 

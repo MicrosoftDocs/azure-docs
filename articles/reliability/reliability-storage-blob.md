@@ -140,7 +140,7 @@ For detailed pricing information, see [Azure Blob Storage pricing](https://azure
 
 [!INCLUDE [Storage - Multi Region Down experience](includes/storage/reliability-storage-multi-region-down-experience-include.md)]
 
-### Failback
+### Region recovery
 
 [!INCLUDE [Storage - Multi Region Failback](includes/storage/reliability-storage-multi-region-failback-include.md)]
 
