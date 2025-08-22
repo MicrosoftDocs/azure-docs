@@ -78,7 +78,7 @@ The following table lists more information about resource logs you can collect f
 | AppServicePlatformLogs  | TBA | Yes | Yes | Yes | Container operation logs |
 | AppServiceAntivirusScanAuditLogs | Yes | Yes | Yes | Yes | [Anti-virus scan logs](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) using Microsoft Defender for Cloud; **only available for Premium tier** | 
 
-<sup>1</sup> Java and Tomcat are supported in their default configuration. Additional code and/or configuration might be required for some logging frameworks.
+<sup>1</sup> Java and Tomcat are supported in their default configuration. [Additional code and/or configuration might be required for some logging frameworks](https://github.com/Azure-Samples/SpringBoot3Log4j2AppSvcLogs).
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 ### App Services
