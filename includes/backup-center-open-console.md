@@ -3,7 +3,7 @@ author: AbhishekMallick-MS
 ms.service: azure-backup
 ms.topic: include
 ms.date: 08/22/2025
-ms.author: v-abhmallick
+ms.author: v-mallicka
 ---
 
 ## Get started with Backup center
