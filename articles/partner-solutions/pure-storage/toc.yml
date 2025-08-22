@@ -19,7 +19,8 @@ items:
   - name: Get support
     href: https://pure1.purestorage.com/
   - name: Troubleshoot
-    href: /troubleshoot/azure/partner-solutions/welcome-native-integrations
+    href: /troubleshoot/azure/partner-solutions
+
 - name: Tools
   items:
   - name: GO SDK
@@ -32,5 +33,7 @@ items:
     href: /python/api/overview/azure/mgmt-purestorageblock-readme
   - name: .NET SDK  
     href: /dotnet/api/overview/azure/purestorageblock
+
+    
 
 

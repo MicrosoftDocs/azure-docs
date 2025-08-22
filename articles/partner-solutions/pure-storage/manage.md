@@ -52,7 +52,7 @@ Once you create a resource, you can create a storage pool to connect to an Azure
     > The storage pool defaults to the same region as your Pure Storage resource.
 
 1. Enter the values for each required setting.
-  
+
     | Setting                            | Action                                |
     |------------------------------------|---------------------------------------|
     | Resource group                     | Choose a resource group.              |

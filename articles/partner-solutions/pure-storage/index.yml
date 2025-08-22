@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Native Pure Storage Cloud
-summary: Pure Storage Cloud provides secure, efficient, and reliable block storage as a native managed service (STaaS).
+summary: Pure Storage Cloud provides secure, efficient, and reliable block storage as a native managed service, example of Storage as a Service (STaaS).
 metadata:
   title: Azure Native Pure Storage Cloud
   description: Azure Native Pure Storage Cloud integrates with Azure to combine the benefits of Pure Storage with the Azure cloud.
