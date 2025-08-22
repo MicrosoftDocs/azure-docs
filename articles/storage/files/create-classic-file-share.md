@@ -60,7 +60,7 @@ Storage accounts have two properties, kind and SKU, which dictate the billing mo
 | SSD         | [Provisioned v1](./understanding-billing.md#provisioned-v1-model) | FileStorage          | <ul><li>Premium_LRS</li><li>Premium_ZRS</li></ul>                                                                                                  |
 | HDD         | [Pay-as-you-go](./understanding-billing.md#pay-as-you-go-model)   | StorageV2            | <ul><li>Standard_LRS</li><li>Standard_ZRS</li><li>Standard_GRS</li><li>Standard_GZRS</li></ul>                                                     |
 
-We recommended the provisioned v2 billing model for all new file share deployments. The provisioned v1 and pay-as-you-go billing models remain fully supported for new and existing deployments. Provisioned v2 file shares are currently available in a most regions but see [provisioned v2 availability](./understanding-billing.md#provisioned-v2-availability) for more information.
+We recommended the provisioned v2 billing model for all new file share deployments. The provisioned v1 and pay-as-you-go billing models remain fully supported for new and existing deployments. Provisioned v2 file shares are currently available in a most regions. See [provisioned v2 availability](./understanding-billing.md#provisioned-v2-availability) for more information.
 
 # [Portal](#tab/azure-portal)
 
