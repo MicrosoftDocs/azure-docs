@@ -47,7 +47,7 @@ The following table describes some reasons why you might want to use SQL:
 | Scenario | Recommend storage provider |
 |----------|----------------------------|
 | You want to run logic app workflows in Azure with more control over storage throughput and performance. | Use SQL as your storage provider as Azure Storage doesn't provide tools to fine-tune throughput and performance. |
-| You want to run logic app workflows on premises, which you can with [Standard workflows that use hybrid deployment](create-standard-workflows-hybrid-deployment.md). For more information, see [Set up your own infrastructure for Standard logic apps using hybrid deployment](set-up-standard-workflows-hybrid-deployment-requirements.md). | Use SQL as your storage provider so that you can choose where to host your SQL database, for example, on premises in a virtual machine, a container, or multi-cloud. Consider running your logic app workflows close to the systems you want to integrate, or reducing your dependency on the cloud.   |
+| You want to run logic app workflows on premises, which you can with [Standard workflows that use hybrid deployment](create-standard-workflows-hybrid-deployment.md). For more information, see [Set up your own infrastructure for Standard logic apps using hybrid deployment](set-up-standard-workflows-hybrid-deployment-requirements.md). | Use SQL as your storage provider so that you can choose where to host your SQL database, for example, on premises in a virtual machine, a container, or multicloud. Consider running your logic app workflows close to the systems you want to integrate, or reducing your dependency on the cloud.   |
 | You want predictable storage costs. | Use SQL as your storage provider when you want more control over scaling costs. SQL costs are based on each compute and input-output operations per second (IOPs). Azure Storage costs are based on numbers of operations, which might work better for small workloads that scale to zero. |
 | You prefer to use SQL over Azure Storage. | SQL is a well-known and reliable ecosystem that you can use to apply the same governance and management across your logic apps behind-the-scenes operations. |
 | You want to reuse existing SQL environments. | Use SQL as your storage provider if you already own SQL licenses that you want to reuse or modernize onto the cloud. You also might want to use the Azure Hybrid Benefits for your logic app integrations. |
@@ -153,7 +153,7 @@ When you create your Standard logic app, you can set up SQL as your storage prov
 
 1. On the **Create Logic App** page, under **Standard**, select the hosting option that you want to use.
 
-1. on the **Basics** tab, provide the following information about your logic app resource:
+1. On the **Basics** tab, provide the following information about your logic app resource:
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
