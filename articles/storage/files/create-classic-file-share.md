@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 07/31/2025
 ms.author: kendownie
 ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
-# Customer intent: "As a cloud administrator, I want to create and manage Azure file shares classic using the portal, PowerShell, or CLI, so that I can efficiently store and access data with configurable performance and redundancy options. This doc consist of both SMB and NFS protocol support"
+# Customer intent: "As a cloud administrator, I want to create and manage Azure classic file shares using the Azure portal, PowerShell, or CLI, so that I can efficiently store and access data with configurable performance and redundancy options."
 ---
 
 # Create an Azure classic file share
