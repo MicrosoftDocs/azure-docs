@@ -48,8 +48,8 @@ Selecting the **Protectable Datasources** menu item allows you to view all your 
 ![Protectable datasources menu](./media/backup-center-govern-environment/protectable-datasources.png)
 
 > [!NOTE]
-> If you select **SQL in Azure VM** as the datasource type, the **Protectable Datasources** view displays the list of all Gallery VMs which do not have any SQL databases that have been configured for backup.
-> If you select **Azure Storage (Azure Files)** as the datasource type, the **Protectable Datasources** view displays the list of all storage accounts (that support file shares) which do not have any file shares that have been configured for backup.
+> If you select **SQL in Azure VM** as the datasource type, the **Protectable Datasources** view displays the list of all Gallery VMs, which don't have any SQL databases that are configured for backup.
+> If you select **Azure Storage (Azure Files)** as the datasource type, the **Protectable Datasources** view displays the list of all storage accounts (that support file shares) which don't have any file shares that are configured for backup.
 
 
 ## Next steps
