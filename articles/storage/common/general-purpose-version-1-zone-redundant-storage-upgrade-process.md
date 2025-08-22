@@ -7,7 +7,7 @@ author: gtrossell
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 08/21/2025
-ms.author: akashdubey
+ms.author: normesta
 ms.subservice: storage-common-concepts
 # Customer intent: "As a cloud administrator, I want to upgrade from my General Purpose V1 Zone Redundant Storage (ZRS) storage account, to a General Purpose V2 account, so that I can take advantage of the latest features and improvements."
 ---

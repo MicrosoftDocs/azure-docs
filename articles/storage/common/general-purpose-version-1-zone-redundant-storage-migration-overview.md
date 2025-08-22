@@ -7,7 +7,7 @@ author: gtrossell
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 08/19/2025
-ms.author: akashdubey
+ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
 #CustomerIntent: As a storage admin, I want to understand the General Purpose v1 (GPv1) with ZRS redundancy retirement so that I can prepare for a smooth migration to GPv2.

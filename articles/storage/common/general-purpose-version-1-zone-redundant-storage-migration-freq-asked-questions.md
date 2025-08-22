@@ -7,7 +7,7 @@ author: gtrossell
 ms.service: azure-storage
 ms.topic: faq
 ms.date: 08/19/2025
-ms.author: akashdubey
+ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
 # CustomerIntent: As a storage admin, I want to find answers to common questions about the retirement of General Purpose v1 (GPv1) Standard Zone Redundant Storage accounts, so that I can plan my upgrade to General Purpose v2 (GPv2) and avoid service disruption.

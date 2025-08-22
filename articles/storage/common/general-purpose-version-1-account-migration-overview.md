@@ -7,7 +7,7 @@ author: gtrossell
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 07/22/2025
-ms.author: padmalathas
+ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
 

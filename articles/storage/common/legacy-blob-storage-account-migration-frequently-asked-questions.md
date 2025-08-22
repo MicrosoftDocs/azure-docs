@@ -5,9 +5,9 @@ description: FAQ for the retirement of Azure legacy blob storage accounts.
 Services: storage
 author: gtrossell
 ms.service: azure-storage
-ms.topic: how-to
+ms.topic: faq
 ms.date: 07/22/2025
-ms.author: padmalathas
+ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
 #CustomerIntent: As a storage admin, I want to understand the Legacy Blob Storage retirement so that I can prepare for a smooth migration to GPv2.
