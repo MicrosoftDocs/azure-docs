@@ -181,7 +181,7 @@ The following section describes what to expect when Application Gateway v2 is co
 
   - *Zonal:* When a zone is unavailable, your gateway is unavailable. If you have a secondary gateway in another availability zone, you're responsible for rerouting traffic to that secondary gateway.
 
-### Failback
+### Zone recovery
 
 The failback behavior depends on the availability zone configuration that your gateway uses.
 
