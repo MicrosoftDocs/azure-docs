@@ -115,7 +115,7 @@ The following section describes what to expect when key vaults are in a region t
 
 For more information, see [Failover within a region](/azure/key-vault/general/disaster-recovery-guidance#failover-within-a-region) in the Key Vault availability and redundancy documentation.
 
-### Failback
+### Zone recovery
 
 When the affected availability zone recovers, Key Vault automatically restores operations to that zone. The Azure platform fully manages this process and doesn't require any customer intervention.
 
@@ -209,7 +209,7 @@ Consider the following key factors regarding backup functionality:
 
 - Backups are point-in-time snapshots and don't automatically update when secrets change.
 
-For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements. However, backups protect against some risks that other approaches don't. For more information, see [Key Vault backup](/azure/key-vault/general/backup).
+For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements. However, backups protect against some risks that other approaches don't, such as accidental deletion of specific secrets. For more information, see [Key Vault backup](/azure/key-vault/general/backup).
 
 ## Recovery features
 

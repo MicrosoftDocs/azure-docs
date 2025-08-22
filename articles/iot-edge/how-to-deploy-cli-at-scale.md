@@ -1,8 +1,8 @@
 ---
 title: Deploy Azure IoT Edge modules at scale using Azure CLI
 description: Deploy Azure IoT Edge modules at scale using Azure CLI to automate, monitor, and manage device deployments efficiently.
-author: PatAltimore
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.date: 05/16/2025
 ms.topic: concept-article
 ms.service: azure-iot-edge

@@ -49,8 +49,6 @@ landingContent:
         links: 
           - text: "Customer story: Co-op"
             url: https://customers.microsoft.com/story/845578-co-op-retailers-azure
-          - text: "Customer story: Neogrid"
-            url: https://customers.microsoft.com/en-GB/story/816187-neogrid-professional-services-azure-synapse-analytics
   - title: From IBM Netezza
     linkLists: 
       - linkListType: overview
