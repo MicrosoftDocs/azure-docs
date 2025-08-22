@@ -180,7 +180,7 @@ You can configure root squash settings via the Azure portal, Azure PowerShell, o
 You can configure root squash settings on an existing NFS file share (Microsoft.FileShares) via the Azure portal.
 
 1. Sign in to the Azure portal and navigate to the file share.
-2. In the service menu, under settings, select configuration.
+2. In the service menu, under **Settings**, select **Configuration**.
 3. Toggle the Root squash setting as desired.
 
    ![image for mfs root squash](./media/nfs-root-squash/mfs-root-squash.png)
