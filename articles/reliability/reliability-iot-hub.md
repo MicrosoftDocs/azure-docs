@@ -19,7 +19,6 @@ ms.date: 05/02/2025
 
 This article describes reliability support in Azure IoT Hub. It covers intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
 
-
 [!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
 When you evaluate reliability options, you also need to evaluate the trade-offs between the following items:
@@ -45,7 +44,6 @@ IoT Hub supports two distinct types of availability zone support:
 - *Zone redundancy for data*, which automatically replicates data between multiple availability zones for the underlying storage components that store the device identity registry and device-to-cloud messages.
 
 - *Zone redundancy for compute*, which provides resiliency in the components that are responsible for managing the devices and routing messages.
-
 
 ### Region support
 
@@ -96,6 +94,10 @@ This section describes what to expect when IoT Hub resources are configured for 
 This section describes what to expect when IoT Hub resources are configured for zone redundancy and there's an availability zone outage.
 
 - **Detection and response:** The IoT Hub service is responsible for detecting a failure in an availability zone. You don't need to do anything to initiate a zone failover.
+
++ **Notification**: Azure IoT Hub doesn't notify you when a zone is down. However, you can use [Azure Resource Health](/azure/service-health/resource-health-overview) to monitor for the health of your IoT hub. You can also use [Azure Service Health](/azure/service-health/overview) to understand the overall health of the Azure Iot Hub service, including any zone failures.
+
+  Set up alerts on these services to receive notifications of zone-level problems. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal) and [Create and configure Resource Health alerts](/azure/service-health/resource-health-alert-arm-template-guide).
 
 - **Active requests:** During a zone failure, active requests might be dropped. Your clients and devices should have sufficient [retry logic](../iot/concepts-manage-device-reconnections.md#retry-patterns) implemented to handle transient faults.
 
