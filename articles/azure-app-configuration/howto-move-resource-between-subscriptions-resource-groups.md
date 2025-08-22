@@ -25,9 +25,9 @@ You can [move](../azure-resource-manager/management/move-resource-group-and-subs
    - **Move to different resource group**: Select **Move** next to the resource group details
    - **Move to different subscription**: Select **Move** next to the subscription details
 
-1. If you are moving the resource to a different subscription, select the destination **Subscription**.
+1. If you are moving the resource to a different subscription, select the destination **subscription**.
 
-1. Select the destination **Resource group**, or create a new resource group.
+1. Select the destination **resource group**, or create a new resource group.
 
 1. Select **Next**.
 
