@@ -48,8 +48,7 @@ Optionally, you can create a cache by using Azure CLI, PowerShell, or whichever 
 In the first part of the ECMAScript code sample, set your connection to the cache:
 
 ```typescript
-import { useIdentityPlugin, DefaultAzureCredential } from '@azure/identity';
-import { nativeBrokerPlugin } from "@azure/identity-broker";
+import { DefaultAzureCredential } from '@azure/identity';
 import { EntraIdCredentialsProviderFactory, REDIS_SCOPE_DEFAULT } from '@redis/entraid';
 import { createClient } from '@redis/client';
 
@@ -57,8 +56,6 @@ const resourceEndpoint = process.env.AZURE_MANAGED_REDIS_HOST_NAME!;
 if (!resourceEndpoint) {
     console.error('AZURE_MANAGED_REDIS_HOST_NAME is not set. It should look like: rediss://YOUR-RESOURCE_NAME.redis.cache.windows.net:<YOUR-RESOURCE-PORT>. Find the endpoint in the Azure portal.');
 }
-
-useIdentityPlugin(nativeBrokerPlugin);
 
 function getClient() {
 
@@ -90,7 +87,6 @@ function getClient() {
 }
 
 const client = getClient();
-
 await client.connect();
 ```
 
@@ -132,9 +128,7 @@ Get result: Hello! The cache is working from Node.js!
 Here, you can see this code sample in its entirety.
 
 ```typescript
-
-import { useIdentityPlugin, DefaultAzureCredential } from '@azure/identity';
-import { nativeBrokerPlugin } from "@azure/identity-broker";
+import { DefaultAzureCredential } from '@azure/identity';
 import { EntraIdCredentialsProviderFactory, REDIS_SCOPE_DEFAULT } from '@redis/entraid';
 import { createClient } from '@redis/client';
 
@@ -142,8 +136,6 @@ const resourceEndpoint = process.env.AZURE_MANAGED_REDIS_HOST_NAME!;
 if (!resourceEndpoint) {
     console.error('AZURE_MANAGED_REDIS_HOST_NAME is not set. It should look like: rediss://YOUR-RESOURCE_NAME.redis.cache.windows.net:<YOUR-RESOURCE-PORT>. Find the endpoint in the Azure portal.');
 }
-
-useIdentityPlugin(nativeBrokerPlugin);
 
 function getClient() {
 
@@ -192,7 +184,7 @@ try {
 } catch (err) {
     console.error('Error closing Redis client:', err);
 } finally {
-    await client.close();
+    await client.quit();
 }
 ```
 
