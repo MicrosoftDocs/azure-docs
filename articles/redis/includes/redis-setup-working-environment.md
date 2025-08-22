@@ -8,7 +8,7 @@ ms.custom:
 
 The following steps show you how to set up the working environment for the Java app. You can choose to authenticate with Azure Cache for Redis using Microsoft Entra ID (recommended) or access keys.
 
-### [Microsoft Entra ID authentication (recommended)](#tab/entraid)
+### Microsoft Entra ID authentication
 
 ::: zone pivot="azure-managed-redis"
 
