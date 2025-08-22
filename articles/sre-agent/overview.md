@@ -49,40 +49,37 @@ Azure SRE Agent integrates with the following services:
 
 Use the following steps to start working with Azure SRE Agent.
 
-:::row:::
-   :::column span="":::
-    ### Explore
+# [Explore](#tab/explore)
 
-    1. Create [a new agent](usage.md) in your subscription with *[Reader](security-context.md)* permissions.
-    
-    1. Point the agent to the resource groups you want it to manage.
-    
-    1. Try prompts like:
+1. Create [a new agent](usage.md) in your subscription with *[Reader](security-context.md)* permissions.
 
-        • *What’s the CPU and memory utilization of my app?*
-    
-        • *Which resources are unhealthy?*
-    
-        • *Where am I missing alert rules?*
-    
-    1. Take action to proposed next steps.
-   :::column-end:::
-   :::column span="":::
-    ### Handle an incident
+1. Point the agent to the resource groups you want it to manage.
 
-    1. Enable integrations:  
+1. Try prompts like:
 
-      • Incident management tools: Link to ServiceNow, PagerDuty, or use Azure Monitor alerts.  
+    - *What’s the CPU and memory utilization of my app?*
 
-      • Ticketing systems: Azure Boards.
+    - *Which resources are unhealthy?*
 
-      • Source code repositories: Connect to GitHub or Azure DevOps.  
+    - *Where am I missing alert rules?*
 
-    1. Send a test incident to validate enrichment, RCA, and automation flow.
+1. Take action to proposed next steps.
 
-    1. Review incident context, RCA timeline, and proposed mitigations.
-   :::column-end:::
-:::row-end:::
+# [Handle an incident](#tab/incident)
+
+1. Enable integrations:  
+
+    - Incident management tools: Link to ServiceNow, PagerDuty, or use Azure Monitor alerts.  
+
+    - Ticketing systems: Azure Boards.
+
+    - Source code repositories: Connect to GitHub or Azure DevOps.  
+
+1. Send a test incident to validate enrichment, RCA, and automation flow.
+
+1. Review incident context, RCA timeline, and proposed mitigations.
+
+---
 
 ## Considerations
 
