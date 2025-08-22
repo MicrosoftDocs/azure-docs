@@ -12,10 +12,10 @@ ms.subservice: storage-common-concepts
 # Customer intent: "As a cloud administrator, I want to upgrade from my General Purpose V1 Zone Redundant Storage (ZRS) storage account, to a General Purpose V2 account, so that I can take advantage of the latest features and improvements."
 ---
 
-# Upgrade General Purpose v1 (GPv1) with ZRS redundancy account to GPv2
+# Upgrade General Purpose v1 (GPv1) with ZRS redundancy to GPv2
 
 > [!IMPORTANT]
->  General Purpose V1 account with ZRS redundancy were deprecated on March 31, 2021. Customers can no longer create General Purpose v1 (GPv1) with ZRS redundancy accounts. If you still have some, you should upgrade them to General Purpose v2 (GPv2) accounts.
+>  General Purpose V1 account with ZRS redundancy will be retired in September 2026. Customers will no longer create General Purpose v1 (GPv1) with ZRS redundancy accounts after August 31, 2026. Existing GPv1 with ZRS redundancy accounts must be upgraded to General Purpose v2 (GPv2) before September 1, 2026 to avoid service disruption. See [GPv1 Standard ZRS account retirement FAQ](general-purpose-version-1-zone-redundant-storage-migration-freq-asked-questions.md) for more information.
 
 General Purpose v1 (GPv1) with ZRS redundancy was available only for **block blobs** in general-purpose V1 (GPv1) storage accounts. For more information about storage accounts, see [Azure storage account overview](storage-account-overview.md).
 
