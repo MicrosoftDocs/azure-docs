@@ -69,7 +69,8 @@ To learn more, see [Create an Azure classic file share](./create-classic-file-sh
 
 ### What is file share with Microsoft.FileShares (preview)?
 
-![image for comparsion between mfs and classic](./media/storage-files-planning/file-share-comparsion.png)
+![image comparing Microsoft.FileShares and classic Azure file shares](./media/storage-files-planning/file-share-comparsion.png)
+
 
 File shares created with Microsoft.FileShares (preview) are a first-class Azure resource, alongside virtual machines, virtual networks, and SQL databases. Instead of creating a storage account and then a file share inside it, you create the file share directly in your resource group, eliminating account complexity without sacrificing performance or cost efficiency. Currently the preview only supports NFS file shares, which use the SSD (premium) media tier.
 
