@@ -145,7 +145,8 @@ File scale targets apply to individual files stored in classic file shares.
 
 A popular use case for Azure Files is storing user profile containers and disk images for Azure Virtual Desktop. See [Azure Files guidance for virtual desktop workloads](virtual-desktop-workloads.md) for more information.
 
-## Microsoft.FileShares scale targets
+
+
 
 
 
