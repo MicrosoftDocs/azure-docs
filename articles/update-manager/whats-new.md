@@ -13,6 +13,11 @@ ms.date: 08/21/2025
 
 [Azure Update Manager](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Azure Update Manager.
 
+## August 2025
+Azure Update Manager now provides enhanced reports with separate views for overall compliance, recommendations, pending updates, updates history, schedules, and operations history.
+
+Azure Update Manager allows you to create quick alerts [Learn more](manage-alerts.md).
+
 ## November 2024
 
 ### Hotpatching (preview) on Arc-enabled machines
