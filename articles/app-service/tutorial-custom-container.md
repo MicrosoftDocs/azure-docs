@@ -368,9 +368,9 @@ App Service can use either a default managed identity or a user-assigned managed
    1. Select **Create**.
         You can also go to [Create User Assigned Managed Identity](https://portal.azure.com/#create/Microsoft.ManagedIdentity) directly.
      
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-managed-identity-1.png" alt-text="Screenshot showing how to use the search box to find the Create User Assigned Managed Identity pane." lightbox="./media/tutorial-custom-container/azure-portal-create-managed-identity-1.png":::
+        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-managed-identity-1.png" alt-text="Screenshot showing how to use the search box to find the Create User Assigned Managed Identity page." lightbox="./media/tutorial-custom-container/azure-portal-create-managed-identity-1.png":::
    
-1. In the **Create user Assigned Managed Identity** pane:
+1. On the **Create User Assigned Managed Identity** page:
     1. In **Subscription**, select the subscription you want to create your resources in.
     1. In **Resource group**, select **Create new**, enter the name *msdocs-custom-container-tutorial* for the resource group, and then select **OK**.
     1. In **Region**, select **West Europe**, or a region near you.
@@ -417,15 +417,15 @@ App Service can use either a default managed identity or a user-assigned managed
     1. Select **Create**.
         You can also go to [Create container registry](https://portal.azure.com/#create/Microsoft.ContainerRegistry) directly.
      
-    :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-container-registry-1.png" alt-text="Screenshot showing how to use the search box to find the Create container registry pane." lightbox="./media/tutorial-custom-container/azure-portal-create-container-registry-1.png":::
+    :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-container-registry-1.png" alt-text="Screenshot showing how to use the search box to find the Create container registry page." lightbox="./media/tutorial-custom-container/azure-portal-create-container-registry-1.png":::
   
    
-1. In the the **Create container registry** pane:
+1. On the the **Create container registry** page:
     1. In **Subscription**, select the subscription you used earlier.
     1. In **Resource group**, select **msdocs-custom-container-tutorial**.
     1. In **Registry name**, enter a unique name for your container registry.
     1. In **Location**, select **West Europe**, or the same region as your managed identity.
-    1. In **SKU**, select **Basic**.
+    1. In **Pricing plan**, select **Basic**.
    
     :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-container-registry-2.png" alt-text="Screenshot showing how to configure a new container registry." lightbox="./media/tutorial-custom-container/azure-portal-create-container-registry-2.png":::
      
