@@ -6,7 +6,7 @@ author: chasedmicrosoft
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-container-registry
-ms.date: 07/23/2025
+ms.date: 08/22/2025
 #Customer intent: As an engineer responsible for business continuity, I want to understand the details of how Azure Container Registry works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow during different kinds of situations.
 ---
 
@@ -73,14 +73,18 @@ For client applications that use Container Registry, implement appropriate retry
 
 Zone redundancy protects your container registry against single zone failures by distributing registry data and operations across multiple availability zones within the region. Container image pull and push operations continue to function during zone outages, with automatic failover to healthy zones.
 
-Zone redundancy is enabled by default for all Azure Container Registries in regions that support availability zones, making your resources more resilient automatically and at no additional cost. This enhancement applies to all SKUs including Basic and Standard and has been rolled out to both new and existing registries in supported regions.
+Zone redundancy is enabled by default for all registries in regions that support availability zones, making your resources more resilient automatically and at no additional cost. This enhancement applies to all service tiers, including Basic and Standard, and has been applied to both new and existing registries.
 
->[!IMPORTANT]
->The Azure portal and CLI may not yet reflect the zone redundancy update accurately. The `zoneRedundancy` property in your registry’s configuration might still show as false even though zone redundancy is active for all registries in supported regions. We’re actively updating the portal and API surfaces to reflect this default behavior more transparently. All previously enabled features will continue to function as expected.
+> [!IMPORTANT]
+> The Azure portal and other tooling might not yet reflect the zone redundancy update accurately.
+>
+> The `zoneRedundancy` property in your registry’s configuration might still show as `false`, but zone redundancy is active for all registries in supported regions.
+>
+> We're actively updating the portal and API surfaces to reflect this default behavior more transparently. All previously enabled features continue to function as expected.
 
 ### Region support
 
-Zone-redundant registries can only be deployed into [a region that supports availability zones](./regions-list.md).
+Zone-redundant registries can be deployed into [any region that supports availability zones](./regions-list.md).
 
 ### Considerations
 
@@ -98,7 +102,7 @@ Zone redundancy is included with container registries at no extra cost.
 
     - To migrate your artifacts between registries, you can [create a transfer pipeline](/azure/container-registry/container-registry-transfer-prerequisites). Alternatively, you can [import container images to a container registry](/azure/container-registry/container-registry-import-images).
     
-- If your registry uses [geo-replication](#multi-region-support) in a region that supports Availablity Zones. Your replica will be zone redundant by default. For more information, see [Create a zone-redundant replica in Container Registry](/azure/container-registry/zone-redundancy-replica).  After a geo-replication is created, you can only change the zone redundancy setting by deleting and recreating the replication.
+- If your registry uses [geo-replication](#multi-region-support) in a region that supports availability zones, the replica in that region will be zone-redundant automatically. For more information, see [Create a zone-redundant replica in Container Registry](/azure/container-registry/zone-redundancy-replica). After a geo-replication is created, you can only change the zone redundancy setting by deleting and recreating the replication.
 
 - **Disable zone redundancy.** Zone redundancy can't be disabled. 
 
