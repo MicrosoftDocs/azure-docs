@@ -91,4 +91,4 @@ In this case, the response returns an array that contains JSON objects.
 
 ## Get support
 
-- [Azure Logic Apps Q & A](/answers/topics/azure-logic-apps.html).
+- [Azure Logic Apps Q & A](/answers/topics/azure-logic-apps.html)
