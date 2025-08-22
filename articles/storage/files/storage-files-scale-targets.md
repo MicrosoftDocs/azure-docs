@@ -12,7 +12,8 @@ ms.custom: references_regions
 
 # Scalability and performance targets for Azure Files and Azure File Sync
 
-[Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the Server Message Block (SMB) and Network File System (NFS) file system protocols. This article discusses the scalability and performance targets for Azure Files (both classic file share and file share) and Azure File Sync.
+[Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the Server Message Block (SMB) and Network File System (NFS) file system protocols. This article discusses the scalability and performance targets for Azure Files and Azure File Sync.
+
 
 Other variables in your deployment can affect the targets listed in this article. For example, your SMB client's behavior and your available network bandwidth might impact I/O performance. You should test your usage pattern to determine whether the scalability and performance of Azure Files meet your requirements.
 
