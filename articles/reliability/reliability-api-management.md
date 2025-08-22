@@ -70,13 +70,13 @@ You can use automatic availability zone support to choose either a single unit o
 
 - **Multiunit configuration** (Recommended): If your instance has two or more units, API Management makes a best-effort attempt to spread your instance's units among the region's availability zones. There's no way to determine which availability zones your units are placed into. For maximum benefit of availability zones, we recommend that you deploy a minimum of three units, which can be distributed across all available zones in a region. 
 
-    :::image type="complex" border="false" source="./media/reliability-api-management/zone-redundant-automatic-multi-unit.png" alt-text="Diagram that shows three API Management units distributed across availability zones for automatic zone redundancy." lightbox="./media/reliability-api-management/zone-redundant-automatic-multi-unit.png":::
+    :::image type="complex" border="false" source="./media/reliability-api-management/zone-redundant-automatic-multi-unit.png" alt-text="Diagram that shows three API Management units distributed across availability zones for automatic availability zone support." lightbox="./media/reliability-api-management/zone-redundant-automatic-multi-unit.png":::
        The diagram shows three boxes labeled Unit 1, Unit 2, and Unit 3 deployed in an API Management instance. Each unit box contains two icons that represent VMs. Three larger boxes are labeled Availability Zone 1, Availability Zone 2, and Availability Zone 3. Zone 1 contains unit 1, zone 2 contains unit 2, and zone 3 contains unit 3.
     :::image-end:::
 
 - **Single-unit configuration:** If your instance has a single unit, the unit's underlying VMs are distributed to two availability zones. There's no way to determine which availability zones the unit's VMs are placed into.
 
-    :::image type="complex" border="false" source="./media/reliability-api-management/automatic-single-unit.png" alt-text="Diagram that shows a single API Management unit distributed across two availability zones for automatic availability support." lightbox="./media/reliability-api-management/automatic-single-unit.png":::
+    :::image type="complex" border="false" source="./media/reliability-api-management/automatic-single-unit.png" alt-text="Diagram that shows a single API Management unit distributed across two availability zones for automatic availability zone support." lightbox="./media/reliability-api-management/automatic-single-unit.png":::
        The diagram shows one box that's labeled Unit 1 deployed in an API Management instance. The unit box contains two icons that represent VMs. Three larger boxes are labeled Availability Zone 1, Availability Zone 2, and Availability Zone 3. The Unit 1 box spans zones 1 and 2. Zone 3 is empty.
     :::image-end:::
 
@@ -92,8 +92,8 @@ If you want to explicitly select the availability zones to use, you can choose b
 
 - **Zonal:** The API Management service components are deployed in a single zone that you select within an Azure region. All of the units are placed into the same availability zone.
 
-    :::image type="complex" border="false" source="./media/reliability-api-management/zonal.png" alt-text="Diagram that shows a zonal API Management deployment in a single availability zone that has two units." lightbox="./media/reliability-api-management/zonal.png":::
-       The diagram shows two boxes labeled Unit 1 and Unit 2 deployed in an API Management instance. Each unit box contains two icons that represent VMs. Three larger boxes are labeled Availability Zone 1, Availability Zone 2, and Availability Zone 3. Zone 1 contains both Unit 1 and Unit 2 boxes. Zone 2 and Zone 3 are empty.
+    :::image type="complex" border="false" source="./media/reliability-api-management/zonal.png" alt-text="Diagram that shows a zonal API Management deployment that has two units, in a single availability zone." lightbox="./media/reliability-api-management/zonal.png":::
+       The diagram shows two boxes labeled Unit 1 and Unit 2 deployed in an API Management instance. Each unit box contains two icons that represent VMs. Three larger boxes are labeled Availability Zone 1, Availability Zone 2, and Availability Zone 3. Zone 1 contains both Unit 1 and Unit 2 boxes. Zone 2 and Zone 3 don't contain any units.
     :::image-end:::
 
     > [!IMPORTANT]
