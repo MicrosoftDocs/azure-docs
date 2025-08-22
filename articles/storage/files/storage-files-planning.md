@@ -89,7 +89,7 @@ This new model simplifies the deployment experience and unlocks a host of new ca
 
 - Faster deployment time: Provisioning is dramatically quicker than the classic file share, measured around 3.4× faster for single file share creation.
 
-- Higher scale limits: Enjoy increased resource and request quotas with the Microsoft.FileShares resource provider, which is ideal for large environments managing lots of file shares. For current file share limits, see [Azure Files scalability and performance targets](./storage-files-scale-targets.md#azure-microsoftfileshares-scale-targets).
+- Higher scale limits: Enjoy increased resource and request quotas with the Microsoft.FileShares resource provider, which is ideal for large environments managing lots of file shares. For current file share limits, see [Azure Files scalability and performance targets](./storage-files-scale-targets.md).
 
 On the Azure portal, classic file share will remain using the blue icon, while file share (Microsoft.FileShares) will use the purple icon.
 If you require all the feature that Azure File currently offer, we recommend you use classic file share instead.
