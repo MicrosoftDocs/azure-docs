@@ -1,5 +1,5 @@
 ---
-title: Create an Azure classic file share
+title: Create an Azure Classic File Share
 titleSuffix: Azure Files
 description: How to create and delete an Azure classic file share by using the Azure portal, Azure PowerShell, or Azure CLI.
 author: khdownie
