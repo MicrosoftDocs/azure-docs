@@ -48,7 +48,7 @@ When running your C# function in an isolated worker process, you need to define 
 
 The following example shows how the custom type is used in both the trigger and an Event Grid output binding:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="11-30":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="11-29":::
 
 # [In-process model](#tab/in-process)
 
