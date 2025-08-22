@@ -37,7 +37,7 @@ landingContent:
   # Card
   - title: Dev Box deployment
     linkLists:
-      - linkListType: concepts
+      - linkListType: concept
         links:
           - text: What is Microsoft Dev Box?
             url: overview-what-is-microsoft-dev-box.md
