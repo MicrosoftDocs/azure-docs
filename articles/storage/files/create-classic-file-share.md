@@ -536,15 +536,9 @@ az storage share-rm create \
 
 ---
 
-## Set up a virtual machine
+## Set up networking
 
-SMB protocol file share are able to mount to a Linux, Windows virtual machine, while NFS protocol file share are only able to use Linux virtual machine.
-
-For Windows VM creation instructions, see [Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windoes/quick-create-portal.md) for more information. To learn more about how to create a Linux virtual machine for your file share, see [How to create Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu) for more information.
-
-## Set up networking configurations
-
-NFS file shares can only be accessed from trusted networks. Currently, the only way to secure the data in your storage account is by using a virtual network and other network security settings. Any other tools used to secure data, including account key authorization, Microsoft Entra security, and access control lists (ACLs) can't be used to authorize an NFSv4.1 request. SMB protocol file share does not require network level configuration.
+If you are using a SMB protocol file share, networking configuration are not required. However, we still recommend you take it into consideration. If you are using a NFS protocol file share, networking configurations are required, since NFS file shares can only be accessed from trusted networks. Currently, the only way to secure the data in your storage account is by using a virtual network and other network security settings. Any other tools used to secure data, including account key authorization, Microsoft Entra security, and access control lists (ACLs) can't be used to authorize an NFSv4.1 request. SMB protocol file share does not require network level configuration.
 
 > [!IMPORTANT]
 > The NFSv4.1 protocol runs on port 2049. If you're connecting from an on-premises network, make sure that your client allows outgoing communication through port 2049. If you grant access to specific VNets, make sure that any network security groups associated with those VNets don't contain security rules that block incoming communication through port 2049.
@@ -566,6 +560,9 @@ If you don't require a static IP address, you can enable a service endpoint for 
 1. Select **+ Private endpoint**.
 
    :::image type="content" source="media/storage-files-quick-create-use-linux/create-private-endpoint.png" alt-text="Screenshot showing how to select + private endpoint to create a new private endpoint.":::
+
+> [!REMINDER]
+> Step 1 to 3 are tailored for NFS file share scenario, you can also choose networking setting at the storage account level for both SMB and NFS file shares. Go to storage account, on the side bar choose Security + networking, and then proceed with Netowrking. From there you can set up both service endpoing or private endpoint. 
 
 1. Leave **Subscription** and **Resource group** the same. Under **Instance**, provide a name and select a region for the new private endpoint. Your private endpoint must be in the same region as your virtual network, so use the same region as you specified when creating the VM. When all the fields are complete, select **Next: Resource**.
 
@@ -597,173 +594,9 @@ To enable hybrid access to an NFS Azure file share, use one of the following net
 - [Configure a Site-to-Site (S2S) VPN](storage-files-configure-s2s-vpn.md).
 - Configure [ExpressRoute](../../expressroute/expressroute-introduction.md).
 
-## Use a classic file share
+## Next steps
 
-After you create a classic file share, you can create directories on the share and use it to store files.
-
-### Create a directory
-
-# [Portal](#tab/azure-portal)
-
-To create a new directory named _myDirectory_ at the root of your Azure file share:
-
-1. On the **File share settings** page, select the **myshare** file share. The page for your file share opens, indicating _no files found_.
-1. On the menu at the top of the page, select **+ Add directory**. The **New directory** page drops down.
-1. Type _myDirectory_ and then select **OK**.
-
-# [PowerShell](#tab/azure-powershell)
-
-To create a new directory named **myDirectory** at the root of your Azure file share, use the [New-AzStorageDirectory](/powershell/module/az.storage/New-AzStorageDirectory) cmdlet.
-
-```azurepowershell-interactive
-New-AzStorageDirectory `
-   -Context $storageAcct.Context `
-   -ShareName $shareName `
-   -Path "myDirectory"
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-To create a new directory named **myDirectory** at the root of your Azure file share, use the [`az storage directory create`](/cli/azure/storage/directory) command:
-
-> [!NOTE]
-> If you don't provide credentials with your commands, Azure CLI will query for your storage account key. You can also provide your storage account key with the command by using a variable such as `--account-key $storageAccountKey` or in plain text such as `--account-key "your-storage-account-key-here"`.
-
-```azurecli-interactive
-az storage directory create \
-   --account-name $storageAccountName \
-   --share-name $shareName \
-   --name "myDirectory" \
-   --output none
-```
-
----
-
-### Upload a file
-
-# [Portal](#tab/azure-portal)
-
-First, you need to create or select a file to upload. Do this by whatever means you see fit. When you've decided on the file you'd like to upload, follow these steps:
-
-1. Select the **myDirectory** directory. The **myDirectory** panel opens.
-1. In the menu at the top, select **Upload**. The **Upload files** panel opens.
-
-   :::image type="content" source="media/storage-how-to-create-file-share/upload-file.png" alt-text="Screenshot showing the upload files panel in the Azure portal." border="true":::
-
-1. Select the folder icon to open a window to browse your local files.
-1. Select a file and then select **Open**.
-1. In the **Upload files** page, verify the file name, and then select **Upload**.
-1. When finished, the file should appear in the list on the **myDirectory** page.
-
-# [PowerShell](#tab/azure-powershell)
-
-To demonstrate how to upload a file using the [Set-AzStorageFileContent](/powershell/module/az.storage/Set-AzStorageFileContent) cmdlet, we first need to create a file inside your PowerShell Cloud Shell's scratch drive to upload.
-
-This example puts the current date and time into a new file on your scratch drive, then uploads the file to the file share.
-
-```azurepowershell-interactive
-# this expression will put the current date and time into a new file on your scratch drive
-cd "~/CloudDrive/"
-Get-Date | Out-File -FilePath "SampleUpload.txt" -Force
-
-# this expression will upload that newly created file to your Azure file share
-Set-AzStorageFileContent `
-   -Context $storageAcct.Context `
-   -ShareName $shareName `
-   -Source "SampleUpload.txt" `
-   -Path "myDirectory\SampleUpload.txt"
-```
-
-If you're running PowerShell locally, substitute `~/CloudDrive/` with a path that exists on your machine.
-
-After uploading the file, you can use the [Get-AzStorageFile](/powershell/module/Az.Storage/Get-AzStorageFile) cmdlet to check to make sure that the file was uploaded to your Azure file share.
-
-```azurepowershell-interactive
-Get-AzStorageFile `
-    -Context $storageAcct.Context `
-    -ShareName $shareName `
-    -Path "myDirectory\" | Get-AzStorageFile
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-To demonstrate how to upload a file by using the [`az storage file upload`](/cli/azure/storage/file) command, first create a file to upload on the Cloud Shell scratch drive. In the following example, you create and then upload the file:
-
-```azurecli-interactive
-cd ~/clouddrive/
-date > SampleUpload.txt
-
-az storage file upload \
-    --account-name $storageAccountName \
-    --share-name $shareName \
-    --source "SampleUpload.txt" \
-    --path "myDirectory/SampleUpload.txt"
-```
-
-If you're running Azure CLI locally, substitute `~/clouddrive` with a path that exists on your machine.
-
-After you upload the file, you can use the [`az storage file list`](/cli/azure/storage/file) command to make sure that the file was uploaded to your Azure file share:
-
-```azurecli-interactive
-az storage file list \
-    --account-name $storageAccountName \
-    --share-name $shareName \
-    --path "myDirectory" \
-    --output table
-```
-
----
-
-### Download a file
-
-# [Portal](#tab/azure-portal)
-
-You can download a copy of the file you uploaded by right-clicking on the file and selecting **Download**. The exact experience will depend on the operating system and browser you're using.
-
-# [PowerShell](#tab/azure-powershell)
-
-You can use the [Get-AzStorageFileContent](/powershell/module/az.storage/Get-AzStorageFilecontent) cmdlet to download a copy of the file you uploaded to the scratch drive of your Cloud Shell.
-
-```azurepowershell-interactive
-# Delete an existing file by the same name as SampleDownload.txt, if it exists because you've run this example before.
-Remove-Item `
-    -Path "SampleDownload.txt" `
-    -Force `
-    -ErrorAction SilentlyContinue
-
-Get-AzStorageFileContent `
-    -Context $storageAcct.Context `
-    -ShareName $shareName `
-    -Path "myDirectory\SampleUpload.txt" `
-    -Destination "SampleDownload.txt"
-```
-
-After downloading the file, you can use the `Get-ChildItem` cmdlet to see that the file has been downloaded to your PowerShell Cloud Shell's scratch drive.
-
-```azurepowershell-interactive
-Get-ChildItem | Where-Object { $_.Name -eq "SampleDownload.txt" }
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-You can use the [`az storage file download`](/cli/azure/storage/file) command to download a copy of the file that you uploaded to the Cloud Shell scratch drive:
-
-```azurecli-interactive
-# Delete an existing file by the same name as SampleDownload.txt, if it exists, because you've run this example before
-rm -f SampleDownload.txt
-
-az storage file download \
-    --account-name $storageAccountName \
-    --share-name $shareName \
-    --path "myDirectory/SampleUpload.txt" \
-    --dest "./SampleDownload.txt" \
-    --output none
-```
-
----
-
-## Next step
-
+- Learn how to create a [Windows](/azure/virtual-machines/windoes/quick-create-portal.md) virtual machine, or [Linux](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu) virtual machine. 
 - Mount an SMB file share on [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), or [Linux](storage-how-to-use-files-linux.md).
 - Mount an NFS file share on [Linux](storage-files-how-to-mount-nfs-shares.md)
 - Learn how to [change size, preformance and delete on a file share](how-to-modify-file-share.md).

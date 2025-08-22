@@ -1,5 +1,5 @@
 ---
-title: How to odify file share
+title: How to modify file share
 titleSuffix: Azure Files
 description: How to change file share size, or delete it by using the Azure portal, Azure PowerShell, or Azure CLI. Covers both classic and managed file share.
 author: khdownie
@@ -11,16 +11,28 @@ ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
 # Customer intent: "As a cloud administrator, I want modify my file share after I create it."
 ---
 
-# Introduction
+# How to modify Azure file share
 
 This guide walks you through how to adjust the size, cost, and performance characteristics, as well as update or delete both classic file shares and file share using the Azure portal, Azure PowerShell, and Azure CLI.
 
 ## Applies to
 
-| Management model     | Object             | Applys to                           |
-| -------------------- | ------------------ | ----------------------------------- |
-| Microsoft.FileShares | file share         | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage    | classis file share | ![Yes](../media/icons/yes-icon.png) |
+| Management model     | Billing model  | Media tier     | Redundancy     |                 SMB                 |                 NFS                 |
+| -------------------- | -------------- | -------------- | -------------- | :---------------------------------: | :---------------------------------: |
+| Microsoft.FileShares | Provisioned v2 | SSD (premium)  | Local (LRS)    |  ![No](../media/icons/no-icon.png)  |  ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.FileShares | Provisioned v2 | SSD (premium)  | Zone (ZRS)     |  ![No](../media/icons/no-icon.png)  |  ![Yes](../media/icons/yes-icon.png)  |
+| Microsoft.Storage    | Provisioned v2 | SSD (premium)  | Local (LRS)    | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage    | Provisioned v2 | SSD (premium)  | Zone (ZRS)     | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage    | Provisioned v2 | HDD (standard) | Local (LRS)    | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage    | Provisioned v2 | HDD (standard) | Zone (ZRS)     | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage    | Provisioned v2 | HDD (standard) | Geo (GRS)      | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage    | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage    | Provisioned v1 | SSD (premium)  | Local (LRS)    | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage    | Provisioned v1 | SSD (premium)  | Zone (ZRS)     | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage    | Pay-as-you-go  | HDD (standard) | Local (LRS)    | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage    | Pay-as-you-go  | HDD (standard) | Zone (ZRS)     | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage    | Pay-as-you-go  | HDD (standard) | Geo (GRS)      | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
+| Microsoft.Storage    | Pay-as-you-go  | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
 
 ---
 
@@ -30,7 +42,7 @@ After creating your file share, you might need to adjust the provisioning (provi
 
 ### Change the cost and performance characteristics of a provisioned v2 classic file share
 
-After creating your provisioned v2 file share, you can change one or all three of the provisioned quantities of your file share.
+After creating your provisioned v2 file share, you can change one or all three of the provisioned quantities of your file share. The amount of storage, IOPS, and throughput you provision can be dynamically scaled up or down as your needs change. However, you can only decrease a provisioned quantity after 24 hours have elapsed since your last quantity increase. Storage, IOPS, and throughput changes are effective within a few minutes after a provisioning change.
 
 # [Portal](#tab/azure-portal)
 
@@ -117,7 +129,9 @@ az storage share-rm update \
 
 ### Change the cost and performance characteristics of a provisioned v1 classic file share
 
-After creating your provisioned v1 file share, you can change the provisioned storage size of the file share. Changing the provisioned storage of the share will also change the amount of provisioned IOPS and provisioned throughput. For more information, see [provisioned v1 provisioning detail](./understanding-billing.md#provisioned-v1-provisioning-detail).
+After creating your provisioned v1 file share, you can change the provisioned storage size of the file share. Changing the provisioned storage of the share will also change the amount of provisioned IOPS and provisioned throughput. You can only decrease the provisioned storage after 24 hours have elapsed since your last storage increase. Storage, IOPS, and throughput changes are effective within a few minutes after a provisioning change. For more information, see [provisioned v1 provisioning detail](./understanding-billing.md#provisioned-v1-provisioning-detail).
+
+
 
 # [Portal](#tab/azure-portal)
 
@@ -319,14 +333,15 @@ $command
 
 ---
 
-## Change the cost and performance characteristics of a file share
+## Change the cost and performance characteristics of a file share (Microsoft.FileShares)
 
-Follow these instructions in the portal to change the size and performance of a file share using the Azure portal.
+Follow these instructions in the portal to change the size and performance of a file share (Microsoft.FileShares) using the Azure portal. The amount of storage, IOPS, and throughput you provision can be dynamically scaled up or down as your needs change. However, you can only decrease a provisioned quantity after 24 hours have elapsed since your last quantity increase. Storage, IOPS, and throughput changes are effective within a few minutes after a provisioning change.
 
 1. Select the file share you desire to modify.
 2. Select settings from the context menu.
 3. Choose Size + performance
-   ![image on choosing size and performance for mfs](./media/storage-how-to-create-file-share/mfs-change-size1.png)
+
+   ![image on choosing size and performance for mfs](./media/storage-how-to-create-file-share/mfs-change-performance-1.png)
 
 4. The Size and performance pop out dialog has the following options:
    Provisioned capcity (GiB): The amount of storage provisioned on the share.
@@ -339,7 +354,7 @@ Follow these instructions in the portal to change the size and performance of a 
 
     - **Throughput (MiB/sec)**: If you select _Manually specify IOPS and throughput_, this textbox enables you to change the amount of throughput provisioned on this file share.
 
-![image on saving new size for mfs](./media/storage-how-to-create-file-share/mfs-change-performance2.png)
+    ![image on saving new size for mfs](./media/storage-how-to-create-file-share/mfs-change-performance-2.png)
 
 5. Select **Save** to save provisioning changes. Storage, IOPS, and throughput changes are effective within a few minutes after a provisioning change.
 
@@ -397,13 +412,13 @@ az storage share-rm delete \
 
 ---
 
-## Delete a file share
+## Delete a file share (Microsoft.FileShares)
 
-1. Go to your file share.
+1. Go to your file share (Microsoft.FileShares).
 
 2. Select Delete from the context menu.
 
-![Delete imgae](./media/storage-how-to-create-file-share/Deletefs.png)
+    ![Delete imgae](./media/storage-how-to-create-file-share/delete-mfs.png)
 
 3. The Delete pop-out contains a survey about why you're deleting the file share. You can skip this, but we appreciate any feedback you have on Azure Files, particularly if something isn't working properly for you.
 

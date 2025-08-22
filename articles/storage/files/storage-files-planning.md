@@ -57,18 +57,19 @@ With both SMB and NFS file shares, Azure Files offers enterprise-grade file shar
 | Short file names (8.3 alias )                              | Not supported                                                                                                                                | N/A                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | Server service                                             | Not supported                                                                                                                                | N/A                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | File system transactions (TxF)                             | Not supported                                                                                                                                | N/A                                                                                                                                                                                                                                                                                                                                                                                                                 |
+## Management concepts
 
-## What is classic file share?
+### What is classic file share?
 
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
 
 To learn more, see [How to create classic file share](./create-classic-file-share.md).
 
-## What is Microsoft.FileShares (Public Preview)?
+### What is file share with Microsoft.FileShares (preview)?
 
-![image for comparsion between mfs and classic](./media/storage-files-planning/filesharecomparsion.png)
+![image for comparsion between mfs and classic](./media/storage-files-planning/file-share-comparsion.png)
 
-Delivered by the Microsoft.FileShares resource provider, file shares are now a first class Azure resource, alongside virtual machines, virtual networks, and SQL databases. Instead of creating a storage account and then a file share inside it, you create the file share directly in your resource group, eliminating account complexity without sacrificing performance or cost efficiency. This new model simplifies the deployment experience and unlocks a host of new capabilities:
+Delivered by the Microsoft.FileShares resource provider, file shares(Microsoft.FileShares) are now a first class Azure resource, alongside virtual machines, virtual networks, and SQL databases. Instead of creating a storage account and then a file share inside it, you create the file share directly in your resource group, eliminating account complexity without sacrificing performance or cost efficiency. This new model simplifies the deployment experience and unlocks a host of new capabilities:
 
 - Simpler onboarding: No more storage accounts to manage. Create file shares directly as top-level Azure resources in the portal. This removes a layer of indirection, reduces learning curve, and eliminates confusion from storage account level settings that do not apply to file shares.
 - Dedicated performance per share: Each share gets its own IOPS, throughput, and capacity so you will not have to worry about resource contention. Making it ideal for environments managing hundreds of shares (e.g., CI/CD pipelines) and for separating departments or customer workloads.
@@ -81,7 +82,7 @@ Delivered by the Microsoft.FileShares resource provider, file shares are now a f
 
 - Higher scale limits: Enjoy increased resource and request quotas with the Microsoft.FileShares resource provider—ideal for large environments managing lots of file shares. For current file share limits, see [Azure Files scalability and performance targets](./storage-files-scale-targets.md#azure-microsoftfileshares-scale-targets)
 
-As the current public preview phase, Microsoft.FileShares supports on:
+As the current public preview phase, file share (Microsoft.FileShares) supports on:
 
 - NFS 4.1 protocol (SSD tier only)
 - Provisioned v2 SSD billing model only
@@ -98,34 +99,34 @@ We’re actively working on expanding capabilities, including:
 - FileREST protocol support for NFS shares
 - SMB protocol support
 
-On the Azure portal, classic file share will remain using the blue icon, while Microsoft.FileShares will use the purple icon.
+On the Azure portal, classic file share will remain using the blue icon, while file share (Microsoft.FileShares) will use the purple icon.
 If you require all the feature that Azure File currently offer, we recommend you use classic file share instead.
-To learn more, see [How to create Microsoft.FileShares](./create-file-share.md).
+To learn more, see [How to create file share using Microsoft.FileShares](./create-file-share.md).
 
-### Region Availability
+### Region availability
 
-Currently, Microsoft.FileShares are available in the following regions:
+Currently, file share (Microsoft.FileShares) is available in the following regions:
 
 - Australia East
 - Australia Southeast
 - East Asia
 - Southeast Asia
 - North Europe
-- Japan west
+- Japan West
 - Germany North
-- South Africa west
+- South Africa West
 - East US
 - South India
 - UAE Central
 - Korea South
 - Australia Central
 
-## Comparsion between classic file share and Microsoft.FileShares
+## Comparsion between file share (Microsoft.Storage) and file share (Microsoft.FileShares)
 
-| Feature                                                          | classic file share ![fileshareclassicicon1](./media/storage-files-planning/10400-icon-service-Azure-Fileshares.svg) | File Shares ![mfsicon](./media/storage-files-planning/03549-icon-service-Managed-File-Shares.svg) |
+| Feature                                                          | classic file share ![fileshareclassicicon1](./media/storage-files-planning/icon-service-Azure-Fileshares.svg) | file share(Microsoft.FileShares) ![mfsicon](./media/storage-files-planning/icon-service-Managed-File-Shares.svg) |
 | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | Support guarentee                                                | General available                                                                                                   | Public preview                                                                                    |
-| Top level resource for the service                               | Storage account ![fileshareclassicicon2](./media/storage-files-planning/10086-icon-service-Storage-Accounts.svg)    | File Shares ![mfsicon](./media/storage-files-planning/03549-icon-service-Managed-File-Shares.svg) |
+| Top level resource for the service                               | Storage account ![fileshareclassicicon2](./media/storage-files-planning/icon-service-Storage-Accounts.svg)    | File Shares ![mfsicon](./media/storage-files-planning/icon-service-Managed-File-Shares.svg) |
 | SMB protocol                                                     | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![No](../media/icons/no-icon.png)                                                                 |
 | NFS protocol                                                     | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![Yes](../media/icons/yes-icon.png)                                                               |
 | File Sync support                                                | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![No](../media/icons/no-icon.png)                                                                 |
@@ -142,6 +143,8 @@ Currently, Microsoft.FileShares are available in the following regions:
 | Per share level billing, networking, and security configurations | ![No](../media/icons/no-icon.png)                                                                                   | ![Yes](../media/icons/yes-icon.png)                                                               |
 | Single vnet configurations for a file share                      | ![No](../media/icons/no-icon.png)                                                                                   | ![Yes](../media/icons/yes-icon.png)                                                               |
 | Single vnet configuration for multiple file shares               | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![No](../media/icons/no-icon.png)                                                                 |
+| AKS CSI driver               | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![No](../media/icons/no-icon.png)                                                                 |
+| Data plane REST APIs               | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![No](../media/icons/no-icon.png)                                                                 |
 
 ## Identity
 
