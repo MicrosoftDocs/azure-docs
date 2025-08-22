@@ -77,7 +77,8 @@ File shares created with Microsoft.FileShares (preview) are a first-class Azure 
 This new model simplifies the deployment experience and unlocks a host of new capabilities:
 
 
-- Simpler onboarding: No more storage accounts to manage. Create file shares directly as top-level Azure resources in the portal. This removes a layer of indirection, reduces learning curve, and eliminates confusion from storage account level settings that do not apply to file shares.
+- Simpler onboarding: You'll create file shares directly as top-level Azure resources in the portal, with no need to create and manage a storage account. This removes a layer of indirection, reduces the learning curve, and eliminates confusion from storage account level settings that don't apply to file shares.
+
 - Dedicated performance per share: Each share gets its own IOPS, throughput, and capacity so you will not have to worry about resource contention. Making it ideal for environments managing hundreds of shares (e.g., CI/CD pipelines) and for separating departments or customer workloads.
 
 - Predictable, flexible costs: The new management model uses SSD provisioned v2 model allowing you independently set storage, IOPS, and throughput for each share. You can adjust them as needs change. This brings clear, predictable pricing while retaining the agility to scale up or down.
