@@ -19,7 +19,7 @@ Ask questions in natural language, get explainable root cause analysis (RCA), an
 | Ask & understand | Automate incidents | Stay proactive |
 |---|---|---|
 | Ask plain-language questions about Azure resources, incidents, and health. | Diagnose, mitigate, and resolve incidents across Azure Monitor or integrated tools. The agent works autonomously or with approvals. | Agent sends daily summaries of environment health, flags spikes in CPU/memory usage, and identifies resources not following security best practices. |
-| **Examples:**<br><br>• *What changed in production in last 24 hours?*<br><br>• *Which resources are unhealthy?*<br><br>• *What alerts are active now?* | **Examples:**<br><br>• Incidents from ServiceNow<br><br>• 500 error alerts from Azure Monitor<br><br> • Report on all the AKS pods running for in a namespace | **Examples:**<br><br>• Daily health summary for production<br><br>• CPU spike detection<br><br>• Security compliance violations |
+| **Examples:**<br><br>• *What changed in production in last 24 hours?*<br><br>• *Which resources are unhealthy?*<br><br>• *What alerts are active now?* | **Examples:**<br><br>• Incidents from ServiceNow or PagerDuty<br><br>• 500 error alerts from Azure Monitor<br><br> • Run custom incident resolution workflows | **Examples:**<br><br>• Daily health summary for production<br><br>• CPU spike detection<br><br>• Security compliance violations |
 
 Watch the following video to see SRE Agent in action.
 
@@ -53,7 +53,7 @@ Use the following steps to start working with Azure SRE Agent.
 
 1. Create [a new agent](usage.md) in your subscription with *[Reader](security-context.md)* permissions.
 
-1. Point the agent to the resource groups you want it to manage.
+1. Point the agent to the resource groups you want to manage.
 
 1. Try prompts like:
 
