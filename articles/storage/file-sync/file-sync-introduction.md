@@ -31,7 +31,7 @@ Cloud tiering can help you cut costs, because you need to store only a fraction 
 
 ### Multiple-site access and sync
 
-Azure File Sync is ideal for distributed access scenarios. For each of your offices, you can provision a local Windows Server machine as part of your Azure File Sync deployment. Changes made to a server in one office automatically sync to the servers in all other offices.
+Azure File Sync is ideal for distributed access scenarios. For each of your offices, you can provision a local Windows server as part of your Azure File Sync deployment. Changes made to a server in one office automatically sync to the servers in all other offices.
 
 ### Business continuity and disaster recovery
 
