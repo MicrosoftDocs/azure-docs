@@ -2,7 +2,7 @@
 title: Back up and restore encrypted Azure VMs
 description: Describes how to back up and restore encrypted Azure VMs with the Azure Backup service.
 ms.topic: how-to
-ms.date: 05/07/2025
+ms.date: 08/20/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -214,3 +214,5 @@ If you run into any issues, review these articles:
 
 - [Common errors](backup-azure-vms-troubleshoot.md) when backing up and restoring encrypted Azure VMs.
 - [Azure VM agent/backup extension](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) issues.
+- [Restore Key Vault key and secret for encrypted VMs using Azure Backup](backup-azure-restore-key-secret.md).
+
