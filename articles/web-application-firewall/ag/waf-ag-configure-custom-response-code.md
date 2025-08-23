@@ -1,5 +1,5 @@
 ---
-title: Configure custom responses for Web Application Firewall with Application Gateway 
+title: Configure custom responses for Azure Web Application Firewall with Application Gateway 
 description: Learn how to configure a custom response code and body (message) when Azure Web Application Firewall blocks a request.
 author: YaakobiEden  
 ms.author: edenyaakobi
@@ -30,7 +30,7 @@ To customize the response status code and body, take the following steps:
 
   :::image type="content" source="../media/application-gateway-waf-configure-custom-response-code-and-body/ag-waf-custom-response-settings.png" alt-text="Screenshot that shows Azure Web Application Firewall Policy settings." lightbox="../media/application-gateway-waf-configure-custom-response-code-and-body/ag-waf-custom-response-settings.png":::
 
-1. Select **Save**.
+4. Select **Save**.
 
 In this example, we changed the default 403 response code to 429 and set a brief message stating, "The request has been blocked".
 
