@@ -55,7 +55,8 @@ You can use the `azd init` command to create a local Azure Functions code projec
         "IsEncrypted": false,
         "Values": {
             "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-            "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated"
+            "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated", 
+            "AzureWebJobsFeatureFlags": "EnableWorkerIndexing"
         }
     }
     ```
