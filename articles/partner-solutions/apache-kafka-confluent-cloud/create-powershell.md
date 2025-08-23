@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ms.date: 1/31/2024
 
-#customer intent: As a developer, I want to learn how to create a new instance of Apache Kafka & Apache Flink on Confluent Cloud by using Azure PowerShell so that I can create resources.
+#customer intent: As a developer, I want to learn how to create a new instance of Apache Kafka & Apache Flink on Confluent Cloud by using Azure PowerShell so that I can create my own resources.
 ---
 
 # Quickstart: Create a Confluent Cloud resource by using Azure PowerShell
@@ -15,7 +15,7 @@ In this quickstart, you use Azure Marketplace and Azure PowerShell to create a r
 ## Prerequisites
 
 - An Azure account. If you don't have an active Azure subscription, create a [free account](https://azure.microsoft.com/free/).
-- You must have the Owner or Contributor role for your Azure subscription. Only users who are assigned one of these roles can set up integration between Azure and Confluent. Before you get started, [verify that you have the required access](../../role-based-access-control/check-access.md).
+- The Owner or Contributor role for your Azure subscription. Only users who are assigned one of these roles can set up integration between Azure and Confluent. Before you get started, [verify that you have the required access](../../role-based-access-control/check-access.md).
 
 ## Find offer
 

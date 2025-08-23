@@ -1,6 +1,6 @@
 ---
 title: Overview of Apache Kafka & Apache Flink on Confluent Cloud
-description: Learn about using Apache Kafka & Apache Flink on Confluent Cloud in Azure Marketplace through Azure Native Integrations.
+description: Learn about using Apache Kafka & Apache Flink on Confluent Cloud, an Azure Native Integrations service, in Azure Marketplace.
 ms.topic: overview
 ms.date: 01/22/2025
 ---

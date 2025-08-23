@@ -33,7 +33,7 @@ For support and terms:
 
 To learn more, see Confluent blog articles about Azure services that integrate with Confluent Cloud:
 
-* [Use the Azure Cosmos Database sink connector](https://www.confluent.io/blog/announcing-confluent-cloud-azure-cosmos-db-connector)
+* [Use the Azure Cosmos DB sink connector](https://www.confluent.io/blog/announcing-confluent-cloud-azure-cosmos-db-connector)
 * [Set up secure networking with Azure Private Link](https://www.confluent.io/blog/how-to-set-up-secure-networking-in-confluent-with-azure-private-link)
 * [Search by using Azure Cache for Redis and Azure Spring Cloud](https://www.confluent.io/blog/real-time-search-and-analytics-with-confluent-cloud-azure-redis-spring-cloud)
 * [Consume data with Confluent and Azure Databricks](https://www.confluent.io/blog/consume-avro-data-from-kafka-topics-and-secured-schema-registry-with-databricks-confluent-cloud-on-azure)

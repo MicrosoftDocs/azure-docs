@@ -9,9 +9,9 @@ ms.date: 05/28/2024
 
 # Connect a Confluent organization to Azure compute services
 
-In this article, learn how to connect an instance of Apache Kafka & Apache Flink on Confluent Cloud, an Azure Native Integrations service, to Azure compute services by using [Service Connector in Azure](../../service-connector/overview.md).
+In this article, learn how to connect an instance of Apache Kafka & Apache Flink on Confluent Cloud, an Azure Native Integrations service, to Azure compute services by using Service Connector in Azure.
 
-Service Connector is an Azure service that simplifies the process of connecting Azure resources. Service Connector manages your connection's network and authentication settings to simplify connection.
+[Service Connector](../../service-connector/overview.md) is an Azure service that simplifies the process of connecting Azure resources. Service Connector manages your connection's network and authentication settings to simplify connection.
 
 Complete the steps in this article to connect an app deployed to Azure App Service to a Confluent organization. You can use similar steps to connect your Confluent organization to other [compute services supported by Service Connector](../../service-connector/overview.md#what-services-are-supported-by-service-connector).
 

@@ -11,10 +11,10 @@ author: maud-lv
 
 # Use Confluent Connectors in Azure (preview)
 
-Confluent Cloud is a solution that helps you connect your Confluent clusters to popular data sources and sinks. The solution is available on Azure by using the Confluent Connectors feature.
+Confluent Cloud helps you connect your Confluent clusters to popular data sources and sinks. The solution is available on Azure by using the Confluent Connectors feature.
 
 > [!NOTE]
-> Currently, Apache Kafka & Apache Flink on Confluent Cloud, an Azure Native Integrations service, supports only Confluent Connectors for Azure Blob Storage, including source and sink connectors.
+> Currently, Apache Kafka & Apache Flink on Confluent Cloud, an Azure Native Integrations service, supports only Confluent Connectors for Azure Blob Storage. It supports both source and sink connectors in Azure Blob Storage.
 
 In this article, learn how to connect an instance of Apache Kafka & Apache Flink on Confluent Cloud to Azure Blob Storage.
 
@@ -22,7 +22,7 @@ In this article, learn how to connect an instance of Apache Kafka & Apache Flink
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 * An [Azure Blob Storage](/azure/storage/blobs/storage-quickstart-blobs-portal) resource.
-* A [Confluent organization](./create.md) created on Azure Native Integrations.
+* A [Confluent organization](./create.md) created in Azure Native Integrations.
 * The Owner or Contributor role for the Azure subscription. You might need to ask your subscription administrator to assign you one of these roles.  
 * A [configured environment, cluster, and topic](https://docs.confluent.io/cloud/current/get-started/index.html) inside the Confluent organization. If you don't have one already, go to Confluent to create these components.
 
@@ -36,13 +36,13 @@ To create a sink connector for Azure Blob Storage:
    :::image type="content" source="./media/confluent-connectors/create-new-connector.png" alt-text="Screenshot that shows the Confluent Connectors menu in the Azure portal.":::
 
 1. Select **Create new connector**.
-1. On the **Create a new connector** pane, configure the settings described in the following sections.
+1. On the **Create a new connector** pane, configure the settings that are described in the next sections.
 
 ### Basics
 
 On the **Basics** tab, enter or select values for the following settings:
 
-| Name | Action |
+| Setting | Action |
 | --- | --- |
 | **Connector Type**  | Select **Sink**. |
 | **Connector Class** | Select **Azure Blob Storage Sink**. |
@@ -70,7 +70,7 @@ Leave the default values and select the **Configuration** tab.
 
 On the **Configuration** tab, enter or select the following values, and then select **Next**.
 
-| Name | Action |
+| Setting | Action |
 | --- | --- |
 | **Input Data Format**  | Select an input Kafka record data format type: AVRO, JSON, string, Protobuf. |
 | **Output Data Format** | Select an output data format: AVRO, JSON, string, Protobuf. |
