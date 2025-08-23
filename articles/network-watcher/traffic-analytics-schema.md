@@ -214,7 +214,7 @@ The following table details public IP schema. For more information, see [NTAIpDe
 | ----- | ------ | -------- |
 | **TableName**| NTAIpDetails | Table that contains traffic analytics IP details data. |
 | **SubType**| FlowLog | Subtype for the flow logs. Use only **FlowLog**. Other values of SubType are for internal workings of the product. |
-| **FASchemaVersion** | 2  | Schema version. Doesn't reflect virtual network flow Log version. |
+| **FASchemaVersion** | 3  | Schema version. Doesn't reflect virtual network flow log version. |
 | **FlowIntervalStartTime**| Date and time in UTC | Start time of the flow log processing interval (the time from which flow interval is measured). |
 | **FlowIntervalEndTime**| Date and time in UTC | End time of the flow log processing interval. |
 | **FlowType** | - AzurePublic <br> - ExternalPublic <br> - MaliciousFlow | See [Notes](#notes) for definitions. |
