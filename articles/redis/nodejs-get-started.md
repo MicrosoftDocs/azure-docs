@@ -41,12 +41,14 @@ First, create a cache. You can create a cache by using Azure Managed Redis or Az
 
 When you create the cache, Microsoft Entra ID is enabled by default, which makes it secure from the start. For this quickstart, the cache uses a public endpoint. In production, consider using private endpoints and other network controls.
 
-To create a cache with the portal, follow one of these procedures:
+1. To create a cache with the portal, follow one of these procedures:
 
 - [Azure Managed Redis](quickstart-create-managed-redis.md)
 - [Azure Cache for Redis](/azure/azure-cache-for-redis/quickstart-create-redis)
 
-Optionally, you can create a cache by using Azure CLI, PowerShell, or whichever tool you prefer.
+    Optionally, you can create a cache by using Azure CLI, PowerShell, or whichever tool you prefer.
+
+2. Add yourself as a [Redis user to the resource](entra-for-authentication.md#add-users-or-system-principal-to-your-cache). You should also [add users or a System principal to your cache](entra-for-authentication.md#add-users-or-system-principal-to-your-cache). Add anyone who might run the program as a user on the Redis cache.
 
 ## Code to connect to a Redis cache
 
@@ -117,11 +119,9 @@ const getResult = await client.get("Message");
 console.log('Get result:', getResult);
 ```
 
-Before you build (`tsc`) and run this code (`node index.js`), add yourself as a Redis user.
+## Run the code
 
-Also, [authorize your connection](/azure/developer/javascript/sdk/authentication/local-development-environment-developer-account) to Azure from the command line by using the Azure command line or Azure developer command line (azd).
-
-You should also [add users or a System principal to your cache](entra-for-authentication.md#add-users-or-system-principal-to-your-cache). Add anyone who might run the program as a user on the Redis cache.
+Build (`tsc`) and run this code (`node index.js`).
 
 The result looks like this:
 
