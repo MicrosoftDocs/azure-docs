@@ -60,11 +60,11 @@ Before you begin, you must perform the following actions:
 
    For more information about how to classify your workloads according to criticality rating, see [Assign a criticality rating to each flow](/azure/well-architected/reliability/identify-flows#assign-a-criticality-rating-to-each-flow).
 
-- **Verify that the regions your Azure resources are located in support availability zones.** Consult the [Azure regions list](./regions-list.md). If they don't, consider relocating your resources to a region that has availability zones. For more information, see [Move Azure resources across resource groups, subscriptions, or regions](/azure/azure-resource-manager/management/move-resources-overview).
+- **Verify that the regions your Azure resources are located in support availability zones.** Consult the [Azure regions list](./regions-list.md). If a region doesn't support availability zones, consider relocating your resources to a region that does. For more information, see [Move Azure resources across resource groups, subscriptions, or regions](/azure/azure-resource-manager/management/move-resources-overview).
 
 ### Step 1: Prioritize Azure services for zone resilience
 
-Now that you understand which workload flows are most critical to your business, you can focus on the Azure services that those flows depend on. Some Azure services are more critical to your applications than others. By prioritizing these services, you can help ensure that your applications remain available and resilient if a zone failure occurs.
+After you determine which workload flows are most critical to your business, you can focus on the Azure services that those flows depend on. Some Azure services are more critical to your applications than others. By prioritizing these services, you can help ensure that your applications remain available and resilient if a zone failure occurs.
 
 The following provides a *suggested* prioritization of Azure service groups based on their criticality to your workloads. It's important to consider your specific application architecture and business requirements when you determine the priority of services for zone resiliency.
 
@@ -78,39 +78,39 @@ The following provides a *suggested* prioritization of Azure service groups base
 
 1. **Compute services** are often the next priority. Compute services are often easy to replicate and distribute among zones because they're stateless.
 
-   Compute services include Virtual Machines, Virtual Machine Scale Sets, AKS, App Service, App Service Environments, Azure Functions, and Azure Container Apps. 
+   Compute services include Azure Virtual Machines, Azure Virtual Machine Scale Sets, Azure Kubernetes Service (AKS), Azure App Service, App Service Environment, Azure Functions, and Azure Container Apps. 
 
-1. Ensure that all **remaining business-critical** resources that are used in your critical flows. These resources might not be as critical as the ones listed previously, but they still play a role in your application's functionality and be considered for zone resiliency.
+1. Review all **remaining business-critical** resources that are used in your critical flows. These resources might not be as critical as the resources listed previously, but they still play a role in your application's functionality and should be considered for zone resiliency.
 
-1. Review the rest of your **business-operational resources** and make informed decisions about whether to make them zone resilient. This includes services that might not be directly tied to your critical workloads but still contribute to overall application performance and reliability.
+1. Review the rest of your **business-operational resources** and make informed decisions about whether to make them zone resilient. This review includes services that might not be directly tied to your critical workloads but still contribute to overall application performance and reliability.
 
 ### Step 2: Assess zone configuration approaches
 
-Now that you have prioritized your workloads and Azure services, it's important to understand the approach that you can use to enable availability zone support for each service, and how to achieve a zone-resilient configuration. 
+After you prioritize your workloads and Azure services, it's important to understand the approach that you can use to enable availability zone support for each service, and how to achieve a zone-resilient configuration. 
 
 Each Azure reliability service guide provides a section that describes how to enable zone resiliency for that service. This section helps you understand the effort required to make each service zone resilient so that you can plan your strategy accordingly. For more information about a specific service, see [Azure reliability service guides](./overview-reliability-guidance.md).
 
-Use the table in [Azure services by zone configuration approach](#azure-services-by-zone-configuration-approach) to quickly understand the approaches to use for common Azure services.
+Use the table in [Azure services by zone configuration approach](#azure-services-by-zone-configuration-approach) to quickly understand the approaches that you can use for common Azure services.
 
 > [!IMPORTANT]
-> If your workload includes any components that are deployed in a zonal (single-zone) configuration, you need to plan to make these components resilient to zone outages. Common approaches are to deploy separate instances into another availability zone, and switch between them if required.
+> If your workload includes any components that are deployed in a zonal (or single-zone) configuration, you must plan to make these components resilient to zone outages. Common approaches are to deploy separate instances into another availability zone, and switch between them if required.
 
 ### Step 3: Test for latency
 
-When you make workloads zone-resilient, it's important to consider latency between availability zones. Occasionally, some legacy systems can't tolerate the small amount of extra latency that cross-zone traffic introduces, especially when synchronous replication is enabled within the data tier. If you suspect that cross-latency might affect your workload, make sure to perform testing before and testing after you enable zone resiliency.
+When you make workloads zone-resilient, it's important to consider latency between availability zones. Occasionally, some legacy systems can't tolerate the small amount of extra latency that cross-zone traffic introduces, especially when synchronous replication is enabled within the data tier. If you suspect that cross-latency might affect your workload, make sure to perform testing before you enable zone resiliency and perform testing after you enable zone resiliency.
 
 ## Zone configuration approaches for Azure services
 
-Each Azure service supports a specific type of availability zone support, which is based on the service's intended use and internal architecture. If you currently have a resource that isn't configured to use availability zones (a *nonzonal* resource), you might want to reconfigure it with availability zone support. The reliability guide for that service provides guidance or links to availability zone configuration instructions.
+Each Azure service supports a specific type of availability zone support, which is based on the service's intended use and internal architecture. If you currently have a resource that isn't configured to use availability zones (or a *nonzonal* resource), you might want to reconfigure it with availability zone support. The reliability guide for that service provides guidance or links to availability zone configuration instructions.
 
-This section provides a quick overview of the different types of zone configuration approaches, and which approach each service supports.
+This section provides a quick overview of the different types of zone configuration approaches and which approach each service supports.
 
 > [!IMPORTANT]
 > If you enable *zone redundancy*, the resource is automatically resilient to zone failures. But if you use a *zonal* configuration to pin the resource to a specific availability zone, you're responsible for making it resilient to a zone failure.
 
-The table below describes each zone configuration approach, including the level of effort that's required for enabling availability zones. The table also indicates whether or not downtime is required during the enabling process.
+The following table describes each zone configuration approach, including the level of effort that's required for enabling availability zones. The table also indicates whether or not downtime is required during the enabling process.
 
-The table in the [Azure services by zone configuration approach section](#azure-services-by-zone-configuration-approach) lists the supported zone configuration approach for many Azure services, and contains a link to each reliability guide for that service. The reliability guide providesabout how to configure nonzonal service resources to availability zone support.
+The table in the [Azure services by zone configuration approach section](#azure-services-by-zone-configuration-approach) lists the supported zone configuration approach for many Azure services and contains a link to each reliability guide for that service. The reliability guide provides information about how to configure nonzonal service resources to availability zone support.
 
 | Approach | Description | Typical level of effort | Might require downtime |
 | --- | --- | --- | --- |
@@ -120,7 +120,7 @@ The table in the [Azure services by zone configuration approach section](#azure-
 | Redeployment | Significant changes required, such as redeploying entire resources, applications or services, or migrating data to new services. | High | Yes | 
 
 > [!NOTE]
-> The information in this article is a summary of the typical approach that you might use to enable availability zone support. However, there might be factors that affect how it works for your specific solution. For example, some services might be listed as *always zone-resilient*, but that applies only in specific regions or when you use specific tiers of the service. Use these tables as a starting point, but it's important to review the linked documents to understand the specific details.
+> The information in this article is a summary of the typical approach that you might use to enable availability zone support. However, there might be factors that affect how it works for your specific solution. For example, some services might be listed as *always zone-resilient*, but this designation only applies in specific regions or when you use specific tiers of the service. Use these tables as a starting point, but it's important to review the linked documents to understand the specific details.
 
 ### Azure services by zone configuration approach
 
@@ -128,11 +128,12 @@ This table summarizes the availability zone support for many Azure services and 
 
 | Service | Can be zone redundant | Can be zonal | Typical zone configuration approach |
 |-|-|-|-|
+| [AKS](./reliability-aks.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Redeployment |
+| [App Service](reliability-app-service.md#configure-availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Enablement |
+| [App Service Environment](reliability-app-service-environment.md#configure-availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Enablement |
 | [Azure AI Search](./reliability-ai-search.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Always zone-resilient |
 | [Azure API Management](./reliability-api-management.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | Modification |
 | [Azure App Configuration](migrate-app-configuration.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Always zone-resilient |
-| [Azure App Service](reliability-app-service.md#configure-availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Enablement |
-| [Azure App Service Environment](reliability-app-service-environment.md#configure-availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Enablement |
 | [Azure Application Gateway v2](./reliability-application-gateway-v2.md#configure-availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | Always zone-resilient |
 | [Azure Backup](migrate-recovery-services-vault.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Redeployment |
 | [Azure Bastion](./reliability-bastion.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | Redeployment |
@@ -140,7 +141,6 @@ This table summarizes the availability zone support for many Azure services and 
 | [Azure Blob Storage](./reliability-storage-blob.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Enablement |
 | [Azure Cache for Redis - Enterprise](migrate-cache-redis.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Redeployment |
 | [Azure Cache for Redis - Standard and Premium](migrate-cache-redis.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Enablement |
-| [Azure Container Apps](reliability-azure-container-apps.md#availability-zone-migration) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Redeployment |
 | [Azure Container Instances](./reliability-containers.md#availability-zone-redeployment-and-migration) | | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | Redeployment |
 | [Azure Container Registry](/azure/container-registry/zone-redundancy?toc=/azure/reliability) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Always zone-resilient |
 | [Azure Cosmos DB for NoSQL](./reliability-cosmos-db-nosql.md#migrate-to-availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Modification |
@@ -154,27 +154,22 @@ This table summarizes the availability zone support for many Azure services and 
 | [Azure ExpressRoute](/azure/expressroute/expressroute-howto-gateway-migration-portal) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Modification |
 | [Azure Files](migrate-storage.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Enablement |
 | [Azure Functions](reliability-functions.md#availability-zone-migration) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Redeployment |
-| [Azure HDInsight](reliability-hdinsight.md#availability-zone-migration) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | Redeployment |
-| [Azure IoT Hub](./reliability-iot-hub.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Always zone-resilient |
-| [Azure Key Vault](./reliability-key-vault.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Always zone-resilient |
-| [Azure Kubernetes Service (AKS)](./reliability-aks.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Redeployment |
-| [Azure Load Balancer](migrate-load-balancer.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Modification |
-| [Azure Logic Apps - Consumption tier](./reliability-logic-apps.md?pivots=standard-workflow-service-plan#configure-availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Always zone-resilient |
-| [Azure Logic Apps - Standard tier](./reliability-logic-apps.md?pivots=consumption#configure-availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Redeployment |
 | [Azure Monitor: Log Analytics](migrate-monitor-log-analytics.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Always zone-resilient |
 | [Azure NetApp Files](./reliability-netapp-files.md#availability-zone-support) | | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | Redeployment |
 | [Azure Queue Storage](./reliability-storage-queue.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Enablement |
 | [Azure Service Bus](/azure/service-bus-messaging/service-bus-outages-disasters#availability-zones) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Always zone-resilient |
 | [Azure Service Fabric](migrate-service-fabric.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | Redeployment |
 | [Azure Site Recovery](migrate-recovery-services-vault.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Redeployment |
-| [Azure SQL Database: Hyperscale tier](/azure/azure-sql/database/enable-zone-redundancy?view=azuresql-db&preserve-view=true&toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Redeployment |
-| [Azure SQL Database: other tiers](/azure/azure-sql/database/enable-zone-redundancy?view=azuresql-db&preserve-view=true&toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Enablement |
-| [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-zone-redundancy-configure) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Enablement |
 | [Azure Table Storage](migrate-storage.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Enablement |
 | [Azure Virtual Network](./reliability-virtual-network.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Always zone-resilient |
-| [Azure Virtual Machines](migrate-vm.md) | | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | Redeployment |
-| [Azure Virtual Machine Scale Sets](migrate-vm.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | Redeployment |
-| Public IP address | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | Always zone-resilient |
+| [Container Apps](reliability-azure-container-apps.md#availability-zone-migration) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Redeployment |
+| [Load Balancer](migrate-load-balancer.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Modification |
+| [Public IP address] | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | Always zone-resilient |
+| [SQL Database: Hyperscale tier](/azure/azure-sql/database/enable-zone-redundancy?view=azuresql-db&preserve-view=true&toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Redeployment |
+| [SQL Database: other tiers](/azure/azure-sql/database/enable-zone-redundancy?view=azuresql-db&preserve-view=true&toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Enablement |
+| [SQL Managed Instance](/azure/azure-sql/managed-instance/instance-zone-redundancy-configure) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Enablement |
+| [Virtual Machine Scale Sets](migrate-vm.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | Redeployment |
+| [Virtual Machines](migrate-vm.md) | | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | Redeployment |
 
 ## Next steps
 
