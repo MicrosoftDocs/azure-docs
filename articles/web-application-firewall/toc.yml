@@ -25,7 +25,7 @@ items:
     - name: Web Application Firewall on Azure CDN
       href: ./cdn/cdn-overview.md
   - name: What is Azure network security?
-    href: /azure/networking/security/network-security.md?toc=/azure/web-application-firewall/toc.json
+    href: /azure/networking/security/network-security?toc=%2fazure%2fweb-application-firewall%2ftoc.json
 - name: Deploy
   items:
   - name: Application Gateway
