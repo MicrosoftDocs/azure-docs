@@ -34,6 +34,104 @@ call_connection_properties = call_automation_client.create_call(
 )
 ```
 
+## Sentiment Analysis (Preview)
+Track the emotional tone of conversations in real time to support customer and agent interactions, and enable supervisors to intervene when necessary. Available in public preview through `createCall`, `answerCall` and `startTranscription`.
+
+### Create a call with Sentiment Analysis enabled 
+
+``` python
+transcription_options = TranscriptionOptions(
+    transport_url=self.transport_url,
+    transport_type=StreamingTransportType.WEBSOCKET,
+    locale="en-US",
+    start_transcription=False,
+    enable_sentiment_analysis=True
+)
+
+call_connection_properties = await call_automation_client.create_call(
+    target_participant=[target_participant],
+    callback_url=CALLBACK_EVENTS_URI,
+    cognitive_services_endpoint=COGNITIVE_SERVICES_ENDPOINT,
+    source_caller_id_number=source_caller,
+    transcription=transcription_options
+)
+
+```
+
+### Answer a call with Sentiment Analysis enabled 
+``` python
+transcription_options = TranscriptionOptions(
+    transport_url=self.transport_url,
+    transport_type=StreamingTransportType.WEBSOCKET,
+    locale="en-US",
+    start_transcription=False,
+    enable_sentiment_analysis=True
+)
+
+answer_call_result = await call_automation_client.answer_call(
+    incoming_call_context=incoming_call_context,
+    transcription=transcription_options,
+    cognitive_services_endpoint=COGNITIVE_SERVICES_ENDPOINT,
+    callback_url=callback_uri,
+    enable_loopback_audio=True,
+    operation_context="answerCallContext"
+)
+```
+
+## PII Redaction (Preview)
+Automatically identify and mask sensitive information—such as names, addresses, or identification numbers—to ensure privacy and regulatory compliance. Available in `createCall`, `answerCall` and `startTranscription`.
+
+### Answer a call with PII Redaction enabled 
+``` python
+transcription_options = TranscriptionOptions(
+    transport_url=self.transport_url,
+    transport_type=StreamingTransportType.WEBSOCKET,
+    locale=["en-US", "es-ES"],
+    start_transcription=False,
+    pii_redaction=PiiRedactionOptions(
+        enable=True,
+        redaction_type=RedactionType.MASK_WITH_CHARACTER
+    )
+)
+
+answer_call_result = await call_automation_client.answer_call(
+    incoming_call_context=incoming_call_context,
+    transcription=transcription_options,
+    cognitive_services_endpoint=COGNITIVE_SERVICES_ENDPOINT,
+    callback_url=callback_uri,
+    enable_loopback_audio=True,
+    operation_context="answerCallContext"
+)
+```
+>[!Note]
+> With PII redaction enabled you’ll only receive the redacted text.  
+
+## Real-time language detection (Preview)
+Automatically detect spoken languages to enable natural, human-like communication and eliminate manual language selection. Available in `createCall`, `answerCall` and `startTranscription`.
+
+### Create a call with Real-time language detection enabled
+``` python
+transcription_options = TranscriptionOptions(
+    transport_url=self.transport_url,
+    transport_type=StreamingTransportType.WEBSOCKET,
+    locale=["en-US", "es-ES","hi-IN"],
+    start_transcription=False,
+    enable_sentiment_analysis=True,
+)
+
+call_connection_properties = await call_automation_client.create_call(
+    target_participant=[target_participant],
+    callback_url=CALLBACK_EVENTS_URI,
+    cognitive_services_endpoint=COGNITIVE_SERVICES_ENDPOINT,
+    source_caller_id_number=source_caller,
+    transcription=transcription_options
+)
+```
+
+> [!Note]
+> To stop language identification after it has started, use the `updateTranscription` API and explicitly set the language you want to use for the transcript. This disables automatic language detection and locks transcription to the specified language.
+
+
 ## Connect to a Rooms call and provide transcription details
 If you're connecting to an ACS room and want to use transcription, configure the transcription options as follows:
 
@@ -68,6 +166,39 @@ call_connection_client.start_transcription()
 
 # Option 2: Start transcription with operation context
 # call_connection_client.start_transcription(operation_context="startTranscriptionContext")
+```
+
+## Get mid call summaries (Preview)
+Enhance your call workflows with real-time summarization. By enabling summarization in your transcription options, ACS can automatically generate concise mid-call recaps—including decisions, action items, and key discussion points—without waiting for the call to end. This helps teams stay aligned and enables faster follow-ups during live conversations.
+
+``` python
+transcription_options = TranscriptionOptions(
+    transport_url=self.transport_url,
+    transport_type=StreamingTransportType.WEBSOCKET,
+    locale="en-US",
+    start_transcription=False,
+    summarization=SummarizationOptions(
+        enable_end_call_summary=True,
+        locale="en-US"
+    )
+)
+
+answer_call_result = await call_automation_client.answer_call(
+    incoming_call_context=incoming_call_context,
+    transcription=transcription_options,
+    cognitive_services_endpoint=COGNITIVE_SERVICES_ENDPOINT,
+    callback_url=callback_uri,
+    enable_loopback_audio=True,
+    operation_context="answerCallContext"
+)
+
+
+await call_connection_client.summarize_call(
+    operation_context=self.operation_context,
+    operation_callback_url=self.operation_callback_url,
+    summarization=transcription_options.summarization
+)
+
 ```
 
 ### Additional Headers:
@@ -115,6 +246,50 @@ After the metadata, the next packets your websocket receives will be Transcripti
 }
 ```
 
+## Receiving Transcription Stream with AI capabilities enabled (Preview)
+When transcription is enabled during a call, Azure Communication Services emits metadata that describes the configuration and context of the transcription session. This includes details such as the locale, call connection ID, sentiment analysis settings, and PII redaction preferences. Developers can use this payload to verify transcription setup, audit configurations, or troubleshoot issues related to real-time transcription features enhanced by AI.
+
+``` json
+{
+  "kind": "TranscriptionMetadata",
+  "transcriptionMetadata": {
+    "subscriptionId": "863b5e55-de0d-4fc3-8e58-2d68e976b5ad",
+    "locale": "en-US",
+    "callConnectionId": "02009180-9dc2-429b-a3eb-d544b7b6a0e1",
+    "correlationId": "62c8215b-5276-4d3c-bb6d-06a1b114651b",
+    "speechModelEndpointId": null,
+    "locales": [],
+    "enableSentimentAnalysis": true,
+    "piiRedactionOptions": {
+      "enable": true,
+      "redactionType": "MaskWithCharacter"
+    }
+  }
+}
+```
+
+## Receiving Transcription data with AI capabilities enabled (Preview)
+After the initial metadata packet, your WebSocket connection will begin receiving `TranscriptionData` events for each segment of transcribed audio. These packets include the transcribed text, confidence score, timing information, and—if enabled—sentiment analysis and PII redaction. This data can be used to build real-time dashboards, trigger workflows, or analyze conversation dynamics during the call.
+
+```json
+{
+  "kind": "TranscriptionData",
+  "transcriptionData": {
+    "text": "My date of birth is *********.",
+    "format": "display",
+    "confidence": 0.8726407289505005,
+    "offset": 309058340,
+    "duration": 31600000,
+    "words": [],
+    "participantRawID": "4:+917020276722",
+    "resultStatus": "Final",
+    "sentimentAnalysisResult": {
+      "sentiment": "neutral"
+    }
+  }
+}
+```
+
 ## Handling transcription stream in the web socket server
 
 ```python
@@ -136,6 +311,8 @@ async def handle_client(websocket, path):
                 print("Locale:", json_object['transcriptionMetadata']['locale'])
                 print("Call Connection ID:", json_object['transcriptionMetadata']['callConnectionId'])
                 print("Correlation ID:", json_object['transcriptionMetadata']['correlationId'])
+                print("Locales:", json_object['transcriptionMetadata']['locales']) 
+                print("PII Redaction Options:", json_object['transcriptionMetadata']['piiRedactionOptions']) 
             if kind == 'TranscriptionData':
                 participant = identifier_from_raw_id(json_object['transcriptionData']['participantRawID'])
                 word_data_list = json_object['transcriptionData']['words']
@@ -147,6 +324,8 @@ async def handle_client(websocket, path):
                 print("Offset:", json_object['transcriptionData']['offset'])
                 print("Duration:", json_object['transcriptionData']['duration'])
                 print("Participant:", participant.raw_id)
+                print("Result Status:", json_object['transcriptionData']['resultStatus']) 
+                print("Sentiment Analysis Result:", json_object['transcriptionData']['sentimentAnalysisResult']) 
                 print("Result Status:", json_object['transcriptionData']['resultStatus'])
                 for word in word_data_list:
                     print("Word:", word['text'])
