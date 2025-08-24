@@ -20,9 +20,9 @@ The listed features were released in the last six months. For information about 
 
 ## August 2025
 
-- [Edit workbooks directly in the Microsoft Defender portal](#edit-workbooks-directly-in-the-microsoft-defender-portal)
+- [Edit workbooks directly in the Microsoft Defender portal](#edit-workbooks-directly-in-the-microsoft-defender-portal-preview)
 
-### Edit workbooks directly in the Microsoft Defender portal
+### Edit workbooks directly in the Microsoft Defender portal (Preview)
 
 Now you can create and edit Microsoft Sentinel workbooks directly in the Microsoft Defender portal. This enhancement streamlines your workflow and allows you to manage your workbooks more efficiently.
 

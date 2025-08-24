@@ -21,7 +21,7 @@ After you connect your data sources to Microsoft Sentinel, visualize and monitor
 
 Microsoft Sentinel allows you to create custom workbooks across your data or use existing workbook templates available with packaged solutions or as standalone content from the content hub. Each workbook is an Azure resource like any other, and you can assign it with Azure role-based access control (RBAC) to define and limit who can access.
 
-This article describes how to visualize your data in Microsoft Sentinel by using workbooks.
+This article describes how to visualize your data in Microsoft Sentinel by using workbooks. Editing workbooks directly in the Defender portal is as Preview.
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
@@ -32,7 +32,9 @@ This article describes how to visualize your data in Microsoft Sentinel by using
    The workbooks that you see in Microsoft Sentinel are saved within the Microsoft Sentinel workspace's resource group and are tagged by the workspace in which they were created.
 
 - To use a workbook template, install the solution that contains the workbook or install the workbook as a standalone item from the **Content Hub**. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
- 
+
+- If you're working in the Defender portal with an Azure Data Explorer data source, make sure to configure and authenticate to Azure Data Explorer from the Defender portal. <!--how would someone do this?-->
+
 ## Create a workbook from a template
 
 Use a template installed from the content hub to create a workbook.
@@ -140,7 +142,7 @@ To print a workbook, or save it as a PDF, use the options menu to the right of t
 
    :::image type="content" source="media/monitor-your-data/print-workbook.png" alt-text="Screenshot that shows how to print your workbook or save as PDF." :::
 
-## How to delete workbooks
+## Delete one or more workbooks
 
 You can delete both saved templates and customized workbooks from the **My workbooks** tab. Templates themselves can't be deleted.
 
@@ -213,6 +215,16 @@ See more information on the following items used in the preceding examples, in t
 - [***count()*** aggregation function](/kusto/query/count-aggregation-function?view=microsoft-sentinel&preserve-view=true)
 
 [!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
+
+## Known issues for editing workbooks in the Defender portal (Preview)
+
+Editing workbooks directly in the Defender portal is currently in Preview, and currently includes the following known issues:
+
+- The advanced editor might show up in light mode, even if your portal is set to dark mode.
+- Custom endpoint data isn't supported for editing workbooks in the Defender portal.
+- Workbooks within workbooks aren't supported for editing in the Defender portal.
+- Read-only sharing isn't supported for workbooks in the Defender portal.
+- Mermaid diagrams aren't supported for editing workbooks in the Defender portal.
 
 ## Related articles
 
