@@ -62,7 +62,7 @@ The **Incident** object received from **Microsoft Sentinel incident** includes t
 
 ### Known issues and limitations
 
-Renaming a trigger in a Logic App is currently not supported. Changing the trigger name will break integrations with automation workflows and Microsoft Sentinel, as these services rely on the original trigger name for connectivity.
+Renaming a trigger in a Logic App is currently not supported. Changing the trigger name breaks integrations with automation workflows and Microsoft Sentinel, as these services rely on the original trigger name for connectivity.
 
 ## Supported Microsoft Sentinel actions
 
