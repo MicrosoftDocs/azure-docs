@@ -66,7 +66,7 @@ In Call Automation and Event Grid, call routing can be tailored to your specific
 > [!NOTE]
 > To ensure that your application receives only the necessary events, it is recommended to configure filtering in Event Grid. This is particularly crucial in scenarios that generate `IncomingCall` events, such as redirecting an inbound PSTN call to an Azure Communication Services endpoint. If a filter isn't used, your Event Grid subscription receives two `IncomingCall` events - one for the PSTN call and one for the Azure Communication Services user - even though you intended to receive only the first notification. Neglecting to handle such scenarios using filters or other mechanisms in your application can result in infinite loops and other undesirable behavior.
 
-Here is an example of an advanced filter on an Event Grid subscription watching for the `data.to.PhoneNumber.Value` string starting with a PSTN phone number of `+18005551212.
+Here is an example of an advanced filter on an Event Grid subscription watching for the `data.to.PhoneNumber.Value` string starting with a PSTN phone number of `+18005551212`.
 
 ![Image showing Event Grid advanced filter.](./media/event-grid-advanced-filter.png)
 

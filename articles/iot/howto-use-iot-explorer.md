@@ -4,6 +4,7 @@ description: Install the Azure IoT explorer tool and use it to interact with dev
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/14/2024
+ms.update-cycle: 1095-days
 ms.topic: how-to
 ms.service: azure-iot
 services: azure-iot
