@@ -86,9 +86,13 @@ Zone redundancy is enabled by default for all registries in regions that support
 
 Zone-redundant registries can be deployed into [any region that supports availability zones](./regions-list.md).
 
+If your registry is in a region that doesn't support availability zones, then to make it zone-redundant you must create a new registry in a region that supports availability zones. Then, you need to migrate your container images by [creating a transfer pipeline](/azure/container-registry/container-registry-transfer-prerequisites) or by [importing container images](/azure/container-registry/container-registry-import-images).
+
 ### Considerations
 
-Container Registry tasks don't currently support availability zones. Zone redundancy applies to the registry service itself, but not to tasks or their operations.
+- **Tasks:** Container Registry tasks don't currently support availability zones. Zone redundancy applies to the registry service itself, but not to tasks or their operations.
+
+- **Geo-replication:** If your registry uses [geo-replication](#multi-region-support), any replicas created in regions with availability zones are made zone-redundant automatically.
 
 ### Cost
 
@@ -96,13 +100,9 @@ Zone redundancy is included with container registries at no extra cost.
 
 ### Configure availability zone support
 
-- **Create a zone-redundant registry.** For more information, see [Create a zone-redundant registry in Container Registry](/azure/container-registry/zone-redundancy).
+- **Create a zone-redundant registry.** When you create a registry in a supported region, it's automatically zone-redundant. For more information about creating a new registry, see [Create a zone-redundant registry in Container Registry](/azure/container-registry/zone-redundancy).
 
-- **Enable zone redundancy on an existing registry.** You can only configure zone redundancy when a registry is created. To enable zone redundancy for currently existing registries, you must create a registry in a region that supports availability zones and then migrate your container images.
-
-    - To migrate your artifacts between registries, you can [create a transfer pipeline](/azure/container-registry/container-registry-transfer-prerequisites). Alternatively, you can [import container images to a container registry](/azure/container-registry/container-registry-import-images).
-    
-- If your registry uses [geo-replication](#multi-region-support) in a region that supports availability zones, the replica in that region will be zone-redundant automatically. For more information, see [Create a zone-redundant replica in Container Registry](/azure/container-registry/zone-redundancy-replica). After a geo-replication is created, you can only change the zone redundancy setting by deleting and recreating the replication.
+- **Enable zone redundancy on an existing registry.** Registries that are in regions with availability zones are automatically zone-redundant. You don't need to enable zone redundancy.
 
 - **Disable zone redundancy.** Zone redundancy can't be disabled. 
 
@@ -172,7 +172,7 @@ You must use the Premium tier to enable geo-replication.
 
 ### Considerations
 
-- **Zone-redundant replicas:** When you use geo-replication in regions that support availability zones, the replicas are zone redundant by default.
+- **Zone-redundant replicas:** Replicas deployed in regions with availability zones are automatically zone-redundant.
 
 - **Control plane:** The control plane runs in the home region. If the home region is unavailable, control plane operations are unavailable, and you might not be able to modify the registry's configuration.
 
