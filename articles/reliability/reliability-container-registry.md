@@ -172,7 +172,7 @@ You must use the Premium tier to enable geo-replication.
 
 ### Considerations
 
-- **Zone-redundant replicas:** Replicas deployed in regions with availability zones are automatically zone-redundant.
+- **Zone-redundant replicas:** Any replica you create in a region with availability zones is automatically zone-redundant.
 
 - **Control plane:** The control plane runs in the home region. If the home region is unavailable, control plane operations are unavailable, and you might not be able to modify the registry's configuration.
 
