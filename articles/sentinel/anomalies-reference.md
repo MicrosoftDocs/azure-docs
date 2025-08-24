@@ -36,13 +36,18 @@ Sentinel UEBA detects anomalies based on dynamic baselines created for each enti
 You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA anomalies to be detected.
 
 - [Anomalous Account Access Removal](#anomalous-account-access-removal)
-- [Anomalous Account Creation](#anomalous-account-creation)
 - [Anomalous Account Deletion](#anomalous-account-deletion)
 - [Anomalous Account Manipulation](#anomalous-account-manipulation)
+- [Anomalous Authentication](#anomalous-authentication)
+- [Anomalous AwsCloudTrail](#anomalous-awscloudtrail)
 - [Anomalous Code Execution (UEBA)](#anomalous-code-execution-ueba)
 - [Anomalous Data Destruction](#anomalous-data-destruction)
 - [Anomalous Defensive Mechanism Modification](#anomalous-defensive-mechanism-modification)
 - [Anomalous Failed Sign-in](#anomalous-failed-sign-in)
+- [Anomalous File Activity](#anomalous-file-activity)
+- [Anomalous GCP Audit Logs](#anomalous-gcp-audit-logs)
+- [Anomalous Okta CL](#anomalous-okta-cl)
+- [Anomalous Okta CL MFA Failures](#anomalous-okta-cl-mfa-failures)
 - [Anomalous Password Reset](#anomalous-password-reset)
 - [Anomalous Privilege Granted](#anomalous-privilege-granted)
 - [Anomalous Sign-in](#anomalous-sign-in)
@@ -57,7 +62,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 | **Data sources:**                | Azure Activity logs                                                |
 | **MITRE ATT&CK tactics:**        | Impact                                                             |
 | **MITRE ATT&CK techniques:**     | T1531 - Account Access Removal                                     |
-| **Activity:**                    | Microsoft.Authorization/roleAssignments/delete<br>Log Out |
+| **Activity:**                    | Microsoft.Authorization/roleAssignments/delete<br>Log Out          |
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
@@ -101,6 +106,34 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 | **MITRE ATT&CK tactics:**        | Persistence                                                        |
 | **MITRE ATT&CK techniques:**     | T1098 - Account Manipulation                                       |
 | **Activity:**                    | Core Directory/UserManagement/Update user                          |
+
+[Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
+
+### Anomalous Authentication
+
+**Description:** This anomaly detects unusual authentication activity across signals from Microsoft Defender for Endpoint and Azure AD, including device logons, managed identity sign-ins, and service principal authentications from Azure Active Directory. These anomalies may suggest credential misuse, non-human identity abuse, or lateral movement attempts outside typical access patterns.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | UEBA                                                               |
+| **Data sources:**                | Microsoft Defender for Endpoint, Azure AD logs                     |
+| **MITRE ATT&CK tactics:**        | Credential Access, Lateral Movement                                |
+| **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts, T1550 - Use Alternate Authentication Material|
+| **Activity:**                    | Device logons, managed identity sign-ins, service principal auth   |
+
+[Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
+
+### Anomalous AwsCloudTrail
+
+**Description:** This anomaly detects unusual logon activity in AWS services based on CloudTrail events such as ConsoleLogin and other authentication-related attributes. Anomalies are determined by deviations in user behavior based on attributes like geolocation, device fingerprint, ISP, and access method, and may indicate unauthorized access attempts or potential policy violations.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | UEBA                                                               |
+| **Data sources:**                | AWS CloudTrail logs                                                |
+| **MITRE ATT&CK tactics:**        | Initial Access, Persistence                                        |
+| **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts                                             |
+| **Activity:**                    | ConsoleLogin, authentication-related CloudTrail events             |
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
@@ -159,6 +192,62 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 | **MITRE ATT&CK tactics:**        | Credential Access                                                  |
 | **MITRE ATT&CK techniques:**     | T1110 - Brute Force                                                |
 | **Activity:**                    | **Microsoft Entra ID:** Sign-in activity<br>**Windows Security:** Failed login (Event ID 4625) |
+
+[Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
+
+### Anomalous File Activity
+
+**Description:** This anomaly detects unusual file activity across Microsoft 365 and endpoint environments, including SharePoint, OneDrive, and Windows devices. It may indicate data exfiltration, insider threats, or unauthorized access to sensitive files by analyzing patterns across Office activity logs and Defender for Endpoint file events.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | UEBA                                                               |
+| **Data sources:**                | Office activity logs, Defender for Endpoint file events            |
+| **MITRE ATT&CK tactics:**        | Collection, Exfiltration                                           |
+| **MITRE ATT&CK techniques:**     | T1005 - Data from Local System, T1020 - Automated Exfiltration     |
+| **Activity:**                    | File access, modification, download, upload                        |
+
+[Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
+
+### Anomalous GCP Audit Logs
+
+**Description:** This anomaly identifies failed access attempts to Google Cloud Platform resources based on IAM-related entries in GCP Audit Logs. These failures may reflect misconfigured permissions, attempts to access unauthorized services, or early-stage attacker behaviors like privilege probing or persistence through service accounts.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | UEBA                                                               |
+| **Data sources:**                | GCP Audit Logs                                                     |
+| **MITRE ATT&CK tactics:**        | Persistence, Privilege Escalation                                  |
+| **MITRE ATT&CK techniques:**     | T1078 - Valid Accounts, T1136 - Create Account                     |
+| **Activity:**                    | IAM policy changes, failed access attempts                         |
+
+[Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
+
+### Anomalous Okta CL
+
+**Description:** This anomaly detects unexpected authentication activity or security-related configuration changes in Okta, including modifications to sign-on rules, MFA enforcement, or administrative privileges. Such activity may indicate attempts to alter identity security controls or maintain access through privileged changes.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | UEBA                                                               |
+| **Data sources:**                | Okta Cloud Logs                                                    |
+| **MITRE ATT&CK tactics:**        | Persistence, Defense Evasion                                       |
+| **MITRE ATT&CK techniques:**     | T1098 - Account Manipulation, T1556 - Modify Authentication Process|
+| **Activity:**                    | Sign-on rule changes, MFA configuration, admin privilege changes   |
+
+[Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
+
+### Anomalous Okta CL MFA Failures
+
+**Description:** This anomaly highlights unusual patterns of failed multi-factor authentication (MFA) attempts in Okta. These anomalies may result from account misuse, credential stuffing, or improper use of trusted device mechanisms, and often reflect early-stage adversary behaviors such as testing stolen credentials or probing identity safeguards.
+
+| Attribute                        | Value                                                              |
+| -------------------------------- | ------------------------------------------------------------------ |
+| **Anomaly type:**                | UEBA                                                               |
+| **Data sources:**                | Okta Cloud Logs                                                    |
+| **MITRE ATT&CK tactics:**        | Credential Access, Defense Evasion                                 |
+| **MITRE ATT&CK techniques:**     | T1110 - Brute Force, T1556 - Modify Authentication Process         |
+| **Activity:**                    | Failed MFA attempts, authentication failures                       |
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
