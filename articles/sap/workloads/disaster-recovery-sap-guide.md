@@ -164,7 +164,7 @@ Backup and restore is other solution you can use to achieve disaster recovery fo
 
 > [!Note]
 >
-> \*Azure backup support Oracle database using [Azure VM backup for database consistent snapshots](../../backup/backup-azure-linux-database-consistent-enhanced-pre-post.md).
+> Azure backup supports Oracle database using [Azure VM backup for database consistent snapshots](../../backup/backup-azure-linux-database-consistent-enhanced-pre-post.md).
 >
 > Azure backup doesn’t support all Azure storages and databases that are used for SAP workload.
 

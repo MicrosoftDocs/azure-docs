@@ -47,17 +47,17 @@ This article assumes that you have an Azure subscription. If you don't have an A
 
 To create a file share via the Azure portal, use the search box at the top of the Azure portal to search for **file share** and select the matching result.
 
-![A screenshot of the Azure portal search box with results for file share.](./media/storage-how-to-create-microsoft-fileshares/search-for-mfs.png)
+![A screenshot of the Azure portal search box with results for file share.](./media/storage-how-to-create-microsoft-fileshares/search-for-microsoft-fileshares.png)
 
 Click **+ Create** to create a new file share.
 
-![A screenshot of the Azure portal for create button for file share.](./media/storage-how-to-create-microsoft-fileshares/mfs-create.png)
+![A screenshot of the Azure portal for create button for file share.](./media/storage-how-to-create-microsoft-fileshares/microsoft-fileshares-create.png)
 
 ### Basics
 
 The first tab to complete creating a file share is labeled **Basics**, which contains the required fields to create a file share.
 
-![A screenshot of the Azure portal for create flow 1 for file share.](./media/storage-how-to-create-microsoft-fileshares/mfs-createflow-1.png)
+![A screenshot of the Azure portal for create flow 1 for file share.](./media/storage-how-to-create-microsoft-fileshares/microsoft-fileshares-createflow-1.png)
 
 
 | **Field name**                  | **Input type**         | **Values**                                                                                                                                                                                                                   | **Meaning**                                                                                                                                                                                                                                                                       |
@@ -77,7 +77,7 @@ The first tab to complete creating a file share is labeled **Basics**, which con
 
 The **Advanced** tab is optional, but provides more granular settings for the file share. Currently you can choose to set up root squash options or specify a mount name for the file share. See [nfs root squash options](./nfs-root-squash.md) to learn more. Mount name allows you to choose a different name to use to mount the file share. By default, it's the same as the file share name. Customize it if you want a unique mount name. The same rules still apply to the naming policy. See [Naming rules and restrictions for Azure resources](../../azure-resource-manager/management/resource-name-rules.md) to learn more.
 
-![A screenshot of the  of the advanced tab.](./media/storage-how-to-create-microsoft-fileshares/mfs-createflow-2.png)
+![A screenshot of the  of the advanced tab.](./media/storage-how-to-create-microsoft-fileshares/microsoft-fileshares-createflow-2.png)
 
 ### Networking
 
@@ -87,7 +87,7 @@ If you don't require a static IP address, you can enable a service endpoint for 
 
 The **Networking** tab is optional, and allows you to set up both service and private endpoint. A virtual network is required if you intend to set up networking while creating the file share. You may also set up networking configurations after the file share is created. With public endpoints access enabled, you can create or choose an existing virtual network for the service endpoint connection to this file share. If you decide to disable public endpoint access, service endpoint will be disabled for this specific file share.
 
-![A screenshot of the  of service endpoint tab.](./media/storage-how-to-create-microsoft-fileshares/mfs-createflow-3-1.png)
+![A screenshot of the  of service endpoint tab.](./media/storage-how-to-create-microsoft-fileshares/microsoft-fileshares-createflow-3-1.png)
 
 For private endpoint configurations, each file share will have its own private endpoint. To get started, follow these steps.
 
@@ -97,7 +97,7 @@ For private endpoint configurations, each file share will have its own private e
 
 1. Select **Add**.
 
-![A screenshot of the  of the private endpoint tab.](./media/storage-how-to-create-microsoft-fileshares/mfs-createflow-3-2.png)
+![A screenshot of the  of the private endpoint tab.](./media/storage-how-to-create-microsoft-fileshares/microsoft-fileshares-createflow-3-2.png)
 
 ### Tags
 

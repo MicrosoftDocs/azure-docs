@@ -368,7 +368,7 @@ For Azure services, use the recommended zone names as described in the following
 > | Azure Web Apps (Microsoft.Web/sites) | sites | privatelink.azurewebsites.us </br> scm.privatelink.azurewebsites.us<sup>2</sup> | azurewebsites.us </br> scm.azurewebsites.us |
 > | Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net |
 
-<sup>2</sup>In scenarios where the Kudu console or Kudu REST API is used, you must create two DNS records pointing to the private endpoint IP in your Azure DNS private zone or custom DNS server. The first record is for your app, and the second record is for the SCM (Source Control Management) of your app.
+<sup>1</sup>In scenarios where the Kudu console or Kudu REST API is used, you must create two DNS records pointing to the private endpoint IP in your Azure DNS private zone or custom DNS server. The first record is for your app, and the second record is for the SCM (Source Control Management) of your app.
 
 > [!Note]
 > In the above text, `{regionCode}` refers to the region code (for example, **eus** for East US and **ne** for North Europe). Refer to the following lists for regions codes:

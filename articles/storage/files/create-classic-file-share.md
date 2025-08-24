@@ -16,7 +16,7 @@ ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
 Before you create an Azure classic file share, you need to answer two questions about how you want to use it:
 
 - **What are the performance requirements for your file share?**  
-   Azure classic file shares offers two different media tiers of storage, SSD (premium) and HDD (standard), which enable you to tailor your file shares to the performance and price requirements of your scenario. SSD file shares provide consistent high performance and low latency, within single-digit milliseconds for most IO operations. HDD file shares provide cost-effective storage for general purpose use.
+   Azure classic file shares offer two different media tiers of storage, SSD (premium) and HDD (standard), which enable you to tailor your file shares to the performance and price requirements of your scenario. SSD file shares provide consistent high performance and low latency, within single-digit milliseconds for most IO operations. HDD file shares provide cost-effective storage for general purpose use.
 
 - **What are the redundancy requirements for your Azure file share?**  
    Azure Files offers Local (LRS), Zone (ZRS), Geo (GRS), and GeoZone (GZRS) redundancy options for standard SMB file shares. SSD file shares are only available for the LRS and ZRS redundancy types. See [Azure Files redundancy](./files-redundancy.md) for more information.
@@ -60,7 +60,7 @@ Storage accounts have two properties, kind and SKU, which dictate the billing mo
 | SSD         | [Provisioned v1](./understanding-billing.md#provisioned-v1-model) | FileStorage          | <ul><li>Premium_LRS</li><li>Premium_ZRS</li></ul>                                                                                                  |
 | HDD         | [Pay-as-you-go](./understanding-billing.md#pay-as-you-go-model)   | StorageV2            | <ul><li>Standard_LRS</li><li>Standard_ZRS</li><li>Standard_GRS</li><li>Standard_GZRS</li></ul>                                                     |
 
-We recommended the provisioned v2 billing model for all new file share deployments. The provisioned v1 and pay-as-you-go billing models remain fully supported for new and existing deployments. Provisioned v2 file shares are currently available in a most regions. See [provisioned v2 availability](./understanding-billing.md#provisioned-v2-availability) for more information.
+We recommended the provisioned v2 billing model for all new file share deployments. The provisioned v1 and pay-as-you-go billing models remain fully supported for new and existing deployments. Provisioned v2 file shares are currently available in most regions. See [provisioned v2 availability](./understanding-billing.md#provisioned-v2-availability) for more information.
 
 # [Portal](#tab/azure-portal)
 
@@ -72,7 +72,7 @@ This shows a list of all existing storage accounts available in your visible sub
 
 ### Basics
 
-The first tab to complete to create a storage account is labeled **Basics**, which contains the required fields to create a storage account.
+The first tab to complete creating a storage account is labeled **Basics**, which contains the required fields to create a storage account.
 
 ![A screenshot of the instance details section of the basics tab.](./media/storage-how-to-create-file-share/create-storage-account-1.png)
 
@@ -561,8 +561,8 @@ If you don't require a static IP address, you can enable a service endpoint for 
 
    :::image type="content" source="media/storage-files-quick-create-use-linux/create-private-endpoint.png" alt-text="Screenshot showing how to select + private endpoint to create a new private endpoint.":::
 
-> [!NOTE]
-> Steps 1 to 3 show an NFS file share scenario. You can also modify the networking setting at the storage account level for SMB file shares. Go to storage account, choose **Security + networking**, and configure the required endpoints. 
+   > [!NOTE]
+   > Steps 1 to 3 show an NFS file share scenario. You can also modify the networking setting at the storage account level for SMB file shares. Go to storage account, choose **Security + networking**, and configure the required endpoints. 
 
 1. Leave **Subscription** and **Resource group** the same. Under **Instance**, provide a name and select a region for the new private endpoint. Your private endpoint must be in the same region as your virtual network, so use the same region as you specified when creating the VM. When all the fields are complete, select **Next: Resource**.
 
@@ -599,4 +599,4 @@ To enable hybrid access to an NFS Azure file share, use one of the following net
 - Learn how to create a [Windows](/azure/virtual-machines/windows/quick-create-portal.md) virtual machine, or [Linux](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu) virtual machine. 
 - Mount an SMB file share on [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), or [Linux](storage-how-to-use-files-linux.md).
 - Mount an NFS file share on [Linux](storage-files-how-to-mount-nfs-shares.md)
-- Learn how to [change size, preformance and delete on a file share](modify-file-share.md).
+- Learn how to [change size, performance and delete on a file share](modify-file-share.md).
