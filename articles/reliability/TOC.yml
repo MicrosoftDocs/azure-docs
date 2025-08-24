@@ -29,7 +29,7 @@ items:
     - name: Azure Data Share
       href: ../data-share/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Event Hubs
-      href: reliability-event-hubs.md
+      href: /azure/event-hubs/event-hubs-business-continuity-outages-disasters?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure HDInsight
       href: reliability-hdinsight.md
     - name: Azure Machine Learning

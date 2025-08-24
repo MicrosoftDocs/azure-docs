@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 08/14/2025
+ms.date: 08/22/2025
 ms.author: anfdocs
 # Customer intent: "As a cloud storage administrator, I want to understand the throughput capabilities of different service levels in Azure NetApp Files, so that I can choose the right configuration to meet my application's performance requirements."
 ---
@@ -15,16 +15,7 @@ Service levels are an attribute of a capacity pool. Service levels are defined a
 
 ## Supported service levels
 
-Azure NetApp Files supports four service levels: *Standard*, *Premium*, *Ultra*, and *Flexible*.   
-
-* <a name="Standard"></a>Standard storage:   
-    The Standard service level provides up to 16 MiB/s of throughput per 1 TiB of capacity provisioned.   
-
-* <a name="Premium"></a>Premium storage:   
-    The Premium service level provides up to 64 MiB/s of throughput per 1 TiB of capacity provisioned. 
-
-* <a name="Ultra"></a>Ultra storage:   
-    The Ultra service level provides up to 128 MiB/s of throughput per 1 TiB of capacity provisioned. 
+Azure NetApp Files supports four service levels: *Flexible*, *Standard*, *Premium*, and *Ultra*.   
 
 * <a name="Flexible"></a>Flexible storage (preview):
 
@@ -34,6 +25,15 @@ Azure NetApp Files supports four service levels: *Standard*, *Premium*, *Ultra*,
 
     >[!IMPORTANT]
     >The Flexible service level is only supported for new _manual QoS_ capacity pools.
+
+* <a name="Standard"></a>Standard storage:   
+    The Standard service level provides up to 16 MiB/s of throughput per 1 TiB of capacity provisioned.   
+
+* <a name="Premium"></a>Premium storage:   
+    The Premium service level provides up to 64 MiB/s of throughput per 1 TiB of capacity provisioned. 
+
+* <a name="Ultra"></a>Ultra storage:   
+    The Ultra service level provides up to 128 MiB/s of throughput per 1 TiB of capacity provisioned. 
 
 * Storage with cool access:      
     [Cool access storage](manage-cool-access.md#register-the-feature) is available with the Standard, Premium, Ultra, and Flexible service levels. The throughput experience for any of these service levels with cool access is the same for cool access as it is for data in the hot tier. Throughput experiences differ when data that resides in the cool tier is accessed. For more information, see [Azure NetApp Files storage with cool access](cool-access-introduction.md) and [Performance considerations for storage with cool access](performance-considerations-cool-access.md). 
