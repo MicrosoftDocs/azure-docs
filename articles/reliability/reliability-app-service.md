@@ -95,7 +95,7 @@ If you enable availability zones but specify a capacity of less than two, the pl
 
 [!INCLUDE [Zone-down experience description](includes/app-service/reliability-zone-down-experience-include.md)]
 
-### Failback
+### Zone recovery
 
 [!INCLUDE [Failback description](includes/app-service/reliability-failback-include.md)]
 

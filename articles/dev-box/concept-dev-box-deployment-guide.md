@@ -79,7 +79,7 @@ To deploy Microsoft Dev Box involves creating and configuring multiple services,
 
 ### Step 1: Configure Azure subscription
 
-Subscriptions are a unit of management, billing, and scale within Azure. You can have one or more Azure subscriptions because of organization and governance design, resource quota and capacity, cost management, and more. Learn more about [considerations for creating Azure subscriptions](/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions).
+Subscriptions are a unit of management, billing, and scale within Azure.  You can use one or more subscriptions to support your organization's structure, governance model, resource quotas, and cost controls. Dev Box enables flexible billing by allowing you to assign different subscriptions to different teams or departments. This helps align cloud costs with how your business operates. Learn more about [considerations for creating Azure subscriptions](/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions).
 
 Each Azure subscription is linked to a single Microsoft Entra tenant, which acts as an identity provider (IdP) for your Azure subscription. The Microsoft Entra tenant is used to authenticate users, services, and devices.
 
