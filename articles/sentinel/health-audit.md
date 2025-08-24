@@ -4,7 +4,7 @@ description: Learn about the Microsoft Sentinel health and audit feature, which 
 author: batamig
 ms.author: bagol
 ms.topic: concept-article
-ms.date: 08/20/2025
+ms.date: 08/24/2025
 
 
 #Customer intent: As a security analyst, I want to monitor and audit Microsoft Sentinel's health and activity so that I can ensure the service is functioning correctly and detect any unauthorized actions.
@@ -35,11 +35,6 @@ The *SentinelHealth* table doesn't include a record of the execution of a playbo
 The most common way you use this data is by querying these tables. For best results, build your queries on the **pre-built functions** on these tables, ***_SentinelHealth()*** and ***_SentinelAudit()***, instead of querying the tables directly. These functions ensure the maintenance of your queries' backward compatibility in the event of changes being made to the schema of the tables themselves.
 
 The *SentinelHealth* table isn't billable and incurs no charges for ingesting health data. The *SentinelAudit* table is billable, and as in other areas of Microsoft Sentinel, costs incurred depend on the log volume, which might be affected by the number of activities and changes made on related rules. For more information, see [Plan costs and understand Microsoft Sentinel pricing and billing](billing.md).
-
-> [!IMPORTANT]
->
-> The *SentinelAudit* data table is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 ### Questions to verify service health and audit data
 
