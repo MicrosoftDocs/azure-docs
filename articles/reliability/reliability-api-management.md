@@ -68,7 +68,9 @@ With availability zone support, API Management replicates service components acr
 
 You can use automatic availability zone support to choose either a single unit or multiunit instance configuration to achieve zone redundancy:
 
-- **Multiunit configuration** (Recommended): If your instance has two or more units, API Management makes a best-effort attempt to spread your instance's units among the region's availability zones. There's no way to determine which availability zones your units are placed into. For maximum benefit of availability zones, we recommend that you deploy a minimum of three units, which can be distributed across all available zones in a region. 
+- **Multiunit configuration** (Recommended): If your instance has two or more units, API Management makes a best-effort attempt to spread your instance's units among the region's availability zones. There's no way to determine which availability zones your units are placed into. We recommend that you deploy a minimum of two units, which can be distributed across two zones.
+
+    The following diagram shows an API Management instance with three units that's configured for automatic availability zone support:
 
     :::image type="content" source="./media/reliability-api-management/zone-redundant-automatic-multi-unit.png" alt-text="Diagram that shows an API Management instance using automatic availability zone support, with three units configured." border="false" :::
 
@@ -106,7 +108,7 @@ You must use the Premium (classic) tier to configure availability zone support. 
 
 - **Number of units for zone-redundant instances:** If you manually configure zone redundancy for an instance, you also need to configure a number of API Management units that can be distributed evenly across all of your selected availability zones. For example, if you select two zones, you must configure at least two units. You can instead configure four units, or another multiple of two units. If you select three availability zones, you must configure three units, six units, or another multiple of three units.
 
-    If you use the automatic availability zone support, there's no requirement to use a specific number of units. The units that you deploy are distributed among the availability zones in a best-effort manner. For maximum zone redundancy, we recommend that you use at least three units to ensure that an availability zone outage doesn't affect your instance. 
+    If you use the automatic availability zone support, there's no requirement to use a specific number of units. The units that you deploy are distributed among the availability zones in a best-effort manner. For maximum zone redundancy, we recommend that you use at least two units to ensure that an availability zone outage doesn't affect your instance. 
     
     To determine the number of units that provide your required gateway performance, use [capacity metrics](/azure/api-management/api-management-capacity) and your own testing. For more information about scaling and upgrading your service instance, see [Upgrade and scale an API Management instance](/azure/api-management/upgrade-and-scale).
 
