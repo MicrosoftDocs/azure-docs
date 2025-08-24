@@ -1,6 +1,6 @@
 ---
 title:  How to run a reindex job in FHIR service - Azure Health Data Services
-description: How to run a reindex job to index any search or sort parameters that haven't yet been indexed in your database
+description: How to run a reindex job to index any search or sort parameters that are not yet indexed in your database
 author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
@@ -109,7 +109,7 @@ content-type: application/fhir+json
 }
  ```
 > [!NOTE]
-> To check the status of, or cancel a reindex job, you need the reindex ID. This is the `"id"` carried in the `"parameter"` value of the response. In the preceding example, the ID for the reindex job would be `560c7c61-2c70-4c54-b86d-c53a9d29495e`.
+> To check the status of, or cancel a reindex job, you need the reindex ID. Reindex ID is the `"id"` carried in the `"parameter"` value of the response. In the preceding example, the ID for the reindex job would be `560c7c61-2c70-4c54-b86d-c53a9d29495e`.
 
  ## How to check the status of a reindex job
 
@@ -191,7 +191,7 @@ The following information is shown in the preceding response:
 
 * `totalResourcesToReindex`: Includes the total number of resources that are being reindexed in this job.
 
-* `resourcesSuccessfullyReindexed`: The total number of resources that have already been reindexed in this job.
+* `resourcesSuccessfullyReindexed`: The total number of resources reindexed in this job.
 
 * `progress`: Reindex job percent complete. Equals `resourcesSuccessfullyReindexed`/`totalResourcesToReindex` x 100.
 
@@ -234,7 +234,7 @@ content-type: application/fhir+json
 
 ## Next steps
 
-In this article, you've learned how to perform a reindex job in your FHIR service. To learn how to define custom search parameters, see 
+In this article, you learned how to perform a reindex job in your FHIR service. To learn how to define custom search parameters, see 
 
 >[!div class="nextstepaction"]
 >[Defining custom search parameters](how-to-do-custom-search.md)
