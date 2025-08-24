@@ -46,11 +46,11 @@ You can use the `nconnect` Linux mount option to improve performance for NFS Azu
 #### Classic NFS file share (Microsoft.Storage)
 
 1. Once the file share is created, select the share and then select **Connect from Linux**.
-1. Enter the mount path you'd like to use, then copy the script and run it on your client. Azure portal offers a step-by-step, ready-to-use installation script tailored to your selected Linux distribution for installing the AZNFS mount helper package and to securely mount the share using [Encyption in Transit](encryption-in-transit-for-nfs-shares.md). Only the required mount options are included in the script, but you can add other [recommended mount options](#mount-options).
+1. Enter the mount path you'd like to use, then copy the script and run it on your client. Azure portal offers a step-by-step, ready-to-use installation script tailored to your selected Linux distribution for installing the AZNFS mount helper package and to securely mount the share using [Encryption in Transit](encryption-in-transit-for-nfs-shares.md). Only the required mount options are included in the script, but you can add other [recommended mount options](#mount-options).
 
 :::image type="content" source="./media/storage-files-how-to-mount-nfs-shares/mount-file-share.png" alt-text="Screenshot showing how to connect to an NFS file share from Linux using a provided mounting script." lightbox="./media/storage-files-how-to-mount-nfs-shares/mount-file-share.png" border="true":::
 
-##### Mount an classic NFS share using the NFS client mount in command line
+##### Mount a classic NFS share using the NFS client mount in command line
 
 You can also mount the Azure file share using NFS client mount in command line. Select the tab below for your Linux distribution to see the commands you need to run. Be sure to replace `<YourStorageAccountName>` and `<FileShareName>` with your information.
 
@@ -97,7 +97,7 @@ sudo mount -t nfs <YourStorageAccountName>.core.windows.net:/<YourStorageAccount
 1. Once the file share is created, select the share and then select **Connect from Linux**.
 1. Enter the mount path you'd like to use, then copy the script and run it on your client. Azure portal offers a step-by-step, ready-to-use installation script tailored to your selected Linux distribution for installing the AZNFS mount helper package and to securely mount the share using [Encyption in Transit](encryption-in-transit-for-nfs-shares.md). Only the required mount options are included in the script, but you can add other [recommended mount options](#mount-options).
 
-   ![image for mount mfs](./media/storage-files-how-to-mount-nfs-shares/mfs-mount-with-eit.png)
+   ![image for mount mfs](./media/storage-files-how-to-mount-nfs-shares/microsoft-fileshares-mount-with-encryption-in-transit.png)
 
 ##### Mount an NFS share using the NFS client mount in command line
 
@@ -163,7 +163,7 @@ systemctl is-active --quiet aznfswatchdog && echo -e "\nAZNFS Mount Helper is in
 
 If the package is installed, then the message `AZNFS Mount Helper is installed!` appears.
 
-For classic file share, remember to replace `<YourStorageAccountName>` and `<FileShareName>` with your own values. For file share, remeber to replace `hostName` and `shortName` with the correct values. For more information, enter the command `man fstab` from the Linux command line.
+For classic file share, remember to replace `<YourStorageAccountName>` and `<FileShareName>` with your own values. For file share, remember to replace `hostName` and `shortName` with the correct values. For more information, enter the command `man fstab` from the Linux command line.
 
 ### Mount with Aznfs helper with encryption in transit
 

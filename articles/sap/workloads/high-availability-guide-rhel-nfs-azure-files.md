@@ -172,7 +172,7 @@ Next, deploy the NFS shares in the storage account you created. In this example,
    1. Select **No root Squash**. Otherwise, when you mount the shares on your VMs, you can't see the file owner or group.
 
 > [!IMPORTANT]
-> The preceding share size is only an example. Make sure to size your shares appropriately. Size is not only based on the size of the of data stored on the share but also based on the requirements for IOPS and throughput. For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md).
+> The preceding share size is only an example. Make sure to size your shares appropriately. Size is not only based on the size of the data stored on the share but also based on the requirements for IOPS and throughput. For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md).
 
 The SAP file systems that don't need to be mounted via NFS can also be deployed on [Azure disk storage](/azure/virtual-machines/disks-types#premium-ssds). In this example, you can deploy `/usr/sap/NW1/D02` and `/usr/sap/NW1/D03` on Azure disk storage.
 
@@ -506,7 +506,7 @@ The following items are prefixed with:
    > [!IMPORTANT]
    > With the systemd based SAP Startup Framework, SAP instances can now be managed by systemd. The minimum required Red Hat Enterprise Linux (RHEL) version is RHEL 8 for SAP. As described in SAP Note [3115048](https://me.sap.com/notes/3115048), a fresh installation of a SAP kernel with integrated systemd based SAP Startup Framework support will always result in a systemd controlled SAP instance. After an SAP kernel upgrade of an existing SAP installation to a kernel which has systemd based SAP Startup Framework support, however, some manual steps have to be performed as documented in SAP Note [3115048](https://me.sap.com/notes/3115048) to convert the existing SAP startup environment to one which is systemd controlled.
    >
-   > When utilizing Red Hat HA services for SAP (cluster configuration) to manage SAP application server instances such as SAP ASCS and SAP ERS, additional modifications will be necessary to ensure compatibility between the SAPInstance resource agent and the new systemd-based SAP startup framework. So once the SAP application server instances has been installed or switched to a systemd enabled SAP Kernel as per SAP Note [3115048](https://me.sap.com/notes/3115048), the steps mentioned in [Red Hat KBA 6884531](https://access.redhat.com/articles/6884531) must be completed successfully on all cluster nodes.
+   > When utilizing Red Hat HA services for SAP (cluster configuration) to manage SAP application server instances such as SAP ASCS and SAP ERS, additional modifications will be necessary to ensure compatibility between the SAPInstance resource agent and the new systemd-based SAP startup framework. So once the SAP application server instances have been installed or switched to a systemd enabled SAP Kernel as per SAP Note [3115048](https://me.sap.com/notes/3115048), the steps mentioned in [Red Hat KBA 6884531](https://access.redhat.com/articles/6884531) must be completed successfully on all cluster nodes.
 
 9. **[1]** Create the SAP cluster resources.
 

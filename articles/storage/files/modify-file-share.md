@@ -322,7 +322,7 @@ Follow these instructions to change the size and performance of a file share (Mi
 2. From the context menu, select **Settings**.
 3. Choose **Size + performance**.
 
-   ![image on choosing size and performance for a file share created with Microsoft.FileShares](./media/storage-how-to-create-file-share/mfs-change-performance-1.png)
+   ![image on choosing size and performance for a file share created with Microsoft.FileShares](./media/storage-how-to-create-file-share/microsoft-fileshares-change-performance-1.png)
 
 4. The **Size and performance** dialog has the following options:
 
@@ -334,7 +334,7 @@ Follow these instructions to change the size and performance of a file share (Mi
 
     - **Throughput (MiB/sec)**: If you select _Manually specify IOPS and throughput_, this textbox enables you to change the amount of throughput provisioned on the file share.
 
-    ![image on saving new size for a file share created with Microsoft.FileShares](./media/storage-how-to-create-file-share/mfs-change-performance-2.png)
+    ![image on saving new size for a file share created with Microsoft.FileShares](./media/storage-how-to-create-file-share/microsoft-fileshares-change-performance-2.png)
 
 5. Select **Save**. Storage, IOPS, and throughput changes are effective within a few minutes after a provisioning change.
 
@@ -397,7 +397,7 @@ az storage share-rm delete \
 
 2. Select **Delete** from the context menu.
 
-    ![Delete image](./media/storage-how-to-create-file-share/delete-mfs.png)
+    ![Delete image](./media/storage-how-to-create-file-share/delete-microsoft-fileshares.png)
 
 3. The **Delete** pop-out contains a survey about why you're deleting the file share. You can skip this, but we appreciate any feedback you have on Azure Files, particularly if something isn't working properly for you.
 

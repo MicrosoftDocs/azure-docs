@@ -183,7 +183,7 @@ You can configure root squash settings on an existing NFS file share (Microsoft.
 2. In the service menu, under **Settings**, select **Configuration**.
 3. Toggle the Root squash setting as desired.
 
-   ![image for mfs root squash](./media/nfs-root-squash/mfs-root-squash.png)
+   ![image for microsoft.fileshares root squash](./media/nfs-root-squash/microsoft-fileshares-root-squash.png)
    
 4. Select **Save** to update the root squash value.
 
