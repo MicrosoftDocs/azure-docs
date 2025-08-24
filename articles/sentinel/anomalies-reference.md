@@ -197,7 +197,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 
 ### Anomalous File Activity
 
-**Description:** This anomaly detects unusual file activity across Microsoft 365 and endpoint environments, including SharePoint, OneDrive, and Windows devices. It may indicate data exfiltration, insider threats, or unauthorized access to sensitive files by analyzing patterns across Office activity logs and Defender for Endpoint file events.
+**Description:** Unusual file activity across Microsoft 365 and endpoint environments, including SharePoint, OneDrive, and Windows devices. This anomaly can identify data exfiltration, insider threats, or unauthorized access to sensitive files by analyzing patterns across Office activity logs and Defender for Endpoint file events.
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
@@ -211,7 +211,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 
 ### Anomalous GCP Audit Logs
 
-**Description:** This anomaly identifies failed access attempts to Google Cloud Platform resources based on IAM-related entries in GCP Audit Logs. These failures may reflect misconfigured permissions, attempts to access unauthorized services, or early-stage attacker behaviors like privilege probing or persistence through service accounts.
+**Description:** Failed access attempts to Google Cloud Platform (GCP) resources based on IAM-related entries in GCP Audit Logs. These failures might reflect misconfigured permissions, attempts to access unauthorized services, or early-stage attacker behaviors like privilege probing or persistence through service accounts.
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
@@ -225,7 +225,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 
 ### Anomalous Okta CL
 
-**Description:** This anomaly detects unexpected authentication activity or security-related configuration changes in Okta, including modifications to sign-on rules, MFA enforcement, or administrative privileges. Such activity may indicate attempts to alter identity security controls or maintain access through privileged changes.
+**Description:** Unexpected authentication activity or security-related configuration changes in Okta, including modifications to sign-on rules, multi-factor authentication (MFA) enforcement, or administrative privileges. Such activity might indicate attempts to alter identity security controls or maintain access through privileged changes.
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
@@ -239,7 +239,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 
 ### Anomalous Okta CL MFA Failures
 
-**Description:** This anomaly highlights unusual patterns of failed multi-factor authentication (MFA) attempts in Okta. These anomalies may result from account misuse, credential stuffing, or improper use of trusted device mechanisms, and often reflect early-stage adversary behaviors such as testing stolen credentials or probing identity safeguards.
+**Description:** Unusual patterns of failed MFA attempts in Okta. These anomalies might result from account misuse, credential stuffing, or improper use of trusted device mechanisms, and often reflect early-stage adversary behaviors, such as testing stolen credentials or probing identity safeguards.
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
