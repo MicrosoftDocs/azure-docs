@@ -66,8 +66,8 @@ Defender for IoT in the Azure portal provides a downloadable MIB file for you to
 ## Query SNMP configuration on the sensor
 
 > [!NOTE]
-> - Querying the SNMP configuration on the sensor is supported starting in version **25.2 or later.**
-> - To access the Defender for IoT CLI, sign in to your OT or Enterprise IoT sensor as the cyberx user, using a terminal emulator and SSH.
+> - You can query the SNMP configuration on the sensor in version **25.2.1 and later.**
+> - To access the Defender for IoT CLI, sign in to your OT or Enterprise IoT sensor as the *cyberx* user, using a terminal emulator and SSH.
 
 **Validate and query the SNMP MIB Monitoring configuration in the OT sensor:**
 
