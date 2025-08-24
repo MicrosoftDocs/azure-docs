@@ -173,7 +173,9 @@ This section describes what to expect when API Management instances are configur
 
 - **Active requests:** When an availability zone is unavailable, any requests in progress that are connected to an API Management unit in the faulty availability zone are terminated and need to be retried.
 
-- **Notification:** Zone-level outages are reflected in Azure Resource Health and Azure Service Health.
+- **Notification**: Azure API Management doesn't notify you when a zone is down. However, you can use [Azure Resource Health](/azure/service-health/resource-health-overview) to monitor for the health of your gateway. You can also use [Azure Service Health](/azure/service-health/overview) to understand the overall health of the Azure API Management service, including any zone failures.
+
+  Set up alerts on these services to receive notifications of zone-level problems. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal) and [Create and configure Resource Health alerts](/azure/service-health/resource-health-alert-arm-template-guide).
 
 - **Expected data loss:** API Management stores the following data.
 
