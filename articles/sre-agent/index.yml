@@ -7,7 +7,7 @@ metadata:
   title: Azure SRE Agent documentation
   description: Azure SRE Agent is an AI-powered reliability assistant that helps teams diagnose and resolve production issues, reduce operational toil, and lower mean time to resolution (MTTR).
   ms.topic: landing-page
-  ms.service: azure
+  ms.service: azure-sre-agent
   author: craigshoemaker
   ms.author: cshoe
   ms.date: 08/22/2025
