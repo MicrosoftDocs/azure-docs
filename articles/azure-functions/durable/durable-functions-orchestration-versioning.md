@@ -57,7 +57,7 @@ Use `azure-functions-durable` version [1.3.3](https://pypi.org/project/azure-fun
 
 # [PowerShell](#tab/powershell)
 
-Use `AzureFunctions.PowerShell.Durable.SDK` version [2.0.0](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK/2.0.0) or later. Make sure you're using the standalone [Durable Functions PowerShell SDK](https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-powershell-v2-sdk-migration-guide).
+Use `AzureFunctions.PowerShell.Durable.SDK` version [2.0.0](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK/2.0.0) or later. Make sure you're using the standalone [Durable Functions PowerShell SDK](durable-functions-powershell-v2-sdk-migration-guide.md).
 
 # [Java](#tab/java)
 
