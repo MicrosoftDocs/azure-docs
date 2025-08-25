@@ -4,7 +4,8 @@ description: Learn how to interpret the AppCAT report.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: brborges
-ms.service: azure
+ms.service: azure-java
+ms.subservice: java-fundamentals
 ms.custom: devx-track-java, build-2025
 ms.topic: overview
 ms.date: 06/27/2025
@@ -39,11 +40,10 @@ The application report consists of the following three sections:
 
 Access this part by selecting the **Issues** tab. This tab provides a categorized issues list of various aspects of Azure readiness, cloud native, and Java modernization that you need to address to successfully migrate the application to Azure. The following tables describe the **Domain** and **Criticality** values:
 
-| Domain             | Description                                                                                     |
-|--------------------|-------------------------------------------------------------------------------------------------|
-| Azure readiness    | Identifies app dependencies and suggests equivalent Azure solutions.                            |
-| cloud native       | Assesses how well the app follows cloud-native practices like scalability and containerization. |
-| Java modernization | Identifies JDK and framework issues for version upgrade.                                        |
+| Domain             | Description                                                                             |
+|--------------------|-----------------------------------------------------------------------------------------|
+| Cloud Readiness    | Evaluates app dependencies to suggest Azure services and ensure cloud-native readiness. |
+| Java Upgrade       | Identifies JDK and framework issues for version upgrade.                                |
 
 | Criticality | Description                                                 |
 |-------------|-------------------------------------------------------------|

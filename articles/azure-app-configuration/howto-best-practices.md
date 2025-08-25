@@ -4,7 +4,7 @@ description: Learn best practices while using Azure App Configuration. Topics co
 services: azure-app-configuration
 author: zhenlan
 ms.service: azure-app-configuration
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/10/2025
 ms.author: zhenlwa
 ms.custom:

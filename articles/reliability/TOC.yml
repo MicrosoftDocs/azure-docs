@@ -29,7 +29,7 @@ items:
     - name: Azure Data Share
       href: ../data-share/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Event Hubs
-      href: reliability-event-hubs.md
+      href: /azure/event-hubs/event-hubs-business-continuity-outages-disasters?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure HDInsight
       href: reliability-hdinsight.md
     - name: Azure Machine Learning
@@ -330,11 +330,11 @@ items:
     href: availability-zones-overview.md
   - name: Services with availability zone support
     href: availability-zones-service-support.md
-  - name: Migrate to availability zone support
+  - name: Enable zone resiliency
     items:
     - name: Overview
-      href: availability-zones-migration-overview.md
-    - name: Migration guides by service
+      href: availability-zones-enable-zone-resiliency.md
+    - name: Enable zone resiliency by service
       items:
       - name: Azure AI Search
         href: reliability-ai-search.md#configure-availability-zone-support
@@ -416,39 +416,7 @@ items:
     href: /azure/well-architected/resiliency/chaos-engineering
   - name: Reliability in Microsoft Azure Well-Architected Framework
     href: /azure/well-architected/reliability
-  - name:  Azure Service Manager retirement
-    items:
-    - name: Overview
-      href: asm-retirement.md 
-    - name: Migration guides by service
-      items:
-      - name: VM (classic)
-        href: /azure/virtual-machines/classic-vm-deprecation?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Microsoft Entra Domain Services 
-        href: /azure/active-directory-domain-services/migrate-from-classic-vnet?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Batch Cloud Service Pools  
-        href: /azure/batch/batch-pool-cloud-service-to-virtual-machine-configuration?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Cloud Services (classic)
-        href: /azure/cloud-services-extended-support/in-place-migration-overview?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: App Service Environment v1/v2
-        href: /azure/app-service/environment/migrate?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Redis Cache  
-        href: /azure/azure-cache-for-redis/cache-faq?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#caches-with-a-dependency-on-cloud-services--classic
-      - name: Classic Resource Providers
-        href: /azure/azure-resource-manager/management/deployment-models?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Microsoft HPC Pack  
-        href: /powershell/high-performance-computing/burst-to-cloud-services-retirement-guide?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Virtual WAN  
-        href: /azure/virtual-wan/virtual-wan-faq?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#update-router
-      - name: Classic Storage  
-        href: /azure/storage/common/classic-account-migration-overview?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Classic Virtual Network  
-        href: /azure/virtual-network/migrate-classic-vnet-powershell?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Classic Application Gateway  
-        href: /azure/application-gateway/classic-to-resource-manager?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Classic Reserved IP addresses  
-        href: /azure/virtual-network/ip-services/public-ip-upgrade-classic?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Classic ExpressRoute Gateway  
-        href: /azure/expressroute/expressroute-migration-classic-resource-manager?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Classic VPN gateway 
-        href: /azure/vpn-gateway/vpn-gateway-classic-resource-manager-migration?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json  
+  - name: Azure Service Manager retirement
+    href: asm-retirement.md 
+
+

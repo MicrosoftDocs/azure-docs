@@ -1,8 +1,8 @@
 ---
 ms.topic: include
 ms.date: 05/15/2025
-author: PatAltimore
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge

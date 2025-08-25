@@ -6,7 +6,7 @@ author: jimmyca
 ms.custom: devdivchpfy22
 ms.author: jimmyca
 ms.date: 08/30/2022
-ms.topic: article
+ms.topic: concept-article
 ms.service: azure-app-configuration
 
 ---
