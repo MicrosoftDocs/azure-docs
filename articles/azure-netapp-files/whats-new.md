@@ -8,7 +8,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.topic: overview
-ms.date: 08/21/2025
+ms.date: 08/25/2025
 ms.author: anfdocs
 # Customer intent: As a cloud administrator, I want to learn about the latest enhancements in Azure NetApp Files, so that I can effectively utilize new features for improved data security, resilience, and operational efficiency in my organization's cloud storage solutions.
 ---
@@ -17,12 +17,11 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-* The [migrate on-premises volumes](migrate-volumes.md) feature is now generally available (GA)
-
-    <!-- What's new pending -->
-    If you're migrating workloads from on-premises ONTAP-based storage systems, you can now use the migraiton assistant to migrate complete volumes into Azure NetApp Files. Migration assistant utilizes highly efficient block-level data transfers based on SnapMirror technology to allow for fast migrations and flexible cut-over planning to Azure. Migration assistant requires connectivity from the on-premises storage system to Azure NetApp Files via secure and adequate Express Route or VPN connectivity.
- 
 ## August 2025
+
+* [Azure NetApp Files migration assistant](migrate-volumes.md) is now generally available (GA)
+
+    Azure NetApp Files [migration assistant](migrate-data.md) enables you to accelerate and simplify migrations of business-critical applications and data to Azure. Migration assistant offers efficient and cost-effective data migration, leveraging ONTAP's built-in replication engine for seamless transition from on-premises storage or Cloud Volumes ONTAP to Azure NetApp Files. It's a storage-efficient data transfer that reduces network transfer costs for both baseline and incremental updates. Migration assistant also offers a low cutover/downtime window, ensuring faster and more efficient final updates, minimizing disruption to operations. Volume migration using migration assistant includes source volume snapshots for primary data protection, and directory and file metadata maintaining security attributes.
 
 * [Short-term clones](create-short-term-clone.md) (Preview)
 

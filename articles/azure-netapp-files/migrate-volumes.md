@@ -10,7 +10,7 @@ ms.author: anfdocs
 ---
 # Migrate volumes to Azure NetApp Files 
 
-You can peer and migrate volumes from on-premises ONTAP or Cloud Volumes ONTAP to Azure NetApp Files. The feature is currently only available with the REST API. 
+With Azure NetApp Files' migration assistant, you can peer and migrate volumes from on-premises ONTAP or Cloud Volumes ONTAP to Azure NetApp Files. The feature is currently only available with the REST API. 
 
 ## Requirements 
 
@@ -19,7 +19,7 @@ You can peer and migrate volumes from on-premises ONTAP or Cloud Volumes ONTAP t
 * Ensure your [network topology](azure-netapp-files-network-topologies.md) is supported for Azure NetApp Files. Ensure you have established connectivity from your on-premises storage to Azure NetApp Files. 
 * The delegated subnet address space for hosting the Azure NetApp Files volumes must have at least seven free IP addresses: six for cluster peering and one for data access to the migration volumes.
 * The delegated subnet address space should be sized appropriately to accommodate more Azure NetApp Files network interfaces. Review [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) to ensure you meet the requirements for delegated subnet sizing.  
-* After issuing the peering request, the request must be accepted within 60 minutes of making the request. Peer requests expire after 60 minutes. 
+* After issuing the peering request, the request must be accepted within 60 minutes of making the request. Peer requests expire if not accepted within 60 minutes.
 * If you use Azure RBAC to separate the role of Azure NetApp Files storage management with the intention of separating volume management tasks where volumes reside on the same network sibling set, be aware that externally connected ONTAP systems peered to that sibling set don't adhere to these Azure-defined roles. The external storage administrator might have limited visibility to all volumes in the sibling set showing storage level metadata details.
 * When creating each migration volume, the Azure NetApp Files volume placement algorithm attempts to reuse the same Azure NetApp Files storage system as any previously created volumes in the subscription to reduce the number of network interface cards (NICs) or IPs consumed in the delegated subnet. If this isn't possible, an additional seven NICs are consumed.
 
@@ -46,7 +46,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ## Before you begin 
 
-You must create Express Route or VPN resources to esnure network connectivity from the external NetApp ONTAP cluster to the target Azure NetApp Files cluster. There are multiple ways to ensure network connectivity. Connectivity includes this set of firewall rules (bidirectional for all): 
+You must create Express Route or VPN resources to ensure network connectivity from the external NetApp ONTAP cluster to the target Azure NetApp Files cluster. There are multiple ways to ensure network connectivity. Connectivity includes this set of firewall rules (bidirectional for all): 
 
 - ICMP
 - TCP 11104
@@ -54,6 +54,8 @@ You must create Express Route or VPN resources to esnure network connectivity fr
 - HTTPS
 
 The network connectivity must be in place for all intercluster (IC) LIFs on the source cluster to all IC LIFs on the Azure NetApp Files endpoint.
+
+[!INCLUDE [Migration assistant volume configuration](includes/migration-assistant.md)]
 
 ## Migrate volumes
 
@@ -220,3 +222,4 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 ## More information 
 
 * [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md)
+* [Migrating data to Azure NetApp Volumes](migrate-data.md)
