@@ -111,7 +111,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 
 ### Anomalous Authentication
 
-**Description:** This anomaly detects unusual authentication activity across signals from Microsoft Defender for Endpoint and Azure AD, including device logons, managed identity sign-ins, and service principal authentications from Azure Active Directory. These anomalies may suggest credential misuse, non-human identity abuse, or lateral movement attempts outside typical access patterns.
+**Description:** Unusual authentication activity across signals from Microsoft Defender for Endpoint and Azure AD, including device logons, managed identity sign-ins, and service principal authentications from Azure Active Directory. These anomalies may suggest credential misuse, non-human identity abuse, or lateral movement attempts outside typical access patterns.
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
@@ -125,7 +125,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 
 ### Anomalous AwsCloudTrail
 
-**Description:** This anomaly detects unusual logon activity in AWS services based on CloudTrail events such as ConsoleLogin and other authentication-related attributes. Anomalies are determined by deviations in user behavior based on attributes like geolocation, device fingerprint, ISP, and access method, and may indicate unauthorized access attempts or potential policy violations.
+**Description:** Unusual logon activity in Amazon Web Services (AWS) services based on CloudTrail events such as ConsoleLogin and other authentication-related attributes. Anomalies are determined by deviations in user behavior based on attributes like geolocation, device fingerprint, ISP, and access method, and may indicate unauthorized access attempts or potential policy violations.
 
 | Attribute                        | Value                                                              |
 | -------------------------------- | ------------------------------------------------------------------ |
