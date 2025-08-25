@@ -13,7 +13,7 @@ ms.author: v-mallicka
 
 This article describes how to back up [Azure Disk](/azure/virtual-machines/managed-disks-overview) using the Azure portal. You can also use REST API to [create a Backup policy](backup-azure-dataprotection-use-rest-api-create-update-disk-policy.md) and [configure backup](backup-azure-dataprotection-use-rest-api-backup-disks.md) for Azure Managed Disk.
 
-Learn about the [Azure Disk backup region availability, supported scenarios and limitations](disk-backup-support-matrix.md).
+Learn about the [Azure Disk backup region availability, supported scenarios, and limitations](disk-backup-support-matrix.md).
 
 >[!Note]
 >- If the target disk is attached as a Persistent Volume to an AKS cluster, choose [Azure Backup for AKS](./azure-kubernetes-service-cluster-backup.md) over the standalone Disk Backup solution. It enables backing up the disk as snapshots along with the containerized application in a Kubernetes-aware manner, all as a single unit.  Additionally, you get Cross Region Restore and ransomware protection capabilities with AKS Backup.
@@ -47,7 +47,7 @@ To create a backup policy for Azure Disks, follow these steps:
 
 1. On the **Select a Vault** pane, select the vault from the list that you created, and then click **Select**.
 
-1. On the **Create Backup Policy** pane, on the **Schedule + retention** tab, under **Backup schedule**,select the backup frequency.
+1. On the **Create Backup Policy** pane, on the **Schedule + retention** tab, under **Backup schedule**, select the backup frequency.
 
    :::image type="content" source="./media/backup-managed-disks/backup-schedule-retention-details.png" alt-text="Screenshot shows the selection of backup schedule." lightbox="./media/backup-managed-disks/backup-schedule-retention-details.png":::
 
@@ -60,11 +60,11 @@ To create a backup policy for Azure Disks, follow these steps:
    You can pick **first successful backup** taken daily or weekly, and provide the retention duration that the specific backups are to be retained before they're deleted. This option is useful to retain specific backups of the day or week for a longer duration of time. All other frequent backups can be retained for a shorter duration.
 
    >[!NOTE]
-   >Azure Backup for Managed Disks uses incremental snapshots which are limited to 500 snapshots per disk. At a point in time you can have 500 snapshots for a disk. Thus, to prevent backup failure the retention duration is limited by the snapshot limit. To allow you to take on-demand backups aside from scheduled backups, backup policy limits the total backups to 450. Learn more about [incremental snapshots](/azure/virtual-machines/disks-incremental-snapshots#restrictions) for managed disk.
+   >Azure Backup for Managed Disks uses incremental snapshots, which are limited to 500 snapshots per disk. At a point in time, you can have 500 snapshots for a disk. Thus, to prevent backup failure the retention duration is limited by the snapshot limit. To allow you to take on-demand backups aside from scheduled backups, backup policy limits the total backups to 450. Learn more about [incremental snapshots](/azure/virtual-machines/disks-incremental-snapshots#restrictions) for managed disk.
 
-   You can either set a maximum retention limit of 1 year or 450 disk snapshots, whichever reaches first. For example, if you have opted for a backup frequency of 12 hours, then you can retain each recovery point for maximum 225 days as the snapshot limit will be breached beyond that. 
+   You can either set a maximum retention limit of 1 year or 450 disk snapshots, whichever reaches first. For example, if you opt for a backup frequency of 12 hours, then you can retain each recovery point for maximum 225 days as the snapshot limit is breached beyond that. 
 
-1. On the **Review + create** tab,select **Create** to complete the backup policy creation.
+1. On the **Review + create** tab, select **Create** to complete the backup policy creation.
 
 >[!Note]
 >- For Azure Disks belonging to Standard HDD, Standard SSD, and Premium SSD SKUs, you can define the backup schedule with *Hourly* frequency (of 1, 2, 4, 6, 8, or 12 hours) and *Daily* frequency. 
@@ -72,7 +72,7 @@ To create a backup policy for Azure Disks, follow these steps:
 
 ## Configure Azure Disk backup
 
-- Azure Disk backup supports only the operational tier backup. Copying of backups to the vault storage tier is currently not supported. The Backup vault storage redundancy setting (LRS/GRS) doesn’t apply to the backups stored in the operational tier.              <br>         Incremental snapshots are stored in a Standard HDD storage, irrespective of the selected storage type of the parent disk. For additional reliability, incremental snapshots are stored on [Zone Redundant Storage (ZRS)](/azure/storage/common/storage-redundancy#zone-redundant-storage) by default in ZRS supported regions.
+- Azure Disk backup supports only the operational tier backup. Copying of backups to the vault storage tier is currently not supported. The Backup vault storage redundancy setting (LRS/GRS) doesn’t apply to the backups stored in the operational tier.              <br>         Incremental snapshots are stored in a Standard Hard Disk Drive (HDD) storage, irrespective of the selected storage type of the parent disk. For more reliability, incremental snapshots are stored on [Zone Redundant Storage (ZRS)](/azure/storage/common/storage-redundancy#zone-redundant-storage) by default in ZRS supported regions.
 
 - Azure Disk backup supports cross-subscription (backup vault in one subscription and the source disk in another) backup and restore. Currently, cross-region backup and restore aren't supported by Azure Disk backup, that is, the backup vault and disk to back up are in different regions.      <br>        So, to use Azure Disk backup, ensure that the backup vault and disk to back up are in the same region.
 
@@ -90,7 +90,7 @@ To configure Azure Disk backup, follow these steps:
 
    :::image type="content" source="./media/backup-managed-disks/select-vault.png" alt-text="Screenshot shows the selection of a Backup vault for Azure Disk backup." lightbox="./media/backup-managed-disks/select-vault.png":::
 
-1. On the **Select a Vault** pane,select the Backup vault from the list you created, and then click **Select**.
+1. On the **Select a Vault** pane, select the Backup vault from the list you created, and then click **Select**.
 
    >[!Note]
    >- Ensure that both the backup vault and the disk to be backed up are in same location.
@@ -133,10 +133,10 @@ To configure Azure Disk backup, follow these steps:
    >[!Note]
    >Validation might take few minutes to complete. Validation may fail if:
    >
-   >- A disk is unsupported. See the [support matrix](./disk-backup-support-matrix.md) for unsupported scenarios.
+   >- A disk is unsupported. See the [support matrix](./disk-backup-support-matrix.md) for unsupported scenarios for more information.
    >- The Backup vault managed identity does not have valid role assignments on the _disk_ to be backed up or on the _snapshot resource group_ where incremental snapshots are stored.
 
-   If the _Role assignment not done_ error message displays in the **Backup readiness** column, the Backup vault managed identity needs role permissions on the selected disk(s) and/or   on the Snapshot resource group. 
+   If the _Role assignment not done_ error message displays in the **Backup readiness** column, the Backup vault managed identity needs role permissions on one or more selected disk(s) and/or   on the Snapshot resource group. 
 
    :::image type="content" source="./media/backup-managed-disks/role-assignment-not-done-error.png" alt-text="Screenshot shows the Role assignment not done error message." lightbox="./media/backup-managed-disks/role-assignment-not-done-error.png":::
 
@@ -157,7 +157,7 @@ To configure Azure Disk backup, follow these steps:
 
    :::image type="content" source="./media/backup-managed-disks/add-missing-roles.png" alt-text="Screenshot shows how to add missing roles." lightbox="./media/backup-managed-disks/add-missing-roles.png":::
 
-1. Select **Confirm** to provide consent. Azure Backup will automatically propagate role assignment changes on your behalf and try to revalidate.
+1. Select **Confirm** to provide consent. Azure Backup automatically propagates role assignment changes on your behalf and tries to revalidate.
 
    If you want to grand permission for the Backup vault managed identity to the selected disk(s) and snapshot resource group, select **Resource** in the **Scope** drop-down list. 
 
@@ -170,7 +170,7 @@ To configure Azure Disk backup, follow these steps:
    >- In some cases, it can take up to 30 minutes for the role assignments to propagate, causing revalidation failure. In this scenario, retry after some time.
    >- If the **Add missing roles** action fails  to assign permissions with the error ‘Insufficient permission for role assignment’ in Backup readiness column, it indicates that you don’t have the privilege to assign role permissions. Choose Download role assignment template to download role assignments as scripts and seek support from your IT Administrator to run the scripts to complete the prerequisites. 
 
-   :::image type="content" source="./media/backup-managed-disks/permission-propagation-taking-long-time.png" alt-text="Screenshot shows the permission propagate instances taking longer time, upto 30 seconds." lightbox="./media/backup-managed-disks/permission-propagation-taking-long-time.png":::
+   :::image type="content" source="./media/backup-managed-disks/permission-propagation-taking-long-time.png" alt-text="Screenshot shows the permission propagates instances taking longer time, upto 30 seconds." lightbox="./media/backup-managed-disks/permission-propagation-taking-long-time.png":::
 
 1. After a successful validation, select **Next**.
 
@@ -180,7 +180,7 @@ To configure Azure Disk backup, follow these steps:
 
 ## Run an on-demand backup for Azure Disks
 
-You can run an on-demand backup for Azure Disks at any time. This is useful if you want to create a backup outside of the scheduled backup times defined in the backup policy.
+You can run an on-demand backup for Azure Disks at any time. This operation is useful if you want to create a backup outside of the scheduled backup times defined in the backup policy.
 
 To run an on-demand backup for Azure Disks, follow these steps:
 
@@ -188,7 +188,7 @@ To run an on-demand backup for Azure Disks, follow these steps:
 
    :::image type="content" source="./media/backup-managed-disks/select-backup-instance.png" alt-text="Screenshot shows the selection of backup instance." lightbox="./media/backup-managed-disks/select-backup-instance.png":::
 
-1. In the **Backup instances** screen, you'll find:
+1. On the **Backup instances** pane, you can find:
 
    - **essential** information including source disk name, the snapshot resource group where incremental snapshots are stored, backup vault, and backup policy.
    - **Job status** showing summary of backup and restore operations and their status in the last seven days.
@@ -198,7 +198,7 @@ To run an on-demand backup for Azure Disks, follow these steps:
 
    :::image type="content" source="./media/backup-managed-disks/backup-now.png" alt-text="Screenshot shows how to select Backup Now." lightbox="./media/backup-managed-disks/backup-now.png":::
 
-1. Select one of the retention rules associated with the backup policy. This retention rule will determine the retention duration of this on-demand  backup. Select **Backup now** to start the backup.
+1. Select one of the retention rules associated with the backup policy. This retention rule determines the retention duration of this on-demand  backup. Select **Backup now** to start the backup.
 
    :::image type="content" source="./media/backup-managed-disks/initiate-backup.png" alt-text="Screemshot shows how to start the backup operation." lightbox="./media/backup-managed-disks/initiate-backup.png":::
 
