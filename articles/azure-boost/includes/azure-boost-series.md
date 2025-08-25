@@ -43,6 +43,7 @@ ms.custom:
 | [Mdsv3](/azure/virtual-machines/sizes/memory-optimized/msv3-mdsv3-high-memory-series) | High Memory Optimized | Production |
 | [Msv2](/azure/virtual-machines/msv2-mdsv2-series)                               | Memory Optimized  | Production  |
 | [Lsv3](/azure/virtual-machines/sizes/storage-optimized/lsv3-series)             | Storage Optimized | Production  |
+| [Lsv4](/azure/virtual-machines/sizes/storage-optimized/lsv4-series)             | Storage Optimized | Production  |
 | [HX](/azure/virtual-machines/sizes/high-performance-compute/hx-series)          | High Performance Compute | Production |
 | [HBv4](/azure/virtual-machines/sizes/high-performance-compute/hbv4-series)       | High Performance Compute | Production |
 | [Fasv6](/azure/virtual-machines/sizes/compute-optimized/fasv6-series)           | Compute Optimized | Production  |
