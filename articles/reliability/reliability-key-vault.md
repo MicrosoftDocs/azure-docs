@@ -24,7 +24,7 @@ For production deployments of Key Vault, we recommend that you do the following 
 
 - Use Standard or Premium tier key vaults.
 
-- [Enable soft delete and purge protection](/azure/key-vault/general/key-vault-recovery) to prevent accidental or malicious deletion. 
+- [Enable soft delete and purge protection](/azure/key-vault/general/key-vault-recovery) to prevent accidental or malicious deletion.
 
 - For critical workloads, consider implementing multi-region strategies that are described in this guide.
 
@@ -142,7 +142,24 @@ You can also use the [backup and restore](#backups) feature to replicate the con
 
 #### Considerations
 
-While the failover is in progress, your key vault might be unavailable for a few minutes. After failover, the key vault becomes read-only and only supports limited actions. You can't change key vault properties while operating in the secondary region, and access policy and firewall configurations can't be modified while operating in the secondary region.
+- **Downtime:** While the failover is in progress, your key vault might be unavailable for a few minutes.
+
+- **Read-only after failover:** After failover, the key vault becomes read-only and only supports limited actions. You can't change key vault properties while operating in the secondary region, and access policy and firewall configurations can't be modified while operating in the secondary region.
+
+    When your key vault is in read-only mode, only the following operations are supported:
+    - List certificates
+    - Get certificates
+    - List secrets
+    - Get secrets
+    - List keys
+    - Get (properties of) keys
+    - Encrypt
+    - Decrypt
+    - Wrap
+    - Unwrap
+    - Verify
+    - Sign
+    - Backup
 
 #### Cost
 
@@ -164,34 +181,15 @@ The following section describes what to expect when a key vault is located in a 
 
 - **Notification:** You can monitor the status of your key vault through Azure Resource Health and Azure Service Health notifications.
 
-- **Active requests:** During a region failover, active requests might fail, and client applications need to retry them after the failover completes. 
+- **Active requests:** During a region failover, active requests might fail, and client applications need to retry them after the failover completes.
 
 - **Expected data loss:** There might be some data loss if changes aren't replicated to the secondary region before the primary region fails.
 
-- **Expected downtime:** During a major outage of the primary region, your key vault might be unavailable for several hours or until Microsoft initiates failover to the secondary region. If you're using private link to connect to your key vault, it may take up to 20 minutes for the connection to be re-established in the event of a region failover.
+- **Expected downtime:** During a major outage of the primary region, your key vault might be unavailable for several hours or until Microsoft initiates failover to the secondary region.
+
+    If you use Private Link to connect to your key vault, it might take up to 20 minutes for the connection to be re-established after the region failover.
 
 - **Traffic rerouting:** After a region failover completes, requests are automatically routed to the paired region without requiring any customer intervention.
-
-During a failover, it's important to be aware of the following limitations: 
-
-- Because your key vault is in read-only mode, only the following operations are supported:
-    
-    - List certificates
-    - Get certificates
-    - List secrets
-    - Get secrets
-    - List keys
-    - Get (properties of) keys
-    - Encrypt
-    - Decrypt
-    - Wrap
-    - Unwrap
-    - Verify
-    - Sign
-    - Backup
-
- - You can't make changes to key vault properties. 
- - You can't change access policy or firewall configurations and settings.
 
 ### Alternative multi-region approaches
 
