@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 07/21/2025
 ms.author: cshoe
-ms.service: sre-agent
+ms.service: azure-sre-agent
 ---
 
 # Incident management in Azure SRE Agent (preview)

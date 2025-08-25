@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.topic: tutorial
 ms.date: 07/17/2025
 ms.author: cshoe
-ms.service: sre-agent
+ms.service: azure-sre-agent
 ---
 
 # Tutorial: Troubleshoot an app using an Azure SRE Agent (preview) in Azure Container Apps

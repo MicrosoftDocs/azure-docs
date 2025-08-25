@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.topic: tutorial
 ms.date: 07/17/2025
-ms.service: sre-agent
+ms.service: azure-sre-agent
 ---
 
 # Troubleshoot an App Service app using Azure SRE Agent (preview)

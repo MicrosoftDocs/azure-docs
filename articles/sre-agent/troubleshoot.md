@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.topic: tutorial
 ms.date: 07/31/2025
-ms.service: sre-agent
+ms.service: azure-sre-agent
 ---
 
 # Troubleshoot common issues in Azure SRE Agent (preview)

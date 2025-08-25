@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 08/22/2025
 ms.author: cshoe
-ms.service: sre-agent
+ms.service: azure-sre-agent
 ---
 
 # Azure SRE Agent overview (preview)
