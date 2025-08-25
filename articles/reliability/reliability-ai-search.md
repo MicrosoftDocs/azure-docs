@@ -41,7 +41,7 @@ The addition of multiple replicas allows AI Search to:
 
 One replica is automatically assigned to be the *primary replica* by Azure AI Search. All write operations are performed against that replica. The other replicas are used for read operations.
 
-The following diagram illustrates a search service with three replicas:
+The following diagram illustrates how a search service with three replicas might be spread across three availability zones:
 
 :::image type="content" source="./media/reliability-ai-search/replicas.png" alt-text="Diagram that shows an AI Search service with three replicas. Read operations are sent to all replicas, and write operations are sent to the primary replica." border="false" :::
 
