@@ -36,8 +36,31 @@ The orchestration versioning feature operates on these core principles:
 
 - **Forward Protection**: The runtime automatically prevents workers running older orchestrator versions from executing orchestrations started by newer orchestrator versions.
 
-> [!IMPORTANT]
-> Orchestration versioning is currently in public preview for apps running in the .NET isolated model. Use `Microsoft.Azure.Functions.Worker.Extensions.DurableTask` package version **>=1.5.0**.
+## Prerequisites
+
+Before using orchestration versioning, ensure you have the required package versions for your programming language.
+
+# [C#](#tab/csharp)
+
+Use `Microsoft.Azure.Functions.Worker.Extensions.DurableTask` version [1.5.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/1.5.0) or later.
+
+# [JavaScript](#tab/javascript)
+
+Use `durable-functions` version [3.2.0](https://www.npmjs.com/package/durable-functions/v/3.2.0) or later.
+
+# [Python](#tab/python)
+
+Use `azure-functions-durable` version [1.3.3](https://pypi.org/project/azure-functions-durable/1.3.3/) or later.
+
+# [PowerShell](#tab/powershell)
+
+Use `AzureFunctions.PowerShell.Durable.SDK` version [2.0.0](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK/2.0.0) or later. Make sure you are using the standalone [Durable Functions PowerShell SDK](https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-powershell-v2-sdk-migration-guide?tabs=azure-cli-set-indexing-flag).
+
+# [Java](#tab/java)
+
+Use `durabletask-azure-functions` version [1.6.0](https://mvnrepository.com/artifact/com.microsoft/durabletask-azure-functions/1.6.0) or later.
+
+---
 
 ## Basic usage
 
@@ -699,12 +722,7 @@ Over time, you may want to remove legacy code paths from your orchestrator funct
    - **Solution**: This is expected behavior. The runtime intentionally prevents older workers from executing orchestrations with newer versions to maintain safety. Ensure all workers are updated to the latest orchestrator version and their `defaultVersion` setting in `host.json` is updated accordingly. You can modify this behavior if needed using the advanced configuration options (see [Advanced usage](#advanced-usage) for details).
 
 - **Issue**: Version information isn't available in orchestrator (`context.Version` or `context.getVersion()` is null, regardless of the `defaultVersion` setting)
-   - **Solution**: Verify that you're using a supported language and a Durable Functions extension version that supports orchestration versioning:
-     - For .NET Isolated, use `Microsoft.Azure.Functions.Worker.Extensions.DurableTask` version **[1.5.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/1.5.0)** or later.
-     - For JavaScript/TypeScript, use `durable-functions` version **[3.2.0](https://www.npmjs.com/package/durable-functions/v/3.2.0)** or later.
-     - For Python, use `azure-functions-durable` version **[1.3.3](https://pypi.org/project/azure-functions-durable/1.3.3/)** or later.
-     - For PowerShell, use `AzureFunctions.PowerShell.Durable.SDK` version **[2.0.0](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK/2.0.0)** or later. Make sure you are using the standalone [Durable Functions PowerShell SDK](https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-powershell-v2-sdk-migration-guide?tabs=azure-cli-set-indexing-flag).
-     - For Java, use `durabletask-azure-functions` version **[1.6.0](https://mvnrepository.com/artifact/com.microsoft/durabletask-azure-functions/1.6.0)** or later.
+   - **Solution**: Verify that you're using a supported language and a Durable Functions extension version that supports orchestration versioning. See the [Prerequisites](#prerequisites) section for the required package versions for each language.
 
 - **Issue**: Orchestrations of a newer version are making very slow progress or are completely stuck
    - **Solution**: The problem can have different root causes:
