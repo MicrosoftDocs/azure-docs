@@ -56,7 +56,7 @@ Executions are recorded and billed, regardless whether the workflow runs success
 Triggers and actions follow [Consumption plan rates](/pricing/details/logic-apps), which differ based on whether these operations are [*built-in*](../connectors/built-in.md) or [*managed* (Standard or Enterprise)](../connectors/managed.md). Triggers and actions also make storage transactions, which use the Consumption plan data rate.
 
 > [!NOTE]
-> As a monthly bonus, the Consumption plan includes *several thousand* built-in executions free of charge. For more information, see [Consumption plan rates](/pricing/details/logic-apps/).
+> As a monthly bonus, the Consumption plan includes *several thousand* built-in executions free of charge. For more information, see [Consumption plan rates]([/pricing/details/logic-apps/](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 ## Prerequisites
 
