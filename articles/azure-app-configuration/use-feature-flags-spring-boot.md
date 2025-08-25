@@ -7,7 +7,7 @@ manager: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 12/04/2024
+ms.date: 08/25/2025
 ms.author: mametcal
 ms.custom: mvc, devx-track-java
 
@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 
 ## Set up feature management
 
-The Spring Boot feature manager `FeatureManager` gets feature flags from the framework's native configuration system. As a result, you can define your application's feature flags by using any configuration source that Spring Boot supports, including the local *bootstrap.yml* file or environment variables. `FeatureManager` relies on dependency injection. You can register the feature management services by using standard conventions:
+The Spring Boot feature manager `FeatureManager` gets feature flags from the framework's native configuration system. As a result, you can define your application's feature flags by using any configuration source that Spring Boot supports, including the local *application.yml* file or environment variables. `FeatureManager` relies on dependency injection. You can register the feature management services by using standard conventions:
 
 ```java
 private FeatureManager featureManager;

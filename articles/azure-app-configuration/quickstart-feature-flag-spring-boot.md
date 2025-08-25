@@ -5,7 +5,7 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 12/04/2024
+ms.date: 08/25/2025
 ms.author: mametcal
 ms.custom: devx-track-java, mode-other
 #Customer intent: As an Spring Boot developer, I want to use feature flags to control feature availability quickly and confidently.
@@ -71,7 +71,7 @@ To create a new Spring Boot project:
         <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>5.18.0</version>
+        <version>6.0.0</version>
         <type>pom</type>
         <scope>import</scope>
         </dependency>
@@ -85,13 +85,14 @@ To create a new Spring Boot project:
 ## Connect to an App Configuration store
 
 
-1. Navigate to the `resources` directory of your app and open the `bootstrap.properties` or `bootstrap.yaml` file. If the file does not exist, create it. Add the following line to the file.
+1. Navigate to the `resources` directory of your app and open the `application.properties` or `application.yaml` file. If the file does not exist, create it. Add the following line to the file.
 
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
     You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application. Create a new file named *AppConfigCredential.java* and add the following lines:
 
    If you are using a properties file, use the following code:
    ```properties
+    spring.config.import=azureAppConfiguration
     spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
     spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled=true
     ```
@@ -99,6 +100,8 @@ To create a new Spring Boot project:
     If you are using a yaml file, use the following code:
     ```yaml
     spring:
+      config:
+        import: azureAppConfiguration
       cloud:
         azure:
           appconfiguration:
@@ -137,6 +140,7 @@ To create a new Spring Boot project:
     ### [Connection string](#tab/connection-string)
    If you are using a properties file, use the following code:
    ```properties
+    spring.config.import=azureAppConfiguration
     spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_CONNECTION_STRING}
     spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled=true
     ```
@@ -144,6 +148,8 @@ To create a new Spring Boot project:
    If you are using a yaml file, use the following code:
     ```yaml
     spring:
+      config:
+        import: azureAppConfiguration
       cloud:
         azure:
           appconfiguration:

@@ -6,7 +6,7 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 12/04/2024
+ms.date: 08/25/2025
 ms.author: mametcal
 ms.custom: mvc, devx-track-java, devx-track-azurecli, devx-track-extended-java
 #Customer intent: I want to update my Spring Boot application to reference values stored in Key Vault through App Configuration.
@@ -156,6 +156,8 @@ To add a secret to the vault, you need to take just a few more steps. In this ca
 
 ```yaml
 spring:
+    config:
+        import: azureAppConfiguration
     cloud:
         azure:
             appconfiguration:
@@ -166,6 +168,7 @@ spring:
 ### [properties](#tab/properties)
 
 ```properties
+spring.config.import=azureAppConfiguration
 spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
 ```
 
