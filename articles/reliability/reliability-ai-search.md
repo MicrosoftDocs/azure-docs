@@ -81,7 +81,7 @@ When an availability zone experiences an outage, your search service continues t
 
 + **Traffic rerouting**: When a zone fails, Azure AI Search detects the failure and routes requests to active replicas in the surviving zones.
 
-### Failback
+### Zone recovery
 
 When the availability zone recovers, Azure AI Search automatically restores normal operations and begins routing traffic to available replicas across all zones, including the recovered zone.
 

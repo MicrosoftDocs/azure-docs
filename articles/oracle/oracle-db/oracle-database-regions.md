@@ -25,11 +25,11 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | Azure region   | OCI region   | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure | Oracle Database Autonomous Recovery Service@Azure | Exadata Database Service on Exascale Infrastructure@Azure | BaseDB | Regional Availability |
 | -------------- | ----------------------- | ----------------------------- | -------------------------------- | -------- |---------|---------|---------|
 | Australia East | Australia East (Sydney) | ✓         | ✓      | ✓ |✓ |Preview available |  Dual   |
-| Australia Southeast | Australia Southeast (Melbourne) | ✓        | | | |  |   Dual   |
-| Central India | India West (Mumbai) | ✓  | | | |  |   Single   |
+| Australia Southeast | Australia Southeast (Melbourne) | ✓        | ✓ | | |  |   Single   |
+| Central India | India West (Mumbai) | ✓  | ✓ | | |  |   Single   |
 | Japan East | Japan East (Tokyo) | ✓         | ✓  | ✓ | ✓ |Preview available |   Dual   |
 | Japan West | Japan Central (Osaka) | ✓  | | | |  |   Single   |
-| Southeast Asia |Singapore (Singapore) | ✓         | ✓      | ✓ | | |  Single   |
+| Southeast Asia |Singapore (Singapore) | ✓         | ✓      | ✓ | | |  Dual   |
 
 
 
@@ -52,7 +52,7 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | Sweden Central | 	Sweden Central (Stockholm) | ✓  | | | |  |   Dual    |
 | UK South             | UK South (London)   | ✓   | ✓   | ✓ | ✓| Preview available | Dual|
 | UK West | UK West (Newport)	   | ✓   | ✓  | | ✓| |  Single |
-| UAE North | UAE North (Dubai) | ✓  | | | |  |   Dual    |
+| UAE North | UAE North (Dubai) | ✓  | | | |  |   Single    |
 
 
 ## North America (NA)

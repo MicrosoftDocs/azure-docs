@@ -44,7 +44,7 @@ To learn more about portability, flexibility, and performance improvements, cont
 
 ### Portability and flexibility
 
-When you create a **Standard** logic app and workflow, you can deploy and run your workflow in other environments, such as [Azure App Service Environment v3 (Windows plans only)](../app-service/environment/overview.md). If you use Visual Studio Code with the **Azure Logic Apps (Standard)** extension, you can *locally* develop, build, and run your workflow in your development environment without having to deploy to Azure. If your scenario requires containers, you can [create single tenant logic apps using Azure Arc-enabled Logic Apps](azure-arc-enabled-logic-apps-create-deploy-workflows.md). For more information, see [What is Azure Arc enabled Logic Apps?](azure-arc-enabled-logic-apps-overview.md)
+When you create a **Standard** logic app and workflow, you can deploy and run your workflow in other environments, such as [Azure App Service Environment v3 (Windows plans only)](../app-service/environment/overview.md). If you use Visual Studio Code with the **Azure Logic Apps (Standard)** extension, you can *locally* develop, build, and run your workflow in your development environment without having to deploy to Azure. If your scenario requires on-premises deployment using infrastructure that you control, see [Create Standard logic app workflows for hybrid deployment on your own infrastructure](create-standard-workflows-hybrid-deployment.md).
 
 These capabilities provide major improvements and substantial benefits compared to the multitenant model, which requires you to develop against an existing running resource in Azure. The multitenant model for automating **Consumption** logic app resource deployment is based on Azure Resource Manager templates (ARM templates), which combine and handle resource provisioning for both apps and infrastructure.
 
@@ -233,7 +233,7 @@ The single-tenant model and **Standard** logic app include many current and new 
 
   Before you run and test your logic app, you can make debugging easier by adding and using breakpoints inside the **workflow.json** file for a workflow. However, breakpoints are supported only for actions at this time, not triggers. For more information, see [Create single-tenant based workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#manage-breakpoints).
 
-* Directly publish or deploy logic apps and their workflows from Visual Studio Code to various hosting environments such as Azure and Azure Arc enabled Logic Apps.
+* Directly publish or deploy logic apps and their workflows from Visual Studio Code to various hosting environments such as Azure or on premises.
 
 * Enable diagnostics logging and tracing capabilities for your logic app by using [Application Insights](/azure/azure-monitor/app/app-insights-overview) when supported by your Azure subscription and logic app settings.
 
