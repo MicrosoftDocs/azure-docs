@@ -167,7 +167,7 @@ Follow these steps to determine if your VPN Gateway uses legacy cloudapp.NET DNS
 
 1. On the Point-to-site configuration page, click **Download VPN Client**.
 
-   :::image type="content" source="./media/basic-public-ip-address-migrate-howto/download-vpn-client.png" alt-text="Screenshot of the commit changes step for migrating a virtual network gateway."lightbox="./media/basic-public-ip-address-migrate-howto/download-vpn-client.png":::
+   :::image type="content" source="./media/basic-public-ip-address-migrate-howto/download-vpn-client.png" alt-text="Screenshot downloading vpn client."lightbox="./media/basic-public-ip-address-migrate-howto/download-vpn-client.png":::
 
 1. Save the downloaded ZIP file to your local machine and extract it to a local directory.
 
