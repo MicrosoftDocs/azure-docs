@@ -15,7 +15,7 @@ ms.service: azure-app-service
 
 ::: zone pivot="container-windows"  
 
-[Azure App Service](overview.md) provides pre-defined application stacks, like ASP.NET or Node.js, on Windows. These application stacks run on IIS. The preconfigured Windows environment locks down the operating system from:
+[Azure App Service](overview.md) provides predefined application stacks, like ASP.NET or Node.js, on Windows. These application stacks run on IIS. The preconfigured Windows environment locks down the operating system from:
 - Administrative access.
 - Software installations.
 - Changes to the global assembly cache.
@@ -108,9 +108,9 @@ In Solution Explorer, right-click the **CustomFontSample** project and select **
 
 1. Select **Azure Container Registry**, and then select **Next**.
 
-1. Select the subscription where you want to publish the registery, and then select **Create new**. 
+1. Select the subscription where you want to publish the registry, and then select **Create new**. 
 
-:::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="Screenshot that shows the Publish window.The Create new button is highlighted.":::
+:::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="Screenshot that shows the Publish window. The Create new button is highlighted.":::
 
 ### Sign in with an Azure account
 
@@ -334,7 +334,7 @@ ENTRYPOINT ["init.sh"]
     This [`docker run`](https://docs.docker.com/engine/reference/commandline/run/) command specifies the port by using the `-p` argument and includes the name of the image. `-it` lets you stop it by using **Ctrl+C**.
 
     > [!TIP]
-    > If you're running on Windows and see the error *standard_init_linux.go:211: exec user process caused "no such file or directory"*, the *init.sh* file contains CRLF line endings instead of the expected LF endings. This error happens if you used Git to clone the sample repository but omitted the `--config core.autocrlf=input` parameter. In this case, clone the repository again with the `--config` argument. You might also see the error if you edited *init.sh* and saved it with CRLF endings. In this case, save the file again with LF endings only.
+    > If you're running on Windows and see the error *standard_init_linux.go:211: exec user process caused "no such file or directory," the *init.sh* file contains CRLF line endings instead of the expected LF endings. This error happens if you used Git to clone the sample repository but omitted the `--config core.autocrlf=input` parameter. In this case, clone the repository again with the `--config` argument. You might also see the error if you edited *init.sh* and saved it with CRLF endings. In this case, save the file again with LF endings only.
 
 1. Browse to `http://localhost:8000` to verify that the web app and container are functioning correctly.
 
@@ -419,7 +419,7 @@ App Service can use either a default managed identity or a user-assigned managed
     :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-container-registry-1.png" alt-text="Screenshot showing how to use the search box to find the Create container registry page." lightbox="./media/tutorial-custom-container/azure-portal-create-container-registry-1.png":::
   
    
-1. On the the **Create container registry** page:
+1. On the **Create container registry** page:
     1. In **Subscription**, select the subscription you used earlier.
     1. In **Resource group**, select **msdocs-custom-container-tutorial**.
     1. In **Registry name**, enter a unique name for your container registry.
@@ -691,13 +691,13 @@ In this step, you configure the web app as follows:
     :::image type="content" source="./media/tutorial-custom-container/azure-portal-configure-app-service-4.png" alt-text="Screenshot showing how to add a user-assigned managed identity." lightbox="./media/tutorial-custom-container/azure-portal-configure-app-service-4.png":::
     
      
-1. In the left pane,under **Deployment**, select **Deployment Center**. Then do the following on the **Deployment Center** page:
+1. In the left pane, under **Deployment**, select **Deployment Center**. Then do the following on the **Deployment Center** page:
     1. On the **Containers** tab, select the deployment that's listed.  
     1. In the **Edit container** pane, under **Authentication**, ensure that **Managed Identity** is selected.
     1. In **Identity**, ensure that  **myID** is selected. If you made changes, select **Apply**.
     1. Back on the **Deployment Center** page, select  **Continuous deployment for the main container**, and then select **Apply**.
     
-    :::image type="content" source="./media/tutorial-custom-container/azure-portal-configure-app-service-5.png" alt-text="Screenshot showing the Containers tab on the Deployment Center page. Continuous deployment is seleced." lightbox="./media/tutorial-custom-container/azure-portal-configure-app-service-5.png":::
+    :::image type="content" source="./media/tutorial-custom-container/azure-portal-configure-app-service-5.png" alt-text="Screenshot showing the Containers tab on the Deployment Center page. Continuous deployment is selected." lightbox="./media/tutorial-custom-container/azure-portal-configure-app-service-5.png":::
     
 1. On the **Deployment Center** page, select the **Logs** tab. On this tab, you can see log messages for pulling the image and starting the container. Later, you'll learn how to see generated console messages from within the container.
      
