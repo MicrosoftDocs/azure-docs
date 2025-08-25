@@ -115,7 +115,7 @@ This preference affects only the route-specific endpoint. This preference doesn'
 
 2. Under **Security + networking**, choose **Networking**.
 
-3. In the **Firewalls and virtual networks** tab, under **Publish route-specific endpoints**, choose the routing preference of your route-specific endpoint, and then click **Save**.
+3. In the **Network routing** tab, under **Publish route-specific endpoints**, choose the routing preference of your route-specific endpoint, and then click **Save**.
 
     The following image shows the **Microsoft network routing** option selected.
 
