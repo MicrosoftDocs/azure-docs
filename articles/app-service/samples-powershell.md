@@ -12,6 +12,7 @@ ms.custom:
   - build-2025
 ms.author: msangapu
 author: msangapu-msft
+ms.service: azure-app-service
 ---
 # PowerShell samples for Azure App Service
 

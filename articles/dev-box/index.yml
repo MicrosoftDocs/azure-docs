@@ -19,9 +19,25 @@ metadata:
 
 landingContent:
   # Card
-  - title: About Microsoft Dev Box
+  - title: Get started
     linkLists:
-      - linkListType: overview
+      - linkListType: quickstart
+        links:
+          - text: Configure Microsoft Dev Box Resources using the Get Started template
+            url: quickstart-get-started-template.md 
+          - text: Create a dev box
+            url: quickstart-create-dev-box.md
+      - linkListType: learn
+        links:
+          - text: Understand the basics of Microsoft Dev Box
+            url: https://learn.microsoft.com/training/modules/understand-basics-microsoft-dev-box/
+          - text: Explore Microsoft Dev Box deployment guidelines and best practices
+            url: https://learn.microsoft.com/training/modules/explore-microsoft-dev-box-deployment-guidelines-best-practices/
+
+  # Card
+  - title: Dev Box deployment at scale
+    linkLists:
+      - linkListType: concept
         links:
           - text: What is Microsoft Dev Box?
             url: overview-what-is-microsoft-dev-box.md
@@ -31,33 +47,12 @@ landingContent:
             url: concept-dev-box-architecture.md
           - text: Microsoft Dev Box Roadmap
             url: dev-box-roadmap.md
-      - linkListType: learn
-        links:
-          - text: Understand the basics of Microsoft Dev Box
-            url: https://learn.microsoft.com/training/modules/understand-basics-microsoft-dev-box/
-          - text: Explore Microsoft Dev Box deployment guidelines and best practices
-            url: https://learn.microsoft.com/training/modules/explore-microsoft-dev-box-deployment-guidelines-best-practices/
-
-  # Card
-  - title: Get started
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Configure Microsoft Dev Box Resources using the Get Started template
-            url: quickstart-get-started-template.md 
-          - text: Create a dev box
-            url: quickstart-create-dev-box.md
       - linkListType: deploy
         links:
-          - text: Microsoft Dev Box deployment guide
+          - text: Design Dev Box deployment architecture
             url: concept-dev-box-deployment-guide.md
-      - linkListType: how-to-guide
-        links:
-          - text: Connect to your dev box
-            url: how-to-create-dev-boxes-developer-portal.md#connect-through-the-windows-app
-          - text: Use multiple monitors with your dev box 
-            url: how-to-create-dev-boxes-developer-portal.md#configure-multiple-monitors
- 
+          
+
   # Card
   - title: Configure ready-to-code dev boxes
     linkLists:
@@ -67,16 +62,16 @@ landingContent:
             url: concept-what-are-dev-box-customizations.md
           - text: Configure team customizations
             url: how-to-configure-team-customizations.md
-          - text: Configure Dev Box imaging
-            url: how-to-configure-dev-box-imaging.md
+          - text: Configure dev center imaging
+            url: how-to-configure-dev-center-imaging.md
           - text: Configure user customizations
             url: how-to-configure-user-customizations.md
           - text: Connect to Azure resources and repositories
             url: how-to-customizations-connect-resource-repository.md
-          - text: Use GitHub Copilot to generate a team customization file
-            url: how-to-use-copilot-generate-image-definition-file.md
           - text: Create customization tasks
             url: how-to-create-customization-tasks-catalog.md
+          - text: 'Reference: imagedefinition.yaml and task.yaml files'
+            url: reference-dev-box-customizations.md
   
   # Card
   - title: Dev Box cost management
@@ -91,8 +86,26 @@ landingContent:
             url: how-to-auto-delete-dev-box.md
           - text: Autostop Dev Boxes on schedule             
             url: how-to-configure-stop-schedule.md
+          - text: Control resource use with project policies
+            url: how-to-configure-project-policy.md
+
+   # Card
+  - title: Explore the developer portal
+    linkLists:
+        - linkListType: how-to-guide
+          links:
+          - text: Manage a dev box
+            url: how-to-create-dev-boxes-developer-portal.md
+          - text: Configure multiple monitors
+            url: how-to-create-dev-boxes-developer-portal.md#configure-multiple-monitors
           - text: Skip or delay a scheduled shutdown
             url: how-to-skip-delay-stop.md
+          - text: Hibernate your Dev Box
+            url: how-to-hibernate-your-dev-box.md
+          - text: Restore your dev box
+            url: how-to-restore-from-snapshot.md
+          - text: Use the Troubleshoot and Repair tool
+            url: how-to-troubleshoot-repair-dev-box.md
 
   # Card
   - title: Provide secure access
@@ -103,33 +116,30 @@ landingContent:
             url: how-to-configure-intune-conditional-access-policies.md
           - text: Enable single sign-on for dev box
             url: how-to-enable-single-sign-on.md
+          - text: Configure access policies for Dev tunnels
+            url: how-to-conditional-access-dev-tunnels-service.md
 
    # Card
   - title: Support & Reference
     linkLists:
         - linkListType: how-to-guide
           links:
-          - text: Use the Troubleshoot and Repair tool
-            url: how-to-troubleshoot-repair-dev-box.md
-          - text: Troubleshoot dev box connectivity issues
-            url: how-to-troubleshoot-remote-desktop-connectivity.md   
-          - text: Resolve connectivity issues
-            url: how-to-resolve-dev-box-connectivity-issues.md
-          - text: 'Reference: imagedefinition.yaml and task.yaml files'
-            url: reference-dev-box-customizations.md
           - text: Get support for Microsoft Dev Box
             url: how-to-get-help.md
+          - text: Troubleshoot dev box connectivity issues
+            url: how-to-troubleshoot-remote-desktop-connectivity.md
+          - text: Resolve connectivity issues
+            url: how-to-resolve-dev-box-connectivity-issues.md 
+        - linkListType: sample
+          links:
+          - text: Dev Center Samples
+            url: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.devcenter
         - linkListType: reference
           links:
+          - text: Microsoft Dev Center Landing Zone Accelerator
+            url: https://github.com/Azure/DevBoxAccelerator/tree/main
           - text: Azure CLI
             url: https://learn.microsoft.com/en-us/azure/dev-box/cli-reference-subset
           - text: REST API
             url: https://aka.ms/dev-box/restapidocs
 
-   # Card
-  - title: Dev Center Quick Start Samples
-    linkLists:
-        - linkListType: sample
-          links:
-          - text: Dev Center Samples
-            url: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.devcenter

@@ -50,7 +50,7 @@ To get started with running your Playwright tests on cloud browsers, you first n
     |---------|---------|
     |**Subscription**     | Select the Azure subscription that you want to use for this Playwright workspace. |
     |**Resource group**     | Select an existing resource group. Or select **Create new**, and then enter a unique name for the new resource group.        |
-    |**Name**     | Enter a unique name to identify your workspace.<BR>The name can only consist of alphanumerical characters, and have a length between 3 and 64 characters. |
+    |**Name**     | Enter a unique name to identify your workspace.<BR>The name can only consist of alphanumerical characters and hyphens, and have a length between 3 and 24 characters. |
     |**Location**     | Select a geographic location to host your workspace. <BR>This location also determines where the test execution results are stored. |
 
     > [!NOTE]
@@ -92,11 +92,11 @@ dotnet add package Azure.Developer.Playwright.NUnit --prerelease
 
 ::: zone-end
 
-## Configure the service region endpoint
+## Configure the browser endpoint
 
-In your setup, you have to provide the region-specific service endpoint. The endpoint depends on the Azure region you selected when creating the workspace.
+In your setup, you have to provide the region-specific browser endpoint. The endpoint depends on the Azure region you selected when creating the workspace.
 
-To get the service endpoint URL, perform the following steps:
+To get the browser endpoint URL, perform the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account and navigate to your workspace.
 
@@ -104,7 +104,7 @@ To get the service endpoint URL, perform the following steps:
 
     :::image type="content" source="./media/quickstart-automate-end-to-end-testing/navigate-to-get-started.png" alt-text="Screenshot that shows how to navigate to the Get Started page." lightbox="./media/quickstart-automate-end-to-end-testing/navigate-to-get-started.png":::
 
-1. In **Add region endpoint in your setup**, copy the service endpoint URL.
+1. In **Add the browser endpoint to your setup**, copy the endpoint URL.
 
     Make sure this URL is available in `PLAYWRIGHT_SERVICE_URL` environment variable.
 
@@ -124,6 +124,12 @@ We recommend that you use the `dotenv` module to manage your environment. With `
     npm i --save-dev dotenv
     ```
 
+1. Add the following code snippet in playwright.service.config.ts:
+
+    ```js
+    require('dotenv').config();
+    ```
+    
 1. Create a `.env` file alongside the `playwright.config.ts` file in your Playwright project:
 
     ```

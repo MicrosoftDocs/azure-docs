@@ -169,6 +169,8 @@ items:
       href: set-up-devops-deployment-single-tenant-azure-logic-apps.md
     - name: Automate DevOps build and deployment
       href: automate-build-deployment-standard.md
+    - name: Set up CD with Deployment Center
+      href: set-up-cd-deployment-center-standard.md
     - name: Deploy Standard logic apps to private storage accounts
       href: deploy-single-tenant-logic-apps-private-storage-account.md
     - name: Export Consumption workflows to Standard logic app
@@ -179,12 +181,6 @@ items:
       href: set-up-standard-workflows-hybrid-deployment-requirements.md
     - name: Create Standard workflows for hybrid deployment
       href: create-standard-workflows-hybrid-deployment.md
-  - name: Azure Arc-enabled Logic Apps
-    items:
-    - name: About Azure Arc-enabled Logic Apps
-      href: azure-arc-enabled-logic-apps-overview.md
-    - name: Create and deploy Azure Arc-enabled logic apps
-      href: azure-arc-enabled-logic-apps-create-deploy-workflows.md
   - name: Migrate
     items:
     - name: Migration from Power Automate

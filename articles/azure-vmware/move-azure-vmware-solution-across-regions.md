@@ -42,9 +42,9 @@ In this article, walk through the steps to:
 
 ## Prerequisites
 
-- [VMware HCX appliance is upgraded to the latest patch](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/updating-vmware-hcx.html) to avoid migration issues if any.
+- [VMware HCX appliance is upgraded to the latest patch](https://techdocs.broadcom.com) to avoid migration issues if any.
 
-- Source's local content library is a [published content library](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-virtual-machine-administration-guide-8-0/using-content-librariesvsphere-vm-admin/publish-the-contents-of-a-library-and-a-single-template-to-a-subscribervsphere-vm-admin.html).
+- Source's local content library is a [published content library](https://techdocs.broadcom.com).
 
 ## Prepare
 
@@ -52,9 +52,9 @@ The following steps show how to prepare your Azure VMware Solution private cloud
 
 ### Export the source configuration
 
-1. From the source, [export the extended segments, firewall rules, port details, and route tables](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-1/administration-guide.html).
+1. From the source, [export the extended segments, firewall rules, port details, and route tables](https://techdocs.broadcom.com).
 
-1. [Export the contents of an inventory list view to a CSV file](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vcenter-and-host-management-8-0/using-the-vsphere-client-host-management/working-with-the-vsphere-client-inventory-host-management.html#GUID-C0E8DD52-677E-464F-A3EA-044EE20B7B92-en).
+1. [Export the contents of an inventory list view to a CSV file](https://techdocs.broadcom.com).
 
 1. [Sort workloads into migration groups (migration wave)](https://docs.vmware.com/en/VMware-HCX/index.html).
 
@@ -67,7 +67,7 @@ Before you can move the source configuration, you need to [deploy the target env
 
 Back up the Azure VMware Solution (source) configuration that includes vCenter Server, NSX-T Data Center, and firewall policies and rules. 
 
-- **Compute:** Export existing inventory configuration. For Inventory backup, you can use [RVTools (an open-source app)](https://www.robware.net/home).
+- **Compute:** Export existing inventory configuration.
   
 - **Network and firewall policies and rules:** This is included as part of the VMware HCX Network Extension.
 
@@ -75,15 +75,15 @@ Azure VMware Solution supports all backup solutions. You need CloudAdmin privile
 
 - VM workload backup using the Commvault solution:
 
-   - [Create a VMware client](https://documentation.commvault.com/11.20/guided_setup_for_vmware.html) from the Command center for Azure VMware Solution vCenter.
+   - Create a VMware client from the Command center for Azure VMware Solution vCenter.
 
-   - [Create a VM group](https://documentation.commvault.com/11.20/adding_vm_group_for_vmware.html) with the required VMs for backups.
+   - Create a VM group with the required VMs for backups.
 
-   - [Run backups on VM groups](https://documentation.commvault.com/11.20/performing_backups_for_vmware_vm_or_vm_group.html).
+   - Run backups on VM groups.
 
-   - [Restore VMs](https://documentation.commvault.com/11.20/restoring_full_virtual_machines_for_vmware.html).
+   - Restore VMs.
 
-- VM workload backup using [Veritas NetBackup solution](https://vrt.as/nb4avs). 
+- Backup VM workload using [Veritas NetBackup solution](https://vrt.as/nb4avs). 
 
 >[!TIP]
 >You can use [Azure Resource Mover](../resource-mover/move-region-within-resource-group.md?toc=/azure/azure-resource-manager/management/toc.json) to verify and migrate the list of supported resources to move across regions, which are dependent on Azure VMware Solution.
@@ -230,9 +230,9 @@ In this section, you migrate the:
 
 In this step, copy the source vSphere configuration and move it to the target environment. 
 
-1. From the source vCenter Server, use the same resource pool configuration and [create the same resource pool configuration](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-resource-management-8-0/managing-resource-pools.html#GUID-0F6C6709-A5DA-4D38-BE08-6CB1002DD13D-en) on the target's vCenter Server.
+1. From the source vCenter Server, use the same resource pool configuration and [create the same resource pool configuration](https://techdocs.broadcom.com) on the target's vCenter Server.
 
-2. From the source's vCenter Server, use the same VM folder name and [create the same VM folder](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vcenter-and-host-management-8-0/organizing-your-inventory-host-management/create-a-folder-host-management.html) on the target's vCenter Server under **Folders**.
+2. From the source's vCenter Server, use the same VM folder name and [create the same VM folder](https://techdocs.broadcom.com) on the target's vCenter Server under **Folders**.
 
 3. Use VMware HCX to migrate all VM templates from the source's vCenter Server to the target's vCenter Server.
 
@@ -240,7 +240,7 @@ In this step, copy the source vSphere configuration and move it to the target en
 
    2. From the target, convert the VMs to VM templates.
 
-4. From the source environment, use the same VM Tags name and [create them on the target's vCenter](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vcenter-and-host-management-8-0/vsphere-tags-and-attributes-host-management/vsphere-tags-host-management.html#GUID-2FF21224-B6BC-499B-AD8B-D2C4309AD9DC-en). 
+4. From the source environment, use the same VM Tags name and [create them on the target's vCenter](https://techdocs.broadcom.com). 
 
 5. From the source's vCenter Server Content Library, use the subscribed library option to copy the ISO, OVF, OVA, and VM Templates to the target content library:
 
