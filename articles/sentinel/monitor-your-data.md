@@ -33,7 +33,7 @@ This article describes how to visualize your data in Microsoft Sentinel by using
 
 - To use a workbook template, install the solution that contains the workbook or install the workbook as a standalone item from the **Content Hub**. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
-- If you're working in the Defender portal with an Azure Data Explorer data source, make sure to configure and authenticate to Azure Data Explorer from the Defender portal. <!--how would someone do this?-->
+- If you're working in the Defender portal with an Azure Data Explorer data source, make sure to configure and authenticate to Azure Data Explorer from the Defender portal.
 
 ## Create a workbook from a template
 
