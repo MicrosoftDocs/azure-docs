@@ -74,3 +74,8 @@ The cost of the Enclave includes the community, community endpoints, enclave end
 
 ### Are partial hours pro-rated?
 Enclaves deployed during part of an hour are charged for the full hour.
+
+## Enclave configuration
+
+### Can I add a firewall to my enclave virtual network, in addition to the community firewall?
+This is not a recommended pattern and it is not supported at this time. The Virtual Network traffic is forced through the community firewall by default.
