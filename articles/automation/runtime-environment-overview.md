@@ -86,6 +86,7 @@ You can't edit these Runtime environments. However, any changes that are made in
 - This feature is currently supported through Azure portal and [REST API](/rest/api/automation/runtime-environments?view=rest-automation-2024-10-23&preserve-view=true).
 - Use [Packages: REST API](/rest/api/automation/package?view=rest-automation-2024-10-23) to upload custom packages.
 - Management of modules for Azure Automation State Configuration is not supported through Runtime environment experience. You can continue using the old experience for managing modules and packages for Azure Automation State Configuration.
+- Now, It is not possible to run Runbooks in a User Created Runtime environment on a Hybrid Worker. Hybrid Workers can only execute Runbooks in a System Created Runtime environment."
 
 ## Switch between new and old experience
 
