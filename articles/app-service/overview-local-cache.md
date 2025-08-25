@@ -147,7 +147,7 @@ To check the total size of your `/site` and `/siteextensions` folders, you can u
 
 ### How can I tell if my site switched to using a local cache?
 
-When you're using a local cache with staging environments, the swap operation doesn't finish until the local cache is warmed up. To verify that your site is running against the local cache, check the worker process environment variable `WEBSITE_LOCALCACHE_READY`. For information about inspecting this variable across multiple instances, see to the [Kudu instructions for the worker process environment variable](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable).
+When you're using a local cache with staging environments, the swap operation doesn't finish until the local cache is warmed up. To verify that your site is running against the local cache, check the worker process environment variable `WEBSITE_LOCALCACHE_READY`. For information about inspecting this variable across multiple instances, see the [Kudu instructions for the worker process environment variable](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable).
 
 ### Why doesn't my app reflect newly published changes?
 
