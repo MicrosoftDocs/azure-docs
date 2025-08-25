@@ -192,7 +192,7 @@ For the latest updates on legacy DNS gateway migration availability, see the [VP
 
 ## Known Issues
 
-* For VpnGw1 CSES to VMSS migration, we are seeing higher CPU utilization due to .NET core optimization. This is a known issue and we recommend to either wait for 10 minutes after prepare stage or upgrade to a higher gateway SKU during the migration process.
+* For VpnGw1 CSES to Virtual Machine Scale Sets migration, we are seeing higher CPU utilization due to .NET core optimization. This is a known issue and we recommend to either wait for 10 minutes after prepare stage or upgrade to a higher gateway SKU during the migration process.
 
 
 ## Next steps
