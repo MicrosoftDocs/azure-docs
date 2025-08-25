@@ -6,7 +6,7 @@ author: haileytap
 ms.author: haileytapia
 ms.service: azure-ai-search
 ms.topic: reliability-article
-ms.date: 08/20/2025
+ms.date: 08/25/2025
 ms.custom: subject-reliability
 ---
 
@@ -38,6 +38,8 @@ The addition of multiple replicas allows AI Search to:
 - Perform maintenance on one replica while queries continue executing on other replicas.
 - Handle higher indexing and query workloads.
 - Improve resiliency by attempting to provision replicas in different availability zones, if supported in your region.
+
+One replica is automatically assigned to be the *primary replica* by Azure AI Search. All write operations are performed against that replica. The other replicas are used for read operations.
 
 You can also configure the number of *partitions*, which represent the storage used by the search indexes.
 
