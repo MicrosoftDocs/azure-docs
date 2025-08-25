@@ -79,21 +79,11 @@ After deploying the Azure DNS Private Resolver, you must create a forward lookup
 
 To configure the forward lookup zone:
 
-**Identify the DNS zone name** for your private cloud.
-
-   The zone is typically derived from the Fully Qualified Domain Name (FQDN) of the vCenter Server.
-   
-      For example, if the vCenter Server URL is `https://vc123.avs.contoso.com`, the DNS zone name is `avs.contoso.com` (everything after `vc123`).
+1. **Identify the DNS zone name** for your private cloud. The zone is typically derived from the Fully Qualified Domain Name (FQDN) of the vCenter Server. For example, if the vCenter Server URL is `https://vc123.avs.contoso.com`, the DNS zone name is `avs.contoso.com` (everything after `vc123`).
       
-      **Create a forward lookup zone** in your DNS solution (either your on-premises DNS server or a DNS server you deployed in the Azure Virtual Network of the private cloud).
-      
-         Use the DNS zone name identified above.
+2. **Create a forward lookup zone** in your DNS solution (either your on-premises DNS server or a DNS server you deployed in the Azure Virtual Network of the private cloud). Use the DNS zone name identified above.
          
-1. **Configure a forwarder** in that lookup zone.
-
-Point the zone to the IP address of the inbound endpoint of the Azure DNS Private Resolver that you deployed in the Virtual Network of the private cloud.
-
-   - This ensures that any DNS queries for private cloud FQDNs are forwarded to the Azure DNS Private Resolver.
+3. **Configure a forwarder** in that lookup zone. Point the zone to the IP address of the inbound endpoint of the Azure DNS Private Resolver that you deployed in the Virtual Network of the private cloud. This ensures that any DNS queries for private cloud FQDNs are forwarded to the Azure DNS Private Resolver.
    
 **Example**:
 
