@@ -1,5 +1,5 @@
 ---
-title: Data transfer fees
+title: Azure data transfer fees
 description: Describes how fees are applied to a data transfer
 author: nicholak-ms
 ms.reviewer: jlucey
