@@ -19,7 +19,7 @@ An [Azure App Service plan](overview-hosting-plans.md) provides the resources th
 ## Create an App Service plan
 
 > [!TIP]
-> If you want to create a plan in an App Service Environment, you can select it in the **Region** and follow the rest of the steps as described below.
+> If you want to create a plan in an App Service Environment, you can select it in the **Region** list and follow the rest of the steps as described below.
 
 You can create an empty App Service plan, or you can create a plan as part of app creation.
 
@@ -35,7 +35,7 @@ You can create an empty App Service plan, or you can create a plan as part of ap
 
 1. In the **Zone redundancy** section, select **Enabled** or **Disabled**, depending on your needs.
 
-1. Select **Review + create** to create the App Service plan.
+1. Select **Review + create**, and then select **Create**.
 
 > [!IMPORTANT]
 > When you create a new App Service plan in an existing resource group, certain conditions with existing apps can trigger these errors:
@@ -63,7 +63,9 @@ You must disable any virtual network integration that's configured on the app be
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **App services**, and then select the app that you want to move.
 
-1. In the left pane, under **App Service Plan**, select **Change App Service plan**.
+1. In the left pane, under **App Service Plan**, select **App Service plan**.
+
+1. On the **App Service plan** page, select **Change plan**.
 
     :::image type="content" source="./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png" alt-text="Screenshot of the Change App Service plan page.":::
 
