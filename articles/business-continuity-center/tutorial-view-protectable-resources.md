@@ -2,7 +2,7 @@
 title: Tutorial - View protectable resources
 description: In this tutorial, learn how to view your resources that are currently not protected by any solution using Azure Business Continuity Center.
 ms.topic: tutorial
-ms.date: 11/19/2024
+ms.date: 08/20/2025
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
@@ -14,6 +14,8 @@ ms.author: v-mallicka
 # Tutorial: View protectable resources 
 
 This tutorial shows you how to view your resources that are currently not protected by any solution, using Azure Business Continuity (ABC) center. 
+
+For more context and examples on ABCC’s inventory capabilities for unprotected resources and available protection solutions, see this [Microsoft Community Hub blog](https://techcommunity.microsoft.com/blog/azurestorageblog/business-continuity-with-abcc-part-2-understand-your-protectable-resources-inven/4009914).
 
 ## Prerequisites
 
