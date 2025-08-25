@@ -4,7 +4,7 @@ description: Learn how Azure SRE Agent handles your data while in preview.
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: tutorial
-ms.date: 08/22/2025
+ms.date: 08/25/2025
 ms.service: azure
 ---
 
@@ -14,13 +14,17 @@ The following data residency and privacy policies are in effect for Azure SRE Ag
 
 By using an SRE Agent, you consent to the product-specific [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+## Agent location
+
+During preview, you can only create Azure SRE Agent in the *Sweden Central* region, and in some select cases in the *East US* and *Australia* regions.
+
 ## Data residency
 
-- All content and conversation history with the SRE Agent is transferred to and stored in the Sweden Central region. Data includes prompts, responses, and resource analysis.  
+- All content and conversation history with the SRE Agent is transferred to and stored in the agent's Azure region. Data includes prompts, responses, and resource analysis.  
 
-- All data is transferred to Sweden Central, regardless of the Azure region of origin.
+- All data is transferred to the agent's Azure region, regardless of the Azure region of origin.
 
-- You don't have the option to keep data processed by the agent in an Azure region outside Sweden Central.
+- You don't have the option to keep data processed by the agent in a region outside the agent's region.
 
 - You can't specify data residency requirements or opt out of cross-border transfers during the preview.
 
