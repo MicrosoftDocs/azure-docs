@@ -35,7 +35,7 @@ With Azure NetApp Files' migration assistant, you can peer and migrate volumes f
 
 Before using the migration assistant, you must submit a request through the [Azure NetApp Files migration assistant waitlist form](https://forms.microsoft.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR2Qj2eZL0mZPv1iKUrDGvc9UODJBUUhLOFZWNUhORVQxM0RHVVdMQkpMQiQlQCN0PWcu&route=shorturl&b2b=true).
 
-Once you've submitted the request, you can check the status of your registration with the PowerShell command ` Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFMigrationAssistant`. You can also use [Azure CLI commands](/cli/azure/feature) `az feature show` to display the registration status.
+After you submit the request, you can check the status of your registration with the PowerShell command ` Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFMigrationAssistant`. You can also use [Azure CLI commands](/cli/azure/feature) `az feature show` to display the registration status.
 
 ## Before you begin 
 
@@ -52,14 +52,14 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 
 ## Migrate volumes
 
-1. [Authenticate with Azure Active Directory (AAD) to retrieve an OAuth token](azure-netapp-files-develop-with-rest-api.md#access-the-azure-netapp-files-rest-api). This token is used for subsequent API calls.
+1. [Authenticate with Azure Active Directory to retrieve an OAuth token](azure-netapp-files-develop-with-rest-api.md#access-the-azure-netapp-files-rest-api). This token is used for subsequent API calls.
 
 1. Create a migration API request to create Azure NetApp Files volumes for each on-premises volume you intend to migrate. 
 
     >[!IMPORTANT]
     >Ensure the size and other volume properties on the target volumes match with the source.
     >
-    >It's recommended you create the Azure NetApp Files volume at a size 20% or greater than the source volume. Azure NetApp Files volumes use raw capacity size. The source volume might be smaller due to deduplication and compression. You can shrink Azure NetApp Files non-disruptively after the migration to prevent over-provisioning. 
+    >You should create the Azure NetApp Files volume with 20% or more quota than the source volume. Azure NetApp Files volumes use raw capacity size. The source volume might be smaller due to deduplication and compression. You can shrink Azure NetApp Files nondisruptively after the migration to prevent over-provisioning. 
 
     The "remote path" values are the host, server, and volume names of your on-premises storage. 
 
@@ -197,7 +197,7 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 
 1. After receiving the response, copy the CLI command from `svmPeeringCommand` into the ONTAP CLI. 
 1. Once baseline transfers have completed, select a time to take the on-premises volumes offline to prevent new data writes. 
-1. If there have been changes to the data after the baseline transfer, send a "Perform Replication Transfer" request to capture any incremental data written after the baseline transfer was completed. Repeat this operation for _each_ migration volume. 
+1. If there were changes to the data after the baseline transfer, send a "Perform Replication Transfer" request to capture any incremental data written after the baseline transfer was completed. Repeat this operation for _each_ migration volume. 
 
     ```rest
         POST https://<region>.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-names>/providers/Microsoft.NetApp/netAppAccounts/<account-name>>/capacityPools/<capacity-pool>/volumes/<volumes>/performReplicationTransfer?api-version=2024-06-01 
@@ -212,7 +212,7 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
     >[!NOTE]
     >Once you break the replication relationship, don't run any `snapmirror` commands (such as `snapmirror delete` or `snapmirror release`); these commands render the Azure NetApp Files volumes unusable. 
 
-1. Delete the migration replication relationsihp. If the deleted replication is the last migration associated with your subscription, the associated cluster peer and intercluster LIFs are deleted. 
+1. Delete the migration replication relationship. If the deleted replication is the last migration associated with your subscription, the associated cluster peer and intercluster LIFs are deleted. 
 
     ```rest
     POST https://<region>.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.NetApp/netAppAccounts/<NetApp-account>/capacityPools/<capacity-pool>/volumes/<volume-names>/finalizeExternalReplication?api-version=2025-06-01

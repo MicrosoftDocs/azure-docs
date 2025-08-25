@@ -9,7 +9,7 @@ ms.date: 08/25/2025
 ---
 # Migrating data into Azure NetApp Files volumes
 
-There are several supported methods to migrate data into Azure NetApp Files and across regions or availability zones. 
+Azure NetApp Files supports several methods to migrate data. You can migrete data into Azure NetApp Files from on-premises environments, across regions, and availability zones. 
 
 ## Migrate data from on-premises ONTAP based volumes 
 
