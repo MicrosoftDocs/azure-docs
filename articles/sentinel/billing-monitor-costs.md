@@ -142,7 +142,7 @@ You can create budgets with filters for specific resources or services in Azure 
 
 To help you control your Analytics tier budget, you can create a cost management playbook. The playbook sends you an alert if your Microsoft Sentinel workspace exceeds a budget, which you define, within a given timeframe.
 
-The Microsoft Sentinel GitHub community provides the [`Send-IngestionCostAlert`](https://github.com/iwafula025/Azure-Sentinel/tree/master/Playbooks/Send-IngestionCostAlert) cost management playbook on GitHub. This playbook is activated by a recurrence trigger, and gives you a high level of flexibility. You can control execution frequency, ingestion volume, and the message to trigger, based on your requirements.
+The Microsoft Sentinel GitHub community provides the [`Send-IngestionCostAlert`](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Send-IngestionCostAlert) cost management playbook on GitHub. This playbook is activated by a recurrence trigger, and gives you a high level of flexibility. You can control execution frequency, ingestion volume, and the message to trigger, based on your requirements.
 
 ## Manage and monitor costs for the Data lake tier
 

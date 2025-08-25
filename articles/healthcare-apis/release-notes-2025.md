@@ -46,7 +46,7 @@ This article describes features, enhancements, and bug fixes released in 2025 fo
 
 **Handling of bulk job cancellation**: Cancellation requests for export, bulk update, or bulk delete jobs that are already completed no longer return HTTP 500.Instead, the server now returns HTTP 405 (Method Not Allowed) to correctly reflect the invalid operation.
 
-**Reindex infrastructure**: Reindex infrastructure is updated to a new orchestrator that splits the reindex job into chunks and executes the task to complete in a parallel and distributed manner.
+**Reindex infrastructure**: Reindex infrastructure is updated to a new orchestrator that splits the reindex job into chunks and executes the task to complete in a parallel and distributed manner. As part of this change, certain reindex parameters, including maximumConcurrency and queryDelayIntervalInMilliseconds parameters are no longer supported as part of the reindex request. Unrecognized parameters will be ignored. Please see the updated list of reindex parameters [here](https://learn.microsoft.com/azure/healthcare-apis/fhir/how-to-run-a-reindex).
 
 ## July 2025
 ### FHIR service

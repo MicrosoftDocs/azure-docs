@@ -6,7 +6,7 @@ ms.author: mbaldwin
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-key-vault
-ms.date: 06/20/2025
+ms.date: 08/22/2025
 #Customer intent: As an engineer responsible for business continuity, I want to understand the details of how Azure Key Vault works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow during different kinds of situations.
 ---
 
@@ -24,7 +24,7 @@ For production deployments of Key Vault, we recommend that you do the following 
 
 - Use Standard or Premium tier key vaults.
 
-- Enable soft delete and purge protection to prevent accidental or malicious deletion.
+- [Enable soft delete and purge protection](/azure/key-vault/general/key-vault-recovery) to prevent accidental or malicious deletion.
 
 - For critical workloads, consider implementing multi-region strategies that are described in this guide.
 
@@ -113,7 +113,6 @@ The following section describes what to expect when key vaults are in a region t
 
 - **Traffic rerouting:** Key Vault automatically reroutes traffic away from the affected zone to healthy zones without requiring any customer intervention. 
 
-For more information, see [Failover within a region](/azure/key-vault/general/disaster-recovery-guidance#failover-within-a-region) in the Key Vault availability and redundancy documentation.
 
 ### Zone recovery
 
@@ -139,11 +138,28 @@ The following regions don't support Microsoft-managed replication or failover ac
 >
 > If you need to be resilient to region outages, consider using one of the [alternative multi-region approaches](#alternative-multi-region-approaches).
 
-For more information about how Key Vault replicates data across regions, see [Data replication](/azure/key-vault/general/disaster-recovery-guidance#data-replication) in the Key Vault availability and redundancy guide.
+You can also use the [backup and restore](#backups) feature to replicate the contents of your vault to another region of your choice.
 
 #### Considerations
 
-While the failover is in progress, your key vault might be unavailable for a few minutes. After failover, the key vault becomes read-only and only supports limited actions. You can't change key vault properties while operating in the secondary region, and access policy and firewall configurations can't be modified while operating in the secondary region.
+- **Downtime:** While the failover is in progress, your key vault might be unavailable for a few minutes.
+
+- **Read-only after failover:** After failover, the key vault becomes read-only and only supports limited actions. You can't change key vault properties while operating in the secondary region, and access policy and firewall configurations can't be modified while operating in the secondary region.
+
+    When your key vault is in read-only mode, only the following operations are supported:
+    - List certificates
+    - Get certificates
+    - List secrets
+    - Get secrets
+    - List keys
+    - Get (properties of) keys
+    - Encrypt
+    - Decrypt
+    - Wrap
+    - Unwrap
+    - Verify
+    - Sign
+    - Backup
 
 #### Cost
 
@@ -171,9 +187,9 @@ The following section describes what to expect when a key vault is located in a 
 
 - **Expected downtime:** During a major outage of the primary region, your key vault might be unavailable for several hours or until Microsoft initiates failover to the secondary region.
 
-- **Traffic rerouting:** After a region failover completes, requests are automatically routed to the paired region without requiring any customer intervention.
+    If you use Private Link to connect to your key vault, it might take up to 20 minutes for the connection to be re-established after the region failover.
 
-For more information about the failover process and behavior, see [Failover across regions](/azure/key-vault/general/disaster-recovery-guidance#failover-across-regions) in the Key Vault availability and redundancy guide.
+- **Traffic rerouting:** After a region failover completes, requests are automatically routed to the paired region without requiring any customer intervention.
 
 ### Alternative multi-region approaches
 
@@ -227,7 +243,6 @@ The service-level agreement (SLA) for Key Vault describes the expected availabil
 
 ## Related content
 
-- [Key Vault availability and redundancy](/azure/key-vault/general/disaster-recovery-guidance)
 - [Key Vault backup](/azure/key-vault/general/backup)
 - [Key Vault recovery management](/azure/key-vault/general/key-vault-recovery)
 - [Reliability in Azure](/azure/reliability/overview)

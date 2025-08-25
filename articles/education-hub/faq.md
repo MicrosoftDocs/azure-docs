@@ -223,7 +223,7 @@ Yes. A faculty member who is enrolled in an approved course is eligible to insta
 
 ### How do I access my Visual Studio Enterprise benefit?
 
-As an administrator of the Azure Dev Tools for Teaching subscription, you can access your Visual Studio Enterprise subscription by requesting access through the [Azure Dev Tools for Teaching management portal](https://azureforeducation.microsoft.com/account/Subscriptions). After you're approved, you can sign in to the [Visual Studio portal](https://my.visualstudio.com/) and redeem more benefits.
+As an administrator of the Azure Dev Tools for Teaching subscription you can sign in to the [Visual Studio portal](https://my.visualstudio.com/) to redeem your benefits.
 
 ### Does Azure Dev Tools for Teaching include Microsoft Office?
 
@@ -266,12 +266,6 @@ You must enroll in Azure Dev Tools for Teaching by using the appropriate promoti
 You must also renew your subscription when it expires. It doesn't renew automatically.
 
 If you can't find your promotional code, [contact us](https://azureforeducation.microsoft.com/institutions/Contact).
-
-### How and when do I renew an Azure Dev Tools for Teaching subscription?
-
-Sixty days before your membership expires, you start receiving email reminders to renew your subscription. If you don't receive these reminder emails and are concerned that your subscription is about to expire, [contact us](https://aka.ms/adt4tsupport).
-
-To check the expiration date of your subscription, go to the [Azure Dev Tools for Teaching management portal](https://azureforeducation.microsoft.com/account/Subscriptions) and look under **Subscriptions**.
 
 ### What if I need more help?
 

@@ -51,6 +51,10 @@ You can use [Azure Resource Graph (ARG)](https://portal.azure.com/?feature.custo
 ### Scenario 1: Site is not publicly accessible
 This ARG query retrieves a list of sites that either have the public network access property disabled or are configured to use client certificates. It then filters for sites that are using App Service Managed Certificates (ASMC) for their custom hostname SSL bindings. These certificates are the ones that could be affected by the upcoming changes. However, this query does not provide complete coverage, as there may be other configurations impacting public access to your app that are not included here. Ultimately, this query serves as a helpful guide for users, but a thorough review of your environment is recommended. You can copy this query, paste it into [ARG Explorer](https://portal.azure.com/?feature.customPortal=false#view/HubsExtension/ArgQueryBlade), and then click "Run query" to view the results for your environment. 
 
+> [!NOTE]
+> ARG can only retrive site property values (ie. client certificate and public network access), however it cannot retrieve any site config values (ie. IP restrictions). If you would like to retrive both site properties and site config values as well, you can refer to this [PowerShell script from GitHub](https://github.com/nimccoll/AppServiceManagedCertificates).
+> 
+
 ```kql
 // ARG Query: Identify App Service sites that commonly restrict public access and use ASMC for custom hostname SSL bindings 
 resources 
@@ -86,7 +90,6 @@ resources
 // Final output: sites with restricted public access and using ASMC for custom hostname SSL bindings 
 | project siteName, siteId, siteResourceGroup, publicNetworkAccess, clientCertEnabled, thumbprint, certName, certId, certResourceGroup, certExpiration, canonicalName
 ```
-
 
 ### Scenario 2: Site is an Azure Traffic Manager "nested" or "external" endpoint
 If your App Service uses custom domains routed through **Azure Traffic Manager**, you may be impacted if your profile includes **external** or **nested endpoints**. These endpoint types are not supported for certificate issuance or renewal under the new validation.

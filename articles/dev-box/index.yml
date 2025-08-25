@@ -35,7 +35,7 @@ landingContent:
             url: https://learn.microsoft.com/training/modules/explore-microsoft-dev-box-deployment-guidelines-best-practices/
 
   # Card
-  - title: Dev Box deployment
+  - title: Dev Box deployment at scale
     linkLists:
       - linkListType: concept
         links:

@@ -257,7 +257,7 @@ This section outlines variations and considerations when using Identity services
 
 For feature variations and limitations, see [Cloud feature availability](../active-directory/authentication/feature-availability.md).
 
-For information on how to use Power BI capabilities for collaboration between Azure and Azure Government, see [Cross-cloud B2B](/power-bi/enterprise/service-admin-azure-ad-b2b#cross-cloud-b2b).
+For information on how to use Power BI capabilities for collaboration between Azure and Azure Government, see [Cross-cloud B2B](/power-platform/admin/new-admin-center#cross-cloud-b2b).
 
 The following features have known limitations in Azure Government:
 
