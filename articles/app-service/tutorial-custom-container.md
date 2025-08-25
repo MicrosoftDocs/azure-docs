@@ -941,7 +941,7 @@ What you learned:
 Go to the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Provide security with custom domain and certificate](tutorial-secure-domain-certificate.md)
+> [Provide security with a custom domain and certificate](tutorial-secure-domain-certificate.md)
 
 Or check out other resources:
 
