@@ -3,7 +3,7 @@ title: Add Switch Actions to Azure Logic Apps Workflows
 description: Learn how to add switch actions that control workflow actions based on specific values in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewer: estfan
 ms.topic: how-to
 ms.date: 08/25/2025
 #Customer intent: As an integration developer, I want to use a switch to perform different actions in an Azure logic app workflow depending on the values of objects, expressions, or tokens.
