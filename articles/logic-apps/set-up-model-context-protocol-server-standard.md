@@ -336,7 +336,7 @@ For this task, you need to edit the **host.json** file for your Standard logic a
 
    To get the URL by sending an HTTPS request, use the **POST** method and the following URL:
 
-   `https://management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Web/sites/<logic-app-name>/hostruntime/runtime/webhooks/workflow/api/management/listMcpServerUrl?api-version=2021-02-01`
+   `https://management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Web/sites/<logic-app-name>/hostruntime/runtime/webhooks/workflow/api/management/listMcpServerUrl?api-version=<api-version>`
 
    The following example shows a sample request and response:
 
