@@ -4,11 +4,12 @@ titleSuffix: Azure Storage
 description: Query acceleration enables applications and analytics frameworks to dramatically optimize data processing by retrieving only the data that is required for a processing operation.
 author: normesta
 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.date: 11/18/2024
 ms.service: azure-data-lake-storage
+# Customer intent: "As a data analyst using distributed analytics frameworks, I want to optimize data retrieval using query acceleration, so that I can reduce network latency and compute costs while improving the performance of my data processing tasks."
 ---
 
 # Azure Data Lake Storage query acceleration

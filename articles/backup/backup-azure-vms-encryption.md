@@ -2,10 +2,11 @@
 title: Back up and restore encrypted Azure VMs
 description: Describes how to back up and restore encrypted Azure VMs with the Azure Backup service.
 ms.topic: how-to
-ms.date: 04/14/2025
+ms.date: 08/20/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a cloud administrator, I want to back up and restore encrypted Azure virtual machines, so that I can ensure data protection and recovery for my organization's critical workloads."
 ---
 # Back up and restore encrypted Azure virtual machines
 
@@ -120,6 +121,10 @@ Learn about the [different available roles](/azure/key-vault/general/rbac-guide?
 
 For Azure RBAC enabled key vaults, you can create custom role with the following set of permissions. Learn [how to create custom role](../active-directory/roles/custom-create.md).
 
+>[!Note]
+>When you use Azure Government, ensure that the Key Vault Administrator role is assigned to the Backup Fairfax Entra Application to enable proper access and functionality. 
+
+
 | Action | Description |
 | --- | --- |
 | Microsoft.KeyVault/vaults/keys/backup/action | Creates the backup file of a key.  |
@@ -209,3 +214,5 @@ If you run into any issues, review these articles:
 
 - [Common errors](backup-azure-vms-troubleshoot.md) when backing up and restoring encrypted Azure VMs.
 - [Azure VM agent/backup extension](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) issues.
+- [Restore Key Vault key and secret for encrypted VMs using Azure Backup](backup-azure-restore-key-secret.md).
+

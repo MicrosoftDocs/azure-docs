@@ -1,7 +1,7 @@
 ---
 description: Overview of features in Azure Cloud Shell
 ms.contributor: jahelmic
-ms.date: 06/05/2024
+ms.date: 05/08/2025
 ms.topic: overview
 tags: azure-resource-manager
 title: Azure Cloud Shell features
@@ -21,7 +21,7 @@ edge products and services. You can choose Bash or PowerShell as your default sh
 
 Microsoft internally compiles all the packages included in the **Azure Linux** repository to help
 guard against supply chain attacks. For more information or to request changes to the **Azure
-Linux** image, see the [Cloud Shell GitHub repository][22].
+Linux** image, see the [Cloud Shell GitHub repository][21].
 
 Cloud Shell automatically authenticates your Azure account to allow secure access for Azure CLI,
 Azure PowerShell, and other cloud management tools.
@@ -37,7 +37,7 @@ To persist files across sessions, you can choose to mount a storage account. Clo
 automatically attaches your storage (mounted as `$HOME\clouddrive`) for all future sessions.
 Additionally, your `$HOME` directory is persisted as an `.img` file in your Azure File share. The
 machine state and files outside of `$HOME` aren't persisted across sessions. Learn more about
-[Persisting files in Cloud Shell][29].
+[Persisting files in Cloud Shell][28].
 
 Use best practices when storing secrets such as SSH keys. You can use Azure Key Vault to securely
 store and retrieve your keys. For more information, see [Manage Key Vault using the Azure CLI][05].
@@ -86,7 +86,7 @@ Cloud Shell comes with the following Azure command-line tools preinstalled:
 
 ### Other Microsoft services
 
-- [Office 365 CLI][26]
+- [Office 365 CLI][25]
 - [Exchange Online PowerShell][11]
 - A basic set of [Microsoft Graph PowerShell][12] modules
   - Microsoft.Graph.Applications
@@ -119,15 +119,14 @@ Text editors
 
 ### Cloud management tools
 
-- [Docker Desktop][21]
-- [Kubectl][25]
-- [Helm][24]
-- [D2iQ Kubernetes Platform CLI][20]
+- [Docker Desktop][20]
+- [Kubectl][24]
+- [Helm][23]
 - [Cloud Foundry CLI][19]
-- [Terraform][28]
+- [Terraform][27]
 - [Ansible][03]
 - [Chef InSpec][18]
-- [Puppet Bolt][27]
+- [Puppet Bolt][26]
 - [HashiCorp Packer][17]
 
 ### Developer tools
@@ -149,7 +148,7 @@ Database tools
 - MySQL client
 - PostgreSQL client
 - [sqlcmd Utility][15]
-- [mssql-scripter][23]
+- [mssql-scripter][22]
 
 Programming languages
 
@@ -193,13 +192,12 @@ PowerShell modules, Node.js packages, and most packages that can be installed wi
 [17]: https://developer.hashicorp.com/packer/docs
 [18]: https://docs.chef.io/
 [19]: https://docs.cloudfoundry.org/cf-cli/
-[20]: https://docs.d2iq.com/dkp/2.7/application-deployment
-[21]: https://docs.docker.com/desktop/
-[22]: https://github.com/Azure/CloudShell
-[23]: https://github.com/microsoft/mssql-scripter/blob/dev/doc/usage_guide.md
-[24]: https://helm.sh/docs/
-[25]: https://kubernetes.io/docs/reference/kubectl/
-[26]: https://pnp.github.io/office365-cli/
-[27]: https://puppet.com/docs/bolt/latest/bolt.html
-[28]: https://www.terraform.io/docs/providers/azurerm/
-[29]: persisting-shell-storage.md
+[20]: https://docs.docker.com/desktop/
+[21]: https://github.com/Azure/CloudShell
+[22]: https://github.com/microsoft/mssql-scripter/blob/dev/doc/usage_guide.md
+[23]: https://helm.sh/docs/
+[24]: https://kubernetes.io/docs/reference/kubectl/
+[25]: https://pnp.github.io/office365-cli/
+[26]: https://puppet.com/docs/bolt/latest/bolt.html
+[27]: https://www.terraform.io/docs/providers/azurerm/
+[28]: persisting-shell-storage.md

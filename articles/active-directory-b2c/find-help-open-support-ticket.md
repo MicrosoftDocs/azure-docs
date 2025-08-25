@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: troubleshooting
-ms.date: 01/11/2024
+ms.date: 05/20/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 

@@ -8,11 +8,12 @@ ms.service: sap-on-azure
 ms.subservice: sap-monitor
 ms.date: 08/21/2024
 #Customer intent: As a developer, I want to configure alerts in Azure Monitor for SAP solutions so that I can receive alerts and notifications about my SAP systems.
+# Customer intent: As an IT operations manager, I want to configure alerts in Azure Monitor for SAP solutions so that I can proactively manage system health and ensure timely notifications for critical issues.
 ---
 
 # Configure alerts in Azure Monitor for SAP solutions in Azure portal 
 
-In this how-to guide, you learn how to configure alerts in Azure Monitor for SAP solutions. You can configure alerts and notifications from the [Azure portal](https://azure.microsoft.com/features/azure-portal) using its browser-based interface.
+In this how to guide, you learn how to configure alerts in Azure Monitor for SAP solutions. You can configure alerts and notifications from the [Azure portal](https://azure.microsoft.com/features/azure-portal) using its browser-based interface.
 
 ## Prerequisites
 

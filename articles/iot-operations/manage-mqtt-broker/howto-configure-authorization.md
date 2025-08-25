@@ -1,8 +1,8 @@
 ---
 title: Configure MQTT broker authorization
 description: Configure MQTT broker authorization using BrokerAuthorization.
-author: PatAltimore
-ms.author: patricka
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
@@ -154,8 +154,8 @@ resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authoriz
             {
               method: 'Publish'
               topics: [
-                '/telemetry/{principal.clientId}'
-                '/telemetry/{principal.attributes.organization}'
+                '/sensor/{principal.clientId}'
+                '/sensor/{principal.attributes.organization}'
               ]
             }
             {
@@ -202,8 +202,8 @@ spec:
           - method: Connect
           - method: Publish
             topics:
-              - "/telemetry/{principal.clientId}"
-              - "/telemetry/{principal.attributes.organization}"
+              - "/sensor/{principal.clientId}"
+              - "/sensor/{principal.attributes.organization}"
           - method: Subscribe
             topics:
               - "/commands/{principal.attributes.organization}"
@@ -216,10 +216,10 @@ To create this BrokerAuthorization resource, apply the YAML manifest to your Kub
 This broker authorization allows clients with the client IDs `temperature-sensor` or `humidity-sensor`, or clients with the attributes `organization`, with the values `contoso` and `city`, and with the value `seattle`, to:
 
 - Connect to the broker.
-- Publish messages to telemetry topics scoped with their client IDs and organization. For example:
-  - `temperature-sensor` can publish to `/telemetry/temperature-sensor` and `/telemetry/contoso`.
-  - `humidity-sensor` can publish to `/telemetry/humidity-sensor` and `/telemetry/contoso`.
-  - `some-other-username` can publish to `/telemetry/contoso`.
+- Publish messages to topics scoped with their client IDs and organization. For example:
+  - `temperature-sensor` can publish to `/sensor/temperature-sensor` and `/sensor/contoso`.
+  - `humidity-sensor` can publish to `/sensor/humidity-sensor` and `/sensor/contoso`.
+  - `some-other-username` can publish to `/sensor/contoso`.
 - Subscribe to `/commands/` topics scoped with their organization. For example:
   - `temperature-sensor` can subscribe to `/commands/contoso`.
   - `some-other-username` can subscribe to `/commands/contoso`.
@@ -236,7 +236,7 @@ To prevent security issues, use the MQTT username for broker authorization only 
 
 ### Further limit access based on client ID
 
-Because the `principals` field is a logical `OR`, you can further restrict access based on client IDs by adding the `clientIds` field to the `brokerResources` field. For example, to allow clients with client IDs that start with their building number to connect and publish telemetry to topics scoped with their building, use the following configuration:
+Because the `principals` field is a logical `OR`, you can further restrict access based on client IDs by adding the `clientIds` field to the `brokerResources` field. For example, to allow clients with client IDs that start with their building number to connect and publish to topics scoped with their building, use the following configuration:
 
 # [Portal](#tab/portal)
 
@@ -257,7 +257,7 @@ In the broker authorization rules for your authorization policy, use the followi
         "clientIds": [],
         "method": "Publish",
         "topics": [
-          "sensors/{principal.attributes.building}/{principal.clientId}/telemetry"
+          "sensors/{principal.attributes.building}/{principal.clientId}/sensor"
         ]
       }
     ],
@@ -302,7 +302,7 @@ In the broker authorization rules for your authorization policy, create a config
             "clientIds": [],
             "method": "Publish",
             "topics": [
-              "sensors/{principal.attributes.building}/{principal.clientId}/telemetry"
+              "sensors/{principal.attributes.building}/{principal.clientId}/sensor"
             ]
           }
         ],
@@ -382,7 +382,7 @@ resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authoriz
             {
               method: 'Publish'
               topics: [
-                'sensors/{principal.attributes.building}/{principal.clientId}/telemetry'
+                'sensors/{principal.attributes.building}/{principal.clientId}/sensor'
               ]
             }
           ]
@@ -421,7 +421,7 @@ spec:
           - "{principal.attributes.building}*" # client IDs must start with building22
       - method: Publish
         topics:
-          - "sensors/{principal.attributes.building}/{principal.clientId}/telemetry"
+          - "sensors/{principal.attributes.building}/{principal.clientId}/sensor"
 ```
 
 ---
@@ -649,11 +649,11 @@ spec:
 
 ---
 
-To learn more with an example, see [Set up Authorization Policy with Dapr Client](../create-edge-apps/howto-develop-dapr-apps.md).
+To learn more with an example, see [Set up Authorization Policy with Dapr Client](../develop-edge-apps/howto-develop-dapr-apps.md).
 
 ## State store
 
-The MQTT broker provides a [state store](../create-edge-apps/concept-about-state-store-protocol.md) that clients can use to store state. You can also configure the state store to be highly available.
+The MQTT broker provides a [state store](../develop-edge-apps/reference-state-store-protocol.md) that clients can use to store state. You can also configure the state store to be highly available.
 
 To set up authorization for clients that use the state store, provide the following permissions:
 
@@ -783,7 +783,7 @@ In the broker authorization rules for your authorization policy, add a similar c
       {
         "method": "Publish",
         "topics": [
-          "sensors/{principal.attributes.building}/{principal.clientId}/telemetry/*"
+          "sensors/{principal.attributes.building}/{principal.clientId}/sensor/*"
         ]
       },
       {
@@ -848,7 +848,7 @@ In this example, assume a configuration file named `state-store-authz-policy.jso
           {
             "method": "Publish",
             "topics": [
-              "sensors/{principal.attributes.building}/{principal.clientId}/telemetry/*"
+              "sensors/{principal.attributes.building}/{principal.clientId}/sensor/*"
             ]
           },
           {
@@ -954,8 +954,8 @@ resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authoriz
             {
               method: 'Publish'
               topics: [
-                '/telemetry/{principal.username}'
-                '/telemetry/{principal.attributes.organization}'
+                '/sensor/{principal.username}'
+                '/sensor/{principal.attributes.organization}'
               ]
             }
             {

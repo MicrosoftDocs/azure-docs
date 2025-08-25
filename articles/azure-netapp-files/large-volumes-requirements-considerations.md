@@ -1,15 +1,16 @@
 ---
-title: Requirements and considerations for large volumes | Microsoft Docs
+title: Requirements and considerations for Azure NetApp Files large volumes
 description: Describes the requirements and considerations you need to be aware of before using large volumes.
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.custom: references_regions
-ms.topic: conceptual
-ms.date: 04/17/2025
+ms.topic: concept-article
+ms.date: 08/19/2025
 ms.author: anfdocs
+# Customer intent: As a storage administrator, I want to review the requirements and limitations of large volumes in Azure NetApp Files, so that I can effectively plan the deployment and management of storage solutions to meet my organization's data capacity and performance needs.
 ---
-# Requirements and considerations for large volumes
+# Requirements and considerations for Azure NetApp Files large volumes
 
 This article describes the requirements and considerations you need to be aware of before using [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) on Azure NetApp Files.
 
@@ -20,11 +21,11 @@ The following requirements and considerations apply to large volumes. For perfor
 * A regular volume can’t be converted to a large volume.
 * You must create a large volume at a size of 50 TiB or larger. The maximum size of a large volume is 1,024 TiB, though 2-PiB large volumes are available on request depending on regional dedicated capacity availability. To request 2-PiB large volumes, contact your account team. 
 * You can't resize a large volume to less than 50 TiB.
-    A large volume cannot be resized to more than 30% of its lowest provisioned size. This limit is adjustable via [a support request](azure-netapp-files-resource-limits.md#resource-limits). When requesting the resize, specify the desired size in TiB. 
-* Large volumes are currently not supported with Azure NetApp Files backup.
+    * A large volume can't be resized to more than 30% of its lowest provisioned size. This limit is adjustable via [a support request](azure-netapp-files-resource-limits.md#resource-limits). When requesting the resize, specify the desired size in TiB. 
+    * When reducing the size of a large volume, the size you can decrease to depends on the size of files written to the volume and the snapshots currently active on the volumes. 
 * You can't create a large volume with application volume groups.
 * Currently, large volumes aren't suited for database (HANA, Oracle, SQL Server, etc.) data and log volumes. For database workloads requiring more than a single volume’s throughput limit, consider deploying multiple regular volumes. To optimize multiple volume deployments for databases, use [application volume groups](application-volume-group-concept.md).
-*	Throughput ceilings for all the Standard, Premium, and Ultra service levels with large volumes is 12,800 MiB/s. You're able to grow to 1 PiB with the throughput ceiling per the following table:  
+*	The throughput ceiling for the Standard, Premium, and Ultra service levels with large volumes is 12,800 MiB/s. You can grow a large volume to 1 PiB with the throughput ceiling per the following table:  
     
     <table><thead>
       <tr>
@@ -36,28 +37,28 @@ The following requirements and considerations apply to large volumes. For perfor
       <tr>
         <td>Capacity tier</td>
         <td>Minimum volume size<br>(TiB)</td>
-        <td>Maximum volume size (TiB)</td>
+        <td>Maximum volume size (TiB)*</td>
         <td>Minimum throughput for capacity tier (MiB/s)</td>
         <td>Maximum throughput for capacity tier (MiB/s)</td>
       </tr>
       <tr>
         <td>Standard (16 MiB/s per TiB)</td>
         <td>50</td>
-        <td>1,024</td>
+        <td>1,024*</td>
         <td>800</td>
         <td>12,800</td>
       </tr>
       <tr>
         <td>Premium (64 MiB/s per TiB)</td>
         <td>50</td>
-        <td>1,024</td>
+        <td>1,024*</td>
         <td>3,200</td>
         <td>12,800</td>
       </tr>
       <tr>
         <td>Ultra (128 MiB/s per TiB)</td>
         <td>50</td>
-        <td>1,024</td>
+        <td>1,024*</td>
         <td>6,400</td>
         <td>12,800</td>
       </tr>
@@ -68,8 +69,7 @@ The following requirements and considerations apply to large volumes. For perfor
 
     For the latest performance benchmark numbers conducted on Azure NetApp Files Large volumes, see [Azure NetApp Files large volume performance benchmarks for Linux](performance-large-volumes-linux.md) and [Benefits of using Azure NetApp Files for Electronic Design Automation (EDA)](solutions-benefits-azure-netapp-files-electronic-design-automation.md).
 
-
-* Large volumes are supported with cool access. You must be [registered to use cool access](manage-cool-access.md#register-the-feature) before creating a cool access-enabled large volume. 
+* Cool access is supported with large volumes. You must be [registered to use cool access](manage-cool-access.md#register-the-feature) before creating a cool access-enabled large volume. 
 
 ## About 64-bit file IDs
 
@@ -127,7 +127,7 @@ Support for Azure NetApp Files large volumes is available in the following regio
 >[!IMPORTANT]
 >Before you can use large volumes, you must first request [an increase in regional capacity quota](azure-netapp-files-resource-limits.md#request-limit-increase).
 
-Once your [regional capacity quota](regional-capacity-quota.md) has increased, you can create volumes that are up to 1 PiB in size. When creating a volume, after you designate the volume quota, you must select **Yes** for the **Large volume** field. Once created, you can manage your large volumes in the same manner as regular volumes. 
+Once your [regional capacity quota](regional-capacity-quota.md) has increased, you can create volumes up to 1 PiB. When creating a volume, after you designate the volume quota, you must select **Yes** for the **Large volume** field. Once created, you can manage your large volumes in the same manner as regular volumes. 
 
 ### Register the feature 
 

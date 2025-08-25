@@ -1,11 +1,16 @@
 ---
-title: Prevent subdomain takeovers
+title: Prevent Subdomain Takeovers
 description: Describes options for dangling subdomain prevention on Azure App Service.
-ms.topic: article
+ms.topic: concept-article
 ms.date: 10/14/2022
+ms.update-cycle: 1095-days
 ms.author: msangapu
 ms.custom: UpdateFrequency3
 author: msangapu-msft
+ms.service: azure-app-service
+
+# Customer intent: As an App Service admin, I want to learn options for mitigating subdomain takeovers in Azure App Service so that I can reduce the threat of malicious activity.  
+
 ---
 
 # Mitigating subdomain takeovers in Azure App Service

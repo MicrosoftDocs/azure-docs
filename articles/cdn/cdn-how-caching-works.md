@@ -9,6 +9,7 @@ ms.service: azure-cdn
 ms.topic: concept-article
 ms.date: 03/31/2025
 ROBOTS: NOINDEX
+# Customer intent: "As a web developer, I want to understand caching mechanisms in content delivery networks, so that I can optimize my application's performance and reduce latency for end-users."
 ---
 
 # How caching works

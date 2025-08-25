@@ -1,18 +1,19 @@
 ---
-title: How Azure NetApp Files snapshots work | Microsoft Docs
+title: How Azure NetApp Files snapshots work
 description: Explains how Azure NetApp Files snapshots work, including ways to create snapshots, ways to restore snapshots, how to use snapshots in cross-region replication settings.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
-ms.date: 01/28/2025
+ms.topic: concept-article
+ms.date: 08/21/2025
 ms.author: anfdocs
+# Customer intent: As a data administrator, I want to create and manage snapshots in Azure NetApp Files, so that I can ensure efficient data protection, quick recovery options, and scalable storage management for my organization's critical data.
 ---
 # How Azure NetApp Files snapshots work
 
 This article explains how Azure NetApp Files snapshots work. Azure NetApp Files snapshot technology delivers stability, scalability, and faster recoverability, with no impact to performance. Snapshots provide the foundation for data protection solutions, including single-file restores, volume restores and clones, cross-region replication, cross-zone replication, and long-term retention. 
 
-To create volume snapshots, see [Manage snapshots using Azure NetApp Files](azure-netapp-files-manage-snapshots.md). For considerations about snapshot management in cross-region replication, see [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md). For cross-zone replication, see [Requirements and considerations for using cross-zone replication](cross-zone-replication-requirements-considerations.md).
+To create volume snapshots, see [Manage snapshots using Azure NetApp Files](azure-netapp-files-manage-snapshots.md). For considerations about snapshot management in cross-region and cross-zone replication, see [Requirements and considerations for Azure NetApp Files replication](replication-requirements.md).
 
 ## What volume snapshots are  
 
@@ -67,14 +68,14 @@ Because a volume snapshot records only the block changes since the latest snapsh
 
 * Snapshots provide ***user visibility*** and ***file recoverability***.  
 
-The high performance, scalability, and stability of Azure NetApp Files snapshot technology means it provides an ideal online backup for user-driven recovery. Snapshots can be made user-accessible for file, directory, or volume restore purposes. Additional solutions allow you to copy backups to offline storage or [replicate cross-region](cross-region-replication-introduction.md) for retention or disaster-recovery purposes.
+The high performance, scalability, and stability of Azure NetApp Files snapshot technology means it provides an ideal online backup for user-driven recovery. Snapshots can be made user-accessible for file, directory, or volume restore purposes. Additional solutions allow you to copy backups to offline storage or [replicate cross-region](replication.md) for retention or disaster-recovery purposes.
 
 ## Ways to create snapshots   
 
 You can use several methods to create and maintain snapshots:
 
 * Manually (on-demand), by using:   
-    * The [Azure portal](azure-netapp-files-manage-snapshots.md#create-an-on-demand-snapshot-for-a-volume), [REST API](/rest/api/netapp/snapshots), [Azure CLI](/cli/azure/netappfiles/snapshot), or [PowerShell](/powershell/module/az.netappfiles/new-aznetappfilessnapshot) tools
+    * The [Azure portal](azure-netapp-files-manage-snapshots.md), [REST API](/rest/api/netapp/snapshots), [Azure CLI](/cli/azure/netappfiles/snapshot), or [PowerShell](/powershell/module/az.netappfiles/new-aznetappfilessnapshot) tools
     * Scripts (see [examples](https://techcommunity.microsoft.com/t5/azure-architecture-blog/managing-sql-server-2022-t-sql-snapshot-backup-with-azure-netapp/ba-p/3654798))
 
 * Automated, by using:
@@ -83,7 +84,7 @@ You can use several methods to create and maintain snapshots:
 
 ## How volumes and snapshots are replicated for disaster recovery and business continuity 
 
-Azure NetApp Files supports [cross-region replication](cross-region-replication-introduction.md) for disaster-recovery (DR) purposes and [cross-zone replication](cross-zone-replication-introduction.md) for business continuity. Azure NetApp Files cross-region replication and cross-zone replication both use SnapMirror technology. Only changed blocks are sent over the network in a compressed, efficient format. After replication is initiated between volumes, the entire volume contents (that is, the actual stored data blocks) are transferred only once. This operation is called a *baseline transfer*. After the initial transfer, only changed blocks (as captured in snapshots) are transferred. The result is an asynchronous one-to-one replica of the source volume, including all snapshots. This behavior follows a full and incremental-forever replication mechanism. This technology minimizes the amount of data required for replication, therefore saving data transfer costs. It also shortens the replication time. You can achieve a smaller Recovery Point Objective (RPO), because more snapshots can be created and transferred more frequently with minimal data transfers. Further, it takes away the need for host-based replication mechanisms, avoiding virtual machine and software license cost.
+Azure NetApp Files supports [cross-region replication](replication.md#cross-region-replication) for disaster-recovery (DR) purposes and [cross-zone replication](replication.md#cross-zone-replication) for business continuity. Azure NetApp Files cross-region replication and cross-zone replication both use SnapMirror technology. Only changed blocks are sent over the network in a compressed, efficient format. After replication is initiated between volumes, the entire volume contents (that is, the actual stored data blocks) are transferred only once. This operation is called a *baseline transfer*. After the initial transfer, only changed blocks (as captured in snapshots) are transferred. The result is an asynchronous one-to-one replica of the source volume, including all snapshots. This behavior follows a full and incremental-forever replication mechanism. This technology minimizes the amount of data required for replication, therefore saving data transfer costs. It also shortens the replication time. You can achieve a smaller Recovery Point Objective (RPO), because more snapshots can be created and transferred more frequently with minimal data transfers. Further, it takes away the need for host-based replication mechanisms, avoiding virtual machine and software license cost.
 
 The following diagram shows snapshot traffic in replication scenarios: 
 
@@ -103,7 +104,7 @@ The following diagram shows how snapshot data is transferred from the Azure NetA
 
 The Azure NetApp Files backup functionality is designed to keep a longer history of backups as indicated in this simplified example. Notice how the backup repository on the right contains more and older snapshots than the protected volume and snapshots on the left. 
 
-Most use cases require that you keep online snapshots on the Azure NetApp Files volume for a relatively short amount of time (usually several months) to serve the most common recoveries of lost data due to application or user error. The Azure NetApp Files backup functionality is used to extend the data-protection period to a year or longer by sending the snapshots over to cost-efficient Azure storage. As indicated by the blue color in the diagram, the very first transfer is the baseline, which copies all consumed data blocks in the source Azure NetApp Files volume and snapshots. Consecutive backups use the snapshot mechanism to update the backup repository with only block-incremental updates.
+Most use cases require that you keep online snapshots on the Azure NetApp Files volume for a relatively short amount of time (usually several days, maybe weeks) to serve the most common recoveries of lost data due to application or user error. The Azure NetApp Files backup functionality is used to extend the data-protection period to a year or longer by sending the snapshots over to cost-efficient Azure storage. As indicated by the blue color in the diagram, the very first transfer is the baseline, which copies all consumed data blocks in the source Azure NetApp Files volume and snapshots. Consecutive backups use the snapshot mechanism to update the backup repository with only block-incremental updates.
 
 ## Ways to restore data from snapshots  
 
@@ -125,6 +126,12 @@ The following diagram shows volume restoration (cloning) by using DR target volu
 [![Diagram that shows volume restoration using DR target volume snapshot](./media/snapshots-introduction/snapshot-restore-clone-target-volume.png)](./media/snapshots-introduction/snapshot-restore-clone-target-volume.png#lightbox)
 
 When you restore a snapshot to a new volume, the Volume overview page displays the name of the snapshot used to create the new volume in the **Originated from** field. See [Restore a snapshot to a new volume](snapshots-restore-new-volume.md) about volume restore operations.
+
+### Creating a short-term clone 
+
+Short-term clones are volumes clones created from snapshots that are designed explicity for temporary use such as development, testing, data analytics, or data forensics. Short-term clones inherit the data in the base snapshot used to create them. In contrast to regular clones, short-term clones are more space efficient, sharing the same data blocks with its parent volume for common data. Writes specifically to the short-term clone consume their own data blocks.
+
+A short-term clone is designed to be used for a fixed period of time. After 32 days, the short-term clone is automatically converted into a regular volume. For more information about creating a short-term clone and its related quota consumption, see [Create a short-term clone volume](create-short-term-clone.md).
 
 ### Restoring (reverting) an online snapshot in-place
 
@@ -183,9 +190,16 @@ The following diagram illustrates the operation of restoring a selected vaulted 
 
 ### Restoring individual files or directories from vaulted snapshots  
 
-To restore individual files or directories, the complete vaulted snapshot is restored to a new volume, and then the volume can be mounted to browse for the files or directories to be restored. The restore is done by copying the required files  or directories from the newly restored volume to the destination location. When the restore is completed, the restored volume may be deleted. 
+There are two methods for restoring individual files or directories from vaulted snapshots.
 
-If a volume is deleted, its vaulted snapshots (backups) are still retained, unlike the online snapshots, which are part of the volume and are deleted with the volume deletion. You can restore complete volumes and then individual directories from vaulted backups even if the parent volume was deleted or lost due to application or user error. You can do so by selecting the appropriate vaulted snapshot from the backup list and restoring it to a new volume. See [Restore a backup to a new volume](backup-restore-new-volume.md) for details.
+1. If you need to restore eight or fewer files and you know the exact file and path names, you can restore the specific files. This function allows you to restore specific files or directories from a backup. To learn more, see [Restore individual files using single-file restore from backup](restore-single-file-backup.md)
+
+    >[!NOTE]
+    >If files with the same paths and names exist, those will be overwritten by this action.
+
+1. Restore the entire vaulted snapshot to a new volume. With this method, you can mount the volume to browse for the files or directories to be restored then copy the necessary files from the restored volume to the appropriate destination. Once you have restored the necessary files or directories, you can delete the restored volume. For more information, see [Restore a backup to a new volume](backup-restore-new-volume.md).
+
+If a volume is deleted, its vaulted snapshots (backups) are still retained, unlike the online snapshots, which are part of the volume and are deleted with the volume deletion. You can restore complete volumes and then individual directories from vaulted backups even if the parent volume was deleted or lost due to application or user error. You can do so by selecting the appropriate vaulted snapshot from the backup list and restoring it to a new volume.
 
 ## How snapshots are deleted  
 
@@ -221,6 +235,7 @@ Vaulted snapshot history is managed automatically by the applied snapshot policy
 * [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones)
 * [Azure Well-Architected Framework perspective on Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files)
 * [Restore individual files using single-file snapshot restore](snapshots-restore-file-single.md)
+* [Restore individual files using single-file restore from backup](restore-single-file-backup.md)
 * [Restore a file from a snapshot using a client](snapshots-restore-file-client.md)
 * [Troubleshoot snapshot policies](troubleshoot-snapshot-policies.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)

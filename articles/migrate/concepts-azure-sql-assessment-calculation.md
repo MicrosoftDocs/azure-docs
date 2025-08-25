@@ -2,9 +2,10 @@
 title: Azure SQL assessments in Azure Migrate Discovery and assessment tool
 description: Learn about Azure SQL assessments in Azure Migrate Discovery and assessment tool
 ms.service: azure-migrate
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/26/2024
 ms.custom: engagement-fy25
+# Customer intent: As a database administrator, I want to assess the readiness and migration costs of my on-premises SQL Server instances to Azure SQL services, so that I can make informed decisions on the best migration strategy and resources for my organization.
 ---
 
 # Assessment Overview (migrate to Azure SQL)

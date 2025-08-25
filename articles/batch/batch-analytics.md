@@ -3,6 +3,7 @@ title: Azure Batch Analytics
 description: The topics in Batch Analytics contain reference information for the events and alerts available for Batch service resources.
 ms.topic: reference
 ms.date: 04/02/2025
+# Customer intent: "As a cloud administrator, I want to understand the diagnostic log events for Batch service resources, so that I can effectively monitor and troubleshoot the performance of my cloud-based applications."
 ---
 
 # Batch Analytics

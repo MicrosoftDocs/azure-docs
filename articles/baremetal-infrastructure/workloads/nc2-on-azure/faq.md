@@ -8,6 +8,7 @@ ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
 ms.date: 12/10/2024
 ms.service: azure-baremetal-infrastructure
+# Customer intent: As a cloud solutions architect, I want to understand the support structure and integration capabilities of NC2 on Azure, so that I can effectively design and implement solutions that leverage both Nutanix software and Azure infrastructure.
 ---
 
 # Frequently asked questions about NC2 on Azure
@@ -37,9 +38,9 @@ For more information about Production Support tiers and SLAs, see Product Suppor
 
 ## Does this solution integrate with the rest of the Azure cloud?
 
-Yes. You can use the products and services in Azure that you already have and love.
+Yes. You can use the products and services in Azure that you already have.
 
-## Can I use my existing VPN or ExpressRoute gateway for the DR scenario?
+## Can I use my existing VPN or ExpressRoute gateway for a disaster recovery scenario?
 
 Yes.
 
@@ -47,10 +48,10 @@ Yes.
 
 No.
 
-## How can I create a VM on a node?
+## How can I create a virtual machine (VM) on a node?
 
-After a customer provisions a cluster, they can spin up a VM through the Nutanix Prism Portal.
-This operation should be exactly the same as on-premises in the prism portal.
+After a customer provisions a cluster, they can spin up a user VM through the Nutanix Prism Portal.
+This operation should be exactly the same as on-premises in the Prism Portal.
 
 ## Next steps
 

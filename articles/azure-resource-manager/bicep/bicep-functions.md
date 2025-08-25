@@ -3,7 +3,9 @@ title: Bicep functions overview
 description: Learn about the functions that can be used in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: reference
 ms.date: 02/12/2025
-ms.custom: devx-track-bicep
+ms.custom:
+  - devx-track-bicep
+  - build-2025
 ---
 
 # Bicep functions overview
@@ -157,6 +159,10 @@ The following functions are available for getting resource values. Most of these
 * [resourceId](./bicep-functions-resource.md#resourceid) - This can be used at any scope, but the valid parameters change depending on the scope.
 * [subscriptionResourceId](./bicep-functions-resource.md#subscriptionresourceid)
 * [tenantResourceId](./bicep-functions-resource.md#tenantresourceid)
+* [toLogicalZone](./bicep-functions-resource.md#tologicalzone)
+* [toLogicalZones](./bicep-functions-resource.md#tologicalzones)
+* [toPhysicalZone](./bicep-functions-resource.md#tophysicalzone)
+* [toPhysicalZones](./bicep-functions-resource.md#tophysicalzones)
 
 ## Scope functions
 
@@ -174,6 +180,7 @@ Bicep provides the following functions for working with strings. All of these fu
 * [base64](./bicep-functions-string.md#base64)
 * [base64ToJson](./bicep-functions-string.md#base64tojson)
 * [base64ToString](./bicep-functions-string.md#base64tostring)
+* [buildUri](./bicep-functions-string.md#builduri)
 * [concat](./bicep-functions-string.md#concat)
 * [contains](./bicep-functions-string.md#contains)
 * [dataUri](./bicep-functions-string.md#datauri)
@@ -190,6 +197,7 @@ Bicep provides the following functions for working with strings. All of these fu
 * [length](./bicep-functions-string.md#length)
 * [newGuid](./bicep-functions-string.md#newguid)
 * [padLeft](./bicep-functions-string.md#padleft)
+* [parseUri](./bicep-functions-string.md#parseuri)
 * [replace](./bicep-functions-string.md#replace)
 * [skip](./bicep-functions-string.md#skip)
 * [split](./bicep-functions-string.md#split)

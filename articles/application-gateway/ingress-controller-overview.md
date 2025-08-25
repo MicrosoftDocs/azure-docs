@@ -2,11 +2,12 @@
 title: What is Azure Application Gateway Ingress Controller?
 description: This article provides an introduction to what Application Gateway Ingress Controller is. 
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 3/31/2025
-ms.author: greglin
+ms.author: mbender
+# Customer intent: "As an AKS administrator, I want to deploy the Application Gateway Ingress Controller, so that I can efficiently manage ingress traffic and leverage Azure's L7 load-balancer capabilities for improved performance and security."
 ---
 
 # What is Application Gateway Ingress Controller?
@@ -48,7 +49,9 @@ The AGIC add-on is still deployed as a pod in the customer's AKS cluster, howeve
   - Since AGIC add-on is a managed service, customers are automatically updated to the latest version of AGIC add-on, unlike AGIC deployed through Helm where the customer must manually update AGIC. 
 
 > [!NOTE]
-> Customers can only deploy one AGIC add-on per AKS cluster, and each AGIC add-on currently can only target one Application Gateway. For deployments that require more than one AGIC per cluster or multiple AGICs targeting one Application Gateway, please continue to use AGIC deployed through Helm. 
+> Customers can only deploy one AGIC add-on per AKS cluster, and each AGIC add-on currently can only target one Application Gateway. For deployments that require more than one AGIC per cluster or multiple AGICs targeting one Application Gateway, please continue to use AGIC deployed through Helm.
+>
+> Both Helm and AGIC add-on doesn't support ExternalName service.
 
 ## Container networking and AGIC
 

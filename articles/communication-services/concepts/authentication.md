@@ -90,4 +90,4 @@ The user identity is intended to act as a primary key for logs and metrics colle
 
 ## Related articles
 
-- [Learn about client and server architecture](../concepts/identity-model.md#client-server-architecture)
+- [Learn about client and server architecture](../concepts/identity-model.md#client-server-architecture-for-the-bring-your-own-identity-byoi-model)

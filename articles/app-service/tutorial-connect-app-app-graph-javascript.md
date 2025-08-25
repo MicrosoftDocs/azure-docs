@@ -10,6 +10,7 @@ ms.date: 3/13/2023
 ms.custom: devx-track-js, engagement-fy23, AppServiceConnectivity
 zone_pivot_groups: app-service-platform-windows-linux
 # Requires non-internal subscription - internal subscriptions doesn't provide permission to correctly configure Microsoft Entra apps
+ms.service: azure-app-service
 ---
 
 # Tutorial: Flow authentication from App Service through back-end API to Microsoft Graph
@@ -269,7 +270,7 @@ Now that the code has the correct token for Microsoft Graph, use it to create a 
 
 ## 6. Test your changes
 
-1. Use the frontend web site in a browser. The URL is in the format of `https://<front-end-app-name>.azurewebsites.net/`. You may need to refresh your token if it's expired.
+1. Use the frontend web site in a browser. You may need to refresh your token if it's expired.
 1. Select `Get user's profile`. This passes your authentication in the bearer token to the backend. 
 1. The backend end responds with the _real_ Microsoft Graph profile for your account.
 

@@ -37,7 +37,7 @@ In Azure FHIR service, bundles act as containers for multiple resources. Batch a
 
 * **Do** generate load on Azure FHIR service in a linear manner and avoid burst operations to prevent performance degradation.
 * **Do** tune the number of concurrent bundle requests to the FHIR server. A high number (>100) may lead to negative scaling and reduced processing throughput.
-* **DO** use separate transaction bundles for FHIR resources that don't depend on each other, and can be updated separately.
+* **DO** use separate transaction bundles for FHIR resources that don't depend on each other and can be updated separately.
 * **Consider** using smaller bundle sizes for complex operations such as conditional creates or updates.
 * **Consider** enabling parallel processing for batch and transaction bundles. By default, resources in bundles are processed sequentially. To enhance throughput, you can enable parallel resource processing by adding the HTTP header flag `x-bundle-processing-logic` and setting it to `parallel`. For more information, see the [batch bundle parallel processing documentation](rest-api-capabilities.md#bundle-parallel-processing).
 * **Avoid** submitting parallel bundle requests that attempt to update the same resources concurrently, which can cause delays in processing.

@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 04/30/2025
+# Customer intent: "As a cloud administrator, I want to upgrade my Azure Application Gateway from legacy WAF configuration to WAF policies, so that I can leverage advanced features, improve management efficiency, and ensure continued support before the legacy version is retired."
 ---
 
 # Upgrade to Azure Application Gateway WAF policy

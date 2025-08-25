@@ -3,13 +3,14 @@ title: Host multiple web sites using PowerShell
 titleSuffix: Azure Application Gateway
 description: Learn how to create an application gateway that hosts multiple web sites using Azure PowerShell.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 07/20/2020
-ms.author: greglin
+ms.author: mbender
 ms.custom: mvc, devx-track-azurepowershell
 #Customer intent: As an IT administrator, I want to use Azure PowerShell to configure Application Gateway to host multiple web sites , so I can ensure my customers can access the web information they need.
+# Customer intent: As an IT administrator, I want to configure an application gateway using Azure PowerShell to host multiple web sites, so that I can efficiently manage and direct web traffic for different domains within a unified service.
 ---
 
 # Create an application gateway that hosts multiple web sites using Azure PowerShell

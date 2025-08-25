@@ -6,6 +6,8 @@ ms.subservice: process-automation
 ms.date: 09/09/2024
 ms.topic: overview 
 ms.custom:
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Author graphical runbooks in Azure Automation

@@ -1,12 +1,15 @@
 ---
-title: Add volumes for an SAP HANA system as a DR system using Azure NetApp Files cross-region replication  | Microsoft Docs
+title: Add volumes for an SAP HANA system as a DR system using Azure NetApp Files cross-region replication
 description: Describes using an application volume group to add volumes for an SAP HANA system as a disaster recovery (DR) system.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 04/22/2025
+ms.date: 07/11/2025
 ms.author: anfdocs
+ms.custom:
+  - build-2025
+# Customer intent: "As a database administrator, I want to configure cross-region replication for SAP HANA volumes, so that I can ensure disaster recovery capabilities for my database system."
 ---
 # Add volumes for an SAP HANA system as a DR system using cross-region replication
 
@@ -14,7 +17,7 @@ This article describes using an application volume group to add volumes for an S
 
 ## CRR between source and destination HANA servers
 
-The Azure NetApp Files [cross-region replication](cross-region-replication-introduction.md) functionality enables you to replicate volumes between [supported cross-region replication pairs](cross-region-replication-introduction.md#supported-region-pairs). This functionality allows you to [replicate a volume](cross-region-replication-create-peering.md) from a source region to a volume on the destination region for disaster recovery (DR). 
+The Azure NetApp Files [cross-region replication](replication.md) functionality enables you to replicate volumes between [supported cross-region replication pairs](replication.md#supported-region-pairs). This functionality allows you to [replicate a volume](cross-region-replication-create-peering.md) from a source region to a volume on the destination region for disaster recovery (DR). 
 
 Instead of using HANA System Replication (HSR), you can use cross-region replication to protect a database without needing a HANA database server that runs all the time. You need to create replication destination volumes in a region supported for cross-region replication. Application volume group for SAP HANA ensures that the destination volumes are created with the correct volume type that meets all SAP HANA specific requirements.
 
@@ -26,7 +29,7 @@ The following diagram illustrates cross-region replication between the source an
 > When you use an HA deployment with HSR at the primary side, you can choose to replicate not only the primary HANA system as described in this section, but also the HANA secondary system using cross-region replication. To automatically adapt the naming convention, you select both the **HSR secondary** and **Disaster recovery destination** options in the Create a Volume Group screen. The prefix then changes to `DR2-`. 
 
 > [!IMPORTANT]
-> * Recovering the HANA database at the destination region requires that you use application-consistent storage snapshots for your HANA backup. You can create such snapshots by using data-protection solutions such as SnapCenter and the [Azure Application Consistent Snapshot tool](azacsnap-introduction.md) (AzAcSnap).
+> * Recovering the HANA database at the destination region requires that you use application-consistent storage snapshots for your HANA backup. You can create such snapshots by using data-protection solutions including [SnapCenter](https://docs.netapp.com/us-en/snapcenter/protect-azure/protect-applications-azure-netapp-files.html), [Azure Application Consistent Snapshot tool](azacsnap-introduction.md) (AzAcSnap), or other [validated partner solutions](../storage/solution-integration/validated-partners/backup-archive-disaster-recovery/partner-overview.md).
 > * You need to replicate at least the data volume and the log-backup volume. 
 > * You can optionally replicate the data-backup volume and the shared volume. 
 > * You should *never* replicate the log volume. The application volume group will create the log volume as a standard volume.
@@ -77,7 +80,7 @@ The following example adds volumes to an SAP HANA system. The system serves as a
     * **Multiple-host**:  
         Select this option if you're adding additional hosts to a multiple-hosts HANA system.
     * **Disaster recover destination**:  
-        Select this option to create volumes for a HANA system as a DR site using [cross-region replication](cross-region-replication-introduction.md).  
+        Select this option to create volumes for a HANA system as a DR site using [cross-region replication](replication.md).  
     
         Selecting **Disaster recover destination** triggers the naming convention for the volume group name to include `"-DR-"` to indicate a disaster-recovery setup. 
 

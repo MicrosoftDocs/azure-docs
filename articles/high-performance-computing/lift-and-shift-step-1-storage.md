@@ -7,6 +7,7 @@ ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+# Customer intent: As a cloud architect, I want to establish a basic storage infrastructure for high-performance computing migration, so that I can ensure effective data management, security, and resource accessibility during the deployment process.
 ---
 
 # Storage options

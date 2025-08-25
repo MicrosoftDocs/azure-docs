@@ -8,13 +8,12 @@ ms.topic: how-to
 ms.date: 06/04/2024
 ms.custom: "devops-pipelines-deploy"
 
+ms.service: azure-app-service
 ---
 
 # Deploy to Azure App Service by using Azure Pipelines
 
 **Azure DevOps Services | Azure DevOps Server 2020 | Azure DevOps Server 2019**
-
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 Use [Azure Pipelines](/azure/devops/pipelines/) to automatically deploy your web app to [Azure App Service](./overview.md) on every successful build. Azure Pipelines lets you build, test, and deploy with continuous integration and continuous delivery (CI/CD) by using [Azure DevOps](/azure/devops/).
 

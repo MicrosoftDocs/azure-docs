@@ -2,10 +2,11 @@
 title: Extended Security Updates (ESU) for Windows Server with Azure Update Manager
 description: Information on enrolling and managing Extended Security Updates (ESU) for Windows Server 2012 and 2012 R2 using Azure Update Manager.
 ms.service: azure-update-manager
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.date: 03/23/2025
 ms.topic: overview
+# Customer intent: "As an IT administrator managing Windows Server environments, I want to enroll in Extended Security Updates for my Azure Arc-enabled machines, so that I can ensure critical security updates are applied and maintain compliance for outdated servers."
 ---
 
 # Extended Security Updates (ESU) for Windows Server
@@ -35,7 +36,7 @@ To enroll in Windows Server 2012 Extended Security Updates on Arc connected mach
 ## Next steps
 
 - Learn about the [supported regions for Azure VMs and Arc-enabled servers](supported-regions.md).
-- Learn on the [Update sources, types](support-matrix.md) managed by Azure Update Manger.
+- Learn on the [Update sources, types](support-matrix.md) managed by Azure Update Manager.
 - Know more on [supported OS and system requirements for machines managed by Azure Update Manager](support-matrix-updates.md).
 - Learn on [Automatic VM guest patching](support-matrix-automatic-guest-patching.md).
 - Learn more on [unsupported OS and Custom VM images](unsupported-workloads.md).

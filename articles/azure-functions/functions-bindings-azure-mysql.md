@@ -15,15 +15,15 @@ ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
-# Overview of Azure Database for MySQL bindings for Azure Functions (preview)
+# Overview of Azure Database for MySQL bindings for Azure Functions
 
-This set of articles explains how to work with [Azure Database for MySQL](/azure/mysql/index) bindings in Azure Functions. For the preview, Azure Functions supports input bindings and output bindings for Azure Database for MySQL.
+This set of articles explains how to work with [Azure Database for MySQL](/azure/mysql/index) bindings in Azure Functions. Azure Functions supports input bindings and output bindings in general availability. For the preview, Azure Functions supports trigger bindings for Azure Database for MySQL.
 
 | Action | Type |
 |---------|---------|
 | Read data from a database | [Input binding](./functions-bindings-azure-mysql-input.md) |
 | Save data to a database |[Output binding](./functions-bindings-azure-mysql-output.md) |
-| Trigger a function when a change is detected in a MySQL table | [Trigger binding](./functions-bindings-azure-mysql-trigger.md) |
+| Trigger a function when a change is detected in a MySQL table (preview) | [Trigger binding](./functions-bindings-azure-mysql-trigger.md) |
 
 ::: zone pivot="programming-language-csharp"
 
@@ -59,7 +59,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.MySql --version 1.0.3-prev
 
 ## Install the bundle
 
-The extension for Azure Database for MySQL bindings is part of the v4 [extension bundle](./functions-bindings-register.md#extension-bundles). This bundle is specified in your host.json project file.
+The extension for Azure Database for MySQL bindings is part of the v4 [extension bundle](./extension-bundles.md). This bundle is specified in your host.json project file.
 
 ### Preview bundle v4.x
 
@@ -83,7 +83,7 @@ You can use the preview extension bundle by adding or replacing the following co
 
 ## Install the bundle
 
-The extension for Azure Database for MySQL bindings is part of the v4 [extension bundle](./functions-bindings-register.md#extension-bundles). This bundle is specified in your host.json project file.
+The extension for Azure Database for MySQL bindings is part of the v4 [extension bundle](./extension-bundles.md). This bundle is specified in your host.json project file.
 
 ### Preview bundle v4.x
 
@@ -107,7 +107,7 @@ You can use the preview extension bundle by adding or replacing the following co
 
 ## Install the bundle
 
-The extension for Azure Database for MySQL bindings is part of the v4 [extension bundle](./functions-bindings-register.md#extension-bundles). This bundle is specified in your host.json project file.
+The extension for Azure Database for MySQL bindings is part of the v4 [extension bundle](./extension-bundles.md). This bundle is specified in your host.json project file.
 
 ### Preview bundle v4.x
 

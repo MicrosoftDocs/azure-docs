@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: tutorial
-ms.date: 04/28/2025
+ms.date: 05/28/2025
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -220,5 +220,5 @@ Advance to the next tutorial:
 See related content about the developer portal:
 
 - [Azure API Management developer portal overview](developer-portal-overview.md)
-- Configure authentication to the developer portal with [usernames and passwords](developer-portal-basic-authentication.md), [Microsoft Entra ID](api-management-howto-aad.md), or [Azure AD B2C](api-management-howto-aad-b2c.md).
+- Configure authentication to the developer portal with [usernames and passwords](developer-portal-basic-authentication.md), [Microsoft Entra ID](api-management-howto-aad.md), or [Microsoft Entra External ID](/entra/external-id/customers/overview-customers-ciam).
 - Learn more about [customizing and extending](developer-portal-extend-custom-functionality.md) the functionality of the developer portal.

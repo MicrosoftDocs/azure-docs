@@ -4,9 +4,10 @@ description: Learn about the concepts in an application assessment created using
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/05/2024
 monikerRange: migrate
+# Customer intent: As a migration planner, I want to conduct an application assessment for my workloads, so that I can determine the best migration strategies and prepare for a successful transition to Azure.
 ---
 
 # Review an application assessment

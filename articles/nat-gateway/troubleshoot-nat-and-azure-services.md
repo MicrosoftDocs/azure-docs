@@ -7,6 +7,7 @@ ms.service: azure-nat-gateway
 ms.topic: troubleshooting
 ms.date: 02/15/2024
 ms.author: allensu
+# Customer intent: As a cloud administrator, I want to troubleshoot outbound connectivity issues with NAT gateway and Azure services, so that I can ensure seamless application integration and efficient network performance in my cloud environment.
 ---
 
 # Troubleshoot outbound connectivity with NAT gateway and Azure services 

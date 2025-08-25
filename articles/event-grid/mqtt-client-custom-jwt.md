@@ -45,7 +45,7 @@ In the AUTH packet, you can provide the required values in the following fields:
 Authenticate Reason Code with value 25 signifies reauthentication.
 
 > [!NOTE]
-> Audience: `aud` claim must be set to `https://[namespace].ts.eventgrid.azure.net/`. 
+> Audience: `aud` claim must be set to `[namespace][region]-1.ts.eventgrid.azure.net/`. 
 
 ## Access permissions
 A client using OAuth 2.0 JWT authentication can use client attributes and permissions to limit access to specific topics. 

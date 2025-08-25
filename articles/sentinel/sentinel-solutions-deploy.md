@@ -1,13 +1,13 @@
 ---
 title: Discover and deploy Microsoft Sentinel out-of-the-box content from Content hub
 description: Learn how to find and deploy Sentinel packaged solutions containing data connectors, analytics rules, hunting queries, workbooks, and other content.
-author: cwatson-cat
+author: EdB-MSFT
 ms.topic: how-to
 ms.date: 01/14/2025
-ms.author: cwatson
+ms.author: edbaynash
 appliesto:
+    - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
-    - Microsoft Sentinel in the Microsoft Defender portal.
 
 
 #Customer intent: As a security operations administrator, I want to discover, install, and centrally manage out-of-the-box content so that I can efficiently enhance and maintain my security monitoring capabilities.
@@ -43,7 +43,7 @@ For more information about other roles and permissions supported for Microsoft S
 
 The content hub offers the best way to find new content or manage the solutions you already installed.
 
-1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Content management**, select **Content hub**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Content management** > **Content hub**.
+1. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Content management** > **Content hub**. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Content management**, select **Content hub**.
 
     The **Content hub** page displays a searchable grid or a list of solutions and standalone content.
 
@@ -57,11 +57,11 @@ The content hub offers the best way to find new content or manage the solutions 
 
     Expand a solution in the search or filter results to view the list of content items it includes. The information pane on the side presents detailed information about the content item.
 
-    #### [Azure portal](#tab/azure-portal)
-    :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of the Microsoft Sentinel content hub in the Azure portal.":::
-
     #### [Defender portal](#tab/defender-portal)
     :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list-defender.png" alt-text="Screenshot of the Microsoft Sentinel content hub in the Defender portal.":::
+
+    #### [Azure portal](#tab/azure-portal)
+    :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of the Microsoft Sentinel content hub in the Azure portal.":::
 
     ----
 
@@ -124,7 +124,17 @@ Content hub supports a list view in addition to the default card view. Select th
 
 1. Select **Manage** for each solution you installed. Content types within the solution might require more information for you to configure. For more information, see [Enable content items in a solution](#enable-content-items-in-a-solution). 
 
+## Install packages and templates using the API
 
+If you're using the API to install solution packages or individual templates, follow these steps:
+
+1. Retrieve the solution package or template:
+   - To retrieve a package, use the [Get Product Package API](/rest/api/securityinsights/product-package/get).
+   - To retrieve an individual template, use the [Get Product Template API](/rest/api/securityinsights/product-template/get).
+
+2. In the API response, locate the `properties.mainTemplate` field. This field contains the ARM template JSON that defines the solution or template resources.
+
+3. Deploy the extracted `mainTemplate` using an [ARM template deployment](/azure/azure-resource-manager/templates/overview#template-deployment-process), either through the Rest API, Azure CLI, or PowerShell.
 
 ## Enable content items in a solution
 

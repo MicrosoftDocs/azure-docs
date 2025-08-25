@@ -7,6 +7,8 @@ ms.author: makromer
 ms.reviewer: susabat
 ms.topic: conceptual
 ms.date: 01/29/2025
+ms.custom:
+  - build-2025
 ---
 
 # Automated publishing for continuous integration and delivery (CI/CD)
@@ -36,7 +38,7 @@ This article focuses on the continuous deployment improvements and the automated
 The automated publish feature takes the **Validate all** and **Export ARM template** features from the Data Factory user experience and makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). For this reason, you can programmatically trigger these actions instead of having to go to the Data Factory UI and select a button manually. This capability will give your CI/CD pipelines a truer continuous integration experience.
 
 > [!NOTE]
-> Be sure to use the node version 18.x and and its compatible version to avoid errors that can occur due to package incompatibility with older versions.
+> Be sure to use the node version 20.x and and its compatible version to avoid errors that can occur due to package incompatibility with older versions.
 
 ### Current CI/CD flow
 

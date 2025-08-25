@@ -4,10 +4,10 @@ description: This article lists the Azure built-in roles for Azure role-based ac
 ms.service: role-based-access-control
 ms.topic: generated-reference
 ms.workload: identity
-author: rolyon
-manager: femila
-ms.author: rolyon
-ms.date: 04/25/2025
+author: jenniferf-skc
+manager: pmwongera
+ms.author: jfields
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -168,6 +168,45 @@ Used by the Avere vFXT cluster to manage the cluster
 }
 ```
 
+## Azure File Sync Reader
+
+This role provides read access to Azure File Sync service (Storage Sync Service).
+
+[Learn more](/azure/storage/file-sync/file-sync-deployment-guide)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.StorageSync](../permissions/storage.md#microsoftstoragesync)/*/read |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "This role provides full access to manage all Azure File Sync (Storage Sync Service) resources, including the ability to assign roles in Azure RBAC.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/754c1a27-40dc-4708-8ad4-2bffdeee09e8",
+  "name": "754c1a27-40dc-4708-8ad4-2bffdeee09e8",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.StorageSync/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure File Sync Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
 ## Backup Contributor
 
 Lets you manage backup service, but can't create vaults and give access to others

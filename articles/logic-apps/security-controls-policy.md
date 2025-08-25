@@ -17,10 +17,10 @@ with the specific standard.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
 
-[!INCLUDE [azure-policy-compliancecontrols-logicapps](../../includes/policy/standards/byrp/microsoft.logic.md)]
+[!INCLUDE [azure-policy-compliancecontrols-logicapps](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.logic.md)]
 
 ## Next steps
 
 - Learn more about [Azure Policy Regulatory Compliance](../governance/policy/concepts/regulatory-compliance.md).
-- Review the [regulatory compliance details for Azure Security Benchmark](../governance/policy/samples/gov-azure-security-benchmark.md).
+- Review the [regulatory compliance details for Azure Security Benchmark](/azure/governance/policy/samples/gov-azure-security-benchmark).
 - See the built-ins on the [Azure Policy GitHub repo](https://github.com/Azure/azure-policy).

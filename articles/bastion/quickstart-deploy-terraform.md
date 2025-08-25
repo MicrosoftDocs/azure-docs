@@ -5,11 +5,12 @@ ms.topic: quickstart
 ms.date: 01/22/2025
 ms.custom: devx-track-terraform
 ms.service: azure-bastion
-author: cherylmc
-ms.author: cherylmc
+author: abell
+ms.author: abell
 #customer intent: As a Terraform user, I want to learn how to use Terraform to create Azure resources that set up Azure Bastion host. The Azure resources in an Azure Bastion deployment include an Azure resource group, a virtual network, an Azure Bastion subnet, a public IP, and an Azure Bastion host.
 content_well_notification: 
   - AI-contribution
+# Customer intent: As a Terraform user, I want to automate the deployment of Azure Bastion and its associated resources, so that I can securely access my virtual machines without exposing them to public networks.
 ---
 
 # Quickstart: Use Terraform to deploy Azure Bastion

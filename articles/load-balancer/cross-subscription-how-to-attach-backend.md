@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 10/17/2024
 ms.author: mbender
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
+# Customer intent: As a cloud architect, I want to attach a cross-subscription backend to an Azure Load Balancer, so that I can efficiently manage and distribute network traffic across virtual networks in different subscriptions.
 ---
 
 # Attach a cross-subscription backend to an Azure Load Balancer

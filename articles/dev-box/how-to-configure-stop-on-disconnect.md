@@ -6,7 +6,9 @@ description: Learn how to automatically stop a dev box when a user disconnects b
 
 services: dev-box
 ms.service: dev-box
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 author: dhruvchand
 ms.author: dhruvmu
 ms.date: 01/10/2024
@@ -20,13 +22,8 @@ ms.topic: how-to
 
 To save on costs, you can configure your Dev Box pools to stop when a user disconnects from their RDP session, after a timeout period that you can configure. Microsoft Dev Box attempts to stop all dev boxes after a user disconnects, and they do not re-establish a new RDP session within the configured timeout period.
 
-
 > [!NOTE]
 > Stop on disconnect will only apply to Dev Boxes that are created with hibernation enabled Dev Box definitions. To learn more about enabling hibernation on your Dev Box definitions, see  [how to configure dev box hibernation](./how-to-configure-dev-box-hibernation.md).  
-
-> [!IMPORTANT]
-> Dev Box Hibernation is currently in PREVIEW.
-> For more information about the preview status, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The document defines legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Permissions
 

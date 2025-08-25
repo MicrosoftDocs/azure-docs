@@ -1,11 +1,12 @@
 ---
 title: Connectivity to an Azure Virtual Network
 description: Learn about key concepts and use cases on connectivity to Azure Virtual Networks.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-vmware
 ms.date: 4/21/2025
 ms.custom: engagement-fy25
 # customer intent: As a cloud administrator, I want to learn about connectivity to Azure Virtual Networks so that I can understand the features and benefits of this offering.
+# Customer intent: As a cloud administrator, I want to understand the connectivity processes for Azure Virtual Networks so that I can effectively integrate and manage my private cloud deployments with existing network resources.
 ---
 
 # Connectivity to an Azure Virtual Network

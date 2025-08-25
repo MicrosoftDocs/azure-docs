@@ -4,9 +4,10 @@ description: Learn about application volume groups in Azure NetApp Files, design
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/22/2025
 ms.author: anfdocs
+# Customer intent: "As a cloud administrator, I want to understand application volume groups in Azure NetApp Files, so that I can optimize the deployment and performance of application workloads while ensuring data availability and compliance."
 ---
 
 # Understand Azure NetApp Files application volume groups 

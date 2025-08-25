@@ -6,7 +6,7 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 09/27/2023
+ms.date: 05/27/2025
 ms.author: kesheth
 ms.custom: references_regions
 ---
@@ -37,7 +37,7 @@ We support Microsoft Entra ID and third party identity provider that support Ope
 
 ### Can I use Azure AD B2C with the FHIR service?
 
-Yes. You can use [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C) with the FHIR service to grant access to your applications and users. For more information, see [Use Azure Active Directory B2C to grant access to the FHIR service](../fhir/azure-ad-b2c-setup.md).
+Yes. You can use [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C) with the FHIR service to grant access to your applications and users. For more information, see [Use Azure Active Directory B2C to grant access to the FHIR service](../fhir/azure-ad-b2c-setup.md). However, effective **May 1, 2025**, Azure AD B2C will no longer be available to purchase for new customers. New customers need to use [Microsoft Entra External ID](/entra/external-id/customers/overview-customers-ciam).
 
 ### What FHIR version do you support?
 

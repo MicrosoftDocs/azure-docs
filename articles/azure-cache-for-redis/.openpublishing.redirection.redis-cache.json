@@ -440,6 +440,11 @@
             "source_path_from_root": "/articles/azure-cache-for-redis/scripts/create-manage-cache.md",
             "redirect_url": "/azure/redis/scripts/create-manage-cache",
             "redirect_document_id": true
+        },
+                {
+            "source_path_from_root": "/articles/azure-cache-for-redis/quickstart-create-redis-enterprise.md",
+            "redirect_url": "/azure/redis/quickstart-create-managed-redis",
+            "redirect_document_id": false
         }
       ]
 }  

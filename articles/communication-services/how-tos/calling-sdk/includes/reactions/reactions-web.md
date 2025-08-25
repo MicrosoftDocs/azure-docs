@@ -2,7 +2,7 @@
 author: jamescadd
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 10/20/2023
+ms.date: 06/15/2025
 ms.author: jacadd
 ---
 
@@ -18,7 +18,7 @@ In Azure Communication Services participants can send and receive reactions duri
 - Laugh :::image type="icon" source="media/reaction-laugh.png":::
 - Surprise :::image type="icon" source="media/reaction-surprise.png":::
 
-To send a reaction, use the `sendReaction(reactionMessage)` API. To receive a reaction, the message builds with type `ReactionMessage` using `Reaction` enums as an attribute.
+To send a reaction, use `sendReaction(reactionMessage)`. To receive a reaction, the message builds with type `ReactionMessage` using `Reaction` enums as an attribute.
 
 You need to subscribe to events that provide the subscriber event data:
 

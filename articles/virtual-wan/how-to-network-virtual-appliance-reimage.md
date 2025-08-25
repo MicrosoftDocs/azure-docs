@@ -13,6 +13,10 @@ ms.author: wellee
 
 The following article shows you how to reimage Network Virtual Appliances (NVAs) deployed in the Virtual WAN hub. This article doesn't apply to NVAs deployed as Virtual Machines or Virtual Machine Scale Sets in a Virtual Network connected to Virtual WAN hubs. This article also doesn't apply to SaaS solutions deployed in the Virtual WAN hub.
 
+
+> [!Important]
+> This document applies to Integrated Network Virtual Appliances deployed in the Virtual WAN hub and does **not** apply to software-as-a-service (SaaS) solutions. See [third-party integrations](third-party-integrations.md) for more information on the differences between Integrated Network Virtual Appliances and SaaS solutions. Reference your SaaS provider's documentation for information related to infrastructure operations available for SaaS solutions.
+
 ## Operation overview
 
 Reimage is an option is executed on Virtual WAN NVA Virtual Machine (VM) instances. The reimage operation incurs downtime. As part of the operation, Azure restarts the VM instance and removes the existing operating system (OS) disk associated with an NVA VM and replaces it with a new OS disk. The new OS disk is deployed from Azure Marketplace and runs the same initial software version that the NVA was deployed with. For example, if your NVA device was deployed with NVA OS version 10, and you subsequently upgraded the NVA version to version 12 as part of an out-of-band upgrade workflow initiated from the command line or NVA orchestration software, Azure Virtual WAN reimages your NVA instance to version 10 and not version 12. As a result, you may have to manually execute an OS software version upgrade after performing the reimage operation.

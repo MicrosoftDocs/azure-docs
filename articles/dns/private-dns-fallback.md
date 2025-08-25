@@ -3,11 +3,12 @@ title: Fallback to internet for Azure Private DNS zones
 titleSuffix: Azure DNS
 description: Learn how to enable fallback to internet resolution for private DNS.
 services: dns
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.date: 02/04/2025
-ms.author: greglin
+ms.author: allensu
 ms.topic: how-to
+# Customer intent: "As a network administrator, I want to enable fallback to internet DNS resolution for private link zones, so that I can ensure continued access to resources when private DNS queries fail due to NXDOMAIN responses."
 ---
 
 # Fallback to internet for Azure Private DNS zones

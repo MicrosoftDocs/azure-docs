@@ -2,17 +2,17 @@
 author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 07/08/2023
+ms.date: 05/10/2025
 ms.author: DaybreakQuip
 ---
 
-In this quickstart, you learn how to start a call using the Azure Communication Services Calling SDK for Unity.
+This article describes how to start a call using the Azure Communication Services Calling SDK for Unity.
 
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/Calling).
+You can download the sample app from GitHub at [Calling SDK for .NET](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/Calling).
+
+[!INCLUDE [public-preview-include-document.md](../../../../includes/public-preview-include-document.md)]
 
 ### Prerequisites
-
-To complete this tutorial, you need the following prerequisites:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install [Unity Hub and Unity Editor](https://unity.com/download) with Universal Windows Platform development workload.
@@ -42,13 +42,11 @@ There are two ways to install the Azure Communication Calling SDK for Unity.
 
 2. Download the [Mixed Reality Feature Tool](/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool) from Microsoft and install it via the mixed reality tool manager.
 
-
 #### Set up the app framework
 
 We need to configure a basic layout to attach our logic. In order to place an outbound call, we need a `TextBox` to provide the User ID of the callee. We also need a `Start/Join call` button and a `Hang up` button.
 
 Create a new scene called `Main` in your project.
-
 
 Open the `Main.unity` file and replace the content with following implementation: 
 
@@ -1926,19 +1924,19 @@ In the GameObject called AppManager, drag the newly created script into its scri
 
 The next table listed the classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK:
 
-| Name                                  | Description                                                  |
-| ------------------------------------- | ------------------------------------------------------------ |
+| Name | Description  |
+| --- | --- |
 | `CallClient` | The `CallClient` is the main entry point to the Calling SDK.|
-| `CallAgent` | The `CallAgent` is used to start and manage calls. |
-| `Call` | The `CommunicationCall` is used to manage an ongoing call. |
-| `CallTokenCredential` | The `CallTokenCredential` is used as the token credential to instantiate the `CallAgent`.|
-| `CallIdentifier` | The `CallIdentifier` is used to represent the identity of the user, which can be one of the following options: `UserCallIdentifier`, `PhoneNumberCallIdentifier` etc. |
+| `CallAgent` | Use the `CallAgent` to start and manage calls. |
+| `Call` | Use the `CommunicationCall` to manage an ongoing call. |
+| `CallTokenCredential` | Use the `CallTokenCredential` as the token credential to instantiate the `CallAgent`.|
+| `CallIdentifier` | Use `CallIdentifier` to represent the identity of the user, which can be one of the following options: `UserCallIdentifier`, `PhoneNumberCallIdentifier`, and so on. |
 
 ### Authenticate the client
 
 Initialize a `CallAgent` instance with a User Access Token that enables us to make and receive calls, and optionally obtain a DeviceManager instance to query for client device configurations.
 
-In the code, replace `<AUTHENTICATION_TOKEN>` with a User Access Token. Refer to the [user access token](../../../identity/access-tokens.md) documentation if you don't already have a token available.
+In the code, replace `<AUTHENTICATION_TOKEN>` with a User Access Token. If you don't already have a token available, see [user access token](../../../identity/access-tokens.md).
 
 Add `InitCallAgentAndDeviceManagerAsync` function, which bootstraps the SDK. This helper can be customized to meet the requirements of your application.
 
@@ -2064,6 +2062,6 @@ private async void OnStateChangedAsync(object sender, PropertyChangedEventArgs a
 
 You can build and run the code on Unity Editor or devices that uses Unity. 
 
-You can make an outbound call by providing a user ID in the text field and clicking the `Start Call/Join` button. Calling `8:echo123` connects you with an echo bot, this feature is great for getting started and verifying your audio devices are working.
+You can make an outbound call by providing a user ID in the text field and clicking the `Start Call/Join` button. Calling `8:echo123` connects you with an echo bot, this feature gets you started and verifies that your audio devices are working.
 
 :::image type="content" source="../../media/unity/run-the-app.png" alt-text="Screenshot showing running the Unity quickstart app.":::

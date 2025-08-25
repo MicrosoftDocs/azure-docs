@@ -5,7 +5,7 @@ author: varunbms
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: tutorial
-ms.date: 05/29/2024
+ms.date: 07/17/2025
 ms.author: buchvarun
 ---
 
