@@ -4,7 +4,7 @@ description: Transfer data with AzCopy and file storage. AzCopy is a command-lin
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 08/19/2025
+ms.date: 08/25/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 # Customer intent: As a user of a cloud file storage service, I want to transfer files to and from storage accounts using a command-line tool, so that I can efficiently manage and synchronize large amounts of data between my local environment and the cloud.
@@ -25,6 +25,10 @@ See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download
 
 > [!TIP]
 > When using Azure Files NFS, it is mandatory to specify the ``--from-to`` CLI switch with one of the following supported options: ``FileNFSLocal``, ``LocalFileNFS``, or ``FileNFSFileNFS`` in your commands.
+>
+> The upload and download scenarios using LocalFileNFS and FileNFSLocal are supported only on local Linux environments. These operations are not supported on Windows or macOS.
+> In contrast, the FileNFSFileNFS scenario, which uses the server-to-server copy API, is supported across Windows, Linux, and macOS. Users can run the associated commands from any of these platforms.
+
 
 ## Create file shares
 
