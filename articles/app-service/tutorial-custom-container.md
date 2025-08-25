@@ -894,7 +894,7 @@ az group delete --name msdocs-custom-container-tutorial
     1. Select the resource group.
      
     :::image type="content" source="./media/tutorial-custom-container/azure-portal-delete-resource-group-1.png" alt-text="Screenshot showing how to search for and go to a resource group in the Azure portal." lightbox="./media/tutorial-custom-container/azure-portal-delete-resource-group-1.png":::
-   
+
      
 1. On the resource group page, select **Delete resource group**.
  
