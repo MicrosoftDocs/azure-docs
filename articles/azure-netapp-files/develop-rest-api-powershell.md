@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 09/30/2024
+ms.date: 07/30/2025
 ms.author: anfdocs
 # Customer intent: "As a cloud developer, I want to utilize the Azure NetApp Files REST API with PowerShell so that I can efficiently manage and automate the creation and handling of NetApp accounts, capacity pools, volumes, and snapshots."
 ---
