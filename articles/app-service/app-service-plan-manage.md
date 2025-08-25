@@ -1,12 +1,12 @@
 ---
-title: Manage an App Service plan
+title: Manage an App Service Plan
 description: Learn how to perform different tasks to manage an App Service plan, such as create, move, scale, and delete.
 keywords: app service, azure app service, scale, app service plan, change, create, manage, management
 ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.topic: how-to
 ms.author: msangapu
 author: msangapu-msft
-ms.date: 08/26/2024
+ms.date: 08/29/2025
 ms.update-cycle: 1095-days
 ms.custom: "UpdateFrequency3"
 
@@ -14,7 +14,7 @@ ms.service: azure-app-service
 ---
 # Manage an App Service plan in Azure
 
-An [Azure App Service plan](overview-hosting-plans.md) provides the resources that an App Service app needs to run. This guide shows how to manage an App Service plan.
+An [Azure App Service plan](overview-hosting-plans.md) provides the resources that an App Service app needs to run. This article describes how to manage an App Service plan.
 
 ## Create an App Service plan
 
@@ -23,17 +23,17 @@ An [Azure App Service plan](overview-hosting-plans.md) provides the resources th
 
 You can create an empty App Service plan, or you can create a plan as part of app creation.
 
-1. To start creating an App Service plan, go to [Create App Service Plan](https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate) on the Azure portal.
+1. To start creating an App Service plan, go to [Create App Service Plan](https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate) in the Azure portal.
 
-   :::image type="content" source="./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png" alt-text="Create an App Service plan in the Azure portal.":::
+   :::image type="content" source="./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png" alt-text="Screenshot that shows the Create App Service Plan page in the Azure portal.":::
 
 2. Configure the **Project Details** section before configuring the App Service plan. 
   
 3. In the **App Service Plan details** section, name the App Service plan, and then select the **Operating System** and **Region**. The region specifies where your App Service plan is created.
 
-4. When creating a plan, you can select the pricing tier of the new plan. In **Pricing Tier**, select a **Pricing plan** or select **Explore pricing plans** to view additional details. 
+4. When you create a plan, you can select the pricing tier of the new plan. In **Pricing Tier**, select a **Pricing plan**, or select **Explore pricing plans** to view additional details. 
 
-5. In the **Zone redundancy** section, select whether the App Service plan zone redundancy should be enabled or disabled.
+5. In the **Zone redundancy** section, select **Enabled** or **Disabled**, depending on your needs.
 
 6. Select **Review + create** to create the App Service plan.
 
@@ -42,7 +42,7 @@ You can create an empty App Service plan, or you can create a plan as part of ap
 > - `The pricing tier is not allowed in this resource group`
 > - `<SKU_NAME> workers are not available in resource group <RESOURCE_GROUP_NAME>`
 > 
-> This can happen due to incompatibilities with pricing tiers, regions, operating systems, availability zones, existing function apps, or existing web apps. If one of these errors occurs, create your App Service plan in a **new** resource group.
+> These errors can occur due to incompatibilities with pricing tiers, regions, operating systems, availability zones, existing function apps, or existing web apps. If one of these errors occurs, create your App Service plan in a new resource group.
 >
 
 
@@ -50,9 +50,9 @@ You can create an empty App Service plan, or you can create a plan as part of ap
 
 ## Move an app to another App Service plan
 
-You can move an app to another App Service plan, as long as the source plan and the target plan are in the _same resource group and geographical region and of the same OS type_. Any change in type, such as Windows to Linux or any type that's different from the originating type, isn't supported. 
+You can move an app to another App Service plan, as long as the source plan and the target plan are in the same resource group and geographical region and of the same OS type. Any change in type, such as Windows to Linux or any type that's different from the originating type, isn't supported. 
 
-Any VNET integration configured on the app must be disabled prior to changing App Service plans. 
+You must disable any virtual network integration that's configured on the app before you change App Service plans. 
 
 
 > [!NOTE]
