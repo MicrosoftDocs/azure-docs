@@ -17,7 +17,7 @@ The following are enabled by default for Azure Virtual Enclaves resources:
 - Log Analytics Workspace is deployed into the Community Managed Resource Group by default
 - (Optional) Log Analytics Workspace is deployed into the Enclave Managed Resource Group
 - Storage Account is deployed into Enclave Managed Resource Group
-- vNet Flow Logs for each Virtual Enclave are enabled, pointed to the Enclave Storage Account, and forwarded to Community and/or Enclave Log-A
+- Virtual network Flow Logs for each Virtual Enclave are enabled, pointed to the Enclave Storage Account, and forwarded to Community and/or Enclave Log-A
 - Diagnostic Settings are enabled on resources deployed into both Community and Enclave managed Resource Groups
 
 ## Centralized and isolated observability
@@ -32,7 +32,7 @@ Every **Community** created in Azure Virtual Enclaves includes a **centralized L
 - Provide a single pane of glass for monitoring and querying diagnostics and flow logs.
 - Support cross-enclave analytics, alerting, and compliance tracking.
 
-This workspace is automatically provisioned when the Community is deployed and can be selected as the diagnostic destination by enclave or workload owners during deployment or update operations and is not network isolated by default. 
+When the community is created, the workspace is automatically created. The workspace can be selected as the diagnostic destination by enclave or workload owners during deployment or update operations. Public access is disabled for the Community Log-A workspace, but it isn't network-isolated by default. To configure public access or network isolation, consider adding [private link security](/azure/azure-monitor/logs/private-link-security).
 
 > [!Note]
 > Diagnostic settings from enclave resources (such as workloads, public IPs, or Application Gateways) can be configured to send logs to the centralized workspace to support unified monitoring.
@@ -45,30 +45,30 @@ In addition to the Community workspace, each **Enclave** is provisioned with an 
 - Optional diagnostic settings for enclave-scoped resources, such as internal workloads and networking components.
 - Designed to meet isolation or regulatory requirements that prevent cross-enclave log aggregation.
 
-Administrators may choose to keep enclave diagnostics private by sending logs only to this isolated workspace.
+Administrators can choose to keep enclave diagnostics private by sending logs only to this isolated workspace.
 
 ## Configurable logging destinations
 
 Azure Virtual Enclaves supports flexible logging configurations that allow resource owners to choose between:
 
-| Logging Destination | Purpose | Default Use |
-|---------------------|---------|-------------|
-| **Community Log Analytics workspace** | Enables centralized monitoring and cross-enclave analytics | Optional |
-| **Enclave Log Analytics workspace** | Maintains enclave-level isolation and data sovereignty | Default for vNet Flow Logs |
+| Logging Destination                   | Purpose                                                    | Default Use |
+|---------------------------------------|------------------------------------------------------------|-------------|
+| **Community Log Analytics workspace** | Enables centralized monitoring and cross-enclave analytics | Optional    |
+| **Enclave Log Analytics workspace**   | Maintains enclave-level isolation and data sovereignty | Default for virtual network Flow Logs |
 
-You can configure diagnostic settings through the Azure Portal, CLI, or Bicep/ARM templates during or after deployment.
+You can configure diagnostic settings through the Azure portal, CLI, or Bicep/ARM templates during or after deployment.
 
 > [!Important]
 > vNet Flow Logs are always sent to the enclave-specific workspace by default to ensure network-level visibility is preserved, even in isolated environments.
 
 ## Common observability scenarios
 
-| Scenario | Logging Strategy |
-|----------|------------------|
-| **Cross-enclave health dashboard** | Send diagnostics from all enclaves to the centralized Community Log Analytics workspace |
+| Scenario                                        | Logging Strategy |
+|-------------------------------------------------|------------------|
+| **Cross-enclave health dashboard**              | Send diagnostics from all enclaves to the centralized Community Log Analytics workspace |
 | **Regulated enclave with strict data controls** | Keep diagnostics within the enclave-specific Log Analytics workspace |
-| **Long-term retention for audit purposes** | Send logs to a Storage Account with policy-controlled retention settings |
-| **Network investigation or threat hunting** | Use the enclave workspace to analyze default vNet flow logs |
+| **Long-term retention for audit purposes**      | Send logs to a Storage Account with policy-controlled retention settings |
+| **Network investigation or threat hunting**     | Use the enclave workspace to analyze default virtual network flow logs |
 
 ## Next steps
 
@@ -76,5 +76,5 @@ To configure logging in your environment, see:
 
 - [Enable diagnostics for an enclave](./configure-diagnostics-enclave.md)
 - [Configure centralized logging for your community](./configure-diagnostics-community.md)
-- [Analyze vNet Flow Logs in Log Analytics](./analyze-vnet-flows.md)
-- [Integrate Log Analytics with Sentinel](./connect-loganalytics-sentinel.md)
+- [Analyze virtual network Flow Logs in Log Analytics](./analyze-vnet-flows.md)
+- [Integrate Log Analytics with Microsoft Sentinel](./connect-loganalytics-sentinel.md)
