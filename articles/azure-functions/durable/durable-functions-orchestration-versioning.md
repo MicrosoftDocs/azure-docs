@@ -36,6 +36,9 @@ The orchestration versioning feature operates on these core principles:
 
 - **Forward Protection**: The runtime automatically prevents workers running older orchestrator versions from executing orchestrations started by newer orchestrator versions.
 
+> [!IMPORTANT]
+> Orchestration versioning is currently in public preview.
+
 ## Prerequisites
 
 Before using orchestration versioning, ensure you have the required package versions for your programming language.
