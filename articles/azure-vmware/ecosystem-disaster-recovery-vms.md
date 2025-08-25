@@ -8,7 +8,7 @@ ms.custom: engagement-fy23
 # Customer intent: "As a cloud administrator, I want to implement a disaster recovery plan for my Azure VMware Solution virtual machines, so that I can ensure data availability and business continuity in the event of a failure."
 ---
 
-# Third party backup & disaster recovery solutions for Azure VMware: Limitations, compatibility, and known issues
+# Third party backup and disaster recovery solutions for Azure VMware: Limitations, compatibility, and known issues
 
 One of the most important aspects of any Azure VMware Solution deployment is disaster recovery. You can create disaster recovery plans between different Azure VMware Solution regions or between Azure and an on-premises vSphere environment. Azure VMware Solution makes use of dynamic "run command" modules which require both Microsoft and Partner input to run effectively.  
 
@@ -25,7 +25,7 @@ You can find more information about their solutions in the following links:
 > You **must** contact your partner's technical team directly. Microsoft does **not** provide direct support for partner products. Do not create support tickets with Microsoft.
 
 
-## Compatibility Overview
+## Compatibility overview
 
 | Supported Version in AVS Gen 1 | Supported Version in AVS Gen 2 | Links                                                                 | Support                                                                                                                                     |
 |-------------------------------------------|-------------------------------------------|------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
@@ -40,7 +40,7 @@ Note: The preview designation indicates that the product is in preview mode due 
 Customers aren't permitted to open Microsoft support tickets for partner product-related issues, including error messages or run commands
 
 
-## Disaster recovery limitations, unsupported, and Known Issues
+## Disaster recovery limitations, unsupported, and known issues
 
 | Solution            | Limitations / Unsupported Features                                                                                          |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------|
