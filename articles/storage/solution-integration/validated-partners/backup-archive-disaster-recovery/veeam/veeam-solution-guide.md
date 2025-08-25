@@ -5,7 +5,7 @@ description: This article provides information for using Azure Blob storage with
 
 author: karauten
 ms.author: karauten
-ms.date: 10/15/2022
+ms.date: 08/25/2025
 ms.topic: concept-article
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
@@ -48,7 +48,7 @@ Veeam offerings support object storage as a destination for either short- or lon
 
 ### Veeam Data Platform
 
-**[Veeam Data Platform](https://vee.am/dataplatform)** allows you to deploy and manage backups for your infrastructure with full control. Available to deploy in [Azure Marketplace](https://vee.am/vbrazuremarketplace), or as a stand-alone download. It's also possible to [find a partner](vee.am/findapartner) to help you deploy and manage your solution.
+**[Veeam Data Platform](https://vee.am/dataplatform)** allows you to deploy and manage backups for your infrastructure with full control. Available to deploy in [Azure Marketplace](https://vee.am/vbrazuremarketplace), or as a stand-alone download. It's also possible to [find a partner](https://vee.am/findapartner) to help you deploy and manage your solution.
 
 - **[Veeam Backup & Replication](https://helpcenter.veeam.com/docs/backup/hyperv/overview.html)** supports [Veeam Vault](https://vee.am/vault) and [Azure storage as a destination](https://helpcenter.veeam.com/docs/backup/hyperv/object_storage_repository.html), it's also possible to utilize [Azure Archive tier](https://helpcenter.veeam.com/docs/backup/vsphere/osr_adding_blob_storage_archive_tier.html) for longer term retention. Veeam manages the data lifecycle of stored objects. See [review considerations and limitations for using Azure Blob with Veeam Products](https://www.veeam.com/kb4241) for more detail. 
 
@@ -84,7 +84,7 @@ You can protect your Exchange Online, SharePoint Online, OneDrive, and Teams dat
 
 ## Before you begin
 
-As you plan your Azure Storage strategy with Veeam, review the [Microsoft Cloud Adoption Framework](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/) for guidance on setting up your Azure environment. 
+As you plan your Azure Storage strategy with Veeam, review the [Microsoft Cloud Adoption Framework](/azure/cloud-adoption-framework/) for guidance on setting up your Azure environment.
 
 When considering how to deploy Veeam Data Platform solutions for your specific infrastructure, review the following articles:
 
