@@ -667,7 +667,7 @@ In this step, you configure the web app as follows:
 
 ### [Azure portal](#tab/azure-portal)
 
-1. On your web app's management page, select **Configuration**.
+1. In the left pane of your web app's management page, under **Settings**,  select **Environment variables**.
     
     :::image type="content" source="./media/tutorial-custom-container/azure-portal-configure-app-service-1.png" alt-text="Screenshot showing how to open the Configuration page." lightbox="./media/tutorial-custom-container/azure-portal-configure-app-service-1.png":::
     
