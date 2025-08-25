@@ -45,7 +45,7 @@ To enable alerts (Preview) with Azure Update Manager through Azure portal, follo
     
     1. Select **Preview or edit query in Logs** to run a selected alerting query option or to edit a query.
     
-       :::image type="content" source="./media/manage-alerts/query-inline.png" alt-text="Screenshot that shows how to edit query in logs." lightbox="./media/manage-alerts/query-inline-expanded.png":::
+       :::image type="content" source="./media/manage-alerts/query-inline.png" alt-text="Screenshot that shows how to edit query in logs." lightbox="./media/manage-alerts/query-inline.png":::
     
     1. Select **Run** to run the query and to enable **Continue Editing Alert**.
    
