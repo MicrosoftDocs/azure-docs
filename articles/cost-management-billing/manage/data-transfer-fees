@@ -2,11 +2,11 @@
 title: Data transfer fees
 description: Describes how fees are applied to a data transfer
 author: jlucey
-ms.reviewer: nicholak
+ms.reviewer: jlucey
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/22/2025
+ms.date: 08/25/2025
 ms.author: jlucey
 ---
 
@@ -16,7 +16,7 @@ Azure now offers at-cost transfer of data for customers and CSP partners in the 
 
 ## Create a support request
 
-1.	To signal your intent to transfer data between Azure and another cloud provider, and allow us to accommodate your request, create an Azure Support request and provide:
+1.	To signal your intent to transfer data between Azure and another cloud provider, and allow us to accommodate your request, create an [Azure Support request](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/%7E/overview) and provide:
     *	The customer’s Subscription ID
     *	The autonomous system number (ASN) information for the endpoint outside of Azure.
     *	An estimate of the percentage (between 1% and 100%) of data that is transferred between Azure and the external endpoint.
@@ -25,7 +25,7 @@ Azure now offers at-cost transfer of data for customers and CSP partners in the 
 
 ## Qualifications
 * This only applies to organizations with a billing address in the European Economic Area and excludes instances where customers have chosen to store Customer Data outside of the European Economic Area.
-* The at-cost data transfer only applies to Internet egress (routed via Routing preference transit ISP network) if the service is supported on the ISP path. For services not supported on the ISP network, we will issue credits for Internet egress (Routed via Microsoft Premium Global Network).
+* The at-cost data transfer only applies to Internet egress (routed via [Routing preference transit ISP network](https://learn.microsoft.com/azure/virtual-network/ip-services/routing-preference-overview)) if the service is supported on the ISP path. For services not supported on the ISP network, we will issue credits for Internet egress (Routed via Microsoft Premium Global Network).
 * Data processing should be at the destination, and must be the same organization. Scenarios such as CDN delivery are not within scope. For example, the data transfer must not occur between endpoints belonging to different customers. 
 * Azure reviews your request for adherence to the requirements. If we determine the customer request doesn't follow the documented process, we might not issue the credit request.
 * Azure might make changes regarding the egress credit policy in the future.
