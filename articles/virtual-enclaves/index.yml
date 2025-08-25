@@ -112,12 +112,16 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Observability
+            url: observability.md
           - text: Just-in-time access
             url: just-in-time-access.md
 #           - text: Dynamic Access Controls
 #             url: dynamic-access-controls.md
 #           - text: Attribute-Based Access Controls
 #             url: attribute-based-access-controls.md
+          - text: Role-Based Access Controls (RBAC)
+            url: role-based-access-controls.md
           - text: Access controls in enclaves
             url: access-controls-enclaves.md
           - text: Create a user-assigned managed identity
