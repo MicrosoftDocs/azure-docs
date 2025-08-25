@@ -9,7 +9,7 @@ ms.date: 11/16/2023
 ms.custom: template-concept 
 ---
 
-# Release notes for Azure Data Manager for Agriculture Preview 
+# Release notes for Azure Data Manager for Agriculture preview 
 
 [!INCLUDE [public-preview-notice.md](includes/public-preview-notice.md)]
 
