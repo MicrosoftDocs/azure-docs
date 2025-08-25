@@ -5,9 +5,10 @@ ms.service: azure-backup
 ms.topic: how-to
 ms.date: 02/09/2025
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: As a cloud administrator, I want to manage and track backup and restore jobs using a REST API, so that I can automate backup processes and monitor their status efficiently.
 ---
 
 # Track the backup and restore jobs using REST API in Azure Backup

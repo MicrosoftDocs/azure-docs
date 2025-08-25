@@ -7,6 +7,7 @@ ms.service: azure-ddos-protection
 ms.topic: quickstart
 ms.date: 03/17/2025
 ms.custom: template-quickstart
+# Customer intent: As a network administrator, I want to create and configure a DDoS protection plan for my virtual networks, so that I can safeguard my resources from distributed denial-of-service attacks.
 ---
 
 # QuickStart: Create and configure Azure DDoS Network Protection using the Azure portal

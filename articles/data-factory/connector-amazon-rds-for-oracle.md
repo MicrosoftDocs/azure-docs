@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/27/2025
+ms.date: 07/24/2025
 ms.author: jianleishen
 ---
 
@@ -17,7 +17,7 @@ ms.author: jianleishen
 This article outlines how to use the copy activity in Azure Data Factory to copy data from an Amazon RDS for Oracle database. It builds on the [copy activity overview](copy-activity-overview.md).
 
 > [!IMPORTANT]
-> The Amazon RDS for Oracle connector version 2.0 provides improved native Amazon RDS for Oracle support. If you are using Amazon RDS for Oracle connector version 1.0 in your solution, please [upgrade the Amazon RDS for Oracle connector](#upgrade-the-amazon-rds-for-oracle-connector) before **August 31, 2025**. Refer to this [section](#differences-between-amazon-rds-for-oracle-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
+> The Amazon RDS for Oracle connector version 2.0 provides improved native Amazon RDS for Oracle support. If you are using Amazon RDS for Oracle connector version 1.0 in your solution, please [upgrade the Amazon RDS for Oracle connector](#upgrade-the-amazon-rds-for-oracle-connector) before **October 31, 2025**. Refer to this [section](#differences-between-amazon-rds-for-oracle-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
 
 ## Supported capabilities
 
@@ -35,7 +35,9 @@ This Amazon RDS for Oracle connector is supported for the following capabilities
 Specifically, this Amazon RDS for Oracle connector supports:
 
 - The following versions of an Amazon RDS for Oracle database for version 2.0:
-    - Amazon RDS for Oracle 19c or later
+    - Amazon RDS for Oracle 19c and higher
+    - Amazon RDS for Oracle 18c and higher
+    - Amazon RDS for Oracle 12c and higher
 - The following versions of an Amazon RDS for Oracle database for version 1.0:
     - Amazon RDS for Oracle 19c R1 (19.1) and higher
     - Amazon RDS for Oracle 18c R1 (18.1) and higher
@@ -350,6 +352,8 @@ To copy data from Amazon RDS for Oracle, set the source type in the copy activit
 | partitionColumnName | Specify the name of the source column **in integer type** that will be used by range partitioning for parallel copy. If not specified, the primary key of the table is auto-detected and used as the partition column. <br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook  `?AdfRangePartitionColumnName` in the WHERE clause. For an example, see the [Parallel copy from Amazon RDS for Oracle](#parallel-copy-from-amazon-rds-for-oracle) section. | No |
 | partitionUpperBound | The maximum value of the partition column to copy data out. <br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook `?AdfRangePartitionUpbound` in the WHERE clause. For an example, see the [Parallel copy from Amazon RDS for Oracle](#parallel-copy-from-amazon-rds-for-oracle) section. | No |
 | partitionLowerBound | The minimum value of the partition column to copy data out. <br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook `?AdfRangePartitionLowbound` in the WHERE clause. For an example, see the [Parallel copy from Amazon RDS for Oracle](#parallel-copy-from-amazon-rds-for-oracle) section. | No |
+| numberPrecision | Specify the maximum number of significant decimal digits. Allowed values range from 1 to 256. Defaults to 256 if not specified. <br>This property is supported in Amazon RDS for Oracle version 2.0. It applies only to NUMBER types that do not have precision and scale explicitly defined in the Oracle database. It can be set when `supportV1DataTypes` isn't `true`. If you use self-hosted integration runtime, its version should be 5.56 or above. | No |
+| numberScale | Specify the number of digits after the decimal point. Allowed values range from 0 to 130 and must be less than or equal to the precision. Defaults to 130 if not specified. <br>This property is supported in Amazon RDS for Oracle version 2.0. It applies only to NUMBER types that do not have precision and scale explicitly defined in the Oracle database. It can be set when `supportV1DataTypes` isn't `true`. If you use self-hosted integration runtime, its version should be 5.56 or above. | No |
 
 **Example: copy data by using a basic query without partition**
 

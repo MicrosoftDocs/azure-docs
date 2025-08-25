@@ -4,7 +4,7 @@ description: Reference for customizing Dev Box environments by using devbox.yaml
 author: RoseHJM  
 ms.service: dev-box  
 ms.topic: reference  
-ms.date: 05/09/2025  
+ms.date: 08/07/2025
 ms.author: rosemalcolm
 ms.custom:
   - build-2025
@@ -66,6 +66,20 @@ You need the dev center `az cli` extension:
 az extension add --name devcenter
 ```
 
+### buildProperties
+
+This object collection is made up of build properties that can be used to customize the build process for the image. 
+
+#### networkConnection    
+
+**Optional:** Specifies the network connection to use during image creation. This network connection allows customization tasks to access resources, like storage accounts or repositories, that are accessible from the specified network. The network connection must be attached to the Dev Center before it can be used for image creation.
+
+Example:
+```
+buildProperties:
+    networkConnection: "my-westus3"
+```
+
 ### tasks
 
 **Required:** This object collection is made up of Dev Box customization tasks to run when you provision a dev box. The specific inputs that are provided to a task vary by task.
@@ -79,16 +93,16 @@ tasks:
     package: GitHub.GitHubDesktop
 ```
 
-All tasks support the `timeout` parameter, which is optional.
+All tasks support the `timeout` property, which is optional.
 
 Example:
 
 ```
 tasks:
 - name: powershell
+  timeout: 1800 # in seconds
   parameters:
     command: <command>
-    timeout: 1800 # in seconds
 ```
 
 ### Built-in tasks

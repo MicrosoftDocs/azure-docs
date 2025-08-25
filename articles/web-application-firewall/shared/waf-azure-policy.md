@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 05/25/2023
+# Customer intent: As a security administrator, I want to implement Azure Policies for the Web Application Firewall, so that I can ensure compliance and enforce security standards across all WAF resources in my organization.
 ---
 
 # Azure Web Application Firewall and Azure Policy

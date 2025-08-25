@@ -10,6 +10,7 @@ ms.topic: concept-article
 ms.author: normesta
 ms.reviewer: ozgun
 ms.subservice: storage-common-concepts
+# Customer intent: As a cloud security administrator, I want to implement encryption for data at rest in Azure Storage, so that I can ensure the protection and compliance of sensitive data stored in the cloud.
 ---
 
 # Azure Storage encryption for data at rest

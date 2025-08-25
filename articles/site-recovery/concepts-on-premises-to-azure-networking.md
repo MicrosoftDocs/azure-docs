@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.date: 07/26/2022
 ms.author: jsuri
 
+# Customer intent: As a disaster recovery planner, I want to ensure seamless connectivity to Azure VMs after failover from on-premises, so that I can maintain application availability and network integrity during unexpected outages.
 ---
 # Connect to Azure VMs after failover from on-premises 
 

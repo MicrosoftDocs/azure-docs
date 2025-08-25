@@ -9,6 +9,7 @@ ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.custom: template-how-to, engagement-fy23
+# Customer intent: As a cloud administrator, I want to assign multiple IP addresses to a virtual machine, so that I can host multiple services or applications on a single server and manage them efficiently.
 ---
 # Assign multiple IP addresses to virtual machines using the Azure portal
 

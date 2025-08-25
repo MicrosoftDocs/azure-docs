@@ -5,7 +5,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 08/06/2024
+ms.date: 06/26/2025
 ms.author: danlep
 ---
 # Export API definition to Postman for API testing, monitoring, and development
@@ -35,9 +35,6 @@ To enhance development of your APIs, you can export an API fronted in API Manage
 
 1. In the portal, under **APIs**, select an API.
 1. In the context menu (**...**), select **Export** > **Postman**. 
-
-    :::image type="content" source="media/export-api-postman/export-to-postman.png" alt-text="Screenshot of exporting an API to Postman in the Azure portal.":::
-
 1. In the **Run in** dialog, select the Postman location to export to. You can select the option for the desktop app if you've installed it locally.
 1. In Postman, select a Postman workspace to import the API to. The default is *My Workspace*.
 1. In Postman, select **Generate collection from this API** to automatically generate a collection from the API definition. If needed, configure advanced import options, or accept default values. Select **Import**.

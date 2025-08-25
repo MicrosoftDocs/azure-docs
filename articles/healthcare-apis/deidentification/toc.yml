@@ -60,7 +60,7 @@ items:
       - name: REST API
         href: /rest/api/healthdata
       - name: .NET SDK
-        href: /dotnet/api/overview/azure/healthdeidentification
+        href: /dotnet/api/overview/azure/health.deidentification-readme
       - name: Python SDK
         href: /python/api/overview/azure/health-deidentification
       - name: Java SDK

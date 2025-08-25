@@ -544,7 +544,7 @@ The following table describes the parameters used by this command.
 | `resource-group` | `$RESOURCE_GROUP` | The resource group in which your container app is deployed. |
 | `environment` | `$ENVIRONMENT` | The environment in which your container app runs. |
 | `image` | `$REGISTRY_NAME".azurecr.io/"$CONTAINER_APP_NAME":helloworld"` | The container image to deploy, including the registry name and tag. |
-| `target-port` | `80` | Matches the port that your app is listening to for requests. |
+| `target-port` | `8080` | Matches the port that your app is listening to for requests. |
 | `ingress` | `external` | Makes your container app accessible from the public internet. |
 | `user-assigned` | `$IDENTITY_ID` | The user-assigned managed identity for your container app. |
 | `registry-identity` | `registry-identity` | The identity used to access the container registry. |

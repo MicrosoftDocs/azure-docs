@@ -9,6 +9,7 @@ ms.date: 05/21/2024
 ms.author: mbender
 ms.custom: references_regions
 # customer intent: As a network admin, I want to use LoadBalancerHealthEvent logs for Azure Load Balancer for monitoring and alerting so that I can identify and troubleshoot ongoing issues affecting my load balancer resource’s health.
+# Customer intent: As a network administrator, I want to monitor and alert using LoadBalancerHealthEvent logs, so that I can quickly identify and address issues that impact the performance and reliability of my load balancer resources.
 ---
 
 # Monitor and alert with LoadBalancerHealthEvent logs

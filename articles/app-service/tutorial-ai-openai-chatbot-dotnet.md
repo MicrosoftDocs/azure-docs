@@ -4,12 +4,14 @@ description: Learn how to build and deploy a Blazor web app to Azure App Service
 author: cephalin
 ms.author: cephalin
 ms.date: 05/19/2025
+ms.update-cycle: 180-days
 ms.topic: tutorial
 ms.custom:
   - devx-track-dotnet
   - linux-related-content
   - build-2025
 ms.collection: ce-skilling-ai-copilot
+ms.service: azure-app-service
 ---
 
 # Tutorial: Build a chatbot with Azure App Service and Azure OpenAI (.NET)

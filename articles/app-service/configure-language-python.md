@@ -9,6 +9,7 @@ author: msangapu-msft
 ms.devlang: python
 ms.custom: mvc, devx-track-python, devx-track-azurecli, mode-other, py-fresh-zinc, linux-related-content, innovation-engine
 adobe-target: true
+ms.service: azure-app-service
 ---
 
 # Configure a Linux Python app for Azure App Service

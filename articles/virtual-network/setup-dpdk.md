@@ -9,6 +9,7 @@ ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 10/02/2024
 ms.author: steveesp
+# Customer intent: "As a network engineer, I want to install DPDK in an Azure Linux VM, so that I can enhance packet processing performance for my network applications."
 ---
 
 # Set up DPDK in a Linux virtual machine

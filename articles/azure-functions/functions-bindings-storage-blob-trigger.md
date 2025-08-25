@@ -2,7 +2,7 @@
 title: Azure Blob storage trigger for Azure Functions
 description: Learn how to use Azure Function to run your custom code based on changes in an Azure Blob storage container. 
 ms.topic: reference
-ms.date: 05/14/2024
+ms.date: 05/14/2025
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 ms.custom:
@@ -68,7 +68,7 @@ For more information about the `BlobTrigger` attribute, see [Attributes](#attrib
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
-This function writes a log when a blob is added or updated in the `myblob` container.
+This function uses a byte array to write a log when a blob is added or updated in the `myblob` container.
 
 ```java
 @FunctionName("blobprocessor")
@@ -81,6 +81,57 @@ public void run(
   final ExecutionContext context
 ) {
   context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
+}
+```
+
+This [SDK types example](./functions-reference-java.md#sdk-types) uses `BlobClient` to access properties of the blob.
+
+```java
+@FunctionName("processBlob")
+public void run(
+        @BlobTrigger(
+                name = "content",
+                path = "images/{name}",
+                connection = "AzureWebJobsStorage") BlobClient blob,
+        @BindingName("name") String file,
+        ExecutionContext ctx)
+{
+    ctx.getLogger().info("Size = " + blob.getProperties().getBlobSize());
+}
+```
+
+This [SDK types example](./functions-reference-java.md#sdk-types) uses `BlobContainerClient` to access info about blobs in the container that triggered the function.
+
+```java
+@FunctionName("containerOps")
+public void run(
+        @BlobTrigger(
+                name = "content",
+                path = "images/{name}",
+                connection = "AzureWebJobsStorage") BlobContainerClient container,
+        ExecutionContext ctx)
+{
+    container.listBlobs()
+            .forEach(b -> ctx.getLogger().info(b.getName()));
+}
+```
+
+This [SDK types example](./functions-reference-java.md#sdk-types) uses `BlobClient` to get information from the input binding about the blob that triggered the execution. 
+
+```java
+@FunctionName("checkAgainstInputBlob")
+public void run(
+        @BlobInput(
+                name = "inputBlob",
+                path = "inputContainer/input.txt") BlobClient inputBlob,
+        @BlobTrigger(
+                name = "content",
+                path = "images/{name}",
+                connection = "AzureWebJobsStorage",
+                dataType = "string") String triggerBlob,
+        ExecutionContext ctx)
+{
+    ctx.getLogger().info("Size = " + inputBlob.getProperties().getBlobSize());
 }
 ```
 
@@ -182,7 +233,7 @@ Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($Inp
 
 This example uses SDK types to directly access the underlying [`BlobClient`](/python/api/azure-storage-blob/azure.storage.blob.blobclient) object provided by the Blob storage trigger: 
 
-:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-bindings-blob/samples/blob_samples_blobclient/function_app.py" range="9-14,31-39"::: 
+:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-bindings-blob/samples/blob_samples_blobclient/function_app.py" range="9-12,29-37"::: 
 
 For examples of using other SDK types, see the [`ContainerClient`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-blob/samples/blob_samples_containerclient/function_app.py) and [`StorageStreamDownloader`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-blob/samples/blob_samples_storagestreamdownloader/function_app.py) samples. For a step-by-step tutorial on how to include SDK-type bindings in your function app, follow the [Python SDK Bindings for Blob Sample](https://github.com/Azure-Samples/azure-functions-blob-sdk-bindings-python).
 
@@ -444,7 +495,8 @@ If you get an error message when trying to bind to one of the Storage SDK types,
 ::: zone-end  
 
 ::: zone pivot="programming-language-java"
-The `@BlobTrigger` attribute is used to give you access to the blob that triggered the function. Refer to the [trigger example](#example) for details.
+
+[!INCLUDE [functions-java-sdk-types-preview-note](../../includes/functions-java-sdk-types-preview-note.md)]
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 # [Model v4](#tab/nodejs-v4)

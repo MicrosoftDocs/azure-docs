@@ -12,6 +12,7 @@ ms.topic: how-to
 ms.custom: H1Hack27Feb2017
 ms.date: 11/30/2023
 ms.author: allensu
+# Customer intent: As a cloud administrator, I want to configure DNS records for my Azure services, so that I can successfully resolve names for my applications deployed in Azure.
 ---
 # How Azure DNS works with other Azure services
 

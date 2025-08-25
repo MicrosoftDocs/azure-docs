@@ -10,6 +10,7 @@ ms.subservice: storage-common-concepts
 ms.topic: concept-article
 ms.date: 03/04/2025
 ms.author: akashdubey
+# Customer intent: "As a cloud architect, I want to understand the different types of storage accounts and their features, so that I can choose the right account type based on my application's performance, redundancy, and cost requirements."
 ---
 
 # Storage account overview
@@ -78,7 +79,7 @@ Business continuity and disaster recovery (BCDR) is a business’s ability to re
 Artificial intelligence (AI) is technology that simulates human intelligence and problem-solving capabilities in machines. Machine Learning (ML) is a sub-discipline of AI that uses algorithms to create models that enable machines to perform tasks. Both represent the newest workload on Azure which is growing at a rapid pace. This type of workload can be applied across every industry to improve metrics and meet performance goals. These types of technologies can lead to discoveries of life-saving drugs and practices in the field of medicine/health while also providing health assessments. Other everyday uses of ML and AI include fraud detection, image recognition, and the flagging of misinformation. These workloads typically need highly specialized compute (large numbers of GPU) and require high throughput and IOPS, low latency access to storage and POSIX file system access. Azure Storage supports these types of workloads by storing checkpoints and providing storage for large-scale datasets and models. These datasets and models read and write at a pace to keep GPUs utilized. 
 
 ### Recommended workload configurations
-The table below illustrates Microsoft's suggested storage account configurations for each workload
+The table below illustrates Microsoft's suggested storage account configurations for each workload. Changes in the configuration options (associated with each workload) have cost implications. Visit the [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) to view pricing. Enter the configuration options for the workload into the calculator and select the "Recommended" tab to view detailed pricing for the specific workload you are creating. 
 
 |Workload |Account kind |Performance |Redundancy |Hierarchical namespace enabled |Default access tier |Soft delete enabled |
 |---|---|---|---|---|---|---|

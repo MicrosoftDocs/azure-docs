@@ -219,6 +219,6 @@ items:
   - name: Azure Private 5G Core product page
     href: https://azure.microsoft.com/services/private-5g-core/
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/updates?filters=%5B%22Azure+Stack+Edge%22%5D
   - name: Blog
     href: https://azure.microsoft.com/blog/topics/networking

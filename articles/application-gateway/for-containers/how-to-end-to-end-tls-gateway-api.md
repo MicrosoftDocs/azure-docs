@@ -7,6 +7,7 @@ ms.service: azure-appgw-for-containers
 ms.topic: how-to
 ms.date: 11/5/2024
 ms.author: mbender
+# Customer intent: As a cloud architect, I want to configure end-to-end TLS for an Application Gateway serving containerized applications, so that I can ensure secure communication between clients and backend services.
 ---
 
 # End-to-end TLS with Application Gateway for Containers - Gateway API

@@ -11,6 +11,7 @@ ms.author: duau
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
+# Customer intent: "As a cloud engineer, I want to deploy Azure Firewall using Terraform, so that I can create a secure network environment with high availability across multiple zones."
 ---
 
 # Quickstart: Deploy Azure Firewall with Availability Zones - Terraform

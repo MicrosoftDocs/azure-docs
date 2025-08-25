@@ -1,8 +1,8 @@
 ---
 title: Use Azurite emulator for local Azure Storage development
 description: The Azurite open-source emulator provides a free local environment for testing your Azure storage applications.
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.date: 01/26/2024
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, ai-video-demo
 ai-usage: ai-assisted
+# Customer intent: "As a developer, I want to use the Azurite emulator for local Azure Storage development, so that I can test my Blob, Queue, and Table Storage applications in a free and controlled environment before deployment."
 ---
 
 # Use the Azurite emulator for local Azure Storage development
@@ -858,3 +859,4 @@ Contributions and suggestions for Azurite are welcome. Go to the Azurite [GitHub
 
 - [Use the Azure Storage Emulator for development and testing](storage-use-emulator.md) documents the legacy Azure Storage Emulator, which is superseded by Azurite.
 - [Configure Azure Storage connection strings](storage-configure-connection-string.md) explains how to assemble a valid Azure Storage connection string.
+

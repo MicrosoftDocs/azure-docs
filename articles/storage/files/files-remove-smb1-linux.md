@@ -7,6 +7,7 @@ ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 02/23/2023
 ms.author: kendownie
+# Customer intent: "As a system administrator, I want to disable SMB 1 on Linux clients, so that I can enhance security by using only modern and secure SMB protocols for file sharing."
 ---
 
 # Disable SMB 1 on Linux clients

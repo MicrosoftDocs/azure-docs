@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 02/10/2025
 ms.author: anfdocs
+# Customer intent: "As a cloud architect, I want to explore available third-party add-ons for Azure NetApp Files, so that I can enhance storage functionality and optimize performance for our applications."
 ---
 # Storage service add-ons for Azure NetApp Files
 

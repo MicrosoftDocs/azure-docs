@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.date: 06/07/2024
 ms.author: allensu
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+# Customer intent: "As a network administrator, I want to create child DNS zones in Azure DNS, so that I can effectively manage subdomains under a parent DNS zone."
 ---
 # Tutorial: Create a child DNS zone
 

@@ -51,6 +51,8 @@ landingContent:
             url: observability.md
           - text: Jobs
             url: jobs.md
+          - text: Azure Functions
+            url: functions-overview.md
   - title: Common tasks
     linkLists:
       - linkListType: how-to-guide
@@ -69,6 +71,8 @@ landingContent:
             url: vnet-custom.md
           - text: Quotas
             url: quotas.md
+          - text: Create a Functions app
+            url: functions-usage.md  
       - linkListType: concept
         links:
           - text: What's new in Dapr?

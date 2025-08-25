@@ -16,7 +16,7 @@ The number of available slots depends on your specific hosting option:
 | [Flex Consumption plan](flex-consumption-plan.md) | Not currently supported |
 | [Premium plan](functions-premium-plan.md) | 3 |
 | [Dedicated (App Service) plan](dedicated-plan.md) | [1-20](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-app-service-limits) |
-| [Container Apps](functions-container-apps-hosting.md) | Uses [Revisions](../container-apps/revisions.md) |
+| [Container Apps](../container-apps/functions-overview.md) | Uses [Revisions](../container-apps/revisions.md) |
   
 The following descriptions reflect how functions are affected by swapping slots:
 
@@ -176,6 +176,8 @@ az functionapp deployment slot create --name "<APP_NAME>" --resource-group "<RES
 ```
 
 ---
+
+You can also create a slot by using ARM templates or Bicep files. For an example of how to create a function app in a Consumption plan with a deployment slot, see this [Azure Resource Manager quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/function-app-create-dynamic-slot).  
 
 ## Access slot resources
 

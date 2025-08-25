@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 12/09/2024
 ms.author: kendownie
+# Customer intent: "As a data administrator, I want to use file share snapshots for Azure Files, so that I can efficiently recover previous versions of files and protect against accidental deletions or data corruption."
 ---
 
 # Use share snapshots with Azure Files
@@ -295,8 +296,6 @@ Customers using NFS Azure file shares can create, list, delete, and restore from
 Only file management APIs (`AzRmStorageShare`) are supported for NFS Azure file share snapshots. File data plane APIs (`AzStorageShare`) aren't supported.
 
 Azure Backup isn't currently supported for NFS file shares.
-
-AzCopy isn't currently supported for NFS file shares. To copy data from an NFS Azure file share or share snapshot, use file system copy tools such as rsync or fpsync.
 
 NFS Azure file share snapshots are available in all Azure public cloud regions.
 

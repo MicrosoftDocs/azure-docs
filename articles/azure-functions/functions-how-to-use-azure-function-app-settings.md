@@ -182,7 +182,12 @@ In the previous example, replace `<RESOURCE_GROUP>` and `<FUNCTION_APP_NAME>` wi
 
 ## Plan migration
 
-You can migrate a function app between a Consumption plan and a Premium plan on Windows. When migrating between plans, keep in mind the following considerations:
+You can migrate a function app between a Consumption plan and a Premium plan on Windows. 
+
+>[!TIP]  
+>We recommend you migrate your Consumption plan app to run in a Flex Consumption plan instead of a Premium plan. This is the only migration option for a Linux Consumption plan app. For more information, see [Migrate Consumption plan apps to the Flex Consumption plan](migration/migrate-plan-consumption-to-flex.md).   
+
+When migrating between plans, keep in mind the following considerations:
 
 + Direct migration to a Dedicated (App Service) plan isn't supported.
 + Migration isn't supported on Linux.

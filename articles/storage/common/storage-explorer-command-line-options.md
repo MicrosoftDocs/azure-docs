@@ -9,6 +9,7 @@ ms.topic: article
 ms.date: 02/24/2021
 ms.author: jinglou
 ms.reviewer: cralvord,richardgao
+# Customer intent: "As a developer troubleshooting Azure Storage Explorer, I want to start the application with specific command-line options, so that I can customize the environment and gather detailed debug information to resolve issues effectively."
 ---
 
 # Azure Storage Explorer command-line options

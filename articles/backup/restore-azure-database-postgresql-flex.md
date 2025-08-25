@@ -6,8 +6,9 @@ ms.date: 05/12/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a database administrator, I want to restore Azure PostgreSQL Flexible server backups as files, so that I can ensure data recovery for compliance and manage database configurations effectively."
 ---
 
 # Restore Azure PostgreSQL-Flexible server as Files using Azure portal

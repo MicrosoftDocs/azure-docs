@@ -8,6 +8,7 @@ ms.author: normesta
 ms.date: 08/24/2021
 ms.devlang: csharp
 ms.custom: "monitoring"
+# Customer intent: As a cloud administrator, I want to implement best practices for monitoring Azure Queue Storage, so that I can ensure efficient message handling and maintain compliance through effective auditing and cost optimization strategies.
 ---
 
 # Best practices for monitoring Azure Queue Storage

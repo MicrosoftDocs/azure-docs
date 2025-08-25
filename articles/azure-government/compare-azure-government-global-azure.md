@@ -120,7 +120,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||Queue|queue.core.windows.net|queue.core.usgovcloudapi.net||
 ||Table|table.core.windows.net|table.core.usgovcloudapi.net||
 ||File|file.core.windows.net|file.core.usgovcloudapi.net||
-|**Virtual desktop infrastructure**|Azure Virtual Desktop|See [AVD docs](../virtual-desktop/safe-url-list.md)|See [AVD docs](../virtual-desktop/safe-url-list.md)||
+|**Virtual desktop infrastructure**|Azure Virtual Desktop|See [AVD docs](/azure/virtual-desktop/safe-url-list)|See [AVD docs](/azure/virtual-desktop/safe-url-list)||
 |**Web**|API Management|management.azure.com|management.usgovcloudapi.net||
 ||API Management Gateway|azure-api.net|azure-api.us||
 ||API Management management|management.azure-api.net|management.azure-api.us||
@@ -257,7 +257,7 @@ This section outlines variations and considerations when using Identity services
 
 For feature variations and limitations, see [Cloud feature availability](../active-directory/authentication/feature-availability.md).
 
-For information on how to use Power BI capabilities for collaboration between Azure and Azure Government, see [Cross-cloud B2B](/power-bi/enterprise/service-admin-azure-ad-b2b#cross-cloud-b2b).
+For information on how to use Power BI capabilities for collaboration between Azure and Azure Government, see [Cross-cloud B2B](/power-platform/admin/new-admin-center#cross-cloud-b2b).
 
 The following features have known limitations in Azure Government:
 

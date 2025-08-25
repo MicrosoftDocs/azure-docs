@@ -48,7 +48,11 @@ You've added a custom feature filter named **Random** with a **Percentage** para
 1. Register the `RandomFilter` when creating the `FeatureManager`.
 
     ``` javascript
-    const fm = new FeatureManager(ffProvider, {customFilters: [new RandomFilter()]});
+    const fm = new FeatureManager(
+        new ConfigurationMapFeatureFlagProvider(appConfig), 
+        {
+            customFilters: [new RandomFilter()]
+        });
     ```
 
 ## Feature filter in action

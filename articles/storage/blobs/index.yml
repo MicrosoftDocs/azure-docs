@@ -55,16 +55,7 @@ landingContent:
             url: ../common/storage-account-create.md
           - text: Configure a custom domain
             url: storage-custom-domain-name.md
-  # Card
-  - title: Search and understand blob data
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Use AI to understand blob data 
-            url: /azure/search/search-blob-ai-integration?toc=/azure/storage/blobs/toc.json
-          - text: Search your blob content
-            url: /azure/search/search-blob-storage-integration?toc=/azure/storage/blobs/toc.json
-  # Card
+    # Card
   - title: Analytics and insights
     linkLists:
       - linkListType: overview
@@ -97,6 +88,15 @@ landingContent:
             url: ../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=/azure/storage/blobs/toc.json
           - text: Use with Power BI
             url: /power-query/connectors/datalakestorage
+  # Card
+  - title: Search and understand blob data
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Use AI to understand blob data 
+            url: /azure/search/search-blob-ai-integration?toc=/azure/storage/blobs/toc.json
+          - text: Search your blob content
+            url: /azure/search/search-blob-storage-integration?toc=/azure/storage/blobs/toc.json
   # Card
   - title: Develop applications
     linkLists:
@@ -186,3 +186,18 @@ landingContent:
             url: access-tiers-overview.md
           - text: Manage the Blob storage lifecycle
             url: storage-lifecycle-management-concepts.md
+    # Card
+  - title: Manage costs
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Plan and manage costs
+            url: ../common/storage-plan-manage-costs.md
+          - text: Estimate costs
+            url: blob-storage-estimate-costs.md
+          - text: 'Sample estimate: Move data out of archive'
+            url: cost-estimate-archive-retrieval-set-tier.md
+          - text: 'Sample estimate: Retrieve from archive'
+            url: cost-estimate-archive-retrieval-copy-blob.md
+          - text: 'Sample estimate: Cross region data access'
+            url: cost-estimate-multi-region-access.md

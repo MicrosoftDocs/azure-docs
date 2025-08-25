@@ -11,6 +11,7 @@ ms.custom: devx-track-arm-template
 ms.date: 03/12/2024
 ms.author: mbender
 ROBOTS: NOINDEX, NOFOLLOW
+# Customer intent: "As a cloud architect, I want to deploy an IPv6 dual stack application using an Azure Resource Manager template, so that I can ensure seamless connectivity and performance for both IPv4 and IPv6 clients in my virtual network."
 ---
 
 # Deploy an IPv6 dual stack application with Basic Load Balancer in Azure - Template

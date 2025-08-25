@@ -7,6 +7,7 @@ ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.date: 05/22/2025
 ms.author: cherylmc 
+# Customer intent: As a network engineer, I want to implement a zone-redundant virtual network gateway, so that I can enhance the resiliency and availability of my network connectivity to Azure while mitigating risks from zone-level failures.
 ---
 # About zone-redundant virtual network gateway in Azure availability zones
 

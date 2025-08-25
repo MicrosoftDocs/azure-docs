@@ -5,9 +5,11 @@ description: Learn how Azure App Service helps you develop and host web applicat
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 04/24/2025
+ms.update-cycle: 1095-days
 ms.custom: UpdateFrequency3, linux-related-content
 ms.author: msangapu
 author: msangapu-msft
+ms.service: azure-app-service
 ---
 
 # App Service overview
@@ -34,7 +36,7 @@ Whether you're a student, a small business, a startup, or an enterprise, App Ser
 - **Command-line friendly**: Deploy using command line tools you already use, such as Maven, Gradle, Azure Developer CLI, Azure CLI, and Azure PowerShell.
 - **Scalability**: Automatically scale your applications based on demand.
 - **Global reach**: Deploy your apps in data centers around the world.
-- **Application templates**: Choose from an extensive list of application templates in the [Azure Marketplace](https://azure.microsoft.com/marketplace/), such as WordPress, Joomla, and Drupal.
+- **Application templates**: Choose from an extensive list of application templates in the [Azure Marketplace](https://azure.microsoft.com/marketplace/), such as WordPress, Joomla, Django , Node.js and Drupal.
 - **Social sign-in support**: Turn-key social sign-in with [Google](configure-authentication-provider-google.md), [Facebook](configure-authentication-provider-facebook.md), [X](configure-authentication-provider-twitter.md), and [Microsoft accounts](configure-authentication-provider-microsoft.md).
 
 ### Enterprises

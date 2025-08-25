@@ -1,33 +1,40 @@
 ---
-title: Azure Communication Services Simulcast
-titleSuffix: An Azure Communication Services concept document
-description: Overview of Simulcast - how sending multiple video quality streams helps overall call quality.
+title: Simulcast
+titleSuffix: An Azure Communication Services article
+description: This article describes how to send multiple video quality streams helps overall call quality.
 author: sloanster
 manager: chpalm
 services: azure-communication-services
 
 ms.author: micahvivion
-ms.date: 02/19/2024
+ms.date: 07/22/2025
 ms.topic: conceptual
 ms.subservice: calling
 ms.service: azure-communication-services
 ---
-# What is Simulcast?
-Simulcast is a technique that allows video streaming applications to send multiple versions of the same video content at different resolutions and bitrates. This way, the receiver can choose the most suitable version based on their network conditions and device capabilities. 
+# Simulcast
 
-The lack of simulcast support leads to a degraded video experience in calls with three or more participants. If a video receiver with poor network conditions joins the conference, it impacts the quality of video received from the sender without simulcast support for all other participants. The video sender optimizes its video feed against the lowest common denominator. When simulcast streaming is available the potential impact of one person affecting the entire streaming quality experience is minimized.
+Simulcast is a video streaming method that enables a sender, such as a WebJS client, to deliver multiple variants of the same video feed at varying resolutions and bitrates. This approach allows the Azure Communication Services infrastructure to dynamically select and distribute the most suitable stream to each participant according to their device capabilities, prevailing network conditions, and CPU performance. Simulcast enhances video quality and reliability in group calls, particularly when participants are accessing the service under diverse technical environments.
 
-Simulcast is supported on Azure Communication Services SDK for WebJS (1.9.1-beta.1+) and native SDK for Android, iOS, and Windows. Currently, simulcast on the sender side is supported on following desktop browsers - Chrome and Edge. Simulcast on receiver side is supported on all platforms that Azure Communication Services Calling supports. Support for Sender side Simulcast capability from mobile browsers will be added in the future.
+Without simulcast support, video calls with three or more people suffer if one participant has a poor connection, as the sender must lower video quality for everyone. Simulcast streaming reduces this issue by allowing each recipient to get an optimal stream, minimizing the negative impact of one user's network problems.
+Simulcast is available in the Azure Communication Services SDK for WebJS and native SDKs for Android, iOS, and Windows. Sender-side simulcast is presently available on desktop browsers such as Chrome and Microsoft Edge. Receiver-side simulcast is supported across all platforms compatible with Azure Communication Services Calling. Support for sender-side simulcast from mobile browsers is planned for a future update.
 
-## How Simulcast works
-Simulcast is a feature that allows a publisher, in this case the Azure Communication Services calling SDK, to send different qualities of the same video to the SFU. The SFU then forwards the most suitable quality to each other endpoint on a call, based on their bandwidth, CPU, and resolution preferences. This way, the publisher can save resources and the subscribers can receive the best possible quality. The SFU doesn't change the video quality, it only selects which one to forward.
 
-## Supported number of video qualities available with Simulcast.
-Simulcast streaming from a web endpoint supports a maximum two video qualities. There aren't API controls needed to enable Simulcast for Azure Communication Services. Simulcast is enabled and available for all video calls.
+## How simulcast works
+
+The simulcast feature lets the Azure Communication Services calling SDK send multiple video qualities to the selective forwarding unit (SFU), which then forwards the optimal one to each endpoint based on their bandwidth, CPU, and resolution needs. This approach conserves publisher resources and ensures subscribers get the best available quality. The SFU doesn't alter video quality; it simply selects which stream to forward.
+
+## Supported number of video qualities available with Simulcast
+
+Simulcast streaming from a web desktop endpoint supports up to three distinct video quality levels. No other API configuration is required to activate Simulcast for Azure Communication Services, as this functionality is enabled by default and available for all video calls.
 
 ## Available video resolutions
-When streaming with simulcast, there are no set resolutions for high or low quality simulcast video streams. Instead, based on many different variables, either a single or multiple video steams are delivered. If every subscriber to video is requesting and capable of receiving maximum resolution what publisher can provide, only that maximum resolution will be sent. The following resolutions are supported:
-- 1080P
+
+When a participant utilizes simulcast streaming, there are no predefined resolutions for high or low quality video streams. Rather, the delivery of either a single or multiple video streams depends on various factors. If all video subscribers request and can support the highest resolution available, the publisher transmits only the maximum resolution stream.
+
+Simulcast supports the following resolutions:
+
+- 1080p
 - 720p
 - 540p
 - 360p

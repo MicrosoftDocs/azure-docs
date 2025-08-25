@@ -9,6 +9,7 @@ ms.topic: troubleshooting
 ms.date: 05/08/2025
 ms.custom: reference_regions
 
+# Customer intent: "As a cloud architect, I want to understand how to use Azure Migrate in unsupported regions, so that I can successfully plan and execute migrations from on-premises environments to new Azure regions that are not yet equipped with the necessary migration services."
 ---
 
 # Use Azure Migrate in unsupported regions
@@ -59,9 +60,11 @@ List of available regions for the resource type:
 - France Central
 - UK south, UK west
 - Central India, South India, Jio India West
+- Indonesia Central
 - Italy North
 - Japan East, Japan West
 - Korea Central, Korea South
+- Malaysia West
 - Mexico Central 
 - North Europe
 - Norway East
@@ -107,11 +110,13 @@ The supported locations:
 - East US, East US2
 - France Central, France South
 - Germany West Central
+- Indonesia Central
 - Israel Central 
 - Italy North
 - Japan East, Japan West
 - Jio India West
 - Korea Central, Korea South
+- Malaysia West
 - Mexico Central
 - North Central US
 - North Europe

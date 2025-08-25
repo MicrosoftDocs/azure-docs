@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 11/14/2024
 ms.author: vaidehikher
 #Customer intent: As an SAP Basis or cloud infrastructure team member, I want to deploy Azure Monitor for SAP solutions with dedicated hosting plan.
+# Customer intent: As an SAP Basis team member, I want to enable the dedicated hosting plan for Azure Monitor for SAP solutions, so that I can optimize cost and improve scaling efficiency for monitoring my SAP systems.
 ---
 
 # Enable Dedicated Hosting Plan

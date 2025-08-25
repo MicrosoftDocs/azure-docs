@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.author: jsuri
 ms.date: 05/27/2021
 
+# Customer intent: As a system administrator managing VMware environments, I want to set up and modify replication policies for disaster recovery to Azure, so that I can ensure efficient data protection and recovery for my virtual machines.
 ---
 # Configure and manage replication policies for VMware disaster recovery
 

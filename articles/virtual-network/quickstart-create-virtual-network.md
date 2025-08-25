@@ -5,23 +5,24 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-virtual-network
 ms.topic: quickstart  #Don't change
-ms.date: 04/22/2025
+ms.date: 07/10/2025
 
 #customer intent: As an administrator or network engineer, I want to create a virtual network and test traffic between virtual machines in the same virtual network.
 
+# Customer intent: "As a network engineer, I want to deploy a virtual network with multiple subnets and virtual machines, so that I can establish secure communication and test connectivity between the resources within the network."
 ---
 
 # Quickstart: Create an Azure Virtual Network
  
-In this quickstart, learn how to create an Azure Virtual Network (VNet) using the Azure portal, Azure CLI, Azure PowerShell, Resource Manager template, Bicep template, and Terraform. Two virtual machines and an Azure Bastion host are deployed to test connectivity between the virtual machines in the same virtual network. The Azure Bastion host facilitates secure and seamless RDP and SSH connectivity to the virtual machines directly in the Azure portal over SSL.
+Learn how to create an Azure Virtual Network (VNet) using the Azure portal, Azure CLI, Azure PowerShell, Azure Resource Manager (ARM) template, Bicep template, and Terraform. Two virtual machines and an Azure Bastion host are deployed to test connectivity between the virtual machines in the same virtual network. The Azure Bastion host facilitates secure and seamless RDP and SSH connectivity to the virtual machines directly in the Azure portal over SSL.
 
 :::image type="content" source="./media/quick-create-portal/virtual-network-qs-resources.png" alt-text="Diagram of resources created in the virtual network quickstart." lightbox="./media/quick-create-portal/virtual-network-qs-resources.png":::
 
-A virtual network is the fundamental building block for private networks in Azure. Azure Virtual Network enables Azure resources like VMs to securely communicate with each other and the internet.
+A virtual network is the fundamental building block for private networks in Azure. Azure Virtual Network enables Azure resources such as virtual machines to securely communicate with each other and the internet.
 
 >[!VIDEO https://learn-video.azurefd.net/vod/player?id=6b5b138e-8406-406e-8b34-40bdadf9fc6d]
 
-If you don't have a service subscription, [create a free trial account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+If you don't have an Azure account with an active subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Prerequisites
 
@@ -48,6 +49,8 @@ If you don't have a service subscription, [create a free trial account](https://
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+
+If you're running Azure CLI locally, use Azure CLI version 2.0.31 or later.
 
 ### [ARM](#tab/arm)
 
@@ -127,7 +130,7 @@ New-AzResourceGroup @rg
 
 ## Deploy Azure Bastion
 
-Azure Bastion uses your browser to connect to VMs in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Bastion, see [What is Azure Bastion?](/azure/bastion/bastion-overview).
+Azure Bastion uses your browser to connect to virtual machines in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The virtual machines don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [What is Azure Bastion?](/azure/bastion/bastion-overview).
 
  [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
@@ -177,22 +180,22 @@ Azure Bastion uses your browser to connect to VMs in your virtual network over S
     New-AzBastion @bastion
     ```
 
-It takes about 10 minutes to deploy the Bastion resources. You can create VMs in the next section while Bastion deploys to your virtual network.
+It takes about 10 minutes to deploy the Bastion resources. You can create virtual machines in the next section while Bastion deploys to your virtual network.
 
 ## Create virtual machines
 
-Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create two VMs named **vm-1** and **vm-2** in the **subnet-1** subnet of the virtual network. When you're prompted for credentials, enter usernames and passwords for the VMs.
+Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create two virtual machines named **vm-1** and **vm-2** in the **subnet-1** subnet of the virtual network. When you're prompted for credentials, enter usernames and passwords for the virtual machines.
 
-1. To create the first VM, use the following code:
+1. To create the first virtual machine, use the following code:
 
     ```azurepowershell-interactive
-    # Set the administrator and password for the VM. ##
+    # Set the administrator and password for the virtual machine. ##
     $cred = Get-Credential
 
     ## Place the virtual network into a variable. ##
     $vnet = Get-AzVirtualNetwork -Name 'vnet-1' -ResourceGroupName 'test-rg'
 
-    ## Create a network interface for the VM. ##
+    ## Create a network interface for the virtual machine. ##
     $nic = @{
         Name = "nic-1"
         ResourceGroupName = 'test-rg'
@@ -221,7 +224,7 @@ Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create two VMs named *
         | Set-AzVMSourceImage @vmimage `
         | Add-AzVMNetworkInterface -Id $nicVM.Id
 
-    ## Create the VM. ##
+    ## Create the virtual machine. ##
     $vm = @{
         ResourceGroupName = 'test-rg'
         Location = 'eastus2'
@@ -230,16 +233,16 @@ Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create two VMs named *
     New-AzVM @vm
     ```
 
-1. To create the second VM, use the following code:
+1. To create the second virtual machine, use the following code:
 
     ```azurepowershell-interactive
-    # Set the administrator and password for the VM. ##
+    # Set the administrator and password for the virtual machine. ##
     $cred = Get-Credential
 
     ## Place the virtual network into a variable. ##
     $vnet = Get-AzVirtualNetwork -Name 'vnet-1' -ResourceGroupName 'test-rg'
 
-    ## Create a network interface for the VM. ##
+    ## Create a network interface for the virtual machine. ##
     $nic = @{
         Name = "nic-2"
         ResourceGroupName = 'test-rg'
@@ -268,7 +271,7 @@ Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create two VMs named *
         | Set-AzVMSourceImage @vmimage `
         | Add-AzVMNetworkInterface -Id $nicVM.Id
 
-    ## Create the VM. ##
+    ## Create the virtual machine. ##
     $vm = @{
         ResourceGroupName = 'test-rg'
         Location = 'eastus2'
@@ -278,7 +281,7 @@ Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create two VMs named *
     ```
 
 > [!TIP]
-> You can use the `-AsJob` option to create a VM in the background while you continue with other tasks. For example, run `New-AzVM @vm1 -AsJob`. When Azure starts creating the VM in the background, you get something like the following output:
+> You can use the `-AsJob` option to create a virtual machine in the background while you continue with other tasks. For example, run `New-AzVM @vm1 -AsJob`. When Azure starts creating the virtual machine in the background, you get something like the following output:
 >
 > ```powershell
 > Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
@@ -286,10 +289,10 @@ Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create two VMs named *
 > 1      Long Running... AzureLongRun... Running       True            localhost            New-AzVM
 > ```
 
-Azure takes a few minutes to create the VMs. When Azure finishes creating the VMs, it returns output to PowerShell.
+Azure takes a few minutes to create the virtual machines. When Azure finishes creating the virtual machines, it returns the output to PowerShell.
 
 > [!NOTE]
-> VMs in a virtual network with a Bastion host don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
+> Virtual machines in a virtual network with a Bastion host don't need public IP addresses. Bastion provides the public IP, and the virtual machines use private IPs to communicate within the network. You can remove the public IPs from any virtual machines in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
 
 [!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
@@ -320,9 +323,9 @@ az network vnet create \
 
 ## Deploy Azure Bastion
 
-Azure Bastion uses your browser to connect to VMs in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration.
+Azure Bastion uses your browser to connect to virtual machines in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The virtual machines don't need public IP addresses, client software, or special configuration.
 
-[!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)] For more information about Bastion, see [What is Azure Bastion?](~/articles/bastion/bastion-overview.md).
+[!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)] For more information about Azure Bastion, see [What is Azure Bastion?](~/articles/bastion/bastion-overview.md).
 
 1. Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) to create a Bastion subnet for your virtual network. This subnet is reserved exclusively for Bastion resources and must be named **AzureBastionSubnet**.
 
@@ -356,13 +359,13 @@ Azure Bastion uses your browser to connect to VMs in your virtual network over S
         --location eastus2
     ```
 
-It takes about 10 minutes to deploy the Bastion resources. You can create VMs in the next section while Bastion deploys to your virtual network.
+It takes about 10 minutes to deploy the Bastion resources. You can create virtual machines in the next section while Bastion deploys to your virtual network.
 
 ## Create virtual machines
 
-Use [az vm create](/cli/azure/vm#az-vm-create) to create two VMs named **vm-1** and **vm-2** in the **subnet-1** subnet of the virtual network. When you're prompted for credentials, enter user names and passwords for the VMs.
+Use [az vm create](/cli/azure/vm#az-vm-create) to create two virtual machines named **vm-1** and **vm-2** in the **subnet-1** subnet of the virtual network. When you're prompted for credentials, enter usernames and passwords for the virtual machines.
 
-1. To create the first VM, use the following command:
+1. To create the first virtual machine, use the following command:
 
     ```azurecli-interactive
     az vm create \
@@ -374,7 +377,7 @@ Use [az vm create](/cli/azure/vm#az-vm-create) to create two VMs named **vm-1** 
         --public-ip-address ""
     ```
 
-1. To create the second VM, use the following command:
+1. To create the second virtual machine, use the following command:
 
     ```azurecli-interactive
     az vm create \
@@ -387,9 +390,9 @@ Use [az vm create](/cli/azure/vm#az-vm-create) to create two VMs named **vm-1** 
     ```
 
 > [!TIP]
-> You can also use the `--no-wait` option to create a VM in the background while you continue with other tasks.
+> You can also use the `--no-wait` option to create a virtual machine in the background while you continue with other tasks.
 
-The VMs take a few minutes to create. After Azure creates each VM, the Azure CLI returns output similar to the following message:
+The virtual machines take a few minutes to create. After Azure creates each virtual machine, the Azure CLI returns an output similar to the following message:
 
 ```output
     {
@@ -406,7 +409,7 @@ The VMs take a few minutes to create. After Azure creates each VM, the Azure CLI
 ```
 
 > [!NOTE]
-> VMs in a virtual network with a Bastion host don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
+> Virtual machines in a virtual network with a Bastion host don't need public IP addresses. Bastion provides the public IP, and the virtual machines use private IPs to communicate within the network. You can remove the public IPs from any virtual machines in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
 
 [!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
@@ -420,8 +423,8 @@ The template that you use in this quickstart is from [Azure Quickstart Templates
 
 The template defines the following Azure resources:
 
-- [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks): Create a virtual network.
-- [Microsoft.Network/virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets): Create a subnet.
+- [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks): Creates a virtual network.
+- [Microsoft.Network/virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets): Creates a subnet.
 
 ## Deploy the template
 
@@ -449,13 +452,13 @@ To learn about the JSON syntax and properties for a virtual network in a templat
 
 ### [Bicep](#tab/bicep)
 
-## Create the virtual network and VMs
+## Create the virtual network and virtual machines
 
-This quickstart uses the [Two VMs in VNET](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/2-vms-internal-load-balancer/main.bicep) Bicep template from [Azure Resource Manager Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) to create the virtual network, resource subnet, and VMs. The Bicep template defines the following Azure resources:
+This quickstart uses the [Two VMs in VNET](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/2-vms-internal-load-balancer/main.bicep) Bicep template from [Azure Resource Manager Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) to create the virtual network, resource subnet, and virtual machines. The Bicep template defines the following Azure resources:
 
 - [Microsoft.Network virtualNetworks](/azure/templates/microsoft.network/virtualnetworks): Creates an Azure virtual network.
-- [Microsoft.Network virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets): Creates a subnet for the VMs.
-- [Microsoft.Compute virtualMachines](/azure/templates/microsoft.compute/virtualmachines): Creates the VMs.
+- [Microsoft.Network virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets): Creates a subnet for the virtual machines.
+- [Microsoft.Compute virtualMachines](/azure/templates/microsoft.compute/virtualmachines): Creates the virtual machines.
 - [Microsoft.Compute availabilitySets](/azure/templates/microsoft.compute/availabilitysets): Creates an availability set.
 - [Microsoft.Network networkInterfaces](/azure/templates/microsoft.network/networkinterfaces): Creates network interfaces.
 - [Microsoft.Network loadBalancers](/azure/templates/microsoft.network/loadbalancers): Creates an internal load balancer.
@@ -498,11 +501,11 @@ Review the Bicep file:
     New-AzResourceGroupDeployment @deploymentParams
     ```
 
-When the deployment finishes, a message indicates that the deployment succeeded.
+When the deployment finishes, a message indicates the deployment succeeded.
 
 ## Deploy Azure Bastion
 
-Bastion uses your browser to connect to VMs in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Bastion, see [What is Azure Bastion?](~/articles/bastion/bastion-overview.md).
+Bastion uses your browser to connect to virtual machines in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The virtual machines don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [What is Azure Bastion?](~/articles/bastion/bastion-overview.md).
 
 > [!NOTE]
 > [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
@@ -512,7 +515,7 @@ Use the [Azure Bastion as a Service](https://github.com/Azure/azure-quickstart-t
 - [Microsoft.Network virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets): Creates an **AzureBastionSubnet** subnet.
 - [Microsoft.Network bastionHosts](/azure/templates/microsoft.network/bastionhosts): Creates the Bastion host.
 - [Microsoft.Network publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses): Creates a public IP address for the Bastion host.
-- [Microsoft Network networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups): Controls the settings for network security groups.
+- [Microsoft.Network networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups): Controls the settings for network security groups.
 
 Review the Bicep file:
 
@@ -575,10 +578,10 @@ Review the Bicep file:
     New-AzResourceGroupDeployment @deploymentParams
     ```
 
-When the deployment finishes, a message indicates that the deployment succeeded.
+When the deployment finishes, a message indicates the deployment succeeded.
 
 > [!NOTE]
-> VMs in a virtual network with a Bastion host don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
+> Virtual machines in a virtual network with a Bastion host don't need public IP addresses. Bastion provides the public IP, and the virtual machines use private IPs to communicate within the network. You can remove the public IPs from any virtual machines in Bastion-hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](ip-services/remove-public-ip-address-vm.md).
 
 ## Review deployed resources
 
@@ -600,7 +603,7 @@ Get-AzResource -ResourceGroupName TestRG
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **resource groups**. On the **Resource groups** page, select **TestRG** from the list of resource groups.
 
-1. On the **Overview** page for **TestRG**, review all the resources that you created, including the virtual network, the two VMs, and the Bastion host.
+1. On the **Overview** page for **TestRG**, review all the resources that you created, including the virtual network, the two virtual machines, and the Bastion host.
 
 1. Select the **VNet** virtual network. On the **Overview** page for **VNet**, note the defined address space of **10.0.0.0/16**.
 
@@ -608,7 +611,7 @@ Get-AzResource -ResourceGroupName TestRG
 
 ### [Terraform](#tab/terraform)
 
-The script uses the Azure Resource Manager (`azurerm`) provider to interact with Azure resources. It uses the  Random (`random`) provider to generate random pet names for the resources.
+The script uses the Azure Resource Manager (`azurerm`) provider to interact with Azure resources. It uses the Random (`random`) provider to generate random pet names for the resources.
 
 The script creates the following resources:
 
@@ -671,7 +674,7 @@ The script creates the following resources:
     virtual_network_name=$(terraform output -raw virtual_network_name)
     ```
 
-1. Use [`az network vnet show`](/cli/azure/network/vnet#az-network-vnet-show) to display the details of your newly created virtual network:
+1. Use [`az network vnet show`](/cli/azure/network/vnet#az-network-vnet-show) to show the details of your newly created virtual network:
 
     ```azurecli
     az network vnet show \
@@ -697,13 +700,13 @@ For information about troubleshooting Terraform, see [Troubleshoot common proble
 
 1. Select **Use Bastion**.
 
-1. Enter the username and password that you created when you created the VM, and then select **Connect**.
+1. Enter the username and password that you created when you created the virtual machine, and then select **Connect**.
 
-## Start communication between VMs
+## Start communication between virtual machines
 
 1. At the bash prompt for **vm-1**, enter `ping -c 4 vm-2`.
 
-   You get a reply similar to the following message:
+   You see a reply similar to the following message:
 
     ```output
     azureuser@vm-1:~$ ping -c 4 vm-2
@@ -720,7 +723,7 @@ For information about troubleshooting Terraform, see [Troubleshoot common proble
 
 1. At the bash prompt for **vm-2**, enter `ping -c 4 vm-1`.
 
-   You get a reply similar to the following message:
+   You see a reply similar to the following message:
 
     ```output
     azureuser@vm-2:~$ ping -c 4 vm-1
@@ -741,7 +744,7 @@ For information about troubleshooting Terraform, see [Troubleshoot common proble
 
 ### [PowerShell](#tab/powershell)
 
-When you finish with the virtual network and the VMs, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all its resources:
+When you finish using the virtual network and the virtual machines, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all its resources:
 
 ```azurepowershell-interactive
 $rgParams = @{
@@ -753,7 +756,7 @@ Remove-AzResourceGroup @rgParams
 
 ### [CLI](#tab/cli)
 
-When you finish with the virtual network and the VMs, use [az group delete](/cli/azure/group#az-group-delete) to remove the resource group and all its resources:
+When you finish using the virtual network and the virtual machines, use [az group delete](/cli/azure/group#az-group-delete) to remove the resource group and all its resources.
 
 ```azurecli-interactive
 az group delete \

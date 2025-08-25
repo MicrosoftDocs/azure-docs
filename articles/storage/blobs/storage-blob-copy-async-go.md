@@ -2,14 +2,15 @@
 title: Copy a blob with asynchronous scheduling using Go
 titleSuffix: Azure Storage
 description: Learn how to copy a blob with asynchronous scheduling in Azure Storage by using the Go client module.
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.date: 08/05/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
+# Customer intent: "As a developer using Go, I want to implement asynchronous blob copying in Azure Storage, so that I can efficiently manage and transfer data between storage accounts or external sources without blocking my application."
 ---
 
 # Copy a blob with asynchronous scheduling using Go

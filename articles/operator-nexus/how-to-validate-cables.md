@@ -15,6 +15,9 @@ This article explains the  Fabric cable validation, where the primary function o
 
 For BOM details, refer to [Azure Operator Nexus SKUs](./reference-operator-nexus-skus.md)
 
+>[!Note]
+> As part of our continued commitment to security and modernization, we are announcing the end of support for Shared Access Signature (SAS) URL–based access to customer-provided storage accounts in Azure Operator Nexus 2508.1 release.
+
 ## Prerequisites
 
 - Ensure the Nexus Network Fabric is successfully provisioned.
@@ -230,6 +233,7 @@ networkFabricInfoSkuId": "M8-A400-A100-C16-ab",
 - Cable Validation of connections between TOR and Compute Servers that are powered off or unprovisioned in the Nexus cluster aren't supported. These interfaces show `Unknown` status in the report.
 - Cable Validation of connections between MGMT interfaces and Compute Servers that are powered off or unprovisioned in the Nexus cluster or the Compute Server Controllers aren't supported. These interfaces show `Unknown` status in the report.
 - Cable Validation for NPB isn't supported for `loopback` and `nni-direct` interfaces because there's no vendor support currently for `show lldp neighbors`. These interfaces show `Unknown` status in the report.
+- LLDP neighbor discovery is not supported on NPB device ports, and cable validation for these ports is performed using serial number matching only.
 - The Storage URL must be in a different region from the Network Fabric. For instance, if the Fabric is hosted in East US, the storage URL should be outside of East US.
 - Cable validation supports four racks with 16 Computes per rack and eight racks with 16 Computes per rack BOMs.
 - When destination device is powered off, cables are missing or disconnected, or if validation isn't supported for the interface type, then the interface shows `Unknown` status. **It is important to evaluate all `Unknown` interfaces that are `Not-Connected` against the BOM to determine if repair action is required.**

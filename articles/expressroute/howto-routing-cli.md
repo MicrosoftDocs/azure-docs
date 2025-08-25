@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 04/22/2024
 ms.author: duau
 ms.custom: devx-track-azurecli
+# Customer intent: As a network engineer, I want to configure private and Microsoft peerings for an ExpressRoute circuit using CLI, so that I can manage high-performance connections between on-premises infrastructure and the cloud.
 ---
 
 # Create and modify peering for an ExpressRoute circuit using CLI
@@ -18,8 +19,6 @@ This article shows you how to create and manage routing configuration/peering fo
 > * [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
-> * [Video - Private peering](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
-> * [Video - Microsoft peering](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell (classic)](expressroute-howto-routing-classic.md)
 > 
 
@@ -254,7 +253,7 @@ This section helps you create, get, update, and delete the Azure private peering
    If you choose to use an MD5 hash, use the following example:
 
    ```azurecli
-   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 10.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 10.0.0.4/30 --vlan-id 200 --peering-type AzurePrivatePeering --SharedKey "A1B2C3D4"
+   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 10.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 10.0.0.4/30 --vlan-id 200 --peering-type AzurePrivatePeering --shared-key "A1B2C3D4"
    ```
 
    > [!IMPORTANT]

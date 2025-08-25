@@ -9,6 +9,7 @@ ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2023
 ms.author: mbender
+# Customer intent: As a network engineer, I want to configure an application gateway for HTTP to HTTPS redirection using CLI, so that I can enhance security by ensuring all traffic is encrypted.
 ---
 
 # Create an application gateway with HTTP to HTTPS redirection using the Azure CLI

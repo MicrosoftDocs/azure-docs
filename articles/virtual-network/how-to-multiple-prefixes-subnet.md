@@ -10,6 +10,7 @@ ms.date: 05/06/2024
 
 #customer intent: As a network administrator, I want to configure multiple prefixes on a subnet in my Azure Virtual Network so that I can expand my address space capacity.
 
+# Customer intent: "As a network administrator, I want to configure multiple address prefixes on a subnet in my virtual network so that I can efficiently manage address space and scale my applications without downtime."
 ---
 
 # Create multiple prefixes for a subnet in an Azure Virtual Network - Preview
@@ -152,3 +153,51 @@ In this section, you create a subnet with multiple prefixes.
         --address-prefixes 10.0.0.0/24 10.0.1.0/24
     ```
 ---
+
+## Update an existing subnet with multiple prefixes
+
+In this section, you add a second prefix on an existing subnet to expand the address space.
+
+# [PowerShell](#tab/powershell)
+
+1. Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) to retrieve the target virtual network configuration in a variable.
+
+    ```azurepowershell
+    $vnet = Get-AzVirtualNetwork -ResourceGroupName 'test-rg' -Name 'vnet-1'
+    ```
+
+1. Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) to add a second address prefix to subnet configuration. Specify both the existing and new address prefixes in this step.
+
+    ```azurepowershell
+    Set-AzVirtualNetworkSubnetConfig -Name 'subnet-1' -VirtualNetwork $vnet -AddressPrefix '10.0.0.0/24', '10.0.1.0/24'
+    ```
+
+1. Use [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) to apply the updated virtual network configuration.
+
+    ```azurepowershell
+    $vnet | Set-AzVirtualNetwork
+    ```
+
+1. Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) and [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) to retrieve updated virtual network and subnet configuration. Verify that the subnet now has two address prefixes.
+
+    ```azurepowershell
+    Get-AzVirtualNetwork -ResourceGroupName 'test-rg' -Name 'vnet-1' | `
+        Get-AzVirtualNetworkSubnetConfig -Name 'subnet-1' | `
+        ConvertTo-Json
+    ```
+
+
+
+# [CLI](#tab/cli)
+
+1. Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) add a second address prefix to subnet configuration and apply the new configuration to the virtual network.
+
+    ```azurecli
+    az network vnet subnet update \
+        --name subnet-1 \
+        --vnet-name vnet-1 \
+        --resource-group test-rg \
+        --address-prefixes 10.0.0.0/24 10.0.1.0/24
+    ```
+---
+

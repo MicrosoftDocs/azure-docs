@@ -5,7 +5,7 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: reference
-ms.date: 05/20/2025
+ms.date: 06/13/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 ms.custom: fasttrack-edit
@@ -19,7 +19,7 @@ ms.custom: fasttrack-edit
 
 Azure Active Directory B2C (Azure AD B2C) pricing is based on monthly active users (MAU), which is the count of unique users with authentication activity within a calendar month. This billing model applies to both Azure AD B2C tenants and [Microsoft Entra guest user collaboration (B2B)](../active-directory/external-identities/external-identities-pricing.md). MAU billing helps you reduce costs by offering a free tier and flexible, predictable pricing. 
 
-In this article, learn about MAU and Go Local billing, linking Azure AD B2C tenants to a subscription, and changing the pricing tier.
+In this article, learn about MAU and Go Local billing and linking Azure AD B2C tenants to a subscription.
 
 ## MAU overview
 
@@ -43,7 +43,7 @@ MAU billing went into effect for Azure AD B2C tenants on **November 1, 2019**. A
 - If you have an Azure AD B2C tenant that hasn't been linked to a subscription, link it now. 
 - If you have an existing Azure AD B2C tenant that was linked to a subscription before November 1, 2019, upgrade to the monthly active users (MAU) billing model. You can also choose to stay on the per-authentication billing model.
   
-Your Azure AD B2C tenant must also be linked to the appropriate Azure pricing tier based on the features you want to use. Premium features require Azure AD B2C [Premium P1 or P2 pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/). You might need to upgrade your pricing tier as you use new features. For example, for risk-based Conditional Access policies, you’ll need to select the Azure AD B2C Premium P2 pricing tier for your tenant.
+Your Azure AD B2C tenant must also be linked to the appropriate Azure pricing tier based on the features you want to use. Premium features require Azure AD B2C [Premium P1 pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
 > [!NOTE]
 > Your first 50,000 MAUs per month are free for both Premium P1 and Premium P2 features, but the **free tier doesn’t apply to free trial, credit-based, or sponsorship subscriptions**. Once the free trial period or credits expire for these types of subscriptions, you'll begin to be charged for Azure AD B2C MAUs. To determine the total number of MAUs, we combine MAUs from all your tenants (both Microsoft Entra ID and Azure AD B2C) that are linked to the same subscription.
@@ -86,33 +86,6 @@ A subscription linked to an Azure AD B2C tenant can be used for the billing of A
     ![The Azure AD B2C Resource creation page in Azure portal](./media/billing/portal-01-create-b2c-resource-page.png)
 
 After you complete these steps for an Azure AD B2C tenant, your Azure subscription is billed based on your Azure Direct or Enterprise Agreement details, if applicable.
-
-
-<a name='change-your-azure-ad-pricing-tier'></a>
-
-## Change your Microsoft Entra pricing tier
-
-A tenant must be linked to the appropriate Azure pricing tier based on the features you want to use with your Azure AD B2C tenant. Premium features require Azure AD B2C Premium P1 or P2, as described in the [Azure Active Directory B2C pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/). 
-
-In some cases, you'll need to upgrade your pricing tier as you use new features. For example, if you want to use [Identity Protection](conditional-access-identity-protection-overview.md), risk-based Conditional Access policies, and any future Premium P2 capabilities with Azure AD B2C.
-
-To change your pricing tier, follow these steps:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Microsoft Entra ID tenant from the **Directories + subscriptions** menu.
-
-1. In the search box at the top of the portal, enter the name of your Azure AD B2C tenant. Then select the tenant in the search results under **Resources**.
-    
-    ![Screenshot that shows how to select an Azure AD B2C tenant in Azure portal.](media/billing/select-azure-ad-b2c-tenant.png)
-
-1. On the resource **Overview** page, under **Pricing tier**, select **change**.
-
-   ![Screenshot that shows how to change the pricing tier.](media/billing/change-pricing-tier.png)
- 
-1. Select the pricing tier that includes the features you want to enable.
-
-   ![Screenshot that shows how to select the pricing tier.](media/billing/select-tier.png)
 
 Learn about the [Microsoft Entra ID features, which are supported in Azure AD B2C](supported-azure-ad-features.md). 
  

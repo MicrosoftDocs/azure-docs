@@ -9,6 +9,7 @@ ms.date: 08/14/2023
 ms.author: allensu
 ms.custom: template-overview
 #Customer intent: As an IT admin, I want to learn about Traffic Manager and what I can use it for.
+# Customer intent: As an IT admin, I want to understand Azure Traffic Manager's features and capabilities, so that I can determine if it is the right solution for load-balancing traffic across my application's endpoints.
 ---
 
 # What is Traffic Manager?

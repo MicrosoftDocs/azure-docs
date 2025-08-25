@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.date: 02/20/2025
 ms.author: mbender
 ms.custom: references_regions
+# Customer intent: "As a cloud architect, I want to implement a global load balancer, so that I can ensure high availability and geo-redundancy for applications, optimizing traffic distribution while minimizing latency."
 ---
 
 # Global Load Balancer
@@ -159,7 +160,9 @@ Global load balancer routes the traffic to the appropriate regional load balance
 
 * Outbound rules aren't supported on global load balancer. For outbound connections, utilize [outbound rules](./outbound-rules.md) on the regional load balancer or [NAT gateway](../nat-gateway/nat-overview.md).
 
-* Regional load balancers can't be upgraded to the global tier. Only new load balancers can be created as the global tier. 
+* Regional load balancers can't be upgraded to the global tier. Only new load balancers can be created as the global tier.
+
+* When placing the same NIC(s) behind multiple regional load balancers with global load balancer, the load balancing rules on each regional load balancer with the same frontend port must also be configured to the same backend port.
 
 ## Pricing and SLA
 Global load balancer shares the [SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) of standard load balancer.

@@ -594,6 +594,8 @@ There are two options for writing from your function to the configured queue:
 
 - **Imperative**: Pass a value to the [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out) type. The value passed to `set` is persisted as a Queue storage message.
 
+The output function parameter must be defined as `func.Out[func.QueueMessage]`, `func.Out[str]`, or `func.Out[bytes]`. Refer to the [output example](#example) for details.
+
 ::: zone-end  
 
 [!INCLUDE [functions-storage-queue-connections](../../includes/functions-storage-queue-connections.md)]

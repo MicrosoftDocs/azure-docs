@@ -7,6 +7,7 @@ ms.date: 08/07/2019
 ms.author: jsuri
 author: jyothisuri
 
+# Customer intent: "As a IT administrator managing disaster recovery, I want to understand the failback processes from Azure to on-premises, so that I can efficiently restore my VMware virtual machines to their original or an alternate location after a failover."
 ---
 
 # Failback of VMware virtual machines after disaster recovery to Azure

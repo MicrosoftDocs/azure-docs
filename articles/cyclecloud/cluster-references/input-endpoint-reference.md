@@ -2,22 +2,22 @@
 title: Cluster Template Reference - Endpoints
 description: Read a reference guide for input endpoints to be used with Azure CycleCloud. See an attribute reference and an example.
 author: adriankjohnson
-ms.date: 06/03/2024
+ms.date: 06/29/2025
 ms.author: adjohnso
 ms.custom: compute-evergreen
 ---
 
-# Input-Endpoint
+# Input endpoint
 
-Input-Endpoint objects are subordinate in rank to `node` and `nodearray`. Input-endpoint is a control for exposing ports inside of a VM ScaleSet and for configuring Network Security Group on a node.
+Input endpoint objects have a lower rank than `node` and `nodearray`. Use an input endpoint to expose ports inside a virtual machine scale set and to configure the network security group on a node.
 
 ## Example
 
-The `[[[input-endpoint]]]` configuration is effective if a NIC is defined with a public interface. If not, it is assumed that all communication is over a private network and default NSG rules are valid.
+The `[[[input-endpoint]]]` configuration works if you define a NIC with a public interface. If you don't define a NIC with a public interface, all communication happens over a private network and default NSG rules apply.
 
-If operating on a public interface a `[[[input-endpoint]]]` section to a node will create and attach a Network Security Group to the node with an *allow* rule specified by the object configurations.  
+If you operate on a public interface, adding a `[[[input-endpoint]]]` section to a node creates and attaches a Network Security Group to the node with an *allow* rule specified by the object configurations.
 
-In the case that `[[[input-endpoint]]]` is included on a `nodearray`, it will forward ports on the VMSS load balancer to the constituent VMs as well as adding an allow rule for the public port.
+When you include `[[[input-endpoint]]]` on a `nodearray`, it forwards ports on the VMSS load balancer to the constituent VMs and adds an allow rule for the public port.
 
 ``` ini
 [cluster my-cluster]
@@ -40,17 +40,16 @@ In the case that `[[[input-endpoint]]]` is included on a `nodearray`, it will fo
       PublicPort = 30000
 ```
 
-Attribute values that begin with `$` are referencing parameters.
+Attribute values that start with `$` reference parameters.
 
-For this example cluster, `my-node` will be accessible from the public internet on port 22 via TCP. The first VM created in `my-array` VMSS will be accessible on the public internet at port 30000, which redirects to port 443 on the VM.
-The next VM to be started will have port 30001 on the public interface, redirected to port 443.
+For this example cluster, you can access `my-node` from the public internet on port 22 through TCP. You can access the first VM created in the `my-array` VMSS from the public internet at port 30000, which redirects to port 443 on the VM. The next VM you start has port 30001 on the public interface, which redirects to port 443.
 
-If this template did not include the `[[[network-interface]]]`, the `[[[input-endpoint]]]` objects would be ignored.
+If you don't include the `[[[network-interface]]]` in this template, the `[[[input-endpoint]]]` objects are ignored.
 
 ## Attribute Reference
 
 Attribute | Type | Definition
 ------ | ----- | ----------
-PublicPort | Integer | Port on public interface to allow to all traffic.  Starting value for VMSS will increment for each VM added.
+PublicPort | Integer | Port on public interface to allow all traffic. The starting value for VMSS increments for each VM added.
 PrivatePort | Integer | Port to receive public port redirection for VMSS load balancer.
 Protocol | String | [tcp, udp] Default: `tcp`.

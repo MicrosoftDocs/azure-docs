@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 03/13/2024
 ms.author: jsuri
 
+# Customer intent: As a disaster recovery planner, I want to analyze the network and storage requirements for Hyper-V to Azure replication, so that I can ensure effective and efficient disaster recovery strategies are in place to minimize downtime for my organization.
 ---
 # About the Azure Site Recovery Deployment Planner for Hyper-V disaster recovery to Azure
 

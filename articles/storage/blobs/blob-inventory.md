@@ -9,6 +9,7 @@ ms.date: 03/28/2024
 ms.topic: concept-article
 ms.author: normesta
 ms.custom: references_regions
+# Customer intent: "As a cloud storage administrator, I want to generate inventory reports for blob data, so that I can audit data properties and automate workflows to efficiently manage storage resources."
 ---
 
 # Azure Storage blob inventory
@@ -260,7 +261,8 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 
 If you configure a rule to run daily, then it will be scheduled to run every day. If you configure a rule to run weekly, then it will be scheduled to run each week on Sunday UTC time. 
 
-Most inventory runs complete within 24 hours. For hierarchical namespace enabled accounts, a run can take as long as two days, and depending on the number of files being processed, the run might not complete by end of that two days. The maximum amount of time that a run can complete before it fails is six days. 
+The time taken to generate an inventory report depends on various factors and the maximum amount of time that an inventory run can complete before it fails is six days. To learn more about these influencing factors, see [Blob inventory performance characteristics](blob-inventory-performance-characteristics.md).
+
 
 Runs don't overlap so a run must complete before another run of the same rule can begin. For example, if a rule is scheduled to run daily, but the previous day's run of that same rule is still in progress, then a new run won't be initiated that day. Rules that are scheduled to run weekly will run each Sunday regardless of whether a previous run succeeds or fails. If a run doesn't complete successfully, check subsequent runs to see if they complete before contacting support. The performance of a run can vary, so if a run doesn't complete, it's possible that subsequent runs will.
 
@@ -431,6 +433,16 @@ You can't configure an inventory policy in the account if support for version-le
 If a container or directory is deleted with soft-delete enabled, then the container or directory and all its contents are marked as soft-deleted. However, only the container or directory (reported as a zero-length blob) appears in an inventory report and not the soft-deleted blobs in that container or directory even if you set the `includeDeleted` field of the policy to **true**.  This can lead to a difference between what appears in capacity metrics that you obtain in the Azure portal and what is reported by an inventory report. 
 
 Only blobs that are explicitly deleted appear in reports. Therefore, to obtain a complete listing of all soft-deleted blobs (directory and all child blobs), workloads should delete each blob in a directory before deleting the directory itself.
+
+### Handling duplicates in Blob Inventory
+
+Blob Inventory operates on a distributed system, which means that in rare cases, duplicate blob entries might appear in your reports.
+
+If when post processing your inventory report, your use case requires unique blob entries, you can use the `Name` field to identify and return only the unique blobs. 
+
+  
+If your report includes blob versions, use both the `Name` and `Version ID` fields together to identify and return only the unique blobs and versions.
+
 
 ## Next steps
 

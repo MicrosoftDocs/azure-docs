@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 08/08/2024
 ms.author: allensu
 ms.custom: template-how-to
+# Customer intent: "As a network administrator, I want to configure a CNAME DNS record for my company's domain to point to a Traffic Manager domain, so that I can ensure proper routing of incoming traffic to my applications."
 ---
 
 # Point a company Internet domain to an Azure Traffic Manager domain

@@ -55,7 +55,7 @@ Learn more:
 
 [Program Requirements — Microsoft Trusted Root Program](/security/trusted-root/program-requirements)
  
-[Included CA Certificate List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT)
+[Included CA Certificate List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT)
 
 >[!IMPORTANT]
 >Azure Communication Services direct routing supports only TLS 1.2. To avoid any service impact, ensure that your SBCs are configured to support TLS1.2 and can connect using one of the following cipher suites for SIP signaling: 

@@ -10,6 +10,7 @@ ms.custom: MVC, engagement-fy24
 ms.collection:
  - migration
  - gcp-to-azure
+# Customer intent: "As a cloud migration specialist, I want to migrate Google Cloud Platform VMs to Azure, so that I can ensure seamless integration and improved resource management in our cloud environment."
 ---
 
 # Discover, assess, and migrate Google Cloud Platform (GCP) VMs to Azure

@@ -16,8 +16,7 @@ ms.custom:
 With Azure Service Groups (preview) you can create low-privilege-based groupings of resources across subscriptions. They provide a way to manage resources with minimal permissions, ensuring that resources can be grouped and managed without granting excessive access. Service Groups are designed to complement existing organizational structures like Resource Groups, Subscriptions, and Management Groups by offering a flexible and secure way to aggregate resources for specific purposes. For more information on service groups, see [Getting started with Service Groups](overview.md).
 
 > [!IMPORTANT]
-> Azure Service Groups is currently in PREVIEW. 
-> For more information about participating in the preview, see [Azure Service Groups Preview](https://aka.ms/ServiceGroups/PreviewSignup).
+> Azure Service Groups is currently in public preview. 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
@@ -62,7 +61,7 @@ endpoint and request body:
 
 
 In the preceding examples, the new service group is created under the root service group. To
-specify a different service group as the parent, use the **properties.parent.id** property.
+specify a different service group as the parent, use the **properties.parent.resourceId** property.
 
 - REST API URI
 
@@ -77,7 +76,7 @@ specify a different service group as the parent, use the **properties.parent.id*
     "properties": {
       "displayName": "Contoso Group",
       "parent": {
-        "id": "/providers/Microsoft.Management/serviceGroups/HoldingGroup"
+        "resourceId": "/providers/Microsoft.Management/serviceGroups/HoldingGroup"
       }
     }
   }

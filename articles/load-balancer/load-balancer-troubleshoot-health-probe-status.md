@@ -9,6 +9,7 @@ ms.topic: troubleshooting
 ms.date: 06/26/2024
 ms.author: mbender
 ms.custom: engagement-fy23
+# Customer intent: As a system administrator, I want to troubleshoot Azure Load Balancer health probe issues, so that I can ensure the backend virtual machines are properly responding and participating in load balancing.
 ---
 
 # Troubleshoot Azure Load Balancer health probe status

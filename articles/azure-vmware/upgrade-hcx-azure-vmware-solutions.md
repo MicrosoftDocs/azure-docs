@@ -4,6 +4,7 @@ description: This article explains how to upgrade HCX on Azure VMware Solution.
 ms.topic: how-to
 ms.date: 05/23/2025
 ms.custom: engagement-fy23
+# Customer intent: As an IT administrator managing Azure VMware Solution, I want to upgrade HCX to the latest version, so that I can ensure access to new features, security patches, and continued support while minimizing system downtime.
 ---
 
 # Upgrade HCX on Azure VMware Solution
@@ -125,7 +126,7 @@ To ensure smooth migration, customers are required to upgrade any paired HCX con
 
 ### What is the impact of an HCX upgrade? 
 
-Apply service updates during a maintenance window where no new HCX operations and migration are queued up. The upgrade window accounts for a brief disruption to the Network Extension service, while the appliances are redeployed with the updated code.  
+Apply service updates during a maintenance window where no new HCX operations and migration are queued up.  
 For individual HCX component upgrade impact, see [Planning for HCX Updates](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/updating-vmware-hcx/planning-for-hcx-updates.html). 
 
 ### Do I need to upgrade the service mesh appliances? 

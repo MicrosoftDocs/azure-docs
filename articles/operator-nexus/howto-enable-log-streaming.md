@@ -88,7 +88,7 @@ router bgp 65501
 	monitoring received routes address-family vpn-ipv6
 	bgp monitoring
 	monitoring timestamp send-time
-	monitoring station adp-nprd-euap-austxg5-fab-bmp
+	monitoring station <monitoing-station-name-bmp>
 		update-source Vlan39
 		connection address <example ip> vrf INFRA-MGMT
 		connection mode active port <example port>

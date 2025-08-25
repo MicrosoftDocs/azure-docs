@@ -8,6 +8,7 @@ ms.service: azure-application-gateway
 ms.topic: troubleshooting
 ms.date: 04/15/2021
 ms.author: mbender 
+# Customer intent: "As a network engineer, I want to troubleshoot redirection issues between Azure Application Gateway and App Service, so that I can ensure proper URL handling and session affinity in my web applications."
 ---
 
 # Troubleshoot App Service issues in Application Gateway

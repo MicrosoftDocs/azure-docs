@@ -3,13 +3,14 @@ title: Performance tuning for uploads and downloads with Azure Storage client li
 titleSuffix: Azure Storage
 description: Learn how to tune your uploads and downloads for better performance with Azure Storage client library for Python. 
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/05/2024
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python, devx-track-python
+# Customer intent: As a developer using the Azure Storage client library for Python, I want to optimize the configuration of upload and download transfer options, so that I can enhance my application's performance and reliability during data transfers.
 ---
 
 # Performance tuning for uploads and downloads with Python
@@ -134,3 +135,4 @@ During a download, the Storage client libraries make one download range request 
 - This article is part of the Blob Storage developer guide for Python. See the full list of developer guide articles at [Build your app](storage-blob-python-get-started.md#build-your-app).
 - To understand more about factors that can influence performance for Azure Storage operations, see [Latency in Blob storage](storage-blobs-latency.md).
 - To see a list of design considerations to optimize performance for apps using Blob storage, see [Performance and scalability checklist for Blob storage](storage-performance-checklist.md).
+

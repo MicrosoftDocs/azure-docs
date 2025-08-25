@@ -6,6 +6,7 @@ ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.date: 01/13/2025
 ms.author: normesta
+# Customer intent: As a data analyst, I want to calculate Azure Blob Storage container statistics using inventory reports and Databricks, so that I can effectively analyze the number, size, and types of blobs for better data management.
 ---
 
 # Tutorial: Calculate container statistics by using Databricks

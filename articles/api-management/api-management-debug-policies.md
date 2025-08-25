@@ -5,6 +5,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 03/27/2025
+ms.update-cycle: 180-days
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ---

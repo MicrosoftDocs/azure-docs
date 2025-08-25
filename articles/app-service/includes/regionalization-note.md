@@ -4,7 +4,6 @@ ms.author: msangapu
 ms.topic: include
 ms.date: 01/13/2025
 ms.service: azure-app-service
-ms.subservice: web-apps
 ---
 
 <a name="dnl-note" ></a>

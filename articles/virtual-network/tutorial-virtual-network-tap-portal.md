@@ -7,6 +7,7 @@ ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 04/21/2025
 ms.author: avirupcha
+# Customer intent: As a network administrator, I want to create and configure a virtual network TAP, so that I can efficiently stream my virtual machine network traffic to a monitoring or analytics tool for enhanced traffic analysis and performance optimization.
 ---
 
 # Work with a virtual network TAP using the Azure portal

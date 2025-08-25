@@ -1,5 +1,6 @@
 ---
-title: Troubleshooting 4xx and 5xx erorrs using Reference String 
+title: Troubleshoot 4xx and 5xx Errors Using Reference String
+titleSuffix: Azure Front Door
 description: This article provides information about what a Reference String is, how to collect them, and use the Azure portal diagnostic tool for troubleshooting 4xx and 5xx errors.
 author: Alej-b23 
 ms.author: pagonzalez 
@@ -10,13 +11,13 @@ ms.date: 12/03/2024
 #CustomerIntent: As a web developer, I want troubleshoot my web application using a Reference String.
 ---
 
-# Troubleshooting 4xx and 5xx errors using Reference String
+# Troubleshoot 4xx and 5xx errors using Reference String
 
 A guide to understand and use Reference Strings for diagnosing and resolving issues with Azure Front Door.
 
 ## Prerequisites
 
-* You must have an Azure Front Door profile. To create a profile, see [Creating an Azure Front Door profile](create-front-door-portal.md).
+* You must have an Azure Front Door profile. To create a profile, see [Create an Azure Front Door profile](create-front-door-portal.md).
 
 ## What is a Reference String?
 

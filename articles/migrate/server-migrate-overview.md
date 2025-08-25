@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 05/09/2025
 ms.custom: vmware-scenario-422, engagement-fy23
+# Customer intent: As an IT administrator, I want to select a VMware migration option using the Migration and modernization tool, so that I can effectively migrate my VMware VMs to Azure while considering the best method for my environment.
 ---
 
 

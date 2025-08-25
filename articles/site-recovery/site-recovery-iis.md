@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 03/07/2024
 ms.author: jsuri
 
+# Customer intent: As a system administrator, I want to implement a disaster recovery solution for my multi-tier IIS web application so that I can ensure its availability and minimize downtime during outages.
 ---
 # Set up disaster recovery for a multi-tier IIS-based web application
 
