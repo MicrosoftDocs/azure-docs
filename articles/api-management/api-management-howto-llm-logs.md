@@ -1,16 +1,20 @@
 ---
-title: Set Up Logging for AI Gateway
+title: Set Up Logging for LLM APIs in Azure API Management
 titleSuffix: Azure API Management
-description: Learn how to log requests to and responses from LLM APIs configured in the AI gateway in Azure API Management.
+description: Enable logging for LLM APIs in Azure API Management to track token usage, prompts, and completions for billing and auditing.
 #customer intent: As a system administrator, I want to enable logging of LLM request and response messages so that I can track API interactions for billing or auditing purposes.
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 08/15/2025
+ms.date: 08/22/2025
 ms.author: danlep
 ai-usage: ai-assisted
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
+  - ai-gen-docs-bap
+  - ai-gen-title
+  - ai-seo-date:08/22/2025
+  - ai-gen-description
 ---
 
 # Log token usage, prompts, and completions for LLM APIs
@@ -82,7 +86,9 @@ The Azure Monitor-based **Analytics** dashboard provides insights into LLM API u
 
 Review the [ApiManagementGatewayLlmLog](/azure/azure-monitor/reference/tables/apimanagementgatewayllmlog) log for details about LLM requests and responses, including token consumption, model deployment used, and other details over specific time ranges.
 
-Requests and responses (including chunked messages for large requests and responses) appear in separate log entries that you can correlate by using the `CorrelationId` field. For auditing purposes, use a Kusto query similar to the following query to join each request and response in a single record.
+Requests and responses (including chunked messages for large requests and responses) appear in separate log entries that you can correlate by using the `CorrelationId` field. 
+
+For auditing purposes, use a Kusto query similar to the following query to join each request and response in a single record. Adjust the query to include the fields you want to track.
 
 ```Kusto
 ApiManagementGatewayLlmLog
@@ -102,6 +108,18 @@ ApiManagementGatewayLlmLog
 ```
 
 :::image type="content" source="media/api-management-howto-llm-logs/llm-log-query-small.png" alt-text="Screenshot of query results for LLM logs in the portal." lightbox="media/api-management-howto-llm-logs/llm-log-query.png":::
+
+## Upload data to Azure AI Foundry for model evaluation
+
+You can export LLM logging data from Azure API Management as a dataset for [model evaluation](/azure/ai-foundry/concepts/observability) in Azure AI Foundry. With model evaluation, you can assess the performance of your generative AI models and applications against a test model or dataset using built-in or custom evaluation metrics. 
+
+To use API Management as a dataset for model evaluation:
+
+1. Join LLM request and response messages into a single record for each interaction, as shown in the [previous section](#review-azure-monitor-logs-for-requests-and-responses). Include the fields you want to use for model evaluation.
+1. Export the dataset to CSV format, which is compatible with Azure AI Foundry.
+1. In the Azure AI Foundry portal, create a new evaluation to upload and evaluate the dataset.
+
+For details to create and run a model evaluation in Azure AI Foundry, see [Evaluate generative AI models and applications by using Azure AI Foundry](/azure/ai-foundry/how-to/evaluate-generative-ai-app).
 
 ## Related content
 
