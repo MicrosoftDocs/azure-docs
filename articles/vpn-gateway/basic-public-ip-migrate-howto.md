@@ -1,11 +1,11 @@
 ---
-title: How to migrate a Basic SKU public IP address to a Standard SKU
+title: How to migrate a Basic SKU public IP address to a Standard SKU - Preview
 titleSuffix: Azure VPN Gateway
 description: Learn how to migrate from a Basic SKU public IP address to a Standard SKU public IP address for VPN Gateway deployment.
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 06/06/2025
+ms.date: 08/25/2025
 ms.author: cherylmc
 # Customer intent: As a cloud network administrator, I want to migrate a Basic SKU public IP address to a Standard SKU for VPN Gateway, so that I can ensure optimal performance and compliance with service standards during our infrastructure upgrade.
 ---
@@ -139,20 +139,61 @@ Invoke-AzVirtualNetworkGatewayAbortMigration -InputObject $gateway
 
 ---
 
+## Point-to-Site VPN Gateways using legacy DNS limitation
+
+Point-to-Site VPN Gateways that were originally deployed using legacy cloudapp.NET DNS infrastructure have specific limitations that prevent them from using the standard migration process described in this article. This section helps you identify if your gateway has this limitation and provides guidance on next steps.
+
+### Impact and timeline
+
+VPN Gateways with legacy cloudapp.NET DNS configurations cannot be migrated using the current migration tools. These gateways require a specialized migration approach that is currently under development. 
+
+A guided migration experience for legacy DNS gateways is planned for release, with the timeline to be announced by the end of September 2025. Until this specialized migration becomes available, these gateways will continue to function normally but cannot be upgraded to Standard SKU public IP addresses.
+
+### Important considerations
+
+> [!IMPORTANT]
+> If your gateway uses legacy DNS, follow these critical guidelines:
+> - **Do NOT** remove your existing Point-to-Site configuration to attempt this migration.
+> - **Do NOT** add new Point-to-Site configurations to existing gateways without Point-to-Site until the legacy DNS migration capability is released.
+> - Continue using your current gateway configuration until the specialized migration tools become available.
+
+### Check if your gateway uses legacy DNS
+
+Follow these steps to determine if your VPN Gateway uses legacy cloudapp.NET DNS and requires the specialized migration process:
+
+1. In the [Azure portal](https://portal.azure.com/), navigate to your Virtual Network Gateway resource.
+
+1. In the left pane, under **Settings**, select **Point-to-site configuration**.
+
+1. On the Point-to-site configuration page, click **Download VPN Client**.
+
+   :::image type="content" source="./media/basic-public-ip-address-migrate-howto/download-vpn-client.png" alt-text="Screenshot of the commit changes step for migrating a virtual network gateway."lightbox="./media/basic-public-ip-address-migrate-howto/download-vpn-client.png":::
+
+1. Save the downloaded ZIP file to your local machine and extract it to a local directory.
+
+1. In the extracted folder, navigate to the **AzureVPN** subfolder.
+
+1. Open the **azurevpnconfig.xml** file using a text editor such as Notepad.
+
+1. In the XML file, locate the following structure:
+   ```xml
+   <serverlist>
+       <serverEntry>
+           <fqdn>your-gateway-fqdn-here</fqdn>
+       </serverEntry>
+   </serverlist>
+   ```
+
+1. Check the suffix of the FQDN value:
+   - If the FQDN ends with **cloudapp.NET** (for example: `contoso-gateway.cloudapp.NET`), your gateway uses legacy DNS and requires the specialized migration process.
+   - If the FQDN has a different suffix, your gateway can use the standard migration process described in this article.
+
+For the latest updates on legacy DNS gateway migration availability, see the [VPN Gateway - What's New](whats-new.md) article.
+
 ## Known Issues
 
 * For VpnGw1 CSES to VMSS migration, we are seeing higher CPU utilization due to .NET core optimization. This is a known issue and we recommend to either wait for 10 minutes after prepare stage or upgrade to a higher gateway SKU during the migration process.
-* Migration Limitation – Point-to-Site VPN Gateways using legacy DNS :  Gateways that were created with the older cloudapp.net DNS do not yet have a supported migration path. A guided migration experience is planned, and the tentative timeline will be shared by the end of September 2025.
-  - Do *NOT* remove your existing Point-to-Site configuration to perform this migration
-  - On your existing gateway, if you do not have an existing point-to-site configuration, do not add this point-to-site configuration until this migration capability is released
-* Follow these steps to check if your gateway falls into the legacy DNS category: 
-  - In the Azure portal, navigate to you Virtual Network Gateway. 
-  - Go to Settings -> Point-to-site configuration. 
-  - Download VPN Client
-  - Then, extract the downloaded config zip to some local directory on your machine. 
-  - Go to AzureVPN folder and open “azurevpnconfig.xml” file. 
-  - Look for serverlist -> serverEntry -> fqdn. Check the suffix of the fqdn.
-  - If FQDN has suffix “cloudapp.net”, then it means that your gateway is on cloudapp.net based VPN gateway server.
+
 
 ## Next steps
 
