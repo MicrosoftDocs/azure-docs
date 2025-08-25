@@ -522,7 +522,7 @@ The managed identity you created doesn't yet have authorization to pull from the
    
     :::image type="content" source="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-4.png" alt-text="Screenshot showing a user-assigned managed identity selected for role assignment." lightbox="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-4.png":::
    
-1. On the **Review + assign** tab, select **Review + assign** at the bottom of the tab.
+1. At the bottom of the **Review + assign** tab, select **Review + assign**.
  
     :::image type="content" source="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-5.png" alt-text="Screenshot showing the last step of role assignment." lightbox="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-5.png":::
  
@@ -565,7 +565,7 @@ The managed identity you created doesn't yet have authorization to pull from the
     1. On the **Create Web App** page:
         1. In **Subscription**, select the subscription you used earlier.
         1. In **Resource group**, select **msdocs-custom-container-tutorial**.
-        1. In **Name**, enter a unique app name. This name will be used in your app's default hostname `<app-name>.azurewebsites.net`.
+        1. In **Name**, enter a unique app name. This name will be used in your app's default hostname: `<app-name>.azurewebsites.net`.
         1. In **Publish**, select **Container**.
         1. In **Operating System**, select **Linux**.
         1. In **Region**, select **West Europe**, or a region near you.
@@ -582,7 +582,7 @@ The managed identity you created doesn't yet have authorization to pull from the
     1. In **Image**, select **appsvc-tutorial-custom-image**.
     1. In **Tag**, select **latest**.
  
-    :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-app-service-4.png" alt-text="Screenshot showing how to configure Docker settings." lightbox="./media/tutorial-custom-container/azure-portal-create-app-service-4.png":::
+       :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-app-service-4.png" alt-text="Screenshot showing how to configure Docker settings." lightbox="./media/tutorial-custom-container/azure-portal-create-app-service-4.png":::
  
     1. On the **Review + create** tab, select **Create**.
    
