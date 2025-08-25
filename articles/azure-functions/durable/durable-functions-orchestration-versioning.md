@@ -612,6 +612,18 @@ public static async Task<HttpResponseData> HttpStart(
 }
 ```
 
+# [JavaScript](#tab/javascript)
+
+Starting an orchestration with a specific version different from the current `defaultVersion` specified in your `host.json` is currently not supported in JavaScript.
+
+# [Python](#tab/python)
+
+Starting an orchestration with a specific version different from the current `defaultVersion` specified in your `host.json` is currently not supported in Python.
+
+# [PowerShell](#tab/powershell)
+
+Starting an orchestration with a specific version different from the current `defaultVersion` specified in your `host.json` is currently not supported in PowerShell.
+
 # [Java](#tab/java)
 
 ```java
@@ -655,6 +667,18 @@ public static async Task<string> RunMainOrchestrator(
     // ...
 }
 ```
+
+# [JavaScript](#tab/javascript)
+
+Starting a sub-orchestration with a specific version different from the current `defaultVersion` specified in your `host.json` is currently not supported in JavaScript.
+
+# [Python](#tab/python)
+
+Starting a sub-orchestration with a specific version different from the current `defaultVersion` specified in your `host.json` is currently not supported in Python.
+
+# [PowerShell](#tab/powershell)
+
+Starting a sub-orchestration with a specific version different from the current `defaultVersion` specified in your `host.json` is currently not supported in PowerShell.
 
 # [Java](#tab/java)
 
