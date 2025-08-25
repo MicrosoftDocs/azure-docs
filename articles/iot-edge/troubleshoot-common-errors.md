@@ -1,9 +1,8 @@
 ---
 title: Troubleshoot Azure IoT Edge common errors
 description: Resolve common issues in Azure IoT Edge solutions. Learn how to troubleshoot issues with provisioning, deployment, the IoT Edge runtime, and networking.
-author: PatAltimore
-
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.date: 12/10/2024
 ms.topic: troubleshooting-general
 ms.service: azure-iot-edge

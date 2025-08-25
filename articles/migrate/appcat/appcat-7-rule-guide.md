@@ -4,7 +4,8 @@ description: Learn how to write and run custom rules for Azure Migrate applicati
 author: KarlErickson
 ms.author: karler
 ms.reviewer: brborges
-ms.service: azure
+ms.service: azure-java
+ms.subservice: java-fundamentals
 ms.custom: devx-track-java
 ms.topic: overview
 ms.date: 06/27/2025

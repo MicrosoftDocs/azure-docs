@@ -197,9 +197,9 @@ This section describes what to expect when API Management instances are configur
     
     - *Zonal:* For zonal instances, when a zone is unavailable, your instance is unavailable. If you have a secondary instance in another availability zone, you're responsible for rerouting traffic to that secondary instance.
 
-### Failback
+### Zone recovery
 
-The failback behavior depends on the availability zone configuration that your instance uses.
+The zone recovery behavior depends on the availability zone configuration that your instance uses.
 
 - **Automatic and zone-redundant:** For instances that are configured to use automatic availability zone support or are manually configured to use zone redundancy, when the availability zone recovers, API Management automatically restores units in the availability zone and reroutes traffic between your units as normal.
 
@@ -294,7 +294,7 @@ This section describes what to expect when API Management instances are configur
 
 - **Traffic rerouting:** If a region goes offline, API requests are automatically routed around the failed region to the next closest gateway.
 
-### Failback
+### Region recovery
 
 When the primary region recovers, API Management automatically restores units in the region and reroutes traffic between your units.
 
