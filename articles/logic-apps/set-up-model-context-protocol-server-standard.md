@@ -316,7 +316,7 @@ For this task, you need to edit the **host.json** file for your Standard logic a
 
 1. Get the URL for your MCP server.
 
-   This value combines the default domain URL for your logic app resource and the **`/mcp`** suffix.
+   This value combines the default domain URL for your logic app resource and the **`api/mcp`** suffix.
 
    To find the default domain URL, follow the steps for the option you prefer:
 
