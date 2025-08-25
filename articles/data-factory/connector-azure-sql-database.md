@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 02/13/2025
+ms.date: 08/25/2025
 ---
 
 # Copy and transform data in Azure SQL Database by using Azure Data Factory or Azure Synapse Analytics
@@ -1018,7 +1018,7 @@ When you copy data from/to Azure SQL Database with [Always Encrypted](/sql/relat
 >3. Both source and sink data stores are using the same service principal as key provider authentication type.
 
 >[!NOTE]
-> Currently, Azure SQL Database [**Always Encrypted**](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15&preserve-view=true) is only supported for source transformation in mapping data flows.
+> Currently, Azure SQL Database [**Always Encrypted**](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15&preserve-view=true) is not supported for sink transformation in mapping data flows.
 
 ## Native change data capture
 
