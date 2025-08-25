@@ -8,7 +8,7 @@ ms.custom:
   - devx-track-azurecli
   - build-2025
 ms.topic: how-to
-ms.date: 05/20/2024
+ms.date: 05/20/2025
 ms.author: anfdocs
 # Customer intent: "As a cloud administrator, I want to resize capacity pools and volumes in Azure storage, so that I can optimize resource allocation and prevent performance issues as storage demands change."
 ---

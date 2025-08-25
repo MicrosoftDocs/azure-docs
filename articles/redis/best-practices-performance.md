@@ -1,8 +1,7 @@
 ---
 title: Best practices for performance testing for Azure Managed Redis
 description: Learn how to test the performance of Azure Managed Redis.
-ms.date: 05/18/2025
-ms.service: azure-managed-redis
+ms.date: 08/18/2025
 ms.topic: conceptual
 ms.custom:
   - ignite-2024
@@ -15,7 +14,7 @@ appliesto:
 
 Testing the performance of a Redis instance can be a complicated task. The performance of a Redis instance can vary based on parameters such as the number of clients, the size of data values, and whether pipelining is being used. There also can be a tradeoff between optimizing throughput or latency.
 
-Fortunately, several tools exist to make benchmarking Redis easier. Two of the most popular tools are **[redis-benchmark](https://redis.io/docs/management/optimization/benchmarks/)** and **[memtier-benchmark](https://github.com/redislabs/memtier_benchmark)**. This article focuses on memtier_benchmark, often called _memtier_.
+Fortunately, several tools exist to make benchmarking Redis easier. Two of the most popular tools are **[redis-benchmark](https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/benchmarks/)** and **[memtier-benchmark](https://github.com/redislabs/memtier_benchmark)** . This article focuses on memtier_benchmark, often called _memtier_.
 
 ## How to use the memtier_benchmark utility
 
@@ -87,7 +86,7 @@ The table below shows optimal throughput that we observed while testing various 
 >Microsoft periodically updates the underlying VM used in cache instances. This can change the performance characteristics from cache to cache and from region to region. The example benchmarking values on this page reflect a particular generation cache hardware in a single region. You may see different results in practice, especially with network bandwidth.
 >
 
-Azure Managed Redis offers a choice of cluster policy: _Enterprise_ and _OSS_. Enterprise cluster policy is a simpler configuration that doesn't require the client to support clustering. OSS cluster policy, on the other hand, uses the [Redis cluster protocol](https://redis.io/docs/management/scaling) to support higher throughput. We recommend using OSS cluster policy in most cases, especially when you require high performance. For more information, see [Clustering](architecture.md#clustering).
+Azure Managed Redis offers a choice of cluster policy: _Enterprise_ and _OSS_. Enterprise cluster policy is a simpler configuration that doesn't require the client to support clustering. OSS cluster policy, on the other hand, uses the [Redis cluster protocol](https://redis.io/docs/latest/operate/oss_and_stack/management/scaling/) to support higher throughput. We recommend using OSS cluster policy in most cases, especially when you require high performance. For more information, see [Clustering](architecture.md#clustering).
 
 
 | Size in GB | GET requests per second for Memory Optimized | GET requests per second for Balanced | GET requests per second for Compute Optimized | 
