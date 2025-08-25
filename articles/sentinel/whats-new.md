@@ -18,6 +18,42 @@ The listed features were released in the last six months. For information about 
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## September 2025
+
+- [New data sources and enhanced User and Entity Behavior Analytics (UEBA) (Preview)](#new-data-sources-and-enhanced-user-and-entity-behavior-analytics-ueba-preview)
+
+### New data sources and enhanced User and Entity Behavior Analytics (UEBA) (Preview)
+
+Microsoft Sentinel's UEBA empowers SOC teams with AI-powered anomaly detection based on behavioral signals in your tenant. It helps prioritize threats using dynamic baselines, peer comparisons, and enriched entity profiles.
+
+UEBA now supports anomaly detection using six new data sources:
+
+- **Microsoft authentication sources**: 
+
+  These sources provide deeper visibility into identity behavior across your Microsoft environment.
+
+  - **MDE DeviceLogonEvents**: Captures logon activity from endpoints, helping identify lateral movement, unusual access patterns, or compromised devices.
+  - **AADManagedIdentitySignInLogs**: Tracks sign-ins by managed identities used in automation, such as scripts and services. This is crucial for spotting silent misuse of service identities.
+  - **AADServicePrincipalSignInLogs**: Monitors sign-ins by service principals - often used by apps or scripts - to detect anomalies, such as unexpected access or privilege escalation.  
+
+- **Third-party cloud platforms**: 
+  
+  UEBA now integrates with leading cloud platforms to enhance detection of identity compromise, privilege misuse, and risky access behaviors across multicloud environments.
+
+  - **AWS CloudTrail Login Events**: Flags risky login attempts in Amazon Web Services (AWS), such as failed multifactor authentication (MFA) or use of the root account—critical indicators of potential account compromise.
+  - **GCP Audit Logs - Failed IAM Access**: Captures denied access attempts in Google Cloud Platform, helping identify privilege escalation attempts or misconfigured roles.
+  - **Okta MFA & Authentication Security Change Events**: Surfaces MFA challenges and changes to authentication policies in Okta—signals that might indicate targeted attacks or identity tampering.
+
+These new sources enhance UEBA’s ability to detect identity-related threats across hybrid environments. 
+
+For more information, see:
+
+- [Advanced threat detection with User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel](./identify-threats-with-entity-behavior-analytics.md)
+- [Enable User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel](./enable-entity-behavior-analytics.md)
+- [Microsoft Sentinel UEBA reference](ueba-reference.md)
+- [UEBA anomalies](./anomalies-reference.md#ueba-anomalies)
+
+
 ## July 2025
 
 - [Microsoft Sentinel data lake (preview) ](#microsoft-sentinel-data-lake-preview)
