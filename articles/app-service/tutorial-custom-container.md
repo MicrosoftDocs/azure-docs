@@ -671,17 +671,17 @@ In this step, you configure the web app as follows:
     
     :::image type="content" source="./media/tutorial-custom-container/azure-portal-configure-app-service-1.png" alt-text="Screenshot showing how to open the Configuration page." lightbox="./media/tutorial-custom-container/azure-portal-configure-app-service-1.png":::
     
-1. On the **Configuration** page:
-    1. Select **New application setting**.
+1. On the **Environment variables** page:
+    1. Select **Add**.
     1. In **Name**, enter **WEBSITES_PORT**.
     1. In **Value**, enter **8000**.
-    1. Select **OK**.
-    1. Select **Save** at the top of the page, and then select **Continue**.
+    1. Select **Apply** in the **Add/Edit application setting** pane, and then select **Apply** again.
+
         The `WEBSITES_PORT` setting specifies the container port to forward web requests to. For more information, see [Custom containers](reference-app-settings.md#custom-containers).
      
     :::image type="content" source="./media/tutorial-custom-container/azure-portal-configure-app-service-2.png" alt-text="Screenshot showing how to set the WEBSITES_PORT app setting." lightbox="./media/tutorial-custom-container/azure-portal-configure-app-service-2.png":::
    
-1. In the left pane, select **Identity**. Then do the following on
+1. In the left pane, select **Identity**.  
 1. On the **Identity** page, on the **User assigned** tab, select **Add**.
    
     :::image type="content" source="./media/tutorial-custom-container/azure-portal-configure-app-service-3.png" alt-text="Screenshot showing how to add a user-assigned managed identity to a web app." lightbox="./media/tutorial-custom-container/azure-portal-configure-app-service-3.png":::
@@ -692,11 +692,11 @@ In this step, you configure the web app as follows:
     :::image type="content" source="./media/tutorial-custom-container/azure-portal-configure-app-service-4.png" alt-text="Screenshot showing how to add a user-assigned managed identity." lightbox="./media/tutorial-custom-container/azure-portal-configure-app-service-4.png":::
     
      
-1. In the left pane, select **Deployment Center**. Then do the following on the **Deployment Center** page:
-        1. In **Authentication**, select **Managed Identity**.
-        1. In **Identity**, select **myID**.
-        1. Under **Continuous deployment**, select **On**.
-        1. Select **Save** in at the top of the page.
+1. In the left pane,under **Deployment**, select **Deployment Center**. Then do the following on the **Deployment Center** page:
+    1. In **Authentication**, select **Managed Identity**.
+    1. In **Identity**, select **myID**.
+    1. Under **Continuous deployment**, select **On**.
+    1. Select **Save** in at the top of the page.
         When you turn on continuous deployment to a container registry, a webhook is automatically added to the registry for your web app.
     
     :::image type="content" source="./media/tutorial-custom-container/azure-portal-configure-app-service-5.png" alt-text="Screenshot showing a user-assigned managed identity selected for registry authentication. Continuous deployment is seleced." lightbox="./media/tutorial-custom-container/azure-portal-configure-app-service-5.png":::
