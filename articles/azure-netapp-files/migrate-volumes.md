@@ -5,12 +5,12 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 08/21/2025
+ms.date: 08/25/2025
 ms.author: anfdocs
 ---
 # Migrate volumes to Azure NetApp Files 
 
-You can peer and migrate volumes from on-premises ONTAP or Cloud Volumes ONTAP to Azure NetApp Files. The feature is only available in the REST API. 
+You can peer and migrate volumes from on-premises ONTAP or Cloud Volumes ONTAP to Azure NetApp Files. The feature is currently only available with the REST API. 
 
 ## Requirements 
 
@@ -20,8 +20,29 @@ You can peer and migrate volumes from on-premises ONTAP or Cloud Volumes ONTAP t
 * The delegated subnet address space for hosting the Azure NetApp Files volumes must have at least seven free IP addresses: six for cluster peering and one for data access to the migration volumes.
 * The delegated subnet address space should be sized appropriately to accommodate more Azure NetApp Files network interfaces. Review [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) to ensure you meet the requirements for delegated subnet sizing.  
 * After issuing the peering request, the request must be accepted within 60 minutes of making the request. Peer requests expire after 60 minutes. 
-* If using Azure RBAC to separate the role of Azure NetApp Files storage management with the intention of separating volume management tasks where volumes reside on the same network sibling set, be aware that externally connected ONTAP systems peered to that sibling set don't adhere to these Azure-defined roles. The external storage administrator might have limited visibility to all volumes in the sibling set showing storage level metadata details.
+* If you use Azure RBAC to separate the role of Azure NetApp Files storage management with the intention of separating volume management tasks where volumes reside on the same network sibling set, be aware that externally connected ONTAP systems peered to that sibling set don't adhere to these Azure-defined roles. The external storage administrator might have limited visibility to all volumes in the sibling set showing storage level metadata details.
 * When creating each migration volume, the Azure NetApp Files volume placement algorithm attempts to reuse the same Azure NetApp Files storage system as any previously created volumes in the subscription to reduce the number of network interface cards (NICs) or IPs consumed in the delegated subnet. If this isn't possible, an additional seven NICs are consumed.
+
+## Register the feature
+
+You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. 
+
+1. Register the feature: 
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFMigrationAssistant
+    ```
+
+2. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** can remain in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFMigrationAssistant
+    ```
+
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.
 
 ## Before you begin 
 
@@ -33,26 +54,6 @@ You must create Express Route or VPN resources to esnure network connectivity fr
 - HTTPS
 
 The network connectivity must be in place for all intercluster (IC) LIFs on the source cluster to all IC LIFs on the Azure NetApp Files endpoint.
-
-## Register the feature
-
-You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. 
-
-1. Register the feature: 
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFMigrationAssistant
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFMigrationAssistant
-    ```
-
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.
 
 ## Migrate volumes
 
@@ -136,7 +137,6 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 1. In your on-premises system, accept the cluster peer request from Azure NetApp Files by sending a GET request using Azure-AsyncOperation ID.
 
     ```rest
-
     POST https://<region>.management.azure.com/subscriptions/<subscription-ID>/providers/Microsoft.NetApp/locations/<location>/operationResults/<Azure-AsyncOperation>?api-version=2024-09-01...
     ```
     
@@ -170,6 +170,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     ```rest
     POST: https://<region>.management.azure.com/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.NetApp/netAppAccounts/<account-name>/capacityPools/<capacity-pool-name>/volumes/<volume-names>/authorizeExternalReplication?api-version=2024-09-01
     ```
+
 1. Accept the storage virtual machine (SVM) peer request from Azure NetApp Files by sending a GET request using the Azure-AsyncOperation ID in step 3. 
 
     ```rest
@@ -202,7 +203,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
         POST https://<region>.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-names>/providers/Microsoft.NetApp/netAppAccounts/<account-name>>/capacityPools/<capacity-pool>/volumes/<volumes>/performReplicationTransfer?api-version=2024-07-01 
     ```
 
-1. Break the replication relationship. You can accomplish this in the Azure portal by navigating to each volume's **Replication** menu then selecting **Break peering**. You can alternately submit an API request: 
+1. Break the replication relationship. [To break replication in the portal, navigate to each volume's **Replication** menu then select **Break peering**.](cross-region-replication-manage-disaster-recovery.md) You can alternately submit an API request: 
 
     ```rest
     POST https://<region>.management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group>/providers/Microsoft.NetApp/netAppAccounts/<NetApp-account>/capacityPools/<capacity-pool-name>>/volumes/<volumes>/breakReplication?api-version=2024-09-01
