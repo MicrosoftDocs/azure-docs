@@ -11,6 +11,8 @@ ms.custom: template-concept
 
 # Release notes for Azure Data Manager for Agriculture Preview 
 
+[!INCLUDE [public-preview-notice.md](includes/public-preview-notice.md)]
+
 Azure Data Manager for Agriculture Preview is updated on an ongoing basis. To keep you informed about recent developments, this article provides information about:
 
 - The latest releases
@@ -19,7 +21,7 @@ Azure Data Manager for Agriculture Preview is updated on an ongoing basis. To ke
 - Deprecated functionality
 - Plans for changes
 
-[!INCLUDE [public-preview-notice.md](includes/public-preview-notice.md)]
+
 
 ## March 2024
 
