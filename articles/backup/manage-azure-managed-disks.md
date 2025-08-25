@@ -2,7 +2,7 @@
 title: Manage Azure Managed Disks
 description: Learn about managing Azure Managed Disk from the Azure portal.
 ms.topic: how-to
-ms.date: 08/19/2025
+ms.date: 08/25/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.service: azure-backup
@@ -134,7 +134,7 @@ To resume protection for a disk backup instance, follow these steps:
 
 1. On the protected disk instance pane, select **Resume Backup**.
 
-   :::image type="content" source="./media/manage-azure-managed-disks/resume-disk-protection.png" alt-text="Screenshot shows how to initiate the resume protection operation for Azure Disks" lightbox="./media/manage-azure-managed-disks/resume-disk-protection.png":::
+   :::image type="content" source="./media/manage-azure-managed-disks/resume-disk-protection.png" alt-text="Screenshot shows how to initiate the resume protection operation for Azure Disks." lightbox="./media/manage-azure-managed-disks/resume-disk-protection.png":::
 
 1. On the **Resume Backup** pane, select **Resume backup**.
 
