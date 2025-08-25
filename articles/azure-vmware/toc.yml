@@ -101,7 +101,7 @@ items:
       href: tutorial-scale-private-cloud.md
     - name: 9 - Delete a private cloud
       href: tutorial-delete-private-cloud.md
-- name: Azure VMware Solution Gen 2 (preview)
+- name: Azure VMware Solution Gen 2
   items:
   - name: Introduction to Gen 2
     href: native-introduction.md
