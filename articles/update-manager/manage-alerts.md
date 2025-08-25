@@ -38,27 +38,27 @@ To enable alerts (Preview) with Azure Update Manager through Azure portal, follo
     1. Select a **Subscription** from the dropdown that will be the scope of the alert rule.
     1. Select **Resource Group** from the dropdown and the alert is created. 
     1. Select a **Location** from the dropdown list and the location is created.
-    1. From the **Azure Resource Group&& query dropdown, select a predefined alerting query option.
+    1. From the **Azure Resource Group** query dropdown, select a predefined alerting query option.
     1. You can select **Custom query** option to edit or write a custom query and then select **Skip to custom alert rules**.
     
-       :::image type="content" source="./media/manage-alerts/create-alert-rule-inline.png" alt-text="Screenshot that shows how to create alert rule." lightbox="./media/manage-alerts/create-alert-rule-expanded.png":::
+       :::image type="content" source="./media/manage-alerts/create-alert-rule-inline.png" alt-text="Screenshot that shows how to create alert rule." lightbox="./media/manage-alerts/create-alert-rule-inline-expanded.png":::
     
     1. Select **Preview or edit query in Logs** to run a selected alerting query option or to edit a query.
     
-       :::image type="content" source="./media/manage-alerts/query-inline.png" alt-text="Screenshot that shows how to edit query in logs." lightbox="./media/manage-alerts/query-inline.png":::
+       :::image type="content" source="./media/manage-alerts/edit-query-inline.png" alt-text="Screenshot that shows how to edit query in logs." lightbox="./media/manage-alerts/edit-query-inline-expanded.png":::
     
     1. Select **Run** to run the query and to enable **Continue Editing Alert**.
    
      :::image type="content" source="./media/manage-alerts/run-query-inline.png" alt-text="Screenshot that shows how to run the query." lightbox="./media/manage-alerts/run-query-expanded.png":::
 
     1. Select the **Scope and filters** to be applied.
-    1. Select Identify, Threshold, and Frequency of evaluation as per requiremnt.
+    1. Select **Identify, Threshold, and Frequency** of evaluation as per requiremnt.
     1. Provide details in the **Notify me** section as per your preference. 
-    1. Select **Qucik create a new rule**     
-    1. If you've selected **Custome Query** option to edit or write a custome query 
+    1. Select **Qucik create a new rule**.     
+   
+1. If you select **Custom Query** option to edit or write a custom query and select **Skip to custom alert rules**, you go directly to the alert rule creation flow where you can set up the advnanced alert rule configuration. 
     
-         
-1.  If you don't want to run a selected query or edit a query, select **Continue to create a new alert rule** to move to the alert rule create flow where you can set up the advanced alert rule configuration.     
+  
     :::image type="content" source="./media/manage-alerts/advance-alert-rule-configuration-inline.png" alt-text="Screenshot that shows how to configure advanced alert rule." lightbox="./media/manage-alerts/advance-alert-rule-configuration-expanded.png":::
    
 1. Select **Review + create** to create alert. For more information, see [Create Azure Monitor alert rules](/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-alert-rule-conditions).
