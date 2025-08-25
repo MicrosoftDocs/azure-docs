@@ -415,7 +415,6 @@ App Service can use either a default managed identity or a user-assigned managed
     1. Enter **Container registries** in the search box at the top of the Azure portal.
     1. Select the item labeled **Container registries** under the **Services** heading.
     1. Select **Create**.
-        You can also go to [Create container registry](https://portal.azure.com/#create/Microsoft.ContainerRegistry) directly.
      
     :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-container-registry-1.png" alt-text="Screenshot showing how to use the search box to find the Create container registry page." lightbox="./media/tutorial-custom-container/azure-portal-create-container-registry-1.png":::
   
