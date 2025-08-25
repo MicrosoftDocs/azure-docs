@@ -636,10 +636,9 @@ public HttpResponseMessage httpStart(
     final ExecutionContext context) {
     
     DurableTaskClient client = durableContext.getClient();
-    
-    StartOrchestrationOptions options = new StartOrchestrationOptions();
-    options.setVersion("1.0");
-    
+
+    NewOrchestrationInstanceOptions options = new NewOrchestrationInstanceOptions().setVersion("1.0");
+
     String instanceId = client.scheduleNewOrchestrationInstance("ProcessOrderOrchestrator", orderId, options);
 
     // ...
@@ -687,10 +686,9 @@ Starting a sub-orchestration with a specific version different from the current 
 public String runMainOrchestrator(
     @DurableOrchestrationTrigger(name = "taskOrchestrationContext") 
     TaskOrchestrationContext context) {
-    
-    SubOrchestratorOptions subOptions = new SubOrchestratorOptions();
-    subOptions.setVersion("1.0");
-    
+
+    NewSubOrchestrationInstanceOptions subOptions = new NewSubOrchestrationInstanceOptions().setVersion("1.0");
+
     String result = context.callSubOrchestrator("ProcessPaymentOrchestrator", orderId, String.class, subOptions).await();
     
     // ...
