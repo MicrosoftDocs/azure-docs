@@ -66,7 +66,7 @@ The example above sets both the minimum and maximum scale units to 2 and updates
 2. Under **Settings**, select **Configuration**.
 3. In the **Configuration** pane, adjust the **Minimum Scale Units** and/or **Maximum Scale Units** as needed.
 
-:::image type="content" source="media/expressroute-howto-scalablegw/change-scale.png" alt-text="Screenshot of the configuration blade to change the scale units of your gateway." :::
+:::image type="content" source="media/expressroute-howto-scalablegw/change-scale.png" alt-text="Screenshot of the configuration blade to change the scale units of your gateway." lightbox="./media/media/expressroute-howto-scalablegw/change-scale.png"::::::
 
 > [!NOTE]
 > To migrate your existing ExpressRoute gateway to a scalable gateway, follow the steps in the [ExpressRoute gateway migration guide](expressroute-howto-gateway-migration-portal.md).
