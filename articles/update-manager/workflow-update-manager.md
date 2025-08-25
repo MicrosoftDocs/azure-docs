@@ -1,11 +1,11 @@
 ---
-title: Azure Update Manager operations
+title: Azure Update Manager Operations
 description: This article tells what Azure Update Manager works in Azure is and the system updates for your Windows and Linux machines in Azure.
 ms.service: azure-update-manager
 ms.custom: linux-related-content
 author: habibaum
 ms.author: v-uhabiba
-ms.date: 07/21/2024
+ms.date: 08/21/2025
 ms.topic: overview
 # Customer intent: "As an IT administrator managing Azure and Arc-enabled servers, I want to automate the process of assessing and applying updates, so that I can ensure my systems remain secure and compliant without manual intervention."
 ---

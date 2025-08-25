@@ -3,7 +3,7 @@ title: Restore VMs by using the Azure portal using Azure Backup
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: nikhilsarode
 ms.topic: how-to
-ms.date: 08/13/2025
+ms.date: 08/14/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -167,11 +167,15 @@ While you restore disks for a Managed VM from a Vault-Standard recovery point, i
 
 After the disk is restored, use the template that was generated as part of the restore operation to customize and create a new VM:
 
-1. In **Backup Jobs**, select the relevant restore job.
+1. Go to the **Recovery Services vault**, and then select **Monitoring** > **Backup Jobs**.
+
+   Alternatively, you can go to **Business Continuity Center**, and then select **Monitoring + Reporting** > **Jobs**. 
+
+1. On the **Backup Jobs** pane, select the relevant restore job.
 
 1. In **Restore**, select **Deploy Template** to initiate template deployment.
 
-    ![Restore job drill-down](./media/backup-azure-arm-restore-vms/restore-job-drill-down1.png)
+    :::image type="content" source="./media/backup-azure-arm-restore-vms/restore-job-drill-down1.png" alt-text="Screenshot shows the restore job drill-down details." lightbox="./media/backup-azure-arm-restore-vms/restore-job-drill-down1.png":::
    
    >[!Note]
    >For a shared access signature (SAS) that has **Allow storage account key access** set to disabled, the template won't deploy when you select **Deploy Template**.

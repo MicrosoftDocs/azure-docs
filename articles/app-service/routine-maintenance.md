@@ -4,7 +4,7 @@ description: Learn more about routine, planned maintenance to help keep the App 
 author: msangapu-msft
 tags: app-service
 
-ms.topic: article
+ms.topic: concept-article
 ms.date: 05/19/2025
 ms.update-cycle: 180-days
 ms.author: msangapu
@@ -12,6 +12,9 @@ ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2025
 ms.service: azure-app-service
+
+# As an App Service user, I want to learn about routine planned maintenance so that I know what to expect.
+
 ---
 
 # Routine planned maintenance for Azure App Service
