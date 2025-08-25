@@ -70,7 +70,7 @@ Privileged access management for Azure Bastion ensures that only authorized user
 
 Data protection for Azure Bastion focuses on protecting data integrity and preventing unauthorized access to session data and configuration information.
 
-* **Leverage built-in TLS encryption**: Azure Bastion automatically uses TLS to encrypt data in transit between users and virtual machines. This encryption is managed by Microsoft and doesn't require additional configuration. For more information, see [Azure Bastion key features](./bastion-overview.md#key-benefits).
+* **Leverage built-in TLS encryption**: Azure Bastion automatically uses TLS to encrypt data in transit between users and virtual machines. This encryption is managed by Microsoft and doesn't require additional configuration. For more information, see [Azure Bastion key features](./bastion-overview.md#key).
 
 ## Session management and monitoring
 
