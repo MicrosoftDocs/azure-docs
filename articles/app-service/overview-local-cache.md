@@ -5,7 +5,7 @@ tags: optional
 
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: concept-article
-ms.date: 08/25/2025
+ms.date: 08/28/2025
 ms.update-cycle: 1095-days
 ms.custom: UpdateFrequency3
 ms.author: msangapu
@@ -86,7 +86,7 @@ Enable a local cache on a per-web-app basis by adding this app setting:
 ### Configure a local cache by using Azure Resource Manager
 <a name="Configure-Local-Cache-ARM"></a>
 
-```jsonc
+```JSONC
 {
     "apiVersion": "2015-08-01",
     "type": "config",
