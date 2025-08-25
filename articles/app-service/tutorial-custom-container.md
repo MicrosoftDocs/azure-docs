@@ -864,7 +864,7 @@ service ssh start
 
  
 1. On the App Service page:
-    1. In the left pane, under **Development Tools** select **SSH**.
+    1. In the left pane, under **Development Tools**, select **SSH**.
     1. Select **Go**.
    
     :::image type="content" source="./media/tutorial-custom-container/azure-portal-start-ssh-container-session-1.png" alt-text="Screenshot showing how to open an SSH session with your custom container." lightbox="./media/tutorial-custom-container/azure-portal-start-ssh-container-session-1.png":::
