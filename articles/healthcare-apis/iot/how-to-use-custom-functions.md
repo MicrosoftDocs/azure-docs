@@ -11,8 +11,7 @@ ms.author: chrupa
 
 # How to use custom functions with the MedTech service device mapping
 
-> [!IMPORTANT]
-> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central. This deprecation process began in May 2025 and is ongoing.
+[!INCLUDE [IoT deprecation](../includes/iot-deprecation.md)]
 
 Many functions are available when using **JMESPath** as the expression language. Besides the built-in functions available as part of the [JMESPath specification](https://jmespath.org/specification.html#built-in-functions), many more custom functions can also be used. This article describes how to use the MedTech service-specific custom functions with the MedTech service [device mapping](overview-of-device-mapping.md).
 

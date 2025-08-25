@@ -108,7 +108,7 @@ When an availability zone becomes unavailable, Queue Storage automatically handl
 
 - **Traffic rerouting:** Azure automatically reroutes traffic to the remaining healthy availability zones. The service maintains full functionality in the surviving zones with no customer intervention required.
 
-### Failback
+### Zone recovery
 
 [!INCLUDE [Storage - Zone failback](includes/storage/reliability-storage-availability-zone-failback-include.md)]
 
@@ -162,7 +162,7 @@ For detailed pricing information, see [Queue Storage pricing](https://azure.micr
 
 [!INCLUDE [Storage - Multi Region Down experience](includes/storage/reliability-storage-multi-region-down-experience-include.md)]
 
-### Failback
+### Region recovery
 
 [!INCLUDE [Storage - Multi Region Failback](includes/storage/reliability-storage-multi-region-failback-include.md)]
 

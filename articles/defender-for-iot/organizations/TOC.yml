@@ -417,7 +417,7 @@
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Videos
-    href: https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest
+    href: /shows/internet-of-things-show/
   - name: What's new archive
     href: whats-new-archive.md
   - name: OT monitoring software versions archive
