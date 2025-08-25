@@ -372,9 +372,9 @@ App Service can use either a default managed identity or a user-assigned managed
    
 1. On the **Create User Assigned Managed Identity** page:
     1. In **Subscription**, select the subscription you want to create your resources in.
-    1. In **Resource group**, select **Create new**, enter the name *msdocs-custom-container-tutorial* for the resource group, and then select **OK**.
+    1. In **Resource group**, select **Create new**, enter the name **msdocs-custom-container-tutorial** for the resource group, and then select **OK**.
     1. In **Region**, select **West Europe**, or a region near you.
-    1. In **Name**, type **myID**.
+    1. In **Name**, enter **myID**.
     
         :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-managed-identity-2.png" alt-text="Screenshot showing how to configure a new managed identity." lightbox="./media/tutorial-custom-container/azure-portal-create-managed-identity-2.png":::
    
