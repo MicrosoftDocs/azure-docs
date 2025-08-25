@@ -53,7 +53,7 @@ Use the steps in the Azure portal to migrate your Basic SKU public IP address re
 
 1. The **Migrate** tab lets you prepare for migration, and then migrate. If the environment requires manual preparation steps, you'll see a list of prerequisites that must be met before migration can begin. If these prerequisites aren't met, validation fails and you can't proceed with the migration. You must fix any issues identified in this section before you can proceed with the migration.
 
-Before your initiate migration for your VPN gateway, verify that your gateway subnet has at least three available IP addresses in your current prefix.If your current gateway subnet is /28 or smaller, the migration tool may error out. You need to [add multiple prefixes](../virtual-network/how-to-multiple-prefixes-subnet.md) for the gateway subnet before you can proceed with migration.
+Before your initiate migration for your VPN gateway, verify that your gateway subnet has at least three available IP addresses in your current prefix. If your current gateway subnet is /28 or smaller, the migration tool might error out. You need to [add multiple prefixes](../virtual-network/how-to-multiple-prefixes-subnet.md) for the gateway subnet before you can proceed with migration.
 
 1. When all the prerequisites are met, you see the **Prepare** button. Click the **Prepare** button to prepare the new Standard SKU public IP address resources.
 
@@ -167,7 +167,7 @@ Follow these steps to determine if your VPN Gateway uses legacy cloudapp.NET DNS
 
 1. On the Point-to-site configuration page, click **Download VPN Client**.
 
-   :::image type="content" source="./media/basic-public-ip-address-migrate-howto/download-vpn-client.png" alt-text="Screenshot downloading vpn client."lightbox="./media/basic-public-ip-address-migrate-howto/download-vpn-client.png":::
+   :::image type="content" source="./media/basic-public-ip-address-migrate-howto/download-vpn-client.png" alt-text="Screenshot showing Download VPN client option."lightbox="./media/basic-public-ip-address-migrate-howto/download-vpn-client.png":::
 
 1. Save the downloaded ZIP file to your local machine and extract it to a local directory.
 
