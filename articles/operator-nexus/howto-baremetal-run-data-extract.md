@@ -42,7 +42,7 @@ The current list of supported commands are
   - `Debug` - debug logs
 
 > [!WARNING]
-> As of the `v20250701preview` API version and above, this command will no longer be supported by the non-restricted `run-data-extract` command. To run `mde-agent-information`, See [Executing a run-data-extracts-restricted Command](#Executing-a-run-data-extracts-restricted-Command)
+> As of the `v20250701preview` API version and above, this command will no longer be supported by the non-restricted `run-data-extract` command. To run `mde-agent-information`, See [Executing a run-data-extracts-restricted Command](#executing-a-run-data-extracts-restricted-command)
 
 - [Collect Microsoft Defender for Endpoints (MDE) agent information](#collect-mde-agent-information)\
   Command Name: `mde-agent-information`\
@@ -57,7 +57,7 @@ The current list of supported commands are
   Arguments: None
 
 > [!WARNING]
-> As of the `v20250701preview` API version and above, this command will no longer be supported by the non-restricted `run-data-extract` command. To run `cluster-cve-report`, See [Executing a run-data-extracts-restricted Command](#Executing-a-run-data-extracts-restricted-Command)
+> As of the `v20250701preview` API version and above, this command will no longer be supported by the non-restricted `run-data-extract` command. To run `cluster-cve-report`, See [Executing a run-data-extracts-restricted Command](#executing-a-run-data-extracts-restricted-command)
 
 - [Generate Cluster Common Vulnerabilities and Exposures (CVE) Report](#generate-cluster-cve-report)\
   Command Name: `cluster-cve-report`\
