@@ -8,7 +8,7 @@ author: ikivanc
 ms.service: azure-blob-storage
 ms.devlang: python
 ms.topic: how-to
-ms.date: 06/24/2025
+ms.date: 08/25/2025
 ms.author: ikivanc
 # Customer intent: "As a software developer, I want to run automated tests against Azure Blob Storage using a local emulator, so that I can efficiently validate my code without relying on a cloud environment."
 ---
@@ -46,7 +46,7 @@ Learn how to write automated tests against private endpoints for Azure Blob Stor
 
 1. In Azure Storage Explorer, select **Attach to a local emulator**
 
-    :::image type="content" source="media/use-azurite-to-run-automated-tests/blob-storage-connection-sml.png" alt-text="Screenshot of Azure Storage Explorer connecting to Azure Storage source." lightbox="media/use-azurite-to-run-automated-tests/blob-storage-connection.png":::
+    :::image type="content" source="media/use-azurite-to-run-automated-tests/blob-storage-connection.png" alt-text="Screenshot of Azure Storage Explorer connecting to Azure Storage source.":::
 
 1. Provide a **Display name** and **Blobs port** number to connect Azurite and use Azure Storage Explorer to manage local blob storage.
 
