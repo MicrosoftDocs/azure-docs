@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 08/22/2025
 ms.author: cshoe
-ms.service: azure
+ms.service: azure-sre-agent
 ---
 
 # Azure SRE Agent overview (preview)
@@ -61,7 +61,7 @@ Use the following steps to start working with Azure SRE Agent.
 
     - *Which resources are unhealthy?*
 
-    - *Where am I missing alert rules?*
+    - *What changed in my web app last week?*
 
 1. Take action to proposed next steps.
 
