@@ -1,19 +1,6 @@
 ---
-title: Advanced thMicrAll the benefits of UEBA are available in the Microsoft Defender portal.
-
-## What is UEBA?
-
-UEBA analyzes logs and alerts from connected data sources to build baseline behavioral profiles for entities (users, hosts, IP addresses, applications) across time and peer groups. Using machine learning capabilities, it identifies anomalous activity, determines asset sensitivity, identifies peer groups, and evaluates potential impact ("blast radius") of compromised assets.
-
-### Key Capabilities
-
-- **Behavioral Baselines**: Dynamic profiles based on historical activities, peer behavior, and organizational patterns
-- **Anomaly Detection**: Context-aware identification across geographical locations, devices, and time horizons
-- **Risk Scoring**: Investigation Priority Scores (0-10 scale) based on behavioral learning
-- **Asset Correlation**: Peer group analysis and sensitivity assessment
-
-### Architecture Sentinel's User and Entity Behavior Analytics (UEBA) eliminates the uncertainty from threat detection by analyzing entity behavior patterns and delivering high-fidelity, actionable intelligence for investigation and remediation.eat detection with User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel | Microsoft Docs
-description: Create behavioral baselines for entities and detect anomalous behavior with User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel.
+title: Advanced threat detection with User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel | Microsoft Docs
+description: Create behavioral baselines for entities (users, hostnames, IP addresses) and use them to detect anomalous behavior and identify zero-day advanced persistent threats (APT).
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual

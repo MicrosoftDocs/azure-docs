@@ -1,6 +1,6 @@
 ---
 title: Customize activities on Microsoft Sentinel entity timelines | Microsoft Docs
-description: Create custom activities to track specific events and behaviors on entity page timelines in Microsoft Sentinel.
+description: Add customized activities to those Microsoft Sentinel tracks and displays on the timeline of entity pages
 author: yelevin
 ms.topic: how-to
 ms.date: 10/16/2024
@@ -18,60 +18,89 @@ ms.collection: usx-security
 # Customize activities on entity page timelines
 
 > [!IMPORTANT]
-> Activity customization is in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features in preview.
-> [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
+>
+> - Activity customization is in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> - [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
 
-Create custom activities based on queries from any connected data sources to supplement built-in activities on entity timelines.
+## Introduction
 
-## Access Activity Customization
+In addition to the activities tracked and presented in the timeline by Microsoft Sentinel out-of-the-box, you can create any other activities you want to keep track of and have them presented on the timeline as well. You can create customized activities based on queries of entity data from any connected data sources. The following examples show how you might use this capability:
+
+- Add new activities to the entity timeline by modifying existing out-of-the-box activity templates.
+
+- Add new activities from custom logs. For example, from a physical access-control log, you can add a user's entry and exit activities for a particular restricted area&mdash;say, a server room&mdash;to the user's timeline.
+
+## Getting started
+
+- Users of Microsoft Sentinel in the Azure portal, select the **Azure portal** tab below.
+- Users of the Microsoft Defender portal, select the **Defender portal** tab.
 
 # [Azure portal](#tab/azure)
 
-1. Navigate to **Entity behavior** > **Customize entity page (Preview)**
+1. From the Microsoft Sentinel navigation menu, select **Entity behavior**.
+
+1. On the **Entity behavior** page, select **Customize entity page (Preview)** at the top of the screen.
+
+    :::image type="content" source="./media/customize-entity-activities/entity-behavior-blade.png" alt-text="Entity behavior page":::
 
 # [Defender portal](#tab/defender)
 
-1. From any entity page, select the **Sentinel events** tab
-2. Select **Customize Sentinel activities**
-
----
+1. In the Microsoft Defender portal, find any entity page.
+    1. Select **Assets > Devices** or **Identities**.
+    1. Select a device or a user from the list. If you selected a user, then select **View user page** on the following popup.
 
 1. On the entity page, select the **Sentinel events** tab.
 
-## Activity Management
+1. On the **Sentinel events** tab, select **Customize Sentinel activities**.
+    :::image type="content" source="media/customize-entity-activities/identity-entity-page-defender.png" alt-text="Screenshot of Defender entity page menu.":::
+    
+---
 
-### Activity Templates vs. Custom Activities
+On the **Customize Sentinel activities** page, you'll see a list of any activities you've created in the **My activities** tab. In the **Activity templates** tab, you'll see the collection of activities offered out-of-the-box by Microsoft security researchers. These are the activities that are already being tracked and displayed on the timelines in your entity pages.
 
-- **Activity templates**: Pre-built activities from Microsoft security researchers
-- **My activities**: Your custom activities
+- As long as you have not created any user-defined activities, your entity pages will display *all* the activities listed under the **Activity templates** tab.
 
-> [!IMPORTANT]
-> Once you create custom activities, only those activities appear on entity pages. To continue seeing built-in activities, create an activity for each desired template.
+- Once you create or customize an activity, your entity pages will display *only* those activities, which appear in the **My activities** tab.
 
-## Create Activities
+- If you want to continue seeing the out-of-the-box activities in your entity pages, you must create an activity for each template you want to be tracked and displayed. Follow the instructions under "Create an activity from a template" below.
 
-### From Template
+## Create an activity from a template
 
-1. Select **Activity templates** tab
-2. Filter by entity type and data source
-3. Review activity details (description, data source, identifiers, query)
-4. Select **Create activity** to open the wizard
-5. Modify fields as needed or keep defaults
-6. Select **Review and create** > **Create**
+1. Select the **Activity templates** tab to see the various activities available by default. You can filter the list by entity type as well as by data source. Selecting an activity from the list will display the following information in the details pane:
 
-### From Scratch
+    - A description of the activity
 
-1. Select **Add activity**
-2. **General tab**:
-   - Enter name and description
-   - Select entity type (user or host)
-   - Add filters for optimization
-   - Set status (Enabled/Disabled)
-3. **Activity configuration tab**:
-   - Write KQL query using entity identifiers
-   - Configure activity presentation
+    - The data source that provides the events that make up the activity
 
-### Query Requirements
+    - The identifiers used to identify the entity in the raw data
+
+    - The query that results in the detection of this activity
+
+1. Select **Create activity** at the bottom of the details pane to start the activity creation wizard.
+
+    # [Azure portal](#tab/azure)
+
+    :::image type="content" source="./media/customize-entity-activities/activity-details.png" alt-text="Screenshot of activity template list in Azure portal.":::
+
+    # [Defender portal](#tab/defender)
+
+    :::image type="content" source="./media/customize-entity-activities/activity-details-defender.png" alt-text="Screenshot of activity template list in Defender portal.":::
+
+    When you select **Create activity** in the Defender portal, you are redirected to the Microsoft Sentinel activity wizard in the Azure portal in a new tab.
+
+    ---
+
+1. The **Activity wizard - Create new activity from template** will open, with its fields already populated from the template. You can make changes as you like in the **General** and **Activity configuration** tabs, or leave everything as is to continue viewing the out-of-the-box activity.
+
+1. When you are satisfied, select the **Review and create** tab. When you see the **Validation passed** message, click the **Create** button at the bottom.
+
+## Create an activity from scratch
+
+From the top of the activities page, click on **Add activity** to start the activity creation wizard.
+
+The **Activity wizard - Create new activity** will open, with its fields blank.
+
+### General tab
 1. Enter a name for your activity (example: "user added to group").
 
 1. Enter a description of the activity (example: "user group membership change based on Windows event ID 4728").
@@ -212,7 +241,7 @@ You can also use the **Activities** filter to present or hide specific activitie
 
 ## Next steps
 
-- [Learn about entity pages](entity-pages.md)
-- [Understand entities in Microsoft Sentinel](entities.md)
-- [Enable User and Entity Behavior Analytics](identify-threats-with-entity-behavior-analytics.md)
-- [See entity types and identifiers reference](entities-reference.md)
+In this document, you learned how to create custom activities for your entity page timelines. To learn more about Microsoft Sentinel, see the following articles:
+- Get the complete picture on [entity pages](entity-pages.md).
+- Learn about [User and Entity Behavior Analytics (UEBA)](identify-threats-with-entity-behavior-analytics.md).
+- See the full list of [entities and identifiers](entities-reference.md).
