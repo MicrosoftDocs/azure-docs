@@ -204,22 +204,7 @@ To run an on-demand backup for Azure Disks, follow these steps:
 
 ## Track Azure Disk backup operations
 
-The Azure Backup service creates a job for scheduled backups or if you trigger on-demand backup operation for tracking. To view the backup job status and details, follow these steps:
-
-1. Go to the **Backup vault**, and select **Backup instances**.
-1. On the **Backup instances** pane, select an Azure Disk backup instance from the list.
-
-   :::image type="content" source="./media/backup-managed-disks/jobs-dashboard.png" alt-text="Screenshot shows the list of backup instances." lightbox="./media/backup-managed-disks/jobs-dashboard.png":::
-
-1. On the selected **Backup instance** pane, the jobs dashboard shows operation and status for the past seven days.
-
-   To view the status of the backup operation, select **View all** to show ongoing and past jobs of this backup instance.
-
-   :::image type="content" source="./media/backup-managed-disks/view-all.png" alt-text="Screenshot shows how to view all jobs of a selected backup instance." lightbox="./media/backup-managed-disks/view-all.png":::
-
-1. Review the list of backup and restore jobs and their status. Select a job from the list of jobs to view job details.
-
-   :::image type="content" source="./media/backup-managed-disks/select-job.png" alt-text="Screenshot shows how to view the job details." lightbox="./media/backup-managed-disks/select-job.png":::
+The Azure Backup service creates a job for scheduled backups or if you trigger on-demand backup operation for tracking. Learn [how to view the backup job status and details](manage-azure-managed-disks.md#monitor-the-backup-and-restore-operations-for-azure-managed-disks).
 
 ## Next steps
 

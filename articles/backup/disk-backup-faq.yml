@@ -4,7 +4,7 @@ metadata:
   description: Get answers to frequently asked questions about Azure Disk Backup
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 06/12/2025
+  ms.date: 08/25/2025
   author: AbhishekMallick-MS
   ms.author: v-mallicka
 title: Frequently asked questions about Azure Disk Backup
@@ -31,7 +31,7 @@ sections:
       - question: |
           What is a snapshot resource group?
         answer: |
-          Azure Disk Backup offers operational tier backup for managed disk. That is, the snapshots that are created during the scheduled and on-demand backup operations are stored in a resource group within your subscription. Azure Backup offers instant restore because the incremental snapshots are stored within your subscription. This resource group is known as the snapshot resource group. For more information, see [Configure backup](backup-managed-disks.md#configure-backup).
+          Azure Disk Backup offers operational tier backup for managed disk. That is, the snapshots that are created during the scheduled and on-demand backup operations are stored in a resource group within your subscription. Azure Backup offers instant restore because the incremental snapshots are stored within your subscription. This resource group is known as the snapshot resource group. For more information, see [configure Azure Disk backup](backup-managed-disks.md#configure-azure-disk-backup).
           
       - question: |
           Why must the snapshot resource group be in same subscription as that of the disk being backed up?
@@ -86,7 +86,7 @@ sections:
       - question: |
           Can I back up multiple disks together?
         answer: |
-          No, point-in-time snapshots of multiple disks attached to a virtual machine isn't supported. For more information, see [Configure backup](backup-managed-disks.md#configure-backup) and to learn more about limitations, refer to the [support matrix](disk-backup-support-matrix.md).
+          No, point-in-time snapshots of multiple disks attached to a virtual machine isn't supported. For more information, see [Configure Azure Disk backup](backup-managed-disks.md#configure-azure-disk-backup) and to learn more about limitations, refer to the [support matrix](disk-backup-support-matrix.md).
           
       - question: |
           What is a target resource group?
