@@ -17,7 +17,7 @@ ms.collection: usx-security
 
 # Microsoft Sentinel UEBA reference
 
-This reference article lists the input data sources for the User and Entity Behavior Analytics service in Microsoft Sentinel. It also describes the enrichments that UEBA adds to entities, providing needed context to alerts and incidents.
+This reference article lists the input data sources for the [User and Entity Behavior Analytics service in Microsoft Sentinel](./identify-threats-with-entity-behavior-analytics.md). It also describes the enrichments that UEBA adds to entities, providing needed context to alerts and incidents.
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 

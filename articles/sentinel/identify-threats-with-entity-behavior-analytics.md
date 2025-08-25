@@ -19,17 +19,19 @@ ms.collection: usx-security
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-Identifying threats inside your organization and their potential impact&mdash;whether a compromised entity or a malicious insider&mdash;has always been a time-consuming and labor-intensive process. Sifting through alerts, connecting the dots, and active hunting all add up to massive amounts of time and effort expended with minimal returns, and the possibility of sophisticated threats simply evading discovery. Particularly elusive threats like zero-day, targeted, and advanced persistent threats can be the most dangerous to your organization, making their detection all the more critical.
+Detecting internal threats manually is complex and slow. Microsoft Sentinel User and Entity Behavior Analytics (UEBA) streamlines threat detection by using machine learning models to build dynamic baselines and peer comparisons for your tenant. Instead of just collecting logs, UEBA learns from your data to provide actionable intelligence, helping analysts detect, investigate, and respond to sophisticated threats quickly. 
 
-The UEBA capability in Microsoft Sentinel eliminates the drudgery from your analysts’ workloads and the uncertainty from their efforts, and delivers high-fidelity, actionable intelligence, so they can focus on investigation and remediation.
+This article explains how UEBA works in Microsoft Sentinel and how you can use it to enhance your threat detection capabilities.
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 All the benefits of UEBA are available in the Microsoft Defender portal.
 
-## What is User and Entity Behavior Analytics (UEBA)?
+## What is UEBA?
 
-As Microsoft Sentinel collects logs and alerts from all of its connected data sources, it analyzes them and builds baseline behavioral profiles of your organization’s entities (such as users, hosts, IP addresses, and applications) across time and peer group horizon. Using a variety of techniques and machine learning capabilities, Microsoft Sentinel can then identify anomalous activity and help you determine if an asset has been compromised. Not only that, but it can also figure out the relative sensitivity of particular assets, identify peer groups of assets, and evaluate the potential impact of any given compromised asset (its “blast radius”). Armed with this information, you can effectively prioritize your investigation and incident handling. 
+As Microsoft Sentinel collects logs and alerts from all of your connected data sources, UEBA analyzes this data and builds baseline behavioral profiles of your organization’s entities - such as users, hosts, IP addresses, and applications - over time and across peer groups. UEBA then identifies anomalous activity and helps you determine whether an asset has been compromised. 
+
+UEBA also determines the relative sensitivity of particular assets, identifies peer groups of assets, and evaluates the potential impact of any given compromised asset - its “blast radius”. This information lets you prioritize your investigation and incident handling effectively.
 
 ### UEBA analytics architecture
 
