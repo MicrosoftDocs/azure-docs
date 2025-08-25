@@ -20,7 +20,7 @@ General-purpose v2 storage accounts support the latest Azure Storage features an
 
 Upgrading to a general-purpose v2 storage account from your general-purpose v1 or Blob storage accounts is straightforward. You can upgrade using the Azure portal, PowerShell, or Azure CLI. There's **no downtime** or risk of data loss associated with upgrading to a general-purpose v2 storage account. The account upgrade happens via a simple Azure Resource Manager operation that changes the account type.
 
-> [!IMPORTANT] Microsoft will retire general-purpose v1 storage accounts on **September 1, 2026**. All GPv1 accounts must be upgraded to GPv2 by this date to avoid service disruption. For more information, see [GPv1 storage account retirement overview](../common/general-purpose-version-1-account-migration-overview.md).
+>[!IMPORTANT] Microsoft will retire general-purpose v1 storage accounts on **September 1, 2026**. All GPv1 accounts must be upgraded to GPv2 by this date to avoid service disruption. For more information, see [GPv1 storage account retirement overview](../common/general-purpose-version-1-account-migration-overview.md).
 
 If you have a general-purpose v1 storage account, you can upgrade it to a general-purpose v2 storage account, but you can't downgrade it back to a general-purpose v1 storage account. If you have a Blob storage account, you can upgrade it to a general-purpose v2 storage account, but you can't downgrade it back to a Blob storage account.
 
