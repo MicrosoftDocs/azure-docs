@@ -852,6 +852,9 @@ To learn more about share snapshots, see [Overview of share snapshots for Azure 
 
 ## Properties and Permissions to be preserved 
 
+> [!TIP]
+> When downloading files to a local Linux system, elevated privileges are necessary if the specified owner or group differs from that of the current user. To change the ownership or group of downloaded files, azcopy should be executed with sudo or as the root user. 
+
 | **Type**                | **Properties (--preserve-info)**                                                                 | **Permissions (--preserve-permissions)** |
 |-------------------------|--------------------------------------------------------------------------------------------------|------------------------------------------|
 | **Azure Files SMB**     | NTFSFileAttributes (ReadOn ReadOnly, Hidden, System, Directory, Archive, None, Temporary, Offline, NotContentIndexed, NoScrubData) (x-ms-file-attributes) <br> CreationTime (x-ms-file-creation-time) <br> LastWriteTime (x-ms-file-last-write-time) | Acls (x-ms-file-permission)              |
