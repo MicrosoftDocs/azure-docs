@@ -5,10 +5,10 @@ description: Learn how to transition to OpenVPN protocol or IKEv2 from SSTP to o
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 01/23/2025
+ms.date: 08/28/2025
 ms.author: cherylmc
 
-# Customer intent: "As a network administrator, I want to transition from SSTP to IKEv2 or OpenVPN
+# Customer intent: As a network administrator, I want to transition from SSTP to IKEv2 or OpenVPN
 ---
 # Transition to OpenVPN protocol or IKEv2 from SSTP
 
@@ -18,23 +18,23 @@ A point-to-site (P2S) VPN gateway connection lets you create a secure connection
 
 Point-to-site VPN can use one of the following protocols:
 
-* **OpenVPN&reg; Protocol**, an SSL/TLS based VPN protocol. An SSL VPN solution can pass through firewalls, since most firewalls open TCP port 443 outbound, which SSL uses. OpenVPN can be used to connect from Android, iOS (versions 11.0 and above), Windows, Linux, and Mac devices (macOS versions 12.x and above).
+- **OpenVPN&reg; Protocol**, an SSL/TLS based VPN protocol. An SSL VPN solution can pass through firewalls, since most firewalls open TCP port 443 outbound, which SSL uses. OpenVPN can be used to connect from Android, iOS (versions 11.0 and above), Windows, Linux, and Mac devices (macOS versions 12.x and above).
 
-* **Secure Socket Tunneling Protocol (SSTP)**, a proprietary SSL-based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which SSL uses. SSTP is only supported on Windows devices. Azure supports all versions of Windows that have SSTP (Windows 7 and later). **SSTP supports up to 128 concurrent connections only regardless of the gateway SKU**.
+- **Secure Socket Tunneling Protocol (SSTP)**, a proprietary SSL-based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which SSL uses. SSTP is only supported on Windows devices. Azure supports all versions of Windows that have SSTP (Windows 7 and later). **SSTP supports up to 128 concurrent connections only regardless of the gateway SKU**.
 
-* IKEv2 VPN, a standards-based IPsec VPN solution. IKEv2 VPN can be used to connect from Mac devices (macOS versions 10.11 and above).
+- **IKEv2 VPN**, a standards-based IPsec VPN solution. IKEv2 VPN can be used to connect from Mac devices (macOS versions 10.11 and above).
 
 > [!NOTE]
-> Basic SKU today supports SSTP protocol only and any new Basic SKU gateways are created with SSTP protocol. Effective Nov 2025, Basic SKU will also support IKEv2, and any new Basic SKU VPN gateway will be created with IKEv2 by default.
+> Currently, Basic SKU supports SSTP protocol only and any new Basic SKU gateways are created with SSTP protocol. Effective November 2025, Basic SKU will also support IKEv2, and any new Basic SKU VPN gateway will be created with IKEv2 by default.
 
 ## <a name="migrate"></a>SSTP Retirement: Migrating from SSTP to IKEv2 or OpenVPN
 
-Due to limited capability and suboptimal performance, we are retiring SSTP protocol. This article expands on the official announcement.
+Due to limited capability and suboptimal performance, we're retiring SSTP protocol:
 
-* **Effective Mar 31, 2026: Enabling SSTP protocol on VPN gateway will no longer be supported.
-* **Effective Mar 31, 2027: Existing SSTP-enabled gateways can no longer be used to establish SSTP connections.
+- **Effective March 31, 2026:** Enabling SSTP protocol on VPN gateway will no longer be supported.
+- **Effective March 31, 2027:** Existing SSTP-enabled gateways can no longer be used to establish SSTP connections.
 
-The instructions below list out the steps to migrate your SSTP connections to IKEv2 as per the VPN gateway SKU:
+The following instructions list out the steps to migrate your SSTP connections to IKEv2 as per the VPN gateway SKU:
 
 ### Option 1 - Add IKEv2 in addition to SSTP on the gateway
 
@@ -50,25 +50,40 @@ Adding IKEv2 to an existing SSTP VPN gateway won't affect existing clients and y
 1. Apply your changes.
 
 > [!NOTE]
-> When you have both SSTP and IKEv2 enabled on the gateway, the point-to-site address pool will be statically split between the two, so clients using different protocols will be assigned IP addresses from either subrange. Note that the maximum number of SSTP clients is always 128. This applies even if the address range is larger than /24, resulting in a larger amount of addresses available for IKEv2 clients. For smaller ranges, the pool is equally halved. Traffic Selectors used by the gateway might not include the point-to-site address range CIDR, but the two subrange CIDRs.
+> When you have both SSTP and IKEv2 enabled on the gateway, the point-to-site address pool will be statically split between the two, so clients using different protocols are assigned IP addresses from either subrange. The maximum number of SSTP clients is always 128. This applies even if the address range is larger than /24, resulting in a larger number of addresses available for IKEv2 clients. For smaller ranges, the pool is equally halved. Traffic Selectors used by the gateway might not include the point-to-site address range CIDR, but the two subrange CIDRs.
 
 Migration Steps:
-Portal Experience
 
-1. **Update Tunnel type:** Modify the tunnel type in your VPN gateway’s Point-to-site configuration. **This option will be enabled for Basic SKU gateways starting Nov 2025**
+# [**Portal**](#tab/portal)
 
-* **From: SSTP (SSL)
-* **To: IKEv2 and SSTP (SSL)
+1. **Update Tunnel type:** Modify the tunnel type in your VPN gateway’s Point-to-site configuration. This option will be enabled for Basic SKU gateways starting November 2025.
 
-You can choose this from portal as shown below:
-[ TBD: Add image here]
+    - **From: SSTP (SSL)**
+    - **To: IKEv2 and SSTP (SSL)**
 
-or Powershell
-[ TBD: Add PS command here]
+    :::image type="content" source="./media/ikev2-openvpn-from-sstp/point-to-site-configuration.png" alt-text="Screenshot that shows the point-to-site configuration in the Azure portal." lightbox="./media/ikev2-openvpn-from-sstp/point-to-site-configuration.png":::
+
+1. **Download updated configuration:** After updating the tunnel type, [download the updated VPN Client](point-to-site-certificate-gateway.md#profile-files) profile configuration package to get latest configuration package
+1. **Distribute Configuration:** Share the updated VPN client configuration with all users who connect via Point-to-Site VPN
+1. **Verify VPN Connectivity:** [Verify the VPN connections](point-to-site-certificate-gateway.md#clientconfig) to ensure all the clients can connect successfully and that the VPN gateway is functioning as expected
+
+
+# [**PowerShell**](#tab/powershell)
+
+1. **Update Tunnel type:** Modify the tunnel type in your VPN gateway’s Point-to-site configuration. This option will be enabled for Basic SKU gateways starting November 2025.
+
+    ```powershell
+    $PublicCertData = <PublicCertData>
+    $vng = Get-AzVirtualNetworkGateway -Name $gwName -ResourceGroupName $rgName
+    $VpnClientRootCert = New-AzVpnClientRootCertificate -Name "RootCert" -PublicCertData $PublicCertData
+    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $vng -VpnClientAddressPool <Addresspool>  -VpnClientProtocol IkeV2,SSTP -VpnAuthenticationType Certificate -VpnClientRootCertificates $VpnClientRootCert
+    ```
 
 1. **Download updated configuration:** After updating the tunnel type, [download the updated VPN Client](point-to-site-certificate-gateway#profile-files.md) profile configuration package to get latest configuration package
 1. **Distribute Configuration:** Share the updated VPN client configuration with all users who connect via Point-to-Site VPN
 1. **Verify VPN Connectivity:** [Verify the VPN connections](point-to-site-certificate-gateway#clientconfig.md) to ensure all the clients can connect successfully and that the VPN gateway is functioning as expected
+
+---
 
 ### Option 2 - Remove SSTP and enable OpenVPN on the gateway
 
@@ -92,33 +107,33 @@ Once the gateway has been configured, existing clients won't be able to connect 
 
 Users use the native VPN clients on Windows and Mac devices for P2S. Azure provides a VPN client configuration zip file that contains settings required by these native clients to connect to Azure.
 
-* For Windows devices, the VPN client configuration consists of an installer package that users install on their devices.
-* For Mac devices, it consists of the mobileconfig file that users install on their devices.
+- For Windows devices, the VPN client configuration consists of an installer package that users install on their devices.
+- For Mac devices, it consists of the mobileconfig file that users install on their devices.
 
 The zip file also provides the values of some of the important settings on the Azure side that you can use to create your own profile for these devices. Some of the values include the VPN gateway address, configured tunnel types, routes, and the root certificate for gateway validation.
 
 > [!NOTE]
 > [!INCLUDE [TLS version changes](../../includes/vpn-gateway-tls-change.md)]
 
-### What happens if I do not migrate my SSTP connections by Mar 31, 2027?
+### What happens if I don't migrate my SSTP connections by March 31, 2027?
 
-Any existing SSTP connections after Mar 31, 2027, will be suspended and will stop working.
+Any existing SSTP connections after March 31, 2027 will be suspended and will stop working.
 
 ### When will Basic gateway SKU start supporting IKEv2?
 
-Effective Nov 2025, Basic SKU will start supporting IKEv2 protocol
+Effective November 2025, Basic SKU will start supporting IKEv2 protocol
 
 ### Will there be downtime while I migrate my SSTP connections to other protocol?
 
-No, there will not be any downtime when you transition your “SSTP” protocol to “IKEv2 and SSTP (SSL)” protocol. However, if you migrate to “IKEv2” only, the gateway will have downtime until the new configuration is applied.
+No, there won't be any downtime when you transition your “SSTP” protocol to “IKEv2 and SSTP (SSL)” protocol. However, if you migrate to “IKEv2” only, the gateway will have downtime until the new configuration is applied.
 
 ### Will I need to redistribute the new P2S configuration package to all the clients?
 
-Yes, the new config will need to be distributed to the new clients to prevent any impact
+Yes, the new config must be distributed to the new clients to prevent any impact.
 
 ### Will I be able to enable SSTP protocol up to the retirement date?
 
-No, you will not be able to enable SSTP protocol after Mar 31, 2026
+No, you won't be able to enable SSTP protocol after March 31, 2026.
 
 ### Can I go to “IKEv2” protocol directly instead of IKEv2 and SSTP protocol?
 
