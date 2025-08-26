@@ -23,7 +23,7 @@ Use the Azure portal to find the Apache Kafka & Apache Flink on Confluent Cloud 
 
 1. Go to the [Azure portal](https://portal.azure.com/) and sign in.
 
-1. Search for and select **Marketplace**.
+1. Search for and then select **Marketplace**.
 
 1. On the **Marketplace** page, choose from two billing options:
 
@@ -71,13 +71,13 @@ az confluent organization wait --name "myOrganization" --resource-group "myResou
 
 To see a list of existing organizations, use the [`az confluent organization list`](/cli/azure/confluent/organization#az-confluent-organization-list) command.
 
-To view all organizations in your subscription:
+To view all organizations in your subscription, run:
 
 ```azurecli
 az confluent organization list
 ```
 
-To view all organizations in a resource group:
+To view all organizations in a resource group, run:
 
 ```azurecli
 az confluent organization list --resource-group "myResourceGroup"
@@ -85,13 +85,13 @@ az confluent organization list --resource-group "myResourceGroup"
 
 To see the properties of a specific organization, use the [az confluent organization show](/cli/azure/confluent/organization#az-confluent-organization-show) command.
 
-To view the organization by name:
+To view the organization by name, run:
 
 ```azurecli
 az confluent organization show --name "myOrganization" --resource-group "myResourceGroup"
 ```
 
-To view the organization by resource ID:
+To view the organization by resource ID, run:
 
 ```azurecli
 az confluent organization show --ids "/subscriptions/{SubID}/resourceGroups/{myResourceGroup}/providers/Microsoft.Confluent/organizations/{myOrganization}"

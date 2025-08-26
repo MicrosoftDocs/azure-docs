@@ -21,7 +21,7 @@ In this quickstart, you use the Azure portal to create a resource in Apache Kafk
 
 [!INCLUDE [create-resource](../includes/create-resource.md)]
 
-## Basics tab
+## Basics
 
 The **Basics** tab has three sections:
 
@@ -33,24 +33,24 @@ The **Basics** tab has three sections:
 
 Each section has required settings to configure (identified with red asterisks).
 
-1. Under **Project details**, enter or select values for these required settings:
+1. Under **Project details**, enter or select values for these settings:
 
-    | Name               | Action                                                    |
-    |---------------------|-----------------------------------------------------------|
+    | Name | Action |
+    | --- | --- |
     | **Subscription**        | Select an existing subscription.   |
     | **Resource group**      | Select an existing resource group, or create a new one.       |
 
-1. Under **Azure Resource details**, enter or select values for these required settings:
+1. Under **Azure resource details**, enter or select values for these settings:
 
-    | Name              | Action                                    |
-    |--------------------|-------------------------------------------|
+    | Name | Action |
+    | --- | --- |
     | **Resource name**      | Enter a unique name for the resource.   |
     | **Region**             | Select an Azure region for the resource deployment.  |
 
-1. Under **Confluent organization details**, enter or select values for these required settings:
+1. Under **Confluent organization details**, enter or select values for these settings:
 
-    | Name             | Action                                                                                           |
-    |-------------------|--------------------------------------------------------------------------------------------------|
+    | Name | Action |
+    | --- | --- |
     | **Organization**      | Select an existing organization, or create a new one.   |
 
     > [!NOTE]
@@ -58,15 +58,15 @@ Each section has required settings to configure (identified with red asterisks).
 
     To change your [billing plan](overview.md#billing), select **Change plan**.
 
-    If you create a new organization, the remaining fields update to reflect the details of the plan you select for the new organization.
+    If you create a new organization, the remaining fields refresh to reflect the details of the plan you select for the new organization.
 
 1. Select **Next**.
 
-### Tags tab (optional)
+### Tags (optional)
 
 [!INCLUDE [tags](../includes/tags.md)]
 
-### Review + create tab
+### Review + create
 
 [!INCLUDE [review-create](../includes/review-create.md)]
 

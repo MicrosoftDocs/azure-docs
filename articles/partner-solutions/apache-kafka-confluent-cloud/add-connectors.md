@@ -11,7 +11,7 @@ ms.date: 05/28/2024
 
 In this article, learn how to connect an instance of Apache Kafka & Apache Flink on Confluent Cloud, an Azure Native Integrations service, to Azure compute services by using Service Connector in Azure.
 
-[Service Connector](../../service-connector/overview.md) is an Azure service that simplifies the process of connecting Azure resources. Service Connector manages your connection's network and authentication settings to simplify connection.
+[Service Connector](../../service-connector/overview.md) is an Azure service that helps simplify the process of connecting Azure resources. Service Connector manages your connection's network and authentication settings to simplify connection.
 
 Complete the steps in this article to connect an app deployed to Azure App Service to a Confluent organization. You can use similar steps to connect your Confluent organization to other [compute services supported by Service Connector](../../service-connector/overview.md#what-services-are-supported-by-service-connector).
 
@@ -63,7 +63,7 @@ To connect an app to Apache Kafka & Apache Flink on Confluent Cloud:
     | **Create connection for Schema Registry** | This checkbox is cleared by default. Optionally, select the checkbox to create a connection for the schema registry. |
     | **Client type** | Select the app stack that's on your compute service instance. For example, select **Node.js**. |
 
-    :::image type="content" source="./media/connect/marketplace-basic.png" alt-text="Screenshot that shows the Service Connector basics creation fields for an Azure Marketplace Confluent resource in the Azure portal.":::
+    :::image type="content" source="./media/connect/marketplace-basic.png" alt-text="Screenshot that shows the Service Connector Basics pane an Azure Marketplace Confluent resource in the Azure portal.":::
 
     ### [Azure non-Marketplace Confluent resource](#tab/non-marketplace-confluent)
 
@@ -75,7 +75,7 @@ To connect an app to Apache Kafka & Apache Flink on Confluent Cloud:
     | **Create connection for Schema Registry** | This checkbox is cleared by default. Optionally, select the checkbox to use a schema registry. |
     | **Client type** | Select the app stack that's on your compute service instance. For example, select **Node.js**. |
 
-    :::image type="content" source="./media/connect/non-marketplace-basic.png" alt-text="Screenshot that shows the Service Connector basics creation fields for an Azure Marketplace Confluent resource in the Azure portal.":::
+    :::image type="content" source="./media/connect/non-marketplace-basic.png" alt-text="Screenshot that shows the Service Connector Basics settings in an Azure Marketplace Confluent resource in the Azure portal.":::
 
     ---
 

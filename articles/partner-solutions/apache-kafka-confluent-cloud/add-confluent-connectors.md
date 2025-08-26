@@ -42,14 +42,14 @@ To create a sink connector for Azure Blob Storage:
 
 On the **Basics** tab, enter or select values for the following settings:
 
-| Setting | Action |
+| Name | Action |
 | --- | --- |
 | **Connector Type**  | Select **Sink**. |
 | **Connector Class** | Select **Azure Blob Storage Sink**. |
 | **Connector Name**  | Enter a name for your connector. For example, *blob-sink-connector*.     |
 | **Environment** | Select the environment where you want to create this connector. For example, *env1*. |
 | **Cluster** | Select the cluster where you want to create this connector. For example, *cluster1*. |
-| **Topics** | Select one or more topics to pull data from. If there are no topics in the cluster in the selected cluster, create one by selecting **new topic** to go to the Confluent website. For example, *topic_1*. |
+| **Topics** | Select one or more topics to pull data from. If there are no topics in the selected cluster, create one by selecting **new topic** to go to the Confluent website. For example, *topic_1*. |
 | **Subscription** | Select the Azure subscription of the Azure Blob Storage instance to pull data from. For example, *My subscription*. |
 | **Storage Account** |  Select the storage account to pull the data from. For example, *storageaccount1*. Optionally, you can select **Create new** to create a new [storage account](../../storage/common/storage-account-create.md#basics-tab). |
 | **Container** | Select the container within the storage account to push data to. For example, *container1*. Optionally, you can [create a new container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). |
@@ -72,8 +72,8 @@ On the **Configuration** tab, enter or select the following values, and then sel
 
 | Setting | Action |
 | --- | --- |
-| **Input Data Format**  | Select an input Kafka record data format type: AVRO, JSON, string, Protobuf. |
-| **Output Data Format** | Select an output data format: AVRO, JSON, string, Protobuf. |
+| **Input Data Format**  | Select an input Kafka record data format type: AVRO, JSON, string, or Protobuf. |
+| **Output Data Format** | Select an output data format: AVRO, JSON, string, or Protobuf. |
 | **Time Interval**      | Select the time interval in which to group the data. Choose between hourly and daily. |
 | **Flush size**         | Optionally, you can enter a flush size. The default flush size is 1,000. |
 | **Number of tasks**    | Optionally, you can enter the maximum number of simultaneous tasks you want your connector to support. The default is 1. |
@@ -90,11 +90,12 @@ In the upper-right corner of the Azure portal, a notification displays the deplo
 
 ## Create a Confluent source Connector for Azure Blob Storage (preview)
 
-1. Open your Confluent organization and select **Confluent** > **Confluent Connectors (Preview)** from the left menu.
+1. In the Azure portal, go to your Confluent organization.
+1. On the left menu, select **Confluent** > **Confluent Connectors (Preview)**.
 
    :::image type="content" source="./media/confluent-connectors/create-new-connector.png" alt-text="Screenshot that shows the Confluent Connectors menu in the Azure portal.":::
 
-1. In the **Create a new connector** pane, select **Create new connector**.
+1. On the **Create a new connector** pane, select **Create new connector**.
 
 ### Basics
 
@@ -130,7 +131,7 @@ On the **Configuration** tab, enter or select values for the following settings:
 | Name | Action |
 | --- | --- |
 | **Input Data Format**  | Select an input Kafka record data format type: AVRO, JSON, string, Protobuf. |
-| **Output Data Format** | Select an output data format: AVRO, JSON, string, Protobuf. |
+| **Output Data Format** | Select an output data format: AVRO, JSON, string, or Protobuf. |
 | **Topic name and regex** | Configure the topic name and the regex pattern of your messages to ensure they're mapped. For example, `*my-topic:.*\.json+` moves all the files that have the `.json` extension into `my-topic`. |
 | **Flush size**         | (Optional) Enter a flush size. The default flush size is 1,000. |
 | **Number of tasks**    | (Optional) Enter the maximum number of simultaneous tasks you want your connector to support. The default is 1. |
@@ -155,10 +156,10 @@ The Azure portal shows a list of Azure connectors for the environment and cluste
 
 You can also complete the following optional actions:
 
-* Filter connectors by **Type** (**Source** or **Sink**) and **Status** (**Running**, **Failed**, **Provisioning, or **Paused**).
+* Filter connectors by **Type** (**Source** or **Sink**) and **Status** (**Running**, **Failed**, **Provisioning**, or **Paused**).
 * Search for a connector by name.
 
-   :::image type="content" source="./media/confluent-connectors/display-connectors.png" alt-text="Screenshot that shows a list of existing connectors on the Confluent Connectors (Preview) tab in the Azure portal." lightbox="./media/confluent-connectors/display-connectors.png":::
+   :::image type="content" source="./media/confluent-connectors/display-connectors.png" alt-text="Screenshot that shows a list of existing connectors on the Confluent Connectors tab in the Azure portal." lightbox="./media/confluent-connectors/display-connectors.png":::
 
    To learn more about a connector, select the connector tile to open Confluent. In the Confluent UI, you can see the connector health, throughput, and other information. You also can edit and delete the connector.
 

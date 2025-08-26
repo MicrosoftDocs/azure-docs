@@ -23,7 +23,7 @@ Use the Azure portal to find the Apache Kafka & Apache Flink on Confluent Cloud 
 
 1. Go to the [Azure portal](https://portal.azure.com/) and sign in.
 
-1. Search for and select **Marketplace**.
+1. Search for and then select **Marketplace**.
 
 1. On the **Marketplace** page, choose from two billing options:
 
@@ -49,7 +49,7 @@ Start by preparing your environment for Azure PowerShell:
 [!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
 > [!IMPORTANT]
-> Currently, the `Az.Confluent` PowerShell module is in preview. During the preview, you must install the module separately by using the `Install-Module` cmdlet.
+> Currently, the `Az.Confluent` PowerShell module is in preview. During the preview, you must install the module separately by using the `Install-Module` cmdlet:
 
 ```azurepowershell
 Install-Module -Name Az.Confluent -Scope CurrentUser -Repository PSGallery -Force
@@ -93,7 +93,7 @@ To view all organizations in a resource group:
 Get-AzConfluentOrganization -ResourceGroupName myResourceGroup
 ```
 
-To see the properties of a specific organization, use the `Get-AzConfluentOrganization` cmdlet with the `Name` and `ResourceGroupName` parameters.
+To see the properties of a specific organization, use the `Get-AzConfluentOrganization` cmdlet and the `Name` and `ResourceGroupName` parameters.
 
 You can view the organization by name:
 

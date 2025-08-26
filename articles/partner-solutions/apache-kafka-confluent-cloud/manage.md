@@ -20,7 +20,7 @@ The **Essentials** details include:
 
 - Resource group
 - Location
-- Subscription
+- Subscription name
 - Subscription ID
 - Tags
 - Confluent single sign-on (SSO) URL
@@ -35,7 +35,7 @@ Select a tab to go to other details about your resource.
 - The **Get started** tab provides links to configure connectors, manage user access, and manage Confluent.
 
     Select the **Launch** button to [create clusters](https://docs.confluent.io/cloud/current/clusters/create-cluster.html), [connect your apps, systems, and entire organizations](https://docs.confluent.io/cloud/current/connectors/index.html#).
-- The **Tutorials** tab provides links to free courses and video tutorials.
+- The **Tutorials** tab displays links to free courses and video tutorials.
 
 ## Delete a resource
 
@@ -45,7 +45,7 @@ Select a tab to go to other details about your resource.
 >
 > - To delete the resource on Confluent Cloud, see the documentation for [Confluent Cloud Environments](https://docs.confluent.io/current/cloud/using/environments.html) and [Confluent Cloud Basics](https://docs.confluent.io/current/cloud/using/cloud-basics.html).
 > - The cluster and all data in the cluster are permanently deleted. If your contract includes a data retention clause, Confluent keeps your data for the time period that is specified in the [Terms of Service](https://www.confluent.io/confluent-cloud-tos).
-> - You're billed for prorated usage up to the time of cluster deletion. After your cluster is permanently deleted, Confluent sends you an email confirmation.
+> - You're billed for prorated usage up to the time the cluster is deleted. After your cluster is permanently deleted, Confluent sends you an email confirmation.
 
 ## Related content
 

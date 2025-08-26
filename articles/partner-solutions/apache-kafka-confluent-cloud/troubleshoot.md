@@ -30,7 +30,7 @@ If these options don't solve the problem, contact [Confluent support](https://su
 
 ## Conflict error
 
-If you previously registered for Confluent Cloud, you must use a different email address to create another Confluent Cloud organization resource. If you use a previously registered email address, a **Conflict** error message appears. Re-register, but use a different email address.
+If you previously registered for Confluent Cloud, you must use a different email address to create another Confluent Cloud organization resource. If you use a previously registered email address, a **Conflict** error message appears. Register again, but use a different email address.
 
 ## DeploymentFailed error
 
@@ -38,7 +38,7 @@ If you see a **DeploymentFailed** error message, check the status of your Azure 
 
 ## Resource isn't displayed
 
-In the Azure portal, if the **Overview** or **Delete** panes for Confluent Cloud aren't visible, refresh the page. This error might be an intermittent issue with the portal. If that doesn't work, contact [Confluent support](https://support.confluent.io).
+In the Azure portal, if the **Overview** or **Delete** panes for Confluent Cloud aren't visible, refresh the page. This error might be an intermittent issue with the portal. If that solution doesn't work, contact [Confluent support](https://support.confluent.io).
 
 If the Confluent Cloud resource isn't found in the Azure **All resources** list, contact [Confluent support](https://support.confluent.io).
 
@@ -46,7 +46,7 @@ If the Confluent Cloud resource isn't found in the Azure **All resources** list,
 
 If the deployment process takes more than three hours to complete, contact support.
 
-If deployment fails and the Confluent Cloud resource has a status of `Failed`, delete the resource. After deletion, try again to create the resource.
+If deployment fails and the Confluent Cloud resource has a status of `Failed`, delete the resource. Then try again to create the resource.
 
 ## Offer plan doesn't load
 
