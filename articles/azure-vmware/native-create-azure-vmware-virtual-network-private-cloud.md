@@ -27,7 +27,6 @@ Before you begin, these items are required to create an Azure VMware Solution Ge
 - Deploy or use an existing Azure Virtual Network with a minimum network address space of a /22 or four /24s.
 - The newly created Azure Virtual Network and your Azure VMware Solution Gen 2 private cloud must be in the same Resource Group.
 - Ensure you have sufficient AV64 quota allocated to your subscription in the desired region before your deployment. 
-- Register the following feature flag under the subscription where your private cloud resides. 
 
 ## Deployment Steps
 
