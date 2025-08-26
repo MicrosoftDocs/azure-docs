@@ -1,5 +1,5 @@
 ---
-title: Azure VMware Solution Generation 2 private cloud design considerations (preview)
+title: Azure VMware Solution Generation 2 private cloud design considerations 
 description: Learn about Azure VMware Solution Generation 2 private cloud design considerations.
 ms.topic: concept-article
 ms.service: azure-vmware
@@ -26,20 +26,17 @@ The following functionality is limited during this time. These limitations will 
 - You can only create **1 private cloud per Resource Group**. Multiple private clouds in a single Resource Group are not supported. 
 - Your private cloud and Virtual Network for your private cloud must be in the ***same*** Resource Group.
 - You cannot ***move*** your private cloud from one Resource Group to another after the private cloud is created.
+- You cannot ***move*** your private cloud from one tenant to another after the private cloud is created.
 - **Virtual Network Service Endpoints** direct connectivity from Azure VMware Solution workloads aren't supported.
 - Connectivity from **Azure VMware Solution (AVS) workloads to Azure virtual machines or to other AVS workloads** over Network File System (NFS) for Azure NetApp Files isn't supported.
-
 - **vCloud Director** using Private Endpoints is supported. However, vCloud Director using Public Endpoints isn't supported.
 - **vSAN Stretched Clusters** isn't supported.
 - Public IP down to the VMware NSX Microsoft Edge for configuring internet will not be supported. You can find what internet options are supported in [Internet connectivity options](native-internet-connectivity-design-considerations.md)
-
 - **Network Security Groups** associated with the private cloud host virtual network must be created in the ***same*** resource group as the private cloud and its virtual network.
-
 - **Cross-resource group references** from customer virtual networks to the Azure VMware Solution virtual network are not supported by default. This includes resource types such as: User-defined routes (UDRs), DDoS Protection Plans and other linked networking resources. If a customer virtual network is associated with one of these references that resides in a different resource group than the Azure VMware Solution virtual network, network programming (such as NSX segment propagation) may fail. To avoid issues, customers must ensure that the Azure VMware Solution virtual network isn't linked to resources in a different resource group and detach such resources (for example, DDoS Protection Plans) from the virtual network before proceeding
-  
     - To maintain your cross-resource group reference, create a role assignment from your cross-resource group and give the “AzS VIS Prod App” the "AVS on Fleet VIS Role". The role assignment allows you to use reference and have your reference correctly applied for your Azure VMware Solution private cloud.
         
-## Unsupported integrations during Public Preview
+## Unsupported integrations
 
 The following 1st-party and 3rd-party integrations aren't be available:
 - **Zerto DR**
