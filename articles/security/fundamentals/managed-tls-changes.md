@@ -5,7 +5,7 @@ services: security
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: concept-article
-ms.date: 08/04/2025
+ms.date: 08/0264/2025
 
 ms.author: sarahlipsey
 author: shlipsey3
@@ -22,6 +22,13 @@ DigiCert is transitioning to a new open-source software (OSS) domain control val
 Consequently, these Azure services will be introducing an enhanced domain control validation process, aiming to significantly expedite domain validation and address key vulnerabilities in the user experience.
 
 This change doesn't impact the standard CNAME DCV process for DigiCert customers, where validation uses a random value in the CNAME record. Only this one workflow for validation previously used by Microsoft is being retired.
+
+> [!Warning]
+> Customers who haven't updated their configurations to comply with the managed TLS changes will have a service outage if they don't update the configuration.
+> - An outage is *guaranteed* to occur when the current certificate expires.
+> - An outage *could* occur if the certificate is revoked.
+>
+> In the event of a revocation, certificates must be revoked within 24 hours, as mandated by the CA/Browser Forum Baseline Requirements, leaving very little time to respond. Customers should update their configurations with urgency to avoid disruption.
 
 ## Frequently asked questions
 
