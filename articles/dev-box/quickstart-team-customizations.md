@@ -193,11 +193,12 @@ To create a dev box in the Microsoft Dev Box developer portal:
 
 1. To track the progress of creation, use the dev box tile in the developer portal.
   
-## Verify that the customization is applied  
+## Verify that the customizations are applied  
 
 Dev Box applies customizations as the final stage of the creation process. Dev Box emails you when the dev box is ready. Then you can check that your customizations are applied.
-  
-1. Wait for email confirmation that the dev box is created.  
+
+1. Wait for the dev box to be created.
+
 1. In the developer portal, on the dev box tile, select **Actions** > **Customizations**.
 
    :::image type="content" source="media/quickstart-team-customizations/developer-portal-actions-customizations.png" alt-text="Screenshot of the dev box tile, showing the Actions menu with the Customizations command highlighted.":::
