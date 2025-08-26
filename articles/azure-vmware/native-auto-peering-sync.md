@@ -18,7 +18,7 @@ This feature simplifies network connectivity and reduces manual configuration ef
 > [!NOTE]  
 > This feature is currently in public preview and may change before general availability. Preview terms and conditions apply.  
 >
-> This feature is **not virtual network peering itself**. It automates the process of keeping peered virtual networks in sync. Specifically, it performs the same functionality as described in [Update the address space for a peered virtual network using the Azure portal](https://learn.microsoft.com/azure/virtual-network/update-virtual-network-peering-address-space), but automatically, without manual updates.  
+> This feature is **not virtual network peering itself**. It automates the process of keeping peered virtual networks in sync. Specifically, it performs the same functionality as described in [Update the address space for a peered virtual network using the Azure portal](/azure/virtual-network/update-virtual-network-peering-address-space), but automatically, without manual updates.  
 
 ---
 
@@ -56,3 +56,13 @@ This preview currently supports:
 
 > [!NOTE]  
 > Auto peering synchronization is triggered when changes are detected in the Azure VMware Solution virtual network, not when changes occur in the remote Azure virtual network. As a result, if configuration changes are made only on the remote virtual network, they will not automatically trigger a sync.  
+
+## Related topics  
+
+- [Connectivity to an Azure Virtual Network](native-network-connectivity.md)  
+- [Connect to an on-premises environment](native-connect-on-premises.md)  
+- [Internet connectivity options](native-internet-connectivity-design-considerations.md)  
+- [Connect multiple Gen 2 private clouds](native-connect-multiple-private-clouds.md)  
+- [Connect Gen 2 to Gen 1 private clouds](native-connect-private-cloud-previous-edition.md)  
+- [Public and Private DNS forward lookup zone configuration](native-dns-forward-lookup-zone.md)  
+- [Route architecture for Gen 2](native-network-routing-architecture.md)  
