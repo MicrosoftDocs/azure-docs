@@ -8,6 +8,7 @@ ms.date: 03/20/2025
 ms.author: cephalin
 ms.custom: AppServiceConnectivity
 #customer intent: As an app developer, I want to implement Azure Key Vault as part of my approach to apps in Azure App Service.
+ms.service: azure-app-service
 ---
 
 # Use Key Vault references as app settings in Azure App Service and Azure Functions

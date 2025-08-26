@@ -14,7 +14,7 @@ ms.date: 10/23/2024
 
 An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure IoT Operations. This article describes how to prepare a cluster before you deploy Azure IoT Operations. This article includes guidance for Ubuntu, Windows, Azure Local, and Tanzu Kubernetes Grid (TKG).
 
-The steps in this article prepare your cluster for a secure settings deployment, which is a longer but production-ready process. If you want to deploy Azure IoT Operations quickly and run a sample workload with only test settings, see the [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) instead. For more information about test settings and secure settings, see [Deployment details > Choose your features](./overview-deploy.md#choose-your-features).
+If you want to deploy Azure IoT Operations quickly and run a sample workload in a test environment, see the [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md).
 
 ## Prerequisites
 
@@ -340,7 +340,7 @@ Connect your cluster to Azure Arc so that it can be managed remotely.
    ```
 ---
 
-## Advanced configuration
+## Advanced configuration 
 
 At this point, when you have an Azure Arc-enabled Kubernetes cluster but before you deploy Azure IoT Operations to it, you might want to configure your cluster for advanced scenarios.
 
@@ -349,4 +349,7 @@ At this point, when you have an Azure Arc-enabled Kubernetes cluster but before 
 
 ## Next steps
 
-Now that you have an Azure Arc-enabled Kubernetes cluster, you can [deploy Azure IoT Operations](howto-deploy-iot-operations.md).
+Now that you have an Azure Arc-enabled Kubernetes cluster, you can choose to deploy Azure IoT Operation with test settings or with production settings.
+
+- [Test deployment](howto-deploy-iot-test-operations.md): Recommended for quick evaluation and prototyping before deploying in production. Test deployment isn't suitable for production, it lacks observability and hardened security.
+- [Production deployment](howto-deploy-iot-operations.md): Recommended for production-ready workloads. Production deployment is suitable for real-world IoT deployments with compliance and security needs.

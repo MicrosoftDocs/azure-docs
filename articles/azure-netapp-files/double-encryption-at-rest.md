@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 05/05/2025
+ms.date: 08/01/2025
 ms.author: anfdocs
 ms.custom: references_regions
 # Customer intent: "As a cloud administrator, I want to implement double encryption at rest for Azure NetApp Files, so that I can safeguard sensitive data from breaches and ensure compliance with security regulations."
@@ -45,7 +45,8 @@ Azure NetApp Files double encryption at rest is supported for the following regi
 * East US 2
 * France Central  
 * Germany West Central 
-* Israel Central 
+* Israel Central
+* Italy North
 * Japan East  
 * Korea Central 
 * Korea South 

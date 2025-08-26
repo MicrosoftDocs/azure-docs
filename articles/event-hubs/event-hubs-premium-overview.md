@@ -70,7 +70,7 @@ Event Hubs Standard, Premium, and Dedicated tiers offer [availability zones](../
 
 > [!IMPORTANT]
 > - Availability zone support is only available in [Azure regions with availability zones](../reliability/availability-zones-region-support.md).
-> - In certain regions, the Premium tier's support for availability zones is limited even though the region supports availability zones.
+>
 
 ## Premium vs. Dedicated tiers
 

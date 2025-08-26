@@ -595,6 +595,8 @@ items:
       href: routine-maintenance.md
     - name: Routine maintenance, Restarts, and Downtime
       href: routine-maintenance-downtime.md
+    - name: App Service Managed Certificate July 2025 Changes
+      href: app-service-managed-certificate-changes-july-2025.md
     - name: Language support policy
       href: operating-system-functionality.md
     - name: OS functionality

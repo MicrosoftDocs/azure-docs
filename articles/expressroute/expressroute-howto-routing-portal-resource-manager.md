@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 07/23/2025
+ms.date: 07/29/2025
 ms.author: duau
 ---
 
@@ -87,7 +87,7 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
    :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/configuration-m-validation-needed.png" alt-text="Screenshot showing Microsoft peering configuration.":::
 
-### To validate the advertised public prefixes (Preview)
+### To validate the advertised public prefixes (Public Preview)
 When you configure public IP address prefixes to advertise over BGP, Microsoft verifies your authority to announce those prefixes. The IP addresses may be owned by your organization or leased from a third party with permission to use and advertise them. Verification is performed by checking a signed digital certificate associated with each prefix against the relevant RIR or IRR records.
 
 ### Prerequisites 

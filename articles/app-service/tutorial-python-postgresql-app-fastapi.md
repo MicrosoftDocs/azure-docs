@@ -8,6 +8,7 @@ ms.author: msangapu
 author: msangapu-msft
 ms.custom: mvc, cli-validate, devx-track-python, devdivchpfy22, vscode-azure-extension-update-completed, AppServiceConnectivity, devx-track-extended-azdevcli, linux-related-content
 zone_pivot_groups: app-service-portal-azd
+ms.service: azure-app-service
 ---
 
 # Deploy a Python FastAPI web app with PostgreSQL in Azure

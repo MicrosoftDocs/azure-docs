@@ -1,4 +1,4 @@
----  
+---
 title: Onboarding to Microsoft Sentinel data lake (preview)
 titleSuffix: Microsoft Security  
 description: This article describes how to onboard to the Microsoft Sentinel data lake  
@@ -10,12 +10,12 @@ ms.service: microsoft-sentinel
 ms.subservice: sentinel-graph
   
 # Customer intent: As an administrator I want to onboard to the Microsoft Sentinel data lake so that I can benefit from the storage and analysis capabilities of the data lake.
----  
-
+---
+  
 # Onboarding to Microsoft Sentinel data lake (preview)
 
 
-The Microsoft Sentinel data lake, available in the Microsoft Defender portal, is a tenant-wide, repository for collecting, storing, and managing large volumes of security-related data from various sources. It enables comprehensive, unified analysis and visibility across your security landscape. By leveraging advanced analytics, machine learning, and artificial intelligence, the data lake helps in detecting threats, investigating and responding to incidents, and improving overall security posture. 
+The Microsoft Sentinel data lake, available in the Microsoft Defender portal, is a tenant-wide, repository for collecting, storing, and managing large volumes of security-related data from various sources. It enables comprehensive, unified analysis and visibility across your security landscape. By using advanced analytics, machine learning, and artificial intelligence, the data lake helps in detecting threats, investigating, and responding to incidents, and improving overall security posture. 
 
 For more information, see [What is Microsoft Sentinel data lake (preview)](sentinel-lake-overview.md).
 
@@ -58,14 +58,16 @@ This article describes how to onboard to the Microsoft Sentinel data lake for cu
 
 To onboard to the Microsoft Sentinel data lake Public Preview, you must be an existing Microsoft Defender and Microsoft Sentinel customer with the following prerequisites:
 
-+ You must have Microsoft Defender (security.microsoft.com) and Microsoft Sentinel to onboard the data lake. A Microsoft Defender XDR license is not required to use Microsoft Sentinel data lake with Microsoft Sentinel in the Microsoft Defender portal. 
++ You must have Microsoft Defender (security.microsoft.com) and Microsoft Sentinel to onboard the data lake. A Microsoft Defender XDR license isn't required to use Microsoft Sentinel data lake with Microsoft Sentinel in the Microsoft Defender portal. 
 
 + You must have existing Azure subscription and resource group to set up billing for the data lake. You must be the subscription owner. You can use your existing Microsoft Sentinel SIEM Azure subscription and resource group or create a new one. 
 + You must have a Microsoft Sentinel primary workspace connected to Microsoft Defender portal.
 + You must have a Microsoft Sentinel primary workspace and other workspaces in the same region as your tenant’s home region.
 + You must have read privileges to the primary and other workspaces so they can be attached to the data lake. For public preview, attaching a primary and all workspaces to the data lake is only supported if they're in the same region as your tenant home region.
 
-The following roles that are required to set up billing and authorize ingestion of asset data into the data lake:
+[!INCLUDE [Customer-managed keys limitation](../includes/customer-managed-keys-limitation.md)]
+
+To configure billing and enable asset data ingestion into the data lake, the following roles must be assigned to the tenant [member](/entra/fundamentals/users-default-permissions) account:
 
 + Azure Subscription owner for billing setup.
 + Microsoft Entra Global Administrator, or Security Administrator for data ingestion authorization from Microsoft Entra, Microsoft 365, and Azure.
@@ -106,6 +108,9 @@ Use the following steps to onboard to the Microsoft Sentinel data lake from the 
     :::image type="content" source="./media/sentinel-lake-onboarding/permissions-required.png" lightbox="./media/sentinel-lake-onboarding/permissions-required.png" alt-text="A screenshot showing the permissions required page in the Defender portal."::: 
 
 1. If you have the required permissions, a setup side panel appears. Select the **Subscription**  and **Resource group** to enable billing for the Microsoft Sentinel data lake.
+
+    > [!NOTE]
+    > After the data lake is provisioned for a specific Azure subscription and resource group, it can't be migrated to a different subscription or resource group.
 
 1. Select **Set up data lake**.  
 

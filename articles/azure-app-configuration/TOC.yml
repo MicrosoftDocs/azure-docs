@@ -222,6 +222,8 @@
       href: howto-targetingfilter-aspnet-core.md
     - name: JavaScript
       href: howto-targetingfilter-javascript.md
+    - name: Go Gin
+      href: howto-targetingfilter-go.md
   - name: Use variant feature flags
     items:
     - name: Overview
@@ -449,6 +451,10 @@
       items:
       - name: Feature flag telemetry reference
         href: feature-flag-telemetry-reference.md
+  - name: Local emulator
+    items:
+    - name: Overview
+      href: emulator-overview.md
   - name: Deployment
     items:
     - name: ARM template
