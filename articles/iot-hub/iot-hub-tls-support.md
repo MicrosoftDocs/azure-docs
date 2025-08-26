@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub TLS support
+ title: Azure IoT Hub TLS support
  description: Learn about using secure TLS connections for devices and services communicating with IoT Hub
  services: iot-hub
  author: SoniaLopezBravo
@@ -102,14 +102,14 @@ To update IoT Hub to support TLS 1.2 and/or enforce strong cipher suites in Azur
     :::image type="content" source="media/iot-hub-tls-support/iot-hub-tls-support-2.png" alt-text="Screenshot showing how to turn on TLS 1.2 support." lightbox="media/iot-hub-tls-support/iot-hub-tls-support-2.png":::
 
 > [!NOTE]
-> You can update your IoT Hub to TLS 1.2 in ALL public regions.
+> You can update your IoT Hub to TLS 1.2 in all public cloud regions.
 
 ## Enforce IoT Hub to use TLS 1.2 and strong cipher suites
 
 To ensure your IoT devices are TLS 1.2 and [strong cipher suites](#cipher-suites) compliance, you can enforce compliance using minimum TLS enforcement feature in Azure IoT Hub.
 
 > [!NOTE]
-> Currently this feature is only available in all public cloud regions.
+> Currently this feature is only available in public cloud regions.
 
 To enable TLS 1.2 and strong cipher suites enforcement in Azure portal:
 
@@ -157,7 +157,7 @@ The created IoT hub resource using this configuration refuses device and service
 Azure IoT Hub provides the capability to check the TLS version, cipher suites, and other device connection metrics to help monitor the security of IoT devices. You can either use IoT Hub metrics or diagnostic logs to track TLS version usage and other related properties like [Cipher Suites](#cipher-suites).
 
 > [!NOTE]
-> Currently this feature is only available in all public cloud regions. 
+> Currently this feature is only available in public cloud regions. 
 
 ### Checking TLS versions and cipher suites using IoT Hub metrics
 
@@ -234,7 +234,7 @@ To use IoT Hub's ECC server certificate:
 4. Connect your client to the IoT hub.
 
 > [!NOTE]
-> Currently this feature is only available in all public cloud regions.
+> Currently this feature is only available in public cloud regions.
 
 ## TLS maximum fragment length negotiation 
 
@@ -249,7 +249,7 @@ Official SDK support for this public preview feature isn't yet available. To get
 1. Connect your client to the IoT Hub.
 
 > [!NOTE]
-> Currently this feature is only available in all public cloud regions.
+> Currently this feature is only available in public cloud regions.
 
 ## Certificate pinning
 
