@@ -1,9 +1,9 @@
 ---
 title: Configure Layered Network Management (preview) on level 4 cluster
 description: Deploy and configure Azure IoT Layered Network Management (preview) on a level 4 cluster.
-author: PatAltimore
+author: SoniaLopezBravo
 ms.subservice: layered-network-management
-ms.author: patricka
+ms.author: sonialopez
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
 ms.date: 12/12/2024
@@ -114,7 +114,7 @@ Follow the steps in [Single machine deployment](/azure/aks/hybrid/aks-edge-howto
     ```powershell
     az login
     ```
-1. Set environment variables for the setup steps. Replace values in `<>` with valid values or names of your choice. The `CLUSTER_NAME` and `RESOURCE_GROUP` are created based on the names you provide. Refer to [Azure IoT Operations supported regions](../overview-iot-operations.md#supported-regions) for choosing the  `LOCATION`.
+1. Set environment variables for the setup steps. Replace values in `<>` with valid values or names of your choice. The `CLUSTER_NAME` and `RESOURCE_GROUP` are created based on the names you provide. Refer to [Azure IoT Operations supported regions](../overview-support.md#supported-regions) for choosing the  `LOCATION`.
     ```powershell
     # Id of the subscription where your resource group and Arc-enabled cluster will be created
     $SUBSCRIPTION_ID = "<subscription-id>"

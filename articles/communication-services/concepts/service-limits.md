@@ -321,7 +321,11 @@ When you send or receive a high volume of requests, you might receive a ```Throt
 
 | Operation | Scope | Time frame (seconds) | Limit (number of requests) | Timeout in seconds |
 | --- | --- | --- | --- | --- |
-| General requests | Per resource | 10 | 1,000 | 10 |
+| General requests | Per resource | 10 | 3,000 | 5 |
+| Get Jobs (Route-Level Throttling) | Per resource | 10 | 332 | 5 |
+| Get Queue Statistics (Route-Level Throttling) | Per resource | 10 | 166 | 5 |
+| Get In-Queue Position (Route-Level Throttling) | Per resource | 10 | 166 | 5 |
+| Get Workers (Route-Level Throttling) | Per resource | 10 | 332 | 5 |
 
 ### Action to take
 

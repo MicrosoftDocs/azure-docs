@@ -2,7 +2,7 @@
 title: Back Up PostgreSQL Databases by Using Azure PowerShell
 description: Learn how to back up Azure Database for PostgreSQL by using Azure PowerShell.
 ms.topic: how-to
-ms.date: 05/20/2025
+ms.date: 08/18/2025
 ms.custom:
   - devx-track-azurepowershell
   - build-2025
@@ -310,3 +310,4 @@ You can also use `Az.ResourceGraph` to track all jobs across all Backup vaults. 
 
 - [Restore a PostgreSQL database using Azure PowerShell](restore-postgresql-database-ps.md).
 - Restore a PostgreSQL database using [Azure portal](restore-azure-database-postgresql.md), [Azure CLI](restore-postgresql-database-cli.md), and [REST API](restore-postgresql-database-use-rest-api.md).
+- [Manage an Azure Database for PostgreSQL server by using the Azure portal](manage-azure-database-postgresql.md).

@@ -5,7 +5,7 @@ author: sshiba
 ms.author: sidneyshiba
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 02/15/2024
+ms.date: 08/13/2025
 ms.custom: template-how-to
 ---
 
@@ -13,7 +13,7 @@ ms.custom: template-how-to
 
 The Microsoft Defender for Endpoint (MDE) runtime protection service provides the tools to configure and manage runtime protection for a Nexus cluster.
 
-The Azure CLI allows you to configure runtime protection ***Enforcement Level*** and the ability to trigger ***MDE Scan*** on all nodes.
+The Azure CLI allows you to configure runtime protection **_Enforcement Level_** and the ability to trigger **_MDE Scan_** on all nodes.
 This document provides the steps to execute those tasks.
 
 > [!NOTE]
@@ -43,17 +43,20 @@ export CLUSTER_NAME="contoso-cluster"
 ```
 
 ## Defaults for MDE Runtime Protection
+
 The runtime protection sets to following default values when you deploy a cluster
+
 - Enforcement Level: `Disabled` if not specified when creating the cluster
 - MDE Service: `Disabled`
 
 > [!NOTE]
->The argument `--runtime-protection enforcement-level="<enforcement level>"` serves two purposes: enabling/disabling MDE service and updating the enforcement level.
+> The argument `--runtime-protection enforcement-level="<enforcement level>"` serves two purposes: enabling/disabling MDE service and updating the enforcement level.
 
 If you want to disable the MDE service across your Cluster, use an `<enforcement level>` of `Disabled`.
 
 ## Configuring enforcement level
-The `az networkcloud cluster update` command allows you to update of the settings for Cluster runtime protection *enforcement level* by using the argument `--runtime-protection enforcement-level="<enforcement level>"`.
+
+The `az networkcloud cluster update` command allows you to update of the settings for Cluster runtime protection _enforcement level_ by using the argument `--runtime-protection enforcement-level="<enforcement level>"`.
 
 The following command configures the `enforcement level` for your Cluster.
 
@@ -66,6 +69,7 @@ az networkcloud cluster update \
 ```
 
 Allowed values for `<enforcement level>`: `Disabled`, `RealTime`, `OnDemand`, `Passive`.
+
 - `Disabled`: Real-time protection is turned off and no scans are performed.
 - `RealTime`: Real-time protection (scan files as they're modified) is enabled.
 - `OnDemand`: Files are scanned only on demand. In this:
@@ -85,6 +89,7 @@ You can confirm that enforcement level was updated by inspecting the output for 
 ```
 
 ## Triggering MDE scan on all nodes
+
 To trigger an MDE scan on all nodes of a cluster, use the following command:
 
 ```bash
@@ -95,10 +100,17 @@ az networkcloud cluster scan-runtime \
 --scan-activity Scan
 ```
 
-> NOTE: the MDE scan action requires the MDE service to be enabled. Just in case it is not enabled, the command will fail.
-In this case set the `Enforcement Level` to a value different from `Disabled` to enable the MDE service.
+> [!NOTE]
+> The MDE scan action requires the MDE service to be enabled. Just in case it is not enabled, the command will fail.
+> In this case set the `Enforcement Level` to a value different from `Disabled` to enable the MDE service.
+
+> [!TIP]
+> In version 2509.1 and above, you can view the status of the most recent `scan-runtime` request in the Azure portal `JSON View`.
+> This information is available under `properties.actionStates` with action type `scanRuntime` and includes any available error information for troubleshooting, if applicable.
+> For more information, see the example in [Upgrade Cluster runtime using CLI](./howto-cluster-runtime-upgrade.md#upgrade-cluster-runtime-using-cli).
 
 ## Retrieve MDE scan information from each node
+
 This section provides the steps to retrieve MDE scan information.
 First you need to retrieve the list of node names of your cluster.
 The following command assigns the list of node names to an environment variable.
@@ -111,7 +123,7 @@ nodes=$(az networkcloud baremetalmachine list \
 ```
 
 With the list of node names, we can start the process to extract MDE agent information for each node of your Cluster.
-The following command will prepare MDE agent information from each node.
+The following command prepares MDE agent information from each node.
 
 ```bash
 for node in $nodes
@@ -126,7 +138,7 @@ do
 done
 ```
 
-The result for the command will include a URL where you can download the detailed report of MDE scans.
+The result for the command includes a URL where you can download the detailed report of MDE scans.
 See the following example for the result for the MDE agent information.
 
 ```bash
@@ -138,16 +150,18 @@ Getting MDE agent information for rack1control01
 Writing to /hostfs/tmp/runcommand
 
 ================================
-Script execution result can be found in storage account: 
+Script execution result can be found in storage account:
  <url to download mde scan results>
  ...
 ```
 
 ## Extracting MDE scan results
+
 The extraction of MDE scan requires a few manual steps: To download the MDE scan report and extract the scan run information, and scan detailed result report.
-This section will guide you on each of these steps.
+This section guides you on each of these steps.
 
 ### Download the scan report
+
 As indicated earlier the MDE agent information response provides the URL storing the detailed report data.
 
 Download the report from the returned URL `<url to download mde scan results>`, and open the file `mde-agent-information.json`.
@@ -156,6 +170,7 @@ The `mde-agent-information.json` file contains lots of information about the sca
 This guide provides a few examples of extracting some essential information that can help you decide if you need to analyze thoroughly the report.
 
 ### Extracting the list of MDE scans
+
 The `mde-agent-information.json` file contains a detailed scan report but you might want to focus first on a few details.
 This section details the steps to extract the list of scans run providing the information such as start and end time for each scan, threats found, state (succeeded or failed), etc.
 
@@ -200,6 +215,7 @@ date -d @$(echo "1697204573732/1000" | bc) "+%Y-%m-%dT%H:%M:%S"
 ```
 
 ### Extracting the MDE scan results
+
 This section details the steps to extract the report about the list of threats identified during the MDE scans.
 To extract the scan result report from `mde-agent-information.json` file, execute the following command.
 

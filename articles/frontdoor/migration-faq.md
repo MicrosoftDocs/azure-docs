@@ -30,13 +30,15 @@ There is no rollback support, please reach out to the support team for help if m
 
 After migration:
 
-- Verify traffic delivery continues to work.
+1. Verify traffic delivery continues to work.
 
-- Update the DNS CNAME record for your custom domain to point to the AFD Standard/Premium endpoint (exampledomain-hash.z01.azurefd.net) instead of the classic endpoint (exampledomain.azurefd.net for classic AFD or exampledomain.azureedge.net). Wait for the DNS update propagation until DNS TTL expires, depending on how long TTL is configured on DNS provider.
+1. Update the DNS CNAME record for your custom domain to point to the AFD Standard/Premium endpoint (exampledomain-hash.z01.azurefd.net) instead of the classic endpoint (exampledomain.azurefd.net for classic AFD or exampledomain.azureedge.net). Wait for the DNS update propagation until DNS TTL expires, depending on how long TTL is configured on DNS provider.
 
-- Verify again that traffic works in the custom domain.
+1. Verify again that traffic works in the custom domain.
 
-- Once confirmed, delete the pseudo custom domain (i.e., the classic endpoint that was pointing to the AFD Standard/Premium endpoint) from the AFD Standard/Premium profile.
+1. Once confirmed, delete the pseudo custom domain (i.e., the classic endpoint that was pointing to the AFD Standard/Premium endpoint) from the AFD Standard/Premium profile.
+
+1. Then delete the classic resource. 
 
 ### When I change my DNS CNAME from classic AFD endpoint to AFD standard/premium endpoint, does DNS propagation cause downtime?
 

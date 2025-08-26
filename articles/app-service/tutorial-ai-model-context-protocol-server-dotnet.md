@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.custom:
   - devx-track-dotnet
 ms.collection: ce-skilling-ai-copilot
+ms.service: azure-app-service
 ---
 
 # Integrate an App Service app as an MCP Server for GitHub Copilot Chat (.NET)
