@@ -56,10 +56,7 @@ Migration Steps:
 
 # [**Portal**](#tab/portal)
 
-1. **Update Tunnel type:** Modify the tunnel type in your VPN gateway’s Point-to-site configuration. This option will be enabled for Basic SKU gateways starting November 2025.
-
-    - **From: SSTP (SSL)**
-    - **To: IKEv2 and SSTP (SSL)**
+1. **Update Tunnel type:** Modify the tunnel type in your VPN gateway’s Point-to-site configuration from **SSTP (SSL)** to **IKEv2 and SSTP (SSL)**. This option will be enabled for Basic SKU gateways starting November 2025.
 
     :::image type="content" source="./media/ikev2-openvpn-from-sstp/point-to-site-configuration.png" alt-text="Screenshot that shows the point-to-site configuration in the Azure portal." lightbox="./media/ikev2-openvpn-from-sstp/point-to-site-configuration.png":::
 
