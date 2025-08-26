@@ -22,7 +22,7 @@ In this quickstart, you create a dev box by using Microsoft Dev Box team customi
 
 | Product | Requirements |
 |---------|--------------|
-| Microsoft Dev Box  | - Set up a [dev center with a dev box pool and a dev box project](./quickstart-get-started-template.md) so you can create a dev box. </br> - Attach a catalog to the dev center with tasks you can use in your image definition file. If you don't have a catalog, see [Add and configure a catalog from GitHub or Azure Repos](./how-to-configure-catalog.md). </br> **- Permissions** </br> - *To create a dev box:* Join the Dev Box Users security group for at least one project. </br> - *To enable project-level catalogs for a dev center:* Platform engineer with write access on the subscription. </br> - *To enable catalog sync settings for a project:* Platform engineer with write access on the subscription. </br> - *To attach a catalog to a project:* Dev Center Project Admin or Contributor permissions on the project. </br> - *To create a customization file:* None specified. Anyone can create a customization file. </br> - *To use the developer portal to upload and apply a YAML file during dev box creation:* Dev Box User. </br> - *To add tasks to a catalog:* Permission to add to the repository that hosts the catalog. |
+| Microsoft Dev Box  | - Set up a [dev center with a dev box pool and a dev box project](./quickstart-get-started-template.md) so you can create a dev box.</br>- Attach a catalog to the dev center with tasks you can use in your image definition file. If you don't have a catalog, see [Add and configure a catalog from GitHub or Azure Repos](./how-to-configure-catalog.md).</br>**- Permissions**</br>- *To create a dev box:* Join the Dev Box Users security group for at least one project.</br>- *To enable project-level catalogs for a dev center:* Platform engineer with write access on the subscription.</br>- *To enable catalog sync settings for a project:* Platform engineer with write access on the subscription.</br>- *To attach a catalog to a project:* Dev Center Project Admin or Contributor permissions on the project.</br>- *To create a customization file:* None specified. Anyone can create a customization file.</br>- *To use the developer portal to upload and apply a YAML file during dev box creation:* Dev Box User.</br>- *To add tasks to a catalog:* Permission to add to the repository that hosts the catalog. |
 | Visual Studio Code | - Install the latest version |
   
 ## Create an image definition
@@ -53,7 +53,7 @@ The sections that follow walk you through these tasks:
 
 1. Select **Fork** > **Create a new fork** to fork the repository to your GitHub organization.
 
-   :::image type="content" source="media/quickstart-team-customizations/dev-box-eshop-repo-fork.png" alt-text="Screenshot showing the eShop repo in GitHub, with Create a new fork highlighted.":::
+   :::image type="content" source="media/quickstart-team-customizations/dev-box-new-fork.png" alt-text="Screenshot showing the eShop repo in GitHub, with Create a new fork highlighted.":::
 
 ### Configure catalog sync settings
 
@@ -71,7 +71,7 @@ The sections that follow walk you through these tasks:
 
 1. On the **Sync settings** pane:
     - If **Image definitions** is cleared, select it and select **Save**.
-    - If it's already selected, selected **Cancel**.
+    - If **Image definitions** is already selected, select **Cancel**.
 
    :::image type="content" source="./media/quickstart-team-customizations/dev-box-project-catalog-sync-image-definitions.png" alt-text="Screenshot of the pane for sync settings in the Azure portal, with the checkbox for image definitions highlighted." lightbox="./media/quickstart-team-customizations/dev-box-project-catalog-sync-image-definitions.png":::
 
@@ -115,9 +115,9 @@ The sections that follow walk you through these tasks:
 
     | Field | Value |
     | ----- | ----- |
-    | **Repo**  | Select the repository that contains your image definition. </br> Example: *eShop*  |
-    | **Branch**  | Select the branch. </br> Example: *main*  |
-    | **Folder path**  | Select the folder that contains subfolders that hold your image definitions. </br> Example: *.devcenter/catalog/image-definitions* |
+    | **Repo**  | Select the repository that contains your image definition.</br>Example: *eShop*  |
+    | **Branch**  | Select the branch.</br>Example: *main*  |
+    | **Folder path**  | Select the folder that contains subfolders that hold your image definitions.</br>Example: *.devcenter/catalog/image-definitions* |
 
 1. In the **Catalogs** pane, verify that your catalog appears. When the connection is successful, the **Status** column shows **Sync successful**.
 
@@ -150,7 +150,7 @@ To create a dev box pool associated with a project:
    | Setting | Value |
    |---|---|
    | **Name** | Enter a descriptive name for the pool. The pool name is visible to developers to select when they're creating dev boxes, so include the purpose and region of the pool. The name must be unique within a project. </br>Example: *contoso-frontend-westUS* |
-   | **Definition** | From the image definition section of the list, select an image definition. </br> Example: *contoso-catalog/frontend-dev* |
+   | **Definition** | From the image definition section of the list, select an image definition.</br>Example: *contoso-catalog/frontend-dev* |
    | **Compute** | Select the compute resources for the dev boxes in the pool. </br>Example: *8 vCPU, 32-GB RAM* |
    | **Storage** | Select the storage options for the dev boxes in the pool. </br>Example: *256 GB SSD* |
    | **Hibernation** | Hibernation is supported when the source image and compute size are both hibernation compatible. |
@@ -179,16 +179,14 @@ To create a dev box in the Microsoft Dev Box developer portal:
 
    | Setting | Value |
    |---|---|
-   | **Name** | Enter a name for your dev box. Dev box names must be unique within a project. |
-   | **Project** | Select a project from the dropdown list. |
-   | **Dev box pool** | Select a pool from the dropdown list, which includes all the dev box pools for that project. Choose a dev box pool near to you for the lowest latency.|
+   | **Name** | Enter a name for your dev box. Dev box names must be unique within a project.</br>Example: *contoso-frontend-dev-box* |
+   | **Project** | The developer portal lists the projects you have access to. Select the project you need from the  list. |
+   | **Dev box pool** | The developer portal lists all the dev box pools for the project you selected. Select the appropriate pool for your work. Choose a dev box pool near to you for the lowest latency.|
+   | **Apply customizations** | Leave this check box cleared. It's used to apply user customizations. In this article you've configured team customizations. |
 
    After you make your selections, the page shows the following information:
 
-   - How many dev boxes you can create in the project that you selected, if the project has limits configured.
    - Whether hibernation is supported or not.
-   - Whether customizations are enabled or not.
-   - A shutdown time if the pool where you're creating the dev box has a shutdown schedule.
    - A notification that the dev box creation process can take 25 minutes or longer.
 
 1. Select **Create** to begin creating your dev box.
