@@ -34,7 +34,7 @@ To learn about how to deploy Azure Files to support your solution's reliability 
 Azure Files is available in two media tiers: 
 
 - **Premium tier** uses solid state disks (SSD) for high performance. This tier is recommended for workloads that require low latency.
-- **Standard tier** supports hard disk drives (HDD) for general purpose workloads. 
+- **Standard tier** supports hard disk drives (HDD). HDD file shares provide a cost-effective storage option for general purpose file shares.
 
 To learn more about Azure Files tiers, see [Plan to deploy Azure Files](/azure/storage/files/storage-files-planning#storage-tiers).
 
@@ -147,7 +147,7 @@ For detailed pricing information, see [Azure Files pricing](https://azure.micros
   > [!WARNING]
   > After your account is reconfigured for geo-redundancy, it may take a significant amount of time before existing data in the new primary region is fully copied to the new secondary.
   >
-  > **To avoid a major data loss**, check the value of the [Last Sync Time property](/azure/storage/common/last-sync-time-get) before initiating an unplanned failover. To evaluate potential data loss, compare the last sync time to the last time at which data was written to the new primary.
+  > **To avoid a major data loss**, check the value of the [Last Sync Time property](/azure/storage/common/last-sync-time-get) before initiating an unplanned failover. To evaluate potential data loss, compare the last sync time to the last time at which data was written to the new primary. For Azure Files, the Last Sync Time is based on the latest system snapshot in the secondary region. The Last Sync Time calculation can time out if the number of file shares exceeds 100 per storage account. Less than 100 file shares per storage account is recommended.
 
 - **Disable geo-redundancy.** Convert geo-redundant storage accounts back to single-region configurations (LRS or ZRS) through the same redundancy configuration change process.
 
