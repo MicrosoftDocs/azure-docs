@@ -32,9 +32,7 @@ For information on release notes for the connected machine agent, see
 #### Fixed
 
 - Resolved an issue where the compliance status did not update correctly until services were restarted.
-- Appended System32 to the local PATH environment variable to resolve service install/delete errors on systems missing System32
-  on their System PATH environment.
-- Resolved a service crash caused by a double-free memory error.
+- Updated local PATH environment variable to resolve service install/delete errors.
   
 ### Version 1.29.92.0 - April 2025
 
@@ -96,8 +94,9 @@ For information on release notes for the connected machine agent, see
 #### Fixed
 
 - Resolved an issue where the compliance status did not update correctly until services were restarted.
-- Resolved a service crash caused by a double-free memory error.
 - Updated Boost on Linux to resolve service start issues caused by compatibility problems.
+- Resolved "No public key" error by adding GPG package signature validation.
+- Resolved gpg installation issues on debian
 
 ### Version 1.26.87 - April 2025
 
