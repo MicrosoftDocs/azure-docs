@@ -120,7 +120,7 @@ This section describes what to expect when search services are configured for zo
 
   Set up alerts on these services to receive notifications about zone-level problems. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal) and [Create and configure Resource Health alerts](/azure/service-health/resource-health-alert-arm-template-guide).
 
-- **Active requests:** Requests that replicas process in the failed zone are terminated. Clients should be retry the requests by following the guidance for [handling transient faults](#transient-faults).
+- **Active requests:** Requests that replicas process in the failed zone are terminated. Clients should retry the requests by following the guidance for [handling transient faults](#transient-faults).
 
 - **Expected data loss:** If the affected availability zone only contains read replicas, no data loss is expected.
   
