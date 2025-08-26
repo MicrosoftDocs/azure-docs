@@ -78,7 +78,7 @@ Specify multiple commands using json format in `--commands` option. Each `comman
 
 These commands can be long running so the recommendation is to set `--limit-time-seconds` to at least 600 seconds (10 minutes). The `Debug` option or running multiple extracts might take longer than 10 minutes.
 
-In the response, the operation performs asynchronously and returns an HTTP status code of 202. See the [Viewing the Output](#viewing-the-output) section for details on how to track command completion and view the output file.
+In the response, the operation performs asynchronously and returns an HTTP status code of 202. See the [How to view the full output of a command in the the associated Storage Account](#how-to-view-the-full-output-of-a-command-in-the-the-associated-storage-account) section for details on how to track command completion and view the output file.
 
 ### Hardware Support Data Collection
 
