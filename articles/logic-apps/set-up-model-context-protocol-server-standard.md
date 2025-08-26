@@ -271,38 +271,37 @@ For this task, you need to edit the **host.json** file for your Standard logic a
 
 1. Next to the **host.json** file, select the edit icon (pencil).
 
-1. In the editor window, under the `extensionBundle` JSON object, add the `extensions` JSON object.
+1. In the editor window, following the `extensionBundle` JSON object, add the `extensions` JSON object at the same level as `extensionBundle`.
 
-   - Replace the placeholder values with the following values that you saved earlier.
-
-   - Confirm that the `extensions.workflow.mcpserverendpoints.enable` property is set to `true`.
+   - Set the `extensions.workflow.mcpserverendpoints.enable` property to `true`.
 
      This setting helps you avoid having to change the other information in this file.
 
-   - Directory (tenant) ID
-   - Logic app name
-   - Application ID URI
+   - To override the default values for the properties in `ProtectedResourceMetadata`, replace the placeholder values with the following values that you saved earlier.
+
+     - Directory (tenant) ID
+     - Logic app name
+     - Application ID URI
+
+   The following example shows where the `extensions` JSON object appears:
 
    ```json
    "extensionBundle": {
        "id": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
-       "version": "[1.*, 2.0.0)"
+       "version": "<version-number>"
    },
    "extensions": {
        "workflow": {
            "Settings": {
-               "Runtime.Backend.EdgeWorkflowRuntimeTriggerListener.AllowCrossWorkerCommunication": true,
-               "Runtime.McpServerToMcpClientPingIntervalInSeconds": 30
+               <settings>
            },
            "McpServerEndpoints": {
                "enable": true,
-               "authentication": {
-                   "type": "oauth2"
-               },
+               // This section applies only if you want to override the default values.
                "ProtectedResourceMetadata": {
                    "BearerMethodsSupported": ["header"],
-                   "ScopesSupported": ["api://<application-ID-URI>/mcp"],
-                   "Resource": "https://<logic-app-name>.azurewebsites.net/",
+                   "ScopesSupported": ["api://<application-ID-URI>/api/mcp"],
+                   "Resource": "https://<logic-app-name>.azurewebsites.net/api/mcp",
                    "AuthorizationServers": ["https://login.microsoftonline.com/<tenant-ID>/v2.0"]
                }
            }
@@ -316,27 +315,11 @@ For this task, you need to edit the **host.json** file for your Standard logic a
 
 1. Get the URL for your MCP server.
 
-   This value combines the default domain URL for your logic app resource and the **`/mcp`** suffix.
+   This value combines the default domain URL for your logic app resource and the **`api/mcp`** suffix.
 
-   To find the default domain URL, follow the steps for the option you prefer:
+   To get the URL, send an HTTPS request by using the **POST** method and the following URL:
 
-   **Azure portal**
-
-   1. In the Azure portal, on your logic app resource sidebar, select **Overview**.
-
-   1. Find the **Default domain** value, which has the following syntax:
-
-      `https://<logic-app-name>.azurewebsites.net/`
-
-   1. Add the `api/mcp` suffix, which gives you the MCP server URL:
-
-      `https://<logic-app-name>.azurewebsites.net/api/mcp`
-
-   **HTTP request**
-
-   To get the URL by sending an HTTPS request, use the **POST** method and the following URL:
-
-   `https://management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Web/sites/<logic-app-name>/hostruntime/runtime/webhooks/workflow/api/management/listMcpServerUrl?api-version=2021-02-01`
+   `https://management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Web/sites/<logic-app-name>/hostruntime/runtime/webhooks/workflow/api/management/listMcpServerUrl?api-version=<version-number>`
 
    The following example shows a sample request and response:
 
