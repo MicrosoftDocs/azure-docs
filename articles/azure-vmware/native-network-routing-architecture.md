@@ -15,8 +15,8 @@ Azure VMware Solution Generation 2 (Gen 2) private clouds use the virtual networ
 There are limitations due to how virtual network advertisements from NSX are programmed into the virtual network.  
 
 When NSX segments are created, two operations take place:  
-1. Each advertisement is added to the virtual network address space as it is received from NSX.  
-2. Each advertisement is broken down into `/28` CIDRs, and each `/28` is assigned to an NSX T0 uplink interface.  
+- Each advertisement is added to the virtual network address space as it is received from NSX.  
+- Each advertisement is broken down into `/28` CIDRs, and each `/28` is assigned to an NSX T0 uplink interface.  
 
 ---
 
@@ -24,7 +24,7 @@ When NSX segments are created, two operations take place:
 
 Azure VMware Solution Gen 2 imposes the following limits in terms of route scale:  
 
-- **Maximum of 1000 prefixes** on the virtual network address space, which ncludes all prefixes, such as 
+- **Maximum of 1000 prefixes** on the virtual network address space, which includes all prefixes, such as 
   - NSX Segment prefixes (`/29` to `/16`)  
   - NSX Service routes (for example, DNS, VPN GW, DNAT) `/32`  
   - HCX MON routes `/32`  
