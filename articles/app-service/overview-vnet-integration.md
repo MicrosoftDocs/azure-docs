@@ -10,6 +10,7 @@ ms.custom:
   - UpdateFrequency3
   - build-2025
 
+ms.service: azure-app-service
 ---
 # <a name="regional-virtual-network-integration"></a>Integrate your app with an Azure virtual network
 

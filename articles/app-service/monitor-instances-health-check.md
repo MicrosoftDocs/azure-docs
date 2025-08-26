@@ -7,6 +7,7 @@ author: msangapu-msft
 ms.topic: overview
 ms.date: 09/13/2024
 ms.author: msangapu
+ms.service: azure-app-service
 ---
 
 # Monitor App Service instances by using Health check

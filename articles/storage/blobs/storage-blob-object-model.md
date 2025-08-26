@@ -3,8 +3,8 @@ title: Understand how apps interact with Blob Storage data resources
 titleSuffix: Azure Storage
 description: Understand the Blob Storage object model and how to work with data resources using the Azure SDKs.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 
 ms.service: azure-blob-storage
 ms.topic: how-to

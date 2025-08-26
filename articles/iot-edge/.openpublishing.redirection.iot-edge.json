@@ -375,6 +375,11 @@
             "source_path_from_root": "/articles/iot-edge/how-to-store-data-blob.md",
             "redirect_url": "/previous-versions/azure/iot-edge/how-to-store-data-blob",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-edge/tutorial-store-data-sql-server.md",
+            "redirect_url": "/previous-versions/azure/iot-edge/tutorial-store-data-sql-server",
+            "redirect_document_id": false
         }
     ]
 }

@@ -7,6 +7,7 @@ ms.service: azure-virtual-network
 ms.topic: overview
 ms.date: 07/26/2025
 ms.author: allensu
+ms.custom: portfolio-consolidation-2025
 # Customer intent: As an administrator, I want to learn about Azure's foundation services.
 ---
 
