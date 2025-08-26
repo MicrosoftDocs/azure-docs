@@ -171,7 +171,7 @@ You can implement multi-region architecture by using separate firewalls. This ap
 
 - **Implement traffic routing** by using Azure Traffic Manager or Azure Front Door.
 
-For an example architecture that illustrate multi-region network security architectures, see [Multi-region load balancing with Traffic Manager, Azure Firewall, and Application Gateway](/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway).
+For an example architecture that illustrates multi-region network security architectures, see [Multi-region load balancing with Traffic Manager, Azure Firewall, and Application Gateway](/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway).
 
 ## Reliability during service maintenance
 
