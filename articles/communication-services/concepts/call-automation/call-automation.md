@@ -62,7 +62,6 @@ The following features are currently available in the Azure Communication Servic
 |                       | Cancel media operations                           | ✔️    |  ✔️   |     ✔️         |    ✔️   |
 |                       | Share [custom info](../../how-tos/call-automation/custom-context.md) (via VOIP or SIP headers) with endpoints when adding them to a call or transferring a call to them| ✔️    |  ✔️   |     ✔️         |    ✔️   |
 |                       | Move a participant to another call                | ✔️    | ✔️    |     ✔️         |    ✔️   |
-
 | Query scenarios       | Get the call state                                | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Get a participant in a call                       | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | List all participants in a call                   | ✔️    | ✔️    |     ✔️         |    ✔️   |
