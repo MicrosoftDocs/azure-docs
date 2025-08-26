@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-bastion
-ms.date: 04/04/2025
+ms.date: 08/27/2025
 ---
 
 # Reliability in Azure Bastion
@@ -27,7 +27,7 @@ For production deployments, you should [enable zone redundancy](#availability-zo
 
 ## Reliability architecture overview
 <!-- TODO -->
->
+
 - Bastion host
 - Instance
 
