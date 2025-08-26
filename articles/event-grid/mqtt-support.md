@@ -1,6 +1,6 @@
 ---
-title: 'MQTT Features Support by Azure Event Grid’s MQTT broker feature'
-description: 'Describes the MQTT features supported by Azure Event Grid’s MQTT broker feature.'
+title: MQTT Features Support by Azure Event Grid MQTT Broker
+description: Describes the MQTT features supported by the Azure Event Grid MQTT broker.
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
@@ -12,46 +12,49 @@ ms.author: geguirgu
 ms.subservice: mqtt
 ---
 
-# MQTT features supported by Azure Event Grid’s MQTT broker feature
-MQTT is a publish-subscribe messaging transport protocol that was designed for constrained environments. It’s efficient, scalable, and reliable, which made it the gold standard for communication in IoT scenarios. MQTT broker supports clients that publish and subscribe to messages over MQTT v3.1.1, MQTT v3.1.1 over WebSockets, MQTT v5, and MQTT v5 over WebSockets. MQTT broker also supports cross MQTT version (MQTT 3.1.1 and MQTT 5) communication.
+# MQTT features supported by the Azure Event Grid MQTT broker
 
-MQTT broker in Azure Event Grid also supports devices and services sending MQTT messages over HTTPS, simplifying integration with non-MQTT clients. Event Grid allows you to send MQTT messages to the cloud for data analysis, storage, and visualizations, among other use cases. This feature is currently in preview.
+Message Queuing Telemetry Transport (MQTT) is a publish-subscribe messaging transport protocol that was designed for constrained environments. MQTT is efficient, scalable, and reliable, which made it the gold standard for communication in Internet of Things (IoT) scenarios. The MQTT broker supports clients that publish and subscribe to messages over MQTT v3.1.1, MQTT v3.1.1 over WebSocket, MQTT v5, and MQTT v5 over WebSocket. The MQTT broker also supports cross MQTT version (MQTT 3.1.1 and MQTT 5) communication.
+
+The MQTT broker in Azure Event Grid also supports devices and services sending MQTT messages over HTTPS, simplifying integration with non-MQTT clients. Event Grid allows you to send MQTT messages to the cloud for data analysis, storage, and visualizations, among other use cases. This feature is currently in preview.
 
 MQTT v5 introduced many improvements over MQTT v3.1.1 to deliver a more seamless, transparent, and efficient communication. It added:
+
 - Better error reporting.
-- More transparent communication  clients through features like user properties and content type.
+- More transparent communication to clients through features like user properties and content type.
 - More control to clients over the communication through features like message and session expiry.
 - Standard important patterns like the request-response pattern.
 
 ## Connection flow
 
-Your MQTT clients *must* connect over TLS 1.2 or TLS 1.3. Attempts to skip this step fail with connection. 
+Your MQTT clients *must* connect over Transport Layer Security (TLS) 1.2 or TLS 1.3. Attempts to skip this step fail with connection.
 
-While connecting to MQTT broker, use the following ports during communication over MQTT:
+When you connect to the MQTT broker, use the following ports during communication over MQTT:
 
 - MQTT v3.1.1 and MQTT v5 on TCP port 8883
 - MQTT v3.1.1 over WebSocket and MQTTv5 over WebSocket on TCP port 443.
 
 The CONNECT packet should include the following properties:
 
-- The ClientId field is required, and it should include the session name of the client. The session name needs to be unique across the namespace. You can use the client authentication name as the session name if each client is using one session per client. If one client is using multiple sessions, it needs to use different values for ClientId for each of its sessions.
-- The Username field is required if you didn’t select a value in the  alternativeAuthenticationNameSources during namespace creation. In that case, you need to provide your client’s authentication name in the Username field. That name needs to match the authentication name provided and the value in the client’s certificate field that was specified during the client resource creation.
+- The `ClientId` field is required, and it should include the session name of the client. The session name needs to be unique across the namespace. You can use the client authentication name as the session name if each client is using one session per client. If one client is using multiple sessions, it needs to use different values for `ClientId` for each of its sessions.
+- The `Username` field is required if you didn't select a value in the `alternativeAuthenticationNameSources` during namespace creation. In that case, you need to provide your client's authentication name in the `Username` field. That name needs to match the authentication name provided and the value in the client's certificate field that was specified during the client resource creation.
 
-Learn more about [Client authentication.](mqtt-client-authentication.md)
+Learn more about [client authentication](mqtt-client-authentication.md).
 
 ### Multi-session support
 
-Multi-session support enables your application MQTT clients to have more scalable and reliable implementation by connecting to MQTT broker with multiple active sessions at the same time. 
+Multi-session support enables your application MQTT clients to have more scalable and reliable implementation by connecting to the MQTT broker with multiple active sessions at the same time.
 
+#### Namespace configuration
 
-#### Namespace configuration 
-Before using this feature, you need to configure the namespace to allow multiple sessions per client. Use the following steps to configure multiple sessions per client in the Azure portal:
-- Go to your namespace in the Azure portal.
-- Under **Configuration**, change the value for the **Maximum client sessions per authentication name** to the desired number of sessions per client.
-- Select **Apply**.
+Before you use this feature, you need to configure the namespace to allow multiple sessions per client. Use the following steps to configure multiple sessions per client in the Azure portal:
 
->[!NOTE] 
->For the Azure CLI configuration, update the **MaxClientSessionsPerAuthenticationName** property in the namespace payload with the desired value.
+1. Go to your namespace in the Azure portal.
+1. Under **Configuration**, change the value for the **Maximum client sessions per authentication name** to the number of sessions per client that you want.
+1. Select **Apply**.
+
+>[!NOTE]
+>For the Azure CLI configuration, update the `MaxClientSessionsPerAuthenticationName` property in the namespace payload with the value that you want.
 
 #### Connection flow
 The CONNECT packets for each session should include the following properties:
@@ -81,13 +84,15 @@ For more information, see [How to establish multiple sessions for a single clien
 - The limit for the number of sessions per client applies to online and offline sessions at any point in time. For example, consider a namespace with the maximum client sessions per authentication name is set to 1. If client A connects with a persistent session 123, and then gets disconnected, client A won't be able to connect with a new session 456 since its session 123 is still active even if it's offline. Accordingly, we recommend that the same client always reconnects with the same static session names as opposed to generating a new session name with every reconnect.
 
 ## MQTT features
-Azure Event Grid’s MQTT broker feature supports the following MQTT features:
+
+The Event Grid MQTT broker supports the following MQTT features:
 
 ### Quality of service (QoS)
-MQTT broker supports QoS 0 and 1, which define the guarantee of message delivery on PUBLISH and SUBSCRIBE packets between clients and MQTT broker. QoS 0 guarantees at-most-once delivery; messages with QoS 0 aren’t acknowledged by the subscriber nor get retransmitted by the publisher. QoS 1 guarantees at-least-once delivery; messages are acknowledged by the subscriber and get retransmitted by the publisher if they didn’t get acknowledged. QoS enables your clients to control the efficiency and reliability of the communication.
+
+MQTT broker supports QoS 0 and 1, which define the guarantee of message delivery on PUBLISH and SUBSCRIBE packets between clients and MQTT broker. QoS 0 guarantees at-most-once delivery; messages with QoS 0 aren't acknowledged by the subscriber nor get retransmitted by the publisher. QoS 1 guarantees at-least-once delivery; messages are acknowledged by the subscriber and get retransmitted by the publisher if they didn't get acknowledged. QoS enables your clients to control the efficiency and reliability of the communication.
 
 ### Persistent sessions
-MQTT broker supports persistent sessions for MQTT v3.1.1 such that MQTT broker preserves information about a client’s session when it gets disconnected to ensure reliability of the communication. This information includes the client’s subscriptions and missed/ unacknowledged QoS 1 messages. Clients can configure a persistent session through setting the cleanSession flag in the CONNECT packet to false.
+MQTT broker supports persistent sessions for MQTT v3.1.1 such that MQTT broker preserves information about a client's session when it gets disconnected to ensure reliability of the communication. This information includes the client's subscriptions and missed/ unacknowledged QoS 1 messages. Clients can configure a persistent session through setting the cleanSession flag in the CONNECT packet to false.
 
 #### Clean start and session expiry
 MQTT v5 introduced the clean start and session expiry features as an improvement over MQTT v3.1.1 in handling session persistence. Clean Start is a feature that allows a client to start a new session with MQTT broker, discarding any previous session data. Session Expiry allows a client to inform MQTT broker when an inactive session is considered expired and automatically removed. In the CONNECT packet, a client can set Clean Start flag to true and/or short session expiry interval for security reasons or to avoid any potential data conflicts that might have occurred during the previous session. A client can also set a clean start to false and/or long session expiry interval to ensure the reliability and efficiency of persistent sessions.
@@ -104,7 +109,7 @@ You can configure the maximum session expiry interval allowed for all your clien
 MQTT broker maintains a queue of messages for each active MQTT session that isn't connected, until the client connects with MQTT broker again to receive the messages in the queue. If a client doesn't connect to receive the queued QOS1 messages, the session queue starts accumulating the messages until it reaches its limit: 100 messages or 1 MB. Once the queue reaches its limit during the lifespan of the session, the session is terminated.
 
 ### Last Will and Testament (LWT) messages
-Last Will and Testament (LWT) notifies your MQTT clients with the abrupt disconnections of other MQTT clients. You can use LWT to ensure predictable and reliable flow of communication among MQTT clients during unexpected disconnections, which is valuable for scenarios where real-time communication, system reliability, and coordinated actions are critical. Clients that collaborate to perform complex tasks can react to LWT messages from each other by adjusting their behavior, redistributing tasks, or taking over certain responsibilities to maintain the system’s performance and stability.
+Last Will and Testament (LWT) notifies your MQTT clients with the abrupt disconnections of other MQTT clients. You can use LWT to ensure predictable and reliable flow of communication among MQTT clients during unexpected disconnections, which is valuable for scenarios where real-time communication, system reliability, and coordinated actions are critical. Clients that collaborate to perform complex tasks can react to LWT messages from each other by adjusting their behavior, redistributing tasks, or taking over certain responsibilities to maintain the system's performance and stability.
 To use LWT, a client can specify the will message, will topic, and the rest of the will properties in the CONNECT packet during connection. When the client disconnects abruptly, the MQTT broker publishes the will message to all the clients that subscribed to the will topic. To reduce the noise from fluctuating disconnections, the client can set the delay interval to a value greater than zero. In that case, if the client disconnects abruptly but restores the connection before the delay interval expires, the will message isn't published.
 
 ### User properties 

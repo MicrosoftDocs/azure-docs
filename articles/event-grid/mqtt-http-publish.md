@@ -101,7 +101,7 @@ Notes:
 - **Step 1:** Prepare your Microsoft Entra ID bearer token for authentication.
 - **Step 2:** Construct your HTTP `POST` request to your Event Grid MQTT broker endpoint.
 - **Step 3:** Include required query parameters, like topic.
-- **Step 4:** Add optional headers for `qos`, the `retain` flag, `response-topic`, and `user-properties`.
+- **Step 4:** Add optional headers for QoS, the `RETAIN` flag, response topic, and user properties.
 - **Step 5**: Add your payload as the HTTP body.
 - **Step 6:** Send the request.
 - **Step 7:** Confirm delivery via logs and metrics in the Event Grid portal.

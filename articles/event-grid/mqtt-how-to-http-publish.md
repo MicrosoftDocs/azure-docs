@@ -61,7 +61,7 @@ curl -X POST "https://contoso.westus3-1.ts.eventgrid.azure.net/mqtt/messages?top
 In this sample command:
 
 - Topic is percent encoded.
-- Optional headers are added for `qos`, the `retain` flag, `response-topic`, and `user-properties`.
+- Optional headers are added for Quality of Service (QoS), the `RETAIN` flag, response topic, and user properties.
 - Payload goes in the request body.
 
 ### [Bruno](#tab/brno)
