@@ -44,26 +44,21 @@ Adding IKEv2 to an existing SSTP VPN gateway won't affect existing clients and y
 
 **IKEv2 uses non-standard UDP ports so you need to ensure that these ports are not blocked on the user's firewall. The ports in use are UDP 500 and 4500.**
 
-1. To add IKEv2 to an existing gateway, go your virtual network gateway in the portal.
-1. In the left pane, select **Point-to-site configuration**.
-1. On the Point-to-site configuration page, for **tunnel type**,  select **IKEv2 and SSTP (SSL)** from the drop-down box.
-1. Apply your changes.
-
-> [!NOTE]
-> When you have both SSTP and IKEv2 enabled on the gateway, the point-to-site address pool will be statically split between the two, so clients using different protocols are assigned IP addresses from either subrange. The maximum number of SSTP clients is always 128. This applies even if the address range is larger than /24, resulting in a larger number of addresses available for IKEv2 clients. For smaller ranges, the pool is equally halved. Traffic Selectors used by the gateway might not include the point-to-site address range CIDR, but the two subrange CIDRs.
-
-Migration Steps:
-
 # [**Portal**](#tab/portal)
 
-1. **Update Tunnel type:** Modify the tunnel type in your VPN gateway’s Point-to-site configuration from **SSTP (SSL)** to **IKEv2 and SSTP (SSL)**. This option will be enabled for Basic SKU gateways starting November 2025.
+1. Go to your virtual network gateway in the portal.
+
+1. Under **Settings**, select **Point-to-site configuration**.
+
+1. On the Point-to-site configuration page, update the  **tunnel type** from **SSTP (SSL)** to **IKEv2 and SSTP (SSL)**. This option will be enabled for Basic SKU gateways starting November 2025.
 
     :::image type="content" source="./media/ikev2-openvpn-from-sstp/point-to-site-configuration.png" alt-text="Screenshot that shows the point-to-site configuration in the Azure portal." lightbox="./media/ikev2-openvpn-from-sstp/point-to-site-configuration.png":::
 
 1. **Download updated configuration:** After updating the tunnel type, [download the updated VPN Client](point-to-site-certificate-gateway.md#profile-files) profile configuration package to get latest configuration package
-1. **Distribute Configuration:** Share the updated VPN client configuration with all users who connect via Point-to-Site VPN
-1. **Verify VPN Connectivity:** [Verify the VPN connections](point-to-site-certificate-gateway.md#clientconfig) to ensure all the clients can connect successfully and that the VPN gateway is functioning as expected
 
+1. **Distribute Configuration:** Share the updated VPN client configuration with all users who connect via Point-to-Site VPN
+
+1. **Verify VPN Connectivity:** [Verify the VPN connections](point-to-site-certificate-gateway.md#clientconfig) to ensure all the clients can connect successfully and that the VPN gateway is functioning as expected
 
 # [**PowerShell**](#tab/powershell)
 
@@ -77,10 +72,15 @@ Migration Steps:
     ```
 
 1. **Download updated configuration:** After updating the tunnel type, [download the updated VPN Client](point-to-site-certificate-gateway#profile-files.md) profile configuration package to get latest configuration package
+
 1. **Distribute Configuration:** Share the updated VPN client configuration with all users who connect via Point-to-Site VPN
+
 1. **Verify VPN Connectivity:** [Verify the VPN connections](point-to-site-certificate-gateway#clientconfig.md) to ensure all the clients can connect successfully and that the VPN gateway is functioning as expected
 
 ---
+
+> [!NOTE]
+> When you have both SSTP and IKEv2 enabled on the gateway, the point-to-site address pool will be statically split between the two, so clients using different protocols are assigned IP addresses from either subrange. The maximum number of SSTP clients is always 128. This applies even if the address range is larger than /24, resulting in a larger number of addresses available for IKEv2 clients. For smaller ranges, the pool is equally halved. Traffic Selectors used by the gateway might not include the point-to-site address range CIDR, but the two subrange CIDRs.
 
 ### Option 2 - Remove SSTP and enable OpenVPN on the gateway
 
@@ -89,8 +89,11 @@ Since SSTP and OpenVPN are both TLS-based protocol, they can't coexist on the sa
 You can enable OpenVPN along side with IKEv2 if you desire. OpenVPN is TLS-based and uses the standard TCP 443 port.
 
 1. To switch to OpenVPN, go your virtual network gateway in the portal.
-1. In the left pane, select **Point-to-site configuration**.
+
+1. Under **Settings**, select **Point-to-site configuration**.
+
 1. On the Point-to-site configuration page, for **tunnel type**, select **OpenVPN (SSL)** or **IKEv2 and OpenVPN (SSL)** from the drop-down box.
+
 1. Apply your changes.
 
 Once the gateway has been configured, existing clients won't be able to connect until you [deploy and configure the OpenVPN clients](point-to-site-vpn-client-certificate-windows-openvpn-client.md). If you're using Windows 10 or later, you can also use the [Azure VPN Client](point-to-site-vpn-client-certificate-windows-azure-vpn-client.md).
