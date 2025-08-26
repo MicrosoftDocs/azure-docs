@@ -121,12 +121,6 @@ sections:
           
           Most deployments that use the v2 SKU take around 6 minutes to provision. However, the process can take longer depending on the type of deployment. For example, deployments across multiple availability zones with many instances can take more than 6 minutes. 
           
-      - question: How does Application Gateway handle routine maintenance?
-        answer: |
-          Updates initiated to Application Gateway are applied one [update domain](/azure/virtual-machines/availability-set-overview#how-do-availability-sets-work) at a time. As each update domain's instances are being updated, the remaining instances in other update domains continue to serve traffic<sup>1</sup>. Active connections are gracefully drained from the instances being updated for up to 5 minutes to help establish connectivity to instances in a different update domain before the update begins. During update, Application Gateway temporarily runs at reduced maximum capacity, which is determined by the number of instances configured. The update process proceeds to the next set of instances only if the current set of instances were upgraded successfully.
-          
-          <sup>1</sup> We recommend a minimum instance count of 2 to be configured for Application Gateway v1 SKU deployments to ensure at least one instance can serve traffic while updates are applied.
-          
       - question: Can I use Exchange Server as a backend with Application Gateway?
         answer: |
           Application Gateway supports [TLS/TCP protocol proxy](tcp-tls-proxy-overview.md) through its Layer 4 proxy in **Preview**.
@@ -186,6 +180,16 @@ sections:
       - question: Can I change instance size from medium to large without disruption?
         answer: Yes.
         
+  - name: Maintenance
+    questions:
+      - question: How does Application Gateway handle routine maintenance?
+        answer: |
+          Updates initiated to Application Gateway are applied one [update domain](/azure/virtual-machines/availability-set-overview#how-do-availability-sets-work) at a time. As each update domain's instances are being updated, the remaining instances in other update domains continue to serve traffic. Active connections are gracefully drained from the instances being updated for up to 5 minutes to help establish connectivity to instances in a different update domain before the update begins. The update process proceeds to the next set of instances only if the current set of instances were upgraded successfully. 
+          
+          Azure Application Gateway also supports MaxSurge, a capability that enables new instances to be provisioned during rolling upgrades without taking existing ones offline. It allows customers to transition to newer gateway versions without any capacity degradation. MaxSurge is automatically enabled on Application Gateway and requires no configuration. 
+          
+          **Note:** Additional IP space is required to provision the temporary instances used by MaxSurge. If sufficient IP space is not available during an update, Application Gateway will fall back to the traditional upgrade method, which may result in reduced maximum capacity based on the number of instances. 
+  
   - name: Configuration
     questions:
       - question: Is Application Gateway always deployed in a virtual network?

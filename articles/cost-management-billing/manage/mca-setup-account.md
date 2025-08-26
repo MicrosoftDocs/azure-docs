@@ -6,7 +6,7 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/12/2025
+ms.date: 08/14/2025
 ms.author: jkinma
 ---
 
@@ -418,9 +418,8 @@ Enterprise administrators and department administrators are listed as invoice se
 - **Automatic purchases** - If used under your old EA enrollment, you need to set them up under your new Microsoft Customer Agreement.
 - **Management groups** – Subscriptions in management groups under a Microsoft Customer Agreement aren’t supported in Cost Management yet. Cost Management + Billing is managed with APIs and Azure portal functionality. For more information, see [Azure RBAC scopes](../costs/understand-work-scopes.md#azure-rbac-scopes).
 - **Export jobs** from Enterprise Agreement (EA) do not automatically migrate to Microsoft Customer Agreement (MCA). You must manually recreate export jobs under the MCA billing scope.
-    - Understand how management group scope affects cost views. EA-based views are not supported in MCA. To work around this, rebuild views using billing profile and invoice section scopes.
     - Reconfigure the Export API using Azure Commerce Toolbox or PowerShell scripts to recreate export jobs with MCA-compatible APIs.
-    - Confirm that your MCA billing scope aligns with the MCA framework. Refer to [Understand and work with scopes](../costs/understand-work-scopes.md) to learn more about the required agreement types, scopes and roles.
+    - Confirm that your MCA billing scope aligns with the MCA framework. For more details, refer to [Understand and work with scopes](../costs/understand-work-scopes.md).
     - To learn more about Exports data types and supported scopes, refer to the Understand export data types section in [this article](../costs/tutorial-improved-exports.md).
 - **Tax exemption certificates** - If your EA account has a tax exemption certificate, you need to create an Azure support request to have a support representative associate your existing tax exempt certificate to your new Microsoft Customer Agreement account. Create a support request in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
