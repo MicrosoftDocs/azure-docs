@@ -1,9 +1,9 @@
 ---
-title: Scale up features and capacities
+title: Scale Up Features and Capacities
 description: Learn how to scale up an app in Azure App Service. Get more CPU, memory, disk space, and extra features.
 ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab
 ms.topic: how-to
-ms.date: 08/26/2024
+ms.date: 08/29/2025
 ms.author: msangapu
 author: msangapu-msft
 ms.custom:
@@ -12,7 +12,7 @@ ms.service: azure-app-service
 ---
 # Scale up an app in Azure App Service
 
-This article shows you how to scale your app in Azure App Service. There are two workflows for scaling, scale up and scale out, and this article explains the scale up workflow.
+This article shows you how to scale your app in Azure App Service. There are two workflows for scaling, scale up and scale out. This article explains the scale up workflow.
 
 * [Scale up](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Get more CPU, memory, or disk space, or extra features
   like dedicated virtual machines (VMs), custom domains and certificates, staging slots, autoscaling, and more. You scale up by changing the pricing tier of the
