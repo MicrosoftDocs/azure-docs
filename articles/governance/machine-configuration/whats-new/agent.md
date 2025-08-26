@@ -34,7 +34,7 @@ For information on release notes for the connected machine agent, see
 - Resolved an issue where the compliance status did not update correctly until services were restarted.
 - Updated local PATH environment variable to resolve service install/delete errors.
   
-### Version 1.29.93.0 - April 2025
+### Version 1.29.92.0 - April 2025
 
 #### Updated
 
@@ -82,7 +82,7 @@ For information on release notes for the connected machine agent, see
 
 ## Extension for Linux extension release notes (Microsoft.GuestConfiguration.ConfigurationforLinux)
 
-### Version 1.26.92.0 - July 2025
+### Version 1.26.93.0 - July 2025
 
 #### New Features
 
