@@ -67,7 +67,7 @@ Azure Firewall supports availability zones in [all regions that support availabi
 
 ### Requirements
 
-- All tiers of Azure Firewall support availabiity zones.
+- All tiers of Azure Firewall support availability zones.
 - For zone-redundant firewalls, you must use standard public IP addresses and you must configure them to be zone-redundant.
 - For zonal firewalls, you must use standard public IP addresses and can configure them to either be zone-redundant or zonal in the same zone as the firewall.
 
@@ -90,7 +90,7 @@ This section explains how to configure availability zone support for your firewa
     
     For detailed guidance for Azure PowerShell, see [Deploy an Azure Firewall with availability zones using Azure PowerShell](../firewall/deploy-availability-zone-powershell.md).
 
-  - *Zonal:* You can deploy a zonal firewall by using the the Azure CLI, Azure PowerShell, Bicep, ARM templates, or Terraform. Select a single specific availability zone.
+  - *Zonal:* You can deploy a zonal firewall by using the Azure CLI, Azure PowerShell, Bicep, ARM templates, or Terraform. Select a single specific availability zone.
 
     > [!NOTE]
     > [!INCLUDE [Availability zone numbering](./includes/reliability-availability-zone-numbering-include.md)]
@@ -99,7 +99,7 @@ This section explains how to configure availability zone support for your firewa
 
 - **Change the availability zone configuration of an existing firewall:** You can reconfigure the availability zones used for a firewall. This process requires stopping (deallocating) the firewall and reconfiguring it, which involves some downtime. For more information, see [How can I configure availability zones after deployment?](/azure/firewall/firewall-faq#how-can-i-configure-availability-zones-after-deployment).
 
-- **Disable availability zone support:** You can availability zones used by a firewall, but you can't convert a zone-redundant or zonal firewall to nonzonal.
+- **Disable availability zone support:** You can change the availability zones used by a firewall, but you can't convert a zone-redundant or zonal firewall to nonzonal.
 
 ### Normal operations
 
@@ -165,13 +165,13 @@ Azure Firewall is a single-region service. If the region is unavailable, your Az
 
 ### Alternative multi-region approaches
 
-You can implement multi-region architecture by using separate firewalls. This approach requires you to deploy an independent Azure Firewall into each region you use, route traffic to the approriate regional firewall, and implement custom failover logic. Consider the following points:
+You can implement multi-region architecture by using separate firewalls. This approach requires you to deploy an independent Azure Firewall into each region you use, route traffic to the appropriate regional firewall, and implement custom failover logic. Consider the following points:
 
 - **Use Azure Firewall Manager** for centralized policy management across multiple firewalls. Use [Firewall Policy](/azure/firewall-manager/policy-overview) for centralized rule management across multiple firewall instances.
 
 - **Implement traffic routing** by using Azure Traffic Manager or Azure Front Door.
 
-For an example archirecture that illustrate multi-region network security architectures, see [Multi-region load balancing with Traffic Manager, Azure Firewall, and Application Gateway](/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway).
+For an example architecture that illustrate multi-region network security architectures, see [Multi-region load balancing with Traffic Manager, Azure Firewall, and Application Gateway](/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway).
 
 ## Reliability during service maintenance
 
