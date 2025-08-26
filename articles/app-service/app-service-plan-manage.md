@@ -67,19 +67,19 @@ You must disable any virtual network integration that's configured on the app be
 
 1. On the **App Service plan** page, select **Change plan**.
 
-    :::image type="content" source="./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png" alt-text="Screenshot of the Change App Service plan page.":::
+    :::image type="content" source="./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png" alt-text="Screenshot of the App Service plan page.":::
 
-1. In the **App Service plan** list, select an existing plan to move the app to. The list shows only plans that are in the same resource group and geographical region as the current App Service plan. If no such plan exists, it lets you create a plan by default. You can also create a new plan manually by selecting **Create new**.
+1. In the **Change App Service plan** pane, in the **App Service plan** list, select an existing plan to move the app to. The list shows only plans that are in the same resource group and geographical region as the current App Service plan. If no such plan exists, it lets you create a plan by default. You can also create a new plan manually by selecting **New plan** and then selecting **Create new**.
 
-1. If you create a plan, you can select the pricing tier of the new plan. In **Pricing Tier**, select the existing tier to change it. 
+1. When you're done, select **Save**. 
+
+If you create a new plan, you can change its pricing tier. For more information, see the [Scale an App Service plan](#scale-an-app-service-plan) section later in this article. 
    
    > [!IMPORTANT]
-   > If you're moving an app from a higher-tiered plan to a lower-tiered plan, such as from **D1** to **F1**, the app might lose certain capabilities in the target plan. For example, if your app uses TLS/SSL certificates, you might see this error message:
+   > If you move an app from a higher-tiered plan to a lower-tiered plan, such as from **D1** to **F1**, the app might lose certain capabilities in the target plan. For example, if your app uses TLS/SSL certificates, you might see this error message:
    >
    > `Cannot update the site with hostname '<app_name>' because its current TLS/SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed TLS/SSL configuration is 'Disabled'.`
    >
-
-1. When finished, select **OK**.
 
 ## Move an app to a different region
 
@@ -92,15 +92,15 @@ You can find **Clone App** in the **Development Tools** section of the left pane
 
 ## Scale an App Service plan
 
-To scale up the pricing tier of an App Service plan, see [Scale up an app in Azure](manage-scale-up.md).
+For information about scaling up the pricing tier of an App Service plan, see [Scale up an app in Azure](manage-scale-up.md).
 
-To scale out an app's instance count, see [Scale instance count manually or automatically](/azure/azure-monitor/autoscale/autoscale-get-started).
+For information about scaling out an app's instance count, see [Scale instance count manually or automatically](/azure/azure-monitor/autoscale/autoscale-get-started).
 
 <a name="delete"></a>
 
 ## Delete an App Service plan
 
-To avoid unexpected charges, when you delete the last app in an App Service plan, App Service also deletes the plan by default. If you choose to keep the plan, you should change the plan to the **Free** tier so that you're not charged.
+To avoid unexpected charges, when you delete the last app in an App Service plan, by default, App Service also deletes the plan. If you choose to keep the plan, you should change the plan to the **Free** tier so that you're not charged.
 
 > [!IMPORTANT]
 > App Service plans that have no apps associated with them still incur charges because they continue to reserve the configured VM instances.
