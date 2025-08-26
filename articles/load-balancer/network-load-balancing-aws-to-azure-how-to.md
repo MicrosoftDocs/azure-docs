@@ -34,7 +34,7 @@ This article uses a gaming platform scenario to demonstrate common patterns like
 
 ## Example scenario: Gaming platform multi-protocol load balancing migration
 
-In this example, a multi-player gaming platform uses AWS Network Load Balancer (NLB) to handle both TCP and UDP traffic simultaneously from game clients. The workload's architecture includes session management services running on EC2 instances handling player authentication and lobbies over TCP on port 7777, and real-time game data services deployed on EC2 instances processing low-latency gameplay packets over UDP on port 7778. The AWS NLB provides static IP addresses, cross-zone load balancing, and client IP preservation for game analytics and anti-cheat systems. This setup supports the workload's core gaming function of processing real-time multiplayer gaming with ultra-low latency while maintaining reliability across multiple availability zones.
+In this example, a multi-player gaming platform uses AWS Network Load Balancer (NLB) to handle both TCP and UDP traffic simultaneously from game clients. The workload's architecture includes session management services running on EC2 instances handling player authentication and lobbies over TCP on port 7777, and real-time game data services deployed on EC2 instances processing low-latency gameplay packets over UDP on port 7778. The AWS NLB provides static IP addresses, cross-zone load balancing, and client IP preservation for game analytics and anti-cheat systems. This setup supports the workload's core gaming function of processing real-time multiplayer gaming with low-latency while maintaining reliability across multiple availability zones.
 
 ### Architectural overview
 
@@ -190,7 +190,7 @@ Prepare for migration by updating dependent services and configurations to ensur
 
 #### DNS configuration changes
 
-- Reduce DNS TTL values on your domain records to 300 seconds (or 60 seconds for ultra-low downtime requirements) for faster cutover.
+- Reduce DNS TTL values on your domain records to 300 seconds (or 60 seconds for minimal downtime requirements) for faster cutover.
 - If you plan to use Azure DNS, create A records pointing to Azure Load Balancer static public IP addresses using the [Azure DNS configuration guide](../dns/dns-operations-recordsets-cli.md#modify-an-existing-record-set). This change enables rapid DNS propagation during migration cutover with minimal impact on active sessions.
 
 #### Backend pool updates
@@ -383,7 +383,7 @@ The migration process is iterative and should be adjusted based on performance f
 
 Migrating a workload that uses AWS Network Load Balancer to Azure requires careful planning and systematic execution to obtain equivalent functionality and performance for real-time requirements. The key success factors include:
 
-**Assessment and planning**: Map AWS NLB capabilities to Azure Load Balancer equivalents early in the process. Pay special attention to multi-protocol support, client IP preservation, and ultra-low latency requirements for high-performance platforms.
+**Assessment and planning**: Map AWS NLB capabilities to Azure Load Balancer equivalents early in the process. Pay special attention to multi-protocol support, client IP preservation, and low-latency requirements for high-performance platforms.
 
 **Use Azure integrations**: Take advantage of Azure static public IPs for consistent endpoints, Azure Monitor for observability, and Virtual Machine Scale Sets for service autoscaling to satisfy functional and nonfunctional requirements in your workload.
 
