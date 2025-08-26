@@ -5,7 +5,7 @@ services: application-gateway
 author: jackstromberg
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
-ms.date: 7/22/2025
+ms.date: 8/15/2025
 ms.author: jstrom
 ---
 
@@ -25,17 +25,61 @@ Application Gateway for Containers introduces a new child resource called `Secur
 
 Application Gateway for Containers introduces a new custom resource called `WebApplicationFirewallPolicy`. The custom resource is responsible for defining which Azure Web Application Firewall policy should be used at which scope.
 
-The resource can define the following scopes:
+The WebApplicationFirewallPolicy resource can target the following Kubernetes resources:
 
 * `Gateway`
 * `HTTPRoute`
 
-In addition, the resource can reference the following sections by name for each of the parent resources:
+The WebApplicationFirewallPolicy resource can also reference the following sections by name for further granularity:
 
 * `Gateway`: `Listener`
-* `HTTPRoute`: `Path`
 
-Here's an example YAML configuration that shows targeting a specific path called `pathA` on an `HTTPRoute` resource:
+### Example implementations
+
+#### Scope a policy to a Gateway resource
+
+Here's an example YAML configuration that shows targeting a Gateway resource, which would apply to all listeners on a given Application Gateway for Containers' frontend resource.
+
+```yaml
+apiVersion: alb.networking.azure.io/v1
+kind: WebApplicationFirewallPolicy
+metadata:
+  name: sample-waf-policy
+  namespace: test-infra
+spec:
+  targetRef:
+    group: gateway.networking.k8s.io
+    kind: Gateway
+    name: contoso-waf-route
+    namespace: test-infra
+  webApplicationFirewall:
+    id: /subscriptions/.../Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/waf-policy-0
+```
+
+#### Scope policy to a specific listener of a Gateway resource
+
+Within a `Gateway` resource, you may have different hostnames defined by different listeners (e.g. contoso.com and fabrikam.com). If contoso.com is a hostname of listenerA and fabrikam.com is a hostname of listenerB, you can define the `sectionNames` property to select the proper listener (for example, listenerA for contoso.com).
+
+```yaml
+apiVersion: alb.networking.azure.io/v1
+kind: WebApplicationFirewallPolicy
+metadata:
+  name: sample-waf-policy
+  namespace: test-infra
+spec:
+  targetRef:
+    group: gateway.networking.k8s.io
+    kind: Gateway
+    name: contoso-waf-route
+    namespace: test-infra
+    sectionNames: ["contoso-listener"]
+  webApplicationFirewall:
+    id: /subscriptions/.../Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/waf-policy-0
+```
+
+#### Scope policy across all routes and paths
+
+This example shows how to target a defined HTTPRoute resource to apply the policy to any routing rules and paths within a given HTTPRoute resource.
 
 ```yaml
 apiVersion: alb.networking.azure.io/v1
@@ -47,11 +91,44 @@ spec:
   targetRef:
     group: gateway.networking.k8s.io
     kind: HTTPRoute
-    name: contoso-waf-route
+    name: contoso-pathA
     namespace: test-infra
-    sectionNames: ["pathA"]
   webApplicationFirewall:
     id: /subscriptions/.../Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/waf-policy-0
+  ```
+
+#### Scope policy to a particular path
+
+To use different WAF policies to different paths of the same `Gateway` or Gateway -> Listener sectionName, you can define two HTTPRoute resources, each with a unique path, that each references its applicable WAF policy.
+
+```yaml
+apiVersion: alb.networking.azure.io/v1
+kind: WebApplicationFirewallPolicy
+metadata:
+  name: sample-waf-policy-A
+  namespace: test-infra
+spec:
+  targetRef:
+    group: gateway.networking.k8s.io
+    kind: HTTPRoute
+    name: contoso-pathA
+    namespace: test-infra
+  webApplicationFirewall:
+    id: /subscriptions/.../Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/waf-policy-0
+---
+apiVersion: alb.networking.azure.io/v1
+kind: WebApplicationFirewallPolicy
+metadata:
+  name: sample-waf-policy-B
+  namespace: test-infra
+spec:
+  targetRef:
+    group: gateway.networking.k8s.io
+    kind: HTTPRoute
+    name: contoso-pathB
+    namespace: test-infra
+  webApplicationFirewall:
+    id: /subscriptions/.../Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/waf-policy-1
 ```
 
 ## Limitations

@@ -1,9 +1,9 @@
 ---
-title: Hybrid connections in Azure App Service
+title: Hybrid Connections in Azure App Service
 description: Learn how to create and use hybrid connections in Azure App Service to access resources in disparate networks. 
 author: seligj95
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/07/2025
 ms.update-cycle: 1095-days
 ms.author: jordanselig
@@ -11,9 +11,10 @@ ms.custom:
   - "UpdateFrequency3, fasttrack-edit"
   - build-2025
 #customer intent: As an app developer, I want to understand the usage of Hybrid Connections to provide access to apps in Azure App Service.
+ms.service: azure-app-service
 ---
 
-# Azure App Service Hybrid Connections
+# Create and use hybrid connections in Azure App Service
 
 Hybrid Connections is both a service in Azure and a feature in Azure App Service. As a service, it has uses and capabilities beyond the ones that are used in App Service. To learn more about Hybrid Connections and their usage outside App Service, see [Azure Relay Hybrid Connections][HCService].
 
@@ -270,7 +271,7 @@ There are periodic updates to the Hybrid Connection Manager to fix issues or pro
 
 -----
 
-## Adding a Hybrid Connection to your app programmatically
+## Add a Hybrid Connection to your app programmatically
 
 There's Azure CLI support for Hybrid Connections. The commands provided operate at both the app and the App Service plan level. The app level commands are:
 

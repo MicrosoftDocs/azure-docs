@@ -6,6 +6,7 @@ ms.topic: generated-reference
 ms.custom: subject-policy-reference
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
 ---
 # Azure Policy built-in definitions for Azure App Service
 

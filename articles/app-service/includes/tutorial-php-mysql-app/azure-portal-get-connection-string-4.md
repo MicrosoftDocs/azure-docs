@@ -3,6 +3,7 @@ author: cephalin
 ms.author: cephalin
 ms.topic: include
 ms.date: 07/07/2022
+ms.service: azure-app-service
 ---
 
 Create the following extra app settings by following the same steps for creating an app setting.

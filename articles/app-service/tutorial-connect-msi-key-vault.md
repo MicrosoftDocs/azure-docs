@@ -10,6 +10,7 @@ ms.author: cephalin
 
 ms.reviewer: jordanselig 
 ms.custom: devx-track-azurecli, devx-track-dotnet, AppServiceConnectivity
+ms.service: azure-app-service
 ---
 
 # Tutorial: Secure Cognitive Service connection from .NET App Service using Key Vault
