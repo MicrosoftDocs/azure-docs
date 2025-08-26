@@ -1,14 +1,14 @@
 ---
-title: Consent and credentials request flow for Azure SRE Agent (preview)
-description: Learn how the agent gets consent and the right credentials to take action on write operations.
+title: How the agent performs an action in Azure SRE Agent (preview)
+description: Learn how the agent gets your consent for elevated credentials to take action on write operations.
 author: craigshoemaker
 ms.author: cshoe
-ms.topic: tutorial
-ms.date: 08/25/2025
+ms.topic: conceptual
+ms.date: 08/26/2025
 ms.service: azure
 ---
 
-# Consent and credentials request flow for Azure SRE Agent (preview)
+# How the agent performs an action in Azure SRE Agent (preview)
 
 As Azure SRE Agent works within your environment, there are two questions at the core of every write action the agent takes:
 
