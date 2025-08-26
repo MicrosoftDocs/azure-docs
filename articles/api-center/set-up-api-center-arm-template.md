@@ -48,7 +48,7 @@ Deploy the template using any standard method for [deploying an ARM template](..
 
 1. Copy and save the template file as *azuredeploy.json* to your local computer. If you're using Azure Cloud Shell, upload the file to your home directory.
 
-1. Deploy the template using either Azure CLI or Azure PowerShell.
+1. Deploy the template using either Azure CLI or Azure PowerShell. If necessary, include the path to the *azuredeploy.json* file location.
 
     # [CLI](#tab/CLI)
 

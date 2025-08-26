@@ -44,7 +44,7 @@ You can use Azure CLI or Azure PowerShell to deploy the Bicep file. For more inf
 
 1. Copy and save the Bicep file as *main.bicep* to your local computer. If you're using Azure Cloud Shell, upload the file to your home directory.
 
-1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
+1. Deploy the Bicep file using either Azure CLI or Azure PowerShell. If necessary, include the path to the *main.bicep* file location.
 
     # [CLI](#tab/CLI)
 
