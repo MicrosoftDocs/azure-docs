@@ -1,6 +1,6 @@
 ---
 title: Plan for an Azure Files deployment
-description: Understand how to plan for an Azure Files deployment. You can either direct mount an SMB or NFS Azure file share, or cache SMB Azure file shares on-premises with Azure File Sync.
+description: Understand how to plan for an Azure Files deployment. You can either direct mount an SMB or NFS file share, or cache SMB file shares on-premises with Azure File Sync.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
@@ -11,79 +11,46 @@ ms.custom: references_regions
 ---
 
 # Plan to deploy Azure Files
-
-You can deploy [Azure Files](storage-files-introduction.md) in two main ways: by directly mounting the serverless Azure file shares or by caching Azure file shares on-premises using Azure File Sync. Deployment considerations differ based on which option you choose.
+You can deploy [Azure Files](storage-files-introduction.md) in two main ways: by directly mounting the serverless Azure file shares or by caching file shares on-premises using Azure File Sync. Deployment considerations differ based on which option you choose.
 
 - **Direct mount of an Azure file share**: Because Azure Files provides either Server Message Block (SMB) or Network File System (NFS) access, you can mount Azure file shares on-premises or in the cloud using the standard SMB or NFS clients available in your OS. Because Azure file shares are serverless, deploying for production scenarios doesn't require managing a file server or NAS device. This means you don't have to apply software patches or swap out physical disks. You can either choose to use Azure classic file shares or Microsoft.FileShares (preview) as your management model.
 
-- **Cache Azure file share on-premises with Azure File Sync**: [Azure File Sync](../file-sync/file-sync-introduction.md) enables you to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms an on-premises (or cloud) Windows Server into a quick cache of your SMB Azure file share.
+- **Cache Azure file shares on-premises with Azure File Sync**: [Azure File Sync](../file-sync/file-sync-introduction.md) enables you to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms an on-premises (or cloud) Windows Server into a quick cache of your SMB Azure file share.
 
 This article primarily addresses deployment considerations for deploying an Azure file share to be directly mounted by an on-premises or cloud client. To plan for an Azure File Sync deployment, see [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md).
 
-## Available protocols
-
-Azure Files offers two industry-standard file system protocols for mounting Azure file shares: the [Server Message Block (SMB)](files-smb-protocol.md) protocol and the [Network File System (NFS)](files-nfs-protocol.md) protocol, allowing you to choose the protocol that is the best fit for your workload. Azure file shares don't support both the SMB and NFS protocols on the same file share, although you can create SMB and NFS Azure file shares within the same storage account.
-
-With both SMB and NFS file shares, Azure Files offers enterprise-grade file shares that can scale up to meet your storage needs and can be accessed concurrently by thousands of clients.
-
-| Feature                                                    | SMB                                                                                                                                          | NFS                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Supported protocol versions                                | SMB 3.1.1, SMB 3.0, SMB 2.1                                                                                                                  | NFS 4.1                                                                                                                                                                                                                                                                                                                                                                                                             |
-| Recommended OS                                             | <ul><li>Windows 11, version 21H2+</li><li>Windows 10, version 21H1+</li><li>Windows Server 2019+</li><li>Linux kernel version 5.3+</li></ul> | Linux kernel version 4.3+                                                                                                                                                                                                                                                                                                                                                                                           |
-| [Available tiers](storage-files-planning.md#storage-tiers) | SSD and HDD                                                                                                                                  | SSD only                                                                                                                                                                                                                                                                                                                                                                                                            |
-| [Redundancy](storage-files-planning.md#redundancy)         | <ul><li>Local (LRS)</li><li>Zone (ZRS)</li><li>Geo (GRS)</li><li>GeoZone (GZRS)</li></ul>                                                    | <ul><li>Local (LRS)</li><li>Zone (ZRS)</li></ul>                                                                                                                                                                                                                                                                                                                                                                    |
-| File system semantics                                      | Win32                                                                                                                                        | POSIX                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Authentication                                             | Identity-based authentication (Kerberos), shared key authentication (NTLMv2)                                                                 | Host-based authentication                                                                                                                                                                                                                                                                                                                                                                                           |
-| Authorization                                              | Win32-style access control lists (ACLs)                                                                                                      | UNIX-style permissions                                                                                                                                                                                                                                                                                                                                                                                              |
-| Case sensitivity                                           | Case insensitive, case preserving                                                                                                            | Case sensitive                                                                                                                                                                                                                                                                                                                                                                                                      |
-| Deleting or modifying open files                           | With lock only                                                                                                                               | Yes                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| File sharing                                               | [Windows sharing mode](/windows/win32/fileio/creating-and-opening-files)                                                                     | Byte-range advisory network lock manager                                                                                                                                                                                                                                                                                                                                                                            |
-| Hard link support                                          | Not supported                                                                                                                                | Supported                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Symbolic link support                                      | Not supported                                                                                                                                | Supported                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Optionally internet accessible                             | Yes (SMB 3.0+ only)                                                                                                                          | No                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Supports FileREST                                          | Yes                                                                                                                                          | Subset: <br /><ul><li>[Operations on the `FileService`](/rest/api/storageservices/operations-on-the-account--file-service-)</li><li>[Operations on `FileShares`](/rest/api/storageservices/operations-on-shares--file-service-)</li><li>[Operations on `Directories`](/rest/api/storageservices/operations-on-directories)</li><li>[Operations on `Files`](/rest/api/storageservices/operations-on-files)</li></ul> |
-| Mandatory byte range locks                                 | Supported                                                                                                                                    | Not supported                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Advisory byte range locks                                  | Not supported                                                                                                                                | Supported                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Extended/named attributes                                  | Not supported                                                                                                                                | Not supported                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Alternate data streams                                     | Not supported                                                                                                                                | N/A                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Object identifiers                                         | Not supported                                                                                                                                | N/A                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Reparse points                                             | Not supported                                                                                                                                | N/A                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Sparse files                                               | Not supported                                                                                                                                | N/A                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Compression                                                | Not supported                                                                                                                                | N/A                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Named pipes                                                | Not supported                                                                                                                                | N/A                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| SMB Direct                                                 | Not supported                                                                                                                                | N/A                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| SMB Directory Leasing                                      | Not supported                                                                                                                                | N/A                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Volume Shadow Copy                                         | Not supported                                                                                                                                | N/A                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Short file names (8.3 alias )                              | Not supported                                                                                                                                | N/A                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Server service                                             | Not supported                                                                                                                                | N/A                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| File system transactions (TxF)                             | Not supported                                                                                                                                | N/A                                                                                                                                                                                                                                                                                                                                                                                                                 |
 ## Management concepts
+In Azure, a *resource* is a manageable item that you create and configure within your Azure subscriptions and resource groups. Resources are offered by *resource providers*, which are management services that deliver specific types of resources. While you may work with many resources to deploy a workload in Azure, Azure Files centers on two key resources:
 
-### What is an Azure classic file share?
+- **Storage accounts**, offered by the `Microsoft.Storage` resource provider. Storage accounts are top-level resources that represent a shared pool of storage, IOPS, and throughput in which you can deploy **classic file shares** or other storage resources, depending on the storage account kind. All storage resources that are deployed into a storage account share the limits that apply to that storage account. Classic file shares support both the SMB and NFS file sharing protocols.
 
+- **File shares** (preview), offered by the `Microsoft.FileShares` resource provider. File shares are a new top-level resource that simplify the deployment of Azure Files by eliminating the storage account. Unlike classic file shares, which must be deployed into a storage account, file shares are deployed directly into the resource group like storage accounts themselves, or other Azure resources you may be familiar with like virtual machines, disks, or virtual networks. File shares support the NFS file sharing protocol - if you require SMB, choose classic file shares for your deployment.
+
+### Classic file shares (Microsoft.Storage)
+Classic file shares, or file shares deployed in storage accounts, are the traditional way to deploy file shares for Azure Files. They support all of the key features that Azure Files supports including SMB and NFS, SSD and HDD media tiers, every redundancy type, and in every region. While classic file shares support the entire breadth of Azure Files features, they have important key limitations:
+
+- **Capacity planning**: Classic file shares, and the child objects for other storage services like blob containers, that live within the same storage account share a common pool of storage, IOPS, and throughput. This means placing multiple classic file shares in a storage account requires planning to avoid capacity bottlenecks. When capacity planning for classic file shares, you need to consider both the current and future needs of each classic file share placed in a storage account since the growth of one classic file share can crowd out other file shares.
+
+- **Shared settings**: Many important settings, such as network and security rules, are applied at the storage account level, so as a result, placing classic file shares in the same storage account requires careful consideration. You should consider the storage account to be a trust boundary and only place classic file shares in the same storage account if you're ok with them having the same security settings.
+
+- **Scaling complexity**: Large scale deployments of Azure Files can require managing many Azure subscriptions due the constraints on storage accounts from the `Microsoft.Storage` resource provider. See [storage account limits](./storage-files-scale-targets.md#storage-account-scale-targets) for more information.
 
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
 
-To learn more, see [Create an Azure classic file share](./create-classic-file-share.md).
+To learn more, see [Create a classic file share](./create-classic-file-share.md).
 
-
-### What is file share with Microsoft.FileShares (preview)?
-
+### File shares (Microsoft.FileShares)
 ![image comparing Microsoft.FileShares and classic Azure file shares](./media/storage-files-planning/file-share-comparsion.png)
 
-
-File shares created with Microsoft.FileShares (preview) are a first-class Azure resource, alongside virtual machines, virtual networks, and SQL databases. Instead of creating a storage account and then a file share inside it, you create the file share directly in your resource group, eliminating account complexity without sacrificing performance or cost efficiency. Currently the preview only supports NFS file shares, which use the SSD (premium) media tier.
+File shares (preview) created with Microsoft.FileShares are a first-class Azure resource, alongside virtual machines, virtual networks, and SQL databases. Instead of creating a storage account and then a file share inside it, you create the file share directly in your resource group, eliminating account complexity without sacrificing performance or cost efficiency. Currently the preview only supports NFS file shares, which use the SSD (premium) media tier.
 
 This new model simplifies the deployment experience and unlocks a host of new capabilities:
-
 
 - Simpler onboarding: You'll create file shares directly as top-level Azure resources in the portal, with no need to create and manage a storage account. This removes a layer of indirection, reduces the learning curve, and eliminates confusion from storage account level settings that don't apply to file shares.
 
 - Dedicated performance per share: Each share gets its own IOPS, throughput, and capacity, so you don't have to worry about resource contention. Customers managing hundreds of file shares for CI/CD pipelines or workload separation will appreciate this.
 
-
 - Predictable, flexible costs: Creating file shares with Microsoft.FileShares automatically uses the provisioned v2 billing model, allowing you independently set storage, IOPS, and throughput for each share. You can adjust them as your needs change. This brings clear, predictable pricing while retaining the agility to scale up or down.
-
 
 - Granular control at the share level: Apply networking (service or private endpoints), security, and billing per file share. This gives you precise blast-radius control and cleaner cost attribution to teams, apps, or customers.
 
@@ -96,9 +63,7 @@ If you require all the feature that Azure File currently offer, we recommend you
 To learn more, see [How to create file share using Microsoft.FileShares](./create-file-share.md).
 
 ### Region availability
-
 Currently, creating a file share with Microsoft.FileShares (preview) is available in the following regions:
-
 
 - Australia East
 - Australia Southeast
@@ -114,34 +79,68 @@ Currently, creating a file share with Microsoft.FileShares (preview) is availabl
 - Korea South
 - Australia Central
 
-## Comparing resource providers: Microsoft.Storage versus Microsoft.FileShares
+### Comparing resource providers: Microsoft.Storage versus Microsoft.FileShares
 
+| Feature | classic file share ![fileshareclassicicon1](./media/storage-files-planning/icon-service-Azure-Fileshares.svg) | file share(Microsoft.FileShares) ![mfsicon](./media/storage-files-planning/icon-service-Managed-File-Shares.svg) |
+|-|-|-|
+| Support guarantee | General available | Public preview |
+| Top level resource for the service | Storage account ![fileshareclassicicon2](./media/storage-files-planning/icon-service-Storage-Accounts.svg) | File Shares ![mfsicon](./media/storage-files-planning/icon-service-Managed-File-Shares.svg) |
+| SMB protocol  | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| NFS protocol | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| File Sync support | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Require storage account | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Pay as you go billing model | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Provisioned v1 billing model | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Provisioned v2 billing model | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| HDD supportability | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| SSD supportability | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| LRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| GRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Per share level billing, networking, and security configurations | ![No](../media/icons/no-icon.png)  | ![Yes](../media/icons/yes-icon.png) |
+| Single vnet configurations for a file share | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Single vnet configuration for multiple file shares | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| AKS CSI driver | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Data plane REST APIs | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
-| Feature                                                          | classic file share ![fileshareclassicicon1](./media/storage-files-planning/icon-service-Azure-Fileshares.svg) | file share(Microsoft.FileShares) ![mfsicon](./media/storage-files-planning/icon-service-Managed-File-Shares.svg) |
-| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| Support guarantee                                                | General available                                                                                                   | Public preview                                                                                    |
-| Top level resource for the service                               | Storage account ![fileshareclassicicon2](./media/storage-files-planning/icon-service-Storage-Accounts.svg)    | File Shares ![mfsicon](./media/storage-files-planning/icon-service-Managed-File-Shares.svg) |
-| SMB protocol                                                     | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![No](../media/icons/no-icon.png)                                                                 |
-| NFS protocol                                                     | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![Yes](../media/icons/yes-icon.png)                                                               |
-| File Sync support                                                | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![No](../media/icons/no-icon.png)                                                                 |
-| Require storage account                                           | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![No](../media/icons/no-icon.png)                                                                 |
-| Pay as you go billing model                                      | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![No](../media/icons/no-icon.png)                                                                 |
-| Provisioned v1 billing model                                     | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![No](../media/icons/no-icon.png)                                                                 |
-| Provisioned v2 billing model                                      | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![Yes](../media/icons/yes-icon.png)                                                               |
-| HDD supportability                                               | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![No](../media/icons/no-icon.png)                                                                 |
-| SSD supportability                                               | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![Yes](../media/icons/yes-icon.png)                                                               |
-| LRS                                                              | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![Yes](../media/icons/yes-icon.png)                                                               |
-| ZRS                                                              | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![Yes](../media/icons/yes-icon.png)                                                               |
-| GRS                                                              | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![No](../media/icons/no-icon.png)                                                                 |
-| GZRS                                                             | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![No](../media/icons/no-icon.png)                                                                 |
-| Per share level billing, networking, and security configurations | ![No](../media/icons/no-icon.png)                                                                                   | ![Yes](../media/icons/yes-icon.png)                                                               |
-| Single vnet configurations for a file share                      | ![No](../media/icons/no-icon.png)                                                                                   | ![Yes](../media/icons/yes-icon.png)                                                               |
-| Single vnet configuration for multiple file shares               | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![No](../media/icons/no-icon.png)                                                                 |
-| AKS CSI driver               | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![No](../media/icons/no-icon.png)                                                                 |
-| Data plane REST APIs               | ![Yes](../media/icons/yes-icon.png)                                                                                 | ![No](../media/icons/no-icon.png)                                                                 |
+## Available protocols
+Azure Files offers two industry-standard file system protocols for mounting Azure file shares: the [Server Message Block (SMB)](files-smb-protocol.md) protocol and the [Network File System (NFS)](files-nfs-protocol.md) protocol, allowing you to choose the protocol that is the best fit for your workload. Azure file shares don't support both the SMB and NFS protocols on the same file share, although you can create SMB and NFS Azure file shares within the same storage account.
+
+With both SMB and NFS file shares, Azure Files offers enterprise-grade file shares that can scale up to meet your storage needs and can be accessed concurrently by thousands of clients.
+
+| Feature | SMB | NFS |
+|-|-|-|
+| Supported protocol versions | SMB 3.1.1, SMB 3.0, SMB 2.1 | NFS 4.1 |
+| Recommended OS | <ul><li>Windows 11, version 21H2+</li><li>Windows 10, version 21H1+</li><li>Windows Server 2019+</li><li>Linux kernel version 5.3+</li></ul> | Linux kernel version 4.3+ |
+| [Available tiers](storage-files-planning.md#storage-tiers) | SSD and HDD | SSD only |
+| [Redundancy](storage-files-planning.md#redundancy) | <ul><li>Local (LRS)</li><li>Zone (ZRS)</li><li>Geo (GRS)</li><li>GeoZone (GZRS)</li></ul> | <ul><li>Local (LRS)</li><li>Zone (ZRS)</li></ul> |
+| File system semantics | Win32 | POSIX |
+| Authentication | Identity-based authentication (Kerberos), shared key authentication (NTLMv2) | Host-based authentication |
+| Authorization | Win32-style access control lists (ACLs) | UNIX-style permissions |
+| Case sensitivity | Case insensitive, case preserving | Case sensitive |
+| Deleting or modifying open files | With lock only | Yes |
+| File sharing | [Windows sharing mode](/windows/win32/fileio/creating-and-opening-files) | Byte-range advisory network lock manager |
+| Hard link support | Not supported | Supported |
+| Symbolic link support | Not supported | Supported |
+| Optionally internet accessible | Yes (SMB 3.0+ only) | No |
+| Supports FileREST | Yes | Yes (Microsoft.Storage only) |
+| Mandatory byte range locks | Supported | Not supported |
+| Advisory byte range locks | Not supported | Supported |
+| Extended/named attributes | Not supported | Not supported |
+| Alternate data streams | Not supported | N/A |
+| Object identifiers | Not supported | N/A |
+| Reparse points | Not supported | N/A |
+| Sparse files | Not supported | N/A |
+| Compression | Not supported | N/A |
+| Named pipes | Not supported | N/A |
+| SMB Direct | Not supported | N/A |
+| SMB Directory Leasing | Not supported | N/A |
+| Volume Shadow Copy | Not supported | N/A |
+| Short file names (8.3 alias) | Not supported | N/A |
+| File system transactions (TxF) | Not supported | N/A |
 
 ## Identity
-
 To access an Azure file share, the user of the file share must be authenticated and authorized to access the share. This is done based on the identity of the user accessing the file share. Azure Files supports the following methods of authentication:
 
 - **On-premises Active Directory Domain Services (AD DS, or on-premises AD DS)**: Azure storage accounts can be domain joined to a customer-owned Active Directory Domain Services, just like a Windows Server file server or NAS device. You can deploy a domain controller on-premises, in an Azure VM, or even as a VM in another cloud provider; Azure Files is agnostic to where your domain controller is hosted. Once a storage account is domain-joined, the end user can mount a file share with the user account they signed into their PC with. AD-based authentication uses the Kerberos authentication protocol.
