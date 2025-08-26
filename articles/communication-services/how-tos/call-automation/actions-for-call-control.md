@@ -841,10 +841,11 @@ call_connection_client.cancel_add_participant_operation(result.invitation_id, op
 
 With Azure Communication Services Call Automation SDK, you can move a participant from one ongoing call into another using the MoveParticipants API. This enables dynamic routing and flexible call orchestration—common in scenarios such as moving a translator into a doctor–patient call or transferring a customer from a lobby call into an active support call.
 
-Sample scenarios
-Doctor + Translator Room Routing – Move individually dialed translators into a main call.
+Sample scenarios:
 
-Lobby Call Transfer – Hold participants in a separate call until approved to join the main call.
+- Doctor + Translator Room Routing – Move individually dialed translators into a main call.
+
+- Lobby Call Transfer – Hold participants in a separate call until approved to join the main call.
 
 # [C#](#tab/csharp)
 
