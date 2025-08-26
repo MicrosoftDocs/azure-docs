@@ -1,0 +1,125 @@
+---
+title: Azure API Management policy reference - send-service-bus-message | Microsoft Docs
+description: Reference for the send-service-bus-message policy available for use in Azure API Management. Provides policy usage, settings, and examples.
+services: api-management
+author: dlepow
+
+ms.service: azure-api-management
+ms.topic: reference
+ms.date: 08/26/2025
+ms.author: danlep
+---
+
+# Send service bus message
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
+The `send-service-bus-message` policy sends a message to an Azure Service Bus queue or topic.
+
+> [!NOTE]
+> * This policy is currently in preview.
+> * For a step-by-step guide on configuring a service bus namespace and preparing to send messages, see [TBD](TBD).
+
+[!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
+
+## Policy statement
+
+```xml
+<send-service-bus-message queue-name="service bus queue" topic-name="service bus topic"
+      namespace="FQDN of service bus namespace" client-id="ID of user-assigned managed identity">
+           <payload>message content</payload>
+            <message-properties>
+                <message-property name="property1" value="value1" />
+            </message-properties>
+</send-service-bus-message>
+```
+
+## Attributes
+
+<!-- Assume we are not exposing connection string attribute -->
+<!-- Can you specify both queue and topic names, or only one? -->
+
+| Attribute     | Description                                                               | Required                                                             | Default |
+| ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- | ----|
+| `queue-name` | Specifies the name of the service bus queue to send the message to. Policy expressions and named values are allowed. Either `queue-name` or `topic-name` must be specified. | No | N/A |
+| `topic-name` | Specifies the name of the service bus topic to send the message to. Policy expressions and named values are allowed. Either `queue-name` or `topic-name` must be specified. | No | N/A |
+| `namespace` | Specifies the fully qualified domain name of the service bus namespace. Policy expressions and named values are allowed. | No | N/A |
+| `client-id` | Specifies the client ID of the user-assigned managed identity to authenticate with service bus. The identity must be assigned the Azure Service Bus Data Sender role. Policy expressions and named values are allowed. If not specified, the system-assigned identity is used. | No | N/A |
+
+
+## Elements
+
+| Element     | Description                                                               | Required                                                             | 
+| ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- | 
+| `payload` | Specifies the message payload to send to the service bus. Policy expressions and named values are allowed. | Yes |
+| `message-properties` | A collection of `message-property` subelements to set on the service bus message. Each `message-property` consists of a `name-value` pair. Policy expressions and named values are allowed. | No |
+
+
+## Usage
+
+<!-- Confirm all details. Examples appear to be in inbound? Supported in workspaces? -->
+
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound, outbound, on-error
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
+
+### Usage notes
+
+* Limitations on size, sampling, etc. Any baseline requirements for Service Bus (tier etc.) Assume async
+
+## Examples
+
+### Send a message to a service bus queue    
+
+In this example, a message is sent to a service bus queue. The API Management instance uses a user-assigned identity to access the service bus.
+
+```xml
+<policies>
+    <inbound>
+        <send-service-bus-message queue-name="orders" client-id="00001111-aaaa-2222-bbbb-3333cccc4444" namespace="my-service-bus.servicebus.windows.net">
+           <payload>@(context.Request.Body.As<string>(preserveContent: true))</payload>
+</send-service-bus-message>
+</inbound>
+</policies>
+```
+
+
+### Send a message to a service bus topic
+
+In this example, a message is sent to a service bus topic. The API Management instance uses a system-assigned identity to access the service bus. 
+
+```xml
+<policies>
+    <inbound>
+        <send-service-bus-message topic-name="orders" namespace="my-service-bus.servicebus.windows.net">
+           <payload>@(context.Request.Body.As<string>(preserveContent: true))</payload>
+        </send-service-bus-message>
+    </inbound>
+</policies>
+```
+
+
+### Send a message and set message properties
+
+In this example, a message is sent to a service bus topic and a message property is set. The API Management instance uses a system-assigned identity to access the service bus. 
+
+```xml
+<policies>
+    <inbound>
+        <send-service-bus-message topic-name="orders" namespace="my-service-bus.servicebus.windows.net">
+           <message-properties>
+              <message-property name="Customer">Contoso</message-property>
+           </message-properties>
+           <payload>@(context.Request.Body.As<string>(preserveContent: true))</payload>
+        </send-service-bus-message>
+    </inbound>
+</policies>
+```
+
+
+## Related policies
+
+* [Integration and external communication](api-management-policies.md#integration-and-external-communication)
+
+[!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

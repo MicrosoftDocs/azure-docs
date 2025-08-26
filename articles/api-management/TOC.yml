@@ -163,6 +163,8 @@
     href: api-management-howto-log-event-hubs.md
   - name: Log requests with Azure Application Insights
     href: api-management-howto-app-insights.md
+  - name: Send messages to Azure Service Bus
+    href: api-management-howto-send-service-bus.md
 - name: Define APIs
   items:
   - name: Add and import APIs
@@ -591,6 +593,8 @@
       href: rewrite-uri-policy.md
     - name: send-one-way-request
       href: send-one-way-request-policy.md
+    - name: send-service-bus-message
+      href: send-service-bus-message-policy.md
     - name: send-request
       href: send-request-policy.md
     - name: set-backend-service
