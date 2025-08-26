@@ -1,6 +1,6 @@
 ---
 title: Access management in Azure SRE Agent Preview
-description: Learn how Azure SRE Agent uses security contexts to handle agent creation and execution.
+description: Learn how use Azure SRE Agent to teach you how to learn the agent.
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: concept-article
