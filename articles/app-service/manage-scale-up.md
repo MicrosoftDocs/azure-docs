@@ -69,8 +69,8 @@ If your app depends on other services, such as Azure SQL Database or Azure Stora
 
 2. On the **Overview** page for the resource group, select a resource that you want to scale. The following screenshot
    shows a SQL Database resource.
-   
-    ![Screenshot that shows a SQL Database resource.](./media/web-sites-scale/ResourceGroup.png)
+
+    :::image type="content" source="./media/web-sites-scale/ResourceGroup.png" alt-text="Screenshot that shows a SQL Database resource.":::
 
     To scale up the related resource, see the documentation for the specific resource type. For example, for information about scaling up a single SQL database, see [Scale single database resources in Azure SQL Database](/azure/azure-sql/database/single-database-scale). For information about scaling up an Azure Database for MySQL resource, see [Scale Azure Database for MySQL resources](/azure/mysql/concepts-pricing-tiers#scale-resources).
 
