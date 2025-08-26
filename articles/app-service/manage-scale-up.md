@@ -49,11 +49,11 @@ For information about the pricing and features of individual App Service plans, 
 
 1. In the left pane of your App Service app page, under **App Service plan**, select **Scale up**.
 
-    :::image type="content" source="media/manage-scale-up/scale-up-tier-portal.png" alt-text="Screenshot showing how to scale up your app service plan.":::
+    :::image type="content" source="media/manage-scale-up/scale-up-tier-portal.png" alt-text="Screenshot showing how to scale up your app service plan." lightbox="media/manage-scale-up/scale-up-tier-portal.png":::
 
 1. Select one of the pricing tiers and then select **Select**.
 
-    :::image type="content" source="media/manage-scale-up/explore-pricing-plans.png" alt-text="Screenshot showing a plan selected on the Scale up page.":::
+    :::image type="content" source="media/manage-scale-up/explore-pricing-plans.png" alt-text="Screenshot showing a plan selected on the Scale up page." lightbox="media/manage-scale-up/explore-pricing-plans.png":::
 
     When the operation is complete, you see a notification that has a green success check mark.
 
@@ -65,14 +65,14 @@ If your app depends on other services, such as Azure SQL Database or Azure Stora
 
 1. On the **Overview** page for your app, select the link to the resource group.
  
-    :::image type="content" source="./media/web-sites-scale/RGEssentialsLink.png" alt-text="Screenshot that shows the first step for scaling up your app's related resources.":::
+    :::image type="content" source="./media/web-sites-scale/RGEssentialsLink.png" alt-text="Screenshot that shows the first step for scaling up your app's related resources." lightbox="./media/web-sites-scale/RGEssentialsLink.png":::
 
 2. On the **Overview** page for the resource group, select a resource that you want to scale. The following screenshot
    shows a SQL Database resource.
 
     :::image type="content" source="./media/web-sites-scale/ResourceGroup.png" alt-text="Screenshot that shows a SQL Database resource.":::
 
-    To scale up the related resource, see the documentation for the specific resource type. For example, for information about scaling up a single SQL database, see [Scale single database resources in Azure SQL Database](/azure/azure-sql/database/single-database-scale). For information about scaling up an Azure Database for MySQL resource, see [Scale Azure Database for MySQL resources](/azure/mysql/concepts-pricing-tiers#scale-resources).
+    To scale up the related resource, see the documentation for the specific resource type. For example, for information about scaling up a single SQL database, see [Scale single database resources in Azure SQL Database](/azure/azure-sql/database/single-database-scale). 
 
 <a name="OtherFeatures"></a>
 <a name="devfeatures"></a>
@@ -88,7 +88,7 @@ For a table of service limits, quotas, and constraints, and supported features i
 ## Related content
 
 * [Get started with autoscale in Azure](/azure/azure-monitor/autoscale/autoscale-get-started)
-* [Configure Premium V3 tier for App Service](app-service-configure-premium-tier.md)
+* [Configure Premium V3 tier for App Service](app-service-configure-premium-v3-tier)
 * [Tutorial: Run a load test to identify performance bottlenecks in a web app](../app-testing/load-testing/tutorial-identify-bottlenecks-azure-portal.md)
 <!-- LINKS -->
 [vmsizes]:https://azure.microsoft.com/pricing/details/app-service/
