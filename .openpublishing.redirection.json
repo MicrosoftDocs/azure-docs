@@ -7160,7 +7160,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/reliability/reliability-container.md",
+      "source_path": "articles/reliability/reliability-containers.md",
       "redirect_url": "/azure/reliability/reliability-container-instances",
       "redirect_document_id": true
     }
