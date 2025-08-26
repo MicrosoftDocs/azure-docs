@@ -181,12 +181,6 @@ items:
       href: set-up-standard-workflows-hybrid-deployment-requirements.md
     - name: Create Standard workflows for hybrid deployment
       href: create-standard-workflows-hybrid-deployment.md
-  - name: Azure Arc-enabled Logic Apps
-    items:
-    - name: About Azure Arc-enabled Logic Apps
-      href: azure-arc-enabled-logic-apps-overview.md
-    - name: Create and deploy Azure Arc-enabled logic apps
-      href: azure-arc-enabled-logic-apps-create-deploy-workflows.md
   - name: Migrate
     items:
     - name: Migration from Power Automate
