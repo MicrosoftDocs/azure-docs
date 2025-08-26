@@ -21,7 +21,7 @@ This article outlines key design considerations for Azure VMware Solution Genera
 
 The following functionality is limited during this time. These limitations will be lifted in the future:
 
-- You cannot delete your Resource Group, which contains your private cloud.
+- You cannot delete your **Resource Group**, which contains your private cloud.
 - You can only deploy **1 private cloud per Azure Virtual Network**.
 - You can only create **1 private cloud per Resource Group**. Multiple private clouds in a single Resource Group are not supported. 
 - Your private cloud and Virtual Network for your private cloud must be in the ***same*** Resource Group.
@@ -36,6 +36,8 @@ The following functionality is limited during this time. These limitations will 
 - **Network Security Groups** associated with the private cloud host virtual network must be created in the ***same*** resource group as the private cloud and its virtual network.
 - **Cross-resource group references** from customer virtual networks to the Azure VMware Solution virtual network are not supported by default. This includes resource types such as: User-defined routes (UDRs), DDoS Protection Plans and other linked networking resources. If a customer virtual network is associated with one of these references that resides in a different resource group than the Azure VMware Solution virtual network, network programming (such as NSX segment propagation) may fail. To avoid issues, customers must ensure that the Azure VMware Solution virtual network isn't linked to resources in a different resource group and detach such resources (for example, DDoS Protection Plans) from the virtual network before proceeding
     - To maintain your cross-resource group reference, create a role assignment from your cross-resource group and give the “AzS VIS Prod App” the "AVS on Fleet VIS Role". The role assignment allows you to use reference and have your reference correctly applied for your Azure VMware Solution private cloud.
+- Using **Custom DNS** on the virtual network where an Azure VMware Solution Gen 2 private cloud is deployed is unsupported, as it breaks lifecycle operations such as scaling, upgrades, and patching.
+- If you are deleting your private cloud and some Azure VMware Solution created resources are not removed, you can retry the deletion of the Azure VMware Solution private cloud using the Azure CLI.
         
 ## Unsupported integrations
 
