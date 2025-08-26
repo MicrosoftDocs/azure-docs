@@ -7,7 +7,7 @@ ms.workload: identity
 author: jenniferf-skc    
 manager: pmwongera
 ms.author: jfields
-ms.date: 07/25/2025
+ms.date: 08/26/2025
 ms.custom: generated
 ---
 
@@ -389,6 +389,10 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='azure-api-center-data-reader'></a>[Azure API Center Data Reader](./built-in-roles/integration.md#azure-api-center-data-reader) | Allows for access to Azure API Center data plane read operations. | c7244dfb-f447-457d-b2ba-3999044d1706 |
 > | <a name='azure-api-center-service-contributor'></a>[Azure API Center Service Contributor](./built-in-roles/integration.md#azure-api-center-service-contributor) | Allows managing Azure API Center service. | dd24193f-ef65-44e5-8a7e-6fa6e03f7713 |
 > | <a name='azure-api-center-service-reader'></a>[Azure API Center Service Reader](./built-in-roles/integration.md#azure-api-center-service-reader) | Allows read-only access to Azure API Center service. | 6cba8790-29c5-48e5-bab1-c7541b01cb04 |
+> | <a name='azure-batch-account-contributor'></a>[Azure Batch Account Contributor](./built-in-roles/compute.md#azure-batch-account-contributor) | Grants full access to manage all Batch resources, including Batch accounts, pools and jobs. | 29fe4964-1e60-436b-bd3a-77fd4c178b3c |
+> | <a name='azure-batch-account-reader'></a>[Azure Batch Account Reader](./built-in-roles/compute.md#azure-batch-account-reader) | Lets you view all resources including pools and jobs in the Batch account. | 11076f67-66f6-4be0-8f6b-f0609fd05cc9 |
+> | <a name='azure-batch-data-contributor'></a>[Azure Batch Data Contributor](./built-in-roles/compute.md#azure-batch-data-contributor) | Grants permissions to manage Batch pools and jobs but not to modify accounts. | 6aaa78f1-f7de-44ca-8722-c64a23943cae |
+> | <a name='azure-batch-job-submitter'></a>[Azure Batch Job Submitter](./built-in-roles/compute.md#azure-batch-job-submitter) | Lets you submit and manage jobs in the Batch account. | 48e5e92e-a480-4e71-aa9c-2778f4c13781 |
 > | <a name='azure-relay-listener'></a>[Azure Relay Listener](./built-in-roles/integration.md#azure-relay-listener) | Allows for listen access to Azure Relay resources. | 26e0b698-aa6d-4085-9386-aadae190014d |
 > | <a name='azure-relay-owner'></a>[Azure Relay Owner](./built-in-roles/integration.md#azure-relay-owner) | Allows for full access to Azure Relay resources. | 2787bf04-f1f5-4bfe-8383-c8a24483ee38 |
 > | <a name='azure-relay-sender'></a>[Azure Relay Sender](./built-in-roles/integration.md#azure-relay-sender) | Allows for send access to Azure Relay resources. | 26baccc8-eea7-41f1-98f4-1762cc7f685d |
