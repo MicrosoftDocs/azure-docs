@@ -41,7 +41,7 @@ The following functionality is limited during this time. These limitations will 
         
 ## Unsupported integrations
 
-The following 1st-party and 3rd-party integrations aren't be available:
+The following 1st-party and 3rd-party integrations aren't available:
 - **Zerto DR**
 - **JetStream DR**
 
