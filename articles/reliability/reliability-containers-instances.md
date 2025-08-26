@@ -1,8 +1,8 @@
 ---
 title: Reliability in Azure Container Instances
 description: Find out about reliability in Azure Container Instances
-author: anaharris-ms
-ms.author: tomvcassidy
+author: tomvcassidy
+ms.author: tomcassidy
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-container-instances
@@ -94,20 +94,10 @@ Zonal container group deployments are supported in [all regions with availabilit
 
 - Zonal deployments are available for Linux and Windows Server 2019 container groups.
 - To select an availability zone, you must use the Standard SKU. Zonal container groups aren't available with the Confidential SKU.
-<!-- John: This was in the migrate guide. -->
--  Make sure the region you're migrating to supports zonal container group deployments. To view a list of supported regions, see [Resource availability for Azure Container Instances in Azure regions](/azure/container-instances/container-instances-region-availability).
-
 
 ### Considerations
 
-- [Spot containers](/azure/container-instances/container-instances-spot-containers-overview) don't support availability zones, and are always nonzonal.
-
-<!-- John: This was in the migrate guide. -->
-- The following container groups don't support availability zones, and don't offer any  migration guidance:
-    - Container groups with GPU resources
-    - Virtual Network injected container groups
-    - Windows Server 2016 container groups
-    
+[Spot containers](/azure/container-instances/container-instances-spot-containers-overview) don't support availability zones, and are always nonzonal.
 
 ### Cost
 
@@ -119,13 +109,13 @@ There's no additional cost to configuring availability zones for a container gro
 
     - *Manually created container groups:* To create a zonal container group in a specific zone, you can use one of the following methods:
 
-       - [Portal](/azure/container-instances/container-instances-quickstart-portal).
-       - [Azure CLI](/azure/container-instances/container-instances-quickstart-cli).
-       - [ARM template](/azure/container-instances/container-instances-quickstart-arm).
-       - [Bicep](/azure/container-instances/container-instances-quickstart-bicep).
-       - [Terraform](/azure/container-instances/container-instances-quickstart-terraform).
-       - [PowerShell](/azure/container-instances/container-instances-quickstart-powershell).
-       - [Docker CLI](/azure/container-instances/container-instances-quickstart-docker-cli).
+       - [Portal](/azure/container-instances/container-instances-quickstart-portal)
+       - [Azure CLI](/azure/container-instances/container-instances-quickstart-cli)
+       - [ARM template](/azure/container-instances/container-instances-quickstart-arm)
+       - [Bicep](/azure/container-instances/container-instances-quickstart-bicep)
+       - [Terraform](/azure/container-instances/container-instances-quickstart-terraform)
+       - [PowerShell](/azure/container-instances/container-instances-quickstart-powershell)
+       - [Docker CLI](/azure/container-instances/container-instances-quickstart-docker-cli)
 
     - *NGroups:* You can deploy a zone-redundant NGroup by using an Azure Resource Manager template (ARM template), and specifying multiple zones. For more information, see [NGroups with zones sample](/azure/container-instances/container-instance-ngroups/container-instances-about-ngroups#ngroups-with-zones-sample).
     
@@ -144,12 +134,8 @@ There's no additional cost to configuring availability zones for a container gro
     - *Manually created container groups:* To change a container group's availability zone, you must delete the container group and create another container group with the new availability zone. To learn how to delete the container group, see:
     
        - [Azure CLI](/azure/container-instances/container-instances-quickstart#clean-up-resources)
-       - [PowerShell](/azure/container-instances/container-instances-quickstart#clean-up-resources), 
-       - [Portal](/azure/container-instances/container-instances-quickstart-portal#clean-up-resources).
-
-        >[!NOTE]
-        >Zonal support isn't supported in the Azure portal. Even if you delete your container group through the portal, you still need to create your new container group using CLI or PowerShell. 
-
+       - [PowerShell](/azure/container-instances/container-instances-quickstart#clean-up-resources)
+       - [Portal](/azure/container-instances/container-instances-quickstart-portal#clean-up-resources)
 
     - *NGroups:* You can add zones to an NGroup, but you can't remove zones.
 
