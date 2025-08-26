@@ -62,7 +62,7 @@ If you build any applications that interact with AI Search, they should handle t
 
 [!INCLUDE [Availability zone support description](includes/reliability-availability-zone-description-include.md)]
 
-Azure AI Search is zone redundant, which means that your replicas are distributed across multiple availability zones within the search service region.
+AI Search is zone redundant, which means that your replicas are distributed across multiple availability zones within the search service region.
 
 When you add two or more replicas to your service, AI Search attempts to place each replica in a different availability zone. For services that have more replicas than available zones, replicas are distributed across zones as evenly as possible.
 
@@ -77,16 +77,16 @@ Support for availability zones depends on infrastructure and storage. For a list
 
 Zone redundancy is automatically enabled when your search service meets all of the following criteria:
 
-- Is in a [region that has availability zones](/azure/search/search-region-support).
-- Is on the [Basic tier or higher](/azure/search/search-sku-tier).
-- Has [at least two replicas](/azure/search/search-capacity-planning#add-or-remove-partitions-and-replicas).
+- Is in a [region that has availability zones](/azure/search/search-region-support)
+- Is on the [Basic tier or higher](/azure/search/search-sku-tier)
+- Has [at least two replicas](/azure/search/search-capacity-planning#add-or-remove-partitions-and-replicas)
   
 > [!NOTE]
 > AI Search attempts to distribute replicas across multiple zones when you have two or more replicas. However, for read-write workloads, you should use three or more replicas so that you receive the highest possible availability SLA.
 
 ### Instance distribution across zones
 
-AI Search attempts to place replicas across different availability zones. However, there are occasionally situations where all of the replicas of a search service might be placed into the same availability zone. This situation can happen when replicas are removed from your service, such as when you *scale in* by configuring your service to use fewer replicas. The reason is that replica removal doesn't cause the remaining replicas to be rebalanced across the availability zones.
+AI Search attempts to place replicas across different availability zones. However, there are occasionally situations where all of the replicas of a search service might be placed into the same availability zone. This situation can happen when replicas are removed from your service, such as when you *scale in* by configuring your service to use fewer replicas. Replica removal doesn't trigger the remaining replicas to rebalance across the availability zones.
 
 To reduce the likelihood of all of your replicas being placed into a single availability zone, you can manually trigger a scale-out operation immediately after a scale-in operation. For example, suppose that your search service has 10 replicas and you want to scale in to 7 replicas. Instead of performing a single scale operation, you can temporarily scale to 6 instances and then immediately scale to 7 instances to trigger zone rebalancing.
 
@@ -106,7 +106,7 @@ To prepare for availability zone failure, consider *overprovisioning* the number
 
 This section describes what to expect when search services are configured for zone redundancy and all availability zones are operational.
 
-- **Traffic routing between zones:** AI Search performs automatic load balancing of all queries and writes across all of the available replicas. Read operations can be sent to any replica in any availability zone. Write operations are sent to a single primary replica that the AI Search service selects.
+- **Traffic routing between zones:** AI Search performs automatic load balancing of all queries and writes across all of the available replicas. AI Search can send read operations to any replica in any availability zone. It sends write operations to a single primary replica that the AI Search service selects.
 
 - **Data replication between zones:** Changes in data are automatically replicated between replicas across availability zones. Replication occurs asynchronously, which means that writes are committed to one primary replica before they're replicated to other replicas.
 
@@ -148,7 +148,7 @@ AI Search is a single-region service. If the region becomes unavailable, your se
 
 ### Alternative multi-region approaches
 
-You can optionally deploy multiple AI Search services in different regions. You're responsible for deploying and configuring separate services in each region. If you create an identical deployment in a secondary Azure region using a multi-region architecture, your application becomes less susceptible to a single-region disaster.
+You can optionally deploy multiple AI Search services in different regions. You're responsible for deploying and configuring separate services in each region. If you create an identical deployment in a secondary Azure region that uses a multi-region architecture, your application becomes less susceptible to a single-region disaster.
 
 When you follow this approach, you must synchronize indexes across regions to recover the last application state. You must also configure load balancing and failover policies. For more information, see [Multi-region deployments in AI Search](/azure/search/search-multi-region).
 
