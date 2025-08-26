@@ -48,6 +48,8 @@ For comprehensive details on support levels and recommended usage at each stage,
 | [HBase](connector-hbase.md)                              | /              | Removed                    | December 31, 2024     | December 31, 2024     |
 | [Hive](connector-hive.md)                          | version 2.0    | GA                                | /                   | /                   |
 |                                    | version 1.0    | End of support announced          | September 30, 2025         | October 31, 2025    |
+| [HubSpot](connector-hubspot.md)                          | version 2.0    | Public Preview                             | /                   | /                   |
+|                                    | version 1.0    | End of support announced          | October 22, 2025         | November 22, 2025      |
 | [Impala](connector-impala.md)                          | version 2.0    | GA                                | /                   | /                   |
 |                                    | version 1.0    | End of support announced          | September 30, 2025         | October 31, 2025    |
 | [Magento (Preview)](connector-magento.md)                  | /              | Removed                    | December 31, 2024     | December 31, 2024     |
