@@ -134,7 +134,7 @@ items:
     - name: Route architecture for Gen 2
       href: native-network-routing-architecture.md
     - name: Automatic peering sync for Gen 2 (Preview)
-      href: native-network-automatic-peering-sync.md
+      href: native-auto-peering-sync.md
       
 - name: Cost optimization
   items:
