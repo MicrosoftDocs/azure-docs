@@ -466,8 +466,10 @@ items:
         href: immutable-policy-configure-container-scope.md
       - name: Configure version-level policies
         href: immutable-policy-configure-version-scope.md
-  - name: Availability and disaster recovery
+  - name: Reliability
     items:
+    - name: Reliability in Azure Blob Storage
+      href: ../../reliability/reliability-storage-blob.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Design highly available applications
       href: ../common/geo-redundant-design.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: 'Tutorial: Design applications for high availability'
