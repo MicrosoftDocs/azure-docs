@@ -56,7 +56,7 @@ There are two options to enable the service principal for Azure VMware Solution.
     az ad sp update --id "1a5e141d-70dd-4594-8442-9fc46fa48686" --set accountEnabled=true
     ```
     
-## Validate and Enable Required Applications  
+## Validate and enable required applications  
 
 Azure VMware Solution Gen 2 relies on **two first-party applications** in Microsoft Entra ID:  
 
