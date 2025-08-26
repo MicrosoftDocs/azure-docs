@@ -110,11 +110,11 @@ There's no additional cost to configuring availability zones for a container gro
     - *Manually created container groups:* To create a zonal container group in a specific zone, you can use one of the following methods:
 
        - [Portal](/azure/container-instances/container-instances-quickstart-portal)
-       - [Azure CLI](/azure/container-instances/container-instances-quickstart-cli)
-       - [ARM template](/azure/container-instances/container-instances-quickstart-arm)
-       - [Bicep](/azure/container-instances/container-instances-quickstart-bicep)
-       - [Terraform](/azure/container-instances/container-instances-quickstart-terraform)
+       - [Azure CLI](/azure/container-instances/container-instances-quickstart)
        - [PowerShell](/azure/container-instances/container-instances-quickstart-powershell)
+       - [Bicep](/azure/container-instances/container-instances-quickstart-bicep)
+       - [ARM template](/azure/container-instances/container-instances-quickstart-template)
+       - [Terraform](/azure/container-instances/container-instances-quickstart-terraform)
        - [Docker CLI](/azure/container-instances/container-instances-quickstart-docker-cli)
 
     - *NGroups:* You can deploy a zone-redundant NGroup by using an Azure Resource Manager template (ARM template), and specifying multiple zones. For more information, see [NGroups with zones sample](/azure/container-instances/container-instance-ngroups/container-instances-about-ngroups#ngroups-with-zones-sample).
@@ -133,9 +133,13 @@ There's no additional cost to configuring availability zones for a container gro
 
     - *Manually created container groups:* To change a container group's availability zone, you must delete the container group and create another container group with the new availability zone. To learn how to delete the container group, see:
     
+       - [Portal](/azure/container-instances/container-instances-quickstart-portal#clean-up-resources)
        - [Azure CLI](/azure/container-instances/container-instances-quickstart#clean-up-resources)
        - [PowerShell](/azure/container-instances/container-instances-quickstart#clean-up-resources)
-       - [Portal](/azure/container-instances/container-instances-quickstart-portal#clean-up-resources)
+       - [Bicep](/azure/container-instances/container-instances-quickstart-bicep#clean-up-resources)
+       - [ARM template](/azure/container-instances/container-instances-quickstart-template#clean-up-resources)
+       - [Terraform](/azure/container-instances/container-instances-quickstart-terraform#clean-up-resources)
+       - [Docker CLI](/azure/container-instances/container-instances-quickstart-docker-cli#clean-up-resources)
 
     - *NGroups:* You can add zones to an NGroup, but you can't remove zones.
 
