@@ -47,6 +47,8 @@ The following table describes the benefits that you get when you set up Standard
 | Security | When you expose your logic app as an MCP server, you set up a strong security posture so you can meet your enterprise security requirements. By default, MCP endpoints use [OAuth 2.0](/entra/identity-platform/v2-oauth2-auth-code-flow) for authentication and authorization. For more information, see [What is OAuth](https://www.microsoft.com/security/business/security-101/what-is-oauth)? <br><br>You can also use Microsoft Entra ID with *Easy Auth* to secure your MCP server and Standard workflows. Easy Auth is the current name for the native authentication and authorization features in Azure App Service, Azure Functions, and Azure Container Apps. For more information, see [Authentication and authorization in Azure App Service and Azure Functions](../app-service/overview-authentication-authorization.md). |
 | Monitoring, governance, and compliance | Azure Logic Apps provides workflow run history and integration with Application Insights or Log Analytics so you get the data necessary to manage and monitor your MCP server tools and support diagnostics, troubleshooting, reporting, traceability, and auditing. |
 
+Standard logic app based MCP servers support the [Streamable HTTP and Server-Sent Events (SSE) transports for MCP](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports).
+
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -85,6 +87,12 @@ The following table describes the benefits that you get when you set up Standard
   - [Use extensions in Visual Studio Code](https://code.visualstudio.com/docs/getstarted/extensions)
   - [Set up Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/setup#_set-up-copilot-in-vs-code)
   - [Get started with GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/getting-started)
+
+- No additional requirements exist to use the Streamable HTTP transport. However, to use the Server-Sent Events (SSE) transport, your logic app must meet the following requirements:
+
+  - Your logic app requires virtual network integration. See [Secure traffic between Standard logic apps and Azure virtual networks using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
+
+  - In your logic app resource, the **host.json** file requires that you add and set the `Runtime.Backend.EdgeWorkflowRuntimeTriggerListener.AllowCrossWorkerCommunication` setting to `true`.
 
 ## Considerations for workflows as tools
 
@@ -253,7 +261,7 @@ Now set up EasyAuth authentication on the Standard logic app that you want to us
    | **Identity requirement** | Yes | To restrict which users can call your MCP server, select **Allow requests from specific identities**, and then from Microsoft Entra ID, from the **Allowed identities** list, select the object IDs for those identities that you allow to call your MCP server. Otherwise, select **Allow requests from any identity**. |
    | **Tenant requirement** | Yes | To deny calls from outside tenants to your MCP server, select **Allow requests from the issuer tenant**. |
 
-1. In the **App Service authentication settings** section, select **Allow unauthenticated access**.
+1. In the **App Service authentication settings** section, for **Restrict access**, select **Allow unauthenticated access**.
 
 1. To finish, select **Add**.
 
@@ -279,11 +287,25 @@ For this task, you need to edit the **host.json** file for your Standard logic a
 
      This setting helps you avoid having to change the other information in this file.
 
-   - To override the default values for the properties in `ProtectedResourceMetadata`, replace the placeholder values with the following values that you saved earlier.
+   - To override the default values for the properties in `ProtectedResourceMetadata`, replace the placeholder values with the following values that you saved earlier:
 
      - Directory (tenant) ID
      - Logic app name
      - Application ID URI
+
+     If you override the default values in `McpServerEndpoints` or `ProtectedResourceMetadata`, make sure to follow these rules:
+
+     - To completely remove the authentication type, you must change the type to `"anonymous"`.
+
+     - For `Resource`, the value must be the same as the MCP server URL.
+
+     - `BearerMethodsSupported` and `ScopesSupported` support only the specified values.
+
+     - For `ScopesSupported`, the allowed token audience is `"api://<client-ID>/"`. Include the trailing slash unless you know this character doesn't exist in the token's audience claim.
+
+     - `AuthorizationServers` specifies the recommended value for your tenant.
+
+     - You can override the `ProtectedResourceMetadata` values returned with the [HTTP WWW-Authenticate response header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/WWW-Authenticate), but only if the overriding values follow the standards in [3.3 Protected Resource Metadata Validation - OAuth 2.0 Protected Resource Metadata](https://datatracker.ietf.org/doc/html/rfc9728#PRConfigurationValidation).
 
    The following example shows where the `extensions` JSON object appears:
 
@@ -295,14 +317,18 @@ For this task, you need to edit the **host.json** file for your Standard logic a
    "extensions": {
        "workflow": {
            "Settings": {
-               <settings>
+               "Runtime.McpServerToMcpClientPingIntervalInSeconds": 25, // Ping interval default value, which you can change if necessary.
+               "Runtime.Backend.EdgeWorkflowRuntimeTriggerListener.AllowCrossWorkerCommunication": true // Required only for SSE transport.
            },
            "McpServerEndpoints": {
                "enable": true,
-               // This section applies only if you want to override the default values.
+               "authentication": {
+                   "type": "oauth2" // Default authentication type, which you can change if necessary.
+               },
+               // The following section applies only if you want to override the default values.
                "ProtectedResourceMetadata": {
                    "BearerMethodsSupported": ["header"],
-                   "ScopesSupported": ["api://<application-ID-URI>/api/mcp"],
+                   "ScopesSupported": ["api://<application-ID-URI>/user_impersionation"],
                    "Resource": "https://<logic-app-name>.azurewebsites.net/api/mcp",
                    "AuthorizationServers": ["https://login.microsoftonline.com/<tenant-ID>/v2.0"]
                }
@@ -373,6 +399,11 @@ For this task, you need to edit the **host.json** file for your Standard logic a
    1. In the tools list, select or clear tools as appropriate, but make sure that your new MCP server is selected.
 
 Now you can interact with your MCP server through the Copilot chat interface.
+
+## Troubleshoot problems
+
+
+
 
 ## Related content
 
