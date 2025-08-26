@@ -61,7 +61,7 @@ Both architectures provide equivalent capabilities:
 - **Static IP addresses**: Consistent external endpoint addresses for client connections
 - **Cross-zone load balancing**: Hash-based traffic distribution across availability zones (distribution depends on client connection patterns and session persistence settings)
 - **Client IP preservation**: Original client IP addresses maintained for analytics and anti-cheat systems
-- **Low latency**: Can achieve sub-50ms response times for well‑tuned deployments and nearby clients; actual latency depends on topology, VM size, and region
+- **Low latency**: Optimized for low-latency scenarios with minimal processing overhead; actual latency depends on network topology, VM performance, datacenter design, and geographic proximity
 - **High throughput**: Can support millions of concurrent connections and requests per second for Standard Load Balancer with appropriate VM sizes and configuration; actual capacity depends on SKU, VM network limits, and tuning
 - **Advanced health monitoring**: Comprehensive health checks monitoring both TCP and UDP service endpoints
 - **Network security controls**: Security groups/rules controlling traffic flow between network tiers
@@ -150,7 +150,7 @@ The preceding Proxy Protocol support illustrates an example of a critical mismat
 Evaluate these differences during your assessment phase and determine if your workload can accommodate these changes or if compensating architecture modifications are needed.
 
 > [!NOTE]
-> Measuring performance and reliability is crucial to ensure that the migrated workload meets the same ultra-low latency standards as the original AWS NLB setup. This includes monitoring response times, connection establishment latency, jitter, and packet loss rates to ensure that the Azure Load Balancer performs optimally for real-time scenarios.
+> Measuring performance and reliability is crucial to ensure that the migrated workload meets your application's latency requirements. This includes monitoring response times, connection establishment latency, jitter, and packet loss rates to validate that the Azure Load Balancer configuration performs optimally for your real-time scenarios. Since Azure Load Balancer has no performance SLA, thorough testing is essential.
 >
 > To ensure your migrated workload meets the performance and reliability criteria expected, establish baseline metrics from the AWS NLB before migration. This will allow you to compare the performance of the Azure Load Balancer after migration and ensure that it meets or exceeds the established benchmarks. Include all relevant metrics such as latency percentiles, concurrent connections, and packet loss rates in your baseline measurements.
 
@@ -393,7 +393,7 @@ Migrating a workload that uses AWS Network Load Balancer to Azure requires caref
 
 **Monitor and optimize post-migration**: Use the iterative improvement process to fine-tune performance, routing accuracy, and high availability. Azure Load Balancer provides extensive monitoring capabilities to optimize your configuration over time with real traffic patterns.
 
-**Platform-specific considerations**: Focus on ultra-low latency optimization, multi-protocol traffic handling, client IP preservation for security systems, and zone redundancy for high availability. Azure Load Balancer provides the enterprise-grade reliability and performance required for mission-critical platforms.
+**Platform-specific considerations**: Focus on latency-sensitive optimization, multi-protocol traffic handling, client IP preservation for security systems, and zone redundancy for high availability. Azure Load Balancer provides the enterprise-grade reliability and performance required for mission-critical platforms, though actual latency performance depends on datacenter design and network topology.
 
 ## Next steps
 
