@@ -1,20 +1,20 @@
 ---
-title: Troubleshoot Common Problems in Azure SRE Agent Preview
-description: Learn how to troubleshoot common problems in Azure SRE Agent.
+title: Azure SRE Agent Preview frequently asked questions
+description: Frequently asked questions in Azure SRE Agent.
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: concept-article
-ms.date: 07/31/2025
+ms.date: 08/26/2025
 ms.service: azure-sre-agent
 ---
 
-# Troubleshoot common problems in Azure SRE Agent Preview
+# Azure SRE Agent Preview frequently asked questions
 
 This article covers common problems that you might face when you're working with Azure SRE Agent Preview, along with practical solutions to resolve them. The problems are typically related to permissions, regional availability, and administrative access requirements.
 
 ## Common troubleshooting scenarios
 
-The following table outlines common problems and their solutions. For more information about how roles and permissions are applied to an agent, see [Security contexts in Azure SRE Agent](./security-context.md).
+The following table outlines common problems and their solutions. For more information about how roles and permissions are applied to an agent, see [Security contexts in Azure SRE Agent](./access-management.md).
 
 | Scenario | Reason | Remarks |
 |---|---|---|
@@ -83,4 +83,4 @@ To grant access to the proper domain, add `*.azuresre.ai` to the allow list in y
 
 ## Related content
 
-* [Security contexts in Azure SRE Agent](./security-context.md)
+* [Security contexts in Azure SRE Agent](./access-management.md)

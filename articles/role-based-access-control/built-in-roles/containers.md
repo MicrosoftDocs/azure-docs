@@ -3429,6 +3429,53 @@ Read access to ContainerApps sessionpools.
 }
 ```
 
+## Container Instances Contributor
+
+Full management of Container Instance Container Groups, including creation, deletion, updates, start/stop, and debugging operations.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerInstance](../permissions/containers.md#microsoftcontainerinstance)/containerGroups/* | Create and manage a container groups. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+    "id": "/providers/Microsoft.Authorization/roleDefinitions/5d977122-f97e-4b4d-a52f-6b43003ddb4d",
+    "properties": {
+        "roleName": "Azure Container Instances Contributor Role",
+        "description": "Grants read/write access to container groups provided by Azure Container Instances",
+        "assignableScopes": [
+            "/"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.ContainerInstance/containerGroups/*",
+                    "Microsoft.Resources/deployments/*",
+                    "Microsoft.Authorization/*/read",
+                    "Microsoft.Insights/alertRules/*",
+                    "Microsoft.Resources/subscriptions/resourceGroups/read"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
+}
+```
+
+
 ## Container Registry Cache Rule Administrator
 
 Create, Read, Update, and Delete Cache Rules in Container Registry. This role doesn't grant permissions to manage Credential Sets.

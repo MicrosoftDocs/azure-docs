@@ -51,7 +51,7 @@ Use the following steps to start working with Azure SRE Agent.
 
 # [Explore](#tab/explore)
 
-1. Create [a new agent](usage.md) in your subscription with [Reader](security-context.md) permissions.
+1. Create [a new agent](usage.md) in your subscription with [Reader](access-management.md) permissions.
 
 1. Point the agent to the resource groups that you want to manage.
 

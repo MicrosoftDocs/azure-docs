@@ -119,7 +119,7 @@ Only the users with **Admin agent** and [billing admin](/partner-center/account-
 
 ## Enable Cost Management for customer tenant subscriptions
 
-Partners can enable access to Cost Management after customers are onboarded to a Microsoft Customer Agreement. Then partners can then enable a policy allowing customers to view their costs for Azure consumed services computed at pay-as-you-go retail rates, as well as purchases associated to the subscription of the customer. Costs are shown in the customer's billing currency for their consumed usage at Azure RBAC subscription and resource groups scopes.
+Partners can enable access to Cost Management after customers are onboarded to a Microsoft Customer Agreement. Partners can then enable a policy allowing customers to view their costs for Azure consumed services computed at pay-as-you-go retail rates, as well as purchases associated to the subscription of the customer. Costs are shown in the customer's billing currency for their consumed usage at Azure RBAC subscription and resource groups scopes.
 
 When the partner enables the policy for cost visibility, any user with Azure Resource Manager access to the subscription can manage and analyze costs at pay-as-you-go rates. Effectively, resellers and customers that have the appropriate Azure RBAC access to the Azure subscriptions can view cost.
 
@@ -156,7 +156,7 @@ Cost analysis, budgets, and alerts are available for the subscription and resour
 
 Amortized views and actual costs for reserved instances in the Azure RBAC scopes show zero charges. Purchase costs for entitlements such as Reserved instances, Saving Plan purchases, and Marketplace fees are displayed as well.
 
-The retail rates used to compute costs shown in the view are the same prices shown in the Azure Pricing Calculator for all customers. Costs shown don't include any discounts or credits that the partner may have like Partner Earned Credits, Tier Discounts, and Global Service discounts.
+The retail rates used to compute costs shown in the view are the same prices shown in the Azure Pricing Calculator for all customers. Costs shown don't include any discounts or credits that the partner may have.
 
 ## Analyze costs in cost analysis
 
@@ -236,9 +236,9 @@ The following data fields are found in usage detail files and Cost Management AP
 | serviceInfo2 | Legacy field that captures optional service-specific metadata. | Service information. For example, an image type for a virtual machine and ISP name for ExpressRoute.|
 | additionalInfo | Service-specific metadata. For example, an image type for a virtual machine. | Any additional information not covered in other columns. The service-specific metadata. For example, an image type for a virtual machine.|
 | tags | Tag that you assign to the meter. Use tags to group billing records. For example, you can use tags to distribute costs by the department that uses the meter. | Tags added by the customer.|
-| **partnerEarnedCreditRate** | Rate of discount applied if there's a partner earned credit (PEC) based on partner admin link access. | The rate of partner earned credit (PEC). For example, 0% or 15%. |
+| **partnerEarnedCreditRate** | Rate of credit applied if there's a partner earned credit (PEC) based on partner admin link access. | The rate of partner earned credit (PEC). |
 | **partnerEarnedCreditApplied** | Indicates whether the partner earned credit was applied. | N/A |
-| unitPrice | The price for a given product or service inclusive of any negotiated discount that you might have on top of the market price (PayG price column) for your contract. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details). | N/A |
+| unitPrice | The price for a given product or service inclusive of any discounts that you might have on top of the market price (PayG price column) for your contract. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details). | N/A |
 
 ## View Partner Earned Credit (PEC) resource costs
 

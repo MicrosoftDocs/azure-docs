@@ -268,6 +268,8 @@
   items:
   - name: Move a resource between Azure regions
     href: howto-move-resource-between-regions.md
+  - name: Move a resource between subscriptions or resource groups
+    href: howto-move-resource-between-subscriptions-resource-groups.md
   - name: Preview API life cycle
     href: concept-preview-api-life-cycle.md
 - name: Security

@@ -17,12 +17,12 @@ items:
 - name: Key concepts
   expanded: true
   items:
-    - name: Security context
-      href: security-context.md
+    - name: Access management
+      href: access-management.md
     - name: Incident management
       href: incident-management.md
-    - name: Troubleshooting
-      href: troubleshoot.md
+    - name: FAQ
+      href: faq.md
     - name: Billing
       href: billing.md
 - name: Reference

@@ -61,6 +61,7 @@ The following features are currently available in the Azure Communication Servic
 |                       | Terminate a call (remove all participants and end call)| ✔️ | ✔️  |     ✔️         |    ✔️   |
 |                       | Cancel media operations                           | ✔️    |  ✔️   |     ✔️         |    ✔️   |
 |                       | Share [custom info](../../how-tos/call-automation/custom-context.md) (via VOIP or SIP headers) with endpoints when adding them to a call or transferring a call to them| ✔️    |  ✔️   |     ✔️         |    ✔️   |
+|                       | Move a participant to another call                | ✔️    | ✔️    |     ✔️         |    ✔️   |
 | Query scenarios       | Get the call state                                | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Get a participant in a call                       | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | List all participants in a call                   | ✔️    | ✔️    |     ✔️         |    ✔️   |
@@ -122,6 +123,7 @@ Your application can perform these actions on calls that are answered or placed 
 
 **Start/Stop real-time transcription (public preview)** - Real-time transcription allows you to access live transcriptions for the audio of an ongoing call.  For more detailed guidance on how to get started with real-time transcription and information about real-time transcription callback events, see our [concept](real-time-transcription.md) and our [quickstart](../../how-tos/call-automation/real-time-transcription-tutorial.md).
 
+**Move a participant to another call** – When your application needs to move a participant from one ongoing call into another using the `MoveParticipants` API. This enables dynamic routing and flexible call orchestration, such as moving a translator into a doctor–patient call or transferring a customer from a lobby call into an active support call. To learn more, see [How to control and steer calls](../../how-tos/call-automation/actions-for-call-control.md).
 
 ### Query scenarios
 
