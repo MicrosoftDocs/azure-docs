@@ -40,7 +40,7 @@ In Azure, a *resource* is a manageable item that you create and configure within
 - **Storage Sync Services**, offered by the `Microsoft.StorageSync` resource provider. Storage Sync Services act as management containers that enable you to register Windows File Servers and define the sync relationships for Azure File Sync.
 
 ### Azure file share management concepts
-Classic file shares, or file shares deployed in storage accounts, are the traditional way to deploy file shares for Azure Files. They support all of the key features that Azure Files supports including SMB and NFS, SSD and HDD media tiers, every redundancy type, and in every region. To learn more about classic file shares, see [classic file shares](../files/storage-files-planning.md#classic-file-shares).
+Classic file shares, or file shares deployed in storage accounts, are the traditional way to deploy file shares for Azure Files. They support all of the key features that Azure Files supports including SMB and NFS, SSD and HDD media tiers, every redundancy type, and in every region. To learn more about classic file shares, see [classic file shares](../files/storage-files-planning.md#classic-file-shares-microsoftstorage).
 
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
 
