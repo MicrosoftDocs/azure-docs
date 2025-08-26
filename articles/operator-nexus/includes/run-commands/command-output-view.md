@@ -10,7 +10,7 @@ ms.service: azure-operator-nexus
 
 [!INCLUDE [command-output-access](./command-output-access.md)]
 
-Once you are sure that you have the necessary permissions and access, you can use the link from the output summary to download the zipped output file (tar.gz).
+Once you are sure that you have the necessary permissions and access, you can use the link or command from the output summary to download the zipped output file (tar.gz).
 
 You may also download it via the Azure portal:
 

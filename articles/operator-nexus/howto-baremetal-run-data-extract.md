@@ -669,12 +669,6 @@ TriggeredBy: ● atop-rotate.timer
 
 ```
 
-## Viewing the output
+[!INCLUDE [command-output-view](./includes/run-commands/command-output-view.md)]
 
-The command provides a link (if using cluster manager storage) or another command (if using user provided storage) to download the full output. The tar.gz file also contains the zipped extract command file outputs. Download the output file from the storage blob to a local directory by specifying the directory path in the optional argument `--output-directory`.
-
-> [!WARNING]
-> Using the `--output-directory` argument overwrites any files in the local directory that have the same name as the new files being created.
-
-> [!NOTE]
-> Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer to the [cluster manager storage](#deprecated-method-verify-access-to-the-cluster-manager-storage-account) or the [user managed storage](#send-command-output-to-a-user-specified-storage-account) sections for procedures to verify access.
+The downloaded tar.gz file contains the full output and the zipped extract command file outputs.
