@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 ms.custom: references_regions
 ---
 
-# European Union Data Boundary (EUDB) support in Azure Communicaton Services
+# European Union Data Boundary (EUDB) support in Azure Communication Services
 Azure Communication Services meets the European Union Data Boundary (EUDB) requirements, as detailed [here](https://blogs.microsoft.com/eupolicy/2022/12/15/eu-data-boundary-cloud-rollout/). EUDB ensures customer and personal data for Azure Communication Services is stored and processed only within EU and EFTA regions. This helps organizations comply with GDPR, supports digital sovereignty, and reduces the risk of non-EU access to sensitive data.
 
 ## Understanding more about the needs of this compliance requirement.
@@ -30,7 +30,7 @@ To establish how Azure Communication Services calling data aligns with EUDB comp
 - **Real Time Text (RTT)**: is an accessibility compliance requirement for voice and video platforms in the EU. For more information, see: [Directive 2019/882](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019L0882).
 - **Resource**: refers to a provisioned communication identity or endpoint. See [here](../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp#manage-your-communication-services-resource) for more details
 
-For Azure Communication Services calling resources that were defined to be located within a European data boundary country\regiion and when either the organizer, initiator, or a guest join a call from a location inside the European boundary, all personal data (PII) is processed and stored in facilities within EU boundary countries/regions. 
+For Azure Communication Services calling resources that were defined to be located within a European data boundary country\regiion and when either the organizer, initiator, or a guest joins a call from a location inside the European boundary, all personal data (PII) is processed and stored in facilities within EU boundary countries/regions. 
 
 ## SMS
 
