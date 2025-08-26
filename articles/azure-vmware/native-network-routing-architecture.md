@@ -24,10 +24,9 @@ When NSX segments are created, two operations take place:
 
 Azure VMware Solution Gen 2 imposes the following limits in terms of route scale:  
 
-- **Maximum of 1000 prefixes** on the virtual network address space.  
-  This includes all prefixes, such as:  
+- **Maximum of 1000 prefixes** on the virtual network address space, which ncludes all prefixes, such as 
   - NSX Segment prefixes (`/29` to `/16`)  
-  - NSX Service routes (e.g., DNS, VPN GW, DNAT) `/32`  
+  - NSX Service routes (for example, DNS, VPN GW, DNAT) `/32`  
   - HCX MON routes `/32`  
 
 - **1024 prefix limitation per T0 NIC** for NSX segment prefixes only.  
@@ -56,7 +55,7 @@ Given the above-mentioned limitations:
 - When **HCX migration with Mobility Optimized Networking (MON)** is configured:  
   - Route summarization prefers summarized NSX segment routes while removing specific host routes.  
   - Up to 30 seconds of route convergence may occur during failover.  
-- If MON is not disabled for extended network segments, `/32` routes will continue to consume route limits and reduce private cloud scale.  
+- If MON is not disabled for extended network segments, `/32` routes continue to consume route limits and reduce private cloud scale.  
 
 ### HCX MON compatibility  
 
@@ -75,7 +74,7 @@ Given the above-mentioned limitations:
 
 - Customers cannot have 1000 x `/24s` (1000 × 16 = 16,000 prefixes).  
 - Customers can have 1000 x `/28s`.  
-- Customers can have 1 x `/16` (in a 4-node or larger private cloud).  
+- Customers can have 1 x `/16` (in a 4 node or larger private cloud).  
 - Customers cannot have 256 x `/23s` (256 × 32 = 8192 prefixes).  
 
 ---
@@ -85,8 +84,8 @@ Given the above-mentioned limitations:
 To avoid hitting the 1000 route limit:  
 
 - Plan segment routes carefully to stay within cluster prefix limits:  
-  - `4096 x /28s` for a 3-node private cloud  
-  - `6144 x /28s` for a 4-node private cloud  
+  - `4096 x /28s` for a 3 node private cloud  
+  - `6144 x /28s` for a 4 node private cloud  
 - Keep combined prefix and host routes under 1000.  
 - Summarize routes where possible (for example, advertise `/24s` instead of `/32s`).  
 - Use fewer, larger prefixes.  
