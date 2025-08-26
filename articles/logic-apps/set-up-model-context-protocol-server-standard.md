@@ -66,7 +66,7 @@ Standard logic app based MCP servers support the [Streamable HTTP and Server-Sen
   - [Considerations for workflows as tools](#considerations-for-workflows-as-tools)
   - [Create an example Standard logic app workflow using the Azure portal](create-single-tenant-workflows-azure-portal.md)
 
-- An [app registration](/entra/identity-platform/app-objects-and-service-principals?tabs=browser#application-registration) to use in the EasyAuth setup for your logic app.
+- An [app registration](/entra/identity-platform/app-objects-and-service-principals?tabs=browser#application-registration) to use in the Easy Auth setup for your logic app.
 
   This app registration is an identity that your logic app resource uses to delegate identity and access management functions to Microsoft Entra ID.
 
@@ -180,7 +180,7 @@ To help agents or models find and run tools, add the following metadata to the *
 
 ## Create an app registration
 
-To create an app registration for your logic app to use in your EasyAuth setup, follow these steps:
+To create an app registration for your logic app to use in your Easy Auth setup, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com) search box, enter **app registrations**.
 
@@ -233,9 +233,9 @@ When you finish these steps, you have the following values to use later with you
 
 - Application ID URI
 
-## Set up EasyAuth for your MCP server
+## Set up Easy Auth for your MCP server
 
-Now set up EasyAuth authentication on the Standard logic app that you want to use as your MCP server.
+Now set up Easy Auth authentication on the Standard logic app that you want to use as your MCP server.
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -262,6 +262,10 @@ Now set up EasyAuth authentication on the Standard logic app that you want to us
    | **Tenant requirement** | Yes | To deny calls from outside tenants to your MCP server, select **Allow requests from the issuer tenant**. |
 
 1. In the **App Service authentication settings** section, for **Restrict access**, select **Allow unauthenticated access**.
+
+   > [!IMPORTANT]
+   >
+   > Make sure that **App Service authentication** (Easy Auth) allows unauthenticated access or requests.
 
 1. To finish, select **Add**.
 
