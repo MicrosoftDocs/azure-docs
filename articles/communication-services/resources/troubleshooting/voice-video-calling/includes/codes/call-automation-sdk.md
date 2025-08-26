@@ -261,9 +261,9 @@ These diagnostics surface protocol-level insights from the **telecom signaling l
 ---
 
 ### Availability
+**Note:** The presence of `SipDetails` and `Q850Details` is **entirely dependent** on whether the involved SBC or telecom carrier provides this information.  
 
-> **Note:** The presence of `SipDetails` and `Q850Details` is **entirely dependent** on whether the involved SBC or telecom carrier provides this information.  
-> If the SBC (Session Border Control)/carrier returns relevant diagnostics after a corresponding call automation signaling request, the resulting event will include `SipDiagnosticInfo` within `ResultInformation`.
+If the SBC (Session Border Control)/carrier returns relevant diagnostics after a corresponding call automation signaling request, the resulting event will include `SipDiagnosticInfo` within `ResultInformation`.
 
 ---
 
@@ -279,7 +279,7 @@ The following events may include `SipDiagnosticInfo` in their `ResultInformation
 - `TransferFailed`
 - `CanAddParticipantFailed`
 
-> In practice, **any callback event containing `ResultInformation`** can carry these diagnostics when provided by the SBC/carrier.
+In practice, **any callback event containing `ResultInformation`** can carry these diagnostics when provided by the SBC/carrier.
 
 ---
 
