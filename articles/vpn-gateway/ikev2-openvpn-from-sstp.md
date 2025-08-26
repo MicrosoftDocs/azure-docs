@@ -71,11 +71,11 @@ Adding IKEv2 to an existing SSTP VPN gateway won't affect existing clients and y
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $vng -VpnClientAddressPool <Addresspool>  -VpnClientProtocol IkeV2,SSTP -VpnAuthenticationType Certificate -VpnClientRootCertificates $VpnClientRootCert
     ```
 
-1. **Download updated configuration:** After updating the tunnel type, [download the updated VPN Client](point-to-site-certificate-gateway#profile-files.md) profile configuration package to get latest configuration package
+1. **Download updated configuration:** After updating the tunnel type, [download the updated VPN Client](point-to-site-certificate-gateway.md#profile-files) profile configuration package to get latest configuration package
 
 1. **Distribute Configuration:** Share the updated VPN client configuration with all users who connect via Point-to-Site VPN
 
-1. **Verify VPN Connectivity:** [Verify the VPN connections](point-to-site-certificate-gateway#clientconfig.md) to ensure all the clients can connect successfully and that the VPN gateway is functioning as expected
+1. **Verify VPN Connectivity:** [Verify the VPN connections](point-to-site-certificate-gateway.md#clientconfig) to ensure all the clients can connect successfully and that the VPN gateway is functioning as expected
 
 ---
 
