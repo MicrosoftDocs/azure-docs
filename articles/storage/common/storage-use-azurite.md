@@ -14,9 +14,9 @@ ai-usage: ai-assisted
 
 # Use the Azurite emulator for local Azure Storage development
 
-The Azurite open-source emulator provides a free local environment for testing your clud-based applications. When you're satisfied with how your application is working locally, switch to using an Azure Storage account in the cloud.
+The Azurite open-source emulator provides a free local environment for testing your cloud-based applications. When you're satisfied with how your application is working locally, switch to using an Azure Storage account in the cloud.
 
-Azurite is a lightweight storage emulator written in JavaScript and runs on Node.js that simulates the Azure Storage service for local development. It supports the Blob, Queue, and Table storage services and provides cross-platform support on Windows, Linux, and macOS. For help installing and running Azurite, see [Install and run Azurite emulator](storage-install-azurite.md).
+Azurite is a lightweight storage emulator written in JavaScript and runs on Node.js that simulates the Azure Storage service for local development. It supports the Blob, Queue, and Table storage services and provides cross-platform support on Windows, Linux, and macOS. For help with installing and running Azurite, see [Install and run Azurite emulator](storage-install-azurite.md).
 
  Azurite also allows developers to run tests against a local storage environment, simulating Azure's behavior, which is crucial for integration and end-to-end testing. To read more about how to use Azurite for automated testing, see [Use Azurite to run automated tests](../blobs/use-azurite-to-run-automated-tests.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json).
  
@@ -27,7 +27,7 @@ Azurite supersedes the [Azure Storage Emulator](storage-use-emulator.md), and co
 There are functional differences between a local instance of Azurite and an Azure Storage account in the cloud.
 
 > [!IMPORTANT]
-> Azurite supports only the Blob, Queue, and Table storage services. It does not support Azure Files or Azure Data Lake Storage Gen2, but provides cross-platform support on Windows, Linux, and macOS.
+> Azurite supports only the Blob, Queue, and Table storage services. It doesn't support Azure Files or Azure Data Lake Storage Gen2, but provides cross-platform support on Windows, Linux, and macOS.
 
 ### Endpoint and connection URL
 
@@ -132,4 +132,4 @@ To clean up Azurite, delete the files and folders and restart the emulator.
 
 - [Install and run Azurite emulator](storage-install-azurite.md) describes how to install and run Azurite on your local machine.
 - [Connect to Azurite with SDKs and tools](storage-connect-azurite.md) explains how to connect to Azurite using various Azure Storage SDKs and tools.
-- [Use the Azure Storage Emulator for development and testing](storage-use-emulator.md) documents the legacy Azure Storage Emulator, which is superseded by Azurite.
+- [Use the Azure Storage Emulator for development and testing](storage-use-emulator.md) documents the legacy Azure Storage Emulator, superseded by Azurite.

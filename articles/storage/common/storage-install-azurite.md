@@ -1,5 +1,5 @@
 ---
-title: Install and run the Azurite emulator
+title: Install and run the Azurite emulator for Azure Storage
 description: The Azurite open-source emulator provides a free local environment to help accelerate development and testing of your Azure storage applications.
 author: stevenmatthew
 ms.author: shaas
@@ -137,7 +137,7 @@ You can find the Azurite executable file in the extensions folder of your Visual
 Navigate to the appropriate location and start `azurite.exe`. After you run the executable file, Azurite listens for connections. 
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="media/storage-use-azurite/azurite-command-line-output-vs-sml.png" alt-text="Screen capture of Azurite command-line output." lightbox="media/storage-use-azurite/azurite-command-line-output-vs.png":::
+> :::image type="content" source="media/storage-use-azurite/azurite-command-line-output-visual-studio-sml.png" alt-text="Screen capture of Azurite command-line output." lightbox="media/storage-use-azurite/azurite-command-line-output-visual-studio.png":::
 
 To learn more about available command line options to configure Azurite, see [Command line options](#command-line-options).
 
