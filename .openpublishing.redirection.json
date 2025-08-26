@@ -7158,6 +7158,11 @@
       "source_path": "articles/reliability/migrate-container-instances.md",
       "redirect_url": "/azure/reliability/reliability-container-instances",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/reliability-container.md",
+      "redirect_url": "/azure/reliability/reliability-container-instances",
+      "redirect_document_id": true
     }
   ]
 }
