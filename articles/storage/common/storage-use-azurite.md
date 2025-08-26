@@ -18,7 +18,7 @@ The Azurite open-source emulator provides a free local environment for testing y
 
 Azurite is a lightweight storage emulator written in JavaScript and runs on Node.js that simulates the Azure Storage service for local development. It supports the Blob, Queue, and Table storage services and provides cross-platform support on Windows, Linux, and macOS. For help installing and running Azurite, see [Install and run Azurite emulator](storage-install-azurite.md).
 
- Azurite also allows developers to run tests against a local storage environment, simulating Azure's behavior, which is crucial for integration and end-to-end testing. To read more about how to use Azurite for automated testing, see [Use Azurite to run automated tests](use-azurite-to-run-automated-tests.md).
+ Azurite also allows developers to run tests against a local storage environment, simulating Azure's behavior, which is crucial for integration and end-to-end testing. To read more about how to use Azurite for automated testing, see [Use Azurite to run automated tests](../blobs/use-azurite-to-run-automated-tests.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json).
  
 Azurite supersedes the [Azure Storage Emulator](storage-use-emulator.md), and continues to be updated to support the latest versions of Azure Storage APIs.
 
@@ -70,7 +70,7 @@ Next, set environment variables to enable customized storage accounts and keys:
 set AZURITE_ACCOUNTS="account1:key1:key2"
 ```
 
-You could add more accounts. See the [Custom storage accounts and keys](#custom-storage-accounts-and-keys) section of this article.
+You could add more accounts. See the [Custom storage accounts and keys](storage-connect-azurite.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json#custom-storage-accounts-and-keys) section of the *Connect to Azurite* article.
 
 Start Azurite and use a customized connection string to access your account. In the following example, the connection string assumes that the default ports are used. 
 

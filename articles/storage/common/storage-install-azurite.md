@@ -1,6 +1,6 @@
 ---
 title: Install and run Azurite emulator
-description: The Azurite open-source emulator provides a free local environment for testing your Azure storage applications.
+description: The Azurite open-source emulator provides a free local environment to help accelerate development and testing of your Azure storage applications.
 author: stevenmatthew
 ms.author: shaas
 ms.date: 06/24/2025
@@ -457,7 +457,7 @@ azurite --oauth basic --cert path/server.pem --key path/key.pem
 > [!NOTE]
 > OAuth requires an HTTPS endpoint. Make sure HTTPS is enabled by providing `--cert` switch along with the `--oauth` switch.
 
-Azurite supports basic authentication by specifying the `basic` parameter to the `--oauth` switch. Azurite performs basic authentication, like validating the incoming bearer token, checking the issuer, audience, and expiry. Azurite doesn't check the token signature or permissions. To learn more about authorization, see [Authorization for tools and SDKs](#connect-to-azurite-with-sdks-and-tools).
+Azurite supports basic authentication by specifying the `basic` parameter to the `--oauth` switch. Azurite performs basic authentication, like validating the incoming bearer token, checking the issuer, audience, and expiry. Azurite doesn't check the token signature or permissions. To learn more about authorization, see [Connect to Azurite with SDKs and tools](storage-connect-azurite?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json).
 
 ### Skip API version check
 
@@ -507,7 +507,7 @@ azurite --disableTelemetry
 
 ## Next steps
 
-- [Connect to Azurite with SDKs and tools](storage-connect-azurite.md) explains how to connect to Azurite using various Azure Storage SDKs and tools.
-- [Configure Azure Storage connection strings](storage-configure-connection-string.md) explains how to assemble a valid Azure Storage connection string.
-- [Use Azurite to run automated tests](use-azurite-to-run-automated-tests.md) describes how to write automated tests using the Azurite storage emulator.
-- [Use the Azure Storage Emulator for development and testing](storage-use-emulator.md) documents the legacy Azure Storage Emulator, which is superseded by Azurite.
+- [Connect to Azurite with SDKs and tools](storage-connect-azurite.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json) explains how to connect to Azurite using various Azure Storage SDKs and tools.
+- [Configure Azure Storage connection strings](storage-configure-connection-string.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json) explains how to assemble a valid Azure Storage connection string.
+- [Use Azurite to run automated tests](../blobs/use-azurite-to-run-automated-tests.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json) describes how to write automated tests using the Azurite storage emulator.
+- [Use the Azure Storage Emulator for development and testing](storage-use-emulator.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json) documents the legacy Azure Storage Emulator, which is superseded by Azurite.

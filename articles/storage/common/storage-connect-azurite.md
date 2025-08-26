@@ -1,6 +1,6 @@
 ---
 title: Connect to Azurite emulator with SDKs and tools
-description: The Azurite open-source emulator provides a free local environment for testing your Azure storage applications.
+description: The Azurite open-source emulator provides a free local environment for developing and testing your Azure storage applications.
 author: stevenmatthew
 ms.author: shaas
 ms.date: 06/24/2025
@@ -17,7 +17,7 @@ ai-usage: ai-assisted
 
 You can connect to Azurite from Azure Storage SDKs, or tools like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Authentication is required, and Azurite supports authorization with OAuth, Shared Key, and shared access signatures (SAS). Azurite also supports anonymous access to public containers.
 
-This article describes how to connect to the Azurite emulator using the Azure Storage SDKs and tools. For information on how to install and run Azurite, see [Install and run Azurite](storage-use-azurite.md#install-and-run-azurite).To learn more about using Azurite with the Azure SDKs, see [Azure SDKs](#azure-sdks).
+This article describes how to connect to the Azurite emulator using the Azure Storage SDKs and tools. For information on how to install and run Azurite, see [Install and run Azurite](../common/storage-install-azurite.md).To learn more about using Azurite with the Azure SDKs, see [Azure SDKs](../common/storage-connect-azurite.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json#connect-using-azure-sdks).
 
 ## Connect your applications or tools to Azurite
 
@@ -136,16 +136,16 @@ If you used `dotnet dev-certs` to generate your self-signed certificate, use the
 
 `DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://localhost:10000/devstoreaccount1;QueueEndpoint=https://localhost:10001/devstoreaccount1;TableEndpoint=https://localhost:10002/devstoreaccount1;`
 
-Update the connection string when using [custom storage accounts and keys](#custom-storage-accounts-and-keys).
+Update the connection string when using [custom storage accounts and keys](#use-custom-storage-accounts-and-keys).
 
-For more information, see [Configure Azure Storage connection strings](storage-configure-connection-string.md).
+For more information, see [Configure Azure Storage connection strings](#use-connection-strings).
 
 ## Connect using Azure SDKs
 
 To connect to Azurite with the [Azure SDKs](https://aka.ms/azsdk), follow these steps:
 
-- Enable OAuth authentication for Azurite via the `--oauth` switch. To learn more, see [OAuth configuration](#oauth-configuration).
-- Enable HTTPS by using a self-signed certificate via the `--cert` and `--key`/`--pwd` options. To learn more about generating certificates, see [Certificate configuration (HTTPS)](#certificate-configuration-https) and [HTTPS setup](#https-setup).
+- Enable OAuth authentication for Azurite via the `--oauth` switch. To learn more, see [OAuth configuration](storage-install-azurite.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json#oauth-configuration).
+- Enable HTTPS by using a self-signed certificate via the `--cert` and `--key`/`--pwd` options. To learn more about generating certificates, see [Certificate configuration (HTTPS)](storage-install-azurite.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json#certificate-configuration-https) and [HTTPS setup](storage-install-azurite.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json#https-setup).
 
 After the certificates are in place, start Azurite with the following command line options:
 
@@ -277,5 +277,5 @@ Follow these steps to add Azurite HTTPS to Storage Explorer:
 ## Next steps
 
 - [Configure Azure Storage connection strings](storage-configure-connection-string.md) explains how to assemble a valid Azure Storage connection string.
-- [Use Azurite to run automated tests](use-azurite-to-run-automated-tests.md) describes how to write automated tests using the Azurite storage emulator.
+- [Use Azurite to run automated tests](../blobs/use-azurite-to-run-automated-tests.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json) describes how to write automated tests using the Azurite storage emulator.
 - [Use the Azure Storage Emulator for development and testing](storage-use-emulator.md) documents the legacy Azure Storage Emulator, which is superseded by Azurite.
