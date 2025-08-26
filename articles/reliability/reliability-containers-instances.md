@@ -2,7 +2,7 @@
 title: Reliability in Azure Container Instances
 description: Find out about reliability in Azure Container Instances
 author: anaharris-ms
-ms.author: anaharris
+ms.author: tomvcassidy
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-container-instances
@@ -94,10 +94,20 @@ Zonal container group deployments are supported in [all regions with availabilit
 
 - Zonal deployments are available for Linux and Windows Server 2019 container groups.
 - To select an availability zone, you must use the Standard SKU. Zonal container groups aren't available with the Confidential SKU.
+<!-- John: This was in the migrate guide. -->
+-  Make sure the region you're migrating to supports zonal container group deployments. To view a list of supported regions, see [Resource availability for Azure Container Instances in Azure regions](/azure/container-instances/container-instances-region-availability).
+
 
 ### Considerations
 
-[Spot containers](/azure/container-instances/container-instances-spot-containers-overview) don't support availability zones, and are always nonzonal.
+- [Spot containers](/azure/container-instances/container-instances-spot-containers-overview) don't support availability zones, and are always nonzonal.
+
+<!-- John: This was in the migrate guide. -->
+- The following container groups don't support availability zones, and don't offer any  migration guidance:
+    - Container groups with GPU resources
+    - Virtual Network injected container groups
+    - Windows Server 2016 container groups
+    
 
 ### Cost
 
@@ -131,7 +141,15 @@ There's no additional cost to configuring availability zones for a container gro
 
 - **Move container groups between zones or disable availability zone support:** The approach you use to modify availability zones depends on how you create container groups.
 
-    - *Manually created container groups:* To change a container group's availability zone, you must delete the container group and create another container group with the new availability zone.
+    - *Manually created container groups:* To change a container group's availability zone, you must delete the container group and create another container group with the new availability zone. To learn how to delete the container group, see:
+    
+       - [Azure CLI](/azure/container-instances/container-instances-quickstart#clean-up-resources)
+       - [PowerShell](/azure/container-instances/container-instances-quickstart#clean-up-resources), 
+       - [Portal](/azure/container-instances/container-instances-quickstart-portal#clean-up-resources).
+
+        >[!NOTE]
+        >Zonal support isn't supported in the Azure portal. Even if you delete your container group through the portal, you still need to create your new container group using CLI or PowerShell. 
+
 
     - *NGroups:* You can add zones to an NGroup, but you can't remove zones.
 

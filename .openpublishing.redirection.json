@@ -7152,6 +7152,12 @@
     {
       "source_path": "articles/reliability/migrate-storage.md",
       "redirect_url": "/azure/storage/common/redundancy-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/migrate-container-instances.md",
+      "redirect_url": "/azure/reliability/reliability-container-instances",
+      "redirect_document_id": false
     }
   ]
 }

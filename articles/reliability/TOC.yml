@@ -85,7 +85,7 @@ items:
     - name: Azure Container Apps
       href: reliability-azure-container-apps.md
     - name: Azure Container Instances
-      href: reliability-containers.md
+      href: reliability-container-instances.md
     - name: Azure Container Registry
       href: reliability-container-registry.md
     - name: Azure Kubernetes Service (AKS)
@@ -347,7 +347,7 @@ items:
       - name: Azure Application Gateway
         href: migrate-app-gateway-v2.md
       - name: Azure Blob Storage
-        href: reliability-storage-blob.md
+        href: reliability-storage-blob.md#configure-availability-zone-support
       - name: Azure Functions
         href: migrate-functions.md
       - name: Azure Backup
@@ -359,7 +359,7 @@ items:
       - name: Azure Container Apps
         href: reliability-azure-container-apps.md#availability-zone-migration
       - name: Azure Container Instances
-        href: migrate-container-instances.md
+        href: migrate-container-instances.md#configure-availability-zone-support
       - name: Azure Container Registry
         href: /azure/container-registry/zone-redundancy?toc=/azure/reliability
       - name: Azure Cosmos DB for NoSQL
