@@ -33,13 +33,11 @@ Before you begin, these items are required to create an Azure VMware Solution Ge
 
 1. Sign in to the Azure portal.
 
-1. Select **Create a resource**.
+2. Select **Create a resource**.
 
-1. In the **Search services and marketplace** text box, type **Azure VMware Solution** and select it from the search results.
+3. In the **Search services and marketplace** text box, type **Azure VMware Solution** and select it from the search results.
 
-1. On the **Azure VMware Solution** window, select **Create**.
-
-    The following is the information needed to deploy the private cloud from your planning phase.
+4. On the **Azure VMware Solution** window, select **Create**. The following is the information needed to deploy the private cloud from your planning phase.
  
    | Field                       | Value                                                                                                           |
    |-----------------------------|-----------------------------------------------------------------------------------------------------------------|
@@ -54,15 +52,16 @@ Before you begin, these items are required to create an Azure VMware Solution Ge
    |**Address block for private cloud** | Provide an IP address block for the private cloud. The CIDR represents the private cloud management network and is used for the cluster management services, such as vCenter Server and NSX-T Manager. Use /22 address space, for example, 10.175.0.0/22. The address should be unique and not overlap with other Azure Virtual Networks and with on-premises networks. |
    |**DNS Forward Lookup**      | Input on your DNS Forward Lookup Zone. Either Private or Public. If no option is selected, the default is Public. This can be changed after your private cloud is created. |
    
-1. Verify the information entered, and if correct, select **Create**.
+5. Verify the information entered, and if correct, select **Create**.
 
-       > [!NOTE] 
-    > This step takes an estimated 5+ hours. Adding a single host in an existing cluster takes an estimated +1.5 hours. If you're adding a new cluster with maximum nodes (16), it can take an estimated 4+ hours.
+> [!NOTE]
+> This step takes an estimated 5+ hours. Adding a single host in an existing cluster takes an estimated +1.5 hours. If you're adding a new cluster with maximum nodes (16), it can take an estimated 4+ hours.
 
-1. Verify that the deployment was successful. Navigate to the resource group you created and select your private cloud. You see the status of **Succeeded** when the deployment is finished.
+6. Verify that the deployment was successful. Navigate to the resource group you created and select your private cloud. You see the status of **Succeeded** when the deployment is finished.
 
-1. Verify that the deployment was successful. Navigate to the resource group you created and select your private cloud. You see the status of Succeeded when the deployment is finished. 
-1. Connect to vCenter Server and NSX Manager using the VMware credentials shown in your Private Cloud. For more information, see [Access an Azure VMware Solution private cloud](tutorial-access-private-cloud.md). 
+6. Verify that the deployment was successful. Navigate to the resource group you created and select your private cloud. You see the status of Succeeded when the deployment is finished.
+    
+7. Connect to vCenter Server and NSX Manager using the VMware credentials shown in your Private Cloud. For more information, see [Access an Azure VMware Solution private cloud](tutorial-access-private-cloud.md). 
 
 ## Next steps
   
