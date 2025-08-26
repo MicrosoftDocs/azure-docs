@@ -6,7 +6,7 @@ author: normesta
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
-ms.date: 06/18/2025
+ms.date: 08/25/2025
 ms.author: normesta
 ---
 
@@ -22,15 +22,17 @@ By default, storage accounts accept connections from clients on any network. You
 
 2. In the service menu, under **Security + networking**, select **Networking**.
 
-3. Choose the network access that is enabled through the storage account's public endpoint:
+3. Select **Manage**, and then choose the network access that is enabled through the storage account's public endpoint:
 
-   - To allow traffic from all networks, select **Enabled from all networks**.
+   - To allow traffic from all networks, select **Enable**, and then select **Enabled from all networks**.
    
-   - To allow traffic only from specific virtual networks, IP address ranges, or specific Azure resources, select **Enabled from selected virtual networks and IP addresses**. You are prompted to add virtual networks, IP address ranges, or resource instances.
+   - To allow traffic only from specific virtual networks, IP address ranges, or specific Azure resources, select **Enable**, and then select **Enabled from selected networks**. You are prompted to add virtual networks, IP address ranges, or resource instances.
 
-   - To block traffic from all networks, select **Disabled**.
+   - To block traffic from all networks, select **Disable**.
+   
+   - To secure traffic by using a network security perimeter, select **Secured by perimeter**.
 
-4. Select **Save** to apply your changes.
+5. Select **Save** to apply your changes.
 
 <a id="powershell"></a>
 

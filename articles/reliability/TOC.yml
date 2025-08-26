@@ -29,7 +29,7 @@ items:
     - name: Azure Data Share
       href: ../data-share/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Event Hubs
-      href: reliability-event-hubs.md
+      href: /azure/event-hubs/event-hubs-business-continuity-outages-disasters?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure HDInsight
       href: reliability-hdinsight.md
     - name: Azure Machine Learning
@@ -330,11 +330,11 @@ items:
     href: availability-zones-overview.md
   - name: Services with availability zone support
     href: availability-zones-service-support.md
-  - name: Migrate to availability zone support
+  - name: Enable zone resiliency
     items:
     - name: Overview
-      href: availability-zones-migration-overview.md
-    - name: Migration guides by service
+      href: availability-zones-enable-zone-resiliency.md
+    - name: Enable zone resiliency by service
       items:
       - name: Azure AI Search
         href: reliability-ai-search.md#configure-availability-zone-support

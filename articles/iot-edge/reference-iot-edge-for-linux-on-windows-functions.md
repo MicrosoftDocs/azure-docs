@@ -1,9 +1,8 @@
 ---
 title: PowerShell functions for Azure IoT Edge for Linux on Windows
 description: Reference information for Azure IoT Edge for Linux on Windows PowerShell functions to deploy, provision, and get status.
-author: PatAltimore
-
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.date: 01/16/2025
 ms.topic: reference
 ms.service: azure-iot-edge
