@@ -261,7 +261,7 @@ The following table shows the release stage and change logs for different versio
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
 | Version 1.0 | End of support announced | / |  
-| Version 2.0 (Preview)| Public Preview |• The `tableName` value is `<HubSpot Category>.<Sub Category>.<Object Name>`, for example: `CRM.Commerce.Payments`. <br><br>• date is read as DateTime data type. <br><br>• object is read as String data type.<br><br>•`useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. <br><br>  • `query` is not supported in Copy activity. |
+| Version 2.0 (Preview)| Public Preview |• The `tableName` value is `<HubSpot Category>.<Sub Category>.<Object Name>`, for example: `CRM.Commerce.Payments`. <br><br>• date is read as DateTime data type. <br><br>• object is read as String data type.<br><br>•`useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. <br><br>  • `query` is not supported. |
 
 ### <a name="upgrade-the-hubspot-connector-from-version-10-to-version-20"></a> Upgrade the HubSpot connector from version 1.0 to version 2.0 (Preview)
 
