@@ -6,7 +6,7 @@ ms.author: bpinto
 ms.service: azure-operator-nexus
 ms.custom: azure-operator-nexus, devx-track-azurecli
 ms.topic: how-to
-ms.date: 05/21/2025
+ms.date: 08/13/2025
 # ms.custom: template-include
 ---
 
@@ -26,6 +26,7 @@ This how-to guide explains the steps for installing the required Azure CLI and e
 1. Target Cluster must be healthy in a running state, with all control plane nodes healthy.
 
 ## Checking current runtime version
+
 Verify current Cluster runtime version before upgrade:
 [How to check current Cluster runtime version.](./howto-check-runtime-version.md#check-current-cluster-runtime-version)
 
@@ -33,7 +34,7 @@ Verify current Cluster runtime version before upgrade:
 
 ### Via Azure portal
 
-To find available upgradeable runtime versions, navigate to the target Cluster in the Azure portal. In the Cluster's overview pane, navigate to the ***Available upgrade versions*** tab.
+To find available upgradeable runtime versions, navigate to the target Cluster in the Azure portal. In the Cluster's overview pane, navigate to the **_Available upgrade versions_** tab.
 
 :::image type="content" source="./media/runtime-upgrade-upgradeable-runtime-versions.png" alt-text="Screenshot of Azure portal showing correct tab to identify available Cluster upgrades." lightbox="./media/runtime-upgrade-upgradeable-runtime-versions.png":::
 
@@ -82,11 +83,13 @@ wait-time-minutes="<waitTimeBetweenRacks>" \
 ```
 
 Required parameters:
+
 - strategy-type: Defines the update strategy. Setting used are `Rack` (Rack-by-Rack) OR `PauseAfterRack` (Pause for user before each Rack starts). The default value is `Rack`. To perform a Cluster runtime upgrade using the `PauseAfterRack` strategy, follow the steps outlined in [Upgrade Cluster Runtime with PauseAfterRack Strategy](howto-cluster-runtime-upgrade-with-pauseafterrack-strategy.md).
 - threshold-type: Determines how the threshold should be evaluated, applied in the units defined by the strategy. Settings used are `PercentSuccess` OR `CountSuccess`. The default value is `PercentSuccess`.
 - threshold-value: The numeric threshold value used to evaluate an update. The default value is `80`.
 
 Optional parameters:
+
 - max-unavailable: The maximum number of worker nodes that can be offline, that is, upgraded rack at a time. The default value is `32767`.
 - wait-time-minutes: The delay or waiting period before updating a rack. The default value is `15`.
 
@@ -145,7 +148,7 @@ az networkcloud cluster show --name "<CLUSTER>" \
 In this example, if less than 10 compute nodes being provisioned in a rack fail to provision (on a Rack-by-Rack basis), the Cluster upgrade waits indefinitely until the condition is met. If 10 or more of the compute nodes are successfully provisioned, Cluster deployment moves on to the next rack of compute nodes. If there are too many failures in the rack, the hardware must be repaired before the upgrade can continue.
 
 > [!NOTE]
-> ***`update-strategy` cannot be changed after the Cluster runtime upgrade has started.***
+> **_`update-strategy` cannot be changed after the Cluster runtime upgrade has started._**
 > When a threshold value below 100% is set, it’s possible that any unhealthy nodes might not be upgraded, yet the "Cluster" status could still indicate that upgrade was successful. For troubleshooting issues with bare metal machines, refer to [Troubleshoot Azure Operator Nexus server problems](troubleshoot-reboot-reimage-replace.md)
 
 ## Upgrade Cluster runtime using CLI
@@ -159,8 +162,77 @@ az networkcloud cluster update-version --cluster-name "<CLUSTER>" \
 --subscription "<SUBSCRIPTION>"
 ```
 
-The runtime upgrade is a long process. The upgrade first upgrades the management nodes and then sequentially Rack-by-Rack for the worker nodes.
-The management servers are segregated into two groups. The runtime upgrade will now leverage two management groups, instead of a single group. Introducing this capability allows for components running on the management servers to ensure resiliency during the runtime upgrade by applying affinity rules. For this release, each CSN will leverage this functionality by placing one instance in each management group. No customer interaction with this functionality. There may be additional labels seen on management nodes to identify the groups.
+This command initiates the runtime upgrade process for the specified Cluster. The command itself typically completes within about 5 minutes, but this command only starts the upgrade process. The actual runtime upgrade continues to execute in the background and can take several hours to complete, as it upgrades nodes rack by rack and installs the new OS version.
+
+Detailed status and diagnostic information for the initiation step is available in Azure portal in the `JSON View` of the Cluster (Operator Nexus) resource. The following information is included in the `updateVersion` entry of the `properties.actionStates` field, when using API Version `2025-07-01-preview` or higher.
+
+- Start and end time of the action.
+- Current status (`Succeeded`, `Failed`, or `InProgress`).
+- Any extra context or error message associated with the current status.
+- The Correlation ID for the original `cluster update-version` operation, as also shown in the Azure Activity log.
+- An ordered list of individual steps and their status - for example `Validate Cluster conditions and upgrade versions`, and `Initiate Platform Runtime Extension update`.
+
+> [!IMPORTANT]
+> The `properties.actionStates` entry for `updateVersion` reflects only the short initiation phase (validation and request initiation that typically completes in ~5 minutes).
+> It doesn't track the rack-by-rack progress of the main upgrade.
+> To monitor the full upgrade, use the Cluster’s detailed status and detailed status message in the resource Overview, or query via `az networkcloud cluster show`.
+
+Example `JSON View` output for the Cluster (Operator Nexus) resource:
+
+```json
+{
+  "properties": {
+    "actionStates": [
+      {
+        "correlationId": "b66643b7-2e1d-4a5c-a954-ca0e38368984",
+        "status": "Completed",
+        "actionType": "Microsoft.NetworkCloud/clusters/updateVersion",
+        "endTime": "2025-08-01T03:46:13Z",
+        "message": "Cluster upgrade to 4.6.0 successfully initiated - monitor progress via cluster detailed status",
+        "startTime": "2025-08-01T03:42:08Z",
+        "stepStates": [
+          {
+            "status": "Completed",
+            "endTime": "2025-08-01T03:42:08Z",
+            "message": "Cluster validation and version checks passed",
+            "startTime": "2025-08-01T03:42:08Z",
+            "stepName": "Validate Cluster conditions and upgrade versions"
+          },
+          {
+            "status": "Completed",
+            "endTime": "2025-08-01T03:46:11Z",
+            "message": "Platform Runtime Extension deployment initiated",
+            "startTime": "2025-08-01T03:42:39Z",
+            "stepName": "Initiate Platform Runtime Extension update"
+          },
+          {
+            "status": "Completed",
+            "endTime": "2025-08-01T03:46:11Z",
+            "message": "Platform Runtime Extension installation completed",
+            "startTime": "2025-08-01T03:46:11Z",
+            "stepName": "Monitor Platform Runtime Extension readiness"
+          },
+          {
+            "status": "Completed",
+            "endTime": "2025-08-01T03:46:13Z",
+            "message": "Platform Cluster version updated successfully",
+            "startTime": "2025-08-01T03:46:13Z",
+            "stepName": "Update Platform Cluster version specification"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+Once this command is complete, the full runtime upgrade process begins. This process can take several hours to complete, depending on the number of racks in the Cluster and the number of worker nodes in each rack.
+
+- The upgrade first upgrades the management nodes and then sequentially Rack-by-Rack for the worker nodes.
+- The management servers are segregated into two groups, which are upgraded separately. This approach allows for components running on the management servers to ensure resiliency during the runtime upgrade by applying affinity rules.
+- The CSNs also leverage this functionality by placing one instance in each management group.
+- There's no customer interaction with this functionality. However, there might be additional labels seen on management nodes to identify the groups.
+
 The upgrade is considered to be finished when 80% of worker nodes per rack and 50% of management nodes in each group are successfully upgraded.
 Workloads might be impacted while the worker nodes in a rack are in the process of being upgraded, however workloads in all other racks aren't impacted. Consideration of workload placement in light of this implementation design is encouraged.
 
@@ -168,7 +240,7 @@ Upgrading all the nodes takes multiple hours, depending upon how many racks exis
 Due to the length of the upgrade process, the Cluster's detail status should be checked periodically for the current state of the upgrade.
 To check on the status of the upgrade observe the detailed status of the Cluster. This check can be done via the portal or az CLI.
 
-To view the upgrade status through the Azure portal, navigate to the targeted Cluster resource. In the Cluster's *Overview* screen, the detailed status is provided along with a detailed status message.
+To view the upgrade status through the Azure portal, navigate to the targeted Cluster resource. In the Cluster's _Overview_ screen, the detailed status is provided along with a detailed status message.
 
 The Cluster upgrade is in-progress when detailedStatus is set to `Updating` and detailedStatusMessage shows the progress of upgrade. Some examples of upgrade progress shown in detailedStatusMessage are `Waiting for control plane upgrade to complete...`, `Waiting for nodepool "<rack-id>" to finish upgrading...`, etc.
 
@@ -187,7 +259,6 @@ az networkcloud cluster show --cluster-name "<CLUSTER>" \
 The output should be the target Cluster's information and the Cluster's detailed status and detail status message should be present.
 For more detailed insights on the upgrade progress, the individual node in each Rack can be checked for status. An example of checking the status is provided in the reference section under [BareMetal Machine roles](./reference-near-edge-baremetal-machine-roles.md).
 
-
 ## Frequently Asked Questions
 
 ### Identifying Cluster Upgrade Stalled/Stuck
@@ -200,10 +271,11 @@ We can identify an `indefinitely attempting to upgrade` situation by looking at 
 ### Identifying Bare Metal Machine Upgrade Stalled/Stuck
 
 A guide for identifying issues with provisioning worker nodes is provided at [Troubleshooting Bare Metal Machine Provisioning](./troubleshoot-bare-metal-machine-provisioning.md).
- 
+
 ### Hardware Failure doesn't require Upgrade re-execution
 
 If a hardware failure during an upgrade occurs, the runtime upgrade continues as long as the set thresholds are met for the compute and management/control nodes. Once the machine is fixed or replaced, it gets provisioned with the current platform runtime's OS, which contains the targeted version of the runtime. If a rack was updated before a failure, then the upgraded runtime version would be used when the nodes are reprovisioned. If the rack's spec wasn't updated to the upgraded runtime version before the hardware failure, the machine provisions with the previous runtime version when the hardware is repaired. The machine is upgraded along with the rack when the rack starts its upgrade.
+
 ### After a runtime upgrade, the Cluster shows "Failed" Provisioning State
 
 During a runtime upgrade, the Cluster enters a state of `Upgrading`. If the runtime upgrade fails, the Cluster goes into a `Failed` provisioning state. Infrastructure components (e.g the Storage Appliance) may cause failures during the upgrade. In some scenarios, it may be necessary to diagnose the failure with Microsoft support.

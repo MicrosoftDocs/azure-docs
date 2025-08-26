@@ -11,67 +11,53 @@ ms.custom: template-concept
 
 # Network Packet Broker Overview
 
-The Network Packet Broker (NPB) allows operators to monitor service traffic flows by tapping into the network and sending copies of the network packets to special probe applications. These applications provide the operations team with network-level visibility to help with service planning and troubleshooting.
+The **Network Packet Broker (NPB)** enables operators to monitor service traffic by tapping the network and sending copies of selected packets to probe applications (vProbes) for deep visibility, planning, and troubleshooting. NPB provides advanced, programmable **filtering** and **forwarding** based on user‑defined rules.  
 
-NPB enables packet filtering and forwarding based on user-defined rules. NPB can perform various actions on the matched packets, such as dropping, counting, redirecting, mirroring, and logging. NPB supports both static and dynamic match conditions, which can be based on various L2/L3 parameters, such as VLAN, IP, port, protocol, or encapsulation type. NPB also supports GTPv1 encapsulation for matching packets in mobile networks.
+## Key benefits
 
-## Key benefits of the Network Packet Broker
+- **Network traffic visibility:** Provides network traffic visibility to monitoring tools, enabling operators to analyze traffic flows for operational purposes.
 
--   **Improved Network Visibility:** NPB provides a centralized management interface for configuring and controlling the flow of network traffic to monitoring tools (vProbes). It provides visibility into network traffic, allowing operators to monitor, analyze, troubleshoot, and identify potential security threats. 
+- **Traffic filtering and forwarding:** Reduces the volume of traffic sent to monitoring tools by forwarding only the relevant packets based on defined rules.
 
--   **Improved Network Troubleshooting:** NPB facilitates network troubleshooting by capturing and presenting packet-level data for analysis. Operators can use an NPB to inspect packets in detail and identify the source of the problem quickly. 
+- **Operational troubleshooting:** Supports network troubleshooting by capturing packet-level data and sending it to monitoring tools for analysis.
 
--   **Network Performance Optimization:** NPB provides insights into network traffic patterns and performance metrics, helping to identify network bottlenecks and congestion points, and to design better networks.
+- **Performance monitoring:** Helps operators understand network traffic patterns and optimize network configurations based on observed flows.
 
--   **Filtering and Packet Manipulation:** NPB can filter out irrelevant or redundant traffic, reducing the volume of data sent to monitoring tools. It can also manipulate packets, enabling actions like packet slicing and timestamping, which further enhance the efficiency of monitoring and analysis. 
+## Key capabilities
 
--   **Compliance and Regulatory Requirements:** NPB helps organizations meet compliance and regulatory requirements by ensuring proper monitoring of network activities and data traffic. 
+- **Mirroring and aggregation:** Mirrors network traffic from one or more network interfaces and aggregates it to designated monitoring tools.
 
-## Key capabilities of the Network Packet Broker
+- **Filtering and forwarding:** Applies match conditions to network traffic (e.g., based on Layer 3/4 parameters) and forwards the selected packets to defined destinations (neighbor groups).
 
--   **Mirroring & Aggregation**
-
-    -   Mirroring network traffic from multiple distributed applications in the Azure Operator Network (AON) instance. 
-
-    -   Processing the entire network traffic of the AON instance. 
-
-    -   Providing designated endpoint definitions via scalable resource models. 
-
--   **Filtering & Forwarding**
-
-    -   Advanced matching and filtering capabilities based on L3 parameters. 
-
-    -   On demand changes to filtering and forwarding criteria.
-
-    -   Secure and scalable forwarding of filtered traffic to designated external and internal networks and devices.  
+- **Packet manipulation:** Supports optional actions like packet slicing, if required by monitoring tools, to reduce unnecessary data volume.
 
 ## Resources
 
 To use NPB, you need to create and manage the following resources:
 
--   **Network TAP Rule**: A set of matching configurations and actions that define the packet brokering logic. You can create a network TAP rule either inline or via a file. The inline method allows you to enter the values using AzCli, Resource Manager, or the portal. The file-based method allows you to upload a file that contains the network TAP rule content from a storage URL. The file can be updated periodically using a pull or push mechanism.
+-   **Network TAP Rule**: A network TAP rule consists of one or more matching configurations, and each configuration defines a set of match conditions and actions. Match conditions are evaluated as logical “AND” tuples, meaning a packet must satisfy all conditions within a configuration to be considered a match. Once a packet matches a configuration, the corresponding actions are executed. This structure allows precise control over which packets are captured and how they are processed or forwarded.
 
--   **Neighbor Group**: A logical grouping of destinations where you want to send the network traffic. A neighbor group can include network interfaces, load balancers, or network virtual appliances.
+Network TAP rule can be created inline or via a file:
 
--   **Network TAP**: A resource that references the network TAP rule and the neighbor group that you created. A network TAP also specifies the source network interface from which the traffic is captured. You can create a network TAP using AzCli, Resource Manager, or the portal. You can also enable or disable a network TAP to start or stop the packet brokering process.
+Inline: Enter values directly using Azure CLI, Resource Manager, or the portal.
+
+File-based: Upload a file containing the network TAP rule from a storage URL. The file can be updated periodically using a pull or push mechanism.
+
+-   **Neighbor Group**: A neighbor group defines the set of destinations to which filtered or mirrored traffic from a network TAP is forwarded.
+
+Neighbor groups allow operators to logically group multiple endpoints, simplifying configuration and ensuring that traffic is sent only to the intended recipients.
+
+When a network TAP references a neighbor group, all traffic that matches the associated TAP rule is forwarded to every destination in that group.
+
+-   **Network TAP**: Network TAP: A network TAP is a resource that captures traffic from a specified source network interface and forwards it according to an associated TAP rule and neighbor group.
+
+The network TAP references a TAP rule (which defines match conditions and actions) and a neighbor group (which specifies destinations for forwarded traffic).
+
+Operators can create a network TAP using Azure CLI, Resource Manager, or the portal. Once created, the TAP can be enabled or disabled to start or stop the traffic forwarding process.
+
+This structure provides a clear separation between traffic capture (network TAP), filtering logic (TAP rule), and forwarding destinations (neighbor group), allowing precise and flexible traffic management.
 
 
-## Using an NPB
-
-This section describes the steps you need to follow to use an NPB.
-
-First, create the prerequisite resources:
-
--   A bootstrapped Network Fabric Instance.
-
--   A Layer 3 isolation domain and an internal network with the NPB extension flag set (only required if the isolation domain is being used to reach vProbes).
-
-Then follow these steps:
-
-1.   Create a network TAP rule that defines the match configuration for the network traffic that you want to capture and forward. You can use the `az networkfabric taprule` command to create, update, delete, or show a network TAP rule.
-
-1.  Create a neighbor group that defines the destinations for the network traffic that you want to send to. You can use the `az networkfabric neighborgroup` command to create, update, delete, or show a neighbor group.
-
-1.  Create a network TAP that references the network TAP rule and the neighbor group that you created. A network TAP also specifies the source network interface from which the traffic is captured. You can use the `az networkfabric tap` command to create, update, delete, or show a network TAP.
-
-1. Enable the network TAP to start the packet brokering process. You can use the `az networkfabric tap update-admin-state` command to enable or disable a network TAP.
+## Next steps
+[How to configure Network Packet Broker](./howto-configure-network-packet-broker.md)
+[Deep Dive: Network TAP Rules](./concepts-nexus-network-tap-rules.md)
