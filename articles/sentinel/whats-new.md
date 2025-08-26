@@ -32,19 +32,22 @@ UEBA now supports anomaly detection using six new data sources:
 
   These sources provide deeper visibility into identity behavior across your Microsoft environment.
 
-  - **MDE DeviceLogonEvents**: Captures logon activity from endpoints, helping identify lateral movement, unusual access patterns, or compromised devices.
-  - **AADManagedIdentitySignInLogs**: Tracks sign-ins by managed identities used in automation, such as scripts and services. This is crucial for spotting silent misuse of service identities.
-  - **AADServicePrincipalSignInLogs**: Monitors sign-ins by service principals - often used by apps or scripts - to detect anomalies, such as unexpected access or privilege escalation.  
+  - **Microsoft Defender XDR device logon events**: Captures logon activity from endpoints, helping identify lateral movement, unusual access patterns, or compromised devices.
+  - **Microsoft Entra ID managed identity signin logs**: Tracks sign-ins by managed identities used in automation, such as scripts and services. This is crucial for spotting silent misuse of service identities.
+  - **Microsoft Entra ID service principal signin logs**: Monitors sign-ins by service principals - often used by apps or scripts - to detect anomalies, such as unexpected access or privilege escalation.
 
 - **Third-party cloud platforms**: 
   
   UEBA now integrates with leading cloud platforms to enhance detection of identity compromise, privilege misuse, and risky access behaviors across multicloud environments.
 
-  - **AWS CloudTrail Login Events**: Flags risky login attempts in Amazon Web Services (AWS), such as failed multifactor authentication (MFA) or use of the root account—critical indicators of potential account compromise.
-  - **GCP Audit Logs - Failed IAM Access**: Captures denied access attempts in Google Cloud Platform, helping identify privilege escalation attempts or misconfigured roles.
-  - **Okta MFA & Authentication Security Change Events**: Surfaces MFA challenges and changes to authentication policies in Okta—signals that might indicate targeted attacks or identity tampering.
+  - **AWS CloudTrail login events**: Flags risky login attempts in Amazon Web Services (AWS), such as failed multifactor authentication (MFA) or use of the root account—critical indicators of potential account compromise.
+  - **GCP audit logs - Failed IAM access**: Captures denied access attempts in Google Cloud Platform, helping identify privilege escalation attempts or misconfigured roles.
+  - **Okta MFA and authentication security change events**: Surfaces MFA challenges and changes to authentication policies in Okta—signals that might indicate targeted attacks or identity tampering.
 
 These new sources enhance UEBA’s ability to detect identity-related threats across hybrid environments. 
+
+To enable the new data sources, you must be onboarded to the Defender portal. 
+
 
 For more information, see:
 
