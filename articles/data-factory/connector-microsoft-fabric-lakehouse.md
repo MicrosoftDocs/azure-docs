@@ -163,6 +163,9 @@ These properties are supported for an Microsoft Fabric Lakehouse linked service:
 }
 ```
 
+> [!NOTE]
+> This authentication type is not supported on the self-hosted integration runtime.
+
 ### User-assigned managed identity authentication
 
 A data factory can be assigned with one or multiple [user-assigned managed identities](data-factory-service-identity.md#user-assigned-managed-identity). You can use this user-assigned managed identity for Microsoft Fabric Lakehouse authentication, which allows to access and copy data from or to Microsoft Fabric Lakehouse. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
@@ -175,7 +178,7 @@ A data factory can be assigned with one or multiple [user-assigned managed ident
      
 1. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](credentials.md) for each user-assigned managed identity. 
 
-These properties are supported for an Azure Blob Storage linked service:
+These properties are supported for an Microsoft Fabric Lakehouse linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |

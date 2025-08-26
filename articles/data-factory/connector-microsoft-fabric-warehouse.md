@@ -138,6 +138,8 @@ These properties are supported for an Microsoft Fabric Warehouse linked service:
     }
 }
 ```
+> [!NOTE]
+> This authentication type is not supported on the self-hosted integration runtime.
 
 ### User-assigned managed identity authentication
 
@@ -151,7 +153,7 @@ A data factory can be assigned with one or multiple [user-assigned managed ident
      
 1. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](credentials.md) for each user-assigned managed identity. 
 
-These properties are supported for an Azure Blob Storage linked service:
+These properties are supported for an Microsoft Fabric Warehouse linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
