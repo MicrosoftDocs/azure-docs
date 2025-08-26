@@ -33,7 +33,7 @@ To enable alerts (Preview) with Azure Update Manager through Azure portal, follo
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 1. Under **Monitoring**, select **New alerts rule (Preview)** to create a new alert rule.
    
-   :::image type="content" source="./media/manage-alerts/access-alerts-inline.png" alt-text="Screenshot that shows how to access alerts feature." lightbox="./media/manage-alerts/access-alerts-expanded.png":::
+   :::image type="content" source="./media/manage-alerts/create-new-alerts-rule.png" alt-text="Screenshot that shows how to create new alerts rule." lightbox="./media/manage-alerts/create-new-alerts-rule.png":::
  
     1. Select a **Subscription** from the dropdown that will be the scope of the alert rule.
     1. Select **Resource Group** from the dropdown and the alert is created. 
@@ -41,10 +41,9 @@ To enable alerts (Preview) with Azure Update Manager through Azure portal, follo
     1. From the **Azure Resource Group** query dropdown, select a predefined alerting query option.
     1. You can select **Custom query** option to edit or write a custom query and then select **Skip to custom alert rules**.
     
-       :::image type="content" source="./media/manage-alerts/create-alert-rule-inline.png" alt-text="Screenshot that shows how to create alert rule." lightbox="./media/manage-alerts/create-alert-rule-inline.png":::
+       :::image type="content" source="./media/manage-alerts/create-alert-rule-custom.png" alt-text="Screenshot that shows how to create alert custom rules." lightbox="./media/manage-alerts/create-alert-rule-custom.png":::
     
-    1. Select **Preview or edit query 
-    1. in Logs** to run a selected alerting query option or to edit a query.
+    1. Select **Preview or edit query in Logs** to run a selected alerting query option or to edit a query.
     
        :::image type="content" source="./media/manage-alerts/edit-query-inline.png" alt-text="Screenshot that shows how to edit query in logs." lightbox="./media/manage-alerts/edit-query-inline.png":::
 
