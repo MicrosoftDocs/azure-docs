@@ -47,7 +47,7 @@ All of the group and artifact IDs in the Azure libraries for Spring Boot are upd
 
 The `spring-cloud-azure-appconfiguration-config` library uses the latest Spring configuration, which requires changing your `bootstrap.properties` or `bootstrap.yml` file to `application.properties` or `application.yml`.
 
-In addition, now the property `spring.config.import=azureAppConfiguration` is required to import the Azure App Configuration.
+In addition, the property `spring.config.import=azureAppConfiguration` is now required to import the Azure App Configuration.
 
 ## Possible conflicts with Spring Cloud Azure global properties
 
