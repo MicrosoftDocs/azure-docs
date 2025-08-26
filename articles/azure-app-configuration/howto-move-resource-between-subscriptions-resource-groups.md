@@ -1,5 +1,5 @@
 ---
-title: Move an App Configuration store to another subscription or resource group
+title: Move an Azure App Configuration store to another subscription or resource group
 description: Learn how to move an App Configuration store to a different subscription or resource group.
 ms.service: azure-app-configuration
 author: jimmyca15
