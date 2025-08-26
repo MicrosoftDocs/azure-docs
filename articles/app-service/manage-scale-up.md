@@ -64,8 +64,8 @@ For information about the pricing and features of individual App Service plans, 
 If your app depends on other services, such as Azure SQL Database or Azure Storage, you can scale up these resources separately. These resources aren't managed by the App Service plan.
 
 1. On the **Overview** page for your app, select the link to the resource group.
-   
-    ![Screenshot that shows the first step for scaling up your app's related resources.](./media/web-sites-scale/RGEssentialsLink.png)
+ 
+    :::image type="content" source="./media/web-sites-scale/RGEssentialsLink.png" alt-text="Screenshot that shows the first step for scaling up your app's related resources.":::
 
 2. On the **Overview** page for the resource group, select a resource that you want to scale. The following screenshot
    shows a SQL Database resource.
