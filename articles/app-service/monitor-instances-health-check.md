@@ -1,11 +1,11 @@
 ---
-title: Monitor the health of App Service instances
-description: Learn how to monitor the health of App Service instances using Health check.
+title: Monitor the Health of App Service Instances
+description: Learn how to monitor the health of App Service instances by using Health check.
 keywords: azure app service, web app, health check, route traffic, healthy instances, path, monitoring, remove faulty instances, unhealthy instances, remove workers
 author: msangapu-msft
 
 ms.topic: overview
-ms.date: 09/13/2024
+ms.date: 08/29/2025
 ms.author: msangapu
 ms.service: azure-app-service
 ---
@@ -22,14 +22,14 @@ Note that _/api/health_ is just an example. There is no default Health check pat
 
 - When given a path on your app, Health check pings the path on all instances of your App Service app at 1-minute intervals.
 - If a web app that's running on a given instance doesn't respond with a status code between 200 and 299 (inclusive) after 10 requests, App Service determines the instance is unhealthy and removes it from the load balancer for the web app. The required number of failed requests for an instance to be deemed unhealthy is configurable to a minimum of two requests.
-- After the instance is removed, Health check continues to ping it. If the instance begins to respond with a healthy status code (200-299), then the instance is returned to the load balancer.
+- After the instance is removed, Health check continues to ping it. If the instance begins to respond with a healthy status code (200-299), the instance is returned to the load balancer.
 - If the web app that's running on an instance remains unhealthy for one hour, the instance is replaced with a new one.
 - When scaling out, App Service pings the Health check path to ensure new instances are ready.
 
 > [!NOTE]
 >- Health check doesn't follow 302 redirects. 
->- At most, one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
->- If Health check is sending the status `Waiting for health check response`, then the check is likely failing due to an HTTP status code of 307, which can happen if you have HTTPS redirect enabled but have `HTTPS Only` disabled.
+>- At most, one instance is replaced per hour, and there's a maximum of three instances per day per App Service plan.
+>- If Health check sends the status `Waiting for health check response`, the check is probably failing due to an HTTP status code of 307. This status can occur if you have HTTPS redirect enabled but have `HTTPS Only` disabled.
 
 ## Enable Health check
 
