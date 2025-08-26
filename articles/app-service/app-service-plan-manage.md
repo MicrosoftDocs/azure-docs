@@ -58,7 +58,7 @@ You must disable any virtual network integration that's configured on the app be
 > [!NOTE]
 > Azure deploys each new App Service plan into a deployment unit, internally called a *webspace*. Each region can have many webspaces, but your app can only move between plans that are created in the same webspace. An App Service Environment can have multiple webspaces, but your app can only move between plans that are created in the same webspace.
 >
-> You can't specify the webspace you want when you create a plan, but it's possible to ensure that a plan is created in the same webspace as an existing plan. All plans created with the same resource group, region combination, and operating system are deployed into the same webspace. For example, if you created a plan in resource group A and region B, any plan you subsequently create in resource group A and region B is deployed into the same webspace. Note that plans can’t move webspaces after they're created, so you can't move a plan into "the same webspace" as another plan by moving it to another resource group.
+> You can't specify the webspace you want when you create a plan, but it's possible to ensure that a plan is created in the same webspace as an existing plan. All plans created with the same resource group, region combination, and operating system are deployed into the same webspace. For example, if you created a plan in resource group A and region B, any plan you subsequently create in resource group A and region B is deployed into the same webspace. Note that plans can't move webspaces after they're created, so you can't move a plan into "the same webspace" as another plan by moving it to another resource group.
 > 
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **App services**, and then select the app that you want to move.
@@ -67,7 +67,7 @@ You must disable any virtual network integration that's configured on the app be
 
 1. On the **App Service plan** page, select **Change plan**.
 
-    :::image type="content" source="./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png" alt-text="Screenshot of the App Service plan page.":::
+    :::image type="content" source="./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png" alt-text="Screenshot of the App Service plan page." lightbox="./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png":::
 
 1. In the **Change App Service plan** pane, in the **App Service plan** list, select an existing plan to move the app to. The list shows only plans that are in the same resource group and geographical region as the current App Service plan. If no such plan exists, it lets you create a plan by default. You can also create a new plan manually by selecting **New plan** and then selecting **Create new**.
 
