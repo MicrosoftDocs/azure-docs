@@ -223,7 +223,8 @@ Because of extra content, app-consistent snapshots are the most involved, and ta
 
 #### Do app-consistent recovery points impact performance?
 
- Because app-consistent recovery points capture all data in memory and process, if they capture frequently, it can affect performance when the workload is already busy. We don't recommend that you capture too often for nondatabase workloads. Even for database workloads, one hour should be enough.
+ Because app-consistent recovery points capture all data in memory and process, if they capture frequently, it can affect performance when the workload is already busy. We don't recommend that you capture too often for nondatabase workloads. As a general rule, a full backup for database workloads (including Azure Site Recovery) every hour is sufficient—if anything, this frequency is on the higher side. Typically, transaction log backups are combined at shorter intervals (for example, every 10 to 15 minutes) to distribute system load while meeting recovery objectives (RPO/RTO/RLO).
+
 
 #### What's the minimum frequency for generating app-consistent recovery points?
 
