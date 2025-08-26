@@ -12,7 +12,7 @@ ms.service: azure-app-service
 ---
 # Scale up an app in Azure App Service
 
-This article shows how to scale your app in Azure App Service. There are two workflows for scaling, scale up and scale out. This article explains the scale up workflow.
+This article shows how to scale your app in Azure App Service. There are two workflows for scaling: scale up and scale out. This article explains the scale up workflow.
 
 * [Scale up](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Get more CPU, memory, or disk space, or extra features
   like dedicated virtual machines (VMs), custom domains and certificates, staging slots, autoscaling. You scale up by changing the pricing tier of the
