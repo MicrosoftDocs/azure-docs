@@ -1,5 +1,5 @@
 ---
-title: Install and run Azurite emulator
+title: Install and run the Azurite emulator
 description: The Azurite open-source emulator provides a free local environment to help accelerate development and testing of your Azure storage applications.
 author: stevenmatthew
 ms.author: shaas
@@ -457,7 +457,7 @@ azurite --oauth basic --cert path/server.pem --key path/key.pem
 > [!NOTE]
 > OAuth requires an HTTPS endpoint. Make sure HTTPS is enabled by providing `--cert` switch along with the `--oauth` switch.
 
-Azurite supports basic authentication by specifying the `basic` parameter to the `--oauth` switch. Azurite performs basic authentication, like validating the incoming bearer token, checking the issuer, audience, and expiry. Azurite doesn't check the token signature or permissions. To learn more about authorization, see [Connect to Azurite with SDKs and tools](storage-connect-azurite?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json).
+Azurite supports basic authentication by specifying the `basic` parameter to the `--oauth` switch. Azurite performs basic authentication, like validating the incoming bearer token, checking the issuer, audience, and expiry. Azurite doesn't check the token signature or permissions. To learn more about authorization, see [Connect to Azurite with SDKs and tools](storage-connect-azurite.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json).
 
 ### Skip API version check
 

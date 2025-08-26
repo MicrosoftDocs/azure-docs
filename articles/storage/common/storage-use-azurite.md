@@ -1,5 +1,5 @@
 ---
-title: Use Azurite emulator for local Azure Storage development
+title: Use the Azurite emulator for local Azure Storage development
 description: The Azurite open-source emulator provides a free local environment for testing your Azure storage applications.
 author: stevenmatthew
 ms.author: shaas
@@ -70,7 +70,7 @@ Next, set environment variables to enable customized storage accounts and keys:
 set AZURITE_ACCOUNTS="account1:key1:key2"
 ```
 
-You could add more accounts. See the [Custom storage accounts and keys](storage-connect-azurite.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json#custom-storage-accounts-and-keys) section of the *Connect to Azurite* article.
+You could add more accounts. See the [Custom storage accounts and keys](storage-connect-azurite.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json#use-custom-storage-accounts-and-keys) section of the *Connect to Azurite* article.
 
 Start Azurite and use a customized connection string to access your account. In the following example, the connection string assumes that the default ports are used. 
 
