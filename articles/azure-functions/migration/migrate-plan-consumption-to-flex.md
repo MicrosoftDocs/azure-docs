@@ -38,7 +38,7 @@ Before staring a migration, keep these considerations in mind:
 
     + The Flex Consumption plan introduced a new section in the `Microsoft.Web/sites` resource type called `functionAppConfig`, which contains many of the configurations that were application settings. For more information, see [Flex Consumption plan deprecations](../functions-app-settings.md#flex-consumption-plan-deprecations). 
     + You can find resource configuration details for a Flex Consumption plan app in [Automate resource deployment for your function app in Azure Functions](../functions-infrastructure-as-code.md?pivots=flex-consumption-plan). 
-    + Functions maintains a set of canonical Flex Consumption plan deployment examples for [ARM templates](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/tree/main/IaC/armtemplate), [Bicep files](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/tree/main/IaC/bicep), and [Terraform files](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/tree/main/IaC/terraform).
+    + Functions maintains a set of canonical Flex Consumption plan deployment examples for [ARM templates](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/tree/main/IaC/armtemplate), [Bicep files](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/tree/main/IaC/bicep), and [Terraform files](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/tree/main/IaC).
 
 ## Prerequisites
 
