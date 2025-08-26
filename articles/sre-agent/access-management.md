@@ -1,16 +1,16 @@
 ---
-title: Security Contexts in Azure SRE Agent Preview
+title: Access management in Azure SRE Agent Preview
 description: Learn how Azure SRE Agent uses security contexts to handle agent creation and execution.
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: concept-article
-ms.date: 07/18/2025
+ms.date: 08/26/2025
 ms.service: azure-sre-agent
 ---
 
-# Security contexts in Azure SRE Agent Preview
+# Access management in Azure SRE Agent Preview
 
-This article explains the security contexts involved in Azure SRE Agent Preview operations. The security contexts include the user account that creates the agent, user accounts that interact with the agent, and the agent's own managed identity. Each context has specific permission requirements and serves distinct purposes in maintaining a secure environment.
+This article explains how Azure SRE Agent access management operates. The access management includes the user account that creates the agent, user accounts that interact with the agent, and the agent's own managed identity. Each context has specific permission requirements and serves distinct purposes in maintaining a secure environment.
 
 You can ensure that only intended users have access to the agent through Microsoft Entra policies. Microsoft Entra governs identity assignments for the resource groups associated with the agent's managed identity.
 
