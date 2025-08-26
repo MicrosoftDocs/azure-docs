@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.custom: engagement-fy23
 ms.date: 12/12/2023
+# Customer intent: "As a cloud architect, I want to configure network topologies for Oracle Database@Azure, so that I can ensure optimal connectivity, security, and performance for the deployment in my virtual network environment."
 ---
 # Network planning for Oracle Database@Azure
 In this article, learn about network topologies and constraints in Oracle Database@Azure.
@@ -23,15 +24,30 @@ Advanced network features enhance the virtual networking experience, offering im
 
 * Australia East
 * Australia Southeast
+* Brazil South
 * Canada Central
+* Central India
 * Central US 
 * East US 
 * East US2
+* France Central
+* Germany North
+* Germany West Central
+* Italy North 
+* Japan East
+* North Europe
 * South Central US
-* US West  
+* Southeast Asia
+* Spain Central
+* Sweden Central
+* UAE North
 * UK South 
 * UK West
-* Germany West Central 
+* US West
+* US West 2
+* US West 3 
+
+
 
 > [!NOTE]
 > Advanced network features are currently supported only for new Oracle Database@Azure deployments. 
@@ -127,7 +143,7 @@ Advanced network features enhance your virtual networking experience by providin
 ### Will advanced network features work for existing deployments? 
 Not at the moment. Support for existing deployments is on our roadmap, and we’re actively working to enable it. Stay tuned for updates in the near future. 
 ### Do I need to self-register to enable advanced network features for new deployments? 
-Yes. To take advantage of advanced network features for new deployments, you must complete a registration process. Please run the registration commands before creating a new VNet and delegated subnet for your Oracle Database@Azure deployments. 
+Yes. To take advantage of advanced network features for new deployments, you must complete a registration process. Run the registration commands before creating a new delegated subnet in your existing or new VNet for your Oracle Database@Azure deployments.
 ### How can I check if my deployment supports advanced network features? 
 Currently, there’s no direct way to verify whether a VNet supports advanced network features. We recommend tracking your feature registration timeline and associating it with the VNets created afterward. You can also use the Activity Log blade under the VNet to review creation details—but note, logs are only available for the past 90 days by default. 
 

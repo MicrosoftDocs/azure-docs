@@ -4,20 +4,18 @@ description: This article shows you how to authenticate with Azure Event Grid na
 ms.topic: how-to
 ms.custom:
   - build-2025
-ms.date: 04/30/2025
+ms.date: 07/30/2025
 author: Connected-Seth
 ms.author: seshanmugam
 ---
 
-# Authenticate with MQTT broker using custom webhook authentication (Preview)
+# Authenticate with MQTT broker using custom webhook authentication
 This article shows how to authenticate with Azure Event Grid namespace using webhook or Azure function. 
 
 Webhook authentication allows external HTTP endpoints (webhooks or functions) to authenticate MQTT connections dynamically. This method uses Microsoft Entra ID JWT validation to ensure secure access.  
 
 When a client attempts to connect, the broker invokes a user-defined HTTP endpoint that validates credentials such SAS tokens, usernames/passwords, or even performs Certificate Revocation List (CRL) checks. The webhook evaluates the request and returns a decision to allow or deny the connection, along with optional metadata for fine-grained authorization. This approach supports flexible and centralized authentication policies across diverse device fleets and use cases. 
 
-> [!NOTE]
-> This feature is currently in preview. 
 
 ## Prerequisites 
 
@@ -203,7 +201,7 @@ Content-Type: application/json
 | expiration                | Expiration date in Unix time format. (Optional when Decision is set to allow) |
 | errorReason               | Error message if decision is set to deny. This error is logged. (Optional when Decision is set to deny) |
 
-### Examples of supported attribute types: 
+### Examples of supported attribute types 
 
 ```json
 "num_attr_pos": 1, 

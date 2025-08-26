@@ -97,6 +97,9 @@ This section shows you how to use Azure portal to add a virtual network service 
     > [!NOTE]
     > For instructions on allowing access from specific IP addresses or ranges, see [Allow access from specific IP addresses or ranges](service-bus-ip-filtering.md).
 
+    > [!NOTE]
+    > To delete a Virtual Network rule, first remove any Azure Resource Manager delete lock on the Virtual Network.
+
 [!INCLUDE [service-bus-trusted-services](./includes/service-bus-trusted-services.md)]
 
 ## Use Resource Manager template

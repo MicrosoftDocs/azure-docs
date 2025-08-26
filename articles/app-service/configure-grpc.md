@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.custom: linux-related-content
 ms.date: 11/10/2023
 ms.author: jefmarti
+ms.service: azure-app-service
 ---
 
 # Configure gRPC on App Service

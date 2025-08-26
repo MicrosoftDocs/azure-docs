@@ -6,6 +6,7 @@ ms.topic: tutorial
 ms.date: 9/13/2024
 ms.author: jordanselig
 ms.custom: references_regions
+ms.service: azure-app-service
 ---
 # Prevent and resolve issues caused by an auto-migration of an App Service Environment
 

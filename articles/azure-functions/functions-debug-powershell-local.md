@@ -34,7 +34,7 @@ PSFunctionApp
  | - profile.ps1
 ```
 
-This function app is similar to the one you get when you complete the [PowerShell quickstart](./create-first-function-vs-code-powershell.md).
+This function app is similar to the one you get when you complete the [PowerShell quickstart](./how-to-create-function-vs-code.md?pivot=programming-language-powershell).
 
 The function code in `run.ps1` looks like the following script:
 
@@ -94,7 +94,7 @@ To debug your PowerShell functions in Visual Studio Code, you must have the foll
 * [Azure Functions extension for Visual Studio Code](./how-to-create-function-azure-cli.md?pivots=programming-language-powershell)
 * [PowerShell Core 6.2 or higher](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-After installing these dependencies, load an existing PowerShell Functions project, or [create your first PowerShell Functions project](./create-first-function-vs-code-powershell.md).
+After installing these dependencies, load an existing PowerShell Functions project, or [create your first PowerShell Functions project](./how-to-create-function-vs-code.md?pivot=programming-language-powershell).
 
 >[!NOTE]
 > Should your project not have the needed configuration files, you are prompted to add them.

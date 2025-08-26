@@ -5,8 +5,8 @@ ms.topic: overview
 ms.date: 06/24/2025
 ms.custom: references_regions
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallickalicka
 # Customer intent: As a compliance officer, I want to understand the Archive tier support in Azure Backup, so that I can effectively manage long-term retention of backup data while adhering to organizational compliance requirements.
 ---
 

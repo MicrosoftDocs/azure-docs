@@ -1,8 +1,8 @@
 ---
 title: Build queries or rules with watchlists - Microsoft Sentinel
 description: Use watchlists in KQL search queries or detection rules with built-in functions for Microsoft Sentinel.
-author: cwatson-cat
-ms.author: cwatson
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: how-to
 ms.date: 3/14/2024
 appliesto:

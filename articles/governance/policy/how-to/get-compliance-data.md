@@ -175,7 +175,7 @@ Back on the resource compliance page, select and hold (or right-click) on the ro
 :::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Screenshot of the Activity Log for Azure Policy activities and evaluations." border="false":::
 
 > [!NOTE]
-> Compliance results can be exported from the portal with [Azure Resource Graph queries](../samples/resource-graph-samples.md).
+> Compliance results can be exported from the portal with [Azure Resource Graph queries](/azure/governance/policy/samples/resource-graph-samples).
 
 ## Command line
 
@@ -284,11 +284,11 @@ If you have a [Log Analytics workspace](/azure/azure-monitor/logs/log-query-over
 
 ## Azure Resource Graph
 
-Compliance records are stored in Azure Resource Graph (ARG). Data can be exported from ARG queries to form customized dashboards based on the scopes and policies of interest. Review our [sample queries](../samples/resource-graph-samples.md) for exporting compliance data through ARG.
+Compliance records are stored in Azure Resource Graph (ARG). Data can be exported from ARG queries to form customized dashboards based on the scopes and policies of interest. Review our [sample queries](/azure/governance/policy/samples/resource-graph-samples) for exporting compliance data through ARG.
 
 ## Next steps
 
-- Review examples at [Azure Policy samples](../samples/index.md).
+- Review examples at [Azure Policy samples](/azure/governance/policy/samples/index).
 - Review the [Azure Policy definition structure](../concepts/definition-structure-basics.md).
 - Review [Understanding policy effects](../concepts/effect-basics.md).
 - Understand how to [programmatically create policies](programmatically-create.md).

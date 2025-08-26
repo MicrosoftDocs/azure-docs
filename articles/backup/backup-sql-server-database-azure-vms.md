@@ -4,8 +4,8 @@ description: In this article, learn how to back up SQL Server databases on Azure
 ms.topic: how-to
 ms.date: 06/03/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As an IT administrator, I want to back up SQL Server databases on Azure virtual machines to the Recovery Services vault, so that I can ensure data protection with low recovery-point objectives and long-term retention.
 ---
 # Back up multiple SQL Server VMs from the Recovery Services vault

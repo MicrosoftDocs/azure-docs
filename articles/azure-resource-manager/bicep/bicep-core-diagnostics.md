@@ -7,7 +7,7 @@ ms.custom:
   - devx-track-bicep
   - devx-track-arm-template
   - build-2025
-ms.date: 06/19/2025
+ms.date: 07/16/2025
 ---
 
 # Bicep core diagnostics
@@ -152,7 +152,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP141' />BCP141 | Error | The expression can't be used as a decorator as it isn't callable. |
 | <a id='BCP142' />BCP142 | Error | Property value for-expressions can't be nested. |
 | <a id='BCP143' />BCP143 | Error | For-expressions can't be used with properties whose names are also expressions. |
-| <a id='BCP144' />BCP144 | Error | Directly referencing a resource or module collection isn't currently supported here. Apply an array indexer to the expression. |
+| <a id='BCP144' />[BCP144](./diagnostics/bcp144.md) | Error | Directly referencing a resource or module collection isn't currently supported here. Apply an array indexer to the expression. |
 | <a id='BCP145' />BCP145 | Error | Output `{identifier}` is declared multiple times. Remove or rename the duplicates. |
 | <a id='BCP147' />[BCP147](./diagnostics/bcp147.md) | Error | Expected a parameter declaration after the decorator. |
 | <a id='BCP148' />BCP148 | Error | Expected a variable declaration after the decorator. |

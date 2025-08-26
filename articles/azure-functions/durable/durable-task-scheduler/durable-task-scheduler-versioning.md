@@ -8,7 +8,7 @@ ms.author: azfuncdf
 zone_pivot_groups: df-languages
 ---
 
-# Orchestration Versioning
+# Orchestration Versioning (preview)
 
 A key area to consider when using a durable orchestration system is how to handle the upgrading/downgrading of orchestrations. When an orchestration is interrupted and later resumed (for instance, during a host update), Durable Task Scheduler will replay the events of the orchestration. This is done to ensure reliability - the system replays to ensure all previous steps were executed successfully before the next step is taken - which is a core promise of the durable execution paradigm. So, if an orchestration changes between deployments, the steps it takes may no longer be the same. If this does happen, the system will throw a `NonDeterministicError` instead of allowing the orchestration to continue. 
 
@@ -44,7 +44,7 @@ In order for an orchestration to have a version, it must first be set in the cli
 ::: zone pivot="csharp"
 
 > [!NOTE]
-> Available in the .NET SDK since v1.9.0.
+> Available in the .NET SDK (Microsoft.DurableTask.Client.AzureManaged) since v1.9.0.
 
 ```csharp
 builder.Services.AddDurableTaskClient(builder =>
@@ -59,7 +59,7 @@ builder.Services.AddDurableTaskClient(builder =>
 ::: zone pivot="java"
 
 > [!NOTE]
-> Available in the Java SDK since v1.6.0.
+> Available in the Java SDK (com.microsoft:durabletask-client) since v1.6.0.
 
 ```java
 public DurableTaskClient durableTaskClient(DurableTaskProperties properties) {
@@ -166,6 +166,9 @@ Similar to the client versioning, these are all set via the standard host builde
 
 ::: zone pivot="csharp"
 
+> [!NOTE]
+> Available in the .NET SDK (Microsoft.DurableTask.Worker.AzureManaged) since v1.9.0.
+
 ```csharp
 builder.Services.AddDurableTaskWorker(builder =>
 {
@@ -184,6 +187,9 @@ builder.Services.AddDurableTaskWorker(builder =>
 ::: zone-end
 
 ::: zone pivot="java"
+
+> [!NOTE]
+> Available in the Java SDK (com.microsoft:durabletask-client) since v1.6.0.
 
 ```java
 private static DurableTaskGrpcWorker createTaskHubServer() {

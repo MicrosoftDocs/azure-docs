@@ -6,6 +6,7 @@ ms.author: jacobjaygbay
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
+# Customer intent: As a cloud engineer, I want to utilize Terraform to provision Oracle Database resources on Azure, so that I can automate infrastructure management and ensure efficient deployment within my organization’s cloud strategy.
 ---
 
 # Terraform/OpenTofu examples for Oracle Database@Azure

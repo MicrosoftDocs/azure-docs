@@ -6,8 +6,8 @@ ms.custom:
   - devx-track-bicep
   - build-2025
 ms.date: 06/17/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a cloud administrator, I want to back up blob data in a storage account using a Bicep file, so that I can automate the backup process and ensure data retention according to our established policies."
 ---
 

@@ -2,7 +2,7 @@
 title: MQTT (PubSub) broker'
 description: Message Queuing Telemetry Transport (MQTT) PubSub broker feature in Azure Event Grid enables MQTT clients to communicate with each other and with Azure services.
 ms.topic: concept-article
-ms.date: 04/30/2025
+ms.date: 07/30/2025
 author: george-guirguis
 ms.author: geguirgu
 ms.subservice: mqtt
@@ -41,12 +41,14 @@ MQTT is a publish-subscribe messaging transport protocol that was designed for c
 	- **Clean start and session expiry** enable your clients to optimize the reliability and security of the session by preserving the client's subscription information and messages for a configurable time interval.
 	- **Negative acknowledgments** allow your clients to efficiently react to different error codes.
    	- **Server-sent disconnect packets** allow your clients to efficiently handle disconnects.
+   	- [MQTT Retain](mqtt-retain.md) ensures that the last published message on a topic is stored by the broker and automatically delivered to any new subscribers. This allows devices to instantly receive the latest known state without waiting for the next update, enabling faster and more reliable state synchronization across IoT systems. 
 
 - MQTT v3.1.1 features:
   	- **Last Will and Testament** notifies your MQTT clients with the abrupt disconnections of other MQTT clients. You can use this feature to ensure predictable and reliable flow of communication among MQTT clients during unexpected disconnections.
 	- **Persistent sessions** ensure reliability by preserving the client's subscription information and messages when a client disconnects.
 	- **QoS 0 and 1** provide your clients with control over the efficiency and reliability of the communication.
--  MQTT broker is adding more MQTT v5 and MQTT v3.1.1  features in the future to align more with the MQTT specifications. The following items detail the current differences between features supported by MQTT broker and the MQTT v5 specifications: Retain flag, and QoS 2 aren't supported.  
+	- [MQTT Retain](mqtt-retain.md) ensures that the last published message on a topic is stored by the broker and automatically delivered to any new subscribers. This allows devices to instantly receive the latest known state without waiting for the next update, enabling faster and more reliable state synchronization across IoT systems. 
+-  The following items detail the current differences between features supported by MQTT broker and the MQTT v5 specifications: QoS 2 isn't supported.  
  
 [Learn more about the MQTT broker and current limitations.](mqtt-support.md) 
 
@@ -77,7 +79,7 @@ Event Grid has a client registry that stores information about the clients permi
 - [Microsoft Entra ID authentication](mqtt-client-microsoft-entra-token-and-rbac.md), which is Azure's authentication standard for applications. [Learn more about MQTT client authentication.](mqtt-client-authentication.md)
 - Flexible authentications
     - [OAuth 2.0 JSON Web Token (JWT) authentication](oauth-json-web-token-authentication.md), which provides a lightweight, secure, and flexible option for MQTT clients that aren't provisioned in Azure.
-    - Custom Webhook authentication allows external HTTP endpoints (webhooks) to authenticate MQTT connections dynamically. It uses the Entra ID JWT validation to ensure secure access.
+    - [Custom Webhook authentication](authenticate-with-namespaces-using-webhook-authentication.md) allows external HTTP endpoints (webhooks) to authenticate MQTT connections dynamically. It uses the Entra ID JWT validation to ensure secure access.
 
 
 ### Access control
@@ -103,7 +105,7 @@ Route MQTT messages and Cloud Events from Event Grid Namespace to Fabric Event S
 
 
 ### Edge MQTT broker integration
-Event Grid integrates with [Azure IoT Operations](../iot-operations/manage-mqtt-broker/overview-broker.md) to bridge its MQTT broker capability on the edge with Azure Event Grid’s MQTT broker feature in the cloud. Azure IoT Operations provides a new distributed MQTT broker for edge computing, running on Arc enabled Kubernetes clusters. It can connect to Event Grid MQTT broker with Microsoft Entra ID authentication using system-assigned managed identity, which simplifies credential management. MQTT Broker provides high availability, scalability, and security for your IoT devices and applications. It's now available in [public preview](../iot-operations/manage-mqtt-broker/overview-broker.md) as part of Azure IoT Operations. [Learn more about connecting Azure IoT Operations MQTT Broker to Azure Event Grid's MQTT broker](../iot-operations/connect-to-cloud/howto-create-dataflow.md).
+Event Grid integrates with [Azure IoT Operations](../iot-operations/manage-mqtt-broker/overview-broker.md) to bridge its MQTT broker capability on the edge with Azure Event Grid’s MQTT broker feature in the cloud. Azure IoT Operations provides a new distributed MQTT broker for edge computing, running on Arc enabled Kubernetes clusters. It can connect to Event Grid MQTT broker with Microsoft Entra ID authentication using system-assigned managed identity, which simplifies credential management. MQTT Broker provides high availability, scalability, and security for your IoT devices and applications. [Learn more about connecting Azure IoT Operations MQTT Broker to Azure Event Grid's MQTT broker](../iot-operations/connect-to-cloud/howto-create-dataflow.md).
 
 ### MQTT Clients Life Cycle Events
 
@@ -113,6 +115,15 @@ Client Life Cycle events allow applications to react to events about the client 
 
 Custom domain names support allows users to assign their own domain names to Event Grid namespace's MQTT and HTTP endpoints, enhancing security and simplifying client configuration. This feature helps enterprises meet their security and compliance requirements and eliminates the need to modify clients already linked to the domain. Assigning a custom domain name to multiple namespaces can also help enhance availability, manage capacity, and handle cross-region client mobility. Learn more about [Custom domain names](custom-domains-namespaces.md).
 
+
+### MQTT Retain (preview) 
+
+An MQTT retain message is used to store the last known good value of a topic on the broker, ensuring that new subscribers immediately receive the most recent message without waiting for the next publish. This is especially useful in scenarios like device state reporting, control signals, or configuration data where the latest message must always be available to clients on connect. For more information, see [MQTT retain support in Azure Event Grid](mqtt-retain.md).
+
+ 
+### HTTP Publish (preview) 
+
+HTTP Publish enables applications to publish MQTT messages to Azure Event Grid MQTT Broker over a simple HTTPS POST request, without maintaining an active MQTT session. It’s best suited for scenarios where MQTT clients are not feasible or necessary—such as serverless functions, cloud services, or backend applications—allowing event-driven architectures to inject MQTT messages reliably and securely. Common use cases include publishing device commands, alerts, or control signals from Azure Functions, Logic Apps, or API integrations. For more information, see [HTTP Publish of MQTT messages in Azure Event Grid](mqtt-http-publish.md).
 
 ## Concepts
 See the following articles for concepts of MQTT broker in Azure Event Grid: 

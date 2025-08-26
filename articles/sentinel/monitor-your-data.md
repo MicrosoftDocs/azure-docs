@@ -1,10 +1,10 @@
 ---
 title: Visualize your data using workbooks in Microsoft Sentinel | Microsoft Docs
 description: Learn how to visualize your data using workbooks in Microsoft Sentinel.
-author: yelevin
+author: batamig
 ms.topic: how-to
-ms.date: 05/22/2024
-ms.author: yelevin
+ms.date: 06/09/2025
+ms.author: bagol
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -63,7 +63,7 @@ Use a template installed from the content hub to create a workbook.
 
     To clone your workbook, select **Save as**. Save the clone with another name, under the same subscription and resource group. Cloned workbooks are displayed under the **My workbooks** tab.
 
-1. When you're done, select **Save** to save your changes.
+1. When you're done, select **Done Editing** to save your changes.
 
 For more information, see:
 

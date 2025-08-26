@@ -4,7 +4,7 @@ description: In this quickstart, you enable Microsoft Sentinel, and set up data 
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.date: 06/12/2025
+ms.date: 07/16/2025
 ms.custom: references_regions, mode-other
 #Customer intent: As a security operator, set up data connectors in one place so I can monitor and protect my environment.
 

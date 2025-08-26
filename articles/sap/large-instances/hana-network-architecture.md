@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 07/21/2021
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
+# Customer intent: "As a cloud architect, I want to design the network architecture for SAP HANA on Azure Large Instances, so that I can ensure optimal connectivity, performance, and compliance across a hybrid environment with on-premises and cloud-based resources."
 ---
 # SAP HANA (Large Instances) network architecture
 

@@ -1,15 +1,17 @@
 ---
-title: Networking features
+title: Networking Features
 description: Learn about the networking features in Azure App Service, and learn which features you need for security or other functionality.
 author: seligj95
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
-ms.topic: article
+ms.topic: concept-article
 ms.date: 06/13/2025
 ms.update-cycle: 1095-days
 ms.author: jordanselig
 ms.custom: UpdateFrequency3
 #customer intent: As a deployment engineer, I want to understand the options for deploying apps in Azure App Services to control network traffic.
+ms.service: azure-app-service
 ---
+
 # App Service networking features
 
 You can deploy applications in Azure App Service in multiple ways. By default, apps hosted in App Service are accessible directly through the internet and can reach only internet-hosted endpoints. For many applications, you need to control the inbound and outbound network traffic. There are several features in App Service to help you meet those needs. The challenge is knowing which feature to use to solve a given problem. Use this article to help you determine which feature to use, based on example use cases.

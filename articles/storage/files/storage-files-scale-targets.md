@@ -108,7 +108,6 @@ Azure file share scale targets apply at the file share level.
 | Maximum number of share snapshots | 200 snapshots | 200 snapshots | 200 snapshots | 200 snapshots |
 | Maximum filename length<sup>2</sup> (full pathname including all directories, file names, and backslash characters) | 2,048 characters | 2,048 characters | 2,048 characters | 2,048 characters |
 | Maximum length of individual pathname component (in the path \A\B\C\D, each letter represents a directory or file that is an individual component) | 255 characters | 255 characters | 255 characters | 255 characters |
-| Hard link limit (NFS only) | 178 | N/A | 178 | N/A |
 | Maximum number of SMB Multichannel channels | 4 | N/A | 4 | N/A |
 | Maximum number of stored access policies per file share | 5 | 5 | 5 | 5 |
 
@@ -124,6 +123,7 @@ File scale targets apply to individual files stored in Azure file shares.
 | Maximum file size | 4 TiB | 4 TiB | 4 TiB | 4 TiB |
 | Maximum data IOPS per file | 8,000 IOPS | 1,000 IOPS | 8,000 IOPS | 1,000 IOPS |
 | Maximum throughput per file | 1,024 MiB / sec | 60 MiB / sec | 1,024 MiB / sec | 60 MiB / sec |
+| Hard link limit per file (NFS only) | 178 | N/A | 178 | N/A |
 | Maximum concurrent handles for root directory | 10,000 handles | 10,000 handles | 10,000 handles | 10,000 handles |
 | Maximum concurrent handles per file and directory | 2,000 handles | 2,000 handles | 2,000 handles | 2,000 handles |
 

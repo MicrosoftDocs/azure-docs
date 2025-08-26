@@ -1,8 +1,7 @@
 ---
-title: Scale (preview) an Azure Managed Redis instance
+title: Scale an Azure Managed Redis instance
 description: Learn how to scale your Azure Managed Redis instances using the Azure portal, and tools such as Azure PowerShell, and Azure CLI
-ms.date: 05/18/2025
-ms.service: azure
+ms.date: 08/19/2025
 ms.topic: conceptual
 ms.custom:
   - devx-track-azurepowershell
@@ -14,13 +13,13 @@ appliesto:
   - ✅ Azure Managed Redis
 ---
 
-# Scale (preview) an Azure Managed Redis instance
+# Scale an Azure Managed Redis instance
 
-Azure Managed Redis has different SKU and tier offerings that provide flexibility in the choice of cache size and performance. You can scale (preview) to a larger memory size or change to a tier with more compute performance. You can also scale down to a smaller or more appropriate tier. This article shows you how to scale your cache using the Azure portal, plus tools such as Azure PowerShell and Azure CLI.
+Azure Managed Redis has different SKU and tier offerings that provide flexibility in the choice of cache size and performance. You can scale to a larger memory size or change to a tier with more compute performance. You can also scale down to a smaller or more appropriate tier. This article shows you how to scale your cache using the Azure portal, plus tools such as Azure PowerShell and Azure CLI.
 
 > [!NOTE]
 > Because each tier of Azure Managed Redis has almost the same features, scaling is typically used just to change memory and performance characteristics.
-Scaling is currently in Public Preview.
+Scaling geo-replicated Azure Managed Redis caches remains in Public Preview.
 >
 
 ## Types of scaling
@@ -175,7 +174,6 @@ For more information on how Azure Managed Redis handles sharding, see [Sharding 
 
 - If high availability mode is enabled, all data should be preserved during scaling operations.
 - If you're scaling to a smaller memory level, you need to ensure that the current memory usage is smaller than the intended new memory size. If the current memory usage is more than the intended SKU memory size, you can flush your data using Flush operation or manually choose key values to delete.
-<!-- - add link -->
 - If high availability mode is disabled, all data is lost and the cache is unavailable during the scaling operation.
 
 ### Is my cache be available during scaling?
@@ -185,7 +183,7 @@ For more information on how Azure Managed Redis handles sharding, see [Sharding 
 
 ### Are there scaling limitations with geo-replication?
 
-With [active geo-replication](how-to-active-geo-replication.md) configured, you can't mix and match cache sizes in a geo-replication group. As a result, scaling the caches in a geo-replication group requires a few more steps. See [Scaling instances in a geo-replication group](how-to-active-geo-replication.md#scaling-instances-in-a-geo-replication-group) for instructions.
+Scaling geo-replicated caches is in Public Preview.  With [active geo-replication](how-to-active-geo-replication.md) configured, you can't mix and match cache sizes in a geo-replication group. As a result, scaling the caches in a geo-replication group requires a few more steps. See [Scaling instances in a geo-replication group](how-to-active-geo-replication.md#scaling-instances-in-a-geo-replication-group) for instructions.
 
 ### How long does scaling take?
 

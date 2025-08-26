@@ -10,6 +10,7 @@ ms.devlang: azurecli
 author: cephalin
 ms.author: cephalin
 #customer intent: As an app developer, I want to understand how to configure settings in Azure App Service, including command line options.
+ms.service: azure-app-service
 ---
 
 # Configure an App Service app

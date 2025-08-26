@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 12/16/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
+# Customer intent: As a SAP system administrator, I want to configure a multi-SID high availability setup for SAP ASCS/SCS instances using Windows Failover Clustering and Azure file shares, so that I can ensure operational resilience and redundancy for my SAP deployment.
 ---
 
 

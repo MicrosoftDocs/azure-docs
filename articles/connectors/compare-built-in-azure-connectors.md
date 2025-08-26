@@ -4,7 +4,7 @@ description: Learn the differences between built-in operations and shared connec
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/09/2025
 # Customer intent: As a developer, I want to understand the differences between built-in and Azure connectors in Azure Logic Apps (Standard).
 ---
