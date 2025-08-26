@@ -82,8 +82,6 @@ items:
       href: https://learn.microsoft.com/azure/service-fabric/service-fabric-cloud-services-migration-worker-role-stateless-service?toc=/azure/cloud-services-extended-support/toc.json
     - name: Compare Cloud Services (extended support) with Service Fabric
       href: https://learn.microsoft.com/azure/service-fabric/service-fabric-cloud-services-migration-differences?toc=/azure/cloud-services-extended-support/toc.json
-    - name: Cloud Services migration decision matrix
-      href: https://learn.microsoft.com/azure/service-fabric/cloud-services-migration-decision-matrix?toc=/azure/cloud-services-extended-support/toc.json
 - name: How To
   items:
   - name: Apply extensions
