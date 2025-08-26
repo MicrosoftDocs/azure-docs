@@ -2,7 +2,7 @@
 title: Back up Azure Managed Disks
 description: Learn how to back up Azure Managed Disks from the Azure portal.
 ms.topic: how-to
-ms.date: 08/08/2025
+ms.date: 08/26/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -16,7 +16,7 @@ This article describes how to back up [Azure Disk](/azure/virtual-machines/manag
 Learn about the [Azure Disk backup region availability, supported scenarios, and limitations](disk-backup-support-matrix.md).
 
 >[!Note]
->- If the target disk is attached as a Persistent Volume to an AKS cluster, choose [Azure Backup for AKS](./azure-kubernetes-service-cluster-backup.md) over the standalone Disk Backup solution. It enables backing up the disk as snapshots along with the containerized application in a Kubernetes-aware manner, all as a single unit.  Additionally, you get Cross Region Restore and ransomware protection capabilities with AKS Backup.
+>If the target disk is attached as a Persistent Volume to an AKS cluster, choose [Azure Backup for AKS](./azure-kubernetes-service-cluster-backup.md) over the standalone Disk Backup solution. It enables backing up the disk as snapshots along with the containerized application in a Kubernetes-aware manner, all as a single unit.  Additionally, you get Cross Region Restore and ransomware protection capabilities with AKS Backup.
 
 ## Create a Backup vault
 
@@ -24,7 +24,7 @@ A Backup vault is a storage entity in Azure that holds backup data for various n
 
 Learn how to [create a Backup vault](create-manage-backup-vault.md#create-a-backup-vault).
 
-## Create Backup Policy for Azure Disks
+## Create backup policy for Azure Disks
 
 To create a backup policy for Azure Disks, follow these steps:
 
@@ -36,7 +36,7 @@ To create a backup policy for Azure Disks, follow these steps:
 
 1. On the **Start: Create Policy** pane, select the **Datasource type** as **Azure Disks**, and then select **Continue**.
 
-   :::image type="content" source="./media/backup-managed-disks/start-create-policy.png" alt-text="Screenshot shows how to select the datasource type to create a backup policy.":::
+   :::image type="content" source="./media/backup-managed-disks/start-create-policy.png" alt-text="Screenshot shows how to select the datasource type to create a backup policy." lightbox="./media/backup-managed-disks/start-create-policy.png":::
 
 1. On the **Create Backup Policy** pane, on the **Basics** tab, enter a **Policy name**, and then under **Vault**, click **Select**.
 
@@ -60,7 +60,7 @@ To create a backup policy for Azure Disks, follow these steps:
    You can pick **first successful backup** taken daily or weekly, and provide the retention duration that the specific backups are to be retained before they're deleted. This option is useful to retain specific backups of the day or week for a longer duration of time. All other frequent backups can be retained for a shorter duration.
 
    >[!NOTE]
-   >Azure Backup for Managed Disks uses incremental snapshots, which are limited to 500 snapshots per disk. At a point in time, you can have 500 snapshots for a disk. Thus, to prevent backup failure the retention duration is limited by the snapshot limit. To allow you to take on-demand backups aside from scheduled backups, backup policy limits the total backups to 450. Learn more about [incremental snapshots](/azure/virtual-machines/disks-incremental-snapshots#restrictions) for managed disk.
+   >Azure Backup for Managed Disks uses incremental snapshots, which are limited to 500 snapshots per disk. At a point in time, you can have 500 snapshots for a disk. Thus, to prevent backup failure the retention duration is limited by the snapshot limit. To allow you to take on-demand backups aside from scheduled backups, backup policy limits the total backups to 450. Learn more about [incremental snapshots](/azure/virtual-machines/disks-incremental-snapshots#restrictions) for managed disks.
 
    You can either set a maximum retention limit of 1 year or 450 disk snapshots, whichever reaches first. For example, if you opt for a backup frequency of 12 hours, then you can retain each recovery point for maximum 225 days as the snapshot limit is breached beyond that. 
 
@@ -82,7 +82,7 @@ To configure Azure Disk backup, follow these steps:
 
 1. Go to **Business Continuity Center**, and then select **+ Configure protection**.
 
-1. On the **Configure protection** pane, select **Resource managed by** as **Azure**, **Datasource type** as **Azure Disks**, ****Solution** as **Azure Backup**, and then select **Continue**.
+1. On the **Configure protection** pane, select **Resource managed by** as **Azure**, **Datasource type** as **Azure Disks**, **Solution** as **Azure Backup**, and then select **Continue**.
 
    :::image type="content" source="./media/backup-managed-disks/select-azure-disks-as-datasource-type.png" alt-text="Screenshot shows how to select the datasource type as Azure Disks." lightbox="./media/backup-managed-disks/select-azure-disks-as-datasource-type.png":::
 
@@ -170,7 +170,7 @@ To configure Azure Disk backup, follow these steps:
    >- In some cases, it can take up to 30 minutes for the role assignments to propagate, causing revalidation failure. In this scenario, retry after some time.
    >- If the **Add missing roles** action fails  to assign permissions with the error ‘Insufficient permission for role assignment’ in Backup readiness column, it indicates that you don’t have the privilege to assign role permissions. Choose Download role assignment template to download role assignments as scripts and seek support from your IT Administrator to run the scripts to complete the prerequisites. 
 
-   :::image type="content" source="./media/backup-managed-disks/permission-propagation-taking-long-time.png" alt-text="Screenshot shows the permission propagates instances taking longer time, upto 30 seconds." lightbox="./media/backup-managed-disks/permission-propagation-taking-long-time.png":::
+   :::image type="content" source="./media/backup-managed-disks/permission-propagation-taking-long-time.png" alt-text="Screenshot shows the permission propagates instances taking longer time, up to 30 seconds." lightbox="./media/backup-managed-disks/permission-propagation-taking-long-time.png":::
 
 1. After a successful validation, select **Next**.
 
