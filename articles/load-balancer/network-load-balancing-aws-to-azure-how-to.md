@@ -63,7 +63,7 @@ Both architectures provide equivalent capabilities:
 - **Client IP preservation**: Original client IP addresses maintained for analytics and anti-cheat systems
 - **Low latency**: Optimized for low-latency scenarios with minimal processing overhead; actual latency depends on network topology, VM performance, datacenter design, and geographic proximity
 - **High throughput**: Can support millions of concurrent connections and requests per second for Standard Load Balancer with appropriate VM sizes and configuration; actual capacity depends on SKU, VM network limits, and tuning
-- **Advanced health monitoring**: Comprehensive health checks monitoring both TCP and UDP service endpoints
+- **Advanced health monitoring**: Comprehensive TCP and HTTP/HTTPS health probes (UDP services require TCP or HTTP health checks on alternate ports)
 - **Network security controls**: Security groups/rules controlling traffic flow between network tiers
 - **Auto-scaling integration**: Automatic scaling based on traffic demand and resource utilization
 - **Comprehensive monitoring**: Detailed metrics, access logs, and health monitoring for troubleshooting and optimization
@@ -105,7 +105,7 @@ The platform capabilities map from AWS NLB to Azure Load Balancer as follows:
  | **[AWS NLB Client IP Preservation](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/edit-target-group-attributes.html#client-ip-preservation)** | **[Load Balancer Floating IP (DSR)](load-balancer-floating-ip.md)** | Enable Floating IP (Direct Server Return) on load balancing rules to preserve client IP addresses. Azure Floating IP requires extra guest OS configuration (for example, a loopback interface and OS network settings) while AWS client IP preservation is enabled by default for instance targets. Configure DSR when targets are in the same VPC/subnet to ensure backend servers receive real client IP addresses for analytics and security systems. |
 
 Note: With Floating IP enabled, outbound behavior can be affected—the application must use the primary IP configuration for outbound traffic and binding to the frontend loopback IP can prevent outbound SNAT translation. Consider using an Azure NAT Gateway or explicit outbound rules to provide predictable outbound connectivity when using Floating IP.
-| **[AWS NLB Health Checks](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/target-group-health-checks.html)** | **[Load Balancer Health Probes](load-balancer-custom-probe-overview.md)** | Configure health probes matching AWS health check settings for both TCP and UDP services. Set probe interval (default 5 seconds), timeout, unhealthy threshold, and protocol to match AWS NLB configuration. Azure supports TCP, HTTP, and HTTPS health probes with configurable intervals and failure thresholds, while AWS NLB provides TCP, HTTP, and HTTPS options with slightly different timeout behaviors. |
+| **[AWS NLB Health Checks](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/target-group-health-checks.html)** | **[Load Balancer Health Probes](load-balancer-custom-probe-overview.md)** | Configure health probes for TCP services and alternate health check approaches for UDP services. Set probe interval (default 5 seconds), timeout, unhealthy threshold, and protocol to match AWS NLB configuration. Azure supports TCP, HTTP, and HTTPS health probes with configurable intervals and failure thresholds. For UDP services, use TCP or HTTP health probes on alternate ports since Azure Load Balancer doesn't support native UDP health probing. AWS NLB provides TCP, HTTP, and HTTPS options with slightly different timeout behaviors. |
 | **[AWS NLB Flow Hash Algorithm](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html#load-balancer-algorithm)** | **[Load Balancer Distribution Mode](load-balancer-distribution-mode.md)** | Configure distribution mode to control traffic distribution. Azure Load Balancer uses 5-tuple hash (source IP, source port, destination IP, destination port, protocol) by default, while AWS NLB includes TCP sequence number in its flow hash. For applications requiring session affinity, configure Source IP affinity or Source IP and protocol distribution modes to ensure consistent routing. |
 | **[AWS NLB Target Registration and Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html)** | **[Azure Virtual Machine Scale Sets Auto Registration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-portal)** | AWS Auto Scaling Groups automatically register/deregister EC2 instances with NLB target groups. Azure Virtual Machine Scale Sets provide equivalent functionality by automatically adding/removing VM instances to Load Balancer backend pools. Configure scale sets with automatic registration to backend pools during deployment. For individual VMs, use Azure Resource Manager templates or Azure CLI to programmatically add new VMs to backend pools by IP address or NIC configuration. |
 | **[AWS NLB Scheme Configuration (Internet-facing/Internal)](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html)** | **[Azure Load Balancer Public/Internal Configuration](load-balancer-overview.md)** | AWS NLB supports internet-facing (public) and internal schemes in a single load balancer configuration. Azure Load Balancer separates these as distinct resource types: create a Public Load Balancer for internet traffic with public IP frontend, or create an Internal (Private) Load Balancer for VNet-internal traffic with private IP frontend. You can't convert between types after creation - deploy separate load balancers for public and private traffic scenarios. Both types support identical backend pool and health probe configurations. |
@@ -170,7 +170,9 @@ A successful migration requires detailed documentation of the existing AWS NLB c
 
 #### Health check configuration mapping
 
-Map [AWS NLB health check configurations](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/target-group-health-checks.html) to Azure Load Balancer health probe equivalents using the [Azure Load Balancer health probe configuration guide](load-balancer-custom-probe-overview.md). This ensures both TCP and UDP service health monitoring continues to function correctly after migration with appropriate intervals for your workloads.
+#### Health check configuration mapping
+
+Map [AWS NLB health check configurations](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/target-group-health-checks.html) to Azure Load Balancer health probe equivalents using the [Azure Load Balancer health probe configuration guide](load-balancer-custom-probe-overview.md). This ensures TCP service health monitoring continues to function correctly after migration, and that appropriate alternate health check strategies are implemented for UDP services (using TCP or HTTP probes on alternate ports) with appropriate intervals for your workloads.
 
 #### Performance baseline establishment
 
@@ -329,7 +331,7 @@ During the post-cutover step, you validate the success of the migration by ensur
 - Verify all service routing functions correctly for both protocols
 - Validate client IP preservation functionality for security systems
 - Test session creation, operation, and termination flows
-- Validate health probe behavior for both TCP and UDP services
+- Validate health probe behavior for TCP services and alternate health check approaches for UDP services
 
 **Performance validation:**
 
