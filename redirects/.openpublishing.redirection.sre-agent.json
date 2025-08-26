@@ -1,0 +1,9 @@
+{
+  "redirections": [
+    {
+      "source_path_from_root": "/articles/sre-agent/security-context.md",
+      "redirect_url": "/azure/sre-agent/access-management",
+      "redirect_document_id": false
+    }
+  ]
+}
