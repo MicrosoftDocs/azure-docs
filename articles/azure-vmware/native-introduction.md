@@ -1,5 +1,5 @@
 ---
-title: Introduction to Azure VMware Solution Generation 2 Private Clouds (preview) 
+title: Introduction to Azure VMware Solution Generation 2 Private Clouds
 description: Learn about Azure VMware Solution Gen 2 private clouds.
 ms.topic: overview
 ms.service: azure-vmware
@@ -12,7 +12,7 @@ ms.author: jacobjaygbay
 # Customer intent: As a cloud administrator, I want to understand the features and benefits of Azure VMware Solution Generation 2 private clouds so that I can make informed decisions about deploying and managing cost-effective, secure, and high-performance cloud architectures in Azure.
 ---
 
-# Introduction to Azure VMware Solution Generation 2 Private Clouds (preview) 
+# Introduction to Azure VMware Solution Generation 2 Private Clouds
 
 Azure VMware Solution Generation 2 (Gen 2) private clouds can now be deployed inside an Azure Virtual Network, conforming Azure VMware Solution to Azure networking standards. This architecture simplifies networking architecture, enhances data transfer speeds, reduces latency for workloads, and improves performance when accessing other Azure services. Users can now deploy Azure VMware Solution private clouds with the AV64 SKU directly, eliminating the need for a minimum of 3-host AV36, AV36P, AV48, or AV52 seed cluster. A minimum 3-host AV64 cluster is still required. The same Azure VMware Solution limits apply as described in [Scale clusters in a Private Cloud](tutorial-scale-private-cloud.md).
 
@@ -52,12 +52,7 @@ Gen 2 private clouds are supported on the following SKU type:
 
 ## Regional availability
 
-Azure VMware Solution Gen 2 private clouds are available in the following regions for Preview.
-
-| Region | Status |
-|--------|--------|
-| East US | Preview |
-| Switzerland North | Preview |
+Gen 2 is available in specific Azure public regions. SLAs are region specific. Contact your Microsoft account team or Microsoft Support to confirm coverage.
 
 ## Next steps
 

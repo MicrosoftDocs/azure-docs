@@ -21,8 +21,6 @@ items:
       - name: Spin up a new dev box
         href: quickstart-create-dev-box.md
         displayName: connect, access dev box
-      - name: Use Team Customizations
-        href: quickstart-team-customizations.md
   - name: Concepts
     items:
       - name: Key concepts
@@ -78,6 +76,8 @@ items:
       - name: What are Dev Box customizations
         href: concept-what-are-dev-box-customizations.md
         displayName: customizations, image definition, team customization
+      - name: Quickstart:Use Team Customizations
+        href: quickstart-team-customizations.md
       - name: Configure team customizations
         href: how-to-configure-team-customizations.md
         displayName: customizations, image definition, team customization

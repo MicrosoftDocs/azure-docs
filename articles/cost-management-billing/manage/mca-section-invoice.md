@@ -244,6 +244,6 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 
 ## Related content
 
-- [Create a more Azure subscriptions for Microsoft Customer Agreement](create-subscription.md)
+- [Create more Azure subscriptions for Microsoft Customer Agreement](create-subscription.md)
 - [Manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
 - [Get billing ownership of Azure subscriptions from users in other billing accounts](mca-request-billing-ownership.md)

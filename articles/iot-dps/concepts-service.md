@@ -29,7 +29,7 @@ The service operations endpoint is the endpoint for managing the service setting
 
 ## Device provisioning endpoint
 
-The device provisioning endpoint is the single endpoint that all devices use for provisioning. The URL is the same for all provisioning service instances, which eliminates the need to reflash devices with new connection information in supply chain scenarios. The [ID scope](#id-scope) ensures tenant isolation.
+The device provisioning endpoint is the endpoint that devices use for provisioning. While all DPS instances use the same global endpoint hostname (`global.azure-devices-provisioning.net`), each device must also provide the unique [ID scope](#id-scope) that identifies the specific DPS instance during the provisioning process. This means that devices provisioning to different DPS instances will use different ID scope values, requiring device configuration or firmware updates when moving devices between different DPS instances in scenarios involving multiple provisioning services (such as deployments with more than 1 million devices).
 
 ## Linked IoT hubs
 

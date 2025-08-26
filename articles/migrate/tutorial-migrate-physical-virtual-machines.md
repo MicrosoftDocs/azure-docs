@@ -6,7 +6,7 @@ ms.author: dhananjayanr
 ms.manager: kmadnani
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 02/07/2025
+ms.date: 08/26/2025
 ms.custom: MVC, engagement-fy25
 
 # Customer intent: "As an IT administrator planning a cloud migration, I want to migrate physical servers to Azure using a replication appliance, so that I can leverage cloud resources for improved efficiency and scalability."
@@ -159,16 +159,7 @@ The mobility service agent must be installed on the servers to get them discover
 
 This section introduces a new process, which is simplified experience. Users will follow a streamlined flow that begins with discovery, followed by replication, and finally migration.
 
-It introduces an upgraded agent-based migration stack for physical and VMware environments. Customers benefit from the ability to migrate newer Linux distributions to Azure, use WS2019 and WS2022 for the replication appliance, and utilize a unified OS support matrix. 
-
-The supported new Linux distributions include:
-
-- Ubuntu 24.04
-- RHEL 9.X
-- Oracle Linux 9.X
-- SLES 15
-- Rocky Linux 
-- Alma Linux
+It introduces an upgraded agent-based migration stack for physical and VMware environments. Customers benefit from the ability to migrate newer Linux distributions to Azure, use WS2022 for the replication appliance, and utilize a unified OS support matrix. 
 
 ## Navigate to Azure Migrate project
 

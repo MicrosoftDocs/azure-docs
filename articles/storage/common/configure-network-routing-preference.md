@@ -6,7 +6,7 @@ services: storage
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 07/23/2024
+ms.date: 08/25/2025
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: storage-common-concepts
@@ -37,7 +37,7 @@ To change your routing preference to Internet routing:
 
 3. Under **Security + networking**, choose **Networking**.
 
-4. In the **Firewalls and virtual networks** tab, under **Network Routing**, change the **Routing preference** setting to **Internet routing**.
+4. In the **Network routing** tab, under **Routing preference** setting to **Internet routing**.
 
 5. Click **Save**.
 
@@ -115,7 +115,7 @@ This preference affects only the route-specific endpoint. This preference doesn'
 
 2. Under **Security + networking**, choose **Networking**.
 
-3. In the **Firewalls and virtual networks** tab, under **Publish route-specific endpoints**, choose the routing preference of your route-specific endpoint, and then click **Save**.
+3. In the **Network routing** tab, under **Publish route-specific endpoints**, choose the routing preference of your route-specific endpoint, and then click **Save**.
 
     The following image shows the **Microsoft network routing** option selected.
 

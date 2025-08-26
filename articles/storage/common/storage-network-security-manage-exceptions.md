@@ -6,7 +6,7 @@ author: normesta
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
-ms.date: 06/18/2025
+ms.date: 08/25/2025
 ms.author: normesta
 
 ---
@@ -23,13 +23,11 @@ For a complete list of trusted Azure services, see [Trusted Azure services](stor
 
 1. Navigate to the storage account for which you want to manage exceptions.
 
-2. In the service menu, under **Security + networking**, select **Networking**.
+2. In the service menu, under **Security + networking**, select **Networking**, and then under **Resource settings: Virtual networks, IP addresses, and exceptions**, select **View**.
 
-3. Verify that you've chosen to enable public network access from selected virtual networks and IP addresses.
+3. Under **Exceptions**, select the exceptions that you want to grant.
 
-4. Under **Exceptions**, select the exceptions that you want to grant.
-
-5. Select **Save** to apply your changes.
+4. Select **Save** to apply your changes.
 
 ### [PowerShell](#tab/azure-powershell)
 

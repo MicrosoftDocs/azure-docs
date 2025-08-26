@@ -1,6 +1,6 @@
 ---
 title: Deploy observability resources
-description: How to get started with configuring observability features with a script in Azure IoT Operations, so that you can monitor your solution.
+description: Learn how to deploy Azure IoT Operations observability resources, configure Prometheus metrics, and set up Grafana dashboards to monitor your industrial IoT solution effectively.
 author: SoniaLopezBravo
 ms.author: sonialopez
 ms.topic: how-to
@@ -13,7 +13,9 @@ ms.date: 10/22/2024
 
 # Deploy observability resources and set up logs
 
-Observability provides visibility into every layer of your Azure IoT Operations configuration. It gives you insight into the actual behavior of issues, which increases the effectiveness of site reliability engineering. Azure IoT Operations offers observability through custom curated Grafana dashboards that are hosted in Azure. These dashboards are powered by Azure Monitor managed service for Prometheus and by Container Insights. This guide shows you how to set up Azure Managed Prometheus and Grafana and enable monitoring for your Azure Arc cluster.
+Azure IoT Operations observability provides visibility into every layer of your configuration and gives you insight into the actual behavior of issues, which increases the effectiveness of site reliability engineering. Azure IoT Operations offers observability through custom curated Grafana dashboards hosted in Azure, powered by Azure Monitor managed service for Prometheus and Container Insights.
+
+This article shows you how to deploy Azure IoT Operations observability resources, set up Azure Managed Prometheus and Grafana, and enable comprehensive monitoring for your Azure Arc cluster.
 
 ## Prerequisites
 
@@ -26,8 +28,8 @@ Observability provides visibility into every layer of your Azure IoT Operations 
 
 1. Register providers with the subscription where your cluster is located.
 
-   >[!NOTE]
-   >This step only needs to be run once per subscription. To register resource providers, you need permission to do the `/register/action` operation, which is included in subscription Contributor and Owner roles. For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
+   > [!NOTE]
+   > Run this step only once per subscription. To register resource providers, you need permission to do the `/register/action` operation, which is included in subscription Contributor and Owner roles. For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
    ```azurecli
    az account set -s <SUBSCRIPTION_ID>
@@ -71,7 +73,7 @@ Observability provides visibility into every layer of your Azure IoT Operations 
 
 ## Enable metrics collection for the cluster
 
-Update the Azure Arc cluster to collect metrics and send them to the previously created Azure Monitor workspace. You also link this workspace with the Grafana instance.
+Update the Azure Arc cluster to collect metrics and send them to the Azure Monitor workspace that you created. You also link this workspace with the Grafana instance.
 
 ```azurecli
 az k8s-extension create --name azuremonitor-metrics --cluster-name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers.Metrics --configuration-settings azure-monitor-workspace-resource-id=<AZURE_MONITOR_WORKSPACE_ID> grafana-resource-id=<GRAFANA_ID>
@@ -83,7 +85,7 @@ Enable Container Insights logs for logs collection.
 az k8s-extension create --name azuremonitor-containers --cluster-name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings logAnalyticsWorkspaceResourceID=<LOG_ANALYTICS_WORKSPACE_ID>
 ```
 
-Once these steps are completed, you have both Azure Monitor and Grafana set up and linked to your cluster for observability and metric collection.
+After you complete these steps, you have both Azure Monitor and Grafana set up and linked to your cluster for observability and metric collection.
 
 
 ## Deploy OpenTelemetry Collector

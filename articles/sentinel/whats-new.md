@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: batamig
 ms.author: bagol
 ms.topic: concept-article
-ms.date: 07/17/2025
+ms.date: 08/20/2025
 #Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
 ms.custom:
   - build-2025
@@ -17,6 +17,18 @@ This article lists recent features added for Microsoft Sentinel, and new feature
 The listed features were released in the last six months. For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+## August 2025
+
+- [Edit workbooks directly in the Microsoft Defender portal](#edit-workbooks-directly-in-the-microsoft-defender-portal-preview)
+
+### Edit workbooks directly in the Microsoft Defender portal (Preview)
+
+Now you can create and edit Microsoft Sentinel workbooks directly in the Microsoft Defender portal. This enhancement streamlines your workflow, allows you to manage your workbooks more efficiently, and brings the workbook experience more closely aligned with the experience in the Azure portal.
+
+Microsoft Sentinel workbooks are based on Azure Monitor workbooks, and help you visualize and monitor the data ingested to Microsoft Sentinel. Workbooks add tables and charts with analytics for your logs and queries to the tools already available.
+
+Workbooks are available in the Defender portal under **Microsoft Sentinel > Threat management > Workbooks**. For more information, see [Visualize and monitor your data by using workbooks in Microsoft Sentinel](monitor-your-data.md).
 
 ## July 2025
 
