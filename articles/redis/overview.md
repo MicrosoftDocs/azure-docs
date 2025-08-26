@@ -136,7 +136,7 @@ The following table helps describe some of the features supported by tier:
 
   \* These tiers are in Public Preview.
 
-- **High availability**: Azure Managed Redis provides multiple [high availability](high-availability.md) options. The SLA only covers connectivity to the cache endpoints. The SLA doesn't cover protection from data loss. For more information on the SLA, see the [SLA](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). It's possible to disable high availability in an Azure Managed Redis instance. This lowers the price but results in data loss and downtime. We only recommend disabling high availability for dev/test scenarios.
+- **High availability**: Azure Managed Redis provides high availability. The SLA only covers connectivity to the cache endpoints. The SLA doesn't cover protection from data loss. For more information on the SLA, see the [SLA](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). It's possible to disable high availability in an Azure Managed Redis instance. This lowers the price but results in data loss and downtime. We only recommend disabling high availability for dev/test scenarios.
 
 ### Other pricing considerations
 
