@@ -6,7 +6,6 @@ ms.service: azure-vmware
 ms.date: 8/25/2025
 ms.custom: engagement-fy25
 #customer intent: As a cloud administrator, I want to automatically peer and synchronize Azure virtual networks with my Azure VMware Solution Gen 2 private cloud so that I can simplify connectivity and reduce manual configuration.
-# Customer intent: "As a cloud administrator, I want to use the automatic peering sync feature to ensure consistent and reliable connectivity between Azure VMware Solution Gen 2 private clouds and Azure virtual networks."
 ---
 
 # Automatic peering sync for Azure VMware Solution Gen 2 (Preview)
@@ -35,7 +34,7 @@ Ensures that virtual machines hosted in Azure VMware Solution can securely and c
 
 ---
 
-## How it works  
+## Deployment steps 
 
 1. Deploy your Azure VMware Solution private cloud.  
 2. In the Azure portal, navigate to the **Connectivity** blade.  
@@ -48,7 +47,7 @@ Azure VMware Solution will:
 
 ---
 
-## Supported scenarios (Preview)  
+## Supported scenarios (preview)  
 
 This preview currently supports:  
 
