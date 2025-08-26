@@ -133,6 +133,9 @@ items:
       href: native-dns-forward-lookup-zone.md
     - name: Route architecture for Gen 2
       href: native-network-routing-architecture.md
+    - name: Automatic peering sync for Gen 2 (Preview)
+      href: native-network-automatic-peering-sync.md
+      
 - name: Cost optimization
   items:
   - name: ESUs for SQL Server and Windows Server in Azure VMware Solution VMs
