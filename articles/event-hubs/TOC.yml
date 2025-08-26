@@ -158,8 +158,6 @@
       items:
         - name: Best practices for business continuity and disaster recovery
           href: event-hubs-business-continuity-outages-disasters.md
-        - name: Availability zones and disaster recovery
-          href: ../reliability/reliability-event-hubs.md?toc=/azure/event-hubs/toc.json
         - name: Geo-replication
           href: geo-replication.md
         - name: Metadata only geo-disaster recovery

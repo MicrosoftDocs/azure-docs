@@ -1,8 +1,8 @@
 ---
 title: Supported platforms for IoT Edge for Linux on Windows
 description: Learn which operating systems and container engines are supported for Azure IoT Edge for Linux on Windows
-author: PatAltimore
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.date: 11/17/2024
 ms.topic: concept-article
 ms.service: azure-iot-edge

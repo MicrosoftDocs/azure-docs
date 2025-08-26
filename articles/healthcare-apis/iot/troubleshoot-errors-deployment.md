@@ -6,14 +6,13 @@ author: chachachachami
 ms.service: azure-health-data-services
 ms.subservice: medtech-service
 ms.topic: troubleshooting
-ms.date: 07/21/2023
+ms.date: 08/18/2025
 ms.author: chrupa
 ---
 
 # Troubleshoot MedTech service deployment errors
 
-> [!IMPORTANT]
-> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
+[!INCLUDE [IoT deprecation](../includes/iot-deprecation.md)]
 
 This article provides troubleshooting steps and fixes for MedTech service deployment errors.
 

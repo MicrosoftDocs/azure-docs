@@ -55,6 +55,8 @@
         - name: Commit Workflow v2
           href: concepts-commit-workflow-v2.md
         - name: Route Policy
+        - name: Azure Firewall outbound rules for Azure Operator Nexus
+          href: concepts-azure-firewall-outbound-rules-nexus.md
           expanded: false
           items:
             - name: Route Policy Overview
