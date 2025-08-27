@@ -26,7 +26,7 @@ In Azure, a *resource* is a manageable item that you create and configure within
 
 - **File shares** (preview), offered by the `Microsoft.FileShares` resource provider. File shares are a new top-level resource that simplify the deployment of Azure Files by eliminating the storage account. Unlike classic file shares, which must be deployed into a storage account, file shares are deployed directly into the resource group like storage accounts themselves, or other Azure resources you may be familiar with like virtual machines, disks, or virtual networks. File shares support the NFS file sharing protocol - if you require SMB, choose classic file shares for your deployment.
 
-![Image comparing file shares and classic Azure file shares](./media/storage-files-planning/file-share-comparsion.png)
+![Image comparing file shares and classic Azure file shares](./media/storage-files-planning/file-share-comparison.png)
 
 ### Classic file shares (Microsoft.Storage)
 Classic file shares, or file shares deployed in storage accounts, are the traditional way to deploy file shares for Azure Files. They support all of the key features that Azure Files supports including SMB and NFS, SSD and HDD media tiers, every redundancy type, and in every region. While classic file shares support the entire breadth of Azure Files features, they have important key limitations:
