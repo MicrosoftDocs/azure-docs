@@ -29,7 +29,7 @@ For production deployments, you should [enable zone redundancy](#availability-zo
 
 When you use Azure Bastion, you deploy a *bastion host*. You must deploy it to a subnet that [meets Azure Bastion's requirements](/azure/bastion/configuration-settings#subnet).
 
-A bastion host has a defined number of *instances*, which are also sometimes called *scale units*. The Standard SKU supports *host scaling*, where you configure the number of instances. Adding more instances helps to accommodate additional concurrent client connections. The Basic SKU supports exactly two instances.
+A bastion host has a defined number of *instances*, which are also sometimes called *scale units*. The Standard SKU supports *host scaling*, where you configure the number of instances, with a minimum of two instances. Adding more instances helps to accommodate additional concurrent client connections. The Basic SKU supports exactly two instances.
 
 Each instance represents a dedicated VM that handles traffic. One instance is equal to one VM. You don't see or manage the VMs directly. The platform automatically manages instance creation, health monitoring, and replacement of unhealthy instances.
 
@@ -80,7 +80,7 @@ Zonal and zone-redundant bastion hosts can be deployed into the following region
 
 ### Cost
 
-There's no additional cost to use zone redundancy for Azure Bastion.
+There's no additional cost to use zone redundancy for Azure Bastion. Charges are based on your bastion host's SKU and the number of instances that it uses. For information, see [Azure Bastion pricing](https://azure.microsoft.com/pricing/details/azure-bastion/).
 
 ### Configure availability zone support
 
