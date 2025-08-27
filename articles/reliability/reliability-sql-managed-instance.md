@@ -178,7 +178,7 @@ The following section describes what to expect when your SQL managed instance is
 
 ::: zone pivot="general-purpose"
 
-  A heavy workload might experience some performance degradation during the transition from one compute node to the other since the new database engine process starts with a cold cache.
+    A heavy workload might experience some performance degradation during the transition from one compute node to the other since the new database engine process starts with a cold cache.
 
 ::: zone-end
 
