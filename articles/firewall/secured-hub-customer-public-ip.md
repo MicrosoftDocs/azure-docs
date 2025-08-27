@@ -34,16 +34,15 @@ You can configure this feature using either the Azure portal or Azure PowerShell
 
 ### [Portal](#tab/portal)
 
-    You can associate a preexisting public IP address with a secured hub firewall. You should allocate public IP addresses from an IP prefix pool to simplify downstream security access control lists (ACLs).  
-        
-        :::image type="content" source="media/secured-hub-customer-public-ip/new-secured-hub-customer-public-ip.png" alt-text="Screenshot showing new secured virtual hub.":::
+You can associate a preexisting public IP address with a secured hub firewall. You should allocate public IP addresses from an IP prefix pool to simplify downstream security access control lists (ACLs).          
+:::image type="content" source="media/secured-hub-customer-public-ip/new-secured-hub-customer-public-ip.png" alt-text="Screenshot showing new secured virtual hub.":::
 
 ### [PowerShell](#tab/powershell)
     
-    ```powershell-interactive
-        $publicip = Get-AzPublicIpAddress -ResourceGroupName $rgName -Name $PIPName
-        $virtualhub = get-azvirtualhub -ResourceGroupName $rgName -name $vwanhub
-        New-AzFirewall -Name $azfwname -ResourceGroupName $rgName -Location westcentralus -SkuName AZFW_Hub -SkuTier $Tier -PublicIpAddress $publicip -VirtualHubId $virtualhub.Id
+```powershell-interactive
+    $publicip = Get-AzPublicIpAddress -ResourceGroupName $rgName -Name $PIPName
+    $virtualhub = get-azvirtualhub -ResourceGroupName $rgName -name $vwanhub
+    New-AzFirewall -Name $azfwname -ResourceGroupName $rgName -Location westcentralus -SkuName AZFW_Hub -SkuTier $Tier -PublicIpAddress $publicip -VirtualHubId $virtualhub.Id
     ```
 ***
 
