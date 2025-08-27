@@ -32,19 +32,21 @@ The capability is available to new as well as existing deployments of secured hu
 
 You can configure this feature using either the Azure portal or Azure PowerShell.
 
-### [Portal](#tab/portal)
+    ### [Portal](#tab/portal)
 
-You can associate a preexisting public IP address with a secured hub firewall. You should allocate public IP addresses from an IP prefix pool to simplify downstream security access control lists (ACLs).  
+        You can associate a preexisting public IP address with a secured hub firewall. You should allocate public IP addresses from an IP prefix pool to simplify downstream security access control lists (ACLs).  
+        
+        :::image type="content" source="media/secured-hub-customer-public-ip/new-secured-hub-customer-public-ip.png" alt-text="Screenshot showing new secured virtual hub.":::
 
-:::image type="content" source="media/secured-hub-customer-public-ip/new-secured-hub-customer-public-ip.png" alt-text="Screenshot showing new secured virtual hub.":::
+    ### [PowerShell](#tab/powershell)
+    
+        ```powershell-interactive
+        $publicip = Get-AzPublicIpAddress -ResourceGroupName $rgName -Name $PIPName
+        $virtualhub = get-azvirtualhub -ResourceGroupName $rgName -name $vwanhub
+        New-AzFirewall -Name $azfwname -ResourceGroupName $rgName -Location westcentralus -SkuName AZFW_Hub -SkuTier $Tier -PublicIpAddress $publicip -VirtualHubId $virtualhub.Id
+        ```
+***
 
-### [PowerShell](#tab/powershell)
-
-```powershell-interactive
-$publicip = Get-AzPublicIpAddress -ResourceGroupName $rgName -Name $PIPName
-$virtualhub = get-azvirtualhub -ResourceGroupName $rgName -name $vwanhub
-New-AzFirewall -Name $azfwname -ResourceGroupName $rgName -Location westcentralus -SkuName AZFW_Hub -SkuTier $Tier -PublicIpAddress $publicip -VirtualHubId $virtualhub.Id
-```
 > [!Note]
 > For existing secured virtual WAN hubs, you have to remove all the public IPs assigned to the Hub, stop/deallocate the hub firewall. and allocate the Firewall with your public IP during scheduled maintenance hours.
 
