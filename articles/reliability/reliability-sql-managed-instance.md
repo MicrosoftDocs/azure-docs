@@ -166,6 +166,8 @@ The following section describes what to expect when your SQL managed instance is
 
 - **Traffic rerouting:** Azure SQL Managed Instance works with Azure Service Fabric to move the database engine to a suitable stateless compute node that's in a different availability zone and has sufficient free capacity. After failover completes, new connections are automatically redirected to the new primary compute node.
 
+  A heavy workload might experience some performance degradation during the transition from one compute node to the other since the new database engine process starts with a cold cache.
+
 ::: zone-end
 
 ::: zone pivot="business-critical"
@@ -175,12 +177,6 @@ The following section describes what to expect when your SQL managed instance is
 ::: zone-end
 
 - **Expected downtime:** There might be a small amount of downtime during an availability zone failover. The downtime is typically less than 30 seconds, which your application should tolerate if it's following the [transient fault handling guidance](#transient-faults).
-
-::: zone pivot="general-purpose"
-
-    A heavy workload might experience some performance degradation during the transition from one compute node to the other since the new database engine process starts with a cold cache.
-
-::: zone-end
 
 - **Expected data loss:** There's no data loss expected for committed transactions during an availability zone failover. Inflight transactions need to be retried.
 
