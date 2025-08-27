@@ -15,7 +15,7 @@ ms.custom: devx-track-arm-template
 
 # Legacy blob storage account retirement FAQ
 
-General-purpose v2 (GPv2) storage accounts are the recommended account type for all Azure Storage scenarios, including blob only workloads. GPv2 provides access to the latest Azure Storage features—such as per-blob tiering, lifecycle management, and advanced redundancy options—and offers the most cost-effective pricing model for a wide range of blob workloads.
+General-purpose v2 (GPv2) storage accounts are the recommended account type for all Azure Storage scenarios, including blob only workloads. GPv2 provides access to the latest Azure Storage features such as per-blob tiering, lifecycle management, and advanced redundancy options and offers the most cost-effective pricing model for a wide range of blob workloads.
 
 This FAQ addresses common questions about migrating from legacy blob storage (blob only) accounts to GPv2. It covers migration procedures, billing considerations, feature differences, and guidance for selecting the right access tier. Use this resource to plan your upgrade and ensure a smooth transition before legacy blob storage retirement.
 

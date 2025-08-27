@@ -38,17 +38,17 @@ Retiring GPv1 with ZRS redundancy simplifies the platform and ensures customers 
 
 The table below summarizes the key differences most customers care about:
 
-| Area | general purpose v1 (GPv1) with ZRS redundancy | GPv2 (StorageV2) with ZRS |
+| Area | General purpose v1 (GPv1) with ZRS redundancy | GPv2 (StorageV2) with ZRS |
 |---|---|---|
 | Replication model | Legacy topology; not synchronous across 3 zones; may require platform failover | **Synchronous across three availability zones** in the region; no failover required during a single‑zone event |
 | Availability during zonal outage | Access may be interrupted until failover | Remains online for reads/writes through a single‑zone outage |
 | Access tiers & lifecycle | Limited; no per‑blob tiering | **per‑blob tiering** (hot/cool/archive) + **lifecycle management** |
-| Security & governance | general purpose v1 (GPv1) with ZRS redundancy/GPv1 control plane | ARM‑based; Azure AD RBAC, tags, Azure Policy |
+| Security & governance | General purpose v1 (GPv1) with ZRS redundancy/GPv1 control plane | ARM‑based; Azure AD RBAC, tags, Azure Policy |
 | Data services | Blobs, Files, Queues, Tables | Blobs, Files, Queues, Tables **+** ADLS Gen2 (hierarchical namespace) |
 | Eventing & integrations | Limited | Event Grid and broader Azure integrations |
 | Pricing meters | Legacy meters | **Consistent** GPv2 meters across account types |
 
-> **Note**  
+> [!Note]
 > For high availability in a single region, modern **ZRS** is recommended. Add **GZRS/RA‑GZRS** if you also need geo‑redundancy.
 
 ## Retirement timeline and key milestones
@@ -56,8 +56,8 @@ The table below summarizes the key differences most customers care about:
 > [!WARNING]
 > If you **do not** migrate your general purpose v1 (GPv1) with ZRS redundancy accounts by the retirement date, Microsoft will **automatically upgrade** remaining accounts to **GPv2** with an equivalent or nearest redundancy setting available in the region. This may change your billing.
 
-| Date | Milestone |
-|---|---|
+| Date               | Milestone |
+|--------------------|---|
 | **September 2025** | Public announcement and documentation updates. |
 | **September 2025** | Creation of new GPv1/Blob‑Only/**general purpose v1 (GPv1) with ZRS redundancy** configurations blocked. |
 | **September 2026** | **Full retirement.** Any remaining general purpose v1 (GPv1) with ZRS redundancy accounts are automatically upgraded to GPv2. |
@@ -71,7 +71,7 @@ To minimize risk and ensure a smooth migration:
 
 - **Inventory your general purpose v1 (GPv1) with ZRS redundancy accounts**: Use [Azure Resource Graph](../../governance/resource-graph/overview.md), CLI, [Azure Inventory](../blobs/blob-inventory-how-to.md), or the Portal to identify all general purpose v1 (GPv1) with ZRS redundancy storage accounts.
 - **Evaluate workloads**: To ensure compatibility with GPv2 (most general purpose v1 (GPv1) with ZRS redundancy workloads require no code changes).
-- **Plan for pricing changes**: Understand the new GPv2 pricing model, which includes per-blob tiering and transaction costs. Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs based on your usage patterns.
+- **Plan for pricing changes**: Understand the new GPv2 pricing model, which includes per-blob tiering and transaction costs. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs based on your usage patterns.
 - **Migrate to GPv2**: Use the Azure portal, CLI, or automation tools to upgrade from GPv1 to GPv2. [Learn more about the upgrade process](storage-account-upgrade.md).
 - **Validate workloads**: Post-migration to ensure functionality and billing accuracy.
 - **Monitor usage**: After migration, keep an eye on your storage account metrics to identify any unexpected changes in usage patterns or costs.

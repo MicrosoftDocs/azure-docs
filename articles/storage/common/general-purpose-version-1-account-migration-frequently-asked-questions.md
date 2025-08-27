@@ -21,9 +21,9 @@ This FAQ addresses common questions about upgrading from general-purpose v1 (GPv
 
 > [!IMPORTANT]
 > Microsoft will retire GPv1 storage accounts on **September 1, 2026**. All GPv1 accounts must be upgraded to GPv2 before this date to avoid service disruption.  
-> See:[storage account upgrade](storage-account-upgrade.md) and [general purpose v1 (GPv1) storage account retirement](general-purpose-version-1-account-migration-overview.md) for more information.
+> See: [storage account upgrade](storage-account-upgrade.md) and [general purpose v1 (GPv1) storage account retirement](general-purpose-version-1-account-migration-overview.md) for more information.
 
-A GPv1 account is the original **general-purpose** Azure Storage account type. It supports all four core storage services (**Blobs**, **Files**, **Queues**, **Tables**) and the classic redundancy SKUs (**LRS**, **GRS**, **RA-GRS**). It predates Blob tiering and many newer management features.
+A GPv1 account is the original **general-purpose** Azure Storage account type. It supports all four core storage services (**Blobs**, **Files**, **Queues**, **Tables**) and the classic redundancy SKUs (**LRS**, **GRS**, **RA-GRS**). It predates blob tiering and many newer management features.
 
 ### Can I still create a new GPv1 account?
 
@@ -43,21 +43,21 @@ General-purpose v1 has **lower transaction prices** but **slightly higher capaci
 
 ### Can I upgrade from GPv1 to GPv2 later? Will anything break?
 
-You can switch to **general-purpose v2** with an **upgrade** operation in the Azure portal or via CLI/PowerShell. The change is **non-disruptive**—you keep the **same endpoint names** and **data**.
+You can switch to **general-purpose v2** with an **upgrade** operation in the Azure portal or via CLI/PowerShell. The change is **non-disruptive** you keep the **same endpoint names** and **data**.
 
 > [!TIP]
 > Validate application assumptions around pricing/tier behavior and any automation that references account kind. Test in a staging environment before upgrading production.
 
 ### Which features won’t I get in GPv1?
 
-Many recent innovations—**SMB Multichannel**, **NFS 3.0**, **premium file shares**, **Azure Data Lake Storage (hierarchical namespace)**, **point-in-time restore for blobs**, and other advanced features—require **GPv2** or newer account kinds.
+Many recent innovations **SMB Multichannel**, **NFS 3.0**, **premium file shares**, **Azure Data Lake Storage (hierarchical namespace)**, **point-in-time restore for blobs**, and other advanced features require **GPv2** or newer account kinds.
 
 ### What will my bill look like after the upgrade?
 
 Your bill will reflect **GPv2** pricing, which differs slightly from GPv1. Key differences include:
 
 - Charges for **read/write operations**  
-- **tier-based** pricing (hot, cool, cold, archive)  
+- **tier based** pricing (hot, cool, cold, archive)  
 - More **redundancy** flexibility
 
 Use the **Azure Pricing Calculator** and your current invoice data to estimate new costs.  
@@ -89,7 +89,7 @@ No. The upgrade process is safe and doesn't delete or move your data unexpectedl
 
 ### Will my existing application continue to work seamlessly?
 
-In most cases, yes. **API endpoints remain unchanged**. However, review any hardcoded pricing assumptions or tier-unaware logic to ensure compatibility with **GPv2** features.
+In most cases, yes. **API endpoints remain unchanged**. However, review any hardcoded pricing assumptions or tier unaware logic to ensure compatibility with **GPv2** features.
 
 ### What if I need help with the upgrade process?
 
