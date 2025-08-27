@@ -12,7 +12,7 @@ ms.author: danlep
 
 # Send service bus message
 
-[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 The `send-service-bus-message` policy sends a message to an Azure Service Bus queue or topic.
 
@@ -28,18 +28,16 @@ The `send-service-bus-message` policy sends a message to an Azure Service Bus qu
 ```xml
 <send-service-bus-message queue-name="service bus queue" topic-name="service bus topic"
       namespace="FQDN of service bus namespace" client-id="ID of user-assigned managed identity">
-           <payload>message content</payload>
-            <message-properties>
+        <message-properties>
                 <message-property name="property-name">property-value</message-property>
                 <!-- if there are multiple properties, then add additional message-property elements -->
-            </message-properties>
+        </message-properties>
+        <payload>"message content"</payload>
 </send-service-bus-message>
 ```
 
 ## Attributes
 
-<!-- Assume we are not exposing connection string attribute -->
-<!-- Assume specify either queue or topic names, not both -->
 
 | Attribute     | Description                                                               | Required                                                             | Default |
 | ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- | ----|
@@ -54,20 +52,18 @@ The `send-service-bus-message` policy sends a message to an Azure Service Bus qu
 | Element     | Description                                                               | Required                                                             | 
 | ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- | 
 | `payload` | Specifies the message payload to send to the service bus. Policy expressions and named values are allowed. | Yes |
-| `message-properties` | A collection of `message-property` subelements to set on the service bus message. Each `message-property` consists of a name-value pair. Policy expressions and named values are allowed. | No |
+| `message-properties` | A collection of `message-property` subelements that specify metadata to pass with the message payload. Each `message-property` consists of a name-value pair. Policy expressions and named values are allowed. | No |
 
 
 ## Usage
 
-<!-- Confirm all details. Examples appear to be in inbound? Supported in workspaces, SHGW, Consumption, etc.? -->
-
-- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound, outbound, on-error
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
-- [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
+- [**Gateways:**](api-management-gateways-overview.md) classic
 
 ### Usage notes
 
-* Limitations on size, sampling, etc. Any baseline requirements for Service Bus (tier etc.) Assume async
+* This policy can be used multiple times per policy definition.
 
 ## Examples
 
@@ -101,9 +97,9 @@ In this example, a message consisting of the request body is sent to a service b
 ```
 
 
-### Send a message and set message property
+### Send a message and metadata
 
-In this example, a message consisting of the request body is sent to a service bus topic and a message property is set. The API Management instance uses a system-assigned identity to access the service bus.
+In this example, a message consisting of the request body is sent to a service bus topic and a message property is set to send metadata with the payload. The API Management instance uses a system-assigned identity to access the service bus.
 
 ```xml
 <policies>
