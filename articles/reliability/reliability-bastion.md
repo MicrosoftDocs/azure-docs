@@ -26,10 +26,12 @@ Azure Bastion is a fully managed platform as a service (PaaS) that you provision
 For production deployments, you should [enable zone redundancy](#availability-zone-support) if your bastion hosts are in a supported region.
 
 ## Reliability architecture overview
-<!-- TODO -->
 
-- Bastion host
-- Instance
+When you use Azure Bastion, you deploy a *bastion host*. You must deploy it to a subnet that [meets Azure Bastion's requirements](/azure/bastion/configuration-settings#subnet).
+
+A bastion host has a defined number of *instances*, which are also sometimes called *scale units*. The Standard SKU supports *host scaling*, where you configure the number of instances. Adding more instances helps to accommodate additional concurrent client connections. The Basic SKU supports exactly two instances.
+
+Each instance represents a dedicated VM that handles traffic. One instance is equal to one VM. You don't see or manage the VMs directly. The platform automatically manages instance creation, health monitoring, and replacement of unhealthy instances.
 
 ## Transient faults
 
