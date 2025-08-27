@@ -105,7 +105,7 @@ Use the following procedures to create a network connection for your dev box con
 
 1. On the **Network connections** page, select **+ Create**:
 
-   :::image type="content" source="./media/how-to-manage-network-connection/network-connections-empty.png" alt-text="Screenshot that shows how to select Create on the Network connections pane." lightbox="./media/how-to-manage-network-connection/network-connections-empty.png":::
+   :::image type="content" source="./media/how-to-manage-network-connection/network-connections-empty.png" alt-text="Screenshot that shows how to select Create on the Network connections pane.":::
 
 1. On the **Create a network connection** pane, configure the following values on the **Basics** tab:
 
@@ -118,7 +118,7 @@ Use the following procedures to create a network connection for your dev box con
    | **Virtual network** | Select the virtual network that you want the network connection to use. |
    | **Subnet** | Select the subnet that you want the network connection to use. |
 
-   :::image type="content" source="./media/how-to-manage-network-connection/create-native-network-connection-full-blank.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a network connection, with the option for Microsoft Entra join selected." lightbox="./media/how-to-manage-network-connection/create-native-network-connection-full-blank.png":::
+   :::image type="content" source="./media/how-to-manage-network-connection/create-native-network-connection-full-blank.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a network connection, with the option for Microsoft Entra join selected.":::
 
 1. On the **Review + create** tab, review the settings.
 
@@ -136,7 +136,7 @@ Use the following procedures to create a network connection for your dev box con
 
 1. On the **Network connections** page, select **+ Create**:
 
-   :::image type="content" source="./media/how-to-manage-network-connection/network-connections-empty.png" alt-text="Screenshot that shows the Create option highlighted on the Network connections pane." lightbox="./media/how-to-manage-network-connection/network-connections-empty.png":::
+   :::image type="content" source="./media/how-to-manage-network-connection/network-connections-empty.png" alt-text="Screenshot that shows the Create option highlighted on the Network connections pane.":::
 
 1. On the **Create a network connection** pane, configure the following values on the **Basics** tab:
 
@@ -153,7 +153,7 @@ Use the following procedures to create a network connection for your dev box con
    | **AD username UPN** | Enter the username, in user principal name (UPN) format, that you want to use for connecting cloud computers to your Active Directory domain, such as `svcDomainJoin@corp.contoso.com`. This service account must have permission to join computers to the domain and the target OU (if one is set). |
    | **AD domain password** | Enter the password for the user. |
 
-   :::image type="content" source="./media/how-to-manage-network-connection/create-hybrid-network-connection-full-blank.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a network connection, with the option for Microsoft Entra hybrid join selected." lightbox="./media/how-to-manage-network-connection/create-hybrid-network-connection-full-blank.png":::
+   :::image type="content" source="./media/how-to-manage-network-connection/create-hybrid-network-connection-full-blank.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a network connection, with the option for Microsoft Entra hybrid join selected.":::
 
 1. On the **Review + create** tab, review the settings.
 

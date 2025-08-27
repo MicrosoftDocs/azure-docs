@@ -22,7 +22,7 @@ Follow these steps to attach a network connection to a dev center in Microsoft D
 
 1. Under **Dev box configuration**, select **Networking**, and then select **+ Add**:
 
-   :::image type="content" source="../media/how-to-manage-network-connection/select-add-network-connection.png" alt-text="Screenshot that shows how to select Add to attach a network connection to a dev center." lightbox="../media/how-to-manage-network-connection/select-add-network-connection.png":::
+   :::image type="content" source="../media/how-to-manage-network-connection/select-add-network-connection.png" alt-text="Screenshot that shows how to select Add to attach a network connection to a dev center.":::
 
 1. On the **Add network connection** pane, select the network connection, and then select **Add**:
 
