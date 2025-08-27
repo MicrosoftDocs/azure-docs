@@ -50,6 +50,12 @@ The following list describes restrictions or issues that exist in this release:
 
   For more information, see [Quickstart: Create your API center - portal](../api-center/set-up-api-center.md).
 
+- To find and view the MCP server that you create, you must set up the API Center portal.
+
+  This portal is an Azure-managed website that developers and other stakeholders in your organization use to discover the APIs in your API center. After you sign in, you can browse and filter APIs and view API details such as API definitions and documentation. User access to API information is based on Microsoft Entra ID and Azure role-based access control.
+
+  For more information, see [Set up your API Center portal](../azure/api-center/set-up-api-center-portal.md).
+
 - An empty Standard logic app resource, which doesn't contain any workflows, for creating your MCP server.
 
   - This capability applies to Standard logic app resources that use any hosting option, such as the Workflow Service Plan.
@@ -101,3 +107,25 @@ For example, suppose you want to create an MCP server with a tool that gets item
    1. When you're done, select **Save changes**.
 
 1. After you're done, select **Register**.
+
+1. Wait for the notifications that Azure successfully registered your MCP server.
+
+   By default, your MCP server uses the name for the connector that you selected.
+
+## Find and view your MCP server
+
+For this task, make sure you completed the requirement to set the API Center portal.
+
+1. On your API Center resource sidebar, under **API Center portal**, select **Settings**.
+
+1. On the **Settings** toolbar, select **View API Center portal**.
+
+   Your browser opens the API portal for your API Center resource at the following URL:
+
+   **https://\<*API-Center-resource-name*\>.\<*region*\>.azure-apicenter.ms**.
+
+1. Sign in with your Azure account.
+
+   The API portal shows the available MCP servers.
+
+For more information, see [Access the API Center portal](../api-center/set-up-api-center-portal.md#access-the-portal)
