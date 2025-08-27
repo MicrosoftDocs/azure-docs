@@ -387,6 +387,10 @@ Enabling or disabling the toggle will only affect the following traffic flow: tr
 
 :::image type="content" source="./media/virtual-wan-expressroute-portal/expressroute-bowtie-virtual-network-virtual-wan.png" alt-text="Diagram of a standalone virtual network connecting to a virtual hub via ExpressRoute circuit." lightbox="./media/virtual-wan-expressroute-portal/expressroute-bowtie-virtual-network-virtual-wan.png":::
 
+### When I update an ExpressRoute connection, will this impact connectivity for my other ExpressRoute connections? 
+
+When you perform a create, update, or delete operation on an ExpressRoute connection, your other ExpressRoute connections will appear to be in an "updating" state in Portal. However, connectivity via these ExpressRoute connections will not be impacted. 
+
 ### Why does connectivity not work when I advertise routes with an ASN of 0 in the AS-Path? 
 
 The Virtual WAN hub drops routes with an ASN of 0 in the AS-Path. To ensure these routes are successfully advertised into Azure, the AS-Path should not include 0. 

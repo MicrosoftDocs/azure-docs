@@ -341,4 +341,4 @@ Each functions instance uses the [`WEBSITE_INSTANCE_ID`](/azure/app-service/refe
 - [Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis](/azure/redis/tutorial-functions-getting-started)
 - [Using Azure Functions and Azure Cache for Redis to create a write-behind cache](/azure/redis/tutorial-write-behind)
 - [Redis connection string](functions-bindings-cache.md#redis-connection-string)
-- [Redis streams](https://redis.io/docs/data-types/streams/)
+- [Redis streams](https://redis.io/docs/latest/operate/rs/databases/active-active/develop/data-types/streams/)

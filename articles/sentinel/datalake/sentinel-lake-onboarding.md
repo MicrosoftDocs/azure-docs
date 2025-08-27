@@ -77,10 +77,10 @@ To configure billing and enable asset data ingestion into the data lake, the fol
 
 ### Policy exemption for Microsoft Sentinel data lake onboarding
 
-During onboarding of Microsoft Sentinels data lake, existing Azure Policy definitions might block deployment of required resources. To ensure successful onboarding without compromising broader policy enforcement, configure a policy exemption scoped to the resource group being onboarded.
+During onboarding of Microsoft Sentinels data lake, existing Azure Policy definitions might [block deployment](#dl103) of required resources. To ensure successful onboarding without compromising broader policy enforcement, configure a policy exemption scoped to the resource group being onboarded.
 Specifically, exempt the resource type: `Microsoft.SentinelPlatformServices/sentinelplatformservices`.
 
-This targeted exemption allows Sentinels data lake's components to deploy correctly, while maintaining compliance with overarching Azure governance policies you may have already applied.
+This targeted exemption allows Sentinel data lake's components to deploy correctly, while maintaining compliance with overarching Azure governance policies you might have already applied.
 
 ## Existing Microsoft Sentinel workspaces
 
@@ -157,7 +157,7 @@ Resolution: Select the retry button to start the setup again.
 ### DL103
 Error: Can’t complete setup. 
 Description: There are policies enabled that prevent the creation of the Azure managed resources needed to enable the data lake.
-Resolution: Check your Azure policies to allow for creation of Azure managed resources.
+Resolution: Check your Azure [policies](#policy-exemption-for-microsoft-sentinel-data-lake-onboarding) to allow for creation of Azure managed resources.
 
 ## Related content
 

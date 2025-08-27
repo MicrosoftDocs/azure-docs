@@ -96,7 +96,7 @@ If you're using an outdated Redis client, new commands or Redis features can't b
 
 ### RESP3
 
-Redis version 7.2 enables an updated Redis serialization protocol specification (RESP) called [RESP3](https://redis.io/docs/reference/protocol-spec/). This protocol offers richer data types and performance improvements. Using RESP3 is optional and is negotiated by the Redis client. Because some Redis clients, such as [Go-Redis](https://github.com/redis/go-redis) version 9+ and [Lettuce](https://github.com/lettuce-io/lettuce-core) version 6+, enable RESP3 by default, upgrading the Redis server instance to version 7.2 can produce a response with a different format. To avoid this breaking change, you can [configure these clients to use RESP2](https://docs.redis.com/latest/rs/references/compatibility/resp/) by default instead.
+Redis version 7.2 enables an updated Redis serialization protocol specification (RESP) called [RESP3](https://redis.io/docs/latest/develop/reference/protocol-spec/). This protocol offers richer data types and performance improvements. Using RESP3 is optional and is negotiated by the Redis client. Because some Redis clients, such as [Go-Redis](https://github.com/redis/go-redis) version 9+ and [Lettuce](https://github.com/lettuce-io/lettuce-core) version 6+, enable RESP3 by default, upgrading the Redis server instance to version 7.2 can produce a response with a different format. To avoid this breaking change, you can [configure these clients to use RESP2](https://docs.redis.com/latest/rs/references/compatibility/resp/) by default instead.
 
 ### Breaking changes
 

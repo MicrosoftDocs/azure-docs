@@ -14,6 +14,13 @@ Azure SRE Agent Preview helps you maintain the health and performance of your Az
 
 This article demonstrates how to create an agent and connect it to your resources to maintain optimal application performance.
 
+## Preview access
+
+Access to SRE Agent is available only as a preview. To sign up for access, fill out the [SRE Agent application](https://go.microsoft.com/fwlink/?linkid=2319540).
+
+> [!NOTE]
+> By using SRE Agent, you consent to the product-specific [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Prerequisites
 
 To create an agent, you need to grant your agent the correct permissions and access to the right namespace:
