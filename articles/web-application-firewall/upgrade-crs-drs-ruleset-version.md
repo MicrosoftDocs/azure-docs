@@ -36,7 +36,7 @@ When upgrading your Azure WAF ruleset version, make sure to:
 
 - Latest version of [Azure PowerShell installed locally](/powershell/azure/install-azure-powershell). This article requires the [Az.Network Module](/powershell/module/az.network).
 
-## Prepare your environment
+## Prepare your environment and variables
 
 1.  Set context of your selected subscription, resource group, and Azure WAF policy.
 
@@ -60,7 +60,7 @@ When upgrading your Azure WAF ruleset version, make sure to:
 
 ## Preserve existing customizations
 
-1.  Don't copy overrides or exclusions that apply to rules removed in DRS 2.1.  The following function checks if a rule has been removed:
+1.  Don't copy overrides or exclusions that apply to rules removed in **DRS 2.1**.  The following function checks if a rule has been removed:
 
     ```powershell
     function Test-RuleIsRemovedFromDRS21 { 
@@ -80,7 +80,7 @@ When upgrading your Azure WAF ruleset version, make sure to:
         return $removedRulesByCrsVersion[$CurrentRulesetVersion] -contains $RuleId }
     ```
 
-1.  When creating new override objects, use the **DRS 2.1 group names**. The following helper function maps legacy CRS group names to DRS 2.1
+1.  When creating new override objects, use the **DRS 2.1 group names**. The following function maps legacy CRS group names to DRS 2.1
 groups:
 
     ```powershell
@@ -112,7 +112,7 @@ groups:
         }
     ```
 
-1.  Use the following PowerShell code to define the rules’ overrides, duplicating overrides from existing ruleset version.
+1.  Use the following PowerShell code to define the rules’ overrides, duplicating overrides from existing ruleset version:
 
     ```powershell
     $groupOverrides = @() 
@@ -132,7 +132,7 @@ groups:
 
     ```
 
-1. Use the following PowerShell code to duplicate your existing exclusions and apply them on DRS 2.1.
+1. Use the following PowerShell code to duplicate your existing exclusions and apply them on DRS 2.1:
 
     ```powershell
     # Create new exclusion objects
@@ -201,84 +201,84 @@ groups:
 
 ## Validate new rules safely
 
-When upgrading, new DRS 2.1 rules are active by default. If your WAF is in ***Prevention*** mode, set new rules to ***log*** mode first. The *log* mode allows you to review logs before enabling blocking.
+When you upgrade, new DRS 2.1 rules are active by default. If your WAF is in ***Prevention*** mode, set new rules to ***log*** mode first. The *log* mode allows you to review logs before enabling blocking.
 
-The following PowerShell definitions are for rules introduced in DRS 2.1 compared to each CRS version:
+1. The following PowerShell definitions are for rules introduced in DRS 2.1 compared to each CRS version:
 
-```powershell
-# Added in DRS 2.1 compared to CRS 3.0 
-$rulesAddedInThisVersionByGroup = @{ 
-    "General" = @("200002", "200003") 
-    "PROTOCOL-ENFORCEMENT" = @("920121", "920171", "920181", "920341", "920470", "920480", "920500") 
-    "PROTOCOL-ATTACK" = @("921190", "921200") 
-    "RCE" = @("932180") 
-    "PHP" = @("933200", "933210") 
-    "NODEJS" = @("934100") 
-    "XSS" = @("941101", "941360", "941370", "941380") 
-    "SQLI" = @("942361", "942470", "942480", "942500", "942510") 
-    "JAVA" = @("944100", "944110", "944120", "944130", "944200", "944210", "944240", "944250") 
-    "MS-ThreatIntel-WebShells" = @("99005002", "99005003", "99005004", "99005005", "99005006") 
-    "MS-ThreatIntel-AppSec" = @("99030001", "99030002") 
-    "MS-ThreatIntel-SQLI" = @("99031001", "99031002", "99031003", "99031004") 
-    "MS-ThreatIntel-CVEs" = @( "99001001","99001002","99001003","99001004","99001005","99001006", "99001007","99001008","99001009","99001010","99001011","99001012", "99001013","99001014","99001015","99001016","99001017" ) 
-}
-```
-
-```powershell
-# Added in DRS 2.1 compared to CRS 3.1 
+    ```powershell
+    # Added in DRS 2.1 compared to CRS 3.0 
     $rulesAddedInThisVersionByGroup = @{ 
-    "General" = @("200002", "200003") 
-    "PROTOCOL-ENFORCEMENT" = @("920181", "920500") 
-    "PROTOCOL-ATTACK" = @("921190", "921200") 
-    "PHP" = @("933200", "933210") 
-    "NODEJS" = @("934100") 
-    "XSS" = @("941360", "941370", "941380") 
-    "SQLI" = @("942500", "942510") 
-    "MS-ThreatIntel-WebShells" = @("99005002", "99005003", "99005004", "99005005", "99005006") 
-    "MS-ThreatIntel-AppSec" = @("99030001", "99030002") 
-    "MS-ThreatIntel-SQLI" = @("99031001", "99031002", "99031003", "99031004") "MS-ThreatIntel-CVEs" = @( "99001001","99001002","99001003","99001004","99001005","99001006", "99001007","99001008","99001009","99001010","99001011","99001012", "99001013","99001014","99001015","99001016","99001017" ) 
-}
-```
+        "General" = @("200002", "200003") 
+        "PROTOCOL-ENFORCEMENT" = @("920121", "920171", "920181", "920341", "920470", "920480", "920500") 
+        "PROTOCOL-ATTACK" = @("921190", "921200") 
+        "RCE" = @("932180") 
+        "PHP" = @("933200", "933210") 
+        "NODEJS" = @("934100") 
+        "XSS" = @("941101", "941360", "941370", "941380") 
+        "SQLI" = @("942361", "942470", "942480", "942500", "942510") 
+        "JAVA" = @("944100", "944110", "944120", "944130", "944200", "944210", "944240", "944250") 
+        "MS-ThreatIntel-WebShells" = @("99005002", "99005003", "99005004", "99005005", "99005006") 
+        "MS-ThreatIntel-AppSec" = @("99030001", "99030002") 
+        "MS-ThreatIntel-SQLI" = @("99031001", "99031002", "99031003", "99031004") 
+        "MS-ThreatIntel-CVEs" = @( "99001001","99001002","99001003","99001004","99001005","99001006", "99001007","99001008","99001009","99001010","99001011","99001012", "99001013","99001014","99001015","99001016","99001017" ) 
+    }
+    ```
 
-```powershell
-# Added in DRS 2.1 compared to CRS 3.2 
-$rulesAddedInThisVersionByGroup = @{ 
-    "General" = @("200002", "200003") 
-    "PROTOCOL-ENFORCEMENT" = @("920181", "920500") 
-    "PROTOCOL-ATTACK" = @("921190", "921200") 
-    "PHP" = @("933200", "933210") 
-    "NODEJS" = @("934100") 
-    "XSS" = @("941360", "941370", "941380") 
-    "SQLI" = @("942100", "942500", "942510") 
-    "MS-ThreatIntel-WebShells" = @("99005002", "99005003", "99005004", "99005005", "99005006") 
-    "MS-ThreatIntel-AppSec" = @("99030001", "99030002") 
-    "MS-ThreatIntel-SQLI" = @("99031001", "99031002", "99031003", "99031004") 
-    "MS-ThreatIntel-CVEs" = @( "99001001","99001002","99001003","99001004","99001005","99001006", "99001007","99001008","99001009","99001010","99001011","99001012", "99001013","99001014","99001015","99001016","99001017" ) 
-}
+    ```powershell
+    # Added in DRS 2.1 compared to CRS 3.1 
+        $rulesAddedInThisVersionByGroup = @{ 
+        "General" = @("200002", "200003") 
+        "PROTOCOL-ENFORCEMENT" = @("920181", "920500") 
+        "PROTOCOL-ATTACK" = @("921190", "921200") 
+        "PHP" = @("933200", "933210") 
+        "NODEJS" = @("934100") 
+        "XSS" = @("941360", "941370", "941380") 
+        "SQLI" = @("942500", "942510") 
+        "MS-ThreatIntel-WebShells" = @("99005002", "99005003", "99005004", "99005005", "99005006") 
+        "MS-ThreatIntel-AppSec" = @("99030001", "99030002") 
+        "MS-ThreatIntel-SQLI" = @("99031001", "99031002", "99031003", "99031004") "MS-ThreatIntel-CVEs" = @( "99001001","99001002","99001003","99001004","99001005","99001006", "99001007","99001008","99001009","99001010","99001011","99001012", "99001013","99001014","99001015","99001016","99001017" ) 
+    }
+    ```
 
-```
+    ```powershell
+    # Added in DRS 2.1 compared to CRS 3.2 
+    $rulesAddedInThisVersionByGroup = @{ 
+        "General" = @("200002", "200003") 
+        "PROTOCOL-ENFORCEMENT" = @("920181", "920500") 
+        "PROTOCOL-ATTACK" = @("921190", "921200") 
+        "PHP" = @("933200", "933210") 
+        "NODEJS" = @("934100") 
+        "XSS" = @("941360", "941370", "941380") 
+        "SQLI" = @("942100", "942500", "942510") 
+        "MS-ThreatIntel-WebShells" = @("99005002", "99005003", "99005004", "99005005", "99005006") 
+        "MS-ThreatIntel-AppSec" = @("99030001", "99030002") 
+        "MS-ThreatIntel-SQLI" = @("99031001", "99031002", "99031003", "99031004") 
+        "MS-ThreatIntel-CVEs" = @( "99001001","99001002","99001003","99001004","99001005","99001006", "99001007","99001008","99001009","99001010","99001011","99001012", "99001013","99001014","99001015","99001016","99001017" ) 
+    }
+    
+    ```
 
-Use the following PowerShell code to add new rule overrides to the existing \$groupOverrides object defined previously:
+1. Use the following PowerShell code to add new rule overrides to the existing `$groupOverrides` object defined previously:
 
-```powershell
-foreach ($groupName in $rulesAddedInDRS21.Keys) { 
-    $ruleOverrides = @() 
-    foreach ($ruleId in $rulesAddedInDRS21[$groupName]) { 
-        $alreadyExists = $existingOverrides | 
-            Where-Object { $_.RuleId -eq $ruleId } 
-        if (-not $alreadyExists) { 
-            $ruleOverrides += New-AzApplicationGatewayFirewallPolicyManagedRuleOverride ` 
-            -RuleId $ruleId ` 
-            -Action "Log" ` 
-            -State "Enabled" 
-            } 
-        } # Only create group override if we added rules to it 
-    if ($ruleOverrides.Count -gt 0) { 
-        $groupOverrides += New-AzApplicationGatewayFirewallPolicyManagedRuleGroupOverride ` 
-            -RuleGroupName $groupName ` 
-            -Rule $ruleOverrides } 
-            }
-```
+    ```powershell
+    foreach ($groupName in $rulesAddedInDRS21.Keys) { 
+        $ruleOverrides = @() 
+        foreach ($ruleId in $rulesAddedInDRS21[$groupName]) { 
+            $alreadyExists = $existingOverrides | 
+                Where-Object { $_.RuleId -eq $ruleId } 
+            if (-not $alreadyExists) { 
+                $ruleOverrides += New-AzApplicationGatewayFirewallPolicyManagedRuleOverride ` 
+                -RuleId $ruleId ` 
+                -Action "Log" ` 
+                -State "Enabled" 
+                } 
+            } # Only create group override if we added rules to it 
+        if ($ruleOverrides.Count -gt 0) { 
+            $groupOverrides += New-AzApplicationGatewayFirewallPolicyManagedRuleGroupOverride ` 
+                -RuleGroupName $groupName ` 
+                -Rule $ruleOverrides } 
+                }
+    ```
 
 ## Apply customizations and upgrade
 
