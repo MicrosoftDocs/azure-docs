@@ -18,7 +18,7 @@ The Azure-managed Default Rule Set (DRS) is the latest generation of rulesets in
 This article provides PowerShell examples for upgrading your Azure WAF policy to DRS 2.1. While the examples reference DRS 2.1 specifically, you should always upgrade to the latest available DRS version to ensure maximum protection. 
 
 > [!NOTE]
-PowerShell snippets are examples only. Replace all placeholders with values from your environment.
+> PowerShell snippets are examples only. Replace all placeholders with values from your environment.
 
 ## Key considerations when upgrading
 
