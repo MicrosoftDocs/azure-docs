@@ -38,5 +38,5 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;app-name&gt;.s
 </pre>
 
 > [!NOTE]
-> The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, with the format `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Save this URL as you need it later.
+> The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, with the format `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Save this URL because you need it later.
 >

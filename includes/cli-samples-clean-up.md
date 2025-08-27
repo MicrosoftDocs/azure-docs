@@ -14,4 +14,4 @@ In the preceding steps, you created Azure resources in a resource group. If you 
 az group delete --name myResourceGroup
 ```
 
-This command may take a minute to run.
+This command might take a minute to run.
