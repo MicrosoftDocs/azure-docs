@@ -53,7 +53,7 @@ When you create the cache, Microsoft Entra ID authentication is enabled by defau
 
 In the first part of the TypeScript code sample file, `index.ts`, configure your connection to the cache:
 
-:::code language="typescript" source="~/azure-cache-redis-samples/quickstarts/nodejs/src/index.ts" range="1-66":::
+:::code language="typescript" source="~/azure-cache-redis-samples/quickstart/nodejs/src/index.ts" range="1-66":::
 
 Use the `createRedisClient()` function to connect to the Redis cache.
 
@@ -67,13 +67,13 @@ await client.connect();
 
 In the next section, test the connection by using the Redis command `ping`. This command returns the `pong` string.
 
-:::code language="typescript" source="~/azure-cache-redis-samples/quickstarts/nodejs/src/index.ts" range="74-75":::
+:::code language="typescript" source="~/azure-cache-redis-samples/quickstart/nodejs/src/index.ts" range="74-75":::
 
 ## Code set a key, get a key
 
 In this section, use a basic `set` and `get` sequence to start using the Redis cache in the simplest way.
 
-:::code language="typescript" source="~/azure-cache-redis-samples/quickstarts/nodejs/src/index.ts" range="77-81":::
+:::code language="typescript" source="~/azure-cache-redis-samples/quickstart/nodejs/src/index.ts" range="77-81":::
 
 ## Run the code
 
@@ -94,7 +94,7 @@ Get result: Hello! The cache is working from Node.js!
 
 Here, you can see this code sample in its entirety.
 
-:::code language="typescript" source="~/azure-cache-redis-samples/quickstarts/nodejs/src/index.ts" range="77-81":::
+:::code language="typescript" source="~/azure-cache-redis-samples/quickstart/nodejs/src/index.ts" range="77-81":::
 
 <!-- Clean up resources include -->
 
