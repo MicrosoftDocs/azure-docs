@@ -4,11 +4,11 @@ titleSuffix: Playwright Workspaces
 description: Learn about the factors that affect test completion time in Playwright Workspaces. Get practical steps to determine the optimal Playwright test project configuration.
 ms.service: azure-app-testing
 ms.subservice: playwright-workspaces
-author: ninallam
-ms.author: ninallam
+author: johnsta
+ms.author: johnsta
 ms.topic: conceptual
 ms.date: 08/07/2025
-ms.custom: playwright-workspaces-preview
+ms.custom: playwright-workspaces
 ---
 
 # Determine the optimal test suite configuration for Playwright Workspaces
