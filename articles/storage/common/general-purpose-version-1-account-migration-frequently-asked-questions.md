@@ -17,11 +17,11 @@ ms.custom: devx-track-arm-template
 
 General purpose v2 (GPv2) storage accounts are the recommended account type for most Azure Storage scenarios. GPv2 provides access to the latest Azure Storage features including blob tiering, lifecycle management, and advanced redundancy options and offers the most cost effective pricing model for a wide range of workloads.
 
-This FAQ addresses common questions about upgrading from General-purpose v1 (GPv1) storage accounts to GPv2. It covers upgrade procedures, billing considerations, feature differences, and guidance for selecting the right access tier. Use this resource to plan your upgrade and ensure a smooth transition before GPv1 retirement.
+This FAQ addresses common questions about upgrading from general-purpose v1 (GPv1) storage accounts to GPv2. It covers upgrade procedures, billing considerations, feature differences, and guidance for selecting the right access tier. Use this resource to plan your upgrade and ensure a smooth transition before GPv1 retirement.
 
 > [!IMPORTANT]
 > Microsoft will retire GPv1 storage accounts on **September 1, 2026**. All GPv1 accounts must be upgraded to GPv2 before this date to avoid service disruption.  
-> See:[storage account upgrade](storage-account-upgrade.md) and [General Purpose v1 (GPv1) storage account retirement](general-purpose-version-1-account-migration-overview.md) for more information.
+> See:[storage account upgrade](storage-account-upgrade.md) and [general purpose v1 (GPv1) storage account retirement](general-purpose-version-1-account-migration-overview.md) for more information.
 
 A GPv1 account is the original **general-purpose** Azure Storage account type. It supports all four core storage services (**Blobs**, **Files**, **Queues**, **Tables**) and the classic redundancy SKUs (**LRS**, **GRS**, **RA-GRS**). It predates Blob tiering and many newer management features.
 
@@ -31,9 +31,9 @@ GPv1 Accounts are already blocked on the Azure portal. From August 31, 2026 all 
 
 ### Which redundancy options are available on GPv2 accounts?
 
-**GPv2 supports:** Local-redundant storage (**LRS**), Zone-redundant storage (**ZRS**), Geo-redundant storage (**GRS**), Read-access geo-zone-redundant storage (**RA-GZRS**), and Read-access geo-redundant storage (**RA-GRS**).
+**GPv2 supports:** local-redundant storage (**LRS**), zone-redundant storage (**ZRS**), geo-redundant storage (**GRS**), read-access geo-zone-redundant storage (**RA-GZRS**), and read-access geo-redundant storage (**RA-GRS**).
 
-### Does GPv1 support Hot, Cool, or Archive tiers or lifecycle management?
+### Does GPv1 support hot, cool, or archive tiers or lifecycle management?
 
 No.
 
@@ -43,7 +43,7 @@ General-purpose v1 has **lower transaction prices** but **slightly higher capaci
 
 ### Can I upgrade from GPv1 to GPv2 later? Will anything break?
 
-You can switch to **General-purpose v2** with an **Upgrade** operation in the Azure portal or via CLI/PowerShell. The change is **non-disruptive**—you keep the **same endpoint names** and **data**.
+You can switch to **general-purpose v2** with an **upgrade** operation in the Azure portal or via CLI/PowerShell. The change is **non-disruptive**—you keep the **same endpoint names** and **data**.
 
 > [!TIP]
 > Validate application assumptions around pricing/tier behavior and any automation that references account kind. Test in a staging environment before upgrading production.
@@ -57,7 +57,7 @@ Many recent innovations—**SMB Multichannel**, **NFS 3.0**, **premium file shar
 Your bill will reflect **GPv2** pricing, which differs slightly from GPv1. Key differences include:
 
 - Charges for **read/write operations**  
-- **Tier-based** pricing (Hot, Cool, Cold, Archive)  
+- **tier-based** pricing (hot, cool, cold, archive)  
 - More **redundancy** flexibility
 
 Use the **Azure Pricing Calculator** and your current invoice data to estimate new costs.  
@@ -74,7 +74,7 @@ No. Microsoft won't grant exceptions. All GPv1 accounts must be upgraded by the 
 
 ### What happens if I haven’t upgraded by the retirement date?
 
-Microsoft will **automatically upgrade** your account and your decision not to migrate an existing GPv1 account will be construed as consent for Microsoft to migrate the account on your behalf. Which means you risk **billing misalignment**. **Data is preserved**, but access could be temporarily impacted.
+Microsoft will **automatically upgrade** your account and your decision not to migrate an existing GPv1 account will be construed as consent for Microsoft to migrate the account on your behalf. Which means you risk **billing misalignment**. **data is preserved**, but access could be temporarily impacted.
 
 > [!WARNING]
 > Auto-upgrade timing and outcomes can vary. Proactive upgrades let you choose redundancy, tiering, and feature configurations aligned to your workload.

@@ -10,25 +10,25 @@ ms.date: 07/22/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
-#CustomerIntent: As a storage admin, I want to understand the Legacy Blob Storage retirement so that I can prepare for a smooth migration to GPv2.
+#CustomerIntent: As a storage admin, I want to understand the legacy blob storage retirement so that I can prepare for a smooth migration to GPv2.
 ---
 
 # Overview of legacy blob storage account retirement
-Azure Storage is retiring the **Legacy Blob Storage account** storage account type. This article explains what this change means for your legacy blob storage workloads and how to prepare for the transition to **general-purpose v2 (GPv2)** storage accounts.
+Azure Storage is retiring the **legacy blob storage account** storage account type. This article explains what this change means for your legacy blob storage workloads and how to prepare for the transition to **general-purpose v2 (GPv2)** storage accounts.
 
-## Why Legacy Blob Storage accounts are being retired
-Legacy Blob Storage accounts were introduced to support legacy blob storage scenarios with account-level access tiering. However, **GPv2** has since become the standard for all new storage accounts, offering:
+## Why legacy blob storage accounts are being retired
+Legacy blob storage accounts were introduced to support legacy blob storage scenarios with account-level access tiering. However, **GPv2** has since become the standard for all new storage accounts, offering:
 - **Per-blob tiering** (Hot, Cool, Archive)
 - **Lifecycle management**
 - **Immutable blob storage**
 - **Event Grid integration**
 - **Advanced redundancy options**
-- **Support for all storage services** (blobs, tables, queues, files)
+- **Support for all storage services** (Blobs, Tables, Queues, Files)
 
-By retiring Legacy Blob Storage accounts, Azure simplifies the platform and ensures all customers benefit from modern capabilities and consistent pricing.
+By retiring legacy blob storage accounts, Azure simplifies the platform and ensures all customers benefit from modern capabilities and consistent pricing.
 
 ## Benefits of migrating to GPv2
-| Feature                          | Legacy Blob Storage | GPv2           |
+| Feature                          | Legacy blob storage | GPv2           |
 |----------------------------------|------------------|----------------|
 | Blob tiering                     | ✅ Account-level | ✅ Per-blob     |
 | Lifecycle management             | ❌               | ✅              |
@@ -44,32 +44,32 @@ GPv2 supports all blob features available in legacy blob storage accounts.
 ## Retirement timeline and key milestones
 
 >[!Warning]
->If you do not migrate your Legacy Blob Storage account to GPv2 by August 31, 2025, all existing Legacy Blob Storage accounts will be auto migrated over to a GPv2 account, which may result in higher billing costs. Your decision not to migrate an existing Legacy Blob Storage account will be construed as consent for Microsoft to migrate the account on your behalf.
+>If you do not migrate your legacy blob storage account to GPv2 by August 31, 2025, all existing legacy blob storage accounts will be auto migrated over to a GPv2 account, which may result in higher billing costs. Your decision not to migrate an existing legacy blob storage account will be construed as consent for Microsoft to migrate the account on your behalf.
 
 | Date           | Milestone                                      |
 |----------------|------------------------------------------------|
-| September 2025 | Retirement announced                          |
-| August 2026    | Creation of new Legacy Blob Storage accounts disabled                         |
-| September 2026 | Full retirement; Any remaining Legacy Blob Storage accounts automigrated to GPv2. Your decision not to migrate an existing Legacy Blob Storage account will be construed as consent for Microsoft to migrate the account on your behalf. |
+| **September 2025** | Retirement announced                          |
+| **August 2026**    | Creation of new legacy blob storage accounts disabled                         |
+| **September 2026** | Full retirement; Any remaining legacy blob storage accounts automigrated to GPv2. Your decision not to migrate an existing legacy blob storage account will be construed as consent for Microsoft to migrate the account on your behalf. |
 
-After the retirement date, **data access will be blocked** for all Legacy Blob Storage accounts. This change takes effect globally across all Azure regions.
+After the retirement date, **data access will be blocked** for all legacy blob storage accounts. This change takes effect globally across all Azure regions.
 
 ## Preparing for migration
 >[!Tip]
->Most blob-only workloads can migrate from Legacy Blob Storage to GPv2 without code changes. Review any hardcoded pricing assumptions or tier-unaware logic to ensure compatibility with GPv2 features.
+>Most blob-only workloads can migrate from legacy blob storage to GPv2 without code changes. Review any hardcoded pricing assumptions or tier-unaware logic to ensure compatibility with GPv2 features.
 >GPv2 enables per-blob tiering and lifecycle rules, offering better cost optimization and automation.
 
 To minimize risk and ensure a smooth migration:
 
-- **Inventory your Legacy Blob Storage accounts**: Use [Azure Resource Graph](../../governance/resource-graph/overview.md), CLI, [Azure Inventory](../blobs/blob-inventory-how-to.md), or the Portal to identify all Legacy Blob Storage accounts.
+- **Inventory your legacy blob storage accounts**: Use [Azure Resource Graph](../../governance/resource-graph/overview.md), CLI, [Azure Inventory](../blobs/blob-inventory-how-to.md), or the Portal to identify all legacy blob storage accounts.
 - **Evaluate workloads**: To ensure compatibility with GPv2 (most blob-only workloads require no code changes).
-- **Plan for pricing changes**: Understand the new GPv2 pricing model, which includes per-blob tiering and transaction costs. Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs based on your usage patterns.
+- **Plan for pricing changes**: Understand the new GPv2 pricing model, which includes per-blob tiering and transaction costs. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs based on your usage patterns.
 - **Migrate to GPv2**: Use the Azure portal, CLI, or automation tools to upgrade from GPv1 to GPv2. [Learn more about the upgrade process](storage-account-upgrade.md).
 - **Validate workloads**: Post-migration to ensure functionality and billing accuracy.
 - **Monitor usage**: After migration, keep an eye on your storage account metrics to identify any unexpected changes in usage patterns or costs.
 
 
-## Identify Legacy Blob Storage accounts using Azure Resource Graph
+## Identify legacy blob storage accounts using Azure Resource Graph
 
 Azure Resource Graph is a powerful tool that allows you to explore and query your Azure resources at scale. You can use it to identify all GPv1 storage accounts in your environment and assess their configurations. This can help you plan your migration to GPv2 more effectively.
 
@@ -113,4 +113,4 @@ Learn more about related features and how to migrate:
 
 - [Upgrade a storage account to GPv2](storage-account-upgrade.md)
 - [Storage account overview](storage-account-overview.md)
-- [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)
+- [Azure storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)

@@ -15,14 +15,13 @@ ms.subservice: storage-common-concepts
 # Upgrade General Purpose v1 (GPv1) with ZRS redundancy to GPv2
 
 > [!IMPORTANT]
->  General Purpose V1 account with ZRS redundancy will be retired in September 2026. Customers will no longer create General Purpose v1 (GPv1) with ZRS redundancy accounts after August 31, 2026. Existing GPv1 with ZRS redundancy accounts must be upgraded to General Purpose v2 (GPv2) before September 1, 2026 to avoid service disruption. See [GPv1 Standard ZRS account retirement FAQ](general-purpose-version-1-zone-redundant-storage-migration-freq-asked-questions.md) for more information.
+> General purpose V1 account with ZRS redundancy will be retired in September 2026. Customers will no longer create general purpose v1 (GPv1) with ZRS redundancy accounts after August 31, 2026. Existing GPv1 with ZRS redundancy accounts must be upgraded to general purpose v2 (GPv2) before September 1, 2026 to avoid service disruption. See [GPv1 standard ZRS account retirement FAQ](general-purpose-version-1-zone-redundant-storage-migration-freq-asked-questions.md) for more information.
 
-General Purpose v1 (GPv1) with ZRS redundancy was available only for **block blobs** in general-purpose V1 (GPv1) storage accounts. For more information about storage accounts, see [Azure storage account overview](storage-account-overview.md).
+General purpose v1 (GPv1) with ZRS redundancy was available only for **block blobs** in general-purpose V1 (GPv1) storage accounts. For more information about storage accounts, see [Azure storage account overview](storage-account-overview.md).
 
-General Purpose v1 (GPv1) with ZRS redundancy asynchronously replicated data across data centers within one to two regions. Replicated data wasn't available unless Microsoft initiated a failover to the secondary. A General Purpose v1 (GPv1) with ZRS redundancy account can't be converted to or from LRS, GRS, or RA-GRS.
+General purpose v1 (GPv1) with ZRS redundancy asynchronously replicated data across data centers within one to two regions. Replicated data wasn't available unless Microsoft initiated a failover to the secondary. A general purpose v1 (GPv1) with ZRS redundancy account can't be converted to or from LRS, GRS, or RA-GRS.
 
-
-To upgrade your General Purpose v1 (GPv1) with ZRS redundancy account to GPv2, use the Azure portal, PowerShell, or Azure CLI in regions where GPv2 is available:
+To upgrade your general purpose v1 (GPv1) with ZRS redundancy account to GPv2, use the Azure portal, PowerShell, or Azure CLI in regions where GPv2 is available:
 
 # [Portal](#tab/portal)
 
@@ -37,7 +36,6 @@ To upgrade to GPv2 using PowerShell, call the following command:
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource_group> -AccountName <storage_account> -UpgradeToStorageV2
 ```
-
 # [Azure CLI](#tab/azure-cli)
 
 To upgrade to ZRS using Azure CLI, call the following command:
@@ -45,9 +43,7 @@ To upgrade to ZRS using Azure CLI, call the following command:
 ```cli
 az storage account update -g <resource_group> -n <storage_account> --set kind=StorageV2
 ```
-
 ---
-
 
 ## Downtime requirements
 

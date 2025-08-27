@@ -19,16 +19,16 @@ Azure Storage is retiring the **general purpose v1 (GPv1) with ZRS redundancy** 
 
 ## About GPv1 with ZRS redundancy
 
-**general purpose v1 (GPv1) with ZRS redundancy** refers to legacy *Standard_ZRS* replication used with GPv1‑era accounts (account kind `Storage`, not `StorageV2`). Unlike modern ZRS on GPv2, which **replicates synchronously across three availability zones in the same region**, GPv1 with ZRS redundancy does **not** provide that within‑region, three‑zone synchronous design and can rely on a different replication topology that may require a platform‑initiated failover to access secondary copies.
+**General purpose v1 (GPv1) with ZRS redundancy** refers to legacy **Standard_ZRS** replication used with GPv1‑era accounts (account kind `Storage`, not `StorageV2`). Unlike modern ZRS on GPv2, which **replicates synchronously across three availability zones in the same region**, GPv1 with ZRS redundancy does **not** provide that within‑region, three‑zone synchronous design and can rely on different replication topology that may require a platform‑initiated failover to access secondary copies.
 
-For a refresher on modern redundancy options and characteristics (LRS, ZRS, GRS, GZRS, and read‑access variants), see [Storage Redundancy Options](storage-redundancy.md)
+For a refresher on modern redundancy options and characteristics (LRS, ZRS, GRS, GZRS, and read‑access variants), see [storage redundancy options](storage-redundancy.md)
 
 ## Why GPv1 with ZRS redundancy is being retired
 
 Azure is standardizing on **GPv2** to deliver consistent resiliency, feature breadth, and management across all storage accounts. GPv2:
 
 - Provides **modern ZRS** (synchronous replication across **three** availability zones) for higher availability in‑region.
-- Enables **per‑blob access tiers** (Hot/Cool/Archive) and **lifecycle management** for cost optimization.
+- Enables **per‑blob access tiers** (hot/cool/archive) and **lifecycle management** for cost optimization.
 - Supports **ADLS Gen2**, immutable storage, object replication, and broad ecosystem integrations.
 - Uses the **Azure Resource Manager (ARM)** control plane with Azure AD RBAC, tags, and policies for consistent governance.
 
@@ -42,7 +42,7 @@ The table below summarizes the key differences most customers care about:
 |---|---|---|
 | Replication model | Legacy topology; not synchronous across 3 zones; may require platform failover | **Synchronous across three availability zones** in the region; no failover required during a single‑zone event |
 | Availability during zonal outage | Access may be interrupted until failover | Remains online for reads/writes through a single‑zone outage |
-| Access tiers & lifecycle | Limited; no per‑blob tiering | **Per‑blob tiering** (Hot/Cool/Archive) + **Lifecycle management** |
+| Access tiers & lifecycle | Limited; no per‑blob tiering | **per‑blob tiering** (hot/cool/archive) + **lifecycle management** |
 | Security & governance | general purpose v1 (GPv1) with ZRS redundancy/GPv1 control plane | ARM‑based; Azure AD RBAC, tags, Azure Policy |
 | Data services | Blobs, Files, Queues, Tables | Blobs, Files, Queues, Tables **+** ADLS Gen2 (hierarchical namespace) |
 | Eventing & integrations | Limited | Event Grid and broader Azure integrations |
@@ -58,9 +58,9 @@ The table below summarizes the key differences most customers care about:
 
 | Date | Milestone |
 |---|---|
-| **September 8, 2025** | Public announcement and documentation updates. |
+| **September 2025** | Public announcement and documentation updates. |
 | **September 2025** | Creation of new GPv1/Blob‑Only/**general purpose v1 (GPv1) with ZRS redundancy** configurations blocked. |
-| **September 1, 2026** | **Full retirement.** Any remaining general purpose v1 (GPv1) with ZRS redundancy accounts are automatically upgraded to GPv2. |
+| **September 2026** | **Full retirement.** Any remaining general purpose v1 (GPv1) with ZRS redundancy accounts are automatically upgraded to GPv2. |
 
 ## Preparing for migration
 
