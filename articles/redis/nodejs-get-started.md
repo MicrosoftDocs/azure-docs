@@ -14,7 +14,7 @@ ai-usage: ai-assisted
 
 # Quickstart: Use Azure Managed Redis with JavaScript
 
-In this quickstart, you learn how to use an Azure Managed Redis cache from a Node.js application written in the TypeScript language and authenticate the Redis connection using Microsoft Entra ID.
+In this quickstart, you learn how to use an Azure Managed Redis cache from a Node.js application written in the TypeScript language and authenticate the Redis connection by using Microsoft Entra ID.
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ When you create the cache, Microsoft Entra ID authentication is enabled by defau
 
     Optionally, you can create a cache by using Azure CLI, PowerShell, or whichever tool you prefer.
 
-2. Add yourself as a [Redis user to the resource](entra-for-authentication.md#add-users-or-system-principal-to-your-cache). 
+1. Add yourself as a [Redis user to the resource](entra-for-authentication.md#add-users-or-system-principal-to-your-cache). 
 
 ## Code to connect to a Redis cache
 
