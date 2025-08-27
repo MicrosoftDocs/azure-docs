@@ -81,6 +81,8 @@ The APIs appear on the **APIs** page in the portal. If you add a large number of
 
 After registering an API, you can view or edit the API's properties. On the **APIs** page, select the API to see pages to manage the API registration. 
 
+<a id="add-a-definition-to-your-version"></a>
+
 ## Add an API version
 
 Throughout its lifecycle, an API can have multiple versions. You can add a version to an existing API in your API center, optionally with a definition file or files. 
@@ -103,11 +105,7 @@ Here you add a version to one of your APIs:
     |**Version identification**|After you enter the preceding title, Azure API Center generates this identifier, which you can override.| Azure resource name for the version |
     |**Version lifecycle**  | Make a selection from the dropdown, such as **Production**. | Lifecycle stage of the API version |
 
-<a id="add-a-definition-to-your-version"></a>
-
-1. Azure API Center supports definitions in common text specification formats, such as OpenAPI 2 and 3 for REST APIs.
-
-    To add an API definition, under **Select a specification**, enter or select the following information:
+1. Azure API Center supports definitions in common text specification formats, such as OpenAPI 2 and 3 for REST APIs. To add an API definition, under **Select a specification**, enter or select the following information:
 
     |Setting|Value|Description|
     |-------|-----|-----------|
