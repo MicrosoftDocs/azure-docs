@@ -269,7 +269,7 @@ Microsoft Entra ID access tokens have a limited lifespan, [averaging 75 minutes]
    ```
 
 >[!NOTE]
->For additional examples of using Microsoft Entra ID to authenticate to Redis using the node-redis library, please see [this GitHub repo](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity/samples)
+>For additional examples of using Microsoft Entra ID to authenticate to Redis using the node-redis library, please see [this GitHub repo](https://github.com/redis/node-redis/tree/master/packages/entraid/samples)
 >
 
 ## [Access Key Authentication](#tab/accesskey)
@@ -600,7 +600,7 @@ Microsoft Entra ID access tokens have a limited lifespan, [averaging 75 minutes]
    ```
 
 >[!NOTE]
->For additional examples of using Microsoft Entra ID to authenticate to Redis using the node-redis library, please see [this GitHub repo](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity/samples)
+>For additional examples of using Microsoft Entra ID to authenticate to Redis using the node-redis library, please see [this GitHub repo](https://github.com/redis/node-redis/tree/master/packages/entraid/samples)
 >
 
 ## [Access Key Authentication](#tab/accesskey)
