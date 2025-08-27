@@ -73,7 +73,7 @@ items:
         href: tutorial-python-aks-keyvault-csi-driver.md
       - name: Connect to Azure Storage using workload identity
         href: tutorial-python-aks-storage-workload-identity.md
-      - name: Connect to Azure OpenAI
+      - name: Connect AKS to Azure OpenAI
         href: tutorial-python-aks-openai-workload-identity.md  
       - name:  Connect to Azure SQL Database
         href: tutorial-python-aks-sql-database-connection-string.md
