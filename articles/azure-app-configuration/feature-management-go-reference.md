@@ -15,8 +15,6 @@ ms.date: 08/25/2025
 
 # Go feature management
 
-<br/><a href="https://pkg.go.dev/github.com/microsoft/Featuremanagement-Go/featuremanagement"><img src="media/go-provider.png" alt="Go" width="90" height="20"></a>
-
 Go feature management library provides a way to develop and expose application functionality based on feature flags. Once a new feature is developed, many applications have special requirements, such as when the feature should be enabled and under what conditions. This library provides a way to define these relationships, and also integrates into common Go code patterns to make exposing these features possible.
 
 Feature flags provide a way for Go applications to turn features on or off dynamically. Developers can use feature flags in simple use cases like conditional statements.
