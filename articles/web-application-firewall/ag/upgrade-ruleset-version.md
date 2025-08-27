@@ -1,5 +1,5 @@
 ---
-title: Upgrade CRS or DRS Ruleset Versions
+title: Upgrade CRS or DRS Ruleset Version
 titleSuffix: Azure Web Application Firewall
 description: Learn how to upgrade CRS or DRS ruleset version on Application Gateway Web Application Firewall.
 author: halkazwini
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 08/28/2025
 ---
 
-# Upgrade Azure WAF CRS or DRS ruleset versions
+# Upgrade Azure WAF CRS or DRS ruleset version
 
 The Azure-managed **Default Rule Set (DRS)** in Azure Application Gateway Web Application Firewall (WAF) protects web applications against common vulnerabilities and exploits, including the OWASP top 10 attack types. The default rule set also incorporates the Microsoft Threat Intelligence Collection rules. We recommend always running the **latest ruleset version**, which includes the most recent security updates, rule enhancements, and fixes.
 
