@@ -66,13 +66,6 @@ To onboard to the Microsoft Sentinel data lake Public Preview, you must be an ex
 
 [!INCLUDE [Customer-managed keys limitation](../includes/customer-managed-keys-limitation.md)]
 
-### Policy Exemption for Microsoft Sentinel Data Lake Onboarding
-
-During onboarding of Microsoft Sentinel's data lake, existing Azure Policy definitions might block deployment of required resources. To ensure successful onboarding without compromising broader policy enforcement, configure a policy exemption scoped to the resource group being onboarded.
-Specifically, exempt the resource type: `Microsoft.SentinelPlatformServices/sentinelplatformservices`.
-
-This targeted exemption allows Sentinel's data lake components to deploy correctly, while maintaining compliance with overarching Azure governance policies you may have already applied.
-
 To configure billing and enable asset data ingestion into the data lake, the following roles must be assigned to the tenant [member](/entra/fundamentals/users-default-permissions) account:
 
 + Azure Subscription owner for billing setup.
@@ -81,6 +74,13 @@ To configure billing and enable asset data ingestion into the data lake, the fol
 
 > [!NOTE]
 > During public preview, your primary and other workspaces must be in the same region as your tenant’s home region. Only workspaces in the same region as your tenant home region can be attached to the data lake.
+
+### Policy Exemption for Microsoft Sentinel Data Lake Onboarding
+
+During onboarding of Microsoft Sentinel's data lake, existing Azure Policy definitions might block deployment of required resources. To ensure successful onboarding without compromising broader policy enforcement, configure a policy exemption scoped to the resource group being onboarded.
+Specifically, exempt the resource type: `Microsoft.SentinelPlatformServices/sentinelplatformservices`.
+
+This targeted exemption allows Sentinel's data lake components to deploy correctly, while maintaining compliance with overarching Azure governance policies you may have already applied.
 
 ## Existing Microsoft Sentinel workspaces
 
