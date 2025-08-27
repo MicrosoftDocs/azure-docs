@@ -73,14 +73,25 @@ To enable or disable this feature (these prerequisites are not required to use t
 
     :::image type="content" source="media/enable-entity-behavior-analytics/ueba-configuration.png" alt-text="Screenshot of UEBA configuration settings.":::
 
-1. Select the checkboxes next to the directory services from which you want to synchronize user entities with Microsoft Sentinel.
+1. Select the directory services from which you want to synchronize user entities with Microsoft Sentinel.
 
     - **Active Directory** on-premises (Preview)
     - **Microsoft Entra ID**
 
     To sync user entities from on-premises Active Directory, your Azure tenant must be onboarded to Microsoft Defender for Identity (either standalone or as part of Microsoft Defender XDR) and you must have the MDI sensor installed on your Active Directory domain controller. See [Microsoft Defender for Identity prerequisites](/defender-for-identity/prerequisites) for more information.
 
-1. Select the checkboxes next to the data sources on which you want to enable UEBA.
+1. Select the data sources on which you want to enable UEBA.
+
+    You can only enable these data sources from the Defender portal:
+    
+    - AAD managed identity sign-in logs
+    - AAD service principal sign-in logs
+    - AWS CloudTrail
+    - Device logon events
+    - Okta CL
+    - GCP audit logs
+
+    For more information about UEBA data sources and anomalies, see [Microsoft Sentinel UEBA reference](./ueba-reference.md) and [UEBA anomalies](./anomalies-reference.md#ueba-anomalies).
 
     > [!NOTE]
     >
