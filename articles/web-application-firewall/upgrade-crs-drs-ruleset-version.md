@@ -11,35 +11,42 @@ ms.date: 08/28/2025
 
 # Upgrade Azure WAF CRS or DRS ruleset versions
 
-The Azure-managed **Default Rule Set (DRS)** in Application Gateway Web Application Firewall (WAF) protects web applications against common vulnerabilities and exploits, including the OWASP top 10 attack types. The default rule set also incorporates the Microsoft Threat Intelligence Collection rules. We recommend always running the **latest ruleset version**, which includes the most recent security updates, rule enhancements, and fixes.
+The Azure-managed **Default Rule Set (DRS)** in Azure Application Gateway Web Application Firewall (WAF) protects web applications against common vulnerabilities and exploits, including the OWASP top 10 attack types. The default rule set also incorporates the Microsoft Threat Intelligence Collection rules. We recommend always running the **latest ruleset version**, which includes the most recent security updates, rule enhancements, and fixes.
 
-## Key Considerations When Upgrading
+The Azure-managed Default Rule Set (DRS) is the latest generation of rulesets in Azure WAF, replacing all previous Core Rule Set (CRS) versions. Among DRS releases, always use the highest available version (for example, DRS 2.2 when released) to ensure you have the most up-to-date protections.
 
-The Azure-managed Default Rule Set (DRS) is the latest generation of rulesets in Azure WAF, replacing all previous Core Rule Set (CRS) versions. Among DRS releases, always use the highest available version (for example, DRS 2.2 when released) to ensure you have the most up-to-date protections. When upgrading your Azure WAF ruleset version, make sure to:
+This article provides PowerShell examples for upgrading your Azure WAF policy to DRS 2.1. While the examples reference DRS 2.1 specifically, you should always upgrade to the latest available DRS version to ensure maximum protection. 
 
-- **Preserve existing customizations**: carry over your rule action overrides, rule status (enabled / disabled) overrides, and exclusions.
+> [!NOTE]
+PowerShell snippets are examples only. Replace all placeholders with values from your environment.
+
+## Key considerations when upgrading
+
+When upgrading your Azure WAF ruleset version, make sure to:
+
+- **Preserve existing customizations**: carry over your rule action overrides, rule status (enabled/disabled) overrides, and exclusions.
 
 - **Validate new rules safely**: ensure newly added rules are initially set to **log mode**, so you can monitor their impact and fine-tune them before enabling blocking.
 
-## Next Steps
+## Prerequisites
 
-The sections below provide PowerShell examples for upgrading your Azure WAF policy to DRS 2.1. While the examples reference DRS 2.1
-specifically, you should always upgrade to the latest available DRS version to ensure maximum protection. Note: These PowerShell examples
-are references only. You may need to adapt the commands to your specific WAF policy and environment
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Setup
+- An existing Azure WAF policy with a Core Rule Set (CRS) or Default Rule Set (DRS) applied. If you don't have a WAF policy yet, see [Create Web Application Firewall policies for Application Gateway](create-waf-policy-ag.md).
 
-1.  Install the latest [Az.Network PowerShell module](/powershell/azure/install-azps-windows?tabs=powershell&pivots=windows-psgallery)
+- Latest version of [Azure PowerShell installed locally](/powershell/azure/install-azure-powershell). This article requires the [Az.Network Module](/powershell/module/az.network).
 
-1.  Set context of your selected subscription, resource group, and Azure WAF policy
+## Prepare your environment
+
+1.  Set context of your selected subscription, resource group, and Azure WAF policy.
 
     ```powershell
-    Import-Module Az.Network 
-    Set-AzContext -SubscriptionId "<subscription_id>" 
-    $resourceGroupName = "<resource_group>" 
+    Import-Module Az.Network
+    Set-AzContext -SubscriptionId "<subscription_id>"
+    $resourceGroupName = "<resource_group>"
     $wafPolicyName = "<policy_name>"
     ```
-1.	Get the WAF policy object and retrieve its definitions 
+1.	Get the WAF policy object and retrieve its definitions.
 
     ```powershell
     $wafPolicy = Get-AzApplicationGatewayFirewallPolicy ` 
@@ -51,9 +58,9 @@ are references only. You may need to adapt the commands to your specific WAF pol
     $currentVersion = $currentManagedRuleset.RuleSetVersion
     ```
 
-## Carry over your existing customization
+## Preserve existing customizations
 
-1.  Don't copy overrides or exclusions that apply to rules removed in DRS 2.1.  The following helper function checks if a rule has been removed:
+1.  Don't copy overrides or exclusions that apply to rules removed in DRS 2.1.  The following function checks if a rule has been removed:
 
     ```powershell
     function Test-RuleIsRemovedFromDRS21 { 
@@ -128,144 +135,6 @@ groups:
 1. Use the following PowerShell code to duplicate your existing exclusions and apply them on DRS 2.1.
 
     ```powershell
-    #
-    # The following PS script safely upgrade your Azure WAF ruleset version. 
-    # If you're running CRS 3.0 or CRS 3.1, it will upgrade you to CRS 3.2, If you are running CRS 3.2, it will upgrade you to DRS 2.1.
-    # The script will put in log mode all the new rules that were added compared to your existing version.
-    # In addition, any existing rule overrides and exclusions will be carried over to the new ruleset version too.
-    
-    # Follow https://learn.microsoft.com/en-us/powershell/azure/install-azps-windows?view=azps-14.2.0&tabs=powershell&pivots=windows-psgallery
-    # Get-Module -ListAvailable -Name Az.Network
-    ##If nothing is returned, you don’t have the Az module installed. To install it:
-    #Install-Module -Name Az.Network -Scope CurrentUser -Repository PSGallery -Force
-    ##You may be prompted to install NuGet or trust the repository — say yes.
-    
-    
-    # Set context and parameters
-    # Set your Azure context
-    Import-Module Az.Network
-    Set-AzContext -SubscriptionId "<subscription_id>"
-    $resourceGroupName = "<resource_group>"
-    $wafPolicyName = "<policy_name>"
-    
-    
-    # Get the WAF policy and retrieve its definitions
-    $wafPolicy = Get-AzApplicationGatewayFirewallPolicy `
-        -Name $wafPolicyName `
-        -ResourceGroupName $resourceGroupName
-    
-    #Preserve the existing global Exclusions
-    $currentExclusions = $wafPolicy.ManagedRules.Exclusions
-    
-    # Get the current OWASP ruleset version
-    $currentManagedRuleset = $wafPolicy.ManagedRules.ManagedRuleSets |
-        Where-Object { $_.RuleSetType -eq "OWASP" }
-    
-    
-    if (-not $currentManagedRuleset) {
-        throw "No OWASP CRS ruleset found in the current WAF policy."
-    }
-    
-    $currentVersion = $currentManagedRuleset.RuleSetVersion
-    
-    
-    
-    # The following function checks if a given rule ID has been removed from a specific version compared to DRS 2.1 as a reference point.
-    function Test-RuleIsRemovedFromDRS21 {
-        param (
-            [string]$RuleId,
-            [string]$CurrentRulesetVersion
-        )
-    
-    	$removedRulesByCrsVersion = @{
-    		"3.0" = @(
-    			"200004", "913100", "913101", "913102", "913110", "913120",
-    			"920130", "920140", "920250", "921100",
-    			"800100", "800110", "800111", "800112", "800113"
-    		)
-    
-    		"3.1" = @(
-    			"200004", "913100", "913101", "913102", "913110", "913120",
-    			"920130", "920140", "920250",
-    			"800100", "800110", "800111", "800112", "800113", "800114"
-    		)
-    
-    		"3.2" = @(
-    			"200004", "913100", "913101", "913102", "913110", "913120",
-    			"920250",
-    			"800100", "800110", "800111", "800112", "800113", "800114"
-    		)
-    	}
-    
-        # If the version isn't known, assume rule has not been removed
-        if (-not $removedRulesByCrsVersion.ContainsKey($CurrentRulesetVersion)) {
-            return $false
-        }
-    
-        # Return true if the rule ID is in the removed list for that version
-        return $removedRulesByCrsVersion[$CurrentRulesetVersion] -contains $RuleId
-    }
-    
-    
-    ##
-    
-    function Get-DrsRuleGroupName {
-        param (
-            [Parameter(Mandatory = $true)]
-            [string]$SourceGroupName
-        )
-    
-        # Mapping dictionary
-        $groupMap = @{
-            "REQUEST-930-APPLICATION-ATTACK-LFI"              = "LFI"
-            "REQUEST-931-APPLICATION-ATTACK-RFI"              = "RFI"
-            "REQUEST-932-APPLICATION-ATTACK-RCE"              = "RCE"
-            "REQUEST-933-APPLICATION-ATTACK-PHP"              = "PHP"
-            "REQUEST-941-APPLICATION-ATTACK-XSS"              = "XSS"
-            "REQUEST-942-APPLICATION-ATTACK-SQLI"             = "SQLI"
-            "REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION" = "FIX"
-            "REQUEST-944-APPLICATION-ATTACK-JAVA"             = "JAVA"
-            "REQUEST-921-PROTOCOL-ATTACK"                     = "PROTOCOL-ATTACK"
-            "REQUEST-911-METHOD-ENFORCEMENT"                  = "METHOD-ENFORCEMENT"
-            "REQUEST-920-PROTOCOL-ENFORCEMENT"                = "PROTOCOL-ENFORCEMENT"
-            "REQUEST-913-SCANNER-DETECTION"                   = $null  # No direct mapping
-            "Known-CVEs"                                      = "MS-ThreatIntel-CVEs"
-            "General"                                         = "General"
-        }
-    
-        if ($groupMap.ContainsKey($SourceGroupName)) {
-            return $groupMap[$SourceGroupName]
-        } else {
-            return $SourceGroupName  # No known mapping
-        }
-    }
-    
-    ##
-    # Create group overrides for existing overrides
-    $groupOverrides = @()
-    
-    foreach ($group in $currentManagedRuleset.RuleGroupOverrides) {
-    	$mappedGroupName = Get-DrsRuleGroupName $group.RuleGroupName
-        foreach ($existingRule in $group.Rules) {
-    		if (-not (Test-RuleIsRemovedFromDRS21 $existingRule.RuleId $currentVersion))
-    		{
-    
-    			$existingGroup = $groupOverrides | Where-Object { $_.RuleGroupName -eq $mappedGroupName }
-    
-    			if ($existingGroup) {
-    				if (-not ($existingGroup.Rules | Where-Object { $_.RuleId -eq $existingRule.RuleId })) {
-    					$existingGroup.Rules.Add($existingRule)
-    				}
-    			} else {
-    				$newGroup = New-AzApplicationGatewayFirewallPolicyManagedRuleGroupOverride `
-    					-RuleGroupName $mappedGroupName `
-    					-Rule @($existingRule)
-    				$groupOverrides += $newGroup
-    			}
-    		}
-        }
-    }
-    
     # Create new exclusion objects
     $newRuleSetExclusions = @()
     
@@ -328,130 +197,9 @@ groups:
     		$newRuleSetExclusions += $newExclusion
     	}
     }
-    
-    
-    switch ($currentVersion) {
-    
-        "3.0" {
-            # Added in DRS 2.1 compared to CRS 3.0
-            $rulesAddedInThisVersionByGroup = @{
-                "General"                = @("200002", "200003")
-                "PROTOCOL-ENFORCEMENT"   = @("920121", "920171", "920181", "920341", "920470", "920480", "920500")
-                "PROTOCOL-ATTACK"        = @("921190", "921200")
-                "RCE"                    = @("932180")
-                "PHP"                    = @("933200", "933210")
-                "NODEJS"                 = @("934100")
-                "XSS"                    = @("941101", "941360", "941370", "941380")
-                "SQLI"                   = @("942361", "942470", "942480", "942500", "942510")
-                "JAVA"                   = @("944100", "944110", "944120", "944130", "944200", "944210", "944240", "944250")
-                "MS-ThreatIntel-WebShells" = @("99005002", "99005003", "99005004", "99005005", "99005006")
-                "MS-ThreatIntel-AppSec"    = @("99030001", "99030002")
-                "MS-ThreatIntel-SQLI"      = @("99031001", "99031002", "99031003", "99031004")
-                "MS-ThreatIntel-CVEs"      = @(
-                                                "99001001","99001002","99001003","99001004","99001005","99001006",
-                                                "99001007","99001008","99001009","99001010","99001011","99001012",
-                                                "99001013","99001014","99001015","99001016","99001017"
-                                              )
-            }
-        }
-    
-        "3.1" {
-            # Added in DRS 2.1 compared to CRS 3.1
-            $rulesAddedInThisVersionByGroup = @{
-                "General"                = @("200002", "200003")
-                "PROTOCOL-ENFORCEMENT"   = @("920181", "920500")
-                "PROTOCOL-ATTACK"        = @("921190", "921200")
-                "PHP"                    = @("933200", "933210")
-                "NODEJS"                 = @("934100")
-                "XSS"                    = @("941360", "941370", "941380")
-                "SQLI"                   = @("942500", "942510")
-                "MS-ThreatIntel-WebShells" = @("99005002", "99005003", "99005004", "99005005", "99005006")
-                "MS-ThreatIntel-AppSec"    = @("99030001", "99030002")
-                "MS-ThreatIntel-SQLI"      = @("99031001", "99031002", "99031003", "99031004")
-                "MS-ThreatIntel-CVEs"      = @(
-                                                "99001001","99001002","99001003","99001004","99001005","99001006",
-                                                "99001007","99001008","99001009","99001010","99001011","99001012",
-                                                "99001013","99001014","99001015","99001016","99001017"
-                                              )
-            }
-        }
-    
-        "3.2" {
-            # Added in DRS 2.1 compared to CRS 3.2
-            $rulesAddedInThisVersionByGroup = @{
-                "General"                = @("200002", "200003")
-                "PROTOCOL-ENFORCEMENT"   = @("920181", "920500")
-                "PROTOCOL-ATTACK"        = @("921190", "921200")
-                "PHP"                    = @("933200", "933210")
-                "NODEJS"                 = @("934100")
-                "XSS"                    = @("941360", "941370", "941380")
-                "SQLI"                   = @("942100", "942500", "942510")
-                "MS-ThreatIntel-WebShells" = @("99005002", "99005003", "99005004", "99005005", "99005006")
-                "MS-ThreatIntel-AppSec"    = @("99030001", "99030002")
-                "MS-ThreatIntel-SQLI"      = @("99031001", "99031002", "99031003", "99031004")
-                "MS-ThreatIntel-CVEs"      = @(
-                                                "99001001","99001002","99001003","99001004","99001005","99001006",
-                                                "99001007","99001008","99001009","99001010","99001011","99001012",
-                                                "99001013","99001014","99001015","99001016","99001017"
-                                              )
-            }
-        }
-    
-        default {
-            throw "Unsupported OWASP/DRS ruleset version: $($currentManagedRuleset.RuleSetVersion)"
-        }
-    }
-    
-    
-    #Adding rule overrides for rules added in the destination version. All new rules in destination ruleset version will have an override for log mode.
-    foreach ($groupName in $rulesAddedInDRS21.Keys) {
-        $ruleOverrides = @()
-    
-        foreach ($ruleId in $rulesAddedInDRS21[$groupName]) {
-            $alreadyExists = $existingOverrides | Where-Object { $_.RuleId -eq $ruleId }
-            if (-not $alreadyExists) {
-                $ruleOverrides += New-AzApplicationGatewayFirewallPolicyManagedRuleOverride `
-                    -RuleId $ruleId `
-                    -Action "Log" `
-                    -State "Enabled"
-            }
-        }
-    
-        # Only create group override if we added rules to it
-        if ($ruleOverrides.Count -gt 0) {
-            $groupOverrides += New-AzApplicationGatewayFirewallPolicyManagedRuleGroupOverride `
-                -RuleGroupName $groupName `
-                -Rule $ruleOverrides
-        }
-    }
-    
-    
-    
-    $managedRuleSet = New-AzApplicationGatewayFirewallPolicyManagedRuleSet `
-    	-RuleSetType "Microsoft_DefaultRuleSet" `
-    	-RuleSetVersion "2.1" `
-    	-RuleGroupOverride $groupOverrides 
-    
-    
-    for ($i = 0; $i -lt $wafPolicy.ManagedRules.ManagedRuleSets.Count; $i++) {
-        if ($wafPolicy.ManagedRules.ManagedRuleSets[$i].RuleSetType -eq "OWASP") {
-            $wafPolicy.ManagedRules.ManagedRuleSets[$i] = $managedRuleSet
-            break
-        }
-    }
-    
-    
-    # Assign to policy
-    if ($newRuleSetExclusions)
-    {
-    	$wafPolicy.ManagedRules.Exclusions = $currentExclusions + $newRuleSetExclusions
-    }
-    
-    # Apply the updated WAF policy
-    Set-AzApplicationGatewayFirewallPolicy -InputObject $wafPolicy
     ```
 
-## (Optional) Change new rules’ actions to “log” for safe validation
+## Change new rules’ actions to “log” for safe validation
 
 When upgrading, new DRS 2.1 rules are active by default. If your WAF is in *Prevention* mode, set new rules to *log* mode first. This allows you to review logs before enabling blocking.
 
@@ -512,7 +260,6 @@ $rulesAddedInThisVersionByGroup = @{
 
 Use the following PowerShell code to add new rule overrides to the existing \$groupOverrides object defined previously:
 
-
 ```powershell
 foreach ($groupName in $rulesAddedInDRS21.Keys) { 
     $ruleOverrides = @() 
@@ -533,7 +280,7 @@ foreach ($groupName in $rulesAddedInDRS21.Keys) {
             }
 ```
 
-## Final step – apply customizations and upgrade
+## Apply customizations and upgrade
 
 Define your updated Azure WAF policy object, incorporating the duplicated and updated rule overrides and exclusions:
 
@@ -549,7 +296,7 @@ for ($i = 0; $i -lt $wafPolicy.ManagedRules.ManagedRuleSets.Count; $i++) {
     } 
 } 
 # Assign to policy if ($newRuleSetExclusions) { 	$wafPolicy.ManagedRules.Exclusions = $currentExclusions + $newRuleSetExclusions 
-} 
+
 # Apply the updated WAF policy 
 Set-AzApplicationGatewayFirewallPolicy -InputObject $wafPolicy
 ```
@@ -557,5 +304,4 @@ Set-AzApplicationGatewayFirewallPolicy -InputObject $wafPolicy
 ## Related Content
 
 - [Web Application Firewall DRS and CRS rule groups and rules](/azure/web-application-firewall/ag/application-gateway-crs-rulegroups-rules)
-
 - [Customize Web Application Firewall rules using the Azure portal](/azure/web-application-firewall/ag/application-gateway-customize-waf-rules-portal)
