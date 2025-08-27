@@ -14,9 +14,9 @@ ms.service: azure-app-service
 
 # Configure a Node.js app for Azure App Service
 
-Node.js apps must be deployed with all the required npm dependencies. The App Service deployment engine automatically runs `npm install --production` for you when you deploy a [Git repository](deploy-local-git.md), or when you deploy a [Zip package](deploy-zip.md) [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy). If you deploy your files using [FTP/S](deploy-ftp.md), however, you need to upload the required packages manually.
+Node.js apps must be deployed with all the required npm dependencies. The App Service deployment engine automatically runs `npm install --production` when you deploy a [Git repository](deploy-local-git.md) or when you deploy a [Zip package](deploy-zip.md) [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy). If you deploy your files by using [FTP/S](deploy-ftp.md), however, you need to upload the required packages manually.
 
-This guide provides key concepts and instructions for Node.js developers who deploy to App Service. If you've never used Azure App Service, follow the [Node.js quickstart](quickstart-nodejs.md) and [Node.js with MongoDB tutorial](tutorial-nodejs-mongodb-app.md) first.
+This guide describes key concepts and provides instructions for Node.js developers who deploy to App Service. If you've never used Azure App Service, complete the [Node.js quickstart](quickstart-nodejs.md) and the [Node.js with MongoDB tutorial](tutorial-nodejs-mongodb-app.md) first.
 
 ## Show Node.js version
 
@@ -63,9 +63,9 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 ```
 
 > [!NOTE]
-> This example uses the recommended "tilde syntax" to target the latest available version of Node.js 16 runtime on App Service.
+> This example uses the recommended tilde syntax to target the latest available version of Node.js 16 runtime on App Service.
 >
->Since the runtime is regularly patched and updated by the platform, we don't recommend that you target a specific minor version/patch as these are not guaranteed to be available due to potential security risks.
+>Because the runtime is regularly patched and updated by the platform, we don't recommend that you target a specific minor version / patch. Because of potential security risks, these versions aren't guaranteed to be available.
 
 > [!NOTE]
 > You should set the Node.js version in your project's `package.json`. The deployment engine runs in a separate process that contains all the supported Node.js versions.
@@ -101,7 +101,7 @@ In App Service on Windows, Node.js apps are hosted with [IISNode](https://github
 
 ::: zone pivot="platform-linux"  
 
-App Service sets the environment variable `PORT` in the Node.js container, and forwards the incoming requests to your container at that port number. To receive the requests, your app should listen to that port using `process.env.PORT`. The following example shows how to do that in a simple Express app:
+App Service sets the environment variable `PORT` in the Node.js container, and forwards the incoming requests to your container at that port number. To receive the requests, your app should listen to that port by using `process.env.PORT`. The following example shows how to set the port in a simple Express app:
 
 ::: zone-end
 
