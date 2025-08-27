@@ -63,7 +63,7 @@ To see all the Premium V4 options, select **Explore pricing plans**, then select
 
 ## Scaling out an app service plan on the Premium V4 tier
 
-Premium V4 fully integrates with autoscale. If a scale-out request fails, wait five minutes and retry.
+Although Premium V4 fully integrates with autoscale, limit individual scale-out requests to two or fewer instances per synchronous operation. For higher target counts, iterate through incremental requests. For example, to add 10 instances, loop through five separate scale-out requests of two instances each until all succeed. If a scale-out request fails, wait five minutes and retry.
 
 ## Scale up an existing app to Premium V4 tier
 
@@ -150,7 +150,7 @@ The following command creates an App Service plan in *P1V4*. The options for `-W
 New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
     -Name <app_service_plan_name> `
     -Location <region_name> `
-    -Tier "Premiuma" `
+    -Tier "PremiumV4" `
     -WorkerSize "Small"
 ```
 
