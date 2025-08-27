@@ -103,6 +103,8 @@ Here you add a version to one of your APIs:
     |**Version identification**|After you enter the preceding title, Azure API Center generates this identifier, which you can override.| Azure resource name for the version |
     |**Version lifecycle**  | Make a selection from the dropdown, such as **Production**. | Lifecycle stage of the API version |
 
+<a id="add-a-definition-to-your-version"></a>
+
 1. Azure API Center supports definitions in common text specification formats, such as OpenAPI 2 and 3 for REST APIs.
 
     To add an API definition, under **Select a specification**, enter or select the following information:
