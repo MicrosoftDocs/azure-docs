@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.date: 08/26/2025
 ---
 
-# Tutorial: Connect AKS to Azure OpenAIr
+# Tutorial: Connect AKS to Azure OpenAI
 
 This tutorial shows you how to connect your Azure Kubernetes Service (AKS) applications to Azure OpenAI using Service Connector with workload identity authentication. You'll establish credential-free connections by deploying a sample Python application that communicates with the Azure OpenAI service.
 
