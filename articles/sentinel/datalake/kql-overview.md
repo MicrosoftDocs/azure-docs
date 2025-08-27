@@ -1,12 +1,12 @@
 ---  
-title: KQL and the Microsoft Sentinel data lake (preview)
+title: KQL and the Microsoft Sentinel data lake
 titleSuffix: Microsoft Security  
 description: Exploring and interacting with the Microsoft Sentinel data lake using KQL
 author: EdB-MSFT  
 ms.service: microsoft-sentinel
 ms.topic: conceptual
 ms.subservice: sentinel-graph
-ms.date: 07/09/2025
+ms.date: 08/27/2025
 ms.author: edbaynash  
 
 ms.collection: ms-security  
@@ -15,7 +15,7 @@ ms.collection: ms-security
 
 ---
 
-# KQL and the Microsoft Sentinel data lake (preview)
+# KQL and the Microsoft Sentinel data lake
  
 With Microsoft Sentinel data lake, you can store and analyze high-volume, low-fidelity logs like firewall or DNS data, asset inventories, and historical records for up to 12 years. Because storage and compute are decoupled, you can query the same copy of data using multiple tools, without moving or duplicating it.
 
@@ -33,7 +33,7 @@ Using KQL, analysts can:
 + Enrich investigations with high-volume logs: Leverage noisy or low-fidelity data stored in the data lake to add context and depth to security investigations.
 + Correlate asset and logs data in the data lake: Query asset inventories and identity logs to connect user activity with resources and uncover broader attack.
 
-Use **KQL queries** under  **Microsoft Sentinel** > **Data lake exploration** in the Defender portal to run ad-hoc interactive KQL queries directly on long-term data. **Data lake exploration** is available after the [onboarding](sentinel-lake-onboarding.md) process has been completed. KQL queries are ideal for SOC analysts investigating incidents where data may no longer reside in the analytics tier. Queries enable forensic analysis using familiar queries without rewriting code. To get started with KQL queries see [Data lake exploration - KQL queries (preview)](kql-queries.md). 
+Use **KQL queries** under  **Microsoft Sentinel** > **Data lake exploration** in the Defender portal to run ad-hoc interactive KQL queries directly on long-term data. **Data lake exploration** is available after the [onboarding](sentinel-lake-onboarding.md) process has been completed. KQL queries are ideal for SOC analysts investigating incidents where data may no longer reside in the analytics tier. Queries enable forensic analysis using familiar queries without rewriting code. To get started with KQL queries see [Data lake exploration - KQL queries](kql-queries.md). 
 
 ## KQL jobs 
 
@@ -62,8 +62,8 @@ The following scenarios illustrate how KQL queries in the Microsoft Sentinel dat
 
 ## Related content
 
-- [Microsoft Sentinel data lake overview (preview)](sentinel-lake-overview.md)
-- [Onboarding to Microsoft Sentinel data lake (preview)](sentinel-lake-onboarding.md)
-- [Create jobs in the Microsoft Sentinel data lake (preview)](kql-jobs.md)
-- [Manage jobs in the Microsoft Sentinel data lake (preview)](kql-manage-jobs.md)
-- [Create and run notebooks in the Microsoft Sentinel data lake (preview)](notebooks-overview.md)
+- [Microsoft Sentinel data lake overview](sentinel-lake-overview.md)
+- [Onboarding to Microsoft Sentinel data lake](sentinel-lake-onboarding.md)
+- [Create jobs in the Microsoft Sentinel data lake](kql-jobs.md)
+- [Manage jobs in the Microsoft Sentinel data lake](kql-manage-jobs.md)
+- [Create and run notebooks in the Microsoft Sentinel data lake](notebooks-overview.md)
