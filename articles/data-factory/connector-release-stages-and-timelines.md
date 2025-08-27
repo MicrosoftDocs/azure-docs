@@ -90,6 +90,8 @@ For comprehensive details on support levels and recommended usage at each stage,
 |                                    | version 1.0    | End of support announced                                |September 30, 2025     | October 31, 2025                  |
 | [SQL Server](connector-sql-server.md)                 | version 2.0  | GA                           | /                      | /                      |
 |                                                       | version 1.0  | GA                           | To be determined       | /       |
+| [Square (Preview)](connector-square.md)                        | version 2.0    | Public Preview                    | /                   |/
+|                                    | version 1.0    | End of support announced                                | October 15, 2025     | November 15, 2025                    |
 | [Teradata](connector-teradata.md)                          | version 2.0    | GA                  | /                   | /                   |
 |                                    | version 1.0    | End of support announced                                | September 30, 2025     | October 31, 2025                     |
 | [Vertica](connector-vertica.md)                            | version 2.0    | GA                                | /                   | /                   |
