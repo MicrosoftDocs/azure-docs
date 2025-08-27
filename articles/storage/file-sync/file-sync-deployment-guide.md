@@ -416,23 +416,23 @@ It's also possible to differentiate administrators who can register servers from
 
 # [Portal](#tab/azure-portal)
 
-1. The **Server Registration** dialog should open automatically after you install the Azure File Sync agent. If it doesn't, you can open it manually from its file location: `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe`. In the **Server Registration** dialog, you can choose your Azure environment from the listed options.
+1. The **Server Registration** dialog should open automatically after you install the Azure File Sync agent. If it doesn't, you can open it manually from its file location: `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe`. In the dialog, choose your Azure environment from the listed options.
 
-   ![Screenshot of server registration dialog Sign In - Regular.](media/storage-sync-files-deployment-guide/register-sync-server-1.png)
+   ![Screenshot of of sign-in information for the Server Registration dialog.](media/storage-sync-files-deployment-guide/register-sync-server-1.png)
 
 1. If you're a Cloud Solution Provider, turn on the toggle for **I am signing in as a Cloud Solution Provider** and enter the **Tenant ID**. Then select **Sign in**.
 
-   ![Screenshot of server registration dialog Sign In Cloud Solution Provider.](media/storage-sync-files-deployment-guide/register-sync-server-2.png)
+   ![Screenshot of the Cloud Solution Provider toggle and the box for tenant ID in the Server Registration dialog.](media/storage-sync-files-deployment-guide/register-sync-server-2.png)
 
-1. After you sign in, you're prompted for the following information:
+1. After you sign in, enter the following information:
 
-   ![Screenshot of server registration for storage sync service with details for Subscription, Resource Group and Sync Service.](media/storage-sync-files-deployment-guide/register-sync-server-3.png)
-
-   - **Azure Subscription**: The subscription that contains the storage sync service (see [Deploy the storage sync service](#deploy-the-storage-sync-service)).
+   - **Azure Subscription**: The subscription that contains the storage sync service (as described earlier in [Deploy a storage sync service](#deploy-a-storage-sync-service)).
    - **Resource Group**: The resource group that contains the storage sync service.
-   - **storage sync service**: The name of the storage sync service with which you want to register.
+   - **Storage Sync Service**: The name of the storage sync service with which you want to register.
 
-   Select the appropriate information and then select **Register** to complete the server registration. As part of the registration process, you're prompted for an additional sign-in.
+   ![Screenshot of the Server Registration dialog, with details for subscription, resource group, and Sync Service.](media/storage-sync-files-deployment-guide/register-sync-server-3.png)
+
+1. Select **Register** to complete the server registration. As part of the registration process, you're prompted for an additional sign-in.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -448,18 +448,17 @@ Follow the instructions for the Azure portal or PowerShell.
 
 ## Create a sync group and a cloud endpoint
 
-A sync group defines the sync topology for a set of files. Endpoints within a sync group are kept in sync with each other. A sync group must contain one cloud endpoint, which represents an Azure file share and one or more server endpoints.
+A *sync group* defines the sync topology for a set of files. Endpoints within a sync group stay in sync with each other. A sync group must contain:
 
-A server endpoint represents a path on a  registered server. A server can have server endpoints in multiple sync groups. You can create as many sync groups as you need to appropriately describe your desired sync topology.
-
-A cloud endpoint is a pointer to an Azure file share. All server endpoints will sync with a cloud endpoint, making the cloud endpoint the hub. The storage account for the Azure file share must be located in the same region as the storage sync service.
+- One or more *server endpoints*. A server endpoint represents a path on a registered server. A server can have server endpoints in multiple sync groups. You can create as many sync groups as you need to appropriately describe your desired sync topology.
+- One *cloud endpoint*. A cloud endpoint is a pointer to an Azure file share. All server endpoints will sync with a cloud endpoint, making the cloud endpoint the hub. The storage account for the Azure file share must be located in the same region as the storage sync service.
 
 The entirety of the Azure file share will be synced, with one exception: A special folder, comparable to the hidden "System Volume Information" folder on an NTFS volume, will be provisioned. This directory is called ".SystemShareInformation". It contains important sync metadata that won't sync to other endpoints. Don't use or delete it!
 
 > [!IMPORTANT]
 > You can make changes to any cloud endpoint or server endpoint in the sync group and have your files synced to the other endpoints in the sync group. If you make a change to the cloud endpoint (Azure file share) directly, changes first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint only once every 24 hours. For more information, see [Azure Files frequently asked questions](../files/storage-files-faq.md?toc=/azure/storage/filesync/toc.json#afs-change-detection).
 
-The administrator creating the cloud endpoint must be a member of the management role [Azure File Sync Administrator](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator) or **Owner** for the storage account that contains the Azure file share the cloud endpoint is pointing to. Configure this under **Access Control (IAM)** in the Azure portal for the storage account.
+The administrator who creates the cloud endpoint must be a member of the management role [Azure File Sync Administrator](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator) or Owner for the storage account that contains the Azure file share that the cloud endpoint is pointing to. Configure this under **Access Control (IAM)** in the Azure portal for the storage account.
 
 # [Portal](#tab/azure-portal)
 
