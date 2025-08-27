@@ -42,7 +42,7 @@ Note that _/api/health_ is just an example. There is no default Health check pat
 
 > [!NOTE]
 > - Your [App Service plan](./overview-hosting-plans.md) should be scaled to two or more instances to fully utilize Health check. 
-> - The Health check path should check critical components of your application. For example, if your application depends on a database and a messaging system, the Health check endpoint should connect to those components. If the application can't connect to a critical component, the path should return a 500-level response code to indicate the app is unhealthy. Also, if the path doesn't return a response within one minute, the health check ping is considered unhealthy.
+> - The Health check path should check critical components of your application. For example, if your application depends on a database and a messaging system, the Health check endpoint should connect to those components. If the application can't connect to a critical component, the path should return a 500-level response code to indicate that the app is unhealthy. Also, if the path doesn't return a response within one minute, the health check ping is considered unhealthy.
 > - When selecting the Health check path, make sure you're selecting a path that returns a 200 status code only when the app is fully warmed up.
 > - To use Health check on a function app, you must use a [premium or dedicated hosting plan](../azure-functions/functions-scale.md#overview-of-plans).
 > - For details about Health check on function apps, see [Monitor function apps using Health check](../azure-functions/configure-monitoring.md?#monitor-function-apps-using-health-check).
@@ -152,13 +152,13 @@ For Windows applications, you can also view processes via the Process Explorer. 
 
 ## Diagnostic information collection
 
-For Windows applications, you have the option to collect diagnostic information on the Health Check tab. Enabling diagnostic collection adds an auto-heal rule that creates memory dumps for unhealthy instances and saves them to a designated storage account. Enabling this option changes auto-heal configurations. If there are existing auto-heal rules, we recommend setting this up through App Service diagnostics. 
+For Windows applications, you have the option to collect diagnostic information on the **Health check** tab. Enabling diagnostic collection adds an auto-heal rule that creates memory dumps for unhealthy instances and saves them to a designated storage account. Enabling this option changes auto-heal configurations. If there are existing auto-heal rules, we recommend setting this up through App Service diagnostics. 
 
 After diagnostic collection is enabled, you can create a storage account or choose an existing one for your files. You can only select storage accounts in the same region as your application. Keep in mind that saving restarts your application. After saving, if your site instances are found to be unhealthy after continuous pings, you can go to your storage account resource and view the memory dumps.
 
 ## Monitoring
 
-After providing your application's health check path, you can monitor the health of your site by using Azure Monitor. From the **Health check** page in the portal, select **Metrics** in the toolbar. Doing so opens a new page where you can see the site's Health check status history and create a new alert rule. The Health check status metric aggregates the successful pings and displays failures only when the instance is deemed unhealthy based on the Health check load balancing **Threshold** value that's configured. By default, this value is set to 10 minutes, so it takes 10 consecutive pings (1 per minute) for a given instance to be deemed unhealthy, and only then will it be reflected on the metric. For more information on monitoring your sites, see [Azure App Service quotas and alerts](web-sites-monitor.md).
+After providing your application's Health check path, you can monitor the health of your site by using Azure Monitor. From the **Health check** page in the portal, select **Metrics** in the toolbar. Doing so opens a new page where you can see the site's Health check status history and create a new alert rule. The Health check status metric aggregates the successful pings and displays failures only when the instance is deemed unhealthy based on the Health check load balancing **Threshold** value that's configured. By default, this value is set to 10 minutes, so it takes 10 consecutive pings (1 per minute) for a given instance to be deemed unhealthy, and only then will it be reflected on the metric. For more information on monitoring your sites, see [Azure App Service quotas and alerts](web-sites-monitor.md).
 
 ## Limitations
 
@@ -202,13 +202,14 @@ Assume you have two applications (or one app with a slot) with Health check enab
 If all instances of your application are unhealthy, App Service doesn't remove instances from the load balancer. In this scenario, taking all unhealthy app instances out of the load balancer rotation would effectively cause an outage for your application. However, the instance replacement still occurs.
 
  ### What happens during a slot swap?
+
 Health check configuration is not slot-specific, so after a swap, the Health check configuration of the swapped slot is applied to the destination slot, and vice-versa. For example, if you have Health check enabled for your staging slot, the endpoint configured will be applied to the production slot after a swap. We recommend using consistent configuration for both production and non-production slots if possible to prevent any unexpected behavior after a swap.
 
-### Does Health check work on App Service Environments?
+### Does Health check work in App Service Environments?
 
 Yes, health check is available for App Service Environment v3.
 
-## Next steps
+## Related content
 
 - [Create an Activity Log Alert to monitor all Autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert)
 - [Create an Activity Log Alert to monitor all failed Autoscale scale-in/scale-out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-failed-alert)
