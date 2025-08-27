@@ -49,7 +49,6 @@ Azure Load Balancer operates at Layer 4 and does not store customer data, but im
 
 - **Use Application Gateway for HTTP/HTTPS workloads**: Deploy Azure Application Gateway instead of Load Balancer for HTTP/HTTPS applications that require SSL/TLS termination and web application firewall capabilities. See [Architecture best practices for Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer#security).
 
-- **Protect backend data stores**: Implement encryption at rest and in transit for backend databases and storage systems that receive traffic through the load balancer. See [Azure security baseline for Azure Load Balancer](/security/benchmark/azure/baselines/azure-load-balancer-security-baseline).
 
 
 ## Logging and monitoring
