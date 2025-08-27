@@ -26,6 +26,8 @@ In Azure, a *resource* is a manageable item that you create and configure within
 
 - **File shares** (preview), offered by the `Microsoft.FileShares` resource provider. File shares are a new top-level resource that simplify the deployment of Azure Files by eliminating the storage account. Unlike classic file shares, which must be deployed into a storage account, file shares are deployed directly into the resource group like storage accounts themselves, or other Azure resources you may be familiar with like virtual machines, disks, or virtual networks. File shares support the NFS file sharing protocol - if you require SMB, choose classic file shares for your deployment.
 
+![Image comparing file shares and classic Azure file shares](./media/storage-files-planning/file-share-comparsion.png)
+
 ### Classic file shares (Microsoft.Storage)
 Classic file shares, or file shares deployed in storage accounts, are the traditional way to deploy file shares for Azure Files. They support all of the key features that Azure Files supports including SMB and NFS, SSD and HDD media tiers, every redundancy type, and in every region. While classic file shares support the entire breadth of Azure Files features, they have important key limitations:
 
@@ -40,29 +42,19 @@ Classic file shares, or file shares deployed in storage accounts, are the tradit
 To learn more, see [Create a classic file share](./create-classic-file-share.md).
 
 ### File shares (Microsoft.FileShares)
-![image comparing Microsoft.FileShares and classic Azure file shares](./media/storage-files-planning/file-share-comparsion.png)
+File shares (preview) are a new top-level Azure resource provided by the `Microsoft.FileShares` resource provider. File shares offer the following advantages over classic file shares:
 
-File shares (preview) created with Microsoft.FileShares are a first-class Azure resource, alongside virtual machines, virtual networks, and SQL databases. Instead of creating a storage account and then a file share inside it, you create the file share directly in your resource group, eliminating account complexity without sacrificing performance or cost efficiency. Currently the preview only supports NFS file shares, which use the SSD (premium) media tier.
+- **Simplified management**: File shares are created directly as top-level resources in the portal or through management APIs. This removes the requirement to manage a storage account and streamlines the deployment experience.
 
-This new model simplifies the deployment experience and unlocks a host of new capabilities:
+- **Independent capacity and performance**: Each file share has it's own dedicated storage, IOPS, and throughput. This avoids the need to do capacity planning against your storage accounts limited resources and enables file shares to freely grow as workload demands grow.
 
-- Simpler onboarding: You'll create file shares directly as top-level Azure resources in the portal, with no need to create and manage a storage account. This removes a layer of indirection, reduces the learning curve, and eliminates confusion from storage account level settings that don't apply to file shares.
+- **Granular configuration**: Networking and security settings are applied at the file share level, giving you precise control of access boundaries and isolation. This makes it easier to enforce security policies for specific apps, teams, or environments.
 
-- Dedicated performance per share: Each share gets its own IOPS, throughput, and capacity, so you don't have to worry about resource contention. Customers managing hundreds of file shares for CI/CD pipelines or workload separation will appreciate this.
+- **Predictable, flexible billing**: File shares use the provisioned v2 billing model, which enables you to independently provsiion storage, IOPS, and throughput per share. Because billing in Azure is done per top-level Azure resource, using file shares enables you to easily track the costs of each individual share for cost attribution back to the project, team, or customer that is using the file share.
 
-- Predictable, flexible costs: Creating file shares with Microsoft.FileShares automatically uses the provisioned v2 billing model, allowing you independently set storage, IOPS, and throughput for each share. You can adjust them as your needs change. This brings clear, predictable pricing while retaining the agility to scale up or down.
+- **Improved scale and performance**: File shares support higher limits and lower deployment times than classic file shares. For more information, see [Azure Files scalability and performance targets](./storage-files-scale-targets.md).
 
-- Granular control at the share level: Apply networking (service or private endpoints), security, and billing per file share. This gives you precise blast-radius control and cleaner cost attribution to teams, apps, or customers.
-
-- Faster deployment time: Provisioning is dramatically quicker than the classic file share, measured around 3.4× faster for single file share creation.
-
-- Higher scale limits: Enjoy increased resource and request quotas with the Microsoft.FileShares resource provider, which is ideal for large environments managing lots of file shares. For current file share limits, see [Azure Files scalability and performance targets](./storage-files-scale-targets.md).
-
-On the Azure portal, classic file share will remain using the blue icon, while file share (Microsoft.FileShares) will use the purple icon.
-If you require all the feature that Azure File currently offer, we recommend you use classic file share instead.
-To learn more, see [How to create file share using Microsoft.FileShares](./create-file-share.md).
-
-### Region availability
+#### Regional availability
 Currently, creating a file share with Microsoft.FileShares (preview) is available in the following regions:
 
 - Australia East
@@ -79,9 +71,9 @@ Currently, creating a file share with Microsoft.FileShares (preview) is availabl
 - Korea South
 - Australia Central
 
-### Comparing resource providers: Microsoft.Storage versus Microsoft.FileShares
+#### Comparing resource providers: Microsoft.Storage versus Microsoft.FileShares
 
-| Feature | classic file share ![fileshareclassicicon1](./media/storage-files-planning/icon-service-Azure-Fileshares.svg) | file share(Microsoft.FileShares) ![mfsicon](./media/storage-files-planning/icon-service-Managed-File-Shares.svg) |
+| Feature | Classic file shares ![fileshareclassicicon1](./media/storage-files-planning/icon-service-Azure-Fileshares.svg) | File shares (Microsoft.FileShares) ![mfsicon](./media/storage-files-planning/icon-service-Managed-File-Shares.svg) |
 |-|-|-|
 | Support guarantee | General available | Public preview |
 | Top level resource for the service | Storage account ![fileshareclassicicon2](./media/storage-files-planning/icon-service-Storage-Accounts.svg) | File Shares ![mfsicon](./media/storage-files-planning/icon-service-Managed-File-Shares.svg) |
