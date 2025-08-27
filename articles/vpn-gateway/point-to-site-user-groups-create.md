@@ -1,15 +1,15 @@
 ---
-title: 'Configure User Groups and IP Address Pools for Point-to-Site User VPNs: PowerShell'
+title: 'Configure User Groups and IP Address Pools for Point-to-Site User VPNs - PowerShell'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure user groups and assign IP addresses from specific address pools based on identity or authentication credentials for VPN Gateway point-to-site connections.
 author: cherylmc
+ms.author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 04/24/2025
-ms.author: cherylmc
-
+ms.date: 08/27/2025
 ---
-# Configure user groups and IP address pools for P2S connections using PowerShell - Public Preview
+
+# Configure user groups and IP address pools for P2S connections using PowerShell (Preview)
 
 Point-to-site (P2S) configurations provide the capability to assign users IP addresses from specific address pools based on their identity or authentication credentials by creating User Groups. This article helps you configure user groups, group members, and prioritize groups. For more information about working with user groups, see [About user groups](point-to-site-user-groups-about.md).
 
@@ -60,6 +60,8 @@ To create and manage Active Directory groups, see [Manage Microsoft Entra groups
 
     * Engineering group as **{ObjectId1}**
     * Finance group as **{ObjectId2}**
+
+:::image type="content" source="./media/point-to-site-user-groups-create/groups.png" alt-text="Diagram of Microsoft Entra ID groups and Object IDs" lightbox="./media/point-to-site-user-groups-create/groups.png":::
 
 * Microsoft Entra users can be assigned to be part of multiple Active Directory groups, and VPN Gateway considers users to be part of the VPN user/policy. If a user belongs to multiple groups, the group that has the lowest numerical priority is selected in the point-to-site connection.
 
@@ -306,6 +308,7 @@ At the end of the multiple address pool setting, the configuration can be repres
 1. **All users getting assigned to Default group?** If you're using Microsoft Entra ID authentication, make sure the tenant URL input in the server configuration `(https://login.microsoftonline.com/<tenant ID>)` doesn't end in a `\`. If the URL is input to end with `\`, the gateway won't be able to properly process Microsoft Entra user groups, and all users are assigned to the default group. To remediate, modify the server configuration to remove the trailing `\` and modify the address pools configured on the gateway to apply the changes to the gateway. This is a known issue.
 1. **Trying to invite external users to use Multipool feature?** If you're using Microsoft Entra ID authentication and you plan to invite users who are external (users who aren't part of the Microsoft Entra domain configured on the VPN gateway) to connect to the VPN gateway, make sure that the user type of the external user is "Member" and not "Guest". Also, make sure that the "Name" of the user is set to the user's email address. If the user type and name of the connecting user isn't set correctly, or you can't set an external member to be a "Member" of your Microsoft Entra domain, the connecting user is assigned to the default group and assigned an IP from the default IP address pool.
 
-## Next steps
+## Next step
 
-For more information about user groups, see [About user groups and IP address pools for point-to-site](point-to-site-user-groups-about.md).
+> [!div class="nextstepaction"]
+> [About user groups and IP address pools for point-to-site](point-to-site-user-groups-about.md)

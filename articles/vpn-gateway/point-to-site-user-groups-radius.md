@@ -3,12 +3,12 @@ title: 'Configure Vender-specific Attributes for Point-to-Site - RADIUS'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure RADIUS/NPS for P2S user groups to assign IP addresses from specific address pools based on identity or authentication credentials.
 author: cherylmc
+ms.author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 04/24/2025
-ms.author: cherylmc
-
+ms.date: 08/27/2025
 ---
+
 # RADIUS - Configure NPS for vendor-specific attributes for point-to-site
 
 This article helps you configure Windows Server Network Policy Server (NPS) to authenticate users to respond to Access-Request messages with the Vendor Specific Attribute (VSA) that is used for user group support in VPN Gateway point-to-site. For more information RADIUS and user groups for point-to-site, see [About user groups and IP address pools for point-to-site](point-to-site-user-groups-about.md#radius-server-openvpn-and-ikev2).
@@ -27,7 +27,7 @@ Use the following steps to help you configure a network policy on your NPS serve
 
 [!INCLUDE [NPS steps](../../includes/vpn-gateway-vwan-user-groups-radius.md)]
 
-## Next steps
+## Related content
 
-* For more information about user groups, see [About user groups and IP address pools for point-to-site](point-to-site-user-groups-about.md).
-* To configure user groups, see [Configure user groups and IP address pools for point-to-site](point-to-site-user-groups-create.md).
+- [About user groups and IP address pools for point-to-site](point-to-site-user-groups-about.md)
+- [Configure user groups and IP address pools for point-to-site](point-to-site-user-groups-create.md)

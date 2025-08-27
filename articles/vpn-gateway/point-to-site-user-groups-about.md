@@ -3,14 +3,13 @@ title: 'About User Groups and IP Address Pools for Point-to-Site Connections'
 titleSuffix: Azure VPN Gateway
 description: Learn about using user groups to assign IP addresses from specific address pools based on identity or authentication credentials for VPN Gateway point-to-site connections.
 author: cherylmc
+ms.author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 04/24/2025
-ms.author: cherylmc
-
+ms.date: 08/27/2025
 ---
 
-# About user groups and IP address pools for P2S connections -  Public Preview
+# About user groups and IP address pools for P2S connections (Preview)
 
 You can configure P2S User VPNs to assign users IP addresses from specific address pools based on their identity or authentication credentials by creating User Groups. This article describes the different configurations and parameters the VPN gateway uses to determine user groups and assign IP addresses. For configuration steps, see [Configure user groups and IP address pools for P2S connection in Azure VPN Gateway](point-to-site-user-groups-create.md).
 
@@ -97,6 +96,7 @@ However, Contoso has internal security policies where users from the Finance dep
 
 * Contoso's network administrator can then configure Firewall rules, network security groups (NSG), or access control lists (ACLs) to allow or deny certain users access to resources based on their IP addresses.
 
-## Next steps
+## Next step
 
-To create User Groups, see [Create user groups for point-to-site connections](point-to-site-user-groups-create.md).
+> [!div class="nextstepaction"]
+> [Create user groups for point-to-site connections](point-to-site-user-groups-create.md)
