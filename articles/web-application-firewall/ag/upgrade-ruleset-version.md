@@ -20,14 +20,6 @@ This article provides PowerShell examples for upgrading your Azure WAF policy to
 > [!NOTE]
 > PowerShell snippets are examples only. Replace all placeholders with values from your environment.
 
-## Key considerations when upgrading
-
-When upgrading your Azure WAF ruleset version, make sure to:
-
-- **Preserve existing customizations**: carry over your rule action overrides, rule status (enabled/disabled) overrides, and exclusions.
-
-- **Validate new rules safely**: ensure newly added rules are initially set to **log mode**, so you can monitor their impact and fine-tune them before enabling blocking.
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -35,6 +27,14 @@ When upgrading your Azure WAF ruleset version, make sure to:
 - An existing Azure WAF policy with a Core Rule Set (CRS) or Default Rule Set (DRS) applied. If you don't have a WAF policy yet, see [Create Web Application Firewall policies for Application Gateway](create-waf-policy-ag.md).
 
 - Latest version of [Azure PowerShell installed locally](/powershell/azure/install-azure-powershell). This article requires the [Az.Network Module](/powershell/module/az.network).
+
+## Key considerations when upgrading
+
+When upgrading your Azure WAF ruleset version, make sure to:
+
+- **Preserve existing customizations**: carry over your rule action overrides, rule status (enabled/disabled) overrides, and exclusions.
+
+- **Validate new rules safely**: ensure newly added rules are initially set to **log mode**, so you can monitor their impact and fine-tune them before enabling blocking.
 
 ## Prepare your environment and variables
 
