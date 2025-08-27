@@ -125,7 +125,7 @@ Open a new bash terminal and do the following steps:
     
     | Parameter | Value |
     | --------- | ----- |
-    | LOCATION | An Azure region close to you. For the list of currently supported regions, see [Supported regions](../overview-iot-operations.md#supported-regions). |
+    | LOCATION | An Azure region close to you. For the list of currently supported regions, see [Supported regions](../overview-support.md#supported-regions). |
     | RESOURCE_GROUP | A name for a new Azure resource group where your cluster will be created. |
     | CLUSTER_NAME | A name for your Kubernetes cluster. |
     | STORAGE_ACCOUNT_NAME | A name for your storage account. Storage account names must be between 3 and 24 characters in length and only contain numbers and lowercase letters. |

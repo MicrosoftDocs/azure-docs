@@ -16,6 +16,9 @@
     href: microsoft-sentinel-defender-portal.md
 - name: Data lake exploration
   items:  
+  - name: Compare KQL jobs, summary rules, and search jobs
+    href: datalake/kql-jobs-summary-rules-search-jobs.md
+    displayName: data lake
   - name: KQL for data lake exploration
     items:
     - name: Overview 
@@ -24,8 +27,11 @@
     - name: Run KQL queries
       href: datalake/kql-queries.md
       displayName: data lake
+    - name: Sample KQL queries
+      href: datalake/kql-sample-queries.md
+      displayName: data lake KQL 
     - name: Create KQL jobs
-      href: datalake/kql-jobs.md 
+      href: datalake/kql-jobs.md
       displayName: data lake 
     - name: Manage KQL jobs
       href: datalake/kql-manage-jobs.md

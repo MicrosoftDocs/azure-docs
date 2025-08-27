@@ -92,7 +92,7 @@ Refer to [Azure Confidential VMs attestation guidance & FAQ](https://github.com/
 | Name | Offset (bytes) | Size (bytes) | Description |
 | :--- | :--- | :--- | :--- |
 | Header         | 0    | 32 | The report header (not endorsed by the hardware report). |
-| Report Payload | 32   | 1184 | The hardware report. |
+| Report Payload | 32   | 1184 | The hardware report. The payload size is 1184 (AMD SEV-SNP) or 1024 (Intel TDX). |
 | Runtime Data   | 1216 | variable length | The runtime data includes claims endorsed by the hardware report. |
 
 #### Header
@@ -101,7 +101,7 @@ Refer to [Azure Confidential VMs attestation guidance & FAQ](https://github.com/
 | :--- | :--- | :--- | :--- |
 | Signature    | 0 | 4   | Embedded signature. Expected: 0x414c4348 (`HCLA`). |
 | Version      | 4 | 4   | Format version. Expected: 2.
-| Report Size  | 8 | 4   | Size of the Report Payload. Expected: 1184 (AMD SEV-SNP), 1024 (Intel TDX). |
+| Report Size  | 8 | 4   | Size of the Azure-defined attestation report. |
 | Request Type | 12 | 4  | Azure-specific usage of the attestation report. Expected: 2. |
 | Status       | 16 | 4  | Reserved. |
 | Reserved     | 20 | 12 | Reserved. |

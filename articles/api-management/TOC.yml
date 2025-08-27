@@ -236,7 +236,7 @@
   items:
   - name: AI gateway capabilities in API Management
     href: genai-gateway-capabilities.md
-  - name: Import LLM APIs
+  - name: Manage LLM APIs
     items:
     - name: Import Azure AI Foundry API
       href: azure-ai-foundry-api.md
@@ -248,12 +248,20 @@
       href: openai-compatible-google-gemini-api.md
     - name: Import Amazon Bedrock API
       href: amazon-bedrock-passthrough-llm-api.md
-  - name: Expose REST API as MCP server
-    href: export-rest-mcp-server.md
-  - name: Semantic caching for Azure OpenAI API requests
-    href: azure-openai-enable-semantic-caching.md
-  - name: Authenticate and authorize to Azure OpenAI
-    href: api-management-authenticate-authorize-azure-openai.md
+    - name: Semantic caching for LLM API requests
+      href: azure-openai-enable-semantic-caching.md
+    - name: Authenticate and authorize to Azure OpenAI
+      href: api-management-authenticate-authorize-azure-openai.md
+  - name: Manage MCP servers
+    items:
+    - name: MCP server capabilities
+      href: mcp-server-overview.md
+    - name: Expose REST API as MCP server
+      href: export-rest-mcp-server.md
+    - name: Expose existing MCP server
+      href: expose-existing-mcp-server.md
+    - name: Secure access to MCP servers
+      href: secure-mcp-servers.md
 - name: Manage APIs with policies
   items:
   - name: API Management policies overview

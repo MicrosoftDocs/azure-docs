@@ -31,7 +31,7 @@ Azure Event Grid offers several advantages over traditional webhook-based Micros
 - **Reliability**: Built-in retry logic and dead letter queues ensure reliable event delivery.
 
 ## Supported event sources
-The following table lists the event sources for which events are available through Graph API. For most resources, events announcing their creation, update, and deletion are supported. For detailed information about the resources for which events are raised for event sources, see [supported resources by Microsoft Graph API change notifications](/graph/webhooks#supported-resources).
+The following table lists the event sources for which events are available through Graph API. For most resources, events announcing their creation, update, and deletion are supported. For detailed information about the resources for which events are raised for event sources, see [supported resources by Microsoft Graph API change notifications](/graph/api/resources/change-notifications-api-overview).
 
 |Microsoft event source |Resources | Available event types | 
 |:--- | :--- | :----|
@@ -53,7 +53,7 @@ Create a Microsoft Graph API subscription to enable Graph API events to flow int
 
 ## Why should I subscribe to events from Microsoft Graph API sources via Event Grid?
 
-Besides subscribing to Microsoft Graph API events via Event Grid, you have [other options](/graph/webhooks#receiving-change-notifications) to receive similar notifications (not events). Use Microsoft Graph API to deliver events to Event Grid if you meet at least one of these requirements:
+Besides subscribing to Microsoft Graph API events via Event Grid, you have [other options](/graph/change-notifications-overview) to receive similar notifications (not events). Use Microsoft Graph API to deliver events to Event Grid if you meet at least one of these requirements:
 
 - You're developing an event-driven solution that uses events from Microsoft Entra ID, Outlook, or Teams to react to resource changes. You need the robust event-driven model and publish-subscribe capabilities that Event Grid provides. For an overview of Event Grid, see [Event Grid concepts](concepts.md).
 - You want to use Event Grid to route events to multiple destinations using a single Graph API subscription and you want to avoid managing multiple Graph API subscriptions.
@@ -76,9 +76,9 @@ Meet these general prerequisites before implementing your application to create 
 
   - [Authorize Microsoft Graph API (partner)](subscribe-to-partner-events.md#authorize-partner-to-create-a-partner-topic) to create a partner topic in your resource group.
 
-- Have a working knowledge of [Microsoft Graph API notifications](/graph/api/resources/webhooks). As part of your learning, you could use the [Graph API Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) to create Graph API subscriptions.
+- Have a working knowledge of [Microsoft Graph API notifications](/graph/api/resources/change-notifications-api-overview). As part of your learning, you could use the [Graph API Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) to create Graph API subscriptions.
 - Understand [Partner Events concepts](partner-events-overview.md).
-- Identify the Microsoft Graph API resource from which you want to receive system state change events. For more information, see [Microsoft Graph API change notifications](/graph/webhooks#supported-resources). For example, for tracking changes to users in Microsoft Entra ID you should use the [user](/graph/api/resources/user) resource. Use [group](/graph/api/resources/group) for tracking changes to user groups.
+- Identify the Microsoft Graph API resource from which you want to receive system state change events. For more information, see [Microsoft Graph API change notifications](/graph/api/resources/change-notifications-api-overview). For example, for tracking changes to users in Microsoft Entra ID you should use the [user](/graph/api/resources/user) resource. Use [group](/graph/api/resources/group) for tracking changes to user groups.
 - Have a tenant administrator account on a Microsoft 365 tenant. Get a development tenant for free by joining the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program).
 
 You find other prerequisites specific to the programming language of choice and the development environment you use in the Microsoft Graph API samples links found in a coming section.
@@ -157,7 +157,7 @@ Content-type: application/json
 >
 > - The partner topic name must be unique within the same Azure region. Each tenant-application ID combination can  create up to 10 unique partner topics.
 >
-> - Be mindful of certain [Graph API resources' service limits](/graph/webhooks#azure-ad-resource-limitations) when developing your solution.
+> - Be mindful of certain [Graph API resources' service limits](/graph/api/resources/change-notifications-api-overview) when developing your solution.
 >
 > - Existing Graph API subscriptions without a `lifecycleNotificationUrl` property don't receive lifecycle events. To add the lifecycleNotificationUrl property, you should delete the existing subscription and create a new subscription specifying the property during subscription creation.
 

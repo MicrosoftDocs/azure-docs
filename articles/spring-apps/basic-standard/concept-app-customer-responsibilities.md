@@ -8,7 +8,8 @@ ms.reviewer: zhiyongli
 ms.service: azure-spring-apps
 ms.custom: devx-track-java
 ms.topic: conceptual
-ms.date: 08/28/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ---
 
 # Version support for Java, Spring Boot, and more

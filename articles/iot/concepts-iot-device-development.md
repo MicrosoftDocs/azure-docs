@@ -6,6 +6,7 @@ ms.author: dobett
 ms.service: azure-iot
 ms.topic: concept-article
 ms.date: 1/10/2025
+ms.update-cycle: 1095-days
 
 #Customer intent: As a device builder, I want to understand the options for device development using Azure IoT. 
 ---

@@ -7,6 +7,7 @@ ms.reviewer: byvinyal
 ms.topic: how-to
 ms.date: 07/01/2025
 
+ms.service: azure-app-service
 ---
 
 # Manage deployment credentials for Azure App Service

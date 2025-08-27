@@ -84,7 +84,7 @@ The following steps show you how to create and display the Map control in a web 
    * The `onload` event in the body of the page calls the `GetMap` function when the body of the page finishes loading.
    * The `GetMap` function contains the inline JavaScript code used to access the Azure Maps APIs. This function is added in the next step.
 
-3. Next, add the following JavaScript code to the `GetMap` function, just beneath the code added in the last step. This code creates a map control and initializes it using your Azure Maps subscription keys that you provide. Make sure and replace the string `<Your Azure Maps Key>` with the Azure Maps primary key that you copied from your Maps account.
+3. Next, add the following JavaScript code to the `GetMap` function, just beneath the code added in the last step. This code creates a map control and initializes it using your Azure Maps subscription keys that you provide. Make sure to replace the string `<Your Azure Maps Key>` with the Azure Maps primary key that you copied from your Maps account.
 
     ```javascript
     //Instantiate a map object
@@ -152,7 +152,7 @@ In this tutorial, the route is rendered using a line layer. The start and end po
 
     Next, a symbol layer is created and attached to the data source. This layer specifies how the start and end points are rendered. Expressions were added to retrieve the icon image and text label information from properties on each point object. To learn more about expressions, see [Data-driven style expressions].
 
-2. Next, set the start point at Microsoft, and the end point at a gas station in Seattle. Start and points are created by appending the following code in the Map control's `ready` event handler:
+2. Next, set the start point at Microsoft, and the end point at a gas station in Seattle. Start and end points are created by appending the following code in the Map control's `ready` event handler:
 
     ```JavaScript
     //Create the GeoJSON objects which represent the start and end points of the route.

@@ -38,7 +38,7 @@ This section describes the procedures to set up a function.
 
 ### Azure Functions setup
 
-Let's first set up the basic structure for the function. For step-by-step instructions for setup, see [Quickstart: Create a C# function in Azure by using Visual Studio Code](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript).
+Let's first set up the basic structure for the function. For step-by-step instructions for setup, see [Quickstart: Create a C# function in Azure by using Visual Studio Code](../../../azure-functions/how-to-create-function-vs-code.md?pivot=programming-language-csharp?pivots=programming-language-javascript).
 
 The function requires the following configuration:
 
@@ -47,7 +47,7 @@ The function requires the following configuration:
 - **Authorization Level**: Anonymous (if you prefer a different authorization model, you can switch it later)
 - **Function Name**: User defined
 
-After you follow the instructions in [Quickstart: Create a C# function in Azure by using Visual Studio Code](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript) with the preceding configuration, you should have a project in Visual Studio Code for the function with an `index.js` file that contains the function itself. The following code inside of the file should be:
+After you follow the instructions in [Quickstart: Create a C# function in Azure by using Visual Studio Code](../../../azure-functions/how-to-create-function-vs-code.md?pivot=programming-language-csharp?pivots=programming-language-javascript) with the preceding configuration, you should have a project in Visual Studio Code for the function with an `index.js` file that contains the function itself. The following code inside of the file should be:
 
 ```javascript
 
@@ -123,7 +123,7 @@ For the existing Communication Services `CommunicationUser` parameter, you can s
 
 ## Test the function
 
-Run the function locally by using `F5`. This action initializes the function locally and makes it accessible through `http://localhost:7071/api/FUNCTION_NAME`. For more information on running locally, see [Quickstart: Create a C# function in Azure by using Visual Studio Code](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript#run-the-function-locally).
+Run the function locally by using `F5`. This action initializes the function locally and makes it accessible through `http://localhost:7071/api/FUNCTION_NAME`. For more information on running locally, see [Quickstart: Create a C# function in Azure by using Visual Studio Code](../../../azure-functions/how-to-create-function-vs-code.md?pivot=programming-language-csharp?pivots=programming-language-javascript#run-the-function-locally).
 
 Open the URL on your browser and you see a response body with the Communication User ID, the token, and the expiration for the token.
 
@@ -131,7 +131,7 @@ Open the URL on your browser and you see a response body with the Communication 
 
 ## Deploy the function to Azure
 
-To deploy your function, follow the step-by-step instructions in [Quickstart: Create a C# function in Azure by using Visual Studio Code](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript#sign-in-to-azure).
+To deploy your function, follow the step-by-step instructions in [Quickstart: Create a C# function in Azure by using Visual Studio Code](../../../azure-functions/how-to-create-function-vs-code.md?pivot=programming-language-csharp?pivots=programming-language-javascript#sign-in-to-azure).
 
 In summary, you need to:
 
@@ -147,4 +147,4 @@ Run the function by using the URL `http://<function-appn-ame>.azurewebsites.net/
 
 To find the URL, right-click the function in Visual Studio Code and copy the function URL.
 
-For more information on how to run your function, see [Quickstart: Create a C# function in Azure by using Visual Studio Code](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript#run-the-function-in-azure).
+For more information on how to run your function, see [Quickstart: Create a C# function in Azure by using Visual Studio Code](../../../azure-functions/how-to-create-function-vs-code.md?pivot=programming-language-csharp?pivots=programming-language-javascript#run-the-function-in-azure).

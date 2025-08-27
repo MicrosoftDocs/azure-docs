@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.custom: devx-track-azurepowershell, linux-related-content
-ms.date: 07/31/2025
+ms.date: 08/01/2025
 ms.author: radeltch
 # Customer intent: "As a system administrator, I want to set up Pacemaker with fencing on SUSE Linux Enterprise Server in Azure, so that I can ensure high availability and reliability for my applications running in the cloud."
 ---
@@ -962,7 +962,8 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 > [!TIP]
 >
 > - To avoid fence races within a two-node pacemaker cluster, you can configure additional "priority-fencing-delay" cluster property. This property introduces additional delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For more information, see [SUSE Linux Enterprise Server high availability extension administration guide](https://documentation.suse.com/sle-ha/15-SP3/single-html/SLE-HA-administration/#pro-ha-storage-protect-fencing).
-> - The instruction on setting "priority-fencing-delay" cluster property can be found in respective SAP ASCS/ERS (applicable only on ENSA2) and SAP HANA scale-up high availability document.
+> - The property `priority-fencing-delay` is only applicable for two-node cluster. The instruction on setting "priority-fencing-delay" cluster property can be found in respective SAP ASCS/ERS (applicable only on ENSA2) and SAP HANA scale-up high availability document.
+> - When configuring a cluster for HANA scale-out, do not set the `pcmk_delay_max` property in the SBD Stonith resource.
 
 1. **[1]** If you're using an SBD device (iSCSI target server or Azure shared disk) as a fencing device, run the following commands. Enable the use of a fencing device, and set the fence delay.
 

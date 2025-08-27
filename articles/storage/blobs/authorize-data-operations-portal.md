@@ -2,8 +2,8 @@
 title: Authorize access to blob data in the Azure portal
 titleSuffix: Azure Storage
 description: When you access blob data using the Azure portal, the portal makes requests to Azure Storage under the covers. These requests to Azure Storage can be authenticated and authorized using either your Microsoft Entra account or the storage account access key.
-author: pauljewellmsft
-ms.author: pauljewell
+author: normesta
+ms.author: normesta
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 02/06/2025
