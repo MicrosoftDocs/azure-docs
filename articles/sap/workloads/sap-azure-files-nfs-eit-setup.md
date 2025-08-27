@@ -47,8 +47,8 @@ Steps for setting up Azure Files NFS EiT for these two scenarios are described i
 
     [Create an NFS Azure file share](../../storage/files/storage-files-quick-create-use-linux.md)
 
-[!NOTE]
-To enforce Encryption in Transit for all the file shares in the Azure Storage account, enable [secure transfer required](../../storage/files/encryption-in-transit-for-nfs-shares.md#enforce-encryption-in-transit) option in the configuration tab of the storage account.
+> [!NOTE]
+> To enforce Encryption in Transit for all the file shares in the Azure Storage account, enable [secure transfer required](../../storage/files/encryption-in-transit-for-nfs-shares.md#enforce-encryption-in-transit) option in the configuration tab of the storage account.
 
 - Deploy the mount helper (AZNFS) package on the Linux VM.
 
@@ -72,7 +72,7 @@ sudo yum update
 sudo yum install aznfs
 ```
 
-Choose ***No*** to autoupdate the package during installation. You can also turn off/on autoupdate at any time by changing the value of ***AUTO_UPDATE_AZNFS*** to false/true respectively in the file ***/opt/microsoft/aznfs/data/config***.
+Choose `No` to autoupdate the package during installation. You can also turn off/on autoupdate at any time by changing the value of `AUTO_UPDATE_AZNFS` to false/true respectively in the file `/opt/microsoft/aznfs/data/config`.
 
 For more information, see the [package installation section](../../storage/files/encryption-in-transit-for-nfs-shares.md#step-1-check-aznfs-mount-helper-package-installation).
 
