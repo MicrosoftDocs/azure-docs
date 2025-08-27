@@ -94,7 +94,7 @@ Understanding the limits and quotas for Container Apps environments helps you pl
 
 | Resource | Limit | Notes |
 |----------|-------|-------|
-| Container apps per environment | 200 | Recomended number of container apps in a single environment |
+| Container apps per environment | 200 | Recommended number of container apps in a single environment |
 | Container app revisions per environment | 1000 | Total revisions across all apps in an environment |
 | Environments per region per subscription | 20 | Can be increased via quota request |
 | Maximum CPU per container | 4 vCPU (Consumption), Varies by workload profile | Depends on the environment type and selected workload profile |
