@@ -14,15 +14,15 @@ ms.custom: devx-track-arm-template
 #CustomerIntent: As a storage admin, I want to understand the GPv1 retirement so that I can prepare for a smooth migration to GPv2.
 ---
 
-# General-purpose v1 (GPv1) storage account retirement overview
-Azure Storage is retiring the General-purpose v1 (GPv1) storage account type. This article explains why the change is occurring, what it means for your workloads, and how to prepare for the transition to General-purpose v2 (GPv2) accounts.
+# About the retirement of general-purpose v1 (GPv1) storage accounts
+Azure Storage is retiring the general-purpose v1 (GPv1) storage account type. This article explains why the change is occurring, what it means for your workloads, and how to prepare for the transition to general-purpose v2 (GPv2) accounts.
 
-## Why is GPv1 being retired?
+## Reasons for retiring GPv1
 GPv1 was introduced to support early Azure storage scenarios across blobs, tables, queues, and files. However, GPv2 has since become the default standard for storage accounts, offering broader feature support, improved consistency, and better performance.
 
 By retiring GPv1, Azure can simplify the platform, eliminate legacy metering inconsistencies, and ensure all customers benefit from modern capabilities and pricing models.
 
-## Key differences between GPv1 and GPv2
+## Differences between GPv1 and GPv2
 | Feature | GPv1 | GPv2 |
 |--------|------|------|
 | Blob tiering (Hot/Cool/Archive) | ❌ | ✅ |
@@ -34,9 +34,9 @@ By retiring GPv1, Azure can simplify the platform, eliminate legacy metering inc
 
 GPv2 supports all capabilities of GPv1 and adds several enhancements, including cost optimization and richer management tools.
 
-## Timeline and milestones
+## Retirement timeline and key milestones
 >[!Warning]
->If you do not migrate your General Purpose v1 storage account to GPv2 by August 31, 2026, all existing General Purpose v1 accounts will be auto migrated over to a GPv2 account, which may result in higher billing costs. Your decision not to migrate an existing General Purpose v1 account will be construed as consent for Microsoft to migrate the account on your behalf.
+>If you do not migrate your general-purpose v1 storage account to GPv2 by August 31, 2026, all existing general-purpose v1 accounts will be auto migrated over to a GPv2 account, which may result in higher billing costs. Your decision not to migrate an existing general-purpose v1 account will be construed as consent for Microsoft to migrate the account on your behalf.
 
 | Date           | Milestone                                                   |
 |----------------|-------------------------------------------------------------|
@@ -46,16 +46,16 @@ GPv2 supports all capabilities of GPv1 and adds several enhancements, including 
 
 The retirement takes effect globally across all Azure regions.
 
-## Plan for pricing changes when upgrading GPv1 → GPv2
+## Pricing considerations when upgrading to GPv2
 > [!WARNING]
-> Upgrading from General-purpose v1 (GPv1) to General-purpose v2 (GPv2) introduces a new pricing model that may increase costs for certain workloads especially those with high read, write, or list operations.
+> Upgrading from general-purpose v1 (GPv1) to general-purpose v2 (GPv2) introduces a new pricing model that may increase costs for certain workloads especially those with high read, write, or list operations.
 >
 > However, GPv2 also unlocks modern features such as [access tiers](../blobs/access-tiers-overview.md) and expanded redundancy options, which can reduce **per-GB storage costs** and improve **performance, scalability, and manageability**.
 >
 > Be aware that **transaction pricing differs** in GPv2. Workloads with frequent operations may incur **higher charges** unless cost-optimization strategies are applied.
 
 
-### Model your costs before upgrading
+### Estimate costs before upgrading
 >[!TIP]
 >If your workload is **read, write or list heavy**, reduce transaction counts by batching operations, writing larger blocks, and scoping list operations. GPv2 also provides better tools for optimizing costs, but allowing the tiering of data. Ensure cold data isn't left in the hot tier.
 
@@ -65,15 +65,13 @@ The retirement takes effect globally across all Azure regions.
 1. Plan [lifecycle policies](../blobs/lifecycle-management-overview.md) (for example, move from hot → cool after 30 days of no access, then archive later) and factor in their transaction effects.
 1. Compare your current GPv1 bill to the modeled GPv2 bill (with tiers and lifecycle rules).
 
-
-
-### Upgrade facts
+### Important facts about the upgrade process
 - The upgrade is **in-place** and requires **no downtime**; it changes the account kind in Azure Resource Manager.
 - Upgrading to GPv2 is **permanent**.
 - Set your **default access tier** (hot or cool) during the upgrade to avoid unintended charges. For details, see [Upgrade to General Purpose v2 (GPv2)](storage-account-upgrade.md).
 - The upgrade is **non-disruptive**; your data and endpoints remain the same.
 
-## How should I prepare?
+## Preparing for the migration
 >[!TIP]
 >Most workloads can migrate from GPv1 to GPv2 without code changes.
 
@@ -102,11 +100,11 @@ Resources
 
 ```
 
-## What happens if I don't migrate my accounts?
+## What happens if you don’t migrate by the deadline
 >[!Warning]
 >If you do not migrate your GPv1 storage account to GPv2 by August 31, 2025, all existing GPv1 accounts will be auto migrated over to a GPv2 account, which may result in higher billing costs. Your decision not to migrate an existing GPv1 account will be construed as consent for Microsoft to migrate the account on your behalf.
 
-## How to get help
+## Where to get help and support
 If you have questions, get answers from community experts in Microsoft Q&A.
 
 If your organization or company has partnered with Microsoft or works with Microsoft representatives, such as cloud solution architects (CSAs) or customer success account managers (CSAMs), contact them for additional resources for migration.
