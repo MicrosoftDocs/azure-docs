@@ -10,7 +10,7 @@ ms.custom:
 appliesto:
   - ✅ Azure Cache for Redis
   - ✅ Azure Managed Redis
-ms.devlang: javascript
+ms.devlang: typescript
 ai-usage: ai-assisted
 ---
 
@@ -48,7 +48,7 @@ When you create the cache, Microsoft Entra ID authentication is enabled by defau
 
     Optionally, you can create a cache by using Azure CLI, PowerShell, or whichever tool you prefer.
 
-2. Add yourself as a [Redis user to the resource](entra-for-authentication.md#add-users-or-system-principal-to-your-cache). You should also [add users or a System principal to your cache](entra-for-authentication.md#add-users-or-system-principal-to-your-cache). Add anyone who might run the program as a user on the Redis cache.
+2. Add yourself as a [Redis user to the resource](entra-for-authentication.md#add-users-or-system-principal-to-your-cache). 
 
 ## Code to connect to a Redis cache
 
