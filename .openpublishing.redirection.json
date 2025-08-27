@@ -6455,6 +6455,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/service-connector/tutorial-python-aks-openai-connection-string.md",
+      "redirect_url": "/azure/service-connector/tutorial-python-aks-openai-workload-identity",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/load-balancer/move-across-regions-external-load-balancer-portal.md",
       "redirect_url": "/azure/load-balancer/move-across-regions-azure-load-balancer",
       "redirect_document_id": false
