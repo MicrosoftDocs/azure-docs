@@ -48,7 +48,7 @@ For a built-in connector to work, your backend service has to allow traffic from
 
 Built-in connectors run in the same cluster as the Azure Logic Apps runtime and can use virtual network (VNet) integration capabilities to access resources over a private network. However, shared managed connectors run in the shared connector clusters environment and can't benefit from these VNet integration capabilities.
 
-Instead, for shared managed connectors to work when VNet integration is enabled on a Standard logic app, you must allow traffic through the [outbound IP addresses for managed connectors](/connectors/common/outbound-ip-addresses) in the region where you created your logic app. For example, if the subnet that's used in the VNet integration has a network security group (NSG) policy or firewall, that subnet has to allow outbound traffic to the outbound IP addresses for Azure-hosted connectors.
+Instead, for shared managed connectors to work when VNet integration is enabled on a Standard logic app, you must allow traffic through the [outbound IP addresses for managed connectors](/connectors/common/outbound-ip-addresses) in the region where you created your logic app. For example, if the subnet that's used in the VNet integration has a network security group (NSG) policy or firewall, that subnet has to allow outbound traffic to the outbound IP addresses for shared managed connectors.
 
 ## Related content
 
