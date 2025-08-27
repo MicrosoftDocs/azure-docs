@@ -300,8 +300,8 @@ At the end of the multiple address pool setting, the configuration can be repres
 
 ## Troubleshooting
 
-1. **Verify packets have the right attributes?**: Wireshark or another packet capture can be run in NPS mode and decrypt packets using shared key. You can validate packets are being sent from your RADIUS server to the point-to-site VPN gateway with the right RADIUS VSA configured.
-1. **Are users getting wrong IP assigned?**: Set up and check NPS Event logging for authentication whether or not users are matching policies.
+1. **Verify packets have the right attributes?** Wireshark or another packet capture can be run in NPS mode and decrypt packets using shared key. You can validate packets are being sent from your RADIUS server to the point-to-site VPN gateway with the right RADIUS VSA configured.
+1. **Are users getting wrong IP assigned?** Set up and check NPS Event logging for authentication whether or not users are matching policies.
 1. **Having issues with address pools?** Every address pool is specified on the gateway. Address pools are split into two address pools and assigned to each active-active instance in a point-to-site VPN gateway pair. These split addresses should show up in the effective route table. For example, if you specify **10.0.0.0/24**, you should see two "/25" routes in the effective route table. If this isn't the case, try changing the address pools defined on the gateway.
 1. **P2S client not able to receive routes?** Make sure all point-to-site VPN connection configurations are associated to the defaultRouteTable and propagate to the same set of route tables. This should be configured automatically if you're using portal, but if you're using REST, PowerShell or CLI, make sure all propagations and associations are set appropriately.
 1. **Not able to enable Multipool using Azure VPN client?** If you're using the Azure VPN client, make sure the Azure VPN client installed on user devices is the latest version. You need to download the client again to enable this feature.

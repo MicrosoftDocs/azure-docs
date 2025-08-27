@@ -29,5 +29,5 @@ Use the following steps to help you configure a network policy on your NPS serve
 
 ## Related content
 
-- [About user groups and IP address pools for point-to-site](point-to-site-user-groups-about.md)
+- [User groups and IP address pools for point-to-site](point-to-site-user-groups-about.md)
 - [Configure user groups and IP address pools for point-to-site](point-to-site-user-groups-create.md)

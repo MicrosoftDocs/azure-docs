@@ -288,7 +288,7 @@
       items:
         - name: About user groups and client address pools
           href: point-to-site-user-groups-about.md
-        - name: Configure user groups for address pools - PowerShell
+        - name: Configure user groups for address pools
           href: point-to-site-user-groups-create.md
         - name: RADIUS - Configure NPS and user groups
           href: point-to-site-user-groups-radius.md
