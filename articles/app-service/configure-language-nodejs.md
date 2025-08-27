@@ -95,13 +95,13 @@ Your Node.js app needs to listen to the right port to receive incoming requests.
 
 ::: zone pivot="platform-windows"  
 
-In App Service on Windows, Node.js apps are hosted with [IISNode](https://github.com/Azure/iisnode), and your Node.js app should listen to the port specified in the `process.env.PORT` variable. The following example shows how to do that in a simple Express app:
+In App Service on Windows, Node.js apps are hosted with [IISNode](https://github.com/Azure/iisnode), and your Node.js app should listen to the port specified in the `process.env.PORT` variable. The following example shows how set the port in a simple Express app:
 
 ::: zone-end
 
 ::: zone pivot="platform-linux"  
 
-App Service sets the environment variable `PORT` in the Node.js container, and forwards the incoming requests to your container at that port number. To receive the requests, your app should listen to that port by using `process.env.PORT`. The following example shows how to set the port in a simple Express app:
+App Service sets the environment variable `PORT` in the Node.js container and forwards the incoming requests to your container at that port number. To receive the requests, your app should listen to the port specified in the `process.env.PORT` variable. The following example shows how to set the port in a simple Express app:
 
 ::: zone-end
 
