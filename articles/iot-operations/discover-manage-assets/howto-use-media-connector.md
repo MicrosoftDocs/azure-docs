@@ -183,6 +183,6 @@ The following steps assume that you configured a persistent volume claim (PVC) t
 | Connector template mount path | `/data` |
 | Stream path in operations experience | `/data/exampleSubDir/clips` |
 
-After the connector captures the clips, it uploads them the the `/pvc/clips` folder in your container:
+After the connector captures the clips, it uploads them to the `/pvc/clips` folder in your container:
 
 :::image type="content" source="media/howto-use-media-connector/captured-streams.png" alt-text="Screenshot that shows the captured streams in Blob storage.":::
