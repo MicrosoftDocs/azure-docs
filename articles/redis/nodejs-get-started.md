@@ -62,7 +62,6 @@ client = createRedisClient();
 await client.connect();
 ```
 
-
 ## Code to test a connection
 
 In the next section, test the connection by using the Redis command `ping`. This command returns the `pong` string.
