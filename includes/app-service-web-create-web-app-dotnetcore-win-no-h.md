@@ -1,5 +1,5 @@
 ---
-title: "include file"
+title: "Include file"
 description: "include file"
 services: app-service
 author: cephalin
@@ -18,7 +18,7 @@ In the Cloud Shell, you can use the [`az webapp create`](/cli/azure/webapp#az-we
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --deployment-local-git
 ```
 
-When the web app has been created, the Azure CLI shows output similar to the following example:
+When the web app creation completes, the Azure CLI shows output similar to the following example:
 
 <pre>
 Local git is configured with url of 'https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git'
