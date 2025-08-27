@@ -107,13 +107,13 @@ In the following example, sending a request to a URL other than the defined back
 
 ### Switch backend when error received
 
-In the following example, the request is retried up to one time. The initial request is dispatched to the primary backend. If a `429 Too Many Requests` response status code is returned, the request is retried immediately and forwarded to the secondary backend. 
+In the following example, the initial request is dispatched to the primary backend. If a `429 Too Many Requests` response status code is returned, the request is retried immediately and forwarded to the secondary backend. 
 
 ```xml
 <retry 
-   condition="@(context.Response != null && context.Response.StatusCode == 429)" count="1" 
+   condition="@(context.Response != null && context.Response.StatusCode == 429)" interval="1" count="1" 
    first-fast-retry=true>
-       <set-variable name="retry-attempt" value="@(context.Variables.GetValueOrDefault<int>("retry-attempt", 0) + 1 )" />
+       <set-variable name="retry-attempt" value="@(context.Variables.GetValueOrDefault<int>("retry-attempt", 0))" />
        <set-backend-service backend-id="@(context.Variables.GetValueOrDefault<int>("retry-attempt", 0) % 2 == 0 ? "primary-backend" : "secondary-backend" )" />
        <forward-request />
 </retry>
