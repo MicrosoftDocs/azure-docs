@@ -89,7 +89,7 @@ To reconfigure an Azure Firewall with a public IP address, follow these steps:
 
     Set-AzFirewall -AzureFirewall $AzFw
     ```
-```
+
 
 ## Next steps
 
