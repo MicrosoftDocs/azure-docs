@@ -44,7 +44,6 @@ When you create the cache, Microsoft Entra ID authentication is enabled by defau
 1. To create a cache with the portal, follow one of these procedures:
 
 - [Azure Managed Redis](quickstart-create-managed-redis.md)
-- [Azure Cache for Redis](/azure/azure-cache-for-redis/quickstart-create-redis)
 
     Optionally, you can create a cache by using Azure CLI, PowerShell, or whichever tool you prefer.
 
