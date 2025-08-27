@@ -50,7 +50,7 @@ You can associate a preexisting public IP address with a secured hub firewall. Y
 > [!Note]
 > For existing secured virtual WAN hubs, you have to remove all the public IPs assigned to the Hub, stop/deallocate the hub firewall. and allocate the Firewall with your public IP during scheduled maintenance hours.
 
-### Reconfigure an exisiting Secure Hub Azure Firewall with customer tenant public IP 
+### Reconfigure an existing Secure Hub Azure Firewall with customer tenant public IP 
 
 To reconfigure an Azure Firewall with a public IP address, follow these steps:
 
