@@ -75,12 +75,12 @@ To configure billing and enable asset data ingestion into the data lake, the fol
 > [!NOTE]
 > During public preview, your primary and other workspaces must be in the same region as your tenant’s home region. Only workspaces in the same region as your tenant home region can be attached to the data lake.
 
-### Policy Exemption for Microsoft Sentinel Data Lake Onboarding
+### Policy exemption for Microsoft Sentinel data Lake onboarding
 
-During onboarding of Microsoft Sentinel's data lake, existing Azure Policy definitions might block deployment of required resources. To ensure successful onboarding without compromising broader policy enforcement, configure a policy exemption scoped to the resource group being onboarded.
+During onboarding of Microsoft Sentinels data lake, existing Azure Policy definitions might block deployment of required resources. To ensure successful onboarding without compromising broader policy enforcement, configure a policy exemption scoped to the resource group being onboarded.
 Specifically, exempt the resource type: `Microsoft.SentinelPlatformServices/sentinelplatformservices`.
 
-This targeted exemption allows Sentinel's data lake components to deploy correctly, while maintaining compliance with overarching Azure governance policies you may have already applied.
+This targeted exemption allows Sentinels data lake's components to deploy correctly, while maintaining compliance with overarching Azure governance policies you may have already applied.
 
 ## Existing Microsoft Sentinel workspaces
 
