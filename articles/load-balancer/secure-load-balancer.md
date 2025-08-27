@@ -39,7 +39,6 @@ Access control for Azure Load Balancer focuses on managing who can configure and
 
 - **Use least privilege access**: Grant users the minimum permissions necessary to perform their tasks, avoiding broad administrative roles when specific load balancer operations are sufficient. See [What is Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview).
 
-- **Secure backend resource access**: Configure appropriate authentication and authorization for backend pool resources including virtual machines and application services that receive load-balanced traffic. See [Architecture best practices for Azure Load Balancer](/azure/well-architected/service-guides/azure-load-balancer#security).
 
 - **Enable managed identity for backend services**: Use Azure managed identities for backend services to eliminate the need for storing credentials in code or configuration files. See [What is Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview).
 
