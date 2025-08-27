@@ -157,7 +157,7 @@ This table summarizes the availability zone support for many Azure services and 
 | [Azure HDInsight](reliability-hdinsight.md#availability-zone-migration) | | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | Redeployment |
 | [Azure IoT Hub](./reliability-iot-hub.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Always zone-resilient |
 | [Azure Key Vault](./reliability-key-vault.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Always zone-resilient |
-| [Azure Kubernetes Service (AKS](./reliability-aks.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Redeployment |
+| [Azure Kubernetes Service (AKS)](./reliability-aks.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Redeployment |
 | [Azure Load Balancer](migrate-load-balancer.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Modification |
 | [Azure Logic Apps - Consumption tier](./reliability-logic-apps.md?pivots=standard-workflow-service-plan#configure-availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Always zone-resilient |
 | [Azure Logic Apps - Standard tier](./reliability-logic-apps.md?pivots=consumption#configure-availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | | Redeployment |
