@@ -4,7 +4,7 @@ titleSuffix: Microsoft Sentinel
 description: This article provides examples of how to incorporate STIX objects into queries to enhance threat hunting.
 author: guywi-ms
 ms.topic: how-to
-ms.date: 03/31/2025
+ms.date: 08/07/2025
 ms.author: guywild
 ms.reviewer: alsheheb
 appliesto:
@@ -106,9 +106,9 @@ SourceRelationships
 | project ActorName, PlusStixTypes, ObservableValue, importantfield, Tags, feedSource
  ```
 
-## Migrate existing queries to the new ThreatIntelObjects schema
+## Migrate existing queries to the new ThreatIntelIndicators schema
 
-This example shows how to migrate existing queries from the legacy `ThreatIntelligenceIndicator` table to the new `ThreatIntelObjects` schema. The query uses the `extend` operator to recreate legacy columns based on the `ObservableKey` and `ObservableValue` columns in the new table. 
+This example shows how to migrate existing queries from the legacy `ThreatIntelligenceIndicator` table to the new `ThreatIntelIndicators` schema. The query uses the `extend` operator to recreate legacy columns based on the `ObservableKey` and `ObservableValue` columns in the new table. 
 
 ```Kusto
 ThreatIntelIndicators

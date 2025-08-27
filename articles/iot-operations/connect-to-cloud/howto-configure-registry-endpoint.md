@@ -1,12 +1,12 @@
 ---
 title: Configure Registry Endpoints in Azure IoT Operations (Preview)
 description: Learn how to configure registry endpoints for container registries in Azure IoT Operations data flow graphs.
-author: PatAltimore
-ms.author: patricka
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 07/22/2025
+ms.date: 08/14/2025
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure registry endpoints in Azure IoT Operations so that I can pull WASM modules and graph definitions from container registries.
@@ -334,6 +334,9 @@ authentication:
 #### Anonymous authentication
 
 Anonymous authentication is used for public registries that don't require authentication.
+
+> [!IMPORTANT]
+> Anonymous authentication has a known issue when pulling data flow graph definitions (YAML files). The upload must use the specific media type `application/vnd.wasm.config.v1+json`. For more information, see [Known issues](../troubleshoot/known-issues.md#anonymous-authentication-fails-to-pull-data-flow-graph-definitions-with-incorrect-media-type).
 
 <!-- 
 # [Operations experience](#tab/portal)

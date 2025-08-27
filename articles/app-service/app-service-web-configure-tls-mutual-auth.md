@@ -11,6 +11,7 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python
  
 #customer intent: As a developer, I want to set up mutual authentication so that I can restrict access to an App Service app. 
+ms.service: azure-app-service
 ---
 
 # Configure TLS mutual authentication in Azure App Service

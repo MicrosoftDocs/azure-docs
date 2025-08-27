@@ -25,7 +25,7 @@ ms.custom: Include file
 | Maximum requests per minute (data plane) | 3,000 | 6,000  |
 | Maximum number of API definitions [analyzed](../enable-managed-api-analysis-linting.md) | 10 | 2,000<sup>4</sup>  |
 | Maximum number of analysis profiles | 1 | 3 |
-| Maximum number of linked API sources<sup>5</sup> | 1  |  3 |
+| Maximum number of linked API sources<sup>5</sup> | 1  |  5 |
 | Maximum number of APIs synchronized from a linked API source | 200 | 2,000<sup>4</sup>  |
 | Semantic search in API Center portal | No | Yes |
 

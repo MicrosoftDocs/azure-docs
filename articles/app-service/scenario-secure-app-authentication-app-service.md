@@ -11,7 +11,6 @@ ms.date: 05/16/2024
 ms.author: ryanwi
 ms.reviewer: mahender
 ms.custom: azureday1, AppServiceIdentity
-ms.subservice: web-apps
 #Customer intent: As an application developer, enable authentication and authorization for a web app running on Azure App Service.
 ---
 

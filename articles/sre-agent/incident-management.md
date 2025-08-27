@@ -1,38 +1,51 @@
 ---
-title: Incident management in Azure SRE Agent (preview)
-description: Learn how the Azure SRE Agent incident management capabilities help reduce manual intervention and accelerate resolution times for your Azure resources.
+title: Incident Management in Azure SRE Agent Preview
+description: Learn how the incident management capabilities in Azure SRE Agent help reduce manual intervention and accelerate resolution times for your Azure resources.
 author: craigshoemaker
 ms.topic: conceptual
 ms.date: 08/05/2025
 ms.author: cshoe
-ms.service: azure
+ms.service: azure-sre-agent
 ---
 
-# Incident management in Azure SRE Agent (preview)
+# Incident management in Azure SRE Agent Preview
 
-Azure SRE Agent streamlines incident management by automatically collecting, analyzing, and responding to alerts from various management platforms. This article explains how the agent processes incidents, evaluates their severity, and takes appropriate actions based on your configuration.
+Azure SRE Agent Preview streamlines incident management by automatically collecting, analyzing, and responding to alerts from various management platforms. This article explains how the agent processes incidents, evaluates their severity, and takes appropriate actions based on your configuration.
 
-Azure SRE Agent receives alerts from incident management platforms such as:
+SRE Agent receives alerts from incident management platforms such as:
 
 * [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview)
 * [PagerDuty](https://www.pagerduty.com/)
 
+<<<<<<< HEAD
 When SRE Agent receives an alert from the management platform, the agent brings the incident into its context, analyzes the incident, and determines the next steps. This process mimics how a human SRE would acknowledge and investigate an incident.
 
 After being notified of an issue, SRE Agent reviews logs, health probes, and other telemetry to assess the incident. During the assessment step, the agent summarizes findings, determines if the alert is a false positive, and decides whether action is needed.
+=======
+Predefined conditions that you configure in these platforms trigger the alerts.
 
-## How agents respond
+When SRE Agent receives an alert from the management platform, the agent brings the incident into its context, analyzes the situation, and determines the next steps. This process mimics how a human site-reliability engineer would acknowledge and investigate an incident.
 
-SRE Agent responds to incidents based on its configuration and operational mode.
+The agent reviews logs, health probes, and other data to assess the incident. During the assessment step, the agent summarizes findings, determines if the alert is a false positive, and decides whether action is needed.
+>>>>>>> e84b9b0bc57d5a3f502b2287ebb38a77157f81c6
 
+## Agent responses
+
+SRE Agent responds to incidents based on its configuration and operational mode:
+
+<<<<<<< HEAD
 When an incident is detected, a new thread appears in the chat history that includes the initial analysis done by the agent.
 
 Depending on the incident [handler settings](incident-handler.md), the agent can respond in a semi-autonomous, or fully autonomous manner.
 
 * **Reader**: In reader mode, the agent provides recommendations and prompts a human for permission to remediate problems on behalf of the logged in user.
+=======
+* **Reader mode**: The agent provides recommendations and requires human intervention for resolution.
+>>>>>>> e84b9b0bc57d5a3f502b2287ebb38a77157f81c6
 
-* **Autonomous**: In autonomous mode, the agent could automatically close incidents or take corrective actions, depending on your configuration settings. The agent can also update or close incidents in management platforms to maintain synchronization across platforms.
+* **Autonomous mode**: The agent can automatically close incidents or take corrective actions, depending on your configuration settings. The agent can also update or close incidents in management platforms to maintain synchronization across platforms.
 
+<<<<<<< HEAD
 You can control what type of incidents SRE Agent handles by controlling the configuration settings of the management platform. For instance, you might decide that all P5 incidents are sent to the SRE Agent, while P1 incidents require complete human attention.
 
 Once an incident is sent to the SRE Agent, you then can control how the agent responds by customizing incident handlers. Within an incident handler, you have control over:
@@ -42,37 +55,38 @@ Once an incident is sent to the SRE Agent, you then can control how the agent re
 * Custom instructions further guiding the agent how to deal with incidents
 
 For more information, see [Incident handlers](incident-handler.md).
+=======
+You define the rules for how the agent handles incidents of various priorities. By customizing the rules in the management platforms, you decide which incidents the agent should acknowledge, resolve, or escalate. You can set these rules via prompts or configuration options.
+>>>>>>> e84b9b0bc57d5a3f502b2287ebb38a77157f81c6
 
 ## Platform integration
 
-Minimal setup is required for Azure Monitor (default integration), while non-Microsoft systems like PagerDuty require extra setup for incident handling preferences.
+Minimal setup is required for Azure Monitor (default integration). Non-Microsoft systems like PagerDuty require extra setup for incident handling preferences.
 
-To access the incident management settings, open your agent in the Azure portal. Select **Settings** and select **Incident platform**.
+To access the incident management settings, open your agent in the Azure portal. Then select **Settings** > **Incident platform**.
 
 ### Azure Monitor
 
-By default, Azure Monitor is configured as the agent's incident management platform. As the agent encounters incidents any instances of Azure Monitor in any resource groups managed by SRE Agent process incident data.
+By default, Azure Monitor is configured as the agent's incident management platform. As the agent encounters incidents, any instances of Azure Monitor in any resource groups managed by SRE Agent process incident data.
 
-To use a different management platform, first disconnect Azure Monitor as the incident management platform for the SRE Agent.
+To use a different management platform, first disconnect Azure Monitor as the agent's incident management platform.
 
 ### PagerDuty
 
-To set up PagerDuty, open the agent in the Azure portal, select **Settings** then select **Incident platform**, and enter the following settings:
+To set up PagerDuty:
 
-| Setting | Value |
-|---|---|
-| Incident platform | Select **PagerDuty**. |
-| REST API access key | Enter your PagerDuty REST API access key. |
-| Quickstart handler | Keep the checkbox for the quickstart handler checked. |
+1. After you select **Settings** > **Incident platform** in the Azure portal, enter the following settings:
 
-Select **Save** to save your changes.
+   | Setting | Value |
+   |---|---|
+   | **Incident platform** | Select **PagerDuty**. |
+   | **REST API access key** | Enter your PagerDuty REST API access key. |
+   | **Quickstart handler** | Keep the checkbox selected. |
 
-Once the changes are saved, PagerDuty is now responsible to manage incidents for the agent.
+1. Select **Save**. PagerDuty is now responsible for managing incidents for the agent.
 
-#### Tools
-
-You can choose to enable a series of tools that provide granular control over how PagerDuty manages incidents. To further refine the incident management process, you can also add free-form text instructions (in the form of an LLM prompt) to customize how PagerDuty responds to incidents.
+You can choose to enable a series of tools that provide granular control over how PagerDuty manages incidents. To further refine the incident management process, you can also add free-form text instructions in the form of a large language model (LLM) prompt to customize how PagerDuty responds to incidents.
 
 ## Related content
 
-* [Security contexts](./security-context.md)
+* [Security contexts in Azure SRE Agent](./access-management.md)
