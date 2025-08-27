@@ -4,7 +4,7 @@ description: Learn how Azure App Service helps you host your RESTful APIs with C
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/05/2024
+ms.date: 08/29/2025
 ms.update-cycle: 1095-days
 ms.custom: "UpdateFrequency3, devx-track-csharp, mvc, devcenter, devx-track-azurecli"
 ms.author: msangapu
@@ -14,13 +14,13 @@ ms.service: azure-app-service
 
 # Tutorial: Host a RESTful API with CORS in Azure App Service
 
-[Azure App Service](overview.md) provides a highly scalable self-patching web hosting service. In addition, App Service has built-in support for [cross-origin resource sharing (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) for RESTful APIs. This tutorial shows how to deploy an ASP.NET Core API app to App Service with CORS support. You configure the app using command-line tools and deploy the app using Git. 
+[Azure App Service](overview.md) provides a highly scalable self-patching web hosting service. In addition, App Service has built-in support for [cross-origin resource sharing (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) for RESTful APIs. This tutorial shows how to deploy an ASP.NET Core API app to App Service with CORS support. You configure the app by using command-line tools and deploy the app by using Git. 
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create App Service resources using Azure CLI.
-> * Deploy a RESTful API to Azure using Git.
+> * Create App Service resources by the using Azure CLI.
+> * Deploy a RESTful API to Azure by using Git.
 > * Enable App Service CORS support.
 
 You can complete this tutorial on macOS, Linux, or Windows.
