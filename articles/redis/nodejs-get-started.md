@@ -1,22 +1,20 @@
 ---
-title: "Quickstart: Use Azure Cache for Redis with TypeScript in a Node.js app"
+title: "Quickstart: Use Azure Managed Redis with TypeScript in a Node.js app"
 description: In this quickstart, you learn how to create a Node.js app that uses Azure Managed Redis.
-ms.date: 08/22/2025
+ms.date: 08/27/2025
 ms.topic: quickstart
 ms.custom:
   - mode-api
-  - devx-track-js
   - devx-track-ts
 appliesto:
-  - ✅ Azure Cache for Redis
   - ✅ Azure Managed Redis
 ms.devlang: typescript
 ai-usage: ai-assisted
 ---
 
-# Quickstart: Use Azure Redis with JavaScript
+# Quickstart: Use Azure Managed Redis with JavaScript
 
-In this quickstart, you learn how to use an Azure Redis cache from a client application written in the TypeScript language and authenticate the Redis connection using Microsoft Entra ID.
+In this quickstart, you learn how to use an Azure Managed Redis cache from a Node.js application written in the TypeScript language and authenticate the Redis connection using Microsoft Entra ID.
 
 ## Prerequisites
 
@@ -26,7 +24,7 @@ In this quickstart, you learn how to use an Azure Redis cache from a client appl
 - Add the packages used in this quickstart to your project:
 
   ```bash
-  npm install @azure/identity @azure/identity-broker redis @redis/entraid @redis/client
+  npm install redis @redis/entraid @redis/client
   ```
 
 - Authenticate to Azure for your development environment with [Azure CLI](/cli/azure):
@@ -35,9 +33,11 @@ In this quickstart, you learn how to use an Azure Redis cache from a client appl
   az login
   ```
 
+The sample code in this article is available at <https://github.com/azure-samples/azure-cache-redis-samples>.
+
 ## Create an Azure Managed Redis instance
 
-First, create a cache. You can create a cache by using Azure Managed Redis or Azure Cache for Redis with the Azure portal. In this quickstart, we use Azure Managed Redis.
+First, create an Azure Managed Redis cache in the Azure portal.
 
 When you create the cache, Microsoft Entra ID authentication is enabled by default, which makes it secure from the start. For this quickstart, the cache uses a public endpoint. In production, consider using private endpoints and other network controls.
 
@@ -51,58 +51,24 @@ When you create the cache, Microsoft Entra ID authentication is enabled by defau
 
 ## Code to connect to a Redis cache
 
-In the first part of the TypeScript code sample, configure your connection to the cache:
+In the first part of the TypeScript code sample file, `index.ts`, configure your connection to the cache:
+
+:::code language="typescript" source="~/quickstart-templates/quickstarts/nodejs/src/index.ts" range="1-66":::
+
+Use the `createRedisClient()` function to connect to the Redis cache.
 
 ```typescript
-import { DefaultAzureCredential } from '@azure/identity';
-import { EntraIdCredentialsProviderFactory, REDIS_SCOPE_DEFAULT } from '@redis/entraid';
-import { createClient } from '@redis/client';
-
-const resourceEndpoint = process.env.AZURE_MANAGED_REDIS_HOST_NAME!;
-if (!resourceEndpoint) {
-    console.error('AZURE_MANAGED_REDIS_HOST_NAME is not set. It should look like: rediss://YOUR-RESOURCE_NAME.redis.cache.windows.net:<YOUR-RESOURCE-PORT>. Find the endpoint in the Azure portal.');
-}
-
-function getClient() {
-
-    if (!resourceEndpoint) throw new Error('AZURE_MANAGED_REDIS_HOST_NAME must be set');
-
-    const credential = new DefaultAzureCredential();
-
-    const provider = EntraIdCredentialsProviderFactory.createForDefaultAzureCredential({
-        credential,
-        scopes: REDIS_SCOPE_DEFAULT,
-        options: {},
-        tokenManagerConfig: {
-            expirationRefreshRatio: 0.8
-        }
-    });
-
-    const client = createClient({
-        url: resourceEndpoint,
-        credentialsProvider: provider,
-        socket: {
-            reconnectStrategy: (retries) => Math.min(100 + retries * 50, 2000)
-        }
-
-    });
-
-    client.on('error', (err) => console.error('Redis client error:', err));
-
-    return client;
-}
-
-const client = getClient();
+client = createRedisClient();
 await client.connect();
 ```
+
 
 ## Code to test a connection
 
 In the next section, test the connection by using the Redis command `ping`. This command returns the `pong` string.
 
 ```typescript
-const pingResult = await client.ping();
-console.log('Ping result:', pingResult);
+:::code language="typescript" source="~/quickstart-templates/quickstarts/nodejs/src/index.ts" range="74-75":::
 ```
 
 ## Code set a key, get a key
@@ -110,17 +76,17 @@ console.log('Ping result:', pingResult);
 In this section, use a basic `set` and `get` sequence to start using the Redis cache in the simplest way.
 
 ```typescript
-const setResult = await client.set("Message", "Hello! The cache is working from Node.js!");
-console.log('Set result:', setResult);
-
-
-const getResult = await client.get("Message");
-console.log('Get result:', getResult);
+:::code language="typescript" source="~/quickstart-templates/quickstarts/nodejs/src/index.ts" range="77-81":::
 ```
 
 ## Run the code
 
-Build (`tsc`) and run this code (`node index.js`).
+Build and run the Node.js application.
+
+```console
+tsc
+node index.js
+```
 
 The result looks like this:
 
@@ -133,65 +99,7 @@ Get result: Hello! The cache is working from Node.js!
 Here, you can see this code sample in its entirety.
 
 ```typescript
-import { DefaultAzureCredential } from '@azure/identity';
-import { EntraIdCredentialsProviderFactory, REDIS_SCOPE_DEFAULT } from '@redis/entraid';
-import { createClient } from '@redis/client';
-
-const resourceEndpoint = process.env.AZURE_MANAGED_REDIS_HOST_NAME!;
-if (!resourceEndpoint) {
-    console.error('AZURE_MANAGED_REDIS_HOST_NAME is not set. It should look like: rediss://YOUR-RESOURCE_NAME.redis.cache.windows.net:<YOUR-RESOURCE-PORT>. Find the endpoint in the Azure portal.');
-}
-
-function getClient() {
-
-    if (!resourceEndpoint) throw new Error('AZURE_MANAGED_REDIS_HOST_NAME must be set');
-
-    const credential = new DefaultAzureCredential();
-
-    const provider = EntraIdCredentialsProviderFactory.createForDefaultAzureCredential({
-        credential,
-        scopes: REDIS_SCOPE_DEFAULT,
-        options: {},
-        tokenManagerConfig: {
-            expirationRefreshRatio: 0.8
-        }
-    });
-
-    const client = createClient({
-        url: resourceEndpoint,
-        credentialsProvider: provider,
-        socket: {
-            reconnectStrategy: (retries) => Math.min(100 + retries * 50, 2000)
-        }
-
-    });
-
-    client.on('error', (err) => console.error('Redis client error:', err));
-
-
-    return client;
-}
-
-const client = getClient();
-
-try {
-
-    await client.connect();
-
-    const pingResult = await client.ping();
-    console.log('Ping result:', pingResult);
-
-    const setResult = await client.set("Message", "Hello! The cache is working from Node.js!");
-    console.log('Set result:', setResult);
-
-    const getResult = await client.get("Message");
-    console.log('Get result:', getResult);
-
-} catch (err) {
-    console.error('Error closing Redis client:', err);
-} finally {
-    await client.quit();
-}
+:::code language="typescript" source="~/quickstart-templates/quickstarts/nodejs/src/index.ts" range="77-81":::
 ```
 
 <!-- Clean up resources include -->
