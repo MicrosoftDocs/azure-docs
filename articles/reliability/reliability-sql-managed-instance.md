@@ -6,7 +6,7 @@ ms.author: mathoma
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-sql-managed-instance
-ms.date: 08/19/2025
+ms.date: 08/28/2025
 zone_pivot_groups: sql-managed-instance-tiers
 ---
 
@@ -174,17 +174,11 @@ The following section describes what to expect when your SQL managed instance is
 
 ::: zone-end
 
+- **Expected downtime:** There might be a small amount of downtime during an availability zone failover. The downtime is typically less than 30 seconds, which your application should tolerate if it's following the [transient fault handling guidance](#transient-faults).
+
 ::: zone pivot="general-purpose"
 
-- **Expected downtime:** There might be a small amount of downtime during an availability zone failover. The downtime is typically less than 2 minutes.
-
   A heavy workload might experience some performance degradation during the transition from one compute node to the other since the new database engine process starts with a cold cache.
-
-::: zone-end
-
-::: zone pivot="business-critical"
-
-- **Expected downtime:** There might be a small amount of downtime during an availability zone failover. The downtime is typically less than 20 seconds, which your application should tolerate if it's following the [transient fault handling guidance](#transient-faults).
 
 ::: zone-end
 
