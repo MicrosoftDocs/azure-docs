@@ -1,5 +1,5 @@
 ---
-title: Access management in Azure SRE Agent Preview
+title: Ask Azure SRE Agent Preview for help
 description: Learn how use Azure SRE Agent to teach you how to learn the agent.
 author: craigshoemaker
 ms.author: cshoe
@@ -8,7 +8,7 @@ ms.date: 08/26/2025
 ms.service: azure-sre-agent
 ---
 
-# Learn to use Azure SRE Agent Preview through chat
+# Ask Azure SRE Agent Preview for help
 
 One of the easiest ways to learn how to use Azure SRE Agent is to ask the agent your questions. The agent has access to all the product documentation in addition to specialized knowledge of Azure. 
 
