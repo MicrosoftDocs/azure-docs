@@ -1,8 +1,8 @@
 ---
-title: Hotpatching (preview) on Azure Arc-enabled machines
+title: Hotpatching (preview) on Azure Arc-enabled Machines
 description: This article details how to manage hotpatching (preview) on Azure Arc-enabled machines.
 ms.service: azure-update-manager
-ms.date: 11/01/2024
+ms.date: 08/21/2025
 ms.topic: how-to
 author: habibaum
 ms.author: v-uhabiba

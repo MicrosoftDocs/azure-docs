@@ -169,6 +169,17 @@ After sending the metadata packet, Azure Communication Services (ACS) will begin
   }
 }
 ```
+#### DTMF example 
+When DTMF is enabled Azure Communication Servives sends a `DtmfData` type.
+
+``` json
+{
+  "kind": "DtmfData",
+  "dtmfData": {
+    "data": "3"
+  }
+}
+```
 
 ## Sending audio streaming data to Azure Communication Services
 If bidirectional streaming is enabled using the `EnableBidirectional` flag in the `MediaStreamingOptions`, you can stream audio data back to Azure Communication Services, which plays the audio into the call.

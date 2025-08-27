@@ -58,23 +58,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Dapr
 
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
 
-## Install bundle
-
-# [Bundle v4.x](#tab/bundle-v4x)
-
-You can add the extension by adding or replacing the following code in your `host.json` file:
-
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[4.*, 5.0.0)"
-  }
-}
-``` 
-
----
+[!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 
 ::: zone-end
 

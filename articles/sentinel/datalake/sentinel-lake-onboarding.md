@@ -1,4 +1,4 @@
----  
+---
 title: Onboarding to Microsoft Sentinel data lake (preview)
 titleSuffix: Microsoft Security  
 description: This article describes how to onboard to the Microsoft Sentinel data lake  
@@ -10,8 +10,8 @@ ms.service: microsoft-sentinel
 ms.subservice: sentinel-graph
   
 # Customer intent: As an administrator I want to onboard to the Microsoft Sentinel data lake so that I can benefit from the storage and analysis capabilities of the data lake.
----  
-
+---
+  
 # Onboarding to Microsoft Sentinel data lake (preview)
 
 
@@ -67,7 +67,7 @@ To onboard to the Microsoft Sentinel data lake Public Preview, you must be an ex
 
 [!INCLUDE [Customer-managed keys limitation](../includes/customer-managed-keys-limitation.md)]
 
-The following roles that are required to set up billing and authorize ingestion of asset data into the data lake:
+To configure billing and enable asset data ingestion into the data lake, the following roles must be assigned to the tenant [member](/entra/fundamentals/users-default-permissions) account:
 
 + Azure Subscription owner for billing setup.
 + Microsoft Entra Global Administrator, or Security Administrator for data ingestion authorization from Microsoft Entra, Microsoft 365, and Azure.
