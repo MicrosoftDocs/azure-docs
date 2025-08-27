@@ -19,7 +19,7 @@ ms.service: azure-app-service
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create App Service resources by the using Azure CLI.
+> * Create App Service resources by the using the Azure CLI.
 > * Deploy a RESTful API to Azure by using Git.
 > * Enable App Service CORS support.
 
@@ -227,11 +227,11 @@ This operation isn't allowed when allowed origins include the wildcard origin `'
 What you learned:
 
 > [!div class="checklist"]
-> * Create App Service resources by using Azure CLI.
+> * Create App Service resources by using the Azure CLI.
 > * Deploy a RESTful API to Azure by using Git.
 > * Enable App Service CORS support.
 
-Go to the next tutorial to learn how to authenticate and authorize users.
+Go to the following tutorial to learn how to authenticate and authorize users.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Authenticate and authorize users end-to-end](tutorial-auth-aad.md)
