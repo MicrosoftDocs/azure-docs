@@ -295,8 +295,9 @@ __Authentication Flow:__
 3. Use token in subsequent API requests with `ApiKeyName` header
 
 **Properties:**
-| Property                | Required | Type     | Description |
-|-------------------------------|-----------|----------|-------------|
+
+|Field |Required |Type |Description	|
+| ---- | ---- | ---- | ---- |
 | **type**                      | True      | String   | Must be "JwtToken" |
 | **userName**                  | True      | Object   | Key-value pair for username credential |
 | **password**                  | True      | Object   | Key-value pair for password credential |
