@@ -3,13 +3,14 @@ title: 'How to transition to OpenVPN or IKEv2 from SSTP'
 titleSuffix: Azure VPN Gateway
 description: Learn how to transition to OpenVPN protocol or IKEv2 from SSTP to overcome the 128 concurrent connection SSTP limit.
 author: cherylmc
+ms.author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 08/28/2025
-ms.author: cherylmc
+ms.date: 09/04/2025
 
 # Customer intent: As a network administrator, I want to transition from SSTP to IKEv2 or OpenVPN
 ---
+
 # Transition to OpenVPN protocol or IKEv2 from SSTP
 
 A point-to-site (P2S) VPN gateway connection lets you create a secure connection to your virtual network from an individual client computer. A P2S connection is established by starting it from the client computer. This article talks about SSTP retirement and ways to migrate off SSTP by transitioning to OpenVPN protocol or IKEv2.
@@ -20,21 +21,21 @@ Point-to-site VPN can use one of the following protocols:
 
 - **OpenVPN&reg; Protocol**, an SSL/TLS based VPN protocol. An SSL VPN solution can pass through firewalls, since most firewalls open TCP port 443 outbound, which SSL uses. OpenVPN can be used to connect from Android, iOS (versions 11.0 and above), Windows, Linux, and Mac devices (macOS versions 12.x and above).
 
-- **Secure Socket Tunneling Protocol (SSTP)**, a proprietary SSL-based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which SSL uses. SSTP is only supported on Windows devices. Azure supports all versions of Windows that have SSTP (Windows 7 and later). **SSTP supports up to 128 concurrent connections only regardless of the gateway SKU**.
+- **Secure Socket Tunneling Protocol (SSTP)**, a proprietary SSL-based VPN protocol. An SSL VPN solution can pass through firewalls, since most firewalls open TCP port 443 outbound, which SSL uses. SSTP is only supported on Windows devices. Azure supports all versions of Windows that have SSTP (Windows 7 and later). **SSTP supports up to 128 concurrent connections only regardless of the gateway SKU**.
 
-- **IKEv2 VPN**, a standards-based IPsec VPN solution. IKEv2 VPN can be used to connect from Mac devices (macOS versions 10.11 and above).
+- **IKEv2 VPN**, a standard-based IPsec VPN solution. IKEv2 VPN can be used to connect from Mac devices (macOS versions 10.11 and above).
 
 > [!NOTE]
-> Currently, Basic SKU supports SSTP protocol only and any new Basic SKU gateways are created with SSTP protocol. Effective November 2025, Basic SKU will also support IKEv2, and any new Basic SKU VPN gateway will be created with IKEv2 by default.
+> Currently, Basic SKU supports SSTP protocol only and all new Basic SKU gateways are created with SSTP protocol. Effective November 2025, Basic SKU will also support IKEv2, and all new Basic SKU VPN gateways will be created with IKEv2 by default.
 
-## <a name="migrate"></a>SSTP Retirement: Migrating from SSTP to IKEv2 or OpenVPN
+## <a name="migrate"></a>SSTP retirement: Migrating from SSTP to IKEv2 or OpenVPN
 
 Due to limited capability and suboptimal performance, we're retiring SSTP protocol:
 
-- **Effective March 31, 2026:** Enabling SSTP protocol on VPN gateway will no longer be supported.
+- **Effective March 31, 2026:** Enabling SSTP protocol on VPN gateways will no longer be supported.
 - **Effective March 31, 2027:** Existing SSTP-enabled gateways can no longer be used to establish SSTP connections.
 
-The following instructions list out the steps to migrate your SSTP connections to IKEv2 as per the VPN gateway SKU:
+The following instructions list out the steps to migrate your SSTP connections:
 
 ### Option 1 - Add IKEv2 in addition to SSTP on the gateway
 
@@ -50,9 +51,11 @@ Adding IKEv2 to an existing SSTP VPN gateway won't affect existing clients and y
 
 1. Under **Settings**, select **Point-to-site configuration**.
 
-1. On the Point-to-site configuration page, update the  **tunnel type** from **SSTP (SSL)** to **IKEv2 and SSTP (SSL)**. This option will be enabled for Basic SKU gateways starting November 2025.
+1. **Update Tunnel type:** On the Point-to-site configuration page, update the  **tunnel type** from **SSTP (SSL)** to **IKEv2 and SSTP (SSL)**. This option will be enabled for Basic SKU gateways starting November 2025.
 
     :::image type="content" source="./media/ikev2-openvpn-from-sstp/point-to-site-configuration.png" alt-text="Screenshot that shows the point-to-site configuration in the Azure portal." lightbox="./media/ikev2-openvpn-from-sstp/point-to-site-configuration.png":::
+
+1. Select **Save** to apply the changes.
 
 1. **Download updated configuration:** After updating the tunnel type, [download the updated VPN Client](point-to-site-certificate-gateway.md#profile-files) profile configuration package to get latest configuration package
 
@@ -62,7 +65,7 @@ Adding IKEv2 to an existing SSTP VPN gateway won't affect existing clients and y
 
 # [**PowerShell**](#tab/powershell)
 
-1. **Update Tunnel type:** Modify the tunnel type in your VPN gateway’s Point-to-site configuration. This option will be enabled for Basic SKU gateways starting November 2025.
+1. **Update Tunnel type:** Update the tunnel type in your VPN gateway’s Point-to-site configuration. This option will be enabled for Basic SKU gateways starting November 2025.
 
     ```powershell
     $PublicCertData = <PublicCertData>
@@ -84,7 +87,7 @@ Adding IKEv2 to an existing SSTP VPN gateway won't affect existing clients and y
 
 ### Option 2 - Remove SSTP and enable OpenVPN on the gateway
 
-Since SSTP and OpenVPN are both TLS-based protocol, they can't coexist on the same gateway. If you decide to move away from SSTP to OpenVPN, you'll have to disable SSTP and enable OpenVPN on the gateway. This operation causes the existing clients to lose connectivity to the VPN gateway until the new profile has been configured on the client.
+Since SSTP and OpenVPN are both TLS-based protocol, they can't coexist on the same gateway. If you decide to move away from SSTP to OpenVPN, you must disable SSTP and enable OpenVPN on the gateway. This operation causes the existing clients to lose connectivity to the VPN gateway until the new profile is configured on the client.
 
 You can enable OpenVPN along side with IKEv2 if you desire. OpenVPN is TLS-based and uses the standard TCP 443 port.
 
@@ -94,7 +97,7 @@ You can enable OpenVPN along side with IKEv2 if you desire. OpenVPN is TLS-based
 
 1. On the Point-to-site configuration page, for **tunnel type**, select **OpenVPN (SSL)** or **IKEv2 and OpenVPN (SSL)** from the drop-down box.
 
-1. Apply your changes.
+1. Select **Save** to apply the changes.
 
 Once the gateway has been configured, existing clients won't be able to connect until you [deploy and configure the OpenVPN clients](point-to-site-vpn-client-certificate-windows-openvpn-client.md). If you're using Windows 10 or later, you can also use the [Azure VPN Client](point-to-site-vpn-client-certificate-windows-azure-vpn-client.md).
 
