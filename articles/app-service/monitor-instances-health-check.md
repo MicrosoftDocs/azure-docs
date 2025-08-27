@@ -36,7 +36,7 @@ Note that _/api/health_ is just an example. There's no default Health check path
 :::image type="content" source="./media/app-service-monitor-instances-health-check/azure-portal-navigation-health-check.png" alt-text="Screenshot that shows how to enable Health check in the Azure portal." lightbox="./media/app-service-monitor-instances-health-check/azure-portal-navigation-health-check.png":::
 
 1. To enable Health check, go to the Azure portal and select your App Service app.
-1. Under **Monitoring**, select **Health check**.
+1. In the left pane, under **Monitoring**, select **Health check**.
 1. Select **Enable** and provide a valid URL path for your application, such as `/health` or `/api/health`.
 1. Select **Save**.
 
