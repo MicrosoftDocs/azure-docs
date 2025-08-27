@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Use Azure Cache for Redis with JavaScript"
-description: In this quickstart, you learn how to create a JavaScript app that uses Azure Cache for Redis.
+title: "Quickstart: Use Azure Cache for Redis with TypeScript in a Node.js app"
+description: In this quickstart, you learn how to create a Node.js app that uses Azure Managed Redis.
 ms.date: 08/22/2025
 ms.topic: quickstart
 ms.custom:
@@ -16,7 +16,7 @@ ai-usage: ai-assisted
 
 # Quickstart: Use Azure Redis with JavaScript
 
-In this quickstart, you learn how to use an Azure Redis cache for JavaScript with the TypeScript language and connect by using Microsoft Entra ID.
+In this quickstart, you learn how to use an Azure Redis cache from a client application written in the TypeScript language and authenticate the Redis connection using Microsoft Entra ID.
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ In this quickstart, you learn how to use an Azure Redis cache for JavaScript wit
 
 First, create a cache. You can create a cache by using Azure Managed Redis or Azure Cache for Redis with the Azure portal. In this quickstart, we use Azure Managed Redis.
 
-When you create the cache, Microsoft Entra ID is enabled by default, which makes it secure from the start. For this quickstart, the cache uses a public endpoint. In production, consider using private endpoints and other network controls.
+When you create the cache, Microsoft Entra ID authentication is enabled by default, which makes it secure from the start. For this quickstart, the cache uses a public endpoint. In production, consider using private endpoints and other network controls.
 
 1. To create a cache with the portal, follow one of these procedures:
 
@@ -52,7 +52,7 @@ When you create the cache, Microsoft Entra ID is enabled by default, which makes
 
 ## Code to connect to a Redis cache
 
-In the first part of the ECMAScript code sample, set your connection to the cache:
+In the first part of the TypeScript code sample, configure your connection to the cache:
 
 ```typescript
 import { DefaultAzureCredential } from '@azure/identity';
