@@ -943,7 +943,7 @@
         "articles/governance/*.md": "jasongroce",
         "articles/governance/blueprints/**/*.md": "jgao",
         "articles/governance/machine-configuration/**/*.md": "mlombardi",
-        "articles/governance/management-groups/**/*.md": "rithorn",
+        "articles/governance/management-groups/**/*.md": "kenieva",
         "articles/governance/policy/**/*.md": "jasongroce",
         "articles/governance/resource-graph/**/*.md": "daphnema",
         "articles/governance/service-groups/**/*.md": "kenieva",
