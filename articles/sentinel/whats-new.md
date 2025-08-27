@@ -22,7 +22,7 @@ The listed features were released in the last six months. For information about 
 
 - [New data sources and enhanced User and Entity Behavior Analytics (UEBA) (Preview)](#new-data-sources-and-enhanced-user-and-entity-behavior-analytics-ueba-preview)
 
-### New data sources and enhanced User and Entity Behavior Analytics (UEBA) (Preview)
+### New data sources for enhanced User and Entity Behavior Analytics (UEBA) (Preview)
 
 Microsoft Sentinel's UEBA empowers SOC teams with AI-powered anomaly detection based on behavioral signals in your tenant. It helps prioritize threats using dynamic baselines, peer comparisons, and enriched entity profiles.
 

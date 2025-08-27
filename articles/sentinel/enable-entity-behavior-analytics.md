@@ -73,14 +73,14 @@ To enable or disable this feature (these prerequisites are not required to use t
 
     :::image type="content" source="media/enable-entity-behavior-analytics/ueba-configuration.png" alt-text="Screenshot of UEBA configuration settings.":::
 
-1. Mark the check boxes next to the Active Directory source types from which you want to synchronize user entities with Microsoft Sentinel.
+1. Select the checkboxes next to the directory services from which you want to synchronize user entities with Microsoft Sentinel.
 
     - **Active Directory** on-premises (Preview)
     - **Microsoft Entra ID**
 
     To sync user entities from on-premises Active Directory, your Azure tenant must be onboarded to Microsoft Defender for Identity (either standalone or as part of Microsoft Defender XDR) and you must have the MDI sensor installed on your Active Directory domain controller. See [Microsoft Defender for Identity prerequisites](/defender-for-identity/prerequisites) for more information.
 
-1. Mark the check boxes next to the data sources on which you want to enable UEBA.
+1. Select the checkboxes next to the data sources on which you want to enable UEBA.
 
     > [!NOTE]
     >
