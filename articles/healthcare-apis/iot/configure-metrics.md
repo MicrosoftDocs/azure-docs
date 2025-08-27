@@ -12,8 +12,7 @@ ms.author: chrupa
 
 # Monitor performance metrics for the MedTech service
 
-> [!IMPORTANT]
-> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central. This deprecation process began in May 2025 and is ongoing.
+[!INCLUDE [IoT deprecation](../includes/iot-deprecation.md)]
 
 Gain insights into the health, availability, latency, traffic, and errors of your organization's MedTech services by monitoring MedTech service metrics in the Azure portal. To help you identify patterns or trends, pin tiles for the metrics to an Azure portal dashboard for easy access and visualization.
 
