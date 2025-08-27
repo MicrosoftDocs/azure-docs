@@ -25,7 +25,7 @@ This article introduces the core concepts and scenarios of data lake exploration
 
 ## KQL interactive queries
 
-Use Kusto Query Language (KQL) to run interactive queries directly on the data lake. 
+Use Kusto Query Language (KQL) to run interactive queries directly on the data lake over multiple workspaces. 
 
 Using KQL, analysts can:
 
@@ -37,15 +37,14 @@ Use **KQL queries** under  **Microsoft Sentinel** > **Data lake exploration** in
 
 ## KQL jobs 
 
-KQL jobs run queries against the data in the data lake tier and promote the results to the analytics tier. A job can be a one-time or a repeating scheduled task. 
-
-Analysts can use KQL jobs to:
+KQL jobs are one-time or scheduled asynchronous KQL queries on data in the Microsoft Sentinel data lake. Jobs are useful for investigative and analytical scenarios for example; 
++ Long-running one-time queries for incident investigations and incident response (IR)
++ Data aggregation tasks that support enrichment workflows using low-fidelity logs
++ Historical threat intelligence (TI) matching scans for retrospective analysis
++ Anomaly detection scans that identify unusual patterns across multiple tables
 + Promote data from the data lake to the analytics tier to enable incident investigation or log correlation.
-+ Schedule recurring jobs to enrich investigations using long-term, high-volume, low-fidelity logs or asset data stored only in the data lake.
-+ Automate insights from historical or noisy logs to support threat hunting, create baselines, or use for compliance requirements.
 
-Run one-time KQL jobs on the data lake to promote specific historical data from the data lake tier to the analytics tier. Promoting data is useful for root cause analysis or zero-day detection when investigating incidents that span beyond the hot tier window. Submit a scheduled job on data lake to automate recurring queries to detect anomalies or build baselines using historical data. Threat hunters can use this to monitor for unusual patterns over time and feed results into detections or dashboards. For more information, see [Create jobs in the Microsoft Sentinel data lake](kql-jobs.md) and [Manage jobs in the Microsoft Sentinel data lake](kql-manage-jobs.md).
-
+Run one-time KQL jobs on the data lake to promote specific historical data from the data lake tier to the analytics tier, or create custom summary tables in the data lake tier. Promoting data is useful for root cause analysis or zero-day detection when investigating incidents that span beyond the analytics tier window. Submit a scheduled job on data lake to automate recurring queries to detect anomalies or build baselines using historical data. Threat hunters can use this to monitor for unusual patterns over time and feed results into detections or dashboards. For more information, see [Create jobs in the Microsoft Sentinel data lake](kql-jobs.md) and [Manage jobs in the Microsoft Sentinel data lake](kql-manage-jobs.md).
 
 
 ## Exploration scenarios
