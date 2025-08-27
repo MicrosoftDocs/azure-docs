@@ -29,7 +29,7 @@ You define an extension bundle reference in the `host.json` project file by addi
 
 ## Bundle versions
 
-This table lists all `Microsoft.Azure.Functions.ExtensionBundle` versions and the current [support state](#support-policy):
+This table lists all `Microsoft.Azure.Functions.ExtensionBundle` versions and the current [support state](#extension-bundles-support-policy):
 
 | Bundle version | Version in host.json | Support state<sup>*</sup> | 
 | --- | --- | --- | 
@@ -89,7 +89,7 @@ The support cycle of an extension bundle, which is based on the [support policie
 
 | Phase | Description |
 | ----- | ----- |  
-| **Preview** |Pre-release versions of specific binding extensions are maintained in a preview extension bundle (`Microsoft.Azure.Functions.ExtensionBundle.Preview`). You can use this preview extension bundle to take advantage of preview extensions and new behaviors in existing extensions before they reach general availability (GA). For more information, see [Preview extension bundle considerations](#preview-extension-bundles). | 
+| **Preview** |Pre-release versions of specific binding extensions are maintained in a preview extension bundle (`Microsoft.Azure.Functions.ExtensionBundle.Preview`). You can use this preview extension bundle to take advantage of preview extensions and new behaviors in existing extensions before they reach general availability (GA). For more information, see [Work with preview extension bundles](#work-with-preview-extension-bundles). | 
 | **Active** | The most recent major version of extension bundles is considered the active version. We recommend this version for your function apps. |
 | **Deprecation** | A bundle version has been superseded by a more recent release and is now deprecated. Once a bundle is deprecated, it will only receive critical bug fixes and security updates for a limited overlap period—typically at least 12 months—giving you time to plan, test, and upgrade your apps to the latest bundle version.<br/><br/>Function apps that continue to use a deprecated bundle can still run on the platform. However, to ensure access to new features, performance improvements, security patches, and full support, you must upgrade your function apps to a supported bundle version. |
 
