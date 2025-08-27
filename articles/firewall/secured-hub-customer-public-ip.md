@@ -43,7 +43,8 @@ You can associate a preexisting public IP address with a secured hub firewall. Y
     $publicip = Get-AzPublicIpAddress -ResourceGroupName $rgName -Name $PIPName
     $virtualhub = get-azvirtualhub -ResourceGroupName $rgName -name $vwanhub
     New-AzFirewall -Name $azfwname -ResourceGroupName $rgName -Location westcentralus -SkuName AZFW_Hub -SkuTier $Tier -PublicIpAddress $publicip -VirtualHubId $virtualhub.Id
-    ```
+```
+
 ***
 
 > [!Note]
