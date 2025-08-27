@@ -19,7 +19,7 @@ Zone resiliency is most effectively addressed during the initial planning and de
 This article outlines key considerations for enabling zone resiliency in your Azure workloads. It also helps you plan and implement a successful transition to a more resilient architecture.
 
 > [!TIP]
-> If you're currently in the process of designing your workloads or plan to do a design review of your current workloads, it's important that you follow the [recommendations for designing for redundancy in the Azure Well-Architected Framework](/azure/well-architected/reliability/redundancy). This article can help you design workload redundancy across multiple levels, with a focus on critical workflows. To support availability zone adoption, the redundancy recommendations guide in the Well-Architected Framework also outlines strategies like multi-region deployments and deployment stamps.
+> If you're currently in the process of designing your workloads or plan to do a design review of your current workloads, it's important that you follow the [recommendations for designing for redundancy in the Azure Well-Architected Framework](/azure/well-architected/reliability/redundancy). The linked article can help you design workload redundancy across multiple levels, with a focus on critical workflows. To support availability zone adoption, the redundancy recommendations guide in the Well-Architected Framework also outlines strategies like multi-region deployments and deployment stamps.
 
 ## What is zone resiliency?
 
