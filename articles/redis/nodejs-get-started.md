@@ -33,7 +33,7 @@ In this quickstart, you learn how to use an Azure Managed Redis cache from a Nod
   az login
   ```
 
-The sample code in this article is available at <https://github.com/azure-samples/azure-cache-redis-samples>.
+The Quickstart sample code in this article is available on [GitHub](https://github.com/azure-samples/azure-cache-redis-samples/quickstart/nodejs).
 
 ## Create an Azure Managed Redis instance
 
@@ -94,7 +94,7 @@ Get result: Hello! The cache is working from Node.js!
 
 Here, you can see this code sample in its entirety.
 
-:::code language="typescript" source="~/azure-cache-redis-samples/quickstart/nodejs/src/index.ts" range="77-81":::
+:::code language="typescript" source="~/azure-cache-redis-samples/quickstart/nodejs/src/index.ts":::
 
 <!-- Clean up resources include -->
 
