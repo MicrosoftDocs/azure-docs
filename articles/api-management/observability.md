@@ -37,9 +37,9 @@ The following table summarizes all the observability capabilities supported by A
 | **[Logging through Azure Event Hubs](api-management-howto-log-event-hubs.md)** | Custom scenarios | Seconds | User managed | Custom | Custom | Managed<sup>1</sup>, Self-hosted<sup>1</sup>, Azure Arc<sup>1</sup> |
 | **[OpenTelemetry](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md#introduction-to-opentelemetry)** | Monitoring | Minutes | User managed | 100% | Metrics | Self-hosted<sup>2</sup> |
 
-<sup>1</sup> Optional, depending on the configuration of feature in Azure API Management.
-<sup>2</sup> Optional, depending on the configuration of the gateway.
-<sup>3</sup The [self-hosted gateway](self-hosted-gateway-overview.md) currently doesn't send diagnostic logs to Azure Monitor. However, it's possible to configure and persist logs locally where the self-hosted gateway is deployed. For more information, see [configuring local metrics and logs for self-hosted gateway](how-to-configure-local-metrics-logs.md).
+<sup>1</sup> Optional, depending on the configuration of feature in Azure API Management.<br/>
+<sup>2</sup> Optional, depending on the configuration of the gateway.<br/>
+<sup>3</sup The [self-hosted gateway](self-hosted-gateway-overview.md) currently doesn't send diagnostic logs to Azure Monitor. However, it's possible to configure and persist logs locally where the self-hosted gateway is deployed. For more information, see [configuring local metrics and logs for self-hosted gateway](how-to-configure-local-metrics-logs.md).<br/>
 <sup>4</sup> Except for request tracing, all logging in API Management occurs asynchronously.
 
 ## Related content
