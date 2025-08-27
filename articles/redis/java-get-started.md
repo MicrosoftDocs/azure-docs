@@ -100,52 +100,44 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
     ```java
     package example.demo;
 
+    import com.azure.identity.DefaultAzureCredentialBuilder;
     import redis.clients.authentication.core.TokenAuthConfig;
-    import redis.clients.authentication.entraid.EntraIDTokenAuthConfigBuilder;
+    import redis.clients.authentication.entraid.AzureTokenAuthConfigBuilder;
     import redis.clients.jedis.DefaultJedisClientConfig;
     import redis.clients.jedis.HostAndPort;
-    import redis.clients.jedis.JedisClientConfig;
     import redis.clients.jedis.UnifiedJedis;
     import redis.clients.jedis.authentication.AuthXManager;
 
     import java.util.Set;
 
     /**
-     * Redis test with Microsoft Entra ID authentication using redis-authx-entraid
-     * For more information about Redis authentication extensions, see:
-     * https://redis.io/docs/latest/develop/clients/jedis/amr/
-     *
-     */
+    * Redis test with Microsoft Entra ID authentication using redis-authx-entraid
+    * For more information about Redis authentication extensions, see:
+    * https://redis.io/docs/latest/develop/clients/jedis/amr/
+    *
+    */
     public class App
     {
         public static void main( String[] args )
         {
-            String cacheHostname = System.getenv("REDIS_CACHE_HOSTNAME");
-            String clientId = System.getenv("REDIS_CLIENT_ID");
-            String clientSecret = System.getenv("REDIS_CLIENT_SECRET");
-            String authority = System.getenv("REDIS_AUTHORITY"); // e.g., "https://login.microsoftonline.com/<tenant-id>"
-            int port = Integer.parseInt(System.getenv().getOrDefault("REDIS_CACHE_PORT", "10000"));
-            String scopes = "https://redis.azure.com/.default"; // The scope for Azure Cache for Redis
+            String REDIS_CACHE_HOSTNAME = System.getenv("REDIS_CACHE_HOSTNAME");
+            int REDIS_PORT = Integer.parseInt(System.getenv().getOrDefault("REDIS_CACHE_PORT", "10000"));
+            String SCOPES = "https://redis.azure.com/.default"; // The scope for Azure Cache for Redis
 
             // Build TokenAuthConfig for Microsoft Entra ID authentication
-            // This can be configured with managed identity, client secret, client certificate,
-            // or any other credential that implements TokenCredential
-            TokenAuthConfig tokenAuthConfig = new EntraIDTokenAuthConfigBuilder()
-                    .authority(authority) // e.g., "https://login.microsoftonline.com/<tenant-id>"
-                    .scopes(Set.of(scopes)) // The scope for Azure Cache for Redis
-                    .clientId(clientId) // The client ID of the application registered in Azure AD
-                    .secret(clientSecret) // Client secret or other credential
+            TokenAuthConfig tokenAuthConfig = AzureTokenAuthConfigBuilder.builder()
+                    .defaultAzureCredential(new DefaultAzureCredentialBuilder().build())
+                    .scopes(Set.of(SCOPES))
+                    .tokenRequestExecTimeoutInMs(2000)
                     .build();
 
-            // Configure Jedis with AuthXManager for passwordless authentication
-            JedisClientConfig config = DefaultJedisClientConfig.builder()
+            DefaultJedisClientConfig config = DefaultJedisClientConfig.builder()
                     .authXManager(new AuthXManager(tokenAuthConfig))
                     .ssl(true)
                     .build();
 
-            // Create UnifiedJedis connection
             UnifiedJedis jedis = new UnifiedJedis(
-                    new HostAndPort(cacheHostname, port),
+                    new HostAndPort(REDIS_CACHE_HOSTNAME, REDIS_PORT),
                     config);
 
             // Test the connection

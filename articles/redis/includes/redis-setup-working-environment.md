@@ -13,9 +13,6 @@ The following steps show you how to set up the working environment for the Java 
 
 ```bash
 export REDIS_CACHE_HOSTNAME=<your-host-name>.redis.cache.windows.net
-export REDIS_CLIENT_ID=<your-client-id>
-export REDIS_CLIENT_SECRET=<your-client-secret>
-export REDIS_AUTHORITY=https://login.microsoftonline.com/<your-tenant-id>
 export REDIS_CACHE_PORT=10000
 ```
 
@@ -25,9 +22,6 @@ export REDIS_CACHE_PORT=10000
 
 ```bash
 export REDIS_CACHE_HOSTNAME=<your-host-name>.redis.cache.windows.net
-export REDIS_CLIENT_ID=<your-client-id>
-export REDIS_CLIENT_SECRET=<your-client-secret>
-export REDIS_AUTHORITY=https://login.microsoftonline.com/<your-tenant-id>
 export REDIS_CACHE_PORT=6380
 ```
 
