@@ -31,7 +31,7 @@ are references only. You may need to adapt the commands to your specific WAF pol
 
 1.  Install the latest [Az.Network PowerShell module](/powershell/azure/install-azps-windows?tabs=powershell&pivots=windows-psgallery)
 
-1.  Set context of your selected subscription, resource group and Azure WAF policy
+1.  Set context of your selected subscription, resource group, and Azure WAF policy
 
     ```powershell
     Import-Module Az.Network 
@@ -53,7 +53,7 @@ are references only. You may need to adapt the commands to your specific WAF pol
 
 ## Carry over your existing customization
 
-1.  Do not copy overrides or exclusions that apply to rules removed in DRS 2.1.  The following helper function checks if a rule has been removed:
+1.  Don't copy overrides or exclusions that apply to rules removed in DRS 2.1.  The following helper function checks if a rule has been removed:
 
     ```powershell
     function Test-RuleIsRemovedFromDRS21 { 
@@ -510,7 +510,7 @@ $rulesAddedInThisVersionByGroup = @{
 
 ```
 
-Use the the following PowerShell code to add new rule overrides to the existing \$groupOverrides object defined previously:
+Use the following PowerShell code to add new rule overrides to the existing \$groupOverrides object defined previously:
 
 
 ```powershell
