@@ -15,8 +15,6 @@ ms.date: 08/13/2025
 
 # Go configuration provider
 
-<br/><a href="https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"><img src="media/go-provider.png" alt="Go" width="90" height="20"></a>
-
 Azure App Configuration is a managed service that helps developers centralize their application configurations simply and securely. The Go configuration provider library enables loading configuration from an Azure App Configuration store in a managed way. This client library adds additional [functionality](./configuration-provider-overview.md#feature-development-status) on top of the Azure SDK for Go.
 
 ## Load configuration
@@ -168,7 +166,7 @@ You can create JSON key-values in App Configuration. When a key-value with the c
 
 The `AzureAppConfiguration` type returned by the `Load` function provides several methods to access your configuration data:
 
-### 1. Unmarshal to structs
+### Unmarshal to structs
 
 The `Unmarshal` method provides a type-safe way to load configuration values into Go structs. This approach prevents runtime errors from mistyped configuration keys and makes your code more maintainable. The method accepts an optional `ConstructionOptions` parameter to customize how configuration keys are mapped to struct fields.
 
@@ -220,7 +218,7 @@ if err := appConfig.Unmarshal(&config, constructionOptions); err != nil {
 
 The `ConstructionOptions` struct supports the following separators: `.`, `,`, `;`, `-`, `_`, `__`, `/`, `:`. If not specified, the default separator `.` is used.
 
-### 2. Get raw JSON bytes
+### Get raw JSON bytes
 
 The `GetBytes` method retrieves your configuration as raw JSON data, offering flexibility for integration with JSON processing libraries or configuration frameworks like [`viper`](https://github.com/spf13/viper). This method also accepts an optional `ConstructionOptions` parameter to control key hierarchy mapping.
 
@@ -501,7 +499,7 @@ options := &azureappconfiguration.Options{
 
 Azure App Configuration enables you to configure secret refresh intervals independently of your configuration refresh cycle. This is crucial for security because while the Key Vault reference URI in App Configuration remains unchanged, the underlying secret in Key Vault might be rotated as part of your security practices.
 
-To ensure your application always uses the most current secret values, configure the the `RefreshOptions` field in the `KeyVaultOptions` struct.
+To ensure your application always uses the most current secret values, configure the `RefreshOptions` field in the `KeyVaultOptions` struct.
 
 ```golang
 import (
