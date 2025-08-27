@@ -199,9 +199,9 @@ groups:
     }
     ```
 
-## Change new rules’ actions to “log” for safe validation
+## Validate new rules safely
 
-When upgrading, new DRS 2.1 rules are active by default. If your WAF is in *Prevention* mode, set new rules to *log* mode first. This allows you to review logs before enabling blocking.
+When upgrading, new DRS 2.1 rules are active by default. If your WAF is in ***Prevention*** mode, set new rules to ***log*** mode first. The *log* mode allows you to review logs before enabling blocking.
 
 The following PowerShell definitions are for rules introduced in DRS 2.1 compared to each CRS version:
 
@@ -295,8 +295,10 @@ for ($i = 0; $i -lt $wafPolicy.ManagedRules.ManagedRuleSets.Count; $i++) {
     break 
     } 
 } 
-# Assign to policy if ($newRuleSetExclusions) { 	$wafPolicy.ManagedRules.Exclusions = $currentExclusions + $newRuleSetExclusions 
-
+# Assign to policy
+if ($newRuleSetExclusions) {
+    $wafPolicy.ManagedRules.Exclusions = $currentExclusions + $newRuleSetExclusions 
+}
 # Apply the updated WAF policy 
 Set-AzApplicationGatewayFirewallPolicy -InputObject $wafPolicy
 ```
