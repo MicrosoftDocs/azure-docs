@@ -26,11 +26,11 @@ Follow these steps to attach a network connection to a dev center in Microsoft D
 
 1. On the **Add network connection** pane, select the network connection, and then select **Add**:
 
-   :::image type="content" source="../media/how-to-manage-network-connection/add-network-connection.png" alt-text="Screenshot that shows the pane for selecting the network connection to add." lightbox="../media/how-to-manage-network-connection/add-network-connection.png":::
+   :::image type="content" source="../media/how-to-manage-network-connection/add-network-connection.png" alt-text="Screenshot that shows the pane for selecting the network connection to add.":::
 
 After you attach a network connection, the Azure portal runs several health checks on the network. You can view the status of the checks on the resource overview page:
 
-:::image type="content" source="../media/how-to-manage-network-connection/network-connection-grid-populated.png" alt-text="Screenshot that shows the status of the network connections attached to the dev center." lightbox="../media/how-to-manage-network-connection/network-connection-grid-populated.png" :::
+:::image type="content" source="../media/how-to-manage-network-connection/network-connection-grid-populated.png" alt-text="Screenshot that shows the status of the network connections attached to the dev center.":::
 
 You can add network connections that pass all health checks to a dev center and use them to create dev box pools. Dev boxes within dev box pools are created and domain-joined in the location of the virtual network assigned to the network connection.
 
@@ -53,7 +53,7 @@ Follow these steps to remove an attached network connection from a dev center.
 
 1. Select the network connection that you want to remove, and then select **Remove**:
 
-   :::image type="content" source="../media/how-to-manage-network-connection/remove-network-connection.png" alt-text="Screenshot that shows how to remove a selected network connection attached to a dev center." lightbox="../media/how-to-manage-network-connection/remove-network-connection.png":::
+   :::image type="content" source="../media/how-to-manage-network-connection/remove-network-connection.png" alt-text="Screenshot that shows how to remove a selected network connection attached to a dev center.":::
 
 1. Review the warning message, and then select **OK**.
 
