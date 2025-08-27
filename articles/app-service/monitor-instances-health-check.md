@@ -1,6 +1,6 @@
 ---
 title: Monitor the Health of App Service Instances
-description: Learn how to monitor the health of App Service instances by using Health check.
+description: Learn how to monitor the health of Azure App Service instances by using Health check.
 keywords: azure app service, web app, health check, route traffic, healthy instances, path, monitoring, remove faulty instances, unhealthy instances, remove workers
 author: msangapu-msft
 
@@ -12,11 +12,11 @@ ms.service: azure-app-service
 
 # Monitor App Service instances by using Health check
 
-This article describes how to use Health check in the Azure portal to monitor App Service instances. Health check increases your application's availability by rerouting requests away from unhealthy instances and replacing instances if they remain unhealthy. It does that by pinging your web application every minute, via a path that you choose.
+This article describes how to use Health check in the Azure portal to monitor Azure App Service instances. Health check increases your application's availability by rerouting requests away from unhealthy instances and replacing instances if they remain unhealthy. It does that by pinging your web application every minute, via a path that you choose.
 
 ![Diagram that shows how Health check works.][1]
 
-Note that _/api/health_ is just an example. There is no default Health check path. You should make sure that the path you choose is a valid path that exists within your application.
+Note that _/api/health_ is just an example. There's no default Health check path. You should make sure that the path you choose is a valid path that exists within your application.
 
 ## How Health check works
 
@@ -146,7 +146,7 @@ After Health check is enabled, you can restart and monitor the status of your ap
 
 If the status of your application instance is **Unhealthy,** you can restart the worker process of the respective app manually by selecting the **Restart** button in the table. The restart won't affect any of the other applications hosted on the same App Service plan. If there are other applications using the same App Service plan as the instance, they're listed in the pane that opens when you select **Restart**.
 
-If you restart the instance and the restart process fails, you're be given the option to replace the worker. (Only one instance can be replaced per hour.) This action affects any applications that use the same App Service plan.
+If you restart the instance and the restart process fails, you're given the option to replace the worker. (Only one instance can be replaced per hour.) This action affects any applications that use the same App Service plan.
 
 For Windows applications, you can also view processes via the Process Explorer. Doing so gives you further insight on the instance's processes, including thread count, private memory, and total CPU time.
 
@@ -158,7 +158,7 @@ After diagnostic collection is enabled, you can create a storage account or choo
 
 ## Monitoring
 
-After providing your application's Health check path, you can monitor the health of your site by using Azure Monitor. From the **Health check** page in the portal, select **Metrics** in the toolbar. Doing so opens a new page where you can see the site's Health check status history and create a new alert rule. The Health check status metric aggregates the successful pings and displays failures only when the instance is deemed unhealthy based on the Health check load balancing **Threshold** value that's configured. By default, this value is set to 10 minutes, so it takes 10 consecutive pings (1 per minute) for a given instance to be deemed unhealthy, and only then will it be reflected on the metric. For more information on monitoring your sites, see [Azure App Service quotas and alerts](web-sites-monitor.md).
+After providing your application's Health check path, you can monitor the health of your site by using Azure Monitor. From the **Health check** page in the portal, select **Metrics** in the toolbar. Doing so opens a new page where you can see the site's Health check status history and create a new alert rule. The Health check status metric aggregates the successful pings and displays failures only when the instance is deemed unhealthy based on the Health check load balancing **Threshold** value that's configured. By default, this value is set to 10 minutes, so it takes 10 consecutive pings (1 per minute) for a given instance to be deemed unhealthy, and only then will it be reflected on the metric. For more information on monitoring your sites, see [Azure App Service quotas and metrics](web-sites-monitor.md).
 
 ## Limitations
 
@@ -203,7 +203,7 @@ If all instances of your application are unhealthy, App Service doesn't remove i
 
  ### What happens during a slot swap?
 
-Health check configuration is not slot-specific, so after a swap, the Health check configuration of the swapped slot is applied to the destination slot, and vice-versa. For example, if you have Health check enabled for your staging slot, the endpoint configured will be applied to the production slot after a swap. We recommend using consistent configuration for both production and non-production slots if possible to prevent any unexpected behavior after a swap.
+Health check configuration isn't slot-specific, so after a swap, the Health check configuration of the swapped slot is applied to the destination slot, and vice-versa. For example, if you have Health check enabled for your staging slot, the endpoint configured will be applied to the production slot after a swap. We recommend using consistent configuration for both production and nonproduction slots if possible to prevent any unexpected behavior after a swap.
 
 ### Does Health check work in App Service Environments?
 
