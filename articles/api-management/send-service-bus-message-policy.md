@@ -31,9 +31,10 @@ The `send-service-bus-message` policy sends a message to an Azure Service Bus qu
            <payload>message content</payload>
             <message-properties>
                 <message-property name="property-name">property-value</message-property>
+                <!-- if there are multiple properties, then add additional message-property elements -->
             </message-properties>
 </send-service-bus-message>
-```
+```i
 
 ## Attributes
 
