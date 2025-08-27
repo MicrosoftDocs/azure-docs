@@ -19,7 +19,7 @@ This article describes how to send messages from API Management to Azure Service
 
 :::image type="content" source="media/api-management-howto-send-service-bus/service-bus-scenario.png" alt-text="Diagram of integration of API Management with Service Bus for messaging.":::
 
-[Azure Service Bus](azure/service-bus-messaging/service-bus-messaging-overview) is a fully managed enterprise messaging service designed to decouple applications and services, enabling reliable cloud messaging between distributed systems. It supports *message queues* for one-to-one communication and *topics* for publish/subscribe patterns, ensuring secure and scalable message delivery. Service Bus is ideal for scenarios requiring asynchronous operations, load leveling, or integration across hybrid cloud environments. For more information, see the [Azure Service Bus documentation](/azure/service-bus-messaging/).
+[Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) is a fully managed enterprise messaging service designed to decouple applications and services, enabling reliable cloud messaging between distributed systems. It supports *message queues* for one-to-one communication and *topics* for publish/subscribe patterns, ensuring secure and scalable message delivery. Service Bus is ideal for scenarios requiring asynchronous operations, load leveling, or integration across hybrid cloud environments. For more information, see the [Azure Service Bus documentation](/azure/service-bus-messaging/).
 
 With policy-based integration, API Management provides:
 
@@ -29,7 +29,7 @@ With policy-based integration, API Management provides:
 
 > [!NOTE]
 > * Integration of API Management with Service Bus is currently in preview.
-> * Currently, only sending messages to Service Busis supported.
+> * Currently, only sending messages to Service Bus is supported.
 
 <!-- Check whether this feature is supported in workspaces -->
 
@@ -40,7 +40,7 @@ With policy-based integration, API Management provides:
 * An API Management service instance. If you don't have one, see [Create an API Management service instance](get-started-create-service-instance.md).
 * An API Management API used to send messages to Service Bus.
 * An Azure Service Bus queue or topic. For detailed steps, see one of the following:
-    * [Create a Service Bus namespace and queue](/azure/service-bus-messaging/service-bus-dotnet-standard-get-started-queues)
+    * [Create a Service Bus namespace and queue](/azure/service-bus-messaging/service-bus-quickstart-portal)
     * [Create a Service Bus topic and subscriptions to the topic](/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal)
     
     > [!NOTE]

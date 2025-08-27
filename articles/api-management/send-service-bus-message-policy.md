@@ -30,7 +30,7 @@ The `send-service-bus-message` policy sends a message to an Azure Service Bus qu
       namespace="FQDN of service bus namespace" client-id="ID of user-assigned managed identity">
            <payload>message content</payload>
             <message-properties>
-                <message-property name="property1" value="value1" />
+                <message-property name="property-name">property-value</message-property>
             </message-properties>
 </send-service-bus-message>
 ```
@@ -38,7 +38,7 @@ The `send-service-bus-message` policy sends a message to an Azure Service Bus qu
 ## Attributes
 
 <!-- Assume we are not exposing connection string attribute -->
-<!-- Can you specify both queue and topic names, or only one? -->
+<!-- Assume specify either queue or topic names, not both -->
 
 | Attribute     | Description                                                               | Required                                                             | Default |
 | ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- | ----|
@@ -53,12 +53,12 @@ The `send-service-bus-message` policy sends a message to an Azure Service Bus qu
 | Element     | Description                                                               | Required                                                             | 
 | ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- | 
 | `payload` | Specifies the message payload to send to the service bus. Policy expressions and named values are allowed. | Yes |
-| `message-properties` | A collection of `message-property` subelements to set on the service bus message. Each `message-property` consists of a `name-value` pair. Policy expressions and named values are allowed. | No |
+| `message-properties` | A collection of `message-property` subelements to set on the service bus message. Each `message-property` consists of a name-value pair. Policy expressions and named values are allowed. | No |
 
 
 ## Usage
 
-<!-- Confirm all details. Examples appear to be in inbound? Supported in workspaces? -->
+<!-- Confirm all details. Examples appear to be in inbound? Supported in workspaces, SHGW, Consumption, etc.? -->
 
 - [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound, outbound, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
@@ -100,7 +100,7 @@ In this example, a message consisting of the request body is sent to a service b
 ```
 
 
-### Send a message and set message properties
+### Send a message and set message property
 
 In this example, a message consisting of the request body is sent to a service bus topic and a message property is set. The API Management instance uses a system-assigned identity to access the service bus.
 
