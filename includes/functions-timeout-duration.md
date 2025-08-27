@@ -4,7 +4,7 @@ ms.service: azure-functions
 ms.custom:
   - build-2024
 ms.topic: include
-ms.date: 02/04/2025
+ms.date: 08/27/2025
 ms.author: glenga
 ---
 ## <a name="timeout"></a>Function app time-out duration 
@@ -26,3 +26,5 @@ The following table shows the default and maximum values (in minutes) for specif
 3. Requires the App Service plan be set to [Always On](/azure/azure-functions/dedicated-plan#always-on). A grace period of 10 minutes is given during platform updates.
 4. The default time-out for version 1.x of the Functions host runtime is _unbounded_. 
 5. When the [minimum number of replicas](../articles/container-apps/scale-app.md#scale-definition) is set to zero, the default time-out depends on the specific triggers used in the app.  
+
+The values in this table assume that the Azure Functions host process has started and is running correctly. There is a maximum timeout of 60 seconds allowed for the host process itself to startup. This host startup process timeout isn't configurable.
