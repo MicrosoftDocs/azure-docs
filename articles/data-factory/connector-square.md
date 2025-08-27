@@ -272,7 +272,8 @@ When you copy data from Square, the following mappings apply from Square's data 
 | Date             | String                           | Not supported.       |
 | Timestamp        | String                           | Not supported.       |
 | Timestamp with offset   |String                     | Not supported.       |
-| Duration (full/ time only) | String                 | String               |
+| Duration (full)  | String                           | String               |
+| Duration (time only) | String                       | String               |
 | Money            | Int64                            | Int64                |
 
 ## Lookup activity properties
