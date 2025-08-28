@@ -100,7 +100,7 @@ For more information, refer to [the section](../../storage/files/encryption-in-t
 - To use AZNFS mount helper and Encryption in Transit, use the fstype as `aznfs`. You should always add `_netdev` option to their /etc/fstab entries to make sure file shares are mounted on reboot only after the required services are active.
 - You can add 'notls' option in the mount command, if you don’t intend to use the Encryption in Transit but just want to use AZNFS mount helper to mount the file system. Also, it isn't recommended to use Encryption in Transit and non-Encryption in Transit methods for mounting different file systems using Azure Files NFS in the same Azure VM. Mount commands might fail to mount the file systems if Encryption in Transit and non-Encryption in Transit methods are used in the same VM.
 - Mount helper supports private-endpoint based connections for Azure Files NFS Encryption in Transit.
-- If SAP VM is [custom domain joined](/troubleshoot/azure/virtual-machines/linux/custom-dns-configuration-for-azure-linux-vms.md), then use custom DNS FQDN OR  short names for file share in the '/etc/fstab' as its defined in the DNS. To verify the hostname resolution, check using `nslookup <hostname>` and `getent host <hostname>` commands.
+- If SAP VM is [custom domain joined](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/linux/custom-dns-configuration-for-azure-linux-vms), then use custom DNS FQDN OR  short names for file share in the '/etc/fstab' as its defined in the DNS. To verify the hostname resolution, check using `nslookup <hostname>` and `getent host <hostname>` commands.
 
 ## Mount the NFS File share as pacemaker cluster resource
 
