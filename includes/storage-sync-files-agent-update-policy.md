@@ -33,7 +33,7 @@ The Azure File Sync agent is updated automatically. You can select either of the
 
 - You can select that the agent automatically updates itself as soon as a new agent version becomes available. This ability is currently not applicable to clustered servers.
 
-  This update occurs during the selected maintenance window and allows your server to benefit from new features and improvements as soon as they become generally available. This is the recommended, worry-free setting that provides major agent versions and regular update patches to your server. Every agent released is at GA quality.
+  This update occurs during the selected maintenance window and allows your server to benefit from new features and improvements as soon as they become generally available. This recommended, worry-free setting provides major agent versions and regular update patches to your server. Every agent released is at GA quality.
   
   If you select this option, Microsoft flights the newest agent version to you. Clustered servers are excluded. After flighting is complete, the agent also becomes available in Microsoft Update and [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257).
 

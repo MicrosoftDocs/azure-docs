@@ -62,7 +62,7 @@ Each Windows Server instance can be registered to only one storage sync service.
 
 When you design Azure File Sync topologies, ensure that you isolate data clearly at the level of the storage sync service. For example, if your enterprise requires separate Azure File Sync environments for two distinct business units, and you need strict data isolation between these groups, you should create a dedicated storage sync service for each group. Avoid placing sync groups for both business groups within the same storage sync service, because that configuration wouldn't ensure complete isolation.
 
-For additional guidance on data isolation by using separate subscriptions or resource groups in Azure, refer to [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types#resource-scope-and-lifecycle).
+For more guidance on data isolation by using separate subscriptions or resource groups in Azure, refer to [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types#resource-scope-and-lifecycle).
 
 ## Planning for balanced sync topologies
 
@@ -108,11 +108,11 @@ For Azure File Sync, the number of objects across the server endpoints and the c
 
 For example, server endpoint A with 10 million objects + server endpoint B with 10 million objects = 20 million objects. For that example deployment, we would recommend 8 CPUs, 16 GiB of memory for steady state, and (if possible) 48 GiB of memory for the initial migration.
 
-Namespace data is stored in memory for performance reasons. Because of that configuration, bigger namespaces require more memory to maintain good performance. More churn requires more CPU to process.
+Namespace data is stored in memory for performance reasons. Because of that configuration, bigger namespaces require more memory to maintain good performance. More churn requires more CPUs to process.
 
 The following table provides both the size of the namespace and a conversion to capacity for typical general-purpose file shares, where the average file size is 512 KiB. If your file sizes are smaller, consider adding more memory for the same amount of capacity. Base your memory configuration on the size of the namespace.
 
-| Namespace size - files and directories (millions)  | Typical capacity (TiB)  | CPU Cores  | Recommended memory (GiB) |
+| Namespace size - files and directories (millions)  | Typical capacity (TiB)  | CPU cores  | Recommended memory (GiB) |
 |---------|---------|---------|---------|
 | 3        | 1.4     | 2        | 8 (initial sync)/ 2 (typical churn)      |
 | 5        | 2.3     | 2        | 16 (initial sync)/ 4 (typical churn)    |
@@ -126,7 +126,7 @@ The following table provides both the size of the namespace and a conversion to 
 > [!TIP]
 > Initial synchronization of a namespace is an intensive operation. We recommend allocating more memory until initial synchronization is complete. This approach isn't required but might speed up initial sync.
 >
-> Typical churn is 0.5% of the namespace changing per day. For higher levels of churn, consider adding more CPU.
+> Typical churn is 0.5% of the namespace changing per day. For higher levels of churn, consider adding more CPUs.
 
 ### Evaluation cmdlet
 
@@ -223,12 +223,12 @@ The following example illustrates how to estimate the amount of free space that 
 
 - NTFS allocates a cluster size for each of the tiered files.
 
-  *1 million files * 4 KiB cluster size = 4,000,000 KiB (4 GiB)*
+  *1 million files * 4-KiB cluster size = 4,000,000 KiB (4 GiB)*
 
   To fully benefit from cloud tiering, we recommend that you use smaller NTFS cluster sizes (less than 64 KiB) because each tiered file occupies a cluster. Also, NTFS allocates the space that tiered files occupy. This space doesn't show up in any UI.
 - Sync metadata occupies a cluster size per item.
 
-  *(1 million files + 100,000 directories) * 4 KiB cluster size = 4,400,000 KiB (4.4 GiB)*
+  *(1 million files + 100,000 directories) * 4-KiB cluster size = 4,400,000 KiB (4.4 GiB)*
 - Azure File Sync heatstore occupies 1.1 KiB per file.
 
   *1 million files * 1.1 KiB = 1,100,000 KiB (1.1 GiB)*
@@ -299,7 +299,7 @@ Azure File Sync is fully supported with the DFS-N implementation. You can instal
 
 Because DFS-R and Azure File Sync are both replication solutions, we recommend replacing DFS-R with Azure File Sync in most cases. But you should use DFS-R and Azure File Sync together in the following scenarios:
 
-- You're migrating from a DFS-R deployment to an Azure File Sync deployment. For more information, see [Migrate a DFS Replication (DFS-R) deployment to Azure File Sync](file-sync-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync).
+- You're migrating from a DFS-R deployment to an Azure File Sync deployment. For more information, see [Migrate a DFS-R deployment to Azure File Sync](file-sync-deployment-guide.md#migrate-a-dfs-r-deployment-to-azure-file-sync).
 - Not every on-premises server that needs a copy of your file data can be connected directly to the internet.
 - Branch servers consolidate data onto a single hub server, for which you want to use Azure File Sync.
 
@@ -349,12 +349,12 @@ For more information, see [Azure File Sync performance metrics](../files/storage
 
 The administrator who registers the server and creates the cloud endpoint must be a member of the management role [Azure File Sync Administrator](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator), Owner, or Contributor for the storage sync service. You can configure this role under **Access Control (IAM)** on the Azure portal page for the storage sync service.
 
-Azure File Sync works with your standard Active Directory-based identity without any special setup beyond setting up sync. When you're using Azure File Sync, the general expectation is that most accesses go through the Azure File Sync caching servers, rather than through the Azure file share. Because the server endpoints are located on Windows Server, and Windows Server supports Active Directory and Windows-style ACLs, you don't need anything beyond ensuring that the Windows file servers registered with the storage sync service are domain joined. Azure File Sync stores ACLs on the files in the Azure file share, and it replicates those ACLs to all server endpoints.
+Azure File Sync works with your standard Active Directory-based identity without any special setup beyond setting up sync. When you're using Azure File Sync, the general expectation is that most accesses go through the Azure File Sync caching servers, rather than through the Azure file share. Because the server endpoints are on Windows Server, and Windows Server supports Active Directory and Windows-style ACLs, you don't need anything beyond ensuring that the Windows file servers registered with the storage sync service are domain joined. Azure File Sync stores ACLs on the files in the Azure file share, and it replicates those ACLs to all server endpoints.
 
 Even though changes made directly to the Azure file share take longer to sync to the server endpoints in the sync group, you might also want to ensure that you can enforce your Active Directory permissions on your file share directly in the cloud. To do this configuration, you must domain join your storage account to your on-premises Active Directory instance, just like how your Windows file servers are domain joined. To learn more about domain joining your storage account to a customer-owned Active Directory instance, see [Overview of Azure Files identity-based authentication for SMB access](../files/storage-files-active-directory-overview.md?toc=/azure/storage/filesync/toc.json).
 
 > [!IMPORTANT]
-> Domain joining your storage account to Active Directory isn't required to successfully deploy Azure File Sync. This is an optional step that allows the Azure file share to enforce on-premises ACLs when users mount the Azure file share directly.
+> Domain joining your storage account to Active Directory isn't required to successfully deploy Azure File Sync. It's an optional step that allows the Azure file share to enforce on-premises ACLs when users mount the Azure file share directly.
 
 ## Networks
 
@@ -382,7 +382,7 @@ Azure File Sync offers three layers of encryption: encryption on the at-rest sto
 
 Two strategies for encrypting data on Windows Server work generally with Azure File Sync:
 
-- Encryption beneath the file system, such that the file system and all of the data written to it is encrypted
+- Encryption beneath the file system, such that the file system and all of the data written to it are encrypted
 - Encryption within the file format itself
 
 These methods aren't mutually exclusive. You can choose to use them together because the purpose of encryption is different.
@@ -478,7 +478,7 @@ When you perform a restore, use the volume-level or file-level restore option. F
 > [!NOTE]
 > Bare-metal restore, VM restore, system restore (Windows built-in OS restore), and file-level restore with its tiered version can cause unexpected results. (File-level restore happens when backup software backs up a tiered file instead of a full file.) They aren't currently supported when cloud tiering is enabled.
 >
-> Volume Shadow Copy Service (VSS) snapshots (including the **Previous Versions** tab) are supported on volumes that have cloud tiering enabled. However, you must enable previous-version compatibility through PowerShell. [Learn how](file-sync-deployment-guide.md#optional-self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service).
+> Volume Shadow Copy Service (VSS) snapshots (including the **Previous Versions** tab) are supported on volumes that have cloud tiering enabled. However, you must enable previous-version compatibility through PowerShell. [Learn how](file-sync-deployment-guide.md#optional-use-self-service-restore-through-previous-versions-and-vss).
 
 ## Data classification
 

@@ -1,6 +1,6 @@
 ---
-title: include file
-description: include file
+title: Include file
+description: Include file
 services: storage
 author: khdownie
 ms.service: azure-file-storage
@@ -44,7 +44,7 @@ ms.devlang: azurecli
 
        - Download the namespace first and then recall the file content, as much as you can fit on the local disk. *Namespace* stands for the file and folder structure without the file content.
        - Download the namespace only. The file content is recalled when it's accessed.
-       - Avoid tiered files. Files appear on the server only after they're fully downloaded. Local accss or policy recalls the file content of tiered files from the cloud to the server.
+       - Avoid tiered files. Files appear on the server only after they're fully downloaded. Local access or policy recalls the file content of tiered files from the cloud to the server.
 
      To learn more, see [Initial download section](../articles/storage/file-sync/file-sync-server-endpoint-create.md#initial-download-section).
 

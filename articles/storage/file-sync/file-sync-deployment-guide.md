@@ -157,13 +157,13 @@ We strongly recommend that you read [Plan to deploy Azure Files](../files/storag
 
      Follow the steps displayed in your terminal to complete the authentication process.
 
-  1. Install the [az filesync](/cli/azure/storagesync) Azure CLI extension:
+  1. Install the [`az filesync`](/cli/azure/storagesync) Azure CLI extension:
 
      ```azurecli
      az extension add --name storagesync
      ```
 
-     After you install the **storagesync** extension reference, you receive the following warning:
+     After you install the `storagesync` extension reference, you receive the following warning:
 
      ```output
      The installed extension 'storagesync' is experimental and not covered by customer support. Please use with discretion.
@@ -235,7 +235,7 @@ Follow the instructions for the Azure portal or PowerShell.
 
 ## Deploy a storage sync service
 
-The deployment of Azure File Sync starts with placing a *storage sync service* resource in a resource group of your selected subscription.You'll create a trust relationship between your servers and this resource.
+The deployment of Azure File Sync starts with placing a *storage sync service* resource in a resource group of your selected subscription. You'll create a trust relationship between your servers and this resource.
 
 A server can be registered to only one storage sync service. As a result, we recommend deploying as many storage sync services as you need to separate groups of servers. Keep in mind that servers from different storage sync services can't sync with each other.
 
@@ -539,7 +539,7 @@ New-AzStorageSyncCloudEndpoint `
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [az storagesync sync-group](/cli/azure/storagesync/sync-group#az-storagesync-sync-group-create) command to create a new sync group. To use a default resource group for all CLI commands, use [az configure](/cli/azure/reference-index#az-configure).
+Use the [`az storagesync sync-group`](/cli/azure/storagesync/sync-group#az-storagesync-sync-group-create) command to create a new sync group. To use a default resource group for all CLI commands, use [az configure](/cli/azure/reference-index#az-configure).
 
 ```azurecli
 az storagesync sync-group create --resource-group myResourceGroupName \
@@ -547,7 +547,7 @@ az storagesync sync-group create --resource-group myResourceGroupName \
                                  --storage-sync-service myStorageSyncServiceName \
 ```
 
-Use the [az storagesync sync-group cloud-endpoint](/cli/azure/storagesync/sync-group/cloud-endpoint#az-storagesync-sync-group-cloud-endpoint-create) command to create a new cloud endpoint:
+Use the [`az storagesync sync-group cloud-endpoint`](/cli/azure/storagesync/sync-group/cloud-endpoint#az-storagesync-sync-group-cloud-endpoint-create) command to create a new cloud endpoint:
 
 ```azurecli
 az storagesync sync-group cloud-endpoint create --resource-group myResourceGroup \
@@ -675,7 +675,7 @@ Set-AzStorageSyncServerEndpoint -InputObject <PSServerEndpoint> -LocalCacheMode 
 
 ## Optional: Use SMB over QUIC on a server endpoint
 
-The Azure file share (cloud endpoint) is a full SMB endpoint that's capable of direct access from the cloud or on-premises. However, customers who want to access the file share data on the cloud side often deploy an Azure File Sync server endpoint on a Windows Server instance hosted on an Azure VM.
+The Azure file share (cloud endpoint) is a full SMB endpoint that's capable of direct access from the cloud or on-premises. However, customers who want to access the file share data on the cloud side often deploy an Azure File Sync server endpoint on a Windows Server instance hosted on an Azure virtual machine.
 
 The most common reason to have an additional server endpoint rather than accessing the Azure file share directly is that changes made directly on the Azure file share can take up to 24 hours or longer for Azure File Sync to discover them. Changes made on a server endpoint are discovered nearly immediately and synced to all other server and cloud endpoints. This configuration is extremely common in environments where a substantial portion of users are remote.
 
@@ -756,7 +756,7 @@ Currently, pre-seeding has these limitations:
 
 1. You can now enable cloud tiering on any server endpoint as needed.
 
-For more information, see the [Distributed File System](file-sync-planning.md#distributed-file-system-dfs) section of the planning guide for an Azure File Sync deployment.
+For more information, see the [Distributed File System](file-sync-planning.md#distributed-file-system) section of the planning guide for an Azure File Sync deployment.
 
 ## Related content
 
