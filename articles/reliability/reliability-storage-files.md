@@ -212,6 +212,4 @@ You can create your snapshots and store them in two different ways:
 - [Azure Files documentation](/azure/storage/files/storage-files-introduction)
 - [Azure Files redundancy](/azure/storage/files/files-redundancy)
 - [Planning for an Azure Files deployment](/azure/storage/files/storage-files-planning)
-- [Change how a storage account is replicated](/azure/storage/common/redundancy-migration)
 - [Azure reliability](/azure/reliability/overview)
-- [Azure paired regions](/azure/reliability/cross-region-replication-azure#azure-paired-regions)
