@@ -35,7 +35,7 @@ Follow these steps to migrate to a new gateway using the Azure portal:
 
     :::image type="content" source="media/gateway-migration/validate-step.png" alt-text="Screenshot of the validate step for migrating a virtual network gateway." lightbox="media/gateway-migration/validate-step.png":::
 
-1. After successful validation, move to the **Prepare** stage. At this point, a new virtual network gateway will be created, and its Public IP address will be provisioned and managed by Microsoft. In the **Virtual Network Gateway Details** section, enter the following information:
+1. After successful validation, move to the **Prepare** stage. At this point, a new virtual network gateway will be created, and its Public IP address will be provisioned and [managed by Microsoft](expressroute-about-virtual-network-gateways.md#auto-assigned-public-ip). In the **Virtual Network Gateway Details** section, enter the following information:
 1. 
     :::image type="content" source="media/gateway-migration/gateway-prepare-update.png" alt-text="Screenshot of the Prepare stage for migrating a virtual network gateway." lightbox="media/gateway-migration/gateway-prepare-update.png":::
 
