@@ -7,18 +7,17 @@ ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-file-storage
 ai-usage: ai-assisted
-ms.date: 08/22/2025
-
+ms.date: 08/28/2025
 ---
 
 # Reliability in Azure Files
 
 Azure Files provides fully managed file shares in the cloud that are accessible via industry-standard Server Message Block (SMB) and Network File System (NFS) protocols.
 
-Azure Files supports a range of redundancy configurations to enable both high availability (HA) and disaster recovery (DR) for hosted workloads:
+Depending on the Azure region, Azure Files can support a range of redundancy configurations to enable both high availability (HA) and disaster recovery (DR) for hosted workloads:
 
  - *Locally Redundant Storage (LRS) and Zone-Redundant Storage (ZRS)* are designed for high availability and ensure data durability within a single datacenter or across availability zones.
- - *Geo-Redundant Storage (GRS) and Geo-Zone-Redundant Storage (GZRS)* provide cross-region disaster recovery, and replicate data to a secondary region to safeguard against regional outages
+ - *Geo-Redundant Storage (GRS) and Geo-Zone-Redundant Storage (GZRS)* provide cross-region disaster recovery, and replicate data to a secondary region to safeguard against regional outages.
 
 This article describes reliability and availability zones support in [Azure Files](/azure/well-architected/service-guides/azure-files), covering both regional resiliency through availability zone configurations and cross-region protection through geo-redundant storage options. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/reliability/overview).
 
@@ -76,9 +75,9 @@ For detailed pricing information, see [Azure Files pricing](https://azure.micros
 
 - **Create a file share with zone redundancy:** To create a new file share with ZRS, see [Create an Azure file share](/azure/storage/files/storage-how-to-create-file-share) and select ZRS or GZRS as the redundancy option during account creation.
 
-- **Migration**. To convert an existing storage account to ZRS and learn about migration options and requirements, see [Change redundancy configuration for Azure Files](/azure/storage/files/files-change-redundancy-configuration?tabs=portal).
+- **Change replication type:** To convert an existing storage account to ZRS and learn about migration options and requirements, see [Change redundancy configuration for Azure Files](/azure/storage/files/files-change-redundancy-configuration?tabs=portal).
 
-- **Disable zone redundancy.** Convert ZRS accounts back to a nonzonal configuration (such as LRS) through the same redundancy configuration change process.
+- **Disable zone redundancy:** Convert ZRS accounts back to a nonzonal configuration (such as LRS) through the same redundancy configuration change process.
 
 ### Normal operations
 
@@ -104,13 +103,12 @@ This section describes what to expect when a file storage account is configured 
 
 ## Multi-region support
 
-
 [!INCLUDE [Storage - Multi-region support introduction](includes/storage/reliability-storage-multi-region-support-include.md)]
 
 > [!IMPORTANT]
 > Azure Files only supports geo-redundancy (GRS or GZRS) for standard (HDD) file shares. 
 >
->Azure Files doesn't support read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). If a storage account is configured to use RA-GRS or RA-GZRS, the standard (HDD) file shares will be configured and billed as GRS or GZRS.
+> Azure Files doesn't support read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). If a storage account is configured to use RA-GRS or RA-GZRS, the standard (HDD) file shares will be configured and billed as GRS or GZRS.
 
 [!INCLUDE [Storage - Multi-region support introduction failover types](includes/storage/reliability-storage-multi-region-support-failover-types-include.md)]
 
@@ -120,13 +118,19 @@ This section describes what to expect when a file storage account is configured 
 
 ### Requirements
 
-Azure Files only supports geo-redundancy (GRS or GZRS) for standard (HDD) file shares. Premium (SSD) file shares must use LRS or ZRS. If you have premium file shares and you want to replicate the data across regions for higher resiliency, see [Alternative multi-region approaches](#alternative-multi-region-approaches).
+- **Standard file shares only:** Azure Files only supports geo-redundancy (GRS or GZRS) for standard (HDD) file shares. Premium (SSD) file shares must use LRS or ZRS. If you have premium file shares and you want to replicate the data across regions for higher resiliency, see [Alternative multi-region approaches](#alternative-multi-region-approaches).
+
+- **GRS and GZRS only:** Azure Files doesn't support read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). If a storage account is configured to use RA-GRS or RA-GZRS, the standard (HDD) file shares will be configured and billed as GRS or GZRS.
 
 ### Considerations
 
 When implementing multi-region Azure Files, consider the following important factors:
 
 [!INCLUDE [Storage - Multi Region Considerations - Latency](includes/storage/reliability-storage-multi-region-considerations-latency-include.md)]
+
+- **Last Sync Time:** For Azure Files, the Last Sync Time is based on the latest system snapshot in the secondary region.
+
+    The Last Sync Time calculation can time out if there are more than 100 file shares in a storage account. We recommend you deploy 100 or fewer file shares per storage account to avoid timeouts.
 
 - **Secondary region access**: The secondary region is not accessible for reads until a failover occurs.
 
@@ -140,17 +144,16 @@ For detailed pricing information, see [Azure Files pricing](https://azure.micros
 
 ### Configure multi-region support
 
-[!INCLUDE [Storage - Multi Region create](includes/storage/reliability-storage-multi-region-configure-create.md)]
+[!INCLUDE [Storage - Multi Region create](includes/storage/reliability-storage-multi-region-configure-create-include.md)]
 
 - **Enable geo-redundancy on an existing file storage account.** To convert an existing file storage account to geo-redundant storage, see [Change redundancy configuration for Azure Files](/azure/storage/files/files-change-redundancy-configuration?tabs=portal).
 
   > [!WARNING]
   > After your account is reconfigured for geo-redundancy, it may take a significant amount of time before existing data in the new primary region is fully copied to the new secondary.
   >
-  > **To avoid a major data loss**, check the value of the [Last Sync Time property](/azure/storage/common/last-sync-time-get) before initiating an unplanned failover. To evaluate potential data loss, compare the last sync time to the last time at which data was written to the new primary. For Azure Files, the Last Sync Time is based on the latest system snapshot in the secondary region. The Last Sync Time calculation can time out if the number of file shares exceeds 100 per storage account. Less than 100 file shares per storage account is recommended.
+  > **To avoid a major data loss**, check the value of the [Last Sync Time property](/azure/storage/common/last-sync-time-get) before initiating an unplanned failover. To evaluate potential data loss, compare the last sync time to the last time at which data was written to the new primary.
 
 - **Disable geo-redundancy.** Convert geo-redundant storage accounts back to single-region configurations (LRS or ZRS) through the same redundancy configuration change process.
-
 
 ### Normal operations
 
@@ -184,26 +187,21 @@ Below are some common high-level approaches to consider:
 
 - **Multiple storage accounts:** Azure Files can be deployed across multiple regions using separate storage accounts in each region. This approach provides flexibility in region selection, the ability to use non-paired regions, and more granular control over replication timing and data consistency. When implementing multiple storage accounts across regions, you need to configure cross-region data replication, implement load balancing and failover policies, and ensure data consistency across regions.
 
-- **Azure File Sync**: Deploy [Azure File Sync](/azure/storage/file-sync/file-sync-introduction) with sync servers in multiple regions connected to regional file shares. This provides multi-region access with local performance while maintaining central management. 
-
-<!-- John: Do you know another relevant URL for file server workloads? This is for NFS file shares that don't have GRS. For an example approach, see [Sync between two Azure file shares for Backup and Disaster Recovery](https://github.com/Azure-Samples/azure-files-samples/tree/master/SyncBetweenTwoAzureFileSharesForDR). -->
-
 - **Application-level replication**: Implement custom replication logic using [Azure Data Factory](/azure/data-factory/introduction) or [AzCopy](/azure/storage/common/storage-use-azcopy-v10) to synchronize data between file shares in different regions. This approach requires custom development and conflict resolution mechanisms.
 
 ## Backups
 
-[Azure Files backup](/azure/backup/azure-file-share-backup-overview) is an integration between Azure Files and Azure Backup. Azure Files backup provides point-in-time recovery features and offers capabilities that complement Azure Files redundancy features to protect your files against accidental deletion, corruption, or ransomware attacks.
-
-Azure Files backup creates share-level snapshots stored within the same storage account. This allows for the rapid recovery of both individual file and entire files shares. You can also use *backup policies* to provide long retention periods with customizable backup frequency.
-
 [Azure Files Backup](/azure/backup/azure-file-share-backup-overview) is a native integration between Azure Files and Azure Backup, designed to safeguard data against accidental deletion, corruption, and ransomware attacks.
+
+Azure Files backup creates share-level snapshots stored within the same storage account. This allows for the rapid recovery of both individual files and entire file shares. You can also use *backup policies* to provide long retention periods with customizable backup frequency.
 
 You can create your snapshots and store them in two different ways:
 
-**Share-level storage**. For operational and short-term recovery scenarios, you can create share-level snapshots and store them within the same storage account. Share-level snapshots enable rapid recovery of individual files or entire file shares to either the original or an alternate location.
+- **Share-level storage.** For operational and short-term recovery scenarios, you can create share-level snapshots and store them within the same storage account. Share-level snapshots enable rapid recovery of individual files or entire file shares to either the original or an alternate location.
 
-**Vaulted backup storage**. With vaulted backup, you can copy your daily snapshots to a Recovery Services Vault (RSV). To enhance security, this vault is isolated and air-gapped from the primary storage account. When your configure the RSV as a Geo-Redundant Storage (GRS) vault, the RSV replicates data to a paired Azure region, supporting cross-region recovery and supporting disaster recovery (DR) workflows.
-
+- **Vaulted backup storage.** With vaulted backup, you can copy your daily snapshots to a Recovery Services vault. To enhance security, this vault is isolated and air-gapped from the primary storage account
+  
+  When you use a paired Azure region and you configure the vault to use Geo-Redundant Storage (GRS), the vault replicates data to the paired region, supporting cross-region recovery and supporting disaster recovery (DR) workflows.
 
 ## Service-level agreement
 
