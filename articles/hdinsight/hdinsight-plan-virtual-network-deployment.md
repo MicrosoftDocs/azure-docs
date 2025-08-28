@@ -4,7 +4,7 @@ description: Learn how to plan an Azure Virtual Network deployment to connect HD
 ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 09/19/2024
+ms.date: 07/19/2025
 ---
 
 # Plan a virtual network for Azure HDInsight
@@ -199,6 +199,28 @@ When you create a HDInsight cluster, several load balancers are created as well.
 There are [several outbound connectivity methods](/azure/load-balancer/load-balancer-outbound-connections) enabled for the standard load balancer. It’s worth noting that the default outbound access will be retired soon. If a NAT gateway is adopted to provide outbound network access, the subnet is not capable with the basic load balancer. If you intend to bond a NAT gateway to a subnet, there should be no basic load balancer existed in this subnet. With the NAT gateway as the outbound access method, a newly created HDInsight cluster can't share the same subnet with previously created HDInsight clusters with basic load balancers.
 
 Another constraint is that the HDInsight load balancers shouldn't be deleted or modified. **Any changes to the load balancer rules will get overwritten during certain maintenance events such as certificate renewals.** If the load balancers are modified and it affects the cluster functionality, you may need to recreate the cluster.
+
+## Azure HDInsight Cluster Creation with Custom VNet: Private Endpoint Requirements and Policy Considerations
+
+### Overview
+When you create an Azure HDInsight cluster in a custom virtual network (VNet), the HDInsight Resource Provider (RP) must automatically deploy several networking resources into your VNet’s resource group, for example, load balancers, network interfaces, IP addresses, private endpoints, etc. Azure Storage and Azure SQL Databases (if not provided) will also be created along with the cluster.
+
+### Role of Private Endpoints in HDInsight
+Private Endpoints will be used to connect your cluster privately and securely to the Azure services, such as Azure Storage and Azure SQL Databases, over the Microsoft backbone network.
+
+### Policy Impact on Private Endpoint Creation
+If your organization has Azure Policies that deny the creation of private endpoints or deny the creation of cross-tenant private endpoint according to the document [Limit cross-tenant private endpoint connections in Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/limit-cross-tenant-private-endpoint-connections)in the resource group, HDInsight cluster creation will fail. This is because:
+
+* The HDInsight RP is unable to create the necessary private endpoint resources.
+* The cluster will transition into error state.
+    
+### Typical Error Scenario
+If private endpoint creation is blocked, you may see errors during cluster provisioning:
+
+* FailedToCreateDedicatedStoragePrivateEndpoint
+
+### Best Practices and Recommendations
+Create exemption in Azure Policy to allow PE creation in the subscription or resource group where HDInsight cluster resides.
 
 ## Next steps
 

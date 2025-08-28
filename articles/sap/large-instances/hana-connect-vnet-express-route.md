@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 6/1/2021
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
+# Customer intent: "As a cloud architect, I want to connect a virtual network to SAP HANA Large Instances using ExpressRoute, so that I can ensure low-latency and secure data transfer between my Azure resources and on-premises systems."
 ---
 
 # Connect a virtual network to HANA Large Instances

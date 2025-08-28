@@ -4,7 +4,7 @@ description: Learn about AI integration examples, samples, and other resources u
 services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, azla
-ms.topic: conceptual
+ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
 ms.date: 05/21/2025
 ms.update-cycle: 180-days

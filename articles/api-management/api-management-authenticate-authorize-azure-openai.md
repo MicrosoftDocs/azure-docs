@@ -165,4 +165,3 @@ Following are high level steps to restrict API access to users or apps that are 
 
 * Learn more about [Microsoft Entra ID and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).  
 * [Authenticate requests to Azure AI services](/azure/ai-services/authentication)
-* [Protect Azure OpenAI keys with API Management](/semantic-kernel/deploy/use-ai-apis-with-api-management?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)

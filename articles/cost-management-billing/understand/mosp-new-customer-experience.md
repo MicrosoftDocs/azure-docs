@@ -55,7 +55,7 @@ Your new experience includes the following cost management and billing capabilit
 
 **More predictable monthly billing period** - In your new account, the billing period begins from the first day of the month and ends at the last day of the month, no matter when you sign up to use Azure. An invoice will be generated at the beginning of each month, and will contain all consumption-based charges from the previous month.
 
-**Get a single monthly invoice for multiple subscriptions** - In your existing account, you get an invoice for each Azure subscription. When your account is updated, the existing behavior is maintained but you have the flexibility to consolidate the charges of your subscriptions on a single invoice. After you account is updated, follow the steps below to consolidate your charges on a single invoice:
+**Get a single monthly invoice for multiple subscriptions** - In your existing account, you get an invoice for each Azure subscription. When your account is updated, the existing behavior is maintained but you have the flexibility to consolidate the charges of your subscriptions on a single invoice. After your account is updated, follow the steps below to consolidate your charges on a single invoice:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for **Cost Management + Billing**.  

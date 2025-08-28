@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 11/28/2024
 ms.custom: references_regions, devx-track-azurepowershell-azurecli
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a data backup administrator, I want to encrypt my backup data using customer-managed keys, so that I can maintain control over my encryption keys and enhance data security within Azure Backup.
 ---
 

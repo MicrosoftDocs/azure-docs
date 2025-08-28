@@ -6,7 +6,7 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 01/22/2025
+ms.date: 07/29/2025
 ms.author: jkinma
 ---
 
@@ -244,6 +244,6 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 
 ## Related content
 
-- [Create a more Azure subscriptions for Microsoft Customer Agreement](create-subscription.md)
+- [Create more Azure subscriptions for Microsoft Customer Agreement](create-subscription.md)
 - [Manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
 - [Get billing ownership of Azure subscriptions from users in other billing accounts](mca-request-billing-ownership.md)

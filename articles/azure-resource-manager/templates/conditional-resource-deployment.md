@@ -3,7 +3,7 @@ title: Conditional deployment with templates
 description: Describes how to conditionally deploy a resource in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 06/20/2024
+ms.date: 07/23/2025
 ---
 
 # Conditional deployment in ARM templates
@@ -26,7 +26,8 @@ You can pass in a parameter value that indicates whether a resource is deployed.
   "contentVersion": "1.0.0.0",
   "parameters": {
     "deployZone": {
-      "type": "bool"
+      "type": "bool",
+      "defaultValue": true
     }
   },
   "functions": [],
@@ -34,9 +35,12 @@ You can pass in a parameter value that indicates whether a resource is deployed.
     {
       "condition": "[parameters('deployZone')]",
       "type": "Microsoft.Network/dnsZones",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2024-07-01-preview",
       "name": "myZone",
-      "location": "global"
+      "location": "global",
+      "properties": {
+        "zoneType": "Public"
+      }
     }
   ]
 }
@@ -73,7 +77,7 @@ You can use conditional deployment to create a new resource or use an existing o
     {
       "condition": "[equals(parameters('newOrExisting'), 'new')]",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-01-01",
       "name": "[parameters('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -84,7 +88,7 @@ You can use conditional deployment to create a new resource or use an existing o
     {
       "condition": "[equals(parameters('newOrExisting'), 'existing')]",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-01-01",
       "name": "[parameters('storageAccountName')]"
     }
   ],

@@ -112,7 +112,7 @@ A query for `secure.store.azure.contoso.com` matches the **AzurePrivate** rule f
 
 #### Rule processing
 
-- If multiple DNS servers are entered as the destination for a rule, the first IP address that is entered is used unless it doesn't respond. An exponential backoff algorithm is used to determine whether or not a destination IP address is responsive.
+- If multiple DNS servers are entered as the destination for a rule, the first IP address that is entered is used unless it doesn't respond.  If the first DNS Server does not respond, the next DNS Server on the list is used for the next attempt. An exponential backoff algorithm is used to determine whether or not a destination IP address is responsive.
 - Certain domains are ignored when using a wildcard rule for DNS resolution, because they're reserved for Azure services. See [Azure services DNS zone configuration](../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration) for a list of domains that are reserved. The two-label DNS names listed in this article (for example: windows.net, azure.com, azure.net, windowsazure.us) are reserved for Azure services.
 
 > [!IMPORTANT]

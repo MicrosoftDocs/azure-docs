@@ -10,6 +10,7 @@ ms.topic: article
 ms.date: 10/25/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
+# Customer intent: As a database administrator, I want to deploy SQL Server on Azure Virtual Machines for SAP workloads, so that I can ensure high availability and optimal performance tailored to my organizational requirements.
 ---
 
 # SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver

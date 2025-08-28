@@ -2,12 +2,12 @@
 title: Create a service SAS for a container or blob with Python
 titleSuffix: Azure Storage
 description: Learn how to create a service shared access signature (SAS) for a container or blob using the Azure Blob Storage client library for Python.
-author: pauljewellmsft
+author: stevenmatthew
 
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 09/06/2024
-ms.author: pauljewell
+ms.author: shaas
 ms.reviewer: nachakra
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python, engagement-fy23
@@ -90,3 +90,4 @@ To learn more about using the Azure Blob Storage client library for Python, see 
 
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md)
 - [Create a service SAS](/rest/api/storageservices/create-service-sas)
+

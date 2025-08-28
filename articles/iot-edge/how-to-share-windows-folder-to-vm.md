@@ -1,21 +1,20 @@
 ---
 title: Share Windows folder with Azure IoT Edge for Linux on Windows
 description: How to share a Windows folders and files with the Azure IoT Edge for Linux on Windows virtual machine.
-author: PatAltimore
-ms.reviewer: patricka
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ms.topic: how-to
 ms.date: 06/09/2025
-ms.author: patricka
 ---
 
 # Share a Windows folder with Azure IoT Edge for Linux on Windows
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-The Azure IoT Edge for Linux on Windows (EFLOW) virtual machine is isolated from the Windows host OS, and the virtual machine can't access the host file system. By default, the EFLOW virtual machine has its own file system and can't access folders or files on the host computer. The *EFLOW file and folder sharing mechanism* lets you share Windows files and folders with the CBL-Mariner Linux EFLOW VM.
+The Azure IoT Edge for Linux on Windows (EFLOW) virtual machine is isolated from the Windows host OS, and the virtual machine can't access the host file system. By default, the EFLOW virtual machine has its own file system and can't access folders or files on the host computer. The *EFLOW file and folder sharing mechanism* lets you share Windows files and folders with the Azure Linux EFLOW VM.
 
 This article shows you how to share a folder between the Windows host OS and the EFLOW virtual machine. 
 

@@ -2,10 +2,10 @@
 title: Prepare the DPM server to back up workloads
 description: In this article, learn how to prepare for System Center Data Protection Manager (DPM) backups to Azure, using the Azure Backup service.
 ms.topic: overview
-ms.date: 12/24/2024
+ms.date: 07/16/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a systems administrator, I want to prepare the DPM server for backups to Azure using the Azure Backup service, so that I can ensure data protection and disaster recovery for my workloads efficiently.
 ---
 
@@ -184,3 +184,8 @@ If you encounter an invalid vault credential error (for example, “Invalid vaul
 
 - Retry the operation after downloading a new vault credential file from the portal.
 - This error is typically seen when you select the **Download vault credential** option in the Azure portal, twice in quick succession. In this case, only the second vault credential file is valid.
+
+## Related content
+
+- [Manage backup to Azure for DPM servers via PowerShell](backup-dpm-automation.md).
+- [Back up an Exchange server with System Center 2012 R2 DPM](backup-azure-backup-exchange-server.md).

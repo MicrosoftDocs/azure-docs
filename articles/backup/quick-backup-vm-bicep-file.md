@@ -7,8 +7,8 @@ ms.date: 01/30/2025
 ms.reviewer: Daya-Patil
 ms.custom: mvc, subject-bicepqs, mode-arm, devx-track-bicep
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a cloud administrator, I want to back up an Azure virtual machine using a Bicep file, so that I can automate the deployment and configuration of backup resources efficiently."
 ---
 

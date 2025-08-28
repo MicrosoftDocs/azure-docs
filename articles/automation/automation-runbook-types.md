@@ -3,7 +3,7 @@ title: Azure Automation Runbook Types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/27/2025
+ms.date: 07/15/2025
 ms.topic: overview
 ms.custom: references_regions, devx-track-python, devx-track-azurepowershell
 ms.service: azure-automation
@@ -370,6 +370,9 @@ The limitations of Python runbooks are:
 - The Python **automationassets** package isn't available on pypi.org, so it's not available for import onto a Windows machine.
 
 ---
+
+> [!NOTE]
+> Using a webhook to start a Python runbook is not supported.
 
 ### Multiple Python versions
 

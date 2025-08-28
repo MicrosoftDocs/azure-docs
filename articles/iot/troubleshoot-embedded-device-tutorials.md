@@ -6,6 +6,7 @@ ms.author: dobett
 ms.service: azure-iot
 ms.topic: troubleshooting
 ms.date: 1/10/2025
+ms.update-cycle: 1095-days
 ---
 
 # Troubleshooting the Eclipse ThreadX embedded device tutorials

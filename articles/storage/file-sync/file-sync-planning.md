@@ -82,9 +82,7 @@ Azure File Sync is supported with the following versions of Windows Server:
 | Windows Server 2022 | Azure, Datacenter, Essentials, Standard, and IoT | Full and Core |
 | Windows Server 2019 | Datacenter, Essentials, Standard, and IoT | Full and Core |
 | Windows Server 2016 | Datacenter, Essentials, Standard, and Storage Server | Full and Core |
-| Windows Server 2012 R2* | Datacenter, Essentials, Standard, and Storage Server | Full and Core |
 
-*Requires downloading and installing [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). The appropriate package to download and install for Windows Server 2012 R2 is **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**.
 
 > [!IMPORTANT]  
 > We recommend keeping all servers that you use with Azure File Sync up to date with the latest updates from Windows Update. 
@@ -239,7 +237,14 @@ In this case, Azure File Sync would need about 209,500,000 KiB (209.5 GiB) of sp
 **Windows Server 2025, Windows Server 2022, Windows Server 2019, and Windows Server 2016**   
 Data Deduplication is supported irrespective of whether cloud tiering is enabled or disabled on one or more server endpoints on the volume for Windows Server 2016, Windows Server 2019, Windows Server 2022 and Windows Server 2025. Enabling Data Deduplication on a volume with cloud tiering enabled lets you cache more files on-premises without provisioning more storage. 
 
-When Data Deduplication is enabled on a volume with cloud tiering enabled, Dedup optimized files within the server endpoint location will be tiered similar to a normal file based on the cloud tiering policy settings. Once the Dedup optimized files have been tiered, the Data Deduplication garbage collection job will run automatically to reclaim disk space by removing unnecessary chunks that are no longer referenced by other files on the volume.
+When Data Deduplication is enabled on a volume with cloud tiering enabled, Dedup optimized files within the server endpoint location will be tiered similar to a normal file based on the cloud tiering policy settings. Once the Dedup optimized files have been tiered, the Data Deduplication garbage collection job will run automatically to reclaim disk space by removing unnecessary chunks that are no longer referenced by other files on the volume. 
+
+In some cases where Dedup is installed, the available volume space can increase more than expected after dedup garbage collection is triggered. Volume space works as follows:
+1. Let's say that the free space policy for cloud tiering is set to 20%. 
+2. Azure File Sync is notified when there is low free space (let's say when free space is 19%). 
+3. Tiering determines that 1% more space needs to be freed, but as a buffer we'll have 5% extra, so we'll tier up to 25% (for example, 30 GiB).
+4. The files get tiered until it reaches 30 GiB.
+5. As part of interop with Dedup, Azure File Sync initiates Garbage collection at the end of the tiering session.
 
 Note the volume savings only apply to the server; your data in the Azure file share won't be deduped.
 
@@ -310,6 +315,8 @@ To detect changes to the Azure file share, Azure File Sync has a scheduled job c
 For more information, see [Azure File Sync performance metrics](../files/storage-files-scale-targets.md?toc=/azure/storage/filesync/toc.json#azure-file-sync-performance-metrics) and [Azure File Sync scale targets](../files/storage-files-scale-targets.md?toc=/azure/storage/filesync/toc.json#azure-file-sync-scale-targets)
 
 ## Identity
+
+The administrator registering the server and creating the cloud endpoint must be a member of the management roles [Azure File Sync Administrator](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator), Owner or Contributor for the given Storage Sync Service. This can be configured under Access Control (IAM) in the Azure portal for the Storage Sync Service.
 
 Azure File Sync works with your standard AD-based identity without any special setup beyond setting up sync. When you're using Azure File Sync, the general expectation is that most accesses go through the Azure File Sync caching servers, rather than through the Azure file share. Since the server endpoints are located on Windows Server, and Windows Server has supported AD and Windows-style ACLs for a long time, nothing is needed beyond ensuring the Windows file servers registered with the Storage Sync Service are domain joined. Azure File Sync will store ACLs on the files in the Azure file share, and will replicate them to all server endpoints.
 

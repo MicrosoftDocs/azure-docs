@@ -129,7 +129,7 @@ This section outlines the steps for using Azure Data Box, AzCopy, and rsync to t
        - `-z`: Compresses data during transfer to reduce bandwidth usage.
    
      > [!NOTE]
-     > For examples using Rsync, visit [rysnc examples](https://rsync.samba.org/examples.html).
+     > For examples using Rsync, visit [rsync examples](https://rsync.samba.org/examples.html).
 
 ### Example data migration implementation
 

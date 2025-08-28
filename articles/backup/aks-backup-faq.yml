@@ -5,8 +5,8 @@ metadata:
   ms.topic: faq
   ms.service: azure-backup
   ms.date: 04/14/2025
-  author: jyothisuri
-  ms.author: jsuri
+  author: AbhishekMallick-MS
+  ms.author: v-mallicka
 title: Frequently asked questions about Azure Backup for Azure Kubernetes Service
 summary: |
   This article answers frequently asked questions about Azure Backup for Azure Kubernetes Service. For more information on the [Azure Backup for AKS](azure-kubernetes-service-backup-overview.md) region availability, supported scenarios, and limitations, see the [support matrix](azure-kubernetes-service-cluster-backup-support-matrix.md).

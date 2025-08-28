@@ -57,6 +57,9 @@ To use Network Fabric read-only commands, complete the following steps:
     > [!NOTE]
     > The Storage URL must be located in a different region from the Network Fabric. For instance, if the Fabric is hosted in East US, the storage URL should be outside of East US. 
 
+>[!Note]
+> As part of our continued commitment to security and modernization, we are announcing the end of support for Shared Access Signature (SAS) URL–based access to customer-provided storage accounts Azure Operator Nexus 2508.1 release.
+
 ## Bring your own storage account 
 
 Users can bring your own storage for storing output files of runRO command by following the steps outlined in the [Bring Your Own Storage for Network Fabric](howto-configure-bring-your-own-storage-network-fabric.md) guide.

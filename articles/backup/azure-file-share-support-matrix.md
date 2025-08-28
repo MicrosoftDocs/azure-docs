@@ -2,11 +2,11 @@
 title: Support Matrix for Azure files backup by using Azure Backup
 description: Provides a summary of support settings and limitations when backing up Azure files.
 ms.topic: reference
-ms.date: 07/03/2025
+ms.date: 07/10/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a cloud architect, I want to understand the supported configurations and limitations for backing up Azure files using Azure Backup, so that I can ensure my backup strategy meets compliance and operational requirements."
 ---
 
@@ -33,7 +33,7 @@ Vaulted backup for Azure Files is available in the following regions: UK South, 
 
 Cross Region Restore is supported in all preceding regions, except Italy North.
 
-Migration of  File Shares protected with snapshot backup to vaulted backup is supported in the following regions: UK South, UK West, Southeast Asia, East Asia, West Central US, and India Central.
+Migration of  File Shares protected with snapshot backup to vaulted backup is supported in the following regions: UK South, UK West, Southeast Asia, East Asia, West Central US, India Central, Spain Central, Jio India West, Israel Central, Australia Central 2 and Germany North. 
 
 >[!Note]
 >Cross Subscription Backup and Restore are supported for vaulted backup.

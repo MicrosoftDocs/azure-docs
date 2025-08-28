@@ -18,6 +18,9 @@ ms.custom: references_regions
 
 In today’s communication landscape, businesses use different types of phone numbers to connect with their customers. Azure Communication Services (ACS) supports several types of numbers across various regions, each suited to specific use cases. This document will help you understand the types of numbers ACS offers, where they’re available, and how to select the most appropriate type for your business needs.
 
+> [!TIP]
+> For global SMS delivery and partner-managed options, check out [Messaging Connect](../sms/messaging-connect.md).
+
 ---
 
 ## Number Types with SMS Capabilities Supported by ACS

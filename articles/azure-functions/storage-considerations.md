@@ -1,15 +1,16 @@
 ---
 title: Storage considerations for Azure Functions
-description: Learn about the storage requirements of Azure Functions and about encrypting stored data.
+description: Learn about the storage requirements of Azure Functions and about encrypting stored data, including important considerations for your function app instances.
 ms.topic: conceptual
 ms.custom:
   - ignite-2024
-ms.date: 07/30/2024
+ms.date: 07/13/2025
+#customer intent: As a function app developer, I want to know the storage options for my apps, including guidance and best practices.
 ---
 
 # Storage considerations for Azure Functions
 
-Azure Functions requires an Azure Storage account when you create a function app instance. The following storage services could be used by your function app:
+Azure Functions requires an Azure Storage account when you create a function app instance. Your function app could use the following storage services:
 
 |Storage service  | Functions usage  |
 |---------|---------|
@@ -25,35 +26,35 @@ Azure Functions requires an Azure Storage account when you create a function app
 
 You must strongly consider the following facts regarding the storage accounts used by your function apps:
 
-+ When your function app is hosted on the Consumption plan or Premium plan, your function code and configuration files are stored in Azure Files in the linked storage account. When you delete this storage account, the content is deleted and can't be recovered. For more information, see [Storage account was deleted](functions-recover-storage-account.md#storage-account-was-deleted)
+- When your function app is hosted on the Consumption plan or Premium plan, your function code and configuration files are stored in Azure Files in the linked storage account. When you delete this storage account, the content is deleted and can't be recovered. For more information, see [Storage account was deleted](functions-recover-storage-account.md#storage-account-was-deleted).
 
-+ Important data, such as function code, [access keys](function-keys-how-to.md), and other important service-related data, can be persisted in the storage account. You must carefully manage access to the storage accounts used by function apps in the following ways: 
+- Important data, such as function code, [access keys](function-keys-how-to.md), and other important service-related data, can be persisted in the storage account. You must carefully manage access to the storage accounts used by function apps in the following ways: 
 
-    + Audit and limit the access of apps and users to the storage account based on a least-privilege model. Permissions to the storage account can come from [data actions in the assigned role](../role-based-access-control/role-definitions.md#control-and-data-actions) or through permission to perform the [listKeys operation].
+  - Audit and limit the access of apps and users to the storage account based on a least-privilege model. Permissions to the storage account can come from [data actions in the assigned role](../role-based-access-control/role-definitions.md#control-and-data-actions) or through permission to perform the [listKeys operation].
 
-    + Monitor both control plane activity (such as retrieving keys) and data plane operations (such as writing to a blob) in your storage account. Consider maintaining storage logs in a location other than Azure Storage. For more information, see [Storage logs](#storage-logs). 
+  - Monitor both control plane activity (such as retrieving keys) and data plane operations (such as writing to a blob) in your storage account. Consider maintaining storage logs in a location other than Azure Storage. For more information, see [Storage logs](#storage-logs). 
 
 ## Storage account requirements
 
-Storage accounts created as part of the function app create flow in the Azure portal are guaranteed to work with the new function app. When you choose to use an existing storage account, the list provided doesn't include certain unsupported storage accounts. The following restrictions apply to storage accounts used by your function app, so you must make sure an existing storage account meets these requirements: 
+Storage accounts created as part of the function app create flow in the Azure portal work with the new function app. When you choose to use an existing storage account, the list provided doesn't include certain unsupported storage accounts. The following restrictions apply to storage accounts used by your function app. Make sure an existing storage account meets these requirements:
 
-+ The account type must support Blob, Queue, and Table storage. Some storage accounts don't support queues and tables. These accounts include blob-only storage accounts and Azure Premium Storage. To learn more about storage account types, see [Storage account overview](../storage/common/storage-account-overview.md).
+- The account type must support Blob, Queue, and Table storage. Some storage accounts don't support queues and tables. These accounts include blob-only storage accounts and Azure Premium Storage. To learn more about storage account types, see [Storage account overview](../storage/common/storage-account-overview.md).
 
-+ You can't use a network-secured storage account when your function app is hosted in the [Consumption plan](consumption-plan.md).
+- You can't use a network-secured storage account when your function app is hosted in the [Consumption plan](consumption-plan.md).
 
-+ When creating your function app in the portal, you're only allowed to choose an existing storage account in the same region as the function app you're creating. This is a performance optimization and not a strict limitation. To learn more, see [Storage account location](#storage-account-location).
+- When you create your function app in the Azure portal, you're only allowed to choose an existing storage account in the same region as the function app that you create. This requirement is a performance optimization and not a strict limitation. To learn more, see [Storage account location](#storage-account-location).
 
-+ When creating your function app on a plan with [availability zone support](../reliability/reliability-functions.md#availability-zone-support) enabled, only [zone-redundant storage accounts](../storage/common/storage-redundancy.md#zone-redundant-storage) are supported.
+- When you create your function app on a plan with [availability zone support](../reliability/reliability-functions.md#availability-zone-support) enabled, only [zone-redundant storage accounts](../storage/common/storage-redundancy.md#zone-redundant-storage) are supported.
 
-When using deployment automation to create your function app with a network-secured storage account, you must include specific networking configurations in your ARM template or Bicep file. When you don't include these settings and resources, your automated deployment might fail in validation. For more specific ARM and Bicep guidance, see [Secured deployments](functions-infrastructure-as-code.md#secured-deployments). For an overview on configuring storage accounts with networking, see [How to use a secured storage account with Azure Functions](configure-networking-how-to.md).
+When you use deployment automation to create your function app with a network-secured storage account, you must include specific networking configurations in your ARM template or Bicep file. When you don't include these settings and resources, your automated deployment might fail in validation. For ARM and Bicep guidance, see [Secured deployments](functions-infrastructure-as-code.md#secured-deployments). For an overview on configuring storage accounts with networking, see [How to use a secured storage account with Azure Functions](configure-networking-how-to.md).
 
 ## Storage account guidance
 
-Every function app requires a storage account to operate. When that account is deleted, your function app won't run. To troubleshoot storage-related issues, see [How to troubleshoot storage-related issues](functions-recover-storage-account.md). The following other considerations apply to the Storage account used by function apps.
+Every function app requires a storage account to operate. When that account is deleted, your function app no longer runs. To troubleshoot storage-related issues, see [How to troubleshoot storage-related issues](functions-recover-storage-account.md). The following other considerations apply to the Storage account used by function apps.
 
 ### Storage account location
 
-For best performance, your function app should use a storage account in the same region, which reduces latency. The Azure portal enforces this best practice. If for some reason you need to use a storage account in a region different than your function app, you must create your function app outside of the portal. 
+For best performance, your function app should use a storage account in the same region, which reduces latency. The Azure portal enforces this best practice. If for some reason you need to use a storage account in a region different than your function app, you must create your function app outside of the Azure portal. 
 
 The storage account must be accessible to the function app. If you need to use a secured storage account, consider [restricting your storage account to a virtual network](./functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).
 
@@ -61,26 +62,26 @@ The storage account must be accessible to the function app. If you need to use a
 
 By default, function apps configure the `AzureWebJobsStorage` connection as a connection string stored in the [AzureWebJobsStorage application setting](./functions-app-settings.md#azurewebjobsstorage), but you can also [configure AzureWebJobsStorage to use an identity-based connection](functions-reference.md#connecting-to-host-storage-with-an-identity) without a secret.
 
-Function apps running in a Consumption plan (Windows only) or an Elastic Premium plan (Windows or Linux) can use Azure Files to store the images required to enable dynamic scaling. For these plans, set the connection string for the storage account in the [WEBSITE_CONTENTAZUREFILECONNECTIONSTRING](./functions-app-settings.md#website_contentazurefileconnectionstring) setting and the name of the file share in the [WEBSITE_CONTENTSHARE](./functions-app-settings.md#website_contentshare) setting. This is usually the same account used for `AzureWebJobsStorage`. You can also [create a function app that doesn't use Azure Files](#create-an-app-without-azure-files), but scaling might be limited.
+Function apps running in a Consumption plan (Windows only) or an Elastic Premium plan (Windows or Linux) can use Azure Files to store the images required to enable dynamic scaling. For these plans, set the connection string for the storage account in the [WEBSITE_CONTENTAZUREFILECONNECTIONSTRING](./functions-app-settings.md#website_contentazurefileconnectionstring) setting and the name of the file share in the [WEBSITE_CONTENTSHARE](./functions-app-settings.md#website_contentshare) setting. This value is usually the same account used for `AzureWebJobsStorage`. You can also [create a function app that doesn't use Azure Files](#create-an-app-without-azure-files), but scaling might be limited.
 
 > [!NOTE]
-> A storage account connection string must be updated when you regenerate storage keys. [Read more about storage key management here](../storage/common/storage-account-create.md).
+> A storage account connection string must be updated when you regenerate storage keys. For more information, see [Create an Azure storage account](../storage/common/storage-account-create.md).
 
 ### Shared storage accounts
 
-It's possible for multiple function apps to share the same storage account without any issues. For example, in Visual Studio you can develop multiple apps using the [Azurite storage emulator](functions-develop-local.md#local-storage-emulator). In this case, the emulator acts like a single storage account. The same storage account used by your function app can also be used to store your application data. However, this approach isn't always a good idea in a production environment.
+It's possible for multiple function apps to share the same storage account without any issues. For example, in Visual Studio, you can develop multiple apps using the [Azurite storage emulator](functions-develop-local.md#local-storage-emulator). In this case, the emulator acts like a single storage account. The same storage account used by your function app can also be used to store your application data. However, this approach isn't always a good idea in a production environment.
 
 You might need to use separate storage accounts to [avoid host ID collisions](#avoiding-host-id-collisions).
 
 ### Lifecycle management policy considerations
 
-You shouldn't apply [lifecycle management policies](../storage/blobs/lifecycle-management-overview.md) to your Blob Storage account used by your function app. Functions uses Blob storage to persist important information, such as [function access keys](function-keys-how-to.md), and policies could remove blobs (such as keys) needed by the Functions host. If you must use policies, exclude containers used by Functions, which are prefixed with `azure-webjobs` or `scm`.
+You shouldn't apply [lifecycle management policies](../storage/blobs/lifecycle-management-overview.md) to your Blob Storage account used by your function app. Functions uses Blob storage to persist important information, such as [function access keys](function-keys-how-to.md). Policies could remove blobs, such as keys, needed by the Functions host. If you must use policies, exclude containers used by Functions, which are prefixed with `azure-webjobs` or `scm`.
 
 ### Storage logs
 
 Because function code and keys might be persisted in the storage account, logging of activity against the storage account is a good way to monitor for unauthorized access. Azure Monitor resource logs can be used to track events against the storage data plane. See [Monitoring Azure Storage](../storage/blobs/monitor-blob-storage.md) for details on how to configure and examine these logs.
 
-The [Azure Monitor activity log](/azure/azure-monitor/essentials/activity-log) shows control plane events, including the [listKeys operation]. However, you should also configure resource logs for the storage account to track subsequent use of keys or other identity-based data plane operations. You should have at least the [StorageWrite log category](../storage/blobs/monitor-blob-storage.md#collection-and-routing) enabled to be able to identify modifications to the data outside of normal Functions operations. 
+The [Azure Monitor activity log](/azure/azure-monitor/essentials/activity-log) shows control plane events, including the [listKeys operation]. However, you should also configure resource logs for the storage account to track subsequent use of keys or other identity-based data plane operations. You should have at least the [StorageWrite log category](../storage/blobs/monitor-blob-storage.md#collection-and-routing) enabled to be able to identify modifications to the data outside of normal Functions operations.
 
 To limit the potential impact of any broadly scoped storage permissions, consider using a nonstorage destination for these logs, such as Log Analytics. For more information, see [Monitoring Azure Blob Storage](../storage/blobs/monitor-blob-storage.md).
 
@@ -90,7 +91,7 @@ To limit the potential impact of any broadly scoped storage permissions, conside
 
 ### Consistent routing through virtual networks
 
-Multiple function apps hosted in the same plan can also use the same storage account for the Azure Files content share (defined by `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`). When this storage account is also secured by a virtual network, all of these apps should also use the same value for `vnetContentShareEnabled` (formerly `WEBSITE_CONTENTOVERVNET`) to guarantee that traffic is routed consistently through the intended virtual network. A mismatch in this setting between apps using the same Azure Files storage account might result in traffic being routed through public networks, which causes access to be blocked by storage account network rules.
+Multiple function apps hosted in the same plan can also use the same storage account for the Azure Files content share, defined by `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`. When this storage account is also secured by a virtual network, all of these apps should also use the same value for `vnetContentShareEnabled` (formerly `WEBSITE_CONTENTOVERVNET`) to ensure that traffic is routed consistently through the intended virtual network. A mismatch in this setting between apps using the same Azure Files storage account might result in traffic being routed through public networks. In this configuration, storage account network rules block access.
 
 ## Working with blobs 
 
@@ -98,7 +99,7 @@ A key scenario for Functions is file processing of files in a blob container, su
 
 ### Trigger on a blob container
 
-There are several ways to execute your function code based on changes to blobs in a storage container. Use the following table to determine which function trigger best fits your needs:
+There are several ways to run your function code based on changes to blobs in a storage container. Use the following table to determine which function trigger best fits your needs:
 
 | Strategy | Container (polling) | Container (events) | Queue trigger | Event Grid | 
 | ----- | ----- | ----- | ----- | ---- |
@@ -111,7 +112,7 @@ There are several ways to execute your function code based on changes to blobs i
 | Requires [event subscription](../event-grid/concepts.md#event-subscriptions) | No | Yes | No | Yes |
 | Supports [Flex Consumption plan](flex-consumption-plan.md) | No | Yes | Yes | Yes |
 | Supports high-scale² | No | Yes | Yes | Yes |
-| Description | Default trigger behavior, which relies on polling the container for updates. For more information, see the examples in the [Blob storage trigger reference](./functions-bindings-storage-blob-trigger.md#example). | Consumes blob storage events from an event subscription. Requires a `Source` parameter value of `EventGrid`. For more information, see [Tutorial: Trigger Azure Functions on blob containers using an event subscription](./functions-event-grid-blob-trigger.md). | Blob name string is manually added to a storage queue when a blob is added to the container. This value is passed directly by a Queue storage trigger to a Blob storage input binding on the same function. | Provides the flexibility of triggering on events besides those coming from a storage container. Use when need to also have nonstorage events trigger your function. For more information, see [How to work with Event Grid triggers and bindings in Azure Functions](event-grid-how-tos.md). |
+| Description | Default trigger behavior, which relies on polling the container for updates. For more information, see the examples in the [Blob storage trigger reference](./functions-bindings-storage-blob-trigger.md#example). | Consumes blob storage events from an event subscription. Requires a `Source` parameter value of `EventGrid`. For more information, see [Tutorial: Trigger Azure Functions on blob containers using an event subscription](./functions-event-grid-blob-trigger.md). | Blob name string is manually added to a storage queue when a blob is added to the container. A Queue storage trigger passes this value directly to a Blob storage input binding on the same function. | Provides the flexibility of triggering on events besides those events that come from a storage container. Use when need to also have nonstorage events trigger your function. For more information, see [How to work with Event Grid triggers and bindings in Azure Functions](event-grid-how-tos.md). |
 
 1. Blob storage input and output bindings support blob-only accounts.
 2. High scale can be loosely defined as containers that have more than 100,000 blobs in them or storage accounts that have more than 100 blob updates per second.
@@ -133,18 +134,18 @@ Functions uses a host ID value as a way to uniquely identify a particular functi
 >[!NOTE]
 >This same kind of host ID collision can occur between a function app in a production slot and the same function app in a staging slot, when both slots use the same storage account.
 
-Starting with version 3.x of the Functions runtime, host ID collision is detected and a warning is logged. In version 4.x, an error is logged and the host is stopped, resulting in a hard failure. More details about host ID collision can be found in [this issue](https://github.com/Azure/azure-functions-host/issues/2015).
+Starting with version 3.x of the Functions runtime, host ID collision is detected and a warning is logged. In version 4.x, an error is logged and the host is stopped, resulting in a hard failure. For more information, see [HostID Truncation can cause collisions](https://github.com/Azure/azure-functions-host/issues/2015).
 
 ### Avoiding host ID collisions
 
 You can use the following strategies to avoid host ID collisions:
 
-+ Use a separated storage account for each function app or slot involved in the collision.
-+ Rename one of your function apps to a value fewer than 32 characters in length, which changes the computed host ID for the app and removes the collision.
-+ Set an explicit host ID for one or more of the colliding apps. To learn more, see [Host ID override](#override-the-host-id).
+- Use a separate storage account for each function app or slot involved in the collision.
+- Rename one of your function apps to a value fewer than 32 characters in length, which changes the computed host ID for the app and removes the collision.
+- Set an explicit host ID for one or more of the colliding apps. To learn more, see [Override the host ID](#override-the-host-id).
 
 > [!IMPORTANT]
-> Changing the storage account associated with an existing function app or changing the app's host ID can impact the behavior of existing functions. For example, a Blob storage trigger tracks whether it's processed individual blobs by writing receipts under a specific host ID path in storage. When the host ID changes or you point to a new storage account, previously processed blobs could be reprocessed. 
+> Changing the storage account associated with an existing function app or changing the app's host ID can affect the behavior of existing functions. For example, a Blob storage trigger tracks whether it's processed individual blobs by writing receipts under a specific host ID path in storage. When the host ID changes or you point to a new storage account, previously processed blobs could be reprocessed. 
 
 ### Override the host ID
 
@@ -154,7 +155,7 @@ When the collision occurs between slots, you must set a specific host ID for eac
 
 ## Azure Arc-enabled clusters
 
-When your function app is deployed to an Azure Arc-enabled Kubernetes cluster, a storage account might not be required by your function app. In this case, a storage account is only required by Functions when your function app uses a trigger that requires storage. The following table indicates which triggers might require a storage account and which don't. 
+When your function app is deployed to an Azure Arc-enabled Kubernetes cluster, your function app might not require a storage account. In this case, functions only require a storage account when your function app uses a trigger that requires storage. The following table indicates which triggers might require a storage account and which don't.
 
 | Not required | might require storage |
 | --- | --- | 
@@ -166,34 +167,34 @@ Creating your function app resources using methods other than the Azure CLI requ
 
 ## Create an app without Azure Files
 
-The Azure Files service provides a shared file system that supports high-scale scenarios. When your function app runs in an Elastic Premium plan or on Windows in a Consumption plan, an Azure Files share is created by default in your storage account. That share is used by Functions to enable certain features, like log streaming. It is also used as a shared package deployment location, which guarantees the consistency of your deployed function code across all instances. 
+The Azure Files service provides a shared file system that supports high-scale scenarios. When your function app runs in an Elastic Premium plan or on Windows in a Consumption plan, an Azure Files share is created by default in your storage account. Functions use that share is used to enable certain features, like log streaming. It's also used as a shared package deployment location, which guarantees the consistency of your deployed function code across all instances.
 
 By default, function apps hosted in Premium and Consumption plans use [zip deployment](./deployment-zip-push.md), with deployment packages stored in this Azure file share. This section is only relevant to these hosting plans.
 
-Using Azure Files requires the use of a connection string, which is stored in your app settings as [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring). Azure Files doesn't currently support identity-based connections. If your scenario requires you to not store any secrets in app settings, you must remove your app's dependency on Azure Files. You can do this by creating your app without the default Azure Files dependency. 
+Using Azure Files requires the use of a connection string, which is stored in your app settings as [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring). Azure Files doesn't currently support identity-based connections. If your scenario requires you to not store any secrets in app settings, you must remove your app's dependency on Azure Files. You can do avoid dependencies by creating your app without the default Azure Files dependency.
 
->[!NOTE]
->You should also consider running in your function app in the Flex Consumption plan, which provides greater control over the deployment package, including the ability use managed identity connections. For more information, see [Configure deployment settings](flex-consumption-how-to.md#configure-deployment-settings) in the Flex Consumption article.
+> [!NOTE]
+> You should also consider running your function app in the Flex Consumption plan, which provides greater control over the deployment package, including the ability use managed identity connections. For more information, see [Configure deployment settings](flex-consumption-how-to.md#configure-deployment-settings).
 
 To run your app without the Azure file share, you must meet the following requirements:
 
-* You must [deploy your package to a remote Azure Blob storage container](./run-functions-from-deployment-package.md) and then set the URL that provides access to that package as the [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package) app setting. This option lets you store your app content in Blob storage instead of Azure Files, which does support [managed identities](./run-functions-from-deployment-package.md#fetch-a-package-from-azure-blob-storage-using-a-managed-identity). 
+- You must [deploy your package to a remote Azure Blob storage container](./run-functions-from-deployment-package.md) and then set the URL that provides access to that package as the [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package) app setting. This approach lets you store your app content in Blob storage instead of Azure Files, which does support [managed identities](./run-functions-from-deployment-package.md#fetch-a-package-from-azure-blob-storage-using-a-managed-identity). 
 
-You are responsible for manually updating the deployment package and maintaining the deployment package URL, which likely contains a shared access signature (SAS).
+You must manually update the deployment package and maintain the deployment package URL, which likely contains a shared access signature (SAS).
 
 You should also note the following considerations:
 
-* The app can't use version 1.x of the Functions runtime.
-* Your app can't rely on a shared writeable file system.
-* Portal editing isn't supported
-* Log streaming experiences in clients such as the Azure portal default to file system logs. You should instead rely on Application Insights logs.
+- The app can't use version 1.x of the Functions runtime.
+- Your app can't rely on a shared writeable file system.
+- Portal editing isn't supported.
+- Log streaming experiences in clients such as the Azure portal default to file system logs. You should instead rely on Application Insights logs.
 
-If the above requirements suit your scenario, you can proceed to create a function app without Azure Files. You can do this by creating an app without the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` and `WEBSITE_CONTENTSHARE` app settings in one of these ways: 
+If the preceding requirements suit your scenario, you can proceed to create a function app without Azure Files. Create an app without the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` and `WEBSITE_CONTENTSHARE` app settings in one of these ways: 
 
 - Bicep/ARM templates: remove the two app settings from the ARM template or Bicep file and then deploy the app using the modified template. 
-- Azure portal: unselect the **Add an Azure Files connection** checkbox in the **Storage** tab when you create the app in the portal.
+- The Azure portal: unselect **Add an Azure Files connection** in the **Storage** tab when you create the app in the Azure portal.
 
-Since Azure Files is used to enable dynamic scale-out for Functions, scaling could be limited when running your app without Azure Files in the Elastic Premium plan and Consumption plans running on Windows. 
+Azure Files is used to enable dynamic scale-out for Functions. Scaling could be limited when you run your app without Azure Files in the Elastic Premium plan and Consumption plans running on Windows. 
 
 ## Mount file shares
 
@@ -203,19 +204,19 @@ You can mount existing Azure Files shares to your Linux function apps. By mounti
 
 # [Azure CLI](#tab/azure-cli)
 
-[`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add)
+[az webapp config storage-account add](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add)
 
-In this command, `share-name` is the name of the existing Azure Files share, and `custom-id` can be any string that uniquely defines the share when mounted to the function app. Also, `mount-path` is the path from which the share is accessed in your function app. `mount-path` must be in the format `/dir-name`, and it can't start with `/home`.
+In this command, `share-name` is the name of the existing Azure Files share. `custom-id` can be any string that uniquely defines the share when mounted to the function app. Also, `mount-path` is the path from which the share is accessed in your function app. `mount-path` must be in the format `/dir-name`, and it can't start with `/home`.
 
-For a complete example, see the scripts in [Create a Python function app and mount an Azure Files share](scripts/functions-cli-mount-files-storage-linux.md). 
+For a complete example, see [Create a Python function app and mount an Azure Files share](scripts/functions-cli-mount-files-storage-linux.md). 
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-[`New-AzWebAppAzureStoragePath`](/powershell/module/az.websites/new-azwebappazurestoragepath)
+[New-AzWebAppAzureStoragePath](/powershell/module/az.websites/new-azwebappazurestoragepath)
 
-In this command, `-ShareName` is the name of the existing Azure Files share, and `-MountPath` is the path from which the share is accessed in your function app. `-MountPath` must be in the format `/dir-name`, and it can't start with `/home`. After you create the path, use the `-AzureStoragePath` parameter of [`Set-AzWebApp`](/powershell/module/az.websites/set-azwebapp) to add the share to the app.
+In this command, `-ShareName` is the name of the existing Azure Files share. `-MountPath` is the path from which the share is accessed in your function app. `-MountPath` must be in the format `/dir-name`, and it can't start with `/home`. After you create the path, use the `-AzureStoragePath` parameter of [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) to add the share to the app.
 
-For a complete example, see the script in [Create a serverless Python function app and mount file share](create-resources-azure-powershell.md#create-a-serverless-python-function-app-and-mount-file-share). 
+For a complete example, see [Create a serverless Python function app and mount file share](create-resources-azure-powershell.md#create-a-serverless-python-function-app-and-mount-file-share). 
 
 ---
 
@@ -230,7 +231,7 @@ import os
 files_in_share = os.listdir("/path/to/mount")
 ```
 
-## Next steps
+## Related article
 
 Learn more about Azure Functions hosting options.
 

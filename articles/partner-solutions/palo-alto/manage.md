@@ -1,5 +1,5 @@
 ---
-title: Manage a Cloud Next-Generation Firewall (NGFW) by Palo Alto Networks Resource by Using the Azure Portal
+title: Manage a Cloud Next-Generation Firewall (NGFW) by Palo Alto Networks Resource by Using the Azure portal
 description: Manage your Cloud NGFW resource in the Azure portal, including networking, NAT, rulestack settings, logging, Domain Name System (DNS) proxy configuration, and billing plan changes.
 ms.topic: how-to
 ms.date: 06/26/2025
@@ -40,8 +40,18 @@ To change the Cloud NGFW's billing plan, go to **Overview** and select **Change 
 > [!NOTE]
 > The **Delete** button on the resource is activated only if all connected resources are already deleted. For more information, see [Azure Resource Manager resource group and resource deletion](/azure/azure-resource-manager/management/delete-resource-group).
 
-## Next step
+## Get support
 
-- For help with troubleshooting, see [Troubleshooting Palo Alto integration with Azure](troubleshoot.md).
+Contact [Palo Alto Network](https://support.paloaltonetworks.com/Support/Index) for customer support.
+
+You can also request support in the Azure portal from the [resource overview](#resource-overview).
+
+Select **Support + Troubleshooting** > **New support request** from the service menu, then choose the link to [Contact PAN customer support](https://support.paloaltonetworks.com/Support/Index). 
+
+## Related content
+
+- [Azure Virtual Network FAQ](../../virtual-network/virtual-networks-faq.md)
+- [Virtual WAN FAQ](../../virtual-wan/virtual-wan-faq.md)
+
 
 
