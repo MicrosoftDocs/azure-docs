@@ -1,8 +1,8 @@
 ---
-title: Configure Linux Python apps
-description: Learn how to configure the Python container in which web apps are run, using both the Azure portal and the Azure CLI.
+title: Configure Linux Python Apps
+description: Learn how to configure the Python container in which web apps are run by using both the Azure portal and the Azure CLI.
 ms.topic: quickstart
-ms.date: 08/29/2024
+ms.date: 09/01/2025
 ms.reviewer: astay
 ms.author: msangapu
 author: msangapu-msft
@@ -18,28 +18,28 @@ ms.service: azure-app-service
 
 This article describes how [Azure App Service](overview.md) runs Python apps, how you can migrate existing apps to Azure, and how you can customize the behavior of App Service when you need to. Python apps must be deployed with all the required [pip](https://pypi.org/project/pip/) modules.
 
-The App Service deployment engine automatically activates a virtual environment and runs `pip install -r requirements.txt` for you when you deploy a [Git repository](deploy-local-git.md), or when you deploy a [zip package](deploy-zip.md) [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy).
+The App Service deployment engine automatically activates a virtual environment and runs `pip install -r requirements.txt` when you deploy a [Git repository](deploy-local-git.md) or when you deploy a [zip package](deploy-zip.md) [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy).
 
 > [!NOTE]
-> Currently App Service requires `requirements.txt` in your project's root directory even if you have a `pyproject.toml`. See [Generate requirements.txt from pyproject.toml](#generate-requirementstxt-from-pyprojecttoml) for recommended approaches.
+> App Service currently requires `requirements.txt` in your project's root directory even if you have a `pyproject.toml`. See [Generate requirements.txt from pyproject.toml](#generate-requirementstxt-from-pyprojecttoml) for recommended approaches.
 
-This guide provides key concepts and instructions for Python developers who use a built-in Linux container in App Service. If you've never used Azure App Service, first follow the [Python quickstart](quickstart-python.md) and [Flask](tutorial-python-postgresql-app-flask.md), [Django](tutorial-python-postgresql-app-django.md), or [FastAPI](tutorial-python-postgresql-app-fastapi.md) with PostgreSQL tutorial.
+This article provides key concepts and instructions for Python developers who use a built-in Linux container in App Service. If you've never used App Service, first complete the [Python quickstart](quickstart-python.md) and [Flask](tutorial-python-postgresql-app-flask.md), [Django](tutorial-python-postgresql-app-django.md), or [FastAPI](tutorial-python-postgresql-app-fastapi.md) with PostgreSQL tutorial.
 
 You can use either the [Azure portal](https://portal.azure.com) or the Azure CLI for configuration:
 
-- **Azure portal**, use the app's **Settings** > **Configuration** page as described in [Configure an App Service app in the Azure portal](configure-common.md).
+- **Azure portal**. Use the app's **Settings** > **Configuration** page, as described in [Configure an App Service app in the Azure portal](configure-common.md).
 
-- **Azure CLI**: you have two options.
+- **Azure CLI**. You have two options.
 
   - Run commands in the [Azure Cloud Shell](../cloud-shell/overview.md).
-  - Run commands locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az-login).
+  - Run commands locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli) and signing in to Azure by using [az login](/cli/azure/reference-index#az-login).
 
 > [!NOTE]
-> Linux is the only operating system option for running Python apps in App Service. Python on Windows is no longer supported. You can however build your own custom Windows container image and run that in App Service. For more information, see [use a custom Docker image](tutorial-custom-container.md?pivots=container-windows).
+> Linux is the only operating system option for running Python apps in App Service. Python on Windows is no longer supported. You can, however, build your own custom Windows container image and run that in App Service. For more information, see [Use a custom Docker image](tutorial-custom-container.md?pivots=container-windows).
 
-## Configure Python version
+## Configure the Python version
 
-- **Azure portal**: use the **General settings** tab on the **Configuration** page as described in [Configure general settings](configure-common.md#configure-general-settings) for Linux containers.
+- **Azure portal**: use the **General settings** tab on the **Configuration** page, as described in [Configure general settings](configure-common.md#configure-general-settings) for Linux containers.
 
 - **Azure CLI**:
 
