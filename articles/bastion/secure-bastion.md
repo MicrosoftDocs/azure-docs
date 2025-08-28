@@ -5,7 +5,7 @@ author: abell
 ms.service: azure-bastion
 ms.topic: conceptual
 ms.custom: subject-security-benchmark
-ms.date: 08/21/2025
+ms.date: 08/28/2025
 ms.author: abell
 ai-usage: ai-assisted
 ---
@@ -18,21 +18,19 @@ This article provides guidance on how to best secure your Azure Bastion deployme
 
 ## Network security
 
-Network security is crucial for Azure Bastion because it controls how users and services connect to your VMs and helps prevent unauthorized access or exposure to the public internet. Proper network controls help prevent DNS attacks and maintain service integrity.
+Azure Bastion is a network security service that provides secure remote access to your VMs by controlling how users and services connect while preventing unauthorized access or exposure to the public internet. Proper network controls help prevent DNS attacks and maintain service integrity.
 
 * **Deploy Bastion in a dedicated virtual network**: Create or use an existing virtual network that follows enterprise segmentation principles aligned to business risks. Isolate high-risk systems within their own virtual networks and secure them with network security groups. For more information, see [How to create a network security group with security rules](../virtual-network/tutorial-filter-network-traffic.md).
 
 * **Configure required port access correctly**: Enable port 443 inbound on the Bastion public IP for ingress traffic from the public internet. Don't open ports 3389 or 22 on the AzureBastionSubnet, as these aren't required. This reduces your attack surface significantly.
 
-* **Enable control plane connectivity**: Allow port 443 inbound from the GatewayManager service tag to the AzureBastionSubnet. This enables Azure Bastion to communicate with the Azure control plane for service health and management.
-
 * **Configure data plane communication**: Enable ports 8080 and 5701 inbound and outbound from the VirtualNetwork service tag to the VirtualNetwork service tag. This allows internal components of Azure Bastion to communicate with each other securely.
 
-* **Allow egress traffic to target VMs**: Configure NSGs to allow egress traffic from Bastion to target VM subnets on ports 3389 and 22. For custom port functionality with Standard SKU or higher, ensure NSGs allow outbound traffic to the VirtualNetwork service tag.
+* **Configure egress traffic for VM connectivity**: When deploying Bastion, ensure NSGs allow outbound traffic from the AzureBastionSubnet to target VM subnets on ports 3389 and 22. For custom port functionality with Standard SKU or higher, configure NSGs to allow outbound traffic to the VirtualNetwork service tag.
 
-* **Enable Azure service connectivity**: Allow outbound traffic on port 443 to the AzureCloud service tag so Bastion can connect to Azure endpoints for diagnostics logs and metering. This connectivity is protected by Azure certificates.
+* **Enable Azure service connectivity**: Allow outbound traffic on port 443 to the AzureCloud service tag and port 443 inbound from the GatewayManager service tag to the AzureBastionSubnet. These connections are required for the managed service to function properly, enabling Bastion to communicate with Azure control plane services for health monitoring, diagnostics, and management operations.
 
-* **Allow Internet connectivity for certificates**: Enable port 80 outbound to the Internet for session validation, Bastion Shareable Links, and certificate validation. This ensures proper security certificate verification.
+* **Configure certificate validation connectivity**: Enable port 80 outbound to the Internet for session validation, Bastion Shareable Links, and certificate validation. For environments with restricted internet connectivity, work with your network team to allow these specific endpoints while maintaining your security posture.
 
 * **Use virtual network peering for centralized deployment**: Deploy Bastion into a peered network to centralize your deployment and enable cross-network connectivity. For more information, see [Azure Bastion and virtual network peering](./vnet-peering.md).
 
@@ -46,23 +44,19 @@ Network security is crucial for Azure Bastion because it controls how users and 
 
 Privileged access management for Azure Bastion ensures that only authorized users can modify Bastion resources and connect to VMs while following the principle of least privilege. Proper access controls prevent unauthorized changes that could compromise your infrastructure and help ensure that access is regularly reviewed and monitored.
 
-* **Use Microsoft Entra ID for service management**: Apply Microsoft Entra ID authentication to manage Azure Bastion resources (create, update, delete) through the Azure portal. This provides centralized identity management and single sign-on capabilities.
+* **Control Azure Bastion resource management with Microsoft Entra ID**: Use Microsoft Entra ID authentication and Azure RBAC to control who can create, modify, or delete Azure Bastion resources in the Azure portal. This provides centralized identity management and administrative control over the Bastion service itself.
 
 * **Store SSH keys in Azure Key Vault**: Store SSH keys as Key Vault secrets and use them to connect to VMs through Bastion. Control access by assigning Key Vault access policies to individual users or Microsoft Entra ID groups.
 
 * **Configure proper Key Vault permissions**: Grant users "Get" and "List" permissions to Key Vault secrets when using stored SSH keys for VM connections. This enables secure, centralized credential management.
 
-* **Assign required RBAC roles**: Ensure users have Reader roles on the target VM, the VM's NIC with private IP, the Bastion resource, and the target VM's virtual network (if Bastion is in a peered network). For more information, see [Connect to a Linux virtual machine using Azure Bastion](./bastion-connect-vm-ssh-linux.md).
+* **Implement least privilege access with Microsoft Entra ID PIM**: Use Privileged Identity Management (PIM) to provide just-in-time, time-bound access to VMs through Bastion. Configure users with Reader roles on the target VM, the VM's NIC with private IP, the Bastion resource, and the target VM's virtual network (if Bastion is in a peered network). PIM ensures users only have elevated access when needed and helps identify stale or excessive permissions. For more information, see [Connect to a Linux virtual machine using Azure Bastion](./bastion-connect-vm-ssh-linux.md).
 
 * **Enable Kerberos authentication for domain-joined VMs**: Configure Kerberos authentication for enhanced security when connecting to domain-joined Windows VMs. Ensure NSGs allow traffic on required ports (53, 88, 389, 464, 636) and configure custom DNS settings. For more information, see [Configure Bastion for Kerberos authentication using the Azure portal](./kerberos-authentication-portal.md).
 
 * **Review user access regularly**: Use Microsoft Entra ID access reviews to regularly review group memberships, enterprise application access, and role assignments. This helps identify and remove stale or inappropriate access.
 
-* **Implement Microsoft Entra ID Privileged Identity Management**: Configure PIM to create access review workflows and alert when excessive administrator accounts are created or when accounts become stale or improperly configured.
-
 * **Use privileged access workstations**: Deploy secured, isolated workstations for administrators performing Bastion management tasks in production environments. Use Microsoft Entra ID, Microsoft Defender for Endpoint, or Intune to enforce strong authentication and restricted access.
-
-* **Follow least privilege principles**: Limit privileges through Azure RBAC to only what's required for specific roles. Use built-in roles when possible and create custom roles only when necessary. Regularly review and adjust permissions.
 
 * **Control shareable link access**: If using the Shareable Link feature, ensure users have only the minimum required permissions. By default, grant only "Read" access to shared links so users can view and use links but can't create or delete them. For more information, see [Create a shareable link for Bastion](./shareable-link.md).
 
