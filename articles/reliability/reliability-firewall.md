@@ -99,7 +99,7 @@ This section explains how to configure availability zone support for your firewa
 
 - **Enable availability zone support on an existing firewall:** You can enable availability zones on an existing firewall if it meets specific criteria. The process requires you to stop (deallocate) the firewall and reconfigure it. Expect some downtime. For more information, see [Configure availability zones after deployment](/azure/firewall/firewall-faq#how-can-i-configure-availability-zones-after-deployment).
 
-- **Change the availability zone configuration of an existing firewall:** You can reconfigure the availability zones for a firewall. This process requires you to stop (deallocate) the firewall and reconfigure it. Expect some downtime. For more information, see [Configure availability zones after deployment](/azure/firewall/firewall-faq#how-can-i-configure-availability-zones-after-deployment).
+- **Change the availability zone configuration of an existing firewall:** To change the availability zone configuration, you need to first stop (deallocate) the firewall, a process that involves some amount of downtime. For more information, see [Configure availability zones after deployment](/azure/firewall/firewall-faq#how-can-i-configure-availability-zones-after-deployment).
 
 - **Disable availability zone support:** You can change the availability zones that a firewall uses, but you can't convert a zone-redundant or zonal firewall to a nonzonal configuration.
 
