@@ -104,7 +104,7 @@ After initiating discovery from the appliance, you can come to Migrate project o
 
 In the project, you can review dependencies for each server either through the **All inventory** or **Infrastructure inventory** view. 
 
-On reviewing the **Dependencies** column for any server, you see one of the following status:
+On reviewing the **Dependencies** column for any server, you see one of the following statuses:
 
 - **Credentials not available:** No server credentials provided in the appliance configuration manager can be used for dependency analysis.
 
@@ -237,7 +237,7 @@ The dependency data is exported and downloaded in a CSV format. The downloaded f
 1. After the file is generated, select **Download** to save it.
 
 > [!NOTE]
-> The data is exported in a zipped folder.The folder name includes the project name as a prefix, and the CSV file inside is named using the download timestamp.
+> The data is exported in a zipped folder. The folder name includes the project name as a prefix, and the CSV file inside is named using the download timestamp.
 
 ::: moniker-end
 
@@ -267,7 +267,7 @@ If you are an existing user, you already set up an Azure Migrate project. You pe
 1. Select on **View dependencies** and you see the old visualization showing dependencies of that server.
 
 
-:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png":::
+    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png":::
 
 1. On the dependency view, you see an information box prompting you to complete some prerequisites for switching to the new visualization. 
 1. As a prerequisite, you need to ensure that the discovery agent on the appliances registered with the project is upgraded to version or later.
@@ -289,7 +289,7 @@ After you've performed the required steps to upgrade to the new dependency visua
 1. In the old dependency view, select the prompt to get to the new enhanced visualization. 
 
 > [!NOTE]
-> We recommend to use **Option 1** above to switch to the new inventory view as you're able to filter servers where dependency analysis was autoenabled and then directly review the dependency visualization. The old inventory view only shows the option to visualize dependencies for servers where you manually enabled the feature.
+> We recommend using **Option 1** above to switch to the new inventory view as you're able to filter servers where dependency analysis was autoenabled and then directly review the dependency visualization. The old inventory view only shows the option to visualize dependencies for servers where you manually enabled the feature.
 ::: moniker-end
 
 ::: moniker range="migrate"
@@ -308,7 +308,7 @@ You can disable dependency analysis on servers that you don't want and also enab
 
 In **All inventory** or **Infrastructure inventory** view, select the **Manage Dependencies** drop-down and then select **Disable dependencies**.
 
-:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/disable-dependencies-option.png":::
+    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/disable-dependencies-option.png":::
 
 Follow the steps to disable the servers where dependency analysis is autoenabled:
 
@@ -331,8 +331,8 @@ Follow the steps to disable the servers where dependency analysis has been autoe
 
 1. You can start by selecting an appliance from the drop-down.
 
-> [!NOTE] 
-> If the selected appliance isn't upgraded for the new dependency analysis, you can either meet the [prerequisites](#switch-to-new-visualization) or switch to the old experience (from Overview) to add or remove servers for dependency analysis.
+    > [!NOTE] 
+    > If the selected appliance isn't upgraded for the new dependency analysis, you can either meet the [prerequisites](#switch-to-new-visualization) or switch to the old experience (from Overview) to add or remove servers for dependency analysis.
 
 1. You can filter servers to disable dependency analysis on those that were autoenabled (servers with the status as *Enabled*). Servers that aren't eligible for disablement—such as those with the status *Validation failed*, *Not initiated*, *Disabled*, or *Credentials* not available'—can't be selected.
 
@@ -363,7 +363,7 @@ You need to install the PowerShell module to disable for servers that you don't 
 
 ### Disable dependencies
 
-1. Use the following commands to get the list of discovered servers in your project. In this example, the project name is ContosoDemoProject, and the resource group is ContosoDemoRG. The list of servers is saved in a file named `ContosoDemo_VMs.csv."`
+Use the following commands to get the list of discovered servers in your project. In this example, the project name is ContosoDemoProject, and the resource group is ContosoDemoRG. The list of servers is saved in a file named `ContosoDemo_VMs.csv."`
 
 ```
 Get-AzMigDiscoveredVMwareVMs -ResourceGroupName "ContosoDemoRG" -ProjectName "ContosoDemoProject" -OutputCsvFile "ContosoDemo_VMs.csv" [-AutoEnabledDepMap]
@@ -392,7 +392,7 @@ Get-AzMigDiscoveredVMwareVMs -ResourceGroupName "ContosoDemoRG" -ProjectName "Co
 
 In the file, you can see the server display name, current status of dependency collection and the ARM ID of all discovered servers.
 
-1. To disable dependencies, create an input CSV file using the output file you exported in the last step. The file must have a column with the header *ARM ID*. Other headers in the CSV file are ignored. The input file should list the servers where you want to disable dependency analysis.
+To disable dependencies, create an input CSV file using the output file you exported in the last step. The file must have a column with the header *ARM ID*. Other headers in the CSV file are ignored. The input file should list the servers where you want to disable dependency analysis.
 
 In the following example, dependency analysis is being disabled on the list of servers in the input file ContosoDemo_VMs_Disable.csv.
 
