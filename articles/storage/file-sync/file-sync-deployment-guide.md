@@ -13,7 +13,7 @@ ms.devlang: azurecli
 
 # Deploy Azure File Sync
 
-Use Azure File Sync to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
+Use Azure File Sync to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including Server Message Block (SMB), Network File System (NFS), and File Transfer Protocol over SSL/TLS (FTPS). You can have as many caches as you need across the world.
 
 We strongly recommend that you read [Plan to deploy Azure Files](../files/storage-files-planning.md) and [Plan for an Azure File Sync deployment](file-sync-planning.md) before you complete the steps in this article.
 

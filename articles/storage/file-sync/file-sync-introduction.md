@@ -13,7 +13,7 @@ ms.author: kendownie
 
 Azure File Sync is a service for centralizing an organization's file shares in Azure Files while keeping the flexibility, performance, and compatibility of a Windows file server.
 
-Although you can opt to keep a full copy of your data locally, Azure File Sync can transform Windows Server into a quick cache of an Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
+Although you can opt to keep a full copy of your data locally, Azure File Sync can transform Windows Server into a quick cache of an Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including Server Message Block (SMB), Network File System (NFS), and File Transfer Protocol over SSL/TLS (FTPS). You can have as many caches as you need across the world.
 
 ## Videos
 
@@ -25,7 +25,7 @@ Although you can opt to keep a full copy of your data locally, Azure File Sync c
 
 ### Cloud tiering
 
-When you turn on cloud tiering, the files that you access most frequently are cached on your local server. The files that you access least frequently are tiered to the cloud. You can control how much local disk space is used for caching, and you can quickly recall tiered files on demand.
+When you enable cloud tiering, the files that you access most frequently are cached on your local server. The files that you access least frequently are tiered to the cloud. You can control how much local disk space is used for caching, and you can quickly recall tiered files on demand.
 
 Cloud tiering can help you cut costs, because you need to store only a fraction of your data on-premises. For more information, see [Cloud tiering overview](file-sync-cloud-tiering-overview.md).
 
@@ -69,6 +69,6 @@ For guidance on architecting solutions with Azure Files and Azure File Sync by u
 
 ## Related content
 
-- [Planning for an Azure File Sync deployment](file-sync-planning.md)
+- [Plan for an Azure File Sync deployment](file-sync-planning.md)
 - [Cloud tiering overview](file-sync-cloud-tiering-overview.md)
 - [Monitor Azure File Sync](file-sync-monitoring.md)
