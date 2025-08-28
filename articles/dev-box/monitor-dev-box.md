@@ -61,11 +61,11 @@ Follow these steps to enable logging for your Azure DevCenter resource:
 
 1. Select **Add diagnostic setting**:
 
-   :::image type="content" source="media/how-to-request-quota-increase/add-diagnostic-setting.png" alt-text="Screenshot that shows how to select the Add diagnostic setting to monitor a dev center.":::
+   :::image type="content" source="media/how-to-monitor-dev-box/add-diagnostic-setting.png" alt-text="Screenshot that shows how to select the Add diagnostic setting to monitor a dev center.":::
 
    The **Diagnostic Setting** dialog opens:
 
-   :::image type="content" source="media/how-to-request-quota-increase/diagnostic-setting-dialog.png" alt-text="Screenshot of the Diagnostic Setting dialog.":::
+   :::image type="content" source="media/how-to-monitor-dev-box/diagnostic-setting-dialog.png" alt-text="Screenshot of the Diagnostic Setting dialog.":::
 
 ### Enable logging with Azure Storage
 
