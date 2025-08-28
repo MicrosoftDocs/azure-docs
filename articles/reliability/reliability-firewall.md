@@ -27,9 +27,11 @@ To learn about how to deploy Azure Firewall to support your solution's reliabili
 
 An *instance* refers to a virtual machine (VM)-level unit of the firewall. Each instance represents the infrastructure that handles traffic and performs firewall checks.
 
-To achieve high availability of a firewall, Azure Firewall automatically provides at least two instances, without requiring your intervention or configuration. The firewall automatically scales out when average throughput, CPU consumption, and connection usage reach predefined thresholds. For more information, see [Azure Firewall performance](/azure/firewall/firewall-performance). The platform automatically manages instance creation, monitors health, and replaces unhealthy instances.
+To achieve high availability of a firewall, Azure Firewall automatically provides at least two instances, without requiring your intervention or configuration. The firewall automatically scales out when average throughput, CPU consumption, and connection usage reach predefined thresholds. For more information, see [Azure Firewall performance](/azure/firewall/firewall-performance). The platform automatically manages instance creation, health monitoring, and the replacement of unhealthy instances.
 
-To achieve redundancy, Azure Firewall automatically distributes instances across multiple fault domains within a region. This setup provides protection against server and server rack failures. To increase redundancy and availability during datacenter failures, you can enable zone redundancy to distribute instances across multiple availability zones.
+To achieve protection against server and server rack failures, Azure Firewall automatically distributes instances across multiple fault domains within a region. 
+
+To increase redundancy and availability during datacenter failures, you can enable zone redundancy to distribute instances across multiple availability zones.
 
 > [!NOTE]
 > If you create your firewall by using the Azure portal, zone redundancy is automatically enabled.
@@ -38,7 +40,7 @@ To achieve redundancy, Azure Firewall automatically distributes instances across
 
 [!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
 
-For applications that connect through Azure Firewall, implement retry logic with exponential backoff to handle potential transient connection problems. The stateful nature of Azure Firewall maintains legitimate connections during brief network interruptions.
+For applications that connect through Azure Firewall, implement retry logic with exponential backoff to handle potential transient connection problems. Azure Firewall's stateful nature ensures that legitimate connections are maintained during brief network interruptions.
 
 During scaling operations, which take 5 to 7 minutes to complete, existing connections are preserved while new firewall instances are added to handle increased load.
 
@@ -52,18 +54,18 @@ Azure Firewall supports both zone-redundant and zonal deployment models:
 
 - **Zone-redundant:** When enabled for zone redundancy, Azure distributes firewall instances across multiple availability zones in the region. Azure manages load balancing and failover between zones automatically.
 
-    Zone-redundant firewalls achieve the highest uptime service-level agreement (SLA) and suit production workloads that require maximum availability.
+    Zone-redundant firewalls achieve the highest uptime service-level agreement (SLA). They are recommended for production workloads that require maximum availability
 
-- **Zonal:** You can associate Azure Firewall with a specific zone to optimize latency by placing it near back-end servers. All firewall instances are deployed within that zone.
+- **Zonal:** To optimize latency, you can associate Azure Firewall with a specific zone by placing it near back-end servers. All firewall instances are deployed within that zone.
 
     > [!IMPORTANT]
-    > We recommend that you pin to a single availability zone only when [cross-zone latency](./availability-zones-overview.md#inter-zone-latency) exceeds acceptable limits and you confirm that the latency doesn't meet your requirements. A zonal firewall alone doesn't provide resiliency to an availability zone outage. To improve the resiliency of a zonal Azure Firewall deployment, deploy separate firewalls into multiple availability zones and configure traffic routing and failover.
+    > We recommend that you pin to a single availability zone only when [cross-zone latency](./availability-zones-overview.md#inter-zone-latency) exceeds acceptable limits and you have confirmed that the latency doesn't meet your requirements. A zonal firewall alone doesn't provide resiliency to an availability zone outage. To improve the resiliency of a zonal Azure Firewall deployment, you must manually deploy separate firewalls into multiple availability zones and configure traffic routing and failover.
 
-If you don't configure a firewall to be zone-redundant or zonal, it's considered *nonzonal* or *regional*. Nonzonal firewalls can reside in any availability zone within the region. If an availability zone in the region experiences an outage, a nonzonal firewall in that zone can experience downtime.
+If you don't configure a firewall to be zone-redundant or zonal, it's considered *nonzonal* or *regional*. Nonzonal firewalls can be placed in any availability zone within the region. If an availability zone in the region experiences an outage, nonzonal firewalls might be in the affected zone and could experience downtime.
 
 ### Region support
 
-Zone-redundant Azure Firewall resources can be deployed into [any region that supports availability zones](../reliability/availability-zones-region-support.md), where the Azure Firewall service is available.
+Azure Firewall supports availability zones in [all regions that support availability zones](../reliability/availability-zones-region-support.md), where the Azure Firewall service is available.
 
 ### Requirements
 
@@ -73,13 +75,13 @@ Zone-redundant Azure Firewall resources can be deployed into [any region that su
 
 ### Cost
 
-A firewall deployed in more than one availability zone doesn't incur extra charges.
+There's no extra cost for a firewall deployed in more than one availability zone.
 
 ### Configure availability zone support
 
 This section explains how to configure availability zone support for your firewalls.
 
-- **Create a new firewall that has availability zone support:** The approach that you use to configure availability zones depends on whether you want to create a zone-redundant or zonal firewall and the tooling that you use.
+- **Create a new firewall with availability zone support:** The approach that you use to configure availability zones depends on whether you want to create a zone-redundant or zonal firewall, and the tooling that you use.
 
   > [!IMPORTANT]
   > Zone redundancy is automatically enabled when you deploy through the Azure portal. To configure specific zones, you must use another tool, such as the Azure CLI, Azure PowerShell, Bicep, or ARM templates.
@@ -88,7 +90,7 @@ This section explains how to configure availability zone support for your firewa
 
     When you use the Azure CLI, Azure PowerShell, Bicep, ARM templates, or Terraform, you can optionally specify the availability zones for deployment. To deploy a zone-redundant firewall, specify two or more zones. We recommend that you select all zones so that your firewall can use every availability zone, unless you have a specific reason to exclude a zone.
     
-    For more information about Azure PowerShell, see [Deploy an Azure Firewall that includes availability zones by using Azure PowerShell](../firewall/deploy-availability-zone-powershell.md).
+    For more information about Azure PowerShell, see [Deploy an Azure Firewall with availability zones by using Azure PowerShell](../firewall/deploy-availability-zone-powershell.md).
 
   - *Zonal:* You can deploy a zonal firewall by using the Azure CLI, Azure PowerShell, Bicep, ARM templates, or Terraform. Select a single specific availability zone.
 
@@ -111,9 +113,9 @@ This section describes what to expect when Azure Firewall is configured with ava
 
   - *Zonal:* If you deploy multiple zonal instances across different zones, you must configure traffic routing by using external load balancing solutions like Azure Load Balancer or Azure Traffic Manager.
 
-- **Instance management:** The platform automatically places instances across the zones that your firewall uses, replaces failed instances, and maintains the configured instance count. Health monitoring ensures that only healthy instances receive traffic.
+- **Instance management:** The platform automatically manages instances across the zones that your firewall uses, by replacing failed instances, and maintaining the configured instance count. Health monitoring ensures that only healthy instances receive traffic.
 
-- **Data replication between zones:** Azure Firewall doesn't need to synchronize connection state across availability zones. The instance that processes the request maintains each connection's state.
+- **Data replication between zones:** Azure Firewall doesn't need to synchronize connection state across availability zones. The instance that processes the request maintains each connection state.
 
 ### Zone-down experience
 
@@ -139,9 +141,9 @@ This section describes what to expect when Azure Firewall is configured with ava
 
 - **Traffic rerouting:** The traffic rerouting behavior depends on the availability zone configuration that your firewall uses. 
 
-    - *Zone-redundant:* Traffic automatically reroutes to healthy availability zones. If needed, the platform creates new firewall instances in surviving zones.
+    - *Zone-redundant:* Traffic automatically reroutes to healthy availability zones. If needed, the platform creates new firewall instances in healthy zones.
     
-    - *Zonal:* When a zone is unavailable, your zonal firewall is also unavailable. If you have a secondary firewall in another availability zone, you must reroute traffic to that firewall.
+    - *Zonal:* When a zone is unavailable, your zonal firewall is also unavailable. If you have a secondary firewall in another availability zone, you're responsible for rerouting traffic to that firewall.
 
 ### Failback
 
@@ -149,7 +151,7 @@ The failback behavior depends on the availability zone configuration that your f
 
 - *Zone-redundant:* After the availability zone recovers, Azure Firewall automatically redistributes instances across all zones that your firewall uses and restores normal load balancing across zones.
 
-- *Zonal:* After the availability zone recovers, you must reroute traffic to the firewall in the original availability zone.
+- *Zonal:* After the availability zone recovers, you're responsible for rerouting traffic to the firewall in the original availability zone.
 
 ### Testing
 
