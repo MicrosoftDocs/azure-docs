@@ -123,37 +123,37 @@ app.listen(port, () => {
 
 ## Customize build automation
 
-If you deploy your app by using Git, or by using zip packages [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy), the App Service build automation steps through the following sequence:
+If you deploy your app by using Git, or by using zip packages [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy), the App Service build automation completes the following steps:
 
-1. Run custom script, if one is specified by `PRE_BUILD_SCRIPT_PATH`.
-1. Run `npm install` without any flags, which includes npm `preinstall` and `postinstall` scripts and also installs `devDependencies`.
-1. Run `npm run build` if a build script is specified in your *package.json*.
-1. Run `npm run build:azure` if a build:azure script is specified in your *package.json*.
-1. Run custom script if specified by `POST_BUILD_SCRIPT_PATH`.
+1. Run a custom script, if one is specified by `PRE_BUILD_SCRIPT_PATH`.
+1. Run `npm install` without any flags. This step includes npm `preinstall` and `postinstall` scripts and also installs `devDependencies`.
+1. Run `npm run build` if a build script is specified in your *package.json* file.
+1. Run `npm run build:azure` if a `build:azure` script is specified in your *package.json* file.
+1. Run a custom script, if one is specified by `POST_BUILD_SCRIPT_PATH`.
 
 > [!NOTE]
-> As is noted in the [npm docs](https://docs.npmjs.com/misc/scripts), scripts named `prebuild` and `postbuild` run before and after `build`, respectively, if specified. `preinstall` and `postinstall` run before and after `install`, respectively.
+> As is noted in the [npm docs](https://docs.npmjs.com/misc/scripts), scripts named `prebuild` and `postbuild` run before and after `build`, respectively, if specified. Scripts named `preinstall` and `postinstall` run before and after `install`, respectively.
 
 `PRE_BUILD_COMMAND` and `POST_BUILD_COMMAND` are environment variables that are empty by default. To run pre-build commands, define `PRE_BUILD_COMMAND`. To run post-build commands, define `POST_BUILD_COMMAND`.
 
-The following example uses the two variables to specify a series of commands, separated by commas.
+The following example uses the two variables to specify a series of commands, which are separated by commas.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
 ```
 
-For information about additional environment variables to customize build automation, see [Oryx configuration](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
+For information about additional environment variables for customizing build automation, see [Oryx configuration](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
 
 For more information on how App Service runs and builds Node.js apps in Linux, see [Oryx documentation: How Node.js apps are detected and built](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/nodejs.md).
 
 ## Configure Node.js server
 
-The Node.js containers come with [PM2](https://pm2.keymetrics.io/), a production process manager. You can configure your app to start with PM2, with npm start, or with a custom command.
+The Node.js containers come with [PM2](https://pm2.keymetrics.io/), a production process manager. You can configure your app to start with PM2, with `npm start`, or with a custom command.
 
 |Tool|Purpose|
 |--|--|
-|[Run with PM2](#run-with-pm2)|**Recommended** -  Production or staging use. PM2 provides a full-service app management platform.|
+|[Run with PM2](#run-with-pm2)|**Recommended**.  Production or staging use. PM2 provides a full-service app management platform.|
 |[Run with npm start](#run-with-npm-start)|Development use only.|
 |[Run with a custom command](#run-with-a-custom-command)|Either development or staging.|
 
@@ -171,10 +171,10 @@ The container automatically starts your app with PM2 when one of the common Node
 You can also configure a custom start file with the following extensions:
 
 - A *.js* file
-- A [PM2 file](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) with the extension *.json*, *.config.js*, *.yaml*, or *.yml*
+- A [PM2 file](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) that has the extension *.json*, *.config.js*, *.yaml*, or *.yml*
 
 > [!NOTE]
-> Starting from **Node 14 LTS**, the container doesn't automatically start your app with PM2. To start your app with PM2, set the startup command to `pm2 start <.js-file-or-PM2-file> --no-daemon`. Be sure to use the `--no-daemon` argument because PM2 needs to run in the foreground for the container to work properly.
+> Starting with **Node 14 LTS**, the container doesn't automatically start your app with PM2. To start your app with PM2, set the startup command to `pm2 start <.js-file-or-PM2-file> --no-daemon`. Be sure to use the `--no-daemon` argument because PM2 needs to run in the foreground for the container to work properly.
 
 To add a custom start file, run the following command in the [Cloud Shell](https://shell.azure.com):
 
@@ -192,7 +192,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ### Run with npm start
 
-To start your app using `npm start`, just make sure a `start` script is in the *package.json* file. For example:
+To start your app with `npm start`, just make sure a `start` script is in the *package.json* file. For example:
 
 ```json
 {
@@ -213,7 +213,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## Debug remotely
 
-You can debug your Node.js app remotely in [Visual Studio Code](https://code.visualstudio.com/) if you configure it to [run with PM2](#run-with-pm2), except when you run it using a *.config.js,*.yml, or *.yaml*.
+You can debug your Node.js app remotely in [Visual Studio Code](https://code.visualstudio.com/) if you configure it to [run with PM2](#run-with-pm2), except when you run it by using a *.config.js*, *.yml*, or *.yaml* file.
 
 In most cases, no extra configuration is required for your app. If your app is run with a *process.json* file (default or custom), it must have a `script` property in the JSON root. For example:
 
@@ -227,15 +227,15 @@ In most cases, no extra configuration is required for your app. If your app is r
 
 To set up Visual Studio Code for remote debugging, install the [App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Follow the instructions on the extension page and sign in to Azure in Visual Studio Code.
 
-In the Azure explorer, find the app you want to debug, right-click it and select **Start Remote Debugging**. Select **Yes** to enable remote debugging for your app. App Service starts a tunnel proxy for you and attaches the debugger. You can then make requests to the app and see the debugger pausing at break points.
+In the Azure explorer, find the app you want to debug, right-click it, and select **Start Remote Debugging**. Select **Yes** to enable remote debugging for your app. App Service starts a tunnel proxy and attaches the debugger. You can then make requests to the app and see the debugger pausing at break points.
 
-Once finished with debugging, stop the debugger by selecting **Disconnect**. When prompted, you should select **Yes** to disable remote debugging. To disable it later, right-click your app again in the Azure explorer and select **Disable Remote Debugging**.
+When you're done with debugging, stop the debugger by selecting **Disconnect**. When prompted, you should select **Yes** to disable remote debugging. To disable it later, right-click your app again in the Azure explorer and select **Disable Remote Debugging**.
 
 ::: zone-end
 
 ## Access environment variables
 
-In App Service, you can [set app settings](configure-common.md) outside of your app code. Then you can access them using the standard Node.js pattern. For example, to access an app setting called `NODE_ENV`, use the following code:
+In App Service, you can [set app settings](configure-common.md) outside of your app code. You can then access them by using the standard Node.js pattern. For example, to access an app setting called `NODE_ENV`, use the following code:
 
 ```javascript
 process.env.NODE_ENV
@@ -243,7 +243,7 @@ process.env.NODE_ENV
 
 ## Run Grunt/Bower/Gulp
 
-By default, App Service build automation runs `npm install --production` when it recognizes that a Node.js app is deployed through Git, or through Zip deployment [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy). If your app requires any of the popular automation tools, such as Grunt, Bower, or Gulp, you need to supply a [custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) to run it.
+By default, App Service build automation runs `npm install --production` when it recognizes that a Node.js app is deployed via Git or via Zip deployment [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy). If your app requires any of the popular automation tools, such as Grunt, Bower, or Gulp, you need to supply a [custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) to run it.
 
 To enable your repository to run these tools, you need to add them to the dependencies in *package.json.* For example:
 
@@ -267,19 +267,19 @@ Your repository root now has two additional files: *.deployment* and *deploy.sh*
 
 Open *deploy.sh* and find the `Deployment` section, which looks like this:
 
-```bash
+```
 ##################################################################################################################################
 # Deployment
 # ----------
 ```
 
-This section ends with running `npm install --production`. Add the code section you need to run the required tool *at the end* of the `Deployment` section:
+At the end of this section, `npm install --production` is run. Add the code section you need to run the required tool *at the end* of the `Deployment` section:
 
 - [Bower](#bower)
 - [Gulp](#gulp)
 - [Grunt](#grunt)
 
-See an [example in the MEAN.js sample](https://github.com/Azure-Samples/meanjs/blob/master/deploy.sh#L112-L135), where the deployment script also runs a custom `npm install` command.
+For an example, see the [MEAN.js sample](https://github.com/Azure-Samples/meanjs/blob/master/deploy.sh#L112-L135). In this sample, the deployment script also runs a custom `npm install` command.
 
 ### Bower
 
@@ -322,7 +322,7 @@ fi
 
 ## Detect HTTPS session
 
-In App Service, [TLS/SSL termination](https://wikipedia.org/wiki/TLS_termination_proxy) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to check if the user requests are encrypted, inspect the `X-Forwarded-Proto` header.
+In App Service, [TLS/SSL termination](https://wikipedia.org/wiki/TLS_termination_proxy) occurs at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to check whether the user requests are encrypted, inspect the `X-Forwarded-Proto` header.
 
 Popular web frameworks let you access the `X-Forwarded-*` information in your standard app pattern. In [Express](https://expressjs.com/), you can use [trust proxies](https://expressjs.com/en/guide/behind-proxies.html). For example:
 
@@ -352,12 +352,11 @@ if (req.secure) {
 
 ## URL rewrites
 
-When deploying Node.js apps on Azure App Service for Linux, you might need to handle URL rewrites directly within your application. This is particularly useful for ensuring specific URL patterns are redirected to the correct endpoints without relying on web server configurations. There are several ways to accomplish URL rewrites in Node.js. One example is through the [express-urlrewrite](https://www.npmjs.com/package/express-urlrewrite) package.
+When deploying Node.js apps on Azure App Service for Linux, you might need to handle URL rewrites directly within your application. This configuration is particularly useful for ensuring specific URL patterns are redirected to the correct endpoints without relying on web server configurations. There are several ways to accomplish URL rewrites in Node.js. One example is by using the [express-urlrewrite](https://www.npmjs.com/package/express-urlrewrite) package.
 
+## Monitor your app by using Application Insights
 
-## Monitor with Application Insights
-
-Application Insights allows you to monitor your application's performance, exceptions, and usage without making any code changes. To attach the Application Insights agent, go to your web app in the portal, select **Application Insights** under **Settings**, and then select **Turn on Application Insights**. Next, select an existing Application Insights resource or create a new one. Finally, select **Apply** at the bottom. To instrument your web app using PowerShell, see [these instructions](/azure/azure-monitor/app/azure-web-apps-nodejs#enable-through-powershell)
+Application Insights enables you to monitor your application's performance, exceptions, and usage without making any code changes. To attach the Application Insights agent, go to your web app in the portal, select **Application Insights** under **Settings**, and then select **Turn on Application Insights**. Next, select an existing Application Insights resource or create a new one. Finally, select **Apply** at the bottom. To instrument your web app by using PowerShell, see [these instructions](/azure/azure-monitor/app/azure-web-apps-nodejs#enable-through-powershell).
 
 This agent will monitor your server-side Node.js application. To monitor your client-side JavaScript, [add the JavaScript SDK to your project](/azure/azure-monitor/app/javascript).
 
@@ -380,16 +379,16 @@ When a working Node.js app behaves differently in App Service or has errors, try
 
 #### You do not have permission to view this directory or page
 
-After deploying your Node.js code to a native Windows app in App Service, you might see the message `You do not have permission to view this directory or page` in the browser when navigating to your app's URL. This is most likely because you don't have a *web.config* file. (See the [template](https://github.com/projectkudu/kudu/blob/master/Kudu.Core/Scripts/iisnode.config.template) and an [example](https://github.com/Azure-Samples/nodejs-docs-hello-world/blob/master/web.config).)
+After deploying your Node.js code to a native Windows app in App Service, you might see the message `You do not have permission to view this directory or page` in the browser when you go to your app's URL. This error is most likely occurring because you don't have a *web.config* file. (See the [template](https://github.com/projectkudu/kudu/blob/master/Kudu.Core/Scripts/iisnode.config.template) and an [example](https://github.com/Azure-Samples/nodejs-docs-hello-world/blob/master/web.config).)
 
-If you deploy your files by using Git, or by using ZIP deployment [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy), the deployment engine generates a *web.config* in the web root of your app (`%HOME%\site\wwwroot`) automatically if one of the following conditions is true:
+If you deploy your files by using Git or by using ZIP deployment [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy), the deployment engine generates a *web.config* file in the web root of your app (`%HOME%\site\wwwroot`) automatically if one of the following conditions is true:
 
-- Your project root has a *package.json* that defines a `start` script that contains the path of a JavaScript file.
-- Your project root has either a *server.js* or an *app.js*.
+- Your project root contains a *package.json* file that defines a `start` script that contains the path of a JavaScript file.
+- Your project root contains either a *server.js* or an *app.js* file.
 
-The generated *web.config* is tailored to the detected start script. For other deployment methods, add this *web.config* manually. Make sure the file is formatted properly.
+The generated *web.config* file is tailored to the detected start script. For other deployment methods, add the *web.config* file manually. Make sure the file is formatted properly.
 
-If you use [ZIP deployment](deploy-zip.md) (through Visual Studio Code, for example), be sure to [enable build automation](deploy-zip.md#enable-build-automation-for-zip-deploy). It's not enabled by default. [`az webapp up`](/cli/azure/webapp#az-webapp-up) uses ZIP deployment with build automation enabled.
+If you use [ZIP deployment](deploy-zip.md) (via Visual Studio Code, for example), be sure to [enable build automation](deploy-zip.md#enable-build-automation-for-zip-deploy). It's not enabled by default. [`az webapp up`](/cli/azure/webapp#az-webapp-up) uses ZIP deployment with build automation enabled.
 
 ::: zone-end
 
@@ -399,18 +398,14 @@ If you use [ZIP deployment](deploy-zip.md) (through Visual Studio Code, for exam
 
 ::: zone-end
 
-## Next steps
+## Related content
 
-> [!div class="nextstepaction"]
-> [Tutorial: Node.js app with MongoDB](tutorial-nodejs-mongodb-app.md)
+- [Tutorial: Node.js app with MongoDB](tutorial-nodejs-mongodb-app.md)
 
 ::: zone pivot="platform-linux"
 
-> [!div class="nextstepaction"]
-> [Azure App Service on Linux FAQ](faq-app-service-linux.yml)
+- [Azure App Service on Linux FAQ](faq-app-service-linux.yml)
 
 ::: zone-end
 
-Or, see additional resources:
-
-[Environment variables and app settings reference](reference-app-settings.md)
+- [Environment variables and app settings reference](reference-app-settings.md)
