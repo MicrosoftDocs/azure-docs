@@ -22,6 +22,9 @@ You can then use private endpoints to securely communicate with Synapse Studio. 
 
 ## Create an Azure private link hubs resource
 
+>[!IMPORTANT]
+>Create one—and only one—Azure Synapse private link hub for a given DNS domain ( *.web.azuresynapse.net ). Creating more than one hub causes DNS records for web.azuresynapse.net to resolve unpredictably, preventing Azure Synapse Studio from loading. Delete any extra hubs before you proceed.
+
 You can use a single Azure Synapse private link hub resource to privately connect to all your Azure Synapse Analytics workspaces using Azure Synapse Studio. The workspaces don't have to be in the same region as the Azure Synapse private link hub. The Azure Synapse private link hub resource can also be used for connections to Synapse workspaces in different subscriptions or Microsoft Entra tenants.
 
 Follow these steps to create an Azure private link hub:
