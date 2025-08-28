@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 08/26/2025
+ms.date: 08/28/2025
 ms.custom: engagement-fy25
 # Customer intent: As an IT administrator, I want to set up agentless dependency analysis using Azure Migrate, so that I can automatically identify and visualize server dependencies to facilitate smoother assessment and migration to the cloud.
 ---
@@ -137,7 +137,7 @@ After the validation succeeds, dependency analysis are autoenabled and you see o
 1. Under the **Dependencies (agentless)** column, select **View dependencies**
 
     > [!NOTE]
-    > Some network attributes will be missing from the visualization if you have added least privileged credentials for this server on the appliance. For full data, you need to provide [elevated privileges](best-practices-least-privileged-account.md#in-depth-guest-discovery).
+    > If you've added least privileged credentials for this server on the appliance, some network attributes might be missing from the visualization. To view complete data, provide [elevated privileges](best-practices-least-privileged-account.md#in-depth-guest-discovery).
 
 1. Change the time period for which you want to view the map using the **Time duration** dropdown.
 1. Expand the **Client** group to list the servers with a dependency on the selected server.
@@ -160,7 +160,7 @@ After the validation succeeds, dependency analysis are autoenabled and you see o
 1. Search for the server whose dependencies, you want to review. If dependency analysis was successfully performed on that server, you can select on **View dependencies** to go to the dependency visualization. 
 
     > [!NOTE]
-    > Some network attributes will be missing from the visualization if you have added least privileged credentials for this server on the appliance. For full data, you need to provide [elevated privileges](best-practices-least-privileged-account.md#in-depth-guest-discovery).
+    > If you've added least privileged credentials for this server on the appliance, some network attributes might be missing from the visualization. To view complete data, provide [elevated privileges](best-practices-least-privileged-account.md#in-depth-guest-discovery).
 
 1. The dependency visualization shows all incoming and outgoing dependencies for that server in a network diagram.
 
@@ -223,21 +223,21 @@ The dependency data is exported and downloaded in a CSV format. The downloaded f
 ::: moniker range="migrate"
 
 > [!NOTE]
-> The new export experience is powered by an upgraded datastore which allows for export of dependency data acoss multiple appliances registered in the project. 
+> The new export experience is powered by an upgraded datastore that supports exporting dependency data across multiple appliances registered in the project. 
 
-1. In **All inventory** or **Infrastructure inventory** view, select the **Manage Dependencies** drop-down.
+1. In **All inventory** or **Infrastructure inventory** view, select the **Manage Dependencies** dropdown.
 1. Select **Export dependencies**.
-1. In the **Export dependencies** view, choose one or more appliances to export dependencies for their discovered servers.
-1. Select the time interval for which you want to export data. You can choose from last 7/10/15/30 days.
-1. The process type is set to **Resolvable** by default which allows for export of only resolvable connections between discovered servers.
+1. In the **Export dependencies** view, select one or more appliances for their discovered servers.
+1. Select the time interval for which you want to export data. You can choose from last 7, 10, 15, 30 days.
+1. The process type is set to **Resolvable** by default. This exports only resolvable connections between discovered servers.
 1. Select **Generate** to generate a file with the earliest available dependency data amongst the selected appliance(s) within the chosen time interval.
 
    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/new-export-dep.png" alt-text="The screenshot illustrates the Export dependencies." lightbox="./media/how-to-create-group-machine-dependencies-agentless/new-export-dep.png":::
 
-1. After the file is generated, you can **Download** the file.
+1. After the file is generated, select **Download** to save it.
 
 > [!NOTE]
-> The data will be exported in a zipped folder, named with a prefix of project name containing a CSV file, named with the downloaded timestamp.
+> The data is exported in a zipped folder.The folder name includes the project name as a prefix, and the CSV file inside is named using the download timestamp.
 
 ::: moniker-end
 
