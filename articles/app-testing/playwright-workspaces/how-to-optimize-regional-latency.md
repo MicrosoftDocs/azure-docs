@@ -1,7 +1,7 @@
 ---
 title: Optimize regional latency
 titleSuffix: Playwright Workspaces
-description: Learn how to optimize regional latency for a Playwright Workspaces Preview workspace. Choose to run tests on remote browsers in an Azure region nearest to you, or in a fixed region.
+description: Learn how to optimize regional latency for a Playwright Workspace. Choose to run tests on remote browsers in an Azure region nearest to you, or in a fixed region.
 ms.topic: how-to
 ms.date: 08/07/2025
 ms.service: azure-app-testing
@@ -11,9 +11,9 @@ ms.author: johnsta
 ms.custom: playwright-workspaces
 ---
 
-# Optimize regional latency for a workspace in Playwright Workspaces Preview
+# Optimize regional latency for a workspace in Playwright Workspaces
 
-Learn how to minimize the network latency between the client machine and the remote browsers for a Playwright Workspaces Preview workspace.
+Learn how to minimize the network latency between the client machine and the remote browsers for a Playwright Workspace.
 
 Playwright Workspaces lets you run your Playwright tests on hosted browsers in the Azure region that's nearest to your client machine. The service collects the test results in the Azure region of the remote browsers, and then transfers the results to the workspace region.
 

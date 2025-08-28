@@ -22,7 +22,7 @@ Azure uses limits and quotas to prevent budget overruns due to fraud, and to hon
 
 ## Default resource quotas
 
-While the service is in preview, the following limits apply on a per-subscription basis.
+The following limits apply on a per-subscription basis.
 
 | Resource  | Limit |
 |---------|---------|

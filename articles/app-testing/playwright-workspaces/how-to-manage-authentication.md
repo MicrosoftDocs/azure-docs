@@ -1,7 +1,7 @@
 ---
 title: Playwright Workspaces authentication
 titleSuffix: Playwright Workspaces
-description: Learn how to manage authentication and authorization for Playwright Workspaces preview
+description: Learn how to manage authentication and authorization for Playwright Workspaces
 ms.topic: how-to
 ms.service: azure-app-testing
 ms.subservice: playwright-workspaces
@@ -13,15 +13,15 @@ zone_pivot_group_filename: app-testing/playwright-workspaces/zone-pivots-groups.
 zone_pivot_groups: playwright-workspaces
 ---
 
-# Manage authentication and authorization for Playwright Workspaces preview
+# Manage authentication and authorization for Playwright Workspaces
 
-In this article, you learn how to manage authentication and authorization for Playwright Workspaces preview. Authentication is required to run Playwright tests on cloud-hosted browsers.
+In this article, you learn how to manage authentication and authorization for Playwright Workspaces. Authentication is required to run Playwright tests on cloud-hosted browsers.
 
 By default, [Microsoft Entra ID](/entra/identity/) is used for authentication. This method is more secure and is the recommended authentication method. You can't disable authentication using Microsoft Entra ID. However, you can also use access tokens to authenticate and authorize.
 
 ## Background  
 
-Playwright Workspaces Preview is built on the Playwright open-source framework. It runs Playwright tests on cloud-hosted browsers.
+Playwright Workspaces is built on the Playwright open-source framework. It runs Playwright tests on cloud-hosted browsers.
 
 To use the service, the client must authenticate with the service to access the browsers. The service offers two authentication methods: Microsoft Entra ID and access tokens.
 

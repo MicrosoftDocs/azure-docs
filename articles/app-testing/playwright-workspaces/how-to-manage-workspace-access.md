@@ -11,9 +11,9 @@ ms.author: johnsta
 ms.custom: playwright-workspaces
 ---
 
-# Manage access to a workspace in Playwright Workspaces Preview
+# Manage access to a workspace in Playwright Workspaces
 
-In this article, you learn how to manage access to a workspace in Playwright Workspaces Preview. The service uses [Azure role-based access control](/azure/role-based-access-control/overview) (Azure RBAC) to authorize access rights to your workspace. Role assignments are the way you control access to resources using Azure RBAC.
+In this article, you learn how to manage access to a workspace in Playwright Workspaces. The service uses [Azure role-based access control](/azure/role-based-access-control/overview) (Azure RBAC) to authorize access rights to your workspace. Role assignments are the way you control access to resources using Azure RBAC.
 
 ## Prerequisites
 
