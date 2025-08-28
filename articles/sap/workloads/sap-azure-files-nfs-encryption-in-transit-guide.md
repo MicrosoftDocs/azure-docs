@@ -146,9 +146,9 @@ For more information, refer to the [Verify that the in-transit data encryption s
 
 ## Next Steps
 
-- [Plan and implement an SAP deployment on Azure](/planning-guide.md)
-- [Azure Virtual Machines deployment for SAP NetWeaver](/deployment-guide.md)
-- [Using Azure Premium Files NFS and SMB for SAP workload](planning-guide-storage-azure-files.md)
-- [High-availability architecture and scenarios for SAP NetWeaver](/sap-high-availability-architecture-scenarios.md)
-- [High-availability SAP NetWeaver with simple mount and NFS on SLES for SAP Applications VMs](/high-availability-guide-suse-nfs-simple-mount.md)
-- [High availability for SAP NetWeaver on VMs on RHEL with NFS on Azure Files](/high-availability-guide-rhel-nfs-azure-files.md)
+- [Plan and implement an SAP deployment on Azure](./planning-guide.md)
+- [Azure Virtual Machines deployment for SAP NetWeaver](./deployment-guide.md)
+- [Using Azure Premium Files NFS and SMB for SAP workload](./planning-guide-storage-azure-files.md)
+- [High-availability architecture and scenarios for SAP NetWeaver](./sap-high-availability-architecture-scenarios.md)
+- [High-availability SAP NetWeaver with simple mount and NFS on SLES for SAP Applications VMs](./high-availability-guide-suse-nfs-simple-mount.md)
+- [High availability for SAP NetWeaver on VMs on RHEL with NFS on Azure Files](./high-availability-guide-rhel-nfs-azure-files.md)
