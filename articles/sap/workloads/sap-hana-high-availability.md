@@ -802,13 +802,8 @@ crm configure primitive rsc_secnc_<HANA SID>_HDB<instance number> azure-lb port=
 
 crm configure group g_secip_<HANA SID>_HDB<instance number> rsc_secip_<HANA SID>_HDB<instance number> rsc_secnc_<HANA SID>_HDB<instance number>
 
-# Run the following command if the cluster nodes are running on SLES 12 SP05.
 crm configure colocation col_saphana_secip_<HANA SID>_HDB<instance number> 4000: g_secip_<HANA SID>_HDB<instance number>:Started \
  msl_SAPHana_<HANA SID>_HDB<instance number>:Slave
- 
-# Run the following command if the cluster nodes are running on SLES 15 SP03 or later.
-crm configure colocation col_saphana_secip_<HANA SID>_HDB<instance number> 4000: g_secip_<HANA SID>_HDB<instance number>:Started \
- msl_SAPHana_<HANA SID>_HDB<instance number>:Unpromoted
 
 crm configure property maintenance-mode=false
 ```
