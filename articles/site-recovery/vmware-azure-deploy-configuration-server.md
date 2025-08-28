@@ -5,7 +5,7 @@ author: jyothisuri
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.author: jsuri
-ms.date: 11/01/2023
+ms.date: 08/29/2025
 # Customer intent: "As a system administrator managing VMware environments, I want to deploy a configuration server for Azure Site Recovery, so that I can facilitate disaster recovery for on-premises VMs and ensure seamless data replication to Azure."
 ---
 

@@ -138,6 +138,10 @@ The Azure portal displays *logical Zones*. In the datacenter, actual physical zo
 
 In case the source and target zones are the same, you can't view zone for target configuration while enabling zonal replication.
 
+#### Can I select a different automation name than the existing automation name for my recovery services vault? 
+
+When you replicate a new virtual machine (VM) and assign a new automation account, this account is automatically set at the vault level and will appear under Recovery Services Vault > Site Recovery Infrastructure > Extension Update Settings in the Azure portal. From that point onward, Azure Site Recovery will use this new Automation Account to manage the Site Recovery extension for all replicated VMs.
+
 #### Can I choose a different name for my recovery services vault automation instead of using the existing one?
 
 When you replicate a new VM and specify a new Automation Account name, the vault updates to use this new Automation Account at the vault level. This updated name appears in the vault under **Recovery Services Vault** > **Site Recovery Infrastructure** > **Extension Update Settings**.
@@ -160,7 +164,7 @@ Azure Site Recovery supports live resync. Once resize is completed, resync of Re
  
 #### Are there any changes in performance of Azure Site Recovery between Premium SSD v1 and SSD v2 disks?
 
-The RPO and RTO SLAs of Azure Site Recovery remain the same for both disk types. However, Premium SSD v2 disks takes more time to complete the enable protection process. Also, as Azure Site Recovery uses Premium SSD v1 disks as replica disks, during failover, the new Premium SSD v2 disks created in target using the replica disk, would need some time for data hydration. However, this would not impact the environment availability.
+The RPO and RTO SLAs of Azure Site Recovery remain the same for both disk types. However, Premium SSD v2 disks take more time to complete the enable protection process. Also, as Azure Site Recovery uses Premium SSD v1 disks as replica disks, during failover, the new Premium SSD v2 disks created in target using the replica disk, would need some time for data hydration. However, this would not impact the environment availability.
  
 #### What snapshots are used when protecting VMs with Premium SSD v2 using Azure Site Recovery?
 

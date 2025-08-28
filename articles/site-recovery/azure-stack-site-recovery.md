@@ -2,7 +2,7 @@
 title: Replicate Azure Stack Hub to Azure using Azure Site Recovery
 description: Learn how to set up disaster recovery to Azure for Azure Stack Hub with the Azure Site Recovery service.
 ms.topic: how-to
-ms.date: 04/03/2025
+ms.date: 08/29/2025
 ms.author: jsuri
 ms.custom: engagement-fy23
 ms.service: azure-site-recovery
@@ -52,7 +52,7 @@ Replication works as follows:
 5. The configuration server orchestrates replication management with Azure (port HTTPS 443 outbound).
 6. The process server receives data from source machines, optimizes and encrypts it, and sends it to Azure storage (port 443 outbound).
 7. Replicated machines communicate with the configuration server (port HTTPS 443 inbound, for replication management. Machines send replication data to the process server (port HTTPS 9443 inbound - can be modified).
-8. Traffic is replicated to Azure storage public endpoints, over the internet. Alternately, you can use Azure ExpressRoute Microsoft peering. Replicating traffic over a site-to-site VPN from an on-premises site to Azure isn't supported.
+8. Traffic is replicated to Azure storage public endpoints, over the internet. Alternately, you can use Azure ExpressRoute public peering or Azure Peering Service. Replicating traffic over a site-to-site VPN from an on-premises site to Azure isn't supported.
 
 ## Prerequisites
 

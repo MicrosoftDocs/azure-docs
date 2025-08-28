@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM disaster recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: concept-article
-ms.date: 06/26/2025
+ms.date: 08/29/2025
 ms.service: azure-site-recovery
 author: jyothisuri
 ms.author: jsuri
@@ -34,7 +34,7 @@ This article summarizes support and prerequisites for disaster recovery of Azure
 **Migrate VMs across regions within supported geographical clusters (within and across subscriptions)** | Supported within the same Microsoft Entra tenant.
 **Migrate VMs within the same region** | Not supported.
 **Azure Dedicated Hosts** | Not supported.
-**AVD infrastructure VMs** | Supported, provided all the Azure to Azure replication prerequisites are fulfilled.
+**AVD infrastructure VMs** | Supported, provided all the Azure to Azure replication prerequisites are fulfilled. (Zone to zone replication for individual server also supported).
 
 ## Region support
 
@@ -434,7 +434,7 @@ General purpose V2 storage accounts (Both Hot and Cool tier) | Supported | Trans
 Generation 2 (UEFI boot) | Supported
 NVMe disks | Not supported
 Managed Shared Disk| Supported 
-Managed Premium SSD v2 Disk| Supported | Public Preview  in all public regions.<br/><br/>Note: Since Block Blob storage accounts are not supported in China North and China East regions, Azure Site Recovery for Premium SSD v2 disks cannot be supported. 
+Managed Premium SSD v2 Disk| Supported | Public Preview with PowerShell support in all public regions.<br/><br/>Note: Since Block Blob storage accounts are not supported in China North and China East regions, Azure Site Recovery for Premium SSD v2 disks cannot be supported. 
 Ultra Disks | Supported | Public Preview  in all public regions.<br/><br/>Note: Since Block Blob storage accounts are not supported in China North and China East regions, Azure Site Recovery for Premium SSD v2 disks cannot be supported.
 Secure transfer option | Supported
 Write accelerator enabled disks | Not supported

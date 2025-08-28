@@ -372,7 +372,7 @@ Azure App Service supports out-of-the-box tuning and customization through the A
 
 ### Copy app content locally
 
-Set the app setting `JAVA_COPY_ALL` to `true` to copy your app contents to the local worker from the shared file system. This setting helps address file-locking issues.
+Set the app setting `JAVA_COPY_ALL` to `true` to copy your app contents to the local worker from the shared file system. This setting helps address file-locking issues. `JAVA_COPY_ALL` is not compatible with the legacy convention of deploying to `/home/site/wwwroot/webapps`.
 
 ### Set Java runtime options
 

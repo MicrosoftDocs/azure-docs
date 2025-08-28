@@ -109,14 +109,14 @@ In API Management, enable semantic caching by using Azure Redis Enterprise, Azur
 
 ## Logging token usage, prompts, and completions
 
-Enable a [diagnostic setting](monitor-api-management.md#enable-diagnostic-setting-for-azure-monitor-logs) in your API Management instance to log requests processed by the gateway for large language model REST APIs. For each request, data is sent to Azure Monitor including token usage (prompt tokens, completion tokens, and total tokens), name of the model used, and optionally the request and response messages (prompt and completion). Large requests and responses are split into multiple log entries that are sequentially numbered for later reconstruction if needed.
+You can enable logging for requests processed by the gateway for large language model REST APIs. For each request, data is sent to Azure Monitor including token usage (prompt tokens, completion tokens, and total tokens), name of the model used, and optionally the request and response messages (prompt and completion). Large requests and responses are split into multiple log entries that are sequentially numbered for later reconstruction if needed.
 
 The API Management administrator can use LLM gateway logs along with API Management gateway logs for scenarios such as the following:
 
 * **Calculate usage for billing** - Calculate usage metrics for billing based on the number of tokens consumed by each application or API consumer (for example, segmented by subscription ID or IP address).
 * **Inspect messages** - To help with debugging or auditing, inspect and analyze prompts and completions.
 
-Learn more about [monitoring API Management with Azure Monitor](monitor-api-management.md).
+Learn more: [Log token usage, prompts, and completions for LLM APIs](api-management-howto-llm-logs.md)
 
 ## Content safety policy
 
@@ -135,7 +135,7 @@ To help safeguard users from harmful, offensive, or misleading content, you can 
 
 * [AI gateway reference architecture using API Management](/ai/playbook/technology-guidance/generative-ai/dev-starters/genai-gateway/reference-architectures/apim-based)
 * [AI hub gateway landing zone accelerator](https://github.com/Azure-Samples/ai-hub-gateway-solution-accelerator)
-* [Designing and implementing a gateway solution with Azure OpenAI resources](/ai/playbook/technology-guidance/generative-ai/dev-starters/genai-gateway/)
+* [Designing and implementing a gateway solution with Azure OpenAI resources](/ai/playbook/technology-guidance/generative-ai/dev-starters/gemonitoring API Management with Azurenai-gateway/)
 * [Use a gateway in front of multiple Azure OpenAI deployments or instances](/azure/architecture/ai-ml/guide/azure-openai-gateway-multi-backend)
 
 ## Related content
