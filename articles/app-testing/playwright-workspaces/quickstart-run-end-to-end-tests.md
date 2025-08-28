@@ -87,7 +87,7 @@ If you already have this file, the package asks you to overwrite it.
 To use the service, install the Playwright Workspaces package. 
 
 ```PowerShell
-dotnet add package Azure.Developer.Playwright.NUnit --prerelease
+dotnet add package Azure.Developer.Playwright.NUnit
 ```
 
 ::: zone-end
