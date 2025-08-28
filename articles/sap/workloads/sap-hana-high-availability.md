@@ -613,7 +613,7 @@ sudo crm resource meta msl_SAPHana_<HANA SID>_HDB<instance number> set priority 
 ```
 
 > [!NOTE]
-> The deprecation warning is not an error message. You can proceed on configuring the resource. For more details, see [crm command returns "Warning: support for <master> ... is deprecated and will be removed in a future release"](https://www.suse.com/support/kb/doc/?id=000021958).
+> The deprecation warning is not an error message. You can proceed on configuring the resource. For more details, see [crm command returns "Warning: support for ... is deprecated and will be removed in a future release"](https://www.suse.com/support/kb/doc/?id=000021958).
 
 ---
 
@@ -685,7 +685,7 @@ sudo crm configure rsc_defaults migration-threshold=5000
 ```
 
 > [!NOTE]
-> The deprecation warning is not an error message. You can proceed on configuring the resource. For more details, see [crm command returns "Warning: support for <master> ... is deprecated and will be removed in a future release"](https://www.suse.com/support/kb/doc/?id=000021958).
+> The deprecation warning is not an error message. You can proceed on configuring the resource. For more details, see [crm command returns "Warning: support for ... is deprecated and will be removed in a future release"](https://www.suse.com/support/kb/doc/?id=000021958).
 
 ---
 
