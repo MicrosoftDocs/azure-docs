@@ -398,6 +398,11 @@ sections:
           - Select **New alert rule** to create the alert.
           - See [Create a new alert rule](/azure/azure-monitor/alerts/alerts-log) to create the alert.
 
+      - question: |
+          Is Traffic Analytics supported in a Log Analytics Workspace with NSP enabled?
+        answer: |
+          No, it is currently not recommended. If a LAW is deployed behind a NSP, Traffic Analytics will not be able to ingest data from it. Customers are advised to avoid placing LAW under NSP boundaries until this limitation is resolved.
+
   - name: Network diagnostic tools
     questions:
       - question: | 
