@@ -1,5 +1,5 @@
 ---
-title: Add environments and deployments for APIs
+title: Add Environments and Deployments for APIs
 description: Learn how to augment the API inventory in your API center by adding information about API environments and deployments.
 author: dlepow
 ms.service: azure-api-center

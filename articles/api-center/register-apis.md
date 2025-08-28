@@ -1,5 +1,5 @@
 ---
-title: Register APIs in your API inventory 
+title: Register APIs in Your API Inventory 
 description: Learn how to start the API inventory in your API center by registering APIs using the Azure portal.
 author: dlepow
 ms.service: azure-api-center
