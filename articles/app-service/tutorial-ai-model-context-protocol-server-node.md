@@ -6,7 +6,7 @@ ms.author: cephalin
 ms.date: 07/22/2025
 ms.topic: tutorial
 ms.custom:
-  - devx-track-dotnet
+  - devx-track-javascript
 ms.collection: ce-skilling-ai-copilot
 ms.service: azure-app-service
 ---
@@ -20,7 +20,7 @@ In this tutorial, you'll learn how to expose an Express.js app's functionality t
 If your web application already has useful features, like shopping, hotel booking, or data management, it's easy to make those capabilities available for:
 
 - Any [application that supports MCP integration](https://modelcontextprotocol.io/clients), such as GitHub Copilot Chat agent mode in Visual Studio Code or in GitHub Codespaces. 
-- A custom agent that accesses remote tools by using an [MCP client](https://modelcontextprotocol.io/quickstart/client#javascript).
+- A custom agent that accesses remote tools by using an [MCP client](https://modelcontextprotocol.io/quickstart/client#node).
 
 By adding an MCP server to your web app, you enable an agent to understand and use your app's capabilities when it responds to user prompts. This means anything your app can do, the agent can do too.
 
