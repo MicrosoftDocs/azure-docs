@@ -264,7 +264,7 @@ Here is an example of the source JSON using the expression parameter:
 ```
 
 > [!NOTE]
-> The columns `sys_tags` and other related columns cannot be obtained due to ServiceNow API limitations.
+> The column `sys_tags` and its derived columns cannot be obtained due to ServiceNow API limitations.
     
 ## Lookup activity properties
 
