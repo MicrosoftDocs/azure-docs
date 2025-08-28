@@ -41,8 +41,6 @@ The steps for this task use a VNet based on the values in the following configur
 | Gateway IP Name | *GWIP* |
 | Gateway IP configuration Name | *gwipconf* |
 | Type | *ExpressRoute* |
-
-
 ## Add a gateway
 
 > [!IMPORTANT]
