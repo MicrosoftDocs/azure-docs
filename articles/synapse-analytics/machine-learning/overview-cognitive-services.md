@@ -327,7 +327,7 @@ display(analysis.transform(df).select("image", "analysis_results.description.tag
 
 ## Search for images that are related to a natural language query
 
-[Bing Image Search](https://www.microsoft.com/bing/apis/bing-image-search-api) searches the web to retrieve images related to a user's natural language query. 
+[Bing Image Search](https://learn.microsoft.com/previous-versions/bing/search-apis/bing-image-search/overview) searches the web to retrieve images related to a user's natural language query. 
 
 The following code sample uses a text query that looks for images with quotes. The output of the code is a list of image URLs that contain photos related to the query.
 
