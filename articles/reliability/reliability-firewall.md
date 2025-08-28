@@ -31,8 +31,8 @@ To achieve high availability of a firewall, Azure Firewall automatically provide
 
 To achieve redundancy, Azure Firewall automatically distributes instances across multiple fault domains within a region. This setup provides protection against server and server rack failures. To increase redundancy and availability during datacenter failures, you can enable zone redundancy to distribute instances across multiple availability zones.
 
->[!NOTE]
->If you create your firewall by using the Azure portal, zone redundancy is automatically enabled.
+> [!NOTE]
+> If you create your firewall by using the Azure portal, zone redundancy is automatically enabled.
 
 ## Transient faults
 
@@ -95,9 +95,9 @@ This section explains how to configure availability zone support for your firewa
     > [!NOTE]
     > [!INCLUDE [Availability zone numbering](./includes/reliability-availability-zone-numbering-include.md)]
 
-- **Enable availability zone support on an existing firewall:** You can enable availability zones on an existing firewall if it meets specific criteria. The process requires stopping (deallocating) the firewall and reconfiguring it. Expect some downtime. For more information, see [Configure availability zones after deployment](/azure/firewall/firewall-faq#how-can-i-configure-availability-zones-after-deployment).
+- **Enable availability zone support on an existing firewall:** You can enable availability zones on an existing firewall if it meets specific criteria. The process requires you to stop (deallocate) the firewall and reconfigure it. Expect some downtime. For more information, see [Configure availability zones after deployment](/azure/firewall/firewall-faq#how-can-i-configure-availability-zones-after-deployment).
 
-- **Change the availability zone configuration of an existing firewall:** You can reconfigure the availability zones for a firewall. This process requires stopping (deallocating) the firewall and reconfiguring it. Expect some downtime. For more information, see [Configure availability zones after deployment](/azure/firewall/firewall-faq#how-can-i-configure-availability-zones-after-deployment).
+- **Change the availability zone configuration of an existing firewall:** You can reconfigure the availability zones for a firewall. This process requires you to stop (deallocate) the firewall and reconfigure it. Expect some downtime. For more information, see [Configure availability zones after deployment](/azure/firewall/firewall-faq#how-can-i-configure-availability-zones-after-deployment).
 
 - **Disable availability zone support:** You can change the availability zones that a firewall uses, but you can't convert a zone-redundant or zonal firewall to a nonzonal configuration.
 
