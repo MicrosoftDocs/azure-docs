@@ -34,7 +34,7 @@ This article summarizes support and prerequisites for disaster recovery of Azure
 **Migrate VMs across regions within supported geographical clusters (within and across subscriptions)** | Supported within the same Microsoft Entra tenant.
 **Migrate VMs within the same region** | Not supported.
 **Azure Dedicated Hosts** | Not supported.
-**AVD infrastructure VMs** | Supported, provided all the Azure to Azure replication prerequisites are fulfilled.(Zone to zone replication for individual server also supported).
+**AVD infrastructure VMs** | Supported, provided all the Azure to Azure replication prerequisites are fulfilled. (Zone to zone replication for individual server also supported).
 
 ## Region support
 
