@@ -95,7 +95,7 @@ For more information, see [log structure of Azure Resource Graph](query-logs.md)
 In Azure Update Manager, patches are installed in the following manner:
 
 1. It begins with a fresh assessment of the available updates on the VM.
-1. Update installation follows the assessment. 
+1. To Update installation, do the following:
     - In Windows, the selected updates that meet the customer's criteria are installed one by one, 
     - In Linux, they're installed in batches.
 1. During update installation, Maintenance window utilization is checked at multiple steps. For Windows and Linux, 10 and 15 minutes of the maintenance window are reserved for reboot at any point respectively. Before proceeding with the installation of the remaining updates, it checks whether the expected reboot time plus the average update installation time (for the next update or next set of updates) doesn't exceed the maintenance window.
