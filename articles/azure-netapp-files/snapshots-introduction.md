@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 08/19/2025
+ms.date: 08/21/2025
 ms.author: anfdocs
 # Customer intent: As a data administrator, I want to create and manage snapshots in Azure NetApp Files, so that I can ensure efficient data protection, quick recovery options, and scalable storage management for my organization's critical data.
 ---
@@ -126,6 +126,12 @@ The following diagram shows volume restoration (cloning) by using DR target volu
 [![Diagram that shows volume restoration using DR target volume snapshot](./media/snapshots-introduction/snapshot-restore-clone-target-volume.png)](./media/snapshots-introduction/snapshot-restore-clone-target-volume.png#lightbox)
 
 When you restore a snapshot to a new volume, the Volume overview page displays the name of the snapshot used to create the new volume in the **Originated from** field. See [Restore a snapshot to a new volume](snapshots-restore-new-volume.md) about volume restore operations.
+
+### Creating a short-term clone 
+
+Short-term clones are volumes clones created from snapshots that are designed explicity for temporary use such as development, testing, data analytics, or data forensics. Short-term clones inherit the data in the base snapshot used to create them. In contrast to regular clones, short-term clones are more space efficient, sharing the same data blocks with its parent volume for common data. Writes specifically to the short-term clone consume their own data blocks.
+
+A short-term clone is designed to be used for a fixed period of time. After 32 days, the short-term clone is automatically converted into a regular volume. For more information about creating a short-term clone and its related quota consumption, see [Create a short-term clone volume](create-short-term-clone.md).
 
 ### Restoring (reverting) an online snapshot in-place
 
