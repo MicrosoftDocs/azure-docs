@@ -324,7 +324,7 @@ App Service ignores any errors that occur when processing a custom startup comma
     gunicorn --bind=0.0.0.0 --timeout 600 --workers=4 --chdir <module_path> <module>.wsgi
     ```
 
-    For more information, see [Running Gunicorn](https://docs.gunicorn.org/en/stable/run.html). If you're using auto-scale rules to scale your web app up and down, you should also dynamically set the number of Gunicorn workers using the `NUM_CORES` environment variable in your startup command, for example: `--workers $((($NUM_CORES*2)+1))`. For more information on setting the recommended number of Gunicorn workers, see [the Gunicorn FAQ](https://docs.gunicorn.org/en/stable/design.html#how-many-workers).
+    For more information, see [Running Gunicorn](https://docs.gunicorn.org/en/stable/run.html). If you're using auto-scale rules to scale your web app up and down, you should also dynamically set the number of Gunicorn workers by using the `NUM_CORES` environment variable in your startup command. For example, `--workers $((($NUM_CORES*2)+1))`. For more information on setting the recommended number of Gunicorn workers, see [the Gunicorn FAQ](https://docs.gunicorn.org/en/stable/design.html#how-many-workers).
 
 - **Enable production logging for Django**: Add the `--access-logfile '-'` and `--error-logfile '-'` arguments to the command line:
 
@@ -337,13 +337,13 @@ App Service ignores any errors that occur when processing a custom startup comma
 
     For more information, see [Gunicorn logging](https://docs.gunicorn.org/en/stable/settings.html#logging).
 
-- **Custom Flask main module**: By default, App Service assumes that a Flask app's main module is *application.py* or *app.py*. If your main module uses a different name, then you must customize the startup command. For example, if you have a Flask app whose main module is *hello.py* and the Flask app object in that file is named `myapp`, then the command is as follows:
+- **Custom Flask main module**: By default, App Service assumes that a Flask app's main module is *application.py* or *app.py*. If your main module uses a different name, you must customize the startup command. For example, if you have a Flask app whose main module is *hello.py* and the Flask app object in that file is named *myapp*, this is the command:
 
     ```bash
     gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
     ```
 
-    If your main module is in a subfolder, such as `website`, specify that folder with the `--chdir` argument:
+    If your main module is in a subfolder, such as *website*, specify that folder with the `--chdir` argument:
 
     ```bash
     gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
@@ -360,9 +360,9 @@ App Service ignores any errors that occur when processing a custom startup comma
 
 ## Access app settings as environment variables
 
-App settings are values stored in the cloud specifically for your app, as described in [Configure app settings](configure-common.md#configure-app-settings). These settings are available to your app code as environment variables and accessed using the standard [os.environ](https://docs.python.org/3/library/os.html#os.environ) pattern.
+App settings are values that are stored in the cloud specifically for your app, as described in [Configure app settings](configure-common.md#configure-app-settings). These settings are available to your app code as environment variables and accessed via the standard [os.environ](https://docs.python.org/3/library/os.html#os.environ) pattern.
 
-For example, if you've created an app setting called `DATABASE_SERVER`, the following code retrieves that setting's value:
+For example, if you create an app setting called `DATABASE_SERVER`, the following code retrieves that setting's value:
 
 ```python
 db_server = os.environ['DATABASE_SERVER']
@@ -370,52 +370,52 @@ db_server = os.environ['DATABASE_SERVER']
 
 ## Detect HTTPS session
 
-In App Service, [TLS/SSL termination](https://wikipedia.org/wiki/TLS_termination_proxy) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to check if the user requests are encrypted or not, inspect the `X-Forwarded-Proto` header.
+In App Service, [TLS/SSL termination](https://wikipedia.org/wiki/TLS_termination_proxy) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to check whether the user requests are encrypted, inspect the `X-Forwarded-Proto` header:
 
 ```python
 if 'X-Forwarded-Proto' in request.headers and request.headers['X-Forwarded-Proto'] == 'https':
-# Do something when HTTPS is used
+# Do something when HTTPS is used.
 ```
 
-Popular web frameworks let you access the `X-Forwarded-*` information in your standard app pattern. For example, in Django you can use the [SECURE_PROXY_SSL_HEADER](https://docs.djangoproject.com/en/4.1/ref/settings/#secure-proxy-ssl-header) to tell Django to use the `X-Forwarded-Proto` header.
+Popular web frameworks enable you to access the `X-Forwarded-*` information in your standard app pattern. For example, in Django you can use [SECURE_PROXY_SSL_HEADER](https://docs.djangoproject.com/en/4.1/ref/settings/#secure-proxy-ssl-header) to configure Django to use the `X-Forwarded-Proto` header.
 
 ## Access diagnostic logs
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-linux-no-h.md)]
 
-To access logs through the Azure portal, select **Monitoring** > **Log stream** on the left side menu for your app.
+To access logs in the Azure portal, select **Monitoring** > **Log stream** in the left pane for your app.
 
 ## Access deployment logs
 
-When you deploy your code, App Service performs the build process described earlier in the section [Customize build automation](#customize-build-automation). Because the build runs in its own container, build logs are stored separately from the app's diagnostic logs.
+When you deploy your code, App Service performs the build process described earlier, in the [Customize build automation](#customize-build-automation) section. Because the build runs in its own container, build logs are stored separately from the app's diagnostic logs.
 
 Use the following steps to access the deployment logs:
 
-1. On the Azure portal for your web app, select **Deployment** > **Deployment Center** on the left menu.
+1. On the Azure portal page for your web app, select **Deployment** > **Deployment Center** in the left pane.
 1. On the **Logs** tab, select the **Commit ID** for the most recent commit.
-1. On the **Log details** page that appears, select the **Show Logs** link that appears next to "Running oryx build...".
+1. On the **Log details** page that appears, select the **Show Logs** link that appears next to **Running oryx build**".
 
-Build issues such as incorrect dependencies in *requirements.txt* and errors in pre- or post-build scripts will appear in these logs. Errors also appear if your requirements file isn't named *requirements.txt* or doesn't appear in the root folder of your project.
+Build issues, like incorrect dependencies in *requirements.txt* and errors in pre-build or post-build scripts, appear in these logs. Errors also appear if your requirements file isn't named *requirements.txt* or doesn't appear in the root folder of your project.
 
-## Open SSH session in browser
+## Open SSH session in a browser
 
 [!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
-When you're successfully connected to the SSH session, you should see the message "SSH CONNECTION ESTABLISHED" at the bottom of the window. If you see errors such as "SSH_CONNECTION_CLOSED" or a message that the container is restarting, an error might be preventing the app container from starting. See [Troubleshooting](#other-issues) for steps to investigate possible issues.
+When you're successfully connected to the SSH session, you should see the message "SSH CONNECTION ESTABLISHED" at the bottom of the window. If you see errors like "SSH_CONNECTION_CLOSED" or a message stating that the container is restarting, an error might be preventing the app container from starting. See [Troubleshooting](#other-issues) for information about investigating possible issues.
 
 ## URL rewrites
 
-When deploying Python applications on Azure App Service for Linux, you might need to handle URL rewrites within your application. This is particularly useful for ensuring specific URL patterns are redirected to the correct endpoints without relying on external web server configurations. For Flask applications, [URL processors](https://flask.palletsprojects.com/patterns/urlprocessors/) and custom middleware can be used to achieve this. In Django applications, the robust [URL dispatcher](https://docs.djangoproject.com/en/5.0/topics/http/urls/) allows for efficient management of URL rewrites.
+When deploying Python applications on App Service for Linux, you might need to handle URL rewrites within your application. This method is particularly useful for ensuring that specific URL patterns are redirected to the correct endpoints without relying on external web server configurations. For Flask applications, you can use [URL processors](https://flask.palletsprojects.com/patterns/urlprocessors/) and custom middleware to achieve this. In Django applications, the [URL dispatcher](https://docs.djangoproject.com/en/5.0/topics/http/urls/) enables efficient management of URL rewrites.
 
 ## Troubleshooting
 
 In general, the first step in troubleshooting is to use App Service diagnostics:
 
-1. In the Azure portal for your web app, select **Diagnose and solve problems** from the left menu.
+1. On the Azure portal page for your web app, select **Diagnose and solve problems** in the left pane.
 1. Select **Availability and Performance**.
-1. Examine the information in the **Application Logs**, **Container Crash**, and **Container Issues** options, where the most common issues will appear.
+1. Examine the information in **Application Logs**, **Container Crash**, and **Container Issues**, where the most common issues appear.
 
-Next, examine both the [deployment logs](#access-deployment-logs) and the [app logs](#access-diagnostic-logs) for any error messages. These logs often identify specific issues that can prevent app deployment or app startup. For example, the build can fail if your *requirements.txt* file has the wrong filename or isn't present in your project root folder.
+Next, examine both the [deployment logs](#access-deployment-logs) and the [app logs](#access-diagnostic-logs) for any error messages. These logs often identify specific issues that can prevent app deployment or app startup. For example, the build can fail if your *requirements.txt* file has the wrong file name or isn't present in your project root folder.
 
 The following sections provide guidance for specific issues.
 
@@ -431,33 +431,33 @@ The following sections provide guidance for specific issues.
 
 #### App doesn't appear
 
-- **You see the default app after deploying your own app code.** The [default app](#default-behavior) appears because you either haven't deployed your app code to App Service, or App Service failed to find your app code and ran the default app instead.
+- **You see the default app after deploying your own app code.** The [default app](#default-behavior) appears because you either haven't deployed your app code to App Service or because App Service failed to find your app code and ran the default app instead.
 
-  - Restart the App Service, wait 15-20 seconds, and check the app again.
+  - Restart the app, wait 20 seconds, and then check the app again.
 
-  - Use [SSH](#open-ssh-session-in-browser) to connect directly to the App Service container and verify that your files exist under *site/wwwroot*. If your files don't exist, use the following steps:
-      1. Create an app setting named `SCM_DO_BUILD_DURING_DEPLOYMENT` with the value of 1, redeploy your code, wait a few minutes, then try to access the app again. For more information on creating app settings, see [Configure an App Service app in the Azure portal](configure-common.md).
+  - Use [SSH](#open-ssh-session-in-browser) to connect directly to the App Service container and verify that your files exist under *site/wwwroot*. If your files don't exist, take the following steps:
+      1. Create an app setting named `SCM_DO_BUILD_DURING_DEPLOYMENT` with a value of 1, redeploy your code, wait a few minutes, and then try to access the app again. For more information on creating app settings, see [Configure an App Service app in the Azure portal](configure-common.md).
       1. Review your deployment process, [check the deployment logs](#access-deployment-logs), correct any errors, and redeploy the app.
 
-  - If your files exist, then App Service wasn't able to identify your specific startup file. Check that your app is structured as App Service expects for [Django](#django-app) or [Flask](#flask-app), or use a [custom startup command](#customize-startup-command).
+  - If your files exist, App Service wasn't able to identify your startup file. Ensure that your app is structured as App Service expects for [Django](#django-app) or [Flask](#flask-app), or use a [custom startup command](#customize-startup-command).
 
-- <a name="service-unavailable"></a>**You see the message "Service Unavailable" in the browser.** The browser has timed out waiting for a response from App Service, which indicates that App Service started the Gunicorn server, but the app itself didn't start. This condition could indicate that the Gunicorn arguments are incorrect, or that there's an error in the app code.
+- <a name="service-unavailable"></a>**You see the message "Service Unavailable" in the browser.** The browser timed out waiting for a response from App Service. This indicates that App Service started the Gunicorn server but the app itself didn't start. This condition could indicate that the Gunicorn arguments are incorrect or that there's an error in the app code.
 
-  - Refresh the browser, especially if you're using the lowest pricing tiers in your App Service plan. The app might take longer to start up when you use free tiers, for example, and becomes responsive after you refresh the browser.
+  - Refresh the browser, especially if you're using the lowest pricing tiers in your App Service plan. The app might take longer to start up when you use free tiers, for example, and become responsive after you refresh the browser.
 
-  - Check that your app is structured as App Service expects for [Django](#django-app) or [Flask](#flask-app), or use a [custom startup command](#customize-startup-command).
+  - Verify that your app is structured as App Service expects for [Django](#django-app) or [Flask](#flask-app), or use a [custom startup command](#customize-startup-command).
 
-  - Examine the [app log stream](#access-diagnostic-logs) for any error messages. The logs will show any errors in the app code.
+  - Examine the [app log stream](#access-diagnostic-logs) for error messages. The logs will show any errors in the app code.
 
 #### Could not find setup.py or requirements.txt
 
-- **The log stream shows "Could not find setup.py or requirements.txt; Not running pip install."**: The Oryx build process failed to find your *requirements.txt* file.
+- **The log stream shows "Could not find setup.py or requirements.txt; Not running pip install."**. The Oryx build process failed to find your *requirements.txt* file.
 
   - Connect to the web app's container via [SSH](#open-ssh-session-in-browser) and verify that *requirements.txt* is named correctly and exists directly under *site/wwwroot*. If it doesn't exist, make sure the file exists in your repository and is included in your deployment. If it exists in a separate folder, move it to the root.
 
 #### ModuleNotFoundError when app starts
 
-If you see an error like `ModuleNotFoundError: No module named 'example'`, then Python couldn't find one or more of your modules when the application started. This error most often occurs if you deploy your virtual environment with your code. Virtual environments aren't portable, so a virtual environment shouldn't be deployed with your application code. Instead, let Oryx create a virtual environment and install your packages on the web app by creating an app setting, `SCM_DO_BUILD_DURING_DEPLOYMENT`, and setting it to `1`. This setting will force Oryx to install your packages whenever you deploy to App Service. For more information, see [this article on virtual environment portability](https://azure.github.io/AppService/2020/12/11/cicd-for-python-apps.html).
+If you see an error like `ModuleNotFoundError: No module named 'example'`, Python couldn't find one or more of your modules when the application started. This error most often occurs if you deploy your virtual environment with your code. Virtual environments aren't portable, so a virtual environment shouldn't be deployed with your application code. Instead, let Oryx create a virtual environment and install your packages on the web app by creating an app setting, `SCM_DO_BUILD_DURING_DEPLOYMENT`, and setting it to `1`. This setting will force Oryx to install your packages whenever you deploy to App Service. For more information, see [this article on virtual environment portability](https://azure.github.io/AppService/2020/12/11/cicd-for-python-apps.html).
 
 ### Database is locked
 
