@@ -14,7 +14,7 @@ This article describes how to restore [Azure Managed Disks](/azure/virtual-machi
 
 Backup Vault uses Managed Identity to access other Azure resources. To restore from backup, Backup vault’s managed identity requires a set of permissions on the resource group where the disk is to be restored.
 
-Backup vault uses a system assigned managed identity, which is restricted to one per resource and is tied to the lifecycle of this resource. You can grant permissions to the managed identity by using Azure role-based access control (Azure RBAC). Managed identity is a service principal of a special type that may only be used with Azure resources. Learn more about [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md).
+Backup vault uses a system assigned managed identity, which is restricted to one per resource and is tied to the lifecycle of this resource. You can grant permissions to the managed identity by using Azure role-based access control (RBAC). Managed identity is a service principal of a special type that may only be used with Azure resources. Learn more about [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md).
 
 
 >[!Note]
@@ -28,10 +28,10 @@ Before you restore a new disk from a recovery point, ensure that the following p
 
 
 
-1. Assign the **Disk Restore Operator** role to the Backup Vault’s managed identity on the Resource group where the disk will be restored by the Azure Backup service.
+1. Assign the **Disk Restore Operator** role to the Backup Vault’s managed identity on the Resource group where Azure Backup should restore the disk.
 
     >[!NOTE]
-    > You can choose the same resource group as that of the source disk from where backups are taken or to any other resource group within the same or a different subscription.
+    > You can choose the same resource group as the source disk from where backups are taken or to any other resource group within the same or a different subscription.
 
     1. Go to the resource group where the disk is to be restored to. For example, the resource group is *TargetRG*.
 
@@ -44,7 +44,7 @@ Before you restore a new disk from a recovery point, ensure that the following p
 
         ![Select disk restore operator role](./media/restore-managed-disks/disk-restore-operator-role.png)
 
-1. Verify that the backup vault's managed identity has the right set of role assignments on the resource group where the disk will be restored.
+1. Verify that the backup vault's managed identity has the right set of role assignments on the resource group where the disk should restore.
 
     1. Go to **Backup vault - > Identity** and select **Azure role assignments**
 
@@ -57,7 +57,7 @@ Before you restore a new disk from a recovery point, ensure that the following p
     >[!NOTE]
     >While the role assignments are reflected correctly on the portal, it may take approximately 15 minutes for the permission to be applied on the backup vault’s managed identity.
     >
-    >During scheduled backups or an on-demand backup operation, Azure Backup stores the disk incremental snapshots in the Snapshot Resource Group provided during configuring backup of the disk. Azure Backup uses these incremental snapshots during the restore operation. If the snapshots are deleted or moved from the Snapshot Resource Group or if the Backup vault role assignments are revoked on the Snapshot Resource Group, the restore operation will fail.
+    >During scheduled backups or an on-demand backup operation, Azure Backup stores the disk incremental snapshots in the Snapshot Resource Group provided during configuring backup of the disk. Azure Backup uses these incremental snapshots during the restore operation. If the snapshots are deleted or moved from the Snapshot Resource Group or if the Backup vault role assignments are revoked on the Snapshot Resource Group, the restore operation fails.
 
 1. If the disk to be restored is encrypted with [customer-managed keys (CMK)](/azure/virtual-machines/disks-enable-customer-managed-keys-portal) or using [double encryption using platform-managed keys and customer-managed keys](/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal), then assign the **Reader** role permission to the Backup Vault’s managed identity on the **Disk Encryption Set** resource.
 
@@ -100,7 +100,7 @@ To restore a new disk from a recovery point, follow these steps:
    :::image type="content" source="./media/restore-managed-disks/set-restore-parameters.png" alt-text="Screenshot shows the selection of Azure Disk restore parameters." lightbox="./media/restore-managed-disks/set-restore-parameters.png":::
 
     >[!TIP]
-    >You can protect disks with Azure Backup using either the Disk Backup solution or the Azure VM backup solution with a Recovery Services vault. If you have already protected the Azure VM that uses this disk, you can restore the VM, individual disks, or files and folders from the VM backup recovery point. For more information, see [Azure VM backup](./about-azure-vm-restore.md).
+    >You can protect disks with Azure Backup using either the Disk Backup solution or the Azure Virtual Machine (VM) backup solution with a Recovery Services vault. If the Azure VM is already protected that uses this disk, you can restore the VM, individual disks, or files and folders from the VM backup recovery point. For more information, see [Azure VM backup](./about-azure-vm-restore.md).
 
 1. When the validation is successful, select **Next: Review + restore**.
 
