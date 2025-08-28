@@ -74,7 +74,7 @@ To help customers quickly identify issues, we added an **error check** that vali
 
 ## Next steps
   
-- Review steps to [enable role assignments for your identifies if they are removed]((native-role-assignment.md))
+- Review steps to [enable role assignments for your identifies if they are removed](native-role-assignment.md) 
 
 - Follow a tutorial for [Creating an Azure VMware Gen 2 private cloud](native-create-azure-vmware-virtual-network-private-cloud.md)
 
