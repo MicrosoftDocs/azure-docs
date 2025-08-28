@@ -303,7 +303,7 @@ if ($newRuleSetExclusions) {
 Set-AzApplicationGatewayFirewallPolicy -InputObject $wafPolicy
 ```
 
-## Related Content
+## Related content
 
 - [Web Application Firewall DRS and CRS rule groups and rules](/azure/web-application-firewall/ag/application-gateway-crs-rulegroups-rules)
 - [Customize Web Application Firewall rules using the Azure portal](/azure/web-application-firewall/ag/application-gateway-customize-waf-rules-portal)
