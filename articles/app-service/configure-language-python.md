@@ -43,55 +43,56 @@ You can use either the [Azure portal](https://portal.azure.com) or the Azure CLI
 
 - **Azure CLI**:
 
-  - Show the current Python version with [az webapp config show](/cli/azure/webapp/config#az-webapp-config-show):
+  - Show the current Python version by using [az webapp config show](/cli/azure/webapp/config#az-webapp-config-show):
 
     ```azurecli
     az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
     ```
 
-    Replace `<resource-group-name>` and `<app-name>` with the names appropriate for your web app.
+    Replace `<resource-group-name>` and `<app-name>` with the names that are appropriate for your web app.
 
-  - Set the Python version with [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set)
+  - Set the Python version by using [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set)
 
     ```azurecli
     az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PYTHON|3.11"
     ```
 
-  - Show all Python versions that are supported in Azure App Service with [az webapp list-runtimes](/cli/azure/webapp#az-webapp-list-runtimes):
+  - Show all Python versions that are supported in App Service by using [az webapp list-runtimes](/cli/azure/webapp#az-webapp-list-runtimes):
 
     ```azurecli
     az webapp list-runtimes --os linux | grep PYTHON
     ```
 
-You can run an unsupported version of Python by building your own container image instead. For more information, see [use a custom Docker image](tutorial-custom-container.md?pivots=container-linux).
+You can run an unsupported version of Python by building your own container image. For more information, see [Use a custom Docker image](tutorial-custom-container.md?pivots=container-linux).
 
 [!INCLUDE [outdated-runtimes](includes/outdated-runtimes.md)]
 
 ## Customize build automation
+
 > [!NOTE]
-> When Python applications are deployed with build automation, content will be deployed to and served from `/tmp/<uid>`, not under `/home/site/wwwroot`. This content directory can be access through the `APP_PATH` environment variable. Any additional files created at runtime should be written to a location under `/home` or using [Bring Your Own Storage](configure-connect-to-azure-storage.md) for persistence. More information on this behavior can be found [here](https://github.com/Azure-App-Service/KuduLite/wiki/Python-Build-Changes).
+> When Python applications are deployed with build automation, content is deployed to and served from `/tmp/<uid>`, not under `/home/site/wwwroot`. You can access this content directory by using the `APP_PATH` environment variable. You should write any additional files created at runtime to a location under `/home` or by using [Bring Your Own Storage](configure-connect-to-azure-storage.md) for persistence. For more information on this behavior, see [Python Build Changes](https://github.com/Azure-App-Service/KuduLite/wiki/Python-Build-Changes).
 
-App Service's build system, called Oryx, performs the following steps when you deploy your app, if the app setting `SCM_DO_BUILD_DURING_DEPLOYMENT` is set to `1`:
+The App Service build system, called Oryx, performs the following steps when you deploy your app, if the app setting `SCM_DO_BUILD_DURING_DEPLOYMENT` is set to `1`:
 
-1. Run a custom pre-build script, if that step is specified by the `PRE_BUILD_COMMAND` setting. (The script can itself run other Python and Node.js scripts, pip and npm commands, and Node-based tools like yarn, for example, `yarn install` and `yarn build`.)
+1. Run a custom pre-build script, if that step is specified by the `PRE_BUILD_COMMAND` setting. (The script can itself run other Python and Node.js scripts, pip and npm commands, and Node-based tools like Yarn, for example, `yarn install` and `yarn build`.)
 
-1. Run `pip install -r requirements.txt`. The *requirements.txt* file must be present in the project's root folder. Otherwise, the build process reports the error: "Could not find setup.py or requirements.txt; Not running pip install."
+1. Run `pip install -r requirements.txt`. The *requirements.txt* file must be in the project's root folder. If it's not, the build process reports the error "Could not find setup.py or requirements.txt; Not running pip install."
 
-1. If *manage.py* is found in the root of the repository (indicating a Django app), run *manage.py collectstatic*. However, if the `DISABLE_COLLECTSTATIC` setting is `true`, this step is skipped.
+1. If *manage.py* is found in the root of the repository (which indicates a Django app), run `manage.py collectstatic`. However, if the `DISABLE_COLLECTSTATIC` setting is `true`, this step is skipped.
 
-1. Run custom post-build script, if that step is specified by the `POST_BUILD_COMMAND` setting. (Again, the script can run other Python and Node.js scripts, pip and npm commands, and Node-based tools.)
+1. Run a custom post-build script, if that step is specified in the `POST_BUILD_COMMAND` setting. (Again, the script can run other Python and Node.js scripts, pip and npm commands, and Node-based tools.)
 
 By default, the `PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND`, and `DISABLE_COLLECTSTATIC` settings are empty.
 
-- To disable running collectstatic when building Django apps, set the `DISABLE_COLLECTSTATIC` setting to `true`.
+- To disable running `collectstatic` when building Django apps, set the `DISABLE_COLLECTSTATIC` setting to `true`.
 
-- To run pre-build commands, set the `PRE_BUILD_COMMAND` setting to contain either a command, such as `echo Pre-build command`, or a path to a script file, relative to your project root, such as `scripts/prebuild.sh`. All commands must use relative paths to the project root folder.
+- To run pre-build commands, set the `PRE_BUILD_COMMAND` setting to contain either a command, such as `echo Pre-build command`, or a path to a script file, relative to your project root, such as `scripts/prebuild.sh`. All commands must use paths that are relative the project root folder.
 
-- To run post-build commands, set the `POST_BUILD_COMMAND` setting to contain either a command, such as `echo Post-build command`, or a path to a script file, relative to your project root, such as `scripts/postbuild.sh`. All commands must use relative paths to the project root folder.
+- To run post-build commands, set the `POST_BUILD_COMMAND` setting to contain either a command, such as `echo Post-build command`, or a path to a script file, relative to your project root, such as `scripts/postbuild.sh`. All commands must use paths that are relative to the project root folder.
 
-For other settings that customize build automation, see [Oryx configuration](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
+For information about other settings that customize build automation, see [Oryx configuration](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
 
-To access the build and deployment logs, see [Access deployment logs](#access-deployment-logs).
+For information about accessing the build and deployment logs, see [Access deployment logs](#access-deployment-logs).
 
 For more information on how App Service runs and builds Python apps in Linux, see [How Oryx detects and builds Python apps](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/python.md).
 
@@ -101,15 +102,15 @@ For more information on how App Service runs and builds Python apps in Linux, se
 > A setting named `SCM_DO_BUILD_DURING_DEPLOYMENT`, if it contains `true` or `1`, triggers an Oryx build that happens during deployment. The setting is `true` when you deploy by using Git, the Azure CLI command `az webapp up`, and Visual Studio Code.
 
 > [!NOTE]
-> Always use relative paths in all pre- and post-build scripts because the build container in which Oryx runs is different from the runtime container in which the app runs. Never rely on the exact placement of your app project folder within the container (for example, that it's placed under *site/wwwroot*).
+> Always use relative paths in all pre-build and post-build scripts because the build container in which Oryx runs is different from the runtime container in which the app runs. Never rely on the exact placement of your app project folder within the container (for example, that it's placed under *site/wwwroot*).
 
 ## Generate requirements.txt from pyproject.toml
 
-App Service does not directly support `pyproject.toml` at the moment.  If you're using tools like Poetry or uv, the recommended approach is to generate a compatible `requirements.txt` before deployment in your project's root:
+Currently, App Service doesn't directly support `pyproject.toml`. If you use tools like Poetry or uv, the recommended approach is to generate a compatible *requirements.txt* file before deployment in your project's root:
 
 ### Using Poetry
 
-Using [Poetry](https://python-poetry.org/) with the [export plugin](https://github.com/python-poetry/poetry-plugin-export):
+Generate *requirements.txt* by using [Poetry](https://python-poetry.org/) with the [export plugin](https://github.com/python-poetry/poetry-plugin-export):
 
 ```sh
 
@@ -119,7 +120,7 @@ poetry export -f requirements.txt --output requirements.txt --without-hashes
 
 ### Using uv
 
-Using [uv](https://docs.astral.sh/uv/concepts/projects/sync/#exporting-the-lockfile):
+Generate *requirements.txt* by using [uv](https://docs.astral.sh/uv/concepts/projects/sync/#exporting-the-lockfile):
 
 ```sh
 
@@ -129,40 +130,40 @@ uv export --format requirements-txt --no-hashes --output-file requirements.txt
 
 ## Migrate existing applications to Azure
 
-Existing web applications can be redeployed to Azure as follows:
+You can redeploy existing web applications to Azure as follows:
 
-1. **Source repository**: Maintain your source code in a suitable repository like GitHub, which enables you to set up continuous deployment later in this process.
-    - Your *requirements.txt* file must be at the root of your repository for App Service to automatically install the necessary packages.
+1. **Source repository**. Maintain your source code in a suitable repository, like GitHub, which enables you to set up continuous deployment later in this process.
+    - Your *requirements.txt* file must be at the root of your repository if you want App Service to automatically install the necessary packages.
 
-1. **Database**: If your app depends on a database, create the necessary resources on Azure as well.
+1. **Database**. If your app depends on a database, create the necessary resources on Azure as well.
 
-1. **App service resources**: Create a resource group, App Service plan, and App Service web app to host your application. You can do this easily by running the Azure CLI command [`az webapp up`](/cli/azure/webapp#az-webapp-up). Or, you can create and deploy resources as shown in the [Flask](tutorial-python-postgresql-app-flask.md), [Django](tutorial-python-postgresql-app-django.md), or [FastAPI](tutorial-python-postgresql-app-fastapi.md) with PostgreSQL tutorial. Replace the names of the resource group, App Service plan, and web app to be more suitable for your application.
+1. **App Service resources**. Create a resource group, App Service plan, and App Service web app to host your application. You create these resources easily by running the Azure CLI command [`az webapp up`](/cli/azure/webapp#az-webapp-up). Or you can create and deploy resources as shown in the [Flask](tutorial-python-postgresql-app-flask.md), [Django](tutorial-python-postgresql-app-django.md), or [FastAPI](tutorial-python-postgresql-app-fastapi.md) with PostgreSQL tutorial. Replace the names of the resource group, App Service plan, and web app with names that are suitable for your application.
 
-1. **Environment variables**: If your application requires any environment variables, create equivalent [App Service application settings](configure-common.md#configure-app-settings). These App Service settings appear to your code as environment variables, as described in [Access environment variables](#access-app-settings-as-environment-variables).
-    - Database connections, for example, are often managed through such settings, as shown in [Tutorial: Deploy a Django web app with PostgreSQL - verify connection settings](tutorial-python-postgresql-app-django.md#3-secure-connection-secrets-and-add-secret_key).
+1. **Environment variables**. If your application requires any environment variables, create equivalent [App Service application settings](configure-common.md#configure-app-settings). These App Service settings appear to your code as environment variables, as described in [Access environment variables](#access-app-settings-as-environment-variables).
+    - Database connections, for example, are often managed via such settings, as shown in [Tutorial: Deploy a Django web app with PostgreSQL - verify connection settings](tutorial-python-postgresql-app-django.md#3-secure-connection-secrets-and-add-secret_key).
     - See [Production settings for Django apps](#production-settings-for-django-apps) for specific settings for typical Django apps.
 
-1. **App startup**: Review the section [Container startup process](#container-startup-process) later in this article to understand how App Service attempts to run your app. App Service uses the Gunicorn web server by default, which must be able to find your app object or *wsgi.py* folder. If you need to, you can [Customize the startup command](#customize-startup-command).
+1. **App startup**. Review the section [Container startup process](#container-startup-process) later in this article for information about how App Service attempts to run your app. App Service uses the Gunicorn web server by default. Gunicorn must be able to find your app object or *wsgi.py* folder. If you need to, you can [Customize the startup command](#customize-startup-command).
 
-1. **Continuous deployment**: Set up continuous deployment from GitHub Actions, Bitbucket, or Azure Repos as described in the article [Continuous deployment to Azure App Service](deploy-continuous-deployment.md). Or, set up continuous deployment from Local Git as described in the article [Local Git deployment to Azure App Service](deploy-local-git.md).
+1. **Continuous deployment**. Set up continuous deployment from GitHub Actions, Bitbucket, or Azure Repos as described in the article [Continuous deployment to Azure App Service](deploy-continuous-deployment.md). Or set up continuous deployment from local Git as described in the article [Local Git deployment to Azure App Service](deploy-local-git.md).
 
-1. **Custom actions**: To perform actions within the App Service container that hosts your app, such as Django database migrations, you can [connect to the container through SSH](configure-linux-open-ssh-session.md). For an example of running Django database migrations, see [Tutorial: Deploy a Django web app with PostgreSQL - generate database schema](tutorial-python-postgresql-app-django.md#5-generate-database-schema).
-    - When using continuous deployment, you can perform those actions using post-build commands as described earlier under [Customize build automation](#customize-build-automation).
+1. **Custom actions**. To perform actions within the App Service container that hosts your app, such as Django database migrations, you can [connect to the container by using SSH](configure-linux-open-ssh-session.md). For an example of running Django database migrations, see [Tutorial: Deploy a Django web app with PostgreSQL](tutorial-python-postgresql-app-django.md#5-generate-database-schema).
+    - When using continuous deployment, you can perform those actions by using post-build commands as described earlier in the [Customize build automation](#customize-build-automation) section.
 
 With these steps completed, you should be able to commit changes to your source repository and have those updates automatically deployed to App Service.
 
 ### Production settings for Django apps
 
-For a production environment like Azure App Service, Django apps should follow Django's [Deployment checklist](https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/).
+For a production environment like App Service, Django apps should follow the guidance in Django's [Deployment checklist](https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/).
 
 The following table describes the production settings that are relevant to Azure. These settings are defined in the app's *setting.py* file.
 
 | Django setting | Instructions for Azure |
 | --- | --- |
-| `SECRET_KEY` | Store the value in an App Service setting as described on [Access app settings as environment variables](#access-app-settings-as-environment-variables). You can alternatively [store the value as a secret in Azure Key Vault](/azure/key-vault/secrets/quick-create-python). |
-| `DEBUG` | Create a `DEBUG` setting on App Service with the value 0 (false), then load the value as an environment variable. In your development environment, create a `DEBUG` environment variable with the value 1 (true). |
-| `ALLOWED_HOSTS` | In production, Django requires that you include the app's URL in the `ALLOWED_HOSTS` array of *settings.py*. You can retrieve this URL at runtime with the code `os.environ['WEBSITE_HOSTNAME']`. App Service automatically sets the `WEBSITE_HOSTNAME` environment variable to the app's URL. |
-| `DATABASES` | Define settings in App Service for the database connection and load them as environment variables to populate the [`DATABASES`](https://docs.djangoproject.com/en/4.1/ref/settings/#std:setting-DATABASES) dictionary. You can alternatively store the values (especially the username and password) as [Azure Key Vault secrets](/azure/key-vault/secrets/quick-create-python). |
+| `SECRET_KEY` | Store the value in an App Service setting, as described in [Access app settings as environment variables](#access-app-settings-as-environment-variables). You can alternatively [store the value as a secret in Azure Key Vault](/azure/key-vault/secrets/quick-create-python). |
+| `DEBUG` | Create a `DEBUG` setting on App Service with the value 0 (false), and then load the value as an environment variable. In your development environment, create a `DEBUG` environment variable with the value 1 (true). |
+| `ALLOWED_HOSTS` | In production, Django requires that you include the app's URL in the `ALLOWED_HOSTS` array of *settings.py*. You can retrieve this URL at runtime by using the code `os.environ['WEBSITE_HOSTNAME']`. App Service automatically sets the `WEBSITE_HOSTNAME` environment variable to the app's URL. |
+| `DATABASES` | Define settings in App Service for the database connection and load them as environment variables to populate the [`DATABASES`](https://docs.djangoproject.com/en/4.1/ref/settings/#std:setting-DATABASES) dictionary. You can alternatively store the values (especially the username and password) as [Key Vault secrets](/azure/key-vault/secrets/quick-create-python). |
 
 ## Serve static files for Django apps
 
@@ -170,25 +171,25 @@ If your Django web app includes static front-end files, first follow the instruc
 
 For App Service, you then make the following modifications:
 
-1. Consider using environment variables (for local development) and App Settings (when deploying to the cloud) to dynamically set the Django `STATIC_URL` and `STATIC_ROOT` variables. For example:
+1. Consider using environment variables (for local development) and app settings (when deploying to the cloud) to dynamically set the Django `STATIC_URL` and `STATIC_ROOT` variables. For example:
 
     ```python
     STATIC_URL = os.environ.get("DJANGO_STATIC_URL", "/static/")
     STATIC_ROOT = os.environ.get("DJANGO_STATIC_ROOT", "./static/")    
     ```
 
-    `DJANGO_STATIC_URL` and `DJANGO_STATIC_ROOT` can be changed as necessary for your local and cloud environments. For example, if the build process for your static files places them in a folder named `django-static`, then you can set `DJANGO_STATIC_URL` to `/django-static/` to avoid using the default.
+    `DJANGO_STATIC_URL` and `DJANGO_STATIC_ROOT` can be changed as necessary for your local and cloud environments. For example, if the build process for your static files places them in a folder named `django-static`, you can set `DJANGO_STATIC_URL` to `/django-static/` in order to avoid using the default.
 
-1. If you have a pre-build script that generates static files in a different folder, include that folder in the Django `STATICFILES_DIRS` variable so that Django's `collectstatic` process finds them. For example, if you run `yarn build` in your front-end folder, and yarn generates a `build/static` folder containing static files, then include that folder as follows:
+1. If you have a pre-build script that generates static files in a different folder, include that folder in the Django `STATICFILES_DIRS` variable so that Django's `collectstatic` process finds them. For example, if you run `yarn build` in your front-end folder and Yarn generates a `build/static` folder containing static files, include that folder as shown here:
 
     ```python
     FRONTEND_DIR = "path-to-frontend-folder" 
     STATICFILES_DIRS = [os.path.join(FRONTEND_DIR, 'build', 'static')]    
     ```
 
-    Here, `FRONTEND_DIR` is used to build a path to where a build tool like yarn is run. You can again use an environment variable and App Setting as desired.
+    In this code, `FRONTEND_DIR` is used to build a path to where a build tool like Yarn is run. You can again use an environment variable and app setting if you want to.
 
-1. Add `whitenoise` to your *requirements.txt* file. [WhiteNoise](http://whitenoise.evans.io/en/stable/) (whitenoise.evans.io) is a Python package that makes it simple for a production Django app to serve its own static files. WhiteNoise specifically serves those files that are found in the folder specified by the Django `STATIC_ROOT` variable.
+1. Add `whitenoise` to your *requirements.txt* file. [WhiteNoise](http://whitenoise.evans.io/en/stable/) (whitenoise.evans.io) is a Python package that makes it simple for a production Django app to serve its own static files. WhiteNoise serves the files that are found in the folder specified by the Django `STATIC_ROOT` variable.
 
 1. In your *settings.py* file, add the following line for WhiteNoise:
 
@@ -196,12 +197,12 @@ For App Service, you then make the following modifications:
     STATICFILES_STORAGE = ('whitenoise.storage.CompressedManifestStaticFilesStorage')
     ```
 
-1. Also modify the `MIDDLEWARE` and `INSTALLED_APPS` lists to include WhiteNoise:
+1. Modify the `MIDDLEWARE` and `INSTALLED_APPS` lists to include WhiteNoise:
 
     ```python
     MIDDLEWARE = [                                                                   
         'django.middleware.security.SecurityMiddleware',
-        # Add whitenoise middleware after the security middleware                             
+        # Add WhiteNoise middleware after the security middleware                             
         'whitenoise.middleware.WhiteNoiseMiddleware',
         # Other values follow
     ]
@@ -214,7 +215,7 @@ For App Service, you then make the following modifications:
 
 ## Serve static files for Flask apps
 
-If your Flask web app includes static front-end files, first follow the instructions on [managing static files](https://flask.palletsprojects.com/en/2.2.x/tutorial/static/) in the Flask documentation. For an example of serving static files in a Flask application, see the [sample Flask application](https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart) on GitHub. 
+If your Flask web app includes static front-end files, first follow the instructions in [managing static files](https://flask.palletsprojects.com/en/2.2.x/tutorial/static/) in the Flask documentation. For an example of serving static files in a Flask application, see the [sample Flask application](https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart) on GitHub. 
 
 To serve static files directly from a route on your application, you can use the [`send_from_directory`](https://flask.palletsprojects.com/en/2.2.x/api/#flask.send_from_directory) method:
 
@@ -228,39 +229,39 @@ def send_report(path):
 
 ## Container characteristics
 
-When deployed to App Service, Python apps run within a Linux Docker container that's defined in the [App Service Python GitHub repository](https://github.com/Azure-App-Service/python). You can find the image configurations inside the version-specific directories.
+When deployed to App Service, Python apps run within a Linux Docker container that's defined in the [App Service Python GitHub repository](https://github.com/Azure-App-Service/python). You can find the image configurations in the version-specific directories.
 
 This container has the following characteristics:
 
-- Apps are run using the [Gunicorn WSGI HTTP Server](https://gunicorn.org/), using the extra arguments `--bind=0.0.0.0 --timeout 600`.
+- Apps are run by the [Gunicorn WSGI HTTP Server](https://gunicorn.org/) with the extra arguments `--bind=0.0.0.0 --timeout 600`.
   - You can provide configuration settings for Gunicorn by [customizing the startup command](#customize-startup-command).
 
   - To protect your web app from accidental or deliberate DDOS attacks, Gunicorn is run behind an Nginx reverse proxy as described in [Deploying Gunicorn](https://docs.gunicorn.org/en/latest/deploy.html).
 
-- By default, the base container image includes only the Flask web framework, but the container supports other frameworks that are WSGI-compliant and compatible with Python 3.6+, such as Django.
+- By default, the base container image includes only the Flask web framework, but the container supports other frameworks that are WSGI-compliant and compatible with Python 3.6 and later, such as Django.
 
 - To install other packages, such as Django, create a [*requirements.txt*](https://pip.pypa.io/en/stable/user_guide/#requirements-files) file in the root of your project that specifies your direct dependencies. App Service then installs those dependencies automatically when you deploy your project.
 
-    The *requirements.txt* file *must* be in the project root for dependencies to be installed. Otherwise, the build process reports the error: "Could not find setup.py or requirements.txt; Not running pip install." If you encounter this error, check the location of your requirements file.
+    The *requirements.txt* file must be in the project root or dependencies won't be installed. If this file isn't in the root, the build process reports the error "Could not find setup.py or requirements.txt; Not running pip install." If you encounter this error, check the location of your requirements file.
 
-- App Service automatically defines an environment variable named `WEBSITE_HOSTNAME` with the web app's URL, such as `msdocs-hello-world.azurewebsites.net`. It also defines `WEBSITE_SITE_NAME` with the name of your app, such as `msdocs-hello-world`.
+- App Service automatically defines an environment variable named `WEBSITE_HOSTNAME` that contains the web app's URL, such as `msdocs-hello-world.azurewebsites.net`. It also defines `WEBSITE_SITE_NAME`, which contains the name of your app, such as `msdocs-hello-world`.
 
-- npm and Node.js are installed in the container so you can run Node-based build tools, such as yarn.
+- npm and Node.js are installed in the container so you can run Node-based build tools, such as Yarn.
 
 ## Container startup process
 
 During startup, the App Service on Linux container runs the following steps:
 
 1. Use a [custom startup command](#customize-startup-command), if one is provided.
-1. Check for the existence of a [Django app](#django-app), and launch Gunicorn for it if one is detected.
-1. Check for the existence of a [Flask app](#flask-app), and launch Gunicorn for it if one is detected.
+1. Check for the existence of a [Django app](#django-app), and start Gunicorn for it if one is detected.
+1. Check for the existence of a [Flask app](#flask-app), and start Gunicorn for it if one is detected.
 1. If no other app is found, start a default app that's built into the container.
 
 The following sections provide extra details for each option.
 
 ### Django app
 
-For Django apps, App Service looks for a file named `wsgi.py` within your app code, and then runs Gunicorn using the following command:
+For Django apps, App Service looks for a file named *wsgi.py* in your app code, and then runs Gunicorn by using the following command:
 
 ```bash
 # <module> is the name of the folder that contains wsgi.py
@@ -287,7 +288,7 @@ If your main app module is contained in a different file, use a different name f
 
 ### Default behavior
 
-If the App Service doesn't find a custom command, a Django app, or a Flask app, then it runs a default read-only app, located in the *opt/defaultsite* folder and shown in the following image.
+If the App Service doesn't find a custom command, a Django app, or a Flask app, it runs a default read-only app, located in the *opt/defaultsite* folder and shown in the following image.
 
 If you deployed code and still see the default app, see [Troubleshooting - App doesn't appear](#app-doesnt-appear).
 
@@ -295,15 +296,15 @@ If you deployed code and still see the default app, see [Troubleshooting - App d
 
 ## Customize startup command
 
-You can control the container's startup behavior by providing either a custom startup command or multiple commands in a startup command file. A startup command file can use whatever name you choose, such as *startup.sh*, *startup.cmd*, *startup.txt*, and so on.
+You can control the container's startup behavior by providing either a custom startup command or multiple commands in a startup command file. A startup command file can use whatever name you choose, like *startup.sh*, *startup.cmd*, or *startup.txt*.
 
 All commands must use relative paths to the project root folder.
 
 To specify a startup command or command file:
 
-- **Azure portal**: select the app's **Configuration** page, then select **General settings**. In the **Startup Command** field, place either the full text of your startup command or the name of your startup command file. Then select **Save** to apply the changes. See [Configure general settings](configure-common.md#configure-general-settings) for Linux containers.
+- **Azure portal**. Select the app's **Configuration** page, and then select **General settings**. In the **Startup Command** box, enter either the full text of your startup command or the name of your startup command file. Then select **Save** to apply the changes. See [Configure general settings](configure-common.md#configure-general-settings) for Linux containers.
 
-- **Azure CLI**: use the [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set) command with the `--startup-file` parameter to set the startup command or file:
+- **Azure CLI**. Use the [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set) command with the `--startup-file` parameter to set the startup command or file:
 
     ```azurecli
     az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
@@ -311,7 +312,7 @@ To specify a startup command or command file:
 
     Replace `<custom-command>` with either the full text of your startup command or the name of your startup command file.
 
-App Service ignores any errors that occur when processing a custom startup command or file, then continues its startup process by looking for Django and Flask apps. If you don't see the behavior you expect, check that your startup command or file is error-free, and that a startup command file is deployed to App Service along with your app code. You can also check the [diagnostic logs](#access-diagnostic-logs) for more information. Also check the app's **Diagnose and solve problems** page on the [Azure portal](https://portal.azure.com).
+App Service ignores any errors that occur when processing a custom startup command or file, and then continues its startup process by looking for Django and Flask apps. If you don't see the behavior you expect, verify that your startup command or file is error-free and that a startup command file is deployed to App Service along with your app code. You can also check the [diagnostic logs](#access-diagnostic-logs) for more information. And you can check the app's **Diagnose and solve problems** page on the [Azure portal](https://portal.azure.com).
 
 ### Example startup commands
 
@@ -319,7 +320,7 @@ App Service ignores any errors that occur when processing a custom startup comma
 
     ```bash
     # <module-path> is the relative path to the folder that contains the module
-    # that contains wsgi.py; <module> is the name of the folder containing wsgi.py.
+    # that contains wsgi.py. <module> is the name of the folder that contains wsgi.py.
     gunicorn --bind=0.0.0.0 --timeout 600 --workers=4 --chdir <module_path> <module>.wsgi
     ```
 
