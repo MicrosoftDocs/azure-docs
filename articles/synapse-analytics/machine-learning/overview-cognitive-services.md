@@ -92,7 +92,7 @@ The tutorial, [Pre-requisites for using Azure AI services in Azure Synapse](/azu
 
 ### Search
 
-* [**Bing Image search**](https://www.microsoft.com/bing/apis/bing-image-search-api) ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/bing/BingImageSearch.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.bing.html#module-synapse.ml.services.bing.BingImageSearch))
+* [**Bing Image search**](https://learn.microsoft.com/previous-versions/bing/search-apis/bing-image-search/overview) ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/bing/BingImageSearch.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.bing.html#module-synapse.ml.services.bing.BingImageSearch))
 * [**Azure Cognitive search**](/azure/search/search-what-is-azure-search) ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/search/AzureSearchWriter$.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.search.html#module-synapse.ml.services.search.AzureSearchWriter))
 
 ## Prepare your system
