@@ -34,7 +34,7 @@ To achieve protection against server and server rack failures, Azure Firewall au
 To increase redundancy and availability during datacenter failures, you can enable zone redundancy to distribute instances across multiple availability zones.
 
 > [!NOTE]
-> If you create your firewall by using the Azure portal, zone redundancy is automatically enabled.
+> If you create your firewall in the Azure portal, zone redundancy is automatically enabled.
 
 ## Transient faults
 
