@@ -434,7 +434,7 @@ General purpose V2 storage accounts (Both Hot and Cool tier) | Supported | Trans
 Generation 2 (UEFI boot) | Supported
 NVMe disks | Not supported
 Managed Shared Disk| Supported 
-Managed Premium SSD v2 Disk| Supported | Public Preview  in all public regions.<br/><br/>Note: Since Block Blob storage accounts are not supported in China North and China East regions, Azure Site Recovery for Premium SSD v2 disks cannot be supported. 
+Managed Premium SSD v2 Disk| Supported | Public Preview with PowerShell support in all public regions.<br/><br/>Note: Since Block Blob storage accounts are not supported in China North and China East regions, Azure Site Recovery for Premium SSD v2 disks cannot be supported. 
 Ultra Disks | Supported | Public Preview  in all public regions.<br/><br/>Note: Since Block Blob storage accounts are not supported in China North and China East regions, Azure Site Recovery for Premium SSD v2 disks cannot be supported.
 Secure transfer option | Supported
 Write accelerator enabled disks | Not supported
