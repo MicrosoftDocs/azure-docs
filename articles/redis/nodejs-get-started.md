@@ -55,7 +55,7 @@ In the first part of the TypeScript code sample file, `index.ts`, configure your
 
 :::code language="typescript" source="~/azure-cache-redis-samples/quickstart/nodejs/src/index.ts" range="1-66":::
 
-Use the `createRedisClient()` function to connect to the Redis cache.
+Use the `createRedisClient()` function to create a node-redis client connection to the Redis cache..
 
 ```typescript
 client = createRedisClient();
