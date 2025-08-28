@@ -44,7 +44,7 @@ UEBA now supports anomaly detection using six new data sources:
   - **GCP audit logs - Failed IAM access**: Captures denied access attempts in Google Cloud Platform, helping identify privilege escalation attempts or misconfigured roles.
   - **Okta MFA and authentication security change events**: Surfaces MFA challenges and changes to authentication policies in Okta—signals that might indicate targeted attacks or identity tampering.
 
-These new sources enhance UEBA’s ability to detect identity-related threats across hybrid environments. 
+These new sources enhance UEBA’s ability to detect threats across Microsoft and hybrid environments based on enriched user, device, and service identity data, enhanced behavioral context, and new cross-platform anomaly detection capabilities. 
 
 To enable the new data sources, you must be onboarded to the Defender portal. 
 
