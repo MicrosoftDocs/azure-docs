@@ -33,7 +33,7 @@ To enable alerts (Preview) with Azure Update Manager through Azure portal, follo
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 1. Under **Monitoring**, select **New alerts rule (Preview)** to create a new alert rule.
    
-   :::image type="content" source="./media/manage-alerts/create-new-alert-rule.png" alt-text="Screenshot that shows how to create new alerts rule." lightbox="./media/manage-alert/create-new-alerts-rule.png":::
+   :::image type="content" source="./media/manage-alerts/create-new-alert-rule.png" alt-text="Screenshot that shows how to create new alerts rule." lightbox="./media/manage-alerts/create-new-alert-rule.png":::
  
     1. Select a **Subscription** from the dropdown that will be the scope of the alert rule.
     1. Select **Resource Group** from the dropdown and the alert is created. 
