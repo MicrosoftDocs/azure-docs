@@ -87,7 +87,7 @@ Update the `package.json` file in your repository to add details about Playwrigh
 
 ```typescript
 "devDependencies": {
-    "@azure/playwright": "beta"
+    "@azure/playwright": "latest"
 }
 ```
 
@@ -107,7 +107,7 @@ This command updates your project's `csproj` file by adding the service package 
 
 ```xml
   <ItemGroup>
-    <PackageReference Include="Azure.Developer.Playwright.NUnit" Version="1.0.0-beta.2" />
+    <PackageReference Include="Azure.Developer.Playwright.NUnit" Version="1.0.0" />
   </ItemGroup>
 ```
 
