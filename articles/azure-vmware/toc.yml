@@ -115,8 +115,10 @@ items:
       href: native-network-design-consideration.md
   - name: Security
     items:
-    - name: Enable first-party application service principal for Gen 2 
+    - name: Enable first-party application service principal
       href: native-first-party-principle-security.md
+    - name: Configure identities role assignments manually 
+      href: native-role-assignment.md
   - name: Networking
     items:
     - name: Connectivity to an Azure Virtual Network
