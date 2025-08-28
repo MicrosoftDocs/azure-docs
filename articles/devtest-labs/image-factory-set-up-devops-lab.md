@@ -115,7 +115,7 @@ If you select the build task, you'll see all the details on the right pane that 
 ## Queue the build
 Let's verify that you have everything set up correctly by queuing up a new build. While the build is running, switch to the [Azure portal](https://portal.azure.com) and select on **All Virtual Machines** in your image factory lab to confirm that everything is working correctly. You should see three virtual machines get created in the lab.
 
-![VMs in the lab](./media/set-up-devops-lab/vms-in-lab.png)
+![Screenshot showing VMs in the lab](./media/set-up-devops-lab/vms-in-lab.png)
 
 ## Next steps
 The first step in setting up the image factory based on Azure DevTest Labs is complete. In the next article in the series, you get those VMs generalized and saved to custom images. Then, you have them distributed to all your other labs. See the next article in the series: [Save custom images and distribute to multiple labs](image-factory-save-distribute-custom-images.md).
