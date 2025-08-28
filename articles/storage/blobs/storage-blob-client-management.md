@@ -3,12 +3,12 @@ title: Create and manage clients that interact with data resources
 titleSuffix: Azure Storage 
 description: Learn how to create and manage clients that interact with data resources in Blob Storage.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 01/27/2025
-ms.author: pauljewell
+ms.author: shaas
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
 ms.custom: devguide-csharp, devguide-java, devguide-javascript, devguide-python
@@ -469,3 +469,4 @@ To learn more about using the Azure Storage client libraries to work with data r
 - [Get started with Azure Blob Storage and Java](storage-blob-java-get-started.md)
 - [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md)
 - [Get started with Azure Blob Storage and Python](storage-blob-python-get-started.md)
+

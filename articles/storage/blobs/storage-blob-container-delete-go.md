@@ -3,12 +3,12 @@ title: Delete and restore a blob container with Go
 titleSuffix: Azure Storage
 description: Learn how to delete and restore a blob container in your Azure Storage account using the Go client library.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/05/2024
-ms.author: pauljewell
+ms.author: shaas
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
 # Customer intent: As a developer, I want to delete and restore blob containers using the Go client library, so that I can efficiently manage storage resources in my Azure account.
@@ -77,3 +77,4 @@ The Azure SDK for Go contains libraries that build on top of the Azure REST API,
 - [Enable and manage soft delete for containers](soft-delete-container-enable.md)
 
 [!INCLUDE [storage-dev-guide-next-steps-go](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-go.md)]
+

@@ -8,6 +8,7 @@ ms.custom: engagement-fy24
 
 #Customer intent: As an Azure service administrator, I want to collect key performance and reliability metrics from my Azure VMware Solution private cloud, so I can analyze for any diagnostic purposes.
 
+# Customer intent: As an Azure service administrator, I want to utilize the latest performance and health metrics in my Azure VMware Solution private cloud, so that I can effectively monitor and enhance the system's stability and reliability.
 ---
 
 # Configure the latest iteration of Azure VMware Solution private cloud performance and health metrics

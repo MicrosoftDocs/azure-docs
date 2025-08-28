@@ -387,6 +387,10 @@ Enabling or disabling the toggle will only affect the following traffic flow: tr
 
 :::image type="content" source="./media/virtual-wan-expressroute-portal/expressroute-bowtie-virtual-network-virtual-wan.png" alt-text="Diagram of a standalone virtual network connecting to a virtual hub via ExpressRoute circuit." lightbox="./media/virtual-wan-expressroute-portal/expressroute-bowtie-virtual-network-virtual-wan.png":::
 
+### When I update an ExpressRoute connection, will this impact connectivity for my other ExpressRoute connections? 
+
+When you perform a create, update, or delete operation on an ExpressRoute connection, your other ExpressRoute connections will appear to be in an "updating" state in Portal. However, connectivity via these ExpressRoute connections will not be impacted. 
+
 ### Why does connectivity not work when I advertise routes with an ASN of 0 in the AS-Path? 
 
 The Virtual WAN hub drops routes with an ASN of 0 in the AS-Path. To ensure these routes are successfully advertised into Azure, the AS-Path should not include 0. 
@@ -507,7 +511,7 @@ This limit is adjustable. For more information on the limit, the procedure to re
 
 ### Which services are included in the Maintenance Configuration scope of Network Gateways? 
 
-For Virtual WAN, you can configure maintenance windows for site-to-site VPN gateways and ExpressRoute gateways.
+For Virtual WAN, you can configure maintenance windows for site-to-site VPN gateways, point-to-site VPN gateways and ExpressRoute gateways.
 
 ### Which maintenance is supported or not supported by customer-controlled maintenance?
 

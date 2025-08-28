@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory business-to-customer (B2C)"
 description: "New and updated documentation for the Azure Active Directory business-to-customer (B2C)."
-ms.date: 07/03/2025
+ms.date: 08/01/2025
 ms.service: azure-active-directory
 ms.subservice: b2c
 ms.topic: whats-new
@@ -17,6 +17,12 @@ manager: CelesteDG
 [!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Welcome to what's new in Azure Active Directory B2C documentation. This article lists new and significantly updated docs from the past three months. To learn what's new with the B2C service, see [What's new in Microsoft Entra ID](../active-directory/fundamentals/whats-new.md), [Azure AD B2C developer release notes](custom-policy-developer-notes.md) and [What's new in Microsoft Entra External ID](/entra/external-id/whats-new-docs).
+
+## July 2025
+
+### Updated articles
+
+- [Azure Active Directory B2C service limits and restrictions](service-limits.md) - Added new region limits
 
 ## June 2025
 
@@ -35,9 +41,4 @@ This month, we added an important note to our articles stating that starting May
 
 - [Manage administrator accounts in Azure Active Directory B2C](tenant-management-manage-administrator.md) - Updated the User page information
 - [Track user behavior in Azure AD B2C by using Application Insights](analytics-with-application-insights.md) - Replaced instrumentation key with connection string
-
-## March 2025
-
-### Updated articles
-- [Error codes: Azure Active Directory B2C](error-codes.md) - Updated error messages
 

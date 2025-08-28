@@ -44,6 +44,9 @@ Integrate AI capabilities into your Java applications:
 - [Build a chatbot with Azure OpenAI (Spring Boot)](tutorial-ai-openai-chatbot-java.md) - Create a Spring Boot application that connects to Azure OpenAI using managed identity.
 - [Build a RAG application with Azure OpenAI and Azure AI Search (Java)](tutorial-ai-openai-search-java.md) - Implement RAG to search through your own documents with Java.
 - [Run a chatbot with a local SLM (Spring Boot)](tutorial-ai-slm-spring-boot.md) - Deploy a Spring Boot application with a local SLM sidecar.
+- [Integrate an App Service app as an MCP Server for GitHub Copilot Chat (Java)](tutorial-ai-model-context-protocol-server-java.md) - Host an MCP server with Java to extend GitHub Copilot Chat capabilities.
+- [Add an App Service app as a tool in Azure AI Foundry Agent Service (Java)](tutorial-ai-integrate-azure-ai-agent-java.md) - Make your Java application available as a tool for AI agents.
+- [Build an agentic web app with Semantic Kernel (Java)](tutorial-ai-agent-web-app-semantic-kernel-java.md) - Create an intelligent agent-based application using Java and Semantic Kernel.
 
 Samples:
 
@@ -56,6 +59,9 @@ Add AI features to your Node.js web applications:
 - [Build a chatbot with Azure OpenAI (Express.js)](tutorial-ai-openai-chatbot-node.md) - Create an Express.js application that connects to Azure OpenAI using managed identity.
 - [Build a RAG application with Azure OpenAI and Azure AI Search (Node.js)](tutorial-ai-openai-search-nodejs.md) - Build a RAG application with Node.js.
 - [Run a chatbot with a local SLM (Express.js)](tutorial-ai-slm-expressjs.md) - Deploy an Express.js application with a local SLM sidecar.
+- [Integrate an App Service app as an MCP Server for GitHub Copilot Chat (Node.js)](tutorial-ai-model-context-protocol-server-node.md) - Host an MCP server with Node.js to extend GitHub Copilot Chat capabilities.
+- [Add an App Service app as a tool in Azure AI Foundry Agent Service (Node.js)](tutorial-ai-integrate-azure-ai-agent-node.md) - Make your Node.js application available as a tool for AI agents.
+- [Build an agentic web app with LangGraph and Azure AI Foundry (Node.js)](tutorial-ai-agent-web-app-langgraph-foundry-node.md) - Create an intelligent agent-based application using Node.js and a choicer of LangGraph or Azure AI Foundry Agent Service.
 
 ## Python applications
 
@@ -64,7 +70,10 @@ Implement AI capabilities in your Python web applications:
 - [Build a chatbot with Azure OpenAI (Flask)](tutorial-ai-openai-chatbot-python.md) - Create a Flask application that connects to Azure OpenAI using managed identity.
 - [Build a RAG application with Azure OpenAI and Azure AI Search (Python)](tutorial-ai-openai-search-python.md) - Implement RAG with Python.
 - [Run a chatbot with a local SLM (FastAPI)](tutorial-ai-slm-fastapi.md) - Deploy a FastAPI application with a local SLM sidecar.
-- [Azure AI Foundry tutorial: Deploy an enterprise chat web app](/azure/ai-foundry/tutorials/deploy-chat-web-app?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json) - Deploy fully integrated AI web app straight from your deployment in Azure AI Foundry. 
+- [Azure AI Foundry tutorial: Deploy an enterprise chat web app](/azure/ai-foundry/tutorials/deploy-chat-web-app?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json) - Deploy fully integrated AI web app straight from your deployment in Azure AI Foundry.
+- [Integrate an App Service app as an MCP Server for GitHub Copilot Chat (Python)](tutorial-ai-model-context-protocol-server-python.md) - Host an MCP server with Python to extend GitHub Copilot Chat capabilities.
+- [Add an App Service app as a tool in Azure AI Foundry Agent Service (Python)](tutorial-ai-integrate-azure-ai-agent-python.md) - Expose your Python web app’s capabilities to Azure AI Foundry Agent Service using OpenAPI, enabling agents to perform real-world tasks.
+- [Build an agentic web app with LangGraph or Azure AI Foundry Agent Service (Python)](tutorial-ai-agent-web-app-langgraph-foundry-python.md) - Create an intelligent agent-based application using Python, LangGraph, or Azure AI Foundry Agent Service.
 
 ## Model Context Protocol (MCP) servers
 
@@ -73,8 +82,8 @@ Host [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction
 - [Host a .NET MCP server on Azure App Service](https://github.com/Azure-Samples/remote-mcp-webapp-dotnet) - Deploy an MCP server with .NET.
 - [Host a Node.js MCP server on Azure App Service](https://github.com/Azure-Samples/remote-mcp-webapp-node) - Deploy an MCP server with Node.js.
 - [Host a Python MCP server on Azure App Service](https://github.com/Azure-Samples/remote-mcp-webapp-python) - Deploy an MCP server with Python.
-- [Host a Pyton MCP server with key-based authorization on Azure App Service](https://github.com/Azure-Samples/remote-mcp-webapp-python-auth) - Deploy an MCP server with Python and key-based authorization.
-- [Host a Pyton MCP server with OAuth 2.0 authorization on Azure App Service](https://github.com/Azure-Samples/remote-mcp-webapp-python-auth-oauth) - Deploy an MCP server with Python and [Open Authorization (OAuth) 2.0 authorization with Micrososft Entra ID](/entra/architecture/auth-oauth2).
+- [Host a Python MCP server with key-based authorization on Azure App Service](https://github.com/Azure-Samples/remote-mcp-webapp-python-auth) - Deploy an MCP server with Python and key-based authorization.
+- [Host a Python MCP server with OAuth 2.0 authorization on Azure App Service](https://github.com/Azure-Samples/remote-mcp-webapp-python-auth-oauth) - Deploy an MCP server with Python and [Open Authorization (OAuth) 2.0 authorization with Microsoft Entra ID](/entra/architecture/auth-oauth2).
 
 ## More resources
 

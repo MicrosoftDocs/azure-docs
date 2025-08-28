@@ -58,11 +58,11 @@ landingContent:
             url: tutorial-monitor-protection-summary.md
 
   # Card (optional)
-  - title: Azure Business Continuity Center Copilot (preview)
+  - title: Azure Business Continuity Center Copilot
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Manage BCDR estate (preview)
+          - text: Manage BCDR estate
             url: tutorial-manage-data-using-copilot.md
 
   # Card (optional)

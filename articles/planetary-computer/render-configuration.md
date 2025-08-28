@@ -391,6 +391,7 @@ The `options` string accepts the following key-value pairs (refer to [TiTiler do
 
 ## Related content
 
+- [Data visualization sample guide](./data-visualization-samples.md)
 - [Configure a collection with the Microsoft Planetary Computer Pro web interface](./configure-collection-web-interface.md)
 - [Mosaic configurations for collections](./mosaic-configurations-for-collections.md)
 - [Tile settings for collections](./tile-settings.md)

@@ -18,6 +18,9 @@ ms.custom: mode-other
 
 Get started with reliable SMS service using toll-free numbers by submitting a toll-free verification. Toll-free verification maximizes deliverability of messages with low to no traffic filtering.
 
+> [!TIP]
+> For global SMS delivery and partner-managed options, check out [Messaging Connect](../../concepts/sms/messaging-connect.md).
+
 ## Prerequisites
 - [An active Communication Services resource.](../create-communication-resource.md).
 - [An SMS-enabled toll-free number](../telephony/get-phone-number.md).

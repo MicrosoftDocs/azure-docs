@@ -4,6 +4,7 @@ description: Understand the format of the telemetry, property, and command messa
 author: dominicbetts
 ms.author: dobett
 ms.date: 03/18/2025
+ms.update-cycle: 1095-days
 ms.topic: conceptual
 ms.service: azure-iot
 ms.custom: device-developer

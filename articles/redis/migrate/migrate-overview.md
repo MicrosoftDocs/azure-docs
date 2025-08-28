@@ -2,7 +2,6 @@
 title: Move from Azure Cache for Redis to Azure Managed Redis
 description: Why and how to move from Azure Cache for Redis to Azure Managed Redis.
 ms.date: 05/18/2025
-ms.service: azure
 ms.topic: how-to
 ms.custom:
   - ignite-2024
@@ -54,8 +53,8 @@ Here are some other differences that aren't covered by the previous mapping. Con
 | DNS suffix (only for PROD cloud) | `.redis.cache.windows.net` | `<region>.redis.azure.net`                    |
 | TLS port                         | 6380                       | 10000                                         |
 | Non-TLS port                     | 6379                       | Not supported                                 |
-| Individual node TLS ports        | 130XX                      | 85xx                                          |
-| Individual node non-TLS port     | 150XX                      | Not supported                                 |
+| Individual node TLS ports        | 13XXX                      | 85xx                                          |
+| Individual node non-TLS port     | 15XXX                      | Not supported                                 |
 | Clustering support               | OSS clustering mode        | OSS and Enterprise cluster modes              |
 | Unsupported commands             | Unsupported commands       | Multi-key commands                            |
 | Regional availability            | All Azure regions          | * See the list of regions after this section. |
@@ -64,67 +63,8 @@ Here are some other differences that aren't covered by the previous mapping. Con
 
 ## Regional availability for Azure Managed Redis
 
-Azure Managed Redis is current supported in the following regions. This list is updated regularly. Eventually, Azure Managed Redis will be supported all regions in Azure. Work with your sales contact to raise requests on regions where you need support.
+Azure Managed Redis is continually expanding into new regions. To check the availability by region, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table).
 
-- Americas
-  - Brazil South
-  - Brazil Southeast
-  - Canada Central
-  - Canada East
-  - Central US
-  - East US
-  - East US 2
-  - Mexico Central
-  - North Central US
-  - South Central US
-  - West Central US
-  - West US
-  - West US 2
-  - West US 3
-  
-- Europe
-  - France South
-  - Germany North
-  - Germany West Central
-  - Italy North
-  - Norway East
-  - Norway West
-  - Spain Central
-  - Sweden Central
-  - Sweden South
-  - Switzerland North
-  - Switzerland West
-  - UK South
-  - UK West
-  - West Europe
-  
-- Middle East
-  - Israel Central
-  - UAE Central
-  - UAE North
-  
-- Africa
-  - South Africa North
-  - South Africa West
-  
-- Asia Pacific
-  - Australia Central
-  - Australia Central 2
-  - Australia East
-  - Australia Southeast
-  - Central India
-  - East Asia
-  - Indonesia Central
-  - Japan East
-  - Japan West
-  - Jio India Central
-  - Jio India West
-  - Korea Central
-  - Korea South
-  - South East Asia
-  - South India
-  - Taiwan North
-  - Taiwan Northwest
 ## Migrate your Azure Cache for Redis instance to Azure Managed Redis
 
 > [!NOTE]

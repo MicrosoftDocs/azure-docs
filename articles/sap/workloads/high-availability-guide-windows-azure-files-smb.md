@@ -11,6 +11,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.date: 12/01/2021
 ms.author: stmuelle
+# Customer intent: As an SAP system administrator, I want to install high availability for SAP NetWeaver using Azure Files premium SMB, so that I can ensure reliable and efficient access to necessary file shares and meet the required configurations for optimal performance.
 ---
 
 # Install HA SAP NetWeaver with Azure Files SMB

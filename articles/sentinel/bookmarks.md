@@ -4,7 +4,7 @@ description: This article describes how to use the Microsoft Sentinel hunting bo
 ms.author: monaberdugo
 author: mberdugo 
 ms.topic: how-to
-ms.date: 04/23/2024
+ms.date: 07/09/2025
 ms.collection: usx-security
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal

@@ -119,16 +119,14 @@ package main
 
 import (
 	"context"
-	"fmt"
 	"log"
 	"os"
-	"time"
 
 	"github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 )
 
-func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azureappconfiguration, error) {
+func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.AzureAppConfiguration, error) {
 	// Get the endpoint from environment variable
 	endpoint := os.Getenv("AZURE_APPCONFIG_ENDPOINT")
 	if endpoint == "" {
@@ -175,15 +173,13 @@ package main
 
 import (
 	"context"
-	"fmt"
 	"log"
 	"os"
-	"time"
 
 	"github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"
 )
 
-func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azureappconfiguration, error) {
+func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.AzureAppConfiguration, error) {
 	// Get the connection string from environment variable
 	connectionString := os.Getenv("AZURE_APPCONFIG_CONNECTION_STRING")
 	if connectionString == "" {
@@ -343,7 +339,8 @@ func main() {
 2. Run the application. 
 
     ```bash
-    go run main.go
+    go mod tidy
+    go run .
     ```
 
     You should see output similar to this:

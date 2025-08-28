@@ -2,7 +2,7 @@
 title: "Tutorial: Use MQTT to create an IoT device client"
 description: Tutorial - Use the MQTT protocol directly to create an IoT device client without using the Azure IoT device SDKs
 author: ryanwinter
-ms.author: rywinter
+ms.author: baanders
 ms.date: 03/11/2025
 ms.topic: tutorial
 ms.service: azure-iot

@@ -14,7 +14,7 @@ This article shows how to send Auth0 events received by Azure Event Grid to Azur
 
 ## Create an Azure function
 
-1. Create an Azure function by following instructions from the **Create a local project** section of [Quickstart: Create a JavaScript function in Azure using Visual Studio Code](../azure-functions/create-first-function-vs-code-node.md).
+1. Create an Azure function by following instructions from the **Create a local project** section of [Quickstart: Create a JavaScript function in Azure using Visual Studio Code](../azure-functions/how-to-create-function-vs-code.md?pivot=programming-language-javascript).
     1. Select **Azure Event Grid trigger** for the function template instead of **HTTP trigger** as mentioned in the quickstart. 
     1. Continue to follow the steps, but use the following **index.js**. 
 
