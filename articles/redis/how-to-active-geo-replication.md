@@ -2,7 +2,6 @@
 title: Configure active geo-replication for Azure Managed Redis instances
 description: Learn how to replicate your Azure Managed Redis instances across Azure regions.
 ms.date: 05/18/2025
-ms.service: azure-managed-redis
 ms.topic: conceptual
 ms.custom:
   - devx-track-azurecli
@@ -167,6 +166,8 @@ New-AzRedisEnterpriseCache -Name "Cache2" -ResourceGroupName "myResourceGroup" -
 As before, you need to list both _Cache1_ and _Cache2_ using the `-LinkedDatabase` parameter.
 
 ## Scaling instances in a geo-replication group
+
+Scaling geo-replicated caches is in Public Preview.
 
 It's possible to scale instances that are configured to use active geo-replication. However, a geo-replication group with a mix of different cache sizes can introduce problems. To prevent these issues from occurring, all caches in a geo replication group need to be the same size and performance tier.
 

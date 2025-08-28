@@ -9,4 +9,4 @@
  ms.custom: include file
 ---
 
-When you use ZRS, Azure Storage manages replication, traffic routing, and zone-down responses automatically. Because this feature is fully managed, you don't need to initiate or validate availability zone failure processes.
+When you use zone-redundant storage (ZRS), Azure Storage manages replication, traffic routing, and zone-down responses automatically. Because this feature is fully managed, you don't need to initiate or validate availability zone failure processes.
