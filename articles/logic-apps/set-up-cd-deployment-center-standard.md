@@ -27,7 +27,7 @@ For Deployment Center integration, the Visual Studio Code generated scripts don'
  
 - Build and deployment for custom code.
 
-If you need a process that manages both code and Azure resources deployment, check how you can [automate build and deployment for Standard logic app workflows with Azure DevOps](/azure/logic-apps/automate-build-deployment-standard)
+If you need a process that manages deployment for both custom code and Azure resources, see [Automate build and deployment for Standard logic app workflows with Azure DevOps](/azure/logic-apps/automate-build-deployment-standard).
 
 ## Prerequisites
 
