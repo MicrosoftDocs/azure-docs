@@ -10,6 +10,13 @@ ms.author: duau
 # Configure a scalable ExpressRoute gateway using Azure portal and PowerShell
 
 This article walks you through configuring a scalable ExpressRoute gateway in Azure using both the Azure portal and PowerShell. A scalable gateway lets you adjust bandwidth and performance for your ExpressRoute connection as your workload needs change.
+## Prerequisites
+
+### Subnet requirement
+The scalable gateway must be deployed in a subnet that is /26 or larger. This ensures enough IP address space for gateway scaling and high availability.
+
+### Regional availability
+Before deployment, review the About Scalable Gateway (link) to confirm region support. Some regions may not currently support scalable gateway functionality.
 
 ## Create the virtual network gateway
 
@@ -34,7 +41,7 @@ This article walks you through configuring a scalable ExpressRoute gateway in Az
     | Assignment | By default, ExpressRoute gateways use an [Auto-Assigned Public IP](expressroute-about-virtual-network-gateways.md#auto-assigned-public-ip). |
 
     > [!IMPORTANT]
-    > You can't create a scalable gateway (ErGwScale SKU) if your deployment uses IPsec over ExpressRoute or depends on UDP flow count.
+    > The ErGwScale SKU does not support IPsec over ExpressRoute or workloads that rely on UDP flow count at this time.
 
 3. Select **Review + Create**, then **Create** to start the deployment. Validation occurs, and the gateway creation process may take up to 45 minutes.
 
