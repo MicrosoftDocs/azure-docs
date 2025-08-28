@@ -23,6 +23,8 @@ items:
 
 - name: Tools
   items:
+  - name: CLI
+    href: /cli/azure/pscloud
   - name: GO SDK
     href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/purestorageblock/armpurestorageblock
   - name: Java SDK
