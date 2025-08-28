@@ -20,8 +20,6 @@ This quickstart describes how to use an Azure Resource Manager template (ARM tem
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-:::image type="content" source="~/articles/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/<encoded template URL>":::
-
 ---
 
 ## Prerequisites
@@ -35,9 +33,9 @@ If you don't have an Azure subscription, create a https://azure.microsoft.com/fr
 
 ## Review the template
 
-The template used in this quickstart is from https://azure.microsoft.com/resources/templates/<templateName>.
+The template used in this quickstart is from https://azure.microsoft.com/resources/templates/.
 
-:::code language="json" source="~/quickstart-templates/firmware-analysis-workspace/azuredeploy.json":::
+:::code language="json" source="azuredeploy.json":::
 
 This template deploys the following resource:
 
