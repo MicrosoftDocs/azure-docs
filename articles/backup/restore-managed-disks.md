@@ -2,7 +2,7 @@
 title: Restore Azure Managed Disks
 description: Learn how to restore Azure Managed Disks from the Azure portal.
 ms.topic: how-to
-ms.date: 08/20/2025
+ms.date: 08/28/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to restore Azure Managed Disks using recovery points, so that I can recover lost or corrupted data while maintaining the integrity of the original disk.
@@ -131,7 +131,7 @@ To restore a new disk from a recovery point, follow these steps:
 
 ## Track a restore operation
 
-After you trigger the restore operation, the backup service creates a job for tracking. Azure Backup displays notifications about the job in the portal. Learn [how to view the restore job progress](manage-azure-managed-disks.md#monitor-a-restore-operation).
+After you trigger the restore operation, the backup service creates a job for tracking. Azure Backup displays notifications about the job in the portal. Learn [how to view the restore job progress](manage-azure-managed-disks.md#monitor-the-backup-and-restore-operations-for-azure-managed-disks).
 
 ## Next steps
 
