@@ -15,8 +15,9 @@ Use Microsoft Dev Box with Visual Studio Code (VS Code) to create secure, cloud-
 
 ## Prerequisites
 
+- A dev center configured with at least one project and a dev box pool.
+    - [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md)
 - A dev box.
-
     - If you don't have a dev box, create one following these steps: [Quickstart: Create and connect to a dev box by using the Microsoft Dev Box developer portal](quickstart-create-dev-box.md)
 
 ## Enable Dev Tunnels on a Dev Box Pool
@@ -37,6 +38,8 @@ While Dev Box Tunnels is in preview, you must register the feature in your Azure
 
 1. In the **Search** box, type **Dev Box**, select **Dev Box Dev Tunnels** from the results, and then select **Register**.
 
+   :::image type="content" source="media/how-to-set-up-dev-tunnels/dev-box-dev-tunnels-register.png" alt-text="Screenshot of the Azure portal Preview features page with the 'Dev Box Dev Tunnels' entry selected and the Register button visible." lightbox="media/how-to-set-up-dev-tunnels/dev-box-dev-tunnels-register-lg.png":::
+
 1. In the **Do you want to register the selected features?** message, select **OK**.
 
 ### Enable dev tunnels for a dev box pool
@@ -49,7 +52,11 @@ Dev tunnels are enabled on a per-pool basis. To enable tunnels for a dev box poo
  
 1. For the pool you want to edit, from the dev box operations menu (**...**), select **Edit**.
 
+   :::image type="content" source="media/how-to-set-up-dev-tunnels/dev-box-edit-pool.png" alt-text="Screenshot of the Azure portal Dev box pool Edit pane with the operations menu and Edit command visible." lightbox="media/how-to-set-up-dev-tunnels/dev-box-edit-pool-lg.png":::
+
 1. On the **Management** tab, select **Enable opening dev box in VS Code**, and then select **Save**.
+
+   :::image type="content" source="media/how-to-set-up-dev-tunnels/dev-box-edit-pool-headless-connection.png" alt-text="Screenshot of the Dev box pool Management tab in the Azure portal with the 'Enable opening dev box in VS Code' option highlighted.":::
 
 ## Connect to a dev box by using a dev tunnel
 
@@ -59,17 +66,17 @@ Follow these steps to set up a dev tunnel and connect to your dev box using VS C
 
    In your **local** VS Code, install the [**Dev Box**](https://marketplace.visualstudio.com/items?itemName=DevCenter.ms-devbox) extension from the VS Code Extension Marketplace. Dev tunnels requires version 2.0.0 or later. Make sure you install the extension locally, not on the Dev Box you want to connect to.
 
-   :::image type="content" source="media/how-to-set-up-dev-tunnels/dev-tunnels-dev-box-extension.png" alt-text="Screenshot of the Dev Box extension in VS Code.":::
+   :::image type="content" source="media/how-to-set-up-dev-tunnels/dev-tunnels-dev-box-extension.png" alt-text="Screenshot of the Dev Box extension in Visual Studio Code showing the extension details and the install option.":::
 
 1. To sign in to the Dev Box extension, select the Dev Box icon in the left sidebar, and select **Sign In to Dev Box with Microsoft**.
 
-   :::image type="content" source="media/how-to-set-up-dev-tunnels/dev-tunnels-sign-in-extension.png" alt-text="Screenshot of the Dev Box extension showing the sign-in option.":::
+   :::image type="content" source="media/how-to-set-up-dev-tunnels/dev-tunnels-sign-in-extension.png" alt-text="Screenshot of the Dev Box extension sign-in option in Visual Studio Code, showing the Dev Box icon and Sign In command.":::
 
 1. Connect to the Dev Box in VS Code
 
    Once everything is set up, open your dev box in VS Code. From the Manage menu (settings wheel), select **Connect**.
 
-   :::image type="content" source="media/how-to-set-up-dev-tunnels/dev-tunnels-connect-tunnel.png" alt-text="Screenshot of the Dev Box extension showing the option to connect to the tunnel.":::
+   :::image type="content" source="media/how-to-set-up-dev-tunnels/dev-tunnels-connect-tunnel.png" alt-text="Screenshot of the Dev Box extension showing the Connect button used to open a tunnel to a Dev Box in Visual Studio Code.":::
 
 1. Explore the remote experience in VS Code
 
@@ -81,7 +88,7 @@ If you have a Windows Subsystem for Linux (WSL) environment on the Dev Box, conn
    
 Select WSL targets from the dropdown to see all the WSL distributions. Open any WSL distribution in the current or a new window.
 
-:::image type="content" source="media/how-to-set-up-dev-tunnels/dev-box-dev-tunnel-linux.png" alt-text="Screenshot showing VS Code with Remote Explorer and the drop list of options highlighted.":::
+:::image type="content" source="media/how-to-set-up-dev-tunnels/dev-box-dev-tunnel-linux.png" alt-text="Screenshot of Visual Studio Code Remote Explorer showing available WSL distributions with the Dev Box WSL target highlighted.":::
 
 
 For more information on the WSL development experience, see [Remote - WSL](https://code.visualstudio.com/docs/remote/wsl) and [Set up a WSL development environment](/windows/wsl/setup/environment).
