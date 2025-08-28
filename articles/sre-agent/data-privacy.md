@@ -16,7 +16,7 @@ By using an SRE Agent, you consent to the product-specific [Supplemental Terms o
 
 ## Agent location
 
-During preview, you can only choose to create Azure SRE Agent in the *Sweden Central* , *East US*, and *Australia* regions.
+During preview, you can only choose to create Azure SRE Agent in the *Sweden Central*, *East US*, and *Australia* regions.
 
 ## Data residency
 
@@ -30,6 +30,6 @@ During preview, you can only choose to create Azure SRE Agent in the *Sweden Cen
 
 - Microsoft doesn't use your data to train AI models.
 
-- Your data is only used to provide the functionality of the service, and to improve, and debug the service as needed.
+- Your data is only used to provide the functionality of the service and to improve and debug the service as needed.
 
 - Data is isolated using tenant and Azure subscription boundaries.
