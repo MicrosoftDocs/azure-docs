@@ -23,7 +23,7 @@ Due to Azure Logic Apps (Standard) similarities with Azure Functions, for more i
 
 For Deployment Center integration, the Visual Studio Code generated scripts don't include the following activities:
 
-1. Deployment of Azure Managed Connectors.
+- Deployment for managed connectors that run in global, multitenant Azure.
  
 2. Build and deployment of custom code.
 
