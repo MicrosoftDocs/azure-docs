@@ -44,7 +44,7 @@ Select **New query** to create a new query tab. The last query in each tab is sa
 
 ### Select workspaces
 
-Queries can run against a single workspace or multiple workspaces. Select workspaces in the upper right corner of the query editor using the **Selected workspaces** dropdown. The workspaces you select determine the tables available for querying. The **default** workspace contains data from Microsoft Entra, Microsoft 365, and Microsoft Resource Graph. When using multiple workspaces, the `union()` operator is applied by default to tables with the same name and schema from different workspaces. Use the `workspace()` operator to query specific workspaces, for example `workspace("MyWorkspace").AuditLogs`.
+Queries can run against a single workspace or multiple workspaces. The editor defaults to the Sentinel primary workspace. Select workspaces in the upper right corner of the query editor using the **Selected workspaces** dropdown. The workspaces you select determine the tables available for querying. When using multiple workspaces, the `union()` operator is applied by default to tables with the same name and schema from different workspaces. Use the `workspace()` operator to query specific workspaces, for example `workspace("MyWorkspace").AuditLogs`. 
 
 > [!NOTE] 
 > The selected workspaces apply to all query tabs in the query editor.  
@@ -57,11 +57,11 @@ Queries can run against a single workspace or multiple workspaces. Select worksp
 ### Time range selection
 Use the time picker above the query editor to select the time range for your query. Using the **Custom time range** option, you can set a specific start and end time. Time ranges can be up to 12 years in duration.
 
-:::image type="content" source="media/kql-queries/time-range-selector.png" lightbox="media/kql-queries/time-range-selector.png" alt-text="A screenshot showing the timerange selector.":::
+:::image type="content" source="media/kql-queries/time-range-selector.png" lightbox="media/kql-queries/time-range-selector.png" alt-text="A screenshot showing the time range selector.":::
 
 You can also specify a time range in the KQL query syntax, for example:
-+ `where TimeGenerated between (datetime(2020-01-01) .. datetime(2020-12-31))` 
-+ ` where TimeGenerated between(ago(180d)..ago(90d))`
++ `where TimeGenerated between (datetime(2020-01-01) .. datetime(2020-12-31))`
++ `where TimeGenerated between(ago(180d)..ago(90d))`
 
 
 > [!NOTE]
@@ -69,7 +69,7 @@ You can also specify a time range in the KQL query syntax, for example:
 
 ### View schema information
 
-The schema browser provides a list of available tables and their columns for the selected workspaces, grouped by category. Select the **Add category** to add your own categories to group custom tables. Use the schema browser to explore the data available in your data lake and discover tables and columns. Use the search box to quickly find specific tables.
+The schema browser provides a list of available tables and their columns for the selected workspaces, grouped by category. Custom tables have `_CL`, `_KQL_CL`, `_SPARK`,`_SPARK_CL` are grouped the **Custom logs** category. Use the schema browser to explore the data available in your data lake and discover tables and columns. Use the search box to quickly find specific tables.
 
 :::image type="content" source="media/kql-queries/schema-browser.png" lightbox="media/kql-queries/schema-browser.png" alt-text="A screenshot showing the schema browser panel in the KQL editor.":::
 
