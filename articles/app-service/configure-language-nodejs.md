@@ -1,6 +1,6 @@
 ---
 title: Configure Node.js Apps
-description: Learn how to configure a Node.js app in the native Windows instances, or in a pre-built Linux container, in Azure App Service. This article shows the most common configuration tasks. 
+description: Learn how to configure a Node.js app in the native Windows instances, or in a prebuilt Linux container, in Azure App Service.  
 ms.custom: devx-track-js, devx-track-azurecli, linux-related-content
 ms.devlang: javascript
 # ms.devlang: javascript, devx-track-azurecli
@@ -153,7 +153,7 @@ The Node.js containers come with [PM2](https://pm2.keymetrics.io/), a production
 
 |Tool|Purpose|
 |--|--|
-|[Run with PM2](#run-with-pm2)|**Recommended**.  Production or staging use. PM2 provides a full-service app management platform.|
+|[Run with PM2](#run-with-pm2)|**Recommended**. Production or staging use. PM2 provides a full-service app management platform.|
 |[Run with npm start](#run-with-npm-start)|Development use only.|
 |[Run with a custom command](#run-with-a-custom-command)|Either development or staging.|
 
@@ -360,7 +360,7 @@ Application Insights enables you to monitor your application's performance, exce
 
 This agent will monitor your server-side Node.js application. To monitor your client-side JavaScript, [add the JavaScript SDK to your project](/azure/azure-monitor/app/javascript).
 
-For more information, see the [Application Insights extension release notes](/azure/azure-monitor/app/web-app-extension-release-notes).
+For more information, see [Enable application monitoring in Azure App Service for .NET, Node.js, Python, and Java applications](/azure/azure-monitor/app/web-app-extension-release-notes).
 
 ::: zone-end
 
