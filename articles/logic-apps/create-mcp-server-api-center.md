@@ -56,7 +56,7 @@ The following list describes restrictions or issues that exist in this release:
 
   This portal is an Azure-managed website that developers and other stakeholders in your organization use to discover the APIs in your API center. After you sign in, you can browse and filter APIs and view API details such as API definitions and documentation. User access to API information is based on Microsoft Entra ID and Azure role-based access control.
 
-  For more information, see [Set up your API Center portal](../azure/api-center/set-up-api-center-portal.md).
+  For more information, see [Set up your API Center portal](../api-center/set-up-api-center-portal.md).
 
 - An empty Standard logic app resource, which doesn't contain any workflows, for creating your MCP server.
 
