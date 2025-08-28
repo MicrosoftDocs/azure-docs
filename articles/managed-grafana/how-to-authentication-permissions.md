@@ -54,10 +54,11 @@ To assign a user-assigned managed identity:
     > Assigning multiple managed identities to a single Azure Managed Grafana resource isn't possible. You can only use one managed identity per resource. If a system-assigned identity is enabled, you must first disable it from the **System assigned** tab before you can enable the user-assigned identity. 
 
 1. In the side panel, select a subscription and an identity, then select **Add**.
-1. Once the identity is successfully added, open it by selecting its name and go to **Azure role assignments** to assign it the **Monitoring Reader** role on the target subscription. 
-1. When done, select **Save**
 
     :::image type="content" source="media/authentication/user-assigned-managed-identity.png" alt-text="Screenshot of the Azure portal. Enabling a user-assigned managed identity.":::
+
+1. Once the identity is successfully added, open it by selecting its name and go to **Azure role assignments** to assign it the **Monitoring Reader** role on the target subscription. 
+1. When done, select **Save**
 
     > [!NOTE]
     > You can only assign one user-assigned managed identity per Azure Managed Grafana instance.
