@@ -6,13 +6,13 @@ ms.topic: include
 ms.service: azure-operator-nexus
 ---
 
-## How to view the full output of a command in the the associated Storage Account
+## How to view the full output of a command in the associated Storage Account
 
 [!INCLUDE [command-output-access](./command-output-access.md)]
 
-Once you are sure that you have the necessary permissions and access, you can use the link or command from the output summary to download the zipped output file (tar.gz).
+With the necessary permissions and access configured, you can then use the link or command from the output summary to download the zipped output file (tar.gz).
 
-You may also download it via the Azure portal:
+You can also download it via the Azure portal:
 
 1. From the Azure portal, navigate to the Storage Account.
 1. In the Storage account details, select **Storage browser** from the navigation menu on the left side.

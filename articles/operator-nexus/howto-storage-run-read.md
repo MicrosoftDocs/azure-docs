@@ -24,10 +24,10 @@ Prerequisites
 
 ## Execute a run-read command
 
-The run-read command lets you run commands on a storage appliance that do not change anything. Valid commands and their arguments are determined by the vendor of the appliance, and may be found in the appropriate CLI documentation for that appliance. Commands are executed against the storage appliance with read-only permissions, and attempts to execute commands that would make changes on the appliance will fail.
+The run-read command lets you run commands on a storage appliance that don't change anything. Valid commands and their arguments depend on the vendor of the appliance, and can be found in the appropriate CLI documentation for that appliance. Commands are executed against the storage appliance with read-only permissions, and an attempt to execute commands that would make changes on the appliance results in failure.
 
 > [!WARNING]
-> Microsoft doesn't provide or support any Operator Nexus API calls that expect plaintext username and/or password to be supplied. The Nexus platform handles authentication with the storage appliance and it should not be necessary to provide credentials as part of the commands. Note any values sent are logged and are considered exposed secrets, which should be rotated and revoked. The Microsoft documented method for securely using secrets is to store them in an Azure Key Vault. If you have specific questions or concerns, submit a request via the Azure portal.
+> Microsoft doesn't provide or support any Operator Nexus API calls that expect plaintext username and/or password to be supplied. The Nexus platform handles authentication with the storage appliance and it shouldn't be necessary to provide credentials as part of the commands. Note any values sent are logged and are considered exposed secrets, which should be rotated and revoked. The Microsoft documented method for securely using secrets is to store them in an Azure Key Vault. If you have specific questions or concerns, submit a request via the Azure portal.
 
 The command syntax for a single command is as follows, using the Pure FlashArrray command `purehw list` as an example:
 

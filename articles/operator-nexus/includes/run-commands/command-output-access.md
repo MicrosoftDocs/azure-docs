@@ -6,7 +6,7 @@ ms.topic: include
 ms.service: azure-operator-nexus
 ---
 
-To access the output of a command, users need the appropriate access to the storage blob. This includes both having the necessary Azure role assignments and ensuring that any networking restrictions are properly configured. 
+To access the output of a command, users need the appropriate access to the storage blob, including both having the necessary Azure role assignments and ensuring that any networking restrictions are properly configured. 
 
 For role assignments, a user must have the following role assignments on the blob container or its Storage Account:
 
