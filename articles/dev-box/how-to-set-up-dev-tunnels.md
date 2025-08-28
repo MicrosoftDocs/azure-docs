@@ -16,7 +16,7 @@ Use Microsoft Dev Box with Visual Studio Code (VS Code) to create secure, cloud-
 ## Prerequisites
 
 - A dev center configured with at least one project and a dev box pool.
-    - [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md)
+    - If you don't have a dev center, create one following these steps:[Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md)
 - A dev box.
     - If you don't have a dev box, create one following these steps: [Quickstart: Create and connect to a dev box by using the Microsoft Dev Box developer portal](quickstart-create-dev-box.md)
 
