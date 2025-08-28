@@ -16,9 +16,9 @@ ms.service: azure-app-service
 
 Node.js apps must be deployed with all the required npm dependencies. The App Service deployment engine automatically runs `npm install --production` when you deploy a [Git repository](deploy-local-git.md) or when you deploy a [Zip package](deploy-zip.md) [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy). If you deploy your files by using [FTP/S](deploy-ftp.md), however, you need to upload the required packages manually.
 
-This guide describes key concepts and provides instructions for Node.js developers who deploy to App Service. If you've never used Azure App Service, complete the [Node.js quickstart](quickstart-nodejs.md) and the [Node.js with MongoDB tutorial](tutorial-nodejs-mongodb-app.md) first.
+This article describes key concepts and provides instructions for Node.js developers who deploy to App Service. If you've never used Azure App Service, complete the [Node.js quickstart](quickstart-nodejs.md) and the [Node.js with MongoDB tutorial](tutorial-nodejs-mongodb-app.md) first.
 
-## Show Node.js version
+## Show the Node.js version
 
 ::: zone pivot="platform-windows"  
 
@@ -52,7 +52,7 @@ az webapp list-runtimes --os linux | grep NODE
 
 ::: zone-end
 
-## Set Node.js version
+## Set the Node.js version
 
 ::: zone pivot="platform-windows"  
 
@@ -63,7 +63,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 ```
 
 > [!NOTE]
-> This example uses the recommended tilde syntax to target the latest available version of Node.js 16 runtime on App Service.
+> This example uses the recommended tilde syntax to target the latest available version of the Node.js 16 runtime on App Service.
 >
 >Because the runtime is regularly patched and updated by the platform, we don't recommend that you target a specific minor version / patch. Because of potential security risks, these versions aren't guaranteed to be available.
 
@@ -89,7 +89,7 @@ This setting specifies the Node.js version to use, both at runtime and during au
 
 [!INCLUDE [outdated-runtimes](includes/outdated-runtimes.md)]
 
-## Get port number
+## Set the port number
 
 Your Node.js app needs to listen to the right port to receive incoming requests.
 
@@ -184,7 +184,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ### Run with a custom command
 
-App Service can start your app using a custom command, such as an executable like *run.sh*. For example, to run `npm run start:prod`, run the following command in the [Cloud Shell](https://shell.azure.com):
+App Service can start your app by using a custom command, such as an executable like *run.sh*. For example, to run `npm run start:prod`, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "npm run start:prod"
