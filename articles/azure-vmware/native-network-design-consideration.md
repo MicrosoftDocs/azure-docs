@@ -17,7 +17,7 @@ This article outlines key design considerations for Azure VMware Solution Genera
 > [!Note]
 > Generation 2 is available in specific Azure public regions. SLAs are region specific. Contact your Microsoft account team or Microsoft Support to confirm coverage.
 
-## Limitations during Public Preview
+## Limitations
 
 The following functionality is limited during this time. These limitations will be lifted in the future:
 
@@ -28,7 +28,7 @@ The following functionality is limited during this time. These limitations will 
 - You cannot ***move*** your private cloud from one Resource Group to another after the private cloud is created.
 - You cannot ***move*** your private cloud from one tenant to another after the private cloud is created.
 - **Virtual Network Service Endpoints** direct connectivity from Azure VMware Solution workloads aren't supported.
-- Connectivity from **Azure VMware Solution (AVS) workloads to Azure virtual machines or to other AVS workloads** over Network File System (NFS) for Azure NetApp Files isn't supported.
+- Only host-level mounts of Azure NetApp Files are supported. **Mounting directly from Azure VMware Solution virtual machines** is not supported.
 - **vCloud Director** using Private Endpoints is supported. However, vCloud Director using Public Endpoints isn't supported.
 - **vSAN Stretched Clusters** isn't supported.
 - Public IP down to the VMware NSX Microsoft Edge for configuring internet will not be supported. You can find what internet options are supported in [Internet connectivity options](native-internet-connectivity-design-considerations.md)
