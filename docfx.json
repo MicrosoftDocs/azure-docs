@@ -1039,7 +1039,11 @@
       },
       "ms.update-cycle": {
         "articles/copilot/*.md": "180-days",
-        "articles/copilot/*.yml": "180-days"
+        "articles/copilot/*.yml": "180-days",
+        "articles/iot-central/**/*.md": "1095-days",
+        "articles/iot-central/**/*.yml": "1095-days",
+        "articles/digital-twins/**/*.md": "1095-days",
+        "articles/digital-twins/**/*.yml": "1095-days"
       },
       "ms.service": {
         "articles/advisor/**/*.md": "azure-advisor",

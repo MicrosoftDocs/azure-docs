@@ -6,7 +6,7 @@ author: peiliu
 manager: vravikumar
 services: azure-communication-services
 ms.author: peiliu
-ms.date: 06/30/2021
+ms.date: 08/19/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: data
@@ -15,6 +15,11 @@ ms.custom: mode-api, devx-track-extended-java, devx-track-js, devx-track-python
 ---
 
 # Export SDK telemetry to Application Insights
+
+> [!IMPORTANT]
+> For the most up-to-date information on this topic, please visit: 
+> [Add and modify OpenTelemetry in Azure Monitor](/azure/azure-monitor/app/opentelemetry-add-modify?tabs=aspnetcore)
+
 
 The Azure OpenTelemetry Exporter is an SDK within [Azure Monitor](/azure/azure-monitor/). It enables you to export tracing data using OpenTelemetry and send the data to [Application Insights](/azure/azure-monitor/app/app-insights-overview). OpenTelemetry provides a standard way for applications and frameworks to collect telemetry information.
 
