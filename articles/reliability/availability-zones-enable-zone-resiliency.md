@@ -178,8 +178,8 @@ This table summarizes the availability zone support for many Azure services and 
 
 ## Next steps
 
-- [Microsoft commitment to expand Azure availability zones to more regions](https://azure.microsoft.com/blog/our-commitment-to-expand-azure-availability-zones-to-more-regions/)
 - [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones)
+- [Microsoft commitment to expand Azure availability zones to more regions](https://azure.microsoft.com/blog/our-commitment-to-expand-azure-availability-zones-to-more-regions/)
 
 ## Related resources
 
