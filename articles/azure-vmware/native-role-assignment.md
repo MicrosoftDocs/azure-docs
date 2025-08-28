@@ -7,7 +7,7 @@ ms.date: 8/28/2025
 #customer intent: As a cloud administrator, I want to configure the correct role assignments for Azure VMware Solution Generation 2 private clouds so that my private cloud can operate properly in my subscription.
 ---
 
-# Configure AVS Identities Role Assignments Manually
+# Configure Azure VMware Solution Gen 2 identities role assignments manually
 
 This article describes the steps required to ensure the correct role assignments are in place for your private cloud. These role assignments are automatically created when the private cloud is deployed, but you may need to configure them manually if the assignments are missing or were deleted.  
 
