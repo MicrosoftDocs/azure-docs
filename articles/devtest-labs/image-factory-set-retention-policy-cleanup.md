@@ -12,7 +12,7 @@ ms.custom: UpdateFrequency2
 
 # Set up an image retention policy in Azure DevTest Labs
 
-This article covers setting an image retention policy, cleaning up an image factory, and retiring old images from all the DevTest labs in an organization. 
+This article covers setting an image retention policy, cleaning up an image factory, and retiring old images from all the DevTest Labs in an organization. 
 
 [!INCLUDE [direct-azure-image-builder](includes/direct-azure-image-builder.md)]
 

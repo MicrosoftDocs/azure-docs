@@ -31,7 +31,7 @@ The next step in adopting the image factory for your team is to understand what'
 The articles in this section provide more details about these scripts and templates.
 
 ## Create an Azure DevOps team project
-Azure DevOps let you store the source code, run the Azure PowerShell in one place. You can schedule recurring runs to keep images up to date. There are good facilities for logging the results to diagnose any issues.  Using Azure DevOps isn't a requirement however, you can use any harness/engine that can connect to Azure and can run Azure PowerShell.
+Azure DevOps lets you store the source code, run the Azure PowerShell in one place. You can schedule recurring runs to keep images up to date. There are good facilities for logging the results to diagnose any issues.  Using Azure DevOps isn't a requirement however, you can use any harness/engine that can connect to Azure and can run Azure PowerShell.
 
 If you have an existing DevOps account or project you would like to use instead, skip this step.
 
@@ -47,7 +47,7 @@ All the PowerShell, templates and configuration for the image factory are locate
 
     ![Screenshot that shows Import Git repo.](./media/set-up-devops-lab/import-git-repo.png)
 
-If you decide to only check in exactly what's needed (the image factory files), follow the steps [here](https://www.visualstudio.com/en-us/docs/git/share-your-code-in-git-vs) to clone the Git repo and push only the files located in the **scripts/ImageFactory** directory.
+If you decide to only check in exactly what's needed (the image factory files), follow the steps [here](https://www.visualstudio.com/docs/git/share-your-code-in-git-vs) to clone the Git repo and push only the files located in the **scripts/ImageFactory** directory.
 
 ## Create a build and connect to Azure
 At this point, you have the source files stored in a Git repo in Azure DevOps. Now, you need to set up a pipeline to run the Azure PowerShell. There are lots of options to do these steps. In this article, you use build definition for simplicity, but it works with DevOps Build, DevOps Release (single or multiple environments), other execution engines like Windows Task Scheduler or any other harness that can execute Azure PowerShell.
