@@ -33,7 +33,7 @@ Operating system locale | English (en-*)
 Windows Server roles | Don't enable these roles: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V 
 Group policies | Don't enable these group policies: <br> - Prevent access to the command prompt. <br> - Prevent access to registry editing tools. <br> - Trust logic for file attachments. <br> - Turn on Script Execution. <br> [Learn more](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))
 IIS | - No pre-existing default website <br> - No pre-existing website/application listening on port 443 <br>- Enable  [anonymous authentication](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br> - Enable [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10)) setting 
-FIPS (Federal Information Processing Standards) | Do not enable FIPS mode
+FIPS (Federal Information Processing Standards) | Don't enable FIPS mode
 |
 
 ## Network requirements
@@ -56,10 +56,10 @@ https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.
 |
 
 > [!NOTE]
-> If you have [private links connectivity](../articles/site-recovery/hybrid-how-to-enable-replication-private-endpoints.md) to Site Recovery vault, you do not need any additional internet access for the Configuration Server. An exception to this is while setting up the CS machine using OVA template, you will need access to following URLs over and above private link access - https://www.live.com and https://www.microsoft.com. If you do not wish to allow access to these URLs, please set up the CS using Unified Installer.
+> If you have [private links connectivity](../articles/site-recovery/hybrid-how-to-enable-replication-private-endpoints.md) to Site Recovery vault, you don't need any additional internet access for the Configuration Server. An exception to this is while setting up the CS machine using OVA template, you'll need access to following URLs over and above private link access - https://www.live.com and https://www.microsoft.com. If you don't wish to allow access to these URLs, please set up the CS using Unified Installer.
 
 > [!NOTE]
-> While setting up private endpoints to protect VMware and physical machines, you will need to install MySQL on the configuration server manually. Follow the steps [here](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings) to perform the manual installation. 
+> While setting up private endpoints to protect VMware and physical machines, you'll need to install MySQL on the configuration server manually. Follow the steps [here](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings) to perform the manual installation. 
 
 ## Required software
 
@@ -70,7 +70,7 @@ MYSQL | MySQL should be installed. You can install manually, or Site Recovery ca
 |
 
 > [!NOTE]
-> Upgrading MySQL on the configuration server is not supported.
+> Upgrading MySQL on the configuration server isn't supported.
 
 ## Sizing and capacity requirements
 
