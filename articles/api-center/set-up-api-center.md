@@ -1,5 +1,5 @@
 ---
-title: Create your Azure API center using the portal
+title: Create Your Azure API Center Using Azure Portal
 description: Learn how to use the Azure portal to set up an API center for API discovery, reuse, and governance. 
 author: dlepow
 ms.service: azure-api-center
