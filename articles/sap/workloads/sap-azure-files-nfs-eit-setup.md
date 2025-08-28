@@ -94,13 +94,13 @@ sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1  aznfs nore
 mount -a
 ```
 
-For more information, refer to [the section](../../storage/files/encryption-in-transit-for-nfs-shares#step-2-mount-the-nfs-file-share) for mounting the Azure Files NFS Encryption in Transit file share in Linux VMs.
+For more information, refer to [the section](../../storage/files/encryption-in-transit-for-nfs-shares.md#step-2-mount-the-nfs-file-share) for mounting the Azure Files NFS Encryption in Transit file share in Linux VMs.
 
-- File systems mentioned are an example to explain the mount command syntax.
+- File system mentioned is an example to explain the mount command syntax.
 - To use AZNFS mount helper and Encryption in Transit, use the fstype as `aznfs`. You should always add `_netdev` option to their /etc/fstab entries to make sure file shares are mounted on reboot only after the required services are active.
 - You can add 'notls' option in the mount command, if you don’t intend to use the Encryption in Transit but just want to use AZNFS mount helper to mount the file system. Also, it isn't recommended to use Encryption in Transit and non-Encryption in Transit methods for mounting different file systems using Azure Files NFS in the same Azure VM. Mount commands might fail to mount the file systems if Encryption in Transit and non-Encryption in Transit methods are used in the same VM.
 - Mount helper supports private-endpoint based connections for Azure Files NFS Encryption in Transit.
-- If SAP VM is [custom domain joined](https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/linux/custom-dns-configuration-for-azure-linux-vms), then use custom DNS FQDN OR  short names for file share in the '/etc/fstab' as its defined in the DNS. To verify the hostname resolution, check using 'nslookup <hostname>' and 'getent host <hostname>' commands.
+- If SAP VM is [custom domain joined](/troubleshoot/azure/virtual-machines/linux/custom-dns-configuration-for-azure-linux-vms.md), then use custom DNS FQDN OR  short names for file share in the '/etc/fstab' as its defined in the DNS. To verify the hostname resolution, check using `nslookup <hostname>` and `getent host <hostname>` commands.
 
 ## Mount the NFS File share as pacemaker cluster resource
 
@@ -142,4 +142,4 @@ eite10app1:~ #
 
 These mounting details indicate that the client(VM) is connected through the local port 127.0.0.1, not an external network. The stunnel process listens on 127.0.0.1 (localhost) for incoming NFS traffic from the NFS client (the VM). Stunnel then intercepts this traffic and securely forwards it over TLS to the Azure Files NFS server on Azure.
 
-For more information, refer to the [Verify that the in-transit data encryption succeeded](../../storage/files/encryption-in-transit-for-nfs-shares#step-3--verify-that-the-in-transit-data-encryption-succeeded) section for further checks.
+For more information, refer to the [Verify that the in-transit data encryption succeeded](../../storage/files/encryption-in-transit-for-nfs-shares.md#step-3--verify-that-the-in-transit-data-encryption-succeeded) section for further checks.
