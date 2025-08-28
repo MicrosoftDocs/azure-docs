@@ -48,15 +48,15 @@ During scaling operations, which take 5 to 7 minutes to complete, existing conne
 
 [!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
 
-Azure Firewall is automatically deployed across availability zones in supported regions when created through the Azure portal. For advanced zone configuration options, you must use Azure PowerShell, the Azure CLI, or Azure Resource Manager templates (ARM templates).
+Azure Firewall is automatically deployed across availability zones in supported regions when created through the Azure portal. For advanced zone configuration options, you must use Azure PowerShell, the Azure CLI, Bicep, or Azure Resource Manager templates (ARM templates).
 
 Azure Firewall supports both zone-redundant and zonal deployment models:
 
 - **Zone-redundant:** When enabled for zone redundancy, Azure distributes firewall instances across multiple availability zones in the region. Azure manages load balancing and failover between zones automatically.
 
-    Zone-redundant firewalls achieve the highest uptime service-level agreement (SLA). They are recommended for production workloads that require maximum availability
+    Zone-redundant firewalls achieve the highest uptime service-level agreement (SLA). They are recommended for production workloads that require maximum availability.
 
-- **Zonal:** To optimize latency, you can associate Azure Firewall with a specific zone by placing it near back-end servers. All firewall instances are deployed within that zone.
+- **Zonal:** If your solution is unusually sensitive to cross-zone latency, you can associate Azure Firewall with a specific availability zone. You can use a zonal deployment to deploy in closer proximity to your back-end servers. All of the instances of a zonal firewall are deployed within that zone.
 
     > [!IMPORTANT]
     > We recommend that you pin to a single availability zone only when [cross-zone latency](./availability-zones-overview.md#inter-zone-latency) exceeds acceptable limits and you have confirmed that the latency doesn't meet your requirements. A zonal firewall alone doesn't provide resiliency to an availability zone outage. To improve the resiliency of a zonal Azure Firewall deployment, you must manually deploy separate firewalls into multiple availability zones and configure traffic routing and failover.
@@ -113,9 +113,9 @@ This section describes what to expect when Azure Firewall is configured with ava
 
   - *Zonal:* If you deploy multiple zonal instances across different zones, you must configure traffic routing by using external load balancing solutions like Azure Load Balancer or Azure Traffic Manager.
 
-- **Instance management:** The platform automatically manages instances across the zones that your firewall uses, by replacing failed instances, and maintaining the configured instance count. Health monitoring ensures that only healthy instances receive traffic.
+- **Instance management:** The platform automatically manages instance placement across the zones your firewall uses, replacing failed instances and maintaining the configured instance count. Health monitoring ensures that only healthy instances receive traffic.
 
-- **Data replication between zones:** Azure Firewall doesn't need to synchronize connection state across availability zones. The instance that processes the request maintains each connection state.
+- **Data replication between zones:** Azure Firewall doesn't need to synchronize connection state across availability zones. The instance that processes the request maintains each connection's state.
 
 ### Zone-down experience
 
@@ -127,7 +127,9 @@ This section describes what to expect when Azure Firewall is configured with ava
 
     - *Zonal:* For firewalls configured to be zonal, you need to detect the loss of an availability zone and initiate a failover to a secondary firewall that you create in another availability zone.
 
-- **Notification:** You can monitor zone failure events through Azure Service Health. Set up alerts to receive notifications of zone-level problems.
+- **Notification**: Azure Firewall doesn't notify you when a zone is down. However, you can use [Azure Service Health](/azure/service-health/overview) to understand the overall health of the Azure Firewall service, including any zone failures.
+
+    Set up alerts to receive notifications of zone-level problems. For more information, see [Create Service Health alerts in the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal).
 
 - **Active connections:** When an availability zone is unavailable, requests in progress connected to a firewall instance in the faulty availability zone might terminate and require retries.
 
