@@ -47,7 +47,7 @@ When you create the cache, Microsoft Entra ID authentication is enabled by defau
 
     Optionally, you can create a cache by using Azure CLI, PowerShell, or whichever tool you prefer.
 
-1. Add yourself as a [Redis user to the resource](entra-for-authentication.md#add-users-or-system-principal-to-your-cache). 
+1. [Grant yourself data access permissions in the Redis resource](entra-for-authentication.md#add-users-or-system-principal-to-your-cache). 
 
 ## Code to connect to a Redis cache
 
@@ -64,13 +64,13 @@ await client.connect();
 
 ## Code to test a connection
 
-In the next section, test the connection by using the Redis command `ping`. This command returns the `pong` string.
+In the next section, test the connection by using the Redis `PING` command. The Redis server returns `PONG`.
 
 :::code language="typescript" source="~/azure-cache-redis-samples/quickstart/nodejs/src/index.ts" range="74-75":::
 
 ## Code set a key, get a key
 
-In this section, use a basic `set` and `get` sequence to start using the Redis cache in the simplest way.
+In this section, use `SET` and `GET` commands to start writing and reading data in the Redis cache in the simplest way.
 
 :::code language="typescript" source="~/azure-cache-redis-samples/quickstart/nodejs/src/index.ts" range="77-81":::
 
