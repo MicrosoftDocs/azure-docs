@@ -140,7 +140,7 @@ You'll also need to decide how your servers and users in Azure and outside of Az
 
 Selecting the right tools for your migration scenario is crucial. The following diagram shows what migration tool or tool combination you should use based on your SMB data source and whether or not you want to use Azure File Sync.
 
-:::image type="content" source="media/storage-files-migration-overview/smb-migration-flowchart.png" alt-text="Decision flowchart showing which migration tool you should choose based on your SMB data source." lightbox="media/storage-files-migration-overview/smb-migration-flowchart.png":::
+:::image type="content" source="media/storage-files-migration-overview/smb-migration-flowchart.png" alt-text="Decision flowchart showing which migration tool you should choose based on your SMB data source." lightbox="media/storage-files-migration-overview/smb-migration-flowchart.png" border="false":::
 
 The following table lists the suggested migration tool combinations and includes links to tool-specific migration guides.
 
