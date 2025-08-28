@@ -148,10 +148,6 @@ items:
         href: /azure/azure-monitor/logs/availability-zones?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Monitor - Log Analytics
         href: /azure/azure-monitor/logs/logs-data-export?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&tabs=portal#enable-data-export 
-  - name: Hybrid + multicloud
-    items:
-    - name: Azure Operator Nexus
-      href: reliability-operator-nexus.md
   - name: Industry solutions
     items:
     - name: Microsoft Community Training
@@ -242,8 +238,6 @@ items:
       href: reliability-load-balancer.md 
     - name: Azure Network Watcher
       href: ../network-watcher/frequently-asked-questions.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#service-availability-and-redundancy
-    - name: Azure Private 5G Core
-      href: ../private-5g-core/reliability-private-5g-core.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Private Link
       href: ../private-link/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json    
     - name: Azure Public IP
