@@ -27,11 +27,15 @@ When you reach the limit for a resource in your subscription, you can request an
 
 ## Prerequisites
 
-- To create a support request, your Azure account needs the [Owner](../role-based-access-control/built-in-roles.md#owner), [Contributor](../role-based-access-control/built-in-roles.md#contributor), or [Support Request Contributor](../role-based-access-control/built-in-roles.md#support-request-contributor) role at the subscription level.
+To create a support request, your Azure account must have one or more of the following roles with permissions at the subscription level:
+
+- [Owner](../role-based-access-control/built-in-roles.md#owner)
+- [Contributor](../role-based-access-control/built-in-roles.md#contributor)
+- [Support Request Contributor](../role-based-access-control/built-in-roles.md#support-request-contributor) 
 
 ## Determine resource usage and quota for Dev Box through QMS  
 
-To help you understand where and how you're using your quota, the Quota Management System (QMS) provides a detailed report of resource usage across resource types in each of your subscriptions on the **My Quotas** page. QMS provides several advantages to the Dev Box service including:  
+To help you understand where and how you're using your quota, the Quota Management System (QMS) provides a detailed report of resource usage across resource types in each of your subscriptions on the **My Quotas** page. QMS provides several advantages to the Dev Box service including:
 
 - Improved user experience for an easier requesting process
 - Expedited approvals via automation based on thresholds
@@ -43,9 +47,9 @@ Understanding quota limits that affect your Dev Box resources helps you plan for
 
 Follow these steps to request a quota increase through QMS in the Azure portal:
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and go to the subscription you want to examine. 
+1. Sign in to the [Azure portal](https://portal.azure.com), and go to the subscription you want to examine.
 
-1. In the Azure portal search bar, enter *quota*, and select **Quotas** from the results.  
+1. In the Azure portal search bar, enter *quota*, and select **Quotas** from the results.
 
 1. On the **Quotas** page, select **Dev Box**:
  
@@ -113,7 +117,7 @@ Follow these steps to describe your requested quota increase and fill out the su
 
 1. On the **New support request** page, on the **1. Problem description** tab, configure the following settings, and then select **Next**.
 
-   :::image type="content" source="media/how-to-request-quota-increase/help-support-request-problem.png" alt-text="Screenshot showing the Problem description tab for a new support request with the required settings highlighted." lightbox="media/how-to-request-quota-increase/help-support-request-problem.png":::
+   :::image type="content" source="media/how-to-request-quota-increase/help-support-request-problem.png" alt-text="Screenshot showing the Problem description tab for a new support request with the required settings highlighted.":::
 
    | Setting | Value |
    |---|---|
