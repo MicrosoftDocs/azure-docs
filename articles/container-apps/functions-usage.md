@@ -50,7 +50,7 @@ The following steps show you how to use a sample container image to create your 
 
     :::image type="content" source="media/functions-overview/functions-create-container-app.png" alt-text="Screenshot of the Azure portal when you create a container app pre-configured for Azure Functions.":::
 
-1. Under *Container Apps environment* enter:
+1. Under *Container Apps environment*, enter:
 
     | Property | Value |
     |---|---|
@@ -81,7 +81,7 @@ The following steps show you how to use a sample container image to create your 
     | Registry login server  | Enter **mcr.microsoft.com** |
     | Image and tag | Enter **azure-functions/dotnet8-quickstart-demo:1.0** |
 
-1. Under *Environment variables* enter values for the following variables:
+1. Under *Environment variables*, enter values for the following variables:
 
     - `AzureWebJobsStorage`
     - `APPINSIGHTS_INSTRUMENTATIONKEY` or `APPLICATIONINSIGHTS_CONNECTION_STRING`
