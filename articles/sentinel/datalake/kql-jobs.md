@@ -74,7 +74,7 @@ You can create jobs to run on a schedule or one-time. When you create a job, you
         :::image type="content" source="media/kql-jobs/kql-queries-create-job.png" alt-text="A screenshot showing the create job button in the KQL query editor." lightbox="media/kql-jobs/kql-queries-create-job.png":::
     1. To create a job from the jobs management page, select **Microsoft Sentinel** > **Data lake exploration** > **Jobs**   then select the **Create a new KQL job** button.
         
-1. Enter a **Job name**.  The job name must be unique for the tenant. Job names can contain up to 256 characters. You can't use a `#` in a job name.      
+1. Enter a **Job name**. The job name must be unique for the tenant. Job names can contain up to 256 characters. You can't use a `#` in a job name.      
 
 1. Enter a **Job Description** providing the context and purpose of the job. 
 
@@ -92,7 +92,7 @@ You can create jobs to run on a schedule or one-time. When you create a job, you
 1. Select the workspaces to run the query against from the **Selected workspaces** drop-down. These are the source workspaces that you want to query.
 
     > [!NOTE]
-    > IF you are writing to an existing table, the query must return results with a schema that matches the destination table schema. If the query doesn't return results with the correct schema, the job will fail when it runs.
+    > If you're writing to an existing table, the query must return results with a schema that matches the destination table schema. If the query doesn't return results with the correct schema, the job will fail when it runs.
 
 1. Select **Next**.
 
@@ -101,7 +101,7 @@ You can create jobs to run on a schedule or one-time. When you create a job, you
     On the **Schedule the query job** page, select whether you want to run the job once or on a schedule. If you select **On demand**, the job runs as soon as the job definition is complete. If you select **Schedule**, you can specify a date and time for the job to run, or run the job on a recurring schedule.
 
 1. Select **On demand** or **Scheduled job**.
-    >[!NOTE]
+    > [!NOTE]
     > Editing a one-time job will immediately trigger its execution.
 
 1. If you selected **Schedule**, enter the following details:

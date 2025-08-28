@@ -38,10 +38,10 @@ Microsoft Entra ID roles provide broad access across all workspaces in the data 
 
 ## Manage jobs
 
-The Jobs page shows a list of jobs, including the job name, status, job type, last and next run dates, and the recent job health. You can filter the jobs by status, last run date and creation date. **Jobs status** column indicates whether the job enabled or disabled. The **Job type** column indicates whether the job is a KQL query job or a notebook job.
+The Jobs page shows a list of jobs, including the job name, status, job type, last and next run dates, and the recent job health. You can filter the jobs by status, last run date, and creation date. **Jobs status** column indicates whether the job enabled or disabled. The **Job type** column indicates whether the job is a KQL query job or a notebook job.
 :::image type="content" source="media/kql-manage-jobs/jobs-page.png" lightbox="media/kql-manage-jobs/jobs-page.png" alt-text="A screenshot showing the jobs page in the Defender portal.":::
 
-The **Recent health issues** column shows whether the job has encountered any issues in its recent runs as per the set filters. Select the link to view the job's health details.
+The **Recent health issues** column shows whether the job encountered any issues in its recent runs as per the filters. Select the link to view the job's health details.
 
 :::image type="content" source="media/kql-manage-jobs/recent-health-issues.png" lightbox="media/kql-manage-jobs/recent-health-issues.png" alt-text="A screenshot showing the recent health issues panel.":::
 
