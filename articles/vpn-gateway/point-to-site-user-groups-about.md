@@ -9,7 +9,7 @@ ms.topic: concept-article
 ms.date: 08/27/2025
 ---
 
-# About user groups and IP address pools for P2S connections (Preview)
+# About user groups and IP address pools for P2S connections (preview)
 
 You can configure P2S User VPNs to assign users IP addresses from specific address pools based on their identity or authentication credentials by creating User Groups. This article describes the different configurations and parameters the VPN gateway uses to determine user groups and assign IP addresses. For configuration steps, see [Configure user groups and IP address pools for P2S connection in Azure VPN Gateway](point-to-site-user-groups-create.md).
 
