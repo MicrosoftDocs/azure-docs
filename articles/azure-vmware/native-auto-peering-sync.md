@@ -34,6 +34,10 @@ Ensures that virtual machines hosted in Azure VMware Solution can securely and c
 
 ---
 
+## Prerequisite
+
+- Ensure the "Microsoft.BareMetal" resource provider is registered.
+
 ## Deployment steps 
 
 1. Deploy your Azure VMware Solution private cloud.  
