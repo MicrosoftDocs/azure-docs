@@ -7,6 +7,7 @@ ms.service: azure-private-link
 ms.topic: concept-article
 ms.date: 08/28/2025
 ms.author: abell
+ai-usage: ai-assisted
 # Customer intent: As a cloud architect or IT administrator, I want to optimize costs for Azure Private Link, so that I can maintain secure private connectivity while controlling expenses and maximizing return on investment.
 ---
 
