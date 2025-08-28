@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 08/26/2025
+ms.date: 08/28/2025
 ms.author: danlep
 ---
 
@@ -57,19 +57,20 @@ The `send-service-bus-message` policy sends a message to an Azure Service Bus qu
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound, on-error
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound, outbound, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
 - [**Gateways:**](api-management-gateways-overview.md) classic
 
 ### Usage notes
 
+* You must pre-create the Azure Service Bus queue or topic that receives a message. 
 * This policy can be used multiple times per policy definition.
 
 ## Examples
 
 ### Send a message to a service bus queue    
 
-In this example, a message consisting of the request body is sent to a service bus queue. The API Management instance uses a user-assigned identity to access the service bus.
+In this example, a message consisting of the request body is sent to a service bus queue. The API Management instance uses a user-assigned identity for access. The request is then forwarded to the backend service. 
 
 ```xml
 <policies>
@@ -78,13 +79,16 @@ In this example, a message consisting of the request body is sent to a service b
            <payload>@(context.Request.Body.As<string>(preserveContent: true))</payload>
         </send-service-bus-message>
     </inbound>
+    <backend>
+        <forward-request timeout="60"/>
+    </backend>
 </policies>
-```
+```    
 
 
 ### Send a message to a service bus topic
 
-In this example, a message consisting of the request body is sent to a service bus topic. The API Management instance uses a system-assigned identity to access the service bus.
+In this example, a message consisting of the request body is sent to a service bus topic. The API Management instance uses a system-assigned identity for access. The request is then forwarded to the backend service.
 
 ```xml
 <policies>
@@ -93,13 +97,16 @@ In this example, a message consisting of the request body is sent to a service b
            <payload>@(context.Request.Body.As<string>(preserveContent: true))</payload>
         </send-service-bus-message>
     </inbound>
+    <backend>
+        <forward-request timeout="60"/>
+    </backend>
 </policies>
 ```
 
 
 ### Send a message and metadata
 
-In this example, a message consisting of the request body is sent to a service bus topic and a message property is set to send metadata with the payload. The API Management instance uses a system-assigned identity to access the service bus.
+In this example, a message consisting of the request body is sent to a service bus topic and a message property is set to send metadata with the payload. The API Management instance uses a system-assigned identity for access. The request is then forwarded to the backend service.
 
 ```xml
 <policies>
@@ -111,9 +118,28 @@ In this example, a message consisting of the request body is sent to a service b
            <payload>@(context.Request.Body.As<string>(preserveContent: true))</payload>
         </send-service-bus-message>
     </inbound>
+    <backend>
+        <forward-request timeout="60"/>
+    </backend>
 </policies>
 ```
 
+### Send message and return immediately
+
+In this example, a message consisting of the request body is sent to a service bus topic. The API Management instance uses a system-assigned identity for access. A `201` response status code is then returned immediately to the caller.
+
+```xml
+<policies>
+    <inbound>
+        <send-service-bus-message topic-name="orders" namespace="my-service-bus.servicebus.windows.net">
+           <payload>@(context.Request.Body.As<string>(preserveContent: true))</payload>
+        </send-service-bus-message>
+        <return-response>
+            <set-status code="201" reason="Created!" />
+        </return-response>
+    </inbound>
+</policies>
+```
 
 ## Related policies
 

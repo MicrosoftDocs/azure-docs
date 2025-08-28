@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 08/26/2025
+ms.date: 08/28/2025
 ms.author: danlep
 ms.custom:
 # customer intent: As API service owner I want to send messages to Service Bus so that I can decouple my applications and services.
@@ -25,7 +25,7 @@ With policy-based integration, API Management provides:
 
 * **Secure REST-based messaging for external clients** - External systems and mobile apps that lack native AMQP support can send messages to Service Bus by using standard HTTP/REST APIs via API Management. This approach simplifies integration and enhances security by eliminating the need for custom intermediaries.
 * **Governed third-party integrations** - Enterprises can expose Service Bus endpoints through API Management with built-in managed identity authentication, enabling secure and observable messaging patterns for partners and third-party applications.
-* **Fire and forget model** - No additional backend services are required to process messages, allowing for simpler architectures and reduced operational overhead.
+* **Fire and forget model** - No other backend services are required to send messages to Service Bus, allowing for simpler architectures and reduced operational overhead.
 
 > [!NOTE]
 > * Integration of API Management with Service Bus is currently in preview.
@@ -37,7 +37,7 @@ With policy-based integration, API Management provides:
 
 * An API Management service instance. If you don't have one, see [Create an API Management service instance](get-started-create-service-instance.md).
 * An API Management API used to send messages to Service Bus.
-* An Azure Service Bus queue or topic. For detailed steps, see one of the following:
+* A queue or topic in an Azure Service Bus namespace to receive messages. For detailed steps, see one of the following:
     * [Create a Service Bus namespace and queue](/azure/service-bus-messaging/service-bus-quickstart-portal)
     * [Create a Service Bus topic and subscriptions to the topic](/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal)
     
@@ -88,4 +88,4 @@ For example, use the `send-service-bus-message` policy in the inbound policy sec
 ## Related content
 
 * [Using external services](api-management-sample-send-request.md)
-* [Log events to Azure Event Hubs](api-management-howto-log-event-hubs.md)
+* [send-service-bus-message policy](send-service-bus-message-policy.md)
