@@ -285,7 +285,7 @@ For an example, see the [MEAN.js sample](https://github.com/Azure-Samples/meanjs
 
 This snippet runs `bower install`.
 
-```bash
+```
 if [ -e "$DEPLOYMENT_TARGET/bower.json" ]; then
   cd "$DEPLOYMENT_TARGET"
   eval ./node_modules/.bin/bower install
@@ -298,7 +298,7 @@ fi
 
 This snippet runs `gulp imagemin`.
 
-```bash
+```
 if [ -e "$DEPLOYMENT_TARGET/gulpfile.js" ]; then
   cd "$DEPLOYMENT_TARGET"
   eval ./node_modules/.bin/gulp imagemin
@@ -311,7 +311,7 @@ fi
 
 This snippet runs `grunt`.
 
-```bash
+```
 if [ -e "$DEPLOYMENT_TARGET/Gruntfile.js" ]; then
   cd "$DEPLOYMENT_TARGET"
   eval ./node_modules/.bin/grunt
@@ -356,7 +356,7 @@ When deploying Node.js apps on Azure App Service for Linux, you might need to ha
 
 ## Monitor your app by using Application Insights
 
-Application Insights enables you to monitor your application's performance, exceptions, and usage without making any code changes. To attach the Application Insights agent, go to your web app in the portal, select **Application Insights** under **Settings**, and then select **Turn on Application Insights**. Next, select an existing Application Insights resource or create a new one. Finally, select **Apply** at the bottom. To instrument your web app by using PowerShell, see [these instructions](/azure/azure-monitor/app/azure-web-apps-nodejs#enable-through-powershell).
+Application Insights enables you to monitor your application's performance, exceptions, and usage without making any code changes. To attach the Application Insights agent, go to your web app in the portal, select **Application Insights** under **Monitoring**, and then select **Turn on Application Insights**. Next, select an existing Application Insights resource or create a new one. Finally, select **Apply** at the bottom of the page. To instrument your web app by using PowerShell, see [these instructions](/azure/azure-monitor/app/azure-web-apps-nodejs#enable-through-powershell).
 
 This agent will monitor your server-side Node.js application. To monitor your client-side JavaScript, [add the JavaScript SDK to your project](/azure/azure-monitor/app/javascript).
 
