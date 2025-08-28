@@ -87,4 +87,5 @@ For example, use the `send-service-bus-message` policy in the inbound policy sec
 
 ## Related content
 
+* [Using external services](api-management-sample-send-request.md)
 * [Log events to Azure Event Hubs](api-management-howto-log-event-hubs.md)

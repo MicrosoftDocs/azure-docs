@@ -163,8 +163,6 @@
     href: api-management-howto-log-event-hubs.md
   - name: Log requests with Azure Application Insights
     href: api-management-howto-app-insights.md
-  - name: Send messages to Azure Service Bus
-    href: api-management-howto-send-service-bus.md
 - name: Define APIs
   items:
   - name: Add and import APIs
@@ -287,6 +285,8 @@
     href: api-management-sample-flexible-throttling.md
   - name: Using external services
     href: api-management-sample-send-request.md
+  - name: Send messages to Azure Service Bus
+    href: api-management-howto-send-service-bus.md
   - name: Manage secrets using named values
     displayName: Azure CLI, az apim nv
     href: api-management-howto-properties.md
