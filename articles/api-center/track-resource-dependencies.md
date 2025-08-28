@@ -3,7 +3,7 @@ title: Track API Resource Dependencies - Azure API Center
 description: Learn how to track dependencies between APIs and related resources in your Azure API center.
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 08/21/2025
+ms.date: 08/28/2025
 ms.author: danlep
 author: dlepow
 ms.custom: 
@@ -20,7 +20,7 @@ Each dependency identifies a *source* resource and a related *target* resource t
 
 * **Improve the reliability of systems** by identifying risks such as circular dependencies or over-reliance on single points of failure
 
-* **Improve effectiveness of AI agents** such as using mapped dependencies for automatic discovery of valid endpoints for tasks and validating toolchain compatibility
+* **Improve effectiveness of AI agents** by using mapped dependencies for automatic discovery of valid endpoints for tasks and validating toolchain compatibility
 
 > [!NOTE]
 > This is a preview feature and is subject to change. [Limits](/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#azure-api-center-limits) apply.
@@ -36,7 +36,7 @@ Use the dependency tracker in the Azure portal to add a dependency.
 
 To add a dependency:
 
-1. In the [Azure portal][https://portal.azure.com], navigate to your API center.
+1. In the [Azure portal](https://portal.azure.com), navigate to your API center.
 1. In the left menu, under **Assets**, select **Dependency tracker (preview)**.
 1. Select **+ Add Dependency**.
 1. In the **Dependency Manager** window, enter a **Title** and optionally a **Description** of the dependency.
