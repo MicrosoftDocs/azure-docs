@@ -70,7 +70,7 @@ Before you deploy any resources, it's important to plan what you'll sync on a lo
 
 [!INCLUDE [storage-files-migration-namespace-mapping](../../../includes/storage-files-migration-namespace-mapping.md)]
 
-## Considerations for Windows file servers
+## <a name = "windows-file-server-considerations"></a>Considerations for Windows file servers
 
 To enable the sync capability on Windows Server, you must install the Azure File Sync downloadable agent. The Azure File Sync agent provides two main components:
 

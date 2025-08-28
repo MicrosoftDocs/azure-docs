@@ -233,7 +233,7 @@ Follow the instructions for the Azure portal or PowerShell.
 
 ---
 
-## Deploy a storage sync service
+## <a name = "deploy-the-storage-sync-service"></a>Deploy a storage sync service
 
 The deployment of Azure File Sync starts with placing a *storage sync service* resource in a resource group of your selected subscription. You'll create a trust relationship between your servers and this resource.
 
@@ -398,7 +398,7 @@ Follow the instructions for the Azure portal or PowerShell.
 
 ---
 
-## Register Windows Server with a storage sync service
+## <a name = "register-windows-server-with-storage-sync-service"></a>Register Windows Server with a storage sync service
 
 Registering your Windows Server instance with a storage sync service establishes a trust relationship between your server (or cluster) and the storage sync service. A server can be registered with only one storage sync service. That server can sync with other servers and Azure file shares associated with the same storage sync service.
 
@@ -589,7 +589,7 @@ If you want to configure Azure File Sync to work with firewall and virtual netwo
 
 :::image type="content" source="media/storage-sync-files-deployment-guide/update-firewall-and-vnet-settings.png" alt-text="Screenshot of configuring firewall and virtual network settings to work with Azure File sync.":::
 
-## Optional: Use self-service restore through previous versions and VSS
+## <a name = "optional-self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service"></a>Optional: Use self-service restore through previous versions and VSS
 
 In Windows, you can use server-side Volume Shadow Copy Service (VSS) snapshots of a volume to present restorable versions of a file to an SMB client. This feature enables a powerful scenario, commonly called *self-service restore*, directly for information workers instead of depending on the restore from an IT admin.
 
