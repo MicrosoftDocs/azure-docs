@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.custom: devx-track-terraform
 ms.topic: how-to
-ms.date: 08/10/2024
+ms.date: 08/10/2025
 ms.author: anfdocs
 # Customer intent: As a cloud engineer, I want to update Terraform-managed Azure resources safely, so that I can prevent data loss while modifying essential features outside of Terraform.
 ---
