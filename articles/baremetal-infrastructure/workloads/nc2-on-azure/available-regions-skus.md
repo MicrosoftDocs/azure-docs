@@ -40,6 +40,7 @@ When planning your NC2 on Azure design, use the following table to understand wh
 | Azure region | SKU   |
 | :---         | :---: |
 | Australia East | AN36P |
+| Canada East | AN64 |
 | Central India | AN36P |
 | Canada East | AN64 |
 | East US | AN36 |
