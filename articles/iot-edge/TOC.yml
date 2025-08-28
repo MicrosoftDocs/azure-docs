@@ -5,7 +5,7 @@
   items:
   - name: About Azure IoT Edge
     href: about-iot-edge.md
-  - name: Version / release notes
+  - name: Version history and release notes
     href: version-history.md
   - name: Supported platforms
     href: support.md

@@ -22,40 +22,7 @@ The command produces an output file containing the results of the data extract. 
 - The syntax for these commands is based on the 0.3.0+ version of the `az networkcloud` CLI.
 - Get the Cluster Managed Resource group name (cluster_MRG) that you created for Cluster resource.
 
-## Send command output to a user specified storage account
-
-See [Azure Operator Nexus Cluster support for managed identities and user provided resources](./howto-cluster-managed-identity-user-provided-resources.md)
-
-To access the output, users need the appropriate access to the storage blob. For information on assigning roles to storage accounts, see [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal).
-
-### Clear the cluster's CommandOutputSettings
-
-To change the cluster from a user-assigned identity to a system-assigned identity, the CommandOutputSettings must first be cleared using the command in the next section, then set using this command.
-
-The CommandOutputSettings can be cleared, directing run-data-extract output back to the cluster manager's storage. However, it isn't recommended since it's less secure, and the option will be removed in a future release.
-
-However, the CommandOutputSettings do need to be cleared if switching from a user-assigned identity to a system-assigned identity.
-
-Use this command to clear the CommandOutputSettings:
-
-```azurecli-interactive
-az rest --method patch \
-  --url  "https://management.azure.com/subscriptions/<subscription>/resourceGroups/<cluster-resource-group>/providers/Microsoft.NetworkCloud/clusters/<cluster-name>?api-version=2024-08-01-preview" \
-  --body '{"properties": {"commandOutputSettings":null}}'
-```
-
-## DEPRECATED METHOD: Verify access to the Cluster Manager storage account
-
-> [!IMPORTANT]
-> The Cluster Manager storage account is targeted for removal in April 2025 at the latest. If you're using this method today for command output, consider converting to using a user provided storage account.
-
-If using the Cluster Manager storage method, verify you have access to the Cluster Manager's storage account:
-
-1. From Azure portal, navigate to Cluster Manager's Storage account.
-1. In the Storage account details, select **Storage browser** from the navigation menu on the left side.
-1. In the Storage browser details, select on **Blob containers**.
-1. If you encounter a `403 This request is not authorized to perform this operation.` while accessing the storage account, storage account’s firewall settings need to be updated to include the public IP address.
-1. Request access by creating a support ticket via Portal on the Cluster Manager resource. Provide the public IP address that requires access.
+[!INCLUDE [command-output-settings](./includes/run-commands/command-output-settings.md)]
 
 ## Execute a run-data-extract command
 
@@ -111,7 +78,7 @@ Specify multiple commands using json format in `--commands` option. Each `comman
 
 These commands can be long running so the recommendation is to set `--limit-time-seconds` to at least 600 seconds (10 minutes). The `Debug` option or running multiple extracts might take longer than 10 minutes.
 
-In the response, the operation performs asynchronously and returns an HTTP status code of 202. See the [Viewing the Output](#viewing-the-output) section for details on how to track command completion and view the output file.
+In the response, the operation performs asynchronously and returns an HTTP status code of 202. See the [How to view the full output of a command in the associated Storage Account](#how-to-view-the-full-output-of-a-command-in-the-associated-storage-account) section for details on how to track command completion and view the output file.
 
 ### Hardware Support Data Collection
 
@@ -702,12 +669,6 @@ TriggeredBy: ● atop-rotate.timer
 
 ```
 
-## Viewing the output
+[!INCLUDE [command-output-view](./includes/run-commands/command-output-view.md)]
 
-The command provides a link (if using cluster manager storage) or another command (if using user provided storage) to download the full output. The tar.gz file also contains the zipped extract command file outputs. Download the output file from the storage blob to a local directory by specifying the directory path in the optional argument `--output-directory`.
-
-> [!WARNING]
-> Using the `--output-directory` argument overwrites any files in the local directory that have the same name as the new files being created.
-
-> [!NOTE]
-> Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer to the [cluster manager storage](#deprecated-method-verify-access-to-the-cluster-manager-storage-account) or the [user managed storage](#send-command-output-to-a-user-specified-storage-account) sections for procedures to verify access.
+The downloaded tar.gz file contains the full output and the zipped extract command file outputs.
