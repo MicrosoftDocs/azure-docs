@@ -25,7 +25,7 @@ For Deployment Center integration, the Visual Studio Code generated scripts don'
 
 - Deployment for managed connectors that run in global, multitenant Azure.
  
-2. Build and deployment of custom code.
+- Build and deployment for custom code.
 
 If you need a process that manages both code and Azure resources deployment, check how you can [automate build and deployment for Standard logic app workflows with Azure DevOps](/azure/logic-apps/automate-build-deployment-standard)
 
