@@ -78,7 +78,8 @@ The following table describes the behavior analytics data displayed on each [ent
 | **UsersInsights**         | dynamic  | The contextual enrichments of involved users ([details below](#usersinsights-field)). |
 | **DevicesInsights**       | dynamic  | The contextual enrichments of involved devices ([details below](#devicesinsights-field)). |
 | **ActivityInsights**      | dynamic  | The contextual analysis of activity based on our profiling ([details below](#activityinsights-field)). |
-| **InvestigationPriority** | int      | The anomaly score, between 0-10 (0=benign, 10=highly anomalous). |
+| **InvestigationPriority** | int      | The anomaly score, between 0-10 (0=benign, 10=highly anomalous). This score quantifies the degree of deviation from the expected behaviour. A
+higher scores indicate greater deviation from the baseline and is more likely indicate a true anomalies. Lower scores might still be anomalous, but are less likely to be significant or actionable. |
 
 ### Entity enrichments dynamic fields
 
