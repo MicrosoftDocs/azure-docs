@@ -27,7 +27,7 @@ The following functionality is limited during this time. These limitations will 
 - Your private cloud and virtual network for your private cloud must be in the ***same*** Resource Group.
 - You cannot ***move*** your private cloud from one Resource Group to another after the private cloud is created.
 - You cannot ***move*** your private cloud from one tenant to another after the private cloud is created.
-- **virtual network Service Endpoints** direct connectivity from Azure VMware Solution workloads aren't supported.
+- **Service Endpoints** direct connectivity from Azure VMware Solution workloads isn't supported.
 - Only host-level mounts of Azure NetApp Files are supported. **Mounting directly from Azure VMware Solution virtual machines** is not supported.
 - **vCloud Director** using Private Endpoints is supported. However, vCloud Director using Public Endpoints isn't supported.
 - **vSAN Stretched Clusters** isn't supported.
