@@ -13,17 +13,24 @@ ms.author: yelevin
 
 # Anomalies detected by the Microsoft Sentinel machine learning engine
 
-This article lists the anomalies that Microsoft Sentinel detects using different machine learning models.
+Microsoft Sentinel detects anomalies by analyzing the behavior of users in an environment over a period of time and constructing a baseline of legitimate activity. Once the baseline is established, any activity outside the normal parameters is considered anomalous and therefore suspicious.
 
-Anomaly detection works by analyzing the behavior of users in an environment over a period of time and constructing a baseline of legitimate activity. Once the baseline is established, any activity outside the normal parameters is considered anomalous and therefore suspicious.
-
-Microsoft Sentinel uses two different models to create baselines and detect anomalies.
+Microsoft Sentinel uses two models to create baselines and detect anomalies.
 
 - [UEBA anomalies](#ueba-anomalies)
 - [Machine learning-based anomalies](#machine-learning-based-anomalies)
 
+This article lists the anomalies that Microsoft Sentinel detects using various machine learning models.
+
+
+In the [Anomalies](/azure/azure-monitor/reference/tables/anomalies) table:
+- The `rulename` column indicates the rule Sentinel used to identify each anomaly. 
+- The `score` column contains a numerical value between 0 and 1, which quantifies the degree of deviation from the expected behaviour. Higher scores indicate greater deviation from the baseline and are more likely to be true anomalies. Lower scores might still be anomalous, but are less likely to be significant or actionable.
+
+
+
 > [!NOTE]
-> The following anomaly detections are discontinued as of March 26, 2024, due to low quality of results:
+> These anomaly detections are discontinued as of March 26, 2024, due to low quality of results:
 > - Domain Reputation Palo Alto anomaly
 > - Multi-region logins in a single day via Palo Alto GlobalProtect
 
@@ -33,26 +40,30 @@ Microsoft Sentinel uses two different models to create baselines and detect anom
 
 Sentinel UEBA detects anomalies based on dynamic baselines created for each entity across various data inputs. Each entity's baseline behavior is set according to its own historical activities, those of its peers, and those of the organization as a whole. Anomalies can be triggered by the correlation of different attributes such as action type, geo-location, device, resource, ISP, and more.
 
-You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA anomalies to be detected.
+You must [enable the UEBA feature](enable-entity-behavior-analytics.md) to detect UEBA anomalies.
 
-- [Anomalous Account Access Removal](#anomalous-account-access-removal)
-- [Anomalous Account Creation](#anomalous-account-creation)
-- [Anomalous Account Deletion](#anomalous-account-deletion)
-- [Anomalous Account Manipulation](#anomalous-account-manipulation)
-- [Anomalous Authentication (Preview)](#anomalous-authentication-preview)
-- [Anomalous AwsCloudTrail (Preview)](#anomalous-awscloudtrail-preview)
-- [Anomalous Code Execution (UEBA)](#anomalous-code-execution-ueba)
-- [Anomalous Data Destruction](#anomalous-data-destruction)
-- [Anomalous Defensive Mechanism Modification](#anomalous-defensive-mechanism-modification)
-- [Anomalous Failed Sign-in](#anomalous-failed-sign-in)
-- [Anomalous GCP Audit Logs (Preview)](#anomalous-gcp-audit-logs-preview)
-- [Anomalous Okta CL (Preview)](#anomalous-okta-cl-preview)
-- [Anomalous Okta CL MFA Failures (Preview)](#anomalous-okta-cl-mfa-failures-preview)
-- [Anomalous Password Reset](#anomalous-password-reset)
-- [Anomalous Privilege Granted](#anomalous-privilege-granted)
-- [Anomalous Sign-in](#anomalous-sign-in)
+UEBA detects anomalies based on these anomaly rules:
 
-### Anomalous Account Access Removal
+- [UEBA Anomalous Account Access Removal](#ueba-anomalous-account-access-removal)
+- [UEBA Anomalous Account Creation](#ueba-anomalous-account-creation)
+- [UEBA Anomalous Account Deletion](#ueba-anomalous-account-deletion)
+- [UEBA Anomalous Account Manipulation](#ueba-anomalous-account-manipulation)
+- [UEBA Anomalous Authentication (Preview)](#ueba-anomalous-authentication-preview)
+- [UEBA Anomalous AwsCloudTrail (Preview)](#ueba-anomalous-awscloudtrail-preview)
+- [UEBA Anomalous Code Execution](#ueba-anomalous-code-execution)
+- [UEBA Anomalous Data Destruction](#ueba-anomalous-data-destruction)
+- [UEBA Anomalous Defensive Mechanism Modification](#ueba-anomalous-defensive-mechanism-modification)
+- [UEBA Anomalous Failed Sign-in](#ueba-anomalous-failed-sign-in)
+- [UEBA Anomalous GCP Audit Logs (Preview)](#ueba-anomalous-gcp-audit-logs-preview)
+- [UEBA Anomalous Okta CL (Preview)](#ueba-anomalous-okta-cl-preview)
+- [UEBA Anomalous Okta CL MFA Failures (Preview)](#ueba-anomalous-okta-cl-mfa-failures-preview)
+- [UEBA Anomalous Password Reset](#ueba-anomalous-password-reset)
+- [UEBA Anomalous Privilege Granted](#ueba-anomalous-privilege-granted)
+- [UEBA Anomalous Sign-in](#ueba-anomalous-sign-in)
+
+Sentinel uses enriched data from the BehaviorAnalytics table to identify UEBA anomalies with a confidence score specific to your tenant and source. 
+
+### UEBA Anomalous Account Access Removal
 
 **Description:** An attacker may interrupt the availability of system and network resources by blocking access to accounts used by legitimate users. The attacker might delete, lock, or manipulate an account (for example, by changing its credentials) to remove access to it.
 
@@ -66,7 +77,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### Anomalous Account Creation
+### UEBA Anomalous Account Creation
 
 **Description:** Adversaries may create an account to maintain access to targeted systems. With a sufficient level of access, creating such accounts may be used to establish secondary credentialed access without requiring persistent remote access tools to be deployed on the system.
 
@@ -81,7 +92,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### Anomalous Account Deletion
+### UEBA Anomalous Account Deletion
 
 **Description:** Adversaries may interrupt availability of system and network resources by inhibiting access to accounts utilized by legitimate users. Accounts may be deleted, locked, or manipulated (ex: changed credentials) to remove access to accounts.
 
@@ -95,7 +106,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### Anomalous Account Manipulation
+### UEBA Anomalous Account Manipulation
 
 **Description:** Adversaries may manipulate accounts to maintain access to target systems. These actions include adding new accounts to high-privileged groups. Dragonfly 2.0, for example, added newly created accounts to the administrators group to maintain elevated access. The query below generates an output of all high-Blast Radius users performing "Update user" (name change) to privileged role, or ones that changed users for the first time.
 
@@ -109,7 +120,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### Anomalous Authentication (Preview)
+### UEBA Anomalous Authentication (Preview)
 
 **Description:** Unusual authentication activity across signals from Microsoft Defender for Endpoint and Microsoft Entra ID, including device logons, managed identity sign-ins, and service principal authentications from Microsoft Entra ID. These anomalies may suggest credential misuse, non-human identity abuse, or lateral movement attempts outside typical access patterns.
 
@@ -123,7 +134,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### Anomalous AwsCloudTrail (Preview)
+### UEBA Anomalous AwsCloudTrail (Preview)
 
 **Description:** Unusual logon activity in Amazon Web Services (AWS) services based on CloudTrail events such as ConsoleLogin and other authentication-related attributes. Anomalies are determined by deviations in user behavior based on attributes like geolocation, device fingerprint, ISP, and access method, and may indicate unauthorized access attempts or potential policy violations.
 
@@ -137,7 +148,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### Anomalous Code Execution (UEBA)
+### UEBA Anomalous Code Execution
 
 **Description:** Adversaries may abuse command and script interpreters to execute commands, scripts, or binaries. These interfaces and languages provide ways of interacting with computer systems and are a common feature across many different platforms.
 
@@ -152,7 +163,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### Anomalous Data Destruction
+### UEBA Anomalous Data Destruction
 
 **Description:** Adversaries may destroy data and files on specific systems or in large numbers on a network to interrupt availability to systems, services, and network resources. Data destruction is likely to render stored data irrecoverable by forensic techniques through overwriting files or data on local and remote drives.
 
@@ -166,7 +177,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### Anomalous Defensive Mechanism Modification
+### UEBA Anomalous Defensive Mechanism Modification
 
 **Description:** Adversaries may disable security tools to avoid possible detection of their tools and activities.
 
@@ -181,7 +192,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### Anomalous Failed Sign-in
+### UEBA Anomalous Failed Sign-in
 
 **Description:** Adversaries with no prior knowledge of legitimate credentials within the system or environment may guess passwords to attempt access to accounts.
 
@@ -196,7 +207,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
 
-### Anomalous GCP Audit Logs (Preview)
+### UEBA Anomalous GCP Audit Logs (Preview)
 
 **Description:** Failed access attempts to Google Cloud Platform (GCP) resources based on IAM-related entries in GCP Audit Logs. These failures might reflect misconfigured permissions, attempts to access unauthorized services, or early-stage attacker behaviors like privilege probing or persistence through service accounts.
 
@@ -210,7 +221,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### Anomalous Okta CL (Preview)
+### UEBA Anomalous Okta CL (Preview)
 
 **Description:** Unexpected authentication activity or security-related configuration changes in Okta, including modifications to sign-on rules, multi-factor authentication (MFA) enforcement, or administrative privileges. Such activity might indicate attempts to alter identity security controls or maintain access through privileged changes.
 
@@ -224,7 +235,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### Anomalous Okta CL MFA Failures (Preview)
+### UEBA Anomalous Okta CL MFA Failures (Preview)
 
 **Description:** Unusual patterns of failed MFA attempts in Okta. These anomalies might result from account misuse, credential stuffing, or improper use of trusted device mechanisms, and often reflect early-stage adversary behaviors, such as testing stolen credentials or probing identity safeguards.
 
@@ -238,7 +249,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### Anomalous Password Reset
+### UEBA Anomalous Password Reset
 
 **Description:** Adversaries may interrupt availability of system and network resources by inhibiting access to accounts utilized by legitimate users. Accounts may be deleted, locked, or manipulated (ex: changed credentials) to remove access to accounts.
 
@@ -252,7 +263,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### Anomalous Privilege Granted
+### UEBA Anomalous Privilege Granted
 
 **Description:** Adversaries may add adversary-controlled credentials for Azure Service Principals in addition to existing legitimate credentials to maintain persistent access to victim Azure accounts.
 
@@ -267,7 +278,7 @@ You must [enable the UEBA feature](enable-entity-behavior-analytics.md) for UEBA
 
 [Back to UEBA anomalies list](#ueba-anomalies) | [Back to top](#anomalies-detected-by-the-microsoft-sentinel-machine-learning-engine)
 
-### Anomalous Sign-in
+### UEBA Anomalous Sign-in
 
 **Description:** Adversaries may steal the credentials of a specific user or service account using Credential Access techniques or capture credentials earlier in their reconnaissance process through social engineering for means of gaining Persistence.
 
