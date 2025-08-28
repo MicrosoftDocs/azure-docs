@@ -185,7 +185,7 @@ This command generates a table of Azure regions where the Flex Consumption plan 
 
 #### [Azure portal](#tab/azure-portal)
 
-The create process for a function app in the Azure portal filters out regions that aren't currently supported by the Flex Consumption plan.
+The create process for a function app in the Azure portal filters out regions that the Flex Consumption plan doesn't currently support.
 
 1. In the [Azure portal], select **Create a resource** in the left-hand menu and select **Function app** > **Create**.
 
@@ -247,7 +247,7 @@ In this example, replace `<REGION>` with your current region and `<LANGUAGE_STAC
 
 #### [Azure portal](#tab/azure-portal)
 
-The create process for a function app in the Azure portal filters out language stack versions that aren't currently supported by the Flex Consumption plan.
+The create process for a function app in the Azure portal filters out language stack versions that the Flex Consumption plan doesn't currently support.
 
 1. In the [Azure portal], select **Create a resource** in the left-hand menu and select **Function app** > **Create**.
 
@@ -444,7 +444,7 @@ Review these settings. If any of them exist in the current app, you must decide 
 
 | Configuration | Setting | Comment |
 | ----- | ----- | ----- |
-| CORS settings | `cors` | Determines any existing cross-origin resource sharing (CORS) settings, which might be required by your clients. |
+| CORS settings | `cors` | Determines any existing cross-origin resource sharing (CORS) settings, which your clients might require. |
 | Custom domains |  | If your app is currently using a domain other than `*.azurewebsites.net`, you would need to replace this custom domain mapping with a mapping to your new app.  |
 | HTTP version | `http20Enabled` | Determines if HTTP 2.0 is required by your app. |
 | HTTPS only | `httpsOnly` | Determines if TSL/SSL is required to access your app. |
@@ -453,7 +453,7 @@ Review these settings. If any of them exist in the current app, you must decide 
 | Minimum inbound TLS version | `minTlsVersion` | Sets a minimum version of TLS required by your app. |
 | Minimum inbound TLS Cipher | `minTlsCipherSuite` | Sets a minimum TLS cipher requirement for your app. |
 | Mounted Azure Files shares | `azureStorageAccounts` | Determines if any explicitly mounted file shares exist in your app (Linux-only). |
-| SCM basic auth publishing credentials | `scm.allow` | Determines if the [`scm` publishing site is enabled](../../app-service/configure-basic-auth-disable.md). While not recommended for security, it's required by some [publishing methods](../functions-deployment-technologies.md). |
+| SCM basic auth publishing credentials | `scm.allow` | Determines if the [`scm` publishing site is enabled](../../app-service/configure-basic-auth-disable.md). While not recommended for security, some [publishing methods](../functions-deployment-technologies.md) require it. |
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -568,7 +568,7 @@ In this example, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with your resource 
 
 1. For each user-assigned managed identity, select the identity and in the identity page select **Azure role assignments**.
 
-1. Make a note of each role assignment granted to the identity and determine whether it's required by your app.
+1. Make a note of each role assignment granted to the identity and determine whether your app requires it.
 
 Document all identities and their role assignments so that you can recreate the same permissions structure for your new Flex Consumption app.
 
@@ -649,7 +649,7 @@ Consumption plan apps on Linux maintain the deployment zip package file in one o
 
 + An Azure Blob storage container named `scm-releases` in the default host storage account (`AzureWebJobsStorage`). This container is the default deployment source for a Consumption plan app on Linux.
 
-+ If your app has a `WEBSITE_RUN_FROM_PACKAGE` setting that is a URL, the package is in an externally accessible location that is maintained by you. An external package should be hosted in a blob storage container with restricted access. For more information, see [External package URL](../functions-deployment-technologies.md#external-package-url).
++ If your app has a `WEBSITE_RUN_FROM_PACKAGE` setting that is a URL, the package is in an externally accessible location that you maintain. An external package should be hosted in a blob storage container with restricted access. For more information, see [External package URL](../functions-deployment-technologies.md#external-package-url).
 
 >[!TIP]  
 >If your storage account is restricted to managed identity access only, you might need to grant your Azure account read access to the storage container by adding it to the `Storage Blob Data Reader` role.
@@ -661,7 +661,7 @@ The location of your project source files depends on the `WEBSITE_RUN_FROM_PACKA
 | `WEBSITE_RUN_FROM_PACKAGE` value | Source file location |
 | ---- | ---- |
 | `1` | The files are in a zip package that is stored in the Azure Files share of the storage account defined by the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` setting. The name of the files share is defined by the `WEBSITE_CONTENTSHARE` setting. |
-| An endpoint URL | The files are in a zip package in an externally accessible location that is maintained by you. An external package should be hosted in a blob storage container with restricted access. For more information, see [External package URL](../functions-deployment-technologies.md#external-package-url). |
+| An endpoint URL | The files are in a zip package in an externally accessible location that you maintain. An external package should be hosted in a blob storage container with restricted access. For more information, see [External package URL](../functions-deployment-technologies.md#external-package-url). |
 
 ---
 
@@ -712,7 +712,7 @@ Use these steps to download the deployment package from your current app:
 
 1. In the left menu, expand **Settings** > **Environment variables** and see if a setting named `WEBSITE_RUN_FROM_PACKAGE` exists.
 
-1. If `WEBSITE_RUN_FROM_PACKAGE` exists, check if it's set to a value of `1` or a URL. If set to a URL, that URL is the location of the package file for your app content. Download the .zip file from that URL location that is owned by you.
+1. If `WEBSITE_RUN_FROM_PACKAGE` exists, check if it's set to a value of `1` or a URL. If set to a URL, that URL is the location of the package file for your app content. Download the .zip file from that URL location that you own.
 
 1. If the `WEBSITE_RUN_FROM_PACKAGE` setting doesn't exist or is set to `1`, you must download the package from the specific storage account, which depends on whether you're running on Linux or Windows.
 
@@ -773,7 +773,7 @@ Use these steps to download the deployment package from your current app:
 
 1. In the left menu, expand **Settings** > **Environment variables** and see if a setting named `WEBSITE_RUN_FROM_PACKAGE` exists.
 
-1. If `WEBSITE_RUN_FROM_PACKAGE` exists, check if it's set to a value of `1` or a URL. If set to a URL, that URL is the location of the package file for your app content. Download the .zip file from that URL location that is owned by you.
+1. If `WEBSITE_RUN_FROM_PACKAGE` exists, check if it's set to a value of `1` or a URL. If set to a URL, that URL is the location of the package file for your app content. Download the .zip file from that URL location that you own.
 
 1. If the `WEBSITE_RUN_FROM_PACKAGE` setting doesn't exist or is set to `1`, you must download the package from the specific storage account, which depends on whether you're running on Linux or Windows.
 
