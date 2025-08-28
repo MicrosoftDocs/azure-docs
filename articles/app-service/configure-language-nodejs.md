@@ -56,7 +56,7 @@ az webapp list-runtimes --os linux | grep NODE
 
 ::: zone pivot="platform-windows"  
 
-To set your app to a [supported Node.js version](#show-nodejs-version), run the following command in the [Cloud Shell](https://shell.azure.com) to set `WEBSITE_NODE_DEFAULT_VERSION` to a supported version:
+To set your app to a [supported Node.js version](#show-the-nodejs-version), run the following command in the [Cloud Shell](https://shell.azure.com) to set `WEBSITE_NODE_DEFAULT_VERSION` to a supported version:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_NODE_DEFAULT_VERSION="~16"
@@ -74,7 +74,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ::: zone pivot="platform-linux"
 
-To set your app to a [supported Node.js version](#show-nodejs-version), run the following command in the [Cloud Shell](https://shell.azure.com):
+To set your app to a [supported Node.js version](#show-the-nodejs-version), run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "NODE|14-lts"
@@ -268,7 +268,7 @@ Your repository root now has two additional files: *.deployment* and *deploy.sh*
 Open *deploy.sh* and find the `Deployment` section, which looks like this:
 
 ```
-##################################################################################################################################
+#############################################################
 # Deployment
 # ----------
 ```
