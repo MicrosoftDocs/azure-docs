@@ -7,6 +7,7 @@ ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+# Customer intent: "As an HPC user, I want to configure various entry points for accessing cloud resources, so that I can optimize my workflows and efficiently submit jobs through SSH, remote desktop, or web-based applications like JupyterHub and RStudio."
 ---
 
 # End-user entry point configuration

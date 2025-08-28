@@ -13,6 +13,7 @@ ms.custom:
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
+# Customer intent: "As a network administrator, I want to create and associate service endpoint policies to a subnet, so that I can control access to specific Azure Storage accounts from within my virtual network."
 ---
 
 # Create and associate service endpoint policies

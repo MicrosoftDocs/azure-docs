@@ -6,10 +6,11 @@ ms.subservice: guest-os-patching
 author: SivaSun
 manager: timlt
 ms.service: azure-cloud-services-classic
-ms.topic: article
+ms.topic: concept-article
 ms.date: 04/07/2025
 ms.author: ssundara
 ms.custom: compute-evergreen
+# Customer intent: As a cloud service administrator, I want to migrate my applications from deprecated Guest OS Families to supported versions, so that my services remain operational and compliant after the retirement of older OS families.
 ---
 
 # Guest OS Family 2, 3, and 4 retirement notice

@@ -8,7 +8,8 @@ ms.reviewer: zhiyongli
 ms.service: azure-spring-apps
 ms.custom: devx-track-java
 ms.topic: conceptual
-ms.date: 08/28/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ---
 
 # Version support for Java, Spring Boot, and more
@@ -58,7 +59,7 @@ When you deploy your polyglot applications to the Enterprise plan, assign specif
 | .NET   | [.NET and .NET core support policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) |
 | Python | [Status of Python versions](https://devguide.python.org/versions/)                                    |
 | Go     | [Go release history](https://go.dev/doc/devel/release)                                                |
-| Node.js | [Nodejs releases](https://nodejs.org/en/about/previous-releases/)                                     |
+| Node.js | [Node.js releases](https://nodejs.org/en/about/previous-releases/)                                     |
 | PHP    | [PHP supported versions](https://www.php.net/supported-versions.php)                                  |
 
 ### Stack image support

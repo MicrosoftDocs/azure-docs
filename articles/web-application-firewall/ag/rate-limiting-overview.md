@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: overview
 ms.date: 03/31/2025
+# Customer intent: As a security analyst, I want to configure rate limiting on the Web Application Firewall of the Application Gateway, so that I can mitigate denial-of-service attacks and manage traffic effectively to maintain application availability.
 ---
 
 # What is rate limiting for Web Application Firewall on Application Gateway?

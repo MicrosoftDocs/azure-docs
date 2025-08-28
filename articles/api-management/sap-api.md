@@ -116,7 +116,7 @@ Choose one of the following methods to import your API to API Management:
     |---------|---------| 
     |`HEAD /`     | Enables the client to exchange cross-site request forgery (CSRF) tokens with the SAP server when required.<br/><br/>SAP also allows CSRF token exchange via the GET verb.<br/><br/> CSRF token exchange isn’t covered in this article. See an [example API Management policy snippet](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Get%20X-CSRF%20token%20from%20SAP%20gateway%20using%20send%20request.policy.xml) to broker token exchange.     |
 
-    :::image type="content" source="media/sap-api/head-root-operation.png" alt-text="Sceenshot that shows the operation for fetching tokens.":::
+    :::image type="content" source="media/sap-api/head-root-operation.png" alt-text="Screenshot that shows the operation for fetching tokens.":::
 
 - `GET /`
 

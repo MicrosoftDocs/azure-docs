@@ -4,9 +4,10 @@ description: Learn about the different data plane security features in Azure Net
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/25/2024
 ms.author: anfdocs
+# Customer intent: "As a data engineer, I want to understand the data plane security features of Azure NetApp Files, so that I can implement robust permissions, encryption, and network security measures to protect sensitive data effectively."
 ---
 
 # Understand Azure NetApp Files data plane security 

@@ -2,9 +2,10 @@
 title: Build a migration plan with Azure Migrate
 description: Provides guidance on building a migration plan with Azure Migrate.
 ms.service: azure-migrate
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/26/2024
 ms.custom: engagement-fy23
+# Customer intent: "As a cloud architect, I want to create a detailed migration plan for our on-premises workloads to Azure, so that I can ensure a successful and efficient transition while minimizing downtime and optimizing costs."
 ---
 
 # Build migration plan with Azure Migrate

@@ -1,17 +1,18 @@
 ---
-title: 'Tutorial: Load balance multiple IP configurations - Azure portal'
+title: 'Tutorial: Load balance multiple IP configurations'
 titleSuffix: Azure Load Balancer
-description: In this article, learn about load balancing across primary and secondary NIC configurations using the Azure portal.
+description: In this article, learn about load balancing across primary and secondary NIC configurations using the Azure portal, Azure CLI, and Azure PowerShell.
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: tutorial
-ms.date: 06/28/2024
+ms.date: 05/06/2025
 ms.custom: template-tutorial, engagement-fy23
 zone_pivot_groups: load-balancer-multiple-ip-pv
+# Customer intent: As a cloud architect, I want to configure load balancing across multiple IPs for virtual machines, so that I can ensure high availability and manage website traffic efficiently.
 ---
 
-# Tutorial: Load balance multiple IP configurations using the Azure portal
+# Tutorial: Load balance multiple IP configurations
 
 To host multiple websites, you can use another network interface associated with a virtual machine. Azure Load Balancer supports deployment of load-balancing to support the high availability of the websites.
 

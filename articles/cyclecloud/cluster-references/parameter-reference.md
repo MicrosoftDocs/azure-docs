@@ -2,7 +2,7 @@
 title: Cluster Template Reference - Parameters
 description: Read reference material for cluster template parameters to be used with Azure CycleCloud. See examples, an attribute reference, and a parameter type reference.
 author: KimliW
-ms.date: 06/03/2024
+ms.date: 06/29/2025
 ms.author: adjohnso
 ms.topic: conceptual
 ms.service: azure-cyclecloud
@@ -11,10 +11,10 @@ ms.custom: compute-evergreen
 
 # Cluster Parameters
 
-Parameter(s) are a multirank object 1, 2 ... n that can be subordinate to `[parameters]`.
+Parameters are multirank objects 1, 2, ... n that you can subordinate to `[parameters]`.
 
-`[parameter]`, singular is a parameter object and can be referenced by other objects.
-`[parameters]`, plural, is a section.  
+`[parameter]`, singular, is a parameter object that other objects can reference.  
+`[parameters]`, plural, is a section.
 
 ``` ini
 [parameters main]
@@ -23,16 +23,11 @@ Parameter(s) are a multirank object 1, 2 ... n that can be subordinate to `[para
       [[[[parameter my-parameter]]]]
 ```
 
-The nested parameter structure are exclusively for the purpose of rendering the
-parameter selection menus. Do not mix parameter ranks in a single template or UI
-rendering will be adversely affected.
+The nested parameter structure exists only to render the parameter selection menus. Don't mix parameter ranks in a single template. Mixing ranks adversely affects UI rendering.
 
 ## Examples
 
-Many of the attributes for parameters are dedicated to support selection of
-parameter values in the UI. CycleCloud maintains a list of Azure Subnets in the
-managed subscription and we have a special parameter attribute for selecting from
-that list.
+Many of the attributes for parameters support selection of parameter values in the UI. CycleCloud maintains a list of Azure Subnets in the managed subscription, and it has a special parameter attribute for selecting from that list.
 
 ``` ini
 [cluster scheduler]
@@ -53,9 +48,9 @@ Autoscale = $Autoscale
   Widget.Label = Start and stop execute instances automatically
 ```
 
-The `$` is a reference to a parameter name.
+The `$` references a parameter name.
 
-## Attribute Reference
+## Attribute reference
 
 Attributes available with the `[parameter]` object for any rank.
 
@@ -66,29 +61,26 @@ Attributes available with the `[parameter]` object for any rank.
 | Required | Boolean | Force the user to enter a value for this parameter in the UI. Default is false. |
 | DefaultValue | Any | Default value for parameter. Can be boolean, string, list according to parameter definition. |
 | Disabled | Boolean | Hide the parameter in the UI and mute the value in the cluster interpretation. |
-| ParameterType | String | Custom parameter types to effect rendering, selection behavior and value constraints. See Below. Default is String. |
+| ParameterType | String | Custom parameter types to affect rendering, selection behavior and value constraints. See Below. Default is String. |
 | Config. | String | ParameterType dependent additional configs. Use as Config.config-name = config-value. Keys include Filter |
-| Widget.Plugin | String | Some parameters are provided through javascript widgets. Widget name. |
-| Widget.Label | String | Label for javascript widget. |
+| Widget.Plugin | String | Some parameters are provided through JavaScript widgets. Widget name. |
+| Widget.Label | String | Label for JavaScript widget. |
 
-## ParameterType Reference
+## ParameterType reference
 
-CycleCloud supports a number of different parameter types to facilitate selection,
-promote clarity and reduce erroneous parameter choices.
+CycleCloud supports different parameter types to make selection easier, promote clarity, and reduce errors.
 
-Special parameter types in Azure beginning with the `Azure` key might respect special
-parameter names like Credential and Region. Credential and Region inform these
-parameter selectors which options to present based on subscription and location.
+Special parameter types in Azure that start with the `Azure` key might respect special parameter names like Credential and Region. Credential and Region inform these parameter selectors which options to present based on subscription and location.
 
 | ParameterType | Definition |
 | ------------- | ---------- |
 | Boolean | Boolean checkbox selector |
 | String | String parameter field |
-| StringList | String list builder|
-| Password | Entering a password with obfuscation. |
+| StringList | String list builder |
+| Password | Password entry with obfuscation |
 | Cloud.Region | Supported and available Azure Location. *Recommended for all Cluster Templates.* |
 | Cloud.Credentials | CycleCloud Provider Account. *Recommended for all Cluster Templates.* |
-| Cloud.ClusterInitSpecs | Cluster-Init Project selector. |
+| Cloud.ClusterInitSpecs | Cluster-Init Project selector |
 | Azure.LiveStorageAccount | |
 | Azure.LiveStorageContainer | |
 | Azure.Location | |

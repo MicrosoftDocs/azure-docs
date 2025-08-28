@@ -35,33 +35,6 @@ This Microsoft Fabric Warehouse connector is supported for the following capabil
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-## Create a Microsoft Fabric Warehouse linked service using UI
-
-Use the following steps to create a Microsoft Fabric Warehouse linked service in the Azure portal UI.
-
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
-
-    # [Azure Data Factory](#tab/data-factory)
-
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
-
-    # [Azure Synapse](#tab/synapse-analytics)
-
-    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
-
-2. Search for Warehouse and select the connector.
-
-    :::image type="content" source="media/connector-microsoft-fabric-warehouse/microsoft-fabric-warehouse-connector.png" alt-text="Screenshot showing select Microsoft Fabric Warehouse connector.":::    
-
-1. Configure the service details, test the connection, and create the new linked service.
-
-    :::image type="content" source="media/connector-microsoft-fabric-warehouse/configure-microsoft-fabric-warehouse-linked-service.png" alt-text="Screenshot of configuration for Microsoft Fabric Warehouse linked service.":::
-
-
-## Connector configuration details
-
-The following sections provide details about properties that are used to define Data Factory entities specific to Microsoft Fabric Warehouse.
-
 ## Linked service properties
 
 The Microsoft Fabric Warehouse connector supports the following authentication types. See the corresponding sections for details:
@@ -78,17 +51,17 @@ To use service principal authentication, follow these steps.
     - Client secret value, which is the service principal key in the linked service.
     - Tenant ID
 
-2. Grant the service principal at least the **Contributor** role in Microsoft Fabric workspace. Follow these steps:
+1. Grant the service principal at least the **Contributor** role in Microsoft Fabric workspace. Follow these steps:
     1. Go to your Microsoft Fabric workspace, select **Manage access** on the top bar. Then select **Add people or groups**.
-    
+
         :::image type="content" source="media/connector-microsoft-fabric-warehouse/fabric-workspace-manage-access.png" alt-text="Screenshot shows selecting Fabric workspace Manage access."::: 
 
         :::image type="content" source="media/connector-microsoft-fabric-warehouse/manage-access-pane.png" alt-text=" Screenshot shows Fabric workspace Manage access pane."::: 
-    
+
     1. In **Add people** pane, enter your service principal name, and select your service principal from the drop-down list.
-    
+
     1. Specify the role as **Contributor** or higher (Admin, Member), then select **Add**.
-        
+
         :::image type="content" source="media/connector-microsoft-fabric-warehouse/select-workspace-role.png" alt-text="Screenshot shows adding Fabric workspace role."::: 
 
     1. Your service principal is displayed on **Manage access** pane.
@@ -135,6 +108,28 @@ You can also store service principal key in Azure Key Vault.
     }
 }
 ```
+
+## Create a Microsoft Fabric Warehouse linked service using UI
+
+Use the following steps to create a Microsoft Fabric Warehouse linked service in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+1. Search for Warehouse and select the connector.
+
+    :::image type="content" source="media/connector-microsoft-fabric-warehouse/microsoft-fabric-warehouse-connector.png" alt-text="Screenshot showing select Microsoft Fabric Warehouse connector.":::
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-microsoft-fabric-warehouse/configure-microsoft-fabric-warehouse-linked-service.png" alt-text="Screenshot of configuration for Microsoft Fabric Warehouse linked service.":::
 
 ## Dataset properties
 
@@ -194,7 +189,6 @@ To copy data from Microsoft Fabric Warehouse, set the **type** property in the C
 | partitionColumnName | Specify the name of the source column **in integer or date/datetime type** (`int`, `smallint`, `bigint`, `date`, `datetime2`) that will be used by range partitioning for parallel copy. If not specified, the index or the primary key of the table is detected automatically and used as the partition column.<br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook  `?DfDynamicRangePartitionCondition` in the WHERE clause. For an example, see the [Parallel copy from Microsoft Fabric Warehouse](#parallel-copy-from-microsoft-fabric-warehouse) section. | No |
 | partitionUpperBound | The maximum value of the partition column for partition range splitting. This value is used to decide the partition stride, not for filtering the rows in table. All rows in the table or query result will be partitioned and copied. If not specified, copy activity auto detect the value.  <br>Apply when the partition option is `DynamicRange`. For an example, see the [Parallel copy from Microsoft Fabric Warehouse](#parallel-copy-from-microsoft-fabric-warehouse) section. | No |
 | partitionLowerBound | The minimum value of the partition column for partition range splitting. This value is used to decide the partition stride, not for filtering the rows in table. All rows in the table or query result will be partitioned and copied. If not specified, copy activity auto detect the value.<br>Apply when the partition option is `DynamicRange`. For an example, see the [Parallel copy from Microsoft Fabric Warehouse](#parallel-copy-from-microsoft-fabric-warehouse) section. | No |
-
 
 >[!Note]
 >When using stored procedure in source to retrieve data, note if your stored procedure is designed as returning different schema when different parameter value is passed in, you may encounter failure or see unexpected result when importing schema from UI or when copying data to Microsoft Fabric Warehouse with auto table creation.
@@ -532,6 +526,7 @@ Settings specific to Microsoft Fabric Warehouse are available in the Source Opti
 >Read via staging is not supported. CDC support for Microsoft Fabric Warehouse source is currently not available.
 
 ### Microsoft Fabric Warehouse as the sink
+
 Settings specific to Microsoft Fabric Warehouse are available in the Settings tab of the sink transformation.
 
 | Name                     | Description                                                  | Required | Allowed Values | Data flow script property |
@@ -557,6 +552,7 @@ If the staging storage location has a firewall enabled, access issues may occur.
 
 
 ### Error row handling
+
 By default, a data flow run will fail on the first error it gets. You can choose to Continue on error that allows your data flow to complete even if individual rows have errors. The service provides different options for you to handle these error rows.
  
 Transaction Commit: Choose whether your data gets written in a single transaction or in batches. Single transaction will provide better performance and no data written will be visible to others until the transaction completes. Batch transactions have worse performance but can work for large datasets.

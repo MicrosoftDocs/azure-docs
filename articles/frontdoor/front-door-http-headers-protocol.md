@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 03/27/2024
+ms.date: 04/30/2025
 ---
 
 # Protocol support for HTTP headers in Azure Front Door
@@ -15,9 +15,9 @@ This article outlines the protocol that Front Door supports with parts of the ca
 :::image type="content" source="./media/front-door-http-headers-protocol/front-door-protocol-summary.png" alt-text="Diagram showing client making request to Azure Front Door, which is forwarded to the backend. The response is sent from Azure Front Door to the client." border="false":::
 
 > [!IMPORTANT]
-> Azure Front Door doesn't certify any HTTP headers that aren't documented here.
+> Azure Front Door doesn't certify any HTTP headers that aren't documented in this article.
 
-## From client to Azure Front Door
+## From the client to the Front Door
 
 Azure Front Door accepts most headers for the incoming request without modifying them. Some reserved headers are removed from the incoming request if sent, including headers with the `X-FD-*` prefix.
 
@@ -59,7 +59,7 @@ You need to send `X-Azure-DebugInfo: 1` request header to enable the following o
 | X-Azure-InternalError | This header contains the error code that Azure Front Door comes across when processing the request. This error indicates the issue is internal to the Azure Front Door service/infrastructure. Report issue to support.  |
 | X-Azure-ExternalError | `X-Azure-ExternalError: 0x830c1011, The certificate authority is unfamiliar` </br> This header shows the error code that Front Door servers come across while establishing connectivity to the backend server to process a request. This header helps identify issues in the connection between Front Door and the backend application. This header includes a detailed error message to help you identify connectivity issues to your backend (for example, DNS resolution, invalid cert, and so on.). |
 
-## Next steps
+## Related content
 
-* Learn how to [create an Azure Front Door profile](quickstart-create-front-door.md).
-* Learn about [how Azure Front Door works](front-door-routing-architecture.md).
+- Learn how to [create an Azure Front Door profile](quickstart-create-front-door.md)
+- Learn about [how Azure Front Door works](front-door-routing-architecture.md)

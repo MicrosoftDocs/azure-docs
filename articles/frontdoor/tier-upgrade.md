@@ -10,6 +10,8 @@ ms.date: 11/18/2024
 
 # Upgrade from Azure Front Door Standard to Premium
 
+**Applies to:** :heavy_check_mark: Front Door Standard
+
 Upgrade your Azure Front Door Standard to Premium for advanced capabilities and increased quota limits without any downtime. For a detailed comparison, see [Tier comparison](standard-premium/tier-comparison.md).
 
 This guide explains how to upgrade your Azure Front Door Standard profile. After upgrading, you'll be billed for the Azure Front Door Premium monthly base fee at an hourly rate.

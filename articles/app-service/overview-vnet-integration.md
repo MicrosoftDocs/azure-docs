@@ -1,16 +1,18 @@
 ---
 title: Integrate your app with an Azure virtual network
 description: Integrate your app in Azure App Service with Azure virtual networks.
-author: madsd
+author: seligj95
 ms.topic: conceptual
-ms.date: 03/14/2025
-ms.author: madsd
-ms.custom: UpdateFrequency3
+ms.date: 08/11/2025
+ms.update-cycle: 1095-days
+ms.author: jordanselig
+ms.custom:
+  - UpdateFrequency3
+  - build-2025
 
+ms.service: azure-app-service
 ---
 # <a name="regional-virtual-network-integration"></a>Integrate your app with an Azure virtual network
-
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 This article describes the Azure App Service virtual network integration feature and how to set it up with apps in [App Service](./overview.md). With [Azure virtual networks](../virtual-network/virtual-networks-overview.md), you can place many of your Azure resources in a non-internet-routable network. The App Service virtual network integration feature enables your apps to access resources in or through a virtual network.
 
@@ -19,7 +21,7 @@ This article describes the Azure App Service virtual network integration feature
 
 App Service has two variations:
 
-* The dedicated compute pricing tiers, which include the Basic, Standard, Premium, Premium v2, and Premium v3.
+* The dedicated compute pricing tiers, which include the Basic, Standard, Premium, Premium v2, Premium v3, and Premium v4.
 * The App Service Environment, which deploys directly into your virtual network with dedicated supporting infrastructure and is using the Isolated v2 pricing tiers.
 
 The virtual network integration feature is used in Azure App Service dedicated compute pricing tiers. If your app is in an [App Service Environment](./environment/overview.md), it already integrates with a virtual network and doesn't require you to configure virtual network integration feature to reach resources in the same virtual network. For more information on all the networking features, see [App Service networking features](./networking-features.md).
@@ -28,7 +30,7 @@ Virtual network integration gives your app access to resources in your virtual n
 
 The virtual network integration feature:
 
-* Requires a Basic, Standard, Premium, Premium v2, Premium v3, or Elastic Premium App Service pricing tier.
+* Requires a Basic, Standard, Premium, Premium v2, Premium v3, Premium v4, or Elastic Premium App Service pricing tier.
 * Supports TCP and UDP.
 * Works with App Service apps, function apps, and Logic apps.
 
@@ -108,6 +110,7 @@ You must have at least the following Role-based access control permissions on th
 |-|-|
 | Microsoft.Network/virtualNetworks/read | Read the virtual network definition |
 | Microsoft.Network/virtualNetworks/subnets/read | Read a virtual network subnet definition |
+| Microsoft.Network/virtualNetworks/subnets/write | Delegate the subnet. Only required when the subnet has not been delegated or has not already been used for virtual network integration |
 | Microsoft.Network/virtualNetworks/subnets/join/action | Joins a virtual network |
 
 If the virtual network is in a different subscription than the app, you must ensure that the subscription with the virtual network is registered for the `Microsoft.Web` resource provider. You can explicitly register the provider [by following this documentation](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider), but it also automatically registers when creating the first web app in a subscription.
@@ -182,7 +185,7 @@ Azure uses UDP port 30,000 to do network health checks. If you block this traffi
 
 #### Private ports
 
-The App Service private ports feature uses ports 20,000 to 30,000 on both TCP and UDP to route traffic between instances through the integrated network. The mentioned port range need to be open both inbound and outbound.
+The App Service private ports feature uses ports 20,000 to 30,000 on both TCP and UDP to route traffic between instances through the integrated network. The mentioned port range needs to be open both inbound and outbound.
 
 #### On-premises traffic
 
@@ -213,12 +216,13 @@ There are some limitations with using virtual network integration:
 
 * The feature requires an unused subnet that's an IPv4 `/28` block or larger in an Azure Resource Manager virtual network. MPSJ requires a `/26` block or larger.
 * The app and the virtual network must be in the same region.
-* The integration virtual network can't have IPv6 address spaces defined.
 * The integration subnet can't have [service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) enabled.
 * You can't delete a virtual network with an integrated app. Remove the integration before you delete the virtual network.
 * You can't have more than two virtual network integrations per App Service plan. Multiple apps in the same App Service plan can use the same virtual network integration.
 * You can't change the subscription of an app or a plan while there's an app that's using virtual network integration.
 * App Service Logs to private storage accounts is currently not supported. We recommend using Diagnostics Logging and allowing Trusted Services for the storage account.
+* Connectivity to public Azure Storage accounts might fail for VNet-integrated apps when VNet Route All is enabled and the app does not use service endpoints, private endpoints, or User-Defined Routes (UDRs). Traffic is expected to route via the default route (Internet). This scenario is common when the storage account is in a different region than the virtual network.
+  * To restore or ensure connectivity, enable service endpoints for the storage account, configure private endpoints, or move the storage account to the same region as the virtual network. 
 
 ## Access on-premises resources
 

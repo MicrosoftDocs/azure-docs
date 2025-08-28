@@ -8,6 +8,7 @@ ms.service: azure-virtual-network
 ms.topic: troubleshooting
 ms.date: 07/19/2023
 ms.author: allensu
+# Customer intent: "As a cloud administrator, I want to troubleshoot connectivity issues between Azure virtual machines, so that I can ensure optimal communication and functionality within my cloud infrastructure."
 ---
 
 # Troubleshooting connectivity problems between Azure VMs

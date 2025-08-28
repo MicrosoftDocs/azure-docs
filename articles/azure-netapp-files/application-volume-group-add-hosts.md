@@ -1,12 +1,15 @@
 ---
-title: Add hosts to a multiple-host SAP HANA system using Azure NetApp Files application volume group for SAP HANA | Microsoft Docs
+title: Add hosts to a multiple-host SAP HANA system using Azure NetApp Files application volume group for SAP HANA 
 description: Describes how to add more HANA hosts after you've created the first host in an SAP HANA multiple-host setup.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 04/22/2025
+ms.date: 07/11/2025
 ms.author: anfdocs
+ms.custom:
+  - build-2025
+# Customer intent: As a database administrator, I want to add additional hosts to a multiple-host SAP HANA setup using an application volume group, so that I can effectively scale my database environment to accommodate increased workloads.
 ---
 # Add hosts to a multiple-host SAP HANA system using application volume group for SAP HANA
 

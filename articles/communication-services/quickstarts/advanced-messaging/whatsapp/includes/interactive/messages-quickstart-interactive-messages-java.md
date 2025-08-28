@@ -5,7 +5,7 @@ services: azure-communication-services
 author: arifibrahim4
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
-ms.date: 01/28/2025
+ms.date: 05/01/2025
 ms.topic: include
 ms.custom: include file
 ms.author: armohamed
@@ -64,9 +64,9 @@ Follow these steps to add required code snippets to the main function of your `A
 Follow these steps to add required code snippets to the main function of your `App.java` file.
 - [Send an Interactive List options message to a WhatsApp user](#send-an-interactive-reply-button-message-to-a-whatsapp-user).
 - [Send an Interactive Reply Button message to a WhatsApp user](#send-an-interactive-reply-button-message-to-a-whatsapp-user).
-- [Send an Interactive Click-to-action Url based message to a WhatsApp user](#send-an-interactive-call-to-action-url-based-message-to-a-whatsapp-user)
+- [Send an Interactive Click-to-action Url based message to a WhatsApp user](#send-an-interactive-call-to-action-url-based-message-to-a-whatsapp-user).
 
-### Send an Interactive List options message to a WhatsApp user
+### Send an interactive list options message to a WhatsApp user
 
 The Messages SDK enables Contoso to send interactive WhatsApp messages, when initiated by a WhatsApp users. To send interactive messages:
 - [WhatsApp Channel ID](#set-channel-registration-id).
@@ -102,7 +102,7 @@ InteractiveMessage interactiveMessage = new InteractiveMessage(
 interactiveMessage.setFooter(new TextMessageContent("Logistic Ltd"));
 interactiveMessage.setHeader(new TextMessageContent("Shipping Options"));
 
-InteractiveNotificationContent interactiveMessageContent new InteractiveNotificationContent("<CHANNEL_ID>", recipients, interactiveMessage);
+InteractiveNotificationContent interactiveMessageContent = new InteractiveNotificationContent("<CHANNEL_ID>", recipients, interactiveMessage);
 
 // Send an interactive message
 SendMessageResult textMessageResult = notificationClient.send(interactiveMessageContent);
@@ -113,9 +113,10 @@ for (MessageReceipt messageReceipt : textMessageResult.getReceipts()) {
 }
 ```
 
-### Send an Interactive Reply Button message to a WhatsApp user
+### Send an interactive reply button message to a WhatsApp user
 
 The Messages SDK enables Contoso to send interactive WhatsApp messages, when initiated by a WhatsApp users. To send interactive messages:
+
 - [WhatsApp Channel ID](#set-channel-registration-id).
 - [Recipient Phone Number in E16 format](#set-recipient-list).
 - Interactive message to be sent.
@@ -133,7 +134,7 @@ buttonActions.add(new ButtonContent("yes",  "Yes"));
 ButtonSetContent buttonSet = new ButtonSetContent(buttonActions);
 InteractiveMessage interactiveMessage = new InteractiveMessage(new TextMessageContent("Do you want to proceed?"), new WhatsAppButtonActionBindings(buttonSet));
 
-InteractiveNotificationContent interactiveMessageContent new InteractiveNotificationContent("<CHANNEL_ID>", recipients, interactiveMessage);
+InteractiveNotificationContent interactiveMessageContent = new InteractiveNotificationContent("<CHANNEL_ID>", recipients, interactiveMessage);
 
 // Send an interactive message
 SendMessageResult textMessageResult = notificationClient.send(interactiveMessageContent);
@@ -144,9 +145,10 @@ for (MessageReceipt messageReceipt : textMessageResult.getReceipts()) {
 }
 ```
 
-### Send an Interactive Call-To-Action Url based message to a WhatsApp user
+### Send an interactive call-to-action URL based message to a WhatsApp user
 
 The Messages SDK enables Contoso to send interactive WhatsApp messages, when initiated by a WhatsApp users. To send interactive messages:
+
 - [WhatsApp Channel ID](#set-channel-registration-id).
 - [Recipient Phone Number in E16 format](#set-recipient-list).
 - Interactive message to be sent.
@@ -157,12 +159,12 @@ The Messages SDK enables Contoso to send interactive WhatsApp messages, when ini
 In this example, the business sends a click to a link message to the user.
 
 ```java
-LinkContent urlAction = new LinkContent("Click here to find out", "https://wallpapercave.com/wp/wp2163723.jpg");
+LinkContent urlAction = new LinkContent("Find out more", "https://wallpapercave.com/wp/wp2163723.jpg");
 InteractiveMessage interactiveMessage = new InteractiveMessage(
     new TextMessageContent("The best Guardian of Galaxy"), new WhatsAppUrlActionBindings(urlAction));
 interactiveMessage.setFooter(new TextMessageContent("Intergalactic New Ltd"));
 
-InteractiveNotificationContent interactiveMessageContent new InteractiveNotificationContent("<CHANNEL_ID>", recipients, interactiveMessage);
+InteractiveNotificationContent interactiveMessageContent = new InteractiveNotificationContent("<CHANNEL_ID>", recipients, interactiveMessage);
 
 // Send an interactive message
 SendMessageResult textMessageResult = notificationClient.send(interactiveMessageContent);
@@ -172,7 +174,6 @@ for (MessageReceipt messageReceipt : textMessageResult.getReceipts()) {
     System.out.println("Message sent to:" + messageReceipt.getTo() + " and message id:" + messageReceipt.getMessageId());
 }
 ```
-
 
 ### Run the code
 
@@ -190,4 +191,4 @@ for (MessageReceipt messageReceipt : textMessageResult.getReceipts()) {
 
 ## Full sample code
 
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication/azure-communication-messages/src/samples/java/com/azure/communication/messages).
+Find the finalized code for this sample on GitHub at [Azure Messages client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication/azure-communication-messages/src/samples/java/com/azure/communication/messages).

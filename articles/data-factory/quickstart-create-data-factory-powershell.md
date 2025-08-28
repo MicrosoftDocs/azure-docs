@@ -5,20 +5,20 @@ author: whhender
 ms.subservice: data-movement
 ms.devlang: powershell
 ms.topic: quickstart
-ms.date: 05/15/2024
+ms.date: 06/06/2025
 ms.author: whhender
 ms.reviewer: jianleishen
 ms.custom: devx-track-azurepowershell, mode-api
 ---
 # Quickstart: Create an Azure Data Factory using PowerShell
 
-
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 This quickstart describes how to use PowerShell to create an Azure Data Factory. The pipeline you create in this data factory **copies** data from one folder to another folder in an Azure blob storage. For a tutorial on how to **transform** data using Azure Data Factory, see [Tutorial: Transform data using Spark](transform-data-using-spark.md).
 
 > [!NOTE]
-> This article does not provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).
+> This article doesn't provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).
+
 
 [!INCLUDE [data-factory-quickstart-prerequisites](includes/data-factory-quickstart-prerequisites.md)]
 
@@ -29,9 +29,9 @@ This quickstart describes how to use PowerShell to create an Azure Data Factory.
 Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 >[!WARNING]
->If you do not use latest versions of PowerShell and Data Factory module, you may run into deserialization errors while running the commands. 
+>If you don't use latest versions of PowerShell and Data Factory module, you could run into deserialization errors while running the commands.
 
-#### Log in to PowerShell
+#### Sign in to PowerShell
 
 1. Launch **PowerShell** on your machine. Keep PowerShell open until the end of this quickstart. If you close and reopen, you need to run these commands again.
 
@@ -61,7 +61,7 @@ Install the latest Azure PowerShell modules by following instructions in [How to
     $resourceGroupName = "ADFQuickStartRG";
     ```
 
-    If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$ResourceGroupName` variable and run the command again
+    If the resource group already exists, you might not want to overwrite it. Assign a different value to the `$ResourceGroupName` variable and run the command again
 
 2. To create the Azure resource group, run the following command:
 
@@ -69,7 +69,7 @@ Install the latest Azure PowerShell modules by following instructions in [How to
     $ResGrp = New-AzResourceGroup $resourceGroupName -location 'East US'
     ```
 
-    If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$ResourceGroupName` variable and run the command again.
+    If the resource group already exists, you might not want to overwrite it. Assign a different value to the `$ResourceGroupName` variable and run the command again.
 
 3. Define a variable for the data factory name. 
 
@@ -95,7 +95,7 @@ Note the following points:
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 
-* To create Data Factory instances, the user account you use to log in to Azure must be a member of **contributor** or **owner** roles, or an **administrator** of the Azure subscription.
+* To create Data Factory instances, the user account you use to sign in to Azure must be a member of **contributor** or **owner** roles, or an **administrator** of the Azure subscription.
 
 * For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
@@ -105,10 +105,10 @@ Note the following points:
 Create linked services in a data factory to link your data stores and compute services to the data factory. In this quickstart, you create an Azure Storage linked service that is used as both the source and sink stores. The linked service has the connection information that the Data Factory service uses at runtime to connect to it.
 
 >[!TIP]
->In this quickstart, you use *Account key* as the authentication type for your data store, but you can choose other supported authentication methods: *SAS URI*,*Service Principal* and *Managed Identity* if needed. Refer to corresponding sections in [this article](./connector-azure-blob-storage.md#linked-service-properties) for details.
+>In this quickstart, you use *Account key* as the authentication type for your data store, but you can choose other supported authentication methods: *SAS URI*, *Service Principal, and *Managed Identity* if needed. Refer to corresponding sections in [this article](./connector-azure-blob-storage.md#linked-service-properties) for details.
 >To store secrets for data stores securely, it's also recommended to use an Azure Key Vault. Refer to [this article](./store-credentials-in-key-vault.md) for detailed illustrations.
 
-1. Create a JSON file named **AzureStorageLinkedService.json** in **C:\ADFv2QuickStartPSH** folder with the following content: (Create the folder ADFv2QuickStartPSH if it does not already exist.).
+1. Create a JSON file named **AzureStorageLinkedService.json** in **C:\ADFv2QuickStartPSH** folder with the following content: (Create the folder ADFv2QuickStartPSH if it doesn't already exist.).
 
     > [!IMPORTANT]
     > Replace &lt;accountName&gt; and &lt;accountKey&gt; with name and key of your Azure storage account before saving the file.
@@ -126,7 +126,7 @@ Create linked services in a data factory to link your data stores and compute se
     }
     ```
 
-    If you are using Notepad, select **All files** for the **Save as type** filed in the **Save as** dialog box. Otherwise, it may add `.txt` extension to the file. For example, `AzureStorageLinkedService.json.txt`. If you create the file in File Explorer before opening it in Notepad, you may not see the `.txt` extension since the **Hide extensions for known files types** option is set by default. Remove the `.txt` extension before proceeding to the next step.
+    If you're using Notepad, select **All files** for the **Save as type** filed in the **Save as** dialog box. Otherwise, it might add `.txt` extension to the file. For example, `AzureStorageLinkedService.json.txt`. If you create the file in File Explorer before opening it in Notepad, you might not see the `.txt` extension since the **Hide extensions for known files types** option is set by default. Remove the `.txt` extension before proceeding to the next step.
 
 2. In **PowerShell**, switch to the **ADFv2QuickStartPSH** folder.
 
@@ -142,7 +142,7 @@ Create linked services in a data factory to link your data stores and compute se
         -DefinitionFile ".\AzureStorageLinkedService.json"
     ```
 
-    Here is the sample output:
+    Here's the sample output:
 
     ```console
     LinkedServiceName : AzureStorageLinkedService
@@ -155,7 +155,8 @@ Create linked services in a data factory to link your data stores and compute se
 
 In this procedure, you create two datasets: **InputDataset** and **OutputDataset**. These datasets are of type **Binary**. They refer to the Azure Storage linked service that you created in the previous section.
 The input dataset represents the source data in the input folder. In the input dataset definition, you specify the blob container (**adftutorial**), the folder (**input**), and the file (**emp.txt**) that contain the source data.
-The output dataset represents the data that's copied to the destination. In the output dataset definition, you specify the blob container (**adftutorial**), the folder (**output**), and the file to which the data is copied. 
+The output dataset represents the data that's copied to the destination. In the output dataset definition, you specify the blob container (**adftutorial**), the folder (**output**), and the file to which the data is copied.
+
 1. Create a JSON file named **InputDataset.json** in the **C:\ADFv2QuickStartPSH** folder, with the following content:
 
     ```json
@@ -188,7 +189,7 @@ The output dataset represents the data that's copied to the destination. In the 
         -DefinitionFile ".\InputDataset.json"
     ```
 
-    Here is the sample output:
+    Here's the sample output:
 
     ```console
     DatasetName       : InputDataset
@@ -229,7 +230,7 @@ The output dataset represents the data that's copied to the destination. In the 
         -DefinitionFile ".\OutputDataset.json"
     ```
 
-    Here is the sample output:
+    Here's the sample output:
 
     ```console
     DatasetName       : OutputDataset
@@ -343,7 +344,7 @@ $RunId = Invoke-AzDataFactoryV2Pipeline `
     }
     ```
 
-    Here is the sample output of pipeline run:
+    Here's the sample output of pipeline run:
 
     ```console
     Pipeline is running...status: InProgress

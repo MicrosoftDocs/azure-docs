@@ -36,7 +36,7 @@ Content in this article is relevant for your **security**, **infrastructure**, a
 Content in this article is relevant for your **security** and **SAP BASIS** teams.
 
 > [!IMPORTANT]
-> Microsoft Sentinel's agentless data connector for SAP is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Microsoft Sentinel's agentless data connector for SAP is currently in **LIMITED PREVIEW**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 :::zone-end
 
@@ -73,7 +73,7 @@ We recommend that your **SAP BASIS** team verify and ensure SAP system prerequis
 
 | Prerequisite | Description |
 | ---- | ----------- |
-| **Supported SAP versions** | The SAP data connector agent support SAP NetWeaver systems and was tested on [SAP_BASIS versions 731](https://support.sap.com/en/my-support/software-downloads/support-package-stacks/product-versions.html#:~:text=SAP%20NetWeaver%20%20%20%20SAP%20Product%20Version,%20%20SAPKB710%3Cxx%3E%20%207%20more%20rows) and above. <br><br>Certain steps in this tutorial provide alternative instructions if you're working on the older [SAP_BASIS version 740](https://support.sap.com/en/my-support/software-downloads/support-package-stacks/product-versions.html#:~:text=SAP%20NetWeaver%20%20%20%20SAP%20Product%20Version,%20%20SAPKB710%3Cxx%3E%20%207%20more%20rows). |
+| **Supported SAP versions** | The SAP data connector agent supports SAP NetWeaver systems on [SAP_BASIS versions 731](https://support.sap.com/en/my-support/software-downloads/support-package-stacks/product-versions.html#:~:text=SAP%20NetWeaver%20%20%20%20SAP%20Product%20Version,%20%20SAPKB710%3Cxx%3E%20%207%20more%20rows) and above.<br><br>**Note**: Systems with SAP Note 3446187 applied are not supported by the data connector agent. In such cases, use the [agentless data connector](prerequisites-for-deploying-sap-continuous-threat-monitoring.md?pivots=connection-agentless) instead, which is fully compatible with the enhanced behavior introduced by Note 3446187.<br><br>Certain steps in this tutorial provide alternative instructions if you're working on the older [SAP_BASIS version 740](https://support.sap.com/en/my-support/software-downloads/support-package-stacks/product-versions.html#:~:text=SAP%20NetWeaver%20%20%20%20SAP%20Product%20Version,%20%20SAPKB710%3Cxx%3E%20%207%20more%20rows). |
 | **Required software** | SAP NetWeaver RFC SDK 7.50 ([Download here](https://aka.ms/sentinel4sapsdk))<br>Make sure that you also have an SAP user account in order to access the SAP software download page. |
 | **SAP system details** | Make a note of the following SAP system details: <br>- SAP system IP address and FQDN hostname<br>- SAP system number, such as `00`<br>- SAP System ID, from the SAP NetWeaver system (for example, `NPL`) <br>- SAP client ID, such as `001` |
 | **SAP NetWeaver instance access** | The SAP data connector agent uses one of the following mechanisms to authenticate to the SAP system: <br>- SAP ABAP user/password<br>- A user with an X.509 certificate. This option requires extra configuration steps. For more information, see [Configure your system to use SNC for secure connections](preparing-sap.md#configure-your-system-to-use-snc-for-secure-connections).|
@@ -83,6 +83,10 @@ We recommend that your **SAP BASIS** team verify and ensure SAP system prerequis
 :::zone-end
 
 :::zone pivot="connection-agentless"
+
+## Sign up for limited preview
+
+To use the agentless data connector for SAP, [sign up for the limited preview](https://forms.cloud.microsoft/r/FeWbvc18MV).
 
 ## Azure prerequisites
 
@@ -96,7 +100,9 @@ Typically, Azure prerequisites are managed by your **security** teams.
 
 ## SAP prerequisites for the agentless data connector
 
-We recommend that your **SAP BASIS** team verify and ensure SAP system prerequisites. We strongly recommend that any management of your SAP system is carried out by an experienced SAP system administrator.
+We recommend that your **SAP BASIS** team verify and ensure SAP system prerequisites. The SAP BASIS admin should review SAP notes 3390051 and 382318 to ensure that NetWeaver is set up for integration.
+
+We strongly recommend that any management of your SAP system is carried out by an experienced SAP system administrator.
 
 | Prerequisite | Description |
 | ---- | ----------- |

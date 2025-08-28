@@ -4,6 +4,7 @@ description: Learn how to create a Batch pool with Auto OS Upgrade so that custo
 ms.topic: how-to
 ms.date: 12/20/2024
 ms.custom: 
+# Customer intent: "As a cloud administrator, I want to provision an Azure Batch pool with Auto OS Upgrade enabled, so that I can ensure secure, workload-aware operating system upgrades with minimal disruption to running tasks."
 ---
 
 # Create an Azure Batch pool with Automatic Operating System (OS) Upgrade

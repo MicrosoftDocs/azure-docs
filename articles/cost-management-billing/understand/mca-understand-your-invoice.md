@@ -6,7 +6,7 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/21/2024
+ms.date: 05/14/2025
 ms.author: jkinma
 ---
 
@@ -123,6 +123,7 @@ A Limited Risk Distributor (LRD) is a subsidiary that Microsoft established as b
 - Sweden
 - Switzerland
 - Spain
+- Brazil
 
 Under the LRD model:
 

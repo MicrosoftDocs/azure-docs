@@ -1,13 +1,13 @@
 ---
 title: Enterprise Agreement reservation recommendations file schema
 description: Learn about the data fields available in the Enterprise Agreement reservation recommendations file.
-author: bandersmsft
-ms.reviewer: jojo
+author: jojohpm
+ms.reviewer: jojoh
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 01/24/2025
-ms.author: banders
+ms.date: 06/26/2025
+ms.author: jojoh
 ---
 
 # Enterprise Agreement reservation recommendations file schema

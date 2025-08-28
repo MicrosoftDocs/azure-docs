@@ -36,8 +36,6 @@
         href: backup-plan-to-protect-against-ransomware.md
       - name: Ransomware protection with Azure Firewall Premium
         href: ransomware-protection-with-azure-firewall.md
-      - name: Recovering from systemic identity compromise
-        href: recover-from-identity-compromise.md
   - name: Threat protection
     href: threat-detection.md
 
@@ -155,10 +153,8 @@
       href: azure-ca-details.md
     - name: Certificate Pinning
       href: certificate-pinning.md
-    - name: Sunset for SHA-1 OCSP signing
-      href: ocsp-sha-1-sunset.md
-    - name: TLS certificate changes
-      href: tls-certificate-changes.md
+    - name: Managed TLS changes
+      href: managed-tls-changes.md
   - name: Disk encryption
     items: 
     - name: Best practices

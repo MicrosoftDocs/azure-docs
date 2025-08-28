@@ -123,7 +123,7 @@ sections:
 
       - question:  Does ACSS install any extension during installation and registration?
         answer: |
-                Yes, ACSS automatically installs two extensions on both Windows and Linux virtual machines to enable workload-specific capabilities and monitoring. To ensure successful registration with ACSS, please make sure the following extensions are whitelisted
+                Yes, ACSS automatically installs two extensions on both Windows and Linux virtual machines to enable workload-specific capabilities and monitoring. To ensure successful registration with ACSS, please make sure the following extensions are allowlisted
 
                 Linux:
                 - Extension name: Microsoft.Azure.Workloads.WorkloadsExtensionLinux

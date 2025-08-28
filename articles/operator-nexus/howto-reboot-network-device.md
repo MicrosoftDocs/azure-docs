@@ -1,6 +1,6 @@
 ---
-title: How to reboot network device in Azure Operator Nexus Network Fabric
-description: Learn how to reboot a network device in Azure Operator Nexus Network Fabric using graceful and ungraceful reboot methods.
+title: Reboot a Network Device in Azure Operator Nexus Network Fabric
+description: Learn how to reboot a network device in Azure Operator Nexus Network Fabric by using graceful and ungraceful reboot methods.
 author: sushantjrao
 ms.author: sushrao
 ms.service: azure-operator-nexus
@@ -11,68 +11,59 @@ ms.custom: template-how-to
 
 # Reboot a network device
 
-This guide explains how to reboot a **Network device** in Azure Nexus Network Fabric. It introduces two reboot modes that allow users to restart their devices without requiring **Zero Touch Provisioning (ZTP)**.  
+This article explains how to reboot a network device in Azure Operator Nexus Network Fabric. It introduces two reboot modes that users can use to restart their devices without requiring zero-touch provisioning (ZTP).
 
-A **new POST action** has been added to the **device resource**, enabling users to trigger a reboot and monitor its success or failure using the **configuration state property**.  
+A new `POST` action was added to the device resource. Users can trigger a reboot and monitor its success or failure by using the configuration state property.
 
-## Reboot Modes
+## Reboot modes
 
-Azure Operator Nexus Network Fabric version 8.1 introduces four reboot modes:  
+Azure Operator Nexus Network Fabric version 8.1 introduces four reboot modes:
 
-- Graceful Reboot without ZTP (Zero Touch Provisioning)  
+- Graceful reboot without ZTP
+- Ungraceful reboot without ZTP
+- Graceful reboot with ZTP
+- Ungraceful reboot with ZTP
 
-- Ungraceful Reboot without ZTP  
+### Graceful reboot without ZTP (default mode)
 
-- Graceful Reboot with ZTP  
+A graceful reboot ensures a stable restart process by temporarily placing the device in maintenance mode.
 
-- Ungraceful Reboot with ZTP  
+#### How it works
 
-### Graceful reboot without ZTP (default mode)  
+- The device enters maintenance mode before the reboot.
+- The reboot uses the last saved configuration stored on the device.
+- Upon successful restart, the device exits maintenance mode automatically.
 
-A **graceful reboot** ensures a stable restart process by temporarily placing the device in maintenance mode.  
+#### Command to execute a graceful reboot
 
-#### How it works  
-
-- The device enters **maintenance mode** before the reboot.
-
-- The reboot uses the **last saved configuration** stored on the device.
-
-- Upon successful restart, the device **exits maintenance mode** automatically.  
-
-#### Command to execute a graceful reboot  
-
-Use the following Azure CLI command:  
+Use the following Azure CLI command:
 
 ```Azure CLI
 az networkfabric device reboot --network-device-name <DeviceName> --resource-group <ResourceGroupName> --reboot-type GracefulRebootWithoutZTP
 ```
 
-#### Considerations  
+#### Considerations
 
-While the device is in **maintenance mode**, the following operations are **blocked**:  
+While the device is in maintenance mode, the following operations are blocked:
 
-- Configuration updates.
+- Configuration updates
+- Software upgrades
+- Device replacement flows
 
-- Software upgrades.
+Maintenance mode is automatically removed after the reboot is completed successfully.
 
-- Device replacement flows.
+### Ungraceful reboot without ZTP
 
-Maintenance mode is **automatically removed** after the reboot is completed successfully.  
-
-
-### Ungraceful reboot without ZTP  
-
-An **ungraceful reboot** is a faster restart option that **does not** place the device in maintenance mode.  
+An ungraceful reboot is a faster restart option that doesn't place the device in maintenance mode.
 
 #### How it works
 
-- The device **immediately reboots** using the **last saved configuration**.
+- The device immediately reboots by using the last saved configuration.
+- Unlike the graceful reboot, the device remains operational without entering maintenance mode.
 
-- Unlike the graceful reboot, the device **remains operational** without entering maintenance mode.
+#### Command to execute an ungraceful reboot
 
-#### Command to execute an ungraceful reboot  
-
-Use the following **Azure CLI command**:  
+Use the following Azure CLI command:
 
 ```Azure CLI
 
@@ -80,45 +71,39 @@ az networkfabric device reboot --network-device-name <DeviceName> --resource-gro
 
 ```
 
-#### Considerations  
+#### Considerations
 
-- The **Fabric** is still placed in **maintenance mode**, but the **device itself is not**.
+- The fabric is still placed in maintenance mode, but the device itself isn't.
+- Blocked operations during the reboot:
 
-- **Blocked operations during the reboot:**
+  - Configuration pushes
+  - Software upgrades
+  - Device replacement flows
 
-  - Configuration pushes  
+- The current `runRW` configuration persists across the reboot.
 
-  - Software upgrades  
+## Administrative and configuration state during reboot
 
-  - Device replacement flows  
+- When a reboot is triggered, the administrative state changes to `UnderMaintenance` in the device overview.
+- Upon a successful reboot, the administrative state transitions back to `Enabled`.
+- If the reboot fails:
 
-- The **current runRW configuration persists** across the reboot.  
+  - The configuration state remains `Failed`.
+  - The administrative state remains `UnderMaintenance`.
 
-## Administrative and Configuration state during reboot  
+### Graceful reboot with ZTP
 
-- When a reboot is triggered, the **administrative state** changes to **UnderMaintenance** in the device overview.  
-
-- Upon a successful reboot, the **administrative state** transitions back to **Enabled**.  
-
-- If the reboot fails:  
-
-  - The **configuration state** remains in **Failed**.  
-
-  - The **administrative state** remains in **UnderMaintenance**.  
-
-### Graceful Reboot with ZTP 
-
-This reboot mode places the device into maintenance mode and reboots it into ZTP mode, allowing for re-provisioning.  
+This reboot mode places the device into maintenance mode and reboots it into ZTP mode, which allows for reprovisioning.
 
 #### How it works
 
-- The device enters maintenance mode.  
-
-- Reboots into ZTP mode.  
-
-- User can bootstrap the device via the Terminal Server (TS) and perform a device refresh through a lock-boxed admin action to bring it out of maintenance mode.  
+- The device enters maintenance mode.
+- It reboots into ZTP mode.
+- Users can bootstrap the device via the terminal server and perform a device refresh through a lock-boxed admin action to bring it out of maintenance mode.
 
 #### Command to execute a graceful reboot
+
+Use the following Azure CLI command:
 
 ```Azure CLI
 
@@ -126,20 +111,20 @@ az networkfabric device reboot --network-device-name <DeviceName> --resource-gro
 
 ```
 
-> [!Note]
-> User intervention is required for bootstrapping and refreshing the device to exit maintenance mode.  
+User intervention is required for bootstrapping and refreshing the device to exit maintenance mode.
 
-### Ungraceful Reboot with ZTP 
+### Ungraceful reboot with ZTP
 
-This mode initiates an immediate reboot without draining traffic, placing the device directly into ZTP mode.  
+This mode initiates an immediate reboot without draining traffic and places the device directly into ZTP mode.
 
 #### How it works
 
-- The device reboots immediately into ZTP mode without entering maintenance mode.  
+- The device reboots immediately into ZTP mode without entering maintenance mode.
+- Users can bootstrap the device via the terminal server and perform a device refresh through a lock-boxed admin action.
 
-- User can bootstrap the device via the Terminal Server and perform a device refresh through a lock-boxed admin action.  
+#### Command to execute an ungraceful reboot
 
-#### Command to execute an ungraceful reboot  
+Use the following Azure CLI command:
 
 ```Azure CLI
 
@@ -147,20 +132,16 @@ az networkfabric device reboot --network-device-name <DeviceName> --resource-gro
 
 ```
 
->[!Note] 
-> After an ungraceful reboot into ZTP mode, the device must be manually placed into maintenance mode.
+After an ungraceful reboot into ZTP mode, the device must be manually placed into maintenance mode.
 
->[!Note]
-> Rebooting into ZTP mode does not preserve the read-write (RW) configuration. The device will boot in ZTP mode, ready for bootstrapping via the Terminal Server.
+Rebooting into ZTP mode doesn't preserve the read-write configuration. The device boots in ZTP mode and is ready for bootstrapping via the terminal server.
 
-## Summary of key differences  
+## Summary of key differences
 
-| Feature | Graceful Reboot Without ZTP | Ungraceful Reboot Without ZTP | Graceful Reboot With ZTP | Ungraceful Reboot With ZTP |
+| Feature | Graceful reboot without ZTP | Ungraceful reboot without ZTP | Graceful reboot with ZTP | Ungraceful reboot with ZTP |
 |---------|----------------------------|------------------------------|--------------------------|----------------------------|
-| **Enters device maintenance mode?** | ✅ Yes | ❌ No | ✅ Yes | ❌ No |
-| **Enters fabric maintenance mode?** | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes |
-| **Uses last saved configuration?** | ✅ Yes | ✅ Yes | ❌ No | ❌ No |
-| **Blocks configuration updates, upgrades, and replacement flows?** | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes |
-| **Persists running configuration?** | ✅ Yes | ✅ Yes | ❌ No | ❌ No |
-
-
+| Enters device maintenance mode? | ✅ Yes | ❌ No | ✅ Yes | ❌ No |
+| Enters fabric maintenance mode? | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes |
+| Uses last saved configuration? | ✅ Yes | ✅ Yes | ❌ No | ❌ No |
+| Blocks configuration updates, upgrades, and replacement flows? | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes |
+| Persists running configuration? | ✅ Yes | ✅ Yes | ❌ No | ❌ No |

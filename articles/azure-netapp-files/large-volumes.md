@@ -5,9 +5,10 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.custom: references_regions
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/10/2025
 ms.author: anfdocs
+# Customer intent: "As a cloud architect, I want to evaluate the capabilities and requirements of large volumes in Azure NetApp Files, so that I can choose the appropriate storage solution for scalable and high-performance workloads."
 ---
 # Understand large volumes in Azure NetApp Files 
 

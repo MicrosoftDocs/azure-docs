@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 03/12/2024
 ROBOTS: NOINDEX, NOFOLLOW
 ms.author: mbender
+# Customer intent: "As a cloud engineer, I want to deploy an IPv4 and IPv6 dual stack application using a Basic Load Balancer, so that I can efficiently manage and route traffic for both IP versions in my network architecture."
 ---
 
 # Deploy an IPv6 dual stack application using Basic Load Balancer - CLI

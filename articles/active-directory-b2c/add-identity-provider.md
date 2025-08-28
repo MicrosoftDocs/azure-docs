@@ -5,7 +5,7 @@ description: Learn how to add an identity provider to your Active Directory B2C 
 author: garrodonnell
 manager: CelesteDG
 ms.author: godonnell
-ms.date: 03/22/2024
+ms.date: 01/05/2025
 ms.custom: mvc
 ms.topic: how-to
 ms.service: azure-active-directory
@@ -16,6 +16,8 @@ ms.subservice: b2c
 ---
 
 # Add an identity provider to your Azure Active Directory B2C tenant
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 You can configure Azure AD B2C to allow users to sign in to your application with credentials from external social or enterprise identity providers (IdP). Azure AD B2C supports external identity providers like Facebook, Microsoft account, Google, X, and any identity provider that supports OAuth 1.0, OAuth 2.0, OpenID Connect, and SAML protocols.
 

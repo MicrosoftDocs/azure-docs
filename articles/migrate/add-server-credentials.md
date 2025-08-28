@@ -8,6 +8,7 @@ ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 03/21/2025
 ms.custom: engagement-fy25
+# Customer intent: As a cloud migration consultant, I want to provide server credentials in the configuration manager, so that I can accurately discover software inventory, web apps, and SQL Server instances to facilitate a smooth migration process.
 ---
 
 # Provide server credentials to discover software inventory, dependencies, web apps, and SQL Server instances and databases
@@ -70,4 +71,4 @@ Feature | Windows credentials | Linux credentials
 
 - [Steps to add credentials in VMware appliance](./tutorial-discover-vmware.md#provide-server-credentials).
 - [Steps to add credentials in Hyper-V appliance](tutorial-discover-hyper-v.md#provide-server-credentials).
-- [Steps to add credentials in physical appliance](tutorial-discover-physical.md#start-continuous-discovery). 
+- [Steps to add credentials in physical appliance](tutorial-discover-physical.md#start-discovery). 

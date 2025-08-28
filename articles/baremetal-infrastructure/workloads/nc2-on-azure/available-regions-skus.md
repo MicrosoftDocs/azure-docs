@@ -8,6 +8,7 @@ ms.subservice: baremetal-nutanix
 ms.custom: references_regions
 ms.date: 03/28/2025
 ms.service: azure-baremetal-infrastructure
+# Customer intent: As a cloud architect, I want to understand the available SKUs and regions for Nutanix Cloud Clusters on Azure, so that I can properly plan the deployment of my infrastructure to meet organizational needs.
 ---
 
 # Nutanix Cloud Clusters (NC2) on Azure region and SKU availability
@@ -40,9 +41,10 @@ When planning your NC2 on Azure design, use the following table to understand wh
 | :---         | :---: |
 | Australia East | AN36P |
 | Central India | AN36P |
+| Canada East | AN64 |
 | East US | AN36 |
 | East US 2 | AN36P |
-| Germany West Central | AN36P |
+| Germany West Central | AN36P, AN64 |
 | Japan East | AN36P |
 | North Central US | AN36P |
 | Qatar Central | AN36P |

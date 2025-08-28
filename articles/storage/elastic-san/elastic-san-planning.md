@@ -3,16 +3,17 @@ title: Planning for an Azure Elastic SAN
 description: Plan for an Azure Elastic SAN deployment. Learn about storage capacity, performance, redundancy, and encryption.
 author: roygara
 ms.service: azure-elastic-san-storage
-ms.topic: conceptual
-ms.date: 12/10/2024
+ms.topic: concept-article
+ms.date: 08/04/2025
 ms.author: rogarana
 ms.custom:
   - ignite-2023-elastic-SAN
+# Customer intent: As a cloud architect, I want to plan and deploy an Azure Elastic SAN, so that I can optimize storage capacity, performance, redundancy, and encryption to meet my organization's data management needs.
 ---
 
 # Plan for deploying an Elastic SAN
 
-There are three main aspects to an elastic storage area network (SAN): the SAN itself, volume groups, and volumes. When deploying a SAN, you make selections while configuring the SAN, including the redundancy of the entire SAN, and how much performance and storage the SAN has. Then you create volume groups that are used to manage volumes at scale. Any settings applied to a volume group are inherited by volumes inside that volume group. Finally, you partition the storage capacity that was allocated at the SAN-level into individual volumes.
+There are three main aspects to an Elastic SAN: the SAN itself, volume groups, and volumes. When deploying a SAN, you make selections while configuring the SAN, including the redundancy of the entire SAN, and how much performance and storage the SAN has. Then you create volume groups that are used to manage volumes at scale. Any settings applied to a volume group are inherited by volumes inside that volume group. Finally, you partition the storage capacity that was allocated at the SAN-level into individual volumes.
 
 Before deploying an Elastic SAN, consider the following:
 
@@ -34,7 +35,7 @@ When allocating storage for an Elastic SAN, consider how much storage you requir
 
 ### Volumes
 
-You create volumes from the storage that you allocated to your Elastic SAN. When you create a volume, think of it like partitioning a section of the storage of your Elastic SAN. The maximum performance of an individual volume is determined by the amount of storage allocated to it. Individual volumes can have fairly high IOPS and throughput, but the total IOPS and throughput of all your volumes can't exceed the total IOPS and throughput your SAN has.
+You create volumes from the storage that you allocated to your Elastic SAN. When you create a volume, think of it like partitioning a section of the storage of your Elastic SAN. The maximum performance of an individual volume is determined by the amount of storage allocated to it. Individual volumes can have fairly high IOPS and throughput, but the total IOPS and throughput of all your volumes can't exceed the total IOPS and throughput your SAN has. Elastic SAN supports extremely granular volume sizing—each volume can be as small as 1 GiB or as large as 64 TiB. The maximum performance of an individual volume is determined by the amount of storage allocated to it.
 
 Using the same example of a 100 TiB SAN that has 500,000 IOPS and 20,000 MB/s. Say this SAN had 100 1 TiB volumes. You could potentially have six of these volumes operating at their maximum performance (80,000 IOPS, 1,280 MB/s) since this would be below the SAN's limits. But if seven volumes all needed to operate at maximum at the same time, they wouldn't be able to. Instead the performance of the SAN would be split evenly among them.
 
@@ -48,9 +49,9 @@ Here's an example of how an autoscale policy works. Say you have an elastic SAN 
 
 ## Networking
 
-In the Elastic SAN, you can enable or disable public network access at the Elastic SAN level. You can also configure access to volume groups in the SAN over both public [Storage service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) and [private endpoints](../../private-link/private-endpoint-overview.md) from selected virtual network subnets. Once network access is configured for a volume group, the configuration is inherited by all volumes belonging to the group. If you disable public access at the SAN level, access to the volume groups within that SAN is only available over private endpoints, regardless of individual configurations for the volume group.
+To configure networking access for an individual volume group, you must either [Configure private endpoints for Azure Elastic SAN](elastic-san-configure-private-endpoints.md) or [Configure service endpoints for Azure Elastic SAN](elastic-san-configure-service-endpoints.md). Once network access is configured for a volume group, the configuration is inherited by all volumes belonging to the group. If you disable public access at the SAN level, access to the volume groups within that SAN is only available over private endpoints, regardless of individual configurations for the volume group.
 
-To allow network access or an individual volume group, you must [enable a service endpoint for Azure Storage](elastic-san-networking.md#configure-an-azure-storage-service-endpoint) or a [private endpoint](elastic-san-networking.md#configure-a-private-endpoint) in your virtual network, then [setup a network rule](elastic-san-networking.md#configure-virtual-network-rules) on the volume group for any service endpoints. You don't need a network rule to allow traffic from a private endpoint since the storage firewall only controls access through public endpoints. You can then mount volumes from [AKS](elastic-san-connect-aks.md), [Linux](elastic-san-connect-linux.md), or [Windows](elastic-san-connect-windows.md) clients in the subnet with the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI) protocol.
+Once you've either configured private endpoints or service endpoints for your volume groups, you can then mount volumes from [AKS](elastic-san-connect-aks.md), [Linux](elastic-san-connect-linux.md), or [Windows](elastic-san-connect-windows.md) clients in the subnet with the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI) protocol.
 
 ## Redundancy
 

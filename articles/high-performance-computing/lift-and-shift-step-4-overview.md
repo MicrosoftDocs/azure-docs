@@ -7,6 +7,7 @@ ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+# Customer intent: As an HPC administrator, I want to migrate compute nodes to the cloud effectively so that I can optimize resource usage and ensure seamless performance for high-performance computing workloads.
 ---
 
 # Compute node migration overview

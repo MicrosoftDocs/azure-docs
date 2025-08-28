@@ -3,12 +3,12 @@ title: 'Add scale units for host scaling: PowerShell'
 titleSuffix: Azure Bastion
 description: Learn how to add more instances (scale units) to Azure Bastion using PowerShell
 services: bastion
-author: cherylmc
+author: abell
 ms.service: azure-bastion
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 08/12/2024
-ms.author: cherylmc
+ms.author: abell
 # Customer intent: As someone with a networking background, I want to configure host scaling using Azure PowerShell.
 ---
 

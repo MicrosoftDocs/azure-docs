@@ -350,13 +350,67 @@ By using the "call HTTP" action, you can do the following actions in your orches
 
 The ability to consume HTTP APIs directly from orchestrator functions is intended as a convenience for a certain set of common scenarios. You can implement all of these features yourself using activity functions. In many cases, activity functions might give you more flexibility.
 
-### <a name="http-202-handling"></a>HTTP 202 handling (.NET in-process only)
+### <a name="http-202-handling"></a>HTTP 202 handling (.NET only)
 
 The "call HTTP" API can automatically implement the client side of the polling consumer pattern. If a called API returns an HTTP 202 response with a Location header, the orchestrator function automatically polls the Location resource until receiving a response other than 202. This response will be the response returned to the orchestrator function code.
 
+# [C# (InProc)](#tab/csharp-inproc)
+
+```csharp
+[FunctionName(nameof(CheckSiteAvailabilityWithPolling))]
+public static async Task CheckSiteAvailabilityWithPolling(
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
+{
+    Uri url = context.GetInput<Uri>();
+
+    // HTTP automatic polling on 202 response is enabled by default in .NET in-process.
+    DurableHttpResponse response = 
+        await context.CallHttpAsync(HttpMethod.Get, url);
+}
+```
+
+# [C# (Isolated)](#tab/csharp-isolated)
+
+```csharp
+[Function(nameof(CheckSiteAvailabilityWithPolling))]
+public static async Task CheckSiteAvailabilityWithPolling(
+    [OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    Uri url = context.GetInput<Uri>();
+
+    // Enable HTTP automatic polling on 202 response by setting asynchronousPatternEnabled to true.
+    DurableHttpResponse response =await context.CallHttpAsync(
+        HttpMethod.Get,
+        url!,
+        content: null,
+        retryOptions: null,
+        asynchronousPatternEnabled: true)
+}
+
+```
+# [JavaScript](#tab/javascript)
+
+This feature is currently not supported in JavaScript.
+
+# [Python](#tab/python)
+
+This feature is currently not supported in Python.
+
+# [PowerShell](#tab/powershell)
+
+This feature is currently not supported in PowerShell.
+
+# [Java](#tab/java)
+
+This feature is currently not supported in Java.
+
+---
+
 > [!NOTE]
-> 1. Orchestrator functions also natively support the server-side polling consumer pattern, as described in [Async operation tracking](#async-operation-tracking). This support means that orchestrations in one function app can easily coordinate the orchestrator functions in other function apps. This is similar to the [sub-orchestration](durable-functions-sub-orchestrations.md) concept, but with support for cross-app communication. This support is particularly useful for microservice-style app development.
-> 2. The built-in HTTP polling pattern is currently available only in the .NET in-process host.
+> - Orchestrator functions also natively support the server-side polling consumer pattern, as described in [Async operation tracking](#async-operation-tracking). This support means that orchestrations in one function app can easily coordinate the orchestrator functions in other function apps. This is similar to the [sub-orchestration](durable-functions-sub-orchestrations.md) concept, but with support for cross-app communication. This support is particularly useful for microservice-style app development.
+> - The built-in HTTP polling pattern is currently available only in the .NET host.
+> - The polling pattern is enabled by default in .NET in-process but disabled by default in .NET Isolated. If you want to enable it in .NET Isolated, refer to the sample code and set the asynchronousPatternEnabled argument to true.
+> - HTTP automatic polling pattern is supported in Durable Functions .NET Isolated starting from version [v1.5.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/1.5.0) or later.
 
 ### Managed identities
 
@@ -392,7 +446,34 @@ public static async Task RunOrchestrator(
 
 # [C# (Isolated)](#tab/csharp-isolated)
 
-This feature isn't yet available in the .NET Isolated worker.
+```csharp
+[Function(nameof(RestartVm))]
+public static async Task<string> RestartVm(
+    [OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    string subscriptionId = "mySubId";
+    string resourceGroup = "myRG";
+    string vmName = "myVM";
+    string apiVersion = "2019-03-01";
+
+    // Automatically fetches an Azure AD token for resource = https://management.core.windows.net/.default
+    // and attaches it to the outgoing Azure Resource Manager API call.
+    var tokenSource = new ManagedIdentityTokenSource("https://management.core.windows.net/.default");
+
+    var response = await context.CallHttpAsync(
+        HttpMethod.Post,
+        new Uri($"https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/virtualMachines/{vmName}/restart?api-version={apiVersion}"),
+        tokenSource: tokenSource);
+
+    if (restartResponse.StatusCode != HttpStatusCode.OK)
+    {
+        throw new ArgumentException($"Failed to restart VM: {response.StatusCode}: {response.Content}");
+    }
+}
+```
+
+> [!NOTE]
+> Support for Token Credential in the HTTP feature for Durable Functions .NET Isolated is available starting from version [v1.6.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask).
 
 # [JavaScript](#tab/javascript)
 

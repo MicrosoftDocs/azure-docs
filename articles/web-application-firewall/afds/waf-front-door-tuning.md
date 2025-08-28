@@ -8,6 +8,7 @@ ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 08/28/2022
 zone_pivot_groups: front-door-tiers
+# Customer intent: As a web application security administrator, I want to tune the web application firewall rules for Azure Front Door, so that I can prevent unauthorized access while allowing legitimate traffic to flow without interruption.
 ---
 
 # Tune Azure Web Application Firewall for Azure Front Door

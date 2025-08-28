@@ -12,6 +12,7 @@ ms.author: normesta
 ms.reviewer: prishet
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
+# Customer intent: As a data engineer, I want to manage files and directories in a hierarchical storage system using command-line tools, so that I can efficiently organize and manipulate large datasets in Azure Data Lake Storage.
 ---
 
 # Manage directories and files in Azure Data Lake Storage via the Azure CLI

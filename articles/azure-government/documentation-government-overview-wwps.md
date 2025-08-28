@@ -6,7 +6,7 @@ ms.author: eliotgra
 ms.service: azure-government
 ms.topic: article
 recommendations: false
-ms.date: 01/21/2025
+ms.date: 05/21/2025
 ---
 
 # Azure for secure worldwide public sector cloud adoption
@@ -96,7 +96,7 @@ Microsoft Entra ID is a non-regional service that may store identity data global
 - Europe, where Microsoft Entra ID keeps most of the identity data within European datacenters except as noted in [Identity data storage for European customers in Microsoft Entra ID](../active-directory/fundamentals/active-directory-data-storage-eu.md).
 - Australia and New Zealand, where identity data is stored in Australia except as noted in [Customer data storage for Australian and New Zealand customers in Microsoft Entra ID](../active-directory/fundamentals/active-directory-data-storage-australia-newzealand.md).
 
-Microsoft Entra ID provides a [dashboard](https://go.microsoft.com/fwlink/?linkid=2092972) with transparent insight into data location for every Microsoft Entra component service. Among other features, Microsoft Entra ID is an identity management service that stores directory data for your Azure administrators, including user **personal data** categorized as **End User Identifiable Information (EUII)**, for example, names, email addresses, and so on. In Microsoft Entra ID, you can create User, Group, Device, Application, and other entities using various attribute types such as Integer, DateTime, Binary, String (limited to 256 characters), and so on. Microsoft Entra ID isn't intended to store your customer content and it isn't possible to store blobs, files, database records, and similar structures in Microsoft Entra ID. Moreover, Microsoft Entra ID isn't intended to be an identity management service for your external end users – [Azure AD B2C](../active-directory-b2c/overview.md) should be used for that purpose.
+Microsoft Entra ID provides a [dashboard](https://go.microsoft.com/fwlink/?linkid=2092972) with transparent insight into data location for every Microsoft Entra component service. Among other features, Microsoft Entra ID is an identity management service that stores directory data for your Azure administrators, including user **personal data** categorized as **End User Identifiable Information (EUII)**, for example, names, email addresses, and so on. In Microsoft Entra ID, you can create User, Group, Device, Application, and other entities using various attribute types such as Integer, DateTime, Binary, String (limited to 256 characters), and so on. Microsoft Entra ID isn't intended to store your customer content and it isn't possible to store blobs, files, database records, and similar structures in Microsoft Entra ID. Moreover, Microsoft Entra ID isn't intended to be an identity management service for your external end users – [Microsoft Entra External ID](/entra/external-id/customers/overview-customers-ciam) should be used for that purpose.
 
 Microsoft Entra ID implements extensive **data protection features**, including tenant isolation and access control, data encryption in transit, secrets encryption and management, disk level encryption, advanced cryptographic algorithms used by various Microsoft Entra components, data operational considerations for insider access, and more. Detailed information is available from a whitepaper [Active Directory Data Security Considerations](https://aka.ms/AADDataWhitePaper).
 
@@ -507,13 +507,13 @@ When deploying applications that are subject to regulatory compliance obligation
 
 **Azure Policy regulatory compliance built-in initiatives** map to compliance domains and controls in key standards, including:
 
-- [Australian Government ISM PROTECTED](../governance/policy/samples/australia-ism.md)
-- [Canada Federal PBMM](../governance/policy/samples/canada-federal-pbmm.md)
-- [ISO/IEC 27001](../governance/policy/samples/iso-27001.md)
-- [US Government FedRAMP High](../governance/policy/samples/fedramp-high.md)
+- [Australian Government ISM PROTECTED](/azure/governance/policy/samples/australia-ism)
+- [Canada Federal PBMM](/azure/governance/policy/samples/canada-federal-pbmm)
+- [ISO/IEC 27001](/azure/governance/policy/samples/iso-27001)
+- [US Government FedRAMP High](/azure/governance/policy/samples/fedramp-high)
 - And others
 
-For more regulatory compliance built-in initiatives, see [Azure Policy samples](../governance/policy/samples/index.md#regulatory-compliance).
+For more regulatory compliance built-in initiatives, see [Azure Policy samples](/azure/governance/policy/samples/index#regulatory-compliance).
 
 Regulatory compliance in Azure Policy provides built-in initiative definitions to view a list of the controls and compliance domains based on responsibility – customer, Microsoft, or shared. For Microsoft-responsible controls, we provide extra audit result details based on third-party attestations and our control implementation details to achieve that compliance. Each control is associated with one or more Azure Policy definitions. These policies may help you [assess compliance](../governance/policy/how-to/get-compliance-data.md) with the control; however, compliance in Azure Policy is only a partial view of your overall compliance status. Azure Policy helps to enforce organizational standards and assess compliance at scale. Through its compliance dashboard, it provides an aggregated view to evaluate the overall state of the environment, with the ability to drill down to more granular status.
 
@@ -573,4 +573,4 @@ Learn more about:
 - [Azure guidance for secure isolation](./azure-secure-isolation-guidance.md)
 - [Azure for government - worldwide government](https://azure.microsoft.com/industries/government/)
 - [Enabling data residency and data protection in Microsoft Azure regions](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/)
-- [Azure Policy regulatory compliance samples](../governance/policy/samples/index.md)
+- [Azure Policy regulatory compliance samples](/azure/governance/policy/samples/index)

@@ -2,12 +2,13 @@
 title: Common key vault errors in Application Gateway
 titleSuffix: Azure Application Gateway
 description: This article identifies key vault-related problems, and helps you resolve them for smooth operations of Application Gateway.
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: reference
 ms.date: 07/26/2022
-ms.author: greglin
+ms.author: mbender
 
+# Customer intent: As an application administrator, I want to troubleshoot and resolve key vault errors in Application Gateway, so that I can ensure seamless certificate management and maintain secure HTTPS connections.
 ---
 
 # Common key vault errors in Azure Application Gateway

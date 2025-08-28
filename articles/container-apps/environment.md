@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  conceptual
-ms.date: 04/10/2025
+ms.date: 04/28/2025
 ms.author: cshoe
 ms.custom: build-2023
 ---
@@ -21,7 +21,7 @@ Environments include the following features:
 | Type | There are [two different types](#types) of Container Apps environments: Workload profiles environments and Consumption only environments. Workload profiles environments support both the Consumption and Dedicated [plans](plans.md) whereas Consumption only environments support only the Consumption [plan](plans.md). |
 | Virtual network | A virtual network supports each environment, which enforces the environment's secure boundaries. As you create an environment, a virtual network with [limited network capabilities](networking.md) is created for you, or you can provide your own. Adding an [existing virtual network](vnet-custom.md) gives you fine-grained control over your network. |
 | Multiple container apps | When multiple container apps are in the same environment, they share the same virtual network and write logs to the same logging destination. |
-| Multi-service integration | You can add [Azure Functions](https://aka.ms/functionsonaca) and [Azure Spring Apps](https://aka.ms/asaonaca) to your Azure Container Apps environment. |
+| Multi-service integration | You can add [Azure Functions](../container-apps/functions-overview.md) and [Azure Spring Apps](https://aka.ms/asaonaca) to your Azure Container Apps environment. |
 
 :::image type="content" source="media/environments/azure-container-apps-environments.png" alt-text="Azure Container Apps environments.":::
 
@@ -49,7 +49,7 @@ Use more than one environment when you want two or more applications to:
 
 | Type | Description | Plan | Billing considerations |
 |--|--|--|--|
-| Workload profile | Run serverless apps with support for scale-to-zero and pay only for resources your apps use with the consumption profile. You can also run apps with customized hardware and increased cost predictability using dedicated workload profiles. | Consumption and Dedicated | You can choose to run apps under either or both plans using separate workload profiles. The Dedicated plan has a fixed cost for the entire environment regardless of how many workload profiles you're using. |
+| Workload profile | Run serverless apps with support for scale-to-zero and pay only for resources your apps use with the consumption profile. You can also run apps with customized hardware and increased cost predictability using dedicated workload profiles. | Consumption and Dedicated | You can choose to run apps under either or both plans using separate workload profiles. The Dedicated plan has a fixed plan management cost for the entire environment regardless of how many workload profiles you're using. The Dedicated plan also has a variable cost based on the number of workload profile instances and the resources allocated to each instance. For more information see [Billing](billing.md#dedicated-plan). |
 | Consumption only | Run serverless apps with support for scale-to-zero and pay only for resources your apps use. | Consumption only | Billed only for individual container apps and their resource usage. There's no cost associated with the Container Apps environment. |
 
 ## Logs
@@ -94,13 +94,14 @@ Understanding the limits and quotas for Container Apps environments helps you pl
 
 | Resource | Limit | Notes |
 |----------|-------|-------|
-| Container apps per environment | 200 | Maximum number of container apps in a single environment |
+| Container apps per environment | 200 | Recommended number of container apps in a single environment |
 | Container app revisions per environment | 1000 | Total revisions across all apps in an environment |
-| Environments per region per subscription | 20 | Can be increased via support request |
+| Environments per region per subscription | 20 | Can be increased via quota request |
 | Maximum CPU per container | 4 vCPU (Consumption), Varies by workload profile | Depends on the environment type and selected workload profile |
 | Maximum memory per container | 16 GB (Consumption), Varies by workload profile | Depends on the environment type and selected workload profile |
-| Maximum replicas per container app | 300 | Maximum scale-out limit for a single container app |
-| Maximum ingress request timeout | 240 seconds | For HTTP requests through ingress |
+| Maximum replicas per container app | 1000 | Recomended scale-out limit for a single container app |
+| Default ingress request timeout | 240 seconds | For HTTP requests through ingress. See ingress settings |
+| Maximum outbound idle connection timeout | 240 seconds (Consumption Workload Profile), 30 minutes (Dedicated Workload Profiles) | For outbound connections from an application |
 
 For the most up-to-date limits and quotas, refer to the [Azure Container Apps service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#container-apps-limits).
 

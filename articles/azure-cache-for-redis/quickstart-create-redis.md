@@ -1,23 +1,23 @@
 ---
-title: 'Quickstart: Create an open-source Redis cache'
-description: In this quickstart, learn how to create an instance of Azure Cache for Redis in Basic, Standard, or Premium tier
+title: 'Quickstart: Create an Azure Cache for Redis instance'
+description: Learn how to create an instance of Azure Cache for Redis in Basic, Standard, or Premium tiers.
 
 
 
 ms.custom: mvc, mode-other
 ms.topic: quickstart
-ms.date: 05/06/2022
+ms.date: 04/23/2025
 appliesto:
   - ✅ Azure Cache for Redis
 
 ---
-# Quickstart: Create an open-source Redis cache
+# Quickstart: Create an Azure Cache for Redis instance
 
-Azure Cache for Redis provides fully managed [open-source Redis](https://redis.io/) within Azure. You can start with an Azure Cache for Redis instance of any tier (Basic, Standard, or Premium) and size, and scale it to meet your application's performance needs. This quickstart demonstrates how to use the Azure portal to create a new Azure Cache for Redis.
+Azure Cache for Redis provides a fully managed [open-source Redis](https://redis.io/) cache within Azure. You can start with a Basic, Standard, or Premium tier cache of any size, and scale it to meet your application's performance needs. This quickstart demonstrates how to use the Azure portal to create a new Azure Cache for Redis instance.
 
 ## Prerequisites
 
-You'll need an Azure subscription before you begin. If you don't have one, create a [free account](https://azure.microsoft.com/free/) first.
+You need an Azure subscription before you begin. If you don't have one, create a [free account](https://azure.microsoft.com/free/).
 
 ## Create a cache
 
@@ -25,6 +25,5 @@ You'll need an Azure subscription before you begin. If you don't have one, creat
 
 ## Related content
 
-In this quickstart, you learned how to create an instance of Azure Cache for Redis.
-
-- [Create an ASP.NET web app that uses an Azure Cache for Redis.](../redis/web-app-cache-howto.md)
+- [Create an Azure Managed Redis instance (preview)](../redis/quickstart-create-managed-redis.md)
+- [Create an ASP.NET web app that uses Azure Cache for Redis.](../redis/web-app-cache-howto.md)

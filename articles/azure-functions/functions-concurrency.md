@@ -6,6 +6,7 @@ ms.topic: conceptual
 ms.custom:
   - build-2024
   - ignite-2024
+  - build-2025
 ms.date: 05/05/2024
 ms.author: cachai
 ---
@@ -40,6 +41,7 @@ The Flex Consumption plan scales all HTTP trigger functions together as a group.
 
 | Instance size (MB) | Default concurrency<sup>*</sup> |
 | ---- | ---- |
+| `512` |  `4` |
 | `2048` | `16` |
 | `4096` | `32` |
 

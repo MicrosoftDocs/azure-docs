@@ -4,8 +4,9 @@ description: Learn about the Azure Disk backup solution.
 ms.topic: overview
 ms.date: 04/16/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a cloud administrator, I want to implement Azure Disk Backup for managed disks, so that I can ensure frequent, cost-effective, and agentless backups without impacting production performance while meeting my organization's data recovery objectives.
 ---
 
 # Overview of Azure Disk Backup
@@ -16,7 +17,10 @@ Azure Disk Backup offers a turnkey solution that provides snapshot lifecycle man
 
 If you require application-consistent backup of virtual machine including the data disks, or an option to restore an entire virtual machine from backup, restore a file or folder, or restore to a secondary region, then use the [Azure VM backup](backup-azure-vms-introduction.md) solution. Azure Backup offers side-by-side support for backup of managed disks using Disk Backup in addition to [Azure VM backup](./backup-azure-vms-introduction.md) solutions. This is useful when you need once-a-day application consistent backups of virtual machines and also more frequent backups of OS disks or a specific data disk that are crash consistent, and don't impact the production application performance.
 
-Azure Disk Backup is integrated into Backup Center, which provides a **single unified management experience** in Azure for enterprises to govern, monitor, operate, and analyze backups at scale.
+Azure Disk Backup is integrated into Azure Business Continuity Center, which provides a **single unified management experience** in Azure for enterprises to govern, monitor, operate, and analyze backups at scale.
+
+>[!Note]
+>- If the target disk is attached as a Persistent Volume to an AKS cluster, choose [Azure Backup for AKS](./azure-kubernetes-service-cluster-backup.md) over the standalone Disk Backup solution. It enables backing up the disk as snapshots along with the containerized application in a Kubernetes-aware manner, all as a single unit.  Additionally, you get Cross Region Restore and ransomware protection capabilities with AKS Backup.
 
 ## Key benefits of Disk Backup
 

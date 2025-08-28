@@ -52,7 +52,7 @@ This article describes how to enable and use Git to manage your service configur
 ## Save the service configuration to the Git repository
 
 > [!CAUTION]
-> Any secrets that are not defined as named values will be stored in the repository and will remain in its history. Named values provide a secure place to manage constant string values, including secrets, across all API configuration and policies, so you don't have to store them directly in your policy statements. For more information, see [Use named values in Azure API Management policies](api-management-howto-properties.md).
+> Any secrets that are not defined as named values will be stored in the repository and will remain in its history. Named values provide a secure place to manage constant string values, including secrets, across all API configurations and policies, so you don't have to store them directly in your policy statements. For more information, see [Use named values in Azure API Management policies](api-management-howto-properties.md).
 >
 
 

@@ -1,13 +1,14 @@
 ---
-title: "Quickstart: Create an Azure Native Arize AI Cloud Service resource (preview)"
-description: Learn how to create a resource for Arize AI (preview) using the Azure portal.
+title: "Quickstart: Create an Azure Native Arize AI Cloud Service resource"
+description: Learn how to create a resource for Arize AI using the Azure portal.
 author: ProfessorKendrick
 ms.author: kkendrick
 ms.topic: quickstart
 ms.date: 04/21/2025
-
+ms.custom:
+  - build-2025
 ---
-# Quickstart: Create an Azure Native Arize AI Cloud Service resource (preview)
+# Quickstart: Create an Azure Native Arize AI Cloud Service resource
 
 This quickstart shows you how to create an Azure Native Arize AI Cloud Service resource using the Azure portal.
 
@@ -48,9 +49,9 @@ There are required fields (identified with a red asterisk) in each section that 
 
 1. Enter the values for each required setting under *ArizeAI Organization Details*.
 
-    | Setting           | Action                                     |
-    |-------------------|--------------------------------------------|
-    |Description        |          |
+    | Setting           | Action                                        |
+    |-------------------|-----------------------------------------------|
+    |Description        | Provide a description for your organization.  |
 
 1. Select the **Next** button at the bottom of the page.
 

@@ -23,6 +23,29 @@ This page is updated with the details about the upcoming release approximately a
 
 <hr width = 100%>
 
+## August 2025
+### Compliant with M25 OSDU&reg; release
+Azure Data Manager for Energy has now been upgraded with the supported set of services with the M25 OSDU&reg; milestone release. With this release, you can take advantage of the key improvements made in the OSDU&reg; latest 
+ community features and capabilities available in the [OSDU&reg; M25](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M25-Release-Notes). The upgrade with the OSDU&reg; M25 release is limited to the services available and supported and you can refer [here](osdu-services-on-adme.md) for a detailed list of services available and unavailable on Azure Data Manager for Energy. See the [updated API Swaggers here](https://microsoft.github.io/adme-samples/).
+
+## July 2025
+### Azure Data Manager for Energy available in Central India and Indonesia Central
+Azure Data Manager for Energy is now available in two new regions: **Central India** and **Indonesia Central**. This expansion allows customers and partners in these regions to deploy and manage energy data solutions closer to their operations, supporting improved performance and compliance with local regulations. Both Standard and Developer tiers are supported.
+
+Central India is available for select customers and partners only. Please reach out to your designated Microsoft account team member to unlock access. Once access is provided, you can select "Central India" as your preferred region when creating Azure Data Manager for Energy resource, using the Azure portal or your preferred provisioning method.
+
+For more information on region reliability, refer to [Azure Data Manager for Energy reliability](../reliability/reliability-energy-data-services.md).
+
+## April 2025
+### Azure Data Manager for Energy available in four new regions
+Azure Data Manager for Energy is now available in four new regions: **South Africa North**, **Southeast Asia**, **Sweden Central**, and **UAE North**. This expansion allows customers and partners in these regions to deploy and manage energy data solutions closer to their operations, supporting improved performance and compliance with local regulations. Both Standard and Developer tiers are supported. 
+
+### 3D SEG-Y to OpenZGY Data Conversion Bug Fix
+This release fixes a bug in the 3D SEG-Y to OpenZGY conversion process. When you convert SEG-Y datasets with many inlines or crosslines not divisible by 64 after January 26, 2024, you may notice missing or empty traces in the resulting OpenZGY files. To resolve this issue, re-convert any affected datasets to ensure your OpenZGY files accurately reflect the original SEG-Y volumes.
+
+### User OID added to service logs for traceability and audit purpose
+After this release, a dedicated OID (Object ID) field appears in the service logs to ensure that user IDs are correctly captured. This enhancement improves traceability and supports your auditing requirements.
+
 ## February 2025
 ### Reservoir DDMS preview 
 Reservoir DDMS (M23 version) is available as a preview feature on Azure Data Manager for Energy Developer tier as a fully integrated offering for customers and partners. See [How to enable Reservoir DDMS (Preview)](how-to-enable-reservoir-ddms.md) for more details.

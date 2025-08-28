@@ -20,11 +20,11 @@ Use the below tables to find all the relevant information on number availability
 
 | Number Type | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
 | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
-| Mobile                    | Public Preview       | Public Preview       | -                    | -                      |
-| Alphanumeric Sender ID\*       | General Availability                  | -                    | - | - |
+| Mobile                    | General Availability\**       | General Availability\**       | -                    | -                      |
+| Alphanumeric Sender ID       | General Availability\**                  | -                    | - | - |
 
 
-\* Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
+\** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
 
 
 ## Subscription eligibility

@@ -11,6 +11,7 @@ ms.topic: quickstart
 ms.date: 01/10/2025
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
+# Customer intent: "As a network engineer, I want to create and manage a public IP address prefix using command-line tools, so that I can efficiently allocate IP resources to my Azure infrastructure."
 ---
 
 # Quickstart: Create a public IP address prefix using the Azure CLI

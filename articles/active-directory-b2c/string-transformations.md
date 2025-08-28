@@ -446,7 +446,7 @@ The following example generates an error message when an account is already in t
 </Localization>
 ```
 
-The claims transformation creates a response message based on the localized string. The message contains the user's email address embedded into the localized sting *ResponseMessage_EmailExists*.
+The claims transformation creates a response message based on the localized string. The message contains the user's email address embedded into the localized string *ResponseMessage_EmailExists*.
 
 ```xml
 <ClaimsTransformation Id="SetResponseMessageForEmailAlreadyExists" TransformationMethod="FormatLocalizedString">

@@ -5,6 +5,8 @@ items:
     href: overview.md
   - name: Partner services
     href: partners.md
+  - name: Frequently asked questions
+    href: faq.yml
 - name: Partner services documentation
   expanded: true
   items:
@@ -22,9 +24,11 @@ items:
     href: ./elastic/index.yml
   - name: Informatica 
     href: ./informatica/index.yml
-  - name: LambdaTest - HyperExecute (preview)
+  - name: LambdaTest - HyperExecute
     href: ./lambda-test/index.yml
-  - name: Neon Serverless Postgres (preview)
+  - name: MongoDB Atlas
+    href: ./mongo-db/index.yml
+  - name: Neon Serverless Postgres
     href: ./neon/index.yml 
   - name: New Relic
     href: ./new-relic/index.yml

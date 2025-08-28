@@ -21,7 +21,7 @@ This article provides procedures for deploying and configuring the Microsoft Sen
 Content in this article is intended for your **SAP BASIS** teams. For more information, see [Deploy an SAP data connector agent from the command line](deploy-command-line.md).
 
 > [!NOTE]
-> This article is relevant only for the data connector agent, and isn't relevant for the [SAP agentless data connector](deployment-overview.md#data-connector) (Preview).
+> This article is relevant only for the data connector agent, and isn't relevant for the [SAP agentless data connector](deployment-overview.md#data-connector) (Limited preview).
 >
 
 ## Prerequisites

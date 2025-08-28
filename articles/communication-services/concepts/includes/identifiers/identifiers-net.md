@@ -99,6 +99,40 @@ var gcchTeamsAppIdentifier = new MicrosoftTeamsAppIdentifier(bot.Id, Communicati
 
 [MicrosoftTeamsAppIdentifier](/dotnet/api/azure.communication.microsoftteamsappidentifier)
 
+### Teams Extension user
+
+The `TeamsExtensionUserIdentifier` interface represents a Teams user enabled for Teams Phone Extensibility. A `TeamsExtensionUserIdentifier` requires the Microsoft Entra user object ID of the Teams user, the Microsoft Entra tenant ID where the user resides and the Azure Communication Services resource ID. You can retrieve the Microsoft Entra user object ID via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint from the `id` property in the response and the Microsoft Entra tenant ID via the [Microsoft Graph REST API /organization](/graph/api/organization-get) endpoint from the `id` property in the response. For more information about working with Microsoft Graph, see [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer?request=users%2F%7Buser-mail%7D&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com) and look into the [Graph SDK](/graph/sdks/sdks-overview). 
+Alternatively, you can find the object ID as the `oid` claim and the tenant ID as the `tid` claim in an [Microsoft Entra token](/entra/identity-platform/id-token-claims-reference#payload-claims) or [Microsoft Entra access token](/entra/identity-platform/access-token-claims-reference#payload-claims) after your user signed in and acquired a token.
+
+#### Basic usage
+
+```csharp
+// get the Teams user's ID from Graph APIs if only the email is known
+var user = await graphClient.Users["bob@contoso.com"]
+    .Request()
+    .GetAsync();
+
+// Get the tenantId from Graph API
+var organization = await graphClient.Organization
+    .Request()
+    .GetAsync();
+
+string tenantId = organization.CurrentPage.FirstOrDefault()?.Id;
+
+//Communication Services Resource ID
+var resourceId = "<resource-id-guid>";
+
+// create an identifier
+var teamsExtensionUser = new TeamsExtensionUserIdentifier(user.Id, tenantId, resourceId);
+
+// if you're not operating in the public cloud, you must also pass the right Cloud type.
+var gcchTeamsExtensionUser = new TeamsExtensionUserIdentifier(userId: user.Id, tenantId: tenantId, resourceId: resourceId, cloud: CommunicationCloudEnvironment.Gcch);
+```
+
+#### API reference
+
+[TeamsExtensionUserIdentifier](/dotnet/api/azure.communication.teamsextensionuseridentifier)
+
 ### Unknown
 
 The `UnknownIdentifier` exists for future-proofing and you might encounter it when you are on an old version of the SDK and a new identifier type is recently introduced. Any unknown identifier from the service deserializes to `UnknownIdentifier` in the SDK.

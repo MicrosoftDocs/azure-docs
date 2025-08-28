@@ -20,7 +20,7 @@ There might be instances where you need to halt the data collection from your SA
 
 This article provides step-by-step instructions on how to stop the ingestion of SAP logs into Microsoft Sentinel and disable the data connector agent.
 
-If you're using the agentless data connector (Preview), remove the data connector and solution from Microsoft Sentinel, and then clean up any resources and [changes you'd made to your SAP system](preparing-sap.md) for the integration. 
+If you're using the agentless data connector (Limited preview), remove the data connector and solution from Microsoft Sentinel, and then clean up any resources and [changes you'd made to your SAP system](preparing-sap.md) for the integration.
 
 ## Prerequisites
 

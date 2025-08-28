@@ -5,10 +5,11 @@ author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 3/9/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.custom: devx-track-terraform
+# Customer intent: "As a cloud architect, I want to configure workload zones using Terraform in the SAP Deployment Automation Framework, so that I can effectively manage the infrastructure for multiple SAP application tiers."
 ---
 
 # Workload zone configuration in the SAP automation framework

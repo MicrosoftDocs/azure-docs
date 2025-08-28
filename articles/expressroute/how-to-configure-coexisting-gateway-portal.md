@@ -7,6 +7,7 @@ ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 01/31/2025
 ms.author: duau
+# Customer intent: "As a network engineer, I want to configure both ExpressRoute and Site-to-Site VPN connections to coexist, so that I can ensure a secure failover path and connect to additional sites as needed."
 ---
 
 # Configure ExpressRoute and Site-to-Site coexisting connections using the Azure portal

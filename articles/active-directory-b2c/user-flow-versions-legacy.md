@@ -18,6 +18,7 @@ ms.subservice: b2c
 ---
 
 # Legacy user flow versions in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 > [!IMPORTANT]
 > This article describes the legacy versioning method for user flows, which offers V1 (production-ready) versions, and V1.1 and V2 (preview) versions of user flows. Environments other than the Azure public cloud will continue to use this legacy versioning method. In the Azure public cloud, this method being replaced by [new **Recommended** and **Preview** versions](user-flow-versions.md).

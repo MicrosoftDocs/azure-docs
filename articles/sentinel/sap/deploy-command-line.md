@@ -5,7 +5,7 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 10/31/2024
+ms.date: 08/19/2025
 ms.collection: usx-security
 
 #Customer intent: As a security, infrastructure, or SAP BASIS team member, I want to deploy and configure a containerized SAP data connector agent from the command line so that I can ingest SAP data into Microsoft Sentinel for enhanced monitoring and threat detection.
@@ -21,8 +21,9 @@ However, if you're using a configuration file to store your credentials instead 
 While you can run multiple data connector agents on a single machine, we recommend that you start with one only, monitor the performance, and then increase the number of connectors slowly. We also recommend that your **security** team perform this procedure with help from the **SAP BASIS** team. 
 
 > [!NOTE]
-> This article is relevant only for the data connector agent, and isn't relevant for the [SAP agentless data connector](deployment-overview.md#data-connector) (Preview).
+> This article is relevant only for the data connector agent, and isn't relevant for the [SAP agentless data connector](deployment-overview.md#data-connector) (Limited preview).
 >
+[!INCLUDE [azure-21vianet-retirement](../includes/azure-21vianet-retirement.md)]
 
 ## Prerequisites
 

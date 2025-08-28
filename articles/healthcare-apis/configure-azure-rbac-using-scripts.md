@@ -6,7 +6,7 @@ author: chachachachami
 ms.service: azure-health-data-services
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 06/06/2022
+ms.date: 06/02/2025
 ms.author: chrupa
 ---
 

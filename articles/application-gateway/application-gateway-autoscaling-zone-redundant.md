@@ -2,12 +2,13 @@
 title: Scaling and Zone-redundant Application Gateway v2
 description: This article introduces the Azure Application Standard_v2 and WAF_v2 SKU Autoscaling and Zone-redundant features.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 11/02/2023
-ms.author: greglin
+ms.author: mbender
 ms.custom: fasttrack-edit, references_regions
+# Customer intent: As an IT administrator, I want to configure autoscaling for the Application Gateway and WAF v2, so that I can optimize resource usage and ensure high availability while responding dynamically to fluctuating application traffic.
 ---
 
 # Scaling Application Gateway v2 and WAF v2
@@ -36,6 +37,7 @@ For scale-in events, Application Gateway drains existing connections for 5 minut
 
 ## Next steps
 
+- Learn more about zone redundancy in [Reliability for Application Gateway v2](../reliability/reliability-application-gateway-v2.md)
 - Learn how to [Schedule autoscaling for Application Gateway](application-gateway-externally-managed-scheduled-autoscaling.md)
 - Learn more about [Application Gateway v2](overview-v2.md)
 - [Create an autoscaling, zone redundant application gateway with a reserved virtual IP address using Azure PowerShell](tutorial-autoscale-ps.md)

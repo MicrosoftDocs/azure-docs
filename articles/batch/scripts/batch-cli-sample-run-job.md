@@ -5,6 +5,7 @@ ms.topic: sample
 ms.date: 04/02/2025
 ms.custom: devx-track-azurecli, seo-azure-cli
 keywords: batch, batch job, monitor job, azure cli samples, azure cli code samples, azure cli script samples
+# Customer intent: "As a cloud developer, I want to create and manage Batch jobs using command line scripts, so that I can efficiently automate task execution and monitor job performance."
 ---
 
 # CLI example: Run a job and tasks with Azure Batch

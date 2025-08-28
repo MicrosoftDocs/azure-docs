@@ -9,6 +9,7 @@ ms.date: 04/02/2025
 ms.author: allensu
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
+# Customer intent: "As a network engineer, I want to diagnose effective routing for a virtual machine's network interface, so that I can identify and resolve communication failures effectively."
 ---
 
 # Diagnose a virtual machine routing problem

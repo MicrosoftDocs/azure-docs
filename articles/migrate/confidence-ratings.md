@@ -4,9 +4,10 @@ description: Describes how confidence ratings are calculated in an assessment.
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/17/2025
 monikerRange: migrate
+# Customer intent: As a cloud architect, I want to understand the factors influencing confidence ratings in performance-based assessments, so that I can ensure reliable size recommendations for virtual machines during migration planning.
 ---
 
 # Performance-based Confidence Ratings

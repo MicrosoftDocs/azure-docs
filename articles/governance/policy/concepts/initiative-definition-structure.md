@@ -102,7 +102,7 @@ and `productName`. It uses two built-in policies to apply the default tag value.
 }
 ```
 
-Azure Policy built-ins and patterns are at [Azure Policy samples](../samples/index.md).
+Azure Policy built-ins and patterns are at [Azure Policy samples](/azure/governance/policy/samples/index).
 
 ## Metadata
 
@@ -391,7 +391,7 @@ Below is an example of the **policyMetadata** object. This example metadata belo
 ## Next steps
 
 - See the [definition structure](./definition-structure-basics.md)
-- Review examples at [Azure Policy samples](../samples/index.md).
+- Review examples at [Azure Policy samples](/azure/governance/policy/samples/index).
 - Review [Understanding policy effects](effect-basics.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).

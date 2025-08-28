@@ -10,6 +10,7 @@ ms.date: 04/09/2025
 
 # Azure Front Door TLS policy
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 Azure Front Door supports [end-to-end TLS encryption](../end-to-end-tls.md). When you add a custom domain to Azure Front Door, HTTPS is required, and you need to define a TLS policy which includes control of the TLS protocol version and the cipher suites during a TLS handshake. 
 

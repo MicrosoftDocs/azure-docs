@@ -2,12 +2,12 @@
 title: Alert on privileged Azure role assignments
 description: Alert on privileged Azure role assignments by creating an alert rule using Azure Monitor.
 services: role-based-access-control
-author: rolyon
-manager: femila
+author: jenniferf-skc
+manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.date: 11/15/2023
-ms.author: rolyon
+ms.author: jfields
 ---
 
 # Alert on privileged Azure role assignments

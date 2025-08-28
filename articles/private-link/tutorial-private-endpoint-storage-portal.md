@@ -9,6 +9,7 @@ ms.service: azure-private-link
 ms.topic: tutorial
 ms.date: 03/25/2025
 ms.custom: template-tutorial
+# Customer intent: "As a cloud architect, I want to securely connect to a storage account using a private endpoint, so that I can ensure private and secure communication within my Azure resources."
 ---
 
 # Tutorial: Connect to a storage account using an Azure Private Endpoint

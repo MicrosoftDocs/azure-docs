@@ -190,7 +190,7 @@ This section covers some common connection and network issues.
 
   If the dev box user encounters sign in problems and sees an error message indicating that the sign in attempt failed, ensure you enabled the PKU2U protocol on both the local PC and the session host.
 
-  For more information about troubleshooting sign in errors, see [Troubleshoot connections to Microsoft Entra joined VMs - Windows Desktop client](/azure/virtual-desktop/troubleshoot-azure-ad-connections#the-logon-attempt-failed).
+  For more information about troubleshooting sign in errors, see [Troubleshoot connections to Microsoft Entra joined VMs - Windows Desktop client](/troubleshoot/azure/virtual-desktop/troubleshoot-azure-ad-connections).
 
 - **Group policy issues in hybrid environments**
 

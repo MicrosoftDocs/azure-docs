@@ -4,11 +4,12 @@ description: An overview of WordPress on App Service. You can focus on creating 
 keywords: app service, azure app service, wordpress, preview, app service on linux, plugins, mysql flexible server, wordpress on linux, php
 author: msangapu-msft
 ai-usage: ai-assisted
+ms.service: azure-app-service
 ms.topic: overview
 ms.date: 04/17/2025
+ms.update-cycle: 180-days
 # ms.devlang: wordpress
 ms.author: msangapu
-ms.subservice: wordpress
 ms.custom: mvc, linux-related-content
 ms.collection: ce-skilling-ai-copilot
 #customer intent: As a new Azure customer, I want to learn more about WordPress on App Service so that I can build an effective WP site.

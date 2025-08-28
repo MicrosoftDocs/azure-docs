@@ -5,7 +5,7 @@ author: pjw711
 ms.author: peterwhiting
 ms.service: azure-operator-nexus
 ms.topic: conceptual
-ms.date: 03/12/2025
+ms.date: 05/22/2025
 ms.custom: template-concept
 ---
 
@@ -89,11 +89,11 @@ Azure Operator Nexus provides a shared filesystem storage solution for container
 
 You can create the shared storage service on either storage appliance when the CSN is created. All nexus-shared PVCs using that shared storage service consume storage from the storage appliance backing the shared service. The configuration applies to all nexus-shared PVCs using the shared storage service provided by the CSN. All nexus-shared PVCs using the same shared storage service use the same storage appliance.
 
-The `nexusSharedStorageApplianceName` Azure resource tag controls which storage appliance is used to back the shared storage service. See [Prerequisites for deploying tenant workloads](./quickstarts-tenant-workload-prerequisites.md#create-a-cloud-services-network) for instructions on creating the shared storage service on a specific storage appliance.
+The `storageApplianceName` Azure resource tag controls which storage appliance is used to back the shared storage service. See [Prerequisites for deploying tenant workloads](./quickstarts-tenant-workload-prerequisites.md#create-a-cloud-services-network) for instructions on creating the shared storage service on a specific storage appliance.
 
 If no storage appliance configuration is provided at CSN creation time, the shared storage service uses the first storage appliance. If the configuration is present but doesn't match a storage appliance then the CSN creation will fail.
 
-Subsequent updates to the `nexusSharedStorageApplianceName` Azure resource tag have no effect. There is no support for moving the shared filesystem storage solution between storage appliances after initial deployment.
+Subsequent updates to the `storageApplianceName` Azure resource tag have no effect. There is no support for moving the shared filesystem storage solution between storage appliances after initial deployment.
 
 #### Nexus-shared limitations
 

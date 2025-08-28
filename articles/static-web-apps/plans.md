@@ -15,7 +15,7 @@ Azure Static Web Apps is available through two different plans, Free and Standar
 
 ## Features
 
-| Feature | Free plan <br> (For personal projects) | Standard plan <br> (For production apps) | Dedicated plan (Deprecated effective October 31st, 2025) |
+| Feature | Free plan <br> (For personal projects) | Standard plan <br> (For production apps) | Dedicated plan (Retired effective October 31st, 2025) |
 | --- | --- | --- |---|
 | Web hosting | ✔ | ✔ | ✔ |
 | GitHub integration | ✔ | ✔ | ✔ |
@@ -57,3 +57,5 @@ You can move between Free or Standard plans via the Azure portal.
 1. Select the hosting plan you want for your static web app.
 
 1. Select **Save**.
+
+**For Dedicated Plan deployments, follow the [Deploy your web app to Azure Static Web Apps](deploy-web-framework.md) guide to redeploy to a new Static Web App.**

@@ -18,6 +18,7 @@ ms.custom: "b2c-support"
 ---
 
 # Configure authentication options in an Android app by using Azure AD B2C 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article describes how you can enable, customize, and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your Android application. 
 

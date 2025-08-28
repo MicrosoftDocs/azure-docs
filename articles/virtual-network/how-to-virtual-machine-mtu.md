@@ -10,6 +10,7 @@ ms.date: 07/22/2024
 
 #customer intent: As a network administrator, I want to change the MTU for my Linux or Windows virtual machine so that I can optimize network performance.
 
+# Customer intent: As a network administrator, I want to configure the MTU size for my virtual machines in the cloud environment, so that I can enhance network performance and minimize packet fragmentation.
 ---
 
 # Configure Maximum Transmission Unit (MTU) for virtual machines in Azure
@@ -64,7 +65,7 @@ The following resources are used as examples in this article. Replace these valu
 
 ## Precautions
 
-- Virtual machines in Azure can support a larger MTU than the 1,500-byte default only for traffic that stays within the virtual network. A larger MTU isn't supported for scenarios outside of intra-virtual network VM-to-VM traffic. Traffic traversing through gateways, peering’s, or to the internet might not be supported. Configuration of a larger MTU can result in fragmentation and reduction in performance. For traffic utilizing these scenarios, utilize the default 1,500 byte MTU for testing to ensure that a larger MTU is supported across the entire network path. 
+- Virtual machines in Azure can support a larger MTU than the 1,500-byte default only for traffic that stays within the virtual network and directly peered virtual networks within the same region. Traffic traversing through gateways, global peerings, or to the internet is not supported. Configuration of a larger MTU can result in fragmentation and reduction in performance. For traffic utilizing these scenarios, utilize the default 1,500 byte MTU for testing to ensure that a larger MTU is supported across the entire network path. 
 
 - Optimal MTU is operating system, network, and application specific. The maximal supported MTU might not be optimal for your use case.
 

@@ -4,8 +4,9 @@ author: jjaygbay1
 ms.author: jacobjaygbay
 description: Provides an overview of the BareMetal Infrastructure on Azure.
 ms.custom: references_regions
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/15/2024
+# Customer intent: As a systems architect, I want to evaluate BareMetal Infrastructure options in Azure, so that I can determine if they meet the requirements for my mission-critical, specialized workloads and ensure optimal performance and control for my enterprise applications.
 ---
 
 #  What is BareMetal Infrastructure on Azure?

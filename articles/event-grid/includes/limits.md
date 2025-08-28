@@ -4,9 +4,12 @@
  author: robece
  ms.service: azure-event-grid
  ms.topic: include
- ms.date: 11/15/2023
+ ms.date: 04/30/2025
  ms.author: robece
-ms.custom: include file, ignite-2023
+ms.custom:
+  - include file
+  - ignite-2023
+  - build-2025
 ---
 
 > [!NOTE]
@@ -21,10 +24,10 @@ Event Grid offers a standard tier and basic tier. Event Grid standard tier enabl
 [Azure Event Grid namespaces](../concepts-event-grid-namespaces.md#namespaces) enables MQTT messaging, and HTTP pull delivery.
 The following limits apply to namespace resources in Azure Event Grid.
 
-| Limit description                      | Limit |
-|----------------------------------------|-------|
+| Limit description                      | Limit | 
+|----------------------------------------|-------| 
 | Event Grid namespaces per Azure subscription      | 50    |
-| Maximum throughput units per Event Grid namespace | 40    |
+| Maximum throughput units per Event Grid namespace | 40 (To request an increase beyond 40 TUs, contact us at [askmqtt@microsoft.com](mailto:askmqtt@microsoft.com))    |
 | IP Firewall rules per Event Grid namespace        | 16    |
 
 ## MQTT limits in Event Grid namespace
@@ -41,10 +44,20 @@ The following limits apply to MQTT in Azure Event Grid namespace resource.
 | Session Expiry Interval                      | 8 hours, [configurable on the Event Grid namespace](../mqtt-support.md#maximum-session-expiry-interval-configuration)|
 | Inbound MQTT publishing requests per Event Grid namespace  | 1,000 messages per second per TU                                                         |
 | Inbound MQTT bandwidth per Event Grid namespace         | 1 MB per second per TU                                                            |
-| Inbound MQTT publishing requests per session | 100 messages per second                                                           |
+| Inbound MQTT publishing requests per session | 1000 messages per second                                                           |
 | Inbound MQTT bandwidth per session        | 1 MB per second                                                                   |
-| Inbound in-flight MQTT messages*        | 100 messages                                                                   |
+| Inbound in-flight MQTT messages*        | 1000 messages                                                                   |
 | Inbound in-flight MQTT bandwidth*         | 64 KB                                                             |
+| Inbound HTTP publishing requests per Event Grid namespace | 500 messages per second per TU |
+| Inbound HTTP bandwidth per Event Grid namespace           | 512 KB per second per TU       |
+| Inbound HTTP publishing requests per session              | 500 messages per second        |
+| Inbound HTTP bandwidth per session                        | 512 KB per second              |
+| Inbound in-flight HTTP messages*                          | 500 messages                   |
+| Maximum Retain Message Size**                               | 64 KB                          |
+| Maximum Retain Messages per Throughput Unit (TU)          | 10,000 messages or 640 MB (whichever is reached first) |
+| Total Retain Storage per TU                               | 640 MB                         |
+| Retain Message Expiry (MQTT 3.1.1)                        | 365 days (default)             |
+| Retain Message Expiry (MQTT 5.0)                          | Configurable using Message Expiry Interval, range: 0 to 31,536,000 seconds (365 days) |
 | Outbound MQTT publishing requests per Event Grid namespace | 1,000 messages per second per TU                                                         |
 | Outbound MQTT bandwidth per Event Grid namespace        | 1 MB per second per TU                                                            |
 | Outbound MQTT publishing requests per session| 100 messages per second                                                           |
@@ -52,11 +65,12 @@ The following limits apply to MQTT in Azure Event Grid namespace resource.
 | Outbound in-flight MQTT messages*        | 100 messages                                                                   |
 | Outbound in-flight MQTT bandwidth*         | 64 KB                                                             |
 | Max message size                             | 512 KB                                                                            |
-| Segments per topic/ topic filter             | 8                                                                                 |
+| Segments per topic/ topic filter             | 15                                                                                 |
 | Topic size                                   | 256 B                                                                             |
 | MQTTv5 response topic                        | 256 B                                                                             |
 | MQTTv5 topic aliases                         | 10 per session                                                                 |
 | MQTTv5 total size of all user properties     | 32 KB                                                                              |
+| MQTT connect rate per client Session |  1 connection attempt per second per client session | 
 | MQTTv5 content type size                     | 256 B                                                                             |
 | MQTTv5 correlation data size                 | 256 B                                                                             |
 | Connect requests                             | 200 requests per second per TU                                                    |
@@ -75,7 +89,10 @@ The following limits apply to MQTT in Azure Event Grid namespace resource.
 | Topic templates                              | 10 per topic space                                                                |
 | Permission bindings                          | 100                                                                               |
 
+
 \* For MQTTv5, learn more about [flow control support](../mqtt-support.md#flow-control).
+
+\** Retain messages count against the total MQTT storage quota for the namespace. When the quota is reached, publishing new retain messages will fail until existing messages are expired or deleted (e.g., via empty payload publish).
 
 ## Events limits in Event Grid namespace
 

@@ -3,11 +3,12 @@ title: Configure Azure Application Gateway TCP/TLS proxy (Preview)
 titleSuffix: Azure Application Gateway
 description: This article provides information on how to configure Application Gateway's layer 4 proxy service for non-HTTP workloads.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 03/21/2025
-ms.author: greglin
+ms.date: 05/12/2025
+ms.author: mbender
+# Customer intent: "As a network engineer, I want to configure the Azure Application Gateway TCP/TLS proxy for SQL Server, so that I can efficiently manage non-HTTP workloads and ensure proper connectivity for database operations."
 ---
 
 # Configure Azure Application Gateway TCP/TLS proxy (Preview)
@@ -40,13 +41,7 @@ Use the following steps to enroll into the public preview for Application Gatewa
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. In the search box, enter _subscriptions_ and select **Subscriptions**.
-
-    :::image type="content" source="../azure-resource-manager/management/media/preview-features/search.png" alt-text="Screenshot of Azure portal search.":::
-
 3. Select the link for your subscription's name.
-
-    :::image type="content" source="../azure-resource-manager/management/media/preview-features/subscriptions.png" alt-text="Screenshot selecting the Azure subscription.":::
-
 4. From the left menu, under **Settings** select **Preview features**.
 
     :::image type="content" source="../azure-resource-manager/management/media/preview-features/preview-features-menu.png" alt-text="Screenshot of the Azure preview features menu.":::
@@ -57,7 +52,7 @@ Use the following steps to enroll into the public preview for Application Gatewa
 
 6. From **Preview features** type into the filter box **AllowApplicationGatewayTlsProxy**, select the feature, and then select **Register**.
 
-    :::image type="content" source="../azure-resource-manager/management/media/preview-features/filter.png" alt-text="Screenshot of Azure portal filter preview features.":::
+   ![A screenshot of registering for the preview.](media/how-to-tcp-tls-proxy/preview.png)
 
 ## Create a SQL server
 

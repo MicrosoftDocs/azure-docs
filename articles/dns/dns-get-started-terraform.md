@@ -10,6 +10,7 @@ ms.author: tarcher
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
+# Customer intent: As a cloud engineer, I want to create an Azure DNS zone and record using Terraform, so that I can efficiently manage DNS resources within my Azure environment.
 ---
 
 # Quickstart: Create an Azure DNS zone and record using Terraform

@@ -12,16 +12,19 @@ metadata:
   author: duongau
   ms.author: duau
   manager: kumudD
-  ms.date: 06/14/2024
+  ms.date: 05/30/2025
   ms.custom: portfolio-consolidation-2025
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
   items:
+    - title: Hybrid connectivity overview
+      itemType: concept
+      url: /azure/networking/hybrid-connectivity/hybrid-connectivity
     - title: Introduction to Azure hybrid connectivity services
       itemType: training
       url: /training/paths/intro-to-azure-hybrid-connectivity-services/
-    - title: Azure Networking blogs
+    - title: Azure networking blogs
       itemType: concept
       url: https://azure.microsoft.com/blog/category/networking/
     - title: Azure network security documentation
@@ -30,7 +33,7 @@ highlightedContent:
     - title: Hub-spoke network topology in Azure
       itemType: architecture
       url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-    - title: Azure networking services overview
+    - title: Azure networking services
       itemType: overview
       url: ../fundamentals/networking-overview.md
 
@@ -149,7 +152,7 @@ conceptualContent:
               text: Extend on-premises network to Azure with ExpressRoute
             - url: /azure/well-architected/service-guides/azure-expressroute
               itemType: architecture
-              text: ExpressRoute - Well-Architected Framework
+              text: Architecture best practices for Azure ExpressRoute - Azure Well-Architected Framework
         # Card
         - title: Virtual WAN
           links:

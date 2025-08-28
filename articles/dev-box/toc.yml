@@ -11,6 +11,8 @@ items:
         displayName: roadmap, future, features, enhancements, coming soon, in development
   - name: Quickstarts
     items:
+      - name: Get Started with the quick start template
+        href: quickstart-get-started-template.md
       - name: Set up Dev Box service (Azure portal)
         href: quickstart-configure-dev-box-service.md
       - name: Set up Dev Box service (ARM template)
@@ -19,18 +21,16 @@ items:
       - name: Spin up a new dev box
         href: quickstart-create-dev-box.md
         displayName: connect, access dev box
-      - name: Use Team Customizations
-        href: quickstart-team-customizations.md
   - name: Concepts
     items:
+      - name: Key concepts
+        href: concept-dev-box-concepts.md
       - name: Architecture overview
         href: concept-dev-box-architecture.md
         displayName: Architecture,concepts,what is,overview,dev box,devbox,dev center,devcenter,project,networking,intune,azure
       - name: Network requirements
         href: concept-dev-box-network-requirements.md
         displayName: Network,firewall,endpoints,ports,connect,network connection,native,hybrid,hosted,tags
-      - name: Key concepts
-        href: concept-dev-box-concepts.md
       - name: Azure role-based access control
         href: concept-dev-box-role-based-access-control.md
         displayName: RBAC,role-based access control,permissions,access,role,role assignment,role definition
@@ -46,6 +46,8 @@ items:
         href: how-to-configure-network-connections.md
       - name: Manage a dev box project
         href: how-to-manage-dev-box-projects.md
+      - name: Configure project policies
+        href: how-to-configure-project-policy.md
       - name: Manage a dev box definition
         href: how-to-manage-dev-box-definitions.md
       - name: Manage a dev box pool
@@ -59,6 +61,10 @@ items:
       - name: Monitor Dev Box
         href: monitor-dev-box.md
         displayName: diagnostic, logs
+      - name: Configure conditional access policies for dev tunnels
+        href: how-to-conditional-access-dev-tunnels-service.md
+      - name: Move dev box pools between regions
+        href: how-to-move-dev-box-pool-region.md
   - name: Prepare images
     items:
       - name: Configure an Azure compute gallery
@@ -67,16 +73,29 @@ items:
         href: how-to-customize-devbox-azure-image-builder.md
   - name: Customize dev boxes
     items:
-      - name: What are Team Customizations
-        href: concept-what-are-team-customizations.md
-      - name: Write a customization file
-        href: how-to-write-customization-file.md
-      - name: Configure imaging for Customizations
-        href: how-to-configure-customization-imaging.md
-      - name: Use secrets in customization files
-        href: how-to-use-secrets-customization-files.md
-      - name: Create customization tasks
-        href: how-to-create-customization-tasks-catalog.md
+      - name: What are Dev Box customizations
+        href: concept-what-are-dev-box-customizations.md
+        displayName: customizations, image definition, team customization
+      - name: Quickstart:Use Team Customizations
+        href: quickstart-team-customizations.md
+      - name: Configure team customizations
+        href: how-to-configure-team-customizations.md
+        displayName: customizations, image definition, team customization
+      - name: Configure dev center imaging
+        href: how-to-configure-dev-center-imaging.md
+      - name: Configure user customizations
+        href: how-to-configure-user-customizations.md
+        displayName: customizations, image definition, personal customization, individual
+      - name: Configure tasks for customizations
+        href: how-to-configure-customization-tasks.md
+      - name: Connect to Azure resources and repositories
+        displayName: customizations, secrets, Azure Key Vault
+        href: how-to-customizations-connect-resource-repository.md
+      - name: Add and Manage Catalogs
+        href: how-to-configure-catalog.md
+      - name: Imagedefinition.yaml and task.yaml reference
+        href: reference-dev-box-customizations.md
+        displayName: Customize, schema, yaml, imagedefinition, task
   - name: Create & connect to dev boxes
     items:
       - name: Manage a dev box through developer portal
@@ -87,6 +106,12 @@ items:
         displayName: Windows App, connect, access dev box, RDP, iPad
       - name: Use multiple monitors
         href: how-to-create-dev-boxes-developer-portal.md#configure-multiple-monitors
+      - name: Connect to a dev box with a dev tunnel
+        href: how-to-set-up-dev-tunnels.md
+  - name: AI on Dev Box
+    items:
+      - name: Configure Serverless GPU
+        href: how-to-configure-dev-box-serverless-gpu.md
   - name: Security
     items:
       - name: Provide access to project admins
@@ -115,6 +140,8 @@ items:
         href: how-to-configure-stop-on-disconnect.md
       - name: Skip or delay an automatic shutdown
         href: how-to-skip-delay-stop.md
+      - name: Delete unused dev boxes
+        href: how-to-auto-delete-dev-box.md
   - name: Connect devices to dev boxes
     items:
       - name: Connect physical devices to a dev box
@@ -151,6 +178,8 @@ items:
         href: how-to-get-help.md
   - name: Reference
     items:
+      - name: Microsoft Dev Center Landing Zone Accelerator
+        href: https://github.com/Azure/DevBoxAccelerator/tree/main
       - name: Install Azure CLI devcenter extension
         href: how-to-install-dev-box-cli.md
       - name: Azure CLI - az devcenter
@@ -164,8 +193,8 @@ items:
         displayName: diagnostic, logs
   - name: Resources
     items:
-      - name: Azure roadmap
-        href: https://azure.microsoft.com/roadmap/
+      - name: Azure updates
+        href: https://azure.microsoft.com/updates/?filters=%5B%22Microsoft+Dev+Box%22%5D
       - name: Azure regions supported by Dev Box
         href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=dev-box
       - name: FAQ

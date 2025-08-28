@@ -1,12 +1,12 @@
 ---
 title: Configure data flow endpoints in Azure IoT Operations
 description: Configure data flow endpoints to create connection points for data sources.
-author: PatAltimore
-ms.author: patricka
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 11/01/2024
+ms.date: 08/14/2025
 
 #CustomerIntent: As an operator, I want to understand how to configure source and destination endpoints so that I can create a data flow.
 ---
@@ -19,14 +19,18 @@ To get started with data flows, first create data flow endpoints. A data flow en
 
 Use the following table to choose the endpoint type to configure:
 
-| Endpoint type | Description | Can be used as a source | Can be used as a destination |
-|---------------|-------------|-------------------------|------------------------------|
-| [MQTT](howto-configure-mqtt-endpoint.md) | For bi-directional messaging with MQTT brokers, including the one built-in to Azure IoT Operations and Event Grid. | Yes | Yes |
-| [Kafka](howto-configure-kafka-endpoint.md) | For bi-directional messaging with Kafka brokers, including Azure Event Hubs. | Yes | Yes |
-| [Data Lake](howto-configure-adlsv2-endpoint.md) | For uploading data to Azure Data Lake Gen2 storage accounts. | No | Yes |
-| [Microsoft Fabric OneLake](howto-configure-fabric-endpoint.md) | For uploading data to Microsoft Fabric OneLake lakehouses. | No | Yes |
-| [Azure Data Explorer](howto-configure-adx-endpoint.md) | For uploading data to Azure Data Explorer databases. | No | Yes |
-| [Local storage](howto-configure-local-storage-endpoint.md) | For sending data to a locally available persistent volume, optionally configurable with Azure Container Storage enabled by Azure Arc. | No | Yes |
+| Endpoint type | Description | Can be used as a source | Can be used as a destination | Data flow graphs support |
+|---------------|-------------|-------------------------|------------------------------|---------------------------|
+| [MQTT](howto-configure-mqtt-endpoint.md) | For bi-directional messaging with MQTT brokers, including the one built-in to Azure IoT Operations and Event Grid. | Yes | Yes | Source and destination |
+| [Kafka](howto-configure-kafka-endpoint.md) | For bi-directional messaging with Kafka brokers, including Azure Event Hubs. | Yes | Yes | Source and destination |
+| [OpenTelemetry](howto-configure-opentelemetry-endpoint.md) | For sending metrics and logs to OpenTelemetry collectors and observability platforms like Grafana and Azure Monitor. | No | Yes | Destination only |
+| [Data Lake](howto-configure-adlsv2-endpoint.md) | For uploading data to Azure Data Lake Gen2 storage accounts. | No | Yes | Not supported |
+| [Microsoft Fabric OneLake](howto-configure-fabric-endpoint.md) | For uploading data to Microsoft Fabric OneLake lakehouses. | No | Yes | Not supported |
+| [Azure Data Explorer](howto-configure-adx-endpoint.md) | For uploading data to Azure Data Explorer databases. | No | Yes | Not supported |
+| [Local storage](howto-configure-local-storage-endpoint.md) | For sending data to a locally available persistent volume, optionally configurable with Azure Container Storage enabled by Azure Arc. | No | Yes | Not supported |
+
+> [!IMPORTANT]
+> **Data flow graphs limitation**: [Data flow graphs (WASM)](howto-dataflow-graph-wasm.md) currently only support MQTT, Kafka, and OpenTelemetry endpoints. OpenTelemetry endpoints can only be used as destinations in data flow graphs. Other endpoint types are not supported for data flow graphs. For more information, see [Known issues](../troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
 
 > [!IMPORTANT]
 > Storage endpoints require a [schema for serialization](./concept-schema-registry.md). To use data flow with Microsoft Fabric OneLake, Azure Data Lake Storage, Azure Data Explorer, or Local Storage, you must [specify a schema reference](./howto-create-dataflow.md#serialize-data-according-to-a-schema).
@@ -59,9 +63,45 @@ To make it easier to reuse endpoints, the MQTT or Kafka topic filter isn't part 
 
 For example, you can use the default MQTT broker data flow endpoint. You can use it for both the source and destination with different topic filters:
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 :::image type="content" source="media/howto-configure-dataflow-endpoint/create-dataflow-mq-mq.png" alt-text="Screenshot using operations experience to create a data flow from MQTT to MQTT.":::
+
+# [Azure CLI](#tab/cli)
+
+
+Use the [az iot ops dataflow apply](/cli/azure/iot/ops/dataflow#az-iot-ops-dataflow-apply) command to create or change a data flow.
+
+```azurecli
+az iot ops dataflow apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --profile <DataflowProfileName> --name <DataflowName> --config-file <ConfigFilePathAndName>
+```
+
+The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
+
+In this example, assume a configuration file named `data-flow.json` with the following content stored in the user's home directory:
+```json
+{
+  "mode": "Enabled",
+  "operations": [
+    {
+      "operationType": "Source",
+      "sourceSettings": {
+        "endpointRef": "default",
+        "dataSources": [
+          "example/topic/1"
+        ]
+      }
+    },
+    {
+      "operationType": "Destination",
+      "destinationSettings": {
+        "endpointRef": "default",
+        "dataDestination": "example/topic/2"
+      }
+    }
+  ]
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -123,9 +163,46 @@ spec:
 
 Similarly, you can create multiple data flows that use the same MQTT endpoint for other endpoints and topics. For example, you can use the same MQTT endpoint for a data flow that sends data to an Event Hubs endpoint.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 :::image type="content" source="media/howto-configure-dataflow-endpoint/create-dataflow-mq-kafka.png" alt-text="Screenshot using operations experience to create a data flow from MQTT to Kafka.":::
+
+# [Azure CLI](#tab/cli)
+
+Use the [az iot ops dataflow apply](/cli/azure/iot/ops/dataflow#az-iot-ops-dataflow-apply) command to create or change a data flow.
+
+```azurecli
+az iot ops dataflow apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --profile <DataflowProfileName> --name <DataflowName> --config-file <ConfigFilePathAndName>
+```
+
+The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
+
+In this example, assume a configuration file named `data-flow.json` with the following content stored in the user's home directory:
+
+```json
+{
+  "mode": "Enabled",
+  "operations": [
+    {
+      "operationType": "Source",
+      "sourceSettings": {
+        "endpointRef": "default",
+        "dataSources": [
+          "example/topic/3"
+        ]
+      }
+    },
+    {
+      "operationType": "Destination",
+      "destinationSettings": {
+        // The endpoint needs to be created before you can reference it here
+        "endpointRef": "example-event-hub-endpoint",
+        "dataDestination": "example/topic/4"
+      }
+    }
+  ]
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -195,6 +272,7 @@ Create a data flow endpoint:
 
 - [MQTT or Event Grid](howto-configure-mqtt-endpoint.md)
 - [Kafka or Event Hubs](howto-configure-kafka-endpoint.md)
+- [OpenTelemetry](howto-configure-opentelemetry-endpoint.md)
 - [Data Lake](howto-configure-adlsv2-endpoint.md)
 - [Microsoft Fabric OneLake](howto-configure-fabric-endpoint.md)
 - [Local storage](howto-configure-local-storage-endpoint.md)

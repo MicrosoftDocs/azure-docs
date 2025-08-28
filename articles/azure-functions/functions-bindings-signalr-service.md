@@ -43,9 +43,7 @@ Add the extension to your project by installing this [NuGet package].
 
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"
 
-## Install bundle
-
-The SignalR Service extension is part of an [extension bundle], which is specified in your host.json project file. When you create a project that targets version 3.x or later, you should already have this bundle installed. To learn more, see [extension bundle].
+[!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
@@ -124,6 +122,6 @@ For details on how to configure and use SignalR Service and Azure Functions toge
 
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService
 [core tools]: ./functions-run-local.md
-[extension bundle]: ./functions-bindings-register.md#extension-bundles
+[extension bundle]: ./extension-bundles.md
 [Update your extensions]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack

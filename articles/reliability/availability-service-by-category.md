@@ -34,6 +34,7 @@ Azure services are presented in the following lists by category. Note that some 
 - Azure Event Hubs
 - Azure ExpressRoute
 - Azure Key Vault
+- Azure Kubernetes Service (AKS)
 - Azure Load Balancer
 - Azure NAT Gateway
 - Azure Public IP
@@ -83,7 +84,6 @@ Azure services are presented in the following lists by category. Note that some 
 - Azure Functions
 - Azure HDInsight
 - Azure IoT Hub
-- Azure Kubernetes Service (AKS)
 - Azure Logic Apps
 - Azure Media Services
 - Azure Monitor: Application Insights
@@ -119,6 +119,7 @@ Azure services are presented in the following lists by category. Note that some 
 - Azure Dedicated HSM
 - Azure Digital Twins
 - Azure HPC Cache
+- Azure Kubernetes Fleet Manager
 - Azure Lab Services
 - Azure Machine Learning
 - Azure Managed HSM
@@ -149,6 +150,7 @@ Azure services are presented in the following lists by category. Note that some 
 - Virtual Machines: HCv1-series
 - Virtual Machines: Lsv2-series
 - Virtual Machines: Lsv3-series
+- Virtual Machines: Lsv4, Lasv4, and Laosv4-series
 - Virtual Machines: Mv2-series
 - Virtual Machines: NCasT4_v3-series
 - Virtual Machines: NCv3-series

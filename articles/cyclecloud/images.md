@@ -2,7 +2,7 @@
 title: Images
 description: Attach and manage images within Azure CycleCloud. You can specify standard operating systems using Image, ImageName, ImageId, or ImageUrl.
 author: KimliW
-ms.date: 08/01/2018
+ms.date: 06/10/2025
 ms.author: adjohnso
 ---
 

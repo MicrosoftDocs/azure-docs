@@ -4,10 +4,11 @@ description: This article helps you understand the Azure ExpressRoute Gateway Re
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/31/2025
 ms.author: duau
 ms.custom: ai-usage
+# Customer intent: As a network engineer, I want to validate the resiliency of my ExpressRoute gateway during site failovers, so that I can ensure continuous connectivity and robustness for my Azure workloads during outages or migrations.
 ---
 
 # Azure ExpressRoute Gateway Resiliency Validation (preview)

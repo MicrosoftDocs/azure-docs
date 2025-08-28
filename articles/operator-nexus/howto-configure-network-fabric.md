@@ -24,6 +24,7 @@ This article describes how to create a Network Fabric by using the Azure Command
 * Terminal server pre-configured with username and password [installed and configured](./howto-platform-prerequisites.md#set-up-terminal-server)
 * PE devices pre-configured with necessary VLANs, Route-Targets and IP addresses.
 * Supported SKU information is [inventoried here](./reference-operator-nexus-fabric-skus.md)
+* Ensure that all Network Fabric devices has a minimum of 3.5 GB of available disk space.
 
 ## Steps to Provision a Fabric & Racks
 
@@ -180,7 +181,7 @@ Expected output:
 ## Show Network Fabric 
 
 ```azurecli
-az networkfarbic fabric show --resource-group "<NFResourceGroup>" --resource-name "<NFName>"
+az networkfabric fabric show --resource-group "<NFResourceGroup>" --resource-name "<NFName>"
 ```
 Expected output:
 

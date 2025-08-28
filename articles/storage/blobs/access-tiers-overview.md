@@ -5,9 +5,10 @@ description: Azure storage offers different access tiers so that you can store y
 author: normesta
 
 ms.author: normesta
-ms.date: 03/10/2025
+ms.date: 06/13/2025
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
+# Customer intent: As a cloud storage manager, I want to select the appropriate access tier for my blob data, so that I can optimize storage costs based on the frequency of access and retention requirements.
 ---
 
 # Access tiers for blob data
@@ -124,6 +125,8 @@ Keep in mind the following points when changing a blob's tier:
 
 - You can't use **Set Blob Tier** to archive a a blob that uses an encryption scope. You can only use **Set Blob Tier** to move between online access tiers. For more information about encryption scopes, see [Encryption scopes for Blob storage](encryption-scope-overview.md).
  
+- If a blob is explicitly moved to the cool or cold tier and then moved to the archive tier, the early deletion charge applies.
+
 - If a blob is explicitly moved to the cool or cold tier and then moved to the archive tier, the early deletion charge applies.
 
 ## Blob lifecycle management

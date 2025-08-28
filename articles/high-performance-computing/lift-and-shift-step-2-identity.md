@@ -7,11 +7,12 @@ ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+# Customer intent: As an IT administrator overseeing high performance computing migration, I want to configure identity management systems, so that I can ensure secure access to resources and comply with organizational policies during the migration process.
 ---
 
 # Identity management configuration
 
-A key aspect of your high performance computing migration is identity management configuration. Your identity management system ensures secure access to resources, seamless integration, and compliance with organizational policies. It should allow the creation and deltion of users and groups, allow updating and resetting of passwords, and support single sign-on. This part of the guide covers the needs, tools, services, and best practices associated with identity management.
+A key aspect of your high performance computing migration is identity management configuration. Your identity management system ensures secure access to resources, seamless integration, and compliance with organizational policies. It should allow the creation and deletion of users and groups, allow updating and resetting of passwords, and support single sign-on. This part of the guide covers the needs, tools, services, and best practices associated with identity management.
 
 ## Define identity management needs
 

@@ -21,6 +21,7 @@ ms.subservice: b2c
 ---
 
 # Create and run your own custom policies in Azure Active Directory B2C 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In Azure Active Directory B2C (Azure AD B2C), you can create user experiences by using [user flows or custom policies](user-flow-overview.md). You use custom policies when you want to create your own user journeys for complex identity experience scenarios that aren't supported by user flows.
 

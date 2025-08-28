@@ -1,15 +1,16 @@
 ---
 title: Deploy Azure Cache for Redis by using Azure Resource Manager template
 description: Learn how to use an Azure Resource Manager template (ARM template) to deploy an Azure Cache for Redis resource. Templates are provided for common scenarios.
-
-
-
+ms.date: 05/18/2025
 ms.topic: conceptual
-ms.custom: subject-armqs, devx-track-arm-template, ignite-2024
-ms.date: 04/10/2024
+ms.custom:
+  - subject-armqs
+  - devx-track-arm-template
+  - ignite-2024
+  - build-2025
 appliesto:
-  - ✅ Azure Managed Redis
   - ✅ Azure Cache for Redis
+  - ✅ Azure Managed Redis
 ---
 
 # Quickstart: Create an Azure Cache for Redis using an ARM template
@@ -66,7 +67,7 @@ To check for the latest templates, see [Azure Quickstart Templates](https://azur
 
 1. Select **I agree to the terms and conditions stated above**, and the select **Purchase**.
 
-## Azure Managed Redis (preview)
+## Azure Managed Redis
 
 ### Review the template
 Modify the `cachename` and `region` parameters. Copy it to a file `azuredeploy.json`.
@@ -159,7 +160,3 @@ $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
 ```
-
-## Related Content
-
-In this tutorial, you learnt how to create an Azure Resource Manager template that deploys an Azure Cache for Redis. To learn how to create an Azure Resource Manager template that deploys an Azure Web App with Azure Cache for Redis, see [Create a Web App plus Azure Cache for Redis using a template](web-app-arm-with-redis-cache-provision.md).

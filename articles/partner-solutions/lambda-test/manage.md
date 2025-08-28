@@ -1,12 +1,14 @@
 ---
-title: Manage a LambdaTest - HyperExecute resource through the Azure portal (preview)
+title: Manage a LambdaTest - HyperExecute resource through the Azure portal
 description: This article describes management functions for LambdaTest - HyperExecute on the Azure portal.
 
 ms.topic: how-to
 ms.date: 04/14/2025
+ms.custom:
+  - build-2025
 ---
 
-# Manage a LambdaTest - HyperExecute resource (preview)
+# Manage a LambdaTest - HyperExecute resource
 
 This article describes how to manage the settings for LambdaTest - HyperExecute resources.
 

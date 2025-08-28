@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 10/02/2023
 ms.author: kendownie
+# Customer intent: As a cloud administrator, I want to properly deprovision my Azure File Sync server endpoint, so that I can ensure data integrity and prevent permanent data loss during the removal process.
 ---
 
 # Deprovision or delete your Azure File Sync server endpoint

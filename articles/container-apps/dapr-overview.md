@@ -4,14 +4,19 @@ description: Learn more about using Dapr on your Azure Container App service to 
 ms.author: hannahhunter
 author: hhunter-ms
 ms.service: azure-container-apps
-ms.custom: build-2023
+ms.custom:
+  - build-2023
+  - build-2025
 ms.topic: conceptual
-ms.date: 01/08/2025
+ms.date: 05/21/2025
 ---
 
 # Microservice APIs powered by Dapr
 
 Azure Container Apps provides APIs powered by [Distributed Application Runtime (Dapr)][dapr-concepts] that help you write and implement simple, portable, resilient, and secured microservices. Dapr works together with Azure Container Apps as an abstraction layer to provide a low-maintenance and scalable platform. Azure Container Apps offers a selection of fully managed Dapr APIs, components, and features, catered specifically to microservice scenarios. Simply [enable and configure Dapr][dapr-enable] as usual in your container app environment.
+
+> [!NOTE]
+> Find updates and release announcements for Dapr in Azure Container Apps [in GitHub](https://aka.ms/dapr-aca-updates). 
 
 ## How the microservices APIs work with your container app
 
@@ -26,6 +31,8 @@ Configure microservices APIs for your container apps environment with a [Dapr-en
 | 3     | Dapr component configuration     | Dapr uses a modular design where functionality is delivered as a component. Dapr components can be shared across multiple container apps. The Dapr app identifiers provided in the scopes array dictate which dapr-enabled container apps load a given component at runtime. |
 
 ## Versioning
+
+Instead of following a fixed release schedule, Dapr in Azure Container Apps releases new features and functionality based on the prioritization and stability of the Dapr binaries. [Learn more about Dapr releases in Azure Container Apps.](./faq.yml#how-often-are-dapr-versions-released-for-azure-container-apps-)
 
 Dapr versions in Azure Container Apps include:
 - A semantic versioning prefix, such as `1.13.6`, which denotes compatibility with the corresponding OSS Dapr runtime version APIs and related tools like SDKs, CLI, etc.
@@ -93,7 +100,7 @@ Azure Container Apps ensures compatibility with Dapr open source tooling, such a
 
 - Deploy Dapr using:
   - [Azure CLI](./microservices-dapr.md)
-  - [ARM or Bicep templates](./microservices-dapr-azure-resource-manager.md)
+  - [ARM or Bicep files](./microservices-dapr-azure-resource-manager.md)
 - [Enable Dapr in an existing container app.][dapr-enable]
 
 <!-- Links Internal -->

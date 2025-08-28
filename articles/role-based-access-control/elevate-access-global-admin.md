@@ -1,12 +1,12 @@
 ---
 title: Elevate access to manage all Azure subscriptions and management groups
 description: Describes how to elevate access for a Global Administrator to manage all subscriptions and management groups in Microsoft Entra ID using the Azure portal or REST API.
-author: rolyon
-manager: femila
+author: jenniferf-skc
+manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.date: 03/10/2025
-ms.author: rolyon
+ms.author: jfields
 ms.custom: devx-track-azurecli
 ---
 # Elevate access to manage all Azure subscriptions and management groups
@@ -521,7 +521,7 @@ Your organization might have already configured a diagnostic setting to integrat
 
     :::image type="content" source="./media/elevate-access-global-admin/sentinel-entra-id-solution.png" alt-text="Screenshot of Content hub page with Microsoft Entra ID content selected." lightbox="./media/elevate-access-global-admin/sentinel-entra-id-solution.png":::
 
-1. Use the [Microsoft Entra ID connector](../sentinel/data-connectors/microsoft-entra-id.md) to collect data from Microsoft Entra ID by following the steps at [Connect Microsoft Entra data to Microsoft Sentinel](../sentinel/connect-azure-active-directory.md).
+1. Use the [Microsoft Entra ID connector](../sentinel/data-connectors-reference.md#microsoft-entra-id) to collect data from Microsoft Entra ID by following the steps at [Connect Microsoft Entra data to Microsoft Sentinel](../sentinel/connect-azure-active-directory.md).
 
 1. On the **Data connectors** page, add a check mark for **Audit Logs**.
 

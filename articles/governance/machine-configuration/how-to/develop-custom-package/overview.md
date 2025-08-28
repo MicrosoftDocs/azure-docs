@@ -3,12 +3,14 @@ title: How to develop a custom machine configuration package
 description: Learn how to author and validate custom machine configuration packages to audit and enforce state.
 ms.date: 02/01/2024
 ms.topic: how-to
+ms.custom:
+  - build-2025
 ---
 # How to develop a custom machine configuration package
 
 Before you begin, it's a good idea to read the overview page for [machine configuration][01].
 
-Machine configuration uses [Desired State Configuration][02] (DSC) when auditing and configuring
+Machine configuration uses [PowerShell Desired State Configuration][02] (PSDSC) when auditing and configuring
 both Windows and Linux. The DSC configuration defines the condition that the machine should be in.
 
 > [!IMPORTANT]
@@ -43,11 +45,11 @@ policy using the [GuestConfiguration PowerShell module][09].
 
 <!-- Link reference definitions -->
 [01]: ../../overview.md
-[02]: /powershell/dsc/overview
+[02]: /powershell/dsc/overview?view=dsc-2.0&preserve-view=true
 [03]: ./1-set-up-authoring-environment.md
 [04]: ./2-create-package.md
 [05]: ./3-test-package.md
 [06]: ./4-publish-package.md
 [07]: ./5-access-package.md
 [08]: ./6-sign-package.md
-[09]: https://www.powershellgallery.com/packages/GuestConfiguration/4.6.0
+[09]: https://www.powershellgallery.com/packages/GuestConfiguration/4.7.0

@@ -10,13 +10,14 @@ ms.date: 03/31/2025
 
 ms.author: cherylmc
 
+# Customer intent: "As a network administrator, I want to understand the migration process and benefits of VPN Gateway SKUs transitioning to availability zone support, so that I can ensure my organization's VPN solutions are optimized for reliability and cost-efficiency."
 ---
 # VPN Gateway SKU consolidation and migration
 
 We're simplifying our VPN Gateway SKU portfolio. Due to the lack of redundancy, lower availability, and potential higher costs associated with failover solutions, we're transitioning all non availability zone (AZ) supported SKUs to AZ supported SKUs. This article helps you understand the upcoming changes for VPN Gateway virtual network gateway SKUs. This article expands on the [official announcement.](https://azure.microsoft.com/updates/v2/vpngw1-5-non-az-skus-will-be-retired-on-30-september-2026)
 
 * **Effective June 1, 2025**: Creation of new VPN gateways using VpnGw1-5 SKUs (non-AZ) will no longer be possible. This date has been updated from the originally announced January 1, 2025 date
-* **Migration period**: From June 2025 to September 2026, all existing VPN gateways using VpnGw1-5 SKUs (non-AZ SKUs) will be seamlessly migrated to VpnGw1-5 SKUs (AZ).
+* **Migration period**: From September 2025 to September 2026, all existing VPN gateways using VpnGw1-5 SKUs (non-AZ SKUs) could be seamlessly migrated to VpnGw1-5 SKUs (AZ).
 
 To support this migration, we're reducing the prices on AZ SKUs. For more information about SKUs and pricing, see the [FAQ](#faq) section of this article.
 
@@ -33,11 +34,11 @@ The following diagram shows current SKUs and the new SKUs they'll automatically 
 
 ### What actions do I need to take?
 
-There are no actions that you need to take. If your gateway currently uses one of the SKUs listed in previous section, we'll migrate the gateway for you. When we perform the migration, the migration is seamless. There's no downtime expected. You'll be notified in advance about migration for your gateway. We recommend that you don't change your SKU manually in anticipation of SKU migration unless you want to upgrade to a higher SKU.
+You can [upgrade the gateway SKUs](gateway-sku-upgrade.md) to AZ versions through portal/powershell/CLI after Sep 2025. There's no downtime expected for Non-AZ SKUs migration using Standard IPs. We recommend that you don't change your SKU manually in anticipation of SKU migration unless you want to upgrade to a higher SKU. If your gateway currently uses Legacy Gateway SKUs, see [Working with VPN Gateway legacy SKUs](vpn-gateway-about-skus-legacy.md).
 
 ### What is the timeline?
 
-Migration will begin after March 2025. You'll be notified when your gateway will be migrated.
+Migration experience will be available after August 2025.
 
 ### Can I create new gateways using the older SKUs?
 

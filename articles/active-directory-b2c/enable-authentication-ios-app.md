@@ -18,6 +18,7 @@ ms.custom: "b2c-support"
 ---
 
 # Enable authentication in your own iOS Swift app by using Azure AD B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article shows you how to add Azure Active Directory B2C (Azure AD B2C) authentication to your own iOS Swift mobile application. Learn how to integrate an iOS Swift application with the [Microsoft Authentication Library (MSAL) for iOS](https://github.com/AzureAD/microsoft-authentication-library-for-objc). 
 

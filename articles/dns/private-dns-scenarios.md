@@ -2,11 +2,12 @@
 title: Scenarios for Azure Private DNS zones
 description: In this article, learn about common scenarios for using Azure Private DNS zones.
 services: dns
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: concept-article
 ms.date: 02/10/2025
-ms.author: greglin
+ms.author: allensu
+# Customer intent: As a network administrator, I want to implement Azure Private DNS zones so that I can ensure secure and efficient name resolution for resources across single and multiple virtual networks while maintaining private access and split-horizon functionality.
 ---
 
 # Azure Private DNS zones scenarios

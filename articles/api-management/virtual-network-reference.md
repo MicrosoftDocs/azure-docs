@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 01/13/2025
+ms.date: 06/17/2025
 ms.author: danlep
 ms.custom: references_regions
 ---
@@ -25,7 +25,7 @@ For VNet connectivity options, requirements, and considerations, see [Using a vi
 
 Control inbound and outbound traffic into the subnet in which API Management is deployed by using [network security group][NetworkSecurityGroups] rules. If certain ports are unavailable, API Management may not operate properly and may become inaccessible. 
 
-When an API Management service instance is hosted in a VNet, the ports in the following table are used. Some requirements differ depending on the version (`stv2` or `stv1`) of the [compute platform](compute-infrastructure.md) hosting your API Management instance.
+When an API Management service instance is hosted in a VNet, the ports in the following table are used.
 
 >[!IMPORTANT]
 > * **Bold** items in the *Purpose* column indicate port configurations required for successful deployment and operation of the API Management service. Configurations labeled "optional" enable specific features, as noted. They are not required for the overall health of the service. 
@@ -33,16 +33,16 @@ When an API Management service instance is hosted in a VNet, the ports in the fo
 > * We recommend using the indicated [service tags](../virtual-network/service-tags-overview.md) instead of IP addresses in NSG and other network rules to specify network sources and destinations. Service tags prevent downtime when infrastructure improvements necessitate IP address changes.      
 
 
-### [stv2](#tab/stv2)
 
->[!IMPORTANT]
-> When using `stv2`, it is required to assign a Network Security Group to your VNet in order for the Azure Load Balancer to work. Learn more in the [Azure Load Balancer documentation](/security/benchmark/azure/baselines/azure-load-balancer-security-baseline#network-security-group-support).
+> [!IMPORTANT]
+> It is required to assign a Network Security Group to your VNet in order for the Azure Load Balancer to work. Learn more in the [Azure Load Balancer documentation](/security/benchmark/azure/baselines/azure-load-balancer-security-baseline#network-security-group-support).
 
 
 | Direction | Source service tag | Source port ranges | Destination service tag | Destination port ranges | Protocol |  Action | Purpose | VNet type |
 |-------|--------------|----------|---------|------------|-----------|-----|--------|-----|
 | Inbound | Internet | * | VirtualNetwork | [80], 443 |  TCP                | Allow           | **Client communication to API Management**                     | External only            |
 | Inbound | ApiManagement | * | VirtualNetwork | 3443                                 | TCP                | Allow       | **Management endpoint for Azure portal and PowerShell**         | External & Internal  |
+| Outbound | VirtualNetwork | * | Internet | 80                  |  TCP | Allow  | **Validation and management of Microsoft-managed and customer-managed certificates**      | External & Internal  |
 | Outbound | VirtualNetwork | * | Storage | 443                  |  TCP                | Allow             | **Dependency on Azure Storage**                             | External & Internal  |
 | Outbound | VirtualNetwork |  * | AzureActiveDirectory | 443                             | TCP                | Allow | [Microsoft Entra ID, Microsoft Graph,](api-management-howto-aad.md) and Azure Key Vault dependency (optional)              | External & Internal  |
 | Outbound | VirtualNetwork | * | AzureConnectors | 443                  |  TCP                | Allow | [managed connections](credentials-overview.md) dependency (optional)              | External & Internal  |
@@ -57,29 +57,6 @@ When an API Management service instance is hosted in a VNet, the ports in the fo
 | Inbound | AzureLoadBalancer | * | VirtualNetwork | 6390                       |  TCP                | Allow | **Azure Infrastructure Load Balancer**                          | External & Internal  |
 | Inbound | AzureTrafficManager | * | VirtualNetwork | 443                       | TCP                | Allow | **Azure Traffic Manager**  routing for multi-region deployment                        | External |
 | Inbound | AzureLoadBalancer | * | VirtualNetwork 6391                                  | TCP                | Allow | Monitoring of individual machine health (Optional)                          | External & Internal  |
-
-### [stv1](#tab/stv1)
-
-| Direction | Source service tag | Source port ranges | Destination service tag | Destination port ranges | Protocol |  Action | Purpose | VNet type |
-|-------|--------------|----------|---------|------------|-----------|-----|--------|-----|
-| Inbound | Internet | * | VirtualNetwork|  [80], 443                   | TCP                | Allow            | **Client communication to API Management**                     | External only          |
-| Inbound | ApiManagement | * | VirtualNetwork | 3443                     |  TCP                | Allow       | **Management endpoint for Azure portal and PowerShell**       | External & Internal  |
-| Outbound | VirtualNetwork | * | Storage | 443                  |  TCP                | Allow             | **Dependency on Azure Storage**                             | External & Internal  |
-| Outbound | VirtualNetwork | * |  AzureActiveDirectory | 443                    | TCP                | Allow | [Microsoft Entra ID, Microsoft Graph,](api-management-howto-aad.md) and Azure Key Vault dependency  (optional)                | External & Internal  |
-| Outbound | VirtualNetwork | * | AzureKeyVault| 443                     |  TCP                | Allow                | Access to Azure Key Vault for [named values](api-management-howto-properties.md) integration (optional)                         | External & Internal  |
-| Outbound | VirtualNetwork | * | AzureConnectors | 443                  |  TCP                | Allow | [managed connections](credentials-overview.md) dependency (optional)              | External & Internal  |
-| Outbound | VirtualNetwork| * | Sql | 1433                     |  TCP                | Allow                 | **Access to Azure SQL endpoints**                           | External & Internal  |
-| Outbound | VirtualNetwork | * | EventHub | 5671, 5672, 443          |  TCP                | Allow            | Dependency for [Log to Azure Event Hubs policy](api-management-howto-log-event-hubs.md) and monitoring agent (optional)| External & Internal  |
-| Outbound | VirtualNetwork |  * | Storage | 445         |              TCP                | Allow             | Dependency on Azure File Share for [GIT](api-management-configuration-repository-git.md) (optional)                     | External & Internal  |
-| Outbound | VirtualNetwork | * | AzureCloud |  443, 12000                               | TCP                | Allow            | Health and Monitoring Extension & Dependency on Event Grid (if events notification activated) (optional)       | External & Internal  |
-| Outbound | VirtualNetwork | * | AzureMonitor | 1886, 443                               | TCP                | Allow         | **Publish [Diagnostics Logs and Metrics](api-management-howto-use-azure-monitor.md), [Resource Health](/azure/service-health/resource-health-overview), and [Application Insights](api-management-howto-app-insights.md)**                  | External & Internal  |
-| Inbound & Outbound | VirtualNetwork | * | VirtualNetwork | 6380              | TCP                | Allow     | Access external Azure Cache for Redis service for [caching](api-management-caching-policies.md) policies between machines (optional)        | External & Internal  |
-| Inbound & Outbound  | VirtualNetwork | * | VirtualNetwork | 6381 - 6383              |  TCP                | Allow     | Access internal Azure Cache for Redis service for [caching](api-management-caching-policies.md) policies between machines (optional)        | External & Internal  |
-| Inbound & Outbound | VirtualNetwork | * | VirtualNetwork |  4290              |  UDP                | Allow     | Sync Counters for [Rate Limit](rate-limit-policy.md) policies between machines (optional)        | External & Internal  |
-| Inbound | AzureLoadBalancer |  * | VirtualNetwork | *            | TCP                | Allow | **Azure Infrastructure Load Balancer** (required for Premium SKU, optional for other SKUs)                        | External & Internal  |
-| Inbound | AzureTrafficManager | * | VirtualNetwork | 443  | TCP                | Allow | **Azure Traffic Manager** routing for multi-region deployment                         | External only |
-
----
 
 ## Regional service tags
 

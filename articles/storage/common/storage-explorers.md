@@ -5,11 +5,12 @@ services: storage
 author: akashdubey-ms
 
 ms.service: azure-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/27/2019
 ms.author: akashdubey
 ms.reviewer: dineshm
 ms.subservice: storage-common-concepts
+# Customer intent: "As a cloud user, I want to access and manage my Azure Storage data using various client tools, so that I can efficiently interact with different data types and improve my workflow."
 ---
 
 # Microsoft client tools for working with Azure Storage

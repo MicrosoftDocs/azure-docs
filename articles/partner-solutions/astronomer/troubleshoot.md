@@ -11,11 +11,11 @@ ms.date: 02/14/2024
 
 # Troubleshooting Astro integration with Azure
 
-You can get support for your Astro  deployment through a **New Support request**. For further assistance, visit the [Astronomer Support](https://support.astronomer.io). In addition, this article includes  troubleshooting for problems you might experience in creating and using an Astro resource.
+You can get support for your Astro  deployment through a **New Support request**. For further assistance, go to the [Astronomer Support](https://support.astronomer.io). In addition, this article includes  troubleshooting for problems you might experience in creating and using an Astro resource.
 
 ## Getting support
 
-1. To contact support about an Astro resource, select the resource in the Resource menu.
+1. To contact support about an Astro resource, select the resource in the service menu.
 
 1. Select the **Support + troubleshooting** in Help menu on the left of the Overview page.
 
@@ -49,7 +49,7 @@ If the deployment fails and the Astro resource has a status of `Failed`, delete 
 
 ### Unable to use Single sign-on
 
-If SSO isn't working for the Astronomer portal, verify you're using the correct Microsoft Entra email. You must also have consented to allow access for the Astronomer Software as a service (SaaS) portal.
+If SSO isn't working for the Astronomer portal, check that you're using the correct Microsoft Entra email. You must also have consented to allow access for the Astronomer Software as a service (SaaS) portal.
 
 > [!NOTE]
 > If you are seeing an Admin consent screen along with the User consent during your first-time login using the SSO Url, then please check your [tenant consent settings](/azure/active-directory/manage-apps/configure-user-consent?pivots=portal).
@@ -58,7 +58,7 @@ For more information, see the [single sign-on guidance](manage.md#single-sign-on
 
 ### Unable to install Astro using a personal email
 
-Installing Apache Airflow on Astro from the Azure Marketplace using a personal email from a generic domain isn't supported. To install this service, use an email address with a unique domain, such as an email address associated with work or school, or start by creating a new user in Azure and make this user a subscription owner. For more information, see [Install Astro from the Azure Marketplace using a personal email](https://docs.astronomer.io/astro/install-azure#install-astro-from-the-azure-marketplace-using-a-personal-email).
+Installing Apache Airflow on Astro from the Azure Marketplace using a personal email from a generic domain isn't supported. To install this service, use an email address with a unique domain, like an email address associated with work or school, or start by creating a new user in Azure and make this user a subscription owner. For more information, see [Install Astro from the Azure Marketplace using a personal email](https://docs.astronomer.io/astro/install-azure#install-astro-from-the-azure-marketplace-using-a-personal-email).
 
 ## Next steps
 

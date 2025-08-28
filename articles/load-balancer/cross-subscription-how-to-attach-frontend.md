@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 10/17/2024
 ms.author: mbender
 ms.custom: devx-track-azurepowershell
+# Customer intent: As an Azure user managing multiple subscriptions, I want to attach a frontend IP address from one subscription to a load balancer in another subscription, so that I can efficiently route traffic between different environments while maintaining centralized control.
 ---
 
 # Attach a cross-subscription frontend to an Azure Load Balancer

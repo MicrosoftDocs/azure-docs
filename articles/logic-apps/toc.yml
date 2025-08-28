@@ -13,6 +13,8 @@ items:
     items:
     - name: Portal
       href: quickstart-create-example-consumption-workflow.md
+    - name: Portal - Templates gallery
+      href: create-workflows-from-templates.md?tabs=consumption
     - name: Visual Studio
       href: quickstart-create-logic-apps-with-visual-studio.md
     - name: Visual Studio Code
@@ -33,7 +35,7 @@ items:
     - name: Portal
       href: create-single-tenant-workflows-azure-portal.md
     - name: Portal - Templates gallery
-      href: create-single-tenant-workflows-templates.md
+      href: create-workflows-from-templates.md?tabs=standard
     - name: Visual Studio Code
       href: create-standard-workflows-visual-studio-code.md
 - name: Tutorials
@@ -68,10 +70,12 @@ items:
     href: concepts-schedule-automated-recurring-tasks-workflows.md
   - name: Serverless with Azure
     href: logic-apps-serverless-overview.md
-  - name: Business rules engine integration
-    href: rules-engine/rules-engine-overview.md
   - name: AI playbook and solution development
     href: ai-resources.md
+  - name: AI agent workflows
+    href: agent-workflows-concepts.md
+  - name: Business rules engine integration
+    href: rules-engine/rules-engine-overview.md
   - name: B2B integration & EDI processing
     href: logic-apps-enterprise-integration-overview.md
   - name: Mainframe modernization
@@ -121,6 +125,10 @@ items:
       href: add-run-powershell-scripts.md
     - name: Parse or chunk content
       href: parse-document-chunk-text.md
+    - name: Create chat completions with prompt templates
+      href: connectors/create-chat-completions-prompt-template.md
+    - name: Create AI agent workflows
+      href: create-agent-workflows.md
     - name: Edit app and host settings
       href: edit-app-settings-host-settings.md
     - name: Enable stateful mode for stateless built-in connectors
@@ -161,24 +169,18 @@ items:
       href: set-up-devops-deployment-single-tenant-azure-logic-apps.md
     - name: Automate DevOps build and deployment
       href: automate-build-deployment-standard.md
+    - name: Set up CD with Deployment Center
+      href: set-up-cd-deployment-center-standard.md
     - name: Deploy Standard logic apps to private storage accounts
       href: deploy-single-tenant-logic-apps-private-storage-account.md
     - name: Export Consumption workflows to Standard logic app
       href: export-from-consumption-to-standard-logic-app.md
-    - name: Export from integration service environment to Standard logic app
-      href: export-from-ise-to-standard-logic-app.md
   - name: Hybrid deployment for Azure Logic Apps
     items:
     - name: Set up requirements for hybrid deployment
       href: set-up-standard-workflows-hybrid-deployment-requirements.md
     - name: Create Standard workflows for hybrid deployment
       href: create-standard-workflows-hybrid-deployment.md
-  - name: Azure Arc-enabled Logic Apps
-    items:
-    - name: About Azure Arc-enabled Logic Apps
-      href: azure-arc-enabled-logic-apps-overview.md
-    - name: Create and deploy Azure Arc-enabled logic apps
-      href: azure-arc-enabled-logic-apps-create-deploy-workflows.md
   - name: Migrate
     items:
     - name: Migration from Power Automate
@@ -193,8 +195,8 @@ items:
         href: biztalk-server-migration-approaches.md
   - name: Develop
     items:
-    - name: Build your workflow with a trigger or action
-      href: create-workflow-with-trigger-or-action.md
+    - name: Add a trigger or action to a workflow
+      href: add-trigger-action-workflow.md
     - name: Control workflow execution
       items:
       - name: Conditional statements
@@ -217,6 +219,8 @@ items:
       href: create-parameters-workflows.md
     - name: Call Azure Functions
       href: call-azure-functions-from-workflows.md
+    - name: Run workflows from actions in AI agents
+      href: add-agent-action-create-run-workflow.md
     - name: Call workflows from Power Apps
       href: call-from-power-apps.md
     - name: Call, trigger, or nest logic apps
@@ -361,8 +365,6 @@ items:
       href: logic-apps-create-api-app.md
     - name: Delay
       href: ../connectors/connectors-native-delay.md
-    - name: Dynamics 365 (Deprecated)
-      href: ../connectors/connectors-create-api-crmonline.md
     - name: EDIFACT
       href: logic-apps-enterprise-integration-edifact.md
     - name: File System
@@ -392,13 +394,13 @@ items:
     - name: IBM IMS
       href: ../connectors/integrate-ims-apps-ibm-mainframe.md
     - name: IBM Informix
-      href: ../connectors/connectors-create-api-informix.md
+      href: connectors/informix.md
     - name: IBM MQ
       href: ../connectors/connectors-create-api-mq.md
     - name: Integration Account
       href: logic-apps-enterprise-integration-metadata.md
     - name: Microsoft Dataverse
-      href: ../connectors/connect-common-data-service.md
+      href: connectors/dataverse.md
     - name: Microsoft Graph Security
       href: ../connectors/connectors-integrate-security-operations-create-api-microsoft-graph-security.md
     - name: Office 365 Outlook
@@ -459,16 +461,14 @@ items:
       href: create-automation-tasks-azure-resources.md
     - name: Move logic app resources
       href: move-logic-app-resources.md
-    - name: Update schema for Consumption workflows
-      href: update-workflow-definition-language-schema.md
   - name: Test
     items:
     - name: Create unit tests from Standard workflow definitions
-      href: create-unit-tests-standard-workflow-definitions-visual-studio-code.md
+      href: testing-framework/create-unit-tests-standard-workflow-definitions-visual-studio-code.md
     - name: Create unit tests from Standard workflow runs
-      href: create-unit-tests-standard-workflow-runs-visual-studio-code.md      
+      href: testing-framework/create-unit-tests-standard-workflow-runs-visual-studio-code.md      
     - name: Test workflows with mock outputs
-      href: test-logic-apps-mock-data-static-results.md
+      href: testing-framework/test-logic-apps-mock-data-static-results.md
   - name: Deploy
     items:
     - name: About automated deployment - Multitenant
@@ -520,10 +520,6 @@ items:
     items:
       - name: Data operations - code examples
         href: logic-apps-data-operations-code-samples.md
-      - name: Monitor social media
-        href: logic-apps-scenario-social-serverless.md
-      - name: Create a serverless app - Visual Studio
-        href: create-serverless-apps-visual-studio.md
       - name: B2B processing
         href: logic-apps-enterprise-integration-b2b.md
 - name: Reference
@@ -555,12 +551,44 @@ items:
   - name: Resource Manager template reference
     href: /azure/templates/microsoft.logic/allversions
   - name: Workflow Definition Language schema
-    href: logic-apps-workflow-definition-language.md
+    href: workflow-definition-language-schema.md
     items:
       - name: Trigger and action types reference
         href: logic-apps-workflow-actions-triggers.md
-      - name: Functions reference
-        href: workflow-definition-language-functions-reference.md
+      - name: Reference for expression functions
+        href: expression-functions-reference.md
+  - name: Standard Automated Test Framework
+    items:
+      - name: Standard Automated Test SDK
+        href: testing-framework/automated-test-sdk.md
+      - name: ActionMock class
+        href: testing-framework/action-mock-class-definition.md
+      - name: TestActionExecutionContext class
+        href: testing-framework/test-action-execution-context-class-definition.md
+      - name: TestErrorInfo class
+        href: testing-framework/test-error-info-class-definition.md
+      - name: TestErrorResponseAdditionalInfo class
+        href: testing-framework/test-error-response-additional-info-class-definition.md
+      - name: TestExecutionContext class
+        href: testing-framework/test-execution-context-class-definition.md
+      - name: TestIterationItem class
+        href: testing-framework/test-iteration-item-class-definition.md
+      - name: TestWorkflowOutputParameter class
+        href: testing-framework/test-workflow-output-parameter-class-definition.md
+      - name: TestWorkflowRunActionRepetitionResult class
+        href: testing-framework/test-workflow-run-action-repetition-result-class-definition.md
+      - name: TestWorkflowRunActionResult class
+        href: testing-framework/test-workflow-run-action-result-class-definition.md
+      - name: TestWorkflowRun class
+        href: testing-framework/test-workflow-run-class-definition.md
+      - name: TestWorkflowRunTriggerResult class
+        href: testing-framework/test-workflow-run-trigger-result-class-definition.md
+      - name: TestWorkflowStatus enum
+        href: testing-framework/test-workflow-status-enum-definition.md
+      - name: TriggerMock class
+        href: testing-framework/trigger-mock-class-definition.md
+      - name: UnitTestExecutor class
+        href: testing-framework/unit-test-executor-class-definition.md    
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
@@ -571,7 +599,7 @@ items:
   - name: Azure Logic Apps roadmap
     href: https://aka.ms/logicappsroadmap/
   - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/updates/
   - name: Pricing for Azure Logic Apps
     href: https://azure.microsoft.com/pricing/details/logic-apps/
   - name: Pricing calculator
@@ -579,7 +607,7 @@ items:
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Logic%20Apps%20%22&ff=story_product_categories%26%3EAzure&p=0&so=story_publish_date%20desc
   - name: Videos
-    href: https://azure.microsoft.com/resources/videos/index/?services=logic-apps&sort=newest
+    href: /shows/browse?terms=logic-apps
   - name: Microsoft Q&A question page
     href: /answers/tags/134/azure-logic-apps
   - name: Stack Overflow

@@ -9,6 +9,7 @@ ms.collection: ce-skilling-ai-copilot
 ms.custom:
 ms.topic: reference
 ms.date: 03/04/2025
+ms.update-cycle: 180-days
 ms.author: danlep
 ---
 
@@ -81,7 +82,7 @@ Use the policy in scenarios such as the following:
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API
 - [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 

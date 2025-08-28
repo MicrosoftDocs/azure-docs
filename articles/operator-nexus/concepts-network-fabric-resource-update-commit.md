@@ -8,11 +8,17 @@ ms.topic: concept-article #Required; leave this attribute/value as-is.
 ms.date: 04/03/2024
 
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
+ms.custom:
+  - build-2025
 ---
+
 
 # Update and commit Network Fabric resources
 
 Currently, Nexus Network Fabric resources require that you disable a parent resource (such as an L3Isolation domain) and reput the parent or child resource with updated values and execute the administrative post action to enable and configure the devices. Network Fabric's new resource update flow allows you to  batch and update a set of Network Fabric resources via a `commitConfiguration` POST action when resources are enabled. There's no change if you choose the current workflow of disabling L3 Isolation domain, making changes and the enabling L3 Isolation domain. 
+
+>[!Note]
+>As part of our continued efforts to improve operational efficiency and reliability, we are announcing that new Fabric Commit v2 workflow will become the default commit workflow starting with Azure Operator 2507.1 release and commit v1 is depricated. Refer [Commit Workflow v2 in Azure Operator Nexus - Network Fabric](./concepts-commit-workflow-v2.md)
 
 ## Network Fabric resource update overview
 
@@ -22,7 +28,7 @@ Any update operation carried out on supported Network Fabric resources shown in 
 
 Commit action/updates to resources shall only be valid and applicable when the fabric is in provisioned state and Network Fabric resources are in an **enabled administrative state. Updates to parent and child resources can be batched (across various Network Fabric resources) and a `commitConfiguration` action can be performed to execute all changes in a single POST action.  
 
-Creation of parent resources and enablement via administrative action is independent of Update/Commit Action workflow. Additionally, all administrative actions to enable / disable are independent and shall not require commitConfiguration action trigger for execution. CommitConfiguration action is only applicable to a scenario when operator wants to update any existing Azure Resource Manager resources and fabric, parent resource is in enabled state. Any automation scripts or bicep templates that were used by the operators to create Network Fabric resource and enable require no changes. 
+Creation of parent resources and enablement via administrative action is independent of Update/Commit Action workflow. Additionally, all administrative actions to enable / disable are independent and shall not require commitConfiguration action trigger for execution. CommitConfiguration action is only applicable to a scenario when operator wants to update any existing Azure Resource Manager resources and fabric, parent resource is in enabled state. Any automation scripts or Bicep files that were used by the operators to create Network Fabric resource and enable require no changes. 
 
 ## User workflow
 

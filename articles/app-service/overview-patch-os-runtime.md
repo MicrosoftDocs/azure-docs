@@ -1,11 +1,19 @@
 ---
-title: OS and runtime patching cadence
+title: OS and Runtime Patching Cadence
 description: Learn how Azure App Service updates the OS and runtimes, what runtimes and patch level your apps has, and how you can get update announcements.
-ms.topic: article
+ms.topic: concept-article
 ms.date: 01/21/2021
-ms.custom: UpdateFrequency3, devx-track-azurecli
+ms.update-cycle: 1095-days
+ms.custom:
+  - UpdateFrequency3
+  - devx-track-azurecli
+  - build-2025
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
+
+# Customer intent: As an App Service user, I want to learn how Azure App Service updates the OS and runtimes, what runtimes and patch level my apps has, and how I can get update announcements.
+
 ---
 
 # OS and runtime patching in Azure App Service
@@ -22,7 +30,7 @@ For security reasons, certain specifics of security information are not publishe
 
 ## How and when are OS updates applied?
 
-Azure manages OS patching on two levels, the physical servers and the guest virtual machines (VMs) that run the App Service resources. Both are updated monthly, which aligns to the monthly [Patch Tuesday](/security-updates/) schedule. These updates are applied automatically, in a way that guarantees the high-availability SLA of Azure services. 
+Azure manages OS patching on two levels, the physical servers and the guest virtual machines (VMs) that run the App Service resources. Both are updated monthly, which aligns to the monthly [Patch Tuesday](/security-updates/) schedule. These updates are applied automatically, in a way that guarantees the high-availability SLA of Azure services. Azure App Service OS patching follows Safe Deployment Practices and Availability-First approach. As such, while we strive to ensure the latest patches are applied as soon as possible, OS patching may be slowed or paused at times to avoid app impacts and outages
 
 For detailed information on how updates are applied, see [Demystifying the magic behind App Service OS updates](https://azure.github.io/AppService/2018/01/18/Demystifying-the-magic-behind-App-Service-OS-updates.html).
 
@@ -65,7 +73,7 @@ az webapp config set --java-version 1.8 --java-container Tomcat --java-container
 
 While critical OS information is locked down from access (see [Operating system functionality on Azure App Service](operating-system-functionality.md)), the [Kudu console](https://github.com/projectkudu/kudu/wiki/Kudu-console) enables you to query your App Service instance regarding the OS version and runtime versions. 
 
-The following table shows how to the versions of Windows and of the language runtime that are running your apps:
+The following table shows how to determine the versions of Windows and of the language runtime that are running your apps:
 
 | Information | Where to find it | 
 |-|-|
@@ -82,7 +90,7 @@ The following table shows how to the versions of Windows and of the language run
 >
 >
 
-## More resources
+## Related content
 
-[Trust Center: Security](https://www.microsoft.com/en-us/trustcenter/security)  
-[64 bit ASP.NET Core on Azure App Service](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)
+- [Trust Center: Security](https://www.microsoft.com/en-us/trustcenter/security)  
+- [64 bit ASP.NET Core on Azure App Service](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)

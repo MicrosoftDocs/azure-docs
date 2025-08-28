@@ -17,7 +17,7 @@ items:
   - name: Troubleshoot
     items:
     - name: Get support
-      href: get-support.md
+      href: https://cloud.elastic.co/help
     - name: Fix common errors
       href: troubleshoot.md
 - name: Reference

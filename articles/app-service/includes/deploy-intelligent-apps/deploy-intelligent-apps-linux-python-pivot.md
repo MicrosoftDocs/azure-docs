@@ -3,7 +3,7 @@ author: jefmarti
 ms.service: azure-app-service
 ms.devlang: python
 ms.custom: linux-related-content
-ms.topic: article
+ms.topic: include
 ms.date: 04/10/2024
 ms.author: jefmarti
 ---
@@ -81,7 +81,7 @@ After the files are updated, prepare your environment variables to work with Ope
 
 ### API keys and endpoints
 
-To make calls to OpenAI with your client, you need to first get the keys and endpoint values from Azure OpenAI or OpenAI, and add them as secrets for use in your application. Save the values for later use.
+To make calls to OpenAI with your client, first get the keys and endpoint values from Azure OpenAI or OpenAI, and add them as secrets for use in your application. Save the values for later use.
 
 For Azure OpenAI, see [this documentation](/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the following values. If you're planning to use a [managed identity](../../overview-managed-identity.md) to secure your app, you don't need the API key value.
 

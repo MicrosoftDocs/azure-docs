@@ -9,6 +9,7 @@ ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.custom: template-how-to, engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
+# Customer intent: As a network administrator, I want to configure IP addresses for an Azure network interface, so that I can manage connectivity and communication for virtual machines within Azure and ensure they can reach the Internet as necessary.
 ---
 
 # Configure IP addresses for an Azure network interface

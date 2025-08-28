@@ -2,12 +2,13 @@
 title: Configure the Multivalue routing method - Azure Resource Manager template (ARM template)
 titlesuffix: Azure Traffic Manager
 description: Learn how to configure the Multivalue routing method with nested endpoints and the min-child feature.
-author: greg-lindsay
-ms.author: greglin
+author: asudbring
+ms.author: allensu
 ms.service: azure-traffic-manager
 ms.topic: how-to
 ms.date: 08/08/2024
 ms.custom: template-how-to, devx-track-arm-template
+# Customer intent: As a cloud engineer, I want to configure a Multivalue routing method with nested endpoints using an ARM template, so that I can efficiently manage traffic distribution in my Azure environment.
 ---
 
 # Configure the Multivalue routing method using an ARM Template
@@ -75,7 +76,7 @@ To find more templates that are related to Azure Traffic Manager, see [Azure Qui
 
 ## Validate the deployment
 
-1. Use [Get-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/get-aztrafficmanagerprofile) to verify that the nested endpoints were added to the profile. For `-Name`, enter the name of the parent Traffic Manger profile you entered when deploying the template.
+1. Use [Get-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/get-aztrafficmanagerprofile) to verify that the nested endpoints were added to the profile. For `-Name`, enter the name of the parent Traffic Manager profile you entered when deploying the template.
 
     ```azurepowershell-interactive
     Get-AzTrafficManagerProfile -ResourceGroupName myResourceGroup -Name tmprofileparent-1 | Select Endpoints

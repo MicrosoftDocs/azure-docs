@@ -4,8 +4,9 @@ description: Learn how to create and customize recovery plans for disaster recov
 ms.topic: how-to
 ms.service: azure-site-recovery
 ms.date: 01/23/2020
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
+# Customer intent: As a disaster recovery planner, I want to create and customize recovery plans in a cloud environment, so that I can ensure effective failover and recovery strategies for my organization's critical systems.
 ---
 
 # Create and customize recovery plans

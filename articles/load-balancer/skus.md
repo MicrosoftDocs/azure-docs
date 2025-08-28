@@ -8,6 +8,7 @@ ms.topic: reference
 ms.date: 06/27/2024
 ms.author: mbender
 ms.custom: template-reference, engagement-fy23
+# Customer intent: As a cloud architect, I want to evaluate the differences between Azure Load Balancer SKUs, so that I can choose the appropriate option for my application's performance and availability needs before the retirement of the Basic Load Balancer.
 ---
 
 # Azure Load Balancer SKUs

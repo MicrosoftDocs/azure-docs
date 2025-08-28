@@ -3,9 +3,10 @@ title: Avere vFXT DNS - Azure
 description: Configuring a DNS server for round-robin load balancing with Avere vFXT for Azure
 author: ekpgh
 ms.service: azure-avere-vfxt
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/07/2021
 ms.author: rohogue
+# Customer intent: As a cloud administrator, I want to configure a DNS system for round-robin load balancing of my Avere vFXT cluster in Azure, so that I can efficiently distribute client request loads and ensure optimal performance of the cluster.
 ---
 
 # Avere cluster DNS configuration

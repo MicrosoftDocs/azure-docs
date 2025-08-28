@@ -3,12 +3,13 @@ title: Import and export a domain zone file for Azure private DNS - Azure CLI
 titleSuffix: Azure DNS
 description: Learn how to import and export a  DNS zone file to Azure private DNS by using Azure CLI 
 services: dns
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.custom: devx-track-azurecli
 ms.date: 06/13/2024
-ms.author: greglin
+ms.author: allensu
 ms.topic: how-to
+# Customer intent: "As a network administrator, I want to efficiently import and export DNS zone files using a command-line interface, so that I can manage DNS records in Azure private DNS without relying on graphical tools."
 ---
 
 # Import and export a private DNS zone file for Azure private DNS

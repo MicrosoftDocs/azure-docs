@@ -87,7 +87,7 @@ For more information, see [Create a dataset using a GeoJSON package].
 
 :::zone-end
 
-In addition to these common fields, each feature class defines a set of properties. Each property is defined by its data type and constraints. Some feature classes have properties that are dependent on other feature classes. Dependant properties evaluate to the `ID` of another feature class.
+In addition to these common fields, each feature class defines a set of properties. Each property is defined by its data type and constraints. Some feature classes have properties that are dependent on other feature classes. Dependent properties evaluate to the `ID` of another feature class.
 
 The remaining sections in this article define the different feature classes and their properties that make up the facility ontology in Microsoft Azure Maps Creator.
 

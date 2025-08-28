@@ -4,7 +4,7 @@ description: Review a list of applications and solutions related to HPC performa
 author: padmalathas
 ms.author: padmalathas
 ms.date: 01/01/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 products:
@@ -16,6 +16,7 @@ categories:
   - storage
   - ai-machine-learning
   - analytics
+# Customer intent: As a HPC engineer, I want to review high-performance computing applications and benchmarking results on cloud infrastructure, so that I can choose the best solutions to optimize my compute tasks and enhance efficiency in problem-solving across various industries.
 ---
 
 # High-performance computing (HPC) performance and benchmarking applications

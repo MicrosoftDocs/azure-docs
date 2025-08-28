@@ -1,10 +1,10 @@
 ---
 title: IoT Edge version history and release notes
 description: Release history and notes for IoT Edge.
-author: PatAltimore
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.date: 01/08/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot-edge
 ---
 

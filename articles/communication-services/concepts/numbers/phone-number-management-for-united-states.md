@@ -22,7 +22,7 @@ Use the following tables to find all the relevant information on number availabi
 | Number Type | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
 | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
 | Toll-Free   |General Availability  | General Availability | General Availability | General Availability\* |
-| Local       | Public Preview       | Public Preview       | General Availability | General Availability\* |
+| Local       | General Availability (via 10DLC)      | General Availability (via 10DLC)     | General Availability | General Availability\* |
 | Short code       |General Availability                    |General Availability                    | - | - |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
@@ -47,7 +47,7 @@ More details on eligible subscription types are as follows:
 |Canada|
 |United States|
 
-## Azure subscription billing locations where United States phone numbers are available for calling
+## Azure subscription billing locations where United States local and toll-free phone numbers are available
 
 | Country/Region |
 | :---------- |

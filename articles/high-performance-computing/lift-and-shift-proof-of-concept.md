@@ -7,6 +7,7 @@ ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+# Customer intent: As an IT manager, I want to understand the steps for conducting a proof-of-concept migration of my HPC infrastructure to the cloud, so that I can evaluate its benefits and performance before transitioning to a full production environment.
 ---
 
 # Proof-of-concept migration overview

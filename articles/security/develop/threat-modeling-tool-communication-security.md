@@ -193,7 +193,7 @@ This rule works by returning an HTTP status code of 301 (permanent redirect) whe
 | **Applicable Technologies** | Generic |
 | **Attributes**              | StorageType - File |
 | **References**              | [Azure Files](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/#comment-2529238931), [Azure Files SMB Support for Windows Clients](../../storage/files/storage-dotnet-how-to-use-files.md#about-net-app-development-with-azure-files) |
-| **Steps** | Azure Files supports HTTPS when using the REST API, but is more commonly used as an SMB file share attached to a VM. SMB 2.1 does not support encryption, so connections are only allowed within the same region in Azure. However, SMB 3.x supports encryption, and can be used with Windows Server 2012 R2, Windows 8, Windows 8.1, and Windows 10, allowing cross-region access and even access on the desktop. |
+| **Steps** | Azure Files supports HTTPS when using the REST API, but is more commonly used as an SMB file share attached to a VM. SMB 2.1 does not support encryption, so connections are only allowed within the same region in Azure. However, SMB 3.x supports encryption and can be used with Windows Server 2012 R2, Windows 8, Windows 8.1, and Windows 10, allowing cross-region access and even access on the desktop. |
 
 ## <a id="cert-pinning"></a>Implement Certificate Pinning
 

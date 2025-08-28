@@ -16,7 +16,7 @@ compliant with the specific standard.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../../includes/policy/standards/intro-warning.md)]
 
-[!INCLUDE [azure-policy-compliancecontrols-arm](../../../includes/policy/standards/byrp/microsoft.resources.md)]
+[!INCLUDE [azure-policy-compliancecontrols-arm](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.resources.md)]
 
 ## Next steps
 

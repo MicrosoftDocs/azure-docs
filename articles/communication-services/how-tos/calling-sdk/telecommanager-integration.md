@@ -1,79 +1,81 @@
 ---
-ms.date: 03/20/2024
-ms.topic: how-to
+title: Integrate with TelecomManager on Android
+titleSuffix: An Azure Communication Services article
+description: This article describes how to integrate TelecomManager with Azure Communication Services calling SDK.
 author: pavelprystinka
 ms.author: pprystinka
-title: TelecomManager integration in Azure Communication Services calling SDK
+ms.date: 06/28/2025
+ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: calling
-description: Steps on how to integrate TelecomManager with Azure Communication Services calling SDK
 ---
 
- # Integrate with TelecomManager
+# Integrate with TelecomManager
 
-  This document describes how to integrate TelecomManager with your Android application. 
+This article describes how to integrate TelecomManager with your Android application. 
   
-  ## Prerequisites
+## Prerequisites
 
-  - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-  - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
-  - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
-  - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
+- A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
+- Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md).
 
-  ## TelecomManager integration
+## TelecomManager integration
 
-  [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
- `TelecomManager` Integration in the Azure Communication Services Android SDK handles interaction with other VoIP and PSTN calling Apps that also integrated with `TelecomManager`.
+`TelecomManager` Integration in the Azure Communication Services Android SDK handles interaction with other voice over IP (VoIP) and public switched telephone network (PSTN) calling apps that also integrate with `TelecomManager`.
 
-  ### Configure `TelecomConnectionService`
-  Add `TelecomConnectionService` to your App `AndroidManifest.xml`
-  ```
-  <application>
-    ...
-    <service
-        android:name="com.azure.android.communication.calling.TelecomConnectionService"
-        android:permission="android.permission.BIND_TELECOM_CONNECTION_SERVICE"
-        android:exported="true">
-        <intent-filter>
-            <action android:name="android.telecom.ConnectionService" />
-        </intent-filter>
-    </service>
-  </application>
-  ```
+### Configure `TelecomConnectionService`
 
-  ### Initialize call agent with TelecomManagerOptions
+Add `TelecomConnectionService` to your App `AndroidManifest.xml`.
 
-  With configured instance of `TelecomManagerOptions`, we can create the `CallAgent` with `TelecomManager` enabled.  
+```
+<application>
+  ...
+  <service
+      android:name="com.azure.android.communication.calling.TelecomConnectionService"
+      android:permission="android.permission.BIND_TELECOM_CONNECTION_SERVICE"
+      android:exported="true">
+      <intent-filter>
+          <action android:name="android.telecom.ConnectionService" />
+      </intent-filter>
+  </service>
+</application>
+```
 
-  ```Java
-  CallAgentOptions options = new CallAgentOptions();
-  TelecomManagerOptions telecomManagerOptions = new TelecomManagerOptions("<your app's phone account id>");
-  options.setTelecomManagerOptions(telecomManagerOptions);
+### Initialize call agent with TelecomManagerOptions
 
-  CallAgent callAgent = callClient.createCallAgent(context, credential, options).get();
-  Call call = callAgent.join(context, locator, joinCallOptions);
-  ```
+With configured instance of `TelecomManagerOptions`, we can create the `CallAgent` with `TelecomManager` enabled.  
 
-    
-  ### Configure audio output device
+```Java
+CallAgentOptions options = new CallAgentOptions();
+TelecomManagerOptions telecomManagerOptions = new TelecomManagerOptions("<your app's phone account id>");
+options.setTelecomManagerOptions(telecomManagerOptions);
 
-  When TelecomManager integration is enabled for the App, the audio output device has to be selected via telecom manager API only.
+CallAgent callAgent = callClient.createCallAgent(context, credential, options).get();
+all call = callAgent.join(context, locator, joinCallOptions);
+```
+   
+### Configure audio output device
+
+When TelecomManager integration is enabled for the App, the audio output device must be selected via telecom manager API only.
   
-  ```Java
-  call.setTelecomManagerAudioRoute(android.telecom.CallAudioState.ROUTE_SPEAKER);
-  ```
+```Java
+call.setTelecomManagerAudioRoute(android.telecom.CallAudioState.ROUTE_SPEAKER);
+```
 
-  ### Configure call resume behavior
+### Configure call resume behavior
 
-  When call is interrupted with other call, for instance incoming PSTN call, ACS call is placed `OnHold`. You can configure what happens once PSTN call is over resume call automatically, or wait for user to request call resume.
+When a call is interrupted by another call, for instance incoming PSTN call, Azure Communication Services call is placed `OnHold`. You can configure what happens once PSTN call is over resume call automatically, or wait for user to request call resume.
 
+```Java
+telecomManagerOptions.setResumeCallAutomatically(true);
+```
 
-  ```Java
-  telecomManagerOptions.setResumeCallAutomatically(true);
-  ````
+## Next steps
 
-  ## Next steps
-  - [Learn how to manage video](./manage-video.md)
-  - [Learn how to manage calls](./manage-calls.md)
-  - [Learn how to record calls](./record-calls.md)
+- [Learn how to manage video](./manage-video.md)
+- [Learn how to manage calls](./manage-calls.md)
+- [Learn how to record calls](./record-calls.md)

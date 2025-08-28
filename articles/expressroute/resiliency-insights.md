@@ -4,10 +4,11 @@ description: Learn about the resiliency features of ExpressRoute gateway and how
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/31/2025
 ms.author: duau
 ms.custom: ai-usage
+# Customer intent: As a network administrator, I want to evaluate the resiliency index of my ExpressRoute connection, so that I can improve connectivity reliability between my on-premises network and Azure resources.
 ---
 
 # Resiliency Insights for ExpressRoute virtual network gateway (preview)

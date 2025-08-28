@@ -8,6 +8,7 @@ ms.service: azure-migrate
 ms.topic: troubleshooting
 ms.date: 09/09/2024
 ms.custom: engagement-fy23
+# Customer intent: As a cloud administrator, I want to troubleshoot issues with agentless and agent-based dependency analysis, so that I can ensure accurate dependency visualization and optimize migration processes for my VMware servers.
 ---
 
 # Troubleshoot dependency visualization

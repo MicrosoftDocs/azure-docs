@@ -4,7 +4,9 @@ description: Learn how to use the Nexus Fabric Read Write commands to modify dev
 author: sushantjrao
 ms.author: sushrao
 ms.service: azure-operator-nexus
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 ms.topic: concept-article 
 ms.date: 05/03/2024
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
@@ -509,7 +511,7 @@ The RW command feature is open and there are no restrictions on it. However, pro
 - It's crucial to thoroughly review the Route Policy configuration before implementation, as any oversight could potentially compromise the existing Route Policy setup.
 - Changing the router BGP configuration and shutting it down brings down the stability of the device.
 
-## Retreive runRW configuration
+## Retrieve runRW configuration
 
 To obtain the last successfully applied runRW configuration, refer to the `rwDeviceConfig` property. This property stores the last successfully applied RW configuration for the device. To access it, perform a GET request on the device resource.
 
@@ -556,6 +558,45 @@ Expected output
 > [!Note]
 > RW configuration persists during a reboot without ZTP but does not persist upgrades, device RMA, or a reboot with ZTP. After these events, the rwDeviceConfig property is empty unless the user reapplies the RW configuration manually.
 
+## Persistent RW configuration during device upgrades
+
+In Azure Operator Nexus, Read-Write (RW) configurations on network devices are now preserved across device software upgrades. This ensures that user-defined RW changes remain intact after an upgrade, maintaining consistency and reducing the risk of configuration drift.
+
+### How it works
+The upgrade process follows a two-step approach:
+
+- Device Upgrade: The device’s EOS software is upgraded and bootstrapped.
+
+- RW Reapplication: After the upgrade completes, the system automatically reapplies all previously configured RW commands to the device.
+
+This reapplication ensures that persistent configurations are restored and remain effective after a device reboot or version transition.
+
+> [!Important]
+> Arista EOS does not currently support pre-validation of RW configurations. If any command is deprecated, invalid, or non-functional, it may cause the upgrade to fail.
+
+### Failure handling
+
+If an RW configuration fails during reapplication, the device will enter a failed state, and the upgrade process will not complete.
+
+Users will receive error output via Azure CLI.
+
+#### In such cases:
+
+Open a support ticket with the updated and corrected RW configuration.
+
+The support team will coordinate with you to reapply the new RW configuration through a Lockbox-enabled admin action.
+
+If the reapplication still fails, the admin action may need to be retried with further corrections.
+
+### Summary
+
+| Feature                      | Behavior                                                                         |
+| ---------------------------- | -------------------------------------------------------------------------------- |
+| RW command persistence       | Automatically reapplied after upgrade                                            |
+| Pre-validation of RW configs | Not supported                                                                    |
+| On failure                   | Device enters failed state                                                       |
+| Recovery                     | Submit support ticket; corrected config applied via Lockbox-enabled admin action |
+
 ## Limitations 
 
 **Common Questions:**
@@ -594,11 +635,9 @@ Expected output
 
     The RW configuration command is persistent, but the API lets you run at a device level. If you want to run the RW command across the fabric, then you must run the RW API across the required fabric devices.
 
-## Known issues
+## Known issue
 
-The following are known issues for the RW configuration:
-
-- There's no support for RW configuration to persist during an upgrade. During the upgrade, the configuration state **Deferred Control** is overwritten. The Fabric service automation overwrites the RW configuration through the Network Fabric reconcile workflow. You must rerun the RW configuration command for the required devices.
+The following is known issue for the RW configuration:
 
 - An error is reported because an internal error or a gNMI set error can't be distinguished with error responses.
 

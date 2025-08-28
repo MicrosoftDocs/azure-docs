@@ -9,6 +9,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/02/2022
 ms.custom: engagement-fy23, linux-related-content
+# Customer intent: "As a Linux user, I want to mount Azure Blob Storage as a file system using BlobFuse2, so that I can perform standard file operations and improve access to my data in a familiar environment."
 ---
 
 # What is BlobFuse? - BlobFuse2
@@ -103,8 +104,8 @@ BlobFuse2 is different from the Linux file system in some key ways:
 
 - **chown and chmod**:
 
-  Data Lake Storage storage accounts support per object permissions and ACLs, but flat namespace (FNS) block blobs don't. As a result, BlobFuse2 doesn't support the `chown` and `chmod` operations for mounted block blob containers. The operations are supported for Data Lake Storage.
-
+  BlobFuse2 does not support `chown` operations for either block blob storage (FNS) or Data Lake Storage (HNS). FNS storage accounts do not support `chmod` operations, HNS storage accounts do support `chmod` operations but only on child objects inside of the mount directory, not on the root mount directory.
+  
 - **Device files or pipes**:
 
   BlobFuse2 doesn't support creating device files or pipes.
@@ -137,7 +138,7 @@ Reading the same blob from multiple simultaneous threads is supported. However, 
 
 When a container is mounted with the default options, all files get 770 permissions and are accessible only by the user who does the mounting. To allow any user to access the BlobFuse2 mount, mount BlobFuse2 by using the `--allow-other` option. You also can configure this option in the YAML config file.
 
-As stated earlier, the `chown` and `chmod` operations are supported for Data Lake Storage, but not for FNS block blobs. Running a `chmod` operation against a mounted FNS block blob container returns a success message, but the operation doesn't actually succeed.
+As stated earlier, `chown` operations are not supported for either block blob storage (FNS) or Data Lake Storage (HNS). FNS storage accounts do not support `chmod` operations, HNS storage accounts do support `chmod` operations but only on child objects inside of the mount directory, not on the root mount directory. `chmod` may appear to succeed on mounted FNS containers or the HNS root mount directory, but the operation doesn't actually succeed.
 
 ## Feature support
 
@@ -161,3 +162,4 @@ This table shows how this feature is supported in your account and the effect on
 - [Mount an Azure Blob Storage container on Linux by using BlobFuse2](blobfuse2-how-to-deploy.md)
 - [Configure settings for BlobFuse2](blobfuse2-configuration.md)
 - [Use Health Monitor to gain insights into BlobFuse2 mount activities and resource usage](blobfuse2-health-monitor.md)
+

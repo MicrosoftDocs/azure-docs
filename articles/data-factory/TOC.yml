@@ -109,6 +109,12 @@ items:
         href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
     - name: Build a copy pipeline using managed VNet and private endpoints
       href: tutorial-copy-data-portal-private.md
+  - name: Connect to Fabric
+    items:
+    - name: Ingest data into Fabric
+      href:  how-to-ingest-data-into-fabric-from-azure-data-factory.md
+    - name: Change data capture from SAP to Microsoft Fabric
+      href: change-data-capture-from-sap-to-onelake-with-azure-data-factory.md
   - name: Transform data
     items:
     - name: Transform data with mapping data flows
@@ -310,6 +316,8 @@ items:
     items:
     - name: Create data factory - Azure CLI
       href: quickstart-create-data-factory-azure-cli.md
+    - name: Create data factory - ARM
+      href: quickstart-create-data-factory-resource-manager-template.md
     - name: Create data factory - Azure PowerShell
       href: quickstart-create-data-factory-powershell.md
     - name: Create data factory - .NET
@@ -365,6 +373,20 @@ items:
     items:
     - name: Connector overview
       href: connector-overview.md
+    - name: Connector lifecycle
+      items:
+      - name: Connector lifecycle overview
+        href: connector-lifecycle-overview.md
+      - name: Connector upgrade guidance
+        href: connector-upgrade-guidance.md
+      - name: Connector upgrade advisor
+        href: connector-upgrade-advisor.md
+      - name: Connector release stages and timelines
+        href: connector-release-stages-and-timelines.md
+      - name: Connector upgrade FAQ
+        href: connector-deprecation-frequently-asked-questions.md  
+      - name: Guidance for Bring Your Own Driver (BYOD)
+        href: guidance-for-byod-approach.md        
     - name: Amazon Marketplace Web Service (Deprecated)
       href: connector-amazon-marketplace-web-service.md
     - name: Amazon RDS for Oracle
@@ -699,6 +721,8 @@ items:
       href: transform-data-using-custom-activity.md
     - name: Databricks Jar activity
       href: transform-data-databricks-jar.md
+    - name: Databricks Job activity
+      href: transform-data-databricks-job.md
       displayName: data bricks
     - name: Databricks Notebook activity
       href: transform-data-databricks-notebook.md
@@ -1201,6 +1225,9 @@ items:
       - name: Overview and general copy activity errors
         href: connector-troubleshoot-guide.md
         displayName: polybase, timeout, troubleshooting
+      - name: Amazon S3
+        href: connector-troubleshoot-amazon-simple-storage-service.md
+        displayName: troubleshooting  
       - name: Azure Blob Storage
         href: connector-troubleshoot-azure-blob-storage.md
         displayName: troubleshooting
@@ -1276,6 +1303,9 @@ items:
       - name: Snowflake
         href: connector-troubleshoot-snowflake.md
         displayName: troubleshooting
+      - name: Teradata
+        href: connector-troubleshoot-teradata.md
+        displayName: troubleshooting
       - name: XML format
         href: connector-troubleshoot-xml.md
         displayName: troubleshooting
@@ -1337,6 +1367,10 @@ items:
     - name: Advanced topics
       href: sap-change-data-capture-advanced-topics.md
       displayName: SAP, change data capture, CDC
+- name: Security
+  items:
+  - name: Secure your Azure Data Factory
+    href: secure-your-azure-data-factory.md
 - name: Workflow Orchestration Manager
   items:
   - name: Tutorials
@@ -1401,14 +1435,6 @@ items:
     href: monitor-data-factory-reference.md
 - name: Resources
   items:
-  - name: Important changes coming
-    items: 
-    - name: Connector upgrades
-      href: connector-deprecation-plan.md
-    - name: Connector upgrade FAQ
-      href: connector-deprecation-frequently-asked-questions.md
-    - name: Connector upgrade advisor
-      href: connector-upgrade-advisor.md
   - name: Whitepapers
     href: whitepapers.md
   - name: FAQ

@@ -19,6 +19,8 @@ ms.subservice: b2c
 
 # Add a native client application to your Azure Active Directory B2C tenant
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 Native client resources need to be registered in your tenant before your application can communicate with Azure Active Directory B2C.
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
